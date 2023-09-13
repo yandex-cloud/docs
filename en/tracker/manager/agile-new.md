@@ -1,43 +1,28 @@
-# Issue boards (beta version)
+# Issue boards
 
-New issue boards are a reworked version of the standard [boards in {{ tracker-name }}](../user/agile.md). They help you track and manage your issues in a streamlined manner.
+Issue boards are a tool that helps you track and manage your issues in a streamlined manner. There are two types of boards in {{ tracker-name }}:
 
-The updated boards look and work quite differently compared to their previous version:
+- **Basic boards** can be used by any teams and allow arranging issues in columns based on their status. [Creating a basic board](agile-new-create.md#basic)
 
-* Issue card management has been improved: you can now use quick actions, create issues in any queue, and update cards automatically.
+- Boards with a **Backlog and sprints** are good for Agile teams and allow managing [sprints](create-agile-sprint.md), [estimating issue complexity](poker.md), and analyzing [burn down charts](burndown-diagram.md). [Creating a board with a backlog and sprints](agile-new-create.md#backlog-and-sprints)
 
-* Configuring issue cards and board columns has become easier.
+## How to work with boards {#tips}
 
-* Issue grouping and issue filters have been improved.
+The number of issues on boards is limited, so we recommend that you follow these guidelines:
 
-* New issue boards are integrated into the [beta version of projects](../user/personal.md#sec_beta) in the updated {{ tracker-name }} interface.
-
-* New issue boards support [Agile development]({{ link-wiki-agile-en }}) tools: [issue backlogs](backlog.md), [sprints](create-agile-sprint.md), and [planning poker](./planning-poker.md).
-
-* The new board allows you to set up adding issues automatically by a filter or [trigger](trigger-examples.md#board).
-
-{% note warning %}
-
-Standard issue boards that use the old interface can't be converted into new issue boards.
-
-{% endnote %}
-
-## Getting started {#quick-start}
-
-To get started with the beta version of the new issue board:
-
-* [Create a standard issue board](agile-new-create.md) or a **Scrum** board by enabling the **Try new boards** option.
-
-* Create a [project in the beta version of the new interface](create-project.md#add-tickets). The project board will be created automatically.
-
-You can use the board to group and filter issues, move them between columns, and configure issue card fields.
+* Only add issues to a board that you plan to complete in the near future (such as in the next six months).
+* To avoid overloading issue boards, configure [automatic issue removal](agile-new-set-board.md#autodelete) so that issues in a specific status are removed from the board automatically.
+* To analyze closed issues that have been removed from the board, use the [search issues]({{ link-tracker }}issues) page or, if you are using a board with a **Backlog and sprints**, you will see a link to a filter with a completed sprint's issues in the **Backlog** tab.
+* To work with all of your issues (for example, to perform their general analysis through filtering or sorting), use queues: do not try to add all the issues to one board.
 
 ## See also
 
-* [Configuring issue board columns](agile-new-set.md#cols)
+* [Basic tools](boards-instruments.md)
 
-* [Managing issues](agile-new-use.md#manage)
+* [Creating a board](agile-new-create.md)
 
-* [Configuring issue cards](agile-new-set.md#cards)
+* [Working with a board](agile-new-set-board.md)
 
-* [Using issue filters on the board](agile-new-use.md#filter)
+* [Board issues](agile-new-issues.md)
+
+* [Board columns](agile-new-columns.md)

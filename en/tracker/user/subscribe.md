@@ -1,88 +1,98 @@
 # Subscribing to notifications
 
-Subscriptions keep you from missing changes to issues that are important for you. If someone edits an issue that you have subscribed to, you receive an email notification.
+By using subscriptions, you will never miss changes in the issues that are important to you. If someone edits an issue you are subscribed to, you will get notified by email.
 
-You can subscribe to a specific issue, or to all issues related to a particular queue, version, or component.
+You can subscribe both to a specific issue and to all the issues related to a specific queue, version, or component.
 
-You can [configure your notifications and subscriptions](notification-settings.md) so that you only receive updates about events you're interested in.
-
-## Subscribing to an issue {#section_xt5_xrv_jz}
-
-If you want to be notified of changes to a specific issue, subscribe to it:
-
-1. Open the issue page.
-
-1. On the right-hand panel in the **Followers** field, click **Add me**. If you don't see the **Followers** field, add it by clicking ![](../../_assets/tracker/task-params-btn.png).
-
-If you did everything correctly, your name will appear in the followers field. Now you will receive emails with notifications of any changes to this issue.
+You can [set up the content](notification-settings.md) of your notifications and subscriptions to get emails only on the events that are relevant for you.
 
 {% note info %}
 
-You can also add other users to the list of followers. To do this, click on the word **Followers** and enter the login or name of the user.
+Notifications about invitations to comments are also displayed in the {{ tracker-name }} [notification center](#notif_call_comments).
+
+{% endnote %}
+
+## Subscribing to an issue {#section_xt5_xrv_jz}
+
+If you want to get notified about changes in a specific issue, subscribe to it.
+
+1. Open the issue page.
+
+1. In the **{{ ui-key.startrek-backend.fields.issue.followers }}** field on the right-hand panel, click **{{ ui-key.startrek.components_IssueFieldView.me-multiple }}**. If you do not see the **{{ ui-key.startrek-backend.fields.issue.followers }}** field, add it by clicking ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_IssueSidebar.add-sidebar-field }}**.
+
+
+If you followed the steps correctly, your name will be added to the Followers field. Now you will get emails with notifications about any changes in this issue.
+
+{% note info %}
+
+You can also add other users to the followers list. To do this, click **{{ ui-key.startrek-backend.fields.issue.followers }}** and enter the username or name of the person you want to add.
 
 {% endnote %}
 
 ## Subscribing to a queue {#section_k13_z5v_jz}
 
-Subscribe to changes to a queue to track changes to all of the issues in the queue:
+Subscribe to changes in the queue to track changes to all its issues.
 
 1. Open the [queue page](queue.md).
 
-1. Select:
-    - ![](../../_assets/tracker/icon-settings.png) → **Subscribe to new issues** to get notifications about new issues created in the queue. You'll also be subscribed to notifications about all the events specified in the [notification settings](user-notifications.md#sec_add_role) for the **Queue subscriber** role.
-    - ![](../../_assets/tracker/icon-settings.png) → **Subscribe to all notifications** to get notifications of any changes to issues in the queue.
+1. In the upper-right corner, click ![](../../_assets/tracker/svg/actions.svg). Then click ![](../../_assets/tracker/svg/subscribe.svg)&nbsp;**{{ ui-key.startrek.ui_components_PageQueue_header.subscribe }}** and select a value:
+   - Select **{{ ui-key.startrek.ui_components_PageQueue_header.subscribe-new-tickets }}** to get notifications on new issues created in the queue. You will also subscribe to notifications on all events specified in the [notification settings](user-notifications.md#sec_add_role) for the **{{ ui-key.startrek-backend.roles.role.name.queue-follower-key-value }}** role.
+   - Select **{{ ui-key.startrek.ui_components_PageQueue_header.subscribe-all }}** to get notifications on all changes to issues in the queue.
 
-You can also [select events](user-subscriptions.md) to be notified about.
+You can also [select events](user-subscriptions.md) you want to get notified about.
 
-{% note tip %}
-
-If the **Subscriptions** tab doesn't allow changing the list of events, go to the **Notifications** tab. You can [edit](user-notifications.md) the events in the section for the **Queue subscriber** role.
-
-{% endnote %}
 
 ## Subscribing to a component {#section_km3_jnf_qz}
 
-You can subscribe not only to a queue, but also to its individual components. This way you will only receive notifications about issues that are related to the components you are interested in.
+You can subscribe both to a queue and its specific components. This allows you to get notified only about the issues related to the components that interest you.
 
 To subscribe to a component:
 
 1. Open the [queue page](queue.md).
 
-1. Go to the **Components** tab.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/actions.svg), then click ![](../../_assets/tracker/svg/components.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-page-agile-sprints.components }}**.
 
-1. Put the cursor over the component.
+1. Hover the cursor over the component.
 
-1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
+1. Select ![](../../_assets/tracker/icon-settings.png) → **{{ ui-key.startrek.blocks-desktop_b-page-components.action--subscribe }}**.
 
 If you did everything right, you'll see the following icon next to the component name: ![](../../_assets/tracker/subscribtion.png)
 
-By default, all notifications are sent to your email. You can [select events](user-subscriptions.md) to be notified about.
+By default, all notifications will arrive to your mailbox. You can [select events](user-subscriptions.md) you want to get notified about.
 
 ## Subscribing to a version {#section_n2y_jnf_qz}
 
-To track issues associated with a specific version, subscribe to it:
+To track issues related to a specific version, subscribe to it:
 
 1. Open the [queue page](queue.md).
 
-1. Go to the **Versions** tab.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/actions.svg), then click ![](../../_assets/tracker/svg/versions.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-page-agile-sprints.versions }}**.
 
-1. Put the cursor over the version.
+1. Hover the cursor over the version.
 
-1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
+1. Select ![](../../_assets/tracker/icon-settings.png) → **{{ ui-key.startrek.blocks-desktop_b-page-goals.subscribe }}**.
 
 If you did everything right, you'll see the following icon next to the version number: ![](../../_assets/tracker/subscribtion.png)
 
-By default, all notifications are sent to your email. You can [select events](user-subscriptions.md) to be notified about.
-
+By default, all notifications will arrive to your mailbox. You can [select events](user-subscriptions.md) you want to get notified about.
 
 
 ## Getting notifications about your own actions {#sec_self}
 
-By default you don't get notifications for the actions you've done yourself. To enable notifications about your own actions:
+By default, you won't get notified about your own actions on issues. To get notifications about your own actions:
 
-1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
+1. Click the link [{{link-tracker}}settings]({{ link-settings }}).
 
-1. Enable **Receive updates with my own actions**.
+1. Enable **{{ ui-key.startrek.blocks-desktop_b-page-settings.receive-own-events }}**.
 
-1. Click **Save**.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-settings.save }}**.
+
+## Notifications about invitations to comment {#notif_call_comments}
+
+When you are invited to comment on an issue, you'll get notified about this both in your mailbox and via the {{ tracker-name }} [notification center](notifications.md#notif_center).
+
+To disable sending notifications:
+1. In the left-hand panel, click ![](../../_assets/tracker/svg/bell_2.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-subscriptions-header.roles }}** to open the notification center.
+1. In the top-right corner of the notification center, click ![](../../_assets/vertical-ellipsis.svg) → **{{ ui-key.startrek.blocks-desktop_guide.common--header--settings--title }}**.
+1. Clear the checkbox next to **{{ ui-key.startrek.blocks-desktop_guide.ticket--tabs--invites--title }}**.
 

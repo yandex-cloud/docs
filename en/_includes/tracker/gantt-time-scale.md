@@ -1,1 +1,1 @@
-To set up the time scale, select **Week**, **Months**, or **Quarter** in the bottom-right corner of the chart. The scale settings persist after refreshing the page or opening the chart again.
+To set up the time scale, select **{{ ui-key.startrek.ui_components_Gantt.scale-days }}**, **{{ ui-key.startrek.ui_components_Gantt.scale-month }}**, or **{{ ui-key.startrek.ui_components_Gantt.scale-quarters }}** in the bottom-right corner of the chart. The scale settings persist after refreshing the page or opening the chart again.

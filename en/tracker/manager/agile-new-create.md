@@ -1,38 +1,32 @@
 # Creating a board in {{ tracker-name }}
 
-## Create a board
+## Creating a basic board {#basic}
 
-To create a new issue board:
+**{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--simple }}** can be used by any teams and allow issues to be arranged in columns based on their status.
 
-1. On the top panel in Tracker, select **Boards** → **Create board**.
+To create a basic board:
 
-   {% note info %}
+1. In the left-hand panel, click **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** → **{{ ui-key.startrek.blocks-desktop_page-agile-boards.create }}**.
 
-   In the [beta version of the new interface {{ tracker-full-name }}](../user/personal.md#sec_beta), select ![](../../_assets/tracker/svg/boards.svg)&nbsp;**Issue boards** on the left-hand panel, then click **Create board**.
+1. Select the **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--simple }}** board type and click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. As a result, a new board named <q>New board</q> is created. This board field is editable, so you can change its value and rename the board.
 
-   {% endnote %}
+It already has some columns with **Open**, **In progress**, and **Closed** statuses. You can delete the columns, add other ones, or create custom columns not associated with issue statuses.
 
-1. Select the **Basic** board type, then enable the **Try new boards** option.
+After [adding issues to the board](agile-new-set-board.md#add-task), you can customize the layout of issue cards, group and filter issues, and move them across the board columns. Basic boards allow you to [enable a backlog](backlog.md#add-backlog) to convert your board to **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--scrum }}** format. No rollback is possible.
 
-1. Enter the name of your board and click **Create**.
+## Creating a board with a backlog and sprints {#backlog-and-sprints}
 
-1. [Add](./agile-new-use.md#from-board) issues to the board:
+**{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--scrum }}** boards are good for Agile teams and allow creating a [backlog](backlog.md), managing [sprints](create-agile-sprint.md), [estimating issue complexity](poker.md), and analyzing [burn down charts](burndown-diagram.md).
 
-    * To add the first issue to the board, click **New issue**. You can select an existing issue or create a new one. You can add an issue from any queue available to you.
+To create a board with a backlog and sprints:
 
-    * To add multiple issues that share specific parameters, use [issue filters](./agile-new-use.md#from-bulk).
+1. In the left-hand panel, click **{{ ui-key.startrek.ui_components_NavigationBar.boards }}** → **{{ ui-key.startrek.blocks-desktop_page-agile-boards.create }}**.
 
-        {% note info %}
+1. Select the **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.board-type--scrum }}** board type and click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardCreateModal.submit-btn }}**. As a result, a new board named <q>New board</q> is created. This board field is editable, so you can change its value and rename the board.
 
+It consists of three tabs:
+* Backlog: Use it to create an issue backlog and sprints.
+* Board: Use it to sort backlog issues by [status](agile-new-columns.md#status) or [custom column](agile-new-columns.md#user-columns) (this tab is similar to **Basic board**).
+* Burndown chart: Shows the issue completion rate and the remaining amount of work within a single sprint.
 
-
-        You can add up to 2000 issues to a board.
-
-        {% endnote %}
-
-1. You can also [customize columns and the appearance of issue cards](agile-new-set.md) if needed.
-
-## Creating an issue board for a project
-
-[Create a project in the beta version of the new interface {{ tracker-full-name }}](./create-project.md) and add issues to it. A new issue board will be automatically created for your project. All the issues within the project will be displayed on the board.
-
+After [adding issues to a backlog](backlog.md#add-new-backlog), you can plan sprints, customize the layout of issue cards, group and filter board issues, and analyze their completion rate.

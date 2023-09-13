@@ -1,6 +1,6 @@
 # Automatic issue updates
 
-You can use {{ tracker-name }} to automatically update issues that match a certain filter. For example, you can use an auto action to automatically check all issues containing a desired component every hour and set an assignee if one isn't set. You can also invite users responsible for the issue to the comments if you need a progress update.
+You can use {{ tracker-name }} to automatically update issues that match a certain filter. For example, you can use an auto action to check issues with specific components once every hour and set an assignee for them if the assignee is missing. You can also invite responsible employees to comment if the issue hasn't been updated for a long time.
 
 {% note warning %}
 
@@ -10,92 +10,96 @@ When an auto action is triggered, only the first 100 issues that meet the specif
 
 ## Configuring automatic issue updates {#section_eh1_zlr_kgb}
 
-1. Open the [queue page](../user/queue.md).
+1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Select **Automation** → **Auto actions** in the left-hand panel and click **Create auto action**.
+1. In the left-hand panel, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.group-title--automatization }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.title }}** and click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.button-create }}**.
 
-1. Select **Update issues**.
+1. Select the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.type-toggle--update }}** type.
 
-1. Enter a name for your auto action.
+1. Set the name for the auto action.
 
-1. Set the update frequency in hours or days.
+1. Set the interval of automatic update of issues in hours or days.
 
-1. To pick issues to include in your auto action, set up a filter using one of the following methods:
-    - Click **Add condition**, choose your issue's field, and specify its value.
-You can add multiple conditions if you want. The auto action will only work if all the conditions are met simultaneously.
-    - Click **Query** and set the required condition using the [query language](query-filter.md).
+1. To select the issues that the auto action will apply to, set up the filter parameters using one of the methods:
+   - Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.action_add-condition }}**, choose your issue's field, and specify its value.
 
-1. Set one or more issue actions:
+      You can add multiple conditions if needed. The auto action will trigger if all the conditions hold at the same time.
+   - Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.filter-type--query }}** and set a condition using the [query language](query-filter.md).
 
-    - **Change issue status**
+1. Set one or several actions on the issue.
 
-         Set a new issue status. The available statuses depend on the [workflow](../manager/workflow-status-edit.md) settings.
+   - **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--transition }}**
 
-         {% note warning %}
+      Set a new issue status. The available statuses depend on the [workflow](../manager/workflow-status-edit.md) settings.
 
-         Auto actions are performed by a service robot named `yndx-tracker-cnt-robot@`. To enable the robot to update issue statuses:
 
-         - If certain [conditions are set up](../manager/workflow-action-edit.md#section_jrk_hmb_wbb) for status transitions and they restrict user permissions to change a status, add the `yndx-tracker-cnt-robot@` robot to the list of users.
+      {% note warning %}
 
-         - If you [set up a transition screen](../manager/workflow-action-edit.md#section_uf2_sks_gcb) for the status change, make sure it doesn't have required fields.
+      Auto actions are performed by a service robot named `yndx-tracker-cnt-robot@`. To enable the robot to update issue statuses:
 
-         {% endnote %}
+      - If certain [conditions are set up](../manager/workflow-action-edit.md#section_jrk_hmb_wbb) for status transitions and they restrict user permissions to change a status, add the `yndx-tracker-cnt-robot@` robot to the list of users.
 
-    - **Changing a field value**
+      - If you set up a [transition screen](../manager/workflow-action-edit.md#section_uf2_sks_gcb) for a status update, make sure it doesn't have required fields.
 
-        To change values in one or more fields, select the fields and [set their new values](set-action.md#section_mod_fields).
+      {% endnote %}
 
-    - **Add comment**
+   - **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--field }}**
 
-        Enter the comment you wish to add to the issue.
+      To change values in one or more fields, select the fields and [set their new values](set-action.md#section_mod_fields).
 
-        You can also enter [issue field values in your comments](vars.md). To do this, click **Add variable**.
+   - **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--comment }}**
 
-    - **Calculating a value**
+      Write the comment text that will be added to an issue.
 
-        You can [set up a special field](set-action.md#section_calc_field) whose values are calculated automatically based on values entered in other fields.
+      You can insert [values of issue fields](vars.md) into the comment text. To do this, click **{{ ui-key.startrek.blocks-desktop_trigger-action.action_add-variable }}**.
 
-    - **HTTP request**
+   - **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--formula }}**
 
-        You can [send HTTP requests](set-action.md#create-http) each time an auto action is triggered.
+      You can [set up a special field](set-action.md#section_calc_field) whose values are calculated automatically based on values entered in other fields.
 
-1. To save an auto action, click **Create**.
+   - **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--webhook }}**
+
+      You can [send HTTP request](set-action.md#create-http) each time an auto action is triggered.
+
+1. To save an auto action, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
 
 ## Auto update example {#autoaction_example}
 
-If you want an issue to be completed by a particular date, you can specify it in the **Deadline** field. If you want to make sure assignees finish their issues on time, you can use auto updates to send them reminders a few days before the deadline.
+If you want an issue to be completed by a particular date, you can specify it in the **{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}** field. To make sure that assignees don't forget to complete issues on time, you can use auto updates to remind the assignees a few days before the deadline.
 
-Let's set up a daily auto update that invites the assignee to the comments and only triggers if there are 3 days left before the deadline or less:
+Let's set up a daily auto update to invite the assignee to comment if the deadline is in 3 days or less.
 
-1. Select the queue you want to create an automatic reminder for and open its settings.
+1. Go to the settings of the queue where you want to create an automatic deadline reminder.
 
-1. Go to **Auto actions** and click [**Create auto action**](create-autoaction.md#section_eh1_zlr_kgb).
+1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.title }}**, click [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.button-create }}**](create-autoaction.md#section_eh1_zlr_kgb).
 
-1. Select **Update issues** and name the auto action.
+1. Select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.type-toggle--update }}** and name the auto action.
 
-1. Set the update frequency to once a day.
+1. Set up the update period of once a day.
 
-1. Set a condition that triggers an auto action if unsolved issues are detected with 3 days left before their deadline or less. To do this, go to **Filter settings**, select **Query**, and set a condition using the [query language](query-filter.md):
+1. Set up the condition so that the auto action is triggered on non-resolved issues (without a resolution) if the deadline is in 3 days or less. To do this, go to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.label_filter }}**, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.filter-type--query }}**, and set a condition using the [query language](query-filter.md):
 
     ```
     Resolution: empty() AND Deadline: <= today() + 3d
     ```
 
-    ![](../../_assets/tracker/autoaction-example-condition.png)
+   ![](../../_assets/tracker/autoaction-example-condition.png)
 
-1. Set an auto action that invites the assignee to the comments:
+1. Set up the auto action — Inviting the issue assignee to comment:
 
-    1. Click **Add new action** and select **Send comment**.
+   1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.action_add-action }}** and select **{{ ui-key.startrek-backend.types.types.trigger.action.create.comment }}**.
 
-    1. In the field saying **Invite users from field**, click ![](../../_assets/tracker/summon.png) and enter **Assignee**.
+   1. In the field saying **{{ ui-key.startrek.blocks-desktop_trigger-action.createcomment--invite-from-field }}**, click ![](../../_assets/tracker/summon.png) and enter **Assignee**.
 
-    1. Write the text of your comment. You can add issue fields to the comment by clicking **Add variable**.
+   1. Write the text of your comment. You can add issue fields to your comment by clicking **{{ ui-key.startrek.blocks-desktop_trigger-action.action_add-variable }}**.
 
    ![](../../_assets/tracker/autoaction-example-action.png)
 
-1. Save the auto action.
+1. Save an auto action.
 
-The created auto action then checks issues in the queue once a day. If the issue remains unsolved when there are less than 3 days until the deadline, the assignee is automatically invited to the comments.
+This auto action will check issues in the queue once a day. If the issue is not resolved and the deadline is less than in 3 days, the assignee will be invited to comment.
+
+
 

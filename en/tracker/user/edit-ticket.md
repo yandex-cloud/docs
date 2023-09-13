@@ -14,7 +14,7 @@ Tap the issue name. Edit the text and press **Enter**.
 
 ## Editing issue descriptions {#edit-description}
 
-To the right of the issue description, tap ![](../../_assets/tracker/svg/icon-edit.svg) and edit the text. Use [YFM markup](markup.md) to format text. Tap **Save** to save your changes.
+To the right of the issue description, tap ![](../../_assets/tracker/svg/icon-edit.svg) and edit the text. Use [YFM markup](markup.md) to format text. To save your changes, click **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-update }}**.
 
 
 You can use the issue description to specify a key for a different issue so that {{ tracker-name }} automatically links the issues. When entering the issue key, use ALL CAPS.
@@ -26,19 +26,19 @@ You can also [attach images or files](attach-file.md) to issue descriptions.
 
 The [issue details](create-param.md##default-fields) are shown in the panel on the right. To edit the parameter's value, click its name and select a new value.
 
-If you don't see the desired parameters in the right panel, add them by clicking **Edit parameter list**.
+If you do not see the desired parameters in the right-hand panel, add them by clicking **{{ ui-key.startrek.ui_components_PageCreateIssue.add-parameter }}**.
 
 To edit the parameters of multiple issues at once, use [bulk operations](../manager/bulk-change.md#change-parameters).
 
 ## Changing issue status {#edit-status}
 
-To change the issue status, on the right panel, select a value in the **Status** field.
+To change the issue status, in the right-hand panel, select a new value in the **{{ ui-key.startrek.blocks-desktop_b-ticket-fields.status }}** field.
 
 To edit the statuses of multiple issues at once, use [bulk operations](../manager/bulk-change.md#change-status).
 
 ## Configuring how issues are displayed {#edit-display}
 
-You can manage your issues in {{ tracker-name }} more easily by customizing the appearance of the issue page, including the interface theme and language, user and date display. To do this, go to [**Personal settings**](personal.md).
+You can manage your issues in {{ tracker-name }} more easily by customizing the appearance of the issue page, including the interface theme and language, user and date display. To do this, go to [**{{ ui-key.startrek.blocks-desktop_b-head.settings }}**](personal.md).
 
 The settings specified for the web interface automatically apply to the mobile app.
 

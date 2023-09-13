@@ -6,21 +6,21 @@ To find the issues you're working on, use the _system filters_ preset. The filte
 
 Find your issues using preset system filters.
 
-1. In the top-left corner, click **All issues**, then select one of the options:
+1. In the top-left corner, tap **{{ ui-key.startrek.ui_components_agile_common_AgileFilters.all-issues-filter-title }}** and select one of the options:
 
-   * **Favorite issues**: Issues that you [added to Favorites](../user/favourites.md#task-fav).
+   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-favorite }}**: Issues you [added to Favorites](../user/favourites.md#task-fav).
 
-   * **All my issues**: Issues that list you as the reporter, assignee, or follower.
+   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-my-issues }}**: Issues in which you are the reporter, assignee, or follower.
 
-   * **Reported by me**: Issues that you created.
+   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-author }}**: Issues you created.
 
-   * **Assigned to me**: Issues that list you as the assignee.
+   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-assignee }}**: Issues in which you are the assignee.
 
-   * **Followed by me**: Issues that you [subscribed to](../user/subscribe.md#section_xt5_xrv_jz) for updates.
+   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-follower }}**: Issues you are [subscribed](../user/subscribe.md#section_xt5_xrv_jz) to.
 
-   * **Needs response**: Issues you were [invited to comment on](comments.md#call-comment).
+   * **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-waiting }}**: Issues you were [invited to comment](comments.md#call-comment) on.
 
-   * **Deadline approaching**: Issues that list you as the reporter, assignee, or follower and where:
+   * **{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_deadline }}**: Issues in which you are the reporter, assignee, or follower and where:
 
    * Issues that have exceeded their deadlines in the past two weeks ![](../../_assets/tracker/deadline-red.png).
 
@@ -35,15 +35,15 @@ Find your issues using preset system filters.
 
 To find issues by the parameters that can't be set using the system filters, add search conditions.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/gantt-settings-button.svg).
+1. In the top-right corner, tap ![](../../_assets/tracker/svg/gantt-settings-button.svg).
 
-1. Select an issue parameter, set its value, and click **Apply**.
+1. Select an issue parameter, set its value, and tap **{{ ui-key.startrek.blocks-desktop_b-filter.apply }}**.
 
    Any issues that don't meet your criteria are filtered out of the list.
 
 
 1. If you need to refine the search conditions, add more parameters.
 
-1. To reset the search parameters, click **Reset** in the top-right corner of the **Filters** page.
+1. To reset the search parameters, tap **{{ ui-key.startrek.blocks-desktop_issues-filter.action--reset }}** in the top-right corner of the **{{ ui-key.startrek.blocks-desktop_b-page-issues.page-title }}** page.
 
 {% endlist %}

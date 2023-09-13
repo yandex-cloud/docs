@@ -21,9 +21,9 @@ You can invite users who have a Yandex account (such as `{{ example-account }}`)
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. In the panel on the left, click **Add user**.
+1. In the left-hand panel, click **{{ ui-key.startrek.blocks-desktop_b-head.add-user }}**.
 
-1. In the window that opens, specify employees' email addresses separated by commas (such as `{{ example-account }}`) and click **Add**. Each user will receive an email prompting to join your organization.
+1. In the window that opens, specify employees' email addresses separated by commas (such as `{{ example-account }}`) and click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. Each user will receive an email prompting to join your organization.
 
 To log in to {{ tracker-name }}, an invited user should follow the link [{{ link-tracker }}]({{ link-tracker }}) and [log in to their Yandex account](user/login.md).
 
@@ -35,11 +35,11 @@ To create an identity federation:
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. In the panel on the left, click **Administration** → **Organization**.
+1. In the left-hand panel, click **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
 
-1. Under **{{ org-full-name }}**, click **Connect**. The {{ org-full-name }} page opens.
+1. Under **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.source-title }}**, click **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_CloudOrgPane.federation-task-action }}**. The {{ org-full-name }} page opens.
 
-1. Specify the federation settings and click **Create federation**.
+1. Specify the federation settings and click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
 Users with corporate accounts can [log in to {{ tracker-name }}](user/login.md) by clicking **Log in via SSO**.
 
@@ -51,13 +51,13 @@ To create user accounts, connect your company's email domain in [{{ ya-360 }}]({
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. In the panel on the left, click **Administration** → **Organization**.
+1. In the left-hand panel, click **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**.
 
-1. Under **{{ ya-360 }}**, click **Connect**. A window with your organizations opens. You can create a new organization or go to an existing one.
+1. Under **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.source-title }}**, click **{{ ui-key.startrek.ui_components_page-admin_OrganizationSmallPane.add-org-button }}**. A window with your organizations opens. You can create a new organization or go to an existing one.
 
    {% note info %}
 
-   If your organization has no email domain connected, in [{{ ya-360 }}]({{ link-ya-360 }}), click **Configure mail** and add a domain. To learn more, see [Help for the service]({{ support-business-domain }}).
+   If your organization has no email domain connected, click **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesEmptyList.action-configure-mail }}** in [{{ ya-360 }}]({{ link-ya-360 }}) and add a domain. To learn more, see [Help for the service]({{ support-business-domain }}).
 
    {% endnote %}
 

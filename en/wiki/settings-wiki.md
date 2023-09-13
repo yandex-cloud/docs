@@ -1,15 +1,15 @@
 # Customizing the {{ wiki-name }} interface
 
-You can customize the layout of pages you're viewing:
+You can customize the layout of the pages you are viewing:
 
-1. In the bottom-left corner of any page, click ![](../_assets/wiki/svg/settings.svg) **Settings**.
+1. In the bottom-left corner of any page, click ![](../_assets/wiki/svg/settings.svg) **{{ ui-key.yacloud.settings.label_settings }}**.
 
 1. Set the parameters:
 
-   * **Language and region**. Interface language: Russian or English.
+   * **{{ ui-key.yacloud.settings.switch_lang }}**. Interface language: Russian or English.
    * **View**:
-      * **Interface theme**: Light, Dark, or System.
-      * **Contrast**: Standard or high (beta).
+      * **{{ ui-key.yacloud_components.settings.field_theme }}**: Light, Dark, or System.
+      * **{{ ui-key.yacloud_components.settings.field_theme-contrast }}**: Standard or high (beta).
 
 
 Your custom interface settings will not affect other users.

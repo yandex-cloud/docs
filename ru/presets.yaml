@@ -3769,6 +3769,7 @@ default:
         field-tags: Теги
         issue-status-open: Открыт
         issue-summary: Название задачи
+        issue-type-task: Задача
         title: Вид карточки
       blocks-desktop_b-page-agile-admin-tab_type_columns:
         issues-limit: Максимальное число задач в колонке
@@ -3896,6 +3897,9 @@ default:
       blocks-desktop_b-page-queue-admin-tab_type_types:
         add-issue-type: Добавить тип задачи
         save: Сохранить
+      blocks-desktop_b-page-queue-admin-tab_type_workflows:
+        actions--copy: Копировать
+        copy-queue-workflow: Скопировать воркфлоу из другой очереди
       blocks-desktop_b-page-queue-admin:
         group-title--automatization: Автоматизация
         tab-title--events: Журнал изменений
@@ -3906,6 +3910,7 @@ default:
         tab-title--sla: SLA
         tab-title--team: Команда очереди
         tab-title--triggers: Триггеры
+        tab-title--workflows: Рабочие процессы
       blocks-desktop_b-page-queue-description:
         description: Описание очереди
       blocks-desktop_b-page-queue:
@@ -3947,6 +3952,9 @@ default:
         add-issue-key-in-email-checkbox: Добавлять номер задачи в тему письма
         advanced-settings: Расширенные настройки
         advanced-settings-show: Показать расширенные настройки
+        choose-issue-type: Тип задачи
+        choose-resolutions: Резолюции
+        choose-workflow: Воркфлоу
         commits: Отображать вкладку «Коммиты»
         department: Подразделение
         goals: Отображать вкладку «Цели»
@@ -3969,6 +3977,10 @@ default:
         show-create-issue-form--team: Только команде
         status-on-link: Статус при добавлении внешней связи
         voting: Голосование в задачах
+      blocks-desktop_b-queue-issue-type__workflow-table:
+        button-name: Название кнопки
+      blocks-desktop_b-queue-issue-type:
+        workflow-view-label: Статусы и переходы
       blocks-desktop_b-queues-info:
         admin: Администрирование
         projects: Проекты
@@ -4105,6 +4117,7 @@ default:
         field-type--uri: Ссылка
         table-head--type: Тип
       blocks-desktop_page-admin-tab_type_repositories:
+        connect: Подключить репозиторий
         status--success: Подключен
       blocks-desktop_page-admin-tab:
         create--resolutions: Создать резолюцию
@@ -4115,6 +4128,7 @@ default:
         tab-title--fields: Поля
         tab-title--resolutions: Резолюции
         tab-title--statuses: Статусы задач
+        tab-title--types: Типы задач
       blocks-desktop_page-agile-boards:
         create: Создать доску
         filter-type--favorite: Избранные
@@ -4247,6 +4261,13 @@ default:
         title: Будут выполнены условия
       blocks-desktop_wiki-widget-copy-url:
         title: Получить код для Вики
+      blocks-desktop_workflow-condition:
+        type--all: все
+        type--any: любые
+      blocks-desktop_workflow-editor--action_tab_general:
+        name-en--label: Название кнопки на английском
+        name-ru--label: Название кнопки
+        target-status--label: Переход в статус
       blocks-desktop_workflow-editor--action_tab_screen:
         comment-enable: Форма для комментария
         linking-enable: Добавление связей на экране перехода
@@ -4254,13 +4275,29 @@ default:
         screen-title--label-en: Название экрана на английском языке
         screen-title--label-ru: Название экрана
         worklogs-enable: Форма учёта времени
+      blocks-desktop_workflow-editor--action:
+        tab-title--conditions: Условия
+        tab-title--functions: Функции
+        tab-title--general: Основная информация
+        tab-title--screen: Экран перехода
       blocks-desktop_workflow-editor--step_tab_actions-on-comment:
+        make-no-transition: Ничего не делать
+        make-transition: Выполнить переход
         on-assignee-comment-only: Только если комментарий оставил исполнитель
+        prev-status: Вернуться в предыдущий статус
         revert-assignee: Назначить исполнителя из предыдущего статуса
+        select-action: Выберите действие
+      blocks-desktop_workflow-editor--step_tab_create-action:
+        name-en--label: Название кнопки на английском
+        target-status--label: Переход в статус
       blocks-desktop_workflow-editor--step:
         button--submit: Сохранить
+        tab-title--actions-on-comment: Действия при комментировании
         tab-title--create-action: Добавить переход
       blocks-desktop_workflow-editor:
+        add-status-popup--name: Название кнопки перехода
+        add-status-popup--name-en: Название кнопки перехода на английском
+        sidebar-add-status: Добавить статус
         sidebar-title: Статусы и переходы
       components_Checklist:
         header-title: Чеклист
@@ -4321,6 +4358,7 @@ default:
         token-label: Токен
       ui_components_agile_agile-board_AgileBoardActionsMenu:
         delete-board-menu-item: Удалить доску
+        filters-manage: Управление фильтрами
         migration-rollback: Миграция в старую версию
       ui_components_agile_agile-board_AgileBoardAddColumnButton:
         new-column-button: Добавить колонку
@@ -4338,6 +4376,8 @@ default:
         issue-actions--delete-from-board: Убрать с доски
         issue-actions--move-down: Перенести вниз колонки
         issue-actions--move-up: Перенести наверх колонки
+      ui_components_agile_agile-board_AgileBoardIssuesImportButton:
+        import-issues: Импорт задач
       ui_components_agile_agile-board_AgileBoardMigrationForm:
         submit-btn: Начать миграцию
       ui_components_agile_agile-board_AgileBoardUnusedStatuses:
@@ -4351,6 +4391,8 @@ default:
         backlog-default-column: Бэклог
       ui_components_agile_common_AddIssueButton:
         add-issue-button: Добавить задачу
+      ui_components_agile_common_AgileFilterParamsPicker:
+        save: Сохранить
       ui_components_agile_common_AgileFilters:
         action-title-save: Сохранить
         all-issues-filter-title: Все задачи
@@ -4439,6 +4481,7 @@ default:
         existing-issue: Существующая задача
         new-issue: Новая задача
       ui_components_dashboard_DashboardActionsMenu:
+        delete-action: Удалить
         set-start-page-action: Сделать стартовой
       ui_components_dashboard_DashboardHeader:
         dashboard-header-add-button: Добавить
@@ -4479,6 +4522,7 @@ default:
         search-placeholder: Поиск по названию задачи
       ui_components_FilterEditorPane:
         all-issues-filter-title: Все задачи
+        reset-button: Сбросить
       ui_components_FilterExportMenu:
         menu-item-export: Экспортировать
         title: Действия над фильтром
@@ -4554,6 +4598,7 @@ default:
         filter-waiting: Ждут ответа
         filters: Фильтры
         issues-list: Задачи
+        queue: Очередь
         queues: Очереди
       ui_components_IssueMenu:
         add-notification: Добавить напоминание
@@ -4594,6 +4639,7 @@ default:
         save: Сохранить
       ui_components_NavigationBar_BoardsPanel:
         create-button: Создать доску
+        menu-group-my-link: Полный список созданных мной досок
       ui_components_NavigationBar_IssuesPanel:
         all-items-link: Все задачи
         caption: Задачи
@@ -4639,9 +4685,11 @@ default:
         title_access: Доступ в Tracker
       ui_components_page-admin_PageAdmin:
         menu-item-groups: Группы
+        menu-item-issue-statuses: Статусы задач
         menu-item-orgs: Организации
         menu-item-repositories: Репозитории
         menu-item-users: Пользователи
+        tracker-settings: Настройки Tracker
       ui_components_page-issues_touch_FilterSettingsMenu:
         item-filters: Фильтры
         item-group: Группировка
@@ -4701,6 +4749,7 @@ default:
         description-placeholder: >-
           Добавьте описание, чтобы исполнителю было понятно, что нужно сделать в
           этой задаче
+        empty-template: Без формы
         switch-to-admin-panel: Перейти в админку
       ui_components_PageCreateIssueForm:
         continue: Продолжить
@@ -4771,8 +4820,8 @@ default:
         field-can-assignee-update-time: Разрешить редактирование своих записей
         field-show-time-field-on-close: Рассчитывать затраченное время автоматически
         field-track-time-in-issues: Включить расширенный учёт времени
-        field-use-remaining-time: Поле “Осталось времени”
-        field-use-summary-time: Поле “Общая оценка задачи”
+        field-use-remaining-time: Отображать поле “Осталось времени”
+        field-use-summary-time: Отображать поле “Общая оценка задачи”
         field-working-calendar: График работы
         save: Сохранить
       ui_components_queue-admin-tab-workflows_IssueTypesListCell:
@@ -4818,7 +4867,7 @@ default:
         column-date: Дата записи
         column-spent: Затрачено времени
       ui_components_timetracking-history-dialog_TimeTrackingHistoryDialog:
-        title: История записей с учтённым временем
+        title: История учёта времени
       ui_components_TrackerSearch:
         queues: Очереди
       ui_components_TrackerSelect:

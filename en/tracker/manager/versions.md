@@ -1,46 +1,46 @@
 # Versions
 
-Typically, versions are used for software development tasks. They help you group issues that are related to the same version of a product. Version values can be configured on the queue page.
+Versioning is usually used for development issues. It helps you to group issues that belong to the same product version. Version values can be configured on the queue page.
 
-To assign a version to an issue, fill in the **Affected Version** or **Fix Version** field on the issue page.
+To assign a version to an issue, fill in the **{{ ui-key.startrek-backend.fields.issue.affectedVersions-key-value }}** or **{{ ui-key.startrek-backend.fields.issue.fixVersions-key-value }}** field on the issue page.
 
-The **Affected Version** field indicates the version of a product or package with the bug.
+The **{{ ui-key.startrek-backend.fields.issue.affectedVersions-key-value }}** field indicates the version of the product or package that contains the bug.
 
-The **Fix Version** field is used for planning your work. This field is used to sort issues by product version or release.
+The **{{ ui-key.startrek-backend.fields.issue.fixVersions-key-value }}** field is used to plan your work. You can use this field to classify your issues between product versions or releases.
 
-## Creating a version {#section_f5q_bfl_xz}
+## Creating a version {#create-version}
 
 To create a new version:
 
 1. Open the queue page.
 
-1. Go to the **Versions** tab.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
 
-1. Click **Create version**.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page.btnAdd }}**.
 
-1. **Name** the version.
+1. Enter the version **{{ ui-key.startrek.blocks-desktop_b-page_type_versions.name }}**.
 
-1. If necessary, enter the start and end dates and fill in the version description. This information is optional.
+1. If you need it, specify the start and end dates and add the version description. These fields are informative.
 
-1. Click **Create**.
+1. Click **{{ ui-key.startrek.components_FormButtons.create }}**.
 
-## Change a version {#section_fkv_bfl_xz}
+## Switching versions {#edit-version}
 
-To change an existing version:
+To change the existing version:
 
 1. Open the queue page.
 
-1. Go to the **Versions** tab.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
 
-1. Put the cursor over the version.
+1. Hover the cursor over the version.
 
-1. Select ![](../../_assets/tracker/icon-settings.png) → **Edit**.
+1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page.actionEdit }}**.
 
-1. Make your changes and click **Save**.
+1. Make your changes and click **{{ ui-key.startrek.blocks-desktop_b-page.btnUpdate }}**.
 
-## Version statuses {#section_n4c_54z_xz}
+## Version statuses {#version-statuses}
 
-Any version can have one of these statuses:
+An any version can have one of the following statuses:
 
 - **Open**: Usually used for labeling versions that have not yet been worked on.
 
@@ -48,41 +48,40 @@ Any version can have one of these statuses:
 
 - **Archived**: This version is no longer supported.
 
-By default, the **Versions** tab only shows open versions. You can change the display mode using the quick filters above the list of versions.
+By default, the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}** tab only shows open versions. You can change the display mode by using quick filters on the version list.
 
-Don&apos;t forget to update the version statuses so that you and your colleagues always see the current status of versions.
+Make sure to update your version statuses so that you and your colleagues always have the current picture.
 
-To change the version status:
+To change a version's status:
 
 1. Open the queue page.
 
-1. Go to the **Versions** tab.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
 
-1. Put the cursor over the version.
+1. Hover the cursor over the version.
 
-1. Click ![](../../_assets/tracker/icon-settings.png) and select a new status.
+1. Click the ![](../../_assets/tracker/svg/settings-old.svg) icon and select a new status.
 
-## Subscribing to a version {#section_ofy_bfl_xz}
+## Subscribing to a version {#subscribe-version}
 
-If you want to be notified of changes to issues related to a particular version, you can subscribe to it:
+If you want to get notified about changes in issues linked to a specific version, you can subscribe to such a version:
 
 1. Open the [queue page](../user/queue.md).
 
-1. Go to the **Versions** tab.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
 
-1. Put the cursor over the version.
+1. Hover the cursor over the version.
 
-1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
+1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page.actionFollow }}**.
 
 If you did everything right, you'll see the following icon next to the version number: ![](../../_assets/tracker/subscribtion.png)
 
 ## Viewing issues for a version {#section_l31_brz_xz}
 
-You can view a list of issues related to a specific version:
+You can view a list of issues that belong to a specific version:
 
 1. Open the queue page.
 
-1. Go to the **Versions** tab.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/versions.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_versions }}**.
 
 1. Click the version number.
-

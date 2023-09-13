@@ -2,13 +2,13 @@
 
 {% note warning %}
 
-Only the [administrator](../role-model.md) can link new repositories.
+Only an [administrator](../role-model.md) can connect repositories.
 
 {% endnote %}
 
-Connecting your repositories to {{ tracker-name }} lets you link commits to issues. You can link any number of repositories hosted on GitHub, GitLab, and Bitbucket.
+Connecting your repositories to {{ tracker-name }} lets you link commits to issues. If you can connect any number of repositories hosted on GitHub, GitLab, or Bitbucket.
 
-Follow the instructions in this section to enable repositories hosted on cloud services. To link a Git repository hosted on your own server to {{ tracker-name }}, consult [technical support]({{ link-tracker-support}}).
+The connect repositories hosted in cloud services, use the tutorials from this section. To connect to {{ tracker-name }} a Git repository hosted on your server, contact [support]({{ link-tracker-support}}).
 
 ## GitHub {#section_mhj_yrk_m2b}
 
@@ -18,70 +18,62 @@ To connect your repository on [GitHub](https://github.com) to {{ tracker-name }}
 
 - Public repository
 
-    1. Make sure you are logged in to {{ tracker-name }} as an [administrator](../role-model.md).
+   1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-    1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
+   1. Choose GitHub in the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field.
 
-    1. Go to the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
+   1. Enter the public repository's address using the format `https://github.com/<repository owner login>/<repository name>`. Leave the **{{ ui-key.startrek.blocks-desktop_repository-modal.token }}** field blank.
 
-    1. Choose GitHub in the **Platform** field.
+   1. Tap **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
-    1. Enter the public repository's address using the format `https://github.com/<repository owner login>/<repository name>`. Leave the **Token** field blank.
-
-    1. Click **Connect**.
-
-    1. Make sure that the repository status in {{ tracker-name }} is **Connected**.
+   1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
 - Private repository
 
-    1. Make sure you are logged in to {{ tracker-name }} as an [administrator](../role-model.md).
+   1. Make sure you are authorized in {{ tracker-name }} as an [administrator](../role-model.md).
 
-    1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
+   1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-    1. Go to the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
+   1. Choose GitHub in the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field.
 
-    1. Choose GitHub in the **Platform** field.
+   1. Get an OAuth token for your repository on GitHub:
 
-    1. Go to GitHub and receive an OAuth token for your repository:
+      - Log in to GitHub. If the repository is linked to an organization on GitHub, make sure that you have administrative rights for it.
 
-        - Log in to GitHub. If your repository is connected to a GitHub organization, make sure you have admin rights.
+      - Click on your picture in the upper-right corner and choose **Settings**.
+      - Select **Developer settings** → **Personal access token** on the left-hand panel.
+      - Click **Generate new token**.
 
-        - Click on your picture in the upper-right corner and choose **Settings**.
+      - Come up with the token name.
 
-        - Select **Developer settings** → **Personal access token** on the left-hand panel.
+      - Configure the token's access right. To make sure {{ tracker-name }} operates properly, enable the **repo** and **read:org** options:
 
-        - Click **Generate new token**.
+         ![](../../_assets/tracker/github-token-settings.png)
 
-        - Choose a name for your token.
+      - Click **Generate token**.
 
-        - Configure access rights for your token. To make sure {{ tracker-name }} operates properly, enable the **repo** and **read:org** options:
+      - Copy a token to the clipboard.
 
-            ![](../../_assets/tracker/github-token-settings.png)
+         {% note alert %}
 
-        - Click **Generate token**.
+         The token value is displayed only once. If you close the page, you won't be able to view it again.
 
-        - Copy the token to the clipboard.
+         {% endnote %}
 
-            {% note alert %}
+   1. Enter the repository address using the format `https://github.com/<repository owner login>/<repository name>` and specify the access token.
 
-            Your token will only be displayed once. You won't be able to see it again after closing the page.
+   1. Tap **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
-            {% endnote %}
-
-    1. Enter the repository address using the format `https://github.com/<repository owner login>/<repository name>` and specify the access token.
-
-    1. Click **Connect**.
-
-    1. Make sure that the repository status in {{ tracker-name }} is **Connected**.
+   1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
 {% endlist %}
 
-To link a commit to an issue in {{ tracker-name }}, specify the issue key in the comments for the commit. You can view linked commits the following ways:
+To link a commit to an issue in {{ tracker-name }}, specify the issue key in the comments for the commit. You can view the linked commits:
 
-- On the **Commits** tab on the issue page.
-- On the **Commits** tab on the queue page.
+- In the **{{ ui-key.startrek-backend.fields.issue.commits-key-value }}** tab on the issue page.
+- In the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}** tab on the queue page.
 
-If you don't see the **Commits** tab, make sure it's enabled in your [queue settings](edit-queue-general.md#ul_gcz_xlp_m2b).
+If the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}** tab is missing, make sure it is enabled in your [queue settings](edit-queue-general.md#ul_gcz_xlp_m2b).
 
 ## GitLab {#section_kjw_cy2_ggb}
 
@@ -91,126 +83,110 @@ To connect your repository on [GitLab](https://gitlab.com) to {{ tracker-name }}
 
 - Public repository
 
-    1. Make sure you are logged in to {{ tracker-name }} as an [administrator](../role-model.md).
+   1. Make sure you are authorized in {{ tracker-name }} as an [administrator](../role-model.md).
 
-    1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
+   1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-    1. Go to the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
+   1. Choose GitLab in the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field.
 
-    1. Choose GitLab in the **Platform** field.
+   1. Enter the public repository's address using the format `https://gitlab.com/<repository owner login>/<repository name>`. Leave the **{{ ui-key.startrek.blocks-desktop_repository-modal.token }}** field blank.
 
-    1. Enter the public repository's address using the format `https://gitlab.com/<repository owner login>/<repository name>`. Leave the **Token** field empty.
+   1. Tap **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
-    1. Click **Connect**.
-
-    1. Make sure that the repository status in {{ tracker-name }} is **Connected**.
+   1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
 - Private repository
 
-    {% note info %}
+   {% note info %}
 
-    Private repositories can only be accessed by users logged in to GitLab (**Internal project**) or the project team (**Private project**).
+   Private repositories can only be accessed by users logged in to GitLab (**Internal project**) or the project team (**Private project**).
 
-    {% endnote %}
+   {% endnote %}
 
-    1. Make sure you are logged in to {{ tracker-name }} as an [administrator](../role-model.md).
+   1. Make sure you are authorized in {{ tracker-name }} as an [administrator](../role-model.md).
 
-    1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
+   1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-    1. Go to the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
+   1. Choose GitLab in the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field.
 
-    1. Choose GitLab in the **Platform** field.
+   1. Get an OAuth token for your repository on GitHub:
 
-    1. Go to GitLab and receive an OAuth token for your repository:
+      - Log in to GitLab.
 
-        - Log in to GitLab.
+      - Click on your picture in the upper-right corner and choose **Settings**.
 
-        - Click on your picture in the upper-right corner and choose **Settings**.
+      - On the left-hand panel, select **Access Tokens**.
 
-        - On the left-hand panel, select **Access Tokens**.
+      - Enter a name for the token in the **Name** field.
 
-        - Enter a name for the token in the **Name** field.
+      - Set the token expiration date in the **Expires at** field.
 
-        - Set the token expiration date in the **Expires at** field.
+      - Configure the token's access rights. For {{ tracker-name }} to operate properly, make sure to enable the **api** option.
 
-        - Configure the token's access rights. For {{ tracker-name }} to operate properly, make sure to enable the **api** option.
+         ![](../../_assets/tracker/gitlab-token-settings.png)
 
-            ![](../../_assets/tracker/gitlab-token-settings.png)
+      - Click **Create personal access token**.
 
-        - Click **Create personal access token**.
+      - Copy a token to the clipboard.
 
-        - Copy the token to the clipboard.
+         {% note alert %}
 
-            {% note alert %}
+         The token value is displayed only once. If you close the page, you won't be able to view it again.
 
-            Your token will only be displayed once. You won't be able to see it again after closing the page.
+         {% endnote %}
 
-            {% endnote %}
+   1. Enter the public repository's address using the format `https://gitlab.com/<repository owner login>/<repository name>` and specify the access token.
 
-    1. Enter the public repository's address using the format `https://gitlab.com/<repository owner login>/<repository name>` and specify the access token.
+   1. Tap **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
-    1. Click **Activate**.
-
-    1. Make sure that the repository status in {{ tracker-name }} is **Connected**.
+   1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
 {% endlist %}
 
-To link a commit to an issue in {{ tracker-name }}, specify the issue key in the comments for the commit. You can view linked commits the following ways:
+To link a commit to an issue in {{ tracker-name }}, specify the issue key in the comments for the commit. You can view the linked commits:
 
-- On the **Commits** tab on the issue page.
-- On the **Commits** tab on the queue page.
+- In the **{{ ui-key.startrek-backend.fields.issue.commits-key-value }}** tab on the issue page.
+- In the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}** tab on the queue page.
 
-If you don't see the **Commits** tab, make sure it's enabled in your [queue settings](edit-queue-general.md#ul_gcz_xlp_m2b).
+If the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}** tab is missing, make sure it is enabled in your [queue settings](edit-queue-general.md#ul_gcz_xlp_m2b).
 
 ## Bitbucket {#section_u5z_zxk_m2b}
 
 To connect your repository on [Bitbucket](https://bitbucket.org) to {{ tracker-name }}:
 
-1. Make sure you are logged in to {{ tracker-name }} as an [administrator](../role-model.md).
+1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
-1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
-
-1. Go to the [**Repositories**]({{ link-repositories }}) tab and click **Connect repository**.
-
-1. Choose Bitbucket in the **Platform** field.
+1. Choose Bitbucket in the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field.
 
 1. Create a {{ tracker-name }} password in Bitbucket. {{ tracker-name }} will use this password to connect to your repositories.
+   - Log in to Bitbucket.
+   - Click on your picture in the lower-left corner and select **Bitbucket settings**.
+   - Choose **App passwords** under **Access management**.
+   - Click **Create app password**.
+   - Think up a name for your password, such as `Tracker integration password`.
+   - Configure the password's access right. For {{ tracker-name }} to operate properly, make sure to enable the **read** option under **Repositories**:
+      ![](../../_assets/tracker/bitbucket-password-settings.png)
+      ..
+   - Click **Create**.
+   - Copy a password to the clipboard.
 
-    - Log in to Bitbucket.
+      {% note alert %}
 
-    - Click on your picture in the lower-left corner and select **Bitbucket settings**.
+      The password value is displayed only once. If you close the page, you won't be able to view it again.
 
-    - Choose **App passwords** under **Access management**.
+      {% endnote %}
 
-    - Click **Create app password**.
+1. Enter the repository's address using the format `https://bitbucket.org/<repository owner's login>/<repository name>` and specify your Bitbucket login.
 
-    - Think up a name for your password, such as `Tracker integration password`.
+1. Enter the password you used when linking {{ tracker-name }} to Bitbucket. You cannot use your Bitbucket password for this purpose.
 
-    - Set access rights for your password. For {{ tracker-name }} to operate properly, make sure to enable the **read** option under **Repositories**:
-![](../../_assets/tracker/bitbucket-password-settings.png)
+1. Tap **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
-    - Click **Create**.
+1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
-    - Copy the password to clipboard.
+To link a commit to an issue in {{ tracker-name }}, specify the issue key in the comments for the commit. You can view the linked commits:
 
-        {% note alert %}
+- In the **{{ ui-key.startrek-backend.fields.issue.commits-key-value }}** tab on the issue page.
+- In the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}** tab on the queue page.
 
-        Your password will only be displayed once. You won't be able to see it again after closing the page.
-
-        {% endnote %}
-
-1. Enter the repository's address using the format `https://bitbucket.org/<repository owner's login/repository name` and specify your Bitbucket login.
-
-1. Enter the password you used when linking {{ tracker-name }} to Bitbucket. You cannot use your personal Bitbucket password.
-
-1. Click **Connect**.
-
-1. Make sure that the repository status in {{ tracker-name }} is **Connected**.
-
-To link a commit to an issue in {{ tracker-name }}, specify the issue key in the comments for the commit. You can view linked commits the following ways:
-
-- On the **Commits** tab on the issue page.
-- On the **Commits** tab on the queue page.
-
-If you don't see the **Commits** tab, make sure it's enabled in your [queue settings](edit-queue-general.md#ul_gcz_xlp_m2b).
-
+If the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}** tab is missing, make sure it is enabled in your [queue settings](edit-queue-general.md#ul_gcz_xlp_m2b).

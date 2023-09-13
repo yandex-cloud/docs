@@ -197,6 +197,12 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Releases
+    items:
+      - name: All releases
+        href: changelogs/index.md
+      - name: August 2023
+        href: changelogs/2308.md
   - name: API reference
     items:
       - name: Authentication in the API

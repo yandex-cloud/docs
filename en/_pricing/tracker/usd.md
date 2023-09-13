@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-The indicated prices are valid until January 2024 if you have activated a paid version until June 29, 2023.
+The indicated prices are valid until January 2024 if you activated a paid version before June 29, 2023.
 
 {% endnote %}
 

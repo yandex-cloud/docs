@@ -4,13 +4,13 @@ Each issue in {{ tracker-name }} belongs to a [queue](../queue-intro.md). Queues
 
 To view all issues in the queue, open its page:
 
-1. On the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **Queues**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}**.
 
 1. Select a filter to show the list of queues:
-   * **My queues**
+   * **{{ ui-key.startrek.blocks-desktop_m-head.group-title--owned--queues }}**.
    * **Owned by me**
-   * **Favorites**
-   * **Recently viewed**
+   * **{{ ui-key.startrek.blocks-desktop_m-head.filters-favorite }}**.
+   * **{{ ui-key.startrek.blocks-desktop_m-head.group-title--recent }}**.
 
 1. If you cannot see all relevant queues, expand the list:
 
@@ -20,7 +20,7 @@ To view all issues in the queue, open its page:
 
 1. Click the name of the relevant queue.
 
-By default, the queue page only displays active issues (the **Resolution: Without value** option). You can customize which issues to display by using the [filter by parameters](../manager/quick-filters.md) buttons above the issue list.
+By default, the queue page only displays active issues (**{{ ui-key.startrek.ui_components_projects_utils.field-name-resolution }}: {{ ui-key.startrek.ui_components_projects_utils.filter-macro-empty_ }}** option). You can customize which issues to display by using the [filter by parameters](../manager/quick-filters.md) buttons above the issue list.
 
 ## Adding a queue to Favorites {#queue-fav}
 
@@ -28,13 +28,13 @@ If you need quick access to a particular queue, add it to your Favorites:
 
 1. Open the queue page.
 
-1. At the top of the page, under the queue name, click ![](../../_assets/tracker/svg/favourites.svg) **Add to Favorites**.
+1. At the top of the page, under the queue name, click ![](../../_assets/tracker/svg/favourites.svg) **{{ ui-key.startrek.ui_components_macros_FavoriteButton.button-tooltip-add }}**.
 
 To open the list of your favorite queues:
 
-1. On the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **Queues**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/queues.svg) **{{ ui-key.startrek.ui_components_TrackerSearch.queues }}**.
 
-1. In the list on the right, select the **Favorites** filter.
+1. In the list on the right, select the **{{ ui-key.startrek.blocks-desktop_m-head.filters-favorite }}** filter.
 
 
 ## Saving a list to a file {#save-file}
@@ -49,7 +49,7 @@ The issue list is saved with all the filters and field settings applied.
 
 To save your issue list to a file:
 
-1. In the top-right corner of the page, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/export.svg) **Export**.
+1. In the top-right corner of the page, click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/export.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.export }}**.
 
 1. Select the format for saving the list.
 

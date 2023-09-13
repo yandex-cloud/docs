@@ -46,7 +46,7 @@
       ```bash
       yc resource-manager cloud add-access-binding mycloud \
         --role resource-manager.viewer \
-        --subject group:aje6o61dvog2h6g9a33s
+        --subject group:aje6o61dvog2********
       ```
 
 - API

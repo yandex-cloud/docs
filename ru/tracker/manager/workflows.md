@@ -373,5 +373,3 @@
 - **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**; 
 - **Позже**;
 - **Не делаем**.
-
-

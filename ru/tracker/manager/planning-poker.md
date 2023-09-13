@@ -55,7 +55,3 @@
 1. В поле **{{ ui-key.startrek.ui_components_agile_settings_PokerSettings.aggregation-function-field-label }}** выберите функцию расчета. По умолчанию задано **{{ ui-key.startrek-backend.messages.boards.poker.aggregate.function.maximum.double }}**.
 
 1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_poker.action-save }}**.
-
-
-
-

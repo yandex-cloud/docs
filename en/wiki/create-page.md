@@ -11,7 +11,7 @@ There are multiple ways to create a page in the old editor:
 
 {% note info %}
 
-The maximum number of pages per organization is 10000.
+The maximum number of pages per organization is 10,000.
 
 {% endnote %}
 
@@ -36,7 +36,7 @@ To create a page in the old editor:
 
    You can change the page address manually, if required.
 
-1. Click **Create**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.create }}**.
 
 1. [Add text to the page](basic-markup.md) and save the changes.
 
@@ -48,9 +48,9 @@ You can create a page in the old editor in a specific cluster:
 
 1. There are two ways to create a subpage in a cluster:
 
-   * In the ![](../_assets/wiki/svg/structure-icon.svg) **Cluster structure** menu, click ![](../_assets/wiki/svg/button-add-subpage.svg) **Create subpage** to the left of the page name.
+   * In the ![](../_assets/wiki/svg/structure-icon.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.tree }}** menu, to the left of the page name, click ![](../_assets/wiki/svg/button-add-subpage.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.create_page }}**.
 
-   * In the top-right corner of the cluster page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Create subpage**.
+   * In the top-right corner of the cluster page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.create_page }}**.
 
 1. Select the **Old editor** type.
 
@@ -58,7 +58,7 @@ You can create a page in the old editor in a specific cluster:
 
 1. The **Page address** field will be populated automatically. You can change the page address manually, if required.
 
-1. Click **Create**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.create }}**.
 
 1. [Add text to the page](basic-markup.md) and save the changes.
 

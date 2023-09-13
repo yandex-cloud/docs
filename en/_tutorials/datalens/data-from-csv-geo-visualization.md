@@ -34,7 +34,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Step 1. Create a connection to a CSV file {#step1}
 
-1. Download the [file with traffic accident statistics](https://{{ s3-storage-host }}/doc-files/dtp201804-1.csv) for April-December 2018 in CSV format.
+1. Download the [file with traffic accident statistics](https://storage.yandexcloud.net/doc-files/dtp201804-1.csv) for April-December 2018 in CSV format.
 
 1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page and click **Create connection**.
 
@@ -264,7 +264,7 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
 
       {% note info %}
 
-      The legend may be missing for some of the chart lines. If this is the case, hover over the line and you'll see a tooltip with the region name.
+      The legend may be missing for some of the chart lines. If this is the case, hover over the line and you will see a tooltip with the region name.
 
       {% endnote %}
 
@@ -437,7 +437,7 @@ Sometimes, heat maps are not very informative. Upload the polygon reference and 
    ![image](../../_assets/datalens/solution-07/58-add-file.png)
 
 1. At the top right, click **Save changes**.
- 
+
 ## Step 10. Add new fields to the dataset {#step10}
 
 You need to add new fields to the previously created **Accidents** dataset.
@@ -478,7 +478,7 @@ You need to add new fields to the previously created **Accidents** dataset.
 
    ![image](../../_assets/datalens/solution-07/69-geopolygon.png)
 
-1. In the top right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
 ## Step 11. Create a chart using the new fields {#step11}
 

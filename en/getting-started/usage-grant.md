@@ -50,5 +50,5 @@ Grant terms of use depend on:
 {% endlist %}
 
 
-For more information about [billing accounts](../billing/concepts/billing-account.md) and the [terms and conditions for non-residents of the Russian Federation](../billing/qa/non-resident.md), see the Billing documentation.
+For more information about [billing accounts](../billing/concepts/billing-account.md) and the [terms and conditions for non-residents of the Russian Federation](../billing/qa/non-resident.md), see the {{ billing-name }} documentation.
 

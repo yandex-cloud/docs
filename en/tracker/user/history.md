@@ -1,29 +1,24 @@
 # Viewing the history of issue changes
 
-## Viewing the history of changes {#section_krn_dk5_xgb}
+## Viewing the history of changes {#show-history}
 
-Any changes to an issue are saved in the _History_. To view the history of changes to an issue:
+Any changes to an issue are saved in the **History**. To view the history of issue changes:
 
 1. Open the issue page.
 
-1. Go to the **History** tab above the comments section.
+1. To the right of the **Activity** section, click on the **{{ ui-key.startrek.blocks-desktop_b-ticket-workflow.comments }}** list (selected by default) and select **{{ ui-key.startrek.blocks-desktop_b-ticket-workflow.history }}**.
 
-The history saves:
+The change history saves:
 
-- Names of changed settings.
-- Values of settings before and after changing them.
-- Names of the users who made the changes.
-- Date and time when the changes were made.
+* Names of the saved parameters.
+* Parameter values before and after the change.
+* Names of change authors.
+* Date and time when the changes were made.
 
-## Sorting entries {#section_s1l_3k5_xgb}
+##  Sorting entries {#change-order}
 
-History entries are listed chronologically by default. To change the entry order, do the following:
+Entries in the change history are ordered chronologically by default.
 
-1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
+To change the order of entries, to the right of the **Activity** section, click ![](../../_assets/tracker/svg/new-first.svg) **{{ ui-key.startrek.blocks-desktop_b-ticket-workflow.new-on-top }}**.
 
-1. Under **Message order in issues**, select **Newest first**.
-
-1. Click **Save**.
-
-All the issue comments will be displayed from newest to oldest.
-
+The issue comments will also get reordered.

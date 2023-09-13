@@ -8,59 +8,58 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 {% endnote %}
 
-To configure notifications for issue updates within a queue:
+To set up sending of notification about issue status changes in the queue:
 
 1. Open the [queue page](../user/queue.md).
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg)&nbsp;**{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Go to the **Notifications** tab.
+1. Click the **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}** tab.
 
-1. Configure sending notifications:
+1. Set up sending of notifications:
 
-    **About all issues in the queue**
+   **About all issues in the queue**
 
-      1. Go to the **All issues** tab.
+   1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_notifications.queue }}** tab.
 
-      1. List the names or usernames of the users you want to receive notifications.
+   1. List the names of the logins of users who need to send notifications.
 
-      1. Choose when users will receive notifications:
+   1. Select in which cases the users will be notified:
 
-          - **Create issue**: Users only get notifications when new issues are created.
+      - **{{ ui-key.startrek.blocks-desktop_trigger-action.title_createissue }}**: Users only get notifications when new issues are created.
 
-          - **All events**: Users are notified of any changes to issues.
+      - **{{ ui-key.startrek-backend.profiles.category.everything }}**: Users are notified of any changes to issues.
 
-    **About issues related to a specific version**
+   **About issues related to a specific version**
 
-      You can set up notifications for issues that specify the version you are interested in:
+   You can set up sending of notifications about the issues whose properties include a certain version.
 
-      1. Go to the **Issues for a specific version** tab.
+   1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_notifications.versions }}** tab.
 
-      1. Select the version.
+   1. Select a version.
 
-      1. List the names or usernames of the users you want to receive notifications.
+   1. List the names of the logins of users who need to send notifications.
 
-      1. Choose when users will receive notifications:
+   1. Select in which cases the users will be notified:
 
-          - **Create issue**: Users only get notifications when new issues are created.
+      - **{{ ui-key.startrek.blocks-desktop_trigger-action.title_createissue }}**: Users only get notifications when new issues are created.
 
-          - **All events**: Users are notified of any changes to issues.
+      - **{{ ui-key.startrek-backend.profiles.category.everything }}**: Users are notified of any changes to issues.
 
-    **About issues related to a specific component**
+   **About issues related to a specific component**
 
-      You can set up notifications for issues that specify the component you are interested in:
+   You can set up sending of notifications about the issues whose properties include a certain component:
 
-      1. Go to the **Issues with the required component** tab.
+   1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_notifications.components }}** tab.
 
-      1. Select the component.
+   1. Select the component.
 
-      1. List the names or usernames of the users you want to receive notifications.
+   1. List the names of the logins of users who need to send notifications.
 
-      1. Choose when users will receive notifications:
+   1. Select in which cases the users will be notified:
 
-          - **Create issue**: Users only get notifications when new issues are created.
+      - **{{ ui-key.startrek.blocks-desktop_trigger-action.title_createissue }}**: Users only get notifications when new issues are created.
 
-          - **All events**: Users are notified of any changes to issues.
+      - **{{ ui-key.startrek-backend.profiles.category.everything }}**: Users are notified of any changes to issues.
 
-1. Click **Save**.
-
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-settings.save }}**.

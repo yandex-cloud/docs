@@ -10,7 +10,22 @@ In addition, certain types of endpoints support a transfer of [empty objects](#f
 
 ## Processing empty objects {#features-common-processing-of-empty-objects}
 
-Transfers _between endpoints of different types_ (such as from {{ PG }} to {{ CH }}) only transfer non-empty objects. For example, tables (in relational DBs) that do not contain tuples or fields are not transferred.
+You can only transfer non-empty tables and their data but not other schema elements (indexes, external keys, etc.) _between endpoints of different types_ (e.g., from {{ PG }} to {{ CH }}) .
+Auto incremental fields are also transferred, but `AUTO_INCREMENT` is not.
+
+> For example, the following table
+
+> ```sql
+> CREATE TABLE `sometable` (
+> `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT
+> ```
+
+> will be transferred as
+
+> ```sql
+> CREATE TABLE "sometable" (
+> "id" int8 NOT NULL
+> ```
 
 Transfers _between same-type endpoints_ (such as from {{ PG }} to {{ PG }}) transfer empty objects as part of a schema.
 

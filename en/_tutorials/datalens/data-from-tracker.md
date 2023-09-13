@@ -160,7 +160,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * **Raw SQL level**: `Forbid`.
    * **HTTPS**: `Enabled`.
       ![connection-settings](../../_assets/datalens/connection-settings.png =680x665)
-1. Click **Create connection**.
+1. Click **Create connection**.
 
 ## Create a dataset {#dataset-create}
 
@@ -176,8 +176,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a chart {#chart-create}
 
 
-1. Go to the [{{ datalens-short-name }}] homepage({{ link-datalens-main }}).
-1. Click **Create chart**.
+1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) homepage.
+1. Click **Create chart**.
 1. In the top-left corner, click ![image](../../_assets/datalens/datasets.svg) **Select dataset**.
 1. In the **Datasets** drop-down list, select the [dataset](#dataset-create) you created in the previous step.
 

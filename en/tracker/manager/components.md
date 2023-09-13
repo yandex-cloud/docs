@@ -1,64 +1,64 @@
 # Components
 
-Components help users group queue issues based on a shared theme, such as their product, process, responsible party, and so on. A single queue can have multiple components.
+Components help you group issues in a queue based on a shared theme, such as their product, pipeline, responsible party, and so on. You can create multiple components in a queue.
 
-For example, you can use components to [group support service requests](../support-process-group.md).
+For example, using components, you can [classify requests to technical support](../support-process-group.md).
 
-## Creating a component {#section_zrt_szk_xz}
+## Creating a component {#create-component}
 
 To create a new queue component:
 
 1. Open the [queue page](../user/queue.md).
 
-1. Go to the **Components** tab.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
 
-1. Click **Create component**.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-components.action--add }}**.
 
-1. **Name** the component.
+1. Enter the component **{{ ui-key.startrek.blocks-desktop_b-form-new-component.name }}**.
 
-1. If necessary, select the responsible person and fill in the component description.
+1. Select a responsible person if needed and fill out the component description.
 
-1. Select **Assign to issues by default** if you want new issues with this component to be automatically assigned to the component owner.
+1. Select **{{ ui-key.startrek.blocks-desktop_b-form-new-component.task-assignee }}** if you want new issues with this component to be automatically assigned to the component owner.
 
-1. Click **Create**.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-create }}**.
 
-## Editing a component {#section_vj2_5zk_xz}
+## Editing a component {#edit-component}
 
-To change an existing queue component:
-
-1. Open the [queue page](../user/queue.md).
-
-1. Go to the **Components** tab.
-
-1. Put the cursor over the component.
-
-1. Select ![](../../_assets/tracker/icon-settings.png) → **Edit**.
-
-1. Make your changes and click **Save**.
-
-## Subscribing to a component {#section_rzw_5zk_xz}
-
-If you want to be notified of changes to issues related to a particular component, you can subscribe to it:
+To change an existing component of the queue:
 
 1. Open the [queue page](../user/queue.md).
 
-1. Go to the **Components** tab.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
 
-1. Put the cursor over the component.
+1. Hover the cursor over the component.
 
-1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
+1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page-components.action--edit }}**.
+
+1. Make your changes and click **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-update }}**.
+
+## Subscribing to a component {#subscribe-component}
+
+If you want to get notified about changes in issues linked to a specific component, you can subscribe to such a component:
+
+1. Open the [queue page](../user/queue.md).
+
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
+
+1. Hover the cursor over the component.
+
+1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page-components.action--subscribe }}**.
 
 If you did everything right, you'll see the following icon next to the component name: ![](../../_assets/tracker/subscribtion.png)
 
-## Viewing component issues {#section_l31_brz_xz}
+## Viewing component issues {#show-tasks-component}
 
-You can view a list of issues related to a specific component:
+You can view a list of issues linked to a specific component:
 
 1. Open the [queue page](../user/queue.md).
 
-1. Go to the **Components** tab.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
 
-1. Click the name of the component.
+1. Tap the component name.
 
 ## Deleting a component {#delete-component}
 
@@ -66,11 +66,10 @@ To delete a queue component:
 
 1. Open the [queue page](../user/queue.md).
 
-1. Go to the **Components** tab.
+1. In the top-right corner of the page, select ![](../../_assets/horizontal-ellipsis.svg) **Queue actions** → ![](../../_assets/tracker/svg/components.svg) **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_components }}**.
 
-1. Put the cursor over the component.
+1. Hover the cursor over the component.
 
-1. Select ![](../../_assets/tracker/icon-settings.png) → **Delete**.
+1. Select ![](../../_assets/tracker/svg/settings-old.svg) → **{{ ui-key.startrek.blocks-desktop_b-page-components.action--delete }}**.
 
 1. Confirm the deletion.
-

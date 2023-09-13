@@ -2,17 +2,17 @@
 
 To perform a search by text on {{ wiki-name }} pages:
 
-1. In the {{ wiki-name }} left-hand panel, click ![](../_assets/wiki/svg/search.svg) **Search**.
+1. In the {{ wiki-name }} left-hand panel, click ![](../_assets/wiki/svg/search.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.search }}**.
 
-1. Enter your query in the search bar. The pages that contain the specified text will be shown under the search bar.
+1. Enter your query in the search bar. The pages containing the query will be shown under the search bar.
 
 
 1. To refine the search results, press **Enter** in the search bar and use the filters in the right-hand panel:
 
-   - **Cluster**: URL of a [cluster](structure.md#clusters) relative to the `{{ wiki-host-name }}` home page. For example, to find text on subpages of the `{{ wiki-username }}` cluster, enter `users/userName`.
+   - **Cluster**: [Cluster's](structure.md#clusters) URL relative to the `{{ wiki-host-name }}` home page. For example, to find text on the subpages of the `{{ wiki-username }}` cluster, enter `users/userName`.
    - **Page author**: Name or username of the {{ wiki-name }} page author.
-   - **Created** or **Updated**: Date when the page was created or last changed.
-   - **Document type**: Search for a specific type of {{ wiki-name }} document (page, table, or file).
+   - **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.date_created }}** or **Updated**: Date when the page was created or last changed.
+   - **Document type**: Search across {{ wiki-name }} documents of a specific type (page, table, or file).
 
 
 1. Sort the search results: by relevance, last update, or creation date.

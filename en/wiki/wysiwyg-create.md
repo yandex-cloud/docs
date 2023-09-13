@@ -18,6 +18,6 @@ To create a page in a WYSIWYG visual editor:
 
 1. Set the page title and address in the same way as when [creating a regular {{ wiki-name }} page](create-page.md).
 
-1. Click **Create**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.create }}**.
 
 1. Add text to your page using the [visual editor](wysiwyg-edit.md).

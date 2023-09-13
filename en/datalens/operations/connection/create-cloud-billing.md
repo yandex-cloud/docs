@@ -1,6 +1,6 @@
 # Creating a {{ yandex-cloud }} Billing connection
 
-You can only access statistics for the billing accounts you have the `{{ roles-viewer }}`, `{{ roles-editor }}`, or `{{ roles-admin }}` role in. For more information about managing access in Billing, see [Access management](../../../billing/security/index.md) in the documentation.
+You can only access statistics for the billing accounts you have the `{{ roles-viewer }}`, `{{ roles-editor }}`, or `{{ roles-admin }}` role in. For more information about managing access in {{ billing-name }}, see [Access management](../../../billing/security/index.md) in the documentation.
 
 To create a {{ yandex-cloud }} Billing connection:
 

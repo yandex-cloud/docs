@@ -1,14 +1,13 @@
-# Viewing service detalization
+# Viewing service usage details
 
-To view service detalization:
+To view service usage details:
 
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
+1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
 
-1. Select your billing account on the**Account list** page.
+1. Select your billing account on the **{{ ui-key.yacloud.billing.switch_accounts }}** page.
 
-1. In the left-hand panel, select **Detalization**.
+1. In the left-hand panel, select **{{ ui-key.yacloud.billing.account.switch_detail }}**.
 
-The page displays the cost of {{ tracker-name }} paid features for the last 30 days and the current amount owed.
+The page shows the cost of the paid {{ tracker-name }} features over the past 30 days, as well as the current amount due.
 
-To learn more about how subscription costs for {{ tracker-name }} are calculated, see [{#T}](pricing.md#sec_calculate).
-
+Read more about pricing {{ tracker-name }} in [{#T}](pricing.md#sec_calculate).

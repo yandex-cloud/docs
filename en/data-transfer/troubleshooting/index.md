@@ -21,6 +21,10 @@ Limitations on sources and targets while a transfer is running are described in 
 
 You can request log records about your resources from {{ yandex-cloud }} services. For more information, see [{#T}](../../support/request.md).
 
+
+Use the {{ yandex-cloud }} [mobile app](/mobile-app) to quickly view logs, monitor transfers, and get error details.
+
+
 ## General {#common}
 
 {% include [long-time](../../_includes/data-transfer/troubles/long-time.md) %}
@@ -145,6 +149,8 @@ Error example:
 ## {{ yds-full-name }} {#yds}
 
 {% include [overloaded](../../_includes/data-transfer/troubles/overloaded.md) %}
+
+{% include [redirects](../../_includes/data-transfer/troubles/data-streams/data-streams-redirects.md) %}
 
 
 

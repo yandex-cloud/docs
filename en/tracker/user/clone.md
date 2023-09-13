@@ -1,6 +1,6 @@
 # Cloning an issue
 
-You can use cloning to create new issues based on existing ones. You can clone issues in any queue that is available to you.
+You can use issue cloning to create new issues based on existing ones. You can clone issues into any queue that is available to you.
 
 {% note tip %}
 
@@ -12,29 +12,20 @@ To clone an issue:
 
 1. Open the issue page.
 
-1. Select **Actions** → **Clone issue**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.clone-issue-action-title }}**.
 
-1. Fill in the fields:
+1. Select the queue to create your cloned issue in.
 
-    - **Clone in**: Select the queue to create a cloned issue in.
+1. To save the issue parameters, enable **{{ ui-key.startrek.blocks-desktop_form-clone.clone-all-fields }}**. If some parameters are missing from the target queue (such as versions or components), they remain empty.
 
-    - **Copy issue fields**: If this option is selected, the issue settings are preserved in the clone. If some of the settings are not available in the target queue (for example, versions or components), they will be left empty.
+   {% note warning %}
 
-        {% note warning %}
+   If the issue has the [local field](../local-fields.md) values specified, they will be reset when cloning the issue to a different queue.
 
-        If the issue has the [local field](../local-fields.md) values specified, they will be reset when cloning the issue to a different queue.
+   {% endnote %}
 
-        {% endnote %}
+1. To establish a link between the issue and its clone, enable **{{ ui-key.startrek.blocks-desktop_form-clone.link-with-original }}**.
 
-    - **Link the cloned issue**: If this option is selected, the issue and its clone will be linked.
+1. Click **{{ ui-key.startrek.blocks-desktop_form-clone.submit-button }}**.
 
-    - **Issue name**: The same issue name is used by default, but you can change it.
-
-    - **Type**: Select the type of issue. The issue types available depend on the target queue settings.
-
-    - **Status**: Select the issue status. The available issue statuses depend on the settings of the target queue for the selected issue type.
-
-    - **Assignee** and **Followers**: These settings are preserved by default, but you can change them.
-
-1. Click **Clone**.
-
+You can open the issue's clone from the notification bar in the bottom-right corner of the page.

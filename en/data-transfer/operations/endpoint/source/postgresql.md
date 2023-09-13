@@ -10,6 +10,8 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 * [{{ mpg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
+Before you get started, check the [Service specifics for {{ PG }} sources and targets](../../../concepts/work-with-endpoints.md#postgresql).
+
 ## {{ mpg-name }} cluster {#managed-service}
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mpg-name }}](../../../../managed-postgresql/).
@@ -156,7 +158,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `--exclude-table`: List of excluded tables. Data from tables on this list will not be transferred.
+   * `--exclude-table`: List of excluded tables. Data from the listed tables will not be transferred.
 
       The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 
@@ -180,7 +182,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `exclude_tables`: List of excluded tables. Data from tables on this list will not be transferred.
+   * `exclude_tables`: List of excluded tables. Data from the listed tables will not be transferred.
 
       The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 
@@ -226,7 +228,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `excludeTables`: Blacklist of tables. Data from tables on this list will not be transferred.
+   * `excludeTables`: List of excluded tables. Data from the listed tables will not be transferred.
 
       The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 
@@ -250,8 +252,6 @@ For OnPremise, all fields are filled in manually.
 The default settings of the source endpoint let you successfully perform a transfer for most databases. Change the settings of the initial and final stages of the transfer only if it is necessary.
 
 {% endnote %}
-
-The service does not transfer `MATERIALIZED VIEWS`. For more detail, please review [Service specifics for sources and targets](../../../concepts/index.md#postgresql).
 
 During a transfer, the database schema is transferred from the source to the target. The transfer is performed in two stages:
 

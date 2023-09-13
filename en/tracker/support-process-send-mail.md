@@ -6,12 +6,12 @@ To send emails from the issue page:
 
 ### Step 1. Set up email integration in the queue
 
-1. Go to **Mailboxes** in the queue settings and [add queue address](manager/queue-mail.md).
+1. Go to **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-aliases }}** in the queue settings and [add queue address](manager/queue-mail.md).
 
    If you want to send issues from the issue page, you need a shared queue address. The user responses sent to the queue address will be added as issue comments.
 
    
-   If you cannot add an address for the queue, it means that your organization does not have a domain. You need a domain to create mailboxes and newsletters, for example, to add an email address for your queue. You can [add a domain in {{ ya-360 }}]({{ support-business-domain }}) free of charge.
+   If you cannot add an address for the queue, it means that your organization does not have a domain. You need a domain to create mailboxes and newsletters, for example, to add an email address for your queue. You can freely [add a domain in {{ ya-360 }}]({{ support-business-domain }}).
 
 
 1. [Set up sender names and signatures](manager/queue-mail.md) if needed.
@@ -22,13 +22,13 @@ To send emails from the issue page:
 
 1. Open any issue in the support queue.
 
-1. Enable the **Email** option above the comment box and specify the recipient's address.
+1. Enable the **{{ ui-key.startrek.blocks-desktop_b-ticket-workflow.new-comment-type--external }}** option above the comment box and specify the recipient's address.
 
-   If the issue was [generated from a user email](#mail), the requester's email address will be automatically added to the **To** field.
+   If the issue was [generated from a user email](#mail), the requester's email address will be automatically added to the **{{ ui-key.startrek-backend.fields.issue.emailTo }}** field.
 
-   If you are [using forms to process user requests](#form), ask users to provide their email address in the form and save their responses in the issue's <q>From</q> field. In this case, the **To** field will still be automatically filled in with the requester's email address.
+   If you are [using forms to process user requests](#form), ask users to provide their email address in the form and save their responses in the issue's <q>{{ ui-key.startrek-backend.fields.issue.emailFrom }}</q> field. In this case, the **{{ ui-key.startrek-backend.fields.issue.emailTo }}** field will still be automatically filled in with the requester's email address.
 
-1. Click **Send**.
+1. Click **{{ ui-key.startrek.blocks-desktop_comment-form.send }}**.
 
 ### Step 3. Enable automation
 

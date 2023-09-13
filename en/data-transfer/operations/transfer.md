@@ -128,7 +128,7 @@ For more information about transfer states, operations applicable to transfers, 
 
         {% note info %}
 
-        The transfer name must be unique within the folder. It may contain Latin letters, numbers, and hyphens. It must be maximum 63 characters long.
+        The transfer name must be unique within the folder. It may contain Latin letters, numbers, and hyphens. The name may be up to 63 characters in length.
 
         {% endnote %}
 
@@ -176,7 +176,7 @@ For more information about transfer states, operations applicable to transfers, 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -253,10 +253,10 @@ For more information about transfer states, operations applicable to transfers, 
       * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.transformation.title }}**: Rules for [transforming data](../concepts/data-transformation.md). This setting only appears when the source and target are of different types.
          * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.rename_tables.title }}**: Settings for renaming tables:
             * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.original_name.title }}**:
-               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}**: Naming convention depending on the source type. e.g., a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}**: Naming convention depending on the source type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}**: Source table name.
             * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTable.new_name.title }}**:
-               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}**: Naming convention depending on the target type. e.g., a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+               * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name_space.title }}**: Naming convention depending on the target type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source does not support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
                * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Table.name.title }}**: New name for the target table.
          * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.filter_columns.title }}** specifies column transfer settings. If both the rename tables and column filter options are set for the transfer, the column filter should specify the source table names. Table and column names are specified using regular expressions. Lists of excluded tables and columns take priority in the event of a conflict with included ones.
             * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.ToStringTransformer.tables.title }}**:
@@ -302,7 +302,7 @@ For more information about transfer states, operations applicable to transfers, 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -355,6 +355,10 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 
 {% endlist %}
 
+
+{% include [мобильное приложение](../../_includes/data-transfer/use-mobile-app.md) %}
+
+
 ## Deactivating a transfer {#deactivate}
 
 During transfer deactivation:
@@ -404,6 +408,10 @@ Do not interrupt the deactivation of the transfer! If the process fails, the per
 {% endnote %}
 
 For more information, see [{#T}](../concepts/transfer-lifecycle.md).
+
+
+{% include [мобильное приложение](../../_includes/data-transfer/use-mobile-app.md) %}
+
 
 ## Deleting a transfer {#delete}
 

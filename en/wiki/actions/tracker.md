@@ -17,7 +17,7 @@ Example:
 
 ## List of issues {#ticket-list}
 
-Using the `not_var{{tasks}}` block, you can add an automatically generated list of issues to a page created in the old editor. For example:
+Using the `not_var{{tasks}}` block, you can add an automatically generated list of issues to a page created in the old editor. Example:
 
 ```
 {{tasks url="URL of the filter or the queue"}}
@@ -43,7 +43,7 @@ Using dynamic tables, you can add a list of issues and their main parameters to 
 
 1. Add the required number of rows and list the issue keys in them.
 
-1. Create additional columns. As the data type, select ![](../../_assets/wiki/svg/type-task-parameters.svg) **Issue parameters**, such as the issue's **Summary**, **Reporter**, or **Type**.
+1. Create additional columns. As the data type, select ![](../../_assets/wiki/svg/type-task-parameters.svg) **Issue parameters**, such as the issue's **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.title }}**, **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.author }}**, or **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.type }}**.
 
 1. Save the table.
 

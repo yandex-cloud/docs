@@ -16,11 +16,11 @@ A page with all its subpages forms a [cluster](structure.md). To view the cluste
 
 1. Open the page.
 
-1. In the top panel, click ![](../_assets/wiki/svg/structure-icon.svg) **Cluster structure**.
+1. In the top panel, click ![](../_assets/wiki/svg/structure-icon.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.tree }}**.
 
 1. To see all subpages, click the expand list icon ![](../_assets/wiki/svg/navigation-tree-item.svg) to the left of the parent page name.
 
-1. To change the position of pages in the tree, click on the desired page, drag it along the structure of the cluster, and then click **Save**.
+1. To change the position of pages in the tree, click on the desired page, drag it along the structure of the cluster, and then click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-editor-struct.page_save }}**.
 
 ## Embedding a cluster tree in a page {#action-tree}
 

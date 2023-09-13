@@ -185,38 +185,48 @@ items:
         href: manager/project-list.md
       - name: Issue board
         href: manager/boards-project.md
-  - name: Agile development tools
-    items:
-      - name: Overview
-        href: manager/agile.md
-      - name: Create a board
-        href: manager/create-agile-board.md
-      - name: Working with an agile board
-        href: user/agile.md
-      - name: Editing or deleting a board
-        href: manager/edit-agile-board.md
-      - name: Backlog
-        href: manager/backlog.md
-      - name: Sprints
-        href: manager/create-agile-sprint.md
-      - name: Epics
-        href: manager/epic.md
-      - name: Collaborative workload estimation
-        href: manager/planning-poker.md
-      - name: Burn down charts
-        href: manager/burndown.md
-      - name: Switching to new technology
-        href: manager/boards-convertor.md
-  - name: Issue boards (beta)
+  - name: Issue boards
     items:
       - name: Overview
         href: manager/agile-new.md
-      - name: Create a board
+      - name: Creating a board
         href: manager/agile-new-create.md
-      - name: Working with an agile board
-        href: manager/agile-new-use.md
-      - name: Setting up a board
-        href: manager/agile-new-set.md
+      - name: Configuring a board
+        href: manager/agile-new-set-board.md
+      - name: Working with issues on a board
+        href: manager/agile-new-issues.md
+      - name: Configuring columns
+        href: manager/agile-new-columns.md
+      - name: Tools available on boards with a backlog and sprints
+        items:
+          - name: Overview
+            href: manager/boards-instruments.md
+          - name: Backlog
+            href: manager/backlog.md
+          - name: Sprints
+            href: manager/create-agile-sprint.md
+          - name: Planning Poker
+            href: manager/poker.md
+          - name: Burn down charts
+            href: manager/burndown-diagram.md
+      - name: Old boards
+        items:
+          - name: Overview
+            href: manager/agile.md
+          - name: Switching to new technology
+            href: manager/boards-convertor.md
+          - name: Create a board
+            href: manager/create-agile-board.md
+          - name: Working with an agile board
+            href: user/agile.md
+          - name: Editing or deleting a board
+            href: manager/edit-agile-board.md
+          - name: Epics
+            href: manager/epic.md
+          - name: Collaborative workload estimation
+            href: manager/planning-poker.md
+          - name: Burn down charts
+            href: manager/burndown.md
   - name: Find issues
     items:
       - name: Finding issues by key or name

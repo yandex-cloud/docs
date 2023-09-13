@@ -8,7 +8,7 @@ You cannot convert pages created in the new editor into pages of the old editor 
 
 To edit a page [created](wysiwyg-create.md) in the new editor:
 
-1. Open the page you need and click **Edit** in the top-right corner.
+1. Open the page you need and click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-comment.edit }}** in the top-right corner.
 
 1. Make changes to the page. To format text and lists, embed tables and images, use the following toolbar buttons:
 
@@ -101,15 +101,15 @@ To add a link:
 
 1. On the toolbar, click ![](../_assets/wiki/svg/wysiwyg/link.svg).
 
-1. Enter a direct or [relative](static-markup/links.md#wiki-ref) reference. If you did not select a text fragment, enter the text to be displayed as a link.
+1. Enter a direct or [relative](static-markup/links.md#wiki-ref) reference. If you have not selected a text fragment, enter the text to be displayed as a link.
 
-1. Click **Save**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-editor-struct.page_save }}**.
 
 To change or delete a link:
 
 1. Click on the link.
 
-1. Make your changes and click **Save**.
+1. Make your changes and click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-editor-struct.page_save }}**.
 
 ## Embedded content {#content-wysiwyg}
 
@@ -124,7 +124,7 @@ To change or delete a link:
 
    - Copy an image file from the file manager on your computer.
 
-1. Open the page and click **Edit**.
+1. Open the page and click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-comment.edit }}**.
 
 1. Paste the image from the clipboard into the page text.
 
@@ -146,7 +146,7 @@ The image is automatically uploaded to {{ wiki-name }} and added to a [list of a
 
    * Specify the image size.
 
-1. Click **Save**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-editor-struct.page_save }}**.
 
 ### Files {#file}
 
@@ -172,7 +172,7 @@ To embed an object or media file from an external source in a page, use an embed
 
    * Specify the frame size.
 
-1. Click **Save**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-editor-struct.page_save }}**.
 
 ## Tables {#tables-wysiwyg}
 
@@ -186,11 +186,11 @@ You can add [PlantUML](https://plantuml.com/)-supported diagrams to your page.
 
 To insert a diagram, switch to **Editor** mode, open the list of commands using the `/` character, and select ![](../_assets/wiki/svg/wysiwyg/chart.svg) **Diagram**.
 
-To edit your diagram, click **Edit** in the top-right corner of the diagram block and edit its syntax using the PlantUML markup language. Save your changes
+To edit your diagram, click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-comment.edit }}** in the top-right corner of the diagram block and edit its syntax using the PlantUML markup language. Save your changes.
 
 ## Users {#user}
 
-To mention an organization user on your page, switch to **Editor** mode, click `@` or open the list of commands using the `/` character, and select ![](../_assets/wiki/svg/wysiwyg/user.svg) **User**. Start typing the user's name or login.
+To mention a user of the organization on your page, switch to the **Editor** mode, click `@` or open the list of commands using the `/` character, and select ![](../_assets/wiki/svg/wysiwyg/user.svg) **{{ ui-key.yacloud.common.user }}**. Start typing the user's name or login.
 
 ## Includes {#include}
 

@@ -25,9 +25,9 @@ The user's access level applies throughout the {{ tracker-name }} organization s
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. In the panel on the left, click **Administration** → **Users**.
+1. In the left-hand panel, click **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
 
-1. For all employees who need to manage issues, in the **Access to {{ tracker-name }}** column, select **Full**.
+1. For all employees who need to manage issues, select **{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.access-level_full-access }}** in the **{{ ui-key.startrek.ui_components_page-admin_OrgUsersPane.title_access }}** column.
 
 {% note info %}
 
@@ -42,17 +42,17 @@ To make sure all new users added to {{ tracker-name }} automatically get full ac
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
-1. In the panel on the left, click **Administration** → **Users**.
+1. In the left-hand panel, click **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-users }}**.
 
-1. In the upper-right corner of the page, select **Full access for all new users**:
+1. In the top-right corner of the page, select **{{ ui-key.startrek.components_Licenses.default-full-access-label }}**:
 
-   - If you already linked your billing account to {{ tracker-name }}, click **Enable**.
+   - If you already linked your billing account to {{ tracker-name }}, click **{{ ui-key.startrek.components_LicensesDefaultFullAccessModal.button-submit--toEnable }}** in the window that opens.
 
    - If you have no billing account linked, click **Go to billing** to create a new billing account or link an existing billing account to {{ yandex-cloud }}. For more information, see [Setting up a billing account](billing-account.md)
 
 {% note info %}
 
-When enabling or disabling **Full access for all new users**, the access rights of existing users do not change.
+When enabling or disabling **{{ ui-key.startrek.components_Licenses.default-full-access-label }}**, the access rights of existing users do not change.
 
 {% endnote %}
 
@@ -60,7 +60,7 @@ When enabling or disabling **Full access for all new users**, the access rights 
 
 If your company uses {{ yandex-360 }} for Business, you can create employee groups and set up access for them. For more information about creating a group, see the [Yandex 360 for Business documentation](https://yandex.ru/support/business/projects.html).
 
-To set up access for a group of users, go to **Administration** → **Groups** and select an access level for each group from the dropdown list.
+To set up access for a group of users, go to **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}** and select the appropriate access level for each group from the drop-down list.
 
 The access level of a group doesn't override the access level of an individual user in the group. But if at least one of the groups that include the user has full access, the user will have full access.
 

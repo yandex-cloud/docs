@@ -10,9 +10,9 @@ If you already have an organization in {{ org-full-name}}, {{ wiki-full-name }} 
 
 1. Go to the {{ wiki-name }} homepage: [{{ link-wiki }}]({{ link-wiki }}).
 
-1. [Log in](login.md) to the account you use to work in organization.
+1. [Log in](login.md) to the account you use to work in the organization.
 
-1. If your account is registered in several organizations, select the one where you want to activate {{ wiki-full-name }}. Then click **Next**.
+1. If your account is registered in several organizations, select the one where you want to activate {{ wiki-full-name }}. Then click **{{ ui-key.yacloud.common.continue }}**.
 
 ## Migrating to {{ wiki-name }} from Confluence
 
@@ -28,11 +28,11 @@ An organization can only be created for users who have a Yandex account.
 
 {% endnote %}
 
-1. Log in to your [Yandex account]({{ link-passport }}). If you don't have an account, [create]({{ support-passport-create }}) one.
+1. Log in to your [Yandex account]({{ link-passport }}). If you have no account, [create]({{ support-passport-create }}) one.
 
 1. Go to the {{ wiki-name }} homepage: [{{ link-wiki }}]({{ link-wiki }}).
 
-1. Accept the {{ yandex-cloud }} terms of use and click **Log in**.
+1. Accept the {{ yandex-cloud }} terms of use and click **{{ ui-key.yacloud_components.usermenu.label_login }}**.
 
    Your organization is automatically created and {{ wiki-full-name }} is activated.
 

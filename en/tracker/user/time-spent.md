@@ -8,19 +8,19 @@ The time spent is counted in working weeks (5 working days), working days (8 hou
 
 ## Time tracking {#spent-time}
 
-The **Time spent** section shows the time planned and spend on the issue.
+The **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}** section shows the time planned for and spent on the issue.
 
 Before getting started with an issue, we recommend that you specify the time you're planning to spend on it. When the work is complete, you can compare your preliminary evaluation with the actually spent time.
 
-* **Original Estimate**: The time planned to spend on the issue execution.
+* **{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }}**: Time planned for resolving the issue.
 
-* **Estimate**: You can specify the time left to be spent on resolving the issue. Fill it out in the beginning or in the process of working on the issue.
+* **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}**: You can specify how much time is still required to resolve the issue. Fill it out in the beginning or in the process of working on the issue.
 
-   * If you don't specify time in the **Original Estimate** field, whenever you [register time](#add-time-spent), the value in the **Estimate** field will decrease by the registered value.
+   * If you do not specify the **{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }}**, whenever you [register time](#add-time-spent), the value in the **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}** field will decrease by the registered value.
 
-   * If you specify time in the **Original Estimate** field, the value in the **Estimate** field will start decreasing by registered values after you spend more time on the issue than the original estimate.
+   * If you specify the **{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }}**, the value in the **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}** field will start decreasing by registered values when the time specified in the original estimate runs out.
 
-* **Time Spent**: The total time spent to resolve the issue. If you added [several records on the time spent](#add-time-spent), this field will show the total value.
+* **{{ ui-key.startrek.blocks-desktop_i-ticket-subscription.worklogs }}**: Total time spent on resolving the issue. If you added [several records on the time spent](#add-time-spent), this field will show the total value.
 
 ## Registering time spent {#add-time-spent}
 
@@ -28,19 +28,19 @@ To register spent time:
 
 1. Open the issue page.
 
-1. In the upper-right corner, select **Actions** → **Add time spent**.
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.add-worklog }}**.
 
 1. Select the date of the record creation.
 
-1. Fill in the **Time spent** field.
+1. Fill in the **{{ ui-key.startrek.ui_components_AddWorklogDialog.duration-label }}** field.
 
    E.g.:
    * 1 week and 3 days: `1w 3d`, `1w 3d`.
    * 3 hours, 20 minutes, and 30 seconds: `3h 20m 30s`, `3h 20m 30s`.
 
-1. If necessary, leave a comment. The comment won't be visible in the issue, but it will be saved in the [Time Spent Report](../manager/statistics.md#section_uxt_3ft_xz).
+1. Leave a comment, if needed. The comment will not be visible in the issue but it will be saved in the [Time Spent Report](../manager/statistics.md#section_uxt_3ft_xz).
 
-1. Click **Save**.
+1. Click **{{ ui-key.startrek.ui_components_AddWorklogDialog.apply-button }}**.
 
 {% note info %}
 
@@ -54,10 +54,10 @@ Any user can register their spent time, not only the issue's assignee. The [Time
 
 ## View time spent {#show-time-spent}
 
-You can view the time spent on an issue under **Time spent** in the right panel on the issue page or in the [Time Spent Report](../manager/statistics.md#section_uxt_3ft_xz).
+You can see how much time was spent on an issue in the right-hand panel on the issue page, under **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}**, or in the [Time Spent Report](../manager/statistics.md#section_uxt_3ft_xz).
 
-If the issue doesn't show the **Time spent** section, add it:
+If the issue does not have the **{{ ui-key.startrek.blocks-desktop_b-screen.worklog }}** section, add it as follows:
 
-1. Click **![](../../_assets/tracker/svg/add-filter.svg) Edit parameter list** on the right panel.
+1. Click ![](../../_assets/tracker/svg/add-filter.svg) **{{ ui-key.startrek.ui_components_IssueSidebar.add-sidebar-field }}** in the right-hand panel.
 
-1. Under **Time spent**, enable the **Time spent** and **Estimate** options.
+1. In the **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** group, enable **{{ ui-key.startrek-backend.fields.issue.spent-key-value }}** and **{{ ui-key.startrek-backend.fields.issue.estimation-key-value }}**.

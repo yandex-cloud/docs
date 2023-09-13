@@ -2,7 +2,7 @@
 
 ## General settings {#general-settings}
 
-To edit a [table](pages-types.md#grid), open it and click ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **Table settings** in the top-right corner. Select an action:
+To edit a [table](pages-types.md#grid), open it and click ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **{{ ui-key.yacloud.common.table-config }}**s in the top-right corner. Select an action:
 
 * [Set up columns](#column-transfer).
 * [Use default sorting](#sort-line).
@@ -24,25 +24,25 @@ Each time you save your changes, a new copy of the table is added to its [edit h
 
 ## Configuring parameters of table columns {#column-params}
 
-1. In the first cell of the column, click ![](../_assets/wiki/svg/actions-icon.svg) and select ![](../_assets/wiki/svg/grid-settings.svg) **Settings**.
+1. In the first cell of the column, click ![](../_assets/wiki/svg/actions-icon.svg) and select ![](../_assets/wiki/svg/grid-settings.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-options.settings }}**.
 
 1. In the pop-up window, change the column parameters:
 
-   * Enter the column **heading** in the top field.
+   * Enter the column **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-widget.name }}** in the top field.
 
    * The **Unique ID** field will be filled in automatically. You can edit it manually, if required.
 
    * In the drop-down list, select a [data type](#data-types) for the column cells. After you save the settings, you will not be able to edit the data type.
 
-   * In the **Width** field, set the column width or leave the default `Auto` value.
+   * In the **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.width }}** field, set the column width or leave the default `{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-width-controll.auto }}` value.
 
    * To add a column description, click **Add description**. To view the column description, hover over the ![](../_assets/wiki/svg/column-description.svg) icon. Its text will appear in the pop-up window.
 
-   * To make the cells mandatory, enable the **Required** option.
+   * To turn cells into required, enable the **Required** option.
 
-   * For columns with the **Checkbox** data type, enable the **Mark as done** option. This will make all rows selected with the checkbox turn gray.
+   * For columns with the **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.checkbox }}** data type, enable the **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.mark_made }}** option. In this case, the rows marked with checkboxes will appear gray.
 
-1. Click **Apply** to save your changes.
+1. Click **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-settings.save }}** to save your changes.
 
 To change the column width, move the side border to the left or right. The change in width will be immediately displayed to all users who are currently viewing the table.
 
@@ -70,27 +70,27 @@ To add a column:
 
 1. Configure the column parameters:
 
-   * Enter the column **heading** in the top field.
+   * Enter the column **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-widget.name }}** in the top field.
 
    * The **Unique ID** field will be filled in automatically. You can edit it manually, if required.
 
    * In the drop-down list, select a [data type](#data-types) for the column cells. After you save the settings, you will not be able to edit the data type.
 
-   * In the **Width** field, set the column width or leave the default `Auto` value.
+   * In the **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.width }}** field, set the column width or leave the default `{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-width-controll.auto }}` value.
 
    * To add a column description, click **Add description**. To view the column description, hover over the ![](../_assets/wiki/svg/column-description.svg) icon. Its text will appear in the pop-up window.
 
-   * To make the cells mandatory, enable the **Required** option.
+   * To turn cells into required, enable the **Required** option.
 
-   * For columns with the **Checkbox** data type, enable the **Mark as done** option. This will make all rows selected with the checkbox turn gray.
+   * For columns with the **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.checkbox }}** data type, enable the **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.mark_made }}** option. In this case, the rows marked with checkboxes will appear gray.
 
-1. Select **Add**.
+1. Select **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.add }}**.
 
 To delete a column:
 
 1. Click ![](../_assets/wiki/svg/actions-icon.svg) in a column's first cell.
 
-1. Click **Delete**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-options.delete }}**.
 
 ### Data types {#data-types}
 
@@ -98,17 +98,17 @@ Specify the data type for a table column:
 
 * ![](../_assets/wiki/svg/type-text.svg) **Formatted text**. Any text formatted by [Markdown](basic-markup.md).
 
-* ![](../_assets/wiki/svg/type-number.svg) **Number**.
+* ![](../_assets/wiki/svg/type-number.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.number }}**.
 
-* ![](../_assets/wiki/svg/type-checkbox.svg) **Checkbox**. A box that can be checked or unchecked. To mark an entire row, enable the **Mark as done** option. This will make all rows selected with the checkbox turn gray.
+* ![](../_assets/wiki/svg/type-checkbox.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.checkbox }}**. Field with a checkbox. To mark an entire row, enable the **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.mark_made }}** option. In this case, the rows marked with checkboxes will appear gray.
 
-* ![](../_assets/wiki/svg/type-date.svg) **Date**.
+* ![](../_assets/wiki/svg/type-date.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.date }}**.
 
-* ![](../_assets/wiki/svg/type-list.svg) **List**. A field where a user can select one value from a list.
+* ![](../_assets/wiki/svg/type-list.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.list }}**. Field to select one value from a list of suggested options.
 
    To select a multiple-choice list, enable the **Allow multiple options** option.
 
-* ![](../_assets/wiki/svg/type-employee.svg) **Employee**. An employee's first and last name.
+* ![](../_assets/wiki/svg/type-employee.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.employee }}**. Employee's first and last name.
 
    To select multiple employees, enable the **Allow multiple users** option.
 
@@ -125,7 +125,7 @@ The data type can only be selected when creating a column.
 
 ## Adding and deleting rows {#edit-line}
 
-* To create a new row, click ![](../_assets/wiki/svg/add.svg) **Add row** at the bottom of the table.
+* To create a new row, click ![](../_assets/wiki/svg/add.svg) **{{ ui-key.yacloud.component.table-input.popup_title }}** at the bottom of the table.
 
 * To delete a row, hover over it and click ![](../_assets/wiki/svg/delete-line.svg) **Delete row**.
 
@@ -143,19 +143,19 @@ To sort table rows:
 
 To add multiple filters:
 
-1. In the top-right corner, click ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **Table settings**.
+1. In the top-right corner, click ![](../_assets/wiki/svg/wysiwyg/grid-settings.svg) **{{ ui-key.yacloud.common.table-config }}**.
 
 1. Click **Default order**.
 
-1. Click **Add**:
+1. Click **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.add }}**:
 
 1. In the drop-down list, select a column and sorting type: **Sort in descending order** or **Sort in ascending order**.
 
-1. Click **Save**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-settings.save }}**.
 
-1. Add other filters and click **Apply**. The **Sorting configured** button will appear in the top-right corner above the table.
+1. Add other filters and click **{{ ui-key.yacloud.common.apply }}**. The **Sorting configured** button will appear in the top-right corner above the table.
 
-To set the sorting order, click ![](../_assets/wiki/svg/moving.svg) in the filter list and drag it. You cannot select multiple filters to move.
+To set the sorting order, click and drag ![](../_assets/wiki/svg/moving.svg) in the filter list. You cannot drag multiple filters at the same time.
 
 
 #### See also

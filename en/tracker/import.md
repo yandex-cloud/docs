@@ -107,7 +107,7 @@ The spreadsheet must include columns with issue parameters. The same column name
       from yandex_tracker_client import TrackerClient
       client = TrackerClient(token='<token>', org_id='<org_id>')
       ```
-      Here, `<token>` is your OAuth token and `<org_id>` is your organization ID. To find out the organization ID, go to the [settings page{{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+      Here, `<token>` is your OAuth token and `<org_id>` is your organization ID. To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is specified in the **{{ ui-key.startrek.blocks-desktop_b-page-settings.org-id }}** field.
 
    1. Attach libraries.
 

@@ -6,7 +6,7 @@ When using macros, triggers, and auto actions, you can insert values from the is
 
 1. Create a [macro](../manager/create-macroses.md), [trigger](trigger.md) or [auto action](autoactions.md).
 
-1. Click **Add variable** in the action block of the trigger or auto action. In the case of a macro, add a variable to the message section.
+1. Click **{{ ui-key.startrek.blocks-desktop_trigger-action.action_add-variable }}** in the action block of the trigger or auto action. In the case of a macro, add a variable to the message section.
 
 1. Choose the field from the list. When the action is executed, the field value will replace the variable in the text. You can also insert issue parameters that are missing in the variable list. For this, [enter](#variable-type) the variable name into the text.
 
@@ -28,7 +28,7 @@ User roles:
 * `assignee`: Issue's assignee.
 * `author`: Issue's reporter.
 * `followers`: Followers of the issue.
-* `access`: Users from the **Access** field.
+* `access`: Users from the **{{ ui-key.startrek-backend.fields.issue.access }}** field.
 
 User attributes:
 * `login`: The user's login.
@@ -87,12 +87,12 @@ Examples of variables in JSON format:
 | Variable | Value | Notation format |
 ----- | ----- | -----
 | `not_var{{issue.summary.json}}` | Issue name | `"Issue name"` |
-| `not_var{{issue.description.json}}` | Issue description | `"Description"` |
+| `not_var{{issue.description.json}}` | Problem description | `"Description"` |
 | `not_var{{issue.tags.json}}` | Tags | `["tag1","tag2"]` |
-| `{{issue.<role>.login.json}}` | User Login (used in the `author` and `assignee` fields) | `"john-johnson"` |
-| `{{issue.<role>.uid.json}}` | User ID (used in the `author` and `assignee` fields) | `1120000000211495` |
-| `{{issue.<role>.login.json}}` | User logins (used in the `followers` and `access` fields) | `["john-johnson", "user3993"]` |
-| `{{issue.<role>.uid.json}}` | User IDs (used in the `followers` and `access` fields) | `[1120000000211495, 1120000000011060]` |
+| `{{issue.<role>.login.json}}` | User's login (for the `author` and `assignee` fields) | `"john-johnson"` |
+| `{{issue.<role>.uid.json}}` | User ID (for the `author` and `assignee` fields) | `1120000000211495` |
+| `{{issue.<role>.login.json}}` | Logins of users (for the `followers` and `access` fields) | `["john-johnson", "user3993"]` |
+| `{{issue.<role>.uid.json}}` | User IDs (for the `followers` and `access` fields) | `[1120000000211495, 1120000000011060]` |
 
 {% note warning %}
 

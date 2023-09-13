@@ -2,7 +2,8 @@
 
 Selectors are filters that affect the results of queries in their widgets. To add a selector to a dashboard, go to [{#T}](../operations/dashboard/add-selector.md).
 A selector can be linked to a chart or another selector.
-For more information, see [Link](#link).
+For more information, see [{#T}](./link.md).
+
 A selector works within a single dashboard tab.
 
 When adding a selector to a dashboard, consider how it affects chart filters:

@@ -1,44 +1,109 @@
 # Changing multiple issues
 
-You can change statuses and fields for multiple issues at once. To open your issue list, go to the queue or filter page.
+You can change the statuses and parameters of multiple issues at once. To open a list of issues, go to the queue page or filter page.
 
-## Changing the status {#section_kkf_tjr_fgb}
+## Changing the status {#change-status}
 
-To change the status of issues on the queue or filter pages, do the following:
+To change the issue status:
 
-1. Check the box ![](../../_assets/tracker/bulk-checkmark.png) next to the issues you want to change.
+1. Open the issue list.
 
-   If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/bulk-checkmark.png) at the top of the issue list.
+1. Check the box ![](../../_assets/tracker/svg/check.svg) next to the issues you want to change.
 
-1. Click **Change status** on the bottom panel.
+   If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/svg/check.svg) above the list of issues.
 
-1. Select the action to trigger the status change. Only status transitions that are included in the [workflow](workflow.md) are available for bulk change. If you select a status transition that is only available for some of the issues, only those issues will change their status. The number of issues you can change statuses of is displayed to the right of the status name.
+1. Click **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.change-status }}** under the issue list and select the status.
 
-1. Followers don't receive any notifications about bulk changes to issues by default. If you want to notify them, select **Send notification to followers**.
+   Only status transitions that are included in the [workflow](workflow.md) are available for bulk change. If you select a status change that's available only to part of the issues, only this part will change their status.
 
-1. Click **Next**.
+1. After the operation is complete, in the bottom-right corner, you'll see a notification with the number of issues with changed status.
 
-1. Wait for the issues to be processed and click **Finish**.
+   To see a list of issues that cannot be changed to the selected status, click **{{ ui-key.startrek.blocks-desktop_guide.ticket--buttons--workflow_buttons--content-link }}** in the notification.
 
-## Changing field settings {#section_x2j_4kr_fgb}
+## Move an issues to another queue {#change-queue}
 
-To change the fields of issues on the queue or filter pages, do the following:
+To edit the issue queue:
 
-1. Check the box ![](../../_assets/tracker/bulk-checkmark.png) next to the issues you want to change.
+1. Open the issue list.
 
-   If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/bulk-checkmark.png) label above the issue list.
+1. Check the box ![](../../_assets/tracker/svg/check.svg) next to the issues you want to move.
 
-1. Click **Change fields** on the bottom panel.
+   If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/svg/check.svg) above the list of issues.
 
-1. Select the fields you need. If the fields you need are not in the list, click **Choose fields** and add them.
+1. Click **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.move }}** under the issue list.
 
-1. Set their values.
+1. Select the queue that the issues will be moved to.
 
-   Some fields may contain a list of values (for example, <q>Followers</q>, <q>Mailing lists</q>, or <q>Tags</q>). By default, new values are added to the end of the list. To overwrite a field, select **Remove original values**.
+1. When the operation is complete, in the bottom-right corner, you'll see a notification with the number of issues moved to another queue.
 
-1. Followers don't receive any notifications about bulk changes to issues by default. If you want to notify them, select **Send notification to followers**.
+   To see a list of issues that cannot be moved, click **{{ ui-key.startrek.blocks-desktop_guide.ticket--buttons--workflow_buttons--content-link }}** in the notification. The issues that are in the selected queue already, cannot be moved.
 
-1. If necessary, leave a comment in the text field below and click **Continue**.
+Once moved to another queue, the issues are assigned new keys. Links to the issue using the old key remain valid. When following such a link, the issue automatically opens in the new queue. However, you won't be able to find the issue by the old key using a [filter](../manager/quick-filters.md) or a [query](../user/query-filter#query-format.md).
 
-1. Wait for the issues to be processed and click **Finish**.
+## Adding a link {#add-links}
 
+To add a link to multiple issues at once:
+
+1. Open the issue list.
+
+1. Add ![](../../_assets/tracker/svg/check.svg) next to the issues to which you want to add a related issue.
+
+   If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/svg/check.svg) above the list of issues.
+
+1. Click **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-link }}** under the list of issues, select the [link type](../user/links.md), and create the link:
+
+   * To create an issue, click the **{{ ui-key.startrek.ui_components_CreateIssuePopup.new-issue }}** tab. Give your issue a name and press **Enter**.
+
+   * If the issue already exists, click **{{ ui-key.startrek.ui_components_CreateIssuePopup.existing-issue }}**, specify the issue key or name, and select the issue from the list. You can find the key on the issue page, under the title (for example, `TEST-1234`).
+
+## Adding issues to a board or project {#add-project-board}
+
+To add issues to a board or project:
+
+1. Open the issue list.
+
+1. Add the ![](../../_assets/tracker/svg/check.svg) checkmark next to the issues that you want to add to your board or project.
+
+   If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/svg/check.svg) above the list of issues.
+
+1. Click ![](../../_assets/horizontal-ellipsis.svg) under the issue list.
+
+   * To add issues to the board, click **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-board }}**. Select one or more boards, then click **{{ ui-key.startrek.ui_components_bulk_BulkChangeParametersDialog.button-submit-text }}**.
+
+   * To add the issue to a project, select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-to-projects }}**. All the subissues will also be added to the project.
+
+## Changing field settings {#change-parameters}
+
+To edit issue parameters:
+
+1. Open the issue list.
+
+1. Check the box ![](../../_assets/tracker/svg/check.svg) next to the issues you want to change.
+
+   If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/svg/check.svg) above the list of issues.
+
+1. Click ![](../../_assets/horizontal-ellipsis.svg) under the issue list and select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.edit-parameters }}**.
+
+1. Select relevant parameters. If the fields you need are not in the list, click **{{ ui-key.startrek.ui_components_BulkChangeParametersDialog.add-parameter }}**.
+
+1. Set the values.
+
+   Some fields may contain a list of values (for example, <q>{{ ui-key.startrek.components_FormCreateIssue.field--followers }}</q>, <q>{{ ui-key.startrek-backend.messages.workflow.field.maillists }}</q>, or <q>{{ ui-key.startrek.components_FormCreateIssue.field--tags }}</q>). New values are added to the end of the list by default. To overwrite a field, select **{{ ui-key.startrek.ui_components_BulkChangeParametersDialog.clear-previous-value }}**.
+
+1. Click **{{ ui-key.startrek.ui_components_BulkSuggestPopup.apply }}**.
+
+## Becoming an issue participant {#change-my-tickets}
+
+To add or remove oneself from the **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.assignee }}** or **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.followers }}** field in an issue:
+
+1. Open the issue list.
+
+1. Check the box ![](../../_assets/tracker/svg/check.svg) next to the issues you want to change.
+
+   If you want to select all the issues on the queue or filter page at once, check the box ![](../../_assets/tracker/svg/check.svg) above the list of issues.
+
+1. Click ![](../../_assets/horizontal-ellipsis.svg) under the issue list and select one of the options.
+
+   * To become an issue participant, select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.add-me-to-followers }}** or **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.assignee-me }}**.
+
+   * To withdraw your participation in the issue, select **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.remove-me-from }}** and specify **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.followers }}**, **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.assignee }}**, or **{{ ui-key.startrek.ui_components_IssueBulkActionPanel.remove-from-both-fields }}**.

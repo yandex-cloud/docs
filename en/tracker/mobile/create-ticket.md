@@ -1,10 +1,10 @@
-# Creating issue
+# Creating an issue
 
-You can create issues in any of the available [queues](../queue-intro.md). Select the queue so that its subject corresponds to the issue's subject. If you don't know which queue to create your issue in, check with the project manager or your company's admin.
+You can create issues in any of the available [queues](../queue-intro.md). Select the queue so that its subject corresponds to the issue's subject. If you do not know which queue to create your issue in, check with the project manager or your company's admin.
 
 ## Create an issue {#create-task}
 
-To create a issue:
+To create an issue:
 
 1. In the upper-right corner, tap ![](../../_assets/tracker/add-task-mobile.png).
 
@@ -18,17 +18,17 @@ To create a issue:
    {% endnote %}
 
 
-1. Name the issue and tap **Create issue**.
+1. Enter a name for the issue and tap **{{ ui-key.startrek.components_QueueAdminAutoactions_CreateTicketForm.actions-create }}**.
 
-1. A window with the new issue opens. The **Type**, **Priority**, **Status**, and **Author** fields are filled in automatically. Each queue can have its own [set of types and statuses](../manager/add-ticket-type.md).
+1. A window with the new issue opens. The **{{ ui-key.startrek.components_FormCreateIssue.field--type }}**, **{{ ui-key.startrek.components_FormCreateIssue.field--priority }}**, **{{ ui-key.startrek.blocks-desktop_b-ticket-fields.status }}**, and **{{ ui-key.startrek-backend.fields.issue.author-key-value }}** fields are filled in automatically. Each queue can have its own [set of types and statuses](../manager/add-ticket-type.md).
 
 1. [Edit](edit-ticket.md) the issue details:
 
-   * Go to the **Description** tab and specify general parameters: add a description, select the issue type and priority, specify the assignee, and set the deadline. Use [YFM markup](../user/markup.md) to format text.
+   * Go to the **{{ ui-key.startrek.ui_components_IssueTabs.description-tab }}** tab and specify general parameters: add a description, select the issue type and priority, specify the assignee, and set the deadline. Use [YFM markup](../user/markup.md) to format text.
 
-   * On the **Parameters** tab, specify [additional parameters](../user/create-param.md#default-fields) of issue.
+   * In the **{{ ui-key.startrek.ui_components_IssueTabs.fields-tab }}** tab, specify [additional parameters](../user/create-param.md#default-fields) for the issue.
 
-   * If your issue is related to other issues, go to the **Related** tab and [create sub-issues](#subtask). To change the issue [link type](../user/links.md), tap ![](../../_assets/tracker/dots.png) next to the sub-issue name and choose a new type.
+   * If your issue is related to other issues, go to the **{{ ui-key.startrek.ui_components_IssueTabs.links-tab }}** tab and [create sub-issues](#subtask). To change the issue [link type](../user/links.md), tap ![](../../_assets/tracker/dots.png) next to the sub-issue name and choose a new type.
 
 1. To [attach files or images to the issue](attach-file.md), open the screen for editing the issue description ![](../../_assets/tracker/icon-edit.png
    ). Then click ![](../../_assets/tracker/pin.png) and select the apps.
@@ -51,11 +51,11 @@ To create a sub-issue:
 
 1. Open the issue to create a sub-issue for.
 
-1. In the upper-right corner of the page, click ![](../../_assets/tracker/dots.png) and select **Create sub-issues**.
+1. In the top-right corner, click ![](../../_assets/tracker/dots.png) and select **{{ ui-key.startrek.ui_components_IssueActionsButton.menu-item-create-subticket }}**.
 
 1. Fill in the fields the same way as when [creating a new issue](#create-task).
 
-1. Click **Create issue**.
+1. Click **{{ ui-key.startrek.ui_components_IssueActionsButton.menu-item-create-subticket }}**.
 
 
 

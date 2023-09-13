@@ -4,15 +4,15 @@
 
 To convert a .txt file or a .docx document to a page created in the old editor:
 
-1. On any page created in the old editor, click ![](../_assets/wiki/svg/create-page.svg) **Create page** in the left-hand panel or select ![](../_assets/wiki/svg/actions-icon.svg) **Actions** → **Create subpage** in the top-right corner.
+1. On any page created in the old editor, click ![](../_assets/wiki/svg/create-page.svg) **Create page** in the left-hand panel or select ![](../_assets/wiki/svg/actions-icon.svg) **Actions** → **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.create_page }}** in the top-right corner.
 
-1. Select **Page**.
+1. Select **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page.page }}**.
 
 1. Set the page title and address in the same way as when [creating a regular Wiki page](create-page.md).
 
-1. Click **Choose file** and open the file you want to convert to a page.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-attachments.upload-btn-text }}** and open the file you want to convert to a page.
 
-1. Click **Create**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.create }}**.
 
 The contents of the selected file will be uploaded to a new page:
 
@@ -29,13 +29,13 @@ You can create dynamic tables from CSV or TXT files:
 
 1. [Create](create-grid.md) a new dynamic table or open an existing one.
 
-1. Click **Edit**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-comment.edit }}**.
 
 1. In the bottom-left corner of the table, select ![](../_assets/wiki/table-settings-footer.png) → **Import data**.
 
 1. Select a CSV or TXT file and check the delimiter settings.
 
-1. Click **Upload**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-widget.load }}**.
 
 1. Select the table columns that you want to upload from the file.
 
@@ -49,7 +49,7 @@ You can create dynamic tables from CSV or TXT files:
 
 1. Select the data type for the new columns.
 
-1. Click **Upload file**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-file2.icon_upload }}**.
 
 
 #### See also

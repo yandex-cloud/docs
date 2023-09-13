@@ -2,41 +2,39 @@
 
 {% note warning %}
 
-By default, queue settings can only be accessed by the queue owner.
+Only the queue's owner can configure the queue by default.
 
 {% endnote %}
 
-You can use {{ forms-full-name }} to set up your form to act as a template for creating issues as well as integrate it with the {{ tracker-name }} interface. Such form will be displayed on the issue creation page next to the basic one. It will help users create issues by following a preset template without feeling distracted by other fields and parameters.
+You can use {{ forms-full-name }} to set up your form to act as a template for creating issues as well as integrate it with the {{ tracker-name }} interface. This form will be displayed on the issue creation page next to the standard one. It will help users create issues based on a certain template without being distracted by unnecessary fields and parameters.
 
 ## Step 1. Create and configure your form {#section_ovd_5hl_1gb}
 
-1. Go to [{{ forms-full-name }}]({{ link-forms }}). If the service hasn't been activated, contact your organization's administrator.
+1. Go to [{{ forms-full-name }}]({{ link-forms }}). If the service hasn't been activated, contact your company's administrator.
 
-1. [Create](../../forms/new-form.md) a new form from scratch or use the **Issue for {{ tracker-name }}** template.
+1. [Create](../../forms/new-form.md) a new form.
 
-   Set up your form's fields to collect data needed for issue creation.
+   Set up its fields to collect from users the data needed to create the issue.
 
-1. Configure the name of the form. This name will be displayed in the {{ tracker-name }} interface when creating an issue.
+1. Set up the form name. This name will be displayed in the {{ tracker-name }} interface when creating an issue.
 
-1. Set up your form's [integration with {{ tracker-name }}](../../forms/create-task.md).
+1. Set up [integration with {{ tracker-name }}](../../forms/create-task.md) for the form.
 
-1. [Publish](../../forms/publish.md#section_link) your form and copy the link to it from the **Link** field.
+1. [Publish](../../forms/publish.md#section_link) the form and copy the link to it from the **{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-uri }}** field.
 
 ## Step 2. Connect your form to the queue {#section_xxj_fll_1gb}
 
 1. Go to the [{{ tracker-name }}]({{ link-tracker }}).
 
-1. Open the [queue page](../user/queue.md).
+1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Go to **Form integration** and click **Add form**.
+1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--forms }}**, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_forms.add-btn }}**.
 
-1. Paste the link to the form.
+1. Add a link to the form.
 
-1. Add the name and description for your form. You can view them in the form selection window when creating an issue.
+1. Add a name and description for the form. Users will see them in the form selection window when creating an issue.
 
-1. Click **Add**.
-
-
+1. Tap **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_form-editor.create-btn }}**.
 

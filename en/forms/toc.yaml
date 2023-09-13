@@ -138,8 +138,10 @@ items:
     href: pricing.md
   - name: Releases
     items:
-      - name: May 2023
+      - name: June 2023
         href: changelogs/index.md
+      - name: May 2023
+        href: changelogs/2305.md
       - name: March 2023
         href: changelogs/2303.md
       - name: February 2023

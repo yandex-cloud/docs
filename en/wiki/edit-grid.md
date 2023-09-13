@@ -1,8 +1,8 @@
 # Editing a dynamic table in the old editor
 
-To edit a [dynamic table](pages-types.md#grid), open it and click **Edit** in the bottom-right corner.
+To edit a [dynamic table](pages-types.md#grid), open it and click **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table.edit }}** in the bottom-right corner.
 
-If another user edits the table at the same time as you, the data will not be lost. When saving the data, you can select the most suitable option.
+If another user is editing the table at the same time with you, the data will not be lost. When saving the data, you can select the most suitable option.
 
 In view mode, updates from other users will also be displayed in the table: the header will display a notification about the number of changes with the names of their authors.
 
@@ -14,13 +14,13 @@ Each time you save your changes, a new copy of the table is added to its [edit h
 
 ## Configuring parameters of table columns {#column-params}
 
-1. In the first cell of the column, click ![](../_assets/wiki/svg/actions-icon.svg) and select ![](../_assets/wiki/svg/grid-settings.svg) **Settings**.
+1. In the first cell of the column, click ![](../_assets/wiki/svg/actions-icon.svg) and select ![](../_assets/wiki/svg/grid-settings.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-options.settings }}**.
 
 1. In the pop-up window, change the column parameters:
 
    {% include [column parameters](../_includes/column-parameters.md) %}
 
-1. Click **Apply** to save your changes.
+1. Click **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-settings.save }}** to save your changes.
 
 1. To change the column width, move the side border to the left or right. The change in width will be immediately displayed to all users who are currently viewing the table.
 
@@ -44,23 +44,23 @@ To add a column:
 
 1. Configure the column parameters:
 
-   * Enter the column **Heading** in the top field.
+   * Enter the column **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-widget.name }}** in the top field.
 
    * The **Unique ID** field will be filled in automatically. You can edit it manually, if required.
 
    * In the drop-down list, select a [data type](#data-types) for the column cells. After you save the settings, you will not be able to edit the data type.
 
-   * To make the cells mandatory, enable the **Required** option.
+   * To turn cells into required, enable the **Required** option.
 
-   * For columns with the **Checkbox** data type, enable the **Mark as done** option. This will make all rows selected with the checkbox turn gray.
+   * For columns with the **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.checkbox }}** data type, enable the **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.mark_made }}** option. In this case, the rows marked with checkboxes will appear gray.
 
-1. Select **Add**.
+1. Select **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.add }}**.
 
 To delete a column:
 
 1. Click ![](../_assets/wiki/svg/actions-icon.svg) in a column's first cell.
 
-1. Click **Delete**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-options.delete }}**.
 
 ### Data types {#data-types}
 
@@ -68,17 +68,17 @@ Specify the data type for a table column:
 
 * ![](../_assets/wiki/svg/type-text.svg) **Formatted text**. Any text formatted by [Markdown](basic-markup.md).
 
-* ![](../_assets/wiki/svg/type-number.svg) **Number**.
+* ![](../_assets/wiki/svg/type-number.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.number }}**.
 
-* ![](../_assets/wiki/svg/type-checkbox.svg) **Checkbox**. A box that can be checked or unchecked. To mark an entire row, enable the **Mark as done** option. This will make all rows selected with the checkbox turn gray.
+* ![](../_assets/wiki/svg/type-checkbox.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.checkbox }}**. Field with a checkbox. To mark an entire row, enable the **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.mark_made }}** option. In this case, the rows marked with checkboxes will appear gray.
 
-* ![](../_assets/wiki/svg/type-date.svg) **Date**.
+* ![](../_assets/wiki/svg/type-date.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.date }}**.
 
-* ![](../_assets/wiki/svg/type-list.svg) **List**. A field where a user can select one value from a list.
+* ![](../_assets/wiki/svg/type-list.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.list }}**. Field to select one value from a list of suggested options.
 
    To select a multiple-choice list, enable the **Allow multiple options** option.
 
-* ![](../_assets/wiki/svg/type-employee.svg) **Employee**. An employee's first and last name.
+* ![](../_assets/wiki/svg/type-employee.svg) **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.employee }}**. Employee's first and last name.
 
    To select multiple employees, enable the **Allow multiple users** option.
 
@@ -94,7 +94,7 @@ The data type can only be selected when creating a column.
 
 ## Adding and deleting rows {#edit-line}
 
-* To create a new row, click ![](../_assets/wiki/svg/add.svg) **Add row** at the bottom of the table.
+* To create a new row, click ![](../_assets/wiki/svg/add.svg) **{{ ui-key.yacloud.component.table-input.popup_title }}** at the bottom of the table.
 
 * To delete a row, hover over it and click ![](../_assets/wiki/del-row.png) **Delete row**.
 
@@ -117,14 +117,14 @@ You can specify conditions for displaying rows or columns for tables embedded in
 To filter a table:
 
 1. Get the code for the dynamic table:
-   1. In the top-right corner, click ![](../_assets/wiki/svg/grid-settings.svg) **Settings**.
+   1. In the top-right corner, click ![](../_assets/wiki/svg/grid-settings.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_sidebar.grid-settings-label }}**.
 
    1. Select ![](../_assets/wiki/svg/link.svg) **Copy embed code**.
 
-   1. In the window that opens, select the options from the following:
-      * **Read-only**.
-      * **Show row numbers**.
-      * **Sorting option**.
+   1. In the window that opens, select the options from among the following:
+      * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.read_only }}**.
+      * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.show_line_nums }}**.
+      * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.can_sort }}**.
       * **Wysiwyg markdown**.
 
    1. Click **Copy code**.
@@ -152,7 +152,7 @@ Use keyboard shortcuts to manage data in dynamic tables.
 | Go to the beginning of the cell | **↑** | **↑** |
 | Go to the end of the cell | **↓** | **↓** |
 | Add a new row in the cell | **Shift** + **Enter** | **Shift** + **Enter** |
-| Select a **Checkbox** | **Space** | **Space** |
+| Tick the checkbox in the type cell **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-head.checkbox }}** | **Space** | **Space** |
 
 #### See also
 

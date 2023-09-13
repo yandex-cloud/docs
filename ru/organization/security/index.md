@@ -320,3 +320,23 @@
       ```
 
 {% endlist %}
+
+### Назначить роль группе пользователей {#access-group-users}
+
+Назначьте [группе пользователей](../../organization/operations/manage-groups.md) роль, чтобы предоставить доступ к какому-либо ресурсу. Воспользуйтесь инструкцией [{#T}](../../iam/operations/groups/access-binding-object.md), чтобы дать [субъекту](../../iam/concepts/access-control/index.md#subject) права на доступ к группе.
+
+В консоли управления группе можно назначить роль на облако, каталог или сервисный аккаунт. В сервисе {{ org-full-name }} группе можно назначить роль только на другую группу. Чтобы назначить группе роль на организацию, используйте CLI.
+
+#### Назначить роль на облако или каталог {#access-binding-cloud}
+
+{% include [accessbinding-group-as-object](../../_includes/organization/accessbinding-group-as-subject.md) %}
+
+#### Назначить роль на Организацию {#access-binding-organization}
+
+{% list tabs %}
+
+- CLI
+
+    {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
+
+{% endlist %}

@@ -10,7 +10,7 @@ Access settings can be edited by a [page author](../roles.md) or [organization](
 
 To configure page permissions:
 
-1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **Settings** or click the button that specifies the page access mode (by default, **Available to all employees**).
+1. In the top-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.settings }}** or click the button that specifies the page access mode (by default, **Available to all employees**).
 
    
    {% note tip %}
@@ -28,7 +28,7 @@ To configure page permissions:
 
 * **Specific employees**: Specify the usernames of people or the group to grant access to.
 
-* **Same as parent page**: Access level is inherited from the parent page.
+* **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-widget.access_to_parent }}**: Access level is inherited from the parent page.
 
 {% note alert %}
 
@@ -38,9 +38,9 @@ By default, the author of the {{ wiki-name }} home page is a service account. If
 
 {% endnote %}
 
-1. Click **Save**
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-editor-struct.page_save }}**.
 
-Users who do not have access to the page will not be able to view and edit it. You can also allow users to view the page, but [prohibit its editing](#read-only).
+Users who have no access to the page will not be able to view and edit it. You can also allow users to view the page, but [prohibit its editing](#read-only).
 
 ## Getting access to a page with restricted access {#request}
 
@@ -52,7 +52,7 @@ If a page's author has restricted access to it, you can always request access pe
 
 1. Click **Request access**.
 
-After any of the page authors approves your request, you'll get access to it.
+You will get access to the page as soon as one of the page authors approves your request.
 
 {% note warning %}
 
@@ -69,9 +69,9 @@ By default, all users who have access to a page can edit it. You can make the pa
 
 1. Open the page.
 
-1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **Settings**.
+1. In the top-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.settings }}**.
 
-1. In the **Page settings** window, select **Only the authors can edit the page**. Users who have [access to the page](access-setup.md) can view it, but can't edit it.
+1. In the **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-widget.page-settings }}** window, select **Only the authors can edit the page**. Users who have [access to the page](access-setup.md) can view it, but cannot edit it.
 
    {% note info %}
 

@@ -1,38 +1,45 @@
 # Setting up an issue reminder
 
-{{ tracker-name }} can send issue reminders. You can send reminders to yourself or other users. Only the sender and the recipient will be able to see the reminder.
+{{ tracker-name }} can send issue reminders. You can send a reminder to yourself or to another user. Reminders are only visible to their author and recipient.
 
-## Creating a reminder {#section_ct4_trk_t2b}
+## Creating a reminder {#create-reminder}
 
-To set up a reminder:
+To set up reminder:
 
 1. Open the issue page.
 
-1. Tap ![](../../_assets/tracker/reminder2.png).
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_IssueMenu.title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.add-notification }}**.
 
-1. Click **Add reminder**.
+1. Specify the date and time of the reminder.
 
-1. Enter the date and time for the reminder.
+1. To send an issue reminder regardless of the issue status, select **Remind even if issue closed**.
 
-1. Specify the recipient of the reminder. Start typing the user's name or login and choose one of the suggested options.
+1. Enter the comment. The user will receive it in the reminder message.
 
-   A reminder can only have one recipient. If you want to send a reminder to several users, you have to create an individual reminder for each of them.
+1. Specify the recipient of the reminder. For this, start typing the name or username of the user and select the proper option from the list.
 
-1. To send an issue reminder regardless of the issue status, select **Even if resolved**.
+   A reminder can only have one recipient. If you want to remind several users about the issue, create a reminder for each of them.
 
-1. If necessary, enter a comment. The user will receive it with the reminder.
-
-1. Click **Save**.
+1. Click **{{ ui-key.startrek.blocks-desktop_issue-reminder.save-btn }}**. On the issue page, you will see the ![](../../_assets/tracker/svg/reminder.svg) icon with the reminder count.
 
 {{ tracker-name }} will send an email to the user at the time specified, and a pop-up reminder will appear on the issue page.
 
-## Editing and deleting reminders {#section_pxf_tzk_t2b}
+## Editing and deleting reminders {#edit-reminder}
 
-To change or delete a reminder, do the following:
+To edit or delete an issue reminder:
 
 1. Open the issue page.
 
-1. Tap ![](../../_assets/tracker/reminder2.png)
+1. Click the ![](../../_assets/tracker/svg/reminder.svg)icon.
 
-1. Click ![](../../_assets/tracker/icon-edit.png) to edit or ![](../../_assets/tracker/icon-delete.png) to delete a reminder.
+1. Click the ![](../../_assets/tracker/svg/icon-edit1.svg) icon to edit or ![](../../_assets/tracker/svg/icon-remove.svg) to delete a reminder.
 
+## Create an event in the calendar {#calendar}
+
+To add an entry about working on the issue or arrange a meeting with issue participants in [Yandex Calendar]({{ support-calendar }}):
+
+1. Open the issue page.
+
+1. In the top-right corner, select **{{ ui-key.startrek.ui_components_actions-panel_ActionsPanel.action-menu-title }}** → **{{ ui-key.startrek.ui_components_IssueMenu.create-calendar-event }}** → **{{ ui-key.startrek.ui_components_IssueMenu.calendar-event-me }}**.
+
+1. Enter information about the event in the calendar. If needed, add the meeting participants, then click **{{ ui-key.startrek.blocks-desktop_b-form-new-component.button-create }}**.

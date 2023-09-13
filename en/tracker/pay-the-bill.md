@@ -39,46 +39,46 @@ Arrears appear on the billing account if the balance was negative at the end of 
 
 * To keep access to {{ tracker-name }}, pay off the arrears by the 15th of the current month.
 
-* If the arrears are not paid in time, {{ tracker-name }} will switch to [<q>Read only</q>](access.md#readonly) mode. In this case, to regain full access to the service, top up your balance to a positive value within 45 days. This requires paying off the previous period's arrears and pre-paying for the current month.
+* If the arrears are not paid in time, {{ tracker-name }} will switch to [<q>{{ ui-key.startrek.components_Licenses.department-access-title--readOnly }}</q>](access.md#readonly) mode. In this case, to regain full access to the service, top up your balance to a positive value within 45 days. This requires paying off the previous period's arrears and pre-paying for the current month.
 
-* If the arrears are not paid within 2 months, the billing account will be permanently blocked. In this case, to continue using {{ tracker-name }}, contact technical support to link a new billing account to {{ tracker-name }}.
+* If the arrears are not paid within two months, the billing account will be permanently suspended. In this case, to continue using {{ tracker-name }}, contact technical support to link a new billing account to {{ tracker-name }}.
 
 
 ## Check your account balance {#balance}
 
 To check your account balance:
 
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
+1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
 
-1. Select your billing account on the **List of accounts** page.
+1. Select your billing account on the **{{ ui-key.yacloud.billing.switch_accounts }}** page.
 
-   Go to the **Overview** page and you will see your current balance under the account name.
+   Go to the **{{ ui-key.yacloud.billing.account.switch_dashboard }}** page and you will see your current balance under the account name.
 
 ## Top up your account with a bank card {#card}
 
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
+1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
 
-1. Select your billing account on the **List of accounts** page.
+1. Select your billing account on the **{{ ui-key.yacloud.billing.switch_accounts }}** page.
 
-1. Click **Top up balance** in the section with the account name.
+1. Click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}** in the section with the account name.
 
-1. Enter the payment amount and click **Top up balance** again.
+1. Enter your payment amount and click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}** again.
 
 ## Top up your account via bank transfer {#transfer}
 
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
+1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
 
-1. Select your billing account on the **List of accounts** page.
+1. Select your billing account on the **{{ ui-key.yacloud.billing.accounts.label_title }}** page.
 
-1. Click **Top up balance** in the section with the account name.
+1. Click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-balance }}** in the section with the account name.
 
-1. Enter a payment amount and click **Issue receipt**. The system will generate a payment invoice.
+1. Enter the payment amount and click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.refill-dialog-ok-issue }}**. The system will generate a payment invoice.
 
 1. Print the invoice and use it to make a payment in a bank or using a banking client system.
 
 ## View your payment history {#history}
 
-You can view the full deposit history of your billing account on the **Payment history** page or in Yandex Balance. The payer type affects how the deposit history is tracked.
+You can view the full history of payments to your billing account on the **{{ ui-key.yacloud.billing.account.switch_history }}** page or in Yandex&#160;Balance. The payer type affects how the deposit history is tracked.
 
 {% list tabs %}
 
@@ -88,10 +88,10 @@ You can view the full deposit history of your billing account on the **Payment h
 
 - For individuals
 
-   1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
+   1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
 
-   1. Select your billing account on the **List of accounts** page.
+   1. Select your billing account on the **{{ ui-key.yacloud.billing.switch_accounts }}** page.
 
-   1. Select **Payment history** on the left-hand panel.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.billing.account.switch_history }}**.
 
 {% endlist %}

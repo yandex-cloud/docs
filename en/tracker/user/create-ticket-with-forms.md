@@ -2,17 +2,16 @@
 
 You can create issues automatically based on information taken from [{{ forms-full-name }}]({{ link-forms }}) by setting up integration with {{ tracker-name }}.
 
-Here is how you can use forms to create issues:
+You can use a form to create issues as follows:
 
-- The form is posted as a direct link, hosted on a website or on {{ wiki-full-name }}.
+- The form is published by a direct link on a website or {{ wiki-full-name }} page.
 
-  If this is the case, simply fill in and submit the form. The information you enter will be used when compiling the issue.
+   In the case of this type of publication, fill out the form and submit it. An issue will be created based on the entered data.
 
-  Using such forms, even users without access to {{ tracker-name }} can create issues on their own. Forms make it much more convenient to [process user requests sent to the support team](../support-process-mail-forms.md) or collect support requests.
+   Using such forms, even users without access to {{ tracker-name }} can create issues on their own. Forms are convenient, for example, when you need to [accept support or service requests from users](../support-process-mail-forms.md).
 
-- The form is [linked to a queue in {{ tracker-name }}](../manager/attach-form.md) as a quick issue template.
+- The form is [added to a queue in {{ tracker-name }}](../manager/attach-form.md) as a template for quick creation of standard issues.
 
-  If this is the case, go to the queue page and click **Create issue**. Select your form and fill it in. The information you enter will be used when compiling the issue.
+   In the case of this form publication method, go to the issue page, then click **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**, select the form, and fill out its fields. An issue will be created based on the entered data.
 
-For more information about integration with {{ forms-full-name }}, see [{#T}](../manager/forms-integration.md).
-
+To learn more about integration with {{ forms-full-name }}, see [{#T}](../manager/forms-integration.md).
