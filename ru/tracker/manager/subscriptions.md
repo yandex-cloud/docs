@@ -63,8 +63,3 @@
           - **{{ ui-key.startrek-backend.profiles.category.everything }}** — пользователи получают уведомления о любых изменениях задач.
 
 1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-settings.save }}**.
-
-
-
-
-

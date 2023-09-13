@@ -5,7 +5,11 @@ Transfer status details are available in the management console. You can view th
 Diagnostic information about the transfer status is presented as charts.
 
 
-You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. In {{ monitoring-full-name }}, there are two alert thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you'll receive alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
+You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. In {{ monitoring-full-name }}, there are two alert thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you will receive alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
+
+
+You can also use the {{ yandex-cloud }} [mobile app](/mobile-app) to monitor transfer statuses and get their logs.
+
 
 
 ## Monitoring the transfer status {#monitoring}
@@ -209,4 +213,3 @@ Alert parameters:
 ## Specifics of working with alerts {#alert-specifics}
 
 * To determine the causes of the transfer failure, check all available alerts. Information about which alerts worked and which did not will enable you to determine the cause more accurately. For example, if alert [{#T}](#source-change-items) is triggered, and alert[{#T}](#target-change-items) is not triggered, the problem is probably not on the source.
-

@@ -30,7 +30,7 @@ description: "По умолчанию {{ tracker-name }} отправляет в
 
 <!---1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}-->
 
-1. Перейдите по ссылке [{{ link-tracker }}settings]({{ link-settings }}).
+1. Перейдите по ссылке [{{ link-tracker }} settings]({{ link-settings }}).
 
 1. В блоке **{{ ui-key.startrek.blocks-desktop_b-page-settings.letters-sender-display-style-title }}** выберите нужный вариант.
 

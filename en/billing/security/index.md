@@ -20,13 +20,9 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 {% endnote %}
 
-## Billing account roles {#role-list}
+## Which roles exist in the service {#roles-list}
 
-{{ billing-name }} has the following roles:
-
-{% list tabs %}
-
-- Service roles
+### Service roles {#service-roles}
 
   Service roles are roles that provide access to {{ billing-name }}:
 
@@ -38,17 +34,16 @@ Access can only be granted to a user whose billing account has a cloud linked in
   * `billing.accounts.varWithoutDiscounts` is assigned for a billing account. This role grants partner accounts all administrator privileges, except the permission to get information about discounts. This role includes the `billing.partners.editor` role.
   * `billing.partners.editor` is assigned for a billing account. It grants permission to edit information about a partner and their products in the partner product catalog.
 
-- Primitive roles
+### Primitive roles {#primitive-roles}
 
-  Primitive roles are aggregator roles that define user permissions to access services. In {{ billing-name }}, these roles match the following `billing.accounts.*` roles:
+Primitive roles are aggregator roles that define user permissions to access services. In {{ billing-name }}, these roles match the following `billing.accounts.*` roles:
 
-  * `viewer`: Same as `billing.accounts.viewer`.
-  * `editor`: Same as `billing.accounts.editor`.
-  * `admin`: Same as `billing.accounts.admin`.
+* `auditor`: Same as `billing.accounts.viewer` with some limitations.
+* `viewer`: Same as `billing.accounts.viewer`.
+* `editor`: Same as `billing.accounts.editor`.
+* `admin`: Same as `billing.accounts.admin`.
 
-   Primitive roles can only be assigned to users in the **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_users }}** list.
-
-{% endlist %}
+Primitive roles can only be assigned to users in the **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_users }}** list.
 
 The table below provides a list of operations available to each role.
 

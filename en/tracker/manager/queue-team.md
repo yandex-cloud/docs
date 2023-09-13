@@ -6,48 +6,47 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 {% endnote %}
 
-A queue team is a group of employees that create and resolve issues in a queue. The queue owner is an employee with full rights to edit queue settings. You can set the team and queue owner on the **Queue team** tab.
+The queue team includes the employees who create and execute issues in the given queue. The queue owner is an employee who has full access to editing the queue settings. You can set the team and queue owner on the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--team }}** tab.
 
-## Changing the queue owner {#section_aft_bts_qbb}
+## Changing the queue owner {#change-owner}
 
 The owner manages the queue:
 
-- Edits the [main settings](edit-queue-general.md).
-- Adds users to the [queue team](queue-team.md).
-- Configures [notifications](subscriptions.md).
-- Changes [access rights to the queue](queue-access.md).
+* Edits the [main settings](edit-queue-general.md).
+* Adds users to the [queue team](queue-team.md).
+* Configures [notifications](subscriptions.md).
+* Changes [access rights to the queue](queue-access.md).
 
-To change the queue owner:
-
-1. Open the [queue page](../user/queue.md).
-
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
-
-1. Go to the **Queue team** tab.
-
-1. Click ![](../../_assets/tracker/icon-edit.png) next to the owner name.
-
-1. Enter the login or name of the new owner.
-
-1. If you want all new issues to be automatically assigned to the owner, select **Assign issues to queue owner**.
-
-1. Click **Save**.
-
-## Changing the queue team {#section_dgx_cts_qbb}
-
-The team usually includes users who are working on queue issues. You can set up special access rights to queue issues for the team members.
-
-To change the list of team members::
+Changing the queue owner:
 
 1. Open the [queue page](../user/queue.md).
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
+1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Go to the **Queue team** tab.
+1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--team }}** tab.
 
-1. To add a new member, enter the username or name of the user in the **Queue team** field.
+1. Click image ![](../../_assets/tracker/icon-edit.png) next to the owner name.
+
+1. Enter the name or username of the new owner.
+
+1. If you want all new issues to be automatically assigned to the owner, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_team.field--bind-to-lead }}**.
+
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_types.save }}**.
+
+## Changing the queue team {#edit-team}
+
+The teams usually includes users who work on issues in the queue. You can assign privileged access rights for issues in the queue to the team members.
+
+To change the list of team members:
+
+1. Open the [queue page](../user/queue.md).
+
+1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+
+1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--team }}** tab.
+
+1. To add a new member, enter their username or name in the **{{ ui-key.startrek.blocks-desktop_b-queue-form.queue-team }}** field.
 
 1. To remove a member, click ![](../../_assets/tracker/remove-task-type.png) next to the user's name.
 
-1. Click **Save**.
-
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_types.save }}**.

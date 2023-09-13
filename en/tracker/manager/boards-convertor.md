@@ -16,12 +16,11 @@ When migrating the board, the following is retained:
 * ID
 * Name
 * Issues added
-
 * Status distribution by column
-* <q>Reported by me</q> and <q>Assigned to me</q> filters
+* <q>{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_author }}</q> and <q>{{ ui-key.startrek.ui_components_IssuesPresetSelect.preset_assignee }}</q> filters
 * Filter for adding issues
 
-The board type is also retained during migration: **basic** and **Kanban** (have the same functionality) boards are converted into basic boards, while **Scrum** boards become boards with a backlog and sprints.
+The board type is also retained during migration: **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--default }}** and **{{ ui-key.startrek.blocks-desktop_agile-form-modal.board-type--kanban }}** (both have the same functionality) boards are converted into basic boards, while **{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--scrum-development-preset }}** boards become boards with a backlog and sprints.
 
 When migrating the board, the following is not retained:
 
@@ -39,25 +38,25 @@ When migrating the board, the following is not retained:
 
 {% note info %}
 
-If you don't see the **Switch to our new technologies** button in your board's top panel, it means that your board has already been switched to these technologies.
+If you don't see the **{{ ui-key.startrek.blocks-desktop_migration-button.migrate-button }}** button in your board's top panel, it means that your board has already switched to these technologies.
 
 {% endnote %}
 
 To perform migration:
 
-1. In your board's top panel, click **Switch to our new technologies**. Your board is verified for whether it can be migrated and the migration window opens.
+1. In the top panel, click **{{ ui-key.startrek.blocks-desktop_migration-button.migrate-button }}**. Your board is verified for whether it can be migrated and the migration window opens.
 
 1. Review the migration window:
    * If there are errors, follow the recommendations on how to fix them and try again.
-   * If there are no errors, click **Start switching**. This may take a few minutes.
+   * If there are no errors, click **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardMigrationForm.submit-btn }}**. This may take a few minutes.
 
 ## Switching back to the old board version {#backward}
 
-If, after switching to our new technologies, you decide that they do not suit you, you can roll your board back to its original view. To do this, click ![](../../_assets/tracker/svg/actions.svg) → **Switch back to the old version** in the board's top panel and wait until it switches back.
+If, after switching to our new technologies, you decide that they do not suit you, you can roll your board back to its original view. To do this, click ![](../../_assets/tracker/svg/actions.svg) → **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardActionsMenu.migration-rollback }}** in the board's top panel and wait until it switches back.
 
 {% note warning %}
 
-If you enable a backlog on your **basic** board after migration, it will be converted into a **Scrum** board.
+If you enable a backlog on your **basic** board after migration, it will be converted into a **{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--scrum-development-preset }}** board.
 
 {% endnote %}
 

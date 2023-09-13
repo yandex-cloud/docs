@@ -15,8 +15,6 @@
 {% endnote %}
 
 
-
-
 ## Как изменить владельца дашборда {#change-owner}
 
 {% note alert %}

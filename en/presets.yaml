@@ -3747,6 +3747,7 @@ default:
         field-tags: Tags
         issue-status-open: Open
         issue-summary: Issue name
+        issue-type-task: Task
         title: Card view
       blocks-desktop_b-page-agile-admin-tab_type_columns:
         issues-limit: Maximum number of issues per column
@@ -3874,6 +3875,9 @@ default:
       blocks-desktop_b-page-queue-admin-tab_type_types:
         add-issue-type: Add issue type
         save: Save
+      blocks-desktop_b-page-queue-admin-tab_type_workflows:
+        actions--copy: Copy
+        copy-queue-workflow: Copy workflow from another queue
       blocks-desktop_b-page-queue-admin:
         group-title--automatization: Automation
         tab-title--events: Changelog
@@ -3884,6 +3888,7 @@ default:
         tab-title--sla: SLA
         tab-title--team: Queue team
         tab-title--triggers: Triggers
+        tab-title--workflows: Workflow
       blocks-desktop_b-page-queue-description:
         description: Queue description
       blocks-desktop_b-page-queue:
@@ -3925,6 +3930,9 @@ default:
         add-issue-key-in-email-checkbox: Add the issue number in the subject line
         advanced-settings: Advanced settings
         advanced-settings-show: Show advanced settings
+        choose-issue-type: Choose issue type
+        choose-resolutions: Choose resolutions
+        choose-workflow: Workflow
         commits: Show "Сommits" tab
         department: Department
         goals: ' Show "Goals" tab'
@@ -3947,6 +3955,10 @@ default:
         show-create-issue-form--team: Team only
         status-on-link: Status after adding external link
         voting: Voting in issues
+      blocks-desktop_b-queue-issue-type__workflow-table:
+        button-name: Button name
+      blocks-desktop_b-queue-issue-type:
+        workflow-view-label: Statuses and transitions
       blocks-desktop_b-queues-info:
         admin: Configure
         projects: Projects
@@ -4083,6 +4095,7 @@ default:
         field-type--uri: URL
         table-head--type: Type
       blocks-desktop_page-admin-tab_type_repositories:
+        connect: Connect repository
         status--success: Connected
       blocks-desktop_page-admin-tab:
         create--resolutions: Create resolution
@@ -4093,6 +4106,7 @@ default:
         tab-title--fields: Fields
         tab-title--resolutions: Resolutions
         tab-title--statuses: Issue statuses
+        tab-title--types: Issue types
       blocks-desktop_page-agile-boards:
         create: Create board
         filter-type--favorite: Favorites
@@ -4225,6 +4239,13 @@ default:
         title: Conditions to be met
       blocks-desktop_wiki-widget-copy-url:
         title: Get the Wiki code
+      blocks-desktop_workflow-condition:
+        type--all: all
+        type--any: any
+      blocks-desktop_workflow-editor--action_tab_general:
+        name-en--label: Button name in English
+        name-ru--label: Button name in Russian
+        target-status--label: Transition to status
       blocks-desktop_workflow-editor--action_tab_screen:
         comment-enable: Form for comments
         linking-enable: Adding links on transition screen
@@ -4232,13 +4253,29 @@ default:
         screen-title--label-en: Screen title
         screen-title--label-ru: Screen title
         worklogs-enable: Form for time spent
+      blocks-desktop_workflow-editor--action:
+        tab-title--conditions: Conditions
+        tab-title--functions: Functions
+        tab-title--general: General information
+        tab-title--screen: Screen
       blocks-desktop_workflow-editor--step_tab_actions-on-comment:
+        make-no-transition: Do nothing
+        make-transition: Make transition
         on-assignee-comment-only: Only if comment was left by assignee
+        prev-status: Return to previous status
         revert-assignee: Set assignee from previous status
+        select-action: Choose an action
+      blocks-desktop_workflow-editor--step_tab_create-action:
+        name-en--label: Button name in English
+        target-status--label: Transition to status
       blocks-desktop_workflow-editor--step:
         button--submit: Save
+        tab-title--actions-on-comment: Actions on comment
         tab-title--create-action: Add transition
       blocks-desktop_workflow-editor:
+        add-status-popup--name: Transition button name in Russian
+        add-status-popup--name-en: Transition button name
+        sidebar-add-status: Add status
         sidebar-title: Statuses and transitions
       components_Checklist:
         header-title: Checklist
@@ -4299,6 +4336,7 @@ default:
         token-label: Token
       ui_components_agile_agile-board_AgileBoardActionsMenu:
         delete-board-menu-item: Delete board
+        filters-manage: Manage filters
         migration-rollback: Switch back to the old version
       ui_components_agile_agile-board_AgileBoardAddColumnButton:
         new-column-button: Add column
@@ -4316,6 +4354,8 @@ default:
         issue-actions--delete-from-board: Remove from board
         issue-actions--move-down: Move to bottom of column
         issue-actions--move-up: Move to top of column
+      ui_components_agile_agile-board_AgileBoardIssuesImportButton:
+        import-issues: Import issues
       ui_components_agile_agile-board_AgileBoardMigrationForm:
         submit-btn: Start switching
       ui_components_agile_agile-board_AgileBoardUnusedStatuses:
@@ -4329,6 +4369,8 @@ default:
         backlog-default-column: Backlog
       ui_components_agile_common_AddIssueButton:
         add-issue-button: Add issue
+      ui_components_agile_common_AgileFilterParamsPicker:
+        save: Save
       ui_components_agile_common_AgileFilters:
         action-title-save: Save
         all-issues-filter-title: All issues
@@ -4417,6 +4459,7 @@ default:
         existing-issue: Existing issue
         new-issue: New issue
       ui_components_dashboard_DashboardActionsMenu:
+        delete-action: Delete
         set-start-page-action: Set as start page
       ui_components_dashboard_DashboardHeader:
         dashboard-header-add-button: Add
@@ -4457,15 +4500,16 @@ default:
         search-placeholder: Search by issue name
       ui_components_FilterEditorPane:
         all-issues-filter-title: All issues
+        reset-button: Reset
       ui_components_FilterExportMenu:
         menu-item-export: Export
         title: Filter actions
       ui_components_FilterFieldsSelect:
         applyChanges: Apply
       ui_components_FormField_TimeTrackingBlock:
-        field-comment-title: Explanation
-        field-datetime-title: On what day
-        field-estimation-title: Task evaluation
+        field-comment-title: Comment
+        field-datetime-title: Date to log work for
+        field-estimation-title: Overall task estimation
         field-remain-title: Time left
         field-spent-title: Time spent
       ui_components_Gantt_IssueActionsCell:
@@ -4532,6 +4576,7 @@ default:
         filter-waiting: Waiting for response
         filters: Filters
         issues-list: Issues
+        queue: Queue
         queues: Queues
       ui_components_IssueMenu:
         add-notification: Add reminder
@@ -4572,6 +4617,7 @@ default:
         save: Save
       ui_components_NavigationBar_BoardsPanel:
         create-button: Create board
+        menu-group-my-link: Full list of boards created by me
       ui_components_NavigationBar_IssuesPanel:
         all-items-link: All issues
         caption: Issues
@@ -4617,9 +4663,11 @@ default:
         title_access: Access to Tracker
       ui_components_page-admin_PageAdmin:
         menu-item-groups: Groups
+        menu-item-issue-statuses: Issue statuses
         menu-item-orgs: Organizations
         menu-item-repositories: Repositories
         menu-item-users: Users
+        tracker-settings: Tracker Settings
       ui_components_page-issues_touch_FilterSettingsMenu:
         item-filters: Filters
         item-group: Grouping
@@ -4677,6 +4725,7 @@ default:
         create-new: Create form
         create-new-template: Create new form
         description-placeholder: Add a description of the issue so the assignee knows what to do
+        empty-template: No form
         switch-to-admin-panel: Switch to admin panel
       ui_components_PageCreateIssueForm:
         continue: Continue
@@ -4744,11 +4793,11 @@ default:
       ui_components_queue-admin-tab-main_QueueAdminTabMain:
         save: Save
       ui_components_queue-admin-tab-timetracking_TimetackingForm:
-        field-can-assignee-update-time: Allow the assignee to edit the time
-        field-show-time-field-on-close: Automatically calculate the time spent when the task is closed
-        field-track-time-in-issues: Track time in queue issues
-        field-use-remaining-time: Use the field “Time left”
-        field-use-summary-time: Use the field “Overall assessment of the issue”
+        field-can-assignee-update-time: Allow the assignee to edit logged time
+        field-show-time-field-on-close: Automatically calculate spent time when closing the task
+        field-track-time-in-issues: Advanced time tracking
+        field-use-remaining-time: Display the Time left field
+        field-use-summary-time: Display the Overall task estimation field
         field-working-calendar: Work schedule
         save: Save
       ui_components_queue-admin-tab-workflows_IssueTypesListCell:
@@ -4791,10 +4840,10 @@ default:
         submit: Send
       ui_components_timetracking-history-dialog_TimeTrackingDialogBody:
         column-comment: Comment
-        column-date: Date of works
-        column-spent: Spent
+        column-date: Log date
+        column-spent: Time spent
       ui_components_timetracking-history-dialog_TimeTrackingHistoryDialog:
-        title: History of time accounting records
+        title: Time tracking history
       ui_components_TrackerSearch:
         queues: Queues
       ui_components_TrackerSelect:

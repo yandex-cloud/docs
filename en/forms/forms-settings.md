@@ -22,6 +22,16 @@ Any changes are saved in the [history](#log).
 
 {% endnote %}
 
+
+### Change the form language {#translate}
+
+The form cannot be automatically translated into another language.
+
+If you need the form in another language:
+* [Create a copy](new-form.md#sec_copy_form) of the form and change its text yourself.
+* [Create a new form](new-form.md#create-form) and enter the text yourself in the language you need.
+
+
 ## View the revision history {#log}
 
 1. On the {{ forms-full-name }} top panel, select **My forms**.

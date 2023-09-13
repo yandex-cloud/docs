@@ -1,125 +1,123 @@
 # Creating a template in {{ forms-full-name }} (beta)
 
-The [beta version of the new interface in {{ tracker-full-name }}](../user/personal.md#sec_beta) includes an integrated form builder {{ forms-full-name }} for creating issue templates.
+In the [beta version of the new {{ tracker-full-name }} interface](../user/personal.md#sec_beta), we added an embedded {{ forms-full-name }} form builder. You can use the builder to create forms inside your queue and use the forms as templates for your issues.
 
-Templates are available to all users who have the permission to create issues in the queue. The template list is displayed on the [issue creation](create-ticket.md) page.
+Forms are available to all users who have a right to create issues in the queue. A list of forms is shown on the [issue creation](create-ticket.md) page.
 
 {% note info %}
 
-By default, only the queue owner&nbsp;and the [{{ tracker-name }} admin](../role-model.md#admin) can manage templates. If you want other users to create or edit templates, grant them [access to edit queue settings](../manager/queue-access.md).
+By default, form management is only available to the queue owner and the [{{ tracker-name }} administrator](../role-model.md#admin). For the users to be able to create or edit forms, grant to them [access to edit the queue settings](../manager/queue-access.md).
 
 {% endnote %}
 
-## Creating a template {#create-template}
+## Create a form {#create-template}
 
-Issue templates are based on forms used in {{ forms-full-name }}. You can add questions to the form. The responses will then be included in the issue via variables used in integration settings.
+Forms that were created by the {{ forms-full-name }} embedded builder, are used as templates for creating issues. You can use forms to add questions: the answers to the questions will be passed to the issue using variables in the integration settings.
 
 {% note tip %}
 
-The form builder only supports basic question types and integration settings. You can change the [form design](../../forms/appearance.md), add [additional questions](../../forms/add-questions.md), and set up their [display logic](../../forms/send-condition.md) in the full version of the builder in {{ forms-full-name }} for Business.
+The embedded form builder supports only the main types of questions and integration settings. To edit the [appearance of a form](../../forms/appearance.md), add [additional prompts](../../forms/add-questions.md), and configure their display [logic](../../forms/send-condition.md), use the full version of the form constructor {{ forms-full-name }}.
 
 {% endnote %}
 
-To create an issue template:
+To create a form for your issues:
 
-1. On the left-hand panel, click ![](../../_assets/tracker/svg/create-task.svg) **Create issue**.
+1. In the left-hand panel, click ![](../../_assets/tracker/svg/create-task.svg) **{{ ui-key.startrek.blocks-desktop_b-head.new_issue }}**.
 
-1. Select a queue in the field at the top of the page.
+1. Select a queue in the field located at the top of the page.
 
-1. If you don't have any preset templates in {{ forms-full-name }}, select **New template**. If you already have issue templates to use, click **Create new template**.
+1. If there are no forms in the queue, select **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new }}**. If you already have forms, click **{{ ui-key.startrek.ui_components_PageCreateIssue.create-new-template }}**.
 
-1. Enter a name and description for your template and click **Continue**.
+1. Enter a name and description for the form and click **{{ ui-key.startrek.ui_components_PageCreateIssueForm.continue }}**.
 
-1. Add fields to the template.
+1. Add fields to the form.
 
-    * To add your first question, select the question type in the form creation area.
+   * To add the first prompt, select its type in the form creation space.
 
-    * To add more questions to the page, click **Add question** or hover over the existing question and click ![](../../_assets/tracker/svg/icon-add.svg). The new question will appear over the previous question when you hover over the top of the section.
+   * To add another prompt, click **Add prompt**, or hover over the created prompt and click ![](../../_assets/tracker/svg/icon-add.svg). The new prompt appears above the current one if you hover over the upper part of the block.
 
-    * To copy or remove a question, click ![](../../_assets/tracker/svg/icon-copy.svg) or ![](../../_assets/tracker/svg/icon-remove.svg).
+   * To copy or remove a prompt, click ![](../../_assets/tracker/svg/icon-copy.svg) or ![](../../_assets/tracker/svg/icon-remove.svg).
 
-    * To add an image to the question body or one of the answers, click ![](../../_assets/tracker/svg/icon-picture.svg).
+   * To add an image to a prompt or response option, click ![](../../_assets/tracker/svg/icon-picture.svg).
 
-    * To split the form into multiple pages, click **Add page** under the form creation area.
+   * To split a form into multiple pages, click **Add page** below the form creation space.
 
-1. Click **Configure integration** and specify issue parameters to transfer to {{ tracker-name }} from the template:
+1. Click **Set up integrations** and specify the issue's parameters that will be passed to {{ tracker-name }} from the form:
 
-    1. In the **Perform actions** section, choose **always**.
-If you need to set up specific conditions that would trigger issue creation, select **when**. Then choose a question and specify the response that would create an issue in {{ tracker-name }}.
+   1. Under **Perform actions**, specify **always**.
+      If you need to set up the conditions on which the issue will be created, select **on condition**. Then select a question and specify the answer on which an issue will be created in {{ tracker-name }}.
 
-    1. Choose the **Queue** for your issue. To create a [link](links.md) of the <q>Parent issue — Sub-issue</q> type, select **Convert to sub-issue** and enter the parent issue key.
+   1. Select the **Queue** to create your issue in. To set up a <q>Parent issue — Sub-issue</q> [link](links.md) for the created issue, select the option **Convert to sub-issue** and enter the key of the parent issue.
 
-    1. Select your issue's **Type** and **Priority**. Available issue types depend on your [issue settings](../manager/add-ticket-type.md).
+   1. Select the **Issue type** and **Priority**. Available issue types depend on the [issue settings](../manager/add-ticket-type.md).
 
-    1. Enter the issue name into the **Name** field and describe the issue in the **Description** field. Use [YFM markup](markup.md) to format text.
+   1. Enter the issue name in the **Title** field and the issue statement in the **Description** field. Use [YFM markup](markup.md) to format text.
 
-    1. To select the author or assignee, enter their usernames without the `@` symbol. If the author is not specified, the user who filled out the form is set as the issue author.
+   1. To set the default reporter and assignee, enter the logins of the users without `@`. If the reporter is omitted, the user who filled out the form will be assigned as a reporter by default.
 
-    1. If you want to add an issue field that's not on the list, select **Add issue parameter**. The field will be displayed in integration settings, and you will be able to specify its value for your template.
+   1. If you want to add a field that is missing in the list, to an issue, select **Add issue parameter**. The field will be shown in the integration settings, and you will be able to specify its value for the form.
 
-        {% note info %}
+      {% note info %}
 
-        Use variables to add an answer to a question from the form: select an issue field and click ![](../../_assets/tracker/svg/icon-add.svg). To learn more about variables, see the [{{ forms-full-name }} service documentation](../../forms/vars.md).
+      To add an answer to a question from the form, use variables: select the issue field and click ![](../../_assets/tracker/svg/icon-add.svg). For more information about variables, see the [{{ forms-full-name }} documentation](../../forms/vars.md).
 
-        {% endnote %}
+      {% endnote %}
 
-    1. To send attachments used in the form to the issue, find the **Attach files from answers** field and select the <q>File</q> question type.
+   1. To pass attachments from a form to the issue, in the field **Attach files from responses to questions**, select a question of the <q>File</q> type.
 
-    1. To display a link to the created issue, enable **Display notification when an action has been performed**.
+   1. To show a link to the created issue, enable the option **Show message with action result to the user**.
 
-1. You can also set up integrations with other services for collaborative work:
+1. You can also set up integrations with other team collaboration services.
 
-    * [Sending notifications by email](../../forms/send-mail.md).
+   * [Send notifications by email](../../forms/send-mail.md).
 
-    * [Adding user responses to {{ wiki-name }}](../../forms/send-wiki.md).
+   * [Add user responses to {{ wiki-name }}](../../forms/send-wiki.md).
 
-    * [Sending HTTP requests](../../forms/send-request.md).
+   * [Send HTTP request](../../forms/send-request.md).
 
-1. Click **Save**.
+1. Click **{{ ui-key.startrek.components_FormButtons.update }}**.
 
-## Managing templates {#manage-template}
+## Manage forms {#manage-template}
 
-Templates can only be managed by the [{{ tracker-name }} admin](../role-model.md#admin),  queue owner, and users with [access](../manager/queue-access.md) to queue settings.
+Form management is available to the [{{ tracker-name }} administrator](../role-model.md#admin), queue owner, and users who have [access](../manager/queue-access.md) to editing the queue settings.
 
-To open issue templates, find the left-hand panel and click ![](../../_assets/tracker/svg/create-task.svg) **Create issue**.
+To go to the queue forms, click ![](../../_assets/tracker/svg/create-task.svg) **{{ ui-key.startrek.blocks-desktop_b-head.new_issue }}** in the panel on the left.
 
-### Setting up the issue creation page {#new-task-page}
+### Set up the issue creation page {#new-task-page}
 
-To change the template order on the issue creation page, click ![](../../_assets/tracker/svg/range.svg) and drag the template.
+To change the form order on the issue creation page, click ![](../../_assets/tracker/svg/range.svg) and drag the form.
 
-You can choose to create issues based on a template or create them from scratch. To enable the option, click **Allow issue creation with no templates** in the upper-right corner:
+You can set up your issues to be created without a form or only with a form. To do this, select **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}** in the top-right corner.
+* **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.always }}**: All users will be able to create issues without a form.
+* **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}**: Users will only be able to create issues using a form.
+* **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.team }}**: Only the members of the [queue team](../manager/queue-team.md) will be able to create issues without a form.
 
-* **Always**: All users will be able to create issues without using templates.
-* **Never**: You will only be able to create issues from templates.
-* **Queue team only**: Only the [queue team](../manager/queue-team.md) members will be able to create issues without templates.
+### Changing form parameters {#edit-template-name}
 
-### Changing template parameters {#edit-template-name}
+To change the name or description of a form:
 
-To change a template's name or description:
+1. Select the form and click ![](../../_assets/horizontal-ellipsis.svg).
 
-1. Choose a template and click ![](../../_assets/horizontal-ellipsis.svg).
+1. Select **{{ ui-key.startrek.ui_components_PageCreateIssue.change-title-and-description }}**.
 
-1. Select **Edit name or description**.
+1. Enter a new name and description for the form and click **{{ ui-key.startrek.ui_components_queue-admin-tab-main_QueueAdminTabMain.save }}**.
 
-1. Enter a new name and description for your template and click **Save**.
+### Change the form {#edit-template}
 
-### Editing templates {#edit-template}
+To change the form:
 
-To change your template's design:
+1. Select the form and click ![](../../_assets/horizontal-ellipsis.svg).
 
-1. Choose a template and click ![](../../_assets/horizontal-ellipsis.svg).
+1. Select **{{ ui-key.startrek.ui_components_PageCreateIssue.change-template }}**.
 
-1. Choose **Edit template**.
+1. Edit the form's questions in the embedded {{ forms-full-name }} builder and set up integrations with {{ tracker-name }}, same as when [creating a form](#create-template).
 
-1. Edit the questions in the form using the dedicated {{ forms-full-name }} builder and set up {{ tracker-name }} integration, like you do when [creating templates](#create-template).
+### Deleting a form {#remove-template}
 
-### Deleting templates {#remove-template}
+To delete a form:
 
-To delete a template:
+1. Select the form and click ![](../../_assets/horizontal-ellipsis.svg).
 
-1. Choose a template and click ![](../../_assets/horizontal-ellipsis.svg).
+1. Select **{{ ui-key.startrek.ui_components_PageCreateIssue.switch-to-admin-panel }}**.
 
-1. Choose **Go to admin panel**.
-
-1. In the queue settings next to the template, click ![](../../_assets/tracker/icon-delete.png).
-
+1. In the queue settings next to the form, click ![](../../_assets/tracker/icon-delete.png).

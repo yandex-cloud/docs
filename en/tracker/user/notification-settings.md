@@ -1,15 +1,15 @@
 ---
-title: "{{ tracker-full-name }} notification settings Overview"
+title: "{{ tracker-full-name }} notification settings. Overview"
 description: "By default, {{ tracker-name }} sends you notifications about changes to issues if you have one of the required roles. You can configure the contents of notifications to only receive messages about the events you're interested in. You can choose how to display usernames and event types in notification messages."
 ---
 
-# Overview
+# Setting up notifications in {{ tracker-name }}
 
 By default, {{ tracker-name }} sends notifications about changes to issues to your email address if you have one of these roles:
 
-- **Reporter**: You created this issue.
-- **Assignee**: You are assigned to this issue.
-- **Follower**: You are subscribed to notifications for this issue.
+- **{{ ui-key.startrek-backend.roles.role.name.author }}**: You created this issue.
+- **{{ ui-key.startrek-backend.roles.role.name.assignee }}**: You are assigned to this issue.
+- **{{ ui-key.startrek-backend.roles.role.name.follower-key-value }}**: You are subscribed to notifications about this issue.
 - **Queue/version/component/goal subscriber**: You are subscribed to notifications for the queue, version, component, or goal that the issue belongs to.
 
 You can configure the contents of notifications to only receive messages about the events you're interested in (for example, only when an issue's status changes or when you're added to issue followers):
@@ -30,10 +30,10 @@ You can choose how to display usernames and event types in notification messages
 
 <!---1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}-->
 
-1. Click the link [{{ link-settings }}]({{ link-settings }}).
+1. Click the link [{{ link-tracker }} settings]({{ link-settings }}).
 
-1. Choose the option you need in the **Email sender name** section.
+1. Select the desired option under **{{ ui-key.startrek.blocks-desktop_b-page-settings.letters-sender-display-style-title }}**.
 
-1. Enable or disable **Show event type in notifications**.
+1. Enable or disable **{{ ui-key.startrek.blocks-desktop_b-page-settings.event-type-in-subject }}**.
 
-1. Click **Save**.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-settings.save }}**.

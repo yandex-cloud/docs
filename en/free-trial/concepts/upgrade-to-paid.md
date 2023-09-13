@@ -76,7 +76,7 @@ In {{ yandex-cloud }}, you pay for services based on the amount of resources con
    You upgraded to the paid version. The trial period terminates automatically.
 
    After upgrading to the paid version, you can continue to use the remainder of the grant until it expires:
-   - (4000&nbsp;-&nbsp;2500) = ₽1500&nbsp; for services other than Compute Cloud.
+   - (4000 - 2500) = ₽1500 for services other than Compute Cloud.
 
 
 {% endlist %}

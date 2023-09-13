@@ -34,8 +34,8 @@ To [view or change the cluster structure](cluster-overview.md#subpages), click !
 
 Each {{ wiki-name }} user has a _Personal cluster_ (`{{ wiki-username }}`). You can use your personal cluster to store your personal information, schedule, drafts, and more.
 
-To go to your personal cluster, click ![](../_assets/wiki/svg/go-to-my-page-icon.svg) **My page** in the left-hand {{ wiki-name }} panel.
+To go to your personal cluster, click ![](../_assets/wiki/svg/go-to-my-page-icon.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.my_page }}** in the left-hand {{ wiki-name }} panel.
 
-The pages of a personal cluster are available to all users by default.
+The personal cluster pages are available to all users by default.
 
 As with other pages for which you are the author, you can [change](page-management/access-setup.md) the access settings for the pages of your personal cluster.

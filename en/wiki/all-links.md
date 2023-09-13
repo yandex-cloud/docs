@@ -6,7 +6,7 @@ This feature helps you get your page ready for deletion: find and delete all lin
 
 1. Open the page.
 
-1. In the upper-right corner of the page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/delete.svg) **Delete**.
+1. In the top-right corner of the page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/delete.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-access-button.delete }}**.
 
 1. Wait a few seconds for the data to load.
 

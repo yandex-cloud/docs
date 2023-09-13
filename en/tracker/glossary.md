@@ -5,18 +5,18 @@ In this section, you will find the basic terms and concepts used in {{ tracker-n
 ## B {#rus-b}
 
 Backlog
-:   A list of issues or product requirements that must be completed in the project. Backlog issues are usually sorted by priority.
+:   List of issues or product requirements that must be completed in the project. Backlog issues are usually sorted by priority.
 
 ## V {#rus-v}
 
 Version
-:   A parameter that lets you group issues pertaining to the same version of a product. Version values can be [configured on the queue page](manager/versions.md).
+:   Parameter that allows you to group issues pertaining to the same version of a product. Version values can be [configured on the queue page](manager/versions.md).
 
 Widget
-:   An information block located on the [dashboard](#dashboard-definition) that automatically receives issue-related data and displays it as a list, table, or chart. [Learn more about widgets.](user/widgets.md)
+:   Information block located on the [dashboard](#dashboard-definition) that automatically receives issue-related data and displays it as a list, table, or chart. [Learn more about widgets.](user/widgets.md)
 
 Workflow
-:   A set of possible issue statuses and status transition rules. Queue settings for issues of various types let users [choose preset workflows](manager/add-ticket-type.md) or [create custom ones](manager/add-workflow.md).
+:   Set of possible issue statuses and status transition rules. Queue settings for issues of various types let users [choose preset workflows](manager/add-ticket-type.md) or [create custom ones](manager/add-workflow.md).
 
 ## A {#rus-g}
 
@@ -54,12 +54,12 @@ Organization
 
 
 Queue
-:   A queue is an area shared by related issues being worked on under a single product or pipeline. Queues can also be used as an issue list meant for a specific team or department. Queues enable you to order your issues and see who is responsible for their execution. [More about setting up queues.](queue-intro.md)
+:   Queue is an area shared by related issues being worked on under a single product or pipeline. Queues can also be used as an issue list meant for a specific team or department. Queues enable you to order your issues and see who is responsible for their execution. [More about setting up queues.](queue-intro.md)
 
 ## P {#rus-p}
 
 Issue fields
-:  Various attributes such as issue <q>Assignee</q>, <q>Deadline</q>, or <q>Status</q>. You can [edit parameters on the issue page](user/edit-ticket.md#edit-fields).
+:  Various attributes, such as issue <q>{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}</q>, <q>{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}</q>, or <q>{{ ui-key.startrek-backend.fields.issue.status-key-value }}</q>. You can [edit parameters on the issue page](user/edit-ticket.md#edit-fields).
 
 Invite to comment
 :   Inviting a user to comment means entering that user's name when [sending a comment to an issue](user/comments.md#call-comment) in order to draw their attention to that comment. The selected user will receive the comment text by email.
@@ -70,7 +70,7 @@ Project
 ## R {#rus-r}
 
 Resolution
-:  Issue attribute that specifies why the issue was closed. For example, an issue can be closed because it was completed (the <q>Resolved</q> resolution) or because it is a duplicate of another issue (the <q>Duplicate</q> resolution).
+:  Resolution is an issue attribute that specifies why the issue was closed. For example, an issue can be closed because it was completed (the <q>{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}</q> resolution) or because it is a duplicate of another issue (the <q>{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}</q> resolution).
 
 ## L {#rus-s}
 
@@ -78,18 +78,18 @@ Link
 :  Link included in an issue that refers to another issue and shows the hierarchy between the two, e.g., when an issue is a sub-issue of another one, or completing an issue depends on the result of another issue. You can read more about issue linking [here](user/links.md).
 
 Sprint {#sprint-definition}
-:   In [Agile methodologies](#agile), a sprint is an iterative project cycle that usually lasts from one to four weeks. {{ tracker-name }} allows you to [use sprints](manager/create-agile-sprint.md) on <q>Scrum</q> boards.
+:   In [Agile methodologies](#agile), a sprint is an iterative project cycle that usually lasts from one to four weeks. {{ tracker-name }} allows you to [use sprints](manager/create-agile-sprint.md) on <q>{{ ui-key.startrek.components_QueuePresetOnboarding.preset-name--scrum-development-preset }}</q> boards.
 
 Status
-:   A status is an issue attribute that reflects the current state of the issue completion process. For example: <q>Open</q>, <q>In progress</q>, <q>Testing</q>, and <q>Closed</q>.
+:   Status is an issue attribute that reflects the current state of the issue completion process, For example: <q>{{ ui-key.startrek-backend.applinks.samsara.status.open }}</q>, <q>{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}</q>, <q>{{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.testing }}</q>, or <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>.
 
 ## T {#rus-t}
 
 Tag
-:   Type of label that can be added manually to any issue. It is convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **Tags** parameter](user/edit-ticket.md#edit-fields).
+:   Type of label that can be added manually to any issue. It is convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **{{ ui-key.startrek-backend.fields.issue.tags-key-value }}** parameter](user/edit-ticket.md#edit-fields).
 
 Issue type
-:  {{ tracker-name }} issues come in various types, such as: <q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>. In the queue created for each issue type, you can [set up your workflow](manager/add-ticket-type.md).
+:  {{ tracker-name }} issues come in various types, such as: <q>New feature</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>, or <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q>. In the queue created for each issue type, you can [set up your workflow](manager/add-ticket-type.md).
 
 ## F {#rus-f}
 
@@ -99,12 +99,12 @@ Filter
 ## C {#rus-ch}
 
 Checklist
-:   A checklist is a to-do list or a list of planned issue stages that you can use to mark items you've completed. {{ tracker-name }} lets users [add checklists to issues](user/checklist.md).
+:   To-do list or a list of planned issue stages that you can use to mark items you have completed. {{ tracker-name }} allows users to [add checklists to issues](user/checklist.md).
 
 ## E {#rus-ee}
 
 Epic
-:  In [Agile methodologies](#agile), an epic is a larger feature or requirement that cannot be implemented within a single [sprint](#sprint-definition). {{ tracker-name }} includes the Epic issue type that can be used to [group any issues](user/links.md) based on a shared theme.
+:  In [Agile methodologies](#agile), an epic is a larger feature or requirement that cannot be implemented within a single [sprint](#sprint-definition). {{ tracker-name }} includes the {{ ui-key.startrek-backend.fields.issue.epic }} issue type that can be used to [group any issues](user/links.md) based on a common topic.
 
 ## Q {#rus-ya}
 
@@ -122,7 +122,7 @@ SLA
 :  In {{ tracker-name }}, an SLA is a [set of rules](manager/sla.md) that defines timeframes for processing issues in queues. For example, you can set the time within which the assignee has to respond to the issue, answer the requestor's comment, or complete the issue. [Learn more about SLAs.](sla-head.md)
 
 Story
-:   In [Agile methodologies](#agile), a <q>User Story</q> is a description of a feature that needs to be implemented in a product. {{ tracker-name }} includes the Story issue type that can be used to [group any issues](user/links.md) based on a common topic.
+:   In [Agile methodologies](#agile), a <q>User Story</q> is a description of a feature that needs to be implemented in a product. {{ tracker-name }} includes the {{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }} issue type that can be used to [group any issues](user/links.md) based on a common topic.
 
 Story Point
 :  Relative rating that describes the effort needed to complete an issue. The Story Point unit is not usually measured in terms of man-hours. [The team rates issues collectively](manager/planning-poker.md) by comparing them to a simple task.

@@ -1,28 +1,26 @@
 # Creating a template
 
-To create a template of an issue or comment:
+To create a template for an issue or comment:
 
-1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Manage templates**.
+1. Select the desired option:
+   - [{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-issues }}]({{ link-settings }}/templates/issues) to edit issue templates.
+   - [{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.type-comments }}]({{ link-settings }}/templates/comments) to edit comment templates.
 
-1. Select an option:
-    - **Issues** to create a template for issues.
-    - **Comments** to create a template for comments.
+1. Tap **{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.create-template }}**.
 
-1. Click **Create template**.
+1. Enter the template name and description.
 
-1. Enter a name and description for the template.
-
-1. If you want the template to only be used in a specific queue, enter the queue in the **Queue binding** field.
+1. If you want the template to only be used in a specific queue, specify the queue in the **{{ ui-key.startrek.blocks-desktop_b-page-settings-templates.edit-form-label-queue }}** field.
 
 1. Fill in the template parameters the same way as when creating a [new issue](create-ticket.md) or [comment](comments.md).
 
-1. Click **Save**.
+1. Tap **{{ ui-key.startrek.blocks-desktop_b-page-settings.save }}**.
 
 The new template will be available on the [template page]({{ link-tracker-templates }}).
 
-If you want other users to be able to use your template:
 
-1. [Set up template sharing](share-template.md#section_nmn_prs_zz).
+To be sure that other users can use your template:
 
-1. Tell your colleagues [to enable your template](share-template.md#section_vkg_trs_zz) in [Manage templates](https://tracker.yandex.ru/settings/templates/issues).
+1. [Set up shared access to the template](share-template.md#section_nmn_prs_zz).
 
+1. Ask your colleagues to [add a template](share-template.md#section_vkg_trs_zz) on the [Manage templates](https://tracker.yandex.ru/settings/templates/issues) page.

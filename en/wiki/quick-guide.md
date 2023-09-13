@@ -1,7 +1,6 @@
 # Creating your first Wiki page
 
-Try out {{ wiki-name }} features by creating your first page in the old editor. The page will be created in your personal cluster, so don't be afraid to experiment.
-
+Try out {{ wiki-name }} features by creating your first page in the old editor. The page will be created in your personal cluster, so do not be afraid to experiment.
 
 ## Creating a page {#create}
 
@@ -11,13 +10,13 @@ To create a page in your personal cluster:
 
 1. Select the **Old editor** type.
 
-1. In the **Name** field, enter the page title.
+1. In the **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-widget.name }}** field, enter the page title.
 
 1. The address field is filled in automatically. Do not edit it if this is your first time creating a page.
 
 1. Select **Personal cluster**.
 
-1. Click **Create**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.create }}**.
 
 1. Paste this sample into the entry field on the left or come up with your own text:
 
@@ -54,9 +53,9 @@ To create a page in your personal cluster:
 
    {% endcut %}
 
-1. Click **Save**.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-editor-struct.page_save }}**.
 
-A list of all your pages is available on the top {{ wiki-name }} panel in the ![](../_assets/wiki/svg/structure-icon.svg) **Cluster structure** menu.
+A list of all your pages is available on the top {{ wiki-name }} panel in the ![](../_assets/wiki/svg/structure-icon.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.tree }}** menu.
 
 ## Configuring access {#access}
 
@@ -68,9 +67,9 @@ To configure access to your page:
 
 1. Specify who can view the page:
 
-   - **Same as parent page**: Access level is inherited from the parent page.
+   - **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-widget.access_to_parent }}**: Access level is inherited from the parent page.
 
-   - **All employees**: All employees of your company.
+   - **All employees**: All employees of your organization.
 
    - **Only authors**: Only [authors](page-management/edit-owner.md) can view and edit the page.
 
@@ -79,11 +78,11 @@ To configure access to your page:
    {% note warning %}
 
    It is not recommended to change the access settings for the [{{ wiki-name }} homepage]({{ link-homepage }}).
-   By default, the author of the {{ wiki-name }} home page is a service account. If the "Only authors" access type is selected for this page, other users can't access it. To allow others to access the page, click the link [{{ link-homepage-access }}]({{ link-homepage-access }}) and change the access parameters.
+   By default, the author of the {{ wiki-name }} home page is a service account. If the "Only authors" access type is selected for this page, other users can't access it. To allow others to access the page, click the [{{ link-homepage-access }}]({{ link-homepage-access }}) link and change the access parameters.
 
    {% endnote %}
 
-1. Click **Save**
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-editor-struct.page_save }}**.
 
 
 

@@ -6,15 +6,15 @@ A checklist is a list of items that need to be completed to resolve the issue. H
 
 1. Open the issue page.
 
-1. Click ![](../../_assets/tracker/svg/checklist.svg) **Add checklist**.
+1. Click ![](../../_assets/tracker/svg/checklist.svg) **{{ ui-key.startrek.ui_components_IssueChecklist.add-checklist }}**.
 
 1. Name the first item in the list.
 
 1. If necessary, specify the assignee and deadline for this checklist item.
 
-1. To add an item, click **Save**. If you decide not to add an item, click **Cancel**.
+1. To add the item, click **{{ ui-key.startrek.ui_components_Checklist.button-submit }}**. If you want to cancel this action, click **{{ ui-key.startrek.ui_components_Checklist.button-cancel }}**.
 
-1. To add another item, click **Add item**.
+1. To add another item, click **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}**.
 
 ## Managing a checklist {#checklist-operations}
 
@@ -28,8 +28,8 @@ A checklist is a list of items that need to be completed to resolve the issue. H
 
 * To move an item up or down the list, click ![](../../_assets/tracker/svg/range.svg) and drag the item to the desired location in the list.
 
-* To hide or show all the items, click **Checklist** at the top of the list.
+* To hide or show all the items, click **{{ ui-key.startrek.ui_components_Checklist.header-title }}** at the top of the list.
 
-* To add an item to the checklist, tap **Add item** at the bottom of the list.
+* To add an item to the checklist, click **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** at the bottom of the list.
 
-* To delete the checklist, click ![](../../_assets/horizontal-ellipsis.svg) and select ![](../../_assets/tracker/svg/icon-remove.svg) **Delete checklist** at the top of the list.
+* To delete the checklist, click ![](../../_assets/horizontal-ellipsis.svg) and select ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_Checklist.remove-title }}** at the top of the list.

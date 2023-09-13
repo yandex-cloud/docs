@@ -1,1 +1,1 @@
-On the left-hand panel, click ![](../../_assets/tracker/svg/still.svg) → select **Administration** → ![](../../_assets/tracker/svg/repositories.svg) **Repositories** → **Connect repository**.
+In the left-hand panel, click ![](../../_assets/tracker/svg/still.svg) and select **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → ![](../../_assets/tracker/svg/repositories.svg) **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-repositories }}** → **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.connect }}**.

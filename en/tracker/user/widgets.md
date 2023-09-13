@@ -1,169 +1,150 @@
 # Widgets
 
-Widgets are small cards with useful information. They can show issue lists, statistics on issue completion, pivot tables, or notes. Widget content is generated automatically. The list of issues used to form a widget is set using [filters](create-filter.md). You can go to [{#T}](../support-process-dashboards.md) to find sample widgets for the support service dashboard.
+Widgets are small cards with useful information. They can show issue lists, statistics on issue completion, pivot tables, or notes. The widget content is generated automatically. The list of issues that a widget is based on is set using [filters](create-filter.md). To see sample widgets for your support team, see [{#T}](../support-process-dashboards.md).
 
 ## Issues {#tasks}
 
-![](../../_assets/tracker/widgets/filter.png =690x497)
+![](../../_assets/tracker/widgets/filter.png)
 
-This widget allows you to view a list of issues that meet a specific filter. For example, you can use these widgets to set up a page where you can see both the issues in a particular queue and the issues that you are currently working on.
+A widget enables you to view a list of issues that match a certain filter. With such widgets, you can use the same page to view your issue from a specific queue or your current issues.
 
 To configure a widget, set the following:
 
-- **Name**: The name to display in the widget title.
-- **Issues per page**: The number of issues to display on a single widget page. If there are more issues, you can navigate between pages at the bottom of the widget.
-- **Filter**: The filter used for creating the issue list. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
-- **Columns**: The issue fields to show in the list. You can add multiple fields. To remove a field, click **x**.
-- **Auto-update**: How often to refresh the data in the widget.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.hint-name }}**: Name displayed in the widget header.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-per-page }}**: Number of issues displayed on a single widget page. If there are more issues, you can use page navigation at the bottom of the widget.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-filter }}**: Filter used to generate the issue list. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-fields }}**: Issue fields shown in the list. You can add multiple fields. To delete a field, click **x**.
 
-## Note {#note}
+## {{ ui-key.startrek.blocks-desktop_dashboard-create-zone.note-title }} {#note}
 
-![](../../_assets/tracker/widgets/note.png =690x497)
+![](../../_assets/tracker/widgets/note.png)
 
 Put down your ideas and take notes directly on the dashboard. You can enter notes in plain text or use [markup](markup.md).
 
-## Summary table {#summary-table}
+## {{ ui-key.startrek.blocks-desktop_dashboard-create-zone.table-title }} {#summary-table}
 
-![](../../_assets/tracker/widgets/table.png =690x386)
+![](../../_assets/tracker/widgets/table.png)
 
-A simple pivot table that allows you to view statistics for any two parameters. The number of issues that meet the parameters is shown at intersections in the table. You can use this type of table, for instance, to track the quantity and status of issues for a specific group of assignees.
-
-To configure a widget, set the following:
-
-- **Widget name**: The name to display in the widget title.
-
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
-
-- **Columns**: The parameter to use for table columns.
-
-- **Rows**: The parameter to use for table rows.
-
-- **Number of rows on page**: The maximum number of table rows to display in the widget. If there are more rows, you can use the **Show all** button at the bottom of the widget.
-
-- **Sort by**: The order for sorting table rows.
-
-- **Show total**: If this option is selected, the table contains the sum of values for rows and columns.
-
-- **Auto-update**: How often to refresh the data in the widget.
-
-{% note info %}
-
-We don't recommend using the **Issue** value in **Columns** and **Rows**, as widgets using those settings will soon be disabled. [Learn more](../faq.md#section_del_widget).
-
-{% endnote %}
-
-## Summary table with totaled values {#summary-table-with-totals}
-
-![](../../_assets/tracker/widgets/table-with-sum.png =690x487)
-
-A special type of pivot table with two parameters. In contrast to a simple pivot table, the intersections show the sum of the values of a third parameter, instead of the number of issues. For instance, you can use this table to track the time spent by assignees working on various components in the queue.
+A simple summary table that enables you to view issue statistics by any pair of parameters. At the table intersections, you can see the number of issues that match the parameters. You can use this type of table, for instance, to track the quantity and status of issues for a specific group of assignees.
 
 To configure a widget, set the following:
 
-- **Widget name**: The name to display in the widget title.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.hint-name }}**: Name displayed in the widget header.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-filter }}**. Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
 
-- **Columns**: The parameter to use for table columns.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-x-axis }}**: Parameter used for table columns.
 
-- **Rows**: The parameter to use for table rows.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-y-axis }}**: Parameter used for table rows.
 
-- **Cells**: The parameter to show totals for in the intersections.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-on-first-page }}**: Maximum number of table rows to display in the widget. If there are more rows than the maximum, you can see them by clicking **{{ ui-key.startrek.ui_components_dashboard_TableWidget.show-all }}** at the bottom of the widget.
 
-- **Number of rows on page**: The maximum number of table rows to display in the widget. If there are more rows, you can use the **Show all** button at the bottom of the widget.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-sort }}**: Sorting order for table rows.
 
-- **Sort rows**: The sort order in table rows.
-
-- **Sort columns**: The sort order in table columns.
-
-- **Show total**: If this option is selected, the table contains the sum of values for rows and columns.
-
-- **Auto-update**: How often to refresh the data in the widget.
-
-{% note info %}
-
-We don't recommend using the **Issue** value in **Columns** and **Rows**, as widgets using those settings will soon be disabled. [Learn more](../faq.md#section_del_widget).
-
-{% endnote %}
-
-## Events {#events}
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-show-sum }}**: If this option is enabled, the table includes the total of all rows and columns.
 
 
-![](../../_assets/tracker/widgets/events.png =690x423)
+## {{ ui-key.startrek.blocks-desktop_dashboard-create-zone.table-sum-title }} {#summary-table-with-totals}
 
-The chart displays statistics for _events_ in issues over a certain period of time. You can choose one of the events:
+![](../../_assets/tracker/widgets/table-with-sum.png)
 
-- Work on the issue was completed. This event is defined by **End date**.
+Special pivot table with two parameters. In contrast to a simple pivot table, the intersections show the sum of the values of a third parameter, instead of the number of issues. You can use this table to track the time spent by users on different queue components.
 
-- Work on the issue has started. This event is defined by **Start date**.
+To configure a widget, set the following:
 
-- Last update to the issue.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.hint-name }}**: Name displayed in the widget header.
 
-- Last comment on the issue.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-filter }}**. Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
 
-- Issue was switched to the **Resolved** status.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-x-axis }}**: Parameter used for table columns.
 
-- Issue created.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-y-axis }}**: Parameter used for table rows.
 
-To configure the widget, make these settings:
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-sum }}**: Parameter whose totals are displayed at intersections.
 
-- **Name**: The name to display in the widget title.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-on-first-page }}**: Maximum number of table rows to display in the widget. If there are more rows than the maximum, you can see them by clicking **{{ ui-key.startrek.ui_components_dashboard_TableWidget.show-all }}** at the bottom of the widget.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.sort-row }}**: Sorting order for table rows.
 
-- **Key parameter**: Select the event to track in the statistics.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.sort-column }}**: Sorting order for table columns.
 
-- **Group**: Select the step and specify the period for collecting statistics.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-show-sum }}**: If this option is enabled, the table includes the total of all rows and columns.
 
-- **Show cumulative total**: If this option is enabled, data collected from previous steps is included in each subsequent step.
 
-- **Auto-update**: How often to refresh the data in the widget.
+## {{ ui-key.startrek.blocks-desktop_dashboard-create-zone.time-since-title }} {#events}
 
-## Issue statistics {#issues-stat}
+![](../../_assets/tracker/widgets/events.png)
 
-![](../../_assets/tracker/widgets/stat.png =690x448)
+The chart displays _statistics for events_ in issues over a certain period of time. You can select one of the following events:
+
+- Work on the issue is completed. This event is defined by **{{ ui-key.startrek-backend.fields.issue.end-key-value }}**.
+
+- Work on the issue is started. This event is defined by **{{ ui-key.startrek-backend.fields.issue.start-key-value }}**.
+
+- Latest issue update.
+
+- Latest comment on the issue.
+
+- Issue was switched to the **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}** status.
+
+- The issue was created.
+
+To configure a widget, set the following:
+
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.hint-name }}**: Name displayed in the widget header.
+
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-filter }}**. Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-field }}**: Select an event to track in the statistics.
+
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-group-by }}**: Select a step and set the period for collecting statistics.
+
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-is-cumulative }}**: If this option is enabled, data collected from previous steps is included in each subsequent step.
+
+
+## {{ ui-key.startrek.blocks-desktop_dashboard-create-zone.issues-title }} {#issues-stat}
+
+![](../../_assets/tracker/widgets/stat.png)
 
 The widget displays issue distribution by values of a certain parameter.
 
 To configure a widget, set the following:
 
-- **Name**: The name to display in the widget title.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.hint-name }}**: Name displayed in the widget header.
 
-- **Filter**. Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-filter }}**. Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
 
-- **Number of rows on page**: The maximum number of chart rows to display in the widget. If there are more rows, you can use the **Show all** button at the bottom of the widget.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-on-first-page }}**: Maximum number of chart rows to display in the widget. If there are more rows than the maximum, you can see them by clicking **{{ ui-key.startrek.ui_components_dashboard_TableWidget.show-all }}** at the bottom of the widget.
 
-- **Key parameter**: The issue field to gather statistics for.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-field }}**: Issue field to gather statistics for.
 
-- **Sort by**: The sort order in chart columns.
-
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-sort }}**: Sorting order for chart columns.
 
 
 {% note info %}
 
-In the **Key parameter** field, we don't recommend using the **Issue** value because the widgets with such settings will soon be disabled. [Read more](../faq.md#section_del_widget).
+We do not recommend using the **{{ ui-key.startrek.ui_components_dashboard.summary-field-name }}** value in the **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-field }}** field because the widgets with this setting will soon be disabled. [Read more](../faq.md#section_del_widget).
 
 {% endnote %}
 
-## <q>Created/Solved</q> chart {#created-and-resolved}
+## {{ ui-key.startrek.blocks-desktop_dashboard-create-zone.created-vs-resolved-title }} {#created-and-resolved}
 
-![](../../_assets/tracker/widgets/create-resolve.png =690x430)
+![](../../_assets/tracker/widgets/create-resolve.png)
 
-This chart allows you to compare the number of created issues to the number of resolved issues. You can specify the period and step for collecting statistics.
+The chart enables you to compare the number of created and closed issues. You can specify the period and step for collecting statistics.
 
-To configure the widget, make these settings:
+To configure a widget, set the following:
 
-- **Name**: The name to display in the widget title.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.hint-name }}**: Name displayed in the widget header.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-filter }}**. Statistics are collected by issues that match a certain filter. You can set filters using [direct links, names](create-filter.md), or the [query language](query-filter.md).
 
-- **Group**: Select the step and specify the period for collecting statistics.
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.title-group-by }}**: Select a step and set the period for collecting statistics.
 
 - **Show average value**: If this option is enabled, a trend line is displayed under the chart.
 
 - **Show cumulative total**: If this option is enabled, data collected from previous steps is included in each subsequent step.
 
-- **Show versions**: If this option is enabled, the chart shows the versions that issues belong to.
-
+- **{{ ui-key.startrek.blocks-desktop_b-dashboard-widget.versions }}**: If this option is enabled, the chart shows the versions issues belongs to.
 
 

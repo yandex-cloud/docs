@@ -2,7 +2,7 @@
 
 You can upload a file to a page and add a download link to the text.
 
-To open a list of all files uploaded to a page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** in the upper-right corner and select ![](../_assets/wiki/svg/attachments.svg) **Files**.
+To open a list of all files uploaded to a page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** in the top-right corner and select ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
 
 {% note warning %}
@@ -14,13 +14,13 @@ The maximum total size of all files attached in {{ wiki-name }} per organization
 
 ## Uploading a file to a page {#upload-file}
 
-1. Open the page. In the top-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **Files**.
+1. Open the page. In the top-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
-1. Click **Select file** and open the desired file or files.
+1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-attachments.upload-btn-text }}** and open the desired file or files.
 
 ## Adding links to files {#paste-link}
 
-1. Open the page. In the top-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **Files**.
+1. Open the page. In the top-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
 1. Hover over the file and click ![](../_assets/wiki/svg/copy-link.svg) **Copy the embed code**.
 
@@ -32,17 +32,17 @@ If you insert a link to an image this way, the image will be displayed on the pa
 
 {% endnote %}
 
-## Download a file {#download}
+## Downloading a file {#download}
 
-1. Open the page. In the top-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **Files**.
+1. Open the page. In the top-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
 1. Hover over the file and click ![](../_assets/wiki/svg/download.svg) **Download**.
 
-## Delete a file {#delete}
+## Deleting a file {#delete}
 
-1. Open the page. In the top-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **Files**.
+1. Open the page. In the top-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
-1. Hover over the file and click ![](../_assets/wiki/svg/delete.svg) **Delete**.
+1. Hover over the file and click ![](../_assets/wiki/svg/delete.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-page-more-panel.delete }}**.
 
 #### See also
 

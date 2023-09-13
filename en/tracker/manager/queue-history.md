@@ -2,37 +2,37 @@
 
 {% note warning %}
 
-By default, queue settings can only be accessed by the queue owner.
+Only the queue's owner can configure the queue by default.
 
 {% endnote %}
 
-The changelog displays all changes to the issue queue. Each entry contains information on what was changed as well as the date and the user responsible for the change.
+The log includes records about the changes in queue settings. Each record includes the date, author, and contents of the change.
 
-## Viewing changelogs {#section_yj4_f1c_r2b}
+## Viewing changelogs {#show-log}
 
 1. Open the queue page.
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
+1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Go to the **Changelog** tab.
+1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--events }}** tab.
 
-## Filtering entries {#section_pyt_rnb_r2b}
+## Filtering entries {#filter-records}
 
-You can use filters to find a specific changelog entry. Here is the list of available filters:
+To find a record in the log, use filters:
 
 ![image](../../_assets/tracker/queue-history.png)
 
 1. **By author**
-Find changes made by a specific user.
+    Find changes made by a certain user.
 
 1. **By change type**
-View configuration changes of a particular type.
+    View changes in settings belonging to a certain type.
 
-1. **By component**
-View component changes: creation, deletion, field changes, etc.
+1. **{{ ui-key.startrek.blocks-desktop_b-filter.by-components }}**
+    View changes in components: creation, deletion, parameter changes, etc.
 
-1. **By date**
-Find changes for a specific timeframe. You can specify just the start and end dates, as well as the whole interval.
+1. **{{ ui-key.startrek.blocks-desktop_b-file-list_sort_yes.date }}**
+    Find changes over a period. You can select an interval or set only the start or end date in a range.
 
-1. **Disabling filters**
-Click **Reset** to disable a filter.
+1. **Reset filters**
+    To cancel the filter action, click Reset.

@@ -18,9 +18,9 @@ Select the versions of the {{ wiki-name }} page you want to compare. Their diffe
 
 ## Rolling back to an older version {#return-to-old}
 
-1. Select an entry in the page history. The main window will display the selected version with a caption that says **This is an outdated version of the page**.
+1. Select an entry in the page history. The main window will display the selected version with the caption **This is an outdated version of the page**.
 
-1. Select **Edit this version**.
+1. Select **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-events-log.edit_version }}**.
 
 1. You can then edit the selected version or simply save it without any changes, making it the latest version of the page.
 
@@ -38,4 +38,4 @@ For [dynamic tables](pages-types.md#grid), the change history is available in ed
 
 1. To compare two versions of the table, select them in the left-hand panel.
 
-1. To restore the selected table version, click **Restore this version** at the top of the page.
+1. To restore the selected table version, click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-events-log.return_this_version }}** at the top of the page.

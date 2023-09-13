@@ -4,13 +4,18 @@ You can manage your issues more easily by adjusting the {{ tracker-name }} inter
 
 ## Customizing your home page {#sec_my_page}
 
-You can set your [home page](startpage.md) to display any [filter](create-filter.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md):
+You can set up your [start page](startpage.md) in the old interface to show one of the selected options:
 
-1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
+* [**{{ ui-key.startrek.ui_components_page-my_PageMy.page-title }}**](startpage.md#my-page).
+* [filter](create-filter.md).
+* [dashboard](dashboard.md).
+* [issue board](../manager/create-agile-board.md).
 
-1. Under **My page**, choose the filter, dashboard, or issue board you want to see on the home page.
+1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
-1. Click **Save**.
+1. Under **{{ ui-key.startrek.ui_components_NavigationBar.start-page-title }}**, choose the filter, dashboard, or issue board you want to see on the home page. To use **My page** as the startup page, select it in the list.
+
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 ## Setting the interface language {#choose-language}
 
@@ -18,13 +23,21 @@ You can use {{ tracker-name }} in English or Russian. To do this:
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
-1. Under **Interface language**, choose the desired language.
+1. Select a language under **{{ ui-key.yacloud.settings.switch_lang }}**.
 
-1. Click **Save**.
+## Setting up the layout {#choose-theme}
+
+To set up the interface theme and how the issues will be opened on the page:
+
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
+
+1. Select a theme under **{{ ui-key.yacloud.settings.switch_appearance }}**.
+
+1. To open an issue in the right-hand panel when you click its name or key (e.g., **TEST-123**), select **{{ ui-key.startrek.ui_components_Confirm.ok-button-text }}**.
 
 ## Setting the user display type {#sec_display}
 
-By default, the **Author**, **Assignee**, and **Followers** fields display the users' first and last names. If you want to display their usernames or profile pictures instead, change the user display mode.
+By default, the **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}**, **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--assignee }}**, and **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--followers }}** fields display the first and last name of the users. If you want to display their usernames or profile pictures instead, change the user display mode.
 
 {% cut "Screenshot" %}
 
@@ -32,54 +45,53 @@ By default, the **Author**, **Assignee**, and **Followers** fields display the u
 
 {% endcut %}
 
-To change the display method, do the following:
+To change the method of display:
 
-1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
+1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
-1. Under **User display**, choose the desired display method:
+1. Under **{{ ui-key.startrek.blocks-desktop_b-page-settings.users-display-format }}**, choose the display method you prefer:
+   - Select **{{ ui-key.startrek.blocks-desktop_b-page-settings.prefer-login }}** to show usernames instead of real names in system fields within issues.
 
-    - Select **Display login instead of name** to show usernames instead of real names in system issue fields.
+      {% cut "Screenshot" %}
 
-        {% cut "Screenshot" %}
+      ![](../../_assets/tracker/followers-disp-style-4.png)
 
-        ![](../../_assets/tracker/followers-disp-style-4.png)
+      {% endcut %}
 
-        {% endcut %}
+   - Select **{{ ui-key.startrek.blocks-desktop_b-page-settings.prefer-icons-in-lists }}** to show only avatars in user list fields. This setting does not affect the **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}** and **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--assignee }}** fields.
 
-    - Select **Show avatars instead of names** to only display user avatars in the user list fields. This setting doesn't affect the **Author** and **Assignee** fields.
+      {% cut "Screenshot" %}
 
-        {% cut "Screenshot" %}
+      ![](../../_assets/tracker/followers-disp-style-5.png)
 
-        ![](../../_assets/tracker/followers-disp-style-5.png)
+      {% endcut %}
 
-        {% endcut %}
-
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 ## Setting the date display format {#sec_display_date}
 
-Values responsible for date and time can be displayed in the full (day, month, year, time) or simplified (day and month) formats.
+The parameters that include the date and time in the issue can be shown in the full format (day, month, year, and time) or brief format (day and month).
 
-If you want to change the display type for these values, do the following:
+To change the display format for such parameters:
 
-1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
+1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
-1. Under **Date format**, select the desired format.
+1. Select a format under **{{ ui-key.startrek.blocks-desktop_b-page-settings.date-format }}**.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 ## Configuring notifications {#sec_notifications}
 
-{{ tracker-name }} notifies you of any updates to issues you're subscribed to. You can change your notification settings on the personal settings page:
+{{ tracker-name }} uses email to send notifications about changes in the issues you're subscribed to. On the personal settings page, you can set up the notification parameters:
 
-1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
+1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
-1. Set your notification settings:
-    - Enable or disable [regular update reports for issues you're subscribed to](notification-digest.md).
-    - Set up [username and event type display in emails](notification-settings.md#section_u1f_3w5_xgb).
-    - Enable or disable [notifications about changes to issues](subscribe.md#sec_self).
+1. Set notification settings:
+   - Enable or disable [regular update reports for issues you're subscribed to](notification-digest.md).
+   - Set up [username and event type display in emails](notification-settings.md#section_u1f_3w5_xgb).
+   - Enable or disable [notifications about changes to issues](subscribe.md#sec_self).
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 To learn more about notifications, see the following sections:
 
@@ -90,17 +102,22 @@ To learn more about notifications, see the following sections:
 
 By default, issue comments are sorted from oldest to newest. You can change the sorting order of comments from newest to oldest on the personal settings page:
 
+1. Click the link [{{ link-settings }}]({{ link-settings }}).
+
+1. Under **{{ ui-key.startrek.blocks-desktop_b-page-settings.comments-and-history }}**, enable the **{{ ui-key.startrek.blocks-desktop_b-page-settings.comments-new-on-top }}** option.
+
+1. Click **{{ ui-key.yacloud.common.save }}**.
+
+## The beta version of the new interface {#sec_beta}
+
+To enable the new {{ tracker-name }} interface:
+
+1. Click the link [{{ link-settings }}]({{ link-settings }}).
+
+1. Enable the **Beta version of the new interface** option.
+
+To disable the new {{ tracker-name }} interface:
+
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
-1. Under **Message order in issues**, select **Newest first**.
-
-1. Click **Save**.
-
-## Enabling the beta version of the new interface {#sec_beta}
-
-To switch to the new interface:
-
-1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
-
-1. Enable the **New interface beta version**.
-
+1. Under **{{ ui-key.yacloud.settings.switch_experiments }}**, disable the **Beta version of the new interface** option.

@@ -6,27 +6,27 @@ A checklist is a list of items that need to be completed to resolve the issue. H
 
 1. Open the issue page.
 
-1. Click ![](../../_assets/tracker/checklist-create.png) **Add checklist**.
+1. Tap ![](../../_assets/tracker/checklist-create.png) **{{ ui-key.startrek.ui_components_IssueChecklist.add-checklist }}**.
 
 1. Name the first item in the list and press Enter on the phone keyboard.
 
 1. To specify the assignee and deadline for this item, tap ![](../../_assets/horizontal-ellipsis.svg) and select the appropriate action.
 
-1. To add another item, enter its description and press Enter on the phone keyboard. If you're adding a new item to a ready-made checklist, first tap **Add item** at the bottom of the list.
+1. To add another item, enter its description and press Enter on the phone keyboard. If you are adding a new item to a ready-made checklist, first tap **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** at the bottom of the list.
 
 ## Managing a checklist {#checklist-operations}
 
 * To change an item name, expand the checklist and tap the item description. Edit the name and press Enter on the phone keyboard.
 
-* To change the assignee or deadline, click ![](../../_assets/horizontal-ellipsis.svg) to the right of the item. Select the desired action and specify a new value.
+* To change the assignee or deadline, tap ![](../../_assets/horizontal-ellipsis.svg) to the right of the item. Select the desired action and specify a new value.
 
 * To mark an item as completed, check the checkbox ![](../../_assets/tracker/checklist-checkbox.png).
 
 * To uncheck an item, tap the checkbox ![](../../_assets/tracker/checklist-checkmark.png).
 
-* To add an item to the checklist, tap **Add item** at the bottom of the list.
+* To add an item to the checklist, tap **{{ ui-key.startrek.ui_components_Checklist.new-item-button-caption }}** at the bottom of the list.
 
-* To delete a checklist item, tap ![](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+* To delete a checklist item, tap ![](../../_assets/horizontal-ellipsis.svg) next to it and select **{{ ui-key.startrek.ui_components_Checklist.remove-item-title }}**.
 
 * To delete a checklist, tap ![](../../_assets/tracker/delete-checklist-mobile.png) at the top of the list.
 

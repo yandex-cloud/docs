@@ -24,7 +24,7 @@ Transfers _from {{ GP }} to {{ GP }}_ and _from {{ GP }} to {{ PG }}_ do not sup
 
 The source treats `FOREIGN TABLE` and `EXTERNAL TABLE` as a regular view and uses the general algorithm for `VIEW` objects when handling them.
 
-The source never transfers data from a `MATERIALIZED VIEW`, even during transfers from {{ GP }} to a different database.
+Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZED VIEW` data, create an ordinary `VIEW` that refers to the `MATERIALIZED VIEW` to be transferred.
 
 ## {{ MG }} {#mongodb}
 
@@ -40,7 +40,7 @@ For more information about the `createIndex()` function, see the [{{ MG }} docum
 
 ## {{ PG }} {#postgresql}
 
-The source never transfers data from a `MATERIALIZED VIEW`, even during transfers from {{ PG }} to a different database. In transfers _from {{ PG }} to {{ PG }}_, a `MATERIALIZED VIEW` is treated as a regular view and handled using the general algorithm for `VIEW` objects.
+Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZED VIEW` data, create an ordinary `VIEW` that refers to the `MATERIALIZED VIEW` to be transferred.
 
 The source treats `FOREIGN TABLE` as a regular view and uses the general algorithm for views when handling them.
 

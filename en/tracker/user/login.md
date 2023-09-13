@@ -22,7 +22,7 @@ To create and edit issues, you'll need [full access](../access.md) to {{ tracker
 
 To log in to {{ tracker-full-name }}:
 
-1. Go to the [{{ tracker-name }}]({{ link-tracker }}). Click **Logging in to Yandex Tracker**.
+1. Go to the [{{ tracker-name }}]({{ link-tracker }}). Click **{{ ui-key.startrek.ui_components_promo_Page.login-button-label }}**.
 
 1. Select an account you use to work in {{ tracker-name }}:
 
@@ -60,7 +60,7 @@ To switch the user account that was used to log in to {{ tracker-name }}:
 
 1. In the bottom-left panel, click the profile photo.
 
-1. Click the ![](../../_assets/tracker/svg/logout.svg) **Log out** button next to your login.
+1. Click ![](../../_assets/tracker/svg/logout.svg) **{{ ui-key.yacloud.common.button_logout }}** next to your username.
 
 1. Select a different user from the list or click **Log in to a different account**.
 

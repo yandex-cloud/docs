@@ -3,27 +3,24 @@
 To create an issue via email, send a message with the issue description to the [queue address](../manager/queue-mail.md):
 
 
-
-1. Make sure the queue has its [email address](../manager/queue-mail.md#section_gwv_hqb_hgb) set up first.
+1. Make sure that you added an [email address](../manager/queue-mail.md) for issue creation to your queue.
 
 1. Check that you have [access to the queue](../manager/queue-access.md).
-
+
 
 1. Creating a new message.
 
-    {% note tip %}
+   {% note tip %}
 
-    Create a new message for every issue. If you respond to a {{ tracker-name }} email or send an existing email again, it appears as an issue comment.
+   Create a new message for every issue. If you respond to a {{ tracker-name }} email or send an existing email again, it appears as an issue comment.
 
-    {% endnote %}
+   {% endnote %}
 
-1. Enter the issue name in the **Subject** field.
+1. Enter the issue name in the **{{ ui-key.startrek.blocks-desktop_issue-reply-form.email-subject }}** field.
 
-1. Describe the issue in the message body.
+1. Describe the issue in the email body.
 
-1. Send an email to the address , specified in [queue settings](../manager/queue-mail.md#section_gwv_hqb_hgb).
+1. Send the email to the address specified in the [queue settings](../manager/queue-mail.md).
 
 You'll receive a reply notifying you that a new issue was created.
-
-
 

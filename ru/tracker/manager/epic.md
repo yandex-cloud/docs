@@ -63,7 +63,3 @@
 - На доске откройте страницу спринтов и перетащите задачу на карточку **{{ ui-key.startrek.blocks-desktop_b-page-agile-sprints.without-epics }}**.
 
 - Откройте страницу задачи, в блоке **{{ ui-key.startrek.ui_components_IssueLinks.links-group-title--relates }}** наведите указатель мыши на строку эпика и нажмите значок ![](../../_assets/tracker/delete-agile-status.png).
-
-
-
-

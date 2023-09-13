@@ -9,7 +9,7 @@ In these examples, the [Selling.csv](https://storage.yandexcloud.net/doc-files/S
 
 ## Applying window functions {#usage-window-function}
 
-In {{ datalens-short-name }} , only [measures](dataset/data-model.md#field) can be the arguments of window functions. The groups of values that a function is calculated for are specified as a list of [dimensions](dataset/data-model.md#field) and are called windows. [Groupings](#grouping) may only use the dimensions involved in building a chart. These include all the dimensions in one chart section.
+In {{ datalens-short-name }}, only [measures](dataset/data-model.md#field) can be the arguments of window functions. The groups of values that a function is calculated for are specified as a list of [dimensions](dataset/data-model.md#field) and are called windows. [Groupings](#grouping) may only use the dimensions involved in building a chart. These include all the dimensions in one chart section.
 
 Let's take a look at the `Selling` table with data on sales in cities:
 

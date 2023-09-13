@@ -1,16 +1,13 @@
 # Working with issues
 
-By default, your list of issues is available [on your home page](startpage.md) or in the **Issues** → **All my issues** menu. To start working with an issue, go to its page.
-
+To open your issue list, in the left-hand menu, select ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.ui_components_NavigationBar.issue-lists-menu-item }}** → **{{ ui-key.startrek.ui_components_IssueListsPanel.filter-my-issues }}** or follow the [link]({{ link-tracker }}issues/my-issues). To get started with an issue, go to the issue's page.
 
 
 ## Starting work on an issue {#section_qpp_5rn_jz}
 
-When you start working on an issue, switch it to a new status (usually "In progress"). The status shows what state the issue is in and helps other {{ tracker-name }} users track its progress. The current status is shown under the issue title and in the panel on the right.
+When getting started with an issue, change it to a new status (usually {{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}). The status shows what state the issue is in and helps other {{ tracker-name }} users track its progress. The current status is shown on the right panel.
 
-![image](../../_assets/tracker/statuses.png)
-
-While you are working on it, don&apos;t forget to update the status so that you and your colleagues know what the current state is for the issue.
+When working on the issue, make sure to timely change the issue status so that's your colleagues and you are aware of its execution stage.
 
 {% note tip %}
 
@@ -18,24 +15,26 @@ The available statuses and transitions depend on the [queue settings](../manager
 
 {% endnote %}
 
-> Your issue has the <q>Open</q> status. When you start working on it, switch the status to <q>In progress</q>. When it's completed, change the status to <q>Closed</q>. If you need to return to the issue later, you can switch it back to the <q>Open</q> status.
+> Your issue has the <q>{{ ui-key.startrek-backend.applinks.samsara.status.open }}</q> status. When you start working on it, switch the status to <q>{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}</q>. When you finish, change the status to <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>. If you need to go back to the issue later, you can switch it back to <q>{{ ui-key.startrek-backend.applinks.samsara.status.open }}</q>.
 
 ## Working on an issue {#section_c3t_l53_d1b}
 
-{{ tracker-name }} helps you keep track of an issue's progress and keep in touch with colleagues. When you are working on an issue, you can:
+{{ tracker-name }} helps you keep track of an issue's progress and keep in touch with colleagues. When working on your issues, you can:
 
 - [Create an issue checklist](checklist.md).
-List the steps needed to solve the issue and make a note in the checklist once you complete one.
+   Enumerate the steps needed to resolve the issue and tick off their execution.
 - [Edit issue details](edit-ticket.md).
-If the details for the issue have changed, you can edit them.
+   If the issue description has changed, you can edit it.
 - [Comment on issues](comments.md).
-Leave comments on issues, make notes, and invite colleagues to add their input.
+   Add comments to issues, make notes, and invite colleagues to comment.
 - [Keep a record of time spent](time-spent.md).
-Register the time spent on an issue.
+   Register the time spent on the issue.
 
 ## Closing an issue {#section_kyj_gbm_2z}
 
-When you have finished working on an issue, switch it to the final status (usually <q>Closed</q>) and select a **resolution** (the reason the issue is closed). The available resolutions depend on the [queue settings](../manager/add-ticket-type.md).
+When you finish working on an issue, switch it to a final status (usually <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>) and select a **resolution** (the reason the issue was closed). The available resolutions depend on the [queue settings](../manager/add-ticket-type.md).
 
-> The issue you are working on was canceled. To register this in {{ tracker-name }}, switch the issue to the <q>Closed</q> status and select the <q>Canceled</q> resolution.
+> It was decided to cancel the issue you're working on. To register this in {{ tracker-name }}, switch the issue to the <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q> status and select the <q>Canceled</q> resolution.
+
+
 

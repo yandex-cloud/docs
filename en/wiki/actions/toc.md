@@ -1,7 +1,10 @@
 # Table of contents
 
-You can add a table of contents to your [{{ wiki-name }} page](../pages-types.md#page). Such a TOC is compiled automatically based on the page headings. To do this:
+[{{ wiki-name }} pages](../pages-types.md#page) created in the old editor may automatically generate a table of contents based on headings. This is done using a dynamic block named `toc`.
 
+To add an automatically compiled table of contents to a page:
+
+1. Make sure your page is created in the [old editor](../create-page.md).
 1. Make sure the page headings are [marked up properly](../basic-markup.md#markup). To quickly view the table of contents for a page, click ![](../../_assets/wiki/ico-toc.png) in the right-hand panel.
    If there are matching headers on the page, the links in the table of contents may not work correctly.
 
@@ -13,7 +16,7 @@ You can add a table of contents to your [{{ wiki-name }} page](../pages-types.md
 
 By default, all headings of the current {{ wiki-name }} page are added to the table of contents. You can configure the additional TOC settings using the [advanced parameters](#toc-params).
 
-> Here is an example of a table of contents that includes first (`h1`) to third (`h3`) level headings.
+> Here is an example of a table of contents that includes first (`h1`) to third (`h3`) level headings:
 >
 > ```
 > {{toc from="h1" to="h3"}}

@@ -10,7 +10,7 @@ If you only discuss an issue in the comments, you will always have access to a 
 
 ## Leaving a comment {#leave-comment}
 
-To comment on an issue, enter your text in the box at the bottom of the page and click **Submit**. In the comments section, you can use [text markup](markup.md) and attach images and files.
+To comment on an issue, enter your text in the box at the bottom of the page and click **{{ ui-key.startrek.blocks-desktop_comment-form.send }}**. In the comments section, you can use [text markup](markup.md) and attach images and files.
 
 You can use the comments section to specify a key for a different issue so that {{ tracker-name }} automatically links the issue. When entering the issue key, use ALL CAPS.
 
@@ -19,15 +19,15 @@ If you close or refresh the page without sending your comment, it will still be 
 
 ## Replying to comments {#answer-comment}
 
-1. Hover over the comment and click![](../../_assets/tracker/svg/icon-reply.svg) **Reply**. The comment you are replying to will be quoted in the response.
+1. Hover over the comment and click ![](../../_assets/tracker/svg/icon-reply.svg) **{{ ui-key.startrek.blocks-desktop_comment.reply }}**. The comment you are replying to will be quoted in the response.
 
-1. Make your changes and click **Submit**.
+1. Make your changes and click **{{ ui-key.startrek.blocks-desktop_comment-form.send }}**.
 
 ## Editing comments {#edit-comment}
 
 1. Hover over the comment and click ![](../../_assets/tracker/svg/icon-edit.svg) **Edit comment**.
 
-1. Make your changes and click **Save**.
+1. Make your changes and click **{{ ui-key.startrek.blocks-desktop_comment-form.save }}**.
 
 Any changes to comments are saved in the [History](history.md).
 
@@ -41,13 +41,13 @@ To invite other users to discuss an issue:
 
 1. Enter the text of your comment.
 
-1. Click **Send**.
+1. Click **{{ ui-key.startrek.blocks-desktop_comment-form.send }}**.
 
-Users invited to the comment will be notified by email, with their names added to the **Pending reply from** issue field.
+Users invited to comment will be notified by email, with their names added to the **{{ ui-key.startrek-backend.fields.issue.pendingReplyFrom }}** issue field.
 
 {% note info %}
 
-If you add a user in the **Pending reply from** field without inviting them when sending an issue comment, the user will not receive an email notification.
+If you add a user in the **{{ ui-key.startrek-backend.fields.issue.pendingReplyFrom }}** field without inviting them when commenting on an issue, the user will not receive an email notification.
 
 {% endnote %}
 
@@ -59,19 +59,19 @@ To attach an image, click ![](../../_assets/tracker/text-edit/image.svg) in the 
 
 ## Sharing a comment {#share-comment}
 
-To copy a link to a comment, hover over it and click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/text-edit/link.svg) **Copy link**. You can also click the date next to the comment author's name: the link will be shown in the browser's address bar.
+To copy a link to a comment, hover over it and click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/text-edit/link.svg) **{{ ui-key.startrek.blocks-desktop_file.copy-link-button }}**. You can also click the date next to the comment author's name: the link will be shown in the browser's address bar.
 
 ## Deleting a comment {#delete-comment}
 
-To delete a comment, hover over it and click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **Delete**.
+To delete a comment, hover over it and click ![](../../_assets/horizontal-ellipsis.svg) → ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.blocks-desktop_file.delete-button }}**.
 
 
 
 ## Sorting comments {#order-comments}
 
-By default, comments are listed chronologically. To display the latest comments at the beginning of the list, on the right-hand side of the **Activity** section, click ![](../../_assets/tracker/svg/new-first.svg) **Newest first**.
+By default, comments are listed chronologically. To display the latest comments at the beginning of the list, on the right-hand side of the **Activity** section, click ![](../../_assets/tracker/svg/new-first.svg) **{{ ui-key.startrek.blocks-desktop_b-page-settings.comments-new-on-top }}**.
 
-The issue's changelog showing up when you click **History** will also change its order to newest first.
+The issue's changelog showing up when you click **{{ ui-key.startrek.blocks-desktop_b-ticket-workflow.history }}** will also change its order to newest first.
 
 ## Sending comments to a user's email address {#send-comment}
 
@@ -87,28 +87,28 @@ You can send emails both to the external and internal users right from the issue
 
 To send an email from the issue page:
 
-1. Select **Email** above the field for a new comment.
+1. Select **{{ ui-key.startrek.blocks-desktop_b-ticket-workflow.new-comment-type--external }}** above the field for a new comment.
 
 1. Select the email sender address from the list:
 
    * Queue address
 
-      The <q>From</q> field will display the queue address. A response to such a message will become a comment to the issue.
+      The <q>{{ ui-key.startrek.blocks-desktop_issue-reply-form.email-from }}</q> field will display the queue address. A response to such a message will become a comment to the issue.
 
       You can [set up](../manager/queue-mail.md) multiple email addresses for the queue in the organization domain or on any other email server.
 
    * User's personal email address {{ tracker-name }}
 
-      The <q>From</q> field will display your name and personal email address linked to the account in {{ tracker-name }}. Response emails will be sent to your personal email address.
+      The <q>{{ ui-key.startrek.blocks-desktop_issue-reply-form.email-from }}</q> field will display your name and personal email address linked to the account in {{ tracker-name }}. Response emails will be sent to your personal email address.
 
-1. You can choose a **Nickname** for the queue address. Nicknames are used when emails need to be sent from the entire organization or service rather than from a single user.
+1. You can choose a **{{ ui-key.startrek.blocks-desktop_issue-reply-form.email-nickname }}** for the queue address. Nicknames are used when emails need to be sent from the entire organization or service rather than from a single user.
 
    Create one or more sender names in the queue [email address settings](../manager/queue-mail.md).
 
 1. Specify the recipient and enter the email text
 
-   To send a copy of an email to a different recipient, click **+ Copy** and select their email address.
+   To send a copy of an email to a different recipient, click ![](../../_assets/tracker/svg/icon-add.svg) **{{ ui-key.startrek.blocks-desktop_issue-reply-form.email-cc }}** and select their email address.
 
-1. Click **Send**.
+1. Click **{{ ui-key.startrek.blocks-desktop_comment-form.send }}**.
 
 The user's response will automatically be added as an issue comment.

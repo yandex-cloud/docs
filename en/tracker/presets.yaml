@@ -8,6 +8,7 @@ default:
   link-connect: https://connect.yandex.com/
   link-connect-main: https://connect.yandex.com/portal/home
   link-admin-fields: https://tracker.yandex.com/admin/fields
+  link-admin-types: https://tracker.yandex.com/admin/types
   link-admin-resolutions: https://tracker.yandex.com/admin/resolutions
   link-quick-start: https://tracker.yandex.com/queues/new/quick-start
   link-repositories: https://tracker.yandex.com/admin/repositories
@@ -50,6 +51,7 @@ default:
   support-business-import: https://yandex.com/support/business/import-mailboxes.html
   support-business-domain-main: https://yandex.ru/support/business/domains/add-domain.html#add-domain__add-main-domain
   support-business-link: https://yandex.com/support/business/
+  support-calendar: https://yandex.com/support/calendar/
   link-wiki-scrum: https://en.wikipedia.org/wiki/Scrum_(software_development)
   link-wiki-kanban: https://en.wikipedia.org/wiki/Kanban_(development)
   link-wiki-agile: https://en.wikipedia.org/wiki/Agile_software_development

@@ -1,202 +1,147 @@
 # Formatting text in issues
 
-Use the {{ yfm }} syntax when formatting text in issue descriptions or comments. For example, you can format text with italics or bold, as well as add lists and tables.
+To add formatting to the issue description and comments, use the visual editor or {{ yfm }} syntax.
 
-If you want to see a preview of how the issue description or comment would look after formatting, click **Preview**. Click **Edit** to resume formatting.
+To format text and lists, embed tables and images, use the following toolbar buttons:
 
-## Lowercase formatting {#line}
+![](../../_assets/tracker/text-edit/toolbar.png)
 
-| Element | Markup | Result |
-| ----- | ----- | ----- |
-| Bold | ```**Bold**``` | **Bold** |
-| Italics | ```_Italics_``` | _Italics_ |
-| Bold italics | ```**_Bold italics_**``` | **_Bold italics_** |
-| Also bold italics | ```_**Also bold italics**_``` | _**Also bold italics**_ |
-| Strikethrough | ```~~Strikethrough~~``` | ~~Strikethrough~~ |
-| Underline | ```++Underlined++``` | <u>Underlined</u> |
-| Superscript | ```Super^script^``` | Super^script^ |
-| Subscript | ```Subvvscriptvv``` | Sub<sub>script</sub> |
-| Monospaced text | ```##Monospaced text##``` | <samp>Monospaced text</samp> |
-| Colored text:<br/><ul><li>`red`;<li>`green`;<li>`blue`;<li>`gray`;<li>`yellow`. | ```{blue}(Blue text)``` | <font color="blue">Blue text</font> |
-| Source code | ``` `code snippet` ``` | `code snippet` |
-| Escaping markup elements | ```\*\*escaping** _markup elements_``` | \*\*escaping** _markup elements_ |
+1. To cancel or repeat an action, use the ![](../../_assets/tracker/text-edit/undo.svg) and ![](../../_assets/tracker/text-edit/redo.svg) buttons.
 
-## Headers {#headers}
+1. To format text using [{{ yfm }} markup]({{ yfm-link }}), click ![](../../_assets/tracker/text-edit/set.svg) and select **Markup** mode.
 
-```
-## Second-level heading 
+1. To disable the toolbar, click ![](../../_assets/tracker/text-edit/set.svg) and turn off the **Toolbar** option. If the toolbar is disabled, you can run commands using the `/` character in **Editor** mode.
 
-#### Fourth-level heading
+## Formatting text {#format-wysiwyg}
 
-##### Fifth-level heading
-```
+To format text, use the following toolbar buttons or keyboard shortcuts:
 
-{% cut "See the result" %}
+| Formatting | Toolbar button | Windows shortcuts | Mac OS shortcuts |
+--- | --- | --- | ---
+| Header | ![](../../_assets/tracker/text-edit/header.svg) ![](../../_assets/tracker/text-edit/show.svg) | **Ctrl** + **Alt** + **1**—**6** | **⌘** + **⌥** + **1**—**6** |
+| Bold text | ![](../../_assets/tracker/text-edit/bold.svg) | **Ctrl** + **B** | **⌘** + **B** |
+| Italic | ![](../../_assets/tracker/text-edit/italic.svg) | **Ctrl** + **I** | **⌘** + **I** |
+| Underlined text | ![](../../_assets/tracker/text-edit/underline.svg) | **Ctrl** + **U** | **⌘** + **U** |
+| Strikethrough text | ![](../../_assets/tracker/text-edit/strikethrough.svg) | **Ctrl** + **Shift** + **S** | **⌘** + **Shift** + **S** |
+| Colored text | ![](../../_assets/tracker/text-edit/color.svg) ![](../../_assets/tracker/text-edit/show.svg) | — | — |
 
-## Second-level heading {#second-header}
+## Lists {#lists-wysiwyg}
 
-#### Fourth-level heading {#fourth-header}
+To add a list, select one or more paragraphs and use the following toolbar buttons or keyboard shortcuts:
 
-##### Fifth-level heading {#fifth-header}
+| List | Toolbar button | Windows shortcuts | Mac OS shortcuts |
+--- | --- | --- | ---
+| Bulleted list | ![](../../_assets/tracker/text-edit/ul.svg) | **Ctrl** + **Shift** + **L** | **⌘** + **Shift** + **L** |
+| Numbered list | ![](../../_assets/tracker/text-edit/ol.svg) | **Ctrl** + **Shift** + **M** | **⌘** + **Shift** + **M** |
+| Checklist (checkbox) | ![](../../_assets/tracker/text-edit/checkbox.svg) | — | — |
 
-{% endcut %}
+To format a nested list item, select a paragraph and press the Tab key (**⇥**) at the beginning of the line.
 
-## Links {#links}
+## Block formatting {#block-wysiwyg}
 
-| Element | Markup | Result |
-| ----- | ----- | ----- |
-| Link | ```[link_text]({{ link-yandex }})``` | [link_text]({{ link-yandex }}) |
-| URL | To convert a URL or email<br/>address into a link,<br/>add angle brackets on both sides `<>`:<br/>```<{{ link-yandex }}>``` | <{{ link-yandex }}> |
-| Issue link | ``` TEST-123 ``` | ![](../../_assets/tracker/format/tracker-magic-link.png) |
+To add a mathematical formula, quote, note, or cut, select one or more paragraphs, and use the following toolbar buttons or keyboard shortcuts:
 
-## Lists {#lists}
+| Block | Toolbar button | Windows shortcuts | Mac OS shortcuts |
+--- | --- | --- | ---
+| Comment | ![](../../_assets/tracker/text-edit/note.svg) | **Ctrl** + **Alt** + **8** | **⌘** + **⌥** + **8** |
+| Cut | ![](../../_assets/tracker/text-edit/cut.svg) | **Ctrl** + **Alt** + **7** | **⌘** + **⌥** + **7** |
+| Quote | ![](../../_assets/tracker/text-edit/quote.svg) | **Ctrl** + **>** | **⌘** + **>** |
+| Formula | ![](../../_assets/tracker/text-edit/formula.svg) | — | — |
 
-#|
-|| **Element** | **Markup** | **Result** ||
-|| Numbered list |
+For the **Note** block, you can choose its type: <q>Note</q>, <q>Advice</q>, <q>Important</q>, or <q>Attention</q>.
 
-```
-1. List item.
-1. List item:
-    1. Nested list item.
-    1. Nested list item.
-1. List item.
-```
+## Code formatting {#src-wysiwyg}
 
-|
+To add a code block, select a line or paragraph and use the following toolbar buttons or keyboard shortcuts:
 
-1. Nested list item.
-1. List item:
-    1. Nested list item.
-    1. Nested list item.
-1. List item. ||
-||Bulleted list |
+| Block | Toolbar button | Windows shortcuts | Mac OS shortcuts |
+--- | --- | --- | ---
+| Code block | ![](../../_assets/tracker/text-edit/code-block.svg) | **Ctrl** + **Alt** + **E** | **⌘** + **⌥** + **E** |
+| Line of code in text | ![](../../_assets/tracker/text-edit/inline-code.svg) | **Ctrl** + **E** | **⌘** + **E** |
 
-```
-* List item.
-* List item:
-    * Nested list item.
-    * Nested list item.
-* List item.
-```
+## Links {#links-wysiwyg}
 
-|
+To add a link:
 
-* Nested list item.
-* List item:
-    * Nested list item.
-    * Nested list item.
-* List item. ||
-|| Issue list |
+1. Select a text fragment or click on the area to add a link to.
 
-```
-[ ] List item.
-[x] List item.
-[ ] List item.
-[ ] List item.
-```
+1. On the toolbar, click ![](../../_assets/tracker/text-edit/link.svg).
 
-|
-![](../../_assets/tracker/format/check.png) ||
-|#
+1. Enter the link's URL. If you did not select a text fragment, enter the text to be displayed as a link.
 
-## Block formatting {#blocks}
+1. Click **{{ ui-key.startrek.blocks-desktop_comment-form.save }}**.
 
-#|
-|| **Element** | **Markup** | **Result** ||
-|| Quotation |
+To change or delete a link:
 
-```
-> Quotations
->> Nested quote
-```
+1. Click on the link.
 
-|
+1. Make your changes and click **{{ ui-key.startrek.blocks-desktop_comment-form.save }}**.
 
-> Quotations
->> Nested quote ||
-|| Multiple-line code block |
+## Embedded content {#content}
 
-````
-```php
-<?
-phpinfo();
-$s = "Hello, World!\n";
-print $s;
-``` 
-````
+### Inserting an image from the clipboard {#clipboard}
 
-|
+1. Copy an image to the clipboard:
 
-```php
-<?
-phpinfo();
-$s = "Hello, World!\n";
-print $s;
-```
+   * Copy a picture from an image editor or take a screenshot.
 
-||
-|| Collapsed text |
+   * Copy a picture from a web page.
 
-```
-{% cut "Cut header" %}
+   * Copy an image file from the file manager on your computer.
 
-Text displayed
-on click
+1. Paste the image from the clipboard into the text.
 
-{% endcut %}
-```
+The image will be uploaded to the description or comment and show up in a list of attached files under the issue description.
 
-| {% cut "Cut header" %}
+### Adding an image by a link or uploading it from a device {#image}
 
-Text displayed on click
+To add a file with an image, in the toolbar, click ![](../../_assets/tracker/text-edit/image.svg) and select the **Upload from device** tab. You can upload an image file in the JPEG, GIF, or PNG format with a size of no more than 1 MB.
 
-{% endcut %} ||
-|#
+To insert an image using a link:
+1. If you want to insert a file link from a device, upload it to a file hosting.
 
-## Tables {#tables}
+1. Copy the image address.
 
-### Simple table {#simple-table}
+1. In the toolbar, click ![](../../_assets/tracker/text-edit/image.svg) and select the **Add by link** tab.
 
-The cells of this table type can only include one line of text or one image.
+   * In the **Link** field, paste the image URL.
 
-```
-| Header1 | Header2 |
-| ---------- | ---------- |
-| Text     | Text      |
-| Text     | Text      |
-```
+   * Add a **Picture caption**. The caption will be displayed when you hover over the image.
 
-{% cut "See the result" %}
+   * Enter **Alternative text**. The text is displayed if the image fails to load.
 
-| Header1 | Header2 |
-| ---------- | ---------- |
-| Text | Text |
-| Text | Text |
+   * Specify the image size.
 
-{% endcut %}
+1. Click **{{ ui-key.startrek.blocks-desktop_comment-form.save }}**.
 
-### Multiple-line table {#multiline-table}
+The image will be uploaded to the description or comment and show up in a list of attached files under the issue description.
 
-The cells of this table type can include multiple lines of text, an image, lists, tables, or source code.
+### Add files {#file}
 
-```
-#|
-|| **Header1** | **Header2**||
-|| Text
-on two lines | Text ||
-|| Text | Text ||
-|#
-```
+To add a file to a description or comment to an issue, in the toolbar, click ![](../../_assets/tracker/svg/icon-file.svg).
 
-{% cut "See the result" %}
+* If the file is stored on your device, select the tab **Upload from device**, then click **Upload** to open the file manager.
 
-#|
-|| **Header1** | **Header2** ||
-|| Text
-on two lines | Text ||
-|| Text | Text ||
-|#
+* If your file is stored on the file hosting, select the **Add by link** tab. Paste a link to the file and enter the file name, then click **{{ ui-key.startrek.blocks-desktop_comment-form.save }}**.
 
-{% endcut %}
+The file will be uploaded to the description or comment and show up in a list of attached files under the issue description.
 
+### Embedding objects from external sources {#iframe}
+
+To embed an object or media file from an external source in your issue description or comment, use an embedded iFrame:
+
+1. Copy the link to the resource to be displayed in the iFrame.
+
+1. On the toolbar, click ![](../../_assets/tracker/text-edit/iframe.svg):
+
+   * In the **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.field-type--uri }}** field, paste the resource URL.
+
+   * Specify the frame size.
+
+1. Click **{{ ui-key.startrek.blocks-desktop_comment-form.save }}**.
+
+## Tables {#tables-wysiwyg}
+
+To add a table, click ![](../../_assets/tracker/text-edit/table.svg) on the toolbar and fill in table cells. You can format text in the table cells.
+
+To edit a table, select a cell and use the dynamic buttons.

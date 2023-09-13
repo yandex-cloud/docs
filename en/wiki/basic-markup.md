@@ -12,7 +12,7 @@ When editing a page created in the old editor, use the formatting panel to add t
 
 There are two ways to work with the formatting panel:
 
-- To add a markup element to the text, place the cursor in the desired position and click on the formatting panel. A markup template appears in the text. Add your text to it. If you clicked **Create link** or **Insert code**, enter your text and click **Add** in the window that appears.
+- To add a markup element to the text, place the cursor in the desired position and click on the formatting panel. A markup template will appear in the text. Add your text to it. If you clicked **Create link** or **Insert code**, enter your text and click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-page-setting.add }}** in the window that appears.
 
 - To format text that is already added to the page, select a text fragment and click on the formatting panel.
 

@@ -17,20 +17,20 @@ User rights in {{ tracker-name }} are classified into two types:
 * Global level of access to {{ tracker-name }}:
    * [Administrator](#admin).
    * [Employee with full access](access.md#set).
-   * [Employee with the <q>Read</q> access](access.md#readonly).
+   * [Employee with the <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> permission](access.md#readonly).
 
 * Rights of access to individual elements of the {{ tracker-name }} structure:
    * [Queue issues](manager/queue-access.md). The rights to create, view, and edit issues can be set up by the queue owner or another user permitted by the owner to edit the [queue settings](manager/edit-queue-general.md).
 
       You can set up access to issues in your queue for individual users, groups, and roles:
-        * **Access**: Users listed in the **Access** field of an issue.
-        * **Follower**: Users who subscribed to the issue.
-        * **Reporter**: The person who created the issue.
-        * **Assignee**: The person assigned to the issue.
-        * **Queue owner**.
-        * **Queue team members**: Users added to the [queue team](manager/queue-team.md).
+        * **{{ ui-key.startrek-backend.roles.role.name.access }}**: Users listed in the issue's **{{ ui-key.startrek-backend.fields.issue.access }}** field.
+        * **{{ ui-key.startrek-backend.roles.role.name.follower-key-value }}**: Users subscribed to the issue.
+        * **{{ ui-key.startrek-backend.roles.role.name.author }}**: Person who created the issue.
+        * **{{ ui-key.startrek-backend.roles.role.name.assignee }}**: Person assigned to the issue.
+        * **{{ ui-key.startrek-backend.roles.role.name.queue-lead }}**.
+        * **{{ ui-key.startrek-backend.roles.role.name.team-member }}**: Users added to the [queue team](manager/queue-team.md).
 
-        To limit access of users to specific issues inside the queue, you can use [components](manager/queue-access.md#access-components).
+      To limit access of users to specific issues inside the queue, you can use [components](manager/queue-access.md#access-components).
 
    * [Filters](user/create-filter.md#nastroit-dostup-k-filtru) and [dashboards](user/share-dashboard.md#section_k2z_1nk_pz). Rights to access filters and dashboards can be set up by their owner or another user permitted by the owner.
 
@@ -61,7 +61,7 @@ Actions available to the administrator:
 
    {% note alert %}
 
-   Only the billing account owner has access to managing the billing account by default. For other users, [access](../billing/security/) to the billing account can be provided via the [Billing service](../billing/).
+   Only the billing account owner has access to managing the billing account by default. For other users, [access](../billing/security/) to the billing account can be provided via the [{{ billing-name }}](../billing/) service.
 
    {% endnote %}
 
@@ -88,13 +88,13 @@ Actions available to employees:
 * Using [issue boards](user/agile.md) and [dashboards](user/dashboard.md).
 * Setting up the [interface](user/personal.md) and [notifications](user/notifications.md).
 
-#### Employees with the <q>Read</q> access {#read-only}
+#### Employees with the <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> permission {#read-only}
 
-The employees who work in the <q>Read</q> mode, can enjoy the features related to viewing issues in {{ tracker-name }}. You don't pay for the service use by such users.
+Employees working in the <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> mode can use the features related to viewing issues in {{ tracker-name }}. You do not pay for the use of the service by such users.
 
-If the [administrator](#admin) has <q>Read</q> access to {{ tracker-name }}, they themselves can edit access rights for their account.
+If the [administrator](#admin) has the <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> access to {{ tracker-name }}, they can edit access rights for their account themselves.
 
-Actions available in the <q>Read only</q> mode:
+Actions available in <q>{{ ui-key.startrek.components_Licenses.department-access-title--readOnly }}</q> mode:
 
 * View issues, [dashboards](user/dashboard.md), and [issue boards](manager/agile.md#sec_boards).
 * Search for issues using the [filter builder](user/create-filter.md) and [query language](user/query-filter.md).

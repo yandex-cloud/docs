@@ -4,55 +4,54 @@
 
 To specify issue updates that will fire the trigger, set a condition:
 
-1. Under **Trigger conditions**, click **Add condition** and select one from the list.
+1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}**, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.action_add-condition }}** and select one from the list.
 
-    | Condition type | Description |
-    | ----- | ----- |
-    | Event | The trigger is fired when the specified event occurs. For example, when creating an issue, making any issue changes, or editing the fields that are used for [calculating values with formulas](set-action.md#section_calc_field). |
-    | Checklist | The trigger is fired when all [checklist](checklist.md) items in an issue are completed. |
-    | Comment text | The trigger is fired if a comment contains a specific text fragment. |
-    | Comment author | The trigger is fired if a comment is added by the specified user. |
-    | Comment type | The trigger is fired: <ul><li>**Comment in Tracker**: If a comment is made using the {{ tracker-name }} interface.</li><li>**Email**: If a comment is created via email.</li></ul> |
-    | Action with link | The trigger is fired if issue links are changed. |
-    | Issue fields | The trigger is fired if changes are made to a field that belongs to any of the following field groups: **System**, **Time spent**, **Agile**, or **Email**. |
+   | Condition type | Description |
+   ----- | -----
+   | {{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }} | The trigger is fired when the specified event occurs. For example, when creating an issue, making any issue changes, or editing the fields that are used for [calculating values with formulas](set-action.md#section_calc_field). |
+   | {{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--checklist }} | The trigger is fired when all [checklist](checklist.md) items in an issue are completed. |
+   | {{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--comment }} | The trigger is fired if a comment contains a specific text fragment. |
+   | {{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--comment-author }} | The trigger is fired if a comment is added by the specified user. |
+   | {{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--comment-type }} | The trigger is fired: <ul><li>**{{ ui-key.startrek-backend.messages.trigger.condition.type.CommentMessage.Internal }}**: If a comment is made using the {{ tracker-name }} interface.</li><li>**{{ ui-key.startrek-backend.messages.trigger.condition.type.CommentMessage.External }}**: If a comment is created via email.</li></ul> |
+   | {{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--links }} | The trigger is fired if issue links are changed. |
+   | Issue fields | The trigger is fired if changes are made to a field that belongs to any of the following field groups: **{{ ui-key.startrek-backend.fields.issue.fields.system }}**, **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}**, **{{ ui-key.startrek-backend.fields.issue.fields.agile }}**, or **{{ ui-key.startrek-backend.fields.issue.fields.email }}**. |
 
 1. Choose an event or [comparison operation](#section_cdn_d4j_wfb) depending on the condition type.
 
-1. If you chose a comparison operation, specify the comparison value.
+1. If a comparison operation is selected, specify the value to be compared.
 
-    ![image](../../_assets/tracker/boolean.png)
+   ![image](../../_assets/tracker/boolean.png)
 
-1. You can add multiple conditions to a trigger if necessary. By default, the trigger is only activated when all conditions are met simultaneously. If you want your trigger to fire as soon as at least one of the conditions is met, click **Any**.
+1. Add multiple conditions to the trigger if needed. By default, the trigger fires if all conditions are met at the same time. If you want your trigger to fire as soon as at least one of the conditions is met, click **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--or_short }}**.
 
-   You can add a condition set (two or more) that will be triggered by AND/OR operators.
+   You can add a group of conditions (two or more) that will match the logical AND or logical OR.
 
 > **Example**
 >
->![](../../_assets/tracker/trigger-example1.png)
+> ![](../../_assets/tracker/trigger-example1.png)
+>
+> The trigger will fire if a group of conditions is met: Comment is created AND (one out of the two conditions is met: Issue has an assignee OR Issue has changed to the Need info status) AND (one out of the two conditions is met: Start date is set OR Original estimate is made).
 
-The trigger will be activated once a set condition is met: New comment AND (one of two conditions is met: User assigned to issue OR issue status changed to Need info) AND (one of two conditions is met: Start date specified OR Original estimate specified).
+## Comparison operators {#section_cdn_d4j_wfb}
 
-## Comparison operations {#section_cdn_d4j_wfb}
+- If the trigger's condition includes a comparison operation, the condition will be checked each time the issue changes. If the condition is met, the trigger fires.
+- Different comparison operations are available for different field types.
+- You can specify additional options for certain comparison operations:
 
-- If you set a comparison operation as a trigger condition, the condition is checked every time the issue is updated. The trigger activates once the condition is met.
+   - **{{ ui-key.startrek-backend.fields.trigger.condition.property.noMatchBefore }}**: The trigger is fired if a field value changes after a comparison is made.
+   - **{{ ui-key.startrek-backend.fields.trigger.condition.property.ignoreCase }}**: Treat uppercase characters as matching the same lowercase characters.
+   - **{{ ui-key.startrek-backend.fields.trigger.condition.property.removeMarkup }}**: Ignore markup in text.
 
-- Various roles can have their own comparison operations.
+Examples of the available comparison operations are listed in the table.
 
-- You can set additional options for some comparison operations:
-  - **No match before change**: Triggers if a field value changed after a comparison operation.
-  - **Ignore case**: Treat uppercase characters as matching the same lowercase characters.
-  - **Ignore markup**: Ignore markup in text.
 
-Examples of acceptable comparison operations are listed in the table.
-
-| Comparison operations | Description |
-| ----- | ----- |
-| Equal to, greater than, greater than or equal to, less than, less than or equal to | Comparison operations for fields with numerical values. |
+| Comparison operators | Description |
+----- | -----
+| Equal to, greater than, less than, less than or equal to, and greater than or equal to. | Comparison operations for fields with numerical values. |
 | Became equal to, became greater than, became greater than or equal to, became less than, became less than or equal to | The trigger is fired if a field value changes after a comparison is made. |
-| Later, later or same, earlier, earlier or same | Comparison operations for date fields. |
-| Field value empty, field value not empty | Operations check whether the field is filled in. |
+| Later than date, Later or equals date, Before date, Before or equals date | Comparison operations for date fields. |
+| Field value is empty, field value is not empty | Operations check whether the field is filled in. |
 | Field value set, field value changed, or field value deleted | Operations check whether a field value was added, updated, or deleted. |
-| Element number equal, element number greater than, element number less than | Comparison operations for fields that may contain multiple elements, such as **Tags**. |
-| Includes no elements, includes all elements, includes any element | Comparison operations for fields that may contain multiple elements, such as **Tags**. |
-| Includes no fragments, doesn't include fragment, matches, includes any fragment, includes fragment | Comparison operations for the **Comment text** condition, which check for specified text fragments in comments. |
-
+| Elements quantity is equal, Elements quantity is greater, Elements quantity is less | Comparison operations for fields that may contain multiple elements, such as **{{ ui-key.startrek-backend.fields.issue.tags-key-value }}**. |
+| Contains none of items, Contains all items, Contains any of items | Comparison operations for fields that may contain multiple elements, such as **{{ ui-key.startrek-backend.fields.issue.tags-key-value }}**. |
+| Contains none of given strings, Does not contain substring, Matches string, Contains any from given strings, Contains substring | Comparison operations for the **{{ ui-key.startrek-backend.fields.trigger.condition.field.comment }}** condition, which check comments for specified text fragments. |

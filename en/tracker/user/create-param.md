@@ -1,73 +1,72 @@
 # Adding issue fields
 
-## Standard issue fields {#section_ymd_ycj_1gb}
+## Standard issue fields {#default-fields}
 
-The most popular issue fields (settings) are available in {{ tracker-name }} by default. You can see the list of existing fields on the [{{ tracker-name }} settings]({{ link-admin-fields }}) page.
+The most popular issue fields (settings) are available in {{ tracker-name }} by default. You can see the list of existing fields on the [Settings {{ tracker-name }}]({{ link-admin-fields }}) page.
 
-If the field you need is missing, you can [create a new one in your queue](create-param.md#section_local_field). If you want to add a field that will be available in all {{ tracker-name }} queues, the administrator can [create a global field](create-param.md#section_global_field).
+If you can't find a relevant parameter among them, you can [create a new field in your queue](#section_local_field). If you want to add a field that will be available in all {{ tracker-name }} queues,  admin can [create a global field](#section_global_field).
 
-Issue field | Description
+| Issue field | Description |
 ----- | -----
-**System**
-QA-engineer | The user who is assigned to test the task.
-Author | The user who created the issue.
-Possible spam | Spam flag for tasks created by services with [integration](../manager/queue-mail.md).
-End date | Date when the issue was resolved.
-Start date | Date when the issue was initiated.
-Deadline | Date by which the issue should be resolved.
-Boards | A list of boards the issue belongs to.
-Access | A list of users who have permission to read and edit the issue but don't receive notifications about issue updates.<br/><br/>Access permissions to issues are depend on the [queue settings](../manager/queue-access.md).
-Issue | Issue name.
-Last update by | Last user to make changes to the issue.
-Assignee | User handling the issue.
-Fix Version | Product version that the issue belongs to. The list of available [versions](../manager/versions.md) is determined by issue settings.
-Key | Unique issue ID used within its queue. Created automatically.
-Comments <br/>without messages | Number of issue comments created in {{tracker-name}}.
-Comments <br/>with messages | Number of issue comments created via [email](../manager/queue-mail.md).
-Components | Tags used to mark and sort issues within a queue.<br/><br/>The list of available [components](../manager/components.md) is determined by issue settings.
-Followers | A list of users following the issue. By default, users can view and edit issues and receive all notifications about issue updates.<br/><br/>Access permissions to issues depend on the [queue settings](../manager/queue-access.md).
-Affected Version | [Product version](../manager/versions.md) that the issue belongs to. The list of available versions depends on the queue settings.
-Pending reply <br/>from | A list of users who have been [called to comment on the issue](comments.md#call-comment). Users are removed from this field as soon as they reply in a comment.
-Updated | Date and time of the [latest issue update](history.md).
-Description | The field describes the issue and explains what has to be done.
-Queue | [Key of the queue](../manager/create-queue.md#key) that the issue belongs to.
-Last Comment | Date and time of the last comment in the issue.
-Priority | The value determines the issue's importance.
-Voted By | A list of users who voted on the issue.
-Votes | Number of users [who voted](votes.md).
-Project | Names of [projects](../manager/project-new.md) the issue belongs to.
-Resolved | Date and time when the issue was [resolved](../manager/create-resolution.md).
-Mailing lists | Teams and departments subscribed to the issue. By default, these users can view and edit issues and receive all notifications about issue updates.<br/><br/>Access permissions depend on the [queue settings](../manager/queue-access.md).
-Resolution | Reason for closing the issue.
-Resolver | User who closed the issue.
-Created | Date and time of issue creation.
-Status | Current issue progress. Examples: <q>Open</q>, <q>In progress</q>, <q>Testing</q>. For more information, see [Setting up issue statuses](../manager/workflow-status-edit.md).
-Last status change | Date and time of issue status update.
-Tags | Text labels that make it easier to search for issues and sort them. For more information, see [Structuring issues](../structure.md).
-|  |
-Type | Issue type, such as <q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>. For more information, see [{#T}](../manager/add-ticket-type.md).
-**Time Tracking** |
-Time spent | Time that the assignee [spent resolving the issue](time-spent.md).
-Estimate | Time that the assignee is planning to spend on the issue. The field value decreases when [time spent](time-spent.md#section_cqc_hkh_vcb) is specified.
-Original estimate | The initial estimation of the time it should take to resolve the issue.
-**Agile** |
-Story Points | Issue complexity visualized as Story Points. For more information, see [Basic concepts of agile development](../manager/agile.md#dlen_sp).
-Sprint | Name of the [sprint](../manager/create-agile-sprint.md) that the issue belongs to.
-**Email** |
-Email To | A list of email addresses the user specified in the **Email To** field when sending an email.
-Email Cc | Email address that the user specified in the **Cc** field when sending an email.
-Email From | Sender's email address.
-Created By email to | Email address that received the message triggering issue creation.
-**SLA** |
-SLA | Timer that tracks the timeframe for processing issues in a queue. For example, you can specify the time allowed for the assignee to respond to a newly created issue. For more information, see [SLA](../sla-head.md).
+**{{ ui-key.startrek-backend.fields.issue.fields.system }}**  
+QA engineer | User assigned to test the issue.
+{{ ui-key.startrek-backend.fields.issue.author-key-value }} | User who created the issue.
+{{ ui-key.startrek-backend.fields.issue.possibleSpam }} | Spam flag for issues created through services with [integration](../manager/queue-mail.md).
+{{ ui-key.startrek-backend.fields.issue.end-key-value }} | Date when work on the issue was completed.
+{{ ui-key.startrek-backend.fields.issue.start-key-value }} | Date when work on the issue started.
+{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }} | Date by which the issue must be resolved.
+{{ ui-key.startrek-backend.fields.issue.boards }} | List of boards the issue appears on.
+{{ ui-key.startrek-backend.fields.issue.access }} | List of users who can read and edit the issue but do not receive notifications of changes.<br/><br/>The issue access permissions are determined by the [queue settings](../manager/queue-access.md).
+{{ ui-key.startrek-backend.fields.issue.summary-key-value }} | Issue name.
+{{ ui-key.startrek-backend.fields.issue.modifier }} | User who last modified the issue.
+{{ ui-key.startrek-backend.fields.issue.assignee-key-value }} | User who will work on the issue.
+{{ ui-key.startrek-backend.fields.issue.fixVersions-key-value }} | Product version the issue belongs to. The list of available [versions](../manager/versions.md) is determined by the queue settings.
+{{ ui-key.startrek-backend.fields.issue.key-key-value }} | Unique ID of the issue within the queue. It is generated automatically.
+{{ ui-key.startrek-backend.fields.issue.commentWithoutExternalMessageCount }} | Number of issue comments created in {{tracker-name}}.
+{{ ui-key.startrek-backend.fields.issue.commentWithExternalMessageCount }} | Number of issue comments created via [email](../manager/queue-mail.md).
+{{ ui-key.startrek-backend.fields.issue.components-key-value }} | Labels that can be used to mark up and sort the issues within the queue.<br/><br/>The list of available [components](../manager/components.md) is determined by the queue settings.
+{{ ui-key.startrek-backend.fields.issue.followers }} | List of users subscribed to the issue. By default, they can read and edit the issue and receive notifications of all changes.<br/><br/>The issue access permissions are determined by the [queue settings](../manager/queue-access.md).
+{{ ui-key.startrek-backend.fields.issue.affectedVersions-key-value }} | [Product version](../manager/versions.md) the issue belongs to. The list of available versions is determined by the queue settings.
+{{ ui-key.startrek-backend.fields.issue.pendingReplyFrom }} | List of users [invited to comment](comments.md#call-comment) on the issue. As soon as a user responds, their name is removed from this field.
+{{ ui-key.startrek-backend.fields.issue.updated-key-value }} | Date and time the [issue was last updated](history.md).
+{{ ui-key.startrek-backend.fields.issue.description-key-value }} | Issue statement: a description of what needs to be done.
+{{ ui-key.startrek-backend.fields.issue.queue }} | [Key of the queue](../manager/create-queue.md#key) that contains the issue.
+{{ ui-key.startrek-backend.fields.issue.lastCommentUpdatedAt }} | Date and time the issue was last commented on.
+{{ ui-key.startrek-backend.fields.issue.priority-key-value }} | Importance of the issue.
+{{ ui-key.startrek-backend.roles.role.name.voted-by-follower }} | List of users who voted for the issue.
+{{ ui-key.startrek-backend.fields.issue.votes }} | Number of users [who voted for the issue](votes.md).
+{{ ui-key.startrek-backend.fields.issue.project-key-value }} | Names of [projects](../manager/project-new.md) the issues belongs to.
+{{ ui-key.startrek-backend.fields.issue.resolved }} | Date and time the issue was marked as [resolved](../manager/create-resolution.md).
+{{ ui-key.startrek-backend.fields.issue.followingMaillists }} | Teams and departments subscribed to the issue. By default, they can read and edit the issue and receive notifications of all changes.<br/><br/>The issue access permissions are determined by the [queue settings](../manager/queue-access.md).
+{{ ui-key.startrek-backend.fields.issue.resolution-key-value }} | Reason for closing the issue.
+{{ ui-key.startrek-backend.fields.issue.resolver }} | User who marked the issue as resolved.
+{{ ui-key.startrek-backend.fields.issue.created-key-value }} | Date and time the issue was created.
+{{ ui-key.startrek-backend.fields.issue.status-key-value }} | Current progress on the issue. For example: <q>Open</q>, <q>In progress</q>, <q>Testing</q>. For more information, see [Setting up statuses](../manager/workflow-status-edit.md).
+{{ ui-key.startrek-backend.fields.issue.statusStartTime }} | Date and time the issue status was last changed.
+{{ ui-key.startrek-backend.fields.issue.tags-key-value }} | Text labels that make sorting and searching for issues easier. For more information, see [Structuring issues](../structure.md).
+{{ ui-key.startrek-backend.fields.issue.type-key-value }} | Type of the issue, e.g., <q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>. For more information, see [{#T}](../manager/add-ticket-type.md).
+**{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** |
+{{ ui-key.startrek-backend.fields.issue.spent-key-value }} | Time the assignee [spent resolving the issue](time-spent.md).
+{{ ui-key.startrek-backend.fields.issue.estimation-key-value }} | Time the user plans to spend on the issue. The field value decreases when the [time spent](time-spent.md#show-time-spent) is specified.
+{{ ui-key.startrek-backend.fields.issue.originalEstimation-key-value }} | Initial estimation of time needed to resolve the issue.
+**{{ ui-key.startrek-backend.fields.issue.fields.agile }}** |
+{{ ui-key.startrek-backend.fields.issue.storyPoints }} | Issue complexity in Story Points. For more information, see [Basic concepts of agile development](../manager/agile.md#dlen_sp).
+{{ ui-key.startrek-backend.fields.issue.sprint }} | Name of the [sprint](../manager/create-agile-sprint.md) the issue belongs to.
+**{{ ui-key.startrek-backend.fields.issue.fields.email }}** |
+{{ ui-key.startrek-backend.fields.issue.emailTo }} | Full list of recipients the user specified in the **{{ ui-key.startrek.ui_components_IssueCommentEditor.transport-to }}** field when sending the email.
+{{ ui-key.startrek-backend.fields.issue.emailCc }} | Email address the user specified in the **{{ ui-key.startrek.ui_components_IssueCommentEditor.transport-copy }}** field when sending the email.
+{{ ui-key.startrek-backend.fields.issue.emailFrom }} | Email address of the sender.
+{{ ui-key.startrek-backend.fields.issue.emailCreatedBy }} | Email address that received the email from which the issue was generated.
+**{{ ui-key.startrek-backend.fields.issue.fields.sla }}** |
+{{ ui-key.startrek-backend.fields.issue.sla-key-value }} | Timer that tracks the time for processing issues in the queue. For example, you can set the time within which the assignee has to respond to a new issue. For more information, see [SLA](../sla-head.md).
 
-## Adding a local field {#section_local_field}
+## Local fields {#section_local_field}
 
 If you need to add a new issue field that is not available in {{ tracker-name }}, you can add local fields to your queue.
 
 A local field can only be used in the issues of the queue it's linked to. The advantage of local fields is that the queue owner can manage them without the risk of affecting the workflows in other queues. Users working in other queues won't see this field in their issues.
 
-To learn more about creating and using local fields, see [Local issue fields](../local-fields.md).
+For more information about creating and using local fields, see [{#T}](../local-fields.md).
 
 {% note alert %}
 
@@ -75,44 +74,58 @@ Local fields are temporarily not supported in certain cases. They will be implem
 
 {% endnote %}
 
-## Adding a global field {#section_global_field}
+## Global fields {#section_global_field}
 
+### Adding a global field {#add_global_field}
 
 
 {% note alert %}
 
-Only the [administrator](../role-model.md) can add global issue fields.
+Only an [administrator](../role-model.md) can add global fields.
 
 {% endnote %}
 
 To add a new issue field (parameter):
 
-1. Make sure you are logged in as an [administrator](../role-model.md).
+1. Make sure you are authorized as an [administrator](../role-model.md).
 
-1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → **{{ tracker-name }} settings**.
 
-1. Go to the **Fields** tab.
+1. Click the **{{ ui-key.startrek.blocks-desktop_page-admin.tab-title--fields }}** tab.
 
-1. Click **Create field**.
+1. Click **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.button--create-field }}**.
 
-1. Select the field type and click **Continue**.
+1. Select the field type and click **{{ ui-key.startrek.blocks-desktop_field-create-modal.button--next }}**.
 
-1. Set parameters for the new field:
+1. Set parameters for a new field:
+   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--category }}**. All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field.
 
-    - **Category**. All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field.
+   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--name }}**. Try to give short and concise names to your fields.
 
-    - **Name in Russian**. Try to give the fields short and informative names.
+   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--name-eng }}**. This name is shown in the English interface of {{ tracker-name }}.
 
-    - **Name in English**. This name is shown in the English interface of {{ tracker-name }}.
+   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--number-type }}** (only for fields with the <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-number }}</q> type).
 
-    - **Type of number** (only for fields with the <q>number</q> type).
+   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--options }}** (only for fields with the <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}</q> type): Enter the possible values and their order.
 
-    - **List items** (only for fields with the <q>drop-down list</q> type). Specify the possible values and their order.
+   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--option-list }}** (only for fields with the <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-option-list }}</q> type).
 
-    - **Number of list items** (only for fields with the <q>drop-down list</q> type).
+   * **{{ ui-key.startrek.blocks-desktop_field-create-form.label--users-count }}** (only for fields with the <q>{{ ui-key.startrek.blocks-desktop_field-create-form.field-type-user }}</q> type).
 
-    - **Number of employees** (only for fields with the <q>user list</q> type).
+1. Click **{{ ui-key.startrek.blocks-desktop_field-create-modal.button--create }}**.
 
-1. Click **Create**.
-
 
+
+### Edit a global field {#edit_global_field}
+
+Editing the parameters of a global issue field isn't supported in the {{ tracker-name }} web interface. For this purpose, use requests to {{ api-name }}:
+
+* HTTP request for [renaming a global field](../concepts/issues/patch-issue-field-name.md).
+
+* HTTP request for [changing the acceptable values of a global field](../concepts/issues/patch-issue-field-value.md).
+
+### Delete a global field {#delete_global_field}
+
+You can't delete a global field, but you can hide it in the {{ tracker-name }} interface. For this, in the body of the request to {{ api-name }} for [changing the global field](../concepts/issues/patch-issue-field-value.md), set the `hidden` parameter to `true`.
+
+You can't add a hidden field to an issue using the right panel.

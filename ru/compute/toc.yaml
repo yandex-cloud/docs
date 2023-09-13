@@ -239,6 +239,10 @@ items:
             href: operations/instance-groups/pause-processes.md
           - name: Возобновить процессы в группе ВМ
             href: operations/instance-groups/resume-processes.md
+          - name: Поочередно перезагрузить ВМ в группе
+            href: operations/instance-groups/rolling-restart.md
+          - name: Поочередно пересоздать ВМ в группе
+            href: operations/instance-groups/rolling-recreate.md
           - name: Остановить группу ВМ
             href: operations/instance-groups/stop.md
           - name: Запустить группу ВМ
@@ -377,6 +381,8 @@ items:
             href: concepts/instance-groups/balancers.md
           - name: Остановка группы и приостановка процессов
             href: concepts/instance-groups/stopping-pausing.md
+          - name: Поочередные перезагрузка и пересоздание ВМ в группе
+            href: concepts/instance-groups/rolling-actions.md
           - name: Статусы
             href: concepts/instance-groups/statuses.md
       - name: Выделенный хост

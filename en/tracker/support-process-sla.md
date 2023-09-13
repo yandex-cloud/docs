@@ -1,86 +1,85 @@
 # Tracking the time it takes to process a request
 
-When gauging the efficiency of your support team, the most common method is to track the time of their first response and the total time it takes to process a request. The lower these indicators are, the faster your team is at resolving users' issues.
+To evaluate effectiveness of their support teams, companies measure their initial response time and the total time spent on request processing. The lower these indicators are, the faster are the user problems resolved.
 
-To manage the response handling time in {{ tracker-name }}, [configure SLA rules](manager/sla.md) for your queue's issues. An SLA rule lets you set the time limit for processing a request and enable a timer that starts and stops as certain events are triggered (for example, during issue creation, a status change, when adding an assignee, and so on).
+To manage the response handling time in {{ tracker-name }}, [configure SLA rules](manager/sla.md) for your queue's issues. In the rule, you can specify the acceptable time allocated to resolve the issue and set up a timer to be started and paused on certain events: for example, when the issue is created, when its status changes, when an assignee is appointed, and so on.
 
-Let's set up SLA rules that will track the time of the support team's first response and the total request processing time.
+Let's set up the SLA rules that will measure the support's initial response time and the total request processing time.
 
-### First response time
+### Initial response time
 
-To measure your support team's first response time, set up a timer that starts when an issue is created and stops when an employee sends a comment or email from the issue page.
+To measure the support's initial response time, set up a timer that will be started when an issue has been created and stopped when an employee has sent a comment or email from the issue page.
 
-1. Go to **SLA** in the queue settings and click [**Create rule**](manager/sla.md).
+1. Go to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}** in the queue settings and click [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.add-sla }}**](manager/sla.md).
 
 1. Set the rule's name and choose [Work schedule](manager/schedule.md) so that the timer is only active during business hours.
 
-1. Under **Timeframes for issues**, set the following parameters for all issues in the queue:
+1. Under **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--title }}**, set the following parameters for all issues in the queue:
 
-    - Set the time limit for the first response in the **Time until expiration** field. For example, if you want to set the time to 2 hours and 30 minutes, write `2h 30m`.
+   - Set the time limit for the first response in the **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--max }}** field. For example, if you want to set the time to 2 hours and 30 minutes, write `2h 30m`.
 
-    - In the **Time until warning** field, choose a time limit which triggers an automatic email reminder after expiring.
+   - In the **Time until warning field**, choose a time limit which triggers an automatic email reminder after expiring.
 
-    {% note info %}
+   {% note info %}
 
-    If you want different issue groups to have different time limits, click **Create new filter** and set parameters for grouping these issues.
+   If you want different issue groups to have different time limits, click **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--new }}** and set grouping parameters for these issues.
 
-    {% endnote %}
+   {% endnote %}
 
-    ![](../_assets/tracker/support-sla-time-response.png)
+   ![](../_assets/tracker/support-sla-time-response.png)
 
-1. Set the conditions that start and stop the timer:
+1. Set up the criteria for starting and stopping the timer:
 
-    1. Under **Start**, add the condition **Issue created**.
+   1. Under **{{ ui-key.startrek.blocks-desktop_sla-editor.timers--start }}**, add the condition **{{ ui-key.startrek-backend.messages.sla.issue.created.timer.trigger.condition.type }}**.
 
-    1. Under **Stop**, add the condition **Received response from queue team**.
+   1. Under **{{ ui-key.startrek.blocks-desktop_sla-editor.timers--stop }}**, add the condition **{{ ui-key.startrek-backend.messages.sla.team.commented.timer.trigger.condition.type }}**.
 
-    ![](../_assets/tracker/support-sla-timer.png)
+   ![](../_assets/tracker/support-sla-timer.png)
 
-1. If you want to automatically email the employee responsible for the issue once the first response time has expired, select **Notification** → **Overdue time limit** and specify that employee's name or username in **Email**.
+1. If you want to automatically email the employee responsible for the issue once the first response time expires, under **Notification** → **Overdue time limit**, select **{{ ui-key.startrek-backend.messages.sla.send.mail.threshold.excess.function.type }}**, then specify that employee's name or username.
 
-1. Save your rule.
+1. Save the rule.
 
-Now the timer will be automatically enabled after the issue is created in the support team queue. It will count down until a support staff member from the [queue team](manager/queue-team.md) sends a comment or email from the issue page.
+Now, when an issue has been created in the support queue, a timer will get started. It will count down until a support staff member from the [queue team](manager/queue-team.md) sends a comment or email from the issue page.
 
 ### Total request processing time
 
-If you want to measure the total request processing time, set up a timer that triggers during issue creation and stops once the issue status is updated to <q>Resolved</q> or <q>Closed</q>. You can pause the timer while the issue is in the <q>Need info</q> status so that the waiting time is not counted towards the total processing time.
+If you want to measure the total request processing time, set up a timer that triggers during issue creation and stops once the issue status is updated to <q>{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}</q> or <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>. You can pause the timer while the issue is in the <q>{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}</q> status to prevent the waiting time from counting towards the total processing time.
 
-1. Go to **SLA** in the queue settings and click [**Create rule**](manager/sla.md).
+1. Go to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}** in the queue settings and click [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.add-sla }}**](manager/sla.md).
 
 1. Set the rule's name and choose [Work schedule](manager/schedule.md) so that the timer is only active during business hours.
 
-1. Under **Timeframes for issues**, set the following parameters for all issues in the queue:
+1. Under **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--title }}**, set the following parameters for all issues in the queue:
 
-    - Set the time limit for resolving the issue in the **Time until expiration** field. For example, specify `8h` if you want the limit to be 8 working hours.
+   - Set the time limit for resolving the issue in the **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--max }}** field. For example, specify `8h` if you want the limit to be 8 working hours.
 
-    - In **Time until warning**, choose a time limit which triggers an automatic email reminder after expiring. For example, specify `6h` if you want the limit to be 6 working hours.
+   - In the **Time until warning field**, choose a time limit which triggers an automatic email reminder after expiring. For example, specify `6h` if you want the limit to be 6 working hours.
 
-    {% note info %}
+   {% note info %}
 
-    If you want different issue groups to have different time limits, click **Create new filter** and set parameters for grouping these issues.
+   If you want different issue groups to have different time limits, click **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--new }}** and set grouping parameters for these issues.
 
-    {% endnote %}
+   {% endnote %}
 
-    ![](../_assets/tracker/support-sla-time-total.png)
+   ![](../_assets/tracker/support-sla-time-total.png)
 
-1. Set the conditions that start and stop the timer:
+1. Set up the criteria for starting and stopping the timer:
 
-    1. Under **Start**, add the condition **Issue created**.
+   1. Under **{{ ui-key.startrek.blocks-desktop_sla-editor.timers--start }}**, add the condition **{{ ui-key.startrek-backend.messages.sla.issue.created.timer.trigger.condition.type }}**.
 
-    1. Under **Pause**, add the condition **Issue has the status** → **Needs info**.
+   1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.sla-condition-pause }}**, add the condition **{{ ui-key.startrek-backend.messages.sla.issue.on.status.timer.trigger.condition.type }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**.
 
-    1. Under **Stop**, add the condition **Issue status changed to** and select the **Resolved** and **Closed** statuses.
+   1. Under **{{ ui-key.startrek.blocks-desktop_sla-editor.timers--stop }}**, add the condition **{{ ui-key.startrek-backend.messages.sla.status.changed.timer.trigger.condition.type }}** and select the **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}** and **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}** statuses.
 
-    ![](../_assets/tracker/support-sla-timer-total.png)
+   ![](../_assets/tracker/support-sla-timer-total.png)
 
-1. Under **Notification**, set up notifications that trigger once the time limit is expired:
+1. Under **{{ ui-key.startrek.blocks-desktop_sla-editor.excesses--title }}**, set up notifications that trigger once the time limit expires:
 
-    - If you specified the warning time limit under **Timeframes for issues**, choose **Email** in the **Warning** field and specify the name or username of the employee responsible for the issue. This way, they will receive a notification once the set time limit expires.
+   - If you specified the warning time limit under **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--title }}**, choose **{{ ui-key.startrek-backend.messages.sla.send.mail.threshold.excess.function.type }}** in the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.notification-condition-min }}** field and specify the name or username of the employee responsible for the issue. This way, they will receive a notification once the set time limit expires.
 
-    - If you want to automatically email the employee responsible for the issue once the resolution time limit has expired, under **Overdue time limit**, specify that employee's name or username in **Email**.
+   - If you want to automatically email the employee responsible for the issue once the resolution time limit expires, under **Overdue time limit**, select **{{ ui-key.startrek-backend.messages.sla.send.mail.threshold.excess.function.type }}**, then specify that employee's name or username.
 
-1. Save your rule.
+1. Save the rule.
 
-Now the timer will be automatically enabled after the issue is created in the support team queue. The timer will be active until the issue status is updated to <q>Resolved</q> or <q>Closed</q>. If a support specialist asks the requester for additional information and updates the issue status to <q>Need info</q>, the timer will be paused and can only be unpaused after another status change.
-
+Now, when an issue has been created in the support queue, a timer will get started. The timer will be active until the issue status changes to <q>{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}</q> or <q>{{ ui-key.startrek-backend.applinks.samsara.status.closed }}</q>. If a support specialist asks the requester for additional information and updates the issue status to <q>{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}</q>, the timer will be paused and can only be unpaused after another status change.

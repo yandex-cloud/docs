@@ -37,7 +37,7 @@ Every team usually has its own workflow, so we recommend creating separate queue
 
 A workflow for an issue usually involves multiple stages. For example, creating an issue, resolving it, approving its results, and completing the work.
 
-In {{ tracker-name }}, each issue stage corresponds to a certain _status_. For example: "Open", "In progress", "Testing", and "Closed". To set your pipeline up around {{ tracker-name }}, you need to configure your _workflow_, which is a set of statuses an issue goes through from creation to completion as well as specific rules of transitioning between those statuses.
+In {{ tracker-name }}, each issue stage corresponds to a certain _status_. E.g.: {{ ui-key.startrek-backend.applinks.samsara.status.open }}, {{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}, {{ ui-key.startrek-backend.presets.advancedDevelopment.board.column.testing }}, or {{ ui-key.startrek-backend.applinks.samsara.status.closed }}. To set your pipeline up around {{ tracker-name }}, you need to configure your _workflow_, which is a set of statuses an issue goes through from creation to completion as well as specific rules of transitioning between those statuses.
 
 Your workflow is linked to your issue queue. If you need to set up multiple workflows for different teams, you can [create individual queues for them](manager/create-queue.md). You can also add multiple [issue types](manager/add-ticket-type.md) to a single queue and set up an exclusive workflow for each type.
 
@@ -66,8 +66,8 @@ You can use {{ tracker-name }} to group issues by the following criteria:
 - [Components](manager/components.md) help you group issues in a queue that relate to the same topic. When managing issues with components, you can set up a default assignee and [access rights](manager/queue-access.md#access-components).
    For example, using components, you can [classify requests to technical support](support-process-group.md).
 - [Versions](manager/versions.md) help you group issues within the same queue based on the product version they belong to.
-   For example, to schedule a bug fix for a specific product release, you can specify the product's version in the **Fix Version** field.
-- A tag is a type of label that can be added manually to any issue. It's convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **Tags** parameter](user/edit-ticket.md#edit-fields).
+   For example, to schedule a bug fix for a specific product release, you can specify the product's version in the **{{ ui-key.startrek-backend.fields.issue.fixVersions-key-value }}** field.
+- A tag is a type of label that can be added manually to any issue. It's convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-tags }}** parameter](user/edit-ticket.md#edit-fields).
 
 
 ## Planning your workload {#in-order}

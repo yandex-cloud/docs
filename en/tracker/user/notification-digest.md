@@ -1,12 +1,13 @@
 # Receiving update reports
 
-To regularly receive reports for issues you're subscribed to via email:
+To get a recurrent report on the latest changes in the issues that you are subscribed to:
 
-1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
+<!---1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}-->
 
-1. Enable **Receive issue update digest** and choose how often you'd like to receive updates.
+1. Click the link [{{ link-tracker }} settings]({{ link-settings }}).
 
-1. Click **Save**.
+1. Enable **{{ ui-key.startrek.blocks-desktop_b-page-settings.digest }}** and choose how often you want to receive updates.
 
-The report contains a list of issues that were changed during the selected period. You can also [specify what changes](notification-settings.md) to include in the report.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-settings.save }}**.
 
+The report will include a list of issues that changed over the selected period. You can also [specify what changes](notification-settings.md) to include in the report.
