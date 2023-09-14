@@ -129,20 +129,20 @@
 
 {% endlist %}
 
-## Увеличить раздел {#change-part-size}
+## Увеличить раздел диска Linux {#change-part-size-linux}
 
 После увеличения диска нужно также увеличить его раздел и файловую систему. У загрузочных дисков это должно происходить автоматически.
 
-Если раздел диска не увеличился или вы увеличиваете размер незагрузочного диска, необходимо сделать это вручную:
+Если раздел диска не увеличился или вы увеличиваете размер незагрузочного диска, необходимо сделать это вручную. Порядок действий зависит от файловой системы:
 
 {% list tabs %}
 
-- Linux
+- ext4
 
   1. [Подключитесь](../../operations/vm-connect/ssh.md) к ВМ по [SSH](../../../glossary/ssh-keygen.md):
 
      ```bash
-     ssh <имя пользователя>@<публичный IP-адрес ВМ>
+     ssh <имя_пользователя>@<публичный_IP-адрес_ВМ>
      ```
 
   1. Посмотрите, какие диски подключены к ВМ:
@@ -153,7 +153,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
      vda    252:0    0  25G  0 disk
      ├─vda1 252:1    0   1M  0 part
@@ -178,7 +178,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      e2fsck 1.44.1 (24-Mar-2018)
      Pass 1: Checking inodes, blocks, and sizes
      Pass 2: Checking directory structure
@@ -200,7 +200,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      CHANGED: partition=1 start=2048 old: size=67106816 end=67108864 new: size=134215647,end=134217695
      ```
 
@@ -214,7 +214,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      Resizing the filesystem on /dev/vdb1 to 16776955 (4k) blocks.
      The filesystem on /dev/vdb1 is now 16776955 (4k) blocks long.
      ```
@@ -233,7 +233,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
      vda    252:0    0  25G  0 disk
      ├─vda1 252:1    0   1M  0 part
@@ -242,5 +242,89 @@
      └─vdb1 252:17   0  64G  0 part /data
      ```
 
+- xfs
 
-{% endlist %}
+  1. [Подключитесь](../../operations/vm-connect/ssh.md) к ВМ по [SSH](../../../glossary/ssh-keygen.md):
+
+     ```bash
+     ssh <имя_пользователя>@<публичный_IP-адрес_ВМ>
+     ```
+
+  1. Посмотрите, какие диски подключены к ВМ:
+
+      ```bash
+      lsblk
+      ```
+
+      Результат:
+
+      ```text
+      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+      vda    252:0    0  25G  0 disk
+      ├─vda1 252:1    0   1M  0 part
+      └─vda2 252:2    0  25G  0 part /
+      vdb    252:16   0  64G  0 disk
+      └─vdb1 252:17   0  32G  0 part /data
+      ```
+
+      В графе `NAME` перечислены разделы диска. В графе `MOUNTPOINT` — точки монтирования разделов.
+
+  1. Выполните команду:
+
+      ```bash
+      sudo growpart /dev/vdb 1
+      ```
+
+      Где:
+      * `/dev/vdb` — название устройства.
+      * `1` — номер раздела, поэтому он указывается через пробел.
+
+      Результат:
+
+      ```text
+      CHANGED: partition=1 start=2048 old: size=67106816 end=67108864 new: size=134215647,end=134217695
+      ```
+
+  1. Измените размер файловой системы:
+
+     ```bash
+     sudo xfs_growfs /data -d
+     ```
+
+     Где:
+
+     * `/data` — точка монтирования раздела, который необходимо расширить.
+     * `-d` — параметр для расширения раздела.
+
+     Результат:
+
+     ```text
+     meta-data=/dev/vdb1              isize=512    agcount=4, agsize=655360 blks
+              =                       sectsz=4096  attr=2, projid32bit=1
+              =                       crc=1        finobt=1, sparse=1, rmapbt=0
+              =                       reflink=1    bigtime=0 inobtcount=0
+     data     =                       bsize=4096   blocks=2621440, imaxpct=25
+              =                       sunit=0      swidth=0 blks
+     naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
+     log      =internal log           bsize=4096   blocks=2560, version=2
+              =                       sectsz=4096  sunit=1 blks, lazy-count=1
+     realtime =none                   extsz=4096   blocks=0, rtextents=0
+     data blocks changed from 2621440 to 11796219
+     ```
+
+  1. Убедитесь, что раздел увеличился:
+
+     ```bash
+     lsblk /dev/vdb
+     ```
+
+     Результат:
+
+     ```text
+     NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+     vdb    252:16   0  64G  0 disk
+     └─vdb1 252:17   0  64G  0 part /data
+     ```
+
+{% endlist %}    
+

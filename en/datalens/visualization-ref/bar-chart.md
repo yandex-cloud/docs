@@ -90,12 +90,12 @@ This type of chart is used to see the contribution of each measure to the total 
 
 | Section<br/> in the wizard | Description |
 ----- | ----
-| Y | Dimensions. One or two dimensions can be specified. |
-| X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named [Measure Names](../concepts/chart/measure-values.md). You may move [Measure Names](../concepts/chart/measure-values.md) to the Y-axis. |
-| Colors | Dimension or the [Measure Names](../concepts/chart/measure-values.md) field. Affects the color of bars. [Measure Names](../concepts/chart/measure-values.md) is deleted by clicking the cross icon or removing measures from the X-axis. |
-| Sorting | Dimension or measure. Affects the sorting of columns. |
+| Y | Dimensions. You can specify one or two dimensions. |
+| X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). You can move [Measure Names](../concepts/chart/measure-values.md) to the Y axis. |
+| Colors | Dimension or the [Measure Names](../concepts/chart/measure-values.md) field that affects the bar color. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the X axis. |
+| Sorting | Dimension or measure that affects column sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/datalens/sort_asc.svg) ascending or ![image](../../_assets/datalens/sort_desc.svg) descending. To change the sorting direction, click the icon. |
 | Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
-| Chart filters | Dimension or measure. Used as a filter. |
+| Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a bar chart {#create-diagram}
 
@@ -103,8 +103,8 @@ To create a bar chart:
 
 1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
 1. Under **Dataset**, select a dataset for visualization.
-1. Select **Bar chart** as the chart type.
-1. Drag one or more dimensions from the dataset to the **Y** section. The values are displayed on the Y-axis.
+1. Select **Line chart** as the chart type.
+1. Drag one or more dimensions from the dataset to the **Y** section. The values will be displayed on the Y axis.
 1. Drag one or more measures from the dataset to the **X** section.
 1. Drag a dimension from the dataset or the [Measure Names](../concepts/chart/measure-values.md) field to the **Colors** section.
 

@@ -30,6 +30,8 @@
 
 Для корректной интеграции с {{ ml-platform-name }} развернутый кластер {{ dataproc-name }} должен иметь [версию образа](../../data-proc/concepts/environment.md) не ниже `1.3` с включенными сервисами `LIVY`, `SPARK`, `YARN` и `HDFS`.
 
+{% include [dataproc-s3-connector](../../_includes/datasphere/dataproc-s3-connector.md) %}
+
 ## Настройки проекта {{ ml-platform-name }} для работы с кластерами {{ dataproc-name }} {#settings}
 
 {% include [preferences](../../_includes/datasphere/settings-for-dataproc.md) %}

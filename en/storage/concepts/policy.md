@@ -25,13 +25,13 @@ Resource
 
 : Bucket, a bucket object (`<bucket name>/some/key`), or a prefix (`<bucket name>/some/path/*`), including an empty prefix to indicate all objects in the bucket (`<bucket name>/*`). You can specify multiple resources in a rule.
 
-{% note info %}
+  {% note info %}
 
-{% include [policy-bucket-objects](../../_includes/storage/policy-bucket-objects.md) %}
+  {% include [policy-bucket-objects](../../_includes/storage/policy-bucket-objects.md) %}
 
-{% endnote %}
+  {% endnote %}
 
-If you describe a policy in JSON format, a resource should have the `arn:aws:s3:::` prefix, such as `arn:aws:s3:::<bucket name>`.
+  If you describe a policy in JSON format, a resource should have the `arn:aws:s3:::` prefix, such as `arn:aws:s3:::<bucket name>`.
 
 Action
 
@@ -43,7 +43,7 @@ Result
 
 Principal
 
-Principal: Recipient of the requested permission. This can be an {{ iam-short-name }} user, a federated user, a service account, or an anonymous user.
+: Recipient of the requested permission. This can be an {{ iam-short-name }} user, a federated user, a service account, or an anonymous user.
 
 Condition
 

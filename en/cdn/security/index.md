@@ -2,7 +2,7 @@
 
 {{ cdn-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
 
-In this section, you'll learn:
+In this section, you will learn:
 
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles-list).
@@ -10,31 +10,29 @@ In this section, you'll learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to {#resources}
+## Which resources you can assign roles to {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
-The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/cdn/security/service-roles-hierarchy.svg)
 
-Active roles in the service:
+### Service roles {#service-roles}
 
-* Service roles:
-   * {% include [cdn.viewer](../../_includes/iam/roles/short-descriptions/cdn.viewer.md) %}
-   * {% include [cdn.editor](../../_includes/iam/roles/short-descriptions/cdn.editor.md) %}
-   * {% include [cdn.admin](../../_includes/iam/roles/short-descriptions/cdn.admin.md) %}
+* {% include [cdn.viewer](../../_includes/iam/roles/short-descriptions/cdn.viewer.md) %}
+* {% include [cdn.editor](../../_includes/iam/roles/short-descriptions/cdn.editor.md) %}
+* {% include [cdn.admin](../../_includes/iam/roles/short-descriptions/cdn.admin.md) %}
 
-* Primitive roles:
-   * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-   * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-   * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+### Primitive roles {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## What roles do I need {#required-roles}
 
-The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
+The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of the `viewer` one.
 
 | Action | Required roles |
 -------- | --------
@@ -68,4 +66,4 @@ The table below lists the roles needed to perform a given action. You can always
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

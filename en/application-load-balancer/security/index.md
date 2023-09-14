@@ -12,24 +12,23 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to {#resources}
+## Which resources you can assign roles to {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
-The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/application-load-balancer/security/service-roles-hierarchy.svg)
 
-Active roles in the service:
+### Service roles {#service-roles}
 
-* Service roles:
-   * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-   * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-   * {% include [alb.viewer](../../_includes/iam/roles/short-descriptions/alb.viewer.md) %}
-   * {% include [alb.editor](../../_includes/iam/roles/short-descriptions/alb.editor.md) %}
-   * {% include [alb.admin](../../_includes/iam/roles/short-descriptions/alb.admin.md) %}
+* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* {% include [alb.viewer](../../_includes/iam/roles/short-descriptions/alb.viewer.md) %}
+* {% include [alb.editor](../../_includes/iam/roles/short-descriptions/alb.editor.md) %}
+* {% include [alb.admin](../../_includes/iam/roles/short-descriptions/alb.admin.md) %}
 
    {% note info %}
 
@@ -37,10 +36,9 @@ Active roles in the service:
 
    {% endnote %}
 
-* Primitive roles:
-   * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-   * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-   * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+### Primitive roles {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## What roles do I need {#required-roles}
 

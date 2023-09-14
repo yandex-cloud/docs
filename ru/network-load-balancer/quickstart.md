@@ -7,7 +7,7 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
 1. Заранее [создайте](../compute/quickstart/quick-create-linux.md) несколько виртуальных машин, которые войдут в целевую группу, подключенную к сетевому балансировщику. Для тестирования можно использовать недорогие [прерываемые ВМ](../compute/concepts/preemptible-vm.md).
 
@@ -18,12 +18,12 @@
 Чтобы создать целевую группу:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать целевую группу.
-1. В списке сервисов выберите **{{ network-load-balancer-name }}**.
-1. На панели слева выберите ![image](../_assets/trgroups.svg) **Целевые группы**.
-1. Нажмите кнопку **Создать целевую группу**.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+1. На панели слева выберите ![image](../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
 1. Введите имя целевой группы `test-target-group`.
 1. Выберите виртуальные машины, которые нужно добавить в целевую группу.
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 
 ## Создайте сетевой балансировщик {#create-load-balancer}
@@ -33,49 +33,49 @@
 Чтобы создать сетевой балансировщик:
   
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать балансировщик.
-1. В списке сервисов выберите **{{ network-load-balancer-name }}**.
-1. Нажмите кнопку **Создать сетевой балансировщик**.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
 1. Задайте имя балансировщика, например `test-load-balancer`.
-1. В поле **Публичный адрес** выберите способ назначения адреса:
+1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** выберите способ назначения адреса:
 
-   * **Автоматически** — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
-   * **Список** — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../vpc/operations/set-static-ip.md).
+   * **{{ ui-key.yacloud.common.label_auto }}** — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
+   * **{{ ui-key.yacloud.common.label_list }}** — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../vpc/operations/set-static-ip.md).
 
-1. В блоке **Обработчики** нажмите **Добавить обработчик**.
+1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
 1. В открывшемся окне задайте параметры обработчика:
   
-   * **Имя**.
-   * **Порт**, на котором балансировщик будет принимать входящий трафик, из диапазона от 1 до 32767.
-   * **Целевой порт**, на который балансировщик будет направлять трафик, из диапазона от 1 до 32767.
-   
-1. Нажмите кнопку **Добавить**.
-1. В блоке **Целевые группы** нажмите **Добавить целевую группу**.
+   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
+   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**, на котором балансировщик будет принимать входящий трафик, из диапазона от `1` до `32767`.
+   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**, на который балансировщик будет направлять трафик, из диапазона от `1` до `32767`.
+
+1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
 1. Выберите целевую группу или [создайте новую](operations/target-group-create.md):
   
-   * Нажмите **Создать целевую группу**.
+   * Нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
    * Введите имя целевой группы.
 
      {% include [name-format](../_includes/name-format.md) %}
   
    * Выберите виртуальные машины, которые нужно добавить в целевую группу.
-   * Нажмите кнопку **Создать**.
+   * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-1. (Опционально) Под блоком **Проверка состояния** нажмите **Настроить** и в открывшемся окне:
+1. (Опционально) Под блоком **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}** и в открывшемся окне:
   
    * Введите имя проверки состояния.
 
      {% include [name-format](../_includes/name-format.md) %}
   
-   * Выберите тип проверки: **HTTP** или **TCP**.
-   * Если вы выбрали проверку через HTTP, то в поле **Путь** укажите URL, по которому будут выполняться проверки.
-   * Укажите порт из диапазона 1-32767.
+   * Выберите тип проверки: `{{ ui-key.yacloud.common.label_http }}` или `{{ ui-key.yacloud.common.label_tcp }}`.
+   * Если вы выбрали проверку через HTTP, то в поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** укажите URL, по которому будут выполняться проверки.
+   * Укажите порт из диапазона от `1` до `32767`.
    * Укажите время ожидания ответа в секундах.
    * Укажите интервал отправки проверок состояния в секундах.
    * Укажите порог работоспособности — количество успешных проверок, после которого виртуальная машина будет считаться готовой к приему трафика.
    * Укажите порог неработоспособности — количество проваленных проверок, после которого на виртуальную машину перестанет подаваться трафик.
-   * Нажмите кнопку **Применить**.
+   * Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
   
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 
 ## Проверьте состояния ресурсов {#health-check}
@@ -83,11 +83,11 @@
 Чтобы проверить [состояние сетевого балансировщика](concepts/index.md#lb-statuses) и ресурсов в подключенной целевой группе:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать балансировщик.
-1. В списке сервисов выберите **{{ network-load-balancer-name }}**.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 1. Найдите в списке созданный балансировщик.
 1. Убедитесь, что он находится в состоянии `Active` — это означает, что балансировщик готов передавать трафик целевым ресурсам.
 1. Нажмите на имя балансировщика.
-1. Посмотрите на блок **Целевая группа**. Если виртуальные машины запущены и готовы принимать трафик, у них должно быть состояние `HEALTHY`.
+1. Посмотрите на блок **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_attached-target-groups }}**. Если виртуальные машины запущены и готовы принимать трафик, у них должно быть состояние `HEALTHY`.
 1. Откройте страницу сервиса {{ compute-name }} и [остановите](../compute/operations/vm-control/vm-stop-and-start.md#stop) одну из ВМ, входящих в целевую группу.
 1. Вернитесь на страницу балансировщика и убедитесь, что остановленная ВМ перешла в состояние `UNHEALTHY`. Это означает, что целевой ресурс из группы не прошел проверку состояния и не готов принимать трафик.
 

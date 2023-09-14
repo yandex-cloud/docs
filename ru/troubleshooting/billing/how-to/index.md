@@ -10,3 +10,5 @@
 * [Восстановление доступа к платежному аккаунту, созданному на основе упрощенной регистрации в Яндекс ID](recover-access-to-billing-account-via-lite-account.md)
 * [Формирование счета на оплату](generating-invoice.md)
 * [Перевод денежных средств между разными платежными аккаунтами](transfer-funds-between-billing-accounts.md)
+* [Как получить акт сверки](getting-reconcillation-report.md)
+* [Как получить закрывающие документы](getting-reporting-docs.md)

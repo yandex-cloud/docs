@@ -156,6 +156,7 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [mdb.viewer](../../../_includes/iam/roles/mdb.viewer.md) %}
 
+{% include [mdb.auditor](../../../_includes/iam/roles/mdb.auditor.md) %}
 
 
 ## {{ dataproc-full-name }} {#dataproc-roles}

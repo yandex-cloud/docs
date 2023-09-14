@@ -47,6 +47,7 @@
 * Для аудита и анализа событий безопасности [настройте экспорт логов аудита](https://docs.gitlab.com/ee/administration/audit_event_streaming.html) в стороннюю систему анализа событий, например, [{{ mes-full-name }}](../../managed-elasticsearch/) или [Splunk](https://www.splunk.com/).
 * Подписывайте коммиты с помощью [GPG-ключа](https://docs.gitlab.com/ee/user/project/repository/gpg_signed_commits/).
 * Организуйте [`approve` изменений в коде](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/) как минимум двумя сотрудниками — это поможет снизить количество ошибок.
+* Для предотвращения отказа обслуживания используйте [ограничения `User and IP rate limits`](https://docs.gitlab.com/ee/user/admin_area/settings/user_and_ip_rate_limits.html).
 
 ### Работа с Docker изнутри {{ GL }} {#using-docker}
 
@@ -74,11 +75,6 @@
 * Ограничьте подключения к проектам только с конкретных IP-адресов, а также включите двухфакторную аутентификацию. Для этого перейдите во вкладку **Settings** → **General** → **Permissions, LFS, 2FA** в свойствах нужной группы.
 * Чтобы предоставить доступ к проектам пользователям вашей организации, настройте [SAML SSO](https://docs.gitlab.com/ee/user/group/saml_sso/).
 * По возможности заблокируйте использование `fork`.
-
-### Безопасная конфигурация инстанса {{ GL }} {#securing-instance}
-
-* По возможности [ограничьте сетевой доступ](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/secure_ci_cd/secure_ci_cd_with_webinar/gitlab_instance_sec_checklist/gitlab_instance_isolate.md) до вашего инстанса пределами облака.
-* Для предотвращения отказа обслуживания используйте [ограничения `User and IP rate limits`](https://docs.gitlab.com/ee/user/admin_area/settings/user_and_ip_rate_limits.html).
 
 ### Безопасная конфигурация агента {{ GL }} Runner {#configuring-runners}
 

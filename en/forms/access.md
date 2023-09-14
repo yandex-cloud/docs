@@ -13,11 +13,10 @@ If you are using [{{ forms-full-name }} for business](forms-for-org.md), you can
 
 1. Select who can edit the form:
 
-      * **All employees**: All employees of your organization can edit the form.
    * **Creator only**.
-   * **Selected employees**: Only the listed employees can edit the form. To add a new user to the list, enter their login or name in the field. 
+   * **Selected employees**: Only the listed employees can edit the form. To add a new user to the list, enter their login or name in the field. You can also grant access to multiple employees at once by specifying the name of a group of {{ ya-360 }} or {{ org-full-name }} organizations.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 ## Who can edit a group of forms {#access_groups}
 
@@ -31,9 +30,8 @@ To configure access to a group of forms:
 
 1. In the **Access** section, specify who can edit the group of forms:
 
-      * **All employees**: All employees of your organization can edit the group.
    * **Creator only**.
-   * **Selected employees**: Only the listed employees can edit the group. To add a new user to the list, enter their login or name in the field. 
+   * **Selected employees**: Only the listed employees can edit the group. To add a new user to the list, enter their login or name in the field. You can also grant access to multiple employees at once by specifying the name of a group of {{ ya-360 }} or {{ org-full-name }} organizations.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 

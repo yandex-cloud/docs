@@ -27,7 +27,7 @@ In the **Criteria** section, set the criteria for evaluating items or list multi
 
 ### Responses {#param-answers}
 
-In the **Responses** section, set the rating scale. The user needs to select a response option for each criterion. For example, to rate on a five-point scale, you can set numbers from 1 to 5 as responses. Or you can set three grades: <q>good</q>, <q>satisfactory</q>, and <q>bad</q>.
+In the **{{ ui-key.forms.common.blocks_correct-answers.title }}** section, set the rating scale. The user needs to select a response option for each criterion. For example, to rate on a five-point scale, you can set numbers from 1 to 5 as responses. Or you can set three grades: <q>good</q>, <q>satisfactory</q>, and <q>bad</q>.
 
 - To add a response option, select **Add option** and enter the response text.
 

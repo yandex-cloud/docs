@@ -14,9 +14,15 @@ The level of detail in LOD expressions is specified using keywords (see [{#T}](.
 
 Keywords override the grouping set in the chart when calculating a specific aggregate function.
 
+{% note warning %}
+
+You can use dimensions in LOD expressions whether they are used in the chart or not. In this case, the top-level aggregation should only contain dimensions that are used in the chart (are in one of its sections).
+
+{% endnote %}
+
 ### FIXED {#fixed}
 
-The `FIXED` keyword allows grouping by explicitly listed dimensions, regardless of whether they are used in any section of the chart or not.
+The `FIXED` keyword allows you to do the grouping by explicitly listed dimensions. If used with an empty list of dimensions, `FIXED` is equivalent to the same grouping as in the chart.
 
 **Example 1**
 
@@ -55,6 +61,12 @@ Expressions with `INCLUDE` can be useful if you need to calculate a measure with
 
 Calculate the maximum number of orders by region per date. Here we use nested aggregation: first, let's count the number of orders per date and then select the maximum value. The formula for the measure: `MAX(COUNTD([Order ID] INCLUDE [Region]))`.
 
+{% note info %}
+
+In this example, the `[Region]` dimension, which is absent in the chart, is added at the nested level. Thus, the top-level aggregation will be calculated with grouping by the `[Order Date]` dimension used in the chart, and the nested aggregation will use grouping by the `[Order Date]` and `[Region]` dimensions.
+
+{% endnote %}
+
 For example, in the **Line chart** chart, the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-3.png)
@@ -84,7 +96,7 @@ Expressions with `EXCLUDE` can be used, for example, to calculate the percentage
 
 **Example 1**
 
-Let's calculate the sales amount in the regions broken down by delivery type. To do this, we'll set the chart grouping by the `[Region]` and `[Ship Mode]` dimensions. To show the total amount for all delivery types, we'll add the following measure to the **Signatures** section: `IF([Ship Mode]="First Class", SUM([Sales] EXCLUDE [Ship Mode]), NULL)`. With `EXCLUDE`, the `[Ship Mode]` dimension is excluded from the grouping when calculating this measure, so the total amount for all delivery types is calculated.
+Let's calculate the sales amount in the regions broken down by delivery type. To do this, we will set the chart grouping by the `[Region]` and `[Ship Mode]` dimensions. To show the total amount for all delivery types, we will add the following measure to the **Signatures** section: `IF([Ship Mode]="First Class", SUM([Sales] EXCLUDE [Ship Mode]), NULL)`. With `EXCLUDE`, the `[Ship Mode]` dimension is excluded from the grouping when calculating this measure, so the total amount for all delivery types is calculated.
 
 For example, in the **Bar chart** chart, the result looks like this:
 
@@ -149,7 +161,7 @@ Let's have a look at the chart with calculation of the share of each goods categ
 
 For `INCLUDE`, there is no equivalent in window functions, so you can't add new dimensions there.
 
-## Limitations {#restrictions}
+## Constraints {#restrictions}
 
 The level of detail in LOD expressions can be used with some limitations:
 

@@ -12,11 +12,11 @@ Maintenance includes changes within one {{ KF }} major version. For more informa
 
 You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or updating [its settings](../operations/cluster-update.md):
 
-* **Unspecified time** (default): Maintenance is possible at any time.
-* **By schedule**: Set the preferred maintenance start time: desired day of the week and UTC hour. For example, you can choose a time when cluster load is lightest.
+* **Unspecified time** (default): Maintenance can be performed at any time.
+* **On schedule**: Set the preferred maintenance start time, i.e., the day and time (UTC) you want to perform maintenance at. For example, you can choose a time window when the cluster is least loaded.
 
 ## Maintenance procedure {#maintenance-order}
 
-In {{ mkf-name }} single-host clusters, a single [broker host](brokers.md) undergoes maintenance. So, such a cluster becomes unavailable if a single host needs to be restarted during maintenance.
+In single-host {{ mkf-name }} clusters, a single [broker host](brokers.md) undergoes maintenance. This means, if a cluster needs to be restarted during maintenance, it will become unavailable.
 
-In multi-host clusters, broker hosts undergo maintenance consecutively. The hosts are queued randomly. A broker host becomes unavailable while it's being restarted during maintenance.
+In multi-host clusters, broker hosts undergo maintenance one by one. The hosts are queued randomly. A broker host becomes unavailable while it is being restarted during maintenance.

@@ -33,9 +33,9 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
-  1. Нажмите на имя нужного кластера и выберите блок **Базы данных**.
-  1. В колонке **Расширения PostgreSQL** будет отображаться список расширений, подключенных к каждой базе данных.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите блок **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
+  1. В колонке **{{ ui-key.yacloud.mdb.cluster.databases.column_extensions }}** будет отображаться список расширений, подключенных к каждой базе данных.
 
 - CLI
 
@@ -67,10 +67,10 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
-  1. В строке с нужной базой данных нажмите значок ![options](../../../_assets/horizontal-ellipsis.svg) и выберите пункт **Настроить расширения PostgreSQL**.
-  1. Выберите необходимые расширения и нажмите кнопку **Изменить**.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
+  1. В строке с нужной базой данных нажмите значок ![options](../../../_assets/horizontal-ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-manage-extensions }}**.
+  1. Выберите необходимые расширения и нажмите кнопку **{{ ui-key.yacloud.postgresql.databases.dialog.button_submit }}**.
 
 - CLI
 

@@ -44,10 +44,10 @@ yc managed-postgresql cluster list-logs <идентификатор класте
 
 Для `disk.used_bytes` используются пороги для оповещения. Их рекомендуемые значения:
 
-* `Alarm` — 90% дискового пространства.
-* `Warning` — 80% дискового пространства.
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — 90% дискового пространства.
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — 80% дискового пространства.
 
 Значения порогов задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
-* `Alarm` — `96636764160` байтов (90%).
-* `Warning` — `85899345920` байтов (80%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — `96636764160` байт (90%).
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — `85899345920` байт (80%).

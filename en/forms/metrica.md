@@ -20,7 +20,7 @@ To add a tag to the form page:
 
 1. Enable the **Connect Yandex&#160;Metrica** option and enter the tag number.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 ## Analyze user actions {#section-goals}
 
@@ -38,10 +38,10 @@ To track user actions:
    - The user filled in at least one field in the form: `ya-forms_start-change`.
 
 
-   - The user clicked **Submit** in the form: `ya-forms_submit`.
+   - The user clicked **{{ ui-key.forms.common.blocks_survey.simple_form-button-text }}** in the form: `ya-forms_submit`.
 
-   - The user clicked **Next** in a multi-page form: `ya-forms_next`.
+   - The user clicked **{{ ui-key.forms.common.blocks_survey.next-button-text }}** in a multi-page form: `ya-forms_next`.
 
-   - The user clicked **Back** in a multi-page form: `ya-forms_prev`.
+   - The user clicked **{{ ui-key.forms.common.blocks_survey.prev-button-text }}** in a multi-page form: `ya-forms_prev`.
 
 For more information about goals, see [Yandex&#160;Metrica Help]({{ support-metrica-goals }}).

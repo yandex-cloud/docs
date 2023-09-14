@@ -50,6 +50,10 @@ spec:
 
 {% endcut %}
 
+## Logging settings {#log-options}
+
+To set up logging for an L7 load balancer created using an {{ alb-name }} Ingress controller in your {{ managed-k8s-name }} cluster, add the `ingress.alb.yc.io/group-settings-name` annotation with a name for the Ingress group settings and specify the settings in the additional `IngressGroupSettings` resource. For more information, see [Ingress resource annotations](../../k8s-ref/ingress.md#annotations).
+
 ## Installation and requirements {#install}
 
 To install the {{ alb-name }} Ingress controller, you need:

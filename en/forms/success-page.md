@@ -19,7 +19,7 @@ To show a message to the user after they fill out the form - for example, to tha
 
 1. Under **Event after submit**, type the title and text of your message.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 
 ## Show response statistics {#answers}
@@ -34,7 +34,7 @@ To show statistics:
 
 1. Turn on **Show response statistics after submitting the form**.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 
 ## Show test results {#test}
@@ -49,11 +49,11 @@ After the user completes a [test](tests.md), you can show them how many points t
 
 1. Set up [rules for scoring the test](tests.md#test-result).
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% note warning %}
 
-If you show test results, you can't [redirect users to a website](success-page.md#sec_redirect) or display a [message](success-page.md#message) when they submit the form.
+If you show test results, you cannot [redirect users to a website](success-page.md#sec_redirect) or display a [message](success-page.md#message) when they submit the form.
 
 {% endnote %}
 
@@ -79,10 +79,10 @@ After the user fills out the form, you can suggest that they go to your website 
 
    {% note warning %}
 
-   Many websites don't support loading in a frame. We recommend turning on this option for content to be embedded in third-party websites. For example, enable it for {{ forms-full-name }} or YouTube videos.
+   Many websites do not support loading in a frame. We recommend turning on this option for content to be embedded in third-party websites. For example, enable it for {{ forms-full-name }} or YouTube videos.
 
    {% endnote %}
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
-> Let's say you've embedded a form in your landing page for collecting customer requests. After the user fills out the request form, they must be redirected to a second form to confirm their phone number. You want the user to stay on your landing page instead of going to {{ forms-full-name }}. To do this, open the settings of your request form and turn on **Redirect to form in the same frame**.
+> Let's assume you have embedded a form in your landing page for collecting customer requests. After the user fills out the request form, they must be redirected to a second form to confirm their phone number. You want the user to stay on your landing page instead of going to {{ forms-full-name }}. To do this, open the settings of your request form and turn on **Redirect to form in the same frame**.

@@ -61,33 +61,41 @@ items:
           Устранение ошибки ILLEGAL_REQUEST_CONTRACT при формировании счета на
           оплату
         href: billing/known-issues/illegal_request_contract.md
+      - name: >-
+          С баланса платежного аккаунта списываются средства за неиспользуемые
+          ресурсы
+        href: billing/known-issues/billing-account-is-charged-by-unused-resources.md
+      - name: Что делать, если деньги долго не приходят на баланс после платежа
+        href: billing/known-issues/recover-lost-payment.md
       - name: Примеры конфигураций и сценариев Cloud Billing
         href: billing/how-to/index.md
         hidden: true
-      - name: Особенности работы с грантами и промокодами в биллинге Yandex Cloud
-        href: billing/how-to/promocodes-and-grants-features-in-billing.md
       - name: Как посмотреть стоимость потребления отдельных ресурсов
         href: billing/how-to/how-to-view-separate-resource-consumption.md
-      - name: Смена типа платежного аккаунта
+      - name: Как изменить тип платежного аккаунта
         href: billing/how-to/changing-billing-account-type.md
-      - name: Смена тарифного плана поддержки
+      - name: Как изменить тарифный план поддержки
         href: billing/how-to/changing-support-plan.md
       - name: Как подключиться к ЭДО
         href: billing/how-to/edi-system-connection.md
-      - name: Формирование счета на оплату
+      - name: Как сформировать счет на оплату
         href: billing/how-to/generating-invoice.md
-      - name: Перевод денежных средств между разными платежными аккаунтами
+      - name: Как перевести средства между разными платежными аккаунтами
         href: billing/how-to/transfer-funds-between-billing-accounts.md
-      - name: Особенности работы с грантами и промокодами в биллинге Yandex Cloud
+      - name: Как работают гранты и промокоды в биллинге Yandex Cloud
         href: billing/how-to/promocodes-and-grants-features-in-billing.md
       - name: Как изменить информацию, указанную в свойствах платежного аккаунта
         href: billing/how-to/change-payer-info-or-requisites.md
-      - name: Кастомизация и изменение данных в счетах на оплату
+      - name: Как изменить форму и данные в выставляемых счетах на оплату
         href: billing/how-to/edit-invoice-template-or-content.md
       - name: >-
-          Восстановление доступа к платежному аккаунту, созданному на основе
+          Как восстановить доступ к платежному аккаунту, созданному на основе
           упрощенной регистрации в Яндекс ID
         href: billing/how-to/recover-access-to-billing-account-via-lite-account.md
+      - name: Как получить акт сверки
+        href: billing/how-to/getting-reconcillation-report.md
+      - name: Как получить закрывающие документы
+        href: billing/how-to/getting-reporting-docs.md
   - name: Business
     items:
       - name: Все решения для Business

@@ -14,7 +14,7 @@ Learn your way around {{ forms-full-name }} by creating a simple form:
 
 1. {% include [forms-versions](../_includes/forms/forms-versions.md) %}
 
-1. On the top panel, click **Create form**.
+1. On the top panel, click **{{ ui-key.forms.common.blocks_f-slider.button-2 }}**.
 
 1. From the list on the left, select the desired blocks and put them on the form in the following order:
 
@@ -41,7 +41,7 @@ Learn your way around {{ forms-full-name }} by creating a simple form:
 
 To allow users to fill out the form, you need to publish it:
 
-1. Click **Share**.
+1. Click **{{ ui-key.forms.common.blocks_share.button-share }}**.
 
 1. To copy link to form in the **Link** field click ![](../_assets/forms/icon-copy.png).
 
@@ -56,7 +56,7 @@ To allow users to fill out the form, you need to publish it:
 
 To get a table with user responses to form prompts:
 
-1. Go to the **Responses** tab.
+1. Click the **{{ ui-key.forms.common.blocks_correct-answers.title }}** tab.
 
 1. In the **Download responses** list, select **All**.
 

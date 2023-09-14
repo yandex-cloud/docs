@@ -99,6 +99,10 @@ items:
         href: tutorials/yds-obj-migration.md
       - name: Automatically copying objects from one bucket to another
         href: tutorials/bucket-to-bucket.md
+      - name: Regular recognition of audio files in buckets
+        href: tutorials/batch-recognition-stt.md
+      - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
+        href: tutorials/storage-vpc-access.md
   - name: Concepts
     items:
       - name: Overview

@@ -68,7 +68,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
 
-        bucket_name = "Bucket name" # The name of the bucket being created. If you don't specify a bucket name for the `yandex_storage_bucket` resource, a name is generated automatically.
+        bucket_name = "Bucket name" # The name of the bucket being created. If you do not specify a bucket name for the `yandex_storage_bucket` resource, the name will be generated automatically.
       }
 
       terraform {
@@ -142,7 +142,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
          * A static key for the service account.
          * Bucket.
 
-         You can use the [management console]({{ link-console-main }}) to check that the resources have been created.
+         You can check the new resources using the [management console]({{ link-console-main }}).
 
 - AWS CLI
 
@@ -197,7 +197,7 @@ Create a new key or use an existing one. To create a key:
 
    * `name`: Key name.
    * `default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
-   * `rotation-period`: Key rotation period. To create a key without automatic rotation, don't specify the `rotation-period` parameter.
+   * `rotation-period`: Key rotation period. To create a key without automatic rotation, do not specify the `rotation-period` parameter.
 
    The key is created along with its first version. It's specified in the `primary_version` field.
 
@@ -300,7 +300,7 @@ Create a new key or use an existing one. To create a key:
          * A {{ kms-short-name }} key named `key-1`.
          * Bucket.
 
-         You can use the [management console]({{ link-console-main }}) to check that the resources have been created.
+         You can check the new resources using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -319,7 +319,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
    1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the previously created bucket.
-   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
+   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
    1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `key-1`.
    1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
@@ -430,7 +430,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
          * A {{ kms-short-name }} key named `key-1`.
          * The bucket with encryption.
 
-         You can use the [management console]({{ link-console-main }}) to check that the resources have been created.
+         You can check the new resources using the [management console]({{ link-console-main }}).
 
          As a result of successful command execution, all new objects in the bucket will be encrypted with `key-1`.
 
@@ -476,7 +476,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
    1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the previously created bucket.
-   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
+   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
    1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
    1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
@@ -588,7 +588,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
          * A {{ kms-short-name }} key named `key-1`.
          * Bucket.
 
-         Bucket encryption in the specified folder will be disabled. You can check whether the resources and their settings are updated in the [management console]({{ link-console-main }}).
+         Bucket encryption in the specified folder will be disabled. You can check the resources update and configuration using the [management console]({{ link-console-main }}).
 
 - AWS CLI
 

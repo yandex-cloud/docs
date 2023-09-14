@@ -27,7 +27,7 @@ Any changes are saved in the [history](#log).
 
 The form cannot be automatically translated into another language.
 
-If you need the form in another language:
+If you need the form to be in another language:
 * [Create a copy](new-form.md#sec_copy_form) of the form and change its text yourself.
 * [Create a new form](new-form.md#create-form) and enter the text yourself in the language you need.
 
@@ -46,7 +46,7 @@ If you're using [{{ forms-full-name }} for business](forms-for-org.md), you can 
 1. Click **Create group** and enter a group name.
 
 1. Add forms to the group in one of the following ways:
-   * In the **Manage group** section on the group page, enter the name of the form and click **Save**.
+   * In the **Manage group** section on the group page, enter the name of the form and click **{{ ui-key.yacloud.common.save }}**.
    * On the form editing page, go to **Settings** and select **Access**. In the **Group** list, select the group you want your form to be part of.
 
 1. Set up [access](access.md#access_groups) to the group of forms.
@@ -58,4 +58,4 @@ If you're using [{{ forms-full-name }} for business](forms-for-org.md), you can 
 
 1. Select the form and hover over the trigger.
 
-1. Click ![](../_assets/forms/context-menu.png) and select **Delete**.
+1. Click ![](../_assets/forms/context-menu.png) and select **{{ ui-key.yacloud.common.delete }}**.

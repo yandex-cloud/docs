@@ -50,7 +50,7 @@ To send data from your form to a web service via the API, use HTTP requests:
 
       - You can use [variables](vars.md) as header values. If you choose to do so, enable **Send if value is set**.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 > Example: create a project in {{ tracker-full-name }} with a name and queue key you specify.
 >

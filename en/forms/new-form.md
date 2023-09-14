@@ -6,7 +6,7 @@ To conduct a survey, collect votes, accept requests, or take orders, create a fo
 
 1. {% include [forms-versions](../_includes/forms/forms-versions.md) %}
 
-1. Select a [template for your form](#section_dyd_dnx_cgb) or click **Create a form** on the top panel.
+1. Select a [template for your form](#section_dyd_dnx_cgb) or click **{{ ui-key.forms.common.blocks_f-slider.button-2 }}** a form on the top panel.
 
 1. To change the name of the form, hover over **New form** and click the ![](../_assets/forms/edit.png) icon.
 
@@ -55,7 +55,7 @@ To create a new form based on an existing one, copy the form and edit it:
 
 1. Select one of the templates:
 
-   - **Feedback form**: Collect user reviews.
+   - **{{ ui-key.forms.common.blocks_survey.feedback }}**: Collect user reviews.
    - **Questionnaire**: Conduct surveys on any topic.
    - **Application**: Accept requests for services and orders.
    - **Registration for an event**: Accept applications for participating in an event.

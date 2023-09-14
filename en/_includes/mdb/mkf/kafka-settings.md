@@ -1,8 +1,8 @@
 * **Auto create topics enable** {{ tag-all }} {#settings-auto-create-topics}
 
-   This setting manages automatic creation of topics.
+   Manages automatic topic creation.
 
-   Automatic topic creation is disabled by default (`false`).
+   This option is disabled by default (i.e., set to `false`).
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_auto.create.topics.enable).
 
@@ -10,15 +10,15 @@
 
    In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-compression-type }}**.
 
-   Codecs used for message compression include:
+   Codec used for message compression:
 
    | Management console, {{ TF }}, and API | CLI | Description |
    | ---------------------------------- | -------------- | ------------------------------------------------------------------------------------------------ |
    | `COMPRESSION_TYPE_UNCOMPRESSED` | `uncompressed` | Compression is disabled |
-   | `COMPRESSION_TYPE_ZSTD` | `zstd` | The [zstd](https://facebook.github.io/zstd/) codec |
-   | `COMPRESSION_TYPE_LZ4` | `lz4` | The [lz4](https://lz4.github.io/lz4/) codec |
-   | `COMPRESSION_TYPE_SNAPPY` | `snappy` | The [snappy](https://github.com/google/snappy) codec |
-   | `COMPRESSION_TYPE_GZIP` | `gzip` | The [gzip](https://www.gzip.org) codec |
+   | `COMPRESSION_TYPE_ZSTD` | `zstd` | [zstd](https://facebook.github.io/zstd/) codec |
+   | `COMPRESSION_TYPE_LZ4` | `lz4` | [lz4](https://lz4.github.io/lz4/) codec |
+   | `COMPRESSION_TYPE_SNAPPY` | `snappy` | [snappy](https://github.com/google/snappy) codec |
+   | `COMPRESSION_TYPE_GZIP` | `gzip` | [gzip](https://www.gzip.org) codec |
    | `COMPRESSION_TYPE_PRODUCER` | `producer` | The codec is set on the [producer](../../../managed-kafka/concepts/producers-consumers.md) side |
 
    By default, the compression codec is set by the producer (`COMPRESSION_TYPE_PRODUCER`).
@@ -29,13 +29,13 @@
 
 * **Default replication factor** {{ tag-all }} {#settings-default-replication-factor}
 
-   Number of [copies of data](../../../managed-kafka/concepts/brokers.md) for a topic within a cluster.
+   Number of [data copies](../../../managed-kafka/concepts/brokers.md) for a topic within a cluster.
 
    This setting only applies to [automatically created topics](#settings-auto-create-topics).
 
-   The minimum value is `1` (default). The maximum value is equal to the number of broker hosts in the cluster.
+   The minimum and default value is `1`. The maximum value is equal to the number of broker hosts in the cluster.
 
-   For details, see a description of the [Replication factor](#settings-topic-replication-factor) topic-level setting.
+   See also the description of the [Replication factor](#settings-topic-replication-factor) topic-level setting.
 
    For more information, see the [{{ KF }} documentation](http://kafka.apache.org/documentation/#brokerconfigs_default.replication.factor).
 
@@ -43,9 +43,9 @@
 
    In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-flush-messages }}**.
 
-   The number of topic messages that can be kept in memory before these messages are flushed to disk. For example, if the parameter is `1`, the disk is flushed after each message is received. If it is set to `5`, messages are flushed to the disk in groups of five.
+   This is the number of topic messages that can be kept in memory before these messages are flushed to the disk. For example, if it is set to `1`, each message will be flushed to the disk once it is received. If it is set to `5`, messages will be flushed to the disk in five.
 
-   The minimum value is `1` and the maximum value is `9223372036854775807` (default).
+   The minimum value is `1`, while the maximum and the default value is `9223372036854775807`.
 
    This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-flush-messages).
 
@@ -53,7 +53,7 @@
 
 * **Log flush interval ms** {{ tag-all }} {#settings-log-flush-interval-ms}
 
-   The maximum time in milliseconds that a message in the topic is kept in the memory before being flushed to the disk. If no value is specified, the value in [Log flush scheduler interval ms](#settings-log-flush-scheduler-interval-ms) is used.
+   The maximum time in milliseconds, for which a message in the topic is kept in the memory before being flushed to the disk. If no value is specified, the [Log flush scheduler interval ms](#settings-log-flush-scheduler-interval-ms) value is used.
 
    The maximum value is `9223372036854775807`.
 
@@ -63,9 +63,9 @@
 
 * **Log flush scheduler interval ms** {{ tag-all }} {#settings-log-flush-scheduler-interval-ms}
 
-   The period (in milliseconds) to check the presence of logs to be flushed to the disk. This check is done by the log flusher.
+   The period (in milliseconds) to check whether there are logs to flush to the disk. This check is performed by the log flusher.
 
-   The maximum value is `9223372036854775807` (default).
+   The maximum and default value is `9223372036854775807`.
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_log.flush.scheduler.interval.ms).
 
@@ -83,21 +83,21 @@
 
    In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-retention-bytes }}**.
 
-   The maximum size a partition can grow to. When the partition reaches this size, {{ KF }} starts deleting the old log segments. This setting applies if the [log cleanup policy](#settings-topic-cleanup-policy) is set to `delete`.
+   The maximum size a partition can grow to. When the partition reaches this size, {{ KF }} starts deleting the old log segments. This setting applies if the `Delete` [log cleanup policy](#settings-topic-cleanup-policy) is effective.
 
-   The minimum value is `-1` (default: the log size is unlimited) and the maximum value is `9223372036854775807`.
+   The minimum and default value is `-1` (the log size is unlimited), while the maximum one is `9223372036854775807`.
 
-   Use this setting if you need to control the log size due to limited disk space.
+   Use this setting if you need to manage the log size due to limited disk space.
 
    This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-retention-bytes).
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_log.retention.bytes).
 
-   For details, see the [Log retention ms](#settings-log-retention-ms) setting.
+   See also the [Log retention ms](#settings-log-retention-ms) setting.
 
 * **Log retention hours** {{ tag-all }} {#settings-log-retention-hours}
 
-   Time (in hours) for {{ KF }} to keep a log segment file. This setting applies if the `Delete` [log cleanup policy](#settings-topic-cleanup-policy) is active: once the specified timeout expires, the segment file is deleted.
+   Time (in hours) for {{ KF }} to keep a log segment file. This setting applies if the `Delete` [log cleanup policy](#settings-topic-cleanup-policy) is active; once the specified timeout expires, the segment file will be deleted.
 
    The default value is `168`.
 
@@ -105,9 +105,9 @@
 
 * **Log retention minutes** {{ tag-all }} {#settings-log-retention-minutes}
 
-   Time (in minutes) for {{ KF }} to keep a log segment file. This setting applies if the `Delete` [log cleanup policy](#settings-topic-cleanup-policy) is active: once the specified timeout expires, the segment file is deleted.
+   Time (in minutes) for {{ KF }} to keep a log segment file. This setting applies if the `Delete` [log cleanup policy](#settings-topic-cleanup-policy) is active; once the specified timeout expires, the segment file will be deleted.
 
-   The maximum value is `2147483647`. If no value is specified, the value in [Log retention hours](#settings-log-retention-hours) is used.
+   The maximum value is `2147483647`. If no value is specified, the [Log retention hours](#settings-log-retention-hours) value is used.
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_log.retention.minutes).
 
@@ -115,9 +115,9 @@
 
    In the management console, this setting corresponds to **{{ ui-key.yacloud.kafka.label_topic-retention-ms }}**.
 
-   Time (in milliseconds) for {{ KF }} to keep a log segment file. This setting applies if the [log cleanup policy](#settings-topic-cleanup-policy) is set to `delete`: the segment file is deleted after the specified retention period expires.
+   Time (in milliseconds) for {{ KF }} to keep a log segment file. This setting applies if the `Delete` [log cleanup policy](#settings-topic-cleanup-policy) is active; once the specified timeout expires, the segment file will be deleted.
 
-   The minimum value is `-1` (logs are stored without any time limits) and the maximum value is `9223372036854775807`. If no value is specified, the value in [Log retention minutes](#settings-log-retention-minutes) is used.
+   The minimum value is `-1` (logs are stored without any time limit), while the maximum one is `9223372036854775807`. If no value is specified, the [Log retention minutes](#settings-log-retention-minutes) value is used.
 
    {% note warning %}
 
@@ -129,15 +129,15 @@
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#retention.ms).
 
-   For more information, see the [Log retention bytes](#settings-log-retention-bytes) setting.
+   See also the [Log retention bytes](#settings-log-retention-bytes) setting.
 
 * **Log segment bytes** {{ tag-all }} {#settings-log-segment-bytes}
 
    Segment size for log files, in bytes.
 
-   Segment files are saved and cleared file-by-file. The smaller the specified segment size, the more files will be in the log, but storage control will be more flexible.
+   Segment files are saved and cleared file-by-file. The smaller the specified segment size, the more files will be in the log, while the storage management will be more flexible.
 
-   The minimum value is `14` and the maximum value is `2147483647`. Defaults to `1073741824` (1 GB).
+   The minimum value is `14`, the maximum one is `2147483647`, and the default one is `1073741824` (1 GB).
 
    This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-segment-bytes).
 
@@ -145,9 +145,9 @@
 
 * **Message max bytes** {{ tag-all }} {#settings-message-max-bytes}
 
-   Message maximum size (in bytes) set by the producer.
+   Producer's message maximum size (in bytes).
 
-   The minimum value is `0` (unlimited size). Defaults to `1048588`. The setting value must not exceed the [Replica fetch max bytes](#settings-replica-fetch-max-bytes) value by more than 12 bytes.
+   The minimum value is `0` (unlimited size), and the default one is `1048588`. This setting value must not exceed the [Replica fetch max bytes](#settings-replica-fetch-max-bytes) value by more than 12 bytes.
 
    This is a global cluster-level setting.
 
@@ -159,9 +159,9 @@
 
    This setting only applies to [automatically created topics](#settings-auto-create-topics).
 
-   The minimum value is `1` (default).
+   The minimum and default value is `1`.
 
-   For details, see a description of the [Num partitions](#settings-topic-num-partitions) topic-level setting.
+   See also a description of the [Num partitions](#settings-topic-num-partitions) topic-level setting.
 
    For more information, see the [{{ KF }} documentation](http://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
 
@@ -169,7 +169,7 @@
 
    Offsets retention period in minutes after a consumer group loses all its consumers.
 
-   The minimum value is `1` and the default value is `10080`.
+   The minimum value is `1` and the default one is `10080`.
 
    This is a global cluster-level setting.
 
@@ -179,7 +179,7 @@
 
    Size of the buffer for messages exchanged by brokers (in bytes).
 
-   The minimum value is `0` (unlimited size). Defaults to `1048576`. The setting value must be at least 12 bytes larger than the **Message max bytes** setting value that is set at the cluster or topic level.
+   The minimum value is `0` (unlimited size) and the default one is `1048576`. This setting value must be at least 12 bytes larger than the **Message max bytes** setting value that is set at the cluster or topic level.
 
    This is a global cluster-level setting.
 
@@ -187,7 +187,7 @@
 
 * **Sasl enabled mechanisms** {{ tag-all }} {#settings-sasl-enabled-mechanisms}
 
-   Encryption mechanisms that can be used when connecting to a cluster.
+   Encryption tools that can be used when connecting to a cluster.
 
    You can select one or more values:
 
@@ -196,23 +196,23 @@
    | `SASL_MECHANISM_SCRAM_SHA_256` | `SCRAM-SHA-256` |
    | `SASL_MECHANISM_SCRAM_SHA_512` | `SCRAM-SHA-512` |
 
-   If the setting is not defined by the user, the only used mechanism is `SCRAM-SHA-512`.
+   If the setting is not defined by the user, the only tool used is `SCRAM-SHA-512`.
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_sasl.enabled.mechanisms).
 
-* **Socket receive buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }} {#settings-socket-receive-buffer-bytes}
+* **Socket receive buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }}{#settings-socket-receive-buffer-bytes}
 
-   Socket receive buffer size (in bytes).
+   The socket receive buffer size (in bytes).
 
-   The minimum and default value is `-1` (the OS settings are used) and the maximum value is `2147483647`.
+   The minimum and default value is `-1` (the OS settings are used), while the maximum one is `2147483647`.
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_socket.receive.buffer.bytes).
 
-* **Socket send buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }} {#settings-socket-send-buffer-bytes}
+* **Socket send buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }}{#settings-socket-send-buffer-bytes}
 
-   Socket send buffer size (in bytes).
+   The send socket buffer size (in bytes).
 
-   The minimum and default value is `-1` (the OS settings are used) and the maximum value is `2147483647`.
+   The minimum and default value is `-1` (the OS settings are used), while the maximum one is `2147483647`.
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_socket.send.buffer.bytes).
 
@@ -220,7 +220,7 @@
 
    List of cluster encryption algorithms.
 
-   There is no default value (all sets of algorithms for encryption are supported).
+   There is no default value (all encryption algorithms are supported).
 
    This is a global cluster-level setting.
 

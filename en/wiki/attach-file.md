@@ -2,7 +2,7 @@
 
 You can upload a file to a page and add a download link to the text.
 
-To open a list of all files uploaded to a page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** in the top-right corner and select ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
+To open a list of all files uploaded to a page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** in the upper-right corner and select ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
 
 {% note warning %}
@@ -17,6 +17,12 @@ The maximum total size of all files attached in {{ wiki-name }} per organization
 1. Open the page. In the top-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
 1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-attachments.upload-btn-text }}** and open the desired file or files.
+
+{% note info %}
+
+The maximum size per uploaded file is 200 MB.
+
+{% endnote %}
 
 ## Adding links to files {#paste-link}
 

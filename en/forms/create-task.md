@@ -58,7 +58,7 @@ You can integrate your form with [{{ tracker-short-name }}]({{ link-tracker }}) 
 
 1. For the user to get a link to the created issue after filling out the form, enable the **Show messages about the results of actions** option under the action name.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 To create multiple issues at once, add new actions by clicking ![](../_assets/forms/tracker-notification-new.png) **{{ tracker-short-name }}** at the bottom of the page.
 
@@ -83,17 +83,17 @@ If issues aren't created in {{ tracker-short-name }} or if they're created incor
 
 ### Error in the Reporter, Assignee, and Follower fields
 
-The error may be caused by invalid data being sent from the form to the **Reporter**, **Assignee**, or **Followers** issue field. Fill in these fields in the following way:
+The error may be caused by invalid data being sent from the form to the **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}**, **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--assignee }}**, or **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--followers }}** issue field. Fill in these fields in the following way:
 
 - To add an employee manually, enter a username like `smith`.
 
-- To enter multiple usernames in the **Followers** field, separate them with commas (for example, `smith,johnson`).
+- To enter multiple usernames in the **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--followers }}** field, separate them with commas (for example, `smith,johnson`).
 
 - To add the employee who's specified in a response to the <q>People</q>,, insert a **Response ID** [variable](vars.md) in the field. If you use a **Response to prompt** variable, integration won't work.
 
 - To add the employee who's specified in a response to the <q>Drop-down list</q> or <q>Multiple answers</q> prompt, set usernames (such as `smith`) as response options and use the **Response to prompt** [variable](vars.md).
 
-If an error occurs in the **Reporter** field although it's filled in correctly, make sure the user who filled out the form is [allowed to create issues in the specified {{ tracker-short-name }} queue](#access).
+If an error occurs in the **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}** field although it's filled in correctly, make sure the user who filled out the form is [allowed to create issues in the specified  queue {{ tracker-short-name }}](#access).
 
 ### Error: No rights to add issues to queue {#access}
 

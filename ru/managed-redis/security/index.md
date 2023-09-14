@@ -36,6 +36,7 @@ description: "Управление доступом в сервисе по со�
 
 {% include [mrd-admin](../../_includes/iam/roles/mrd-admin.md) %}
 
+{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
 
 {% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
 

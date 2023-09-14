@@ -12,7 +12,7 @@ To limit the period during which users can fill out the form:
 
 1. Set the date and time range for when you want the form to be active. These restrictions will apply in the context of your time zone and current time.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 ## Limit the number of respondents {#sec_number}
 
@@ -22,7 +22,7 @@ To limit the total number of respondents that can fill out the form:
 
 1. Turn on **Limit the number of respondents** and set a number. When the limit is reached, access to the form is closed.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% note tip %}
 
@@ -39,4 +39,4 @@ By default, any user can fill out the form. If you're using [{{ forms-full-name 
 
 1. In **Who can fill out the form**, select **Only employees of the organization**.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.

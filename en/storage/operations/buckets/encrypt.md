@@ -100,7 +100,7 @@ To decrypt objects, the user must have both the {{ objstorage-name }} role and t
 
       1. Confirm that you want to create the resources.
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -170,7 +170,7 @@ To decrypt objects, the user must have both the {{ objstorage-name }} role and t
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -185,6 +185,6 @@ To decrypt objects, the user must have both the {{ objstorage-name }} role and t
 {% endlist %}
 
 
-#### See also {#see-also}
+#### For more information, see also {#see-also}
 
 * [{#T}](../../concepts/encryption.md)

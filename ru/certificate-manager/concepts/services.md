@@ -6,6 +6,8 @@
 * [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
 
+Также вы можете хранить публичную часть пользовательского сертификата в виде секрета [{{ lockbox-full-name }}](#lockbox) с помощью {{ TF }}.
+
 
 
 ## {{ objstorage-full-name }} {#os}
@@ -36,6 +38,10 @@
 
 Для доступа к [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS можно [использовать](../../storage/operations/hosting/certificate.md#cert-manager) сертификат из {{ certificate-manager-name }}.
 
+
+## {{ lockbox-full-name }} {#lockbox}
+
+Вы можете хранить публичную часть пользовательского сертификата {{ certificate-manager-name }} в {{ lockbox-name }} [с помощью {{ TF }}](../operations/import/cert-create.md#create-lockbox).
 
 #### См. также {#see-also}
 

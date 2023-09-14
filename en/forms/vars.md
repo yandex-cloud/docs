@@ -6,13 +6,13 @@ Use variables to do this:
 
 1. In the **Integration** tab of your form, [add an action](notifications.md#add-integration).
 
-1. Select the field and click ![](../_assets/forms/add-var.png) to the right.
+1. Select the field and click ![](../_assets/forms/add-var.svg) to the right.
 
 1. Select a variable from the list to add to the field.
 
-1. If you're using variables like <q>Prompt response</q> or <q>Response ID</q>, you can choose a [filter](#var-filters) for variable values if needed.
+1. If you are using variables like <q>Prompt response</q> or <q>Response ID</q>, you can choose a [filter](#var-filters) for variable values if needed.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 When data is sent to the service, the variable is automatically converted to a value: a response to a prompt, test result, or technical data.
 
@@ -91,8 +91,8 @@ You can use the following variables in action settings:
 | OS version | Operating system version |
 | Browser name | Name |
 | Browser version | Version |
-| **Query** | The technical parameters of an HTTP session |
-| Host | The user's computer name |
+| **Request** | The technical parameters of an HTTP session |
+| Host | Domain name of the server the request is received from |
 | URL | Form address |
 | All GET parameters | The values of all request parameters.<br/><br/>Learn more about how to [use GET parameters to pre-fill a form](get-params.md). |
 | GET parameter | The value of a specific request parameter (enter the parameter name).<br/><br/>Learn more about how to [use GET parameters to pre-fill a form](get-params.md). |

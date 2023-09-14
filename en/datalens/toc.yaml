@@ -29,6 +29,8 @@ items:
         href: tutorials/data-from-csv-geo-visualization.md
       - name: Analyzing a retail chain's sales from a {{ CH }} database
         href: tutorials/data-from-ch-visualization.md
+      - name: Visualizing data from CHYT
+        href: tutorials/data-from-ch-over-yt.md
       - name: >-
           Analyzing sales and locations of pizzerias based on data from {{ CH }}
           DB and Marketplace
@@ -84,6 +86,14 @@ items:
             href: operations/connection/create-ydb.md
           - name: Creating a {{ GP }} connection
             href: operations/connection/create-greenplum.md
+          - name: Creating a CHYT connection
+            items:
+              - name: Connection
+                href: operations/connection/chyt/create-chyt.md
+              - name: Specifics of JOINs
+                href: operations/connection/chyt/chyt-global-join.md
+              - name: Recommendations
+                href: operations/connection/chyt/chyt-recommendations.md
           - name: Creating a connection to a file
             href: operations/connection/create-file.md
           - name: Creating a Google Sheets connection
@@ -764,15 +774,29 @@ items:
       - name: Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
+      - name: Access to table was denied
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md
+      - name: Authentication failed
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-AUTH_FAILED.md
       - name: Backend app request timeout exceeded
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md
+      - name: Cannot join a concatenation of tables with another table
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md
       - name: Cannot parse datetime
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md
       - name: Cannot parse number
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md
+      - name: Column used in join expression is not a key column
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_A_KEY_COLUMN.md
       - name: >-
           ROUND with precision parameter is not supported for double precision
           data type in PostgreSQL
@@ -811,6 +835,10 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Invalid clique specification. Probably, clique does not exists
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-INVALID_SPECIFICATION.md
       - name: Invalid grouping configuration
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md
@@ -822,6 +850,10 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md
+      - name: Joined columns should form prefix of joined table key columns
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_KEY_PREFIX_COLUMN.md
       - name: Measure filter is unsupported for this type of query
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
@@ -843,6 +875,10 @@ items:
       - name: Requested database column does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
+      - name: Subquery exceeds data weight limit
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md
       - name: Subquery source is disallowed in the connection settings
         hidden: true
         href: >-
@@ -874,6 +910,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md
+      - name: YT table has no schema. Only schematized tables are supported
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
       - name: Could not create <object type>
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md

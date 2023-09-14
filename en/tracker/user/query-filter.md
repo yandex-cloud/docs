@@ -43,7 +43,7 @@ To set a parameter, start typing its name and select a relevant one from the sug
 >    ```no-highlight
 >    "Queue": "TEST"
 >    ```
-> - The issues where Alice Little was an assignee:
+> - Issues with Alice Little as assignee:
 >    ```no-highlight
 >    "Assignee": "Alice Little"
 >    ```
@@ -68,7 +68,7 @@ parameter: "value1" "value2" " value3"
 > ```no-highlight
 > author: "vpupkin","iivanov"
 > ```
-> This filter outputs all issues that were reported by `vpupkin` or `iivanov`.
+> This filter will return all the issues that were reported by `vpupkin` or `iivanov`.
 
 ## Filters with multiple conditions {#query-multiple-conditions}
 
@@ -80,7 +80,7 @@ You can combine multiple conditions per filter using logical operators:
    ```no-highlight
    parameter1: "value1" AND parameter2: "value2"
    ```
-   This query outputs the issues that have `parameter1` set to `value1` **{{ ui-key.startrek-backend.messages.trigger.condition.type.and }}** `parameter2` set to `value2`.
+   This query will return the issues that have `parameter1` set to `value1` **{{ ui-key.startrek-backend.messages.trigger.condition.type.and }}** `parameter2` set to `value2`.
 
    {% note info %}
 
@@ -88,13 +88,13 @@ You can combine multiple conditions per filter using logical operators:
 
    {% endnote %}
 
-- `OR`: Logical **{{ ui-key.startrek-backend.messages.trigger.condition.type.or }}** operator. at least one of the conditions must be fulfilled.
+- `OR`: Logical **{{ ui-key.startrek-backend.messages.trigger.condition.type.or }}** operator. At least one of the conditions must be fulfilled.
 
    Example:
    ```no-highlight
    parameter1: "value1" OR parameter2: "value2"
    ```
-   This query outputs the issues that have at least one of the conditions met: `parameter1` is set to `value1` **{{ ui-key.startrek-backend.messages.trigger.condition.type.or }}** `parameter2` is set to `value2`.
+   This query will return the issues that have at least one of the conditions met: `parameter1` is set to `value1` **{{ ui-key.startrek-backend.messages.trigger.condition.type.or }}** `parameter2` is set to `value2`.
 
 You can create complex filters by combining multiple operators in a single request:
 
@@ -116,9 +116,9 @@ All the textual fields of the issue are searchable: name, description, and comme
 
 * To search only in one of the fields, specify it in the parameter:
 
-   * `Summary`: The issue name.
+   * `Summary`: Issue name.
 
-   * `Description`: The issue description.
+   * `Description`: Issue description.
 
    * `Comment`: Text in comments.
 
@@ -128,7 +128,7 @@ All the textual fields of the issue are searchable: name, description, and comme
    Description: "This area is familiar to me as the outskirts of China"
    ```
 
-   This filter will output all the issues whose descriptions include the words from the original query and their forms.
+   This filter will return all the issues whose descriptions include the words from the original query and their forms.
 
 * To only find issues with text that exactly matches the query text, use the `#` operator:
 
@@ -136,55 +136,55 @@ All the textual fields of the issue are searchable: name, description, and comme
    Summary: #"Version 2.0"
    ```
 
-   This filter only returns issues whose name exactly matches the query text.
+   This filter will only return the issues whose name exactly matches the query text.
 
-* To only find issues that contain text exactly matching the query text and additional text, use the `#` operator and add the `||` operator where additional text is placed:
+* To only find issues that contain text exactly matching the query text and additional text, use the `#` operator and add the `||` operator where the additional text is placed:
 
    ```no-highlight
    Description`: #"Make ||"
    ```
 
-   This filter only returns issues with text that contains the word "Make" and some more words after it. For example, "Make lists" or "Make a map".
+   This filter will only return the issues with text that contains the word "Make" and some more words after it. For example, "Make lists" or "Make a map".
 
-   The `||` operator can only be used along with the `#` operator.
+   The `||` operator can only be used together with the `#` operator.
 
-* To only find issues that don't have a particular text fragment in a given field, use the `!` operator:
+* To only find issues that have no text fragment in a given field, use the `!` operator:
 
    ```no-highlight
    Summary: !"UI"
    ```
 
-   This filter only returns issues whose name doesn't contain a `UI` text fragment.
+   This filter will only return the issues whose name does not contain a `UI` text fragment.
 
-* To only find issues whose name doesn't exactly match the query text, use the `~` operator. This operator only applies to the `Summary` field:
+* To only find issues whose name does not exactly match the query text, use the `~` operator. This operator only applies to the `Summary` field:
 
    ```no-highlight
    Summary: ~"UI Update 2.0"
    ```
 
-   This filter only returns issues whose name doesn't match the query text.
+   This filter will only return the issues whose name does not match the query text.
 
 ## Searching by user {#query-user}
 
 You can search issues by names and usernames specified in the issue fields. There are several ways to specify names and usernames in queries.
 
-* Putting the first and last name in quotation marks: `"first_name last_name"`. Used to search for an exact match with the user's first and last name.
-
-   Example:
-   ```no-highlight
-   Author: "Alice Little"
-   ```
-   This query will display all issues that have Alice Little specified as the author.
-
-* Entering a username and putting `@` at the end: `login@`. Used to search for an exact match containing this username.
+* Username with `@` at the end: `login@`. Use it to search for an exact match containing the username.
 
    Example:
    ```no-highlight
    Assignee: user3370@
    ```
-   This query will display all issues that have `user3370` specified as the assignee.
+   This query will display all issues that have `user3370` specified as the assignee. This is the most accurate way to search by user.
 
-* Name, surname, and username: to search exact matches with any of the data.
+* First and last name in quotation marks: `"first_name last_name"`. Use it to search for matches containing the first and last name.
+
+   Example:
+   ```no-highlight
+   Author: "Alice Little"
+   ```
+   This query will display all issues that have Alice Little specified as the author. Please note that the output may contain issues of other reporters with username or name similar to `Alice Little`. To avoid this, search by username with the `@` character.
+
+* Name, surname, and username. Use it to search for exact matches containing any of these.
 
    Examples:
 
@@ -214,35 +214,31 @@ Many issue parameters have the values of date and time. The query language suppo
 
 * MM/DD/YYYY
 
-    Example:
-
-    ```
-    04/30/2017
-    ```
+   Example:
+   ```
+   04/30/2017
+   ```
 
 * DD.MM.YYYY
 
-    Example:
-
-    ```
-    30.04.2017
-    ```
+   Example:
+   ```
+   30.04.2017
+   ```
 
 * DD-MM-YYYY
 
-    Example:
-
-    ```
-    30-04-2017
-    ```
+   Example:
+   ```
+   30-04-2017
+   ```
 
 * YYYY-MM-DD
 
-    Example:
-
-    ```
-    2017-04-30
-    ```
+   Example:
+   ```
+   2017-04-30
+   ```
 
 #### Date and time {#date-time}
 
@@ -268,7 +264,7 @@ Example:
    "3d 5h 32m"
    ```
 
-* You can set intervals using acceptable date formats
+* You can set intervals using acceptable date formats:
    ```
    DD-MM-YYYY .. DD-MM-YYYY
    ```
@@ -314,16 +310,16 @@ Apart from checking for an exact match, the query language supports the followin
 
 #### Examples {#compare-example}
 
-Search for issues with the deadline in a few days or today:
+Search for issues with a deadline in a few days or today:
 
-> - Issues with the deadline in 3 days:
+> - Issues with a deadline in 3 days:
 >    ```no-highlight
 >    Deadline: <= today() +3d and deadline: >= today()
 >    ```
 
 To customize parameters, use [functions](#query-functions) in a query:
 
-> - Issues with the deadline today:
+> - Issues with a deadline today:
 >    ```no-highlight
 >    Deadline: today()
 >    ```
@@ -336,19 +332,19 @@ In addition to exact parameter values, you can use functions. A function is a va
 Created: today()
 ```
 
-| Function | Result | Example |
+Function | Result | Example
 ----- | ----- | -----
-| ```empty()  ``` | Empty value (the parameter isn't specified) | Find issues that don't have an assignee:<br/>``` Assignee: empty() ``` |
-| ```notEmpty() ``` | Any non-empty value (the parameter is specified) | Find issues that have a deadline set:<br/>``` Deadline: notEmpty() ``` |
-| ```me()  ``` | Name of the user who ran the query | Find issues that you created:<br/>``` Author: me() ``` |
-| ```now() ``` | A current time with the minute precision | Find issues created in the last 12 hours:<br/>``` Created: >now()-12h ``` |
-| ```today() ``` | The time interval corresponding to the current date | Find issues created today:<br/>``` Created: today() ``` |
-| ```week() ``` | The date interval corresponding to the current week | Find issues created this week:<br/>``` Created: week() ``` |
-| ```month()  ``` | The date interval corresponding to the current month | Find issues created this month:<br/>``` Created: month() ``` |
-| ```quarter()  ``` | The date interval corresponding to the current quarter | Find issues created in this quarter:<br/>``` Created: quarter() ``` |
-| ```year() ``` | The date interval corresponding to the current year | Find issues created this year:<br/>``` Created: year() ``` |
-| ```unresolved() ``` | Issues without a resolution | Find all issues that do not have a resolution:<br/>``` Resolution: unresolved() ``` |
-| ```group() ``` | A list of the department's employees | Find issues that employees of the Sales department are working on:<br/>``` Assignee: group(value: "Sales department")  ``` |
+```empty()  ``` | Empty value (no parameter specified) | Find issues that have no assignee specified:<br/>``` Assignee: empty() ```
+```notEmpty() ``` | Any non-empty value (parameter specified) | Find issues that have a deadline set:<br/>``` Deadline: notEmpty() ```
+```me()  ``` | Name of the user running the query | Find issues created by you:<br/>``` Author: me() ```
+```now() ``` | Current time with to-the-minute precision | Find issues created in the last 12 hours:<br/>``` Created: >now()-12h ```
+```today() ``` | Time interval corresponding to current date | Find issues created today:<br/>``` Created: today() ```
+```week() ``` | Date interval corresponding to current week | Find issues created this week:<br/>``` Created: week() ```
+```month()  ``` | Date interval corresponding to current month | Find issues created this month:<br/>``` Created: month() ```
+```quarter()  ``` | Date interval corresponding to current quarter | Find issues created in this quarter:<br/>``` Created: quarter() ```
+```year() ``` | Date interval corresponding to current year | Find issues created this year:<br/>``` Created: year() ```
+```unresolved() ``` | Issues without a resolution | Find all issues that have no resolution:<br/>``` Resolution: unresolved() ```
+```group() ``` | List of the department's employees | Find issues that employees of the Sales department are working on:<br/>``` Assignee: group(value: "Sales department")  ```
 
 
 ## Searching by parameter change {#query-change}
@@ -358,7 +354,7 @@ If you know when and how the issue parameter was changed, you can use these crit
 "parameter": changed(from: "old value" to: "new value" by: "who changed" date: "when changed")
 ```
 
-For example, to get a list of the issues that Alice Little changed to the <q>In Progress</q> status over a certain period of time, create the query:
+For example, to get a list of the issues that the user Alice Little changed to the <q>In Progress</q> status over a certain period of time, create the query:
 
 ```
 Status: changed(to: "In progress" by: "Alice Little" date: 01.09.2017 .. 15.09.2017)
@@ -392,7 +388,7 @@ To specify several sort fields, list them through a comma in the priority order:
 
 ## Useful queries {#useful-queries}
 
-Try to run some examples of queries to get a better picture of how they work:
+Try to run some ready-made queries to get a better idea of how they work:
 
 * Active issues whose reporter you are:
    ```no-highlight
@@ -409,90 +405,86 @@ Try to run some examples of queries to get a better picture of how they work:
    Followers: me() Resolution: empty()
    ```
 
-* Issues where you are an assignee and the deadline is due within a week:
+* Issues where you are an assignee and deadline is due within a week:
    ```no-highlight
    Assignee: me() Deadline: week()
    ```
 
-* Issues with the **Critical** or **Blocker** priority for which you are the reporter, assignee, or follower.
+* Issues with the **Critical** or **Blocker** priority for which you are the reporter, assignee, or follower:
    ```no-highlight
    (Followers: me() OR Assignee: me() OR Author: me()) AND Resolution: empty() AND Priority: Blocker, Critical
    ```
 
 ## Filter parameters {#filter-parameters}
 
-| Parameter | Value | Description |
+Parameter | Value | Description
 ----- | ----- | -----
-| ```"Access" ``` | Names or usernames | Searching for issues with certain users specified in the **{{ ui-key.startrek-backend.fields.issue.access }}** field.<br/>For example:<br/>```"Access": user3370@, "Alice Little" ``` |
-| ```"Affected Version" ``` | Version names | Searching for issues that list a specific value in the **{{ ui-key.startrek-backend.fields.issue.affectedVersions-key-value }}** field.<br/>For example:<br/>```"Affected Version": "14.09.1978" ``` |
-| ```"Assignee" ``` | Names or usernames | Searching for issues with specific assignees.<br/>For example:<br/>```"Assignee": user3370@, "Alice Little" ``` |
-| ```"Author" ``` | Names or usernames | Searching for issues with specific reporters.<br/>For example:<br/>```"Author": user3370@, "Alice Little" ``` |
-| ```"Block Queue" ``` | Name or key of the queue | Searching for issues that have dependent (blocked) issues in the specified queues.<br/>For example:<br/>``` "Block Queue": TEST ``` |
-| ```"Clone" ``` | Issue keys | Searching for issues cloned from specific issues.<br/>For example:<br/>``` "Clone": "TASK-123", "TASK-321" ``` |
-| ```"Clones Of Queue" ``` | Name or key of the queue | Searching for issues cloned from issues in specific queues.<br/>For example:<br/>``` "Clones Of Queue": TEST, DEVELOP ``` |
-| ```"Comment" ``` | Text string | Searching for issues whose comments include the specified text.<br/>For example:<ul><li>Find the issues whose comments contain words and word forms from the phrase:<br/>    ```"Comment": "good job" ```</li><li>Find issues with comments that contain the exact phrase:<br/>    ```"Comment": #"great job" ```</li></ul> |
-| ```"Comment Author" ``` | Names or usernames | Searching for issues with comments made by specific users.<br/>For example:<br/>```"Comment Author": user3370@, "Alice Little" ``` |
-| ```"Component Owner" ``` | Names or usernames | Searching for issues that include components managed by specific users.<br/>For example:<br/>```"Component Owner": user3370@, "Alice Little" ``` |
-| ```"Components" ``` | Component names | Searching for issues that refer to specific components.<br/>For example:<br/>```"Components": "backend", " frontend" ``` |
-| ```"Created" ``` | Date or date interval | Searching for issues created on a specific date or within a specific date range.<br/>For example:<br/>```"Created": 2017-01-01..2017-01-30 ``` |
-| ```"Deadline" ``` | Date or date interval | Searching for issues with a deadline set for a specific date or date range.<br/>For example:<br/>```"Deadline": 2017-01-30 ``` |
-| ```"Depend On Queue" ``` | Name or key of the queue | Searching for issues dependent on (blocked by) issues from specific queues.<br/>For example:<br/>``` "Depend On Queue": TEST ``` |
-| ```"Depends On" ``` | Issue keys | Searching for issues that depend on the given issues (are blocked by them).<br/>For example:<br/>``` "Depends On": "TASK-123", "TASK-321" ``` |
-| ```"Description" ``` | Text string | Searching for issues that have a description with specific text.<br/>For example:<ul><li>Find issues that have a description containing the words and word forms in the phrase:<br/>    ```"Description": "invent the wheel" ```</li><li>Find issues that contain the exact phrase in their description:<br/>    ```"Description": #"invent the wheel" ```</li></ul> |
-| ```"Duplicated In Queue" ``` | Name or key of the queue | Searching for issues that have duplicates in specific queues.<br/>For example:<br/>``` "Duplicated In Queue": TEST ``` |
-| ```"Duplicates" ``` | Issue keys | Searching for issues that duplicate specific issues.<br/>For example:"Duplicates":<br/>``` "TASK-123", "TASK-321" ``` |
-| ```"Duplicates In Queue" ``` | Name or key of the queue | Searching for issues that are duplicates of issues in the specified queues.<br/>For example:<br/>``` "Duplicates In Queue": TEST ``` |
-| ```"End Date" ``` | Date or date interval | Searching for issues whose **{{ ui-key.startrek-backend.fields.issue.end-key-value }}** value matches a specific date or date range.<br/>For example:<br/>```"End Date": 2017-01-30 ``` |
-| ```"Epic" ``` | Epic keys | Searching for issues that refer to specific epics.<br/>For example:Epic:<br/>``` "TASK-123", "TASK-321" ``` |
-| ```"Epics For Queue" ``` | Name or key of the queue | Searching for epics that include issues from specific queues.<br/>For example:<br/>``` "Epics For Queue": TEST, DEVELOP ``` |
-| ```"Favorited by" ``` | Only the [function](#query-functions) `me()` | Searching for your favorite issues.<br/>For example:<br/>```"Favorited by": me() ``` |
-| ```"Filter" ``` | IDs or names of filters | Searching for issues that match the filters.<br/>For example:<br/>```"Filter": "Issues of my department" ```<br/>**Note.** If two users create two filters having the same name, they might get different results when running the same query with this filter name because the filter of the user who's running the query is applied. |
-| ```"Fix Version" ``` | Version names | Searching for issues that list a specific value in the **{{ ui-key.startrek-backend.fields.issue.fixVersions-key-value }}** field.<br/>For example:<br/>```"Fix Version": "12.11.1986" ``` |
-| ```"Followers" ``` | Names or usernames | Searching for issues with specific followers.<br/>For example:<br/>```"Followers": user3370@, "Alice Little" ``` |
-|  |
-| ```"Has Epic" ``` | Issue keys | Searching for issues that refer to specific epics.<br/>For example:<br/>``` "Has Epic": TASK-123 ``` |
-| ```"Have Links To Queue" ``` | Name or key of the queue | Searching for issues that are somehow linked with issues from the specified queues (parent, sub-issue, related, duplicate, and so on).<br/>For example:<br/>``` "Have Links To Queue": TEST ``` |
-| ```"History" ``` | Text string | Searching for issues whose history includes the words from a specified phrase or their word forms.<br/>This filter only searches the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.issue-summary }}** and **{{ ui-key.startrek.blocks-desktop_b-create-ticket-form.fill-desc }}** field values.<br/>For example:<br/>```"History": "easy as pie" ``` |
-| ```"In Epics Of Queue" ``` | Name or key of the queue | Searching for issues related to epics from specific queues.<br/>For example:<br/>``` "In Epics Of Queue": TEST ``` |
-| ```"Is Dependent By" ``` | Issue keys | Searching for issues that block specific issues.<br/>For example:<br/>``` "Is Dependent By": "TASK-123", "TASK-321" ``` |
-| ```"Is Duplicated By" ``` | Issue keys | Searching for issues that are duplicated by specific issues.<br/>For example:<br/>``` "Is Duplicated By": "TASK-123", "TASK-321" ``` |
-| ```"Is Epic Of" ``` | Issue keys | Searching for epics that include specific issues.<br/>For example:<br/>``` "Is Epic Of": "TASK-123", "TASK-321" ``` |
-| ```"Is Parent Task For" ``` | Issue keys | Searching for issues that are parents to specific issues.<br/>For example:<br/>```"Is Parent Task For": "TASK-123", "TASK-321" ``` |
-| ```"Is Subtask For" ``` | Issue keys | Searching for sub-issues for specified parent issues.<br/>For example:<br/>```"Is Subtask For": "TASK-123", "TASK-321" ``` |
-|  |
-| ```"Key" ``` | Issue keys | Searching for issues with specific keys.<br/>For example:<br/>```"Key": "TASK-123", "TASK-321" ``` |
-| ```"Last comment" ``` | The date and time when the latest comment was added | Searching for issues that didn't receive any new comments during a particular timeframe.<br/>For example:<br/>```"Last Comment": < now()-1h ``` |
-| ```"Linked to" ``` | Issue keys | Searching for issues that are somehow linked with the specified issues (parent, related, duplicate, sub-issue, and so on).<br/>For example:<br/>```"Linked to": "TASK-123", "TASK-321" ``` |
-|  |
-| ```"Modifier" ``` | Names or usernames | Searching for issues recently updated by specific users.<br/>For example:<br/>```"Modifier": user3370@, "Alice Little" ``` |
-| ```"Old Queue" ``` | Name or key of the queue | Searching for issues moved from the specified queues.<br/>For example:<br/>```"Old Queue": TEST ``` |
-| ```"Original" ``` | Issue keys | Searching for clones of specified issues.<br/>For example:<br/>```"Original": "TASK-123", "TASK-321" ``` |
-| ```"Original Estimate" ``` | Time range in the format `"XXw XXd XXh XXm XXs"` | Searching for issues with a specific initial estimate.<br/>For example:<br/>```"Original Estimate": "5d 2h 30m" ``` |
-| ```"Originals Of Queue" ``` | Name or key of the queue | Searching for issues that have clones in specific queues.<br/>For example:<br/>``` "Originals Of Queue": TEST ``` |
-|  |
-| ```"Parent Tasks For Queue" ``` | Name or key of the queue | Searching for issues that have sub-issues in specific queues.<br/>For example:<br/>``` "Parent Tasks For Queue": TEST, DEVELOP ``` |
-| ```"Pending Reply From" ``` | Names or usernames | Searching issues that are pending response from a specific user (the user [has been invited to comment](comments.md#call-comment)).<br/>For example, searching for issues pending response from the user with a username `user3370` or from the user with the username Alice Little:<br/>```"Pending Reply From": user3370@, "Alice Little" ``` |
-| ```"Priority" ``` | Priority values | Searching for issues with a specific priority.<br/>For example:<br/>```"Priority": "Minor", "Normal" ``` |
-| ```"Project" ``` | Project names | Searching for issues from specific projects.<br/>For example:<br/>```"Project": "Perpetuum mobile" ``` |
-| ```"Queue" ``` | Name or key of the queue | Searching for issues from specific queues.<br/>For example:<br/>```"Queue": TEST ``` |
-| ```"Queue Owner" ``` | Names or usernames | Searching for issues from queues with specific owners.<br/>For example:<br/>```"Queue Owner": user3370@, "Alice Little" ``` |
-| ```"Related" ``` | Names or usernames | Searching for issues with specific reporters, assignees, or followers.<br/>For example:<br/>```"Related": user3370@, "Alice Little" ``` |
-| ```"Related To Queue" ``` | Name or key of the queue | Searching for issues linked to issues from specific queues (<q>{{ ui-key.startrek.blocks_touch_b-related-issues.type-relates }}</q> link type).<br/>For example:<br/>``` "Related To Queue": Testing ``` |
-| ```"Relates" ``` | Issue keys | Searching for issues linked to specific issues (<q>{{ ui-key.startrek.blocks_touch_b-related-issues.type-relates }}</q> link type).<br/>For example:<br/>```"Relates": "TASK-123", "TASK-321" ``` |
-| ```"Resolved" ``` | Date or date interval | Searching for issues that were closed (resolved) on a specific date or during a specific date range.<br/>For example:<br/>```"Resolved": 2017-01-01..2017-01-30 ``` |
-| ```"Resolver" ``` | Names or usernames | Searching for issues that were closed (resolved) by a specific users.<br/>For example:<br/>```"Resolver": user3370@, "Alice Little" ``` |
-| ```"Sprint" ``` | IDs or names of scripts | Searching for issues from specific sprints.<br/>For example:<br/>```Sprint: "TrackerSprint32" ``` |
-| ```"Sprint In Progress By Board" ``` | Issue board ID (you can take it from the board page URL) | Searching for issues related to an active sprint on a specific issue board.<br/>For example:<br/>```"Sprint In Progress By Board": 87 ``` |
-| ```"Sprints By Board" ``` | Issue board ID (you can take it from the board page URL)  | Searching for issues from specific boards.<br/>For example:<br/>```"Sprints By Board": 87 ``` |
-| ```"Start Date" ``` | Date or date interval | Searching for issues whose **{{ ui-key.startrek-backend.fields.issue.start-key-value }}** value matches a specific date or date range.<br/>For example:<br/>```"Start Date": <2017-01-30 ``` |
-| ```"Status" ``` | Status names | Searching for issues with specific statuses.<br/>For example:<br/>```"Status": Open, Resolved, Closed ``` |
-| ```"Story Points" ``` | Story Points count | Searching for issues with a specific number of Story Points.<br/>For example:<br/>```"Story Points": >=5 ``` |
-| ```"Subtasks For Queue" ``` | Name or key of the queue | Searching for sub-issues that have parent issues in the specified queues.<br/>For example:<br/>``` "Subtasks For Queue": TEST ``` |
-| ```"Summary" ``` | Text string | Searching for issues that have a name with specific text.<br/>For example:<ul><li>Find issues that have a name containing the words and word forms in the phrase:<br/>    ```"Summary": "invent the wheel" ```</li><li>Find issues whose name completely matches the following phrase:<br/>    ```"Summary": #"invent the wheel" ```</li></ul> |
-| ```"Tags" ``` | Issue tags | Searching for issues with specific tags.<br/>For example:<br/>```"Tags": "Support", "wiki" ``` |
-| ```"Time Spent" ``` | Time range in the format `"XXw XXd XXh XXm XXs"` | Searching for issues with a specific amount of time spent.<br/>For example:<br/>```"Time Spent": >"5d 2h 30m" ``` |
-| ```"Type" ``` | Issue type | Searching for issues of specific types. For example:<br/>```"Type": Epic``` |
-| ```"Updated" ``` | Date or date interval | Searching for issues updated on a specific date or within a specific date range.<br/>For example:<br/>```"Updated": >2017-01-30 ``` |
-| ```"Voted by" ``` | Names or usernames | Searching for issues that have been voted for by specific users.<br/>For example:<br/>```"Voted By": user3370@, "Alice Little" ``` |
-| ```"Votes" ``` | Number of votes | Searching for issues with a specific number of votes.<br/>For example:<br/>```"Votes": > 6 ``` |
+```"Access" ``` | Names or usernames | Searching for issues with certain users specified in the **{{ ui-key.startrek-backend.fields.issue.access }}** field.<br/>For example:<br/>```"Access": user3370@, "Alice Little" ```
+```"Affected Version" ``` | Version names | Searching for issues that list a specific value in the **{{ ui-key.startrek-backend.fields.issue.affectedVersions-key-value }}** field.<br/>For example:<br/>```"Affected Version": "14.09.1978" ```
+```"Assignee" ``` | Names or usernames | Searching for issues with specific assignees.<br/>For example:<br/>```"Assignee": user3370@, "Alice Little" ```
+```"Author" ``` | Names or usernames | Searching for issues with specific reporters.<br/>For example:<br/>```"Author": user3370@, "Alice Little" ```
+```"Block Queue" ``` | Name or key of the queue | Searching for issues that have dependent (blocked) issues in the specified queues.<br/>For example:<br/>``` "Block Queue": TEST ```
+```"Clone" ``` | Issue keys | Searching for issues cloned from specific issues.<br/>For example:<br/>``` "Clone": "TASK-123", "TASK-321" ```
+```"Clones Of Queue" ``` | Name or key of the queue | Searching for issues cloned from issues in specific queues.<br/>For example:<br/>``` "Clones Of Queue": TEST, DEVELOP ```
+```"Comment" ``` | Text string | Searching for issues whose comments include the specified text.<br/>For example:<ul><li>Find the issues whose comments contain words and word forms from the phrase:<br/>    ```"Comment": "good job" ```</li><li>Find issues with comments that contain the exact phrase:<br/>    ```"Comment": #"great job" ```</li></ul>
+```"Comment Author" ``` | Names or usernames | Searching for issues with comments made by specific users.<br/>For example:<br/>```"Comment Author": user3370@, "Alice Little" ```
+```"Component Owner" ``` | Names or usernames | Searching for issues that include components managed by specific users.<br/>For example:<br/>```"Component Owner": user3370@, "Alice Little" ```
+```"Components" ``` | Component names | Searching for issues that refer to specific components.<br/>For example:<br/>```"Components": "backend", " frontend" ```
+```"Created" ``` | Date or date interval | Searching for issues created on a specific date or within a specific date range.<br/>For example:<br/>```"Created": 2017-01-01..2017-01-30 ```
+```"Deadline" ``` | Date or date interval | Searching for issues with a deadline set for a specific date or date range.<br/>For example:<br/>```"Deadline": 2017-01-30 ```
+```"Depend On Queue" ``` | Name or key of the queue | Searching for issues dependent on (blocked by) issues from specific queues.<br/>For example:<br/>``` "Depend On Queue": TEST ```
+```"Depends On" ``` | Issue keys | Searching for issues that depend on the given issues (are blocked by them).<br/>For example:<br/>``` "Depends On": "TASK-123", "TASK-321" ```
+```"Description" ``` | Text string | Searching for issues that have a description with specific text.<br/>For example:<ul><li>Find issues that have a description containing the words and word forms in the phrase:<br/>    ```"Description": "invent the wheel" ```</li><li>Find issues that contain the exact phrase in their description:<br/>    ```"Description": #"invent the wheel" ```</li></ul>
+```"Duplicated In Queue" ``` | Name or key of the queue | Searching for issues that have duplicates in specific queues.<br/>For example:<br/>``` "Duplicated In Queue": TEST ```
+```"Duplicates" ``` | Issue keys | Searching for issues that duplicate specific issues.<br/>For example:"Duplicates":<br/>``` "TASK-123", "TASK-321" ```
+```"Duplicates In Queue" ``` | Name or key of the queue | Searching for issues that are duplicates of issues in the specified queues.<br/>For example:<br/>``` "Duplicates In Queue": TEST ```
+```"End Date" ``` | Date or date interval | Searching for issues whose **{{ ui-key.startrek-backend.fields.issue.end-key-value }}** value matches a specific date or date range.<br/>For example:<br/>```"End Date": 2017-01-30 ```
+```"Epic" ``` | Epic keys | Searching for issues that refer to specific epics.<br/>For example:Epic:<br/>``` "TASK-123", "TASK-321" ```
+```"Epics For Queue" ``` | Name or key of the queue | Searching for epics that include issues from specific queues.<br/>For example:<br/>``` "Epics For Queue": TEST, DEVELOP ```
+```"Favorited by" ``` | Only the [function](#query-functions) `me()` | Searching for your favorite issues.<br/>For example:<br/>```"Favorited by": me() ```
+```"Filter" ``` | IDs or names of filters | Searching for issues that match the filters.<br/>For example:<br/>```"Filter": "Issues of my department" ```<br/>**Note.** If two users create two filters having the same name, they might get different results when running the same query with this filter name because the filter of the user who's running the query is applied.
+```"Fix Version" ``` | Version names | Searching for issues that list a specific value in the **{{ ui-key.startrek-backend.fields.issue.fixVersions-key-value }}** field.<br/>For example:<br/>```"Fix Version": "12.11.1986" ```
+```"Followers" ``` | Names or usernames | Searching for issues with specific followers.<br/>For example:<br/>```"Followers": user3370@, "Alice Little" ```
+```"Has Epic" ``` | Issue keys | Searching for issues that refer to specific epics.<br/>For example:<br/>``` "Has Epic": TASK-123 ```
+```"Have Links To Queue" ``` | Name or key of the queue | Searching for issues with links of any type (parent, sub-issue, related, duplicate, and so on) with issues from specified queues.<br/>For example:<br/>``` "Have Links To Queue": TEST ```
+```"History" ``` | Text string | Searching for issues whose history includes the words from a specified phrase or their word forms.<br/>This filter only searches the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.issue-summary }}** and **{{ ui-key.startrek.blocks-desktop_b-create-ticket-form.fill-desc }}** field values.<br/>For example:<br/>```"History": "easy as pie" ```
+```"In Epics Of Queue" ``` | Name or key of the queue | Searching for issues related to epics from specific queues.<br/>For example:<br/>``` "In Epics Of Queue": TEST ```
+```"Is Dependent By" ``` | Issue keys | Searching for issues that block specific issues.<br/>For example:<br/>``` "Is Dependent By": "TASK-123", "TASK-321" ```
+```"Is Duplicated By" ``` | Issue keys | Searching for issues that are duplicated by specific issues.<br/>For example:<br/>``` "Is Duplicated By": "TASK-123", "TASK-321" ```
+```"Is Epic Of" ``` | Issue keys | Searching for epics that include specific issues.<br/>For example:<br/>``` "Is Epic Of": "TASK-123", "TASK-321" ```
+```"Is Parent Task For" ``` | Issue keys | Searching for issues that are parents to specific issues.<br/>For example:<br/>```"Is Parent Task For": "TASK-123", "TASK-321" ```
+```"Is Subtask For" ``` | Issue keys | Searching for sub-issues for specified parent issues.<br/>For example:<br/>```"Is Subtask For": "TASK-123", "TASK-321" ```
+```"Key" ``` | Issue keys | Searching for issues with specific keys.<br/>For example:<br/>```"Key": "TASK-123", "TASK-321" ```
+```"Last comment" ``` | The date and time when the latest comment was added | Searching for issues that didn't receive any new comments during a particular timeframe.<br/>For example:<br/>```"Last Comment": < now()-1h ```
+```"Linked to" ``` | Issue keys | Searching for issues with links of any type (parent, sub-issue, related, duplicate, and so on) with specified issues.<br/>For example:<br/>```"Linked to": "TASK-123", "TASK-321" ```
+```"Modifier" ``` | Names or usernames | Searching for issues recently updated by specific users.<br/>For example:<br/>```"Modifier": user3370@, "Alice Little" ```
+```"Old Queue" ``` | Name or key of the queue | Searching for issues moved from the specified queues.<br/>For example:<br/>```"Old Queue": TEST ```
+```"Original" ``` | Issue keys | Searching for clones of specified issues.<br/>For example:<br/>```"Original": "TASK-123", "TASK-321" ```
+```"Original Estimate" ``` | Time range in the format `"XXw XXd XXh XXm XXs"` | Searching for issues with a specific initial estimate.<br/>For example:<br/>```"Original Estimate": "5d 2h 30m" ```
+```"Originals Of Queue" ``` | Name or key of the queue | Searching for issues that have clones in specific queues.<br/>For example:<br/>``` "Originals Of Queue": TEST ```
+```"Parent Tasks For Queue" ``` | Name or key of the queue | Searching for issues that have sub-issues in specific queues.<br/>For example:<br/>``` "Parent Tasks For Queue": TEST, DEVELOP ```
+```"Pending Reply From" ``` | Names or usernames | Searching issues that are pending response from a specific user (the user [has been invited to comment](comments.md#call-comment)).<br/>For example, searching for issues pending response from the user with a username `user3370` or from the user with the username Alice Little:<br/>```"Pending Reply From": user3370@, "Alice Little" ```
+```"Priority" ``` | Priority values | Searching for issues with a specific priority.<br/>For example:<br/>```"Priority": "Minor", "Normal" ```
+```"Project" ``` | Project names | Searching for issues from specific projects.<br/>For example:<br/>```"Project": "Perpetuum mobile" ```
+```"Queue" ``` | Name or key of the queue | Searching for issues from specific queues.<br/>For example:<br/>```"Queue": TEST ```
+```"Queue Owner" ``` | Names or usernames | Searching for issues from queues with specific owners.<br/>For example:<br/>```"Queue Owner": user3370@, "Alice Little" ```
+```"Related" ``` | Names or usernames | Searching for issues with specific reporters, assignees, or followers.<br/>For example:<br/>```"Related": user3370@, "Alice Little" ```
+```"Related To Queue" ``` | Name or key of the queue | Searching for issues linked to issues from specific queues (<q>{{ ui-key.startrek.blocks_touch_b-related-issues.type-relates }}</q> link type).<br/>For example:<br/>``` "Related To Queue": Testing ```
+```"Relates" ``` | Issue keys | Searching for issues linked to specific issues (<q>{{ ui-key.startrek.blocks_touch_b-related-issues.type-relates }}</q> link type).<br/>For example:<br/>```"Relates": "TASK-123", "TASK-321" ```
+```"Resolved" ``` | Date or date interval | Searching for issues that were closed (resolved) on a specific date or during a specific date range.<br/>For example:<br/>```"Resolved": 2017-01-01..2017-01-30 ```
+```"Resolver" ``` | Names or usernames | Searching for issues that were closed (resolved) by a specific users.<br/>For example:<br/>```"Resolver": user3370@, "Alice Little" ```
+```"Sprint" ``` | IDs or names of scripts | Searching for issues from specific sprints.<br/>For example:<br/>```Sprint: "TrackerSprint32" ```
+```"Sprint In Progress By Board" ``` | Issue board ID (you can take it from the board page URL)  | Searching for issues related to an active sprint on a specific issue board.<br/>For example:<br/>```"Sprint In Progress By Board": 87 ```
+```"Sprints By Board" ``` | Issue board ID (you can take it from the board page URL)  | Searching for issues from specific boards.<br/>For example:<br/>```"Sprints By Board": 87 ```
+```"Start Date" ``` | Date or date interval | Searching for issues whose **{{ ui-key.startrek-backend.fields.issue.start-key-value }}** value matches a specific date or date range.<br/>For example:<br/>```"Start Date": <2017-01-30 ```
+```"Status" ``` | Status names | Searching for issues with specific statuses.<br/>For example:<br/>```"Status": Open, Resolved, Closed ```
+```"Story Points" ``` | Story Points count | Searching for issues with a specific number of Story Points.<br/>For example:<br/>```"Story Points": >=5 ```
+```"Subtasks For Queue" ``` | Name or key of the queue | Searching for sub-issues that have parent issues in the specified queues.<br/>For example:<br/>``` "Subtasks For Queue": TEST ```
+```"Summary" ``` | Text string | Searching for issues that have a name with specific text.<br/>For example:<ul><li>Find issues that have a name containing the words and word forms in the phrase:<br/>    ```"Summary": "invent the wheel" ```</li><li>Find issues whose name completely matches the following phrase:<br/>    ```"Summary": #"invent the wheel" ```</li></ul>
+```"Tags" ``` | Issue tags | Searching for issues with specific tags.<br/>For example:<br/>```"Tags": "Support", "wiki" ```
+```"Time Spent" ``` | Time range in the format `"XXw XXd XXh XXm XXs"` | Searching for issues with a specific amount of time spent.<br/>For example:<br/>```"Time Spent": >"5d 2h 30m" ```
+```"Type" ``` | Issue type | Searching for issues of specific types. For example:<br/>```"Type": Epic```
+```"Updated" ``` | Date or date interval | Searching for issues updated on a specific date or within a specific date range.<br/>For example:<br/>```"Updated": >2017-01-30 ```
+```"Voted by" ``` | Names or usernames | Searching for issues that have been voted for by specific users.<br/>For example:<br/>```"Voted By": user3370@, "Alice Little" ```
+```"Votes" ``` | Number of votes | Searching for issues with a specific number of votes.<br/>For example:<br/>```"Votes": > 6 ```
 

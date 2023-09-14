@@ -20,6 +20,14 @@ Authorization: OAuth <OAuth-токен>
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
+Например, с помощью `curl`:
+
+```bash
+curl --request GET "{{ host }}/v2/myself" \
+     --header "Authorization: OAuth <OAuth-токен>" \
+     --header "X-Cloud-Org-Id: <идентификатор организации>"
+```
+
 ## Формат ответа {#answer}
 
 {% list tabs %}

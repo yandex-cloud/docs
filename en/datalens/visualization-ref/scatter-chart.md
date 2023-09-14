@@ -33,10 +33,10 @@ You can use a gradient in a chart by adding a measure to the **Colors** section.
 | X | Dimension or measure. Sets the X-axis value. |
 | Y | Dimension or measure. Sets the Y-axis value. |
 | Points | Dimension. Specifies the number of points on the chart. |
-| Points size | Measure. Sets a point size depending on the measure value. |
+| Point size | Measure. Sets a point size depending on the measure value. |
 | Colors | Dimension or measure. Affects the color of points. |
-| Sorting | Dimension. Can only use a dimension from the X-axis. Affects the sorting of the X-axis. |
-| Chart filters | Dimension or measure. Used as a filter. |
+| Sorting | Dimension. Can only use a dimension from the X-axis. Affects the sorting of the X-axis. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. |
+| Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a scatter chart {#create-diagram}
 

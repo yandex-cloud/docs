@@ -116,7 +116,7 @@ New SQL | [{{ ydb-name }}](../ydb/)
 БД «ключ — значение» | [{{ dataproc-name }}](../data-proc)<br>[{{ mgp-name }}](../managed-greenplum/)<br>[{{ mmg-name }}](../managed-mongodb/)
 БД временных рядов | [{{ mch-name }}](../managed-clickhouse/)
 Потоковая обработка | [{{ dataproc-name }}](../data-proc)<br>[{{ mkf-name }}](../managed-kafka/)
-Полнотекстовый поиск | [{{ mes-name }}](../managed-elasticsearch/)
+Полнотекстовый поиск | [{{ mos-name }}](../managed-opensearch/)
 Очередь сообщений | [{{ message-queue-name }}](../message-queue/)
 
 ### Полезные материалы {#see-also} 
