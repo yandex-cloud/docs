@@ -11,3 +11,4 @@
 * [Creating and configuring a UserGate gateway in firewall mode](usergate-firewall.md)
 * [Creating and configuring a UserGate gateway in proxy server mode](usergate-proxy.md)
 * [Configuring networks for {{ dataproc-full-name }}](./dataproc-nat-instance.md)
+* [Connecting to {{ objstorage-name }} from {{ vpc-name }}](./storage-vpc-access.md)

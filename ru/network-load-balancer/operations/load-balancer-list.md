@@ -8,7 +8,7 @@
 
 - Консоль управления
 
-    В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ network-load-balancer-name }}**.
+    В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 
 - CLI
 
@@ -48,7 +48,7 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ network-load-balancer-name }}**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Нажмите на имя нужного сетевого балансировщика.
 
 - CLI
@@ -79,8 +79,8 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ network-load-balancer-name }}**.
-    1. Нажмите на имя нужного сетевого балансировщика и перейдите на вкладку ![operations.svg](../../_assets/mdb/operations.svg) **Операции**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. Нажмите на имя нужного сетевого балансировщика и перейдите на вкладку ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
 - CLI
 

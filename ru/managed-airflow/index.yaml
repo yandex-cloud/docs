@@ -1,8 +1,8 @@
-title: Yandex Managed Service for Apache Airflow®
+title: Yandex Managed Service for Apache Airflow™
 description:
   - >-
-    Сервис Managed Service for Apache Airflow<sup>®</sup> помогает разворачивать
-    и поддерживать кластеры серверов Apache Airflow<sup>®</sup> в инфраструктуре
+    Сервис Managed Service for Apache Airflow<sup>™</sup> помогает разворачивать
+    и поддерживать кластеры серверов Apache Airflow<sup>™</sup> в инфраструктуре
     Yandex Cloud.
 
     Функциональность находится на стадии Preview. Чтобы получить доступ,
@@ -12,13 +12,13 @@ description:
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_kfk">Уровень
-    обслуживания Yandex Managed Service for Apache Airflow<sup>®</sup></a>.
+    обслуживания Yandex Managed Service for Apache Airflow<sup>™</sup></a>.
   - >-
-    <em>Apache<sup>®</sup> и Apache Airflow<sup>®</sup> являются
+    <em>Apache<sup>®</sup> и Apache Airflow<sup>™</sup> являются
     зарегистрированными товарными знаками или товарными знаками Apache Software
     Foundation в США и/или других странах.</em>
 meta:
-  title: Yandex Managed Service for Apache Airflow®
+  title: Yandex Managed Service for Apache Airflow™
 links:
   - title: Начало работы
     description: Создайте первый кластер

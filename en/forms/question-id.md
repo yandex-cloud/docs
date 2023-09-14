@@ -31,7 +31,7 @@ To find out the response ID:
 
 1. Select the question section.
 
-1. Click the **Advanced parameters** icon in the **Responses** section on the left panel.
+1. In the left-hand panel, click **Advanced parameters** in the **{{ ui-key.forms.common.blocks_correct-answers.title }}** section.
 
 1. Copy the **ID** field value.
 
@@ -43,7 +43,7 @@ IDs can be edited. IDs of responses to a single question must be unique.
 
 ![](../_assets/forms/answer-id.png)
 
-## Response IDs for the question types <q>Rate on a scale</q>, <q>Wiki</q>, <q>Cities and countries</q> {#sec_rating}
+## Response IDs for the <q>Rate on a scale</q>, <q>{{ ui-key.forms.common.blocks_integration-group.title-wiki }}</q>, <q>Cities and countries</q> prompt types {#sec_rating}
 
 
 You can find out the response IDs in your browser by using developer tools. This feature is available both to the creator and user of the form.
@@ -75,5 +75,5 @@ Let's see how to get IDs using Yandex&#160;Browser:
    * For the <q>Rate on scale</q> question type, the `name` parameter has the question ID and criterion ID.
       ![](../_assets/forms/answer-code.png)
 
-   * For the <q>Cities and countries</q>, or <q>Wiki</q> question type, first enter the desired response in the field, and then you will see its ID in the code.
+   * For the <q>Cities and countries</q>, or <q>{{ ui-key.forms.common.blocks_integration-group.title-wiki }}</q> prompt type, enter the desired response in the field first to see its ID in the code.
       ![](../_assets/forms/cities-code.png)

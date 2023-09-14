@@ -51,7 +51,7 @@ To integrate your form with other services, you can configure one or more action
 
 1. To add an action to a group, click a button at the bottom of the group:
 
-   - To [send a notification by email](send-mail.md), click ![](../_assets/forms/mail-notification-new.png) **Mail**.
+   - To [send a notification by email](send-mail.md), click ![](../_assets/forms/mail-notification-new.png) **{{ ui-key.forms.common.blocks_integration-group.title-email }}**.
 
    - For [creating issues in {{ tracker-name }}](create-task.md) click ![](../_assets/forms/tracker-notification-new.png) **{{ tracker-short-name }}**.
 
@@ -67,11 +67,11 @@ To integrate your form with other services, you can configure one or more action
    {% endnote %}
 
 
-1. Set up the action and click **Save**.
+1. Set up the action and click **{{ ui-key.yacloud.common.save }}**.
 
 1. To disable an action, use the ![](../_assets/forms/enabled-switch-blue.png) toggle in the upper-right corner.
 
-1. To delete the action click ![](../_assets/forms/context-menu.png) and select **Delete**.
+1. To delete the action click ![](../_assets/forms/context-menu.png) and select **{{ ui-key.yacloud.common.delete }}**.
 
 
 ## Set conditions {#section_xlw_rjc_tbb}
@@ -95,7 +95,7 @@ You can set conditions for integrating your form with other services. In this ca
 
       - If you want the actions to be triggered when a user doesn't respond (if the form field isn't filled in), select the **equal** relational operator in the condition and leave the response field empty.
 
-      For example, you can have an email sent to a user if they fill in the **Email** field in the form.
+      For example, you can have an email sent to a user if they fill in the **{{ ui-key.forms.common.blocks_integration-group.title-email }}** field in the form.
       ![](../_assets/forms/condition-empty-new.png)
 
 
@@ -124,7 +124,7 @@ To filter the integration list, use the fields above the list.
 
 {% note info %}
 
-The integration data is stored for three months, after which it is deleted.
+Data on completed integrations is stored for 90 days and then permanently deleted.
 
 {% endnote %}
 

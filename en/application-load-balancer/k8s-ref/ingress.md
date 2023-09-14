@@ -50,6 +50,7 @@ metadata:
     ingress.alb.yc.io/internal-ipv4-address: <string>
     ingress.alb.yc.io/internal-alb-subnet: <string>
     ingress.alb.yc.io/protocol: <string>
+    ingress.alb.yc.io/group-settings-name: <string>
     ingress.alb.yc.io/transport-security: <string>
     ingress.alb.yc.io/prefix-rewrite: <string>
     ingress.alb.yc.io/upgrade-types: <string>
@@ -119,9 +120,39 @@ Where:
 
    Connection protocol for load balancer and backends described in `Ingress`:
 
-   * `http`: HTTP/1.1. Default value.
-   * `http2`: HTTP/2.
-   * `grpc`: gRPC.
+   * `http`: HTTP/1.1. Default value
+   * `http2`: HTTP/2
+   * `grpc`: gRPC
+
+* `ingress.alb.yc.io/group-settings-name` (`string`)
+
+   Name for the Ingress group settings combined in a single load balancer.
+
+   To specify the settings, create an additional resource named `IngressGroupSettings`, such as:
+
+   ```yaml
+   apiVersion: alb.yc.io/v1alpha1
+   kind: IngressGroupSettings
+   metadata:
+     name: non-default-settings
+   logOptions:
+     logGroupID: <log group ID>
+     discardRules:
+       - discardPercent: 50
+         grpcCodes:
+           - OK
+           - CANCELLED
+           - UNKNOWN
+       - discardPercent: 67
+         httpCodeIntervals:
+           - HTTP_1XX
+       - discardPercent: 20
+         httpCodes:
+           - 200
+           - 404
+   ```
+
+   For more information, see the description of the `logOptions` parameter of the [create](../api-ref/LoadBalancer/create.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource.
 
 * `ingress.alb.yc.io/transport-security` (`string`)
 

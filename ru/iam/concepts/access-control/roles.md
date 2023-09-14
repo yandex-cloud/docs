@@ -320,6 +320,7 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [mdb.viewer](../../../_includes/iam/roles/mdb.viewer.md) %}
 
+{% include [mdb.auditor](../../../_includes/iam/roles/mdb.auditor.md) %}
 
 ## {{ mkf-full-name }} {#mkf-roles}
 

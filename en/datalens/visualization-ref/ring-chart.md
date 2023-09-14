@@ -22,9 +22,9 @@ This chart shows the proportion of different categories using donut segments. Th
 ----- | ----
 | Color | Dimension. Only one field can be specified. |
 | Measures | Affects the size of donut segments. The total value of a measure is displayed in the center of a ring. Only one field can be specified. |
-| Sorting | A measure or dimension from the **Color** section. Affects segment sorting. |
+| Sorting | A measure or dimension from the **Color** section. Affects segment sorting. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. |
 | Signatures | Measure. Displays measure values on the chart. To add callouts with category names to the chart, drag the [Measure Names](../concepts/chart/measure-values.md) dimension to this section. |
-| Chart filters | Dimension or measure. Used as a filter. |
+| Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a donut chart {#create-diagram}
 
@@ -39,7 +39,7 @@ To create a donut chart:
 To disable displaying a number in the center:
 
 1. In the upper-left part of the screen, click ![image](../../_assets/datalens/gear.svg).
-1. In the **Chart settings** window, disable the **Totals** option.
+1. In the **Chart settings** window, disable the **Results** option.
 1. Click **Apply**.
 
 ## Recommendations {#recommendations}

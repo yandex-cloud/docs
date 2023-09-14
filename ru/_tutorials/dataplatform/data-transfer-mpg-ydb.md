@@ -102,7 +102,7 @@
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `YDB`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDB }}`.
     * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
@@ -117,7 +117,7 @@
 
         1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) источника {{ PG }} с [настройками](../../data-transfer/operations/endpoint/source/postgresql.md):
 
-            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `PostgreSQL`.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ ui-key.yacloud.data-transfer.label_endpoint-type-POSTGRES }}`.
             * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — созданный кластер {{ mpg-name }}.
@@ -162,7 +162,7 @@
     * Консоль управления
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
-        1. В списке сервисов выберите **{{ ydb-name }}**.
+        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Выберите базу из списка.
         1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
         1. Проверьте, что база данных {{ ydb-name }} содержит таблицу `public_sensors` с тестовыми данными.
@@ -194,9 +194,9 @@
     * Консоль управления
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
-        1. В списке сервисов выберите **{{ ydb-name }}**.
+        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Выберите базу из списка.
-        1. Перейдите на вкладку **Навигация**.
+        1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
         1. Проверьте, что в таблицу `public_sensors` добавились новые данные.
 
     * {{ ydb-short-name }} CLI

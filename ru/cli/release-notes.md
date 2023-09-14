@@ -2,6 +2,59 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.110.0 (14.09.23) {#version0.110.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ api-gw-name }} {#api-gw}
+
+* В команды `yc serverless api-gateway create` и `yc serverless api-gateway update` добавлены параметры:
+  * `--variables` — для указания значений параметров спецификации.
+  * `--canary-weight` — для указания доли входящих запросов, обрабатываемых канареечным релизом шлюза.
+  * `--canary-variables` — для указания значений параметров спецификации канареечного релиза.
+
+* Добавлена команда `yc serverless api-gateway release-canary` для замены параметров спецификации параметрами канареечного релиза и удаления последнего.
+
+* Добавлена команда `yc serverless api-gateway rollback-canary` для отключения канареечного релиза за счет установки параметру `weight` значения, равного `0`.
+
+
+##### {{ iam-name }} {#iam}
+
+* Удалены группы команд `yc iam federation` и `yc iam certificate` для управления SAML-совместимыми федерациями на уровне каталога. Для работы с SAML-совместимыми федерациями теперь используйте группу команд `yc organization-manager federation`.
+
+
+##### {{ ig-name }} {#instance-groups}
+
+Исправлена проблема команды `yc compute instance-group update`, когда не обрабатывалось имя группы ВМ, если для конфигурации использовался файл в формате YAML.
+
+##### {{ compute-name }} {#compute}
+
+* В командах `yc compute instance create` и `yc compute instance update` добавлен флаг `--placement-group-partition` для указания номера раздела в группе размещения (partition).
+
+##### {{ cloud-logging-name }} {#cloud-logging}
+
+* В команде `yc logging read` убрали ограничение для флага `--limit`. Теперь можно выводить более 1000 записей.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mmg-name }}**
+
+* Добавлена возможность создавать шардированый кластер. Если в конфигурации присутствуют соответствующие типы хостов, то кластер будет создан автоматически.
+* В команды `yc mongodb cluster create`, `yc mongodb cluster update` и `yc mongodb cluster restore` добавлен параметр `--performance-diagnostics`.
+
+**{{ mpg-name }}**
+
+* Добавлена команда `yc managed-postgresql backup delete` для удаления ручных бэкапов.
+* В команду `yc managed-postgresql cluster update` добавлены флаги:
+  * `--disk-size-autoscaling` — для управления настройками сервиса автоматического увеличения диска.
+  * `--yandexquery-access` — для разрешения доступа к кластеру из сервиса {{ yq-full-name }}.
+
+**{{ mch-name }}**
+
+* В команды `yc managed-clickhouse cluster create` и `yc managed-clickhouse cluster update` добавлен флаг `--cloud-storage-prefer-not-to-merge`, позволяющий отключать слияние частей данных в {{ objstorage-name }}.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.109.0 (10.08.23) {#version0.109.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -50,8 +103,6 @@
 **{{ mmg-name }}**
 
 * Добавлена команда `yc managed-mongodb backup delete` для удаления резервных копий.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.108.1 (06.07.23) {#version0.108.1}
 

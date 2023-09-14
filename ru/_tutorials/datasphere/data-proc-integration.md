@@ -3,9 +3,10 @@
 Вы можете использовать кластеры Apache Spark™, развернутые в сервисе {{ dataproc-full-name }}, в проектах {{ ml-platform-full-name }}. Чтобы в {{ ml-platform-name }} настроить интеграцию с сервисом {{ dataproc-name }}:
 
 1. [Подготовьте инфраструктуру](#infra).
-2. [Создайте кластер {{ dataproc-name }}](#cluster).
-3. [Настройте проект {{ ml-platform-name }}](#project).
-4. [Запустите вычисления](#run-code).
+1. [Создайте бакет](#create-bucket).
+1. [Создайте кластер {{ dataproc-name }}](#create-cluster).
+1. [Настройте проект {{ ml-platform-name }}](#project).
+1. [Запустите вычисления](#run-code).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -131,7 +132,22 @@
 
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
-## Создайте кластер {{ dataproc-name }} {#cluster}
+## Создайте бакет {#create-bucket}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
+  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+
+{% endlist %}
+
+## Создайте кластер {{ dataproc-name }} {#create-cluster}
 
 Перед созданием кластера убедитесь, что в вашем облаке имеется достаточный суммарный объем SSD-дисков (по умолчанию для нового облака выделяется 200 ГБ).
 
@@ -174,6 +190,7 @@
 
       {% endcut %}
 
+   1. В поле **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** выберите созданный бакет.
    1. Выберите сеть для кластера.
    1. Включите опцию **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**, чтобы получить доступ к [веб-интерфейсам компонентов](../../data-proc/concepts/interfaces.md) {{ dataproc-name }}.
    1. Настройте подкластеры: не больше одного главного подкластера с управляющим хостом (обозначается как **{{ ui-key.yacloud.mdb.forms.label_master-subcluster }}**) и подкластеры для хранения данных или вычислений.
@@ -201,12 +218,11 @@
 
 ## Запустите вычисления на кластере {#run-code}
 
-1. В интерфейсе {{ ml-platform-name }} откройте проект, для которого вы создали кластер {{ dataproc-name }}.
-1. Откройте новый ноутбук **DataSphere Kernel**.
+1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
 1. В ячейку вставьте код для вычисления, например:
 
-   ```
-   #!spark --cluster <имя кластера>
+   ```python
+   #!spark --cluster <имя_кластера>
    import random
 
    def inside(p):
@@ -220,10 +236,24 @@
    print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
    ```
 
-   Где `#!spark --cluster <имя кластера>` — обязательная системная команда для запуска вычислений на кластере.
-1. Нажмите ![Run](../../_assets/datasphere/jupyterlab/run.svg), чтобы запустить выполнение ячейки.
+   Где `#!spark --cluster <имя_кластера>` — обязательная системная команда для запуска вычислений на кластере.
 
-Дождитесь запуска вычисления. Под ячейкой в процессе вычисления будут отображаться логи.
+   Дождитесь запуска вычисления. Под ячейкой в процессе вычисления будут отображаться логи.
+
+1. Запишите данные в S3, указав имя бакета:
+
+   ```python
+   #!spark 
+   data = [[1, "tiger"], [2, "lion"], [3, "snow leopard"]]
+   df = spark.createDataFrame(df, schema="id LONG, name STRING")
+   df.repartition(1).write.option("header", True).csv("s3://<имя_бакета>/")
+   ```
+
+1. Запустите ячейки, выбрав в меню **Run** ⟶ **Run Selected Cells** (также можно использовать сочетание клавиш **Shift** + **Enter**).
+
+После этого файл появится в бакете. Чтобы просматривать содержимое бакета в интерфейсе {{ jlab }}Lab, создайте и активируйте в проекте [коннектор S3](../../datasphere/operations/data/s3-connectors.md).
+
+{% include [dataproc-s3-connector](../../_includes/datasphere/dataproc-s3-connector.md) %}
 
 Подробнее о запуске вычислений на кластерах {{ dataproc-name }} в {{ ml-platform-name }} см. [{#T}](../../datasphere/concepts/data-proc.md#session).
 
@@ -231,23 +261,13 @@
 
 {% note warning %}
 
-Используя кластер, развернутый в сервисе {{ dataproc-name }}, вы управляете его жизненным циклом кластера самостоятельно. Кластер будет работать и [тарифицироваться](../../data-proc/pricing.md), пока вы его не выключите.
+Используя кластер, развернутый в сервисе {{ dataproc-name }}, вы управляете его жизненным циклом самостоятельно. Кластер будет работать и [тарифицироваться](../../data-proc/pricing.md), пока вы его не выключите.
 
 {% endnote %}
 
-Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
+Чтобы перестать платить за созданные ресурсы:
 
-{% list tabs %}
-
-- Консоль управления
-
-  Чтобы удалить кластер:
-   1. В [консоли управления]({{ link-console-main }}) откройте каталог с кластером, который необходимо удалить.
-   1. [Отключите защиту от удаления](../../data-proc/operations/cluster-update.md) для кластера, если она включена.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
-   1. В открывшемся окне нажмите **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
-
-  {{ dataproc-name }} запустит операцию удаления кластера.
-
-{% endlist %}
+* [удалите объекты](../../storage/operations/objects/delete-all.md) из бакета;
+* [удалите бакет](../../storage/operations/buckets/delete.md);
+* [удалите кластер](../../data-proc/operations/cluster-delete.md);
+* [удалите проект](../../datasphere/operations/projects/delete.md).

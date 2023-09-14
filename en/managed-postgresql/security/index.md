@@ -36,6 +36,7 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [mpg-admin](../../_includes/iam/roles/mpg-admin.md) %}
 
+{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
 
 {% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
 

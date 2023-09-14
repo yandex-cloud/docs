@@ -6,7 +6,7 @@ To have responses sent to your mailbox, [set up integration with email](send-mai
 
 ## Download or view all responses {#download}
 
-1. Select the form and open the **Responses** tab.
+1. Select the desired form and open the **{{ ui-key.forms.common.blocks_correct-answers.title }}** tab.
 
 1. In the **Summary** tab, configure the content and format of the response list you want to view or save:
    * Under **Download responses**, choose the prompts you want to get responses for. To get the answers to all questions select the **All** option.
@@ -42,7 +42,7 @@ To have responses sent to your mailbox, [set up integration with email](send-mai
    {% endnote %}
 
 
-   Click **Save on Yandex Disk**. To save attachments from the form to Yandex Disk, select **Save to Yandex Disk with attached files.**.
+   Click **Save on Yandex Disk**. To save attachments from the form to Yandex Disk, select **Save to Yandex Disk with attached files**.
 
    * If you choose the XLSX file format, the table with responses opens in the Yandex&#160;Disk online editor.
    * If you select CSV or JSON, a folder with the saved file opens on Yandex Disk.
@@ -64,7 +64,7 @@ If responses to the form are [archived](#archive), you can't view individual res
 {% endnote %}
 
 
-1. Select the form and open the **Responses** tab.
+1. Select the desired form and open the **{{ ui-key.forms.common.blocks_correct-answers.title }}** tab.
 
 1. Select the **By responses** tab.
 
@@ -75,7 +75,7 @@ If responses to the form are [archived](#archive), you can't view individual res
    * If the user gave a correct response, it's green.
    * If the user gave an incorrect response, it's red.
 
-1. To send a link to another user, select a response and click **Share**.
+1. To send a link to another user, select a response and click **{{ ui-key.forms.common.blocks_share.button-share }}**.
 
    
    {% note info %}
@@ -124,7 +124,7 @@ Attached files are stored on the {{ forms-full-name }} server for 3 months. Afte
 
 To view brief response statistics:
 
-1. Select the form and open the **Responses** tab.
+1. Select the desired form and open the **{{ ui-key.forms.common.blocks_correct-answers.title }}** tab.
 
 1. Scroll down to the list of prompts.
 

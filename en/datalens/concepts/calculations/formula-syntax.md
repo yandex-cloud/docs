@@ -291,11 +291,11 @@ Window functions support [grouping](../../function-ref/window-functions.md#synta
 To create text with markup, use [markup functions](../../function-ref/markup-functions.md):
 
 ```
-MARKUP(BOLD("This"), " ", ITALIC("is"), " ", URL("https://example.com/", [LinkName])))
+MARKUP(BOLD("This"), " ", ITALIC("is"), " ", URL("https://example.com/", [LinkName]))
 ```
 
 To use numeric constants when marking up URLs, convert them to the `String` type:
 
 ```
-URL("https://example.com/?value=" + STR([Value]), [Value]))
+URL("https://example.com/?value=" + STR([Value]), [Value])
 ```

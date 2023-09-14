@@ -12,3 +12,5 @@
 * [Устранение проблем со списанием средств с банковской карты](unable-to-charge-funds-from-linked-card.md)
 * [Устранение ошибки Unauthorized при создании платежного аккаунта](unauthorized-error-after-attempt-to-create-billing-account.md)
 * [На привязанную к платежному аккаунту почту неожиданно пришел чек на сумму, отсутствующую в истории платежей](unexpected-cheque-received-to-email.md)
+* [С баланса платежного аккаунта списываются средства за неиспользуемые ресурсы](billing-account-is-charged-by-unused-resources.md)
+* [Что делать, если деньги долго не приходят на баланс после платежа](recover-lost-payment.md)

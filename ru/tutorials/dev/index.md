@@ -10,6 +10,9 @@
 * [Создание тестовых виртуальных машин через {{ GL }} CI](../testing/ci-for-snapshots.md)
 
 
+* [{#T}](gitlab-tracker-integration.md)
+
+
 * [Высокопроизводительные вычисления (HPC) на прерываемых ВМ](../testing/hpc-on-preemptible.md)
 
 

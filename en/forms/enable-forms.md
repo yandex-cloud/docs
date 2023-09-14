@@ -12,7 +12,7 @@ If you already have an organization in {{ org-full-name }}, {{ forms-full-name }
 
 1. [Log in](login.md) to the account you use to work in organization.
 
-1. If your account is registered in several organizations, select the organization where you want to use {{ forms-full-name }}. Then click **Log in**.
+1. If your account is registered in several organizations, select the organization where you want to use {{ forms-full-name }}. Then click **{{ ui-key.forms.common.blocks_need-auth.login }}**.
 
 ## Create a new organization {#new-org}
 
@@ -24,11 +24,11 @@ An organization can only be created for users who have a Yandex account.
 
 {% endnote %}
 
-1. Log in to your [Yandex account]({{ link-passport }}). If you don't have an account, [create]({{ support-passport-create }}) one.
+1. Log in to your [Yandex account]({{ link-passport }}). If you do not have an account, [create]({{ support-passport-create }}) one.
 
 1. Go to the page for managing forms for business: [{{ link-forms-b2b }}]({{ link-forms-b2b }}).
 
-1. Accept the {{ yandex-cloud }} terms of use and tap **Log in**.
+1. Accept the {{ yandex-cloud }} terms of use and click **{{ ui-key.forms.common.blocks_need-auth.login }}**.
 
    Your organization is automatically created and {{ forms-full-name }} is activated.
 

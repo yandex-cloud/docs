@@ -36,9 +36,11 @@ When migrating the board, the following is not retained:
 
 ## Migration steps {#how-to-migrate}
 
+The **{{ ui-key.startrek.blocks-desktop_migration-button.migrate-button }}** button is available to all board users. Any user can perform migration and changes will be visible to all board users.
+
 {% note info %}
 
-If you don't see the **{{ ui-key.startrek.blocks-desktop_migration-button.migrate-button }}** button in your board's top panel, it means that your board has already switched to these technologies.
+If you cannot see the **{{ ui-key.startrek.blocks-desktop_migration-button.migrate-button }}** button in your board's top panel, it means that your board has already switched to these technologies.
 
 {% endnote %}
 

@@ -1,13 +1,16 @@
 # Изменить способ оплаты
 
-Изменить способ оплаты можно только в платежном аккаунте с типом **{{ ui-key.yacloud.billing.account.create-new.account-type_label_company }}**. Вместо оплаты банковской картой вы можете использовать только перевод с расчетного счета. Для этого отправьте запрос на электронную почту [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).
+Изменить способ оплаты можно только в платежном аккаунте с типом **{{ ui-key.yacloud.billing.account.create-new.account-type_label_company }}**. Вместо оплаты банковской картой вы можете использовать перевод с расчетного счета.
+
+Чтобы изменить способ оплаты:
+
+1. Составьте запрос на изменение способа оплаты.
 
 
+   {% include [change-payment-docs](../_includes/change-payment-docs.md) %}
 
-{% include [change-payment-docs](../_includes/change-payment-docs.md) %}
 
-
-Ваш запрос будет рассмотрен в течение трех рабочих дней. Как только решение будет принято, с вами свяжется менеджер {{ yandex-cloud }}.
+1. Отправьте запрос на электронную почту [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru). Запрос рассматривается в течение трех рабочих дней. Менеджер {{ yandex-cloud }} сообщит вам о принятом решении.
 
 {% note info %}
 

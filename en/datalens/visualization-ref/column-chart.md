@@ -66,18 +66,18 @@ Since the sum of all segments is equal to the total length of a column, when col
 | X | Dimensions. One or two dimensions can be specified. Affects X-axis value grouping. The order of specified dimensions affects the order of value grouping on the X-axis. For the `Date` and `Date and time` types, you can set grouping by time: minutes, hours, weeks, and so on. |
 | Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named [Measure Names](../concepts/chart/measure-values.md). |
 | Colors | Dimension or the [Measure Names](../concepts/chart/measure-values.md) field. Affects the color of columns. [Measure Names](../concepts/chart/measure-values.md) is deleted by clicking the cross icon or removing measures from the Y-axis. |
-| Sorting | Dimension or measure. Affects the sorting of columns. Sorting only applies to dimensions used when building a chart. |
+| Sorting | Dimension or measure. Affects the sorting of columns. Sorting only applies to dimensions used when building a chart. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. |
 | Signatures | Measure. Displays measure values on the chart. When using multiple measures for a signature, add [Measure Values](../concepts/chart/measure-values.md). |
 | Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25. |
-| Chart filters | Dimension or measure. Used as a filter. A filter can be overridden by a dashboard selector if the selector is based on the same field. |
+| Filters | Dimension or measure. Used as a filter. A filter can be overridden by a dashboard selector if the selector is based on the same field. |
 
 ## Creating a column chart {#create-diagram}
 
-To create a column chart:
+To create a bar chart:
 
 1. On the {{ datalens-full-name }} homepage, click **Create chart**.
 1. Under **Dataset**, select a dataset for visualization.
-1. Select **Column chart** as the chart type.
+1. Select **Bar chart** as the chart type.
 1. Drag a dimension from the dataset to the **X** section. The values are displayed in the lower part of the chart on the X-axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values are displayed as columns on the Y-axis.
 

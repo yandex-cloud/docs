@@ -36,10 +36,10 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. В блоке **Класс хоста** выберите нужный класс для хостов {{ PG }}.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите нужный класс для хостов {{ PG }}.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -142,10 +142,10 @@
 
   Чтобы увеличить размер хранилища для кластера:
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. В блоке **Размер хранилища** укажите необходимое значение.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите необходимое значение.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -229,11 +229,11 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. Измените [настройки {{ PG }}](../concepts/settings-list.md), нажав кнопку **Настроить** в блоке **Настройки СУБД**.
-  1. Нажмите кнопку **Сохранить**.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. Измените [настройки {{ PG }}](../concepts/settings-list.md), нажав кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -319,8 +319,8 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
   1. Измените дополнительные настройки кластера:
 
      {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
@@ -521,12 +521,12 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![icon-hosts.svg](../../_assets/mdb/hosts.svg) **Хосты**.
-  1. Нажмите кнопку ![icon-autofailover.svg](../../_assets/mdb/autofailover.svg) **Переключить мастер**.
-      * Чтобы переключить мастер на одну из кворумных реплик, оставьте опцию **Выбрать хост-мастер автоматически** включенной.
-      * Чтобы переключить мастер на конкретную реплику, выключите опцию **Выбрать хост-мастер автоматически** и затем выберите нужную реплику из выпадающего списка.
-  1. Нажмите кнопку **Переключить**.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![icon-hosts.svg](../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
+  1. Нажмите кнопку ![icon-autofailover.svg](../../_assets/mdb/autofailover.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
+      * Чтобы переключить мастер на одну из кворумных реплик, оставьте опцию **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** включенной.
+      * Чтобы переключить мастер на конкретную реплику, выключите опцию **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** и затем выберите нужную реплику из выпадающего списка.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
 
 - CLI
 
@@ -585,11 +585,11 @@
 
 - Консоль управления
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
+    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) справа в строке кластера, который вы хотите переместить.
-    1. Выберите пункт **Переместить**.
+    1. Выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
     1. Выберите каталог, в который вы хотите переместить кластер.
-    1. Нажмите кнопку **Переместить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
 
 - CLI
 
@@ -638,9 +638,9 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите группы безопасности для сетевого трафика кластера.
 
 - CLI
 

@@ -7,33 +7,19 @@
 * [Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}](terraform-state-lock.md)
 
 
+* [Использование модулей {{ yandex-cloud }} в {{ TF }}](terraform-modules.md)
 * [Начало работы с Packer](packer-quickstart.md)
 * [Сборка образа виртуальной машины с набором инфраструктурных инструментов с помощью Packer](packer-custom-image.md)
-
-
-
-* [Миграция в {{ yandex-cloud }} с помощью Hystax Acura](hystax-migration.md)
-* [Защита от сбоев с помощью Hystax Acura](hystax-disaster-recovery.md)
 
 
 * [Настройка синхронизации часов с помощью NTP](ntp.md)
 
 
 * [Работа с группой ВМ с автоматическим масштабированием](vm-autoscale.md)
-
-
-
 * [Масштабирование группы ВМ по расписанию](vm-scale-scheduled.md)
 * [Автоматическое масштабирование группы ВМ для обработки сообщений из очереди {{ message-queue-full-name }}](autoscale-monitoring.md)
-
-
-
 * [Обновление группы ВМ под нагрузкой](updating-under-load.md)
-
-
-
 * [{#T}](vm-fluent-bit-logging.md)
-* [Резервное копирование ВМ с помощью Hystax Acura Backup](hystax-backup.md)
 * [Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}](fault-tolerance.md)
 
 

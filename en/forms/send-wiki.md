@@ -39,7 +39,7 @@ To send responses to {{ wiki-name }}:
 
 1. For the user to get a link to the wiki page after filling out the form, enable the **Show messages about the results of actions** option under the action name.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 To send responses to multiple Wiki pages at once, add multiple actions using the ![](../_assets/forms/wiki-notification-new.png) **{{ wiki-name }}** button at the bottom of the page. 
 

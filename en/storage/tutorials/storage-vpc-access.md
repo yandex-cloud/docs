@@ -1,0 +1,1 @@
+{% include [storage-vpc-access](../../_tutorials/routing/storage-vpc-access.md) %}

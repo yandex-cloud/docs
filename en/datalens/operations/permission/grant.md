@@ -11,8 +11,8 @@ Before granting a user access permissions, [add](../../security/index.md#add-new
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
 1. Click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) next to the object and select **Permissions**.
-1. In the window that opens, click the button to grant connection, dataset, chart, or dashboard permissions.
-1. Enter a username or select the **All** group. If necessary, write a comment for the user you're requesting access from. Specify the appropriate permissions and click **Add**.
+1. In the window that opens, click the button to set up permissions to the respective object: connection, dataset, chart, or dashboard.
+1. Enter a username or select the **All** group. If necessary, write a comment for the user you are requesting access from. Specify the appropriate permissions and click **Add**.
 
    {% include [multi-access-note](../../../_includes/datalens/datalens-multi-access-note.md) %}
 

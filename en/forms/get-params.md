@@ -6,11 +6,11 @@ You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-
 
 1. Add a question mark (`?`) to the form URL. After it, specify the parameter. The format of the parameter depends on the question type:
 
-   * For questions with an input field, such as <q>Short text</q> or <q>Email</q>:
+   * For questions with an input field, such as <q>Short text</q>, <q>{{ ui-key.forms.common.blocks_integration-group.title-email }}</q>:
       ```
       <question ID>=<response text>
       ```
-      If there are multiple words in the response text, replace the spaces with a `+` sign. For example:
+      If there are multiple words in the response text, replace the spaces with a `+` sign, e.g.:
       ```
       {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_short_text_1685088=Planet+Earth
       ```
@@ -18,7 +18,7 @@ You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-
       ```
       <question ID>=<response ID>
       ```
-      For example:
+      E.g.:
       ```
       {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_choices_1685184=1958524
       ```
@@ -26,7 +26,7 @@ You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-
       ```
       <question id>=YYYY-MM-DD
       ```
-      For example:
+      E.g.:
       ```
       {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_date_1685200=2020-01-27
       ```
@@ -34,7 +34,7 @@ You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-
       ```
       <question id>=True
       ```
-      For example:
+      E.g.:
       ```
       {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_boolean_1685199=True
       ```
@@ -47,7 +47,7 @@ You can use GET parameters to add attributes to a form's [URL]({{link-wikipedia-
       ```
       <question ID>[<X criterion ID>]=<X response ID>&<question ID>[<Y criterion ID>]=<Y response ID>
       ```
-      For example:
+      E.g.:
       ```
       {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_choices_1686274=231035_231038
       ```

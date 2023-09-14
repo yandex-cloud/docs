@@ -140,7 +140,7 @@
      * `certificate` — содержимое файла с [сертификатом](../../concepts/imported-certificate.md).
      * `private_key` — содержимое файла с закрытым ключом.
 
-     Более подробную информацию о параметрах ресурса `yandex_cm_certificate` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/cm_certificate).
+     Более подробную информацию о параметрах ресурса `yandex_cm_certificate` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
 
   1. Создайте ресурсы:
 
@@ -155,6 +155,59 @@
 - API
 
   Чтобы добавить сертификат, воспользуйтесь методом REST API [create](../../api-ref/Certificate/create.md) для ресурса [Certificate](../../api-ref/Certificate/) или вызовом gRPC API [CertificateService/Create](../../api-ref/grpc/certificate_service.md#Create).
+
+{% endlist %}
+
+В списке сертификатов появится новый сертификат со статусом `Issued`.
+
+## Хранение публичной части сертификата в {{ lockbox-name }} {#create-lockbox}
+
+Вы можете хранить публичную часть пользовательского сертификата {{ certificate-manager-name }} в [{{ lockbox-name }}](../../../lockbox/quickstart.md). Чтобы добавить сертификат:
+
+{% list tabs %}
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+      ```hcl
+        resource "yandex_cm_certificate" "example-lockbox" {
+        name    = "<имя_секрета>"
+
+      self_managed {
+          certificate = <<-EOT
+                        -----BEGIN CERTIFICATE-----
+                        <содержимое_сертификата>
+                        -----END CERTIFICATE-----
+                        EOT
+          private_key_lockbox_secret {
+            id  = "<идентификатор_секрета>"
+            key = "<ключ_секрета>"
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `name` — имя секрета {{ lockbox-short-name }}.
+      * `certificate` — содержимое файла с [сертификатом](../../concepts/imported-certificate.md).
+      * `id` — идентификатор секрета {{ lockbox-short-name }}.
+      * `key` — ключ секрета {{ lockbox-short-name }}, значение которого содержит приватный ключ сертификата.
+
+      Более подробную информацию о параметрах ресурса `yandex_cm_certificate` см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+  После этого в указанный каталог будет добавлен сертификат. Проверить появление сертификата и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```bash
+    yc certificate-manager certificate get <имя_сертификата>
+    ```
 
 {% endlist %}
 

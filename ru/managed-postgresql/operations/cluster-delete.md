@@ -19,8 +19,8 @@ description: "После удаления кластера баз данных P
 - Консоль управления
   
   1. Откройте страницу каталога в консоли управления.
-  1. Выберите сервис **{{ mpg-name }}**.
-  1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера, выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** и подтвердите удаление.
   
 - CLI
   

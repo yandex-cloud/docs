@@ -37,7 +37,7 @@ To make it easier to compare different values, you can add conditional formattin
 ----- | ----
 | Columns | Dimensions and measures to be used as columns. Field names are used as column headers. |
 | Colors | Measure. Affects shading of all cells within a row. It may only contain one measure. |
-| Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. |
+| Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a table {#create-diagram}

@@ -69,6 +69,8 @@ items:
         href: testing/gitlab.md
       - name: Создание тестовых ВМ через {{ GL }} CI
         href: testing/ci-for-snapshots.md
+      - name: Интеграция {{ GL }} с {{ tracker-full-name }}
+        href: dev/gitlab-tracker-integration.md
       - name: >-
           Высокопроизводительные вычисления (HPC) на прерываемых виртуальных
           машинах
@@ -481,6 +483,8 @@ items:
         href: datalens/data-from-tracker.md
   - name: Бессерверные технологии
     items:
+      - name: Все руководства
+        href: serverless/index.md
       - name: Сокращатель ссылок
         href: serverless/serverless-url-shortener.md
       - name: Ввод данных в системы хранения

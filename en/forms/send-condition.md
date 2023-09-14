@@ -17,7 +17,7 @@ The submit button can be shown or hidden depending on how the user responded to 
 
 1. Select or enter a response that the user's response needs to match.
 
-1. At the bottom of the page, click **Save**.
+1. At the bottom of the page, click **{{ ui-key.yacloud.common.save }}**.
 
 
 ## Add a CAPTCHA to the form {#sec_captcha}
@@ -28,4 +28,4 @@ To prevent automated responses to your form, you can ask the user to enter a [CA
 
 1. Turn on the **Add captcha before submitting form** option.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.

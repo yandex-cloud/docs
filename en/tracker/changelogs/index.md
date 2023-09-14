@@ -1,67 +1,117 @@
-# {{ tracker-full-name }} revision history for May 2023
+# {{ tracker-full-name }} revision history for June 2023
 
 * [Updates](#top-news)
 * [Fixes and improvements](#fixes)
 
 ## Updates {#top-news}
 
-### Switching boards to new technologies {#old-to-new}
+### Setting up an issue color by status on a Gantt chart for an issue filter {#gantt-colour-status}
 
-You can now [switch](../manager/boards-convertor.md) the old boards to our [new technologies](../manager/agile-new.md). When migrating the board, the following is retained:
-* ID.
-* Name.
-* Issues added.
-* Status distribution by column.
-* **Reported by me** and **Assigned to me** filters.
-* Filter for adding issues.
+Added the **by status type** option to the [Gantt chart for issue filters](../gantt/search.md) settings under the **Color** section. Now, it is enabled by default and sets the issue color depending on the status type:
 
-You can switch your board back to the old version after migration, if needed. To do this, click ![](../../_assets/tracker/svg/actions.svg) → **Switch back to the old version** in the board's top panel and wait until it switches back.
+* ![](../../_assets/tracker/changelogs/status-1-open.png)
+* ![](../../_assets/tracker/changelogs/status-2-in-progress.png)
+* ![](../../_assets/tracker/changelogs/status-3-needs-info.png)
+* ![](../../_assets/tracker/changelogs/status-4-solved.png)
+* ![](../../_assets/tracker/changelogs/status-5-closed.png)
 
-### Grouping issues by any field {#grouping}
+{% note info %}
 
-You can now group issues by any field. This kind of grouping is supported for a [list of project issues](../manager/project-list.md), a project's Gantt chart, and on [new boards](../manager/agile-new.md).
+You can set up the status type in the [workflow editor](../manager/workflow.md).
 
-To group issues, click ![](../../_assets/tracker/svg/group.svg) and select a field.
+{% endnote %}
 
-### Setting up an issue color for a Gantt chart based on a queue and filter {#gantt-colours-filter}
+To change issue color settings, click **Chart settings** on the Gantt chart page, select the item you need in the **Color** section, and click **Apply**.
 
-A [Gantt chart](../gantt/project.md) based on a queue and filter allows you to set a color for issues depending on the selected parameter (queue, status, etc.). To do this, click **Chart settings** on the Gantt chart page and select **by issue parameters** under **Issue color**.
+### Display of issue status change buttons {#change-status-bottoms}
 
-### **Collapse** and **Expand** buttons {#new-buttons}
+You can now set up the display of status change buttons in issues:
+- **If enabled in queue settings** (by default): Status change buttons will be displayed only if the queue administrator enabled this in the settings of a particular queue.
+- **Always**: Status change buttons will be displayed in all issues regardless of the queue settings.
 
-The **Issue list** and **Gantt chart** tabs of the [project](../manager/project-new.md) page now have the **Collapse** and **Expand** buttons. Use them to expand and collapse:
-* All sub-issues in a tree list.
-* All groups in grouping mode.
+To edit the personal settings of button display, click **Settings** → **Interface** in the side panel and use the **Show status buttons** toggle.
 
-### Navigation with arrows {#arrow-buttons}
+The queue administrator can set up the status change buttons so that they will be displayed to all users in all issues of this queue. To do this, go to the queue page, click **Queue settings**, open **Basic settings**, and use the **Duplicate transitions from the current status** under the issue name.
 
-You can now use the keyboard to move across your issue list:
+### Filtering issues by status type {#status-type-filter}
+Added a new issue filter named **Status type**. It has the following values:
+- **Initial**: Issue is created but progress is not yet started.
+- **In progress**: Progress has been started.
+- **Paused**: Work on the issue is suspended.
+- **Complete**: Issue has been completed and closed.
+- **Canceled**: Issue was not completed and still closed.
 
-* Arrow keys to navigate the menu.
-* **Enter** or spacebar to follow a link.
-
-
-### Disabling an organization {#no-orgs}
-
-Now, to work in {{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }}, you can choose one [organization](../cloud-vs-360.md) and disable another one if you do not need it. To disable an organization, go to ![](../../_assets/tracker/svg/admin.svg) **Administration** → ![](../../_assets/tracker/svg/organizations.svg) [**Organizations**]({{ link-tracker }}admin/orgs). Click ![](../../_assets/tracker/dots.png) and select **Disable**.
-
-In this case, it will be disconnected from {{ tracker-name }}, {{ wiki-name }}, and {{ forms-name }}. Its data will not be lost. However, this organization's users will be marked as dismissed, the groups will be deleted, and the access rights will be revoked. The email aliases set up on the domain in the queues will be deleted.
+The new filter is available in any issue lists when automatically adding issues to boards and in project issues.
 
 
-### Buttons to navigate through comments {#comment-up-down}
+### Updated pop-up window for issue creation {#create-task-pop-up}
 
-There are new buttons that allow you to move to the first or last comment in issues. To move to an issue description, double-click ![](../../_assets/tracker/to-first-comment.png =12x12).
-You can also use the following keys for navigation:
+Added new features to the pop-up window for quick issue creation:
+- There is now an issue type selection button to the left of the **Issue name** field.
+- In the top-right corner, you can now see the ![](../../_assets/tracker/svg/open-full.svg) button that enables you to open a full issue creation form.
 
-* **Windows**: **Home** or **End**.
-* **Mac OS**: **⌘** + **↑** or **⌘** + **↓**.
+The pop-up window also appears when you create a new link for existing issues. In this case, you will also see a list in the top-left corner, where you can select a link type.
 
-### Mandatory comments on the transition screen {#flow-comments}
+![](../../_assets/tracker/changelogs/new-create-task-pop-up.png)
 
-In the [new workflow editor](../manager/workflow.md), you can now make it mandatory to write a comment when changing an issue's status. To make the **Comment** field required, go to the workflow editor and select&nbsp;**Required** in the **Transition screen** section.
+You can add a link to the current issue in the following ways:
 
-### Displaying completed sprints {#scroll-fixed}
+- Click ![](../../_assets/tracker/svg/add-task.svg) **Add link** on the issue page.
+- Select one or more issues on the queue page and click **Add link** in the section that appears at the bottom of the page.
+- Enable **Adding links on transition screen** in the queue [workflow](../manager/add-workflow.md) of the [transition screen](../manager/workflow-action-edit.md) settings. The pop-up window will appear when the status changes based on the specified settings.
 
-* Fixed the bug when the list of completed sprints was only displayed in part.
-* Completed sprints are sorted by end date: those completed most recently are shown at the top of the list.
-* There is a new button to switch to the sprint issue list on the filter page.
+### Issue action menu in projects {#task-actions-menu}
+
+The **Issue list** and **Gantt chart** tabs of the project page now have the ![](../../_assets/tracker/svg/still.svg) button. Clicking it opens a pop-up window with a list of possible actions on an issue:
+
+- **Copy link**
+
+- **Move to top of list**
+- **Move to bottom of list**
+- **Delete from project**
+
+{% note info %}
+
+The **Move to top of list** and **Move to bottom of list** buttons are only available if manual sorting is enabled on the page.
+
+{% endnote %}
+
+The ![](../../_assets/tracker/svg/still.svg) button appears when you hover over an issue.
+
+
+### Adding a {{ ya-360 }} organization {#add-ya-360}
+
+You can now enable a {{ ya-360 }} organization in the {{ tracker-name }} interface. To do so, go to **Administration** → **Organizations** and use the **{{ ya-360 }}** section. Changes are synced within 30 minutes of adding a new organization.
+
+
+## Fixes and improvements {#fixes}
+
+### Notifications on invitations in {{ tracker-name }} {#notifications}
+
+The **Notifications** section in the left-hand panel now displays notifications on invitations to issues.
+
+### Maintaining selected sorting on the project page {#save-sorting-parametres}
+
+The project list page now preserves sorting parameters. If you reopen the project list page, it will have the same sorting parameters as you set last time.
+
+{% note info %}
+
+The preserved sorting parameters apply if the project page is opened through a [direct link]({{ link-tracker }}/pages/projects) or by clicking **Projects** → **All projects** in the side panel.
+
+{% endnote %}
+
+### New interface with queue settings {#new-queue-settings}
+
+The **Queue settings** → **Basic settings** page now has a new interface.
+
+### Horizontal scrolling of a Gantt chart for project issues {#gantt-horizontal-scrolling}
+
+You can now scroll a Gantt chart for project issues left and right. To do this, hover over the chart, press and hold **Shift**, and scroll the mouse wheel.
+
+This feature is now available in [all Gantt charts in {{ tracker-name }}](../gantt/overview.md)
+
+### Strike-through for keys of canceled and completed issues {#strikethrough-key}
+
+Keys of issues that have the **Completed** or **Canceled** status type are now struck through both in projects and on boards.
+
+If an issue is closed with a certain resolution, its key is also struck through, as usual.

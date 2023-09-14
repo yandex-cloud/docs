@@ -2,7 +2,8 @@
 
 {% note warning %}
 
-By default, [only the queue owner](queue-access.md) can configure a queue.
+* By default, [only the queue owner](queue-access.md) can configure a queue.
+* You cannot change the [queue key](create-queue.md#key).
 
 {% endnote %}
 

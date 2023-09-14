@@ -7,7 +7,7 @@ EOU (<q>End-of-Utterance</q>) is a flag that indicates where an utterance ends d
 
 {{ speechkit-short-name }} only returns a complete utterance after detecting the EOU. Precise EOU detection allows listening to a speaker to the end without any interruptions and recognizing their speech, as well as helping a voice assistant respond more naturally (with a reply or request for clarification).
 
-To impact EOU detection, set up how to use [API v3](../../stt-v3/api-ref/grpc/):
+To impact EOU detection, set up how to use [API v3](../stt-v3/api-ref/grpc/):
 
 * Set the `max_pause_between_words_hint_ms` [parameter](../stt-v3/api-ref/grpc/stt_service#DefaultEouClassifier) that controls the expected duration (in milliseconds) of pauses between words per utterance. With this parameter, you can avoid incorrect EOU detection when a speaker is dictating numbers slowly or set up how fast the voice assistant should respond to the end of speech.
 * Specify the `type` [parameter](../stt-v3/api-ref/grpc/stt_service#DefaultEouClassifier) in `eou_classifier_options=default_classifier`. This classifier sets the EOU detection method sensitivity:

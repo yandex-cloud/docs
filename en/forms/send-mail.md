@@ -6,7 +6,7 @@ You can integrate your form with Yandex Mail so that a notification is sent auto
 
 1. Select the form and open the **Integration** tab.
 
-1. Select a [group of actions](notifications.md#add-integration) for which you want to set up sending emails and click ![](../_assets/forms/mail-notification-new.png) **Email** at the bottom of the group.
+1. Select a [group of actions](notifications.md#add-integration) for which you want to set up sending emails and click ![](../_assets/forms/mail-notification-new.png) **{{ ui-key.forms.common.blocks_integration-group.title-email }}** at the bottom of the group.
 
 1. Under action settings, fill in the following fields:
 
@@ -16,7 +16,7 @@ You can integrate your form with Yandex Mail so that a notification is sent auto
 
       - To send a notification to the Yandex email account the user was logged in to when filling out the form, select the **Email** variable.  Is only available to [{{ forms-full-name }} for business](forms-for-org.md) users.
 
-      - To send a notification to the address the user gave in response to a prompt, add the **Response to prompt** variable and select the <q>Email</q> prompt type.
+      - To send a notification to the address the user gave in response to a prompt, add the **Response to prompt** variable and select the <q>{{ ui-key.forms.common.blocks_integration-group.title-email }}</q> prompt type.
 
 
 
@@ -52,9 +52,9 @@ You can integrate your form with Yandex Mail so that a notification is sent auto
 
 1. To display a message informing the user that an email was sent after they filled out the form, enable the **Show messages about the results of actions** option under the action name.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
-To send multiple email notifications at once, add new actions using the ![](../_assets/forms/mail-notification-new.png) **Email** button at the bottom of the action group.
+To send multiple email notifications at once, add new actions using the ![](../_assets/forms/mail-notification-new.png) **{{ ui-key.forms.common.blocks_integration-group.title-email }}** button at the bottom of the action group.
 
 If you want notifications to only be sent to users who gave certain responses, [set your conditions](notifications.md#section_xlw_rjc_tbb).
 

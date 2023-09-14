@@ -4,6 +4,10 @@
 
 Да, для этого [настройте OmniAuth](../operations/omniauth.md).
 
+#### Если ли интеграция {{ GL }} с {{ tracker-full-name }}? {#tracker-integration}
+
+Да, настройки интеграции описаны в разделе [Интеграция с {{ tracker-full-name }}](../../tracker/user/github.md#gitlab).
+
 #### Почему не получается отправить изменения в репозиторий {{ mgl-name }}? {#push}
 
 Тексты ошибок:

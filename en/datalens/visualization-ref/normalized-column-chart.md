@@ -53,10 +53,10 @@ This type of chart is used to see the contribution of each measure to the total 
 | X | Dimensions. One or two dimensions can be specified. |
 | Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named [Measure Names](../concepts/chart/measure-values.md). [Measure Names](../concepts/chart/measure-values.md) can be moved to the X-axis. |
 | Colors | Dimension or the [Measure Names](../concepts/chart/measure-values.md) field. Affects the color of lines. [Measure Names](../concepts/chart/measure-values.md) is removed by deleting measures from the Y-axis. |
-| Sorting | Dimension or measure. Affects the sorting of columns. |
+| Sorting | Dimension or measure. Affects the sorting of columns. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. |
 | Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
 | Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25. |
-| Chart filters | Dimension or measure. Used as a filter. |
+| Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a normalized column chart {#create-diagram}
 

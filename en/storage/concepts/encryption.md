@@ -24,7 +24,7 @@ In addition to {{ kms-full-name }} key-based encryption, you can also use the fo
 {% include [encryption-client-side](../../_includes/storage/encryption-client-side.md) %}
 
 
-#### See also {#see-also}
+#### For more information, see also {#see-also}
 
 * [{#T}](../operations/buckets/encrypt.md)
 * [{#T}](../../kms/operations/key.md)

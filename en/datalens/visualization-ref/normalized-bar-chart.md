@@ -71,9 +71,9 @@ A normalized bar chart shows the contribution, as a percentage, of each category
 | Y | Dimensions. One or two dimensions can be specified. For the `Date` and `Date and time` types, you can set grouping by time: minutes, hours, weeks, and so on. |
 | X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named [Measure Names](../concepts/chart/measure-values.md). You may move [Measure Names](../concepts/chart/measure-values.md) to the Y-axis. |
 | Colors | Dimension or the [Measure Names](../concepts/chart/measure-values.md) field. Affects the color of lines. [Measure Names](../concepts/chart/measure-values.md) is removed by deleting measures from the Y-axis. |
-| Sorting | Dimension or measure. Affects the sorting of columns. |
+| Sorting | Dimension or measure. Affects the sorting of columns. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. |
 | Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
-| Chart filters | Dimension or measure. Used as a filter. |
+| Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a normalized bar chart {#create-diagram}
 

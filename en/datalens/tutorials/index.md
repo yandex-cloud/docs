@@ -13,6 +13,7 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
   * [Visualizing data from a CSV file](data-from-csv-visualization.md)
   * [Creating and publishing a chart with a map of Moscow from a CSV file](data-from-csv-to-public-visualization.md)
   * [Analyzing a retail chain sales from a {{ CH }} database](data-from-ch-visualization.md)
+  * [Visualizing data from CHYT](data-from-ch-over-yt.md)
 
 * Working with geodata
   
@@ -22,12 +23,13 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
 * Service analytics
 
   * [Web analytics with a connection to Yandex.Metrica](data-from-metrica-visualization.md)
+  * [Web analytics with funnels and cohorts calculated based on Yandex Metrica data](data-from-metrica-yc-visualization.md)
   * [Web analytics with funnels and cohorts calculated based on Yandex.Metrica data](data-from-metrica-yc-visualization.md)
   * [Mobile app analytics based on AppMetrica data](data-from-appmetrica-visualization.md)
   * [Visualizing Bitrix24 data](data-from-bitrix24-visualization.md)
   * [Visualizing {{ yq-full-name }} data](data-from-yandex-query-visualization.md)
   * [Visualizing {{ monitoring-full-name }} data](data-from-monitoring-visualization.md)
-  * [Analyzing Yandex Music podcast statistics (for podcasters)](data-from-podcasts.md)
+  * [Analyzing Yandex Music podcast statistics (for podcasters)](data-from-podcasts.md)
   * [Building customer journey charts based on AppMetrica data](data-from-appmetrica-yc-visualization.md)
 
 * Functional

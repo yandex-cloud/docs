@@ -71,7 +71,7 @@ To set up rules for scoring:
 
    - To attach an image, click ![](../_assets/forms/add-picture.png).
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% note warning %}
 
@@ -89,9 +89,9 @@ After the user completes the test, you can let them know which of their response
 
 1. Turn on **Show correct and incorrect answers in test results**.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
-After completing the test, users can click **See correct answers**. A page opens where the user can see their score, with correct and incorrect responses highlighted.
+After completing the test, users can click **{{ ui-key.forms.common.blocks_quiz-result.correct-answers }}**. A page opens where the user can see their score, with correct and incorrect responses highlighted.
 
 
 ## View user responses {#right-answ-separately}

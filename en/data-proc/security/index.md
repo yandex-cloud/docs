@@ -33,6 +33,7 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [managed-metastore-roles](../../_includes/iam/roles/managed-metastore-roles.md) %}
 
+{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
 
 {% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
 

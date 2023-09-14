@@ -61,7 +61,7 @@ items:
     href: kms/index.yaml
   - name: Lockbox
     href: lockbox/index.yaml
-  - name: Managed Service for Apache Airflow®
+  - name: Managed Service for Apache Airflow™
     href: managed-airflow/index.yaml
     stage: hidden
   - name: Managed Service for Apache Kafka®

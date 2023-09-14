@@ -14,7 +14,7 @@ You can make changes to the form and its settings even after publication.
 
 As soon as a form is created, it becomes available via a direct link. To get a link to a form:
 
-1. Select the form and click **Share** above the list of questions.
+1. Select the form and click **{{ ui-key.forms.common.blocks_share.button-share }}** above the list of questions.
 
 1. To copy the form address, click ![](../_assets/forms/icon-copy.png) in the **Link** field.
 
@@ -58,7 +58,7 @@ To deactivate unused keys, click ![](../_assets/forms/svg/settings.svg) → **de
 
 To publish a form on your website:
 
-1. Select the form and click **Share** above the list of questions.
+1. Select the form and click **{{ ui-key.forms.common.blocks_share.button-share }}** above the list of questions.
 
 1. Copy the form code from the **Iframe embed code** field.
 
@@ -79,7 +79,7 @@ Only users of [{{ forms-full-name }} for business](forms-for-org.md) can work wi
 
 To publish a form on a {{ wiki-full-name }} page:
 
-1. Select the form and click **Share** above the list of questions.
+1. Select the form and click **{{ ui-key.forms.common.blocks_share.button-share }}** above the list of questions.
 
 1. Copy the form code from the **Embed code for {{ wiki-name }}** field.
 
@@ -90,6 +90,6 @@ To publish a form on a {{ wiki-full-name }} page:
 
 To stop accepting responses and unpublish the form:
 
-1. Select the form and click **Share** above the list of questions.
+1. Select the form and click **{{ ui-key.forms.common.blocks_share.button-share }}** above the list of questions.
 
 1. Click **Unpublish**.

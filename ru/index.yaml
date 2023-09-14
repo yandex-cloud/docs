@@ -84,8 +84,8 @@ links:
   - title: Yandex Lockbox
     description: Создание и хранение секретов
     href: lockbox/
-  - title: Managed Service for Apache Airflow®
-    description: Управление кластерами Apache Airflow®
+  - title: Managed Service for Apache Airflow™
+    description: Управление кластерами Apache Airflow™
     href: managed-airflow/
     stage: hidden
   - title: Managed Service for Apache Kafka®

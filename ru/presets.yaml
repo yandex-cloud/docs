@@ -13,7 +13,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL
   mrd-full-name: Yandex Managed Service for Redis
   mkf-full-name: Yandex Managed Service for Apache Kafka®
-  maf-full-name: Yandex Managed Service for Apache Airflow®
+  maf-full-name: Yandex Managed Service for Apache Airflow™
   mes-full-name: Yandex Managed Service for Elasticsearch
   mos-full-name: Yandex Managed Service for OpenSearch
   mms-full-name: Yandex Managed Service for SQL Server
@@ -95,7 +95,7 @@ default:
   mmy-name: Managed Service for MySQL
   mrd-name: Managed Service for Redis
   mkf-name: Managed Service for Apache Kafka®
-  maf-name: Managed Service for Apache Airflow®
+  maf-name: Managed Service for Apache Airflow™
   mes-name: Managed Service for Elasticsearch
   mos-name: Managed Service for OpenSearch
   mms-name: Managed Service for SQL Server
@@ -174,7 +174,7 @@ default:
   mrd-short-name: Managed Service for Redis
   mmy-short-name: Managed Service for MySQL
   mkf-short-name: Managed Service for Apache Kafka®
-  maf-short-name: Managed Service for Apache Airflow®
+  maf-short-name: Managed Service for Apache Airflow™
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
   mos-short-name: Managed Service for OpenSearch
@@ -437,7 +437,7 @@ default:
   GLR: GitLab Runner
   GP: Greenplum®
   KF: Apache Kafka®
-  AF: Apache Airflow®
+  AF: Apache Airflow™
   KFC: Kafka Connect
   metrika: Яндекс Метрика
   metrika-pro: Метрика Про
@@ -3905,6 +3905,7 @@ default:
         tab-title--events: Журнал изменений
         tab-title--fields: Поля очереди
         tab-title--forms: Интеграция форм
+        tab-title--integrations: Интеграции (beta)
         tab-title--main: Основные параметры
         tab-title--permissions: Доступ
         tab-title--sla: SLA
@@ -4613,6 +4614,8 @@ default:
         move-issue: Изменить очередь
         title: Действия
         to-subissue: Сделать подзадачей
+      ui_components_issues_create-issue-popup_NewIssueForm:
+        milestone-type: Веха
       ui_components_issues-import_IssuesImportDialog:
         import: Импортировать
       ui_components_issues-import_IssuesImportFilters:
@@ -4669,6 +4672,8 @@ default:
         create-account: Создать новый аккаунт
       ui_components_page-admin_BillingScreen:
         create-account: Создать
+      ui_components_page-admin_ChangeOrganizationModal:
+        add-button: Сменить организацию
       ui_components_page-admin_OrganizationSmallPane:
         add-org-button: Добавить организацию
       ui_components_page-admin_OrgMainInfoPane:
@@ -4963,6 +4968,7 @@ default:
         title_comparison-gte: Больше или равно
         title_comparison-lte: Меньше или равно
         title_comparison-ne: Не равно
+        title_conditions: Условия срабатывания
         title_description: Описание
         title_name: Название
       aside-navigation:
@@ -5075,6 +5081,7 @@ default:
       services:
         label_managed-elasticsearch: Managed Service for Elasticsearch
         label_mysql: Managed Service for MySQL
+        label_postgresql: Managed Service for PostgreSQL
       wizard:
         tab:
           axes: Оси
@@ -5582,6 +5589,8 @@ default:
             popup-add_button_add: Добавить
           explore:
             button_execute: Выполнить
+            button_explain: План запроса
+            button_explain-analyze: Анализ запроса
             button_submit-creds: Подключиться
             label_offset: Номер первой строки
             label_password: Пароль
@@ -6386,10 +6395,14 @@ default:
           button_empty-create: Создать ключ
       load-balancer:
         network-load-balancer:
+          button_attach-tg: Подключить целевую группу
           button_create: Создать сетевой балансировщик
+          button_start: Запустить
+          button_stop: Остановить
           column_ip-address: IP-адрес
           form:
             button_create-target-group: Создать целевую группу
+            field_listener-address: IP-адрес
             field_listener-name: Имя
             field_listener-port: Порт
             field_listener-protocol: Протокол
@@ -6404,6 +6417,8 @@ default:
             label_target-group-id: Целевая группа
             section_listeners: Обработчики
             section_target-groups: Целевые группы
+          label_delete-listener: Удалить обработчик
+          label_detach-action: Отключить
           label_health-check: Проверка состояния
           label_health-check-healthy-threshold: Порог работоспособности
           label_health-check-interval: Интервал, c
@@ -6413,6 +6428,11 @@ default:
           label_health-check-protocol: Тип
           label_health-check-timeout: Время ожидания, c
           label_health-check-unhealthy-threshold: Порог неработоспособности
+          section_attached-target-groups: Целевые группы
+          section_listeners: Обработчики
+        target-group:
+          button_create: Создать целевую группу
+          label_list: Целевые группы
       load-testing:
         button_add-bucket: Привязать бакет
         button_add-overload-test-id: Добавить ID
@@ -6478,13 +6498,17 @@ default:
       mdb:
         cluster:
           backups:
+            action_delete-backup: Удалить
             button_create: Создать резервную копию
+            button_delete: Удалить резервную копию
             button_restore: Восстановить кластер
             column_name: Имя
             label_title: Резервные копии
           databases:
+            button_action-manage-extensions: Настроить расширения PostgreSQL
             button_action-remove: Удалить
             button_add: Добавить
+            column_extensions: Расширения PostgreSQL
           delete-dialog:
             popup-confirm_button_delete: Удалить
           diagnostics:
@@ -6494,6 +6518,10 @@ default:
             label_profiling: Профайлинг
             label_queries: Запросы
             label_sessions: Сессии
+            queries-view_interval: Интервал
+            queries-view_two_intervals: 2 Интервала
+            view_at_time: История
+            view_stats: Статистика
           dictionaries:
             button_action-delete: Удалить словарь
             button_submit: Сохранить
@@ -6529,6 +6557,10 @@ default:
             field_where: Условие выбора
             label_fixed-lifetime: фиксированный
             label_range-lifetime: переменный
+          explain:
+            value_buffers: Buffers
+            value_cost: Cost
+            value_time: Time
           hosts:
             button_add-host: Добавить хост
             button_add-zookeeper: Добавить хосты ZooKeeper
@@ -6614,13 +6646,16 @@ default:
           label_activate-datalens-title: DataLens ещё не активирован
         dialogs:
           button_add-database: Добавить базу данных
+          button_advanced-settings: Настройки СУБД
           popup_button_cancel: Отменить
           popup_button_move-cluster: Переместить
           popup_button_save: Сохранить
+          popup_field_permissions: База данных
           popup_field_roles: Роли
           popup-add-db_button_add: Добавить
           popup-confirm-delete-cluster_button: Удалить
           popup-confirm-remove-subcluster_button: Удалить
+          popup-confirm-switch-master_auto: Выбрать хост-мастер автоматически
           popup-confirm-switch-master_button: Переключить
           popup-confirm-switch-master_label_confirmation: Я хочу переключить мастер
           popup-confirm-switch-master_label-title: Переключение мастера
@@ -6630,6 +6665,7 @@ default:
           additional-field-datatransfer: Доступ из Data Transfer в режиме Serverless
           additional-field-metrika: Доступ из Метрики и AppMetrica
           additional-field-serverless: Доступ из Serverless
+          additional-field-sox: IDM
           additional-field-websql: Доступ из консоли управления
           additional-field-yandex-query: Доступ из Yandex Query
           backup-retain-period: Срок хранения автоматических резервных копии, дней
@@ -6800,10 +6836,24 @@ default:
           button_send: Войти
       postgresql:
         cluster:
+          additional-field-pooling_mode: Режим работы менеджера подключений
+          switch_backups: Резервные копии
+          switch_databases: Базы данных
+          switch_datalens: DataLens
+          switch_diagnostics: Диагностика производительности
           switch_explore: SQL
+          switch_hosts: Хосты
+          switch_logs: Логи
+          switch_monitoring: Мониторинг
+          switch_operations: Операции
+          switch_users: Пользователи
+        databases:
+          dialog:
+            button_submit: Изменить
         hosts:
           dialog:
             button_choose: Сохранить
+        switch_backups: Резервные копии
       redis:
         cluster:
           switch_backups: Резервные копии

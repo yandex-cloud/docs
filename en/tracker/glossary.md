@@ -38,7 +38,7 @@ Issue
 
 ## K {#rus-k}
 
-Key (queue key and issue key)
+Queue key and issue key {#key}
 :   Queue key is a unique code consisting of Latin characters, which can be used to identify a queue. For example: `TEST`.
 
     Issue key is the unique ID of the issue. It consists of the queue key and the sequence number. For example: `TEST-123`.
@@ -59,7 +59,7 @@ Queue
 ## P {#rus-p}
 
 Issue fields
-:  Various attributes, such as issue <q>{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}</q>, <q>{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}</q>, or <q>{{ ui-key.startrek-backend.fields.issue.status-key-value }}</q>. You can [edit parameters on the issue page](user/edit-ticket.md#edit-fields).
+:   Various attributes, such as issue <q>{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}</q>, <q>{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}</q>, or <q>{{ ui-key.startrek-backend.fields.issue.status-key-value }}</q>. You can [edit parameters on the issue page](user/edit-ticket.md#edit-fields).
 
 Invite to comment
 :   Inviting a user to comment means entering that user's name when [sending a comment to an issue](user/comments.md#call-comment) in order to draw their attention to that comment. The selected user will receive the comment text by email.
@@ -89,7 +89,7 @@ Tag
 :   Type of label that can be added manually to any issue. It is convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **{{ ui-key.startrek-backend.fields.issue.tags-key-value }}** parameter](user/edit-ticket.md#edit-fields).
 
 Issue type
-:  {{ tracker-name }} issues come in various types, such as: <q>New feature</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>, or <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q>. In the queue created for each issue type, you can [set up your workflow](manager/add-ticket-type.md).
+:   {{ tracker-name }} issues come in various types, such as: <q>New feature</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>, or <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q>. In the queue created for each issue type, you can [set up your workflow](manager/add-ticket-type.md).
 
 ## F {#rus-f}
 
@@ -104,7 +104,7 @@ Checklist
 ## E {#rus-ee}
 
 Epic
-:  In [Agile methodologies](#agile), an epic is a larger feature or requirement that cannot be implemented within a single [sprint](#sprint-definition). {{ tracker-name }} includes the {{ ui-key.startrek-backend.fields.issue.epic }} issue type that can be used to [group any issues](user/links.md) based on a common topic.
+:   In [Agile methodologies](#agile), an epic is a larger feature or requirement that cannot be implemented within a single [sprint](#sprint-definition). {{ tracker-name }} includes the {{ ui-key.startrek-backend.fields.issue.epic }} issue type that can be used to [group any issues](user/links.md) based on a common topic.
 
 ## Q {#rus-ya}
 
@@ -119,13 +119,13 @@ Agile
 ## S {#en-s}
 
 SLA
-:  In {{ tracker-name }}, an SLA is a [set of rules](manager/sla.md) that defines timeframes for processing issues in queues. For example, you can set the time within which the assignee has to respond to the issue, answer the requestor's comment, or complete the issue. [Learn more about SLAs.](sla-head.md)
+:   In {{ tracker-name }}, an SLA is a [set of rules](manager/sla.md) that defines timeframes for processing issues in queues. For example, you can set the time within which the assignee has to respond to the issue, answer the requestor's comment, or complete the issue. [Learn more about SLAs.](sla-head.md)
 
 Story
 :   In [Agile methodologies](#agile), a <q>User Story</q> is a description of a feature that needs to be implemented in a product. {{ tracker-name }} includes the {{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }} issue type that can be used to [group any issues](user/links.md) based on a common topic.
 
 Story Point
-:  Relative rating that describes the effort needed to complete an issue. The Story Point unit is not usually measured in terms of man-hours. [The team rates issues collectively](manager/planning-poker.md) by comparing them to a simple task.
+:   Relative rating that describes the effort needed to complete an issue. The Story Point unit is not usually measured in terms of man-hours. [The team rates issues collectively](manager/planning-poker.md) by comparing them to a simple task.
 
 ## Y {#en-y}
 

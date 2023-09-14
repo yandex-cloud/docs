@@ -19,7 +19,7 @@ A form consists of blocks of prompts, which are fields or lists where users can 
 
 1. To remove a prompt block, click ![](../_assets/forms/remove.png).
 
-1. To split a form into multiple pages, click **Add page** at the bottom of the workspace. Users can switch between form pages using the **Next** and **Back** buttons.
+1. To split a form into multiple pages, click **Add page** at the bottom of the workspace. Users can switch between form pages using the **{{ ui-key.forms.common.blocks_survey.next-button-text }}** and **{{ ui-key.forms.common.blocks_survey.prev-button-text }}** buttons.
 
    {% note warning %}
 
@@ -43,7 +43,7 @@ Depending on the prompt type, different parameters are available for editing:
 
 - **Prompt**: The main text in the block. It is usually a field header or a prompt for the user to respond to.
 
-- **Responses**: Parameters for blocks where the user needs to select responses from multiple options. You can set a list of acceptable responses or limit the choice of responses (for example, for prompts to select a date or city).
+- **{{ ui-key.forms.common.blocks_correct-answers.title }}**: Parameters for blocks where the user needs to select responses from multiple options. You can set a list of acceptable responses or limit the choice of responses (for example, for prompts to select a date or city).
 
 - **Settings**: Parameters you can use to set limits or additional block properties. For instance, you can require the user to fill in a field or configure the sorting of response options.
 
@@ -68,13 +68,13 @@ Prompts that pre-filling is available for:
 
 To have the preset values automatically inserted into the fields of the form once it is opened, add the default values:
 
-1. Click on the prompt. This will open the **Edit a response** window.
+1. Click the prompt. This will open the **Edit a response** window.
 
 1. Click ![](../_assets/forms/svg/add.svg) **Add default value**.
 
 1. Enter the value to pre-fill the field with.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 ## Set conditions for showing a prompt {#conditions}
 

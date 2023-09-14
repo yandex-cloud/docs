@@ -16,9 +16,9 @@ To make your form unique and appealing, customize the appearance of the text and
 
    1. Select the backdrop: the background around the form workspace. To do so, turn on **Add backdrop**, select a fill color, pick an image from the gallery, or upload your own background. The backdrop is visible if you [open the form via a link](publish.md#section_link).
 
-   1. Click **Save**. To change you theme, hover over the trigger and click ![](../_assets/forms/settings.png).
+   1. Click **{{ ui-key.yacloud.common.save }}**. To change you theme, hover over the trigger and click ![](../_assets/forms/settings.png).
 
-1. Click **Save** at the bottom of the page.
+1. Click **{{ ui-key.yacloud.common.save }}** at the bottom of the page.
 
 If the form is already published, its design changes.
 
@@ -33,7 +33,7 @@ You can set form button names and the message that the user sees after submittin
 
 1. Edit the title and text of your message under **Event after submit**.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.
 
 
 ## Formatting text {#section_pzm_m1j_j3b}
@@ -95,4 +95,4 @@ To show user responses on the form page:
 
 1. Under **Advanced**, enable the option **Show previous user responses in the form**.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud.common.save }}**.

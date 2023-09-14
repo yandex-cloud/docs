@@ -8,8 +8,8 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ network-load-balancer-name }}**.
-    1. На панели слева выберите ![trgroups.svg](../../_assets/trgroups.svg) **Целевые группы**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. На панели слева выберите ![trgroups.svg](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
 
 - CLI
 
@@ -30,7 +30,7 @@
     +----------------------+-------------+---------------------+-------------+--------------+
     |          ID          |    NAME     |       CREATED       |  REGION ID  | TARGET COUNT |
     +----------------------+-------------+---------------------+-------------+--------------+
-    | enp1d7t5pdeaan2rk8c9 | test-group1 | 2023-02-03 07:17:56 | {{ region-id }} |            1 |
+    | enp1d7t5pdea******** | test-group1 | 2023-02-03 07:17:56 | {{ region-id }} |            1 |
     | ...                  |             |                     |             |              |
     +----------------------+-------------+---------------------+-------------+--------------+
     ```
@@ -49,8 +49,8 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ network-load-balancer-name }}**.
-    1. На панели слева выберите ![trgroups.svg](../../_assets/trgroups.svg) **Целевые группы**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. На панели слева выберите ![trgroups.svg](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
     1. Нажмите на имя нужной целевой группы.
 
 - CLI
@@ -81,9 +81,9 @@
 
 - Консоль управления
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ network-load-balancer-name }}**.
-    1. На панели слева выберите ![trgroups.svg](../../_assets/trgroups.svg) **Целевые группы**.
-    1. Нажмите на имя нужной целевой группы и перейдите на вкладку ![operations.svg](../../_assets/mdb/operations.svg) **Операции**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. На панели слева выберите ![trgroups.svg](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
+    1. Нажмите на имя нужной целевой группы и перейдите на вкладку ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
 - CLI
 

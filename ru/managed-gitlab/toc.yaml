@@ -43,6 +43,8 @@ items:
         href: tutorials/application-testing-with-gitlab.md
       - name: Создание тестовых виртуальных машин через {{ GL }} CI
         href: tutorials/test-vms-creation-via-gitlab-ci.md
+      - name: Интеграция с {{ tracker-full-name }}
+        href: tutorials/tracker-integration.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

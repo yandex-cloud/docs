@@ -339,6 +339,8 @@ items:
     items:
       - name: All tutorials
         href: routing/index.md
+      - name: Setting up networking between resources in different folders
+        href: routing/multi-folder-vpc.md
       - name: Architecture and protection of a basic internet service
         href: routing/web-service.md
       - name: DHCP settings for working with a corporate DNS server
@@ -361,6 +363,8 @@ items:
         href: routing/usergate-firewall.md
       - name: Configuring networks for {{ dataproc-name }}
         href: routing/dataproc-nat-instance.md
+      - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
+        href: routing/storage-vpc-access.md
   - name: Data visualization and analytics
     items:
       - name: All tutorials

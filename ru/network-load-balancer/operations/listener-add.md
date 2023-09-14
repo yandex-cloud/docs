@@ -7,12 +7,12 @@
   Чтобы добавить [обработчик](../concepts/listener.md) к сетевому балансировщику:
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется добавить обработчик к балансировщику.
-  1. В списке сервисов выберите **{{ network-load-balancer-name }}**.
-  1. В строке балансировщика, к которому нужно добавить обработчик, нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Добавить обработчик**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. В строке балансировщика, к которому нужно добавить обработчик, нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
   1. В открывшемся окне задайте параметры обработчика:
 
-     * **Имя**.
-     * **Протокол** — **TCP** или **UDP**.
+     * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
+     * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}` или `{{ ui-key.yacloud.common.label_udp }}`.
 
         {% note info %}
 
@@ -20,9 +20,9 @@
 
         {% endnote %}
 
-     * **Порт**, на котором обработчик будет принимать входящий трафик. Возможные значения: от `1` до `32767`.
-     * **Целевой порт**, куда балансировщик будет направлять трафик. Возможные значения: от `1` до `32767`.
-     * Нажмите кнопку **Добавить**.
+     * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**, на котором обработчик будет принимать входящий трафик. Возможные значения: от `1` до `32767`.
+     * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**, куда балансировщик будет направлять трафик. Возможные значения: от `1` до `32767`.
+     * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
   
 - CLI
   

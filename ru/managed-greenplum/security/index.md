@@ -44,6 +44,7 @@ keywords:
 
 {% include [mgp-admin](../../_includes/iam/roles/mgp-admin.md) %}
 
+{% include [mdb.auditor](../../_includes/iam/roles/mdb.auditor.md) %}
 
 {% include [mdb.viewer](../../_includes/iam/roles/mdb.viewer.md) %}
 

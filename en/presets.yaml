@@ -13,7 +13,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL
   mrd-full-name: Yandex Managed Service for Redis
   mkf-full-name: Yandex Managed Service for Apache Kafka®
-  maf-full-name: Yandex Managed Service for Apache Airflow®
+  maf-full-name: Yandex Managed Service for Apache Airflow™
   mes-full-name: Yandex Managed Service for Elasticsearch
   mos-full-name: Yandex Managed Service for OpenSearch
   mms-full-name: Yandex Managed Service for SQL Server
@@ -96,7 +96,7 @@ default:
   mmy-name: Managed Service for MySQL
   mrd-name: Managed Service for Redis
   mkf-name: Managed Service for Apache Kafka®
-  maf-name: Managed Service for Apache Airflow®
+  maf-name: Managed Service for Apache Airflow™
   mes-name: Managed Service for Elasticsearch
   mos-name: Managed Service for OpenSearch
   mms-name: Managed Service for SQL Server
@@ -173,7 +173,7 @@ default:
   mrd-short-name: Managed Service for Redis
   mmy-short-name: Managed Service for MySQL
   mkf-short-name: Managed Service for Apache Kafka®
-  maf-short-name: Managed Service for Apache Airflow®
+  maf-short-name: Managed Service for Apache Airflow™
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
   mos-short-name: Managed Service for OpenSearch
@@ -417,7 +417,7 @@ default:
   GLR: GitLab Runner
   GP: Greenplum®
   KF: Apache Kafka®
-  AF: Apache Airflow®
+  AF: Apache Airflow™
   KFC: Kafka Connect
   MG: MongoDB
   MP: Metrics Provider
@@ -3883,6 +3883,7 @@ default:
         tab-title--events: Changelog
         tab-title--fields: Queue fields
         tab-title--forms: Forms integration
+        tab-title--integrations: Integrations (beta)
         tab-title--main: Basic settings
         tab-title--permissions: Access
         tab-title--sla: SLA
@@ -4591,6 +4592,8 @@ default:
         move-issue: Change queue
         title: Actions
         to-subissue: Convert to sub-issue
+      ui_components_issues_create-issue-popup_NewIssueForm:
+        milestone-type: Milestone
       ui_components_issues-import_IssuesImportDialog:
         import: Import
       ui_components_issues-import_IssuesImportFilters:
@@ -4647,6 +4650,8 @@ default:
         create-account: Create new account
       ui_components_page-admin_BillingScreen:
         create-account: Create
+      ui_components_page-admin_ChangeOrganizationModal:
+        add-button: Change organization
       ui_components_page-admin_OrganizationSmallPane:
         add-org-button: Add organization
       ui_components_page-admin_OrgMainInfoPane:
@@ -4939,6 +4944,7 @@ default:
         title_comparison-gte: Greater than or equals
         title_comparison-lte: Less than or equals
         title_comparison-ne: Not equals to
+        title_conditions: Alert condition
         title_description: Description
         title_name: Name
       aside-navigation:
@@ -5051,6 +5057,7 @@ default:
       services:
         label_managed-elasticsearch: Managed Service for Elasticsearch
         label_mysql: Managed Service for MySQL
+        label_postgresql: Managed Service for PostgreSQL
       wizard:
         tab:
           axes: Axes
@@ -5558,6 +5565,8 @@ default:
             popup-add_button_add: Add
           explore:
             button_execute: Execute
+            button_explain: Explain
+            button_explain-analyze: Explain analyze
             button_submit-creds: Connect
             label_offset: Query result offset
             label_password: Password
@@ -6362,10 +6371,14 @@ default:
           button_empty-create: Create key
       load-balancer:
         network-load-balancer:
+          button_attach-tg: Attach target group
           button_create: Create a network load balancer
+          button_start: Start
+          button_stop: Stop
           column_ip-address: IP address
           form:
             button_create-target-group: Create target group
+            field_listener-address: IP address
             field_listener-name: Name
             field_listener-port: Port
             field_listener-protocol: Protocol
@@ -6380,6 +6393,8 @@ default:
             label_target-group-id: Target group
             section_listeners: Listeners
             section_target-groups: Target groups
+          label_delete-listener: Remove listener
+          label_detach-action: Detach
           label_health-check: Health check
           label_health-check-healthy-threshold: Healthy threshold
           label_health-check-interval: Interval in sec
@@ -6389,6 +6404,11 @@ default:
           label_health-check-protocol: Type
           label_health-check-timeout: Timeout in sec
           label_health-check-unhealthy-threshold: Unhealthy threshold
+          section_attached-target-groups: Target groups
+          section_listeners: Listeners
+        target-group:
+          button_create: Create target group
+          label_list: Target groups
       load-testing:
         button_add-bucket: Link bucket
         button_add-overload-test-id: Add ID
@@ -6454,13 +6474,17 @@ default:
       mdb:
         cluster:
           backups:
+            action_delete-backup: Delete
             button_create: Create backup
+            button_delete: Delete backup
             button_restore: Restore cluster
             column_name: Name
             label_title: Backups
           databases:
+            button_action-manage-extensions: Configure PostgreSQL extensions
             button_action-remove: Delete
             button_add: Add
+            column_extensions: PostgreSQL extensions
           delete-dialog:
             popup-confirm_button_delete: Delete
           diagnostics:
@@ -6470,6 +6494,10 @@ default:
             label_profiling: Profiling
             label_queries: Queries
             label_sessions: Sessions
+            queries-view_interval: Interval
+            queries-view_two_intervals: 2 Intervals
+            view_at_time: History
+            view_stats: Statistics
           dictionaries:
             button_action-delete: Delete dictionary
             button_submit: Save
@@ -6505,6 +6533,10 @@ default:
             field_where: Selection condition
             label_fixed-lifetime: fixed
             label_range-lifetime: variable
+          explain:
+            value_buffers: Buffers
+            value_cost: Cost
+            value_time: Time
           hosts:
             button_add-host: Add host
             button_add-zookeeper: Add ZooKeeper hosts
@@ -6590,13 +6622,16 @@ default:
           label_activate-datalens-title: DataLens not activated
         dialogs:
           button_add-database: Add database
+          button_advanced-settings: DBMS settings
           popup_button_cancel: Cancel
           popup_button_move-cluster: Move
           popup_button_save: Save
+          popup_field_permissions: Database
           popup_field_roles: Roles
           popup-add-db_button_add: Add
           popup-confirm-delete-cluster_button: Delete
           popup-confirm-remove-subcluster_button: Delete
+          popup-confirm-switch-master_auto: Choose master host automatically
           popup-confirm-switch-master_button: Switch
           popup-confirm-switch-master_label_confirmation: I want to switch the master
           popup-confirm-switch-master_label-title: Switch master host
@@ -6606,6 +6641,7 @@ default:
           additional-field-datatransfer: Data Transfer access
           additional-field-metrika: Access from Metrica and AppMetrica
           additional-field-serverless: Serverless access
+          additional-field-sox: IDM
           additional-field-websql: Access from the management console
           additional-field-yandex-query: Yandex Query access
           backup-retain-period: Retention period for automatic backups, days
@@ -6776,10 +6812,24 @@ default:
           button_send: Log in
       postgresql:
         cluster:
+          additional-field-pooling_mode: Pooling mode
+          switch_backups: Backups
+          switch_databases: Databases
+          switch_datalens: DataLens
+          switch_diagnostics: Performance diagnostics
           switch_explore: SQL
+          switch_hosts: Hosts
+          switch_logs: Logs
+          switch_monitoring: Monitoring
+          switch_operations: Operations
+          switch_users: Users
+        databases:
+          dialog:
+            button_submit: Configure
         hosts:
           dialog:
             button_choose: Save
+        switch_backups: Backups
       redis:
         cluster:
           switch_backups: Backups

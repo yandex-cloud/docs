@@ -1,6 +1,6 @@
-# Normalized stacked area chart ![](../../_assets/datalens/normalized-area.svg)
+# Normalized area chart ![](../../_assets/datalens/normalized-area.svg)
 
-A normalized stacked area chart shows changes to the contribution of each category in a measure value over a time interval. Areas are highlighted in different colors and located above each other. The chart shows the percentage of areas and not their absolute value. The width of an area indicates its ratio to the total amount represented as 100%. For example, the percentage of different expenses in the total budget amount.
+A normalized area chart shows changes to the contribution of each category in a measure value over a time interval. Areas are highlighted in different colors and located above each other. The chart shows the percentage of areas and not their absolute value. The width of an area indicates its ratio to the total amount represented as 100%. For example, the percentage of different expenses in the total budget amount.
 
 ![normalized-area-chart](../../_assets/datalens/visualization-ref/normalized-area-chart/normalized-area-chart.png)
 
@@ -31,7 +31,7 @@ This type of chart is used to show a change to the proportion of categories, whi
 
 | Month | Home appliances | Household goods | Household cleaners |
 ----- | ---------| ---------- | ---------- 
-| January 2019 | 128 | 55 | 26 |
+| January 2019 | 128K | 55K | 26K |
 | February 2019 | 97K | 79K | 18K |
 | March 2019 | 187K | 105K | 41K |
 | April 2019 | 188K | 137K | 34K |
@@ -53,18 +53,18 @@ This type of chart is used to show a change to the proportion of categories, whi
 | X | Dimension. Only one field can be specified. This dimension is usually a date. In this case, make sure that the `Date` data type is specified for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years (to learn more, see [{#T}](../concepts/chart/settings.md#field-settings)). |
 | Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named [Measure Names](../concepts/chart/measure-values.md). |
 | Colors | Dimension or the [Measure Names](../concepts/chart/measure-values.md) field. Affects the color of lines. [Measure Names](../concepts/chart/measure-values.md) is removed by deleting measures from the Y-axis. |
-| Sorting | Dimension or measure. A dimension from the **X** and **Colors** sections or a measure from the Y-axis can be used. Affects the sorting of values on the X-axis or areas along the Y-axis. |
+| Sorting | Dimension or measure. A dimension from the **X** and **Colors** sections or a measure from the Y-axis can be used. Affects the sorting of values on the X-axis or areas along the Y-axis. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. |
 | Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
 | Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25. |
-| Chart filters | Dimension or measure. Used as a filter. |
+| Filters | Dimension or measure. Used as a filter. |
 
-## Creating a normalized stacked area chart {#create-diagram}
+## Creating a normalized area chart {#create-diagram}
 
-To create a normalized stacked area chart:
+To create a normalized area chart:
 
 1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
 1. Under **Dataset**, select a dataset for visualization.
-1. Select **Normalized stacked area chart** as the chart type.
+1. Select **Normalized area chart** as the chart type.
 1. Drag a dimension from the dataset to the **X** section. The values are displayed in the lower part of the chart on the X-axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values are displayed as areas along the Y-axis.
 1. Drag a dimension from the dataset to the **Colors** section. Colored areas will indicate the share of an individual category in the total measure value.

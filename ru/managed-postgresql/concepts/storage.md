@@ -33,31 +33,28 @@
 
 Чтобы отслеживать степень заполнения хранилища на хостах кластера, настройте алерты в {{ monitoring-full-name }}:
 
-1. Перейдите на страницу каталога и выберите сервис **{{ monitoring-name }}**.
-1. Выберите сервис **{{ mpg-name }}**.
+1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Выберите сервис **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**.
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
 1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
 
-    1. **Метрика** — задайте параметры метрики:
+    1. **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** — задайте параметры метрики:
 
         * облако;
         * каталог;
-        * сервис **{{ mpg-name }}**;
+        * сервис **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**;
         * идентификатор кластера {{ mpg-name }};
 
             Идентификатор кластера можно [получить со списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
 
         * метка `disk.free_bytes`.
 
-    1. **Условие срабатывания** — задайте условие `Меньше или равно` для процента заполнения свободного дискового пространства, при котором сработает алерт:
+    1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}** — задайте условие `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` для процента заполнения свободного дискового пространства, при котором сработает алерт:
 
-        * 95% от размера хранилища для `Alarm`;
-        * 90% от размера хранилища для `Warning`.
-
-    1. **Дополнительные настройки**:
-
-        * **Функция агрегации** — `Минимум` (минимальное значение метрики за период).
-        * **Окно вычисления** — желаемый период, с которым будет обновляться значение метрики.
+        * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (минимальное значение метрики за период).
+        * **{{ ui-key.yacloud_monitoring.alert.status_warn }}** — `90` (90% от размера хранилища).
+        * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `95` (95% от размера хранилища).
+        * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — желаемый период, с которым будет обновляться значение метрики.
 
     1. Добавьте созданный ранее канал уведомлений.
 
