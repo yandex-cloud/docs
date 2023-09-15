@@ -1,8 +1,8 @@
 # LOD expressions and filtering in aggregate functions
 
-By default, in {{ datalens-short-name }}, [aggregate functions](../function-ref/aggregation-functions.md) are calculated with grouping by dimensions involved in the building of the chart (that is, located in one of its sections). You can change the grouping for an aggregate function if you specify the [level of detail](../function-ref/aggregation-functions.md#syntax-lod). By managing the level of detail, you can add or exclude dimensions from grouping and use nested aggregations. For more detail on data aggregate and grouping in {{ datalens-short-name }}, please review [{#T}](aggregation-tutorial.md).
+By default, in {{ datalens-short-name }}, [aggregate functions](../function-ref/aggregation-functions.md) are calculated with grouping by dimensions involved in the building of the chart (i.e., located in one of its sections). You can change the grouping for an aggregate function if you specify the [level of detail](../function-ref/aggregation-functions.md#syntax-lod). By managing the level of detail, you can add or exclude dimensions from grouping and use nested aggregations. For more information about data aggregation and grouping in {{ datalens-short-name }}, see [{#T}](aggregation-tutorial.md).
 
-As a data source in our examples, we'll use a direct [connection](../tutorials/data-from-ch-to-sql-chart.md#create-connection) to a demo database (the dataset is based on the `SampleSuperstore` table).
+As a data source in our examples, we will use a direct [connection](../tutorials/data-from-ch-to-sql-chart.md#create-connection) to a demo database (the dataset is based on the `SampleSuperstore` table).
 
 ## Grouping in LOD expressions {#lod-grouping}
 
@@ -16,13 +16,13 @@ Keywords override the grouping set in the chart when calculating a specific aggr
 
 {% note warning %}
 
-You can use dimensions in LOD expressions whether they are used in the chart or not. In this case, the top-level aggregation should only contain dimensions that are used in the chart (are in one of its sections).
+You can use dimensions in LOD expressions whether they are used in the chart or not. In this case, the top-level aggregation should only contain dimensions that are used in the chart (i.e., located in one of its sections).
 
 {% endnote %}
 
 ### FIXED {#fixed}
 
-The `FIXED` keyword allows you to do the grouping by explicitly listed dimensions. If used with an empty list of dimensions, `FIXED` is equivalent to the same grouping as in the chart.
+The `FIXED` keyword allows you to group data by explicitly listed dimensions. If used with an empty list of dimensions, `FIXED` results in the same grouping as in the chart.
 
 **Example 1**
 
@@ -39,7 +39,7 @@ For example, for the **Table** chart, the result looks like this:
 
 **Example 2**
 
-For each category in the same chart, we'll calculate the deviation of the average sales amount in the region from that in all regions (`+/- avgSales`).
+For each category in the same chart, we will calculate the deviation of the average sales amount in the region from that in all regions (`+/- avgSales`).
 
 Let's create the `AVG([Sales]) - AVG([Sales] FIXED [Category])`measure, where:
 
@@ -59,7 +59,7 @@ Expressions with `INCLUDE` can be useful if you need to calculate a measure with
 
 **Example 1**
 
-Calculate the maximum number of orders by region per date. Here we use nested aggregation: first, let's count the number of orders per date and then select the maximum value. The formula for the measure: `MAX(COUNTD([Order ID] INCLUDE [Region]))`.
+Calculate the maximum number of orders by region per date. Here we use nested aggregation: first, let's count the number of orders per date and then select the maximum value. The formula for the measure is `MAX(COUNTD([Order ID] INCLUDE [Region]))`.
 
 {% note info %}
 
@@ -67,20 +67,20 @@ In this example, the `[Region]` dimension, which is absent in the chart, is adde
 
 {% endnote %}
 
-For example, in the **Line chart** chart, the result looks like this:
+For example, in the **Line chart**, the result will be as follows:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-3.png)
 
-Only one dimension is used in the chart — `[Order Date]`. In this case, the number of orders is calculated with a grouping by date and region, because the `[Region]` dimension is added to the grouping for the [COUNTD](../function-ref/COUNTD.md) function.
+The chart uses only one dimension, `[Order Date]`. In this case, the number of orders is calculated with a grouping by date and region, because the `[Region]` dimension is added to the grouping for the [COUNTD](../function-ref/COUNTD.md) function.
 
 **Example 2**
 
-Let's calculate how many customers with an average purchase amount over 1000 account for each subcategory of goods. To do this, we'll create a measure using the [COUNTD_IF](../function-ref/COUNTD_IF.md) function. The formula for the measure: `COUNTD_IF(ANY([Customer ID] INCLUDE [Customer ID]), AVG([Sales] INCLUDE [Customer ID]) > 1000)`, where:
+Let's calculate the number of customers with an average purchase amount over 1000 for each subcategory of goods. To do this, we will create a measure using the [COUNTD_IF](../function-ref/COUNTD_IF.md) function. The formula for the measure is `COUNTD_IF(ANY([Customer ID] INCLUDE [Customer ID]), AVG([Sales] INCLUDE [Customer ID]) > 1000)`, where:
 
 * `ANY([Customer ID] INCLUDE [Customer ID])`: `[Customer ID`] dimension is converted into the measure using the [ANY](../function-ref/ANY.md) function.
 * `AVG([Sales] INCLUDE [Customer ID]) > 1000`: Average purchase amount is compared with the specified value.
 
-For example, in the **Column chart** chart, the result looks like this:
+For example, in the **Column chart**, the result will be as follows:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-4.png)
 
@@ -96,20 +96,20 @@ Expressions with `EXCLUDE` can be used, for example, to calculate the percentage
 
 **Example 1**
 
-Let's calculate the sales amount in the regions broken down by delivery type. To do this, we will set the chart grouping by the `[Region]` and `[Ship Mode]` dimensions. To show the total amount for all delivery types, we will add the following measure to the **Signatures** section: `IF([Ship Mode]="First Class", SUM([Sales] EXCLUDE [Ship Mode]), NULL)`. With `EXCLUDE`, the `[Ship Mode]` dimension is excluded from the grouping when calculating this measure, so the total amount for all delivery types is calculated.
+Let's calculate the sales amount in the regions by delivery type. To do this, we will set the chart grouping by the `[Region]` and `[Ship Mode]` dimensions. To show the total amount for all delivery types, we will add the following measure to the **Signatures** section: `IF([Ship Mode]="First Class", SUM([Sales] EXCLUDE [Ship Mode]), NULL)`. With `EXCLUDE`, the `[Ship Mode]` dimension is excluded from the grouping when calculating this measure, so the total amount for all delivery types is calculated.
 
-For example, in the **Bar chart** chart, the result looks like this:
+For example, in the **Bar chart**, the result will be as follows:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-5.png)
 
 **Example 2**
 
-Let's calculate the average daily sales amount broken down by month. To do this, we'll add a grouping by month to the chart: for the `[Order Date]` field in the **Grouping** setting, let's choose **Rounding** ⟶ **Month** (for more information, [{#T}](chart/settings.md#field-settings)). Let's create the measure with the `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])` formula, where:
+Let's calculate the average daily sales amount by month. To do this, we will add a grouping by month to the chart: for the `[Order Date]` field in the **Grouping** setting, let's choose **Rounding** ⟶ **Month** (for more information, [{#T}](chart/settings.md#field-settings)). Let's create the measure with the `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])` formula, where:
 
 * `SUM([Sales] FIXED [Order Date])`: Total sales of all orders per day.
 * `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])`: The `[Order Date]` measure is excluded from the grouping so that the average daily sales amount is calculated with a grouping by month (set in the chart).
 
-For example, in the **Bar chart** chart, the result looks like this:
+For example, in the **Bar chart**, the result will be as follows:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-6.png)
 
@@ -121,19 +121,19 @@ The [BEFORE FILTER BY](window-function-tutorial.md#before-filter-by) section in 
 
 **Example**
 
-Let's compare the measures of average daily sales per month for a given year with those for the entire period. We'll add two new dimensions to the chart — the month and the year of the order:
+Let's compare the measures of average daily sales per month for a given year with those for the entire period. We will add two new dimensions to the chart, the month and the year of the order:
 
 * Month: `MONTH([Order Date])`
 * Year: `YEAR([Order Date])`
 
-To calculate the sales amount, we'll create two measures:
+To calculate the sales amount, we will create two measures:
 
-* AvgDaySales: `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date] BEFORE FILTER BY [Year])`.
-* AvgDaySales by year — `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])`
+* AvgDaySales: `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date] BEFORE FILTER BY [Year])`
+* AvgDaySales by year: `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])`
 
-Let's add the `Year` dimension to the **Filters** section and specify, for example, the value `2017`. As a result, the `AvgDaySales` measure is calculated before filtering by year is applied to the chart and we get the average daily sales amount per month for the entire period. The `AvgDaySales` by year measure will be calculated after applying filtering by year and we obtain the average daily sales amount per month for a given year (`2017`).
+Let's add the `Year` dimension to the **Filters** section and set it to, e.g., `2017`. As a result, the `AvgDaySales` measure will be calculated before filtering by year is applied to the chart, and we will get the average daily sales amount per month for the entire period. The `AvgDaySales` by year measure will be calculated after applying filtering by year, and we will obtain the average daily sales amount per month for a given year (`2017`).
 
-For example, in the **Line** chart, the result looks like this:
+For example, in the **Line chart**, the result will be as follows:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-7.png)
 
@@ -159,7 +159,7 @@ Let's have a look at the chart with calculation of the share of each goods categ
 * % Total lod: `SUM([Sales]) / SUM([Sales] FIXED)`
 * % Total window: `SUM([Sales]) / SUM(SUM([Sales]) TOTAL)`
 
-For `INCLUDE`, there is no equivalent in window functions, so you can't add new dimensions there.
+For `INCLUDE`, there is no equivalent in window functions as you cannot add new dimensions there.
 
 ## Constraints {#restrictions}
 

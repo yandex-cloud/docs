@@ -20,7 +20,7 @@ If you are using Confluence and want to migrate to {{ wiki-full-name }}, our exp
 
 ## Create a new organization {#new-org}
 
-If you do not have an organization in {{ org-full-name}}, you can create a new one when you first log in to {{ wiki-full-name }}.
+If you have no organization in {{ org-full-name}}, you can create a new one when you first log in to {{ wiki-full-name }}.
 
 {% note warning %}
 
@@ -28,7 +28,7 @@ An organization can only be created for users who have a Yandex account.
 
 {% endnote %}
 
-1. Log in to your [Yandex account]({{ link-passport }}). If you have no account, [create]({{ support-passport-create }}) one.
+1. Log in to your [Yandex account]({{ link-passport }}). If you do not have an account, [create]({{ support-passport-create }}) one.
 
 1. Go to the {{ wiki-name }} homepage: [{{ link-wiki }}]({{ link-wiki }}).
 

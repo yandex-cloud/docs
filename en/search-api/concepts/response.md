@@ -178,7 +178,7 @@ In some cases, the tag is mutually exclusive with other tags of the `response` g
 * `Strict`
 * `All`
 ||
-|| found-human | A string in the language matching the selected [search type](../operations/registration.md). It shows the number of found documents and contains related information | Missing. ||
+|| found-human | String in the language matching the selected [search type](../operations/registration.md). It shows the number of found documents and contains related information | Missing ||
 |#
 
 ### Misspell / reask section {#misspell-block}
@@ -205,10 +205,10 @@ Type of error detected in the query.
 
 Possible values:
 
-* `Misspell`: Typo.
-* `KeyboardLayout`: Incorrect keyboard layout.
-* `Volapyuk`: Query is made in Russian transliterated into English. Used if <q>Russian (yandex.ru)</q> is selected for [search type](../operations/registration.md#search-type).
-| Missing.
+* `Misspell`: Typo
+* `KeyboardLayout`: Incorrect keyboard layout
+* `Volapyuk`: Query is made in Russian transliterated into English. Used if <q>{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }} (yandex.ru)</q> is selected for [search type](../operations/registration.md#search-type)
+| Missing
 ||
 || source-text |
 Source query text.

@@ -17,7 +17,7 @@ _Возможности_ — это различные типы анализа, 
 
 ```json
 {
-  "folderId": "b1gvmob95yysaplct532",
+  "folderId": "b1gvmob95yys********",
   "analyze_specs": [{
     "content": "iVBORw0KGgo...",
     "features": [{

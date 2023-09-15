@@ -4,7 +4,7 @@ The guide in this checklist item will help you add users to your created organiz
 
 ## Add a Yandex user {#add-user-yandex}
 
-If your employees have Yandex accounts, e.g., `login@yandex.ru`, they can use them to access {{yandex-cloud}} services enabled in your organization.
+If your employees have Yandex accounts, e.g., `login@yandex.ru`, they can use them to access {{ yandex-cloud }} services enabled in your organization.
 
 To add employee accounts to the organization, follow these steps:
 

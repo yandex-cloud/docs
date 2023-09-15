@@ -298,6 +298,7 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount)**<br>S3 mounts to be used by the version. 
+async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig)**<br>Config for asynchronous invocations of the version 
 
 
 ### Resources {#Resources}
@@ -347,6 +348,37 @@ mount_point_name | **string**<br>Required. Mount point directory name (not path)
 read_only | **bool**<br>Is mount read only. 
 
 
+### AsyncInvocationConfig {#AsyncInvocationConfig}
+
+Field | Description
+--- | ---
+retries_count | **int64**<br>Number of retries of version invocation Acceptable values are 0 to 100, inclusive.
+success_target | **[ResponseTarget](#ResponseTarget)**<br>Required. Target for successful result of the version's invocation 
+failure_target | **[ResponseTarget](#ResponseTarget)**<br>Required. Target for unsuccessful result, if all retries failed 
+service_account_id | **string**<br>Service account which can invoke version 
+
+
+### ResponseTarget {#ResponseTarget}
+
+Field | Description
+--- | ---
+target | **oneof:** `empty_target` or `ymq_target`<br>
+&nbsp;&nbsp;empty_target | **[EmptyTarget](#EmptyTarget)**<br>Target to ignore a result 
+&nbsp;&nbsp;ymq_target | **[YMQTarget](#YMQTarget)**<br>Target to send a result to ymq 
+
+
+### EmptyTarget {#EmptyTarget}
+
+Empty.
+
+### YMQTarget {#YMQTarget}
+
+Field | Description
+--- | ---
+queue_arn | **string**<br>Required. Queue ARN 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
 ## GetFunctionVersion {#GetFunctionVersion}
 
 Deprecated. Use [GetVersion](#GetVersion).
@@ -383,6 +415,7 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret1)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount1)**<br>S3 mounts to be used by the version. 
+async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig1)**<br>Config for asynchronous invocations of the version 
 
 
 ### Resources {#Resources1}
@@ -432,6 +465,37 @@ mount_point_name | **string**<br>Required. Mount point directory name (not path)
 read_only | **bool**<br>Is mount read only. 
 
 
+### AsyncInvocationConfig {#AsyncInvocationConfig1}
+
+Field | Description
+--- | ---
+retries_count | **int64**<br>Number of retries of version invocation Acceptable values are 0 to 100, inclusive.
+success_target | **[ResponseTarget](#ResponseTarget1)**<br>Required. Target for successful result of the version's invocation 
+failure_target | **[ResponseTarget](#ResponseTarget1)**<br>Required. Target for unsuccessful result, if all retries failed 
+service_account_id | **string**<br>Service account which can invoke version 
+
+
+### ResponseTarget {#ResponseTarget1}
+
+Field | Description
+--- | ---
+target | **oneof:** `empty_target` or `ymq_target`<br>
+&nbsp;&nbsp;empty_target | **[EmptyTarget](#EmptyTarget1)**<br>Target to ignore a result 
+&nbsp;&nbsp;ymq_target | **[YMQTarget](#YMQTarget1)**<br>Target to send a result to ymq 
+
+
+### EmptyTarget {#EmptyTarget1}
+
+Empty.
+
+### YMQTarget {#YMQTarget1}
+
+Field | Description
+--- | ---
+queue_arn | **string**<br>Required. Queue ARN 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
 ## GetVersionByTag {#GetVersionByTag}
 
 Returns all versions with the specified tag. <br>To get the list of all available versions, make a [ListVersions](#ListVersions) request.
@@ -469,6 +533,7 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret2)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount2)**<br>S3 mounts to be used by the version. 
+async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig2)**<br>Config for asynchronous invocations of the version 
 
 
 ### Resources {#Resources2}
@@ -518,6 +583,37 @@ mount_point_name | **string**<br>Required. Mount point directory name (not path)
 read_only | **bool**<br>Is mount read only. 
 
 
+### AsyncInvocationConfig {#AsyncInvocationConfig2}
+
+Field | Description
+--- | ---
+retries_count | **int64**<br>Number of retries of version invocation Acceptable values are 0 to 100, inclusive.
+success_target | **[ResponseTarget](#ResponseTarget2)**<br>Required. Target for successful result of the version's invocation 
+failure_target | **[ResponseTarget](#ResponseTarget2)**<br>Required. Target for unsuccessful result, if all retries failed 
+service_account_id | **string**<br>Service account which can invoke version 
+
+
+### ResponseTarget {#ResponseTarget2}
+
+Field | Description
+--- | ---
+target | **oneof:** `empty_target` or `ymq_target`<br>
+&nbsp;&nbsp;empty_target | **[EmptyTarget](#EmptyTarget2)**<br>Target to ignore a result 
+&nbsp;&nbsp;ymq_target | **[YMQTarget](#YMQTarget2)**<br>Target to send a result to ymq 
+
+
+### EmptyTarget {#EmptyTarget2}
+
+Empty.
+
+### YMQTarget {#YMQTarget2}
+
+Field | Description
+--- | ---
+queue_arn | **string**<br>Required. Queue ARN 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
 ## GetFunctionVersionByTag {#GetFunctionVersionByTag}
 
 Deprecated. Use [GetVersionByTag](#GetVersionByTag).
@@ -555,6 +651,7 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret3)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions3)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount3)**<br>S3 mounts to be used by the version. 
+async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig3)**<br>Config for asynchronous invocations of the version 
 
 
 ### Resources {#Resources3}
@@ -602,6 +699,37 @@ bucket_id | **string**<br>Required. S3 bucket name for mounting. The string leng
 prefix | **string**<br>S3 bucket prefix for mounting. 
 mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
 read_only | **bool**<br>Is mount read only. 
+
+
+### AsyncInvocationConfig {#AsyncInvocationConfig3}
+
+Field | Description
+--- | ---
+retries_count | **int64**<br>Number of retries of version invocation Acceptable values are 0 to 100, inclusive.
+success_target | **[ResponseTarget](#ResponseTarget3)**<br>Required. Target for successful result of the version's invocation 
+failure_target | **[ResponseTarget](#ResponseTarget3)**<br>Required. Target for unsuccessful result, if all retries failed 
+service_account_id | **string**<br>Service account which can invoke version 
+
+
+### ResponseTarget {#ResponseTarget3}
+
+Field | Description
+--- | ---
+target | **oneof:** `empty_target` or `ymq_target`<br>
+&nbsp;&nbsp;empty_target | **[EmptyTarget](#EmptyTarget3)**<br>Target to ignore a result 
+&nbsp;&nbsp;ymq_target | **[YMQTarget](#YMQTarget3)**<br>Target to send a result to ymq 
+
+
+### EmptyTarget {#EmptyTarget3}
+
+Empty.
+
+### YMQTarget {#YMQTarget3}
+
+Field | Description
+--- | ---
+queue_arn | **string**<br>Required. Queue ARN 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
 ## ListVersions {#ListVersions}
@@ -653,6 +781,7 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret4)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions4)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount4)**<br>S3 mounts to be used by the version. 
+async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig4)**<br>Config for asynchronous invocations of the version 
 
 
 ### Resources {#Resources4}
@@ -700,6 +829,37 @@ bucket_id | **string**<br>Required. S3 bucket name for mounting. The string leng
 prefix | **string**<br>S3 bucket prefix for mounting. 
 mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
 read_only | **bool**<br>Is mount read only. 
+
+
+### AsyncInvocationConfig {#AsyncInvocationConfig4}
+
+Field | Description
+--- | ---
+retries_count | **int64**<br>Number of retries of version invocation Acceptable values are 0 to 100, inclusive.
+success_target | **[ResponseTarget](#ResponseTarget4)**<br>Required. Target for successful result of the version's invocation 
+failure_target | **[ResponseTarget](#ResponseTarget4)**<br>Required. Target for unsuccessful result, if all retries failed 
+service_account_id | **string**<br>Service account which can invoke version 
+
+
+### ResponseTarget {#ResponseTarget4}
+
+Field | Description
+--- | ---
+target | **oneof:** `empty_target` or `ymq_target`<br>
+&nbsp;&nbsp;empty_target | **[EmptyTarget](#EmptyTarget4)**<br>Target to ignore a result 
+&nbsp;&nbsp;ymq_target | **[YMQTarget](#YMQTarget4)**<br>Target to send a result to ymq 
+
+
+### EmptyTarget {#EmptyTarget4}
+
+Empty.
+
+### YMQTarget {#YMQTarget4}
+
+Field | Description
+--- | ---
+queue_arn | **string**<br>Required. Queue ARN 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
 ## ListFunctionVersions {#ListFunctionVersions}
@@ -751,6 +911,7 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret5)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions5)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount5)**<br>S3 mounts to be used by the version. 
+async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig5)**<br>Config for asynchronous invocations of the version 
 
 
 ### Resources {#Resources5}
@@ -798,6 +959,37 @@ bucket_id | **string**<br>Required. S3 bucket name for mounting. The string leng
 prefix | **string**<br>S3 bucket prefix for mounting. 
 mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
 read_only | **bool**<br>Is mount read only. 
+
+
+### AsyncInvocationConfig {#AsyncInvocationConfig5}
+
+Field | Description
+--- | ---
+retries_count | **int64**<br>Number of retries of version invocation Acceptable values are 0 to 100, inclusive.
+success_target | **[ResponseTarget](#ResponseTarget5)**<br>Required. Target for successful result of the version's invocation 
+failure_target | **[ResponseTarget](#ResponseTarget5)**<br>Required. Target for unsuccessful result, if all retries failed 
+service_account_id | **string**<br>Service account which can invoke version 
+
+
+### ResponseTarget {#ResponseTarget5}
+
+Field | Description
+--- | ---
+target | **oneof:** `empty_target` or `ymq_target`<br>
+&nbsp;&nbsp;empty_target | **[EmptyTarget](#EmptyTarget5)**<br>Target to ignore a result 
+&nbsp;&nbsp;ymq_target | **[YMQTarget](#YMQTarget5)**<br>Target to send a result to ymq 
+
+
+### EmptyTarget {#EmptyTarget5}
+
+Empty.
+
+### YMQTarget {#YMQTarget5}
+
+Field | Description
+--- | ---
+queue_arn | **string**<br>Required. Queue ARN 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
 ## DeleteVersion {#DeleteVersion}
@@ -905,6 +1097,7 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret6)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions6)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount6)**<br>S3 mounts to be used by the version. 
+async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig6)**<br>Config for asynchronous invocations of the version 
 
 
 ### Resources {#Resources6}
@@ -952,6 +1145,37 @@ bucket_id | **string**<br>Required. S3 bucket name for mounting. The string leng
 prefix | **string**<br>S3 bucket prefix for mounting. 
 mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
 read_only | **bool**<br>Is mount read only. 
+
+
+### AsyncInvocationConfig {#AsyncInvocationConfig6}
+
+Field | Description
+--- | ---
+retries_count | **int64**<br>Number of retries of version invocation Acceptable values are 0 to 100, inclusive.
+success_target | **[ResponseTarget](#ResponseTarget6)**<br>Required. Target for successful result of the version's invocation 
+failure_target | **[ResponseTarget](#ResponseTarget6)**<br>Required. Target for unsuccessful result, if all retries failed 
+service_account_id | **string**<br>Service account which can invoke version 
+
+
+### ResponseTarget {#ResponseTarget6}
+
+Field | Description
+--- | ---
+target | **oneof:** `empty_target` or `ymq_target`<br>
+&nbsp;&nbsp;empty_target | **[EmptyTarget](#EmptyTarget6)**<br>Target to ignore a result 
+&nbsp;&nbsp;ymq_target | **[YMQTarget](#YMQTarget6)**<br>Target to send a result to ymq 
+
+
+### EmptyTarget {#EmptyTarget6}
+
+Empty.
+
+### YMQTarget {#YMQTarget6}
+
+Field | Description
+--- | ---
+queue_arn | **string**<br>Required. Queue ARN 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
 ## RemoveTag {#RemoveTag}
@@ -1018,6 +1242,7 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret7)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions7)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount7)**<br>S3 mounts to be used by the version. 
+async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig7)**<br>Config for asynchronous invocations of the version 
 
 
 ### Resources {#Resources7}
@@ -1065,6 +1290,37 @@ bucket_id | **string**<br>Required. S3 bucket name for mounting. The string leng
 prefix | **string**<br>S3 bucket prefix for mounting. 
 mount_point_name | **string**<br>Required. Mount point directory name (not path) for mounting. The string length in characters must be 1-100. Value must match the regular expression ` [-_0-9a-zA-Z]* `.
 read_only | **bool**<br>Is mount read only. 
+
+
+### AsyncInvocationConfig {#AsyncInvocationConfig7}
+
+Field | Description
+--- | ---
+retries_count | **int64**<br>Number of retries of version invocation Acceptable values are 0 to 100, inclusive.
+success_target | **[ResponseTarget](#ResponseTarget7)**<br>Required. Target for successful result of the version's invocation 
+failure_target | **[ResponseTarget](#ResponseTarget7)**<br>Required. Target for unsuccessful result, if all retries failed 
+service_account_id | **string**<br>Service account which can invoke version 
+
+
+### ResponseTarget {#ResponseTarget7}
+
+Field | Description
+--- | ---
+target | **oneof:** `empty_target` or `ymq_target`<br>
+&nbsp;&nbsp;empty_target | **[EmptyTarget](#EmptyTarget7)**<br>Target to ignore a result 
+&nbsp;&nbsp;ymq_target | **[YMQTarget](#YMQTarget7)**<br>Target to send a result to ymq 
+
+
+### EmptyTarget {#EmptyTarget7}
+
+Empty.
+
+### YMQTarget {#YMQTarget7}
+
+Field | Description
+--- | ---
+queue_arn | **string**<br>Required. Queue ARN 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
 
 
 ## ListTagHistory {#ListTagHistory}
@@ -1171,6 +1427,7 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret8)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions8)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount8)**<br>S3 mounts to be used by the version. 
+async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig8)**<br>Config for asynchronous invocations of the version 
 
 
 ### Resources {#Resources8}
@@ -1229,6 +1486,37 @@ mount_point_name | **string**<br>Required. Mount point directory name (not path)
 read_only | **bool**<br>Is mount read only. 
 
 
+### AsyncInvocationConfig {#AsyncInvocationConfig8}
+
+Field | Description
+--- | ---
+retries_count | **int64**<br>Number of retries of version invocation Acceptable values are 0 to 100, inclusive.
+success_target | **[ResponseTarget](#ResponseTarget8)**<br>Required. Target for successful result of the version's invocation 
+failure_target | **[ResponseTarget](#ResponseTarget8)**<br>Required. Target for unsuccessful result, if all retries failed 
+service_account_id | **string**<br>Service account which can invoke version 
+
+
+### ResponseTarget {#ResponseTarget8}
+
+Field | Description
+--- | ---
+target | **oneof:** `empty_target` or `ymq_target`<br>
+&nbsp;&nbsp;empty_target | **[EmptyTarget](#EmptyTarget8)**<br>Target to ignore a result 
+&nbsp;&nbsp;ymq_target | **[YMQTarget](#YMQTarget8)**<br>Target to send a result to ymq 
+
+
+### EmptyTarget {#EmptyTarget8}
+
+Empty.
+
+### YMQTarget {#YMQTarget8}
+
+Field | Description
+--- | ---
+queue_arn | **string**<br>Required. Queue ARN 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
 ### Operation {#Operation6}
 
 Field | Description
@@ -1275,6 +1563,7 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret9)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions9)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount9)**<br>S3 mounts to be used by the version. 
+async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig9)**<br>Config for asynchronous invocations of the version 
 
 
 ## CreateFunctionVersion {#CreateFunctionVersion}
@@ -1309,6 +1598,7 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret9)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions9)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount9)**<br>S3 mounts to be used by the version. 
+async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig9)**<br>Config for asynchronous invocations of the version 
 
 
 ### Resources {#Resources9}
@@ -1367,6 +1657,37 @@ mount_point_name | **string**<br>Required. Mount point directory name (not path)
 read_only | **bool**<br>Is mount read only. 
 
 
+### AsyncInvocationConfig {#AsyncInvocationConfig9}
+
+Field | Description
+--- | ---
+retries_count | **int64**<br>Number of retries of version invocation Acceptable values are 0 to 100, inclusive.
+success_target | **[ResponseTarget](#ResponseTarget9)**<br>Required. Target for successful result of the version's invocation 
+failure_target | **[ResponseTarget](#ResponseTarget9)**<br>Required. Target for unsuccessful result, if all retries failed 
+service_account_id | **string**<br>Service account which can invoke version 
+
+
+### ResponseTarget {#ResponseTarget9}
+
+Field | Description
+--- | ---
+target | **oneof:** `empty_target` or `ymq_target`<br>
+&nbsp;&nbsp;empty_target | **[EmptyTarget](#EmptyTarget9)**<br>Target to ignore a result 
+&nbsp;&nbsp;ymq_target | **[YMQTarget](#YMQTarget9)**<br>Target to send a result to ymq 
+
+
+### EmptyTarget {#EmptyTarget9}
+
+Empty.
+
+### YMQTarget {#YMQTarget9}
+
+Field | Description
+--- | ---
+queue_arn | **string**<br>Required. Queue ARN 
+service_account_id | **string**<br>Required. Service account which has write permission on the queue. The maximum string length in characters is 50.
+
+
 ### Operation {#Operation7}
 
 Field | Description
@@ -1413,6 +1734,7 @@ named_service_accounts | **map<string,string>**<br>Additional service accounts t
 secrets[] | **[Secret](#Secret10)**<br>Yandex Lockbox secrets to be used by the version. 
 log_options | **[LogOptions](#LogOptions10)**<br>Options for logging from the function 
 storage_mounts[] | **[StorageMount](#StorageMount10)**<br>S3 mounts to be used by the version. 
+async_invocation_config | **[AsyncInvocationConfig](#AsyncInvocationConfig10)**<br>Config for asynchronous invocations of the version 
 
 
 ## ListRuntimes {#ListRuntimes}

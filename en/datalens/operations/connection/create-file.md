@@ -3,6 +3,10 @@
 To create a connection to a file:
 
 
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
+
 
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
@@ -25,11 +29,11 @@ To create a connection to a file:
    {% endnote %}
 
 
-1. In the top part of the screen, select the file upload parameters:
+1. At the top of the screen, select the file upload parameters:
 
-   * **Encoding**. Specify the data encoding of the file. The values you can use are `utf-8`, `utf-16`, `windows-1251`, and `utf-8-sig`.
-   * **Delimiter**. Specify the delimiter that is used in the file. The available values are `Comma`, `Semicolon`, and `Tabulation character`.
-   * **Column header**. Select the title option. If you select **Yes**, {{ datalens-short-name }} will use the first row of data as heading.
+   * **Encoding**: Specify the file data encoding. You can use `utf-8`, `utf-16`, `windows-1251`, and `utf-8-sig`.
+   * **Delimiter**: Specify the delimiter that is used in the file. The available values are `Comma`, `Semicolon`, and `Tabulation character`.
+   * **Column header**: Select the title option. If you select **Yes**, {{ datalens-short-name }} will use the first row of data as a heading.
 
 1. (Optional) Select the type of data for each column. To do this, click the icon to the left of the column.
 

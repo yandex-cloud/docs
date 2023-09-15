@@ -36,6 +36,12 @@ To open a Gantt chart for queue issues:
 
 ### Issue color {#task-color}
 
+{% note info %}
+
+Issue color settings are saved at the individual user level, which allows each user to customize the color scheme.
+
+{% endnote %}
+
 {% include [color-issue](../../_includes/tracker/color-issue.md) %}
 
 ## Displaying the issue list section {#tasks-view}

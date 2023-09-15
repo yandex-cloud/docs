@@ -52,6 +52,12 @@ To go to the Gantt chart:
 
 ### Issue color {#task-color}
 
+{% note info %}
+
+Issue color settings are saved at the project chart level, i.e., the selected color scheme applies to all users viewing the chart.
+
+{% endnote %}
+
 {% include [color-issue](../../_includes/tracker/color-issue.md) %}
 
 ### Critical path {#critical-path}
@@ -66,10 +72,10 @@ To go to the Gantt chart:
 
 To open the issue actions menu in the issue list section, click ![](../../_assets/tracker/svg/actions.svg) **{{ ui-key.startrek.ui_components_Gantt_IssueActionsCell.issue-action-menu-title }}** to the right of the issue name.
 
-In the menu, you have the following actions available:
+The following actions are available in the menu:
 * ![](../../_assets/tracker/text-edit/link.svg) **{{ ui-key.startrek.ui_components_projects_hooks.copy-to-clipboard }}**.
 * ![](../../_assets/tracker/svg/move-up.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-up }}** (for manual sorting only).
 * ![](../../_assets/tracker/svg/move-down.svg) **{{ ui-key.startrek.ui_components_projects_hooks.issue-actions--move-down }}** (for manual sorting only).
 * ![](../../_assets/tracker/svg/icon-remove.svg) **{{ ui-key.startrek.ui_components_projects_hooks.delete-from-project }}**.
-* ![](../../_assets/tracker/svg/gantt-palette.svg) **{{ ui-key.startrek.ui_components_Gantt_IssueActionsCell.choose-color }}** (only when setting up the **{{ ui-key.startrek.ui_components_Gantt.color-type-by-manual }}** color).
+* ![](../../_assets/tracker/svg/gantt-palette.svg) **{{ ui-key.startrek.ui_components_Gantt_IssueActionsCell.choose-color }}** (only when the **{{ ui-key.startrek.ui_components_Gantt.color-type-by-manual }}** setting is enabled).
 

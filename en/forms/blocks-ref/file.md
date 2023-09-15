@@ -1,8 +1,8 @@
 # File
 
-Using this block, the user can attach a file to a form. For example, a photo or error report.
+Using this block, the user can attach a file, e.g., a photo or an error report, to a form.
 
-Users can attach up to 20 files with a maximum total size of 20 MB. Within these limits, you can restrict the total number and size of files that your users can attach.
+You can attach a maximum of 20 files, up to 20 MB each. This limit applies if you have not enabled saving attached files from responses to storage, i.e., files are saved in {{ forms-name }}. If you enabled storage, no limits are imposed.
 
 {% note warning %}
 

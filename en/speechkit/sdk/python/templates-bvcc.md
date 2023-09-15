@@ -41,9 +41,6 @@ This example uses the following parameters:
 - Python 3
 
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
-
-      {% include [In case of a version conflict](../../../_includes/speechkit/version-conflict.md) %}
-
    1. Create a file named `test.py` and add the following code to it:
 
       ```python
@@ -145,9 +142,9 @@ This example uses the following parameters:
 
             {% include [Types of transcribation](../../../_includes/speechkit/audio_processing_type.md) %}
 
-      * `original_recognition.raw_text `: Pattern phrase.
-      * `pattern_based_synthesis_model.model`: {{ brand-voice-cc }} direction used during speech synthesis.
-      * `export_path`: Path to the file for audio recording.
+      * `original_recognition.raw_text `: Pattern phrase
+      * `pattern_based_synthesis_model.model`: {{ brand-voice-cc }} direction used during speech synthesis
+      * `export_path`: Path to the file to save the audio to
 
    1. Run the created file:
 
@@ -155,7 +152,7 @@ This example uses the following parameters:
       python3 test.py --export speech.wav
       ```
 
-      Where `--export` is the path to the file for audio recording.
+      Where `--export` is the path to the file the audio will be saved to.
 
       As a result, the `speech.wav` file with pattern-based synthesized speech will be created.
 
@@ -164,6 +161,5 @@ This example uses the following parameters:
 #### See also {#see-also}
 
 * [Python SDK {{ speechkit-name }}](https://pypi.org/project/yandex-speechkit/)
-* [{#T}](../../concepts/auth.md)
 * [{#T}](templates-bvp-bvss.md)
 * [{#T}](../../tts/api/tts-templates.md)

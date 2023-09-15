@@ -5,9 +5,11 @@ description: "In this section, you'll learn all about how {{ tracker-name }} wor
 
 # How {{ tracker-name }} works
 
-In this section, you'll learn all about how {{ tracker-name }} works and how you can use {{ tracker-name }} to suit your workflow.
+In this section, you will learn how {{ tracker-name }} works and how you can use {{ tracker-name }} to suit your workflow.
 
-Before you start, see {{ tracker-name }} setup instructions in [{#T}](quick-start.md).
+
+Before you start, check the {{ tracker-name }} setup guide in [{#T}](quick-start.md).
+
 
 ## {{ tracker-name }} structure {#blocks}
 

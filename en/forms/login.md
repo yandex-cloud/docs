@@ -4,7 +4,7 @@ To work with [{{ forms-full-name }} for business](forms-for-org.md)log in to you
 
 1. Go to the page for managing forms for business: [{{ link-forms-b2b }}]({{ link-forms-b2b }}).
 
-1. Log in to the account you use to work in organization:
+1. Log in to the account you use to work in the organization:
 
    - To log in using your Yandex email address or the email address on your company's domain, click **{{ ui-key.forms.common.blocks_error-message.login-passport }}** and enter your username, such as `{{ example-account }}` or `login@example.com`.
    - If organization uses the Single Sign-On authentication scheme with an identity federation, click **{{ ui-key.forms.common.blocks_error-message.login-sso }}**, specify the federation ID, and log in to your corporate account.

@@ -25,7 +25,7 @@
 Количество [образов](../compute/concepts/image.md) в одном облаке | 8
 Количество [оптимизированных для развертывания образов](../compute/concepts/image.md#images-optimized-for-deployment) в одном облаке^1^ | 0
 Количество [групп ВМ](../compute/concepts/instance-groups/index.md) в одном облаке | 10
-Количество [GPU](../compute/concepts/gpus.md) для всех ВМ в одном облаке | 0
+Суммарное количество [GPU](../compute/concepts/gpus.md) NVIDIA® Tesla® V100 для всех ВМ в одном облаке | 0
 Суммарное количество GPU на платформе {{ a100-epyc }} для всех ВМ в одном облаке | 0
 Суммарное количество GPU на платформе {{ t4-ice-lake }} для всех ВМ в одном облаке | 0
 Количество одновременно выполняемых [операций](../api-design-guide/concepts/operation.md) в одном [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) | 15

@@ -1,8 +1,8 @@
 1. В [консоли управления]({{ link-console-main }}) [выберите](../../resource-manager/operations/cloud/switch-cloud.md) облако.
-1. Перейдите на вкладку **Права доступа**.
-1. Нажмите кнопку **Назначить роли**.
-1. В окне **Настройка прав доступа** нажмите кнопку **Выбрать пользователя**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+1. В окне **{{ ui-key.yacloud_components.acl.label.title }}** нажмите кнопку **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
 1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
-1. Нажмите кнопку **Добавить роль**.
+1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}**.
 1. Выберите роль в облаке.
-1. Нажмите кнопку **Сохранить**.
+1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.

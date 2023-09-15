@@ -6,6 +6,6 @@ To use the [Python SDK](index.md), the `yandex-speechkit` package is required. I
 pip install yandex-speechkit
 ```
 
-Installation of both packages was tested on Python 3.9. For the minimum allowed Python version, see the [SDK website](https://pypi.org/project/yandex-speechkit/).
+The installation was tested on Python 3.9. For the minimum allowed Python version, see the [SDK website](https://pypi.org/project/yandex-speechkit/).
 
-{% include [In case of a version conflict](../../../_includes/speechkit/version-conflict.md) %}
+If a `grpcio-tools` package version conflict occurs during the installation, see [{#T}](version-conflict.md).

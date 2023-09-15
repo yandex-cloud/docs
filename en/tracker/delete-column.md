@@ -7,7 +7,7 @@ Use this request to delete columns.
 
 ## Request format {#query}
 
-Before making the request, [get permission to access the API](concepts/access.md).
+Before making a request, [get permission to access the API](concepts/access.md).
 
 To delete a column, use an HTTP `DELETE` request.
 
@@ -23,26 +23,24 @@ If-Match: "<version number>"
 
 - **Host**
 
-    API host address:
-
+    Address of the node that provides the API:
     ```
     {{ host }}
     ```
 
 - **Authorization**
 
-    OAuth token in `OAuth <token value>` format. For example:
+    OAuth token in `OAuth <token value>` format, for example:
 
     ```
     OAuth 0c4181a7c2cf4521964a72ff57a34a07
     ```
 
 
+- **X-Org-ID** or **X-Cloud-Org-ID**
 
-- **X-Org-ID**
+    Organization ID. If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`.
 
-    Organization ID.
-
 
 - **If-Match**
 
@@ -52,10 +50,10 @@ If-Match: "<version number>"
 
 {% cut "Resource" %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<board-id\> | Board ID | Number |
-| \<column-id\> | Column ID | Number |
+Parameter | Description | Data type
+--------- | ----------- | ---------
+\<board-id\> | Board ID | Number
+\<column-id\> | Column ID | Number
 
 {% endcut %}
 
@@ -63,13 +61,13 @@ If-Match: "<version number>"
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
     {% include [answer-204](../_includes/tracker/api/answer-204.md) %}
 
     The response body is missing.
 
-- Request failed
+- The request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 
@@ -82,4 +80,3 @@ If-Match: "<version number>"
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

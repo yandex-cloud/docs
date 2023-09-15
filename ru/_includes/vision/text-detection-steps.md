@@ -1,6 +1,7 @@
 1. Кодируйте файл в формат Base64:
 
     {% include [base64-encode-command](base64-encode-command.md) %}
+
 1. Создайте файл с телом запроса, например `body.json`. В свойстве `content` укажите изображение, [кодированное в Base64](../../vision/operations/base64-encode.md).
 
     Чтобы сервис автоматически определил язык текста, укажите в конфигурации свойство `"language_codes": ["*"]`.
@@ -8,7 +9,7 @@
     **body.json:**
     ```json
     {
-        "folderId": "b1gvmob95yysaplct532",
+        "folderId": "b1gvmob95yys********",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{
@@ -78,9 +79,48 @@
 
 1. Чтобы получить все распознанные слова с изображения, найдите все строки со свойством `text`, например с помощью [grep](https://www.gnu.org/software/grep/):
 
-    ```bash
-    grep -o "\"text\":\s\".*\"" output.json
-    "text": "PENGUINS"
-    "text": "CROSSING"
-    "text": "SLOW"
-    ```
+    {% list tabs %}
+
+    - Bash
+
+      ```bash
+      grep -o "\"text\":\s\".*\"" output.json
+      ```
+
+      Результат:
+
+      ```text
+      "text": "PENGUINS"
+      "text": "CROSSING"
+      "text": "SLOW"
+      ```
+
+    - CMD
+
+      ```bash
+      findstr text output.json
+      ```
+
+      Результат:
+
+      ```text
+      "text": "PENGUINS"
+      "text": "CROSSING"
+      "text": "SLOW"
+      ```
+
+    - PowerShell
+
+      ```powershell
+      Select-String -Pattern '\"text\":\s\".*\"' -Path .\output.json
+      ```
+
+      Результат:
+
+      ```text
+      output.json:1:      "text": "PENGUINS"
+      output.json:2:      "text": "CROSSING"
+      output.json:3:      "text": "SLOW"
+      ```
+
+    {% endlist %}

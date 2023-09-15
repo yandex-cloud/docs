@@ -1,10 +1,13 @@
-# {{ wiki-full-name }} revision history for June 2023
+# {{ wiki-full-name }} revision history for July 2023
 
-* [Search suggestions](#search-suggestions)
+* [Mermaid support](#mermaid-support)
+* [Recovering deleted pages](#page-recover)
 
-## Search suggestions {#search-suggestions}
+## Mermaid support {#mermaid-support}
 
-It is now easier to configure [page permissions](../page-management/access-setup.md) and edit a [list of page authors](../page-management/edit-owner.md): when performing a search, suggestions are triggered as soon as you start typing an employee's name or username.
+You can now add [Mermaid](https://mermaid.js.org/) diagrams to {{ wiki-name }} pages. To insert a diagram, switch to edit mode, open the list of commands using the `/` character, and select ![](../../_assets/wiki/svg/mermaid.svg) **Mermaid**.
+The option is only available in the [new editor](../wysiwyg-edit.md).
 
+## Recovering deleted pages {#page-recover}
 
-Suggestions are available for {{ ya-360 }} departments and teams and {{ org-full-name }} groups.
+The [Revision history](../history.md) now has a **Recently deleted** tab which lists deleted pages. Select a page there to restore or permanently delete it.

@@ -10,13 +10,13 @@ Teams of up to five employees have full access can use {{ tracker-name }} for fr
 
 {% endnote %}
 
-You need to pay for {{ tracker-name }} if you have more than five users with full access in your company. Before you can grant full access to {{ tracker-name }} for six or more users, you need to [add a billing account](#billing) to pay invoices for the service use.
+You need to pay for {{ tracker-name }} if you have more than five users with full access in your company. Before you can grant full access to {{ tracker-name }} for six or more users, you need to [add a billing account](billing-account.md#bind) to pay invoices for the service use.
 
 You can grant and revoke full access to {{ tracker-name }} at any time. The cost of using the service depends on the number of users with full access and is re-calculated automatically. For more information about price and calculating the cost, see [Pricing policy](pricing.md).
 
 {% note info %}
 
-The user's access level applies throughout the {{ tracker-name }} organization structure. On top of this, however, you can restrict user access to specific issue queues, components, dashboards, and filters. For more information, see [{#T}](role-model.md).
+User's access level covers their operations on {{ tracker-name }} entities in the organization. However, you can additionally restrict user access to specific issue queues, components, dashboards, and filters. For more information, see [{#T}](role-model.md).
 
 {% endnote %}
 
@@ -31,14 +31,21 @@ The user's access level applies throughout the {{ tracker-name }} organization s
 
 {% note info %}
 
-To grant full access to six or more users, you need to [add a billing account](#billing). For more information about cost calculation, see [Pricing policy](pricing.md).
+To grant full access to six or more users, you need to [add a billing account](billing-account.md#bind). For more information about cost calculation, see [Pricing policy](pricing.md).
 
 {% endnote %}
 
 
+## Authorizing a user to invite new users {#invite-users}
+
+For a user to invite new users to the organization, administrator rights are required:
+* In {{ org-full-name }} [assign](https://org.cloud.yandex.ru/acl) the `admin` and `organization-manager.organizations.owner` roles to the user.
+* In {{ ya-360 }} make the user an administrator.
+
+
 ## Full access for new users {#access-new-users}
 
-To make sure all new users added to {{ tracker-name }} automatically get full access, select **Full access for new users**. To enable this option, you need a [billing account](#billing) linked to {{ tracker-name }}.
+To make sure all new users added to {{ tracker-name }} automatically get full access, select **Full access for new users**. To enable this option, you need a [billing account](billing-account.md) linked to {{ tracker-name }}.
 
 1. Open the [{{ tracker-name }} page]({{ link-tracker }}) and [log in to the admin account](user/login.md).
 
@@ -48,7 +55,7 @@ To make sure all new users added to {{ tracker-name }} automatically get full ac
 
    - If you already linked your billing account to {{ tracker-name }}, click **{{ ui-key.startrek.components_LicensesDefaultFullAccessModal.button-submit--toEnable }}** in the window that opens.
 
-   - If you have no billing account linked, click **Go to billing** to create a new billing account or link an existing billing account to {{ yandex-cloud }}. For more information, see [Setting up a billing account](billing-account.md)
+   - If you have no billing account linked, click **Go to billing** to create a new billing account or link an existing billing account to {{ yandex-cloud }}. For more information, see [Setting up a billing account](billing-account.md).
 
 {% note info %}
 
@@ -58,17 +65,24 @@ When enabling or disabling **{{ ui-key.startrek.components_Licenses.default-full
 
 ## Access for user groups {#group-access}
 
-If your company uses {{ yandex-360 }} for Business, you can create employee groups and set up access for them. For more information about creating a group, see the [Yandex 360 for Business documentation](https://yandex.ru/support/business/projects.html).
+If your company uses {{ yandex-360 }} for Business, you can create employee groups and set up access for them. For more information about creating a group, see the [Yandex 360 for Business documentation](https://yandex.ru/support/business/projects.html). To configure full access for a group of users, [link a billing account](billing-account.md).
 
-To set up access for a group of users, go to **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}** and select the appropriate access level for each group from the drop-down list.
+To configure access for a group of users, open **{{ ui-key.startrek.blocks-desktop_b-queues-info.admin }}** → **{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-groups }}** and select the required access level for each group.
 
-The access level of a group doesn't override the access level of an individual user in the group. But if at least one of the groups that include the user has full access, the user will have full access.
+{% note warning %}
+
+If a user with "Read" access joins a group with "Full" access, the user's access level will change to "Full".
+
+Otherwise, the user's access level will not change when joining a group.
+
+{% endnote %}
+
 
 ## <q>Read</q> mode {#readonly}
 
-Access to the following features is restricted in <q>Read</q> mode:
+In <q>Read</q> mode, users cannot perform actions related to creating, updating, and deleting objects, e.g.:
 
-- Creating issues using the {{ tracker-name }} interface.
+- Create issues using the {{ tracker-name }} interface.
 
 - Change parameters, statuses, and resolutions in issues.
 
@@ -76,9 +90,9 @@ Access to the following features is restricted in <q>Read</q> mode:
 
 - Subscribe to changes in issues.
 
-However, you can still do everything related to viewing {{ tracker-name }} issues, such as:
+However, you can still perform all actions related to viewing {{ tracker-name }} issues:
 
-- View issues, [dashboards](user/dashboard.md), and [issue boards](manager/agile.md#sec_boards).
+- View issues, [dashboards](user/dashboard.md), and [issue boards](manager/agile-new.md).
 
 - Search for issues using the [filter builder](user/create-filter.md) and [query language](user/query-filter.md).
 

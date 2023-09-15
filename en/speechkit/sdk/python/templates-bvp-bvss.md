@@ -1,6 +1,6 @@
 # Pattern-based speech synthesis using the Python SDK
 
-Below is an example of pattern-based synthesis for [{{ brand-voice-premium }} and {{ brand-voice-core }}](../../tts/brand-voice/index.md). Speech is synthesized from text in [TTS markup](../../tts/markup/tts-markup.md) into a WAV file using the [{{ speechkit-name }} Python SDK](index.md).
+Below is an example of pattern-based synthesis for [{{ brand-voice-premium }} and {{ brand-voice-core }}](../../tts/brand-voice/index.md). Speech is synthesized from text in [TTS markup](../../tts/markup/tts-markup.md) to a WAV file using the [{{ speechkit-name }} Python SDK](index.md).
 
 
 {% note warning %}
@@ -16,13 +16,13 @@ The example uses the following parameters:
 * Text pattern: `Next station is <variable>`. Names of metro stations, such as `Sportivnaya`, are used as variables.
 * Speech synthesis settings:
 
-   * [Model](../../stt/models.md#tags): `general`.
-   * [Voice](../../tts/voices.md#premium): `alena`.
+   * [Model](../../stt/models.md#tags): `general`
+   * [Voice](../../tts/voices.md#premium): `alena`
 
-* Speech recognition settings to determine the start and end of utterance:
+* Speech recognition settings to determine the start and end of an utterance:
 
-   * Model: `general`.
-   * [Language](../../stt/models.md#languages): Russian.
+   * Model: `general`
+   * [Language](../../stt/models.md#languages): Russian
    * Audio processing method: Synchronous recognition.
 
 * {{ brand-voice-name }} directions: {{ brand-voice-premium }} and {{ brand-voice-core }}.
@@ -42,9 +42,6 @@ The example uses the following parameters:
 - Python 3
 
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
-
-      {% include [In case of a version conflict](../../../_includes/speechkit/version-conflict.md) %}
-
    1. Create a file named `test.py` and add the following code to it:
 
       ```python
@@ -146,9 +143,9 @@ The example uses the following parameters:
 
             {% include [Types of transcribation](../../../_includes/speechkit/audio_processing_type.md) %}
 
-      * `original_recognition.raw_text `: Pattern phrase.
-      * `pattern_based_synthesis_model.voice`: voice ID for {{ brand-voice-premium }} or {{ brand-voice-core }}.
-      * `export_path`: Path to the file for audio recording.
+      * `original_recognition.raw_text `: Pattern phrase
+      * `pattern_based_synthesis_model.voice`: {{ brand-voice-premium }} or {{ brand-voice-core }} voice ID
+      * `export_path`: Path to the file to save the audio to
 
    1. Run the created file:
 
@@ -156,7 +153,7 @@ The example uses the following parameters:
       python3 test.py --export speech.wav
       ```
 
-      Where `--export` is the path to the file for audio recording.
+      Where `--export` is the path to the file the audio will be saved to.
 
       As a result, the `speech.wav` file with pattern-based synthesized speech will be created.
 
@@ -165,6 +162,5 @@ The example uses the following parameters:
 #### See also {#see-also}
 
 * [Python SDK {{ speechkit-name }}](https://pypi.org/project/yandex-speechkit/)
-* [{#T}](../../concepts/auth.md)
 * [{#T}](templates-bvcc.md)
 * [{#T}](../../tts/api/tts-templates.md)

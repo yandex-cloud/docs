@@ -43,14 +43,14 @@ In requests to the {{ api-short-name }} API, specify the following headers:
 
    `Authorization: Bearer <your IAM token>`: If an [IAM token](concepts/access.md#iam-token) is used.
 
-- `X-Org-ID: <organization ID>`
+- `X-Org-ID: <organization ID>` or `X-Cloud-Org-ID: <organization ID>`
 
-   To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+   If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header, if only {{ ya-360 }} or both organization types, use `X-Org-ID`. To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
 
 
 ## Request body format {#body}
 
-The request body passes a JSON object with the IDs of updated fields and their values.
+The request body includes a JSON object with the IDs of updated fields and their values.
 
 - To add or remove an array value, use the `add` or `remove` command:
 
@@ -84,9 +84,9 @@ The request body passes a JSON object with the IDs of updated fields and their v
         "type": { "id": "1" }
       }
       ```
-  - ```json
+    ```json
       {
-        "type": { "name": "Bug" }
+        "type": { "name": "Error" }
       }
       ```
   - ```json

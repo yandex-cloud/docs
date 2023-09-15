@@ -111,7 +111,7 @@ id | Идентификтор страны | Строка
 > If-Match: "<номер версии>"
 >
 > {
->  "name" : "Testing new",
+>  "name": "Testing new",
 >  "columns":
 >     [
 >       {
@@ -154,16 +154,16 @@ id | Идентификтор страны | Строка
 
     ```json
     {
-      "self" : "{{ host }}/v2/boards/1",
-      "id" : 1,
-      "version" : 1412806202302,
-      "name" : "Тестирование", 
-      "columns" : 
+      "self": "{{ host }}/v2/boards/1",
+      "id": 1,
+      "version": 1412806202302,
+      "name": "Тестирование", 
+      "columns": 
       [ 
        {
-         "self" : "{{ host }}/v2/boards/1/columns/1387461731452",
-         "id" : "1387461731452",
-         "display" : "Открыт"
+         "self": "{{ host }}/v2/boards/1/columns/1387461731452",
+         "id": "1387461731452",
+         "display": "Открыт"
        },
         ...
       ],

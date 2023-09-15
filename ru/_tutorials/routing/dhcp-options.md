@@ -68,25 +68,25 @@
 	Выполните следующую команду:
 	```
 	yc vpc subnet create --name test-subnet-1 \
-	    --description "My test subnet" \
-	    --folder-id <id каталога> \
-	    --network-name ad-network \
-	    --zone {{ region-id }}-a \
-	    --range 10.128.0.0/24 \
-	    --domain-name yantoso.net \
-	    --domain-name-server 10.1.0.3,10.2.0.3
+	  --description "My test subnet" \
+	  --folder-id <идентификатор_каталога> \
+	  --network-name ad-network \
+	  --zone {{ region-id }}-a \
+	  --range 10.128.0.0/24 \
+	  --domain-name yantoso.net \
+	  --domain-name-server 10.1.0.3,10.2.0.3
 	```
 
-	Где `<id каталога>` — идентификатор каталога, в котором создаются ресурсы. Если каталог указан в профиле CLI, параметр можно не использовать.
+	Где `<идентификатор_каталога>` — идентификатор каталога, в котором создаются ресурсы. Если каталог указан в профиле CLI, параметр можно не использовать.
 
 	Результат:
 	```
-	id: e2ldy0b1prtj837re3fb
-	folder_id: b1gbvco8fejm38siik76
+	id: e2ldy0b1prtj********
+	folder_id: b1gbvco8fejm********
 	created_at: "2021-07-12T13:28:54Z"
 	name: test-subnet-1
 	description: My test subnet
-	network_id: enpl0t90hept99f9hsh4
+	network_id: enpl0t90hept********
 	zone_id: {{ region-id }}-a
 	v4_cidr_blocks:
 	- 10.128.0.0/24
@@ -112,7 +112,7 @@
 		1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 		1. В поле **Имя** введите имя виртуальной машины: `vm-for-tests-in-subnet`.
 		1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-		1. В блоке **Выбор образа/загрузочного диска** нажмите Windows Server. В выпадающем списке выберите версию ОС **2016 Datacenter**.
+		1. В блоке **Выбор образа/загрузочного диска** выберите ваш образ с Windows Server.
 		1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
 		1. В блоке **Вычислительные ресурсы**:
 		      * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
@@ -139,14 +139,16 @@
 		Выполните команду, чтобы создать виртуальную машину:
 		```
 		yc compute instance create \
-		    --name vm-for-tests-in-subnet \
-		    --metadata-from-file user-data=metadata.yaml \
-		    --zone {{ region-id }}-a \
-		    --cores 2 \
-		    --memory 4 \
-		    --network-interface subnet-name=test-subnet-1,nat-ip-version=ipv4 \
-		    --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk
+		  --name vm-for-tests-in-subnet \
+		  --metadata-from-file user-data=metadata.yaml \
+		  --zone {{ region-id }}-a \
+		  --cores 2 \
+		  --memory 4 \
+		  --network-interface subnet-name=test-subnet-1,nat-ip-version=ipv4 \
+		  --create-boot-disk image-id=<идентификатор_образа>
 		```
+
+		Где `<идентификатор_образа>` — идентификатор вашего образа с Windows Server, который используется для создания ВМ.
 
 		Если команда выполнена успешно, сохраните IP-адрес из поля `one_to_one_nat`. Адрес будет использован на следующем шаге, чтобы создать подключение по RDP:
 
@@ -179,7 +181,7 @@
 	```
 	Windows IP Configuration
 	
-	   Host Name . . . . . . . . . . . . : epdpjtgc4i5eudo
+	   Host Name . . . . . . . . . . . . : epdpjtg********
 	   Primary Dns Suffix  . . . . . . . :
 	   Node Type . . . . . . . . . . . . : Hybrid
 	   IP Routing Enabled. . . . . . . . : No

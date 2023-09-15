@@ -14,9 +14,9 @@ Depending on your organization settings, you can use accounts of different types
 
 * Account on the domain connected to [{{ ya-360 }}]({{ link-ya-360 }}) (for example, `login@example.com`).
 
-* Account in the corporate account management system (for example, Active Directory or Google Workspace), if [single sign-on](../../organization/add-federation.md) is enabled.
+* Account in the corporate account management system, e.g., Active Directory or Google Workspace, if [single sign-on](../../organization/add-federation.md) is enabled.
 
-To create and edit issues, you'll need [full access](../access.md) to {{ tracker-name }}. If you only have read access to {{ tracker-name }}, contact your organization's administrator.
+To create and edit issues, you will need [full access](../access.md) to {{ tracker-name }}. If you have read-only access to {{ tracker-name }}, contact your organization's administrator.
 
 ## Logging in to {{ tracker-name }} {#auth}
 
@@ -26,7 +26,7 @@ To log in to {{ tracker-full-name }}:
 
 1. When you launch the app for the first time, log in to the account you use to work with {{ tracker-name }}:
 
-   * To log in using your Yandex email address or the email address on your company's domain, tap **{{ ui-key.startrek.ui_components_PageHiThere.wrong-user-btn }}** and enter your username, such as `{{ example-account }}` or `login@example.com`. If you haven't registered an organization yet, one will be created automatically the [first time you log in](enable-tracker.md) to the app.
+   * To log in using your Yandex email address or the email address on your company's domain, tap **{{ ui-key.startrek.ui_components_PageHiThere.wrong-user-btn }}** and enter your username, such as `{{ example-account }}` or `login@example.com`. If you do not have an organization, one will be created automatically the [first time you log in](enable-tracker.md) to the app.
 
    * If your organization uses the Single Sign-On authentication scheme with an [identity federation](../add-users.md#federation), click **Log in via SSO**, specify the federation ID, and log in to your corporate account.
 
@@ -42,7 +42,7 @@ To log in to {{ tracker-full-name }}:
 
 ## Switching organizations {#change-org}
 
-If you're simultaneously involved in multiple organizations, you'll see the one you used last. To switch to a different organization:
+If you are simultaneously involved in multiple organizations, you will see the last one you used. To switch to a different organization:
 
 1. In the top-right corner, tap on your profile picture.
 

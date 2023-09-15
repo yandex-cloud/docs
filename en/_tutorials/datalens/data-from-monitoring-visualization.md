@@ -20,7 +20,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 To get started with {{ datalens-short-name }}:
 
 1. [Log in]({{ link-passport-login }}) to your Yandex account.
-1. Open the [{{ datalens-short-name }} homepage]({{ link-datalens-main }}).
+1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. Click **Open Datalens**.
 1. Select one of the options:
 

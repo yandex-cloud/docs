@@ -6,8 +6,8 @@ The service can recognize speech [in different ways](../stt/index.md#stt-ways). 
 
 The service has limits on the audio duration and file size:
 
-* Maximum audio duration: {{ stt-short-audioLength }}.
-* Maximum file size: {{ stt-short-fileSize }}.
+* Maximum audio duration: {{ stt-short-audioLength }}
+* Maximum file size: {{ stt-short-fileSize }}
 
 {% endnote %}
 
@@ -24,10 +24,10 @@ curl -X POST \
 
 Where:
 
-* `FOLDER_ID`: Folder ID received [before starting](index.md#before-you-begin).
-* `IAM_TOKEN`: IAM token received [before starting](index.md#before-you-begin).
-* `lang`: Recognition [language](../stt/models.md#languages).
-* `speech.ogg`: Audio file with speech.
+* `FOLDER_ID`: Folder ID received [before starting](index.md#before-you-begin)
+* `IAM_TOKEN`: IAM token received [before starting](index.md#before-you-begin)
+* `lang`: Recognition [language](../stt/models.md#languages)
+* `speech.ogg`: Audio file with speech
 
 The service responds with the recognized text:
 

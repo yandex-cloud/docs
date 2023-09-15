@@ -22,7 +22,9 @@ keywords:
 
 #### Как создать мультиинтерфейсную ВМ? {#multi-interface}
 
-Добавить сетевой интерфейс можно только при [создании ВМ](../../compute/operations/index.md#vm-create). На текущий момент создание нескольких интерфейсов доступно только на сетевых образах из [{{ marketplace-full-name }}](/marketplace?categories=network).
+Добавить сетевой интерфейс можно только при [создании ВМ](../../compute/operations/index.md#vm-create). На текущий момент создание нескольких интерфейсов доступно только на сетевых образах из [{{ marketplace-full-name }}](/marketplace?categories=network). 
+
+Также вы можете создать [NAT-инстанс](../../vpc/tutorials/nat-instance), чтобы использовать несколько сетевых интерфейсов.
 
 ### Параметры ВМ {#parameters-vm}
 

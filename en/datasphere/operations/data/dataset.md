@@ -193,28 +193,14 @@ To enable a dataset:
 
 ## Viewing a list of datasets available in the project {#list}
 
-{% list tabs %}
-
-- {{ ml-platform-name }} interface
-
-  On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset}}**. Next, go to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
-
-- Code in the notebook
-
-   Run the code cell:
-
-   ```bash
-   #pragma datasets list
-   ```
-
-{% endlist %}
+On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset}}**. Next, go to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
 
 ## Sharing a dataset {#share}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
 1. Select the appropriate dataset from the list.
-1. Click the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
+1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the dataset in.
 
 ## Deleting a dataset {#delete}
@@ -227,19 +213,5 @@ You can delete a dataset only if it is:
 
 To delete a dataset:
 
-{% list tabs %}
-
-- {{ ml-platform-name }} interface
-
-  1. On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
-  1. In the line with the appropriate dataset, click ![options](../../../_assets/options.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
-
-- Code in the notebook
-
-   To delete a dataset named `<dataset_name>`, execute a cell containing the following code:
-
-   ```bash
-   #pragma dataset delete <dataset_name>
-   ```
-
-{% endlist %}
+1. On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
+1. In the line with the appropriate dataset, click ![options](../../../_assets/options.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.

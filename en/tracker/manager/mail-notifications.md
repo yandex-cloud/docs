@@ -10,7 +10,7 @@ By default, {{ tracker-name }} sends notifications to the mailbox from which the
 
 {% note info %}
 
-You can [set up federation](../../organization/add-federation.md) in {{ org-full-name }}. In this case, your employees will also be able to log into {{ tracker-name }} using their email addresses on your domain, as well as get notifications from {{ tracker-name }} at these addresses.
+You can [set up federation](../../organization/add-federation.md) in {{ org-full-name }}. In this case, your employees will also be able to log in to {{ tracker-name }} using their email addresses on your domain, as well as get notifications from {{ tracker-name }} at these addresses.
 
 {% endnote %}
 

@@ -3,9 +3,9 @@
 
 ## How to migrate data from {{ ya-360 }} to {{ org-full-name }}
 
-Since {{release-date }} 2021, when connecting {{ tracker-full-name }}, an organization is created automatically in {{ org-full-name }}. The administrator can add to the organization an [identity federation](../organization/add-federation.md) so that employees can use their work accounts to log in to {{ tracker-name }}. {{ tracker-name }} usage is charged through [{{ billing-name }}](../billing/).
+Since {{ release-date }} 2021, when connecting {{ tracker-full-name }}, an organization is created automatically in {{ org-full-name }}. The administrator can add, to the organization, an [identity federation](../organization/add-federation.md) so that employees can use their work accounts to log in to {{ tracker-name }}. The usage of {{ tracker-name }} is rated via the [{{ yandex-cloud }} billing](../billing/).
 
-If {{ tracker-name }} is connected to {{release-date }}, the service is linked to an organization in {{ ya-360 }}. We will gradually migrate all organizations from {{ ya-360 }} to {{ org-full-name }} with no effort needed from your organization's administrator. We will notify your administrator about migrating to {{ org-full-name }} in advance.
+If {{ tracker-name }} is connected to {{ release-date }}, the service is linked to an organization in {{ ya-360 }}. We will gradually migrate all organizations from {{ ya-360 }} to {{ org-full-name }} with no effort needed from your organization's administrator. We will notify your administrator about migrating to {{ org-full-name }} in advance.
 
 
 ## How to use {{ tracker-name }} on a mobile device {#mobile}
@@ -35,7 +35,7 @@ To make sure that the added users can create and edit issues, you need to [set u
 
 You can [manage user access](access.md#set) in the {{ tracker-name }} interface under <q>{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-users-licenses }}</q>.
 
-Note that your total payment for using the service depends on the maximum number of users that had full access to {{ tracker-name }} during a given month. That is why first we recommend to [revoke access](disable-tracker.md) from the uses that no longer need it and then to grant access to [new users](add-users.md).
+Note that the total cost of using the service depends on the maximum number of users that had full access to {{ tracker-name }} during a given month. That is why we recommend first to [revoke access](disable-tracker.md) from the users that no longer need it and then to grant access to [new users](add-users.md).
 
 ## Can you help us with implementation or migration from another service? {#migration}
 
@@ -63,7 +63,7 @@ To delete a queue:
 
 1. To the left of the queue name, select ![](../_assets/tracker/icon-settings.png) → **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}**.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_main.title }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_main.title }}** tab.
 
 1. Click **{{ ui-key.startrek.ui_components_page-queue-admin_QueueActionsMenu.remove-queue-action }}**.
 
@@ -101,7 +101,7 @@ Do not use the **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** 
 
 If you have any widgets with grouping by the **{{ ui-key.startrek-backend.fields.issue.summary-key-value }}** field and you want to preserve them, you can:
 * Replace your widget with a [new widget with an issue list](#replace_widget).
-* [Create an additional field](#create_new_field) in your issues and store there the data you need to build grouped widgets.
+* [Create an additional field](#create_new_field) in your issues to store the data you need to build grouped widgets.
 
 ### Create a new widget {#replace_widget}
 
@@ -131,13 +131,26 @@ If you add keywords to issue names to use them for grouping issues in widgets, w
 
    1. Under **{{ ui-key.startrek.blocks-desktop_filter-edit-modal.filter--title }}**, click **{{ ui-key.startrek.blocks-desktop_issues-filter.action--add-field }}**, select **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_fields.field-type--issue }}**, and specify the issue name (the keyword used for grouping in the widget).
 
-   1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.action_add-action }}** and select **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--field }}**. Then select the previously created field and copy the issue name to it.
+   1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.action_add-action }}** and select **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--field }}**. Then select the previously created field and paste the issue name to it.
 
    1. Create similar automatic actions for every possible keyword.
 
 1. If you use an external source to create an issue (for example, [{{ forms-full-name }}](../forms/create-task.md)) when setting up [integration](manager/forms-integration.md), save the widget data to a new field.
 
 1. [Edit](user/edit-dashboard.md#section_xz4_bk4_mz) the old widget: use the new field instead of the **{{ ui-key.startrek.ui_components_dashboard.summary-field-name }}** field in the settings.
+
+
+## How do I disable automatic sign-out for a federated user account? {#disable-auto-log-out}
+
+If a federated user signs out of their account automatically, this may be due to the [federation](../organization/add-federation.md) settings. When a session is over, a user logs out of the system and needs to log in again.
+
+These settings can be changed by the organization owner or administrator. To disable automatic sign-out for a user:
+
+1. Go to the page of the {{ yandex-cloud }} organization that {{ tracker-name }} is enabled for.
+1. In the left-hand panel, select the **Federations** tab and click the name of the federation the user belongs to.
+1. In the top-right corner of the page, click **Edit**.
+1. Disable **Mandatory re-authentication (ForceAuthn) in IdP** and click **Save**.
+
 
 
 ## I still have questions. Who do I ask them to? {#other-questions}

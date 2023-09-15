@@ -6,9 +6,15 @@ Running a query does not create a separate [Dataset](../dataset/index.md) object
 
 Unlike [dataset-based charts](#dataset-based-charts), the logic of a visualization area in QL charts favors queries against the source, that is, the visualization area only displays the data queried.
 
+{% note alert %}
+
+If users are granted [permission to view](../../security/manage-access#permission-read) your QL chart, they will be able to make any queries to any source data of this QL chart.
+
+{% endnote %}
+
 The following types of QL charts are supported:
 
-* **SQL**. They let you build visualizations with flexible dataset management based on parameterization of an SQL query to the source DB.
+* **SQL**. They allow you to build visualizations with flexible dataset management based on parameterization of an SQL query to the source DB.
 
   SQL chart specifics:
 

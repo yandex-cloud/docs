@@ -38,7 +38,7 @@
         *  **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** – имя текущей организации. Значение подставляется автоматически.
     * Для значения `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`:
         * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** — имя облака, в котором находится текущий трейл. Значение подставляется автоматически.
-        * **{{ ui-key.yacloud.audit-trails.label_folders }}** — каталоги, для ресурсов в которых трейл будет собирать аудитные логи. Если не указать ни один каталог, то трейл будет собирать аудитные логи всех ресурсов в облаке.
+        * **Каталоги** — каталоги, для ресурсов в которых трейл будет собирать аудитные логи. Если не указать ни один каталог, то трейл будет собирать аудитные логи всех ресурсов в облаке.
     * Для параметра `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`:
         * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — имя каталога, в котором находится трейл. Значение подставляется автоматически.
 * Блок **{{ ui-key.yacloud.audit-trails.label_destination }}**:

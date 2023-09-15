@@ -184,7 +184,7 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Select the function to create a version of.
    1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-   1. Select the **Python** runtime environment. Do not select the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
+   1. Select the `Python` runtime environment. Do not select the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
    1. Choose the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}** method.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** and specify a file name, e.g., `index`.
    1. Enter the function code by inserting your project and notebook IDs:
@@ -211,9 +211,9 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
       * `<notebook_ID>`: [ID of the `test_classifier.ipynb` notebook](../../datasphere/operations/projects/get-notebook-cell-ids.md#get-notebook-id).
 
    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, set the version parameters:
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
-      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `reddit-user`.
-   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `reddit-user`
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
 
@@ -236,10 +236,10 @@ To run a function every 15 minutes, you will need a [timer](../../functions/conc
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter a name and description for the trigger.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}**.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, set the function invocation schedule to **Every 15 minutes**.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, set the function invocation schedule to `{{ ui-key.yacloud.common.button_cron-15min }}`.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 

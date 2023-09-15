@@ -7,8 +7,8 @@ items:
     items:
       - name: Overview
         href: quickstart/index.md
-      - name: How to recognize short audio files in API v2
-        href: quickstart/stt-quickstart-v2.md
+      - name: How to recognize short audio files in API v1
+        href: quickstart/stt-quickstart-v1.md
       - name: How to recognize streaming audio in API v3
         href: quickstart/stt-quickstart-v3.md
       - name: How to synthesize speech in API v1
@@ -75,12 +75,14 @@ items:
         href: concepts/auth.md
       - name: Speech recognition
         items:
+          - name: API v1
+            items:
+              - name: Synchronous Recognition API
+                href: stt/api/request-api.md
           - name: API v2
             items:
               - name: Streaming Recognition API
                 href: stt/api/streaming-api.md
-              - name: Synchronous Recognition API
-                href: stt/api/request-api.md
               - name: Asynchronous Recognition API
                 href: stt/api/transcribation-api.md
           - name: gRPC API v3
@@ -109,6 +111,8 @@ items:
         href: sdk/python/index.md
       - name: Installing the Python SDK
         href: sdk/python/install.md
+      - name: Resolving version conflicts during the installation of Python SDK
+        href: sdk/python/version-conflict.md
       - name: Authentication in the Python SDK
         href: sdk/python/auth.md
       - name: Synchronous recognition using the Python SDK
@@ -131,7 +135,7 @@ items:
         href: stt/api/stt-language-labels-example.md
       - name: Streaming recognition, API v2
         href: stt/api/streaming-examples.md
-      - name: Synchronous recognition, API v2
+      - name: Synchronous recognition, API v1
         href: stt/api/request-examples.md
       - name: Asynchronous recognition of LPCM format, API v2
         href: stt/api/transcribation-lpcm.md

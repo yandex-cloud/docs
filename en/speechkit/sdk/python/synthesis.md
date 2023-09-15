@@ -21,9 +21,6 @@ Below is an example of speech synthesis from text in [TTS markup](../../tts/mark
 - Python 3
 
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
-
-      {% include [In case of a version conflict](../../../_includes/speechkit/version-conflict.md) %}
-
    1. Create a file named `test.py` and add the following code to it:
 
       ```python
@@ -61,11 +58,11 @@ Below is an example of speech synthesis from text in [TTS markup](../../tts/mark
 
       Where:
 
-      * `api_key`: API key for the service account.
-      * `voice`: Voice for speech synthesis.
-      * `role`: Role for the specified voice.
-      * `text`: Text for synthesis in TTS markup.
-      * `export_path`: Path to the file for audio recording.
+      * `api_key`: API key for the service account
+      * `voice`: Voice for speech synthesis
+      * `role`: Role for the specified voice
+      * `text`: Text for synthesis in TTS markup
+      * `export_path`: Path to the file to save the audio to
 
    1. Enter text to be converted into speech:
 
@@ -81,8 +78,8 @@ Below is an example of speech synthesis from text in [TTS markup](../../tts/mark
 
       Where:
 
-      * `--text`: Text for synthesis in TTS markup.
-      * `--export`: Path to the file for audio recording.
+      * `--text`: Text for synthesis in TTS markup
+      * `--export`: Path to the file to save the audio to
 
       As a result, the `speech.wav` file with synthesized speech will be created.
 
@@ -91,5 +88,4 @@ Below is an example of speech synthesis from text in [TTS markup](../../tts/mark
 #### See also {#see-also}
 
 * [Python SDK {{ speechkit-name }}](https://pypi.org/project/yandex-speechkit/)
-* [{#T}](../../concepts/auth.md)
 * [{#T}](../../tts/api/tts-examples-v3.md)

@@ -23,12 +23,12 @@ User rights in {{ tracker-name }} are classified into two types:
    * [Queue issues](manager/queue-access.md). The rights to create, view, and edit issues can be set up by the queue owner or another user permitted by the owner to edit the [queue settings](manager/edit-queue-general.md).
 
       You can set up access to issues in your queue for individual users, groups, and roles:
-        * **{{ ui-key.startrek-backend.roles.role.name.access }}**: Users listed in the issue's **{{ ui-key.startrek-backend.fields.issue.access }}** field.
-        * **{{ ui-key.startrek-backend.roles.role.name.follower-key-value }}**: Users subscribed to the issue.
-        * **{{ ui-key.startrek-backend.roles.role.name.author }}**: Person who created the issue.
-        * **{{ ui-key.startrek-backend.roles.role.name.assignee }}**: Person assigned to the issue.
-        * **{{ ui-key.startrek-backend.roles.role.name.queue-lead }}**.
-        * **{{ ui-key.startrek-backend.roles.role.name.team-member }}**: Users added to the [queue team](manager/queue-team.md).
+      * **{{ ui-key.startrek-backend.roles.role.name.access }}**: Users listed in the **{{ ui-key.startrek-backend.fields.issue.access }}** field of an issue.
+      * **{{ ui-key.startrek-backend.roles.role.name.follower-key-value }}**: Users subscribed to the issue.
+      * **{{ ui-key.startrek-backend.roles.role.name.author }}**: Person who created the issue.
+      * **{{ ui-key.startrek-backend.roles.role.name.assignee }}**: Person assigned to the issue.
+      * **{{ ui-key.startrek-backend.roles.role.name.queue-lead }}**.
+      * **{{ ui-key.startrek-backend.roles.role.name.team-member }}**: Users added to the [queue team](manager/queue-team.md).
 
       To limit access of users to specific issues inside the queue, you can use [components](manager/queue-access.md#access-components).
 
@@ -90,7 +90,7 @@ Actions available to employees:
 
 #### Employees with the <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> permission {#read-only}
 
-Employees working in the <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> mode can use the features related to viewing issues in {{ tracker-name }}. You do not pay for the use of the service by such users.
+Employees working in <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> mode can use the features related to viewing issues in {{ tracker-name }}. You do not pay for the use of the service by such users.
 
 If the [administrator](#admin) has the <q>{{ ui-key.startrek.blocks-desktop_roles-table.read }}</q> access to {{ tracker-name }}, they can edit access rights for their account themselves.
 

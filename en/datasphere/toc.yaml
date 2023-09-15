@@ -7,6 +7,10 @@ items:
     items:
       - name: Setting up a project to work with a cloud
         href: tutorials/basics.md
+      - name: Setting up a student community
+        href: tutorials/community-for-students.md
+      - name: Automating project setup
+        href: tutorials/automation-community-settings.md
   - name: Step-by-step guides
     items:
       - name: All guides

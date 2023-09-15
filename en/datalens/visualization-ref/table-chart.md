@@ -54,7 +54,8 @@ To create a table:
 
    {% note info %}
 
-   After dragging a **Tree of strings** dimension to the **Columns** section, you'll see a [tree hierarchy](../concepts/data-types.md#how-to-create-tree) in the visualization area.
+   * After dragging a **Tree of strings** dimension to the **Columns** section, you'll see a [tree hierarchy](../concepts/data-types.md#how-to-create-tree) in the visualization area.
+   * You can change the order of columns by dragging dimensions in the **Columns** section.
 
    {% endnote %}
 

@@ -40,7 +40,9 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/m
       "sourceShardNames": [
         "string"
       ],
-      "startedAt": "string"
+      "startedAt": "string",
+      "size": "string",
+      "type": "string"
     }
   ],
   "nextPageToken": "string"
@@ -57,4 +59,6 @@ backups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a 
 backups[].<br>sourceClusterId | **string**<br><p>ID of the ClickHouse cluster that the backup was created for.</p> 
 backups[].<br>sourceShardNames[] | **string**<br><p>Names of the shards included in the backup.</p> 
 backups[].<br>startedAt | **string** (date-time)<br><p>Time when the backup operation was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+backups[].<br>size | **string** (int64)<br><p>Size of backup in bytes.</p> 
+backups[].<br>type | **string**<br><p>How this backup was created (manual/automatic/etc...).</p> <ul> <li>AUTOMATED: Backup created by automated daily schedule.</li> <li>MANUAL: Backup created by user request.</li> </ul> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-clickhouse/api-ref/Cluster/listBackups#query_params">pageSize</a>, use the <a href="/docs/managed-clickhouse/api-ref/Cluster/listBackups#responses">nextPageToken</a> as the value for the <a href="/docs/managed-clickhouse/api-ref/Cluster/listBackups#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-clickhouse/api-ref/Cluster/listBackups#responses">nextPageToken</a> to continue paging through the results.</p> 

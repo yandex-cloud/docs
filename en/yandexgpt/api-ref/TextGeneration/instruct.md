@@ -39,7 +39,7 @@ Field | Description
 model | **string**<br><p>The name or identifier of the model to be used for text generation. Possible value for now: ``general``.</p> <p>The maximum string length in characters is 50.</p> 
 generationOptions | **object**<br>Configuration options for text generation.
 generationOptions.<br>partialResults | **boolean** (boolean)<br><p>Enables streaming of partially generated text.</p> 
-generationOptions.<br>temperature | **number** (double)<br><p>Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and infinity. Lower values produce more straightforward responses, while higher values lead to increased creativity and randomness.</p> 
+generationOptions.<br>temperature | **number** (double)<br><p>Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and 1 (inclusive). Lower values produce more straightforward responses, while higher values lead to increased creativity and randomness.</p> 
 generationOptions.<br>maxTokens | **integer** (int64)<br><p>Sets the maximum limit on the total number of tokens used for both the input prompt and the generated response. Must be greater than zero and not exceed 7400 tokens.</p> 
 instructionText | **string** <br> includes only one of the fields `instructionText`, `instructionUri`<br><br><p>The text-based instruction for text generation.</p> 
 instructionUri | **string** <br> includes only one of the fields `instructionText`, `instructionUri`<br><br><p>A URI containing instructions for text generation.</p> 

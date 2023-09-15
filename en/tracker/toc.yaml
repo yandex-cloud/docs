@@ -7,6 +7,8 @@ items:
         href: enable-tracker.md
       - name: Logging in to Yandex Tracker
         href: user/login.md
+      - name: User types
+        href: user-types.md
       - name: Managing users
         href: add-users.md
       - name: Configuring access to Yandex Tracker
@@ -27,7 +29,7 @@ items:
             href: user/personal.md
       - name: Migrating to Yandex Tracker
         href: import.md
-      - name: Disabling paid services
+      - name: Disabling Yandex Tracker
         href: disable-tracker.md
   - name: Tutorials
     items:
@@ -673,8 +675,10 @@ items:
         href: organizations.md
   - name: Releases
     items:
-      - name: June 2023
+      - name: July 2023
         href: changelogs/index.md
+      - name: June 2023
+        href: changelogs/2306.md
       - name: May 2023
         href: changelogs/2305.md
       - name: April 2023

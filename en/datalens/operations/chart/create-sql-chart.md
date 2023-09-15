@@ -12,9 +12,15 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
 
 ## Creating a QL chart from the main page {#main-page}
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand menu, select **Charts**.
-1. In the upper left-hand corner, click **Create chart** → **QL chart**.
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
+
+1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
+
+
+1. In the left-hand panel, click ![image](../../../_assets/datalens/chart.svg) and then, in the window that opens, click **Create chart** -> **QL chart**.
 1. In the window that opens, select a **Chart type**:
 
    {% list tabs %}
@@ -82,9 +88,9 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
 
 1. Go to an existing database connection.
 1. Make sure **Raw SQL level** → **Allow subqueries in datasets and queries from charts** is enabled.
-1. In the top right-hand corner, click **Create QL chart**.
+1. In the top-right corner, click **Create QL chart**.
 1. Use the **Query** tab to enter a query in the flavor of SQL native to the database you are accessing.
-1. In the lower left-hand corner, click **Start**.
+1. In the bottom-left corner, click **Start**.
 
 After the query runs, a visualization of your data will be displayed.
 

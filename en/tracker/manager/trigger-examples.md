@@ -40,11 +40,11 @@ Let's set up a trigger to automatically assign the issue:
 
 1. Enter a name for the trigger.
 
-1. Set the trigger to fire when the issue's <q>{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-status }}</q> or <q>{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-components }}</q> change:
+1. Set the trigger to fire when the issue <q>{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-status }}</q> or <q>{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-components }}</q> change:
 
    1. Select **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-   1. Add the condition: **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.update }}**.
+   1. Add the condition **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.update }}**.
 
    1. If you want a new assignee to be picked after a status update, add the **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-status }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** condition and specify the status. The available statuses depend on the [workflow](workflow.md) set up for the queue.
 
@@ -73,7 +73,7 @@ Let's set up a trigger to automatically assign the issue:
 
 ## Inviting assignees automatically {#summon_ticket}
 
-Having completed the issue, the employee might forget to specify some important information, for example, the time spent. In this case, you can set up a trigger that will automatically invite the user to comment if the issue was closed, but the time spent wasn't specified.
+Having completed the issue, the employee might forget to specify some important information, for example, the time spent. In this case, you can set up a trigger that will automatically summon the user if the issue was closed, but the time spent was not specified.
 
 1. Go to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** in the queue settings and click [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
@@ -83,9 +83,9 @@ Having completed the issue, the employee might forget to specify some important
 
    1. Select **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-   1. Add the condition: **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-status }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**. The available statuses depend on the [workflow](workflow.md) set up for the queue.
+   1. Add the condition **{{ ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-status }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**. The available statuses depend on the [workflow](workflow.md) set up for the queue.
 
-   1. Add the condition: **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** → **{{ ui-key.startrek-backend.fields.issue.spent-key-value }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldIsEmpty }}**.
+   1. Add the condition **{{ ui-key.startrek-backend.fields.issue.fields.timetracking }}** → **{{ ui-key.startrek-backend.fields.issue.spent-key-value }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldIsEmpty }}**.
 
 1. Set the actions for the trigger:
 
@@ -99,13 +99,13 @@ Having completed the issue, the employee might forget to specify some important
 
    ![](../../_assets/tracker/trigger-example-summon.png)
 
-Whenever an issue is closed without specifying the time spent, the robot will create a comment and invite the assignee to comment.
+Whenever an issue is closed without specifying the time spent, the robot will create a comment and summon the assignee.
 
-## Changing an issue's status after creating a link {#new-link}
+## Changing an issue status after creating a link {#new-link}
 
-In many projects, issues depend on each other even if different people are working on them. If an issue affects the progress of one or more other issues, it's important to notify other team members if any problems arise. For example, you can link such issues to each other and set the **{{ ui-key.startrek-backend.fields.issue.links.relationship.is.dependent.by }}** [link type](../user/links.md)
+In many projects, issues depend on each other even if different people are working on them. If an issue affects the progress of one or more other issues, it is important to notify other team members if any problems arise. For example, you can link such issues to each other and set the **{{ ui-key.startrek-backend.fields.issue.links.relationship.is.dependent.by }}** [link type](../user/links.md)
 
-Let's set up a trigger that will change an issue's status and add a comment for its reporter when the **{{ ui-key.startrek-backend.fields.issue.links.relationship.is.dependent.by }}** link is added:
+Let's set up a trigger that will change an issue status and add a comment for its reporter when the **{{ ui-key.startrek-backend.fields.issue.links.relationship.is.dependent.by }}** link is added:
 
 1. Go to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** in the queue settings and click [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
@@ -163,7 +163,7 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 #### Step 2. Setting up a trigger for sending emails
 
-Set up a trigger that, whenever an issue created based on an email, will notify the user also by email:
+Set up a trigger that, whenever an issue created based on an email, will notify the user via email:
 
 1. Go to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** in the queue settings and click [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
@@ -173,7 +173,7 @@ Set up a trigger that, whenever an issue created based on an email, will notify 
 
    1. Select **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-   1. Add the condition: **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.create }}**.
+   1. Add the condition **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.create }}**.
 
    1. Add the **{{ ui-key.startrek-backend.fields.issue.fields.email }}** → **{{ ui-key.startrek-backend.fields.issue.emailCreatedBy }}** → **{{ ui-key.startrek-backend.fields.trigger.condition.type.text.field.equals.string }}** condition and enter the email address to your queue.
 
@@ -235,7 +235,7 @@ To create issues based on requests submitted from a form:
 
    1. Use the **{{ ui-key.startrek.blocks-desktop_b-create-ticket-form.fill-desc }}** field to add answers to the questions included in your form.
 
-   1. To save the user's email address in the issue settings, add the **{{ ui-key.startrek-backend.fields.issue.emailFrom }}** field and select **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-variables }}** → **Answer to question** → **Email**.
+   1. To save the user email address in the issue settings, add the **{{ ui-key.startrek-backend.fields.issue.emailFrom }}** field and select **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-variables }}** → **Answer to question** → **Email**.
 
    1. Save your integration settings.
 
@@ -246,7 +246,7 @@ To create issues based on requests submitted from a form:
 
 #### Step 3. Setting up a trigger for sending emails
 
-Set up a trigger that, whenever an issue created from a form, will notify the user by email:
+Set up a trigger that, whenever an issue created from a form, will notify the user via email:
 
 1. Go to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** in the queue settings and click [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
@@ -256,9 +256,9 @@ Set up a trigger that, whenever an issue created from a form, will notify the us
 
    1. Select **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-   1. Add the condition: **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.create }}**.
+   1. Add the condition **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.eventType.create }}**.
 
-   1. Add the condition: **{{ ui-key.startrek-backend.fields.issue.fields.email }}** → **{{ ui-key.startrek-backend.fields.issue.emailFrom }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameNotEmpty }}**.
+   1. Add the condition **{{ ui-key.startrek-backend.fields.issue.fields.email }}** → **{{ ui-key.startrek-backend.fields.issue.emailFrom }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameNotEmpty }}**.
 
    ![](../../_assets/tracker/trigger-example-form-condition.png)
 
@@ -298,13 +298,13 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
    1. Select **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-   1. Add the condition: **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-status }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
+   1. Add the condition **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.field-status }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** → **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
 
    ![](../../_assets/tracker/trigger-example-add-form-1.png)
 
 1. Add the **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--comment }}** action.
 
-1. Use the following code as the comment's text:
+1. Use the following code as the comment text:
 
    
    ```
@@ -321,7 +321,7 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
       To transfer issue parameters to the form, use [variables](../user/vars.md) as values: click **{{ ui-key.startrek.blocks-desktop_trigger-action.action_add-variable }}** at the bottom of the window and choose the issue parameter. Next, replace the `not_var{{ }}` characters around the name of the variable with `<% %>`.
 
-      For example, to provide the issue key, use the `<%issue.key%>` value. To provide the assignee's login, use `<%issue.assignee.login%>`.
+      For example, to provide the issue key, use the `<%issue.key%>` value. To provide the assignee login, use `<%issue.assignee.login%>`.
 
    Here is an example of the code where the issue key is provided to a field of the form.
 
@@ -359,7 +359,7 @@ Triggers and auto actions only work for issues from the queue where they have be
 {% endnote %}
 
 
-Let's take an example of a trigger that will add an issue to the board when it's assigned to a certain user:
+Here is an example of a trigger that will add an issue to the board when it is assigned to a certain user:
 
 1. Go to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** in the queue settings and click [**{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**](../user/create-trigger.md).
 
@@ -401,7 +401,7 @@ Let's set up a trigger to automatically calculate the difference between dates i
 
 1. Select **{{ ui-key.startrek.blocks-desktop_trigger-condition.title }}** → **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--and_short }}**.
 
-1. Add the condition: **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.calculate.formula.watch }}**.
+1. Add the condition **{{ ui-key.startrek.blocks-desktop_trigger-condition.condition-type--event }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.calculate.formula.watch }}**.
 
    ![](../../_assets/tracker/create_trigger.png)
 
@@ -469,8 +469,8 @@ As an example, let's assume we need a trigger that creates a sub-issue and fills
    > }
    > ```
    For more information about the request, see [{#T}](../concepts/issues/create-issue.md) and [{#T}](../concepts/issues/link-issue.md). ||
-   || Headers | Header: `X-Org-ID`.
-   Value: Organization ID. The ID is shown in the **{{ ui-key.startrek.blocks-desktop_b-page-settings.org-id }}** field on the [{{ tracker-name }} settings]({{ link-settings }}) page. ||
+   || Headers | Header: `X-Org-ID` or `X-Cloud-Org-ID`.
+   Value: Organization ID. If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`. The ID is shown in the **{{ ui-key.startrek.blocks-desktop_b-page-settings.org-id }}** field on the [{{ tracker-name }} settings]({{ link-settings }}) page. ||
    |#
 
    {% note info %}
@@ -479,4 +479,4 @@ As an example, let's assume we need a trigger that creates a sub-issue and fills
 
    {% endnote %}
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.

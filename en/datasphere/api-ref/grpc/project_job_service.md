@@ -46,14 +46,14 @@ desc | **string**<br>Description of the job.
 
 Field | Description
 --- | ---
-input_files[] | **[File](#File)**<br> 
-output_files[] | **[FileDesc](#FileDesc)**<br> 
-s3_mount_ids[] | **string**<br> 
-dataset_ids[] | **string**<br> 
-cmd | **string**<br> 
-env | **[Environment](#Environment)**<br> 
-attach_project_disk | **bool**<br> 
-cloud_instance_type | **[CloudInstanceType](#CloudInstanceType)**<br> 
+input_files[] | **[File](#File)**<br>List of input files. 
+output_files[] | **[FileDesc](#FileDesc)**<br>List of output files descriptions. 
+s3_mount_ids[] | **string**<br>List of DataSphere S3 mount ids. 
+dataset_ids[] | **string**<br>List of DataSphere dataset ids. 
+cmd | **string**<br>Job run command. 
+env | **[Environment](#Environment)**<br>Job environment description. 
+attach_project_disk | **bool**<br>Should project disk be attached to VM. 
+cloud_instance_type | **[CloudInstanceType](#CloudInstanceType)**<br>VM specification. 
 
 
 ### File {#File}
@@ -61,25 +61,25 @@ cloud_instance_type | **[CloudInstanceType](#CloudInstanceType)**<br>
 Field | Description
 --- | ---
 desc | **[FileDesc](#FileDesc)**<br> 
-sha256 | **string**<br> 
-size_bytes | **int64**<br> 
+sha256 | **string**<br>SHA256 of the file. 
+size_bytes | **int64**<br>File size in bytes. 
 
 
 ### FileDesc {#FileDesc}
 
 Field | Description
 --- | ---
-path | **string**<br>Path to file can be: <ul><li>Hard-coded, only path, which can be only relative. </li><li>Variable, user will specify `var` for file besides path, this `var` will be in `cmd` template.</li></ul> 
-var | **string**<br> 
+path | **string**<br>Path of the file on filesystem. 
+var | **string**<br>Variable to use in cmd substitution. 
 
 
 ### Environment {#Environment}
 
 Field | Description
 --- | ---
-vars | **map<string,string>**<br> 
+vars | **map<string,string>**<br>Environment variables. 
 docker_image | **oneof:** `docker_image_resource_id` or `docker_image_spec`<br>
-&nbsp;&nbsp;docker_image_resource_id | **string**<br> 
+&nbsp;&nbsp;docker_image_resource_id | **string**<br>DS docker image id. 
 &nbsp;&nbsp;docker_image_spec | **[DockerImageSpec](#DockerImageSpec)**<br> 
 python_env | **[PythonEnv](#PythonEnv)**<br> 
 
@@ -88,26 +88,26 @@ python_env | **[PythonEnv](#PythonEnv)**<br>
 
 Field | Description
 --- | ---
-image_url | **string**<br> 
-username | **string**<br> 
-password | **oneof:** `password_plain_text` or `password_ds_secret_name`<br>
-&nbsp;&nbsp;password_plain_text | **string**<br> 
-&nbsp;&nbsp;password_ds_secret_name | **string**<br> 
+image_url | **string**<br>Docker image URL. 
+username | **string**<br>Username for container registry. 
+password | **oneof:** `password_plain_text` or `password_ds_secret_name`<br>Password for container registry.
+&nbsp;&nbsp;password_plain_text | **string**<br>Plaintext password. 
+&nbsp;&nbsp;password_ds_secret_name | **string**<br>ID of DataSphere secret containing password. 
 
 
 ### PythonEnv {#PythonEnv}
 
 Field | Description
 --- | ---
-conda_yaml | **string**<br> 
-local_modules[] | **[File](#File1)**<br> 
+conda_yaml | **string**<br>Conda YAML. 
+local_modules[] | **[File](#File1)**<br>List of local modules descriptions. 
 
 
 ### CloudInstanceType {#CloudInstanceType}
 
 Field | Description
 --- | ---
-name | **string**<br>Currently is DS pool name (g2.8, c1.4, ...). Additional spec providers can be added here in the future. 
+name | **string**<br>Name of DataSphere VM configuration. 
 
 
 ### Operation {#Operation}
@@ -146,7 +146,7 @@ upload_files[] | **[StorageFile](#StorageFile)**<br>Files to upload with their p
 Field | Description
 --- | ---
 file | **[File](#File1)**<br> 
-url | **string**<br> 
+url | **string**<br>File URL. 
 
 
 ## Execute {#Execute}
@@ -193,15 +193,15 @@ job | **[Job](#Job)**<br>Instance of the job.
 
 Field | Description
 --- | ---
-id | **string**<br> 
-name | **string**<br> 
-desc | **string**<br> 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-status | enum **JobStatus**<br> 
-config | **string**<br> 
-created_by_id | **string**<br> 
-project_id | **string**<br> 
+id | **string**<br>ID of the job. 
+name | **string**<br>Name of the job. 
+desc | **string**<br>Description of the job. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the job. 
+finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Finish timestamp of the job. 
+status | enum **JobStatus**<br>Status of the job. 
+config | **string**<br>Config of the job, copied from configuration file. 
+created_by_id | **string**<br>ID of the user who created the job. 
+project_id | **string**<br>ID of the project. 
 job_parameters | **[JobParameters](#JobParameters1)**<br> 
 
 
@@ -209,14 +209,14 @@ job_parameters | **[JobParameters](#JobParameters1)**<br>
 
 Field | Description
 --- | ---
-input_files[] | **[File](#File1)**<br> 
-output_files[] | **[FileDesc](#FileDesc1)**<br> 
-s3_mount_ids[] | **string**<br> 
-dataset_ids[] | **string**<br> 
-cmd | **string**<br> 
-env | **[Environment](#Environment1)**<br> 
-attach_project_disk | **bool**<br> 
-cloud_instance_type | **[CloudInstanceType](#CloudInstanceType1)**<br> 
+input_files[] | **[File](#File1)**<br>List of input files. 
+output_files[] | **[FileDesc](#FileDesc1)**<br>List of output files descriptions. 
+s3_mount_ids[] | **string**<br>List of DataSphere S3 mount ids. 
+dataset_ids[] | **string**<br>List of DataSphere dataset ids. 
+cmd | **string**<br>Job run command. 
+env | **[Environment](#Environment1)**<br>Job environment description. 
+attach_project_disk | **bool**<br>Should project disk be attached to VM. 
+cloud_instance_type | **[CloudInstanceType](#CloudInstanceType1)**<br>VM specification. 
 
 
 ### File {#File1}
@@ -224,25 +224,25 @@ cloud_instance_type | **[CloudInstanceType](#CloudInstanceType1)**<br>
 Field | Description
 --- | ---
 desc | **[FileDesc](#FileDesc1)**<br> 
-sha256 | **string**<br> 
-size_bytes | **int64**<br> 
+sha256 | **string**<br>SHA256 of the file. 
+size_bytes | **int64**<br>File size in bytes. 
 
 
 ### FileDesc {#FileDesc1}
 
 Field | Description
 --- | ---
-path | **string**<br>Path to file can be: <ul><li>Hard-coded, only path, which can be only relative. </li><li>Variable, user will specify `var` for file besides path, this `var` will be in `cmd` template.</li></ul> 
-var | **string**<br> 
+path | **string**<br>Path of the file on filesystem. 
+var | **string**<br>Variable to use in cmd substitution. 
 
 
 ### Environment {#Environment1}
 
 Field | Description
 --- | ---
-vars | **map<string,string>**<br> 
+vars | **map<string,string>**<br>Environment variables. 
 docker_image | **oneof:** `docker_image_resource_id` or `docker_image_spec`<br>
-&nbsp;&nbsp;docker_image_resource_id | **string**<br> 
+&nbsp;&nbsp;docker_image_resource_id | **string**<br>DS docker image id. 
 &nbsp;&nbsp;docker_image_spec | **[DockerImageSpec](#DockerImageSpec1)**<br> 
 python_env | **[PythonEnv](#PythonEnv1)**<br> 
 
@@ -251,26 +251,26 @@ python_env | **[PythonEnv](#PythonEnv1)**<br>
 
 Field | Description
 --- | ---
-image_url | **string**<br> 
-username | **string**<br> 
-password | **oneof:** `password_plain_text` or `password_ds_secret_name`<br>
-&nbsp;&nbsp;password_plain_text | **string**<br> 
-&nbsp;&nbsp;password_ds_secret_name | **string**<br> 
+image_url | **string**<br>Docker image URL. 
+username | **string**<br>Username for container registry. 
+password | **oneof:** `password_plain_text` or `password_ds_secret_name`<br>Password for container registry.
+&nbsp;&nbsp;password_plain_text | **string**<br>Plaintext password. 
+&nbsp;&nbsp;password_ds_secret_name | **string**<br>ID of DataSphere secret containing password. 
 
 
 ### PythonEnv {#PythonEnv1}
 
 Field | Description
 --- | ---
-conda_yaml | **string**<br> 
-local_modules[] | **[File](#File2)**<br> 
+conda_yaml | **string**<br>Conda YAML. 
+local_modules[] | **[File](#File2)**<br>List of local modules descriptions. 
 
 
 ### CloudInstanceType {#CloudInstanceType1}
 
 Field | Description
 --- | ---
-name | **string**<br>Currently is DS pool name (g2.8, c1.4, ...). Additional spec providers can be added here in the future. 
+name | **string**<br>Name of DataSphere VM configuration. 
 
 
 ### ExecuteProjectJobResponse {#ExecuteProjectJobResponse}
@@ -286,14 +286,14 @@ result | **[JobResult](#JobResult)**<br>Result of the job.
 Field | Description
 --- | ---
 file | **[File](#File2)**<br> 
-url | **string**<br> 
+url | **string**<br>File URL. 
 
 
 ### JobResult {#JobResult}
 
 Field | Description
 --- | ---
-return_code | **int64**<br> 
+return_code | **int64**<br>Execution return code. 
 
 
 ## Cancel {#Cancel}
@@ -408,15 +408,15 @@ page_token | **string**<br>This token allows you to get the next page of results
 
 Field | Description
 --- | ---
-id | **string**<br> 
-name | **string**<br> 
-desc | **string**<br> 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-status | enum **JobStatus**<br> 
-config | **string**<br> 
-created_by_id | **string**<br> 
-project_id | **string**<br> 
+id | **string**<br>ID of the job. 
+name | **string**<br>Name of the job. 
+desc | **string**<br>Description of the job. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the job. 
+finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Finish timestamp of the job. 
+status | enum **JobStatus**<br>Status of the job. 
+config | **string**<br>Config of the job, copied from configuration file. 
+created_by_id | **string**<br>ID of the user who created the job. 
+project_id | **string**<br>ID of the project. 
 job_parameters | **[JobParameters](#JobParameters2)**<br> 
 
 
@@ -424,14 +424,14 @@ job_parameters | **[JobParameters](#JobParameters2)**<br>
 
 Field | Description
 --- | ---
-input_files[] | **[File](#File2)**<br> 
-output_files[] | **[FileDesc](#FileDesc2)**<br> 
-s3_mount_ids[] | **string**<br> 
-dataset_ids[] | **string**<br> 
-cmd | **string**<br> 
-env | **[Environment](#Environment2)**<br> 
-attach_project_disk | **bool**<br> 
-cloud_instance_type | **[CloudInstanceType](#CloudInstanceType2)**<br> 
+input_files[] | **[File](#File2)**<br>List of input files. 
+output_files[] | **[FileDesc](#FileDesc2)**<br>List of output files descriptions. 
+s3_mount_ids[] | **string**<br>List of DataSphere S3 mount ids. 
+dataset_ids[] | **string**<br>List of DataSphere dataset ids. 
+cmd | **string**<br>Job run command. 
+env | **[Environment](#Environment2)**<br>Job environment description. 
+attach_project_disk | **bool**<br>Should project disk be attached to VM. 
+cloud_instance_type | **[CloudInstanceType](#CloudInstanceType2)**<br>VM specification. 
 
 
 ### File {#File2}
@@ -439,25 +439,25 @@ cloud_instance_type | **[CloudInstanceType](#CloudInstanceType2)**<br>
 Field | Description
 --- | ---
 desc | **[FileDesc](#FileDesc2)**<br> 
-sha256 | **string**<br> 
-size_bytes | **int64**<br> 
+sha256 | **string**<br>SHA256 of the file. 
+size_bytes | **int64**<br>File size in bytes. 
 
 
 ### FileDesc {#FileDesc2}
 
 Field | Description
 --- | ---
-path | **string**<br>Path to file can be: <ul><li>Hard-coded, only path, which can be only relative. </li><li>Variable, user will specify `var` for file besides path, this `var` will be in `cmd` template.</li></ul> 
-var | **string**<br> 
+path | **string**<br>Path of the file on filesystem. 
+var | **string**<br>Variable to use in cmd substitution. 
 
 
 ### Environment {#Environment2}
 
 Field | Description
 --- | ---
-vars | **map<string,string>**<br> 
+vars | **map<string,string>**<br>Environment variables. 
 docker_image | **oneof:** `docker_image_resource_id` or `docker_image_spec`<br>
-&nbsp;&nbsp;docker_image_resource_id | **string**<br> 
+&nbsp;&nbsp;docker_image_resource_id | **string**<br>DS docker image id. 
 &nbsp;&nbsp;docker_image_spec | **[DockerImageSpec](#DockerImageSpec2)**<br> 
 python_env | **[PythonEnv](#PythonEnv2)**<br> 
 
@@ -466,26 +466,26 @@ python_env | **[PythonEnv](#PythonEnv2)**<br>
 
 Field | Description
 --- | ---
-image_url | **string**<br> 
-username | **string**<br> 
-password | **oneof:** `password_plain_text` or `password_ds_secret_name`<br>
-&nbsp;&nbsp;password_plain_text | **string**<br> 
-&nbsp;&nbsp;password_ds_secret_name | **string**<br> 
+image_url | **string**<br>Docker image URL. 
+username | **string**<br>Username for container registry. 
+password | **oneof:** `password_plain_text` or `password_ds_secret_name`<br>Password for container registry.
+&nbsp;&nbsp;password_plain_text | **string**<br>Plaintext password. 
+&nbsp;&nbsp;password_ds_secret_name | **string**<br>ID of DataSphere secret containing password. 
 
 
 ### PythonEnv {#PythonEnv2}
 
 Field | Description
 --- | ---
-conda_yaml | **string**<br> 
-local_modules[] | **[File](#File3)**<br> 
+conda_yaml | **string**<br>Conda YAML. 
+local_modules[] | **[File](#File3)**<br>List of local modules descriptions. 
 
 
 ### CloudInstanceType {#CloudInstanceType2}
 
 Field | Description
 --- | ---
-name | **string**<br>Currently is DS pool name (g2.8, c1.4, ...). Additional spec providers can be added here in the future. 
+name | **string**<br>Name of DataSphere VM configuration. 
 
 
 ## Get {#Get}
@@ -505,15 +505,15 @@ job_id | **string**<br>ID of the job.
 
 Field | Description
 --- | ---
-id | **string**<br> 
-name | **string**<br> 
-desc | **string**<br> 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-status | enum **JobStatus**<br> 
-config | **string**<br> 
-created_by_id | **string**<br> 
-project_id | **string**<br> 
+id | **string**<br>ID of the job. 
+name | **string**<br>Name of the job. 
+desc | **string**<br>Description of the job. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the job. 
+finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Finish timestamp of the job. 
+status | enum **JobStatus**<br>Status of the job. 
+config | **string**<br>Config of the job, copied from configuration file. 
+created_by_id | **string**<br>ID of the user who created the job. 
+project_id | **string**<br>ID of the project. 
 job_parameters | **[JobParameters](#JobParameters3)**<br> 
 
 
@@ -521,14 +521,14 @@ job_parameters | **[JobParameters](#JobParameters3)**<br>
 
 Field | Description
 --- | ---
-input_files[] | **[File](#File3)**<br> 
-output_files[] | **[FileDesc](#FileDesc3)**<br> 
-s3_mount_ids[] | **string**<br> 
-dataset_ids[] | **string**<br> 
-cmd | **string**<br> 
-env | **[Environment](#Environment3)**<br> 
-attach_project_disk | **bool**<br> 
-cloud_instance_type | **[CloudInstanceType](#CloudInstanceType3)**<br> 
+input_files[] | **[File](#File3)**<br>List of input files. 
+output_files[] | **[FileDesc](#FileDesc3)**<br>List of output files descriptions. 
+s3_mount_ids[] | **string**<br>List of DataSphere S3 mount ids. 
+dataset_ids[] | **string**<br>List of DataSphere dataset ids. 
+cmd | **string**<br>Job run command. 
+env | **[Environment](#Environment3)**<br>Job environment description. 
+attach_project_disk | **bool**<br>Should project disk be attached to VM. 
+cloud_instance_type | **[CloudInstanceType](#CloudInstanceType3)**<br>VM specification. 
 
 
 ### File {#File3}
@@ -536,25 +536,25 @@ cloud_instance_type | **[CloudInstanceType](#CloudInstanceType3)**<br>
 Field | Description
 --- | ---
 desc | **[FileDesc](#FileDesc3)**<br> 
-sha256 | **string**<br> 
-size_bytes | **int64**<br> 
+sha256 | **string**<br>SHA256 of the file. 
+size_bytes | **int64**<br>File size in bytes. 
 
 
 ### FileDesc {#FileDesc3}
 
 Field | Description
 --- | ---
-path | **string**<br>Path to file can be: <ul><li>Hard-coded, only path, which can be only relative. </li><li>Variable, user will specify `var` for file besides path, this `var` will be in `cmd` template.</li></ul> 
-var | **string**<br> 
+path | **string**<br>Path of the file on filesystem. 
+var | **string**<br>Variable to use in cmd substitution. 
 
 
 ### Environment {#Environment3}
 
 Field | Description
 --- | ---
-vars | **map<string,string>**<br> 
+vars | **map<string,string>**<br>Environment variables. 
 docker_image | **oneof:** `docker_image_resource_id` or `docker_image_spec`<br>
-&nbsp;&nbsp;docker_image_resource_id | **string**<br> 
+&nbsp;&nbsp;docker_image_resource_id | **string**<br>DS docker image id. 
 &nbsp;&nbsp;docker_image_spec | **[DockerImageSpec](#DockerImageSpec3)**<br> 
 python_env | **[PythonEnv](#PythonEnv3)**<br> 
 
@@ -563,26 +563,26 @@ python_env | **[PythonEnv](#PythonEnv3)**<br>
 
 Field | Description
 --- | ---
-image_url | **string**<br> 
-username | **string**<br> 
-password | **oneof:** `password_plain_text` or `password_ds_secret_name`<br>
-&nbsp;&nbsp;password_plain_text | **string**<br> 
-&nbsp;&nbsp;password_ds_secret_name | **string**<br> 
+image_url | **string**<br>Docker image URL. 
+username | **string**<br>Username for container registry. 
+password | **oneof:** `password_plain_text` or `password_ds_secret_name`<br>Password for container registry.
+&nbsp;&nbsp;password_plain_text | **string**<br>Plaintext password. 
+&nbsp;&nbsp;password_ds_secret_name | **string**<br>ID of DataSphere secret containing password. 
 
 
 ### PythonEnv {#PythonEnv3}
 
 Field | Description
 --- | ---
-conda_yaml | **string**<br> 
-local_modules[] | **[File](#File4)**<br> 
+conda_yaml | **string**<br>Conda YAML. 
+local_modules[] | **[File](#File4)**<br>List of local modules descriptions. 
 
 
 ### CloudInstanceType {#CloudInstanceType3}
 
 Field | Description
 --- | ---
-name | **string**<br>Currently is DS pool name (g2.8, c1.4, ...). Additional spec providers can be added here in the future. 
+name | **string**<br>Name of DataSphere VM configuration. 
 
 
 ## Delete {#Delete}

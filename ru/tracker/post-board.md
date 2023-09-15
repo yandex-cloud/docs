@@ -84,7 +84,7 @@ id | Идентификтор страны | Строка
 > X-Org-ID или X-Cloud-Org-ID: <идентификатор организации>
 >
 > {
->  "name" : "Testing",
+>  "name": "Testing",
 >  "boardType": "default",
 >  "defaultQueue": {
 >         "id": "111",
@@ -122,7 +122,7 @@ id | Идентификтор страны | Строка
 > X-Org-ID или X-Cloud-Org-ID: <идентификатор организации>
 >
 > {
->  "name" : "Testing",
+>  "name": "Testing",
 >  "boardType": "default",
 >  "defaultQueue": {
 >         "id": "111",
@@ -148,16 +148,16 @@ id | Идентификтор страны | Строка
 
     ```json
     {
-      "self" : "{{ host }}/v2/boards/1",
-      "id" : 1,
-      "version" : 1,
-      "name" : "Тестирование", 
-      "columns" : 
+      "self": "{{ host }}/v2/boards/1",
+      "id": 1,
+      "version": 1,
+      "name": "Тестирование", 
+      "columns": 
       [ 
        {
-        "self" : "{{ host }}/v2/boards/1/columns/1387461731452",
-        "id" : "1387461731452",
-        "display" : "Открыт"
+        "self": "{{ host }}/v2/boards/1/columns/1387461731452",
+        "id": "1387461731452",
+        "display": "Открыт"
        },
         ...
       ],

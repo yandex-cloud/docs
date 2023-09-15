@@ -2,7 +2,7 @@
 
 In {{ ydb-name }}, you can create a database in two modes: [serverless](../concepts/serverless-and-dedicated.md#serverless) and [dedicated](../concepts/serverless-and-dedicated.md#dedicated), i.e., with dedicated servers.
 
-Using the management console or {{ yandex-cloud }} CLI, you can:
+You can use the management console or {{ yandex-cloud }} CLI to:
 
 * [Create and update parameters of a serverless database](#serverless).
 * [Create and update parameters of a dedicated database](#dedicated).
@@ -104,7 +104,7 @@ Using the management console or {{ yandex-cloud }} CLI, you can:
       * `name`: DB name. This is a required parameter.
       * `deletion_protection`: DB deletion protection. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
       * `enable_throttling_rcu_limit`: Enable the throttling limit. This is an optional parameter. The default value is `false`.
-      * `provisioned_rcu_limit`: Limit on Request Unit usage per second. This is an optional parameter. The default value is 0.
+      * `provisioned_rcu_limit`: Limit on the request unit usage per second. This is an optional parameter. The default value is 0.
       * `storage_size_limit`: Amount of data, in GB. This is an optional parameter. The default value is 50 GB.
       * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is disabled. This is an optional parameter. The default value is 0.
 
@@ -112,7 +112,7 @@ Using the management console or {{ yandex-cloud }} CLI, you can:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will create all the required resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command below:
+   {{ TF }} will create all the required resources. You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
 
    ```bash
    yc ydb database get <DB_name>
@@ -208,7 +208,7 @@ Using the management console or {{ yandex-cloud }} CLI, you can:
       * `name`: DB name. This is a required parameter.
       * `deletion_protection`: DB deletion protection. You cannot delete a DB with this option enabled. If deletion protection is activated, this does not protect the DB contents. The default value is `false`.
       * `enable_throttling_rcu_limit`: Enable the throttling limit. This is an optional parameter. The default value is `false`.
-      * `provisioned_rcu_limit`: Limit on Request Unit usage per second. This is an optional parameter. The default value is 0.
+      * `provisioned_rcu_limit`: Limit on the request unit usage per second. This is an optional parameter. The default value is 0.
       * `storage_size_limit`: Amount of data, in GB. This is an optional parameter. The default value is 50 GB.
       * `throttling_rcu_limit`: Shows the request unit usage per second charged on an hourly basis according to the service plan. If set to 0, hourly billing is disabled. This is an optional parameter. The default value is 0.
 
@@ -216,7 +216,7 @@ Using the management console or {{ yandex-cloud }} CLI, you can:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will apply the required changes to the resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command below:
+   {{ TF }} will apply the required changes to the resources. You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
 
    ```bash
    yc ydb database get <DB_name>
@@ -387,7 +387,7 @@ Using the management console or {{ yandex-cloud }} CLI, you can:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will create all the required resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command below:
+   {{ TF }} will create all the required resources. You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
 
    ```bash
    yc ydb database list
@@ -487,7 +487,7 @@ Using the management console or {{ yandex-cloud }} CLI, you can:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can verify the changes using the [management console]({{ link-console-main }}) or the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command below:
+   You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
 
    ```bash
    yc ydb database get <DB_name>
@@ -574,7 +574,7 @@ Using the management console or {{ yandex-cloud }} CLI, you can:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will delete all the appropriate resources. You can verify the changes using the [management console]({{ link-console-main }}) or the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command below:
+   {{ TF }} will delete all the appropriate resources. You can check the update using the [management console]({{ link-console-main }}) or this [{{ yandex-cloud }} CLI](../../cli/quickstart.md) command:
 
    ```bash
    yc ydb database list

@@ -1,4 +1,4 @@
-# Send the HTTP request
+# Sending HTTP requests
 
 
 {% note warning %}
@@ -70,7 +70,9 @@ To send data from your form to a web service via the API, use HTTP requests:
 >
 >* **Headers**:
 >  `Authorization` — `OAuth <your OAuth token>`;
->     `X-Org-ID` — `<organization ID>`.
+>  >  `X-Org-ID: <organization ID>` or `X-Cloud-Org-ID: <organization ID>`
+>  If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`.
+>  
 >
 > ![](../_assets/forms/request-example-new.png)
 

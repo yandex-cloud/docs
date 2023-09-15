@@ -1,6 +1,6 @@
 # Example use for synchronous recognition API
 
-The example shows how the [API v2](request-api.md) helps synchronously recognize speech in the [OggOpus](../../formats.md#OggOpus) audio file format.
+The example shows how the [API v1](request-api.md) helps synchronously recognize speech in the [OggOpus](../../formats.md#OggOpus) audio file format.
 
 The example uses the following parameters:
 
@@ -29,10 +29,10 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    Where:
 
-   * `topic`: [Language model](../models.md).
-   * `lang`: [Recognition language](../index.md#langs).
-   * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-   * `<IAM token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+   * `topic`: [Language model](../models.md)
+   * `lang`: [Recognition language](../index.md#langs)
+   * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md)
+   * `<IAM token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md)
 
 - cURL
 
@@ -43,7 +43,6 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    export IAM_TOKEN=<IAM token>
    curl -X POST \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -H "Transfer-Encoding: chunked" \
         --data-binary "@speech.ogg" \
         "https://stt.{{ api-host }}/speech/v1/stt:recognize?topic=general&folderId=${FOLDER_ID}"
    ```
@@ -88,10 +87,10 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    Where:
 
    * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-   * `speech.ogg`: Name of the audio file for recognition.
-   * `topic`: [Language model](../models.md).
-   * `lang`: [Recognition language](../index.md#langs).
+   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md)
+   * `speech.ogg`: Name of the audio file for recognition
+   * `topic`: [Language model](../models.md)
+   * `lang`: [Recognition language](../index.md#langs)
 
 - PHP
 
@@ -108,7 +107,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    $ch = curl_init();
    curl_setopt($ch, CURLOPT_URL, "https://stt.{{ api-host }}/speech/v1/stt:recognize?lang=ru-RU&folderId=${folderId}&format=oggopus");
-   curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $token, 'Transfer-Encoding: chunked'));
+   curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer ' . $token));
    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
    curl_setopt($ch, CURLOPT_POST, true);
    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -131,11 +130,11 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    Where:
 
-   * `token`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-   * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-   * `audioFileName`: Name of the audio file for recognition.
-   * `lang`: [Recognition language](../index.md#langs).
-   * `format`: [Format](../../formats.md) of submitted audio.
+   * `token`: [IAM token](../../../iam/concepts/authorization/iam-token.md)
+   * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md)
+   * `audioFileName`: Name of the audio file for recognition
+   * `lang`: [Recognition language](../index.md#langs)
+   * `format`: [Format](../../formats.md) of the submitted audio
 
 {% endlist %}
 

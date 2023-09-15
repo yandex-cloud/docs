@@ -43,7 +43,11 @@ To invite other users to discuss an issue:
 
 1. Click **{{ ui-key.startrek.blocks-desktop_comment-form.send }}**.
 
-Users invited to comment will be notified by email, with their names added to the **{{ ui-key.startrek-backend.fields.issue.pendingReplyFrom }}** issue field.
+Users invited to a discussion will be notified of the invitation:
+* By [email](notification-settings.md).
+* In {{ tracker-name }} ![](../../_assets/tracker/svg/bell_2.svg) **Notifications** (only if they opened the {{ tracker-name }} interface at least once prior to the invitation).
+
+In addition, the names of these users will be added to the **{{ ui-key.startrek-backend.fields.issue.pendingReplyFrom }}** issue field.
 
 {% note info %}
 

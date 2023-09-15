@@ -8,7 +8,18 @@ In multi-dataset charts, only linked dimensions (available in all datasets) can 
 
 To create a [multi-dataset chart](../../concepts/chart/index.md#multi-dataset-charts):
 
-1. On the {{ datalens-short-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
+
+
+1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
+1. Click **Create chart**.
+
+
+
+
 1. Under **Dataset**, select a dataset for visualization. If you do not have any dataset, [create one](../dataset/create.md).
 1. Add another dataset. To do this, under the dataset list, click **Add dataset** and select the dataset to visualize.
 1. When you add a {{ datalens-short-name }} dataset, a link is automatically created based on the first field name and data type match. In the resulting dataset link configuration window, click **Save**.
