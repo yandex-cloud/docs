@@ -8,7 +8,7 @@ By default, only the queue owner can configure a queue.
 
 ## Setting access rights for queues {#set-access}
 
-By default, users are not restricted from accessing queue issues
+By default, users are not restricted from accessing queue issues.
 
 If you restrict access to your queue, only the users specified in the following fields will have access to its issues by default: **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}**, **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--assignee }}**, **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--followers }}**, and **Access**.
 
@@ -36,8 +36,8 @@ You can change access settings for specific users, groups, or roles:
    * **{{ ui-key.startrek.blocks-desktop_roles-table.roles }}**: Settings for users who have specific roles in queue issues:
       * **{{ ui-key.startrek-backend.roles.role.name.access }}**: Users listed in the **{{ ui-key.startrek-backend.fields.issue.access }}** field of an issue.
       * **{{ ui-key.startrek-backend.roles.role.name.follower-key-value }}**: Users subscribed to the issue.
-      * **{{ ui-key.startrek-backend.roles.role.name.author }}**: The person who created the issue.
-      * **{{ ui-key.startrek-backend.roles.role.name.assignee }}**: The person assigned to the issue.
+      * **{{ ui-key.startrek-backend.roles.role.name.author }}**: Person who created the issue.
+      * **{{ ui-key.startrek-backend.roles.role.name.assignee }}**: Person assigned to the issue.
       * **{{ ui-key.startrek-backend.roles.role.name.queue-lead }}**.
       * **{{ ui-key.startrek-backend.roles.role.name.team-member }}**: Users added to the [queue team](queue-team.md). This role is not on the list by default: you can add it using the search bar at the top of the table.
 
@@ -45,14 +45,14 @@ You can change access settings for specific users, groups, or roles:
    * **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--create }}**: Users allowed to create new issues in this queue.
    * **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--read }}**: Users allowed to add comments to an issue and change its status, but not to edit issue field values.
 
-      {% note info %}
+        {% note info %}
 
-      To [bulk change multiple issues' statuses](bulk-change.md#change-status), view permissions are not sufficient. This requires permission to edit issues.
+        To [bulk change multiple issues' statuses](bulk-change.md#change-status), view permissions are not sufficient. This requires permission to edit issues.
 
-      {% endnote %}
+        {% endnote %}
 
    * **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--write }}**: Users allowed to add comments to an issue, change its status, and edit issue fields (change its deadline, add followers, etc.).
-   * **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**: Users allowed to edit [queue settings](edit-queue-general.md).
+   * **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**. : Users allowed to edit [queue settings](edit-queue-general.md).
 
 1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.save }}**.
 
@@ -64,11 +64,22 @@ If the user is assigned multiple roles, they can perform all the actions allowed
 >
 > If a user is both the reporter and the assignee, they are allowed to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--create }}**, **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--read }}**, and **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--write }}**.
 
-## Adding a message for users who can't access issues {#deny-message}
+## Users that always have access to the queue {#implicit-access}
 
-When a user is trying to open an issue from a queue that they don't have access to, a message saying <q>Contact the queue owner</q> pops out with the owner's name specified.
+Some users always have access to the queue, and you cannot restrict their access rights. These users are:
 
-This message can be changed. For example, you can specify another user with administrative rights for the queue so that other users can request access from them. You can also explain here what was the reason for closing access to the queue.
+
+* [Organization administrators](../role-model.md#admin).
+* {{ tracker-name }} robot.
+* Queue owner.
+
+
+
+## Adding a message for users who cannot access issues {#deny-message}
+
+When a user is trying to open an issue from a queue that they do not have access to, a message saying <q>Contact the queue owner</q> pops out with the owner name specified.
+
+This message can be changed. For example, you can specify another user with admin rights for the queue to request access from. You can also state the reason for closing access to the queue.
 
 To change the message shown to the users who do not have access to the queue:
 
@@ -85,7 +96,7 @@ To change the message shown to the users who do not have access to the queue:
 
 ## Setting access rights to issues with components {#access-components}
 
-You can set up access to different [components](components.md) of the queue. This way, you can set different settings for the queue's issues without components or issues with components.
+You can set up access to different [components](components.md) of the queue. This way, you can set different settings for the queue issues without components or issues with components.
 
 {% note warning %}
 
@@ -112,8 +123,8 @@ To configure access to component issues:
    * **{{ ui-key.startrek.blocks-desktop_roles-table.roles }}**: Settings for users who have specific roles in queue issues:
       * **{{ ui-key.startrek-backend.roles.role.name.access }}**: Users listed in the **{{ ui-key.startrek-backend.fields.issue.access }}** field of an issue.
       * **{{ ui-key.startrek-backend.roles.role.name.follower-key-value }}**: Users subscribed to the issue.
-      * **{{ ui-key.startrek-backend.roles.role.name.author }}**: The person who created the issue.
-      * **{{ ui-key.startrek-backend.roles.role.name.assignee }}**: The person assigned to the issue.
+      * **{{ ui-key.startrek-backend.roles.role.name.author }}**: Person who created the issue.
+      * **{{ ui-key.startrek-backend.roles.role.name.assignee }}**: Person assigned to the issue.
       * **{{ ui-key.startrek-backend.roles.role.name.queue-lead }}**.
       * **{{ ui-key.startrek-backend.roles.role.name.team-member }}**: Users added to the [queue team](queue-team.md). This role is not on the list by default: you can add it using the search bar at the top of the table.
 

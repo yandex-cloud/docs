@@ -9,6 +9,10 @@ Use the [Yandex Monitoring query language](../../../monitoring/concepts/querying
 
 To create a {{ monitoring-name }} connection:
 
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
 1. Select **Monitoring** as the connection type.

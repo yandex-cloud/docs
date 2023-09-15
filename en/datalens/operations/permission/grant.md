@@ -1,6 +1,6 @@
-# Granting permissions
+# Granting and updating permissions
 
-Only a user with `{{ permission-admin }}` access privileges can assign access rights to an object or folder: they can do so directly or by confirming a request. By default, objects inherit the access rights of the parent folder.
+Only a user with `{{ permission-admin }}` access privileges can grant or update permissions for an object or folder: they can do so directly or by confirming a request. By default, objects inherit the permissions of the parent folder.
 
 Before granting a user access permissions, [add](../../security/index.md#add-new-user) the user to the respective organization or cloud.
 
@@ -12,7 +12,9 @@ Before granting a user access permissions, [add](../../security/index.md#add-new
 
 1. Click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) next to the object and select **Permissions**.
 1. In the window that opens, click the button to set up permissions to the respective object: connection, dataset, chart, or dashboard.
-1. Enter a username or select the **All** group. If necessary, write a comment for the user you are requesting access from. Specify the appropriate permissions and click **Add**.
+1. Enter a username or select the **All** group.
+1. (Optional) Write a comment for the user you are granting permissions to.
+1. Specify the appropriate permissions and click **Add**.
 
    {% include [multi-access-note](../../../_includes/datalens/datalens-multi-access-note.md) %}
 
@@ -27,14 +29,18 @@ Before granting a user access permissions, [add](../../security/index.md#add-new
    - Folder
 
      1. In the window that opens, click **Folder access**.
-     1. Enter a username or select the **All** group. If necessary, write a comment for the user you're granting permissions to. Specify the appropriate permissions and click **Add**.
+     1. Enter a username or select the **All** group.
+     1. (Optional) Write a comment for the user you are granting permissions to.
+     1. Specify the appropriate permissions and click **Add**.
 
         The selected user or group is granted the specified access permissions to the current folder only.
 
    - Folder and content
 
      1. In the window that opens, click **Folder and content access**.
-     1. Enter a username or select the **All** group. If necessary, write a comment for the user you're granting permissions to. Specify the appropriate permissions and click **Apply**.
+     1. Enter a username or select the **All** group.
+     1. (Optional) Write a comment for the user you are granting permissions to.
+     1. Specify the appropriate permissions and click **Apply**.
 
         The selected user or group is granted the specified access permissions to the current folder and all nested objects, including connections, datasets, and other folders and files.
 
@@ -42,15 +48,27 @@ Before granting a user access permissions, [add](../../security/index.md#add-new
 
    {% endlist %}
 
-## Confirm request{#confirm-request}
+## Confirm request {#confirm-request}
 
 To confirm a [request](request.md) for access permission to a folder or object:
 
-1. On the navigation page, find the relevant directory or access object.
+1. On the navigation page, find the relevant folder or access object.
 
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
-1. Click the ![image](../../../_assets/datalens/horizontal-ellipsis.svg) by the object or directory and select **Permissions**.
-1. In the resulting window next to the desired request, click **![image](../../../_assets/datalens/check.svg)**.
-1. If necessary, write a comment for the user requesting access.
+1. Click the ![image](../../../_assets/datalens/horizontal-ellipsis.svg) next to the object or folder and select **Permissions**.
+1. In the window that opens, click **![image](../../../_assets/datalens/check.svg)** next to the request you need.
+1. (Optional) Select permissions.
+1. (Optional) Write a comment for the user requesting access.
 1. Click **Confirm request**.
+
+## Updating permissions {#change}
+
+To update folder or object permissions:
+1. On the navigation page, find the relevant folder or access object.
+
+   {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
+
+1. Click the ![image](../../../_assets/datalens/horizontal-ellipsis.svg) next to the object or folder and select **Permissions**.
+1. Select the user with the permission you want to update or choose the **All** group.
+1. In the window that opens, specify the appropriate permissions and click **Save**.

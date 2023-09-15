@@ -76,3 +76,6 @@ keywords:
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
+
+
+@[youtube](https://www.youtube.com/watch?v=HHi1WZIcMdA)

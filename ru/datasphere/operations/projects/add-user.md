@@ -2,18 +2,13 @@
 
 {% include [select-user](../../../_includes/datasphere/organization-users.md) %}
 
-{% list tabs %}
+1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
 
-- Консоль управления
+1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}**.
 
-  1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
+1. {% include [select-user](../../../_includes/datasphere/select-from-list.md) %}
 
-  1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}**.
+   Если нужного пользователя нет в списке, нажмите **{{ ui-key.yc-ui-datasphere.common.copy-link }}** и отправьте пользователю скопированную ссылку удобным вам способом.
 
-  1. {% include [select-user](../../../_includes/datasphere/select-from-list.md) %}
+   Пользователь станет участником проекта после того, как примет приглашение и перейдет по ссылке.
 
-     Если нужного пользователя нет в списке, нажмите **{{ ui-key.yc-ui-datasphere.common.copy-link }}** и отправьте пользователю скопированную ссылку удобным вам способом.
-
-     Пользователь станет участником проекта после того, как примет приглашение и перейдет по ссылке.
-
-{% endlist %}

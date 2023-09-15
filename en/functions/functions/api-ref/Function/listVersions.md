@@ -81,7 +81,33 @@ filter | <p>A filter expression that filters resources listed in the response.</
           "mountPointName": "string",
           "readOnly": true
         }
-      ]
+      ],
+      "asyncInvocationConfig": {
+        "retriesCount": "string",
+        "successTarget": {
+
+          // `versions[].asyncInvocationConfig.successTarget` includes only one of the fields `emptyTarget`, `ymqTarget`
+          "emptyTarget": {},
+          "ymqTarget": {
+            "queueArn": "string",
+            "serviceAccountId": "string"
+          },
+          // end of the list of possible fields`versions[].asyncInvocationConfig.successTarget`
+
+        },
+        "failureTarget": {
+
+          // `versions[].asyncInvocationConfig.failureTarget` includes only one of the fields `emptyTarget`, `ymqTarget`
+          "emptyTarget": {},
+          "ymqTarget": {
+            "queueArn": "string",
+            "serviceAccountId": "string"
+          },
+          // end of the list of possible fields`versions[].asyncInvocationConfig.failureTarget`
+
+        },
+        "serviceAccountId": "string"
+      }
     }
   ],
   "nextPageToken": "string"
@@ -126,4 +152,17 @@ versions[].<br>storageMounts[].<br>bucketId | **string**<br><p>Required. S3 buck
 versions[].<br>storageMounts[].<br>prefix | **string**<br><p>S3 bucket prefix for mounting.</p> 
 versions[].<br>storageMounts[].<br>mountPointName | **string**<br><p>Required. Mount point directory name (not path) for mounting.</p> <p>The string length in characters must be 1-100. Value must match the regular expression ``[-_0-9a-zA-Z]*``.</p> 
 versions[].<br>storageMounts[].<br>readOnly | **boolean** (boolean)<br><p>Is mount read only.</p> 
+versions[].<br>asyncInvocationConfig | **object**<br><p>Config for asynchronous invocations of the version</p> 
+versions[].<br>asyncInvocationConfig.<br>retriesCount | **string** (int64)<br><p>Number of retries of version invocation</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+versions[].<br>asyncInvocationConfig.<br>successTarget | **object**<br><p>Required. Target for successful result of the version's invocation</p> <p>Target to which a result of an invocation will be sent</p> 
+versions[].<br>asyncInvocationConfig.<br>successTarget.<br>emptyTarget | **object**<br>Target to ignore a result <br>`versions[].asyncInvocationConfig.successTarget` includes only one of the fields `emptyTarget`, `ymqTarget`<br>
+versions[].<br>asyncInvocationConfig.<br>successTarget.<br>ymqTarget | **object**<br>Target to send a result to ymq <br>`versions[].asyncInvocationConfig.successTarget` includes only one of the fields `emptyTarget`, `ymqTarget`<br>
+versions[].<br>asyncInvocationConfig.<br>successTarget.<br>ymqTarget.<br>queueArn | **string**<br><p>Required. Queue ARN</p> 
+versions[].<br>asyncInvocationConfig.<br>successTarget.<br>ymqTarget.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
+versions[].<br>asyncInvocationConfig.<br>failureTarget | **object**<br><p>Required. Target for unsuccessful result, if all retries failed</p> <p>Target to which a result of an invocation will be sent</p> 
+versions[].<br>asyncInvocationConfig.<br>failureTarget.<br>emptyTarget | **object**<br>Target to ignore a result <br>`versions[].asyncInvocationConfig.failureTarget` includes only one of the fields `emptyTarget`, `ymqTarget`<br>
+versions[].<br>asyncInvocationConfig.<br>failureTarget.<br>ymqTarget | **object**<br>Target to send a result to ymq <br>`versions[].asyncInvocationConfig.failureTarget` includes only one of the fields `emptyTarget`, `ymqTarget`<br>
+versions[].<br>asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>queueArn | **string**<br><p>Required. Queue ARN</p> 
+versions[].<br>asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
+versions[].<br>asyncInvocationConfig.<br>serviceAccountId | **string**<br><p>Service account which can invoke version</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

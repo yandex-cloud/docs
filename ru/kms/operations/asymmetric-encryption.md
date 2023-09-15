@@ -66,6 +66,10 @@
           ```
           
           Сохраните полученный ключ в файл, например, в файл `public.key`. Убедитесь, что в файле отсутствуют пробелы в начале строк.
+      
+    - API
+
+      Чтобы получить открытый ключ шифрования, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionCryptoService/GetPublicKey](../api-ref/grpc/asymmetric_encryption_crypto_service.md#GetPublicKey).
 
     {% endlist %}
     
@@ -135,5 +139,9 @@
       ```
 
       В результате выполнения команды зашифрованное сообщение будет расшифровано закрытым ключом шифрования в {{ kms-short-name }}, а расшифрованный текст сохранится в указанном файле.
+
+- API
+
+  Чтобы расшифровать данные, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionCryptoService/Decrypt](../api-ref/grpc/asymmetric_encryption_crypto_service.md#Decrypt).
 
 {% endlist %}

@@ -64,7 +64,7 @@ The steps below can only be completed by a {{ ya-360 }} organization administrat
 
 1. In {{ tracker-name }}, click ![](../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → ![](../_assets/tracker/svg/organizations.svg) [**{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**]({{ link-tracker }}admin/orgs) in the left-hand panel. In the {{ org-full-name }} organizations section, click **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.domain-task-action }}** and select the organization you need. Wait until the users and groups from {{ org-full-name }} are synced in {{ tracker-name }}, which may take up to 30 minutes.
 
-1. In {{ org-full-name }}, add [users](../organization/manage-users.md) and [groups](../organization/manage-groups.md) in the same way as in {{ ya-360 }}. A group name in {{ tracker-name }} is generated based on the **{{ ui-key.startrek.blocks-desktop_b-form-new-component.desc }}** field value or, if it is not provided, on the **{{ ui-key.startrek.blocks-desktop_b-form-new-component.name }}** field value.
+1. In {{ org-full-name }}, add [users](../organization/manage-users.md) and [groups](../organization/manage-groups.md) in the same way as in {{ ya-360 }}. A group name in {{ tracker-name }} is generated as per the **{{ ui-key.startrek.blocks-desktop_b-form-new-component.desc }}** field value or, if it is not provided, the **{{ ui-key.startrek.blocks-desktop_b-form-new-component.name }}** field value.
 
    {% note info %}
 

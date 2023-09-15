@@ -48,20 +48,20 @@ To set up automatic audio file recognition using {{ speechkit-short-name }}:
    ```
 
 1. Specify the function run parameters:
-   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
-   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `60`.
-   * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `asr-batch-sa`.
+   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
+   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `60`
+   * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `asr-batch-sa`
 1. Add environment variables:
-   * `S3_BUCKET`: `asr-batch-bucket`.
-   * `S3_PREFIX`: `input`.
-   * `S3_PREFIX_LOG`: `log`.
-   * `S3_PREFIX_OUT`: `out`.
-   * `S3_KEY`: ID of the static access key.
-   * `S3_SECRET`: Secret of the static access key.
-   * `API_KEY`: ID of the API key.
-   * `API_SECRET`: Secret of the API key.
+   * `S3_BUCKET`: `asr-batch-bucket`
+   * `S3_PREFIX`: `input`
+   * `S3_PREFIX_LOG`: `log`
+   * `S3_PREFIX_OUT`: `out`
+   * `S3_KEY`: ID of the static access key
+   * `S3_SECRET`: Secret of the static access key
+   * `API_KEY`: ID of the API key
+   * `API_SECRET`: Secret of the API key
 
-1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_create }}**.
+1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 ## Create a trigger {#create-trigger}
 
@@ -69,14 +69,14 @@ To set up automatic audio file recognition using {{ speechkit-short-name }}:
 1. Select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 1. Specify the trigger parameters:
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}**: `asr-batch-cron`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}**: `Timer`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}**: `Function`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}**: Every minute.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}**: `asr-batch-function`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**: `$latest`.
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}**: `asr-batch-sa`.
-1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}**: `asr-batch-cron`
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}**: `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}**: `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}**: `{{ ui-key.yacloud.common.button_cron-1min }}`
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}**: `asr-batch-function`
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**: `$latest`
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}**: `asr-batch-sa`
+1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**
 
 The trigger you created will fire once a minute and invoke the [cloud function](#create-function).
 
@@ -100,3 +100,4 @@ You can monitor the script running progress by [viewing logs](../../functions/op
 * [{#T}](../../speechkit/stt/api/transcribation-api.md)
 * [{#T}](../../speechkit/stt/api/transcribation-lpcm.md)
 * [{#T}](../../speechkit/stt/api/transcribation-ogg.md)
+

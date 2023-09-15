@@ -9,6 +9,12 @@ Switching boards to [our new technologies](agile-new.md) allows you to add new f
 * Creating any columns with no link to the issue status.
 * Flexible configuration of issue cards on the board.
 
+{% note info %}
+
+Starting from September 1, 2023, the boards with no migration restrictions will be transferred to the new technologies. You will still have an option to [switch back to the old board version](#backward).
+
+{% endnote %}
+
 ## Migration process {#about-migration}
 
 When migrating the board, the following is retained:

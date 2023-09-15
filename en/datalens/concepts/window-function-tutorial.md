@@ -150,7 +150,7 @@ For example, for a chart with grouping by the `City` and `Category` dimensions, 
 * `SUM(SUM([Sales]) AMONG [Category])` and `SUM(SUM([Sales]) WITHIN [City])`
 * `SUM(SUM([Sales]) AMONG [City], [Category])`and `SUM(SUM([Sales]) TOTAL)`.
 
-This option is provided only for convenience and is used when you don't know which dimensions the chart will be built across in advance, but you need to exclude certain dimensions from the window grouping.
+This option is provided only for convenience and is used when you do not know which dimensions the chart will be built across in advance, but you need to exclude certain dimensions from the window grouping.
 
 {% note warning %}
 

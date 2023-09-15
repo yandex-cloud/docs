@@ -78,7 +78,7 @@ Possible `groupby` parameters:
 
 ## Sample POST request {#example-post-request}
 
-The following request URL and request body return the third page with search results in response to the `<table>` query for the `xml-search-user` user. Results are sorted by document update time. Search type: **Russian** (yandex.ru). Results are grouped by domain. Each group contains three documents and the number of groups returned per page is 10. Maximum number of passages per document: 2. The service returns a UTF-8 encoded XML file.
+The following request URL and request body return the third page with search results in response to the `<table>` query for the `xml-search-user` user. Results are sorted by document update time. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). Results are grouped by domain. Each group contains three documents and the number of groups returned per page is 10. The maximum number of passages per document is 2. The service returns a UTF-8 encoded XML file.
 
 Request URL:
 

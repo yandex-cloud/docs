@@ -45,4 +45,4 @@ curl -X POST \
 
 Чтобы получить значения `x-request-id` и `x-server-trace-id`, ваше приложение должно логировать заголовки ответов сервера. 
 
-Пример реализации доступа к заголовкам протокола gRPC приведен в [документации библиотеки `grpc-go`](https://github.com/grpc/grpc-go/blob/master/Documentation/grpc-metadata.md).
+Пример реализации доступа к заголовкам протокола [gRPC](../../glossary/grpc) приведен в [документации библиотеки `grpc-go`](https://github.com/grpc/grpc-go/blob/master/Documentation/grpc-metadata.md).

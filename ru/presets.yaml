@@ -4599,7 +4599,6 @@ default:
         filter-waiting: Ждут ответа
         filters: Фильтры
         issues-list: Задачи
-        queue: Очередь
         queues: Очереди
       ui_components_IssueMenu:
         add-notification: Добавить напоминание
@@ -4754,7 +4753,6 @@ default:
         description-placeholder: >-
           Добавьте описание, чтобы исполнителю было понятно, что нужно сделать в
           этой задаче
-        empty-template: Без формы
         switch-to-admin-panel: Перейти в админку
       ui_components_PageCreateIssueForm:
         continue: Продолжить
@@ -5317,7 +5315,6 @@ default:
         label_dataStream: Data Streams
         label_destination: Назначение
         label_filter: Фильтр
-        label_folders: Каталоги
         label_object-prefix: Префикс объекта
         label_objectStorage: Object Storage
         label_organization-manager:
@@ -5685,10 +5682,13 @@ default:
           button_add-federation-user: Добавить федеративного пользователя
           button_assign-binding: Изменить роли
           button_new-bindings: Назначить роли
+          button_remove-bindings: Отозвать роли
           label_access-bindings: Права доступа
           label_bindings: Роли
+          label_groups: Группы
           label_inherited-bindings: Наследуемые роли
           label_service-account: Сервисный аккаунт
+          label_service-accounts: Сервисные аккаунты
         save: Сохранить
         section-base: Общая информация
         select: Выбрать
@@ -6230,7 +6230,7 @@ default:
             label_load-testing: Load Testing
             label_lockbox: Lockbox
             label_logging: Cloud Logging
-            label_managed-airflow: Managed Service for Airflow
+            label_managed-airflow: Managed Service for Apache Airflow™
             label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-elasticsearch: Managed Service for Elasticsearch
             label_managed-gitlab: Managed Service for GitLab
@@ -6268,25 +6268,37 @@ default:
             label_add-role: Добавить роль
             overview:
               action_download-keys-file: Скачать файл с ключами
+              button_action-delete: Удалить
+              button_action-delete-access-key: Удалить
+              button_action-delete-api-key: Удалить
               button_create_api_key: Создать API-ключ
               button_create_key: Создать авторизованный ключ
               button_create_service-account-key: Создать статический ключ доступа
               button_create-key-popup: Создать новый ключ
               field_key-description: Описание
               label_id: Идентификатор
+              label_title: Обзор
+              popup-confirm_button_delete: Удалить
               popup-key_button_close: Закрыть
               popup-key_button_create: Создать
+              section_keys: Авторизованные ключи
+              section_service-account-keys: Ключи доступа
             popup-robot_button_add: Создать
+            popup-robot_button_save: Сохранить
             popup-robot_field_name: Имя
           service-accounts:
             button_action-delete: Удалить
+            button_action-edit: Редактировать
             button_add: Создать сервисный аккаунт
+            column_roles: Роли в каталоге
             popup-confirm_button_delete: Удалить
           switch_incident-notifications: Уведомления
           switch_service-accounts: Сервисные аккаунты
         users:
           button_tune-role: Настроить роли
           label_folders-roles: Роли в каталогах
+          label_user-listing-allowed-admins-title: Администраторам
+          label_user-listing-allowed-everybody-title: Всем пользователям
       iot:
         button_add-alias: Добавить алиас
         button_add-device: Добавить устройство

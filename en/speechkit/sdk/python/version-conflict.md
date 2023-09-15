@@ -1,8 +1,8 @@
-{% cut "If a `grpcio-tools` package version conflict occurs" %}
+# Resolving version conflicts during the installation of Python SDK
 
-When installing `yandex-speechkit`, the `grpcio-tools` package of version {{ grpcio-tools-version }} is installed. If you installed `grpcio-tools` before (for example, when going through [examples of working with the {{ speechkit-name }} API](../../speechkit/tutorials/index.md)), a conflict between the package versions may occur.
+When you [install](install.md) the `yandex-speechkit` package, the `grpcio-tools` version {{ grpcio-tools-version }} is installed along with it. If you installed `grpcio-tools` before (e.g., when going through [examples of working with the {{ speechkit-name }} API](../../tutorials/index.md)), a conflict between the package versions may occur.
 
-Check which version you have installed:
+Check which version of `grpcio-tools` you have installed:
 
 ```bash
 pip list | grep grpcio-tools
@@ -19,9 +19,9 @@ To deploy a virtual environment and install the package in it:
    python3 -m venv <environment name>
    ```
 
-   If you need to create an environment with a specific Python version, specify `python<version>` instead of `python3`. E.g., `python3.9`.
+   If you need to create an environment with a specific Python version, specify `python<version>` instead of `python3`, e.g., `python3.9`.
 
-1. Activate the environment:
+1. Activate the environment.
 
    ```bash
    source <environment name>/bin/activate
@@ -35,6 +35,4 @@ To deploy a virtual environment and install the package in it:
    pip install yandex-speechkit
    ```
 
-After you finish working with the Python SDK, exit the environment by running the `deactivate` command.
-
-{% endcut %}
+Continue working with the Python SDK in the deployed environment. When you are finished, exit the environment by running the `deactivate` command.

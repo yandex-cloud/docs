@@ -12,8 +12,8 @@ The search type determines the search result _ranking formula_ and the _search d
 
 In addition to the {{ yandex-cloud }} terms of use, each search type has its own license agreement.
 
-| Search type | License agreement |
+| {{ ui-key.yacloud.component.ip-address-form.label_field-search-type }} | License agreement |
 |---|---|
-| **Russian** | [https://legal.yandex.ru/xml](https://legal.yandex.ru/xml/) |
-| **Turkish** | [https://legal.yandex.com.tr/xml](https://legal.yandex.com.tr/xml/) |
-| **International** | [https://legal.yandex.com/xml](https://legal.yandex.com/xml) |
+| `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` | [https://legal.yandex.ru/xml](https://legal.yandex.ru/xml/) |
+| `{{ ui-key.yacloud.search-api.test-query.label_search_type-turkish }}` | [https://legal.yandex.com.tr/xml](https://legal.yandex.com.tr/xml/) |
+| `{{ ui-key.yacloud.search-api.test-query.label_search_type-international }}` | [https://legal.yandex.com/xml](https://legal.yandex.com/xml) |

@@ -39,7 +39,7 @@
     **body.json:**
     ```json
     {
-        "folderId": "b1gvmob95yysaplct532",
+        "folderId": "b1gvmob95yys********",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "mime_type": "application/pdf",
@@ -54,7 +54,7 @@
     ```
 
     Где:
-
+    * `folderId` – [идентификатор любого каталога](../../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
     * `analyze_specs: content` – PDF-файл, кодированный в Base64.
     * `analyze_specs: mime_type` – [MIME-тип](https://en.wikipedia.org/wiki/Media_type) `application/pdf`.
 
@@ -80,7 +80,7 @@
     **body.json:**
     ```json
     {
-        "folderId": "b1gvmob95yysaplct532",
+        "folderId": "b1gvmob95yys********",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{
@@ -95,7 +95,7 @@
     ```
 
     Где:
-
+    * `folderId` – [идентификатор любого каталога](../../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
     * `analyze_specs: content` – изображение, кодированное в Base64.
     * `analyze_specs: features: text_detection_config: model` – модель `line`.
 
@@ -113,7 +113,7 @@
     **body.json:**
     ```json
     {
-        "folderId": "b1gvmob95yysaplct532",
+        "folderId": "b1gvmob95yys********",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             ...
@@ -128,7 +128,7 @@
        **body.json:**
        ```json
        {
-           "folderId": "b1gvmob95yysaplct532",
+           "folderId": "b1gvmob95yys********",
            "analyze_specs": [{
                "content": "iVBORw0KGgo...",
                "features": [{
@@ -146,7 +146,7 @@
        **body.json:**
        ```json
        {
-           "folderId": "b1gvmob95yysaplct532",
+           "folderId": "b1gvmob95yys********",
            "analyze_specs": [{
                "content": "iVBORw0KGgo...",
                "features": [{

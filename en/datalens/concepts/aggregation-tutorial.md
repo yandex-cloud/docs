@@ -230,7 +230,7 @@ You can add a measure at the chart level in the following ways:
 
 * In the wizard, add a [calculated field](calculations/index.md) using [aggregate functions](../function-ref/aggregation-functions.md). For more information, see [{#T}](calculations/index.md#how-to-create-calculated-field). In the formula of the calculated field, you can [substitute](#substituting-fields) other measures.
 
-Measures can consist of more than one aggregate function and have more complex expressions. For example, in this chart, to calculate the average sales amount per day, we use the `Sales per day` measure calculated by the `SUM([Sales])/COUNTD([Date])` formula.
+Measures can consist of more than one aggregate function and have more complex expressions. For example, in this chart, to calculate the average sales amount for the day, we use the `Sales per day` measure calculated using the `SUM([Sales])/COUNTD([Date])` formula.
 
 ![image](../../_assets/datalens/concepts/tutorial/aggregation-12.png)
 
@@ -266,7 +266,7 @@ In some chart sections, you can drag only a dimension or only a measure. This de
 
 Like in SQL, in {{ datalens-short-name }}, you cannot use aggregated and non-aggregated values in the same expression.
 
-For example, in the chart with groupings by the `City` and `Category` dimensions, you cannot add the `SUM([Sales]) * (1 - [Day's discount])` measure to calculate the sales amount with discounts. In this case, the `City` and `Category` dimensions determine group breakdown, and therefore have fixed values in each group. For each group, you can calculate the `SUM([Sales])` value. However, the `Day's discount` field is neither aggregation nor a measure within the group. It does not have a fixed value and may vary from row to row in the group. Therefore, it is impossible to determine what specific value of the `Day's discount` field needs to be selected to calculate the `SUM([Sales]) * (1 - [Day's discount])` measure for each group. Thus, the `SUM([Sales]) * (1 - [Day's discount])` expression cannot be calculated. In {{ datalens-short-name }}, such cases result in the `Inconsistent aggregation among operands` error.
+For example, in the chart with groupings by the `City` and `Category` dimensions, you cannot add the `SUM([Sales]) * (1 - [Day's discount])` measure to calculate the sales amount with discounts. In this case, the `City` and `Category` dimensions determine group breakdown, and therefore have fixed values in each group. For each group, you can calculate the `SUM([Sales])` value. However, the `Day's discount` field is neither an aggregation nor a measure within the group. It does not have a fixed value and may vary from row to row in the group. Therefore, it is impossible to determine what specific value of the `Day's discount` field needs to be selected to calculate the `SUM([Sales]) * (1 - [Day's discount])` measure for each group. Thus, the `SUM([Sales]) * (1 - [Day's discount])` expression cannot be calculated. In {{ datalens-short-name }}, such cases result in the `Inconsistent aggregation among operands` error.
 
 ![image](../../_assets/datalens/concepts/tutorial/aggregation-10.png)
 

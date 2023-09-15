@@ -21,7 +21,7 @@ _Классификация изображений сейчас находитс
 
 ```json
 {
-  "folderId": "b1gvmob95yysaplct532",
+  "folderId": "b1gvmob95yys********",
   "analyze_specs": [{
     "content": "iVBORw0KGgo...",
     "features": [{
@@ -38,7 +38,7 @@ _Классификация изображений сейчас находитс
 
 ```json
 {
-  "folderId": "b1gvmob95yysaplct532",
+  "folderId": "b1gvmob95yys********",
   "analyze_specs": [{
     "content": "iVBORw0KGgo...",
     "features": [{

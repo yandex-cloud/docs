@@ -10,7 +10,7 @@ For information about {{ speechkit-name }} usage costs, see [{#T}](../pricing.md
 
 ## Speech recognition {#stt-quickstart}
 
-* [{#T}](stt-quickstart-v2.md)
+* [{#T}](stt-quickstart-v1.md)
 * [{#T}](stt-quickstart-v3.md)
 
 ## Speech synthesis {#tts-quickstart}

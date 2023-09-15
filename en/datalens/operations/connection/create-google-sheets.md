@@ -3,11 +3,15 @@
 {% note warning %}
 
 
-Before creating a connection, learn about the [constraints](#restrictions).
+Before creating a connection, learn about the [limitations](#restrictions).
 
 {% endnote %}
 
 To create a Google Sheets connection:
+
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
 
 
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
@@ -23,9 +27,9 @@ To create a Google Sheets connection:
 
    - Public spreadsheet
 
-      1. Click **+ Add file** and specify the link to the file. To do this, in the Google Sheets access settings, select ``Anyone with the link`` and copy the link to the desired sheet from the browser's address bar. If you copy the link from the Google Sheets sharing window, it will lead to the spreadsheet's first sheet.
+      1. Click **+ Add file** and specify the link to the file. To do this, in the Google Sheets access settings, select `Anyone with the link` and copy the link to the desired sheet from the browser's address bar. If you copy the link from the Google Sheets sharing window, it will lead to the spreadsheet's first sheet.
       1. Click **Add**. If the file contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table. Click **Add**.
-      1. The information about the added file and the uploaded data will be displayed in the central area of the screen.
+      1. The information about the added file and the uploaded data will be displayed at the center of the screen.
 
    - Spreadsheet with restricted access
 
@@ -34,7 +38,7 @@ To create a Google Sheets connection:
       1. Grant **{{ datalens-short-name }}** a permission to access your Google account. Click **Continue**.
       1. Click **+ Add file** and specify the link to the file.
       1. Click **Add**. If the file contains multiple sheets, specify the ones you want to upload in the **Add sheets** window. You cannot select empty sheets. Enable the **Sheets** option to select all available sheets. Each sheet is uploaded to a separate table. Click **Add**.
-      1. The information about the added file and the uploaded data will be displayed in the central area of the screen.
+      1. The information about the added file and the uploaded data will be displayed at the center of the screen.
 
       To log out of your Google account, click ![image](../../../_assets/datalens/exit.svg). Click **Sign out**. The sheets from the files with restricted access will no longer be displayed.
 
@@ -56,12 +60,11 @@ You can add, rename, and delete files in the connection.
 
 {% cut "What do I do if a Google Sheets spreadsheet is not working properly?" %}
 
-If a Google Sheets spreadsheet contains empty cells, {{ datalens-name }} may incorrectly display column headers and miss the first several lines.
+If a Google Sheets spreadsheet contains empty cells, {{ datalens-name }} may incorrectly display column headers and miss the first several rows.
 
 To fix this, you need to fill empty cells in your Google Sheets spreadsheet with any appropriate values, such as `unavailable`, `none`, and `unknown`.
 
 To quickly populate empty cells in a Google Sheets spreadsheet:
-
 1\. Highlight the entire Google Sheets sheet.
 2\. In the spreadsheet menu, select **Data** → **Create a filter**.
 3\. In the right-hand corner of the first column's top cell, click the filter icon.
@@ -73,9 +76,9 @@ To quickly populate empty cells in a Google Sheets spreadsheet:
 
 {% endcut %}
 
-## Constraints {#restrictions}
+## Limitations {#restrictions}
 
-When creating a connection to Google Sheets, keep in mind the following constraints:
+When creating a connection to Google Sheets, keep in mind the following limitations:
 * Maximum number of Google Sheets sheets per connection: 10. All sheets will be loaded when you create a connection, but you can only select 10 of them for concurrent work.
 * Maximum size per sheet: 200 MB.
 * Maximum number of columns per sheet: 300.

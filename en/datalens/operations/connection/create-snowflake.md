@@ -2,6 +2,10 @@
 
 To create a Snowflake connection:
 
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
 1. Go to the [connections page](https://datalens.yandex.ru/connections).
 1. Click **Create connection**.
 1. Select a **Snowflake** connection.

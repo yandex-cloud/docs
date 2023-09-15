@@ -24,6 +24,10 @@ items:
             href: api-ref/grpc/TokenizerService.md
           - name: EmbeddingsService
             href: api-ref/grpc/EmbeddingsService.md
+          - name: TextGenerationAsyncService
+            href: api-ref/grpc/TextGenerationAsyncService.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Overview
@@ -48,6 +52,12 @@ items:
                 href: api-ref/Embeddings/index.md
               - name: embedding
                 href: api-ref/Embeddings/embedding.md
+          - name: TextGenerationAsync
+            items:
+              - name: Overview
+                href: api-ref/TextGenerationAsync/index.md
+              - name: instruct
+                href: api-ref/TextGenerationAsync/instruct.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

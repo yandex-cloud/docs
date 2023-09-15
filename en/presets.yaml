@@ -250,6 +250,15 @@ default:
   roles-datalens-instances-user: datalens.instances.user
   roles-datalens-instances-admin: datalens.instances.admin
   roles-datalens-admin: datalens.admin
+  roles-datalens-visitor: datalens.visitor
+  roles-datalens-collections-admin: datalens.collections.admin
+  roles-datalens-collections-editor: datalens.collections.editor
+  roles-datalens-collections-limitedViewer: datalens.collections.limitedViewer
+  roles-datalens-collections-viewer: datalens.collections.viewer
+  roles-datalens-workbooks-admin: datalens.workbooks.admin
+  roles-datalens-workbooks-editor: datalens.workbooks.editor
+  roles-datalens-workbooks-limitedViewer: datalens.workbooks.limitedViewer
+  roles-datalens-workbooks-viewer: datalens.workbooks.viewer
   roles-functions-ivoker: serverless.functions.invoker
   roles-image-user: compute.images.user
   roles-monitoring-viewer: monitoring.viewer
@@ -4577,7 +4586,6 @@ default:
         filter-waiting: Waiting for response
         filters: Filters
         issues-list: Issues
-        queue: Queue
         queues: Queues
       ui_components_IssueMenu:
         add-notification: Add reminder
@@ -4730,7 +4738,6 @@ default:
         create-new: Create form
         create-new-template: Create new form
         description-placeholder: Add a description of the issue so the assignee knows what to do
-        empty-template: No form
         switch-to-admin-panel: Switch to admin panel
       ui_components_PageCreateIssueForm:
         continue: Continue
@@ -5293,7 +5300,6 @@ default:
         label_dataStream: Data Streams
         label_destination: Destination
         label_filter: Filter
-        label_folders: Folders
         label_object-prefix: Object prefix
         label_objectStorage: Object Storage
         label_organization-manager:
@@ -5661,10 +5667,13 @@ default:
           button_add-federation-user: Add federation user
           button_assign-binding: Edit roles
           button_new-bindings: Assign bindings
+          button_remove-bindings: Remove bindings
           label_access-bindings: Access bindings
           label_bindings: Roles
+          label_groups: Groups
           label_inherited-bindings: Inherited roles
           label_service-account: Service account
+          label_service-accounts: Service accounts
         save: Save
         section-base: General information
         select: Select
@@ -6206,7 +6215,7 @@ default:
             label_load-testing: Load Testing
             label_lockbox: Lockbox
             label_logging: Cloud Logging
-            label_managed-airflow: Managed Service for Airflow
+            label_managed-airflow: Managed Service for Apache Airflow™
             label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-elasticsearch: Managed Service for Elasticsearch
             label_managed-gitlab: Managed Service for GitLab
@@ -6244,25 +6253,37 @@ default:
             label_add-role: Add role
             overview:
               action_download-keys-file: Download file with keys
+              button_action-delete: Delete
+              button_action-delete-access-key: Delete
+              button_action-delete-api-key: Delete
               button_create_api_key: Create API key
               button_create_key: Create authorized key
               button_create_service-account-key: Create static access key
               button_create-key-popup: Create new key
               field_key-description: Description
               label_id: ID
+              label_title: Overview
+              popup-confirm_button_delete: Delete
               popup-key_button_close: Close
               popup-key_button_create: Create
+              section_keys: Authorized keys
+              section_service-account-keys: Access keys
             popup-robot_button_add: Create
+            popup-robot_button_save: Save
             popup-robot_field_name: Name
           service-accounts:
             button_action-delete: Delete
+            button_action-edit: 'Edit '
             button_add: Create service account
+            column_roles: Roles in folder
             popup-confirm_button_delete: Delete
           switch_incident-notifications: Notifications
           switch_service-accounts: Service accounts
         users:
           button_tune-role: Configure roles
           label_folders-roles: Roles for folders
+          label_user-listing-allowed-admins-title: Administrators
+          label_user-listing-allowed-everybody-title: All users
       iot:
         button_add-alias: Add alias
         button_add-device: Add device

@@ -10,8 +10,6 @@
 
 ## Создать ключевую пару шифрования {#create}
 
-Чтобы создать новую ключевую пару шифрования:
-
 {% list tabs %}
 
 - Консоль управления
@@ -68,14 +66,15 @@
       status: ACTIVE
       encryption_algorithm: RSA_2048_ENC_OAEP_SHA_256
       ```
+- API
+
+  Чтобы создать ключевую пару шифрования, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/Create](../api-ref/grpc/asymmetric_encryption_key_service.md#Create).
 
 {% endlist %}
 
 ## Изменить ключевую пару шифрования {#update}
 
 После создания ключевой пары шифрования вы можете изменить ее имя, описание, метки, а также включить или выключить защиту от удаления.
-
-Чтобы изменить ключевую пару шифрования:
 
 {% list tabs %}
 
@@ -133,11 +132,13 @@
 
       Команда изменила имя ключевой пары шифрования и включила защиту от удаления.
 
+- API
+
+  Чтобы изменить ключевую пару шифрования, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/Update](../api-ref/grpc/asymmetric_encryption_key_service.md#Update).
+
 {% endlist %}
 
 ## Удалить ключевую пару шифрования {#delete}
-
-Чтобы удалить ключевую пару шифрования:
 
 {% list tabs %}
 
@@ -182,5 +183,9 @@
       name: new-encryption-key
       encryption_algorithm: RSA_2048_ENC_OAEP_SHA_256
       ```
+
+- API
+
+  Чтобы удалить ключевую пару шифрования, воспользуйтесь вызовом gRPC API [AsymmetricEncryptionKeyService/Delete](../api-ref/grpc/asymmetric_encryption_key_service.md#Delete).
 
 {% endlist %}

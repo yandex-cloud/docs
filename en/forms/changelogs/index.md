@@ -1,32 +1,30 @@
-# {{ forms-full-name }} revision history for June 2023
+# {{ forms-full-name }} revision history for July 2023
 
-- [Form interface updates](#interface-update)
-- [Variables in integration settings](#switch-interface)
+* [Saving attached files to Yandex Disk](#saving-files-disk)
+* [Domains under integration conditions for a group of actions](#tld)
 
-## Form interface updates {#interface-update}
 
-- Updated the form design. The layout of all elements is now in the same style as [{{ tracker-name }}]({{ link-tracker }}).
-- Added support for a dark theme. You can enable it in the browser settings.
-- Added support for response auto-saves. If a user closes a form without submitting it, when they reopen the form, the data they entered persist.
-- Updated the page for submitting responses to [tests](../tests.md). Now, both test results and a list of correct and incorrect responses are placed on the same page.
-- Updated the **Date** question. Added the ability to enter responses using the keyboard.
-- Optimized form performance. Now, forms with 100 or more prompts open faster.
+## Saving attached files to Yandex Disk {#saving-files-disk}
 
-### Enabling and disabling the new interface {#switch-interface}
+{% note warning %}
 
-To enable and disable the new interface, open **Settings** → **Advanced** and select **Show form to fill out in new UI**.
+This option is only available for [personal forms](../personal-forms.md).
 
-![](../../_assets/forms/changelogs2306-ya-team.png =690x598)
+{% endnote %}
 
-You can temporarily switch between the old and new UI. As soon as we add the new interface's compatibility with topics, forms will only open in the new interface.
+Added a setting that allows you to save attached files from user responses to the form owner's Yandex Disk. To enable this setting, on the page for editing forms, go to **Settings** → **Advanced** and select **Save attached files from responses to Yandex Disk**.
 
-### Limitations {#interface-limits}
+This will create the `Yandex.Forms` folder on the form owner's Yandex Disk, where files from new user responses will be saved. Files received before you enable this setting will continue to be stored in {{ forms-name }} for a [limited time](../answers.md#files).
 
-New features are only available if you set a [standard topic for a form](../appearance.md).
 
-## Variables in integration settings {#vars}
 
-Added new [variables](../vars.md) that can be used for [integration with other services](../notifications.md):
+## Domains under integration conditions for a group of actions {#tld}
 
-* `Link to the form`: Link to the form editing page.
-* `Link to the response`: Link to the page with the response to the form.
+[Integrations](../notifications.md#section_xlw_rjc_tbb) now contain a new condition for executing an action group: `tld`, top-level domain compliance. You can choose from the following values:
+
+* ru
+* by
+* com
+* tr
+* kz
+* ua

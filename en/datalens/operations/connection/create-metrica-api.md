@@ -3,6 +3,10 @@
 To create a Yandex Metrica connection:
 
 
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
+
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 

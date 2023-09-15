@@ -28,6 +28,15 @@ Rules for the presentation of normalized text may change. Please consider this d
 ## Managing normalization parameters {#control}
 
 
+### API v1 {#api-v1}
+
+* [REST API v1 for synchronous recognition](api/request-api.md).
+
+| Normalization level | API parameter |
+| :----- | :------|
+| Profanity masking | `profanityFilter=true` |
+| Converting numbers from dictionary to numeric format | Enabled by default. To disable it, set `rawResults=true`. |
+
 ### API v2 {#api-v2}
 
 * [gRPC API v2 for streaming recognition](api/streaming-api.md).
@@ -36,13 +45,6 @@ Rules for the presentation of normalized text may change. Please consider this d
 | :----- | :------|
 | Profanity masking | `config.specification.profanityFilter=true` |
 | Converting numbers from dictionary to numeric format | Enabled by default. To disable it, set `config.specification.rawResults=true`. |
-
-* [REST API v2 for synchronous recognition](api/request-api.md).
-
-| Normalization level | API parameter |
-| :----- | :------|
-| Profanity masking | `profanityFilter=true` |
-| Converting numbers from dictionary to numeric format | Enabled by default. To disable it, set `rawResults=true`. |
 
 * [REST API v2 for asynchronous recognition](api/transcribation-api.md).
 

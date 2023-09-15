@@ -63,6 +63,32 @@ POST https://serverless-functions.{{ api-host }}/functions/v1/versions
       "readOnly": true
     }
   ],
+  "asyncInvocationConfig": {
+    "retriesCount": "string",
+    "successTarget": {
+
+      // `asyncInvocationConfig.successTarget` includes only one of the fields `emptyTarget`, `ymqTarget`
+      "emptyTarget": {},
+      "ymqTarget": {
+        "queueArn": "string",
+        "serviceAccountId": "string"
+      },
+      // end of the list of possible fields`asyncInvocationConfig.successTarget`
+
+    },
+    "failureTarget": {
+
+      // `asyncInvocationConfig.failureTarget` includes only one of the fields `emptyTarget`, `ymqTarget`
+      "emptyTarget": {},
+      "ymqTarget": {
+        "queueArn": "string",
+        "serviceAccountId": "string"
+      },
+      // end of the list of possible fields`asyncInvocationConfig.failureTarget`
+
+    },
+    "serviceAccountId": "string"
+  },
 
   //  includes only one of the fields `package`, `content`, `versionId`
   "package": {
@@ -109,6 +135,19 @@ storageMounts[].<br>bucketId | **string**<br><p>Required. S3 bucket name for mou
 storageMounts[].<br>prefix | **string**<br><p>S3 bucket prefix for mounting.</p> 
 storageMounts[].<br>mountPointName | **string**<br><p>Required. Mount point directory name (not path) for mounting.</p> <p>The string length in characters must be 1-100. Value must match the regular expression ``[-_0-9a-zA-Z]*``.</p> 
 storageMounts[].<br>readOnly | **boolean** (boolean)<br><p>Is mount read only.</p> 
+asyncInvocationConfig | **object**<br>Config for asynchronous invocations of the version
+asyncInvocationConfig.<br>retriesCount | **string** (int64)<br><p>Number of retries of version invocation</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+asyncInvocationConfig.<br>successTarget | **object**<br><p>Required. Target for successful result of the version's invocation</p> <p>Target to which a result of an invocation will be sent</p> 
+asyncInvocationConfig.<br>successTarget.<br>emptyTarget | **object**<br>Target to ignore a result <br>`asyncInvocationConfig.successTarget` includes only one of the fields `emptyTarget`, `ymqTarget`<br>
+asyncInvocationConfig.<br>successTarget.<br>ymqTarget | **object**<br>Target to send a result to ymq <br>`asyncInvocationConfig.successTarget` includes only one of the fields `emptyTarget`, `ymqTarget`<br>
+asyncInvocationConfig.<br>successTarget.<br>ymqTarget.<br>queueArn | **string**<br><p>Required. Queue ARN</p> 
+asyncInvocationConfig.<br>successTarget.<br>ymqTarget.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
+asyncInvocationConfig.<br>failureTarget | **object**<br><p>Required. Target for unsuccessful result, if all retries failed</p> <p>Target to which a result of an invocation will be sent</p> 
+asyncInvocationConfig.<br>failureTarget.<br>emptyTarget | **object**<br>Target to ignore a result <br>`asyncInvocationConfig.failureTarget` includes only one of the fields `emptyTarget`, `ymqTarget`<br>
+asyncInvocationConfig.<br>failureTarget.<br>ymqTarget | **object**<br>Target to send a result to ymq <br>`asyncInvocationConfig.failureTarget` includes only one of the fields `emptyTarget`, `ymqTarget`<br>
+asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>queueArn | **string**<br><p>Required. Queue ARN</p> 
+asyncInvocationConfig.<br>failureTarget.<br>ymqTarget.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
+asyncInvocationConfig.<br>serviceAccountId | **string**<br><p>Service account which can invoke version</p> 
 package | **object**<br>Functions deployment package. <br> includes only one of the fields `package`, `content`, `versionId`<br>
 package.<br>bucketName | **string**<br><p>Required. Name of the bucket that stores the code for the version.</p> 
 package.<br>objectName | **string**<br><p>Required. Name of the object in the bucket that stores the code for the version.</p> 

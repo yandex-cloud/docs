@@ -12,6 +12,10 @@ description: "In this tutorial, you will learn how to connect to {{ GP }} in {{ 
 To create a {{ GP }} connection:
 
 
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
+
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 

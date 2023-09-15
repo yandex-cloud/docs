@@ -181,6 +181,8 @@ items:
         href: concepts/deploy/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Специальные условия для образования
+        href: concepts/freetier.md
   - name: Практические руководства
     items:
       - name: Все руководства

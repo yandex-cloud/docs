@@ -4,6 +4,10 @@ You can only access statistics for the billing accounts you have the `{{ roles-v
 
 To create a {{ yandex-cloud }} Billing connection:
 
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
 1. Select a **{{ yandex-cloud }} Billing** connection.

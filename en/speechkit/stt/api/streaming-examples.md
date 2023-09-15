@@ -12,9 +12,9 @@ The example uses the following parameters:
 
 To use the API, you need the `grpcio-tools` package for Python and `grpc` for Node.js.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you don't need to pass the folder ID in the request. Learn more about [authentication in the {{ speechkit-name }} API](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. Learn more about [authentication in the {{ speechkit-name }} API](../../concepts/auth.md).
 
-To follow the examples in this section:
+To try the examples in this section:
 
 1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
 
@@ -96,7 +96,10 @@ To follow the examples in this section:
              stub = stt_service_pb2_grpc.SttServiceStub(channel)
 
              # Send data for recognition.
-             it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(('authorization', 'Bearer %s' % iam_token),))
+             it = stub.StreamingRecognize(gen(folder_id, audio_file_name), metadata=(
+                 ('authorization', 'Bearer %s' % iam_token),
+                 ('Transfer-encoding', 'chunked'),
+             ))
 
              # Process server responses and output the result to the console.
              try:
@@ -124,12 +127,12 @@ To follow the examples in this section:
 
          Where:
 
-         * `language_code`: [Language](../index.md#langs) that recognition is performed for.
-         * `profanity_filter`: [Profanity filter](streaming-api.md#specification-msg).
-         * `model`: [Language model](../models.md).
-         * `partial_results`: [Filter of intermediate recognition results](streaming-api.md#specification-msg).
-         * `audio_encoding`: [Format](../../formats.md) of the audio stream.
-         * `sample_rate_hertz`: Sampling rate.
+         * `language_code`: Recognition [language](../index.md#langs)
+         * `profanity_filter`: [Profanity filter](streaming-api.md#specification-msg)
+         * `model`: [Language model](../models.md)
+         * `partial_results`: [Filter of intermediate recognition results](streaming-api.md#specification-msg)
+         * `audio_encoding`: [Format](../../formats.md) of the audio stream
+         * `sample_rate_hertz`: Sampling rate
 
       1. Set the [folder ID](../../../resource-manager/operations/folder/get-id.md):
 
@@ -212,11 +215,12 @@ To follow the examples in this section:
          };
 
          // How often audio is sent in milliseconds.
-         // or LPCM format, the frequency can be calculated using the formula: CHUNK_SIZE * 1000 / ( 2 * sampleRateHertz).
+         // For LPCM format, the frequency can be calculated using the formula: CHUNK_SIZE * 1000 / ( 2 * sampleRateHertz);
          const FREQUENCY = 250;
 
          const serviceMetadata = new grpc.Metadata();
          serviceMetadata.add('authorization', `Bearer ${iamToken}`);
+         serviceMetadata.add('Transfer-encoding', `chunked`);
 
          const packageDefinition = protoLoader.loadSync('../yandex/cloud/ai/stt/v2/stt_service.proto', {
              includeDirs: ['node_modules/google-proto-files', '..']
@@ -264,12 +268,12 @@ To follow the examples in this section:
 
          Where:
 
-         * `languageCode`: [Language](../index.md#langs) that recognition is performed for.
-         * `profanityFilter`: [Profanity filter](streaming-api.md#specification-msg).
-         * `model`: [Language model](../models.md).
-         * `partialResults`: [Filter of intermediate recognition results](streaming-api.md#specification-msg).
-         * `audioEncoding`: [Format](../../formats.md) of the audio stream.
-         * `sampleRateHertz`: Sampling rate.
+         * `languageCode`: Recognition [language](../index.md#langs)
+         * `profanityFilter`: [Profanity filter](streaming-api.md#specification-msg)
+         * `model`: [Language model](../models.md)
+         * `partialResults`: [Filter of intermediate recognition results](streaming-api.md#specification-msg)
+         * `audioEncoding`: [Format](../../formats.md) of the audio stream
+         * `sampleRateHertz`: Sampling rate
 
       1. Set the [folder ID](../../../resource-manager/operations/folder/get-id.md):
 

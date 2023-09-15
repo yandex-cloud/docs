@@ -12,6 +12,10 @@ description: "In this tutorial, you will learn how to connect to {{ MY }} in {{ 
 To create a {{ MY }} connection:
 
 
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
+
 
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
@@ -43,13 +47,13 @@ To create a {{ MY }} connection:
 
          {% endnote %}
 
-      - **Hostname**. Select the host name from the list of hosts available in the {{ MY }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-      - **Port**. Specify the {{ MY }} connection port. The default port is 3306.
-      - **Path to database**. Specify the name of the database to connect to.
-      - **Username**. Specify the username for the {{ MY }} connection.
-      - **Password**. Enter the password for the user.
-      - **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
-      - **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+      - **Hostname**: Select the host name from the list of hosts available in the {{ MY }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+      - **Port**: Specify the {{ MY }} connection port. The default port is 3306.
+      - **Path to database**: Specify the name of the database to connect to.
+      - **Username**: Specify the username for the {{ MY }} connection.
+      - **Password**: Enter the password for the user.
+      - **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+      - **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    - Specify manually
 

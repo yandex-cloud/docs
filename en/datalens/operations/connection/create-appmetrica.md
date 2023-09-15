@@ -3,6 +3,10 @@
 To create an AppMetrica connection:
 
 
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
+
+
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 
@@ -10,9 +14,9 @@ To create an AppMetrica connection:
 1. Select **AppMetrica** as the connection type.
 1. Specify the connection parameters:
 
-   * **OAuth token**. Click **Get token** or enter the [OAuth token](#get-oauth-token) manually to access the AppMetrica data.
-   * **App**. Specify one or more applications to connect to.
-   * **Accuracy**. Set the data accuracy (sampling rate). You can change accuracy after you create the connection.
+   * **OAuth token**: Click **Get token** or enter the [OAuth token](#get-oauth-token) manually to access the AppMetrica data.
+   * **App**: Specify one or more applications to connect to.
+   * **Accuracy**: Set the data accuracy (sampling rate). You can change the accuracy after you create the connection.
 
       {% include [datalens-get-token](../../../_includes/datalens/datalens-change-account-note.md) %}
 

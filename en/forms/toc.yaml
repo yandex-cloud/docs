@@ -49,6 +49,8 @@ items:
         href: send-wiki.md
       - name: Send the HTTP request
         href: send-request.md
+      - name: Save files from responses to the storage
+        href: storage-for-attached-files.md
       - name: Variables in integration settings
         href: vars.md
   - name: Publishing a form
@@ -138,8 +140,10 @@ items:
     href: pricing.md
   - name: Releases
     items:
-      - name: June 2023
+      - name: July 2023
         href: changelogs/index.md
+      - name: June 2023
+        href: changelogs/2306.md
       - name: May 2023
         href: changelogs/2305.md
       - name: March 2023

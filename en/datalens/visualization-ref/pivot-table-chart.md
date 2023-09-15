@@ -65,6 +65,13 @@ To create a pivot table:
 1. Select the **Pivot table** chart type.
 1. Drag a dimension from the dataset to the **Columns** section.
 1. Drag a dimension from the dataset to the **Rows** section.
+
+   {% note info %}
+
+   In the **Columns** and **Rows** sections, you can change the order of dimensions by dragging them.
+
+   {% endnote %}
+
 1. Drag a measure from the dataset to the **Measures** section. The values are displayed in the table cells.
 1. Drag a measure from the dataset to the **Color** section. Cells with the measure are filled in with a color from the color gradient, depending on the measure value.
 

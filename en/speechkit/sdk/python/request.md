@@ -20,9 +20,6 @@ Below, we provide an example of synchronous speech recognition from an audio fil
 - Python 3
 
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
-
-      {% include [In case of a version conflict](../../../_includes/speechkit/version-conflict.md) %}
-
    1. Create a file named `test.py` and add the following code to it:
 
       ```python
@@ -80,7 +77,7 @@ Below, we provide an example of synchronous speech recognition from an audio fil
       python3 test.py --audio speech.pcm
       ```
 
-      Where `--audio` is the path to the file for speech recognition.
+      Where `--audio` is the path to the audio file to transcribe.
 
       The result contains recognized speech:
 
@@ -102,5 +99,4 @@ Below, we provide an example of synchronous speech recognition from an audio fil
 #### See also {#see-also}
 
 * [Python SDK {{ speechkit-name }}](https://pypi.org/project/yandex-speechkit/)
-* [{#T}](../../concepts/auth.md)
 * [{#T}](../../stt/api/request-examples.md)

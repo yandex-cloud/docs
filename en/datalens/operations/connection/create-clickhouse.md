@@ -8,10 +8,14 @@
 {% endnote %}
 
 
-{% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+{% include [connection-note](../../../_includes/datalens/datalens-connection-note-ip.md) %}
 
 
 To create a {{ CH }} connection:
+
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
 
 
 
@@ -34,7 +38,7 @@ To create a {{ CH }} connection:
 
       Specify the connection parameters for the {{ CH }} DB available in {{ yandex-cloud }}:
 
-      - **Cluster**. Specify a cluster from the list of available {{ CH }} clusters. Cluster settings must have the **{{ datalens-short-name }} access** option enabled. If you do not have an available cluster, click **Create new**.
+      - **Cluster**: Specify a cluster from the list of available {{ CH }} clusters. Cluster settings must have the **{{ datalens-short-name }} access** option enabled. If you do not have an available cluster, click **Create new**.
 
          {% note info %}
 
@@ -45,16 +49,16 @@ To create a {{ CH }} connection:
 
          {% endnote %}
 
-      - **Hostname**. Select the host name from the list of hosts available in the {{ CH }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-      - **HTTP interface port**. Specify the {{ CH }} connection port. The default port is 8443.
-      - **Username**. Specify the username for the {{ CH }} connection.
+      - **Hostname**: Select the host name from the list of hosts available in the {{ CH }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+      - **HTTP interface port**: Specify the {{ CH }} connection port. The default port is 8443.
+      - **Username**: Specify the username for the {{ CH }} connection.
 
          {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
 
-      - **Password**. Enter the password for the user.
-      - **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
-      - **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
-      - **HTTPS**. Make sure the secure connection option is enabled.
+      - **Password**: Enter the password for the user.
+      - **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+      - **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+      - **HTTPS**: Make sure the secure connection option is enabled.
 
    - Specify manually
 
@@ -72,7 +76,15 @@ To create a {{ CH }} connection:
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
 
-## Specifics for {{ CH }} connections {#ch-connection-specify}
+## Additional settings {#clickhouse-additional-settings}
+
+You can specify additional connection settings in the **Advanced connection settings** section:
+
+* **TLS**: If this option is enabled, the DB is accessed via `HTTPS`; if not, via `HTTP`.
+
+* **CA Certificate**: To upload a certificate , click **Attach file** and specify the certificate file. When the certificate is uploaded, the field shows the file name.
+
+##  specifics for {{ CH }} connections {#ch-connection-specify}
 
 In {{ CH }}, you can create a dataset on top of a `VIEW` that contains a `JOIN`. To do this, make sure a view is created with the `join_use_nulls` option enabled. We recommend that you set `join_use_nulls = 1` in the `SETTINGS` section:
 

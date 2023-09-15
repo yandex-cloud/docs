@@ -3,9 +3,13 @@
 
 {% note warning %}
 
-Only users with privileges to a Yandex Music podcast are able to create connections and process podcast analytics. If you don't have access to any podcast, no data will be displayed on the dashboard.
+Only users with privileges to a Yandex Music podcast are able to create connections and process podcast analytics. If you do not have access to any podcast, no data will be displayed on the dashboard.
 
 You will get access after uploading a podcast to Yandex Music. The podcast is linked to the Yandex email address specified when uploading it.
+
+
+{% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
+
 
 {% endnote %}
 
@@ -19,5 +23,5 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
 1. Leave the option **Automatically create a dashboard, charts, and a dataset on the connection** enabled if you need a folder with a standard set of datasets and charts and a ready-made dashboard.
 1. Click **Check connection**.
 1. After successfully checking the connection, click **Create connection**.
-1. Enter the connection name and click **Create**.
-1. Go to the **Dashboards** menu and open the **Yandex Music podcast analytics** dashboard. If there isn't any data, please make sure your current account has podcast access by writing to [technical support](https://yandex.com/support/music/podcast-authors/statistics.html).
+1. Enter a connection name and click **Create**.
+1. Go to the **Dashboards** menu and open the **Yandex Music podcast analytics** dashboard. If there is no data, check that your current account has access to podcasts by writing to [technical support](https://yandex.com/support/music/podcast-authors/statistics.html).

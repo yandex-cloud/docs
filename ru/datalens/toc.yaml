@@ -145,6 +145,8 @@ items:
             href: operations/dataset/create-calculated-field.md
           - name: Создание фильтра по умолчанию для новых чартов
             href: operations/dataset/create-filter.md
+          - name: Замена подключения в датасете
+            href: operations/dataset/replace-connection.md
           - name: Обновление полей в датасете
             href: operations/dataset/update-field.md
           - name: Описание датасета через SQL-запрос к источнику
@@ -591,6 +593,8 @@ items:
             items:
               - name: Создание чарта
                 href: operations/chart/create-chart.md
+              - name: Замена датасета в чарте
+                href: operations/chart/replace-dataset.md
               - name: Создание мультидатасетного чарта
                 href: operations/chart/create-multidataset-chart.md
               - name: Добавление иерархии
@@ -840,6 +844,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API.md
       - name: Invalid clique specification. Probably, clique does not exists
         hidden: true
         href: >-
@@ -923,6 +930,12 @@ items:
       - name: Не удалось создать <тип объекта>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: Ошибка в запросе к объекту
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-BAD_REQUEST.md
+      - name: Ошибка выполнения запроса в источнике данных
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB.md
       - name: Ошибка на стороне БД
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md

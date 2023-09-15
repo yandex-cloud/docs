@@ -1,117 +1,72 @@
-# {{ tracker-full-name }} revision history for June 2023
+# {{ tracker-full-name }} revision history for July 2023
 
 * [Updates](#top-news)
 * [Fixes and improvements](#fixes)
 
 ## Updates {#top-news}
 
-### Setting up an issue color by status on a Gantt chart for an issue filter {#gantt-colour-status}
+### Limit on the number of issues per group on a board {#desks-groups-limits}
 
-Added the **by status type** option to the [Gantt chart for issue filters](../gantt/search.md) settings under the **Color** section. Now, it is enabled by default and sets the issue color depending on the status type:
+On [issue boards](../manager/agile-new.md) with [grouping](../manager/agile-new-issues.md#group) enabled, you can set the maximum number of issues per group. The number of issues may exceed the limit, in which case the group will be highlighted in yellow.
 
-* ![](../../_assets/tracker/changelogs/status-1-open.png)
-* ![](../../_assets/tracker/changelogs/status-2-in-progress.png)
-* ![](../../_assets/tracker/changelogs/status-3-needs-info.png)
-* ![](../../_assets/tracker/changelogs/status-4-solved.png)
-* ![](../../_assets/tracker/changelogs/status-5-closed.png)
+To set a limit on the number of issues per group, click ![](../../_assets/tracker/svg/actions.svg) → **Maximum number of issues** to the right of the group name, specify the number of issues, and click **Save**. The limit can be applied to both a single group and all groups of the selected type.
 
-{% note info %}
+### Changing the order of groups on issue boards {#desks-groups-order}
 
-You can set up the status type in the [workflow editor](../manager/workflow.md).
+On issue boards with [grouping](../manager/agile-new-issues.md#group) enabled, you can now rank groups by dragging them. To do this, click **Change order** above the group list. In the window that opens, change the order of groups and click **Apply**.
 
-{% endnote %}
+{% note warning %}
 
-To change issue color settings, click **Chart settings** on the Gantt chart page, select the item you need in the **Color** section, and click **Apply**.
-
-### Display of issue status change buttons {#change-status-bottoms}
-
-You can now set up the display of status change buttons in issues:
-- **If enabled in queue settings** (by default): Status change buttons will be displayed only if the queue administrator enabled this in the settings of a particular queue.
-- **Always**: Status change buttons will be displayed in all issues regardless of the queue settings.
-
-To edit the personal settings of button display, click **Settings** → **Interface** in the side panel and use the **Show status buttons** toggle.
-
-The queue administrator can set up the status change buttons so that they will be displayed to all users in all issues of this queue. To do this, go to the queue page, click **Queue settings**, open **Basic settings**, and use the **Duplicate transitions from the current status** under the issue name.
-
-### Filtering issues by status type {#status-type-filter}
-Added a new issue filter named **Status type**. It has the following values:
-- **Initial**: Issue is created but progress is not yet started.
-- **In progress**: Progress has been started.
-- **Paused**: Work on the issue is suspended.
-- **Complete**: Issue has been completed and closed.
-- **Canceled**: Issue was not completed and still closed.
-
-The new filter is available in any issue lists when automatically adding issues to boards and in project issues.
-
-
-### Updated pop-up window for issue creation {#create-task-pop-up}
-
-Added new features to the pop-up window for quick issue creation:
-- There is now an issue type selection button to the left of the **Issue name** field.
-- In the top-right corner, you can now see the ![](../../_assets/tracker/svg/open-full.svg) button that enables you to open a full issue creation form.
-
-The pop-up window also appears when you create a new link for existing issues. In this case, you will also see a list in the top-left corner, where you can select a link type.
-
-![](../../_assets/tracker/changelogs/new-create-task-pop-up.png)
-
-You can add a link to the current issue in the following ways:
-
-- Click ![](../../_assets/tracker/svg/add-task.svg) **Add link** on the issue page.
-- Select one or more issues on the queue page and click **Add link** in the section that appears at the bottom of the page.
-- Enable **Adding links on transition screen** in the queue [workflow](../manager/add-workflow.md) of the [transition screen](../manager/workflow-action-edit.md) settings. The pop-up window will appear when the status changes based on the specified settings.
-
-### Issue action menu in projects {#task-actions-menu}
-
-The **Issue list** and **Gantt chart** tabs of the project page now have the ![](../../_assets/tracker/svg/still.svg) button. Clicking it opens a pop-up window with a list of possible actions on an issue:
-
-- **Copy link**
-
-- **Move to top of list**
-- **Move to bottom of list**
-- **Delete from project**
-
-{% note info %}
-
-The **Move to top of list** and **Move to bottom of list** buttons are only available if manual sorting is enabled on the page.
+Reordering is available for a groupings with fewer than 2,000 groups. You can only do the ranking for 10 groupings per board.
 
 {% endnote %}
 
-The ![](../../_assets/tracker/svg/still.svg) button appears when you hover over an issue.
+### Searching for local fields from dashboard queues {#find-local-params}
 
+When creating and editing widgets on [dashboards](../user/dashboard.md), you can now search for local fields from specific queues.
 
-### Adding a {{ ya-360 }} organization {#add-ya-360}
+To find a local field in a queue, specify the field name and the queue key in brackets. E.g., `Status (QUEUE)`.
 
-You can now enable a {{ ya-360 }} organization in the {{ tracker-name }} interface. To do so, go to **Administration** → **Organizations** and use the **{{ ya-360 }}** section. Changes are synced within 30 minutes of adding a new organization.
+### Critical path on a project's Gantt chart {#gantt-citical-path}
 
+A [project's Gantt chart](../gantt/project.md) can now be configured to show the [critical path](../gantt/project.md#critical-path). To do that, click ![](../../_assets/tracker/svg/gantt-critical-path.svg) above the timeline on the right:
+
+* A red line will appear on the timeline. It indicates an interval from the start date of the earliest issue to the deadline of the latest issue.
+* The issue with the latest deadline will be highlighted in red. All issues blocking the project's final issues will also be highlighted in red.
+
+To disable critical path display, click ![](../../_assets/tracker/svg/gantt-critical-path.svg) once again.
 
 ## Fixes and improvements {#fixes}
 
-### Notifications on invitations in {{ tracker-name }} {#notifications}
+### Commits on issue pages {#tasks-commits}
 
-The **Notifications** section in the left-hand panel now displays notifications on invitations to issues.
+In the new interface, there is now a **Commits** tab on issue pages. It is located at the bottom of the issue next to comments and is available if your {{ tracker-name }} has a [repository linked](../manager/add-repository.md) and if at least one commit has been made for the issue.
 
-### Maintaining selected sorting on the project page {#save-sorting-parametres}
+### Commits in queues {#queues-commits}
 
-The project list page now preserves sorting parameters. If you reopen the project list page, it will have the same sorting parameters as you set last time.
-
-{% note info %}
-
-The preserved sorting parameters apply if the project page is opened through a [direct link]({{ link-tracker }}/pages/projects) or by clicking **Projects** → **All projects** in the side panel.
-
-{% endnote %}
-
-### New interface with queue settings {#new-queue-settings}
-
-The **Queue settings** → **Basic settings** page now has a new interface.
-
-### Horizontal scrolling of a Gantt chart for project issues {#gantt-horizontal-scrolling}
-
-You can now scroll a Gantt chart for project issues left and right. To do this, hover over the chart, press and hold **Shift**, and scroll the mouse wheel.
-
-This feature is now available in [all Gantt charts in {{ tracker-name }}](../gantt/overview.md)
+The new interface allows you to view commits from issues in a queue if your {{ tracker-name }} has a repository linked. To do this, click ![](../../_assets/tracker/svg/actions.svg) → **Commits** in the top-right corner of the queue page.
 
 ### Strike-through for keys of canceled and completed issues {#strikethrough-key}
 
-Keys of issues that have the **Completed** or **Canceled** status type are now struck through both in projects and on boards.
+If an issue gets the **Completed** or **Canceled** status type, its key is now struck through on a greater number of pages than [before](2306.md#strikethrough-key). The changes apply to the following pages:
+
+* Search
+* List of filtered issues
+* Gantt chart for filters
+* Queue issue list
+* Gantt chart for queues
+* Dashboards
+* Links with other issues
 
 If an issue is closed with a certain resolution, its key is also struck through, as usual.
+
+### Issue status color depending on status type {#status-colour}
+
+Issue status is now colored depending on status type on a greater number of pages than [before](2306.md#{#gantt-colour-status}):
+
+* List of filtered issues
+* Gantt chart for filters
+* Queue issue list
+* Gantt chart for queues
+* Dashboards
+* Links with other issues

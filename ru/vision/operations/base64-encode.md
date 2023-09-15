@@ -8,7 +8,7 @@
 
 ```json
 {
-    "folderId": "b1gvmob95yysaplct532",
+    "folderId": "b1gvmob95yys********",
     "analyze_specs": [{
         "content": "iVBORw0KGgo...",
         ...
@@ -17,4 +17,6 @@
 
 ```
 
-Где `analyze_specs: content` – содержимое созданного файла `output.txt`.
+Где:
+* `folderId` – [идентификатор любого каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
+* `analyze_specs: content` – содержимое созданного файла `output.txt`.

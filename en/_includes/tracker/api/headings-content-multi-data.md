@@ -1,30 +1,24 @@
 {% cut "Headers" %}
 
 - **Host**
-        Address of the node that provides the API:
-
-    ```
-    https://api.tracker.yandex.net
-    ```
-
+      Address of the node that provides the API:
+   ```
+   https://api.tracker.yandex.net
+   ```
 
 - **Authorization**
 
-    OAuth token in `OAuth <token value>` format. For example:
+   OAuth token in `OAuth <token value>` format, for example:
+   ```
+   OAuth 0c4181a7c2cf4521964a72ff57a34a07
+   ```
+- **X-Org-ID** or **X-Cloud-Org-ID**
 
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-
-- **X-Org-ID**
-
-    Organization ID.
+   Organization ID. If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`.
 
 
 - **Content-Type**
 
-    Request body format. Must be `multipart/form-data`.
+   Request body format. Must be `multipart/form-data`.
 
 {% endcut %}
-

@@ -25,7 +25,7 @@
 1. [Войдите в аккаунт]({{ link-passport-login }}) администратора облака.
 1. Войдите в [консоль управления]({{ link-console-main }}).
 1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
-1. Перейдите на вкладку **Права доступа**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
 1. В правом верхнем углу нажмите значок ![icon-users](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
 1. Введите электронную почту пользователя в Яндексе.
 1. Нажмите **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.

@@ -29,7 +29,7 @@ To log in to {{ tracker-name }}, an invited user should follow the link [{{ link
 
 ## Setting up an identity federation {#federation}
 
-An identity federation is a technology that lets you implement a Single Sign-On (SSO) authentication scheme so that your employees can log in to {{ tracker-full-name }} using their corporate accounts in Active Directory, Google Workspace, or other SAML-compatible user account management systems.
+An identity federation is a technology that allows you to implement a Single Sign-On (SSO) authentication scheme so that your employees can log in to {{ tracker-full-name }} using their corporate accounts in Active Directory, Google Workspace, or other SAML-compatible user account management systems.
 
 To create an identity federation:
 

@@ -17,6 +17,16 @@ items:
       - name: Step-by-step guides
         href: operations/index.md
         hidden: true
+  - name: Workbooks and collections
+    items:
+      - name: Overview
+        href: workbooks-collections/index.md
+      - name: Creating workbooks and collections
+        href: workbooks-collections/workbooks-collections-create.md
+      - name: Migrating objects to workbooks
+        href: workbooks-collections/migrations.md
+      - name: Access settings
+        href: workbooks-collections/security.md
   - name: Tutorials
     items:
       - name: Overview
@@ -724,11 +734,11 @@ items:
         items:
           - name: Permissions
             href: security/manage-access.md
-          - name: Granting permissions
+          - name: Granting and updating permissions
             href: operations/permission/grant.md
           - name: Deleting permissions
             href: operations/permission/revoke.md
-          - name: Request permissions
+          - name: Requesting permissions
             href: operations/permission/request.md
       - name: Access to data rows
         href: security/row-level-security.md
@@ -915,5 +925,14 @@ items:
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
       - name: Could not create <object type>
         hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: Database-side error
+        hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+      - name: Data type conversion error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-TYPE_CAST-FAILED.md
+      - name: Accessing a nonexistent object
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
 base: en/datalens

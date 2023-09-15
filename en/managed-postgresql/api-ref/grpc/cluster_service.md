@@ -149,9 +149,9 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 
 Field | Description
 --- | ---
-planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -311,9 +311,9 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 
 Field | Description
 --- | ---
-planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -446,9 +446,9 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 
 Field | Description
 --- | ---
-planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -757,9 +757,9 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 
 Field | Description
 --- | ---
-planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -1061,9 +1061,9 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 
 Field | Description
 --- | ---
-planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
@@ -1239,9 +1239,9 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 
 Field | Description
 --- | ---
-planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
@@ -1420,9 +1420,9 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 
 Field | Description
 --- | ---
-planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow6}
@@ -1599,9 +1599,9 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 
 Field | Description
 --- | ---
-planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}
@@ -1735,9 +1735,9 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 
 Field | Description
 --- | ---
-planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### HostSpec {#HostSpec1}
@@ -2037,9 +2037,9 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 
 Field | Description
 --- | ---
-planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}
@@ -2216,9 +2216,9 @@ statements_sampling_interval | **int64**<br>Interval (in seconds) for pg_stat_st
 
 Field | Description
 --- | ---
-planned_usage_threshold | **int64**<br>Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-emergency_usage_threshold | **int64**<br>Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. Acceptable values are 0 to 100, inclusive.
-disk_size_limit | **int64**<br>Limit on how large the storage for database instances can automatically grow, in bytes. 
+planned_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+emergency_usage_threshold | **int64**<br>Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. Acceptable values are 0 to 100, inclusive.
+disk_size_limit | **int64**<br>New storage size (in bytes) that is set when one of the thresholds is achieved. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow10}

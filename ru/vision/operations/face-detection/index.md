@@ -33,7 +33,7 @@ _Обнаружение лиц сейчас находится на [стади�
     **body.json:**
     ```json
     {
-        "folderId": "b1gvmob95yysaplct532",
+        "folderId": "b1gvmob95yys********",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{
@@ -43,11 +43,18 @@ _Обнаружение лиц сейчас находится на [стади�
     }
     ```
 
-    Где `analyze_specs: content` – изображение, [кодированное в Base64](../base64-encode.md).
+    Где:
+    
+    * `folderId` – [идентификатор любого каталога](../../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
+    * `analyze_specs: content` – изображение, [кодированное в Base64](../base64-encode.md).
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
+    Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-you-begin).
+
 ### Готовая функция для отправки запросов в bash {#oneliner}
+
+{% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 1. Скопируйте в терминал функцию:

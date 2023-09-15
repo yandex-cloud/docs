@@ -20,7 +20,7 @@ The grant terms of use remain in effect when you upgrade:
    The grant terms of use depend on the payment method you select when creating your billing account:
 
    | Payment method | Using the grant |
-   ----- | ----- 
+   ----- | -----
    | Bank transfer | The remainder of the grant can be used to pay for any {{ yandex-cloud }} services. |
    | Bank card | The remainder of [part](usage-grant.md) of the grant can only be used to pay for its intended service or services. |
 
@@ -53,6 +53,7 @@ In {{ yandex-cloud }}, you pay for services based on the amount of resources con
    In 20 days, you spent ₽500 on Yandex Compute Cloud and ₽3000 on other services. Since you have fully spent one of the grant parts, the trial period terminates automatically and access to {{ yandex-cloud }} services is suspended unless you upgrade to the paid version.
 
    If you upgrade to the paid version within 30 days, you can use the remainder of the grant until it expires:
+
    - (1000&nbsp;- 500) = ₽500 for Compute Cloud.
 
 - Example 3
