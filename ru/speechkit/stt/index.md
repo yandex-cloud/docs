@@ -1,6 +1,6 @@
 # Распознавание речи
 
-_Распознавание речи (speech-to-text — STT)_ — это процесс преобразования речи в текст.
+_[Распознавание речи](../../glossary/transcribation.md) (speech-to-text — STT)_ — это процесс преобразования речи в текст.
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 

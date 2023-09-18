@@ -20,8 +20,6 @@
 
       {% endnote %}
 
-      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
    1. Выберите размер [диска](../../compute/concepts/disk.md).
    1. Укажите [доменное имя инстанса](../../compute/concepts/network.md#hostname) — для него будут автоматически созданы нужные DNS-записи в домене `.gitlab.yandexcloud.net`.
 

@@ -21,8 +21,8 @@
     ```
     id: b09ch6pmpohf********
     function_id: b097d9ous3ge********
-    created_at: "2019-06-13T09:12:38.464Z"
-    runtime: python37
+    created_at: "2023-08-22T09:12:38.464Z"
+    runtime: python311
     entrypoint: test.handler
     resources:
       memory: "134217728"
@@ -52,7 +52,7 @@
             name               = "test-function"
             description        = "Test function"
             user_hash          = "first-function"
-            runtime            = "python37"
+            runtime            = "python311"
             entrypoint         = "main"
             memory             = "128"
             execution_timeout  = "10"
@@ -103,8 +103,10 @@
 
     Чтобы добавить тег версии функции, воспользуйтесь методом REST API [setTag](../../functions/api-ref/Function/setTag.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetTag](../../functions/api-ref/grpc/function_service.md#SetTag).
 
+
 - {{ yandex-cloud }} Toolkit
 
     Добавить тег можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}

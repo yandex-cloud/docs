@@ -33,7 +33,7 @@
     created_at: "2019-06-14T10:03:37.475Z"
     name: python_function
     log_group_id: eolm8aoq9vcp********
-    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
+    http_invoke_url: https://{{ sf-url }}/b09bhaokchn9********
     status: ACTIVE
     ```
 
@@ -141,8 +141,10 @@
 
     Чтобы создать функцию, воспользуйтесь методом REST API [create](../../functions/api-ref/Function/create.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/api-ref/grpc/function_service.md#Create).
 
+
 - {{ yandex-cloud }} Toolkit
 
     Создать функцию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}

@@ -636,7 +636,8 @@ default:
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   mqtt-server-address: mqtt.cloud.yandex.net
   mqtt-server-port: 8883
-  sf-url: https://functions.yandexcloud.net
+  sf-url: functions.yandexcloud.net
+  serverless-containers-host: containers.yandexcloud.net
   coi: Container Optimized Image
   yc-install-path: /yandexcloud-yc/install.sh
   yc-windows-path: /yandexcloud-yc/install.ps1
@@ -941,6 +942,11 @@ default:
           100|int|string: "2\_000\_₸"
           250|int|string: "1\_800\_₸"
           6|int|string: "2\_200\_₸"
+  sku|KZT|backup:
+    protected_vms:
+      v1|string: "1\_194,0000\_₸"
+    used_space:
+      v1|month|string: "21,0000\_₸"
   sku|KZT|cdn:
     api:
       network:
@@ -1727,6 +1733,11 @@ default:
           100|int|string: "400\_₽"
           250|int|string: "360\_₽"
           6|int|string: "440\_₽"
+  sku|RUB|backup:
+    protected_vms:
+      v1|string: "238,8000\_₽"
+    used_space:
+      v1|month|string: "4,2000\_₽"
   sku|RUB|cdn:
     api:
       network:
@@ -2520,6 +2531,11 @@ default:
           250|string: "2,880000\_$"
           6|string: "3,520000\_$"
         v1|string: Не тарифицируется
+  sku|USD|backup:
+    protected_vms:
+      v1|string: "1,910400\_$"
+    used_space:
+      v1|month|string: "0,033600\_$"
   sku|USD|cdn:
     api:
       network:
@@ -8436,6 +8452,7 @@ default:
         create: Создать
         create-community: Создать сообщество
         create-resource: Создать ресурс
+        datasets: Датасеты
         deactivate: Деактивировать
         dedicated: Dedicated
         default: По умолчанию
@@ -8460,6 +8477,7 @@ default:
         port: Порт
         prefix: Префикс
         resize: Изменить размер
+        resources: Ресурсы
         response: Ответ
         restrictions: Ограничения
         save: Сохранить
@@ -8478,6 +8496,8 @@ default:
         create-template: Создать шаблон
         running: Running
         template-name: Имя шаблона
+      dedicated-mode:
+        serverless-mode: Режим Serverless
       docker:
         build-path: Путь к образу внутри проекта
         credentials-switcher-label: Данные для аутентификации в Docker Hub
@@ -8594,6 +8614,12 @@ default:
         node: Нода
         s3: Коннектор S3
         secret: Секрет
+      restrictions:
+        CHANGING_DISK_SIZE: ' Изменение размера хранилища проекта'
+        DATAPROC_TEMPLATES: Шаблоны Data Proc
+        NODES_AND_ALIASES: Развертывание эксплуатации моделей
+        project-mode: Режим работы проектов
+        SERVERLESS_BACKGROUND_CELLS: Фоновые ячейки
       s3-page:
         mode-read: Только чтение
         mode-read-write: Чтение и запись
@@ -8603,6 +8629,7 @@ default:
       spaces-page:
         access-in-project: Доступность в проекте
         community-resources: Ресурсы сообщества
+        configurations: Конфигурации вычислительных ресурсов
       transferring:
         title: Перенос проектов
         transfer-selected-projects: Перенести выбранные проекты

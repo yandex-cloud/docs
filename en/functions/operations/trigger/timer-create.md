@@ -53,6 +53,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
    To create a trigger that invokes a function, run this command:
 
+   
    ```bash
    yc serverless trigger create timer \
      --name <timer_name> \
@@ -65,6 +66,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
      --dlq-queue-id <Dead_Letter_Queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
+  
 
    Where:
 
@@ -76,6 +78,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
    Result:
 
+   
    ```text
    id: a1sfe084v4**********
    folder_id: b1g88tflru**********
@@ -97,6 +100,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
+  
 
 - {{ TF }}
 

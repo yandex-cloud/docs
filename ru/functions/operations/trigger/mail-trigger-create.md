@@ -48,6 +48,7 @@
 
     Чтобы создать триггер, который вызывает функцию, выполните команду:
 
+    
     ```bash
     yc serverless trigger create mail \
       --name <имя триггера> \
@@ -58,6 +59,7 @@
       --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
       --dlq-service-account-id <идентификатор сервисного аккаунта>
     ```
+  
 
     Где:
 
@@ -67,6 +69,7 @@
 
     Результат:
 
+    
     ```text
     id: a1sfe084v4**********
     folder_id: b1g88tflru**********
@@ -87,6 +90,7 @@
             service-account-id: aje3932acd**********
     status: ACTIVE
     ```
+  
 
 - API
 

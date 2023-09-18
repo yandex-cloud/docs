@@ -21,8 +21,8 @@ When creating a new version, it's assigned the `$latest` [tag](../../concepts/fu
    ```
    id: b09ch6pmpohfc9sogj5f
    function_id: b097d9ous3gep99khe83
-   created_at: "2019-06-13T09:12:38.464Z"
-   runtime: python37
+   created_at: "2023-08-22T09:12:38.464Z"
+   runtime: python311
    entrypoint: test.handler
    resources:
      memory: "134217728"
@@ -52,7 +52,7 @@ When creating a new version, it's assigned the `$latest` [tag](../../concepts/fu
           name               = "test-function"
           description        = "Test function"
           user_hash          = "first-function"
-          runtime            = "python37"
+          runtime            = "python311"
           entrypoint         = "main"
           memory             = "128"
           execution_timeout  = "10"
@@ -103,8 +103,10 @@ When creating a new version, it's assigned the `$latest` [tag](../../concepts/fu
 
    To add a function version tag, use the [setTag](../../functions/api-ref/Function/setTag.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetTag](../../functions/api-ref/grpc/function_service.md#SetTag) gRPC API call.
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can add a tag using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+
 
 {% endlist %}

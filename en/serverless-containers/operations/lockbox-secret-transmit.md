@@ -1,4 +1,4 @@
-# Transmitting Yandex Lockbox secrets to a container
+# Transmitting {{ lockbox-full-name }} secrets to a container
 
 {% note info %}
 

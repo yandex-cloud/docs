@@ -1,4 +1,4 @@
-# Передать секреты Yandex Lockbox в контейнер
+# Передать секреты {{ lockbox-full-name }} в контейнер
 
 {% note info %}
 

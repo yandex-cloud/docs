@@ -29,7 +29,7 @@
    	container_id: flhqle7d5o**********
    	created_at: "2022-09-14T12:48:55.914Z"
    	image:
-   	  image_url: cr.cloud-preprod.yandex.net/crtrvt9l6f**********/billing-test
+   	  image_url: {{ registry }}/crtrvt9l6f**********/billing-test
    	  image_digest: sha256:e3aaa4c9af7d99ea5e4e4236bc540a3cc826d1f1344a601ddb9cbc**********
    	resources:
    	  memory: "134217728"

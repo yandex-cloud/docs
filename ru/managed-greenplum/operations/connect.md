@@ -11,8 +11,6 @@
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
-{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
 Для обеспечения работоспособности кластера {{ mgp-name }} и сетевой связности между его хостами необходимо, чтобы хотя бы в одной из его групп безопасности были правила, разрешающие любой входящий и исходящий трафик по любому протоколу с любых IP-адресов.

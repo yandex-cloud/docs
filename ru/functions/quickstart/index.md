@@ -8,6 +8,6 @@
   * [{#T}](create-function/go-function-quickstart.md)
   * [{#T}](create-function/php-function-quickstart.md)
   * [{#T}](create-function/bash-function-quickstart.md)
-  * [{#T}](create-function/java-function-quickstart.md)  
+  * [{#T}](create-function/java-function-quickstart.md)
 * [Создание и запуск триггера](create-trigger/index.md)
   * [Создание таймера](create-trigger/timer-quickstart.md)

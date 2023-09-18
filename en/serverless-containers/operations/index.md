@@ -61,6 +61,7 @@
 * [Creating a trigger for {{ yds-name }}](./data-streams-trigger-create.md)
 * [Creating an email trigger](./mail-trigger-create.md)
 
+
 ## Managing triggers {#manage-trigger}
 
 * [Updating a name](./trigger-name-update.md)

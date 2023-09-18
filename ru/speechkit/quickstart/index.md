@@ -1,6 +1,6 @@
 # Начало работы со {{ speechkit-short-name }}
 
-Если вы хотите попробовать, как сервис синтезирует или распознает речь, воспользуйтесь демо на [странице сервиса](https://cloud.yandex.ru/services/speechkit#demo).
+Если вы хотите попробовать, как сервис синтезирует или [распознает речь](../../glossary/transcribation.md), воспользуйтесь демо на [странице сервиса](https://cloud.yandex.ru/services/speechkit#demo).
 
 О стоимости использования сервиса {{ speechkit-name }} см. [{#T}](../pricing.md).
 

@@ -37,7 +37,6 @@ A new version of a function is created when secrets are transmitted. You cannot 
    {% endnote %}
 
    ```
-
    yc serverless function version create \
      --function-name=test \
      --runtime nodejs16 \

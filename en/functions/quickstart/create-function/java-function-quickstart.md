@@ -36,7 +36,7 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
     created_at: "2019-06-14T10:03:37.475Z"
     name: java-function
     log_group_id: eolm8aoq9vcp********
-    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
+    http_invoke_url: https://{{ sf-url }}/b09bhaokchn9********
     status: ACTIVE
     ```
 
@@ -44,9 +44,11 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md) API method.
 
-- Yandex Cloud Toolkit
 
-    You can create a function using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 
@@ -168,9 +170,11 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
 
-- Yandex Cloud Toolkit
 
-    You can create a function version using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

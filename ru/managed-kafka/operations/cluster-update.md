@@ -379,12 +379,6 @@
 
 ## Изменить настройки групп безопасности и публичного доступа {#change-sg-set}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 {% list tabs %}
 
 - Консоль управления
@@ -706,8 +700,6 @@
 
 
 ## Изменить группы безопасности {#change-sg-set}
-
-{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% list tabs %}
 

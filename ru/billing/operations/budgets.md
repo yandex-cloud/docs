@@ -53,6 +53,8 @@
 
 1. После заполнения всех полей нажмите кнопку **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**. Бюджет будет создан.
 
+
+
 ## См. также
 
 * [{#T}](../tutorials/serverless-trigger-budget-vm.md).

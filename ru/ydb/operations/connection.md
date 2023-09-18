@@ -6,8 +6,6 @@
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 Для подключения к БД в {{ dd }}-режиме нужно разрешить входящий и исходящий трафик по протоколу TCP на порте `{{ ydb.port-dedicated }}`. Убедитесь, что в назначенной [группе безопасности](../../vpc/concepts/security-groups.md) есть соответствующее правило, или добавьте его:
 
 * Диапазон портов — `{{ ydb.port-dedicated }}`.

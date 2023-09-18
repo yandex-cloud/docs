@@ -173,7 +173,7 @@ zip src.zip index.go go.mod
       created_at: "2022-12-07T10:44:13.156Z"
       name: function-for-budget
       log_group_id: ckg6bie2rtgd********
-      http_invoke_url: https://functions.yandexcloud.net/d4eiqjdbqt7s********
+      http_invoke_url: https://{{ sf-url }}/d4eiqjdbqt7s********
       status: ACTIVE
       ```
 

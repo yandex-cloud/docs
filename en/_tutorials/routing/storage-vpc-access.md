@@ -1,35 +1,35 @@
 # Connecting to {{ objstorage-name }} from {{ vpc-name }}
 
-In {{ yandex-cloud }}, you can connect to [{{ objstorage-full-name }}](../../storage/) via the appropriate [API endpoint](../../api-design-guide/concepts/endpoints.md) whose FQDN is then translated to a public IP using the DNS service.
+In {{ yandex-cloud }}, you can connect to [{{ objstorage-full-name }}](../../storage/) via the appropriate [API endpoint](../../api-design-guide/concepts/endpoints.md) whose FQDN is then translated to a public IP via the DNS service.
 
-This article describes how to deploy a cloud infrastructure in {{ yandex-cloud }} to set up access to {{ objstorage-name }} for resources that are hosted in a {{ vpc-short-name }} [cloud network](../../vpc/concepts/network.md#network) and have no public IPs or access to the internet through a [NAT gateway](../../vpc/concepts/gateways.md).
+This article describes how to deploy a cloud infrastructure in {{ yandex-cloud }} to set up access to {{ objstorage-name }} for resources that are hosted in a [cloud network](../../vpc/concepts/network.md#network) in {{ vpc-short-name }} and have no public IPs or access to the internet through a [NAT gateway](../../vpc/concepts/gateways.md).
 
-After the solution is deployed in {{ yandex-cloud }}, the following resources will be created:
+After the solution is deployed in {{ yandex-cloud }}, the following resources are created:
 
 | Name | Description |
 | ---- | ---- |
-| `s3-vpc` | Cloud network with the resources access to {{ objstorage-name }} is set up for. For deployment, you can specify an existing cloud network as well |
-| `s3-nlb` | [Internal network load balancer](../../network-load-balancer/concepts/nlb-types.md) that is responsible for accepting traffic to {{ objstorage-name}}. The load balancer accepts TCP traffic with destination port 443 and distributes it across resources (VMs) in a target group |
-| `s3-nat-group` | Load balancer [target group](../../network-load-balancer/concepts/target-resources.md) with VM instances that have the NAT function enabled |
+| `s3-vpc` | Cloud network with resources access to {{ objstorage-name }} is set up for. During deployment, you can also specify an existing cloud network |
+| `s3-nlb` | [Internal network load balancer](../../network-load-balancer/concepts/nlb-types.md) that accepts traffic to {{ objstorage-name}}. The load balancer accepts TCP traffic with destination port 443 and distributes it across resources (VMs) in a target group |
+| `s3-nat-group` | Load balancer [target group](../../network-load-balancer/concepts/target-resources.md) with VMs that have the NAT function enabled |
 | `nat-a1-vm`, `nat-a2-vm`, `nat-b1-vm`, and `nat-b2-vm` | NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` [availability zones](../../overview/concepts/geo-scope.md) used for routing traffic to {{ objstorage-name }} and back with translation of IP addresses for traffic sources and targets |
 | `pub-ip-a1`, `pub-ip-a2`, `pub-ip-b1`, and `pub-ip-b2` | VM public IPs to which the {{ vpc-short-name }} cloud network translates their internal IPs |
-| `DNS zone and A record` | Internal [DNS zone](../../dns/concepts/dns-zone.md) `{{ s3-storage-host }}` in the `s3-vpc` network with an `A` [resource record](../../dns/concepts/resource-record.md) that maps the `{{ s3-storage-host }}` domain name to the IP address of the internal network load balancer |
+| `DNS zone and an A record` | Internal [DNS zone](../../dns/concepts/dns-zone.md) `{{ s3-storage-host }}.` in the `s3-vpc` network with an `A` [resource record](../../dns/concepts/resource-record.md) that maps the `{{ s3-storage-host }}` domain name to the IP address of the internal network load balancer |
 | `s3-bucket-<...>` | [Bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }} |
 | `s3-subnet-a` and `s3-subnet-b` | Cloud [subnets](../../vpc/concepts/network.md#subnet) to host the NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones |
 | `test-s3-vm` | Test VM to verify access to {{ objstorage-name }} |
 | `test-s3-subnet-a` | Cloud subnet to host the test VM |
 
-For the cloud network with the resources hosted in [{{ dns-name }}](../../dns/concepts/), an internal DNS zone `{{ s3-storage-host }}` and an `A` resource record are created. The record maps the `{{ s3-storage-host }}` domain name of {{ objstorage-name }} to the IP address of the [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md). With this record, traffic from the cloud resources to {{ objstorage-name }} will be routed to the internal load balancer that will distribute the load across the NAT instances.
+For the cloud network with the resources hosted in [{{ dns-name }}](../../dns/concepts/), an internal DNS zone `{{ s3-storage-host }}.` and an `A` resource record are created. The record maps the `{{ s3-storage-host }}` domain name of {{ objstorage-name }} to the IP address of the [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md). With this record, traffic from the cloud resources to {{ objstorage-name }} will be routed to the internal load balancer that will distribute the load across the NAT instances.
 
 To deploy the NAT instances, use a [NAT instance based on Ubuntu 22.04 LTS](/marketplace/products/yc/nat-instance-ubuntu-22-04-lts) image from {{ marketplace-name }}. It provides translation of source and target IPs to ensure traffic routing to the {{ objstorage-name }} public IP.
 
-By placing the NAT instances in multiple [availability zones](../../overview/concepts/geo-scope.md), you can ensure fault-tolerant access to {{ objstorage-name }}. By increasing the number of NAT instances, you can upscale the solution when the load grows. When calculating the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics#nlb-int-locality).
+By placing the NAT instances in multiple [availability zones](../../overview/concepts/geo-scope.md), you can ensure fault-tolerant access to {{ objstorage-name }}. By increasing the number of NAT instances, you can upscale the solution when the load grows. When calculating the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
 
-[{{ objstorage-name }} access policies](../../storage/concepts/policy.md) allow actions with buckets only from the public IPs of NAT instances. Bucket access is only granted to the cloud resources using this solution. You cannot connect to a bucket in {{ objstorage-name }} via a public API endpoint. You can disable this limitation in the {{ TF }} configuration file, if required.
+[{{ objstorage-name }} access policies](../../storage/concepts/policy.md) allow actions with buckets only from the public IPs of the NAT instances. Bucket access is only granted to the cloud resources using this solution. You cannot connect to a bucket in {{ objstorage-name }} via a public API endpoint. You can disable this limitation in the {{ TF }} configuration file, if required.
 
 ## Recommendations for solution deployment in the production environment {#recommendations}
 
-* When deploying your NAT instances in multiple availability zones, set an even number of VMs to evenly distribute them across the availability zones.
+* When deploying your NAT instances in multiple availability zones, set an even number of instances to evenly distribute them across the availability zones.
 * When selecting the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
 * Once the solution is deployed, reduce the number of NAT instances or update the list of availability zones in the `yc_availability_zones` parameter in the pre-scheduled period of time only. When the changes are being applied, traffic handling may be interrupted.
 * By default, buckets in {{ objstorage-name }} can be accessed via the {{ yandex-cloud }} [management console]({{ link-console-main }}). You can revoke this permission using the `bucket_console_access = false` parameter.

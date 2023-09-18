@@ -30,8 +30,6 @@
 
 1. Если вы используете группы безопасности, [настройте их](../../managed-kafka/operations/connect.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером {{ mkf-name }} и виртуальной машиной.
 
-    {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 1. В группах безопасности виртуальной машины [создайте правило](../../vpc/operations/security-group-add-rule.md) для входящего трафика, разрешающее подключение через порт `8081` — через него производитель и потребитель будут обращаться к реестру схем:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8081`.

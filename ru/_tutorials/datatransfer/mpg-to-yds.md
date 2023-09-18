@@ -23,8 +23,6 @@
     
     1. Настройте [группы безопасности](../../managed-postgresql/operations/connect.md#configuring-security-groups) и убедитесь, что они допускают подключение к кластеру.
 
-        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
     1. [Выдайте роль](../../managed-postgresql/operations/grant.md#grant-privilege) `mdb_replication` пользователю `pg-user`.
 

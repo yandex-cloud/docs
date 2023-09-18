@@ -215,7 +215,9 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [functions-roles-editor](../../../_includes/roles-functions-editor.md) %}
 
+
 {% include [functions-roles-mdbproxy](../../../_includes/roles-functions-mdbproxy.md) %}
+
 
 {% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
 

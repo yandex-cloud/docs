@@ -30,4 +30,5 @@ User files are stored in two directories:
 
 If your functions require dynamic libraries to run, you can [add them to a ZIP archive](../function.md#upload) placing them in the `/shared-libs` directory at the root of the archive. The directory will be added to the `LD_LIBRARY_PATH` environment variable.
 
+
 You must build the dynamic libraries on Ubuntu 18.04 LTS and link them using `libc` version 2.27.

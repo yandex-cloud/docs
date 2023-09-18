@@ -8,6 +8,8 @@ items:
     items:
       - name: About {{ yagpt-name }}
         href: concepts/index.md
+      - name: Tokens
+        href: concepts/tokens.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: API reference
@@ -62,4 +64,6 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Releases
+    href: release-notes.md
 base: en/yandexgpt

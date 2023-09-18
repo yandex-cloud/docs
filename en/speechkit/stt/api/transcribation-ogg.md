@@ -38,7 +38,7 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
 
       Where:
 
-      * `languageCode`: [Language](../index.md#langs) that recognition is performed for.
+      * `languageCode`: [Language](../index.md#langs) the recognition is performed for.
       * `uri`: Link to audio file in {{ objstorage-name }}.
 
    1. Run the created file:
@@ -112,11 +112,11 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
       import time
       import json
 
-      # Specify your API key and link to the audio file in Object Storage.
+      # Specify your IAM token and the link to the audio file in Object Storage.
       key = '<service_account_IAM_token>'
       filelink = 'https://{{ s3-storage-host }}/speechkit/speech.ogg'
 
-      POST = "https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize"
+      POST ='https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize'
 
       body ={
           "config": {
@@ -154,7 +154,7 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
       print("Response:")
       print(json.dumps(req, ensure_ascii=False, indent=2))
 
-      # Show only text from recognition results.
+      # Only show text from recognition results.
       print("Text chunks:")
       for chunk in req['response']['chunks']:
           print(chunk['alternatives'][0]['text'])

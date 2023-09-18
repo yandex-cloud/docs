@@ -11,8 +11,6 @@
 
 * [Настройте группы безопасности](connect/security-groups.md) кластера.
 
-  {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
   {% note warning %}
 
   Настройки групп безопасности могут препятствовать подключению к кластеру.

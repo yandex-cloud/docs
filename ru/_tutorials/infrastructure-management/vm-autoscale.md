@@ -169,12 +169,6 @@
 
 1. Создайте группу безопасности:
 
-    {% note info %}
-
-    {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-    {% endnote %}
-
     {% list tabs %}
 
     - Консоль управления 

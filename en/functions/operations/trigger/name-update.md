@@ -26,21 +26,23 @@
    Result:
 
    ```text
-   id: dd0gj5tsj2**********
-   folder_id: aoek49ghmk**********
-   created_at: "2019-08-28T12:26:25.675Z"
+   id: a1s9q2li6t**********
+   folder_id: b1g9hv2loa**********
+   created_at: "2023-08-01T12:36:14.321Z"
    name: my-trigger
+   description: Trigger for uploaded objects
    rule:
-     message_queue:
-       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
-       service_account_id: bfbqqeo6jk**********
+     object_storage:
+       event_type:
+         - OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT
+       bucket_id: **********
        batch_settings:
          size: "10"
          cutoff: 10s
        invoke_function:
-         function_id: b09e5lu91t**********
+         function_id: d4e5muirrt**********
          function_tag: $latest
-         service_account_id: bfbqqeo6jk**********
+         service_account_id: ajek0fou8e**********
    status: ACTIVE
    ```
 

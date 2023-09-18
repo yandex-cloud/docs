@@ -42,7 +42,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
    For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTP request by inserting the function invocation link in the browser address bar:
 
    ```
-   {{ sf-url }}/b09bhaokchn9pnbrlseb
+   https://{{ sf-url }}/b09bhaokchn9pnbrlseb
    ```
 
    The following response appears on the page:
@@ -51,8 +51,10 @@ To allow any user to invoke your function, [make it public](../../functions/oper
    Hello, World!
    ```
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can call a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}

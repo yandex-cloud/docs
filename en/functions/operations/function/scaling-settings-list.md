@@ -29,6 +29,7 @@
 
    Result:
 
+   
    ```
    +----------------------+---------+----------------------+---------------------+-----------------------------+
    |     FUNCTION ID      |   TAG   | ZONE INSTANCES LIMIT | ZONE REQUESTS LIMIT | PROVISIONED INSTANCES COUNT |
@@ -36,14 +37,17 @@
    | d4eokpuol55h******** | $latest |                    1 |                   2 |                           3 |
    +----------------------+---------+----------------------+---------------------+-----------------------------+
    ```
+  
 
 - API
 
    To view function scaling settings, use the [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/function_service.md#ListScalingPolicies) gRPC API call.
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can view scaling settings of a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+
 
 {% endlist %}
 

@@ -64,12 +64,6 @@
       * Облачную сеть для размещения кластера.
       * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
-          {% note info %}
-
-          {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-          {% endnote %}
-
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** добавьте хосты БД, создаваемые вместе с кластером:
 

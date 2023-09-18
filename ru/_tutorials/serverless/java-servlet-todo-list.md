@@ -161,7 +161,7 @@
      created_at: "2021-03-08T14:07:32.134Z"
      name: add-task
      log_group_id: eolm8aoq9vcp********
-     http_invoke_url: https://functions.yandexcloud.net/d4ejb1799eko********
+     http_invoke_url: https://{{ sf-url }}/d4ejb1799eko********
      status: ACTIVE
      ```
 
@@ -206,9 +206,11 @@
 
   Воспользуйтесь API методами [create](../../functions/functions/api-ref/Function/create) и [createVersion](../../functions/functions/api-ref/Function/createVersion).
 
+
 - {{ yandex-cloud }} Toolkit
 
   Создать функцию и ее версию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 
@@ -338,9 +340,11 @@
      log_group_id: ckg2hdmevnvc********
      ```
 
+
 - {{ yandex-cloud }} Toolkit
 
   Создать API-шлюз можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

@@ -34,7 +34,7 @@
    labels:
      test: test
    log_group_id: eolv6578frac08uh5h6s
-   http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
+   http_invoke_url: https://{{ sf-url }}/b097d9ous3gep99khe83
    status: ACTIVE
    ```
 
@@ -106,8 +106,10 @@
 
    To update a function description, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update) gRPC API call.
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can update the function description using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+
 
 {% endlist %}

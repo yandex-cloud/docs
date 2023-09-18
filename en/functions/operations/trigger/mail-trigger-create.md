@@ -48,6 +48,7 @@ Create a [mail trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-
 
    To create a trigger that invokes a function, run this command:
 
+   
    ```bash
    yc serverless trigger create mail \
      --name <trigger name> \
@@ -58,6 +59,7 @@ Create a [mail trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-
      --dlq-queue-id <Dead Letter Queue ID> \
      --dlq-service-account-id <service account ID>
    ```
+  
 
    Where:
 
@@ -67,6 +69,7 @@ Create a [mail trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-
 
    Result:
 
+   
    ```text
    id: a1sfe084v4**********
    folder_id: b1g88tflru**********
@@ -87,6 +90,7 @@ Create a [mail trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
+  
 
 - API
 

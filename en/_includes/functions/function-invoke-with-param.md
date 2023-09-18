@@ -18,20 +18,20 @@ To allow any user to invoke your function, [make it public](../../functions/oper
    1. Under **Payload template**, choose **Without template**.
    1. In the **Input** field, enter:
       ```
-      	{"queryStringParameters": {"name": "Username"}}
+      {"queryStringParameters": {"name": "Username"}}
       ```
    1. Click **Run test**.
    1. You will see the testing status under **Test result** in the **Function status** field. **Important**: Maximum function execution time before [timeout](../../functions/operations/function/version-manage.md) (including original initialization at first call) is 10 minutes.
    1. You will see the function execution result in the **Function output** field:
       ```
-      	{
-      		"statusCode": 200,
-      		"headers": {
-      			"Content-Type": "text/plain"
-      		},
-      		"isBase64Encoded": false,
-      		"body": "Hello, Username!"
-      	}
+      {
+        "statusCode": 200,
+        "headers": {
+          "Content-Type": "text/plain"
+        },
+        "isBase64Encoded": false,
+        "body": "Hello, Username!"
+      }
       ```
 
 - CLI
@@ -61,17 +61,19 @@ To allow any user to invoke your function, [make it public](../../functions/oper
    For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTP request by inserting the function invocation link in the browser address bar and adding the `name` parameter to the URL:
 
    ```
-   	{{ sf-url }}/b09bhaokchn9pnbrlseb?name=Username
+   https://{{ sf-url }}/b09bhaokchn9pnbrlseb?name=Username
    ```
 
    The following response appears on the page:
 
    ```
-   	Hello, Username!
+   Hello, Username!
    ```
+
 
 - {{ yandex-cloud }} Toolkit
 
    You can call a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}

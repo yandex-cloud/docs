@@ -5,7 +5,10 @@ description: "With {{ sf-name }}, you can run applications written in Python. Th
 
 # Developing in Python. Overview
 
-With {{ sf-name }}, you can run applications written in [Python](https://python.org/). The service provides several [runtime environments](../../concepts/runtime/index.md) with different versions:
+With {{ sf-name }}, you can run applications written in [Python](https://python.org/). 
+
+
+The service provides several [runtime environments](../../concepts/runtime/index.md) with different versions:
 
 | Name | Python version | Operating <br>system | Preloaded |
 |----|----|----|----|
@@ -14,13 +17,16 @@ With {{ sf-name }}, you can run applications written in [Python](https://python.
 | python39 | 3.9.11 | Ubuntu 18.04 LTS | No |
 | python311 | 3.11.0 | Ubuntu 18.04 LTS | Yes |
 
+
 {% note info %}
 
 Function behavior in preloaded and normal runtime environments may differ. Review the features of function behavior in [{#T}](../../concepts/runtime/preload-runtime.md).
 
 {% endnote %}
 
+
 By default, the `python37` and `python38` runtime environments have a built-in SDK library to handle the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md). You can install the SDK library in other versions of the runtime by specifying a dependency in `requirements.txt`.
+
 
 {{ sf-name }} automatically installs all the specified dependencies required for the function to run. Dependencies are installed when creating a new [function version](../../operations/function/version-manage.md). For more information, see [{#T}](dependencies.md).
 

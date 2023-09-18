@@ -48,9 +48,11 @@ description: "Вы можете посмотреть график монитор
     
     {% endnote %}
 
-- Yandex Cloud Toolkit
 
-    Посмотреть журнал выполнения функции можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    Посмотреть журнал выполнения функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

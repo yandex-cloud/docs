@@ -33,7 +33,7 @@
    created_at: "2019-06-14T10:03:37.475Z"
    name: python_function
    log_group_id: eolm8aoq9vcppsieej6h
-   http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
+   http_invoke_url: https://{{ sf-url }}/b09bhaokchn9pnbrlseb
    status: ACTIVE
    ```
 
@@ -141,8 +141,10 @@
 
    To create a function, use the [create](../../functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/api-ref/grpc/function_service.md#Create) gRPC API call.
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+
 
 {% endlist %}

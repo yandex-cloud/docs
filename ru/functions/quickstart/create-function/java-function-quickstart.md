@@ -36,7 +36,7 @@
     created_at: "2019-06-14T10:03:37.475Z"
     name: java-function
     log_group_id: eolm8aoq9vcp********
-    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
+    http_invoke_url: https://{{ sf-url }}/b09bhaokchn9********
     status: ACTIVE
     ```
 
@@ -44,9 +44,11 @@
 
     Создать функцию можно с помощью метода API [create](../../functions/api-ref/Function/create.md).
 
-- Yandex Cloud Toolkit
 
-    Создать функцию можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    Создать функцию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 
@@ -167,9 +169,11 @@
 
     Создать версию функции можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
 
-- Yandex Cloud Toolkit
 
-    Создать версию функции можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    Создать версию функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

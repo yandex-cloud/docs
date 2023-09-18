@@ -15,8 +15,6 @@
 * [Migrating to {{ yandex-cloud }} using Hystax Acura](hystax-migration.md)
 * [Fault protection with Hystax Acura](hystax-disaster-recovery.md)
 * [Configuring clock synchronization using NTP](ntp.md)
-
-
 * [Running instance groups with auto-scaling](vm-autoscale.md)
 * [Scheduled scaling of instance groups](vm-scale-scheduled.md)
 * [Auto-scaling an instance group when processing messages from a queue in {{ message-queue-full-name }}](autoscale-monitoring.md)

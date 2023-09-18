@@ -64,8 +64,6 @@
 
 Проблема может возникнуть из-за ошибки в настройках SSH, [групп безопасности](../../../vpc/concepts/security-groups.md) или сети. Для восстановления доступа подключитесь к ВМ с помощью [серийной консоли](../serial-console/index.md) и сделайте необходимые исправления.
 
-{% include [security-groups-note-vm](../../../_includes/vpc/security-groups-note-vm.md) %}
-
 {% list tabs %}
 
 - Linux

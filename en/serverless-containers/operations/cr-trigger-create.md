@@ -55,6 +55,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
    To create a trigger that invokes a container, run this command:
 
+   
    ```bash
    yc serverless trigger create container-registry \
      --name <trigger_name> \
@@ -67,6 +68,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
      --dlq-queue-id <Dead_Letter_Queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
+  
 
    Where:
 
@@ -78,6 +80,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
    Result:
 
+   
    ```text
    id: a1s5msktij**********
    folder_id: b1gmit33hg**********
@@ -102,6 +105,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
+  
 
 - API
 

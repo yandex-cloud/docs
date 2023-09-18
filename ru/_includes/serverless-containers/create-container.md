@@ -31,7 +31,7 @@
 	folder_id: b1gqvft7kjk3********
 	created_at: "2021-07-09T14:49:00.891Z"
 	name: my-beta-container
-	url: https://bba3fva6ka5g********.containers.yandexcloud.net/
+	url: https://bba3fva6ka5g********.{{ serverless-containers-host }}/
 	status: ACTIVE
 	```
 

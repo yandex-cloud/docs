@@ -86,7 +86,7 @@ Create and run a client app to send your data to the API:
 
       def synthesize(iam_token, bytes_array) -> pydub.AudioSegment:
           template = "<pattern_phrase_with_markup>"
-          # Example: 'This is to remind you that your child has an appointment for {treatment name} tomorrow at {time}.'
+          # Pattern example: 'This is to remind you that your child has an appointment for {treatment name} tomorrow at {time}.'
           request = tts_pb2.UtteranceSynthesisRequest(
               output_audio_spec=tts_pb2.AudioFormatOptions(
                   container_audio=tts_pb2.ContainerAudio(
@@ -97,6 +97,7 @@ Create and run a client app to send your data to the API:
               text_template = tts_pb2.TextTemplate(
                   text_template = template,
                   variables = [
+                      # List the template variables.
                       # The number of tts_pb2.TextVariable() list items depends on the number of template variables.
                       tts_pb2.TextVariable(
                           variable_name = "<variable_name_in_the_pattern>",
@@ -110,7 +111,7 @@ Create and run a client app to send your data to the API:
                   tts_pb2.Hints(
                       audio_template = tts_pb2.AudioTemplate(
                           audio = tts_pb2.AudioContent(
-                              # Source audio for the template.
+                              # Upload source audio for the template.
                               content = bytes_array,
                               audio_spec = tts_pb2.AudioFormatOptions(
                                   container_audio = tts_pb2.ContainerAudio(
@@ -121,14 +122,16 @@ Create and run a client app to send your data to the API:
                           text_template = tts_pb2.TextTemplate(
                               text_template = template,
                               variables = [
+                                  # List the template variables.
                                   # The number of tts_pb2.TextVariable() list items depends on the number of template variables.
                                   tts_pb2.TextVariable(
-                                      variable_name = "<variable_name_in_the_pattern>",
-                                      variable_value = "<text_of_the_variable_part_in_the_template_audio_file>"
+                                      variable_name = "<template_variable_name>",
+                                      variable_value = "<text of the phrase's variable part in the template audio file>"
                                   )
                               ]
                           ),
                           variables = [
+                              # List the audio parameters of template variables.
                               # The number of tts_pb2.AudioVariable() list items depends on the number of template variables.
                               tts_pb2.AudioVariable(
                                   variable_name = "<variable_name_in_the_pattern>",
@@ -144,7 +147,7 @@ Create and run a client app to send your data to the API:
               model = "zsl"
           )
 
-          #  Establish a server connection.
+          # Establish a server connection.
           cred = grpc.ssl_channel_credentials()
           channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
           stub = tts_service_pb2_grpc.SynthesizerStub(channel)

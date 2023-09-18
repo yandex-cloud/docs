@@ -42,8 +42,10 @@
     1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
         {% include [repeat-request.md](repeat-request.md) %}
-
+ 
+    
     1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+ 
 
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -55,6 +57,7 @@
 
     Чтобы создать триггер, который вызывает функцию, выполните команду:
 
+    
     ```bash
     yc serverless trigger create container-registry \
       --name <имя триггера> \
@@ -67,6 +70,7 @@
       --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
       --dlq-service-account-id <идентификатор сервисного аккаунта>
     ```
+  
 
     Где:
 

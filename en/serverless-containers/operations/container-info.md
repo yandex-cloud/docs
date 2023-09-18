@@ -29,7 +29,7 @@
    folder_id: b1gtmgn9gbvm********
    created_at: "2023-01-17T11:52:56.800Z"
    name: test
-   url: https://bba0hq6q1prb********.containers.yandexcloud.net/
+   url: https://bba0hq6q1prb********.{{ serverless-containers-host }}/
    status: ACTIVE
    ```
 

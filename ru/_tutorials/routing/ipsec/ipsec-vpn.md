@@ -57,12 +57,6 @@
 
 #### Создайте и настройте группу безопасности для основного IPsec-шлюза {#cloud-sg}
 
-{% note info %}
-
-{% include [security-groups-note](../../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 1. В сети `cloud-net` [создайте группу безопасности](../../../vpc/operations/security-group-create.md) с именем `cloud-net-sg`.
 1. В группе безопасности `cloud-net-sg` [создайте правила](../../../vpc/operations/security-group-add-rule.md) в соответствии с таблицей:
 

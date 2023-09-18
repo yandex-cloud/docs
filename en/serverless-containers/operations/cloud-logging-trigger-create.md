@@ -64,6 +64,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    To create a trigger that invokes a container, run this command:
 
+   
    ```bash
    yc serverless trigger create logging \
      --name <trigger_name> \
@@ -77,6 +78,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
      --dlq-queue-id <Dead_Letter_Queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
+  
 
    Where:
 
@@ -89,10 +91,11 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    Result:
 
+     
    ```text
    id: a1s5msktij**********
    folder_id: b1gmit33hg**********
-   created_at: "2022-10-24T15:19:15.353909857Z"
+   created_at: "2023-08-04T15:19:15.353909857Z"
    name: logging-trigger
    rule:
      logging:
@@ -111,6 +114,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
            service-account-id: aje3lebfem**********
    status: ACTIVE
    ```
+  
 
 - API
 

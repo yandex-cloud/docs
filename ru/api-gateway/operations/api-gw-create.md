@@ -118,9 +118,11 @@
 
   {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
 
+
 - {{ yandex-cloud }} Toolkit
 
   Создать API-шлюз можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 - API
 

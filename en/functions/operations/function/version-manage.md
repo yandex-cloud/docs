@@ -24,7 +24,7 @@ When creating a version, set the following parameters:
    1. Under **Latest version**, click **Create in editor**.
    1. Select the [runtime environment](../../concepts/runtime/index.md). Don't select the **Add files with code examples** option.
    1. Prepare the function code:
-      * Runtime environment: `nodejs`.
+      * Runtime environment: `nodejs12`.
       * Method: ZIP archive.
       * File: `hello-js.zip`.
       * Entry point: `index.handler`.
@@ -43,6 +43,7 @@ When creating a version, set the following parameters:
 
    To create a function version, run the command:
 
+   
    ```
    yc serverless function version create \
      --function-name=my-nodejs-function \
@@ -52,6 +53,7 @@ When creating a version, set the following parameters:
      --execution-timeout 5s \
      --source-path ./hello-js.zip
    ```
+  
 
    Where:
 
@@ -64,6 +66,7 @@ When creating a version, set the following parameters:
 
    Result:
 
+   
    ```
    done (1s)
    id: d4evvn8obisa********
@@ -80,6 +83,7 @@ When creating a version, set the following parameters:
    - $latest
    log_group_id: ckg3qh8h363p********
    ```
+  
 
 - {{ TF }}
 
@@ -110,7 +114,7 @@ When creating a version, set the following parameters:
           name               = "test-function"
           description        = "Test function"
           user_hash          = "first-function"
-          runtime            = "python37"
+          runtime            = "python311"
           entrypoint         = "main"
           memory             = "128"
           execution_timeout  = "10"
@@ -166,9 +170,11 @@ When creating a version, set the following parameters:
 
    To create a function version, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion) gRPC API call.
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+
 
 {% endlist %}
 

@@ -46,9 +46,6 @@ description: "Из статьи вы узнаете, как удалить тр�
           retry_settings:
             retry_attempts: "1"
             interval: 10s
-          dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ng**********:dlq
-            service-account-id: aje3lebfem**********
     status: PAUSED
     ```
 

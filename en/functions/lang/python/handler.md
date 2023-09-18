@@ -65,7 +65,7 @@ def handler(event, context):
 Function invocation example:
 
 ```
-curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://functions.yandexcloud.net/d4eo2faf62**********?param=one
+curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://{{ sf-url }}/d4eo2faf62**********?param=one
 ```
 
 Result:
@@ -94,7 +94,7 @@ Result:
             "Accept": "*/*",
             "Content-Length": "18",
             "Content-Type": "application/json",
-            "Host": "functions.yandexcloud.net",
+            "Host": "{{ sf-url }}",
             "User-Agent": "curl/7.64.1",
             "X-Forwarded-For": "109.252.148.209",
             "X-Real-Remote-Address": "[109.252.148.209]:2816",
@@ -114,7 +114,7 @@ Result:
                 "application/json"
             ],
             "Host": [
-                "functions.yandexcloud.net"
+                "{{ sf-url }}"
             ],
             "User-Agent": [
                 "curl/7.64.1"

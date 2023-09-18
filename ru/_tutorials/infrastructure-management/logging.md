@@ -72,12 +72,6 @@
 
 ## Создайте группы безопасности {#create-security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 [Группы безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) содержат правила, которые: 
 * разрешают балансировщику получать входящий трафик и отправлять его на ВМ, а ВМ — получать этот трафик; 
 * разрешают балансировщику отправлять логи в лог-группу, а кластеру {{ PG }} — получать логи из нее.

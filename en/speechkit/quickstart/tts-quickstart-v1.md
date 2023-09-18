@@ -30,7 +30,7 @@ Where:
 
 {% note info %}
 
-For homographs, use `+` before the stressed vowel. For example, `+import`, `im+port`. To mark a pause between words, use `-`. Maximum string length: 5000 characters.
+For homographs, use `+` before the stressed vowel. For example, `+import`, `im+port`. To mark a pause between words, use `-`. Maximum string length: 5,000 characters.
 
 {% endnote %}
 
@@ -38,7 +38,7 @@ The synthesized speech will be written to the `speech.ogg` file in the directory
 
 By default, audio is created in the [OggOpus](https://wiki.xiph.org/OggOpus) format. You can listen to the created file in a browser like [Yandex Browser](https://browser.yandex.ru) or [Mozilla Firefox](http://www.mozilla.org).
 
-For details, see the [description of request format for speech synthesis](../tts/request.md).
+For more information, see the [description of request format for speech synthesis](../tts/request.md).
 
 #### Tutorials {#tutorials}
 

@@ -62,16 +62,16 @@ Create a [timer](../concepts/trigger/timer.md) that invokes a {{ serverless-cont
 
    ```text
    id: a1sp9tj1jhar********
-   	folder_id: b1g4j6o69kqj********
-   	created_at: "2023-03-16T17:45:23.145213360Z"
-   	name: timer
-   	rule:
-   	  timer:
-   		cron_expression: '* * ? * * *'
-   		invoke_container_with_retry:
-   		  container_id: bbavvhra8ekc********
-   		  service_account_id: aje1ki4ae68u********
-   	status: ACTIVE
+   folder_id: b1g4j6o69kqj********
+   created_at: "2023-03-16T17:45:23.145213360Z"
+   name: timer
+   rule:
+     timer:
+       cron_expression: '* * ? * * *'
+       invoke_container_with_retry:
+         container_id: bbavvhra8ekc********
+         service_account_id: aje1ki4ae68u********
+   status: ACTIVE
    ```
 
 - API

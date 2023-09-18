@@ -59,8 +59,6 @@
     
     1. Если вы используете группы безопасности, [настройте их](../../managed-clickhouse/operations/connect.md#configuring-security-groups) так, чтобы к кластеру можно было подключаться из интернета.
 
-        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 - С помощью {{ TF }}
 

@@ -60,7 +60,7 @@ The following function receives a request with two fields (a string and a number
 
 {% note warning %}
 
-To invoke the function, use the [YC CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+To invoke the function, use the [{{ yandex-cloud }} CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
 
 {% endnote %}
 

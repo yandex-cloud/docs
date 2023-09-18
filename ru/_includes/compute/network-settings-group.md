@@ -14,9 +14,7 @@
 
 * Выберите [подходящие группы безопасности](../../vpc/concepts/security-groups.md).
 
-  {% include [security-groups-note-vm](../vpc/security-groups-note-vm.md) %}
-
-* (Опционально) Создайте записи для ВМ в [зоне DNS](../../dns/concepts/dns-zone.md):
+* (опционально) Создайте записи для ВМ в [зоне DNS](../../dns/concepts/dns-zone.md):
 
     * Разверните блок **{{ ui-key.yacloud.dns.label_dns-internal-settings }}** и нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**.
     * Укажите зону, FQDN и время жизни записи. При указании FQDN для зоны доступна опция `{{ ui-key.yacloud.dns.label_auto-select-zone }}`.

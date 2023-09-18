@@ -49,4 +49,84 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/backup/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: backup/api-ref/grpc/index.md
+          - name: BackupService
+            href: backup/api-ref/grpc/backup_service.md
+          - name: PolicyService
+            href: backup/api-ref/grpc/policy_service.md
+          - name: ProviderService
+            href: backup/api-ref/grpc/provider_service.md
+          - name: ResourceService
+            href: backup/api-ref/grpc/resource_service.md
+          - name: OperationService
+            href: backup/api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: backup/api-ref/index.md
+          - name: Backup
+            items:
+              - name: Overview
+                href: backup/api-ref/Backup/index.md
+              - name: delete
+                href: backup/api-ref/Backup/delete.md
+              - name: get
+                href: backup/api-ref/Backup/get.md
+              - name: list
+                href: backup/api-ref/Backup/list.md
+              - name: listArchives
+                href: backup/api-ref/Backup/listArchives.md
+              - name: listFiles
+                href: backup/api-ref/Backup/listFiles.md
+              - name: startRecovery
+                href: backup/api-ref/Backup/startRecovery.md
+          - name: Policy
+            items:
+              - name: Overview
+                href: backup/api-ref/Policy/index.md
+              - name: apply
+                href: backup/api-ref/Policy/apply.md
+              - name: create
+                href: backup/api-ref/Policy/create.md
+              - name: delete
+                href: backup/api-ref/Policy/delete.md
+              - name: execute
+                href: backup/api-ref/Policy/execute.md
+              - name: get
+                href: backup/api-ref/Policy/get.md
+              - name: list
+                href: backup/api-ref/Policy/list.md
+              - name: listApplications
+                href: backup/api-ref/Policy/listApplications.md
+              - name: revoke
+                href: backup/api-ref/Policy/revoke.md
+              - name: update
+                href: backup/api-ref/Policy/update.md
+          - name: Provider
+            items:
+              - name: Overview
+                href: backup/api-ref/Provider/index.md
+              - name: activate
+                href: backup/api-ref/Provider/activate.md
+              - name: listActivated
+                href: backup/api-ref/Provider/listActivated.md
+          - name: Resource
+            items:
+              - name: Overview
+                href: backup/api-ref/Resource/index.md
+              - name: delete
+                href: backup/api-ref/Resource/delete.md
+              - name: get
+                href: backup/api-ref/Resource/get.md
+              - name: list
+                href: backup/api-ref/Resource/list.md
+              - name: listTasks
+                href: backup/api-ref/Resource/listTasks.md
 base: en/backup

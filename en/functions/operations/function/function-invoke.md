@@ -29,8 +29,8 @@ As an example, we use the function described in [{#T}](../function/version-manag
 
       * **Without preset**: Custom data format.
       * **HTTPS call**: Data format for a function acting as an HTTPS request handler. For more information, see [Concepts](../../concepts/function-invoke.md).
-      * **Trigger for {{ message-queue-short-name }}**: Data format for the function invoked by a trigger in order to process messages from the queue.
-      * **Alice's skill**: Data format for a function receiving [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from the Yandex.Dialogs platform.
+            * **Trigger for {{ message-queue-short-name }}**: Data format for the function invoked by a trigger in order to process messages from the queue.
+            * **Alice's skill**: Data format for a function receiving [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from the Yandex.Dialogs platform.
 
    1. In the **Input field**, enter the input data to test the function.
 
@@ -54,7 +54,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
    For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTP request by inserting the function invoke link in the browser address bar. The link should have the following format:
 
    ```
-   {{ sf-url }}/<function ID>
+   https://{{ sf-url }}/<function ID>
    ```
 
    You can invoke a specific function version using the `tag` parameter. The function with the `$latest` tag is invoked by default.
@@ -62,7 +62,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
    * Example of function invocation with no additional parameters:
 
       ```
-      {{ sf-url }}/b09bhaokchn9pnbrlseb
+      https://{{ sf-url }}/b09bhaokchn9pnbrlseb
       ```
 
       The following response appears on the page:
@@ -74,7 +74,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
    * Example of function invocation with the `name` parameter added to the URL:
 
       ```
-      {{ sf-url }}/b09bhaokchn9pnbrlseb?name=<username>
+      https://{{ sf-url }}/b09bhaokchn9pnbrlseb?name=<username>
       ```
 
       The following response appears on the page:
@@ -85,7 +85,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
    * Example of invoking a specific function version with the `tag` parameter added to the URL:
 
       ```
-      {{ sf-url }}/b09bhaokchn9pnbrlseb?tag=<version tag>
+      https://{{ sf-url }}/b09bhaokchn9pnbrlseb?tag=<version tag>
       ```
 
 - CLI
@@ -115,9 +115,11 @@ As an example, we use the function described in [{#T}](../function/version-manag
       yc serverless function invoke <function ID> --tag <function version tag>
       ```
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can call a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+
 
 {% endlist %}
 

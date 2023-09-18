@@ -38,7 +38,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
       Where:
 
       * `TEXT`: Text in [TTS markup](../markup/tts-markup.md) for synthesis.
-      * `FOLDER_ID`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md).
+      * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
       * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
       * `lang`: [Language](../index.md#langs) of the text.
       * `voice`: [Voice](../voices.md) for speech synthesis.
@@ -67,8 +67,8 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
           static async Task Tts()
           {
-            const string iamToken = "<IAM token>"; // Specify the IAM token.
-            const string folderId = "<folder ID>"; // Specify the folder ID.
+            const string iamToken = "<IAM token>";
+            const string folderId = "<folder ID>";
 
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
@@ -165,7 +165,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
          Where:
 
-         * `FOLDER_ID`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md).
+         * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
          * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
          * `--output`: Name of the file for audio recording.
          * `--text`: Text in [TTS markup](../markup/tts-markup.md) for synthesis.

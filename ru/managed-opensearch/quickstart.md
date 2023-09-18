@@ -47,8 +47,6 @@
 
 ## Настройте группы безопасности {#configure-security-groups}
 
-{% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
-
 {% include notitle [Configuring security groups](../_includes/mdb/mos/configuring-security-groups.md) %}
 
 

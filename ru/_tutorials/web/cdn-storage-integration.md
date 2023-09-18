@@ -393,12 +393,6 @@
 
 ## Создайте группу безопасности {#create-security-group}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 [Группы безопасности](../../vpc/concepts/security-groups.md) содержат правила, которые разрешают L7-балансировщику получать входящий трафик и отправлять его на бакеты-бэкенды.
 
 Чтобы создать группы безопасности:

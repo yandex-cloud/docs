@@ -43,7 +43,9 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
       {% include [repeat-request.md](repeat-request.md) %}
 
+     
    1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+ 
 
    1. Click **Create trigger**.
 
@@ -55,6 +57,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
    To create a trigger that invokes a function, run this command:
 
+   
    ```bash
    yc serverless trigger create container-registry \
      --name <trigger name> \
@@ -67,6 +70,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
      --dlq-queue-id <Dead Letter Queue ID> \
      --dlq-service-account-id <service account ID>
    ```
+  
 
    Where:
 

@@ -19,6 +19,7 @@ After the trigger is activated, it sends a message to the container. The message
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 
+
 ## See also {#see-also}
 
 * [Trigger for {{ yds-name }} that invokes a {{ sf-name }} function](../../../functions/concepts/trigger/data-streams-trigger.md).

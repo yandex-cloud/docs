@@ -43,8 +43,6 @@ keywords:
   
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#security-groups) для того, чтобы можно было подключаться к кластеру.
 
-      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 
   1. В блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1** задайте конфигурацию [группы хостов](../concepts/host-groups.md) `{{ OS }}`:
 

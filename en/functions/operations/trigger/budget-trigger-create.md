@@ -52,6 +52,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
    To create a trigger that invokes a function, run this command:
 
+   
    ```bash
    yc serverless trigger create billing-budget \
      --name <trigger name> \
@@ -64,6 +65,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
      --dlq-queue-id <Dead Letter Queue ID> \
      --dlq-service-account-id <service account ID>
    ```
+  
 
    Where:
 
@@ -75,6 +77,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
    Result:
 
+   
    ```text
    id: a1sfe084v4**********
    folder_id: b1g88tflru**********
@@ -96,6 +99,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
            service-account-id: aje3932acd0c********
    status: ACTIVE
    ```
+  
 
 - API
 

@@ -25,14 +25,14 @@ You can't change the root logger settings using the `logging.basicConfig()` func
 By default, the root logger level is `Warning`, all logs with a lower level are ignored. You can change the logging level using the `setLevel` method for:
 
 * The entire app.
-   ```python
-   	logging.getLogger().setLevel(logging.DEBUG)
-   ```
+  ```python
+  logging.getLogger().setLevel(logging.DEBUG)
+  ```
 * Any logger except the root one.
-   ```python
-   	logging.getLogger('requests.packages.urllib3').setLevel(logging.DEBUG)
-   	logging.getLogger('myapp').setLevel(logging.DEBUG)
-   ```
+  ```python
+  logging.getLogger('requests.packages.urllib3').setLevel(logging.DEBUG)
+  logging.getLogger('myapp').setLevel(logging.DEBUG)
+  ```
 
 You can change the log format as follows:
 

@@ -42,7 +42,7 @@
 	Для обеспечения безопасности функцию можно вызвать только по протоколу HTTPS. Вызовите ее как обычный HTTPS-запрос, вставив ссылку в адресную строку браузера:
 
 	```
-	{{ sf-url }}/b09bhaokchn9pnbrlseb
+	https://{{ sf-url }}/b09bhaokchn9pnbrlseb
 	```
 
 	На странице появится ответ:
@@ -51,8 +51,10 @@
 	Hello, World!
 	```
 
+
 - {{ yandex-cloud }} Toolkit
 
     Вызвать функцию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}

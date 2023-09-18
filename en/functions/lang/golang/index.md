@@ -5,7 +5,10 @@ description: "With {{ sf-name }}, you can run applications written in Go. The se
 
 # Developing in Go. Overview
 
-With {{ sf-name }}, you can run applications written in [Go](https://go.dev/doc/). The service provides the [runtime environment](../../concepts/runtime/index.md) with different versions:
+With {{ sf-name }}, you can run applications written in [Go](https://go.dev/doc/). 
+
+
+The service provides the [runtime environment](../../concepts/runtime/index.md) with different versions:
 
 | Name | Go version | Operating <br>system | Preloaded |
 | ---- | ---- | ---- | ----
@@ -14,7 +17,10 @@ With {{ sf-name }}, you can run applications written in [Go](https://go.dev/doc/
 | golang118 | 1.18.5 | Ubuntu 18.04 LTS | No |
 | golang119 | 1.19.3 | Ubuntu 18.04 LTS | No |
 
+
+
 You can connect the [SDK library](https://github.com/yandex-cloud/go-sdk) to the runtime to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
+
 
 When creating a new [function version](../../concepts/function.md#version) the [builder](../../concepts/builder.md) may automatically installs all declared dependencies required for the function to run. For more information about requirements and restrictions, see [{#T}](dependencies.md).
 

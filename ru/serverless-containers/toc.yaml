@@ -1,4 +1,4 @@
-title: Yandex Serverless Containers
+title: '{{ serverless-containers-full-name }}'
 href: index.yaml
 items:
   - name: Сопоставление с другими сервисами {{ yandex-cloud }}
@@ -73,7 +73,7 @@ items:
             href: operations/environment-variables-add.md
           - name: Указать облачную сеть
             href: operations/network-add.md
-          - name: Передать секреты Yandex Lockbox
+          - name: Передать секреты {{ lockbox-full-name }}
             href: operations/lockbox-secret-transmit.md
           - name: Управлять метками
             items:
@@ -149,19 +149,19 @@ items:
             href: concepts/trigger/index.md
           - name: Таймер
             href: concepts/trigger/timer.md
-          - name: Триггер для Message Queue
+          - name: Триггер для {{ message-queue-name }}
             href: concepts/trigger/ymq-trigger.md
-          - name: Триггер для Object Storage
+          - name: Триггер для {{ objstorage-name }}
             href: concepts/trigger/os-trigger.md
-          - name: Триггер для Container Registry
+          - name: Триггер для {{ container-registry-name }}
             href: concepts/trigger/cr-trigger.md
-          - name: Триггер для Cloud Logging
+          - name: Триггер для {{ cloud-logging-full-name }}
             href: concepts/trigger/cloud-logging-trigger.md
-          - name: Триггер для Yandex IoT Core
+          - name: Триггер для {{ iot-full-name }}
             href: concepts/trigger/iot-core-trigger.md
           - name: Триггер для бюджетов
             href: concepts/trigger/budget-trigger.md
-          - name: Триггер для Data Streams
+          - name: Триггер для {{ yds-name }}
             href: concepts/trigger/data-streams-trigger.md
           - name: Триггер для почты
             href: concepts/trigger/mail-trigger.md

@@ -43,7 +43,6 @@ Aliases:
 - [yc serverless trigger](trigger/index.md) — Manage triggers
 	- [yc serverless trigger get](trigger/get.md) — Show information about the specified trigger
 	- [yc serverless trigger list](trigger/list.md) — List triggers
-	- [yc serverless trigger update](trigger/update.md) — Update the specified trigger
 	- [yc serverless trigger add-labels](trigger/add-labels.md) — Add labels to specified trigger
 	- [yc serverless trigger remove-labels](trigger/remove-labels.md) — Remove labels from specified trigger
 	- [yc serverless trigger delete](trigger/delete.md) — Delete the specified trigger
@@ -64,6 +63,8 @@ Aliases:
 	- [yc serverless api-gateway remove-access-binding](api-gateway/remove-access-binding.md) — Remove access binding for the specified API Gateway
 	- [yc serverless api-gateway add-domain](api-gateway/add-domain.md) — Attach domain to the specified API Gateway
 	- [yc serverless api-gateway remove-domain](api-gateway/remove-domain.md) — Detach domain from the specified API Gateway
+	- [yc serverless api-gateway release-canary](api-gateway/release-canary.md) — Set gateway specification variables to canary values and delete canary settings
+	- [yc serverless api-gateway rollback-canary](api-gateway/rollback-canary.md) — Suspend sending requests to canary release(set canary weight to zero)
 - [yc serverless container](container/index.md) — Manage containers
 	- [yc serverless container get](container/get.md) — Show information about the specified container
 	- [yc serverless container list](container/list.md) — List containers

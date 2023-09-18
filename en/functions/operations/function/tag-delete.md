@@ -19,8 +19,8 @@
    ```
    id: b09ch6pmpohfc9sogj5f
    function_id: b097d9ous3gep99khe83
-   created_at: "2019-06-13T09:12:38.464Z"
-   runtime: python37
+   created_at: "2023-08-22T09:12:38.464Z"
+   runtime: python311
    entrypoint: test.handler
    resources:
      memory: "134217728"
@@ -49,7 +49,7 @@
           name               = "test-function"
           description        = "Test function"
           user_hash          = "first-function"
-          runtime            = "python37"
+          runtime            = "python311"
           entrypoint         = "main"
           memory             = "128"
           execution_timeout  = "10"
@@ -100,8 +100,10 @@
 
    To remove a function version tag, use the [removeTag](../../functions/api-ref/Function/removeTag.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveTag](../../functions/api-ref/grpc/function_service.md#RemoveTag) gRPC API call.
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can delete a tag using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+
 
 {% endlist %}

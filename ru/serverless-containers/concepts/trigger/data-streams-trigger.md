@@ -19,6 +19,7 @@
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 
+
 ## См. также {#see-also}
 
 * [Триггер для {{ yds-name }}, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/data-streams-trigger.md).

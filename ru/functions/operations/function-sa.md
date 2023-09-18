@@ -101,7 +101,7 @@
                     ```
             1. Добавьте файл  `index.py` в ZIP-архив `index-py.zip`.
         1. [Создайте](../operations/function/version-manage.md) версию функции. Укажите:
-            * среду выполнения — `python37`;
+            * среду выполнения — `python311`;
             * способ загрузки кода — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`;
             * файл — `index-py.zip`;
             * точку входа — `index.main`;

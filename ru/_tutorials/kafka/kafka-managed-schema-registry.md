@@ -18,8 +18,6 @@
 
 1. Если вы используете группы безопасности, [настройте их](../../managed-kafka/operations/connect.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером {{ mkf-name }} и виртуальной машиной.
 
-    {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 ## Создайте скрипты производителя и потребителя {#create-scripts}
 

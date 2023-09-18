@@ -10,7 +10,7 @@ The runtime environment is selected when creating a function. It provides additi
 Runtime environment characteristics:
 
 - Operating system: Ubuntu 18.04 LTS.
-- Linux kernel: 4.19.
+- Linux kernel: 5.15.
 
 A first function call creates a function instance. The service uses existing function instances for new calls, if available. This lets you save time preparing the runtime environment and resources, such as DB connections and temporary files, which don't have to be re-created when the runtime environment is used again.
 

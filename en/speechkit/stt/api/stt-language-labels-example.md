@@ -41,7 +41,7 @@ To implement an example from this section:
          pip install grpcio-tools
          ```
 
-      1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create the `output` directory, and generate the client interface code there:
+      1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create an `output` directory, and generate the client interface code there:
 
          ```bash
          cd <path_to_cloudapi_directory>
@@ -60,7 +60,7 @@ To implement an example from this section:
 
          As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
-      1. Create a file (for example, `test.py`) in the root of the `output` directory and add the following code to it:
+      1. In the root of the `output` directory, create a file, e.g. `test.py`, and add to it the following code:
 
          ```python
          #coding=utf8
@@ -94,10 +94,10 @@ To implement an example from this section:
                  )
              )
 
-             # Send a message with the recognition settings.
+             # Send a message with recognition settings.
              yield stt_pb2.StreamingRequest(session_options=recognize_options)
 
-             # Read the audio file and send its contents in portions.
+             # Read the audio file and send its contents in chunks.
              with open(audio_file_name, 'rb') as f:
                  data = f.read(CHUNK_SIZE)
                  while data != b'':
@@ -105,7 +105,7 @@ To implement an example from this section:
                      data = f.read(CHUNK_SIZE)
 
          def run(iam_token, audio_file_name):
-             # Establish a connection with the server.
+             # Establish a server connection.
              cred = grpc.ssl_channel_credentials()
              channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
              stub = stt_service_pb2_grpc.RecognizerStub(channel)
@@ -154,7 +154,7 @@ To implement an example from this section:
          * `audio_encoding`: [Format](../../formats.md) of the audio stream.
          * `sample_rate_hertz`: Sampling rate.
          * `audio_channel_count`: Number of audio channels.
-         * `language_code`: [Language](../index.md#langs) that recognition is performed for.
+         * `language_code`: [Recognition language](../index.md#langs).
 
    {% endlist %}
 

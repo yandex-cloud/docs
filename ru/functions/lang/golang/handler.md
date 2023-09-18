@@ -72,7 +72,7 @@ func Handler(rw http.ResponseWriter, req *http.Request) {
 
 {% note warning %}
 
-Функцию необходимо вызывать с помощью [YC CLI](../../concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `integration=raw`.
+Функцию необходимо вызывать с помощью [CLI {{ yandex-cloud }}](../../concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `integration=raw`.
 
 {% endnote %}
 
@@ -204,7 +204,7 @@ import (
   "fmt"
 )
 
-// Структура запроса (см. https://cloud.yandex.ru/docs/functions/concepts/function-invoke#request)
+// Структура тела запроса (см. абзац после этого примера).
 // Остальные поля нигде не используются в данном примере, поэтому можно обойтись без них
 type RequestBody struct {
   HttpMethod string `json:"httpMethod"`
@@ -249,6 +249,8 @@ func Greet(ctx context.Context, request []byte) (*Response, error) {
 }
 ```
 
+Подробнее о структуре тела запроса (`type RequestBody struct`) см. в разделе [{#T}](../../concepts/function-invoke.md#request).
+
 Пример входных данных (метод POST):
 
 ```json
@@ -268,9 +270,10 @@ Hello, Anonymous
 ```
 
 
-### Разбор HTTP-запроса за API Gateway
 
-Функция вызывается сервисом API Gateway с сервисным аккаунтом, записывает в журнал метод и тело запроса и возвращает приветствие.
+### Разбор HTTP-запроса за {{ api-gw-name }}
+
+Функция вызывается сервисом {{ api-gw-full-name }} с сервисным аккаунтом, записывает в журнал метод и тело запроса и возвращает приветствие.
 
 Функция декодирует тело входящего запроса при помощи `json.Unmarshal()`.
 
@@ -363,5 +366,4 @@ POST { "name": "Anonymous" }
 ```
 Hello, Anonymous
 ```
-
 

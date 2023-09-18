@@ -25,7 +25,7 @@ yc serverless function version create --source-path
 
 Для управления доступом к функции необходимы роли `{{ roles-admin }}` или `{{ roles-cloud-owner }}`. Подробнее в [документации](../security/index.md).
 
-#### Как из Node.js-кода в {{ sf-name }} получить доступ к переменной окружения? {#env}
+#### Как в функции на Node.js получить доступ к переменной окружения? {#env}
 
 Для доступа к переменным окружения используется глобальная переменная `process.env`. Подробнее в [документации](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_env).
 
@@ -33,9 +33,12 @@ yc serverless function version create --source-path
 
 Модули можно загрузить в ZIP-архиве размером до 3,5 МБ. Файл большего размера необходимо [загружать через {{ objstorage-name }}](../../storage/operations/objects/upload.md). Подробнее в [документации](../quickstart/create-function/python-function-quickstart.md).
 
+
 #### Вызов облачных функций для навыков Яндекс Алисы бесплатный. Если я из облачной функции навыка буду вызывать другую свою облачную функцию — это тоже бесплатно? {#alice-pricing}
 
 Такие вызовы будут тарифицироваться согласно [{#T}](../pricing.md).
+
+
 
 #### Я хочу увеличить квоты. Как определить подходящие значения для них? {#quotas}
 

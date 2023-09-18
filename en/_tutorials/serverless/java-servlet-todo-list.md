@@ -161,7 +161,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
       created_at: "2021-03-08T14:07:32.134Z"
       name: add-task
       log_group_id: eolm8aoq9vcp********
-      http_invoke_url: https://functions.yandexcloud.net/d4ejb1799eko********
+      http_invoke_url: https://{{ sf-url }}/d4ejb1799eko********
       status: ACTIVE
       ```
 
@@ -206,9 +206,11 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
 
    Use the [create](../../functions/functions/api-ref/Function/create) and the [createVersion](../../functions/functions/api-ref/Function/createVersion) API methods.
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can create a function and its version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 
@@ -338,9 +340,11 @@ To ensure interaction between services, create an API gateway:
       log_group_id: ckg2hdmevnvc********
       ```
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

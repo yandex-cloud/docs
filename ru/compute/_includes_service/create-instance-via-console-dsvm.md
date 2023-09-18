@@ -37,8 +37,6 @@
       * (опционально) При необходимости в поле **{{ ui-key.yacloud.component.compute.network-select.field_advanced }}** выберите опцию [защиты от DDoS-атак](../../vpc/ddos-protection/index.md).
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите [подходящие группы безопасности](../../vpc/concepts/security-groups.md).
 
-        {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
-
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на виртуальную машину:
       * (Опционально) Выберите или создайте [сервисный аккаунт](../../iam/concepts/index.md#sa). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.

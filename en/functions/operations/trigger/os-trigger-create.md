@@ -57,6 +57,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
    To create a trigger that invokes a function, run this command:
 
+   
    ```bash
    yc serverless trigger create object-storage \
      --name <trigger name> \
@@ -71,6 +72,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
      --dlq-queue-id <Dead Letter Queue ID> \
      --dlq-service-account-id <service account ID>
    ```
+  
 
    Where:
 

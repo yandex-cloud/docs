@@ -21,7 +21,11 @@ A container revision is created from a Docker image hosted in {{ container-regis
 
 A container instance processes one container invocation at a single point in time. If the container is invoked faster than the instance can process the request, the service scales the container by running additional container instances. This ensures _concurrent request processing_.
 
+
 You can [change](../operations/manage-revision.md#create) the maximum number of concurrent invocations of a single container instance and [specify](../operations/scaling-settings-add.md) the number of provisioned container instances.
+
+
+
 
 ### Provisioned instances {#provisioned-instances}
 
@@ -38,8 +42,9 @@ Provisioned instances count towards the following [quotas](limits.md) even when 
 * Total RAM for all running container instances per availability zone.
 * Number of provisioned container instances per cloud.
 
+
+
 #### See also
 
 * [Creating a container revision.](../operations/manage-revision.md#create)
 * [Adding scaling settings.](../operations/scaling-settings-add.md)
-

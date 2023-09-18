@@ -270,7 +270,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
       created_at: "2023-03-21T10:03:37.475Z"
       name: kratos-authorizer
       log_group_id: eolm8aoq9vcpps******
-      http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pn******
+      http_invoke_url: https://{{ sf-url }}/b09bhaokchn9pn******
       status: ACTIVE
       ```
 

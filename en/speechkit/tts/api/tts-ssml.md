@@ -34,12 +34,12 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
       Where:
 
-      * `FOLDER_ID`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md).
+      * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
       * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
       * `ssml`: File with text marked up according to [SSML](../markup/ssml.md) rules.
       * `lang`: [Language](../index.md#langs) of the text.
 
-   The synthesized speech will be written to the `speech.ogg` file in the directory from which you sent your request.
+   The synthesized speech will be written to the `speech.ogg` file in the directory that you sent your request from.
 
 {% endlist %}
 

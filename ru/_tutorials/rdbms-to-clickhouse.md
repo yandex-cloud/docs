@@ -32,8 +32,6 @@
      * [{{ mch-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
      * [{{ mpg-name }}](../managed-postgresql/operations/connect.md#configuring-security-groups).
 
-     {% include [preview-pp.md](../_includes/preview-pp.md) %}
-
 
   1. [Выдайте роль](../managed-postgresql/operations/grant#grant-privilege) `mdb_replication` пользователю `pg-user` в кластере {{ mpg-name }}.
 

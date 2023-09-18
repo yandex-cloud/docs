@@ -33,10 +33,10 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
     ```
     id: b09bhaokchn9********
     folder_id: aoek49ghmknnp********
-    created_at: "2019-06-14T10:03:37.475Z"
+    created_at: "2023-08-16T19:01:37.475Z"
     name: go-function
     log_group_id: eolm8aoq9vcp********
-    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
+    http_invoke_url: https://{{ sf-url }}/b09bhaokchn9********
     status: ACTIVE
     ```
 
@@ -44,9 +44,11 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md) API method.
 
-- Yandex Cloud Toolkit
 
-    You can create a function using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 
@@ -90,7 +92,7 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
   1. Select `go-function`.
   1. Under **Latest version**, click **Create in editor**.
   1. Set the version parameters:
-      * **Runtime environment:** `golang114`.
+      * **Runtime environment:** `golang119`.
       * **Method:** ZIP archive.
       * **File:** `hello-go.zip`.
       * **Entry point:** `hello.Handler`.
@@ -107,15 +109,17 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
 
     To create a function version, run the command:
 
+    
     ```
     yc serverless function version create \
       --function-name=go-function \
-      --runtime golang114 \
+      --runtime golang119 \
       --entrypoint hello.Handler \
       --memory 128m \
       --execution-timeout 3s \
       --source-path ./hello-go.zip
     ```
+  
 
     Where:
 
@@ -128,12 +132,13 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
 
     Result:
 
+    
     ```
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
-    created_at: "2020-08-01T19:09:19.531Z"
-    runtime: golang114
+    created_at: "2023-08-16T19:09:19.531Z"
+    runtime: golang119
     entrypoint: hello.Handler
     resources:
         memory: "134217728"
@@ -144,14 +149,17 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
     - $latest
     log_group_id: ckg3qh8h363p********
     ```
+  
 
 - API
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
 
-- Yandex Cloud Toolkit
 
-    You can create a function version using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

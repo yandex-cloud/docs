@@ -61,6 +61,7 @@ Aliases:
 - [yc managed-postgresql backup](backup/index.md) — Manage PostgreSQL backups
 	- [yc managed-postgresql backup get](backup/get.md) — Show information about the specified PostgreSQL backup
 	- [yc managed-postgresql backup list](backup/list.md) — List available backups
+	- [yc managed-postgresql backup delete](backup/delete.md) — Delete the specified PostgreSQL backup
 - [yc managed-postgresql resource-preset](resource-preset/index.md) — Manage PostgreSQL resource presets
 	- [yc managed-postgresql resource-preset get](resource-preset/get.md) — Show information about the specified PostgreSQL resource preset
 	- [yc managed-postgresql resource-preset list](resource-preset/list.md) — List available PostgreSQL resource presets.

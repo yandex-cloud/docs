@@ -14,7 +14,7 @@ _Version_ contains the function code, run parameters, and all required dependenc
 
 To [create a version](../operations/function/version-manage.md), you can use the code editor or upload your code and its dependencies in one of the formats described in the table below. After you create a function, you no longer need the object with the code. You can delete it from storage.
 
-| Format | Management console | YC CLI |
+| Format | Management console | {{ yandex-cloud }} CLI |
 |----|----|----|
 | ZIP archive from your PC | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | ZIP archive from S3, specifying the bucket and object | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -67,6 +67,8 @@ Function calls are distributed across availability zones randomly. {{ sf-name }}
 
 When the number of function instances reaches the `zone_instances_limit`, {{ sf-name }} stops scaling it. If there are more function calls than instances available, the call is queued and treated as a call-in-progress. When the number of calls-in-progress reaches the `zone_requests_limit`, the service stops queuing calls and returns the `429 TooManyRequests` error.
 
+
+
 #### Provisioned instances {#provisioned-instances}
 
 A _provisioned instance_ is a function instance that, when started, is guaranteed not to have a cold start. In the provisioned instance before the function is called:
@@ -82,6 +84,8 @@ Provisioned instances count towards the following [quotas](limits.md) even when 
 * Number of function instances per availability zone.
 * Total RAM for all running functions per availability zone.
 * Number of provisioned function instances per cloud.
+
+
 
 #### See also
 

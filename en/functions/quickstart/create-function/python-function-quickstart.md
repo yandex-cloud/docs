@@ -33,10 +33,10 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
     ```
     id: b09bhaokchn9********
     folder_id: aoek49ghmknn********
-    created_at: "2019-06-14T10:03:37.475Z"
+    created_at: "2023-08-16T19:01:37.475Z"
     name: python-function
     log_group_id: eolm8aoq9vcp********
-    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
+    http_invoke_url: https://{{ sf-url }}/b09bhaokchn9********
     status: ACTIVE
     ```
 
@@ -44,9 +44,11 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md) API method.
 
-- Yandex Cloud Toolkit
 
-    You can create a function using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 
@@ -85,7 +87,7 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
     1. Select `python-function`.
     1. Under **Latest version**, click **Create in editor**.
     1. Set the version parameters:
-        * **Runtime environment:** `python37`.
+        * **Runtime environment:** `python311`.
         * **Method:** ZIP archive.
         * **File:** `hello-py.zip`.
         * **Entry point:** `hello.handler`.
@@ -105,7 +107,7 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
     ```
     yc serverless function version create \
       --function-name=python-function \
-      --runtime python37 \
+      --runtime python311 \
       --entrypoint hello.handler \
       --memory 128m \
       --execution-timeout 3s \
@@ -127,8 +129,8 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
-    created_at: "2020-08-01T19:09:19.531Z"
-    runtime: python37
+    created_at: "2023-08-16T19:09:19.531Z"
+    runtime: python311
     entrypoint: hello.handler
     resources:
         memory: "134217728"
@@ -144,9 +146,11 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
 
-- Yandex Cloud Toolkit
 
-    You can create a function version using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

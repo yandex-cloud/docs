@@ -7,8 +7,6 @@
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 Группы безопасности могут препятствовать подключению к кластеру — в этом случае внесите изменения в правила групп.
 
 {% note alert %}

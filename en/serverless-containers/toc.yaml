@@ -1,4 +1,4 @@
-title: Yandex Serverless Containers
+title: '{{ serverless-containers-full-name }}'
 href: index.yaml
 items:
   - name: Comparison with other {{ yandex-cloud }} services
@@ -73,7 +73,7 @@ items:
             href: operations/environment-variables-add.md
           - name: Specifying a cloud network
             href: operations/network-add.md
-          - name: Transmitting Yandex Lockbox secrets
+          - name: Transmitting {{ lockbox-full-name }} secrets
             href: operations/lockbox-secret-transmit.md
           - name: Managing labels
             items:
@@ -149,19 +149,19 @@ items:
             href: concepts/trigger/index.md
           - name: Timer
             href: concepts/trigger/timer.md
-          - name: Trigger for Message Queue
+          - name: Trigger for {{ message-queue-name }}
             href: concepts/trigger/ymq-trigger.md
-          - name: Trigger for Object Storage
+          - name: Trigger for {{ objstorage-name }}
             href: concepts/trigger/os-trigger.md
-          - name: Trigger for Container Registry
+          - name: Trigger for {{ container-registry-name }}
             href: concepts/trigger/cr-trigger.md
-          - name: Trigger for Cloud Logging
+          - name: Trigger for {{ cloud-logging-name }}
             href: concepts/trigger/cloud-logging-trigger.md
-          - name: Trigger for Yandex IoT Core
+          - name: Trigger for {{ iot-full-name }}
             href: concepts/trigger/iot-core-trigger.md
           - name: Trigger for budgets
             href: concepts/trigger/budget-trigger.md
-          - name: Trigger for Data Streams
+          - name: Trigger for {{ yds-name }}
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md

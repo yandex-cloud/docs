@@ -30,8 +30,6 @@ FQDN можно использовать для доступа к хостам-�
 
 ## Группы безопасности {#security-groups}
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 
 {% note tip %}
 

@@ -26,7 +26,7 @@
      test: test
      version: beta
    log_group_id: eolv6578frac08uh5h6s
-   http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
+   http_invoke_url: https://{{ sf-url }}/b097d9ous3gep99khe83
    status: ACTIVE
    ```
 

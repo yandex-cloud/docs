@@ -12,7 +12,9 @@ With {{ sf-name }}, you can run applications written in [C#]({{ ms.docs }}/dotne
 | dotnetcore31 | 3.1.417 | 8.0 | Ubuntu 18.04 LTS | No |
 | dotnetcore6 | 6.0.400 | 8.0 | Ubuntu 18.04 LTS | No |
 
+
 You can connect the [SDK library](https://github.com/yandex-cloud/dotnet-sdk) to the runtime to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
+
 
 When creating a new [function version](../../concepts/function.md#version) the [builder](../../concepts/builder.md) may automatically installs all declared dependencies required for the function to run. For more information about requirements and restrictions, see [{#T}](dependencies.md).
 

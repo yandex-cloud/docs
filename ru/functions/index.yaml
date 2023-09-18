@@ -1,11 +1,11 @@
-title: Cloud Functions
+title: '{{ sf-name }}'
 description:
   - >-
-    Сервис Cloud Functions позволяет запускать приложения в безопасном,
+    Сервис {{ sf-name }} позволяет запускать приложения в безопасном,
     отказоустойчивом и масштабируемом окружении без создания и обслуживания
     виртуальных машин.
 meta:
-  title: Yandex Cloud Functions
+  title: '{{ sf-full-name }}'
 links:
   - title: Начало работы
     description: Создайте первую функцию

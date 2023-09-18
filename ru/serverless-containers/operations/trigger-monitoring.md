@@ -29,8 +29,11 @@ description: "Вы можете посмотреть график монитор
         * **Read events** — количество событий, после которых сработал триггер.
         * **Function access errors** — количество ошибок доступа при вызове контейнера.
         * **Function call errors** — количество ошибок при вызове контейнера.
+     
+                  
         * **DLQ access errors** — количество ошибок доступа при обращении к [Dead Letter Queue](../../serverless-containers/concepts/dlq.md).
         * **Send to DLQ errors** — количество ошибок при отправлении сообщений в Dead Letter Queue.
+     
 
     Вы можете выбрать период, за который необходимо отобразить информацию на графике: час, день, неделя, месяц или произвольный период.
 
@@ -44,7 +47,7 @@ description: "Вы можете посмотреть график монитор
 |----|----|----|----|
 | `serverless.triggers.`<br/>`inflight` | Вызовы | <ul><li>`request` — вызовы контейнера.</li></ul> | Количество одновременно выполняющихся вызовов контейнера. |
 | `serverless.triggers.`<br/>`error_per_second` | Ошибки в секунду | <ul><li>`request` — вызовы контейнера.</li><li>`message_queue` — обращения к {{ message-queue-full-name }}.</li><li>`dlq` — обращения к Dead Letter Queue.</li></ul> | Частота возникновения ошибок при обработке вызовов контейнера. |
-| `serverless.triggers.`<br/>`access_error_per_second` | Ошибки в секунду | <ul><li>`request` — вызовы контейнера.</li><li>`message_queue` — обращения к {{ message-queue-full-name }}.</li><li>`dlq` — обращения к Dead Letter Queue.</li> | Частота возникновения ошибок доступа при обработке вызовов контейнера. |
+| `serverless.triggers.`<br/>`access_error_per_second` | Ошибки в секунду | <ul><li>`request` — вызовы контейнера.</li><li>`message_queue` — обращения к {{ message-queue-full-name }}.</li><li>`dlq` — обращения к Dead Letter Queue.</li></ul> | Частота возникновения ошибок доступа при обработке вызовов контейнера. |
 | `serverless.triggers.`<br/>`retry_per_second` | Вызовы в секунду | <ul><li>`request` — вызовы контейнера.</li></ul> | Частота повторных вызовов контейнера при возникновении ошибки. |
 | `serverless.triggers.`<br/>`read_events_per_second` | События в секунду | <ul><li>`incoming` — события, после которых сработал любой триггер, кроме триггера для {{ message-queue-full-name }}.</li><li>`message_queue` — события, после которых сработал триггер для {{ message-queue-full-name }}.</li></ul> | Частота возникновения событий, после которых срабатывает триггер. |
 | `serverless.triggers.`<br/>`execution_time_milliseconds` | Вызовы в секунду | <ul><li>`request` — вызовы контейнера.</li></ul> | Гистограмма распределения частоты вызова контейнера по времени обработки запроса в миллисекундах. Интервалы времени обработки запроса представлены в метке `bin`. |

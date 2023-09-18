@@ -16,7 +16,11 @@
 
 
 * [Работа с группой ВМ с автоматическим масштабированием](vm-autoscale.md)
+
+
 * [Масштабирование группы ВМ по расписанию](vm-scale-scheduled.md)
+
+
 * [Автоматическое масштабирование группы ВМ для обработки сообщений из очереди {{ message-queue-full-name }}](autoscale-monitoring.md)
 * [Обновление группы ВМ под нагрузкой](updating-under-load.md)
 * [{#T}](vm-fluent-bit-logging.md)

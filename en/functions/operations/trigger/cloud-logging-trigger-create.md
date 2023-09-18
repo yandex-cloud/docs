@@ -54,7 +54,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+      1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
 
@@ -66,6 +66,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
    To create a trigger that invokes a function, run this command:
 
+   
    ```bash
    yc serverless trigger create logging \
      --name <trigger name> \
@@ -79,6 +80,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
      --dlq-queue-id <Dead Letter Queue ID> \
      --dlq-service-account-id <service account ID>
    ```
+  
 
    Where:
 
@@ -91,6 +93,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
    Result:
 
+   
    ```text
    id: a1sfe084v4**********
    folder_id: b1g88tflru**********
@@ -114,6 +117,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
            service-account-id: aje3932a**********
    status: ACTIVE
    ```
+  
 
 - {{ TF }}
 

@@ -28,8 +28,6 @@
 
 ## Создайте группу безопасности {#create-security-group}
 
-{% include [security-groups-services](../../_includes/vpc/security-groups-note-services.md) %}
-
 Чтобы создать [группу безопасности](../../vpc/concepts/security-groups.md):
 
 {% list tabs %}
@@ -168,8 +166,6 @@
 Чтобы разместить веб-сайт на базе CMS WordPress с помощью {{ TF }}:
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры.
-
-   В руководстве используются [группы безопасности](#create-security-groups). Если они вам недоступны, то запросите доступ в поддержке или уберите из файла конфигурации блок `yandex_vpc_security_group` и другие упоминания `security_group`.
 
    {% list tabs %}
 

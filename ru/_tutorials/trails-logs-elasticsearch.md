@@ -267,9 +267,9 @@
 ### Настройте подсеть {#configure-subnet}
 
 1. [Настройте](../vpc/operations/create-nat-gateway.md) NAT-шлюз для подсети, в которой будет развернута промежуточная ВМ.
-1. Настройте разрешения сетевого трафика в [группе безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group). Если группа безопасности недоступна, для кластера {{ ES }} будет разрешен любой входящий и исходящий трафик.
+1. Настройте разрешения сетевого трафика в [группе безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group).
 
-   Если группа безопасности доступна, [добавьте](../vpc/operations/security-group-update.md#add-rule) в нее следующие правила:
+   [Добавьте](../vpc/operations/security-group-update.md#add-rule) в нее следующие правила:
 
    | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
    | --- | --- | --- | --- | --- | --- |

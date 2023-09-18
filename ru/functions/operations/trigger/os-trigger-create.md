@@ -57,6 +57,7 @@
 
     Чтобы создать триггер, который вызывает функцию, выполните команду:
 
+    
     ```bash
     yc serverless trigger create object-storage \
       --name <имя триггера> \
@@ -71,6 +72,7 @@
       --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
       --dlq-service-account-id <идентификатор сервисного аккаунта>
     ```
+  
 
     Где:
 

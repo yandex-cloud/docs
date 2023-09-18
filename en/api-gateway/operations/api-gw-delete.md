@@ -120,9 +120,11 @@
       yc serverless api-gateway list
       ```
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can delete an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+
 
 - API
 
