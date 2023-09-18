@@ -76,7 +76,7 @@ Authorization: OAuth <token>
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
     | self | Queue link | String |
-    | id | Queue ID | String |
+    | id | Queue ID | Number |
     | key | Queue key | String |
     | version | Queue version. Each change to the queue increases its version number. | Number |
     | name | Queue name | String |
