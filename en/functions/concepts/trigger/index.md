@@ -5,7 +5,7 @@ description: "Triggers are criteria that automatically launch a function when me
 
 # Triggers in {{ sf-name }}. Overview
 
-_Triggers_ are criteria that automatically launch a {{ sf-name }} [function](../function.md) when met. Triggers let you automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ iot-full-name }}.
+_Triggers_ are criteria that automatically launch a {{ sf-name }} [function](../function.md) when met. Triggers let you automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ container-registry-full-name }}.
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
@@ -20,6 +20,7 @@ The following types of triggers are available in {{ sf-name }}:
 * [Trigger for budgets](budget-trigger.md).
 * [Trigger for {{ yds-name }}](data-streams-trigger.md).
 * [Email trigger](mail-trigger.md).
+
 
 ## Specifics of functions invoked by triggers {#invoke}
 

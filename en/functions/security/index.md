@@ -30,7 +30,9 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [functions-roles-editor](../../_includes/roles-functions-editor.md) %}
 
+
 {% include [functions-roles-mdbproxy](../../_includes/roles-functions-mdbproxy.md) %}
+
 
 {% include [functions-roles-admin](../../_includes/roles-functions-admin.md) %}
 

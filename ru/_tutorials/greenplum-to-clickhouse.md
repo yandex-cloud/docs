@@ -26,8 +26,6 @@
         * [{{ mch-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
         * [{{ mgp-name }}](../managed-greenplum/operations/connect.md#configuring-security-groups).
 
-        {% include [preview-pp.md](../_includes/preview-pp.md) %}
-
 
 * С помощью {{ TF }}
 

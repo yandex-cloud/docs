@@ -34,6 +34,7 @@ Syntax:
 |`--preemptible`|Specifies whether instance preemptible or not|
 |`--placement-group-id`|<b>`string`</b><br/>Placement group to add the instance to (use an empty string to remove the instance from placement group).|
 |`--placement-group-name`|<b>`string`</b><br/>Placement group to add the instance to (use an empty string to remove the instance from placement group).|
+|`--placement-group-partition`|<b>`int`</b><br/>Specifies placement group partition for the instance.|
 |`--host-group-id`|<b>`string`</b><br/>Host group to place the instance to (to clear affinity rules use --no-host-affinity-rules).|
 |`--host-group-name`|<b>`string`</b><br/>Host group to place the instance to (to clear affinity rules use --no-host-affinity-rules).|
 |`--host-id`|<b>`string`</b><br/>Host to place the instance to (to remove all affinity rules use --no-host-affinity-rules).|

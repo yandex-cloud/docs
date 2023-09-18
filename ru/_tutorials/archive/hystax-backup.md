@@ -53,9 +53,9 @@ Hystax Acura Backup будет выполнять действия от имен
 
 ### Настройте разрешения сетевого трафика {#network-settings}
 
-Настройте разрешения сетевого трафика в [группе безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group). Если группа безопасности недоступна, для ВМ будет разрешен любой входящий и исходящий трафик.
+Настройте разрешения сетевого трафика в [группе безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group). 
 
-Если группа безопасности доступна, [добавьте](../../vpc/operations/security-group-update.md#add-rule) в нее следующие правила:
+[Добавьте](../../vpc/operations/security-group-update.md#add-rule) в нее следующие правила:
 
 Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
 --- | --- | --- | --- | --- | ---
@@ -142,8 +142,6 @@ Hystax Acura Backup будет выполнять действия от имен
           * Выберите в списке облачную [сеть](../../vpc/concepts/network.md#network). Если сети нет, нажмите кнопку **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**. Задайте параметры сети и нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
           * Выберите [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, нажмите кнопку ![image](../../_assets/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Задайте параметры подсети и нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**. Сохраните идентификатор подсети, он потребуется в дальнейшем.
           * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика.
-
-            {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
 
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
           * Выберите сервисный аккаунт `hystax-acura-account`, [созданный ранее](#create-sa).

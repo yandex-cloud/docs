@@ -1,7 +1,5 @@
 # Создать группу безопасности
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 
 Чтобы создать новую [группу безопасности](../concepts/security-groups.md):

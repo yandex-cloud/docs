@@ -8,6 +8,8 @@ _Invocation context_ is an object that is optionally accepted by the [request ha
 
 To extract information from the invocation context, use its `Value(key)` method and pass it in the `key` parameter as a string with one of the keys described above.
 
+
+
 ### Authentication in the {{ yandex-cloud }} API {#token}
 
 If a function has a specified service account, you can use the [SDK](sdk.md) to obtain information that is necessary for authentication on behalf of this service account. To get this information, use the following methods:

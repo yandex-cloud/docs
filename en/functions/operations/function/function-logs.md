@@ -48,9 +48,11 @@ Function execution logs are stored for 3 days. The log uses [UTC time](https://e
 
    {% endnote %}
 
-- Yandex Cloud Toolkit
 
-   You can view the function execution log using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+   You can view the function execution log using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

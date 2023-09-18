@@ -29,8 +29,11 @@ The chart update period is 15 seconds.
       * **Read events**: The number of events causing a trigger to fire.
       * **Function access errors**: The number of access errors when calling a container.
       * **Function call errors**: The number of errors when calling a container.
+    
+            
       * **DLQ access errors**: The number of errors when accessing the [Dead Letter Queue](../../serverless-containers/concepts/dlq.md).
       * **Send to DLQ errors**: The number of errors when sending messages to the Dead Letter Queue.
+    
 
    You can select the time period to display information for: hour, day, week, month, or a custom interval.
 
@@ -44,7 +47,7 @@ The chart update period is 15 seconds.
 |----|----|----|----|
 | `serverless.triggers.`<br/>`inflight` | Invocations | <ul><li>`request`: Container calls.</li></ul> | Number of concurrent container invocations. |
 | `serverless.triggers.`<br/>`error_per_second` | Errors per second | <ul><li>`request`: Container calls.</li><li>`message_queue`: Accesses the {{ message-queue-full-name }}.</li><li>`dlq`: Accesses the Dead Letter Queue.</li></ul> | Frequency of errors when processing container invocations. |
-| `serverless.triggers.`<br/>`access_error_per_second` | Errors per second | <ul><li>`request`: Container calls.</li><li>`message_queue`: Accesses the {{ message-queue-full-name }}.</li><li>`dlq`: Accesses the Dead Letter Queue.</li> | Access error frequency when processing container calls. |
+| `serverless.triggers.`<br/>`access_error_per_second` | Errors per second | <ul><li>`request`: Container calls.</li><li>`message_queue`: Accesses the {{ message-queue-full-name }}.</li><li>`dlq`: Accesses the Dead Letter Queue.</li></ul> | Access error frequency when processing container calls. |
 | `serverless.triggers.`<br/>`retry_per_second` | Calls per second | <ul><li>`request`: Container calls.</li></ul> | The frequency of repeat container calls in the event of an error. |
 | `serverless.triggers.`<br/>`read_events_per_second` | Events per second | <ul><li>`incoming`: Events causing any trigger to fire except for a {{ message-queue-full-name }}.</li><li>`message_queue`: Events causing the trigger to fire for {{ message-queue-full-name }}.</li></ul> | Frequency of events causing a trigger to fire. |
 | `serverless.triggers.`<br/>`execution_time_milliseconds` | Calls per second | <ul><li>`request`: Container calls.</li></ul> | Histogram of the container invocation frequency distribution by request processing time in milliseconds. Request processing time intervals are shown in the `bin` label. |

@@ -50,7 +50,7 @@ Authentication is performed under a service account using an [API key](../../../
    1. Go to the directory hosting the {{ yandex-cloud }} API repository, create an `output` directory, and generate the client interface code there:
 
       ```bash
-      cd <path_to_cloudapi_directory> && \
+      cd <path to cloudapi directory> && \
       mkdir output && \
       python -m grpc_tools.protoc -I . -I third_party/googleapis \
          --python_out=output \

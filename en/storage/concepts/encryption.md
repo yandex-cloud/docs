@@ -10,16 +10,14 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
 {% endnote %}
 
-Server-side encryption is performed using keys stored in {{ kms-full-name }}. A created {{ kms-short-name }} key is specified in the bucket settings. It will be used for encrypting all new objects or when [uploading an object via the API](../../storage/s3/api-ref/object/upload.md).
+Server-side encryption is performed using keys stored in {{ kms-name }}. The created {{ kms-short-name }} key is specified in the bucket settings. It will be used for encrypting all new objects or when [uploading an object via the API](../../storage/s3/api-ref/object/upload.md).
 
 Objects are encrypted before you save them to a bucket and decrypted when you download them from the bucket. By default, encryption applies to all new objects, while previously uploaded ones remain unchanged.
 
 
-To decrypt objects, the user must have both the `storage.editor` role and the `kms.keys.dencrypter` role that allows them to [read the encryption key](../../kms/security/index.md#service-roles).
+{% include [encryption-roles](../../_includes/storage/encryption-roles.md) %}
 
-
-
-In addition to {{ kms-full-name }} key-based encryption, you can also use the following approaches:
+In addition to {{ kms-name }} key-based encryption, you can also use the following approaches:
 
 {% include [encryption-client-side](../../_includes/storage/encryption-client-side.md) %}
 

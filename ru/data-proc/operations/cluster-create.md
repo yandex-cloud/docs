@@ -9,8 +9,6 @@
 
 ## Настройте группы безопасности {#change-security-groups}
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% note warning %}
 
 Группы безопасности необходимо создать и настроить перед созданием кластера. Если в выбранных группах безопасности не будет необходимых правил, {{ yandex-cloud }} заблокирует создание кластера.

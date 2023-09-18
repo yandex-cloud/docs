@@ -16,7 +16,6 @@ Syntax:
 
 - [yc serverless trigger get](get.md) — Show information about the specified trigger
 - [yc serverless trigger list](list.md) — List triggers
-- [yc serverless trigger update](update.md) — Update the specified trigger
 - [yc serverless trigger add-labels](add-labels.md) — Add labels to specified trigger
 - [yc serverless trigger remove-labels](remove-labels.md) — Remove labels from specified trigger
 - [yc serverless trigger delete](delete.md) — Delete the specified trigger
@@ -35,6 +34,17 @@ Syntax:
 	- [yc serverless trigger create billing-budget](create/billing-budget.md) — Create billing budget trigger
 	- [yc serverless trigger create yds](create/yds.md) — Create YDS trigger
 	- [yc serverless trigger create mail](create/mail.md) — Create Mail trigger
+- [yc serverless trigger update](update/index.md) — Update the specified trigger
+	- [yc serverless trigger update timer](update/timer.md) — Update timer trigger
+	- [yc serverless trigger update message-queue](update/message-queue.md) — Update message queue trigger
+	- [yc serverless trigger update internet-of-things](update/internet-of-things.md) — Update internet of things trigger
+	- [yc serverless trigger update iot-broker](update/iot-broker.md) — Update IoT broker trigger
+	- [yc serverless trigger update object-storage](update/object-storage.md) — Update object storage trigger
+	- [yc serverless trigger update container-registry](update/container-registry.md) — Update container registry trigger
+	- [yc serverless trigger update logging](update/logging.md) — Update logging trigger
+	- [yc serverless trigger update yds](update/yds.md) — Update YDS trigger
+	- [yc serverless trigger update billing-budget](update/billing-budget.md) — Update billing budget trigger
+	- [yc serverless trigger update mail](update/mail.md) — Update Mail trigger
 
 #### Global Flags
 

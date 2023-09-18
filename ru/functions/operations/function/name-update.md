@@ -32,7 +32,7 @@
     labels:
      test: test
     log_group_id: eolv6578frac********
-    http_invoke_url: https://functions.yandexcloud.net/b097d9ous3ge********
+    http_invoke_url: https://{{ sf-url }}/b097d9ous3ge********
     status: ACTIVE
     ```
 
@@ -104,8 +104,10 @@
 
     Чтобы изменить имя функции, воспользуйтесь методом REST API [update](../../functions/api-ref/Function/update.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Update](../../functions/api-ref/grpc/function_service.md#Update).
 
+
 - {{ yandex-cloud }} Toolkit
 
     Изменить имя функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}

@@ -4,13 +4,17 @@
 
 {% include [scaling](../../../_includes/functions/scaling.md) %}
 
+
 {% include [provisioned-instances-price](../../../_includes/functions/provisioned-instances-price.md) %}
+
 
 Для разных [версий](../../concepts/function.md#version) функции можно задать свои настройки масштабирования, используя [теги](../../concepts/function.md#tag). Настройки масштабирования будут действовать для той версии функции, которой присвоен указанный тег. Версии функции масштабируются независимо друг от друга.
 
 Настройки масштабирования не могут превышать [квоты](../../concepts/limits.md#functions-quotas).
 
+
 {% include [provisioned-instances-time](../../../_includes/functions/provisioned-instances-time.md)%}
+
 
 {% list tabs %}
 
@@ -31,6 +35,7 @@
 
     Чтобы добавить настройки масштабирования для функции, выполните команду:
 
+    
     ```
     yc serverless function set-scaling-policy \
       --id=d4eokpuol55h******** \
@@ -39,6 +44,7 @@
       --zone-requests-limit=2 \
       --provisioned-instances-count=3
     ```
+  
 
     Где:
 
@@ -50,6 +56,7 @@
 
     Результат:
 
+    
     ```
     function_id: d4eokpuol55h********
     tag: $latest
@@ -57,6 +64,7 @@
     zone_requests_limit: "2"
     provisioned_instances_count: "3"
     ```
+  
 
 - {{ TF }}
 
@@ -94,7 +102,6 @@
             }
         }
         ```
-
 
 
         Более подробную информацию о параметрах ресурса `yandex_function_scaling_policy` см. в [документации провайдера]({{ tf-provider-resources-link }}/yandex_function_scaling_policy).
@@ -136,9 +143,11 @@
 
     Чтобы добавить настройки масштабирования для функции, воспользуйтесь методом REST API [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/function_service.md#SetScalingPolicy).
 
+
 - {{ yandex-cloud }} Toolkit
 
     Добавить настройки масштабирования для функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

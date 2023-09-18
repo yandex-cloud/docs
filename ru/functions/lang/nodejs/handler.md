@@ -71,14 +71,14 @@ module.exports.handler = function (event, context) {
 
 ### Асинхронный обработчик {#async-example}
 
-Функция делает запрос к `https://cloud.yandex.ru/` и возвращает HTTP-код ответа и содержимое JSON-документа:
+Функция делает запрос к `https://example.com/` и возвращает HTTP-код ответа и содержимое JSON-документа:
 
 ```js
 const fetch = require("node-fetch");
 
 module.exports.handler = async function (event) {
     
-    const response = await fetch('https://cloud.yandex.ru/');
+    const response = await fetch('https://example.com/');
     const body     = await response.text();
     
     return {

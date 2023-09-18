@@ -45,8 +45,6 @@
     
     1. Если вы используете группы безопасности {{ vpc-name }}, [настройте их](../../managed-redis/operations/connect/index.md#configuring-security-groups).
 
-        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 - С помощью {{ TF }}
 

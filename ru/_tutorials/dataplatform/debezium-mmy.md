@@ -22,8 +22,6 @@
     * [Настройка групп безопасности кластера {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
     * [Настройка групп безопасности кластера {{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
 
-    {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) и выполните ее предварительную настройку:
 

@@ -34,6 +34,8 @@ Aliases:
 - [yc serverless api-gateway remove-access-binding](remove-access-binding.md) — Remove access binding for the specified API Gateway
 - [yc serverless api-gateway add-domain](add-domain.md) — Attach domain to the specified API Gateway
 - [yc serverless api-gateway remove-domain](remove-domain.md) — Detach domain from the specified API Gateway
+- [yc serverless api-gateway release-canary](release-canary.md) — Set gateway specification variables to canary values and delete canary settings
+- [yc serverless api-gateway rollback-canary](rollback-canary.md) — Suspend sending requests to canary release(set canary weight to zero)
 - [yc serverless api-gateway websocket](websocket/index.md) — Manage websocket connections
 	- [yc serverless api-gateway websocket get](websocket/get.md) — Get connection
 	- [yc serverless api-gateway websocket send](websocket/send.md) — Send data to connection

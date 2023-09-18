@@ -55,6 +55,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
    To create a trigger that invokes a container, run this command:
 
+   
    ```bash
    yc serverless trigger create object-storage \
      --name <trigger_name> \
@@ -69,6 +70,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
      --dlq-queue-id <Dead_Letter_Queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
+  
 
    Where:
 
@@ -82,6 +84,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
    Result:
 
+   
    ```text
    id: a1s5msktij**********
    folder_id: b1gmit33hg**********
@@ -107,6 +110,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
+  
 
 - API
 

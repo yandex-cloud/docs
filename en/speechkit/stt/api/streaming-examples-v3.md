@@ -1,6 +1,6 @@
 # Audio file streaming recognition using API v3
 
-Below, we provide an example of synchronous recognition of speech from an audio file using {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/index.md). This example uses the following parameters:
+Below, we provide an example of synchronous recognition of speech from an audio file using {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/index.md). The example uses the following parameters:
 
 * [Language](../models.md#languages): Russian.
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
@@ -8,7 +8,7 @@ Below, we provide an example of synchronous recognition of speech from an audio 
 * [Profanity filter](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions) enabled.
 * Other parameters were left with their default values.
 
-To use the API, you need the `grpcio-tools` package.
+To use the API, the `grpcio-tools` package is required.
 
 An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to authenticate the service account. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
 
@@ -34,7 +34,7 @@ To implement an example from this section:
       pip install grpcio-tools
       ```
 
-   1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create the `output` directory, and generate the client interface code there:
+   1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create an `output` directory, and generate the client interface code there:
 
       ```bash
       cd <path_to_cloudapi_directory>
@@ -53,7 +53,7 @@ To implement an example from this section:
 
       As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
-   1. Create a file (for example, `test.py`) in the root of the `output` directory and add the following code to it:
+   1. In the root of the `output` directory, create a file, e.g. `test.py`, and add to it the following code:
 
       ```python
       #coding=utf8
@@ -93,7 +93,7 @@ To implement an example from this section:
           # Send a message with recognition settings.
           yield stt_pb2.StreamingRequest(session_options=recognize_options)
 
-          # Read the audio file and send its contents in portions.
+          # Read the audio file and send its contents in chunks.
           with open(audio_file_name, 'rb') as f:
               data = f.read(CHUNK_SIZE)
               while data != b'':
@@ -101,7 +101,7 @@ To implement an example from this section:
                   data = f.read(CHUNK_SIZE)
 
       def run(iam_token, audio_file_name):
-          # Establish a connection with the server.
+          # Establish a server connection.
           cred = grpc.ssl_channel_credentials()
           channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
           stub = stt_service_pb2_grpc.RecognizerStub(channel)

@@ -56,7 +56,7 @@ public class Handler : YcFunction {
 
 {% note warning %}
 
-Функцию необходимо вызывать с помощью [YC CLI](../../../concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `integration=raw`.
+Функцию необходимо вызывать с помощью [CLI {{ yandex-cloud }}](../../../concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `integration=raw`.
 
 {% endnote %}
 

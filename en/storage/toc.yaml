@@ -73,6 +73,8 @@ items:
             href: operations/hosting/certificate.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Getting object query statistics with S3 Select
         href: tutorials/server-logs.md
       - name: Getting website traffic statistics with S3 Select
@@ -101,6 +103,10 @@ items:
         href: tutorials/bucket-to-bucket.md
       - name: Regular recognition of audio files in buckets
         href: tutorials/batch-recognition-stt.md
+      - name: >-
+          Training a model in {{ ml-platform-full-name }} on data from {{
+          objstorage-name }}
+        href: tutorials/s3-to-datasphere.md
       - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
         href: tutorials/storage-vpc-access.md
   - name: Concepts

@@ -134,9 +134,11 @@
       yc serverless api-gateway get <API gateway name>
       ```
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can edit the name, description, or specification of an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+
 
 - API
 

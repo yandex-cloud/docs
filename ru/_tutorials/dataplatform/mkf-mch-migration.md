@@ -35,8 +35,6 @@
         * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md#configuring-security-groups).
 
-        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 * С помощью {{ TF }}
 

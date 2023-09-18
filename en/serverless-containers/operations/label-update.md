@@ -20,14 +20,14 @@
 
    ```
    id: flh7r96juaqq********
-   	folder_id: aoek6qrs8tjh********
-   	created_at: "2021-08-17T07:53:10.219Z"
-   	name: my-beta-container
-   	description: my beta container description
-   	labels:
-   	  new_label: new_test
-   	url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
-   	status: ACTIVE
+   folder_id: aoek6qrs8tjh********
+   created_at: "2021-08-17T07:53:10.219Z"
+   name: my-beta-container
+   description: my beta container description
+   labels:
+     new_label: new_test
+   url: https://flh7r96juaqq********.{{ serverless-containers-host }}/
+   status: ACTIVE
    ```
 
 - {{ TF }}

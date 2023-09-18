@@ -36,7 +36,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
     created_at: "2019-06-14T10:03:37.475Z"
     name: bash-function
     log_group_id: eolm8aoq9vcp********
-    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
+    http_invoke_url: https://{{ sf-url }}/b09bhaokchn9********
     status: ACTIVE
     ```
 
@@ -44,9 +44,11 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md) API method.
 
-- Yandex Cloud Toolkit
 
-    You can create a function using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 
@@ -94,6 +96,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 
     To create a function version, run the command:
 
+    
     ```
     yc serverless function version create \
       --function-name=bash-function \
@@ -103,7 +106,8 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
       --execution-timeout 3s \
       --source-path ./hello-sh.zip
     ```
-
+  
+  
     Where:
 
     * `--function-name`: The name of the function you want to create a version of.
@@ -115,11 +119,12 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 
     Result:
 
+    
     ```
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
-    created_at: "2020-08-01T19:09:19.531Z"
+    created_at: "2023-08-22T19:09:19.531Z"
     runtime: bash
     entrypoint: hello.sh
     resources:
@@ -131,14 +136,17 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
     - $latest
     log_group_id: ckg3qh8h363p********
     ```
+  
 
 - API
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
 
-- Yandex Cloud Toolkit
 
-    You can create a function version using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

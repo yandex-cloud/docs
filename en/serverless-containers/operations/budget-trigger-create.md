@@ -50,6 +50,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
    To create a trigger that invokes a container, run this command:
 
+   
    ```bash
    yc serverless trigger create billing-budget \
      --name <trigger_name> \
@@ -62,6 +63,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
      --dlq-queue-id <Dead_Letter_Queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
+  
 
    Where:
 
@@ -73,6 +75,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
    Result:
 
+   
    ```text
    id: a1sfe084v4**********
    folder_id: b1g88tflru**********
@@ -93,6 +96,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
+  
 
 - API
 

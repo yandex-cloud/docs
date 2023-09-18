@@ -2,12 +2,6 @@
 
 Cетевому интерфейсу ВМ можно назначить одновременно несколько [групп безопасности](../../../vpc/operations/security-group-create.md).
 
-{% note info %}
-
-{% include [security-groups-note](../../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 Как изменить имя, описание и метки ВМ читайте в разделе [{#T}](vm-update.md).
 
 {% list tabs %}

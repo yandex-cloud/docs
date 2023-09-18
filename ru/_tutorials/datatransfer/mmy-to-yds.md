@@ -25,8 +25,6 @@
     
     1. Настройте [группы безопасности](../../managed-mysql/operations/connect.md#configure-security-groups) и убедитесь, что они допускают подключение к кластеру.
 
-        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
     1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#create-db) с именем `ydb-example` любой подходящей конфигурации.
 

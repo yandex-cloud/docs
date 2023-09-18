@@ -4,6 +4,9 @@ editable: false
 
 # Pricing for {{ serverless-containers-name }}
 
+
+
+
 ## What goes into the cost of using {{ serverless-containers-name }} {#rules}
 
 In {{ serverless-containers-name }}, you're billed for the number of container invocations, computing resources allocated for the application, downtime of [provisioned instances](concepts/container.md#provisioned-instances), and outgoing traffic.
@@ -45,6 +48,8 @@ You're charged for all the container invocations that trigger your code to run.
 {% include notitle [usd-cpu.md](../_pricing/serverless-containers/usd-cpu.md) %}
 
 
+
+
 ### Provisioned instances {#provisioned-instances}
 
 #### RAM usage time {#prices-ram-provisioned-instances}
@@ -63,10 +68,13 @@ You're charged for all the container invocations that trigger your code to run.
 {% include notitle [usd-cpu-provisioned-instances.md](../_pricing/serverless-containers/usd-cpu-provisioned-instances.md) %}
 
 
+
+
 ### Egress traffic {#prices-traffic}
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
 

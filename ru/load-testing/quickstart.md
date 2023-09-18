@@ -14,8 +14,6 @@
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `CIDR`;
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-    {% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
-
 1. Агенту потребуется доступ в подсеть, в которой находится цель тестирования. Чтобы агент мог подключиться к сервису {{ load-testing-name }}, настройте для подсети [NAT-шлюз](../vpc/operations/create-nat-gateway.md).
 1. Если у вас еще нет пары SSH-ключей, [создайте их](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 

@@ -12,7 +12,9 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
 Также инфраструктуру для масштабирования группы ВМ можно развернуть через {{ TF }} с помощью [готового файла конфигурации](#terraform).
+
 
 ## Подготовьте облако к работе {#before-begin}
 
@@ -112,9 +114,11 @@
 
      Для этого воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings).
 
+
 - {{ TF }}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 
 {% endlist %}
 
@@ -205,9 +209,11 @@
  
   1. Создайте подсети `vm-scale-scheduled-subnet-a` в зоне `{{ region-id }}-a` и `vm-scale-scheduled-subnet-b` в зоне `{{ region-id }}-b` с помощью метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create).
 
+
 - {{ TF }}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 
 {% endlist %}
 
@@ -384,9 +390,11 @@
      
   1. Создайте группу ВМ с именем `vm-scale-scheduled-ig` по спецификации `specification.yaml` с помощью метода REST API [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) или вызова gRPC API [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml).
 
+
 - {{ TF }}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 
 {% endlist %}
 
@@ -447,7 +455,7 @@
      created_at: "2022-04-01T13:48:27.705Z"
      name: vm-scale-scheduled-function
      log_group_id: ckgij6l0845hsdc9khiq
-     http_invoke_url: https://functions.yandexcloud.net/d4e7d67ikvmqk5uoim47
+     http_invoke_url: https://{{ sf-url }}/d4e7d67ikvmqk5uoim47
      status: ACTIVE
      ```
      
@@ -499,9 +507,11 @@
 
      {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
 
+
 - {{ TF }}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 
 {% endlist %}
 
@@ -530,7 +540,7 @@
      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}** выберите `$latest`.
      * Выберите **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** `vm-scale-scheduled-sa`.
  
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** очистите поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_dlq_service-account }}** (`{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`).
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** очистите поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_dlq_service-account }}** (`{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`).
   1. Нажмите **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
@@ -567,9 +577,11 @@
 
   Используйте метод REST API [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызов gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create), чтобы создать триггер типа `timer` с cron-выражением `*/2 * * * ? *`, связанный с функцией `vm-scale-scheduled-function` версии `$latest` и сервисным аккаунтом `vm-scale-scheduled-sa`.
 
+
 - {{ TF }}
 
   См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 
 {% endlist %}
 
@@ -624,6 +636,8 @@
 1. [Удалите триггер](../../functions/operations/trigger/trigger-delete.md) `vm-scale-scheduled-trigger`.
 1. [Удалите функцию](../../functions/operations/function/function-delete.md) `vm-scale-scheduled-function`.
 1. [Удалите группу ВМ](../../compute/operations/instance-groups/delete.md) `vm-scale-scheduled-ig`.
+
+
 
 ## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
 
@@ -682,5 +696,4 @@
    {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
 
 1. [Проверьте масштабирование группы ВМ](#test-scale).
-
 

@@ -442,12 +442,6 @@
 
 ## Изменить группы безопасности {#change-sg-set}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 {% list tabs %}
 
 - Консоль управления

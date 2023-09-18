@@ -2,8 +2,6 @@
 
 Для обеспечения работы сетевого балансировщика и [групп безопасности](security-groups.md) {{ vpc-short-name }} использует отслеживание сетевых соединений.
 
-{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
 Для каждого соединения создается две записи: для трафика к [виртуальной машине](../../glossary/vm.md) и от нее. Записи удаляются при достижении следующих условий:
 
 {% include [conditions-for-deleting-records](../../_includes/vpc/conditions-for-deleting-records.md) %}

@@ -72,7 +72,7 @@ The following function receives a request with two fields (a string and a number
 
 {% note warning %}
 
-To invoke the function, use the [YC CLI](../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+To invoke the function, use the [{{ yandex-cloud }} CLI](../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
 
 {% endnote %}
 
@@ -204,7 +204,7 @@ import (
   "fmt"
 )
 
-// The request structure (see https://cloud.yandex.com/docs/functions/concepts/function-invoke#request)
+// The request structure (see the paragraph following this example).
 // The other fields aren't used anywhere in this example, so you can do without them
 type RequestBody struct {
   HttpMethod string `json:"httpMethod"`
@@ -249,6 +249,8 @@ func Greet(ctx context.Context, request []byte) (*Response, error) {
 }
 ```
 
+For details about the request body structure (`type RequestBody struct`), see [{#T}](../../concepts/function-invoke.md#request).
+
 Example of input data (the POST method):
 
 ```json
@@ -268,9 +270,10 @@ Hello, Anonymous
 ```
 
 
-### Parsing an API Gateway HTTP request
 
-The function is called by Yandex API Gateway with a service account, logs the request method and body, and returns a greeting.
+### Parsing an {{ api-gw-name }} HTTP request
+
+The function is called by {{ api-gw-full-name }} with a service account, logs the request method and body, and returns a greeting.
 
 The function decodes the body of an incoming request using `json.Unmarshal()`.
 
@@ -363,5 +366,6 @@ Response returned:
 ```
 Hello, Anonymous
 ```
+
 
 

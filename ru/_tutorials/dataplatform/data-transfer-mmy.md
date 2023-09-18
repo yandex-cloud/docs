@@ -27,8 +27,6 @@
     * [Инструкция для {{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups).
     * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
 
-    {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 1. Установите на локальный компьютер [утилиту](https://github.com/edenhill/kcat) `kcat` (`kafkacat`) и [утилиту командной строки MySQL](https://www.mysql.com/downloads/). Например, в Ubuntu 20.04 выполните команду:
 

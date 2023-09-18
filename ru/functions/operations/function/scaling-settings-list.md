@@ -29,6 +29,7 @@
 
     Результат:
 
+    
     ```
     +----------------------+---------+----------------------+---------------------+-----------------------------+
     |     FUNCTION ID      |   TAG   | ZONE INSTANCES LIMIT | ZONE REQUESTS LIMIT | PROVISIONED INSTANCES COUNT |
@@ -36,14 +37,17 @@
     | d4eokpuol55h******** | $latest |                    1 |                   2 |                           3 |
     +----------------------+---------+----------------------+---------------------+-----------------------------+
     ```
+  
 
 - API
 
     Чтобы посмотреть настройки масштабирования функции, воспользуйтесь методом REST API [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/function_service.md#ListScalingPolicies).
 
+
 - {{ yandex-cloud }} Toolkit
 
     Посмотреть настройки масштабирования функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

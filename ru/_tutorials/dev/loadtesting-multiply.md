@@ -41,12 +41,6 @@
 
 ### Настройте группу безопасности {#security-group-setup}
 
-{% note info %}
-
-{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 1. [Создайте](../../vpc/operations/security-group-create.md) [группу безопасности](../../vpc/concepts/security-groups.md) для агентов `agent-sg`.
 1. [Добавьте правила](../../vpc/operations/security-group-add-rule.md):
    * Правило для исходящего HTTPS-трафика к публичному API {{ load-testing-name }}:

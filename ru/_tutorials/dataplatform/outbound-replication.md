@@ -26,7 +26,7 @@
 1. Установите на хосты кластера-приемника [клиентские SSL-сертификаты {{ mpg-name }}](../../managed-postgresql/operations/connect.md#get-ssl-cert). Они требуются для успешного подключения к публично доступному кластеру-источнику.
 
 
-1. При необходимости настройте межсетевой экран (firewall) и [группы безопасности](../../managed-postgresql/operations/connect.md#configuring-security-groups), чтобы можно было подключаться из кластера-приемника к кластеру-источнику, а также к каждому кластеру в отдельности (например, с помощью утилиты [psql](https://www.postgresql.org/docs/current/app-psql.html)). Группы безопасности находятся на стадии [Preview](../../overview/concepts/launch-stages.md).
+1. При необходимости настройте межсетевой экран (firewall) и [группы безопасности](../../managed-postgresql/operations/connect.md#configuring-security-groups), чтобы можно было подключаться из кластера-приемника к кластеру-источнику, а также к каждому кластеру в отдельности (например, с помощью утилиты [psql](https://www.postgresql.org/docs/current/app-psql.html)).
 
 
 1. Убедитесь, что с хостов кластера-приемника можно подключиться к хостам кластера-источника.

@@ -1,7 +1,7 @@
 # Storing and recovering data
 
 * [Single-node file server](single-node-file-server.md)
-* [Configuring an SFTP server on Centos 7](backup-and-archive-to-sftp.md)
+* [Configuring an SFTP server based on CentOS 7](backup-and-archive-to-sftp.md)
 * [Migrating to {{ yandex-cloud }} using Hystax Acura](../infrastructure-management/hystax-migration.md)
 * [Fault protection with Hystax Acura](../infrastructure-management/hystax-disaster-recovery.md)
 * [Creating a VM backup with Hystax Acura Backup](../infrastructure-management/hystax-backup.md)

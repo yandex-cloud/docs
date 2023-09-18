@@ -22,13 +22,13 @@ To top up your personal account:
 
 {% list tabs %}
 
-- Bank card transfer
+- Bank card
 
    Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_individual-action }}**. Then enter your card details and click **Pay**. Visa, MasterCard, and MIR bank cards are accepted.
 
    Payment is processed in real time and completed within 15 minutes.
 
-- Bank transfer from your account
+- Bank transfer
 
    Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
 

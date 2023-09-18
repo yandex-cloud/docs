@@ -72,6 +72,7 @@ description: "In this article, you'll learn how to work with {{ sf-full-name }} 
 * [Creating a trigger for {{ yds-name }}](trigger/data-streams-trigger-create.md)
 * [Creating an email trigger](trigger/mail-trigger-create.md)
 
+
 ## Managing triggers {#trigger-manage}
 
 * [Updating a name](trigger/name-update.md)

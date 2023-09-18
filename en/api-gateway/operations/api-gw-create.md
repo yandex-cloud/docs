@@ -118,9 +118,11 @@
 
    {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 
 - API
 

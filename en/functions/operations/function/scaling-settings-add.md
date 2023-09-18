@@ -4,13 +4,17 @@ You can set the following:
 
 {% include [scaling](../../../_includes/functions/scaling.md) %}
 
+
 {% include [provisioned-instances-price](../../../_includes/functions/provisioned-instances-price.md) %}
+
 
 You can configure different scaling settings for different function [versions](../../concepts/function.md#version) using [tags](../../concepts/function.md#tag). Scaling settings will be valid for the function version that the specified tag is assigned to. Function versions are scaled independently of each other.
 
 The scaling settings must be within the [quotas](../../concepts/limits.md#functions-quotas).
 
+
 {% include [provisioned-instances-time](../../../_includes/functions/provisioned-instances-time.md)%}
+
 
 {% list tabs %}
 
@@ -31,6 +35,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
    To add scaling settings for a function, run the command:
 
+   
    ```
    yc serverless function set-scaling-policy \
      --id=d4eokpuol55h******** \
@@ -39,6 +44,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
      --zone-requests-limit=2 \
      --provisioned-instances-count=3
    ```
+  
 
    Where:
 
@@ -50,6 +56,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
    Result:
 
+   
    ```
    function_id: d4eokpuol55h********
    tag: $latest
@@ -57,6 +64,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    zone_requests_limit: "2"
    provisioned_instances_count: "3"
    ```
+  
 
 - {{ TF }}
 
@@ -94,7 +102,6 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
           }
       }
       ```
-
 
 
       For more information about the parameters of the `yandex_function_scaling_policy` resource, see the [provider documentation]({{ tf-provider-resources-link }}/yandex_function_scaling_policy).
@@ -136,9 +143,11 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
    To add function scaling settings, use the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/function_service.md#SetScalingPolicy) gRPC API call.
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can add scaling settings for a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+
 
 {% endlist %}
 

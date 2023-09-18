@@ -1,4 +1,4 @@
-title: Yandex Cloud Functions
+title: '{{ sf-full-name }}'
 href: index.yaml
 items:
   - name: Comparison with other {{ yandex-cloud }} services
@@ -91,7 +91,7 @@ items:
             href: operations/function/environment-variables-add.md
           - name: Specifying a cloud network
             href: operations/function/network-add.md
-          - name: Transmitting Yandex Lockbox secrets
+          - name: Transmitting {{ lockbox-full-name }} secrets
             href: operations/function/lockbox-secret-transmit.md
           - name: Managing tags
             items:

@@ -51,6 +51,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
    To create a trigger that invokes a container, run this command:
 
+   
    ```bash
    yc serverless trigger create timer \
      --name <timer_name> \
@@ -64,6 +65,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
      --dlq-service-account-id <service_account_ID>
    ```
 
+
    Where:
 
    * `--name`: Timer name.
@@ -74,6 +76,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
    Result:
 
+   
    ```text
    id: a1s5msktij**********
    folder_id: b1gmit33hg**********
@@ -94,6 +97,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
+  
 
 - API
 

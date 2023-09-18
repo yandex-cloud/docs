@@ -16,5 +16,5 @@ If you want any user to be able to invoke a container without providing the auth
 After creating the container, you'll get the invocation link. Make an HTTPS request by sending an [IAM token](../../iam/concepts/authorization/iam-token.md) in the `Authorization` header:
 
 ```
-curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g********.containers.yandexcloud.net/hello
+curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g********.{{ serverless-containers-host }}/hello
 ```

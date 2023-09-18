@@ -74,8 +74,6 @@
 
      * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
-       {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите параметры хостов БД, создаваемых вместе с кластером. По умолчанию каждый хост создается в отдельной подсети. Чтобы выбрать для хоста конкретную [подсеть](../../vpc/concepts/network.md#subnet), в строке этого хоста нажмите значок ![image](../../_assets/pencil.svg).
 

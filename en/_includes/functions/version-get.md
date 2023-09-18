@@ -23,11 +23,12 @@
       yc serverless function version get <version_ID>
       ```
       Result:
+     
       ```
       id: b09u830mb1n3********
       function_id: b097d9ous3ge********
-      created_at: "2019-06-13T09:23:23.383Z"
-      runtime: python37
+      created_at: "2023-08-22T09:23:23.383Z"
+      runtime: python311
       entrypoint: test.handler
       resources:
         memory: "134217728"
@@ -44,11 +45,12 @@
       yc serverless function version get-by-tag --function-name <function_name> --tag <tag>
       ```
       Result:
+     
       ```
       id: b09ch6pmpohf********
       function_id: b097d9ous3ge********
-      created_at: "2019-06-13T09:12:38.464Z"
-      runtime: python37
+      created_at: "2023-08-22T09:12:38.464Z"
+      runtime: python311
       entrypoint: test.handler
       resources:
         memory: "134217728"
@@ -64,8 +66,10 @@
 
    To get detailed information about a function version, use the [getVersion](../../functions/functions/api-ref/Function/getVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/GetVersion](../../functions/functions/api-ref/grpc/function_service.md#GetVersion) gRPC API call.
 
+
 - {{ yandex-cloud }} Toolkit
 
    You can get details about a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
+
 
 {% endlist %}

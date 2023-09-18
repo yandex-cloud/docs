@@ -46,7 +46,8 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
 
    To create a trigger that invokes a container, run this command:
 
-   ```
+   
+   ```bash
    yc serverless trigger create mail \
      --name <trigger_name> \
      --invoke-container-id <container_ID> \
@@ -56,6 +57,7 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
      --dlq-queue-id <Dead_Letter_Queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
+  
 
    Where:
 
@@ -65,7 +67,8 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
 
    Result:
 
-   ```
+   
+   ```yaml
    id: a1sfe084v4**********
    folder_id: b1g88tflru**********
    created_at: "2022-12-04T08:45:31.131391Z"
@@ -84,6 +87,7 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
+  
 
 - API
 

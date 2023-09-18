@@ -71,14 +71,14 @@ module.exports.handler = function (event, context) {
 
 ### Asynchronous handler {#async-example}
 
-The function makes a request to `https://cloud.yandex.com/` and returns the HTTP response code and the contents of a JSON document:
+The function makes a request to `https://example.com/` and returns the HTTP response code and the contents of a JSON document:
 
 ```js
 const fetch = require("node-fetch");
 
 module.exports.handler = async function (event) {
 
-    const response = await fetch('https://cloud.yandex.com/');
+    const response = await fetch('https://example.com/');
     const body     = await response.text();
 
     return {

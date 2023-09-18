@@ -45,7 +45,7 @@ To implement an example:
          export PATH=$PATH:<path_to_directory_with_executable_FFmpeg_file>
          ```
 
-      1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create the `output` directory, and generate the client interface code there:
+      1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create an `output` directory, and generate the client interface code there:
 
          ```bash
          cd <path_to_cloudapi_directory>
@@ -64,7 +64,7 @@ To implement an example:
 
          As a result, the `tts_pb2.py`, `tts_pb2_grpc.py`, `tts_service_pb2.py`, `tts_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
-      1. Create a file (for example, `test.py`) in the root of the `output` directory and add the following code to it:
+      1. In the root of the `output` directory, create a file, e.g. `test.py`, and add to it the following code:
 
          ```python
          import io
@@ -75,7 +75,7 @@ To implement an example:
          import yandex.cloud.ai.tts.v3.tts_pb2 as tts_pb2
          import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
-         # Define request parameters.
+         # Specify the synthesis settings.
          def synthesize(iam_token, text) -> pydub.AudioSegment:
              request = tts_pb2.UtteranceSynthesisRequest(
                  text=text,
@@ -87,7 +87,7 @@ To implement an example:
                  loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS
              )
 
-             # Establish connection with server.
+             # Establish a server connection.
              cred = grpc.ssl_channel_credentials()
              channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
              stub = tts_service_pb2_grpc.SynthesizerStub(channel)

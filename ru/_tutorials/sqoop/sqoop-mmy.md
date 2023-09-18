@@ -36,8 +36,6 @@
     * [к виртуальной машине и кластеру {{ dataproc-name }}](../../data-proc/operations/connect.md);
     * [к кластеру {{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
 
-    {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 ### С помощью {{ TF }} {#create-terraform}
 
 1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

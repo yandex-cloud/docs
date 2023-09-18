@@ -2,7 +2,7 @@
 
 In this section, you will learn how to use {{ speechkit-short-name }} [API v3]((../../stt-v3/api-ref/grpc/)) to recognize speech in real time from a ready-made file in [LPCM](../formats.md#LPCM) format.
 
-To use the API, you need the `grpcurl` utility.
+To use the API, the `grpcurl` utility is required.
 
 ## Getting started {#before-you-begin}
 
@@ -31,7 +31,7 @@ To use the API, you need the `grpcurl` utility.
 
 To recognize speech from a file in [streaming mode](../stt/streaming.md):
 
-1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository and create working files there:
+1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository and create your working files there:
 
    * File with a part that initiates streaming requests to the API:
 

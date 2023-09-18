@@ -43,8 +43,6 @@
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
     1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) с любой [подходящей конфигурацией хостов](../../data-proc/concepts/instance-types.md) и следующими настройками:
 
         * Компоненты:
@@ -64,8 +62,6 @@
 
     
     1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect.md#configuring-security-groups) и допускают подключение к нему.
-
-        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 
 - С помощью {{ TF }}

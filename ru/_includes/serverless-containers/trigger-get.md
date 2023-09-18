@@ -20,7 +20,8 @@
     ```
 
     Результат:
-
+  
+    
     ```text
     id: a1sfe084v4**********
     folder_id: b1g88tflri**********
@@ -41,6 +42,7 @@
             service-account-id: aje3lebfem**********
     status: ACTIVE
     ```
+  
 
 - API
 

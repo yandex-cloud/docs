@@ -54,7 +54,7 @@ To try the examples in this section:
 
          As a result, the `stt_service_pb2.py` and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
-      1. Create a file (for example, `test.py`) in the root of the `output` directory and add the following code to it:
+      1. In the root of the `output` directory, create a file, e.g. `test.py`, and add to it the following code:
 
          ```python
          #coding=utf8
@@ -68,7 +68,7 @@ To try the examples in this section:
          CHUNK_SIZE = 4000
 
          def gen(folder_id, audio_file_name):
-             # Specify recognition settings.
+             # Specify the recognition settings.
              specification = stt_service_pb2.RecognitionSpec(
                  language_code='ru-RU',
                  profanity_filter=True,
@@ -79,7 +79,7 @@ To try the examples in this section:
              )
              streaming_config = stt_service_pb2.RecognitionConfig(specification=specification, folder_id=folder_id)
 
-             # Send the message with the recognition settings.
+             # Send a message with the recognition settings.
              yield stt_service_pb2.StreamingRecognitionRequest(config=streaming_config)
 
              # Read the audio file and send its contents in chunks.
@@ -90,7 +90,7 @@ To try the examples in this section:
                      data = f.read(CHUNK_SIZE)
 
          def run(folder_id, iam_token, audio_file_name):
-             # Establish a connection with the server.
+             # Establish a server connection.
              cred = grpc.ssl_channel_credentials()
              channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
              stub = stt_service_pb2_grpc.SttServiceStub(channel)
@@ -101,7 +101,7 @@ To try the examples in this section:
                  ('Transfer-encoding', 'chunked'),
              ))
 
-             # Process server responses and output the result to the console.
+             # Process the server responses and output the result to the console.
              try:
                  for r in it:
                      try:
@@ -184,7 +184,7 @@ To try the examples in this section:
          ```
 
       1. Download a gRPC [public key certificate](https://github.com/grpc/grpc/blob/master/etc/roots.pem) from the official repository and save it in the root of the `src` directory.
-      1. Create a file, for example `index.js`, in the root of the `src` directory and add the following code to it:
+      1. In the root of the `src` directory, create a file, e.g., `index.js`, and add to it the following code:
 
          ```js
          const fs = require('fs');
@@ -196,10 +196,10 @@ To try the examples in this section:
          const folderId = process.env.FOLDER_ID;
          const iamToken = process.env.IAM_TOKEN;
 
-         //  Read the file specified in the arguments.
+         // Read the file specified in the arguments.
          const audio = fs.readFileSync(process.argv[2]);
 
-         // Specifying the recognition settings.
+         // Specify the recognition settings.
          const request = {
              config: {
                  specification: {
@@ -227,13 +227,13 @@ To try the examples in this section:
          });
          const packageObject = grpc.loadPackageDefinition(packageDefinition);
 
-         // Establish a connection with the server.
+         // Establish a server connection.
          const serviceConstructor = packageObject.yandex.cloud.ai.stt.v2.SttService;
          const grpcCredentials = grpc.credentials.createSsl(fs.readFileSync('./roots.pem'));
          const service = new serviceConstructor('stt.{{ api-host }}:443', grpcCredentials);
          const call = service['StreamingRecognize'](serviceMetadata);
 
-         // Send a message with the recognition settings.
+         // Send a message with recognition settings.
          call.write(request);
 
          // Read the audio file and send its contents in chunks.
@@ -250,7 +250,7 @@ To try the examples in this section:
              }
          }, FREQUENCY);
 
-         // Process server responses and output the result to the console.
+         // Process the server responses and output the result to the console.
          call.on('data', (response) => {
              console.log('Start chunk: ');
              response.chunks[0].alternatives.forEach((alternative) => {
@@ -261,7 +261,7 @@ To try the examples in this section:
          });
 
          call.on('error', (response) => {
-             // Handle errors
+             // Output errors to the console.
              console.log(response);
          });
          ```

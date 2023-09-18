@@ -58,12 +58,6 @@
 
 ## Настройте группы безопасности {#configuring-security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 [Настройте группы безопасности](operations/cluster-connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 
 

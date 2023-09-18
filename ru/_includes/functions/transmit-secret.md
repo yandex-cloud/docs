@@ -37,7 +37,6 @@
     {% endnote %}
 
     ```
-
     yc serverless function version create \
       --function-name=test \
       --runtime nodejs16 \

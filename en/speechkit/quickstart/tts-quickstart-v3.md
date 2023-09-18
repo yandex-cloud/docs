@@ -2,7 +2,7 @@
 
 In this section, you will learn how to synthesize speech from text using {{ speechkit-short-name }} [API v3](../tts-v3/api-ref/grpc/) (gRPC).
 
-To use the API, you need the `grpcurl` utility.
+To use the API, the `grpcurl` utility is required.
 
 ## Getting started {#before-you-begin}
 

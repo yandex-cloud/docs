@@ -24,7 +24,7 @@
     description: my beta container description
     labels:
       label: test
-    url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
+    url: https://flh7r96juaqq********.{{ serverless-containers-host }}/
     status: ACTIVE
     ```
 

@@ -1,7 +1,5 @@
 # Удалить группу безопасности
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% note warning %}
 
 Нельзя удалить группу безопасности, по умолчанию созданную в сети.

@@ -22,5 +22,3 @@
     * Чтобы создать еще одну запись, нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**.
 
 * Выберите [подходящие группы безопасности](../../vpc/concepts/security-groups.md).
-
-  {% include [security-groups-note-vm](../vpc/security-groups-note-vm.md) %}

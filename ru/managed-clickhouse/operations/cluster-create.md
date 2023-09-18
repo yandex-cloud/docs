@@ -104,8 +104,6 @@
   
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
-      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-  
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/pencil.svg) в строке с его номером:
 

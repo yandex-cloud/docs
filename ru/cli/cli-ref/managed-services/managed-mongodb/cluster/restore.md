@@ -31,6 +31,7 @@ Syntax:
 |`--mongodb-version`|<b>`string`</b><br/>Version of MongoDB used by the cluster. Supported value: 3.6, 4.0, 4.2, 4.4, 5.0, 6.0|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--backup-retain-period-days`|<b>`int`</b><br/>Retain period of automatically created backup in days.|
+|`--performance-diagnostics`|Enable or disable performance diagnostics|
 |`--datalens-access`|Allow access for DataLens|
 |`--datatransfer-access`|Allow access for DataTransfer|
 |`--mongod-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to mongodb host with corresponding role (CPU, RAM etc.).|

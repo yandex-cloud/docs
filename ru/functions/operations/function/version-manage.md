@@ -25,7 +25,7 @@
     1. Выберите [среду выполнения](../../concepts/runtime/index.md). Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Подготовьте код функции:
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `Node.js`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs12`.
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `hello-js.zip`.
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
@@ -44,6 +44,7 @@
 
     Чтобы создать версию функции, выполните команду:
 
+    
     ```
     yc serverless function version create \
       --function-name=my-nodejs-function \
@@ -53,6 +54,7 @@
       --execution-timeout 5s \
       --source-path ./hello-js.zip
     ```
+  
 
     Где:
 
@@ -65,6 +67,7 @@
 
     Результат:
 
+    
     ```
     done (1s)
     id: d4evvn8obisa********
@@ -81,6 +84,7 @@
     - $latest
     log_group_id: ckg3qh8h363p********
     ```
+  
 
 - {{ TF }}
 
@@ -95,7 +99,7 @@
        * `yandex_function` — описание создаваемой функции и ее исходный код.
          * `name` — имя функции.
          * `description` — текстовое описание функции.
-         * `user_hash` — произвольная строка, определяющая версию функции. При изменениях функции необходимо менять и  эту строку. Функция обновится при изменении этой строки.
+         * `user_hash` — произвольная строка, определяющая версию функции. При изменениях функции необходимо менять и эту строку. Функция обновится при изменении этой строки.
          * `runtime` — [среда выполнения](../../concepts/runtime/index.md) функции.
          * `entrypoint` — имя функции в исходном коде, которая будет служить точкой входа в приложения.
          * `memory` — объем памяти в мегабайтах, отведенный для выполнения функции.
@@ -111,7 +115,7 @@
             name               = "test-function"
             description        = "Test function"
             user_hash          = "first-function"
-            runtime            = "python37"
+            runtime            = "python311"
             entrypoint         = "main"
             memory             = "128"
             execution_timeout  = "10"
@@ -167,9 +171,11 @@
 
     Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion).
 
+
 - {{ yandex-cloud }} Toolkit
 
     Создать версию функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

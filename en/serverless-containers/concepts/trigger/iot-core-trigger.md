@@ -21,6 +21,7 @@ Before the message is copied to a container, the trigger converts it to the foll
 
 {% include [iot-format](../../../_includes/functions/iot-format.md) %}
 
+
 ## See also {#see-also}
 
 * [Trigger for {{ iot-name }} that sends messages to the {{ sf-name }} function](../../../functions/concepts/trigger/iot-core-trigger.md).

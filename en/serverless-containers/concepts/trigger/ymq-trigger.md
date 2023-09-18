@@ -26,6 +26,7 @@ After the trigger picks up a message from the queue, it passes it to the contain
 
 {% include [ymq-format](../../../_includes/functions/ymq-format.md) %}
 
+
 ## See also {#see-also}
 
 * [Trigger for {{ message-queue-name }} that sends messages to the {{ sf-name }} function](../../../functions/concepts/trigger/ymq-trigger.md).

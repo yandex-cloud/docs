@@ -53,12 +53,6 @@
 
 ### Настройте группы безопасности {#security-group-setup}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 1. Настройте группу безопасности агента тестирования:
 
    {% include [security-groups-agent](../../_includes/load-testing/security-groups-agent.md) %}

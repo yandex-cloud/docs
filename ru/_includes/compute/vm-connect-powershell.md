@@ -1,8 +1,6 @@
 В образах всех версий и редакций операционной системы Windows, подготовленных для запуска в {{ yandex-cloud }}, включен PowerShell Remoting Protocol (PSRP) с доступом по HTTPS. Вы сможете подключиться к виртуальной машине в статусе `RUNNING` по протоколу PSRP. Для инициализации всех служб после [запуска](../../compute/operations/vm-control/vm-stop-and-start.md#start) ВМ может потребоваться время. Если возникла ошибка соединения, попробуйте снова через несколько минут.
 
 [Группы безопасности](../../vpc/concepts/security-groups.md) виртуальной машины должны разрешать входящий трафик по протоколу TCP на порт 5986.
-  
-  {% include [security-groups-note-vm](../vpc/security-groups-note-vm.md) %}
 
 Для подключения по протоколу PSRP укажите публичный IP-адрес или полностью определенное доменное имя (Fully Qualified Domain Name, [FQDN](https://ru.wikipedia.org/wiki/FQDN)). Доступ по FQDN возможен из другой ВМ {{ yandex-cloud }}, если она подключена к той же сети. IP-адрес и FQDN можно узнать в консоли управления, в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ.
 

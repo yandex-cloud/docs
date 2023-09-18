@@ -112,8 +112,6 @@
 
 [Группы безопасности](../../../vpc/concepts/security-groups.md) ВМ должны разрешать входящий трафик по протоколу TCP на порт 22.
 
-{% include [security-groups-note-vm](../../../_includes/vpc/security-groups-note-vm.md) %}
-
 Для подключения необходимо указать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ. Публичный IP-адрес можно узнать в консоли управления в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ. Если вы создали ВМ только с внутренним IP-адресом, [привяжите к ней публичный IP-адрес](../vm-control/vm-attach-public-ip.md).
 
 Также можно использовать [внутренние IP-адреса](../../../vpc/concepts/address.md#internal-addresses) и [FQDN](../../../vpc/concepts/address.md#fqdn) для установки SSH-соединения между ВМ внутри одной [облачной сети](../../../vpc/concepts/network.md#network) {{ yandex-cloud }}.

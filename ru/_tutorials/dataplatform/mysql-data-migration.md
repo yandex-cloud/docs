@@ -73,8 +73,6 @@
     
     1. Если вы используете группы безопасности для промежуточной виртуальной машины и кластера {{ mmy-name }}, [настройте их](../../managed-mysql/operations/connect.md#configure-security-groups).
 
-        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 * С помощью Terraform
 

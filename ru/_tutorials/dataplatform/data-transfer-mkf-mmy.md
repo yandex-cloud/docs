@@ -37,8 +37,6 @@
             * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
             * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
 
-            {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
     - С помощью {{ TF }}
 

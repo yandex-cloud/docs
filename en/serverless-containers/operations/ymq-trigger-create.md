@@ -145,6 +145,7 @@ To create a trigger, you need:
 
 {% endlist %}
 
+
 ## See also {#see-also}
 
 * [Trigger for {{ message-queue-name }} that sends messages to the {{ sf-name }} function](../../functions/operations/trigger/ymq-trigger-create.md).

@@ -1,7 +1,5 @@
 # Настройка групп безопасности агента тестирования
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% note warning %}
 
 Группы безопасности необходимо создать и настроить перед созданием [агента](../concepts/agent.md). Так вы сможете ограничить доступы с агента.

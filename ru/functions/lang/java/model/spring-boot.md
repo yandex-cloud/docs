@@ -2,11 +2,13 @@
 
 Вы можете задать обработчик на Java, загрузив `Spring Boot` приложение с точкой входа в виде класса, помеченного аннотацией [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html).
 
-В момент исполнения функция {{ sf-name }} не имеет данных о пути, по которому она была вызвана. Другими словами, при наличии эндпоинта `/api/v1/list` в вашем `Spring Boot` приложении, вызвать функцию по адресу `https://functions.yandexcloud.net/function-id/api/v1/list` не получится, вместо этого нужно либо передать данные о пути в теле запроса (параметр `url`), либо воспользоваться интеграцией с [API Gateway](../../../../api-gateway/quickstart/index.md). Мы рекомендуем именно второй способ, поскольку `API Gateway` наиболее прост в использовании со `Spring Boot` приложением, а так же позволяет обращаться к эндпоинтам приложения привычным образом.
+В момент исполнения функция {{ sf-name }} не имеет данных о пути, по которому она была вызвана. Другими словами, при наличии эндпоинта `/api/v1/list` в вашем `Spring Boot` приложении, вызвать функцию по адресу `https://{{ sf-url }}/function-id/api/v1/list` не получится, вместо этого нужно передать данные о пути в теле запроса (параметр `url`) или воспользоваться интеграцией с [API Gateway](../../../../api-gateway/quickstart/index.md). Мы рекомендуем именно второй способ, поскольку `API Gateway` наиболее прост в использовании со `Spring Boot` приложением, а так же позволяет обращаться к эндпоинтам приложения привычным образом.
 
 В случае, если логика вашего приложения использует классы [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) и [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html), обратите внимание, что сервис {{ sf-name }} поддерживает не все методы этих классов. Подробнее ознакомиться со списком неподдерживаемых методов можно [здесь](servlet-api.md#unsupported).
 
 {{ sf-name }} не поддерживает Spring Boot Loader.
+
+
 
 ## Пример: простое приложение с эндпоинтом
 
@@ -162,3 +164,4 @@ Hello, Anonymous
     "isBase64Encoded": false
 }
 ```
+

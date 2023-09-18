@@ -55,6 +55,7 @@
 
     Чтобы создать триггер, который вызывает контейнер, выполните команду:
 
+    
     ```bash
     yc serverless trigger create container-registry \
       --name <имя_триггера> \
@@ -67,6 +68,7 @@
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
+  
 
     Где:
 
@@ -78,6 +80,7 @@
 
     Результат:
 
+    
     ```text
     id: a1s5msktij**********
     folder_id: b1gmit33hg**********
@@ -102,6 +105,7 @@
             service-account-id: aje3932acd**********
     status: ACTIVE
     ```
+  
 
 - API
 

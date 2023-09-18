@@ -43,7 +43,7 @@ To improve the quality of generated responses, {{ yagpt-name }} logs user prompt
         "request_text": "Laminate flooring is sutiable for instalation in the kitchen or in a child's room. It withsatnds moisturre and mechanical dammage thanks to a proctive layer of melamine films 0.2 mm thick and a wax-treated interlocking systme.",
         "generation_options": {
           "max_tokens": 1500,  
-          "temperature": 1000
+          "temperature": 0.6
         }
       }
       ```
@@ -56,7 +56,7 @@ To improve the quality of generated responses, {{ yagpt-name }} logs user prompt
       * `generation_options`: Text generation options:
 
          * `max_tokens`: Sets the total limit on the model's input and output. The values may range from 1 to 2500.
-         * `temperature`: The higher is this value, the more creative and randomized are the neural network's responses. The temperature is always positive.
+         * `temperature`: The higher is this value, the more creative and randomized are the neural network's responses. Possible values: 0 or greater.
 
       {% include [ai-before-beginning](../_includes/yandexgpt/token-limits.md) %}
 

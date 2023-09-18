@@ -156,7 +156,7 @@ Create a [function](../../functions/concepts/function.md) in [{{ sf-full-name }}
      created_at: "2021-17-05T14:07:32.134Z"
      name: scan-on-push
      log_group_id: eolm8aoq9vcppsieej6h
-     http_invoke_url: https://functions.yandexcloud.net/d4ejb1799eko6re4omb1
+     http_invoke_url: https://{{ sf-url }}/d4ejb1799eko6re4omb1
      status: ACTIVE
      ```
 

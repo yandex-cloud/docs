@@ -31,6 +31,9 @@ Syntax:
 |`--log-folder-id`|<b>`string`</b><br/>Send logs to default log group of custom folder by id.|
 |`--log-folder-name`|<b>`string`</b><br/>Send logs to default log group of custom folder by name.|
 |`--min-log-level`|<b>`string`</b><br/>Min log level. Values: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'|
+|`--variables`|<b>`key=value[,key=value...]`</b><br/>A list of values for variables in gateway specification.|
+|`--canary-weight`|<b>`int`</b><br/>Percentage of requests, which will be processed by canary release.|
+|`--canary-variables`|<b>`key=value[,key=value...]`</b><br/>A list of values for variables in gateway specification of canary release.|
 
 #### Global Flags
 

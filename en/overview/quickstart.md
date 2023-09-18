@@ -6,7 +6,7 @@ description: "In this article, you will learn how to get started with {{ yandex-
 # Getting started with {{ yandex-cloud }}
 
 
-The {{ yandex-cloud }} platform has several user interfaces, such as the [management console]({{ link-console-main }}) and the [command line interface](../cli/). To access any user interface, you will need a _user account_. This can be a personal Yandex account (Yandex ID) or a {{ yandex-360 }} account. For detailed instructions, see the Help for [Yandex ID](https://yandex.com/support/passport/authorization/registration.html) and [Yandex 360](https://yandex.com/support/business/add-users.html).
+The {{ yandex-cloud }} platform has several user interfaces, e.g., the [management console]({{ link-console-main }}) and the [command line interface](../cli/). To access any user interface, you will need a _user account_. This can be a personal Yandex account (Yandex ID) or a {{ yandex-360 }} account. For detailed instructions, see the Help for [Yandex ID](https://yandex.com/support/passport/authorization/registration.html) and [Yandex 360](https://yandex.com/support/business/add-users.html).
 
 ## Creating a billing account {#new-account}
 
@@ -16,7 +16,7 @@ When you create the first billing account linked to your user account, you are a
 
 {% list tabs %}
 
-- Individual
+- Individuals
 
    * Enter your first, last, and middle name.
 
@@ -32,14 +32,14 @@ When you create the first billing account linked to your user account, you are a
 
       {% note info %}
 
-      In some cases, additional verification may be required when you create a billing account with a trial period. On the page of this billing account in the management console, you'll find a message with detailed instructions.
+      Sometimes, additional verification may be required when you create a billing account with a trial period. You will find a message with detailed instructions on the billing account page in the management console.
 
       {% endnote %}
 
       * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../billing/operations/activate-commercial.md).
-      * If you do not activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../getting-started/usage-grant.md), you will not have to upgrade to the paid version.
+      * If you do not activate the trial period at this stage, your account will be created as a paid account. In this case, [after using up the initial grant](../getting-started/usage-grant.md), you will not have to upgrade to the paid version.
 
-- Legal entity, individual entrepreneur or non-resident of Russia and Kazakhstan
+- Legal entities, individual entrepreneurs, or non-residents of Russia and Kazakhstan
 
    * Select a payment method: **Bank card** or **Bank transfer**. You can [change your payment method](../billing/operations/change-payment-method.md) any time after creating a billing account.
    * Enter the legal information of your organization and your contact details.
@@ -56,7 +56,7 @@ When you create the first billing account linked to your user account, you are a
 
       {% note info %}
 
-      In some cases, additional verification may be required when you create a billing account with a trial period. On the page of this billing account in the management console, you'll find a message with detailed instructions.
+      Sometimes, additional verification may be required when you create a billing account with a trial period. You will find a message with detailed instructions on the billing account page in the management console.
 
       {% endnote %}
 
@@ -123,7 +123,7 @@ No physical invoice is provided, but you can generate and print it out from the 
 
 #### I need a bilateral contract rather than an offer. Can I have it?
 
-Yes, companies and individual entrepreneurs can sign a bilateral contract. Send a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement.
+Yes, companies and individual entrepreneurs can sign a bilateral contract. Send a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the signature terms.
 
 #### How do I get invoiced?
 

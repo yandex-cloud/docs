@@ -520,7 +520,7 @@
      created_at: "2023-03-21T10:03:37.475Z"
      name: copy-function
      log_group_id: eolm8aoq9vcp********
-     http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
+     http_invoke_url: https://{{ sf-url }}/b09bhaokchn9********
      status: ACTIVE
      ```
 

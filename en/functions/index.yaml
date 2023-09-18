@@ -1,11 +1,11 @@
-title: Cloud Functions
+title: '{{ sf-name }}'
 description:
   - >-
     This service allows you to run your applications in a secure,
     fault-tolerant, and scalable environment without creating or maintaining
     VMs.
 meta:
-  title: Yandex Cloud Functions
+  title: '{{ sf-full-name }}'
 links:
   - title: Getting started
     description: Create your first function

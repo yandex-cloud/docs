@@ -44,6 +44,7 @@ Syntax:
 |`--preemptible`|Creates preemptible instance.|
 |`--placement-group-id`|<b>`string`</b><br/>Placement group to create the instance in.|
 |`--placement-group-name`|<b>`string`</b><br/>Placement group to create the instance in.|
+|`--placement-group-partition`|<b>`int`</b><br/>Specifies placement group partition for the instance.|
 |`--host-group-id`|<b>`string`</b><br/>Host group to create the instance in.|
 |`--host-group-name`|<b>`string`</b><br/>Host group to create the instance in.|
 |`--host-id`|<b>`string`</b><br/>Host to create the instance in.|

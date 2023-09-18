@@ -35,6 +35,10 @@ Aliases:
 	- [yc iot registry password list](password/list.md) — List passwords associated with specified registry
 	- [yc iot registry password add](password/add.md) — Add new password to specified registry
 	- [yc iot registry password delete](password/delete.md) — Delete specified password from specified registry
+- [yc iot registry yds-export](yds-export/index.md) — Manage IoT device registry YDS exports
+	- [yc iot registry yds-export list](yds-export/list.md) — List data stream exports associated with specified registry
+	- [yc iot registry yds-export add](yds-export/add.md) — Add new data stream export to specified registry
+	- [yc iot registry yds-export delete](yds-export/delete.md) — Delete specified data stream export from specified registry
 
 #### Global Flags
 

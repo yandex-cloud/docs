@@ -33,10 +33,10 @@
     ```
     id: b09bhaokchn9********
     folder_id: aoek49ghmknn********
-    created_at: "2019-06-14T10:03:37.475Z"
+    created_at: "2023-08-16T19:01:37.475Z"
     name: python-function
     log_group_id: eolm8aoq9vcp********
-    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
+    http_invoke_url: https://{{ sf-url }}/b09bhaokchn9********
     status: ACTIVE
     ```
 
@@ -44,9 +44,11 @@
 
     Создать функцию можно с помощью метода API [create](../../functions/api-ref/Function/create.md).
 
-- Yandex Cloud Toolkit
 
-    Создать функцию можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    Создать функцию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 
@@ -104,7 +106,7 @@
     ```
     yc serverless function version create \
       --function-name=python-function \
-      --runtime python37 \
+      --runtime python311 \
       --entrypoint hello.handler \
       --memory 128m \
       --execution-timeout 3s \
@@ -126,8 +128,8 @@
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
-    created_at: "2020-08-01T19:09:19.531Z"
-    runtime: python37
+    created_at: "2023-08-16T19:09:19.531Z"
+    runtime: python311
     entrypoint: hello.handler
     resources:
         memory: "134217728"
@@ -143,9 +145,11 @@
 
     Создать версию функции можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
 
-- Yandex Cloud Toolkit
 
-    Создать версию функции можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+- {{ yandex-cloud }} Toolkit
+
+    Создать версию функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}
 

@@ -3,15 +3,15 @@
 In this scenario, you'll enable bucket encryption. As a symmetric encryption key, you'll use a [{{ kms-full-name }} key](../../kms/concepts/key.md) . This key will encrypt all new bucket objects with [envelope encryption](../../kms/concepts/envelope.md).
 
 
-To decrypt objects, the user must have both the {{ objstorage-name }} role and the `kms.keys.decrypter` role that allows reading the encryption key (see the [role description](../../kms/security/index.md#service-roles)).
+{% include [encryption-roles](../../_includes/storage/encryption-roles.md) %}
 
 
 To enable server-side bucket encryption:
 
-1. [Prepare your cloud](#before-you-begin).
-1. [Create a bucket](#create-bucket).
-1. [Create a key](#create-key).
-1. [Enable encryption](#enable-encryption).
+1. [Prepare your cloud](#before-you-begin)
+1. [Create a bucket](#create-bucket)
+1. [Create a key](#create-key)
+1. [Enable encryption](#enable-encryption)
 
 If you no longer need to encrypt new bucket objects, [disable encryption](#disable-encryption).
 
@@ -137,10 +137,10 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
-         * The `new-buckets-account` service account.
-         * The `editor` role for `new-buckets-account`.
-         * A static key for the service account.
-         * Bucket.
+         * The `new-buckets-account` service account
+         * The `editor` role for `new-buckets-account`
+         * Static key for the service account
+         * Bucket
 
          You can check the new resources using the [management console]({{ link-console-main }}).
 
@@ -199,7 +199,7 @@ Create a new key or use an existing one. To create a key:
    * `default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
    * `rotation-period`: Key rotation period. To create a key without automatic rotation, do not specify the `rotation-period` parameter.
 
-   The key is created along with its first version. It's specified in the `primary_version` field.
+   The key is created along with its first version. It is specified in the `primary_version` field.
 
 - {{ TF }}
 
@@ -294,11 +294,11 @@ Create a new key or use an existing one. To create a key:
 
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
-         * The `new-buckets-account` service account.
-         * The `editor` role for `new-buckets-account`.
-         * A static key for the service account.
-         * A {{ kms-short-name }} key named `key-1`.
-         * Bucket.
+         * The `new-buckets-account` service account
+         * The `editor` role for `new-buckets-account`
+         * A static key for the service account
+         * {{ kms-short-name }} key named `key-1`
+         * Bucket
 
          You can check the new resources using the [management console]({{ link-console-main }}).
 
@@ -424,11 +424,11 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
-         * The `new-buckets-account` service account.
-         * The `editor` role for `new-buckets-account`.
-         * A static key for the service account.
-         * A {{ kms-short-name }} key named `key-1`.
-         * The bucket with encryption.
+         * The `new-buckets-account` service account
+         * The `editor` role for `new-buckets-account`
+         * A static key for the service account
+         * {{ kms-short-name }} key named `key-1`
+         * Bucket with encryption
 
          You can check the new resources using the [management console]({{ link-console-main }}).
 
@@ -582,11 +582,11 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
          After the command is executed, {{ TF }} updates the following resources in the specified folder:
 
-         * The `new-buckets-account` service account.
-         * The `editor` role for `new-buckets-account`.
-         * A static key for the service account.
-         * A {{ kms-short-name }} key named `key-1`.
-         * Bucket.
+         * The `new-buckets-account` service account
+         * The `editor` role for `new-buckets-account`
+         * A static key for the service account
+         * {{ kms-short-name }} key named `key-1`
+         * Bucket
 
          Bucket encryption in the specified folder will be disabled. You can check the resources update and configuration using the [management console]({{ link-console-main }}).
 

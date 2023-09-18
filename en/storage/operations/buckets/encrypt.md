@@ -11,7 +11,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 {% endnote %}
 
 
-To decrypt objects, the user must have both the {{ objstorage-name }} role and the `kms.keys.decrypter` role that allows reading the encryption key (see the [role description](../../../kms/security/index.md#service-roles)).
+{% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
 
 
 ## Adding encryption to a bucket {#add}

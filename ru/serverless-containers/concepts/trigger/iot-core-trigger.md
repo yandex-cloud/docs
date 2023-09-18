@@ -21,6 +21,7 @@
 
 {% include [iot-format](../../../_includes/functions/iot-format.md) %}
 
+
 ## См. также {#see-also}
 
 * [Триггер для {{ iot-name }}, который передает сообщения в функцию {{ sf-name }}](../../../functions/concepts/trigger/iot-core-trigger.md).

@@ -1,11 +1,11 @@
-title: Yandex Serverless Containers
+title: '{{ serverless-containers-full-name }}'
 description:
   - >-
-    Сервис Yandex Serverless Containers позволяет запускать контейнеризированные
-    приложения в безопасном, отказоустойчивом и масштабируемом окружении без
-    создания и обслуживания виртуальных машин.
+    Сервис {{ serverless-containers-full-name }} позволяет запускать
+    контейнеризированные приложения в безопасном, отказоустойчивом и
+    масштабируемом окружении без создания и обслуживания виртуальных машин.
 meta:
-  title: Serverless Containers
+  title: '{{ serverless-containers-full-name }}'
 links:
   - title: Начало работы
     description: Подготовьте Docker-образ и создайте контейнер
@@ -14,7 +14,7 @@ links:
     description: Инструкции по выполнению рутинных операций
     href: operations/
   - title: Концепции
-    description: Читайте подробнее про концепции Serverless Containers
+    description: Читайте подробнее про концепции {{ serverless-containers-name }}
     href: concepts/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса

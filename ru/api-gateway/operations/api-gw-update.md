@@ -134,9 +134,11 @@
      yc serverless api-gateway get <имя API-шлюза>
      ```
 
+
 - {{ yandex-cloud }} Toolkit
 
   Изменить имя, описание или спецификацию API-шлюза можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 - API
 

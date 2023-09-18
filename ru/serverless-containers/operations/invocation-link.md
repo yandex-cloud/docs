@@ -24,7 +24,7 @@
 	created_at: "2021-08-17T07:53:10.219Z"
 	name: my-beta-container
 	description: my beta container description
-	url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
+	url: https://flh7r96juaqq********.{{ serverless-containers-host }}/
 	status: ACTIVE
 	```
 

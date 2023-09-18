@@ -99,7 +99,7 @@ To get an IAM token:
                ```
          1. Add `index.py` to the `index-py.zip` archive.
       1. [Create](../operations/function/version-manage.md) a function version. Indicate the following:
-         * Runtime environment: `python37`.
+         * Runtime environment: `python311`.
          * Code upload method: `ZIP archive`.
          * File: `index-py.zip`.
          * Entry point: `index.main`.

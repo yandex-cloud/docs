@@ -25,14 +25,14 @@
 По умолчанию уровень корневого логгера — `Warning`, все логи с уровнем ниже игнорируются. Изменить уровень логирования можно с помощью метода `setLevel` для:
 
 * всего приложения.
-	```python
-	logging.getLogger().setLevel(logging.DEBUG)
-	```
+  ```python
+  logging.getLogger().setLevel(logging.DEBUG)
+  ```
 * любого логгера, кроме корневого.
-	```python
-	logging.getLogger('requests.packages.urllib3').setLevel(logging.DEBUG)
-	logging.getLogger('myapp').setLevel(logging.DEBUG)
-	```
+  ```python
+  logging.getLogger('requests.packages.urllib3').setLevel(logging.DEBUG)
+  logging.getLogger('myapp').setLevel(logging.DEBUG)
+  ```
 
 Изменить формат логов можно так:
 

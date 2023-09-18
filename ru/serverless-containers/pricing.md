@@ -4,6 +4,9 @@ editable: false
 
 # Правила тарификации для {{ serverless-containers-name }}
 
+
+
+
 ## Из чего складывается стоимость использования {{ serverless-containers-name }} {#rules}
 
 В рамках сервиса {{ serverless-containers-name }} тарифицируется количество вызовов контейнеров, вычислительные ресурсы, выделенные для выполнения приложения, время простоя [подготовленных экземпляров](concepts/container.md#provisioned-instances) и исходящий трафик.
@@ -45,6 +48,8 @@ editable: false
 
 
 
+
+
 ### Подготовленные экземпляры {#provisioned-instances}
 
 #### Время использования RAM {#prices-ram-provisioned-instances}
@@ -63,10 +68,13 @@ editable: false
 
 
 
+
+
 ### Исходящий трафик {#prices-traffic}
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
 
 
 

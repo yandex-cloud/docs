@@ -30,7 +30,7 @@
     created_at: "2019-06-13T13:21:40.022Z"
     name: my-functions
     log_group_id: eolq9ac97486********
-    http_invoke_url: https://functions.yandexcloud.net/b09kk2ujb8js********
+    http_invoke_url: https://{{ sf-url }}/b09kk2ujb8js********
     status: DELETING
     ```
 
@@ -102,8 +102,10 @@
 
     Чтобы удалить функцию, воспользуйтесь методом REST API [delete](../../functions/api-ref/Function/delete.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Delete](../../functions/api-ref/grpc/function_service.md#Delete).
 
+
 - {{ yandex-cloud }} Toolkit
 
     Удалить функцию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 
 {% endlist %}

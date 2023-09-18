@@ -12,7 +12,9 @@ To set up scaling for your instance group using standard tools such as the manag
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
 You can also deploy an infrastructure for scaling your instance group via {{ TF }} using a [ready-made configuration file](#terraform).
+
 
 ## Prepare your cloud {#before-begin}
 
@@ -111,9 +113,11 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 
       To do this, use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings) gRPC API call.
 
+
 - {{ TF }}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
+
 
 {% endlist %}
 
@@ -203,10 +207,12 @@ Your instance group will be hosted in the [cloud network](../../vpc/concepts/net
    1. Create a `vm-scale-scheduled-network` using the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
 
    1. Create a subnet named `vm-scale-scheduled-subnet-a` in the `{{ region-id }}-a` availability zone and `vm-scale-scheduled-subnet-b` in the `{{ region-id }}-b` availability zone using the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
+ 
 
 - {{ TF }}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
+
 
 {% endlist %}
 
@@ -383,9 +389,11 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
 
    1. Create an instance group named `vm-scale-scheduled-ig` based on the specification provided in `specification.yaml`. To do this, use the [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) REST API method for the [InstanceGroup](../../compute/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/CreateFromYaml](../../compute/api-ref/grpc/instance_group_service.md#CreateFromYaml) gRPC API call.
 
+
 - {{ TF }}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
+
 
 {% endlist %}
 
@@ -446,7 +454,7 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
       created_at: "2022-04-01T13:48:27.705Z"
       name: vm-scale-scheduled-function
       log_group_id: ckgij6l0845hsdc9khiq
-      http_invoke_url: https://functions.yandexcloud.net/d4e7d67ikvmqk5uoim47
+      http_invoke_url: https://{{ sf-url }}/d4e7d67ikvmqk5uoim47
       status: ACTIVE
       ```
 
@@ -498,9 +506,11 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
 
       {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
 
+
 - {{ TF }}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
+
 
 {% endlist %}
 
@@ -529,7 +539,7 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}** field, select `$latest`.
       * Select **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** `vm-scale-scheduled-sa`.
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, reset the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_dlq_service-account }}** (`{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`) field.
+      1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, reset the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_dlq_service-account }}** (`{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`) field.
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
@@ -566,9 +576,11 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
 
    Use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/trigger_service.md#Create) gRPC API call to create a trigger of the `timer` type with the `*/2 * * * ?` cron expression *` linked to the function `vm-scale-scheduled-function` of the `$latest` version and the `vm-scale-scheduled-sa` service account.
 
+
 - {{ TF }}
 
    See [How to create an infrastructure using {{ TF }}](#terraform).
+
 
 {% endlist %}
 
@@ -623,6 +635,8 @@ To stop paying for the resources you created:
 1. [Delete the trigger](../../functions/operations/trigger/trigger-delete.md) `vm-scale-scheduled-trigger`.
 1. [Delete the function](../../functions/operations/function/function-delete.md) `vm-scale-scheduled-function`.
 1. [Delete the instance group](../../compute/operations/instance-groups/delete.md) `vm-scale-scheduled-ig`.
+
+
 
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
@@ -681,5 +695,4 @@ To set up scaling for your instance group using {{ TF }}:
    {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
 
 1. [Test instance group scaling](#test-scale).
-
 

@@ -46,7 +46,8 @@
 
     Чтобы создать триггер, который вызывает контейнер, выполните команду:
 
-    ```
+    
+    ```bash
     yc serverless trigger create mail \
       --name <имя_триггера> \
       --invoke-container-id <идентификатор_контейнера> \
@@ -56,6 +57,7 @@
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
+  
 
     Где:
 
@@ -65,6 +67,7 @@
 
     Результат:
 
+    
     ```
     id: a1sfe084v4**********
     folder_id: b1g88tflru**********
@@ -84,6 +87,7 @@
             service-account-id: aje3932acd**********
     status: ACTIVE
     ```
+  
 
 - API
 

@@ -13,7 +13,9 @@ With {{ sf-name }}, you can run applications written in [Java](https://docs.orac
 || java17 | 17 | Ubuntu 18.04 LTS | no ||
 |#
 
+
 You can connect the [SDK library](https://github.com/yandex-cloud/java-sdk) to the runtime to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
+
 
 When creating a new [function version](../../concepts/function.md#version) the [builder](../../concepts/builder.md) may automatically installs all declared dependencies required for the function to run. For more information about requirements and restrictions, see [{#T}](dependencies.md).
 

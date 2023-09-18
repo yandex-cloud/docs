@@ -60,12 +60,6 @@
      * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера {{ mmy-name }}.
      * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера {{ mmy-name }}. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups), чтобы можно было подключаться к кластеру {{ mmy-name }}.
 
-       {% note info %}
-
-       {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-       {% endnote %}
-
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите на значок ![image](../../_assets/edit.svg) и выберите параметры хостов БД, создаваемых вместе с кластером {{ mmy-name }}:
      * Зону доступности.

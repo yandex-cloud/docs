@@ -55,8 +55,6 @@
             * Введите имя и описание группы безопасности. Правила для группы безопасности вы сможете добавить позже в сервисе **{{ vpc-name }}**.
             * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-            {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
-
     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
         * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый.
         * Если вы выбрали публичный образ на базе Linux:

@@ -37,8 +37,6 @@
             * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
             * [{{ mmg-name }}](../../managed-mongodb/operations/connect/index.md#configuring-security-groups).
 
-            {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
     - С помощью {{ TF }}
 
