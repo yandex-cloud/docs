@@ -7475,6 +7475,11 @@ default:
                         title: Количество попыток
                       service_account_id:
                         title: Сервисный аккаунт
+                    SchemaTableFilterEntry:
+                      schema:
+                        title: Схема
+                      table:
+                        title: Таблица
                     Serializer:
                       Debezium:
                         parameters:
@@ -7959,8 +7964,13 @@ default:
                         title: Имя папки
                       bucket:
                         title: Бакет
+                      region:
+                        title: Регион
                       service_account_id:
                         title: Сервисный аккаунт
+                    ObjectStorageDataSchema:
+                      infer:
+                        title: Автоматически
                     ObjectStorageSerializationFormatUI:
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV:
                         title: CSV
@@ -7968,7 +7978,63 @@ default:
                         title: JSON
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW:
                         title: Сырые данные
+                    ObjectStorageSource:
+                      ObjectStorageEventSource:
+                        SQS:
+                          aws_access_key_id:
+                            title: Идентификатор ключа доступа AWS
+                          aws_secret_access_key:
+                            title: Секретный ключ доступа AWS
+                          endpoint:
+                            title: Эндпоинт
+                          owner_id:
+                            title: Идентификатор аккаунта владельца очереди
+                          queue_name:
+                            title: Имя очереди
+                          region:
+                            title: Регион
+                          use_ssl:
+                            title: Использовать SSL
+                          verify_ssl_cert:
+                            title: Проверить SSL-сертификат
+                      ObjectStorageReaderFormat:
+                        Csv:
+                          additional_options:
+                            title: Дополнительные возможности чтения
+                          block_size:
+                            title: Размер блока
+                          delimiter:
+                            title: Разделитель
+                          double_quote:
+                            title: Двойные кавычки
+                          encoding:
+                            title: Кодировка
+                          escape_char:
+                            title: Символ отмены
+                          newlines_in_values:
+                            title: Разрешить перенос строк в значениях.
+                          quote_char:
+                            title: Символ кавычек
+                        csv:
+                          title: CSV
+                        Jsonl:
+                          block_size:
+                            title: Размер блока
+                          newlines_in_values:
+                            title: Разрешить перенос строк в значениях.
+                          unexpected_field_behavior:
+                            title: Неожиданное поведение поля
+                        jsonl:
+                          title: JSON Lines
+                        parquet:
+                          title: Parquet
+                      path_pattern:
+                        title: Шаблон пути
+                      result_schema:
+                        title: Схема результирующей таблицы
                     ObjectStorageTarget:
+                      advanced_settings:
+                        title: Расширенные настройки
                       any_as_string:
                         title: Преобразовать комплексные значения в строки
                       connection_settings:

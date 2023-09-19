@@ -21,8 +21,6 @@ items:
             href: operations/cluster-stop.md
           - name: Управление хостами {{ KF }}
             href: operations/cluster-hosts.md
-          - name: Управление коннекторами
-            href: operations/cluster-connector.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Топики
@@ -33,6 +31,8 @@ items:
             href: operations/cluster-topics.md
       - name: Управление пользователями {{ KF }}
         href: operations/cluster-accounts.md
+      - name: Управление коннекторами {{ KF }}
+        href: operations/cluster-connector.md
       - name: Логи и мониторинг
         items:
           - name: Просмотр логов кластера

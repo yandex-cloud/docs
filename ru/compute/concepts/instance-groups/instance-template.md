@@ -90,7 +90,7 @@ instance_template:
         - name: my-user
           groups: sudo
           shell: /bin/bash
-          sudo: ['ALL=(ALL) NOPASSWD:ALL']
+          sudo: 'ALL=(ALL) NOPASSWD:ALL'
           ssh-authorized-keys:
             - ssh-ed25519 AAAAB3...
 ...

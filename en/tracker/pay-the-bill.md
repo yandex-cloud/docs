@@ -82,11 +82,11 @@ You can view the full history of payments to your billing account on the **{{ ui
 
 {% list tabs %}
 
-- Legal entities and individual entrepreneurs
+- Businesses and individual entrepreneurs
 
    Organizations and individual entrepreneurs can track their full deposit history in Yandex Balance on the [Invoices]({{ link-balance-invoices }}) page.
 
-- For individuals
+- Individuals
 
    1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**.
 

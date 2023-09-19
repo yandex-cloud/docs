@@ -9,7 +9,7 @@ Apart from text, you can write [structured logs](../../concepts/logs.md#structur
 - Node.js
 
    **package.json**
-   ```
+   ```json
    {
      "name": "server-app",
      "version": "1.0.0",
@@ -20,7 +20,7 @@ Apart from text, you can write [structured logs](../../concepts/logs.md#structur
    ```
 
    **index.js**
-   ```
+   ```js
    const winston = require('winston');
 
    const logger = winston.createLogger({
@@ -47,35 +47,34 @@ Apart from text, you can write [structured logs](../../concepts/logs.md#structur
    ```
 
    **index.py**
-   ```
-   import logging
-   from pythonjsonlogger import jsonlogger
+   ```python
+    import logging
+    from pythonjsonlogger import jsonlogger
 
 
-   class YcLoggingFormatter(jsonlogger.JsonFormatter):
-       def add_fields(self, log_record, record, message_dict):
-           super(YcLoggingFormatter, self).add_fields(log_record, record, message_dict)
-           log_record['logger'] = record.name
-           log_record['level'] = str.replace(str.replace(record.levelname, "WARNING", "WARN"), "CRITICAL", "FATAL")
+    class YcLoggingFormatter(jsonlogger.JsonFormatter):
+        def add_fields(self, log_record, record, message_dict):
+            super(YcLoggingFormatter, self).add_fields(log_record, record, message_dict)
+            log_record['logger'] = record.name
+            log_record['level'] = str.replace(str.replace(record.levelname, "WARNING", "WARN"), "CRITICAL", "FATAL")
 
+    logHandler = logging.StreamHandler()
+    logHandler.setFormatter(YcLoggingFormatter('%(message)s %(level)s %(logger)s'))
 
-   def handler(event, context):
-       logHandler = logging.StreamHandler()
-       logHandler.setFormatter(YcLoggingFormatter('%(message)s %(level)s %(logger)s'))
+    logger = logging.getLogger('MyLogger')
+    logger.propagate = False
+    logger.addHandler(logHandler)
+    logger.setLevel(logging.DEBUG)
 
-       logger = logging.getLogger('MyLogger')
-       logger.propagate = False
-       logger.addHandler(logHandler)
-       logger.setLevel(logging.DEBUG)
-
-       logger.info("My log message", extra={"my-key": "my-value"})
-
-       return "Hello, world!"
+    def handler(event, context):
+        logger.info("My log message", extra={"my-key": "my-value"})
+        
+        return "Hello, world!"
    ```
 - Go
 
    **index.go**
-   ```
+   ```go
    package main
 
    import (
@@ -110,7 +109,7 @@ Apart from text, you can write [structured logs](../../concepts/logs.md#structur
 - Java
 
    **pom.xml**
-   ```
+   ```xml
    ...
    <dependency>
        <groupId>org.apache.logging.log4j</groupId>
@@ -131,7 +130,7 @@ Apart from text, you can write [structured logs](../../concepts/logs.md#structur
    ```
 
    **log4j2.xml**
-   ```
+   ```xml
    <?xml version="1.0" encoding="UTF-8"?>
    <Configuration>
        <Appenders>
@@ -148,7 +147,7 @@ Apart from text, you can write [structured logs](../../concepts/logs.md#structur
    ```
 
    **YcLoggingLayout.json**
-   ```
+   ```json
    {
      "message": {
        "$resolver": "message",
@@ -174,7 +173,7 @@ Apart from text, you can write [structured logs](../../concepts/logs.md#structur
    ```
 
    **Handler.java**
-   ```
+   ```java
    import org.apache.logging.log4j.LogManager;
    import org.apache.logging.log4j.Logger;
    import org.apache.logging.log4j.ThreadContext;

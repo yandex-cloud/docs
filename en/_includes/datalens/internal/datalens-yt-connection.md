@@ -14,7 +14,7 @@ To create a CHYT connection:
    * **{{ ytsaurus-name }} token**: Manually set the OAuth token to use with {{ ytsaurus-name }}. For more information, see the [{{ ytsaurus-name }} documentation](https://ytsaurus.tech/docs/en/user-guide/storage/auth).
    * **Hostname**: Specify the {{ ytsaurus-name }} proxy server address.
    * **Port**: Specify the CHYT connection port.
-   * **Clique**: Specify the alias of a running clique. By default, the `*ch_public` public clique is used.
+   * **Clique**: Specify the alias of a running clique. Defaults to the public clique `*ch_public`.
    * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
    * **Raw SQL level**: Select the SQL query access level for the user.
 
@@ -23,3 +23,8 @@ To create a CHYT connection:
 1. Enter a name for the connection and click **Create**.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
+
+
+## Additional settings {#additional-settings}
+
+{% include [datalens-db-connection-export-settings](../../../_includes/datalens/operations/datalens-db-connection-export-settings.md) %}
