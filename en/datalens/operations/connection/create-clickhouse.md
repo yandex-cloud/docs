@@ -84,7 +84,9 @@ You can specify additional connection settings in the **Advanced connection sett
 
 * **CA Certificate**: To upload a certificate , click **Attach file** and specify the certificate file. When the certificate is uploaded, the field shows the file name.
 
-##  specifics for {{ CH }} connections {#ch-connection-specify}
+* {% include [datalens-db-connection-export-settings-item](../../../_includes/datalens/operations/datalens-db-connection-export-settings-item.md) %}
+
+##  Specifics for {{ CH }} connections {#ch-connection-specify}
 
 In {{ CH }}, you can create a dataset on top of a `VIEW` that contains a `JOIN`. To do this, make sure a view is created with the `join_use_nulls` option enabled. We recommend that you set `join_use_nulls = 1` in the `SETTINGS` section:
 

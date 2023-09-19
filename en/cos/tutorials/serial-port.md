@@ -42,7 +42,7 @@ The infrastructure support cost includes:
     - name: <username>
       groups: sudo
       shell: /bin/bash
-      sudo: ['ALL=(ALL) NOPASSWD:ALL']
+      sudo: 'ALL=(ALL) NOPASSWD:ALL'
       ssh-authorized-keys:
         - <public SSH key to connect to VM>
   ```

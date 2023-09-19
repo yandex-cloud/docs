@@ -42,7 +42,7 @@
     - name: <имя пользователя>
       groups: sudo
       shell: /bin/bash
-      sudo: ['ALL=(ALL) NOPASSWD:ALL']
+      sudo: 'ALL=(ALL) NOPASSWD:ALL'
       ssh-authorized-keys:
         - <публичный SSH-ключ для подключения к ВМ>
   ```

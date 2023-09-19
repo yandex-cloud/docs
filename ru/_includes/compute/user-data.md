@@ -4,7 +4,7 @@
      - name: <имя_пользователя>
        groups: sudo
        shell: /bin/bash
-       sudo: ['ALL=(ALL) NOPASSWD:ALL']
+       sudo: 'ALL=(ALL) NOPASSWD:ALL'
        ssh-authorized-keys:
          - <публичный_SSH-ключ_1>
          - <публичный_SSH-ключ_2>

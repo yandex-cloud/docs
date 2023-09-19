@@ -37,6 +37,8 @@ items:
                 href: operations/endpoint/source/mongodb.md
               - name: MySQL
                 href: operations/endpoint/source/mysql.md
+              - name: Object Storage
+                href: operations/endpoint/source/object-storage.md
               - name: Oracle
                 href: operations/endpoint/source/oracle.md
               - name: PostgreSQL

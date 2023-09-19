@@ -3,7 +3,7 @@
 ## Distributing datasets across connections {#separation-by-connections}
 
 * The CHYT connection includes the data about the clique and the token of the user that runs the query. For teams and departments, create a connection for each clique in the cluster using a robot's token.
-* If a connection uses a private token, limit the rights for this connection by the **Execute** access. Then other users will be able to view the charts created on top of this connection, but won't be able to create new datasets.
+* If a connection uses a private token, limit the rights for this connection by the **Execute** access. Then other users will be able to view the charts created on top of this connection, but will not be able to create new datasets.
 
 ## Creating quick dashboards {#creating-quick-dashboards}
 
@@ -44,7 +44,7 @@ However, by simply changing from `erasure_codec` to `optimize_for` you won't mod
 
 When building a dataset on a table range, {{ datalens-short-name }} uses the `concatYtTablesRange` CHYT function. The function outputs the most generic schema of all the tables. The resulting set includes the columns that are present in all the tables and have the same type in each of them. To output the data on all the columns of all the tables from the range, add the missing columns to older tables using `alter-table`.
 
-## Useful links
+## Useful links {#links}
 
 * [CHYT performance](https://ytsaurus.tech/docs/ru/user-guide/data-processing/chyt/reference/performance)
 * [Visualizing data from CHYT](../../../tutorials/data-from-ch-over-yt.md)

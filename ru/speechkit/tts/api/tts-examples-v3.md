@@ -58,6 +58,7 @@
             yandex/cloud/api/operation.proto \
             google/rpc/status.proto \
             yandex/cloud/operation/operation.proto \
+            yandex/cloud/validation.proto \
             yandex/cloud/ai/tts/v3/tts_service.proto \
             yandex/cloud/ai/tts/v3/tts.proto
           ```

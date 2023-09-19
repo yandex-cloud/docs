@@ -7461,6 +7461,11 @@ default:
                         title: Number of retries
                       service_account_id:
                         title: Service account
+                    SchemaTableFilterEntry:
+                      schema:
+                        title: Schema
+                      table:
+                        title: Table
                     Serializer:
                       Debezium:
                         parameters:
@@ -7947,8 +7952,13 @@ default:
                         title: Folder name
                       bucket:
                         title: Bucket
+                      region:
+                        title: Region
                       service_account_id:
                         title: Service account
+                    ObjectStorageDataSchema:
+                      infer:
+                        title: Automatically
                     ObjectStorageSerializationFormatUI:
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV:
                         title: CSV
@@ -7956,7 +7966,63 @@ default:
                         title: JSON
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW:
                         title: Raw data
+                    ObjectStorageSource:
+                      ObjectStorageEventSource:
+                        SQS:
+                          aws_access_key_id:
+                            title: AWS Access Key ID
+                          aws_secret_access_key:
+                            title: AWS Secret Access Key
+                          endpoint:
+                            title: Endpoint
+                          owner_id:
+                            title: Queue owner account ID
+                          queue_name:
+                            title: Queue name
+                          region:
+                            title: Region
+                          use_ssl:
+                            title: Use SSL
+                          verify_ssl_cert:
+                            title: Verify SSL certificate
+                      ObjectStorageReaderFormat:
+                        Csv:
+                          additional_options:
+                            title: Additional reader options
+                          block_size:
+                            title: Block size
+                          delimiter:
+                            title: Delimiter
+                          double_quote:
+                            title: Double quote
+                          encoding:
+                            title: Encoding
+                          escape_char:
+                            title: Escape char
+                          newlines_in_values:
+                            title: Allow line breaks in values.
+                          quote_char:
+                            title: Quote char
+                        csv:
+                          title: CSV
+                        Jsonl:
+                          block_size:
+                            title: Block size
+                          newlines_in_values:
+                            title: Allow line breaks in values.
+                          unexpected_field_behavior:
+                            title: Unexpected field behavior
+                        jsonl:
+                          title: JSON Lines
+                        parquet:
+                          title: Parquet
+                      path_pattern:
+                        title: Path pattern
+                      result_schema:
+                        title: Result table schema
                     ObjectStorageTarget:
+                      advanced_settings:
+                        title: Advanced settings
                       any_as_string:
                         title: Convert complex data to strings
                       connection_settings:
