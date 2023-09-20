@@ -13,13 +13,14 @@
   В примере ниже показано добавление метки к виртуальной машине {{ compute-name }}. Аналогично вы можете добавить метку другому ресурсу.
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ВМ.
-  1. В списке сервисов выберите **{{ compute-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. В списке ВМ выберите нужную.
-  1. Нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
-  1. В поле **Метки** нажмите **Добавить метку**.
+  1. Нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
   1. Введите ключ и значение и нажмите **Enter**.
 
-- YC CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -44,8 +45,8 @@
   > 
   > ```
   > done (5s)
-  > id: fhm1pr2bu3p45s6ildh7
-  > folder_id: b1g23ga45mev6cljderg
+  > id: fhm1pr2bu3p4********
+  > folder_id: b1g23ga45mev********
   > created_at: "2020-08-07T11:29:18Z"
   > name: cl123g4dridnn5cna6df-yduv
   > labels:
@@ -102,7 +103,7 @@
 
 {% list tabs %}
 
-- YC CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -133,8 +134,8 @@
   >
   > ```
   > done (1m36s)
-  > id: cat1hknor2345e6d7rr8
-  > folder_id: b1g23ga45mev6cljderg
+  > id: cat1hknor234********
+  > folder_id: b1g23ga45mev********
   > created_at: "2020-08-07T11:15:59Z"
   > name: cluster
   > labels:
@@ -177,12 +178,13 @@
   В примере ниже показано удаление метки виртуальной машины {{ compute-name }}. Аналогично вы можете удалить метку другого ресурса.
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ВМ.
-  1. В списке сервисов выберите **{{ compute-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. В списке ВМ выберите нужную.
-  1. Нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
-  1. В поле **Метки** нажмите выберите нужную метку и нажмите ![cross](../../_assets/cross.svg) справа от ее имени.
+  1. Нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** выберите нужную метку и нажмите ![cross](../../_assets/cross.svg) справа от ее имени.
 
-- YC CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -206,8 +208,8 @@
   > Результат:
   >
   > ```
-  > id: c1qmjaatlurm2bcoi34i
-  > folder_id: b1g23ga45mev6cljderg
+  > id: c1qmjaatlurm********
+  > folder_id: b1g23ga45mev********
   > created_at: "2020-08-20T11:53:20.015543Z"
   > name: mysql123
   > environment: PRODUCTION

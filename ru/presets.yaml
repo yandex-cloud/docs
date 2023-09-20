@@ -4785,6 +4785,10 @@ default:
         subscribe: Подписаться
         subscribe-all: Подписаться на все уведомления
         subscribe-new-tickets: Подписаться на создание задач
+      ui_components_portfolios_Header:
+        description-tab: О портфеле
+      ui_components_portfolios_PortfolioMenu:
+        remove-portfolio: Удалить портфель проектов
       ui_components_Project_Header_IssuesImportButton:
         import-issues: Импорт задач
       ui_components_Project:
@@ -5341,6 +5345,40 @@ default:
         label_resource-type: Ресурс
         label_service-account: Сервисный аккаунт
         label_stream-name: Поток данных
+      backup:
+        action_add-to-recovery-list: Добавить к списку файлов для восстановления
+        action_detach-instance: Отвязать от политики
+        action_recovery: Восстановить ВМ
+        action_recovery-start: Восстановить
+        button_action-activate: Активировать
+        button_attach-instance: Привязать ВМ
+        button_attach-instance-submit: Привязать
+        button_create-policy: Создать политику
+        context_current-vm: текущая
+        field_delete-old-vm: Удалить неактуальную ВМ
+        field_recover-to-vm: Целевая ВМ
+        field_repeat-period-type: Создавать копии
+        field_vm-instances: Cloud Backup
+        files-recovery:
+          value_location-custom: Пользовательское
+          value_location-original: Исходное
+          value_overwrite-all: Перезаписать все файлы в директории
+          value_overwrite-none: Не перезаписывать файлы
+          value_overwrite-older: Перезаписать только существующие файлы
+        label_backups: Резервные копии
+        label_create: Подключён
+        label_instances: Виртуальные машины
+        label_linked-instances: Виртуальные машины
+        label_policies: Политики копирования
+        title_backup: Резервное копирование
+        value_period-time-daily: Каждый день
+        value_period-time-hourly: Каждый час
+        value_period-time-monthly: По месяцам
+        value_period-time-weekly: Каждую неделю
+        value_retention-save-all: Хранить все копии
+        value_retention-save-last-f: Только последнюю
+        value_scheme-full: Полный
+        value_scheme-incremental: Инкрементальный
       billing:
         account:
           bind-cloud:
@@ -5691,6 +5729,8 @@ default:
         not-selected: Не выбрано
         open: Открыть
         operations-key-value: Операции
+        operations:
+          column_status: Статус
         overview: Обзор
         password: Пароль
         remove: Удалить
@@ -5725,6 +5765,7 @@ default:
           button_remove-new: Отменить
           label_select-placeholder: Выберите пользователя
           label_select-section-service-accounts: Сервисные аккаунты
+          label_title: Редактирование ACL
         acl:
           update-dialog:
             button_add-role: Добавить роль
@@ -5758,7 +5799,9 @@ default:
             label_platform-standard-v2: Intel Cascade Lake
             label_sw-accelerated-net: Программно-ускоренная сеть
         console-dashboard:
+          button_action-change-org: Изменить организацию
           button_action-create-folder: Создать каталог
+          button_cancel-deletion: Отменить удаление
         dns-integration:
           button_add-domain: Создать запись
         docs:
@@ -5770,6 +5813,9 @@ default:
           field_method: Способ
           value_manual: Текст
           value_upload: Файл
+        files-recovery-container:
+          action_start-recovery: Восстановить файлы
+          title_recovery-container: К восстановлению
         iam-delete-folder-or-cloud-dialog:
           field_folder-delete-after: Срок удаления каталога
           label_delete-now: Удалить сейчас
@@ -5783,6 +5829,7 @@ default:
           label_value: Значение
         label-set:
           button_add-label: Добавить метку
+          label_labels: Метки
         mdb:
           settings:
             button_reset: Сбросить
@@ -6194,13 +6241,19 @@ default:
           action_open-wizard: Открыть визард
       iam:
         cloud:
+          change-org:
+            button_change: Изменить
+          edit:
+            popup-edit-cloud_button_save: Сохранить
           folders-create:
             button_create: Создать
             field_default-net: Создать сеть по умолчанию
           folders:
+            button_cancel-deletion: Отменить удаление
             popup-edit_button_save: Сохранить
             section_folders: Каталоги
           incident-notifications:
+            button_open-dialog: Добавить
             label_users: Пользователи
           overview:
             label_id: Идентификатор
@@ -6229,9 +6282,11 @@ default:
             label_api-gateway: API Gateway
             label_application-load-balancer: Application Load Balancer
             label_audit-trails: Audit Trails
+            label_backup: Cloud Backup
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
             label_cloud-apps: Cloud Apps
+            label_cloud-desktop: Cloud Desktop
             label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
@@ -6268,6 +6323,7 @@ default:
             label_smartcaptcha: SmartCaptcha
             label_smartcaptcha_ru: Yandex SmartCaptcha
             label_storage: Object Storage
+            label_vdi: Cloud Desktop
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for YDB
             label_ymq: Message Queue
@@ -6310,6 +6366,7 @@ default:
             popup-confirm_button_delete: Удалить
           switch_incident-notifications: Уведомления
           switch_service-accounts: Сервисные аккаунты
+          switch_service-notifications: Уведомления сервисов
         users:
           button_tune-role: Настроить роли
           label_folders-roles: Роли в каталогах
@@ -7202,6 +7259,23 @@ default:
         request-callback:
           button_submit: Отправить
         switch_plan: Тарифный план
+      vdi:
+        button_acl: Настроить ACL
+        button_add-image: Добавить образ
+        button_desktop-create: Создать рабочий стол
+        button_download-rdp: Загрузить RDP-файл
+        button_empty-create-desktop-group: Создать группу рабочих столов
+        button_reset-password: Сбросить пароль
+        button_restart: Перезапустить
+        button_start: Запустить
+        button_stop: Остановить
+        label_desktop: Рабочий стол
+        label_desktop-images: Образы
+        label_desktops: Рабочие столы
+        label_image: Образ в Compute Cloud
+        label_image-source: Источник образа
+        section_access: Доступ
+        section_disks: Диски
       vpc:
         add-static-route:
           button_add: Добавить

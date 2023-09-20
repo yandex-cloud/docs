@@ -11,11 +11,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится резервная копия.
-  1. Выберите сервис **{{ backup-name }}**.
-  1. Перейдите на вкладку ![backups](../../../_assets/backup/backups.svg) **Резервные копии**.
-  1. Напротив резервной копии, из которой нужно восстановить ВМ, нажмите ![image](../../../_assets/options.svg) и выберите **Восстановить ВМ**.
-  1. В поле **Целевая ВМ** выберите ВМ, из которой была создана резервная копия. В списке эта ВМ отмечена как `(текущая)`.
-  1. Нажмите кнопку **Восстановить**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Перейдите на вкладку ![backups](../../../_assets/backup/backups.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
+  1. Напротив резервной копии, из которой нужно восстановить ВМ, нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.backup.action_recovery }}**.
+  1. В поле **{{ ui-key.yacloud.backup.field_recover-to-vm }}** выберите ВМ, из которой была создана резервная копия. В списке эта ВМ отмечена как `({{ ui-key.yacloud.backup.context_current-vm }})`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
 - CLI
 

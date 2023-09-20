@@ -6,21 +6,18 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите облако в списке слева.
-  1. Нажмите кнопку ![***](../../../_assets/pencil.svg) **Редактировать** в правом верхнем углу.
-
-      ![image](../../../_assets/iam/cloud-actions-n-n.png)
-
+  1. В [консоли управления]({{ link-console-main }}) в списке слева выберите нужное облако.
+  1. В правом верхнем углу страницы нажмите значок ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В открывшемся окне введите новое имя облака. Требования к имени:
 
 	 {% include [name-format.md](../../../_includes/name-format.md) %}
 
-  1. Нажмите **Сохранить**.
+  1. Нажмите **{{ ui-key.yacloud.iam.cloud.edit.popup-edit-cloud_button_save }}**.
 
 - API
 
   Чтобы переименовать облако, воспользуйтесь методом REST API [update](../../api-ref/Cloud/update.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Update](../../api-ref/grpc/cloud_service.md#Update).
-
+  
 - {{ TF }}
 
   Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -35,7 +32,7 @@
       ...
       resource "yandex_resourcemanager_cloud" "cloud1" {
         name            = "cloud-main"
-        organization_id = "bpf7nhb9hkphksfevi77"
+        organization_id = "bpf7nhb9hkph********"
       }
       ...
       ```

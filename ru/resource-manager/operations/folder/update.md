@@ -7,9 +7,9 @@
 - Консоль управления
 
   1. Выберите каталог на [стартовой странице]({{ link-console-cloud }}) консоли управления. На этой странице отображаются каталоги для выбранного облака. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
-  1. Нажмите значок ![image](../../../_assets/options.svg) напротив каталога и выберите **Редактировать**.
+  1. Нажмите значок ![image](../../../_assets/options.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Введите новое имя каталога.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
 - CLI
 
@@ -34,8 +34,8 @@
           +----------------------+--------------------+--------+--------+-------------+
           |          ID          |        NAME        | LABELS | STATUS | DESCRIPTION |
           +----------------------+--------------------+--------+--------+-------------+
-          | b1gppulhhm2aaufq9eug | yet-another-folder |        | ACTIVE |             |
-          | b1gvmob95yysaplct532 | default            |        | ACTIVE |             |
+          | b1gppulhhm2a******** | yet-another-folder |        | ACTIVE |             |
+          | b1gvmob95yys******** | default            |        | ACTIVE |             |
           +----------------------+--------------------+--------+--------+-------------+
           ```
 
@@ -50,7 +50,7 @@
           * `<resource>` — категория ресурса, например `instance`.
           * `<resource-id>` — идентификатор ресурса.
 
-          Например, виртуальная машина `fhmp74bfis2aim728p2a` принадлежит каталогу `b1gpvjd9ir42nsng55ck`:
+          Например, виртуальная машина `fhmp74bfis2a********` принадлежит каталогу `b1gpvjd9ir42********`:
 
           ```bash
           yc compute instance get fhmp74bfis2ais728p2a
@@ -59,8 +59,8 @@
           Результат:
 
           ```
-          id: fhmp74bfis2ais728p2a
-          folder_id: b1gpvjd9ia42nsng55ck
+          id: fhmp74bfis2a********
+          folder_id: b1gpvjd9ia42********
           ...
           ```
           

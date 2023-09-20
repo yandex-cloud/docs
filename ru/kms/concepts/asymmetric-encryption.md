@@ -8,6 +8,8 @@
 
 Одна из доступных схем шифрования в {{ kms-short-name }} — _асимметричное шифрование_. По этой схеме шифрование выполняется с помощью открытого ключа (Public key) асимметричной ключевой пары (криптопары), а расшифрование — с помощью ее закрытого ключа (Private key). {{ kms-name }} позволяет выгружать открытый ключ для шифрования текста на стороне клиента. Расшифровать такой текст в {{ kms-short-name }} можно с использованием закрытого ключа ключевой пары. Получить прямой доступ к закрытому ключу в {{ kms-short-name }} нельзя.
 
+{% include [asymmetric-keys-quota](../../_includes/kms/asymmetric-keys-quota.md) %}
+
 ## Получение открытого ключа ключевой пары {#acquire-public-key}
 
 Чтобы зашифровать сообщение, необходимо получить в {{ kms-short-name }} открытый ключ. Для этого нужно создать запрос к сервису с помощью [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-encryption-crypto/get-public-key.md) или [API](../api-ref/grpc/asymmetric_encryption_crypto_service.md#GetPublicKey).

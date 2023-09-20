@@ -179,18 +179,26 @@ items:
         href: manager/components.md
       - name: Версии
         href: manager/versions.md
-  - name: Проекты
+  - name: Портфели и проекты
     items:
-      - name: Обзор
-        href: manager/project-new.md
-      - name: Мои проекты
-        href: manager/my-projects.md
-      - name: Создать проект
-        href: manager/create-project.md
-      - name: Список задач проекта
-        href: manager/project-list.md
-      - name: Доска задач
-        href: manager/boards-project.md
+      - name: Работа с проектами
+        items:
+          - name: Проекты
+            href: manager/project-new.md
+          - name: Мои проекты
+            href: manager/my-projects.md
+          - name: Создать проект
+            href: manager/create-project.md
+          - name: Список задач проекта
+            href: manager/project-list.md
+          - name: Доска задач
+            href: manager/boards-project.md
+      - name: Работа с портфелями
+        items:
+          - name: Портфели проектов
+            href: manager/portfolio.md
+          - name: Создать портфель
+            href: manager/create-portfolio.md
   - name: Доски задач
     items:
       - name: Обзор

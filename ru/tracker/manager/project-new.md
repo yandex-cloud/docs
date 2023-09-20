@@ -4,6 +4,8 @@
 
 Проект в {{ tracker-name }} — это набор задач, которые направлены на достижение общего результата. Проект не привязан к очереди задач, поэтому с помощью проектов удобно группировать задачи нескольких команд, работающих над общей целью.
 
+Несколько проектов можно объединить в [портфель проектов](portfolio.md).
+
 ## Начало работы {#quick-start}
 
 Чтобы начать работу над проектом в {{ tracker-name }}, [cоздайте](create-project.md) проект и добавьте в него задачи. В проект могут входить задачи из разных очередей.
@@ -12,7 +14,7 @@
 
 ## Страница проекта {#page}
 
-В новом интерфейсе {{ tracker-name }} все доступные вам проекты можно открыть из навигационной панели слева: нажмите ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** или перейдите по [прямой ссылке]({{ link-tracker }}pages/projects) и выберите проект из списка.
+В новом интерфейсе {{ tracker-name }} все доступные вам проекты можно открыть из навигационной панели слева: нажмите ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** или перейдите по [прямой ссылке]({{ link-tracker }}pages/projects/list) и выберите проект из списка.
 
 На странице проекта собраны сведения о команде, целях и задачах проекта:
 
@@ -32,4 +34,4 @@
 
 Прогресс работы над проектом можно отслеживать на индикаторе в правом верхнем углу на странице проекта.  Заполнение индикатора меняется в зависимости от количества закрытых задач.
 
-Чтобы ограничить доступ к проекту, в верхнем правом углу страницы нажмите значок замка и выберите **{{ ui-key.startrek.ui_components_ProjectAccessButton.private-access }}**. Тогда проект будет доступен только тем пользователям, которые указаны в полях **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--teamUsers }}**, **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--createdBy }}**, **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--clients }}** и **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--lead }}**.
+Чтобы ограничить доступ к проекту, в правом верхнем углу страницы нажмите значок замка и выберите **{{ ui-key.startrek.ui_components_ProjectAccessButton.private-access }}**. Тогда проект будет доступен только тем пользователям, которые указаны в полях **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--teamUsers }}**, **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--createdBy }}**, **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--clients }}** и **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--lead }}**.

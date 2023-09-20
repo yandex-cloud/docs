@@ -22,7 +22,7 @@ description: "Управление доступом в сервисе для с�
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/kms/service-roles-hierarchy.png)
+![image](../../_assets/kms/service-roles-hierarchy.svg)
 
 ### Сервисные роли {#service-roles}
 

@@ -1,10 +1,13 @@
 # Перенос объектов в воркбуки
 
-Для миграции можно выбрать любой объект ([подключение](../concepts/connection.md), [датасет](../concepts/dataset/index.md), [чарт](../concepts/chart/index.md), [дашборд](../concepts/dashboard.md)) и перенести его в воркбук вместе со всеми связанными объектами.
+Для миграции можно выбрать любой объект ([подключение](../concepts/connection.md), [датасет](../concepts/dataset/index.md), [чарт](../concepts/chart/index.md), [дашборд](../concepts/dashboard.md)) и перенести его в [воркбук](./index.md) вместе со всеми связанными объектами. Идентификаторы объектов и ссылки на них останутся прежними.
+
+{{ datalens-short-name }} находит связанные объекты рекурсивно по всем связям. Поэтому перенос можно начать с любого объекта. Например, с дашборда. {{ datalens-short-name }} найдет все связанные чарты, датасеты, подключения. Затем для найденных объектов также выполнит поиск связей. В итоге все найденные объекты предложит сложить в один воркбук.
 
 {% note warning %}
 
-Обратное действие недоступно.
+* Вернуть объекты из воркбука в папку невозможно.
+* Сразу после миграции теряются все права доступа к перенесенным объектам, а вы становитесь единственным [администратором](../security/roles.md#workbooks-admin) воркбука и можете назначить [права доступа](./security.md) для других пользователей и групп пользователей.
 
 {% endnote %}
 
@@ -26,37 +29,70 @@
 
 ## Частичный перенос объектов {#partial-migration}
 
-Рассмотрим частичную миграцию объектов на примере переноса чарта в воркбук. Допустим, что нужно перенести только чарт `Table`, а связанные с ним подключение `Guides_Connection` и датасет `Guides_Dataset` оставить в папке.
+Рассмотрим частичную миграцию объектов на примере переноса чарта в воркбук. В качестве исходных объектов будут использоваться подключение, датасет и первый чарт из сценария [Визуализация данных из файла](../tutorials/data-from-csv-visualization.md) (используйте для них названия `SuperHeroes_Connection`, `SuperHeroes_Dataset` и `SuperHeroes_Gender` соответственно). Допустим, что нужно перенести только чарт `SuperHeroes_Gender`, а связанные с ним подключение `SuperHeroes_Connection` и датасет `SuperHeroes_Dataset` оставить в папке.
 
-![image](../../_assets/datalens/chart-migrate.png =750x447)
+![image](../../_assets/datalens/migration/chart-migrate.png =750x455)
 
 1. Создайте копии связанных объектов, которые не хотите переносить:
 
-   * подключение `Guides_Connection_copy`;
-   * датасет `Guides_Dataset_copy`.
+   * подключение `SuperHeroes_Connection_copy`;
+   * датасет `SuperHeroes_Dataset_copy`.
 
-1. В датасете `Guides_Dataset_copy` замените подключение на `Guides_Connection_copy`:
+1. В датасете `SuperHeroes_Dataset_copy` замените подключение на `SuperHeroes_Connection_copy`:
 
    1. Откройте датасет и перейдите на вкладку **Источники**.
    1. Удалите все таблицы из рабочей области.
-   1. В левой части экрана нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) у подключения `Guides_Connection` и выберите **Заменить подключение**.
+   1. В левой части экрана нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) у подключения `SuperHeroes_Connection` и выберите **Заменить подключение**.
 
-      ![image](../../_assets/datalens/replace-connection.png =450x447)
+      ![image](../../_assets/datalens/migration/replace-connection.png =450x496)
 
-   1. Выберите подключение `Guides_Connection_copy`.
+   1. Выберите подключение `SuperHeroes_Connection_copy`.
    1. Перетащите нужные таблицы на рабочую область.
+   1. Добавьте необходимые поля.
    1. В правом верхнем углу нажмите кнопку **Сохранить**.
 
-1. В чарте `Table` замените датасет на `Guides_Dataset_copy`:
+1. В чарте `SuperHeroes_Gender` замените датасет на `SuperHeroes_Dataset_copy`:
 
    1. Откройте чарт.
-   1. В левой части экрана нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) у датасета `Guides_Dataset` и выберите **Заменить датасет**.
+   1. В левой части экрана нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) у датасета `SuperHeroes_Dataset` и выберите **Заменить датасет**.
 
-      ![image](../../_assets/datalens/replace-dataset.png =450x395)
+      ![image](../../_assets/datalens/migration/replace-dataset.png =450x432)
 
-   1. Выберите датасет `Guides_Dataset_copy`.
+   1. Выберите датасет `SuperHeroes_Dataset_copy`.
    1. В правом верхнем углу нажмите кнопку **Сохранить**.
 
-Теперь вы можете перенести чарт `Table` в воркбук, а подключение `Guides_Connection` и датасет `Guides_Dataset` останутся в папке.
+Теперь вы можете перенести чарт `SuperHeroes_Gender` в воркбук, а подключение `SuperHeroes_Connection` и датасет `SuperHeroes_Dataset` останутся в папке.
 
-![image](../../_assets/datalens/chart-migrate-copy.png =750x447)
+![image](../../_assets/datalens/migration/chart-migrate-copy.png =750x455)
+
+## Копирование воркбука {#copy-workbook}
+
+Если после миграции надо получить воркбук, содержащий только часть перенесенных объектов, вы можете создать копию воркбука и удалить из него все лишние объекты.
+
+Рассмотрим создание воркбука с датасетом. В качестве исходных объектов будет использоваться [готовый набор данных]({{ link-datalens-main }}/marketplace/f2e0000r63qkp2ywqpco) вымышленной компании из {{ datalens-short-name }} {{ marketplace-short-name }}.
+
+1. На [странице навигации](https://datalens.yandex.ru/navigation) найдите датасет **Sample Superstore Dataset**.
+1. Нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) у датасета и выберите ![image](../../_assets/datalens/replace.svg) **Перенос в воркбук**.
+1. В открывшемся окне вы увидите список связанных объектов, которые будут перенесены.
+
+   ![image](../../_assets/datalens/migration/store-migrate.png =750x422)
+
+1. Нажмите кнопку **Перенести**.
+1. В открывшемся окне нажмите кнопку **Создать воркбук**. Введите название, например, **Sample Superstore All** и нажмите кнопку **Создать**. Выберите созданный воркбук в списке **Коллекции и воркбуки** и нажмите кнопку **Переместить**.
+1. В окне **Управление доступом** настройте [права доступа к воркбуку](./security.md) и нажмите кнопку **Закрыть**.
+
+   После миграции откроется воркбук **Sample Superstore All** с перенесенным датасетом и связанными объектами.
+
+   ![image](../../_assets/datalens/migration/store-workbook.png =750x422)
+
+1. Создайте копию воркбука:
+
+   1. На странице воркбука вверху справа нажмите кнопку **Копировать**.
+   1. В открывшемся окне выберите коллекцию, в которую хотите скопировать воркбук, и нажмите кнопку **Копировать**. Чтобы скопировать воркбук в новую коллекцию, нажмите кнопку **Создать коллекцию**.
+   1. Введите название нового воркбука, например **Sample Superstore Copy**, и нажмите кнопку **Копировать**.
+
+1. В воркбуке **Sample Superstore Copy** перейдите на вкладку **Все объекты** и удалите все, кроме подключения **Sample Superstore. Connection** и датасета **Sample Superstore Dataset**. Для этого у каждого объекта нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) и выберите **Удалить**.
+
+Теперь воркбук **Sample Superstore Copy** содержит только подключение **Sample Superstore. Connection** и датасет **Sample Superstore Dataset**. Вы можете создать в воркбуке свои чарты и дашборд.
+
+![image](../../_assets/datalens/migration/store-workbook-copy.png =750x422)

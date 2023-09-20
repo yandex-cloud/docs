@@ -1,6 +1,6 @@
 # Как создать проект
 
-## Создать проект {#create}
+## Создать проект {#create-project}
 
 Вы можете создать полностью новый проект или взять за основу задачу.
 
@@ -8,7 +8,10 @@
 
 Чтобы создать проект:
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}**, затем нажмите **{{ ui-key.startrek.blocks-desktop_b-page-projects.create }}**.
+1. Перейдите на любую страницу, с которой можно создать портфель:
+
+   * На панели слева выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}**, затем нажмите **Создать** → **Проект**.
+   * В [списке портфелей и проектов](my-projects.md) на вкладке **Список** под списком нажмите **Создать проект**.
 
 1. Введите название проекта. Лучше, если оно будет коротким и понятным — так с проектом будет проще работать.
 
@@ -94,7 +97,7 @@
 
 1. Нажмите ![](../../_assets/tracker/svg/add-task.svg)&nbsp;**{{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}** и задайте условие для выбора задач. 
 
-1. Нажмите **{{ ui-key.startrek.ui_components_issues-import_IssuesImportDialog.import }}** и дождитесь окончания импорта задач.  
+1. Нажмите **{{ ui-key.startrek.ui_components_issues-import_IssuesImportDialog.import }}** и дождитесь окончания импорта задач.
 
 ## Удалить проект {#delete}
 
@@ -106,6 +109,6 @@
 
 Чтобы удалить проект:
 
-1. На панели слева выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** или перейдите по [прямой ссылке]({{ link-tracker }}pages/projects) и откройте страницу проекта.
+1. На панели слева выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** или перейдите по [прямой ссылке]({{ link-tracker }}pages/projects/list) и откройте страницу проекта.
 
 1. В правом верхнем углу страницы нажмите ![](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.startrek.ui_components_ProjectMenu.remove-project }}**.

@@ -11,14 +11,14 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан образ.
-  1. В списке сервисов выберите **{{ cloud-desktop-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/cloud-desktop/images.svg) **Образы**.
-  1. Нажмите кнопку **Добавить образ**.
-  1. В поле **Источник образа** выберите **{{ cloud-desktop-name }}**.
-  1. В поле **Рабочий стол** выберите рабочий стол, из которого вы хотите создать образ.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. На панели слева выберите ![image](../../../_assets/cloud-desktop/images.svg) **{{ ui-key.yacloud.vdi.label_desktop-images }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vdi.button_add-image }}**.
+  1. В поле **{{ ui-key.yacloud.vdi.label_image-source }}** выберите `{{ ui-key.yacloud.iam.folder.dashboard.label_vdi }}`.
+  1. В поле **{{ ui-key.yacloud.vdi.label_desktop }}** выберите рабочий стол, из которого вы хотите создать образ.
 
       Для образа будет использован [загрузочный диск](../../concepts/disks.md#boot-disk) рабочего стола.
   1. Введите имя образа.
-  1. Нажмите кнопку **Добавить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
