@@ -776,6 +776,8 @@ items:
             href: qa/calculation-fields.md
           - name: Дашборды
             href: qa/dashboards.md
+          - name: Воркбуки и коллекции
+            href: qa/workbooks-collections.md
           - name: Другое
             href: qa/other.md
       - name: Резервное копирование

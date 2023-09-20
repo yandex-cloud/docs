@@ -4771,6 +4771,10 @@ default:
         subscribe: Subscribe
         subscribe-all: Subscribe to all notifications
         subscribe-new-tickets: Subscribe to new issues
+      ui_components_portfolios_Header:
+        description-tab: About the portfolio
+      ui_components_portfolios_PortfolioMenu:
+        remove-portfolio: Delete portfolio
       ui_components_Project_Header_IssuesImportButton:
         import-issues: Import issues
       ui_components_Project:
@@ -5327,6 +5331,40 @@ default:
         label_resource-type: Resource
         label_service-account: Service account
         label_stream-name: Data stream
+      backup:
+        action_add-to-recovery-list: Add to list of files to be recovered
+        action_detach-instance: Detach from policy
+        action_recovery: Restore VM
+        action_recovery-start: Recover
+        button_action-activate: Activate
+        button_attach-instance: Attach VM
+        button_attach-instance-submit: Attach
+        button_create-policy: Create policy
+        context_current-vm: current
+        field_delete-old-vm: Delete outdated VM
+        field_recover-to-vm: Target VM
+        field_repeat-period-type: Create backups
+        field_vm-instances: Cloud Backup
+        files-recovery:
+          value_location-custom: Custom
+          value_location-original: Original
+          value_overwrite-all: Overwrite all files in folder
+          value_overwrite-none: Do not overwrite files
+          value_overwrite-older: Overwrite only existing files
+        label_backups: Backups
+        label_create: Connected
+        label_instances: Virtual machines
+        label_linked-instances: Virtual machines
+        label_policies: Backup policies
+        title_backup: Backups
+        value_period-time-daily: Every day
+        value_period-time-hourly: Every hour
+        value_period-time-monthly: By month
+        value_period-time-weekly: Every week
+        value_retention-save-all: Retain all backups
+        value_retention-save-last-f: Only the last
+        value_scheme-full: Full
+        value_scheme-incremental: Incremental
       billing:
         account:
           bind-cloud:
@@ -5677,6 +5715,8 @@ default:
         not-selected: Not selected
         open: Open
         operations-key-value: Operations
+        operations:
+          column_status: Status
         overview: Overview
         password: Password
         remove: Delete
@@ -5711,6 +5751,7 @@ default:
           button_remove-new: Cancel
           label_select-placeholder: Select a user
           label_select-section-service-accounts: Service accounts
+          label_title: ACL editing
         acl:
           update-dialog:
             button_add-role: Add role
@@ -5744,7 +5785,9 @@ default:
             label_platform-standard-v2: Intel Cascade Lake
             label_sw-accelerated-net: Software accelerated network
         console-dashboard:
+          button_action-change-org: Change organization
           button_action-create-folder: Create folder
+          button_cancel-deletion: Cancel deletion
         dns-integration:
           button_add-domain: Create record
         docs:
@@ -5756,6 +5799,9 @@ default:
           field_method: Method
           value_manual: Text
           value_upload: File
+        files-recovery-container:
+          action_start-recovery: Recover files
+          title_recovery-container: To recover
         iam-delete-folder-or-cloud-dialog:
           field_folder-delete-after: Folder deletion period
           label_delete-now: Delete now
@@ -5769,6 +5815,7 @@ default:
           label_value: Value
         label-set:
           button_add-label: Add label
+          label_labels: Labels
         mdb:
           settings:
             button_reset: Reset
@@ -6180,13 +6227,19 @@ default:
           action_open-wizard: Open wizard
       iam:
         cloud:
+          change-org:
+            button_change: Change
+          edit:
+            popup-edit-cloud_button_save: Save
           folders-create:
             button_create: Create
             field_default-net: Create a default network
           folders:
+            button_cancel-deletion: Cancel deletion
             popup-edit_button_save: Save
             section_folders: Folders
           incident-notifications:
+            button_open-dialog: Add
             label_users: Users
           overview:
             label_id: ID
@@ -6215,9 +6268,11 @@ default:
             label_api-gateway: API Gateway
             label_application-load-balancer: Application Load Balancer
             label_audit-trails: Audit Trails
+            label_backup: Cloud Backup
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
             label_cloud-apps: Cloud Apps
+            label_cloud-desktop: Cloud Desktop
             label_compute: Compute Cloud
             label_container-registry: Container Registry
             label_data-proc: Data Proc
@@ -6254,6 +6309,7 @@ default:
             label_smartcaptcha: SmartCaptcha
             label_smartcaptcha_ru: Yandex SmartCaptcha
             label_storage: Object Storage
+            label_vdi: Cloud Desktop
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for YDB
             label_ymq: Message Queue
@@ -6296,6 +6352,7 @@ default:
             popup-confirm_button_delete: Delete
           switch_incident-notifications: Notifications
           switch_service-accounts: Service accounts
+          switch_service-notifications: Service notifications
         users:
           button_tune-role: Configure roles
           label_folders-roles: Roles for folders
@@ -7188,6 +7245,23 @@ default:
         request-callback:
           button_submit: Submit
         switch_plan: Pricing plan
+      vdi:
+        button_acl: Configure ACL
+        button_add-image: Add image
+        button_desktop-create: Create desktop
+        button_download-rdp: Download RDP file
+        button_empty-create-desktop-group: Create desktop group
+        button_reset-password: Reset password
+        button_restart: Restart
+        button_start: Start
+        button_stop: Stop
+        label_desktop: Desktop
+        label_desktop-images: Images
+        label_desktops: Desktops
+        label_image: Image in Compute Cloud
+        label_image-source: Image source
+        section_access: Access
+        section_disks: Disks
       vpc:
         add-static-route:
           button_add: Add

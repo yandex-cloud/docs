@@ -1,12 +1,12 @@
 # Диаграмма Ганта в проектах {{ tracker-name }}
 
-На диаграмме Ганта для проекта в {{ tracker-name }} отображаются все задачи проекта и связи между ними.
+На диаграмме Ганта для портфеля или проекта в {{ tracker-name }} отображаются все задачи проекта и связи между ними.
 
-## Построить диаграмму для проекта {#sec_project}
+## Построить диаграмму {#sec_project}
 
 Чтобы перейти к диаграмме Ганта:
 
-1. На [панели слева]({{ link-tracker }}) выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** или перейдите по [прямой ссылке]({{ link-tracker }}pages/projects) и откройте страницу проекта.
+1. На [панели слева]({{ link-tracker }}) выберите ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** или перейдите по [прямой ссылке]({{ link-tracker }}pages/projects/list) и откройте страницу проекта.
 
 1. {% include [go-to-gantt](../../_includes/tracker/go-to-gantt.md) %}
 

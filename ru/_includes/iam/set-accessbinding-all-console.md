@@ -7,14 +7,14 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) [выберите](../../resource-manager/operations/cloud/switch-cloud.md) облако.
-  1. Перейдите на вкладку **Права доступа**.
-  1. Нажмите кнопку **Назначить роли**.
-  1. В окне **Настройка прав доступа** нажмите кнопку **Выбрать пользователя**.
-  1. Выберите раздел **Группы**.
-  1. Выберите группу **All authenticated users**.
-  1. Нажмите кнопку **Добавить роль**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. В окне **{{ ui-key.yacloud.component.acl.update-dialog.label_title }}** нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
+  1. Выберите раздел `{{ ui-key.yacloud.common.resource-acl.label_groups }}`.
+  1. Выберите группу `All authenticated users`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}**.
   1. Выберите роль `resource-manager.viewer`.
-  1. Нажмите **Сохранить**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

@@ -5,8 +5,8 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится группа рабочих столов.
-  1. В списке сервисов выберите **{{ cloud-desktop-name }}**.
-  1. Напротив группы, которую нужно изменить, нажмите ![options](../../../_assets/options.svg) и выберите **Редактировать**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. Напротив группы, которую нужно изменить, нажмите ![options](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Выберите [образ](../../concepts/images.md) операционной системы.
 
       {% note warning %}
@@ -15,12 +15,12 @@
 
       {% endnote %}
 
-  1. В блоке **Диски** увеличьте размер рабочего диска.
-  1. В блоке **Вычислительные ресурсы**:
+  1. В блоке **{{ ui-key.yacloud.vdi.section_disks }}** увеличьте размер рабочего диска.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Укажите количество ядер vCPU.
       * Выберите [гарантированную долю](../../../compute/concepts/performance-levels.md) vCPU.
       * Укажите объем RAM.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 

@@ -15,6 +15,7 @@ description: "Как получить логи моей работы в серв
 * [Чарты](charts.md)
 * [Вычисляемые поля](calculation-fields.md)
 * [Дашборды](dashboards.md)
+* [Воркбуки и коллекции](workbooks-collections.md)
 * [Другое](other.md)
 
 ## Как сообщить о проблеме {#how-to-resolve-problem}

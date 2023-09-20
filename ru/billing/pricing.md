@@ -12,7 +12,6 @@ editable: false
 
 * {{ preview-stage }} [{{ at-full-name }}](../audit-trails/pricing.md)
 * [{{ certificate-manager-full-name }}](../certificate-manager/pricing.md)
-* {{ preview-stage }} [{{ backup-full-name }}](../backup/pricing.md)
 * [Yandex Cloud Console](../console/pricing.md)
 * {{ preview-stage }} [{{ cloud-desktop-full-name }}](../cloud-desktop/pricing.md)
 * [{{ org-full-name }}](../organization/pricing.md)

@@ -11,15 +11,15 @@
 
 - Консоль управления
 
-    1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
-  1. На странице [**Биллинг**]({{ link-console-billing }}) выберите платежный аккаунт.
-  1. В блоке **Облака** нажмите кнопку **Создать**.
+    1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
+  1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) выберите платежный аккаунт.
+  1. В блоке **{{ ui-key.yacloud.billing.account.dashboard-resources.section_resources }}** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Введите имя облака. Требования к имени:
 
        {% include [name-format.md](../../../_includes/name-format.md) %}
 
   1. Укажите организацию, к которой будет привязано облако.
-  1. Нажмите **Создать**. Вы будете перенаправлены на страницу каталога `default` в новом облаке.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**. Вы будете перенаправлены на страницу каталога `default` в новом облаке.
 
 - {{ TF }}
 

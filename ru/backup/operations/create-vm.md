@@ -7,15 +7,15 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать ВМ.
-  1. В списке сервисов выберите **{{ compute-name }}**.
-  1. Нажмите кнопку **Создать ВМ**.
-  1. В блоке **Выбор образа/загрузочного диска** выберите операционную систему [Ubuntu версии 20.04](/marketplace/products/yc/ubuntu-20-04-lts) или ниже или [CentOS 7](/marketplace/products/yc/centos-7).
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите операционную систему [Ubuntu версии 20.04](/marketplace/products/yc/ubuntu-20-04-lts) или ниже или [CentOS 7](/marketplace/products/yc/centos-7).
   1. Укажите необходимые параметры ВМ. Подробнее см. [Создать виртуальную машину из публичного образа Linux](../../compute/operations/vm-create/create-linux-vm).
 
      {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
 
-  1. В блоке **Резервное копирование** выберите опцию подключения ВМ к сервису {{ backup-name }}.
-  1. Нажмите кнопку **Создать ВМ**. 
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.label_backup }}** выберите опцию подключения ВМ к сервису {{ backup-name }}.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**. 
 
 {% endlist %}
 

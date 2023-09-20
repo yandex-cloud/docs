@@ -68,10 +68,10 @@
     - Консоль управления
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором подключен {{ backup-name }}.
-      1. В списке сервисов выберите **{{ backup-name }}**.
-      1. На вкладке ![machines](../../_assets/backup/machines.svg) **Виртуальные машины** проверьте, что в списке нет неактуальной ВМ с меткой ![irrelevant](../../_assets/backup/irrelevant.svg).
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+      1. На вкладке ![machines](../../_assets/backup/machines.svg) **{{ ui-key.yacloud.backup.label_instances }}** проверьте, что в списке нет неактуальной ВМ с меткой ![irrelevant](../../_assets/backup/irrelevant.svg).
 
-          Если ВМ не удалена, напротив неактуальной ВМ нажмите ![image](../../_assets/options.svg), выберите **Удалить** и подтвердите удаление.
+          Если ВМ не удалена, напротив неактуальной ВМ нажмите ![image](../../_assets/options.svg), выберите **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
     {% endlist %}
 
