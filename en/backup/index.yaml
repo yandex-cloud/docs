@@ -5,6 +5,9 @@ description:
     href="/docs/compute">Yandex Compute Cloud</a> VMs.
 meta:
   title: Yandex Cloud Backup
+  description: >-
+    With Yandex Cloud Backup, you can set up automatic backups for Yandex
+    Compute Cloud VMs.
 links:
   - title: Getting started
     description: Create a VM and attach it to a backup policy

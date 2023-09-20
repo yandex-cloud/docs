@@ -10,6 +10,9 @@ description:
     обслуживания Yandex Container Registry</a>.
 meta:
   title: Yandex Container Registry
+  description: >-
+    Yandex Container Registry — сервис для хранения и распространения
+    Docker-образов.
 links:
   - title: Начало работы
     description: Создайте первый реестр

@@ -20,6 +20,9 @@ description:
     обслуживания Yandex Message Queue</a>.
 meta:
   title: Yandex Message Queue
+  description: >-
+    Yandex Message Queue — универсальное масштабируемое решение для обмена
+    сообщениями между приложениями.
 links:
   - title: Начало работы
     description: Создайте и настройте первую очередь сообщений

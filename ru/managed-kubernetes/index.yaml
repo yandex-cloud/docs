@@ -28,6 +28,9 @@ description:
     обслуживания Yandex Managed Service for Kubernetes</a>.
 meta:
   title: Yandex Managed Service for Kubernetes
+  description: >-
+    Сервис Managed Service for Kubernetes предоставляет окружение для работы с
+    контейнеризованными приложениями в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый кластер Kubernetes

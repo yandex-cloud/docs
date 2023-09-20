@@ -648,7 +648,7 @@ default:
   link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.ru/iam
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
-  link-console-support: https://console.cloud.yandex.ru/support
+  link-console-support: https://support.yandex.cloud/
   link-cloud-calculator: /prices#calculator
   link-cloud-services: /services
   link-cloud-services-infrastructure: /services#infrastructure-network
@@ -3390,6 +3390,9 @@ default:
           simple_form-button-text: Отправить
     startrek-backend:
       applinks:
+        otrs:
+          status:
+            closed: Закрыт
         samsara:
           resolution:
             duplicate: Дубликат
@@ -3411,6 +3414,9 @@ default:
           default:
             filter:
               name: Все задачи очереди
+      events:
+        event:
+          IssueCreated: Задача создана
       fields:
         issue:
           access: Доступ
@@ -3418,6 +3424,7 @@ default:
           assignee-key-value: Исполнитель
           author-key-value: Автор
           boards: Доски
+          checklistItems: Чеклист
           commentWithExternalMessageCount: Комментариев с сообщением
           commentWithoutExternalMessageCount: Комментариев без сообщения
           commits-key-value: Коммиты
@@ -3567,6 +3574,8 @@ default:
                     type: Получен ответ от команды очереди
         trigger:
           condition:
+            field:
+              checklist: Чеклист
             type:
               and: И
               calculate:
@@ -3580,6 +3589,7 @@ default:
                 update: Задача изменилась
               fieldBecameEqual: стало равно
               fieldBecameNotEmpty: Значение поля установлено.
+              fieldChangedCondition: Значение поля изменилось
               fieldEquals: равно
               fieldIsEmpty: Значение поля пусто
               or: Или
@@ -3688,6 +3698,7 @@ default:
                 comment: Добавить комментарий
                 issue: Создать задачу
               duty: Получить дежурного
+              transition: Изменить статус задачи
     startrek:
       blocks_touch_b-related-issues:
         delete: Удалить связь
@@ -3841,10 +3852,15 @@ default:
       blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor:
         action_add-action: Добавить действие
         action_add-condition: Добавить условие
+        action_save: Сохранить
         filter-type--query: Запрос
+        label_actions: Действия над задачей
         label_filter: Параметры фильтра
+        label_name: Название
+        label_time: Обновлять раз в
         type-toggle--create: Создание задач
         type-toggle--update: Обновление задач
+        type-toggle-label: Тип автодействия
       blocks-desktop_b-page-queue-admin-tab_type_autoactions:
         button-create: Создать автодействие
         title: Автодействия
@@ -3860,8 +3876,13 @@ default:
         field--allow-external-mailing: Разрешить отправку писем наружу
         field--allow-externals: Разрешить доступ внешним сотрудникам
         field--default-priority: Приоритет задач по умолчанию
+        issue-types-config--title--resolutions: 'Резолюции:'
+        issue-types-config--title--type: 'Тип задачи:'
+        issue-types-config--title--workflow: 'Воркфлоу:'
       blocks-desktop_b-page-queue-admin-tab_type_form-editor:
         create-btn: Создать
+        edit-btn: Сохранить
+        form-link-label: Ссылка на форму
       blocks-desktop_b-page-queue-admin-tab_type_forms:
         add-btn: Добавить форму
       blocks-desktop_b-page-queue-admin-tab_type_macro-editor:
@@ -3905,6 +3926,7 @@ default:
         action_save: Сохранить
         label_actions: Действия триггера
         label_conditions: Условия срабатывания
+        label_name: Название
       blocks-desktop_b-page-queue-admin-tab_type_triggers:
         bulk-move-button: Изменить порядок триггеров
         button-create: Создать триггер
@@ -4026,6 +4048,7 @@ default:
       blocks-desktop_calendar-editor--working-time-select:
         option--daily24x7: Круглосуточно
       blocks-desktop_comment-form:
+        invite_to_comment: Призвать в комментарии
         save: Сохранить
         send: Отправить
       blocks-desktop_comment:
@@ -4097,6 +4120,7 @@ default:
       blocks-desktop_issues-filter-save-modal:
         action_submit: Сохранить
       blocks-desktop_issues-filter-update-modal:
+        access-rights: Права доступа
         access-rights--read: Просмотр
         access-rights--share: Добавить в общую папку
         access-rights--write: Редактирование
@@ -4149,6 +4173,8 @@ default:
       blocks-desktop_page-agile-boards:
         create: Создать доску
         filter-type--favorite: Избранные
+      blocks-desktop_queue-access-msg-modal:
+        add-button: Сохранить
       blocks-desktop_queue-new-presets:
         category--business: Создание товаров и услуг
         category--development: Разработка
@@ -4177,6 +4203,7 @@ default:
         preset-title--development-preset: Базовая разработка
         preset-title--kanban-development-preset: Канбан
         preset-title--outsource-development-preset: Разработка на заказ
+        preset-title--quick-start-preset: Начните прямо сейчас
         preset-title--scrum-development-preset: Скрам
         preset-title--tiered-support-preset: Поддержка по линиям
       blocks-desktop_repository-modal:
@@ -4225,6 +4252,9 @@ default:
         field--author: Автор
         field--followers: Наблюдатели
         field--resolution: Резолюция
+      blocks-desktop_st-gantt-issue-update-modal:
+        label:
+          due-date: Дедлайн
       blocks-desktop_st-tokens-chooser:
         choose-from-list-button: Выбрать цвета
       blocks-desktop_trigger-action:
@@ -4355,6 +4385,9 @@ default:
         every-week: Каждую
         every-work-day: Каждый рабочий день
       components_QueuePresetOnboarding:
+        preset-name--hr-preset: Кадровые процессы
+        preset-name--hrProcesses: Работа с персоналом
+        preset-name--recruitment-preset: Подбор персонала
         preset-name--scrum-development-preset: Скрам
       lib_goals-info:
         status--BLOCKED: Заблокирована
@@ -4664,7 +4697,7 @@ default:
         filter-items-link: Полный список задач по фильтру
         search-input-placeholder: Поиск по названию задачи
       ui_components_NavigationBar_ProjectsPanel:
-        all-projects-link: Все проекты
+        all-projects-link: Все портфели и проекты
       ui_components_NavigationBar:
         appearance-title: Интерфейс
         boards: Доски задач
@@ -4704,6 +4737,7 @@ default:
         access-level_read_only: Чтение
         title_access: Доступ в Tracker
       ui_components_page-admin_PageAdmin:
+        access-and-payment: Доступы и оплата
         menu-item-groups: Группы
         menu-item-issue-statuses: Статусы задач
         menu-item-orgs: Организации
@@ -4749,8 +4783,11 @@ default:
         remove-queue-action: Удалить очередь
       ui_components_page-queue-admin_QueueAdminPageContent:
         menu-item-aliases: Почтовые ящики
+        menu-item-autoactions: Автодействия
         menu-item-calendars: Графики работы
+        menu-item-forms: Интеграция форм
         menu-item-timetracking: Учет времени
+        menu-item-types: Типы задач
         menu-item-workflows: Рабочие процессы
       ui_components_page-queue-admin_Signature:
         alias-title: Псевдоним
@@ -4770,6 +4807,7 @@ default:
           Добавьте описание, чтобы исполнителю было понятно, что нужно сделать в
           этой задаче
         switch-to-admin-panel: Перейти в админку
+        try-yandex-forms: Попробуйте Yandex Forms для создания задач
       ui_components_PageCreateIssueForm:
         continue: Продолжить
       ui_components_PageHiThere:
@@ -4857,6 +4895,8 @@ default:
         meta-status-title: Разрешить переходы из любого статуса
         settings-comment: Смена статуса при комментарии
         transitions-title: Переходы
+      ui_components_queue-admin-tab-workflows_StatusTypesDialog:
+        apply-button: Применить
       ui_components_queue-admin-tab-workflows_StatusTypeSelector:
         status-canceled-name: Отменен
       ui_components_queue-admin-tab-workflows_TransitionEdit:
@@ -6301,7 +6341,7 @@ default:
             label_load-testing: Load Testing
             label_lockbox: Lockbox
             label_logging: Cloud Logging
-            label_managed-airflow: Managed Service for Apache Airflow™
+            label_managed-airflow: Managed Service for&nbsp;Apache&nbsp;Airflow™
             label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-elasticsearch: Managed Service for Elasticsearch
             label_managed-gitlab: Managed Service for GitLab
@@ -6603,10 +6643,6 @@ default:
             label_profiling: Профайлинг
             label_queries: Запросы
             label_sessions: Сессии
-            queries-view_interval: Интервал
-            queries-view_two_intervals: 2 Интервала
-            view_at_time: История
-            view_stats: Статистика
           dictionaries:
             button_action-delete: Удалить словарь
             button_submit: Сохранить
@@ -8806,9 +8842,8 @@ default:
         tag: 7.16.3-5
     yc_fluent-bit:
       helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit-cloud-logging
-        tag: 1.0-9
+        name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
+        tag: 2.1.7-1
     yc_gateway-api:
       helmChart:
         name: >-

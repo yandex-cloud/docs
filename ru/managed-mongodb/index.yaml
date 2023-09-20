@@ -28,6 +28,9 @@ description:
     обслуживания Yandex Managed Databases</a>.
 meta:
   title: Yandex Managed Service for MongoDB
+  description: >-
+    Сервис Managed Service for MongoDB помогает разворачивать и поддерживать
+    кластеры серверов MongoDB 4.2, 4.4, 5.0 и 6.0 в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

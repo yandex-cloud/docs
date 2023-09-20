@@ -5,6 +5,9 @@ description:
     secure two-way communication between devices and local or cloud resources.
 meta:
   title: Yandex IoT Core
+  description: >-
+    Yandex IoT Core is a fault-tolerant cloud-based MQTT server that ensures
+    secure two-way communication between devices and local or cloud resources.
 links:
   - title: Getting started
     description: Create your first registry and add a device

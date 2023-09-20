@@ -16,6 +16,9 @@ description:
     </ul> The service can be managed from the console.
 meta:
   title: Yandex Load Testing
+  description: >-
+    This service allows you to run load testing and analyze the performance of
+    your services and applications.
 links:
   - title: Getting started
     description: How to run load tests with Yandex Load Testing

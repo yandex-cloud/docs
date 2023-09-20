@@ -5,6 +5,9 @@ description:
     человеком или компьютером.
 meta:
   title: Yandex SmartCaptcha
+  description: >-
+    Yandex SmartCaptcha позволяет определить, кем является пользователь системы:
+    человеком или компьютером.
 links:
   - title: Начало работы
     description: Настройте первый виджет и проверьте пользователя

@@ -11,6 +11,9 @@ description:
     Container Registry</a>.
 meta:
   title: Yandex Container Registry
+  description: >-
+    Yandex Container Registry is a service that allows you to store and
+    distribute Docker images.
 links:
   - title: Getting started
     description: Create the first registry

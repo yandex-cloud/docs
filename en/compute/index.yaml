@@ -25,6 +25,9 @@ description:
      for Yandex Compute Cloud</a>.
 meta:
   title: Yandex Compute Cloud
+  description: >-
+    Yandex Compute Cloud provides the scalable computing power you need to
+    create and manage virtual machines.
 links:
   - title: Getting started
     description: Create your first VM or instance group

@@ -8,6 +8,9 @@ description:
     Yandex Cloud системы автоматизации, плагины и другие приложения.
 meta:
   title: Концепции API Yandex Cloud
+  description: >-
+    Документ описывает концепции, которые легли в основу архитектуры API Yandex
+    Cloud.
   keywords:
     - keyword: идеология API
     - keyword: концепции API

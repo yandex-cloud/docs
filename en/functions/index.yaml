@@ -6,6 +6,10 @@ description:
     VMs.
 meta:
   title: '{{ sf-full-name }}'
+  description: >-
+    This service allows you to run your applications in a secure,
+    fault-tolerant, and scalable environment without creating or maintaining
+    VMs.
 links:
   - title: Getting started
     description: Create your first function

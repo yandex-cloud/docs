@@ -25,6 +25,9 @@ description:
     Yandex Application Load Balancer</a>.
 meta:
   title: Yandex Application Load Balancer
+  description: >-
+    Yandex Application Load Balancer lets you distribute requests across
+    backends of your network applications and terminate TLS encryption.
 links:
   - title: Getting started
     description: Create your first software load balancer

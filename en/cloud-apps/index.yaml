@@ -12,6 +12,9 @@ description:
     of the application.
 meta:
   title: Cloud Apps
+  description: >-
+    Yandex Cloud Apps is a service that enables the one-click deployment of a
+    serverless stack-based application.
 links:
   - title: Demo Telegram Bot
     description: A demo Telegram bot on a serverless stack

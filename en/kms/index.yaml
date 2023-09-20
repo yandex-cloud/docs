@@ -6,6 +6,10 @@ description:
     any data.
 meta:
   title: Yandex Key Management Service
+  description: >-
+    Yandex Key Management Service helps you create and manage encryption keys to
+    protect your data in the Yandex Cloud infrastructure and encrypt or decrypt
+    any data.
 links:
   - title: Getting started
     description: Use a KMS key to encrypt and decrypt text

@@ -11,6 +11,9 @@ description:
     версии в  любой момент, но это необязательно.
 meta:
   title: Yandex SpeechKit Hybrid
+  description: >-
+    SpeechKit Hybrid — это технологии Yandex SpeechKit, работающие внутри вашей
+    инфраструктуры.
 links:
   - title: Начало работы
     description: Узнайте как развернуть сервис на своем оборудовании

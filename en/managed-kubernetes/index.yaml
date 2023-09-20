@@ -27,6 +27,10 @@ description:
     Kubernetes Service Level Agreement</a>.
 meta:
   title: Yandex Managed Service for Kubernetes
+  description: >-
+    The Managed Service for Kubernetes provides an environment for deploying,
+    scaling, and managing containerized applications in the Yandex Cloud
+    infrastructure.
 links:
   - title: Getting started
     description: Create your first Kubernetes cluster

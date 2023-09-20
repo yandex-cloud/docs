@@ -18,6 +18,9 @@ description:
     Translate</a>.
 meta:
   title: Yandex Translate
+  description: >-
+    This service allows you to integrate Yandex Translate algorithms into
+    end-user applications or web projects.
 links:
   - title: Getting started
     description: Translate your text

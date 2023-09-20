@@ -8,6 +8,10 @@ description:
     lost.
 meta:
   title: Yandex Wiki
+  description: >-
+    Yandex Wiki is a user-generated hub for all your company information, with
+    pages that users can format and edit using the Markdown markup language or a
+    visual editor.
   keywords:
     - keyword: yandex wiki
     - keyword: yandex knowledge base

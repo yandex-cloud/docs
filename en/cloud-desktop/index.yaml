@@ -9,6 +9,9 @@ description:
   - You can use the service via the Yandex Cloud management console.
 meta:
   title: Yandex Cloud Desktop
+  description: >-
+    Yandex Cloud Desktop lets you organize and manage a virtual desktop
+    infrastructure.
 links:
   - title: Getting started
     description: Create a desktop and connect to it

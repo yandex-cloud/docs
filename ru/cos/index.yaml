@@ -8,6 +8,10 @@ description:
     Marketplace</a>.
 meta:
   title: Yandex Container Solution
+  description: >-
+    Yandex Container Solution — это сценарии использования на базе виртуальных
+    машин с образом Container Optimized Image, оптимизированных для запуска
+    Docker-контейнеров.
 links:
   - title: Начало работы
     description: Создайте первую ВМ на основе образа Container Optimized Image

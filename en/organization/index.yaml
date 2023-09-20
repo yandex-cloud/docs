@@ -6,6 +6,10 @@ description:
     access to these services.
 meta:
   title: Yandex Cloud Organization
+  description: >-
+    Yandex Cloud Organization is an enterprise solution that allows you to
+    connect your organization to Yandex Cloud services and manage employee
+    access to these services.
 links:
   - title: Getting started
     description: Create an organization

@@ -13,6 +13,9 @@ description:
     Foundation в США и/или других странах.</em>
 meta:
   title: Yandex Data Proc
+  description: >-
+    Сервис помогает разворачивать кластеры Apache Hadoop® и Apache Spark™ в
+    инфраструктуре Yandex Cloud.
 links:
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций

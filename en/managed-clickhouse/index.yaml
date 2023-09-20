@@ -29,6 +29,9 @@ description:
     Managed Databases</a>.
 meta:
   title: Yandex Managed Service for ClickHouse
+  description: >-
+    Managed Service for ClickHouse helps you deploy and maintain ClickHouse
+    server clusters in the Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create the first database cluster

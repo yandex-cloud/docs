@@ -13,6 +13,9 @@ description:
     Managed Databases</a>.
 meta:
   title: Yandex Managed Service for MySQL®
+  description: >-
+    Yandex Managed Service for MySQL® helps you deploy and maintain MySQL
+    database clusters in the Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create the first database cluster

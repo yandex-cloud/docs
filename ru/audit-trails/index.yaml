@@ -9,6 +9,9 @@ description:
     на события уровня ресурсов Yandex Cloud.
 meta:
   title: Yandex Audit Trails
+  description: >-
+    Yandex Audit Trails — сервис сбора и выгрузки аудитных логов ресурсов Yandex
+    Cloud.
 links:
   - title: Начало работы
     description: Подключите сервис

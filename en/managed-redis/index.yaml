@@ -23,10 +23,10 @@ description:
     href="https://yandex.com/legal/cloud_sla_mdb">Service Level for Yandex
     Managed Databases</a>.
 meta:
-  - text: Yandex Managed Service for Redis
-    when: product == "yandex-cloud"
-  - text: Managed Service for Redis
-    when: product == "cloud-il"
+  title: Yandex Managed Service for Redis
+  description: >-
+    Managed Service for Redis allows you to deploy and maintain Redis 6.2 and
+    7.0 server clusters in the Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create the first database cluster

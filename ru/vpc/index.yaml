@@ -21,6 +21,9 @@ description:
     обслуживания Yandex Virtual Private Cloud</a>.
 meta:
   title: Yandex Virtual Private Cloud
+  description: >-
+    Yandex Virtual Private Cloud служит для управления облачными сетями и связи
+    облачных ресурсов между собой и с интернетом.
 links:
   - title: Начало работы
     description: Создайте первую облачную сеть

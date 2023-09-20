@@ -14,6 +14,10 @@ description:
     agreement</a> (LA).
 meta:
   title: Yandex Cloud Console
+  description: >-
+    The Yandex Cloud Console service provides an interface for working in Yandex
+    Cloud, using which you can manage cloud resources, configure alerts and
+    contact the support service.
 links:
   - title: Getting started
     description: Getting started with management console

@@ -12,6 +12,9 @@ description:
     планирует использовать приложение.
 meta:
   title: Cloud Apps
+  description: >-
+    Yandex Cloud Apps — сервис, который позволяет в один клик развернуть
+    приложение на базе стека serverless.
 links:
   - title: Demo Telegram Bot
     description: Демонстрационный Telegram-бот на serverless-стеке

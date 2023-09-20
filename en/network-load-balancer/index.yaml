@@ -22,6 +22,9 @@ description:
     Yandex Network Load Balancer</a>.
 meta:
   title: Yandex Network Load Balancer
+  description: >-
+    Yandex Network Load Balancer helps ensure applications' fault tolerance by
+    evenly distributing loads across cloud resources.
 links:
   - title: Getting started
     description: Create and configure your first network load balancer

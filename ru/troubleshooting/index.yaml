@@ -5,6 +5,9 @@ description:
     Cloud.
 meta:
   title: Troubleshooting
+  description: >-
+    Известные решения и советы для оптимального использования сервисов Yandex
+    Cloud.
 links:
   - title: Application Load Balancer
     description: Решения для Application Load Balancer

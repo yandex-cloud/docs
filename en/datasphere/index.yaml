@@ -21,6 +21,9 @@ description:
     DataSphere</a>.
 meta:
   title: Yandex DataSphere
+  description: >-
+    Yandex DataSphere is a service that allows you to leverage cloud
+    technologies for use in end-to-end ML development.
 links:
   - title: Concepts
     description: Learn about the concepts and features of the service

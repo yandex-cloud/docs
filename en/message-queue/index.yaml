@@ -20,6 +20,9 @@ description:
     Message Queue</a>.
 meta:
   title: Yandex Message Queue
+  description: >-
+    Yandex Message Queue is a universal, scalable solution to enable messaging
+    between applications.
 links:
   - title: Getting started
     description: Create and configure your first message queue

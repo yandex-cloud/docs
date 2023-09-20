@@ -15,6 +15,9 @@ description:
     GitLab</a>.
 meta:
   title: Yandex Managed Service for GitLab
+  description: >-
+    Managed Service for GitLab helps you deploy and maintain GitLab instances in
+    the Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create the first instance

@@ -12,6 +12,9 @@ description:
     обслуживания Yandex Managed Databases</a>.
 meta:
   title: Yandex Managed Service for MySQL®
+  description: >-
+    Managed Service for MySQL® помогает разворачивать и поддерживать кластеры
+    серверов MySQL в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

@@ -7,6 +7,10 @@ description:
      make payments.
 meta:
   title: Billing
+  description: >-
+    Yandex Cloud only charges for resources consumed, and the Billing section
+    provides answers to all of your questions about your account balance, your
+    service usage costs, and allows you to make payments.
 links:
   - title: Getting started
     description: Create your first billing account

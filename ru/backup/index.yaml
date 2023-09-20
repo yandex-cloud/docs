@@ -6,6 +6,9 @@ description:
     Cloud</a>.
 meta:
   title: Yandex Cloud Backup
+  description: >-
+    Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное
+    копирование виртуальных машин сервиса Yandex Compute Cloud.
 links:
   - title: Начало работы
     description: Создайте ВМ и привяжите ее к политике резервного копирования

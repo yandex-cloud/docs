@@ -15,6 +15,9 @@ description:
     Level</a>.
 meta:
   title: Yandex Cloud DNS
+  description: >-
+    The Yandex Cloud DNS service helps manage DNS zones and your resources'
+    domain names.
 links:
   - title: Getting started
     description: Create your first DNS zone

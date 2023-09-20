@@ -12,6 +12,10 @@ nav:
   title: Yandex Query
 meta:
   title: Yandex Query
+  description: >-
+    Сервис Yandex Query позволяет выполнять аналитические и потоковые запросы
+    реального времени к структурированным или частично структурированным данным
+    с помощью единого диалекта SQL.
 links:
   - title: Начало работы
     description: Узнайте, как начать работать с Yandex Query
