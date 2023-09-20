@@ -18,6 +18,7 @@ meta:
     - keyword: яндекс.трекер
     - keyword: яндекс задачи
     - keyword: яндекс трекер справка
+  description: Yandex Tracker — это сервис для управления проектами и процессами.
 links:
   - title: Настройка Tracker
     description: >-

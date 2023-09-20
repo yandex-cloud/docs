@@ -34,6 +34,11 @@ nav:
   title: Yandex Object Storage
 meta:
   title: Yandex Object Storage
+  description: >-
+    Yandex Object Storage is a universal, scalable solution for data storage,
+    and the perfect choice both for high-load services that require fast,
+    reliable access to data, as well as projects with minimal requirements for
+    storage infrastructure.
 links:
   - title: Getting started
     description: Create your first bucket and upload data

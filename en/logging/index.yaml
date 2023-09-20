@@ -5,6 +5,9 @@ description:
     applications by grouping messages into log groups.
 meta:
   title: Cloud Logging
+  description: >-
+    This service allows you to read and write logs of services and user
+    applications by grouping messages into log groups.
 links:
   - title: Getting started
     description: Add records to a log group and read them

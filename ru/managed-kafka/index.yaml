@@ -16,6 +16,10 @@ description:
     Foundation в США и/или других странах.</em>
 meta:
   title: Yandex Managed Service for Apache Kafka®
+  description: >-
+    Сервис Managed Service for Apache Kafka® помогает разворачивать и
+    поддерживать кластеры серверов Apache Kafka® версий 2.8, 3.0, 3.1, 3.2, 3.3
+    и 3.4 в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый кластер

@@ -15,6 +15,9 @@ description:
     обслуживания Yandex Managed Service for GitLab</a>.
 meta:
   title: Yandex Managed Service for GitLab
+  description: >-
+    Сервис Managed Service for GitLab помогает разворачивать и поддерживать
+    инстансы GitLab в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый инстанс

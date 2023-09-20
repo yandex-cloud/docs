@@ -23,6 +23,9 @@ description:
      for Yandex Virtual Private Cloud</a>.
 meta:
   title: Yandex Virtual Private Cloud
+  description: >-
+    Yandex Virtual Private Cloud allows you to manage cloud networks and enable
+    cloud resources to connect to the internet and each other.
 links:
   - title: Getting started
     description: Create your first cloud network

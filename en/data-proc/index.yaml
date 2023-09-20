@@ -19,6 +19,9 @@ description:
     in the United States and/or other countries.</em>
 meta:
   title: Yandex Data Proc
+  description: >-
+    The service helps you deploy Apache Hadoop® and Apache Spark™ clusters in
+    the Yandex Cloud infrastructure.
 links:
   - title: Step-by-step instructions
     description: How to perform routine operations

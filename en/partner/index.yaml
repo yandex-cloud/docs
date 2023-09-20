@@ -9,6 +9,11 @@ description:
   - '- Keep track of how your partner bonus is calculated and how it grows.'
 meta:
   title: Partner program
+  description: >-
+    On the partner portal you can register customers who use Yandex Cloud with
+    your help, manage customer resources and monitor how they use Yandex Cloud
+    services, manage your employees access to your partner profile, keep track
+    of how your partner bonus is calculated and how it grows.
 links:
   - title: Referral program
     description: Learn how to attract customers via referral links

@@ -5,6 +5,9 @@ description:
     or a computer.
 meta:
   title: Yandex SmartCaptcha
+  description: >-
+    Yandex SmartCaptcha lets you determine who the system user is: an individual
+    or a computer.
 links:
   - title: Getting started
     description: Set up the first widget and check the user

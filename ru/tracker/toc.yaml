@@ -71,8 +71,28 @@ items:
             href: support-process-dashboards.md
           - name: Настроить интеграцию со сторонними системами
             href: support-process-integration.md
+      - name: Настроить Tracker для отдела кадров
+        items:
+          - name: Обзор
+            href: hr-process.md
+          - name: Создать очередь для управления персоналом
+            href: hr-process-basic-queue.md
+          - name: Настроить форму для создания типовых задач
+            href: hr-process-vacancy-queue.md
+          - name: Подключить оповещения по почте
+            href: hr-process-candidate-queue.md
+          - name: Настроить автоматическое создание задач
+            href: hr-process-employment-queue.md
+          - name: Автоматизировать рутинные действия в задачах
+            href: hr-process-probation-queue.md
+          - name: Настроить регулярные напоминания
+            href: hr-process-vacations-queue.md
+          - name: Добавить форму обратной связи
+            href: hr-process-general-queue.md
       - name: Визуализация данных с помощью {{ datalens-name }}
         href: tutorials/visualisation-in-datalens.md
+      - name: Интеграция {{ tracker-name }} с {{ sf-short-name }}
+        href: tutorials/tracker-cloud-function.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -193,6 +213,8 @@ items:
             href: manager/project-list.md
           - name: Доска задач
             href: manager/boards-project.md
+          - name: Вехи проекта
+            href: manager/milestones.md
       - name: Работа с портфелями
         items:
           - name: Портфели проектов

@@ -26,6 +26,9 @@ description:
     обслуживания Yandex Application Load Balancer</a>.
 meta:
   title: Yandex Application Load Balancer
+  description: >-
+    Yandex Application Load Balancer служит для распределения запросов по
+    бэкендам ваших сетевых приложений и терминирования TLS-шифрования.
 links:
   - title: Начало работы
     description: Создайте первый программный балансировщик

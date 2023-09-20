@@ -16,6 +16,9 @@ description:
     </ul> Управлять сервисом можно с помощью консоли управления.
 meta:
   title: Yandex Load Testing
+  description: >-
+    Yandex Load Testing позволяет проводить нагрузочное тестирование, чтобы
+    анализировать производительность ваших сервисов и приложений.
 links:
   - title: Начало работы
     description: Как начать нагрузочное тестирование с Yandex Load Testing

@@ -17,6 +17,10 @@ description:
     обслуживания {{ speechkit-full-name }}</a>.
 meta:
   title: '{{ speechkit-full-name }}'
+  description: >-
+    Сервис Yandex SpeechKit позволяет разработчикам приложений использовать
+    речевые технологии Яндекса: распознавание речи (Speech-to-Text) и синтез
+    речи (Text-to-Speech).
 links:
   - title: Начало работы
     description: Преобразуйте текст в речь и речь в текст

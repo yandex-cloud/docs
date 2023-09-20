@@ -10,6 +10,10 @@ description:
   - Yandex DataLens is not charged.
 meta:
   title: Yandex DataLens
+  description: >-
+    Yandex DataLens is a business analytics service. It lets you connect to
+    various data sources, visualize data, create dashboards, and share the
+    results.
 links:
   - title: Getting started
     description: Getting started with DataLens

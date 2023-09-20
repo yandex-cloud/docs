@@ -11,6 +11,9 @@ description:
     Monitoring</a>.
 meta:
   title: Yandex Monitoring
+  description: >-
+    Yandex Monitoring allows you to gather, store and display metrics as charts
+    in dashboards.
 links:
   - title: Getting started
     description: Start tracking your metrics

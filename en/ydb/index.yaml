@@ -16,6 +16,9 @@ nav:
   title: Yandex Managed Service for YDB
 meta:
   title: Yandex Managed Service for YDB
+  description: >-
+    Yandex Managed Service for YDB allows you to deploy and maintain YDB
+    databases in the Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create your first database

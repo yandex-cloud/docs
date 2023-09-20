@@ -8,6 +8,9 @@ description:
   - "<em>Greenplum<sup>®</sup> и Greenplum Database<sup>®</sup> являются зарегистрированными товарными знаками или товарными знаками VMware,\_Inc в США и/или других странах.</em>"
 meta:
   title: Yandex Managed Service for Greenplum®
+  description: >-
+    Сервис Yandex Managed Service for Greenplum® помогает разворачивать и
+    поддерживать кластеры Greenplum® в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый кластер

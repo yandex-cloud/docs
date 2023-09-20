@@ -22,6 +22,10 @@ description:
     данных» № 152-ФЗ.
 meta:
   title: Обзор платформы Yandex Cloud
+  description: >-
+    Yandex Cloud — это набор связанных сервисов, которые помогут вам быстро и
+    безопасно взять в аренду вычислительные мощности в тех объемах, в которых
+    это необходимо.
 links:
   - title: Сервисы Yandex Cloud
     description: ''

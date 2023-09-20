@@ -57,12 +57,13 @@
     Чтобы включить сбор статистики, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) или [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) или [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
+
+        Идентификатор можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
     * Значение `true` в параметре `config.performanceDiagnostics.enabled`.
     * Интервал сбора сессий в параметре `config.performanceDiagnostics.sessionsSamplingInterval`. Допустимые значения — от `1` до `86400` секунд.
     * Интервал сбора запросов в параметре `config.performanceDiagnostics.statementsSamplingInterval`. Допустимые значения — от `60` до `86400` секунд.
     * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
-
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
     {% note warning %}
 
@@ -74,61 +75,89 @@
 
 ## Получить статистику по сессиям {#get-sessions}
 
-1. В консоли управления перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
+{% list tabs %}
 
-    Для просмотра статистики по сессиям или истории запросов в рамках сессии выберите соответствующую вкладку.
+* Консоль управления
 
-    {% list tabs %}
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
 
-    * {{ ui-key.yacloud.mdb.cluster.diagnostics.view_stats }}
+    Для просмотра статистики по сессиям:
 
-        Для просмотра статистики по сессиям:
+    1. Задайте интересующий временной интервал.
+    1. (Опционально) Настройте фильтры.
+    1. Выберите нужный срез данных.
 
-        1. Задайте интересующий временной интервал.
-        1. (Опционально) Настройте фильтры.
-        1. Выберите нужный срез данных.
+    Чтобы показать или скрыть отдельные категории, нажмите на имя категории в легенде графика.
 
-        Чтобы показать или скрыть отдельные категории, нажмите на имя категории в легенде графика.
+    Для просмотра истории запросов в рамках сессии:
 
-    * {{ ui-key.yacloud.mdb.cluster.diagnostics.view_at_time }}
+    1. Задайте интересующий временной интервал.
+    1. (Опционально) Настройте фильтры.
 
-        Для просмотра истории запросов в рамках сессии:
+* API
 
-        1. Задайте интересующий временной интервал.
-        1. (Опционально) Настройте фильтры.
+    Чтобы получить статистику по сессиям, воспользуйтесь вызовом gRPC API [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/perf_diag_service#ListRawSessionStates) и передайте в запросе:
 
-    {% endlist %}
+    * Идентификатор кластера в параметре `cluster_id`.
+
+        Идентификатор можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    * Период, за который надо запросить данные:
+
+        * начало периода в параметре `from_time`;
+        * конец периода в параметре `to_time`.
+
+    * Параметры [пагинации](../../api-design-guide/concepts/pagination.md):
+
+        * максимально допустимое количество результатов на одной странице в параметре `page_size`;
+        * токен предыдущей страницы с результатами для получения следующей страницы в параметре `page_token`.
+
+{% endlist %}
 
 Подробнее про отображаемые сведения см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
 ## Получить статистику по запросам {#get-queries}
 
-1. В консоли управления перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
+{% list tabs %}
 
-    Для просмотра статистики по запросам или сравнения их статистических данных на двух временных интервалах выберите соответствующую вкладку.
+* Консоль управления
 
-    {% list tabs %}
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
 
-    * {{ ui-key.yacloud.mdb.cluster.diagnostics.queries-view_interval }}
+    Для просмотра статистики запросов за интервал:
 
-        Для просмотра статистики запросов:
+    1. Выберите интересующий временной интервал.
+    1. (Опционально) Настройте фильтры.
 
-        1. Выберите интересующий временной интервал.
-        1. (Опционально) Настройте фильтры.
+    Чтобы получить сведения об относительном изменении статистических характеристик запросов:
 
-    * {{ ui-key.yacloud.mdb.cluster.diagnostics.queries-view_two_intervals }}
+    1. В поле **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-first }}** выберите временной интервал, статистика за который будет основой для расчетов.
+    1. В поле **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** выберите временной интервал, статистика за который будет сравниваться со статистикой первого интервала.
+    1. (Опционально) Настройте фильтры.
 
-        Чтобы получить сведения об относительном изменении статистических характеристик запросов:
+    Например, пусть в первом интервале было выполнено 10 запросов `SELECT * FROM cities`, а во втором — 20. Тогда при сравнении статистических данных разница по метрике <q>количество запросов</q> (столбец `Calls` в таблице) будет равняться `+100%`.
 
-        1. В поле **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-first }}** выберите временной интервал, статистика за который будет основой для расчетов.
-        1. В поле **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** выберите временной интервал, статистика за который будет сравниваться со статистикой первого интервала.
-        1. (Опционально) Настройте фильтры.
+* API
 
-        Например, пусть в первом интервале было выполнено 10 запросов `SELECT * FROM cities`, а во втором — 20. Тогда при сравнении статистических данных разница по метрике <q>количество запросов</q> (столбец `Calls` в таблице) будет равняться `+100%`.
+    Чтобы получить статистику по запросам, воспользуйтесь вызовом gRPC API [PerformanceDiagnosticsService/ListRawStatements](../api-ref/grpc/perf_diag_service#ListRawStatements) и передайте в запросе:
 
-    {% endlist %}
+    * Идентификатор кластера в параметре `cluster_id`.
+
+        Идентификатор можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    * Период, за который надо запросить данные:
+
+        * начало периода в параметре `from_time`;
+        * конец периода в параметре `to_time`.
+
+    * Параметры [пагинации](../../api-design-guide/concepts/pagination.md):
+
+        * максимально допустимое количество результатов на одной странице в параметре `page_size`;
+        * токен предыдущей страницы с результатами для получения следующей страницы в параметре `page_token`.
+
+{% endlist %}
 
 Подробнее про отображаемые сведения см. в документации расширений [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6) и [pg_stat_kcache](https://pgstats.dev/pg_stat_kcache).
 

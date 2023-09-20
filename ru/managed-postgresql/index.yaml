@@ -13,6 +13,9 @@ description:
     обслуживания Yandex Managed Databases</a>.
 meta:
   title: Yandex Managed Service for PostgreSQL
+  description: >-
+    Managed Service for PostgreSQL помогает разворачивать и поддерживать
+    кластеры серверов PostgreSQL в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

@@ -11,6 +11,9 @@ description:
      for Yandex Vision</a>.
 meta:
   title: Yandex Vision
+  description: >-
+    Yandex Vision is a machine learning-based computer vision service for image
+    analysis.
 links:
   - title: Getting started
     description: Send your image for analysis

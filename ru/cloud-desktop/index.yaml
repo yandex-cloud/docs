@@ -24,6 +24,9 @@ description:
     Protocol</a> (RDP).
 meta:
   title: Yandex Cloud Desktop
+  description: >-
+    Yandex Cloud Desktop — сервис для управления виртуальной инфраструктурой
+    рабочих столов на базе Linux.
 links:
   - title: Начало работы
     description: Создайте рабочий стол и подключитесь к нему

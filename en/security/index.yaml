@@ -5,6 +5,9 @@ description:
     Cloud, complete with practical guidelines and security bulletins.
 meta:
   title: Security in Yandex Cloud
+  description: >-
+    This section is all about how to build secure infrastructure in Yandex
+    Cloud, complete with practical guidelines and security bulletins.
 links:
   - title: Shared responsibility
     description: ''

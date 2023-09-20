@@ -16,6 +16,9 @@ description:
     speechkit-full-name }}</a>.
 meta:
   title: '{{ speechkit-full-name }}'
+  description: >-
+    {{ speechkit-full-name }} enables app developers to use speech recognition
+    (Speech-to-Text) and speech synthesis (Text-to-Speech) technologies.
 links:
   - title: Getting started
     description: Convert text to speech and speech to text

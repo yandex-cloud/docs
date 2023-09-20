@@ -9,6 +9,9 @@ description:
     secure</a> and in compliance with Russian Federal Law 152-FZ.
 meta:
   title: Yandex Resource Manager
+  description: >-
+    Yandex Resource Manager service defines the Yandex Cloud resource model and
+    allows you to use folders to structure your resources.
 links:
   - title: Getting started
     description: Create your first folder

@@ -11,6 +11,9 @@ description:
     countries.</em>
 meta:
   title: Yandex Managed Service for Greenplum®
+  description: >-
+    Yandex Managed Service for Greenplum® enables you to deploy and maintain
+    Greenplum clusters® under the Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create your first cluster

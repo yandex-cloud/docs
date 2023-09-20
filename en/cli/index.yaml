@@ -5,6 +5,9 @@ description:
     resources from the command line.
 meta:
   title: Yandex Cloud CLI
+  description: >-
+    The Yandex Cloud CLI provides downloadable software for managing your cloud
+    resources from the command line.
 links:
   - title: Getting started
     description: Install the CLI and run your first command

@@ -24,6 +24,10 @@ description:
     States and/or other countries.</em>
 meta:
   title: Yandex Managed Service for Apache Kafka®
+  description: >-
+    Managed Service for Apache Kafka® helps you deploy and maintain Apache
+    Kafka® 2.8, 3.0, 3.1, and 3.2 server clusters in the Yandex Cloud
+    infrastructure.
 links:
   - title: Getting started
     description: Create your first cluster

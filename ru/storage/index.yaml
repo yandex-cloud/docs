@@ -34,6 +34,9 @@ nav:
   title: Yandex Object Storage
 meta:
   title: Yandex Object Storage
+  description: >-
+    Сервис Yandex Object Storage — это универсальное масштабируемое решение для
+    хранения данных.
 links:
   - title: Начало работы
     description: Создайте первый бакет и загрузите данные

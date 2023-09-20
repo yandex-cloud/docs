@@ -8,6 +8,9 @@ description:
     automation systems, plugins, and other apps.
 meta:
   title: Yandex Cloud API concepts
+  description: >-
+    Here you can find out about the underlying concepts of the Yandex Cloud API
+    architecture.
   keywords:
     - keyword: API basics
     - keyword: API concepts

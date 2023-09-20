@@ -15,6 +15,9 @@ description:
     обслуживания Yandex Cloud DNS</a>.
 meta:
   title: Yandex Cloud DNS
+  description: >-
+    Yandex Cloud DNS служит для управления зонами DNS и доменными именами ваших
+    ресурсов.
 links:
   - title: Начало работы
     description: Создайте первую зону DNS

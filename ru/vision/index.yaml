@@ -8,6 +8,7 @@ description:
     обслуживания Yandex Vision</a>.
 meta:
   title: Yandex Vision
+  description: Yandex Vision — сервис компьютерного зрения для анализа изображений.
 links:
   - title: Начало работы
     description: Отправьте ваше изображение на анализ

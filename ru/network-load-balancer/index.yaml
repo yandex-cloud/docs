@@ -18,6 +18,10 @@ description:
     обслуживания Yandex Network Load Balancer</a>.
 meta:
   title: Yandex Network Load Balancer
+  description: >-
+    Yandex Network Load Balancer — сервис, который помогает обеспечить
+    отказоустойчивость приложений за счет равномерного распределения сетевой
+    нагрузки по облачным ресурсам.
 links:
   - title: Начало работы
     description: Создайте и настройте первый сетевой балансировщик

@@ -9,6 +9,9 @@ nav:
   title: Yandex Data Streams
 meta:
   title: Yandex Data Streams
+  description: >-
+    Yandex Data Streams is a scalable service that allows you to manage data
+    streams in real time.
 links:
   - title: Getting started
     description: Create a stream, set up data streaming and saving

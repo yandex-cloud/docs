@@ -6,6 +6,10 @@ description:
     creating or maintaining VMs.
 meta:
   title: '{{ serverless-containers-full-name }}'
+  description: >-
+    Yandex Serverless Containers allows you to run containerized applications in
+    a secure, fault-tolerant, and scalable environment without creating or
+    maintaining VMs.
 links:
   - title: Getting started
     description: Prepare a Docker image and create a container

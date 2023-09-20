@@ -15,6 +15,9 @@ description:
     href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>.
 meta:
   title: Yandex Cloud Interconnect
+  description: >-
+    Yandex Cloud Interconnect lets you establish a private dedicated connection
+    between your local network infrastructure and Yandex Cloud.
 links:
   - title: Concepts
     description: Learn about service features

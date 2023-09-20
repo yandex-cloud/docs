@@ -9,6 +9,10 @@ description:
     to Yandex Cloud resources.
 meta:
   title: Yandex Audit Trails
+  description: >-
+    This service collects and uploads audit logs from Yandex Cloud resources,
+    allowing you to use analytical tools to rapidly respond to events occurring
+    to Yandex Cloud resources.
 links:
   - title: Getting started
     description: Connect the service

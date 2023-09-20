@@ -8,6 +8,9 @@ description:
     Marketplace</a>.
 meta:
   title: Yandex Container Solution
+  description: >-
+    Yandex Container Solution provides use cases based on VMs with a Container
+    Optimized Image for running Docker containers.
 links:
   - title: Getting started
     description: Create your first VM from a Container Optimized Image

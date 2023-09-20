@@ -6,6 +6,7 @@ description:
   - Yandex Lockbox is a service for storing secrets.
 meta:
   title: Yandex Lockbox
+  description: Yandex Lockbox is a service for storing secrets.
 links:
   - title: Getting started
     description: Create your first secret

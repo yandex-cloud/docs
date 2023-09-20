@@ -7,10 +7,10 @@ items:
         href: individuals/registration.md
       - name: Шаг 2. Оплата
         href: individuals/payments.md
-      - name: Шаг 3. Выбор тарифного плана
-        href: individuals/service-plan.md
-      - name: Шаг 4. Иерархия ресурсов
+      - name: Шаг 3. Иерархия ресурсов
         href: individuals/resources-hierarchy.md
+      - name: Шаг 4. Выбор тарифного плана
+        href: individuals/service-plan.md
       - name: Шаг 5. Настройка безопасной сетевой конфигурации
         href: individuals/configure-network.md
       - name: Шаг 6. Логирование
@@ -21,10 +21,10 @@ items:
         href: legal-entity/registration.md
       - name: Шаг 2. Оплата
         href: legal-entity/payments.md
-      - name: Шаг 3. Выбор тарифного плана
-        href: legal-entity/service-plan.md
-      - name: Шаг 4. Создание организации
+      - name: Шаг 3. Создание организации
         href: legal-entity/create-organization.md
+      - name: Шаг 4. Выбор тарифного плана
+        href: legal-entity/service-plan.md
       - name: Шаг 5. Управление пользователями
         href: legal-entity/manage-users.md
       - name: Шаг 6. Иерархия ресурсов

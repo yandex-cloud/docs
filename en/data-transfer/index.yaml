@@ -17,6 +17,9 @@ description:
     applications using the source.
 meta:
   title: Yandex Data Transfer
+  description: >-
+    Yandex Data Transfer is designed to logically transfer data between sources
+    and targets.
 links:
   - title: Available transfers
     description: List of supported transfer types

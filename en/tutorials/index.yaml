@@ -5,6 +5,9 @@ description:
     using Yandex Cloud services.
 meta:
   title: Practical guidelines
+  description: >-
+    Detailed step-by-step instructions that will help you handle various tasks
+    using Yandex Cloud services.
 links:
   - title: Web service
     description: Create websites using various CMS and network technologies

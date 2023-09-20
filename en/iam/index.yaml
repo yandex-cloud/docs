@@ -13,6 +13,10 @@ description:
     secure</a> and in compliance with Russian Federal Law 152-FZ.
 meta:
   title: Yandex Identity and Access Management
+  description: >-
+    Yandex Identity and Access Management (IAM) is an identification and access
+    control service that helps you centrally manage user access rights to your
+    Yandex Cloud resources.
 links:
   - title: Getting started
     description: Add a user and assign them a role

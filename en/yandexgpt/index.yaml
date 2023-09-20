@@ -7,6 +7,9 @@ description:
   - "YandexGPT is a Yandex Cloud service allowing you to\_use generative language models in your business applications and web services. This service will be useful for everyone who\_seeks the ways to streamline\_their business\_with machine learning."
 meta:
   title: YandexGPT
+  description: >-
+    YandexGPT is a Yandex Cloud service allowing you to use generative language
+    models in your business applications and web services.
 links:
   - title: Getting started
     description: Send your first request to YandexGPT

@@ -10,6 +10,9 @@ description:
     websites, or on the internet.
 meta:
   title: Search API
+  description: >-
+    Search API is a service that allows you to send requests to the Yandex
+    search database and get responses in XML format.
 links:
   - title: Getting started
     description: Learn how to get started with the service

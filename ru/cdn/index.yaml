@@ -17,6 +17,10 @@ description:
     обслуживания Yandex Cloud CDN</a>.
 meta:
   title: Yandex Cloud CDN
+  description: >-
+    Yandex Cloud CDN позволяет организовать доставку контента до конечных
+    потребителей с помощью сети распространения контента (Content Delivery
+    Network, CDN).
 links:
   - title: Начало работы
     description: Как начать доставлять контент с помощью CDN

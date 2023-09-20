@@ -16,6 +16,9 @@ description:
     CDN</a>.
 meta:
   title: Yandex Cloud CDN
+  description: >-
+    Yandex Cloud CDN lets you organize the delivery of content to your end users
+    using a content delivery network (CDN).
 links:
   - title: Getting started
     description: How to get started with CDN content delivery

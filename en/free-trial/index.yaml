@@ -13,6 +13,9 @@ description:
     free trial or 60 days after it expires with no data loss.
 meta:
   title: Trial period
+  description: >-
+    The free trial lets you get hands-on experience using Yandex Cloud without
+    paying for the resources that you use.
 links:
   - title: How to use the free trial
     description: How to use Yandex Cloud during the trial period and who can access it

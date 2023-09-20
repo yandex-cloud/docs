@@ -15,6 +15,9 @@ meta:
   keywords:
     - keyword: яндекс вики
     - keyword: яндекс база знаний
+  description: >-
+    Yandex Wiki — это база знаний вашей организации, содержимое которой
+    формируют пользователи.
 links:
   - title: Концепции
     description: Узнайте, как организована работа в Wiki

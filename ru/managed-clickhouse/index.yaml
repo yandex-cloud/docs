@@ -30,6 +30,9 @@ description:
     обслуживания Yandex Managed Databases</a>.
 meta:
   title: Yandex Managed Service for ClickHouse
+  description: >-
+    Сервис Managed Service for ClickHouse помогает разворачивать и поддерживать
+    кластеры серверов ClickHouse в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

@@ -10,6 +10,9 @@ description:
     обслуживания Yandex Monitoring</a>.
 meta:
   title: Yandex Monitoring
+  description: >-
+    Yandex Monitoring позволяет собирать и хранить метрики, а также отображать
+    их в виде графиков на дашбордах.
 links:
   - title: Начало работы
     description: Начните отслеживание ваших метрик

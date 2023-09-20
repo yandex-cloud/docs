@@ -3378,6 +3378,9 @@ default:
           simple_form-button-text: Submit
     startrek-backend:
       applinks:
+        otrs:
+          status:
+            closed: Closed
         samsara:
           resolution:
             duplicate: Duplicate
@@ -3399,6 +3402,9 @@ default:
           default:
             filter:
               name: All queue issues
+      events:
+        event:
+          IssueCreated: ' Issue Created'
       fields:
         issue:
           access: Access
@@ -3406,6 +3412,7 @@ default:
           assignee-key-value: Assignee
           author-key-value: Author
           boards: Boards
+          checklistItems: Checklist
           commentWithExternalMessageCount: Number of comments with message
           commentWithoutExternalMessageCount: Number of comments without message
           commits-key-value: Commits
@@ -3555,6 +3562,8 @@ default:
                     type: Queue team responded
         trigger:
           condition:
+            field:
+              checklist: Checklist
             type:
               and: AND
               calculate:
@@ -3568,6 +3577,7 @@ default:
                 update: Issue changed
               fieldBecameEqual: became equal to
               fieldBecameNotEmpty: Field value set.
+              fieldChangedCondition: Field value changed
               fieldEquals: is equal to
               fieldIsEmpty: Field value is empty
               or: Or
@@ -3676,6 +3686,7 @@ default:
                 comment: Add comment
                 issue: Create issue
               duty: Get duty
+              transition: Change issue status
     startrek:
       blocks_touch_b-related-issues:
         delete: Delete link
@@ -3829,10 +3840,15 @@ default:
       blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor:
         action_add-action: Add new action
         action_add-condition: Add condition
+        action_save: Save
         filter-type--query: Query
+        label_actions: Issue actions
         label_filter: Filter settings
+        label_name: Name
+        label_time: Update once per
         type-toggle--create: Create issues
         type-toggle--update: Update issues
+        type-toggle-label: Type of auto action
       blocks-desktop_b-page-queue-admin-tab_type_autoactions:
         button-create: Create auto action
         title: Auto actions
@@ -3848,8 +3864,13 @@ default:
         field--allow-external-mailing: Allow to send emails outside of the intranet
         field--allow-externals: Allow access for externals
         field--default-priority: Default priority of issues
+        issue-types-config--title--resolutions: 'Resolutions:'
+        issue-types-config--title--type: 'Issue type:'
+        issue-types-config--title--workflow: 'Workflow:'
       blocks-desktop_b-page-queue-admin-tab_type_form-editor:
         create-btn: Create
+        edit-btn: Save
+        form-link-label: Link to the form
       blocks-desktop_b-page-queue-admin-tab_type_forms:
         add-btn: Add form
       blocks-desktop_b-page-queue-admin-tab_type_macro-editor:
@@ -3893,6 +3914,7 @@ default:
         action_save: Save
         label_actions: Actions
         label_conditions: Trigger conditions
+        label_name: Name
       blocks-desktop_b-page-queue-admin-tab_type_triggers:
         bulk-move-button: Change trigger order
         button-create: Create trigger
@@ -4014,6 +4036,7 @@ default:
       blocks-desktop_calendar-editor--working-time-select:
         option--daily24x7: Round the clock
       blocks-desktop_comment-form:
+        invite_to_comment: Invite to comment
         save: Save
         send: Submit
       blocks-desktop_comment:
@@ -4085,6 +4108,7 @@ default:
       blocks-desktop_issues-filter-save-modal:
         action_submit: Save
       blocks-desktop_issues-filter-update-modal:
+        access-rights: Access control
         access-rights--read: View
         access-rights--share: Add to shared folder
         access-rights--write: Edit
@@ -4137,6 +4161,8 @@ default:
       blocks-desktop_page-agile-boards:
         create: Create board
         filter-type--favorite: Favorites
+      blocks-desktop_queue-access-msg-modal:
+        add-button: Save
       blocks-desktop_queue-new-presets:
         category--business: Creating products and services
         category--development: Development
@@ -4165,6 +4191,7 @@ default:
         preset-title--development-preset: Basic development model
         preset-title--kanban-development-preset: Kanban
         preset-title--outsource-development-preset: Software development as a service
+        preset-title--quick-start-preset: Start now
         preset-title--scrum-development-preset: Scrum
         preset-title--tiered-support-preset: Multi-tiered support
       blocks-desktop_repository-modal:
@@ -4213,6 +4240,9 @@ default:
         field--author: Reporter
         field--followers: Followers
         field--resolution: Resolution
+      blocks-desktop_st-gantt-issue-update-modal:
+        label:
+          due-date: Deadline
       blocks-desktop_st-tokens-chooser:
         choose-from-list-button: Choose colors
       blocks-desktop_trigger-action:
@@ -4343,6 +4373,9 @@ default:
         every-week: Every
         every-work-day: Every work day
       components_QueuePresetOnboarding:
+        preset-name--hr-preset: HR processes
+        preset-name--hrProcesses: Personnel management
+        preset-name--recruitment-preset: Recruitment
         preset-name--scrum-development-preset: Scrum
       lib_goals-info:
         status--BLOCKED: Blocked
@@ -4652,7 +4685,7 @@ default:
         filter-items-link: Full list of filtered issues
         search-input-placeholder: Search by issue name
       ui_components_NavigationBar_ProjectsPanel:
-        all-projects-link: All projects
+        all-projects-link: All portfolios and projects
       ui_components_NavigationBar:
         appearance-title: Interface
         boards: Boards
@@ -4692,6 +4725,7 @@ default:
         access-level_read_only: Read
         title_access: Access to Tracker
       ui_components_page-admin_PageAdmin:
+        access-and-payment: Access and payment
         menu-item-groups: Groups
         menu-item-issue-statuses: Issue statuses
         menu-item-orgs: Organizations
@@ -4737,8 +4771,11 @@ default:
         remove-queue-action: Delete queue
       ui_components_page-queue-admin_QueueAdminPageContent:
         menu-item-aliases: Mailboxes
+        menu-item-autoactions: Auto actions
         menu-item-calendars: Schedules
+        menu-item-forms: Form integration
         menu-item-timetracking: Time tracking
+        menu-item-types: Issue types
         menu-item-workflows: Workflows
       ui_components_page-queue-admin_Signature:
         alias-title: Alias
@@ -4756,6 +4793,7 @@ default:
         create-new-template: Create new form
         description-placeholder: Add a description of the issue so the assignee knows what to do
         switch-to-admin-panel: Switch to admin panel
+        try-yandex-forms: Try Yandex Forms for creating issues
       ui_components_PageCreateIssueForm:
         continue: Continue
       ui_components_PageHiThere:
@@ -4843,6 +4881,8 @@ default:
         meta-status-title: Allow transitions from any status
         settings-comment: Changing the status when commenting
         transitions-title: Transitions
+      ui_components_queue-admin-tab-workflows_StatusTypesDialog:
+        apply-button: Apply
       ui_components_queue-admin-tab-workflows_StatusTypeSelector:
         status-canceled-name: Canceled
       ui_components_queue-admin-tab-workflows_TransitionEdit:
@@ -6287,7 +6327,7 @@ default:
             label_load-testing: Load Testing
             label_lockbox: Lockbox
             label_logging: Cloud Logging
-            label_managed-airflow: Managed Service for Apache Airflow™
+            label_managed-airflow: Managed Service for&nbsp;Apache&nbsp;Airflow™
             label_managed-clickhouse: Managed Service for ClickHouse
             label_managed-elasticsearch: Managed Service for Elasticsearch
             label_managed-gitlab: Managed Service for GitLab
@@ -6589,10 +6629,6 @@ default:
             label_profiling: Profiling
             label_queries: Queries
             label_sessions: Sessions
-            queries-view_interval: Interval
-            queries-view_two_intervals: 2 Intervals
-            view_at_time: History
-            view_stats: Statistics
           dictionaries:
             button_action-delete: Delete dictionary
             button_submit: Save
@@ -8794,9 +8830,8 @@ default:
         tag: 7.16.3-5
     yc_fluent-bit:
       helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit-cloud-logging
-        tag: 1.0-9
+        name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
+        tag: 2.1.7-1
     yc_gateway-api:
       helmChart:
         name: >-

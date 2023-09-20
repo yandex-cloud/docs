@@ -18,6 +18,9 @@ description:
     обслуживания Yandex Translate</a>.
 meta:
   title: Yandex Translate
+  description: >-
+    Сервис для интеграции алгоритмов Яндекс&#160;Переводчика в приложения или
+    веб-проекты для конечных пользователей.
 links:
   - title: Начало работы
     description: Переведите ваш текст

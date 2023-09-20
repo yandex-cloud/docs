@@ -10,6 +10,9 @@ description:
     данных» № 152-ФЗ.
 meta:
   title: Yandex Resource Manager
+  description: >-
+    Сервис Yandex Resource Manager определяет ресурсную модель Yandex Cloud и
+    позволяет структурировать ресурсы с помощью каталогов.
 links:
   - title: Начало работы
     description: Создайте первый каталог

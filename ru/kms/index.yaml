@@ -11,6 +11,10 @@ description:
     обслуживания Yandex Key Management Service</a>.
 meta:
   title: Yandex Key Management Service
+  description: >-
+    Yandex Key Management Service — сервис для создания и управления ключами
+    шифрования, которые можно использовать для защиты данных в инфраструктуре
+    Yandex Cloud, а также шифрования и расшифровки любых ваших данных.
 links:
   - title: Начало работы
     description: Зашифруйте и расшифруйте текст ключом KMS

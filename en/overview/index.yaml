@@ -12,6 +12,10 @@ description:
     Federal Law 152-FZ.
 meta:
   title: Yandex Cloud overview
+  description: >-
+    Yandex Cloud is a full-fledged cloud platform that makes it easy for you to
+    securely get as much computing power as you need, to supplement your
+    on-premise facilities or to replace them.
 links:
   - title: Yandex Cloud services
     description: ''

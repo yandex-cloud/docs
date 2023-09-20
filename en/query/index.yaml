@@ -11,6 +11,10 @@ nav:
   title: Yandex Query
 meta:
   title: Yandex Query
+  description: >-
+    Yandex Query is an interactive fully managed service designed for data
+    engineers and analysts to run real-time analytical and streaming queries to
+    structured and partially structured data using a common SQL dialect.
 links:
   - title: Concepts
     description: Learn about service concepts and features

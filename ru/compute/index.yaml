@@ -25,6 +25,9 @@ description:
     обслуживания Yandex Compute Cloud</a>.
 meta:
   title: Yandex Compute Cloud
+  description: >-
+    Сервис Yandex Compute Cloud предоставляет масштабируемые вычислительные
+    мощности для создания виртуальных машин и управления ими.
 links:
   - title: Начало работы
     description: Создайте первую виртуальную машину или группу ВМ

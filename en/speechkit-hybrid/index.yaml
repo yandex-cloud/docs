@@ -10,6 +10,9 @@ description:
     anytime for free.
 meta:
   title: Yandex SpeechKit Hybrid
+  description: >-
+    SpeechKit Hybrid are the Yandex SpeechKit technologies running in your
+    infrastructure.
 links:
   - title: System requirements
     description: Find out the system requirements for SpeechKit Hybrid
