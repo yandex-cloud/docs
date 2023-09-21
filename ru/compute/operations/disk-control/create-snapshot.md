@@ -53,7 +53,7 @@ _Снимок диска_ — это копия файловой системы 
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
   1. В строке с диском нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
-  1. Введите имя снимка:
+  1. Введите имя снимка. Требования к имени:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -86,6 +86,8 @@ _Снимок диска_ — это копия файловой системы 
       ```
 
       В результате будет создан снимок диска с именем `first-snapshot` и описанием `my first snapshot via CLI`.
+
+      Требования к имени снимка:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 

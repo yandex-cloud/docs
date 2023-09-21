@@ -14,17 +14,17 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the name of the desired resource.
+   1. Click the resource name.
 
-   1. Go to the **Content** tab.
+   1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
-   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
+   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
 
-   1. In the **gzip compression** field, enable **Compress files**.
+   1. In the **{{ ui-key.yacloud.cdn.label_resource-content-gzip-on }}** field, enable the **{{ ui-key.yacloud.cdn.label_resource-content-compress-true }}** option.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -133,13 +133,13 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
 
       Where:
 
-      * `cname`: Primary domain name used for content distribution. This parameter is required.
-      * `active`: Flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, the default value is `true`.
+      * `cname`: Primary domain name used for content distribution. This is a required parameter.
+      * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. This is an optional parameter, the default value is `true`.
       * `origin_protocol`: Origin protocol. This is an optional parameter.
       * `secondary_hostnames`: Additional domain names. This is an optional parameter.
-      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This parameter is required. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
+      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
-         * `gzip_on`: Flag that indicates whether compression will be used.
+         * `gzip_on`: Flag indicating whether compression will be used.
 
       For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
@@ -161,7 +161,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

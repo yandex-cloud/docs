@@ -8,15 +8,15 @@ You can stop a resource by disabling end-user access to the content. To do this:
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the name of the desired resource.
+   1. Click the resource name.
 
-   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
+   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
 
-   1. Under **Additional**, disable **End user access to content**.
+   1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, disable the **{{ ui-key.yacloud.cdn.label_access }}** option.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -131,7 +131,7 @@ You can stop a resource by disabling end-user access to the content. To do this:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

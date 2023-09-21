@@ -99,7 +99,7 @@
 - Консоль управления
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Виртуальная машина**.
-  1. В поле **Имя** введите имя ВМ — `lamp-vm` или `lemp-vm`.
+  1. В поле **Имя** введите имя ВМ: `lamp-vm` или `lemp-vm`. Требования к имени:
 
      {% include [name-format](../../_includes/name-format.md) %}
 

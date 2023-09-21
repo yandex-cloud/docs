@@ -10,7 +10,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
-  1. Введите имя диска.
+  1. Введите имя диска. Требования к имени:
   
       {% include [name-format](../../../_includes/name-format.md) %}
   
@@ -47,6 +47,8 @@
       ```
   
       Данная команда создаст диск размером 10 ГБ с именем `first-disk` и описанием `my first disk via yc`.
+
+      Требования к имени диска:
   
       {% include [name-format](../../../_includes/name-format.md) %}
   

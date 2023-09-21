@@ -1,6 +1,8 @@
 # Connecting {{ compute-name }} VMs to {{ backup-name }}
 
-If you want to back up your [{{ compute-full-name }}](../../compute/) [VM](../../compute/concepts/vm.md) using {{ backup-name }}, you need to connect it to this service and set it up properly.
+{% include [ask-for-turning-on](../../_includes/backup/ask-for-turning-on.md) %}
+
+To back up your [{{ compute-full-name }}](../../compute/) [VM](../../compute/concepts/vm.md) using {{ backup-name }}, you need to connect it to this service and set it up properly.
 
 To connect your VM to {{ backup-name }}, make sure it has one of the [supported operating systems](#os) installed: Linux (CentOS, Ubuntu) or Windows Server. You can connect existing Linux and Windows Server VMs or create a Linux VM with a connection to {{ backup-name }}. For more information on connecting VMs, see [this guide](../operations/index.md#connect-vm).
 
@@ -45,12 +47,12 @@ For your VM instance to be able to exchange data with the backup provider server
 
 - Outgoing traffic
 
-   | Port range | Protocol | Destination type | Purpose |
-   | --- | --- | --- | --- |
-   | 443 | TCP | CIDR | 193.32.199.0/24 |
-   | 7770-7800 | TCP | CIDR | 193.32.199.0/24 |
-   | 43234 | TCP | CIDR | 193.32.199.0/24 |
-   | 45284 | TCP | CIDR | 193.32.199.0/24 |
+  | Port range | Protocol | Destination type | Purpose |
+  | --- | --- | --- | --- |
+  | 443 | TCP | CIDR | 193.32.199.0/24 |
+  | 7770-7800 | TCP | CIDR | 193.32.199.0/24 |
+  | 43234 | TCP | CIDR | 193.32.199.0/24 |
+  | 45284 | TCP | CIDR | 193.32.199.0/24 |
 
 {% endlist %}
 

@@ -111,7 +111,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * **Timeout, sec**: `60`.
    * **RAM**: `1024`.
    * **Environment variables**:
-      * `TRACKER_ORG_ID`: [Organization ID](https://tracker.yandex.ru/admin/orgs).
+      * `TRACKER_ORG_ID`: {{ ya-360 }} organization ID.
+
+         {% note info "Note" %}
+
+         If you are using a {{ org-full-name }} organization (you can check this on the [administration page](https://tracker.yandex.com/admin/orgs)), replace the `X-Org-ID` header with `X-Cloud-Org-Id` in the `tracker_import.py` function code.
+
+         {% endnote %}
+
       * `TRACKER_OAUTH_TOKEN`: [OAuth token](#oauth-token) of the {{ tracker-short-name }} account.
       * `CH_HOST`: [Host](#database-create) name.
       * `CH_DB`: [Database](#database-create) name.

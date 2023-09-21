@@ -1,5 +1,13 @@
 # Creating a color palette
 
+
+{% note warning %}
+
+To create a palette, the user needs the [admin](../../security/roles.md#datalens-admin) role for a {{ datalens-short-name }} instance.
+
+{% endnote %}
+
+
 To create a color palette:
 
 1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).

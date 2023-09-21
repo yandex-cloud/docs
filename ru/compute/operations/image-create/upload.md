@@ -46,7 +46,7 @@ keywords:
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/compute/image-pic.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.images.button_upload }}**.
-  1. Введите имя образа.
+  1. Введите имя образа. Требования к имени:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 

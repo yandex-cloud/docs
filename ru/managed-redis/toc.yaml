@@ -15,6 +15,8 @@ items:
             href: operations/cluster-create.md
           - name: Изменение настроек кластера
             href: operations/update.md
+          - name: Обновление версии {{ RD }}
+            href: operations/cluster-version-update.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
           - name: Управление хостами кластера

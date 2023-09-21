@@ -10,7 +10,7 @@
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать облачную сеть.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети:
+  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 	  
@@ -39,9 +39,11 @@
         --description "My test network"
       ```
 
-      {% include [name-format](../../_includes/name-format.md) %}
-
       Флаги `--name` и `--description` необязательные — можно создать сеть без имени и описания и обращаться к ней по идентификатору.
+
+      Требования к названию сети:
+
+      {% include [name-format](../../_includes/name-format.md) %}
 
   1. Получите список всех облачных сетей в каталоге по умолчанию:
 
@@ -91,7 +93,7 @@
 
   1. Опишите в конфигурационном файле параметры облачной сети:
 
-     * `name` — имя облачной сети. Формат имени:
+     * `name` — имя облачной сети. Требования к нему:
 
         {% include [name-format](../../_includes/name-format.md) %}
 

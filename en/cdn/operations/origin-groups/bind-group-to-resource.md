@@ -1,6 +1,6 @@
 # Connecting an origin group to a resource
 
-To connect an [origin group](../../concepts/origins.md#groups) to the [resource](../../concepts/resource.md), under **Content**, select **Origin group** when [creating](../resources/create-resource.md) or [updating resource settings](../resources/configure-basics.md).
+To connect an [origin group](../../concepts/origins.md#groups) to a [resource](../../concepts/resource.md), under **{{ ui-key.yacloud.cdn.label_section-content }}**, select the appropriate **Origin group** when [creating](../resources/create-resource.md) or [updating resource settings](../resources/configure-basics.md).
 
 ## Connecting an origin group when creating a resource {#connect-while-creating}
 
@@ -10,17 +10,17 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click **Create resource**.
+   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 
-   1. Under **Content**, select `From origin group` in the **Content query** field.
+   1. Under **{{ ui-key.yacloud.cdn.label_section-content }}**, select `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}` in the **{{ ui-key.yacloud.cdn.label_content-query-type }}** field.
 
    1. Select an origin group.
 
    1. Specify the other resource settings. For more information, see [{#T}](../resources/create-resource.md).
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -174,7 +174,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
 - API
 
-   To add a source group when creating a resource, use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create) gRPC API call.
+   To add an origin group when creating a resource, use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/resource_service.md#Create) gRPC API call.
 
 {% endlist %}
 
@@ -186,17 +186,17 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the name of the desired resource.
+   1. Click the resource name.
 
-   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
+   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
 
    1. Select an origin group.
 
    1. Enter the other resource settings if needed. For more information, see [{#T}](../resources/configure-basics.md).
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -361,7 +361,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
 - API
 
-   To add a source group when editing resource settings, use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
+   To add an origin group when editing resource settings, use the [update](../../api-ref/Resource/update.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Update](../../api-ref/grpc/resource_service.md#Update) gRPC API call.
 
 {% endlist %}
 

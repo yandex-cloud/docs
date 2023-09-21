@@ -27,3 +27,6 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+  - title: API reference
+    description: Description of HTTP API methods
+    href: backup/api-ref/

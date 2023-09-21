@@ -14,7 +14,7 @@
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**.
   1. Напротив расписания, которое нужно изменить, нажмите ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры расписания снимков:
-      * **{{ ui-key.yacloud.common.name }}**:
+      * **{{ ui-key.yacloud.common.name }}**. Требования к нему:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 

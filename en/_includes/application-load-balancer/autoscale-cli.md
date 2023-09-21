@@ -19,7 +19,7 @@
 
    You can set one or both parameters in the command.
 
-   Example:
+   For example:
 
    ```bash
    yc alb load-balancer autoscale test-balancer2 \
@@ -29,17 +29,17 @@
 
    Result:
 
-   ```yaml
-   id: a5d88ep483cmbfm.....
+   ```text
+   id: a5d88ep483cm********
    name: test-balancer2
-   folder_id: aoe197919j8elpe.....
+   folder_id: aoe197919j8e********
    status: ACTIVE
    region_id: {{ region-id }}
-   network_id: c64l1c06d15178s.....
+   network_id: c64l1c06d151********
    allocation_policy:
      locations:
        - zone_id: {{ region-id }}-a
-         subnet_id: buc4gsmpj8hvram.....
+         subnet_id: buc4gsmpj8hv********
    created_at: "2022-06-02T12:12:13.624832586Z"
    auto_scale_policy:
      min_zone_size: 3

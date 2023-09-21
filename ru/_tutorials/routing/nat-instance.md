@@ -153,7 +153,7 @@ _NAT-инстанс_ — специальная виртуальная маши�
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. На панели слева выберите ![route-tables](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-      1. В поле **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** задайте имя таблицы маршрутизации, например `nat-instance-route`.
+      1. В поле **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** задайте имя таблицы маршрутизации, например `nat-instance-route`. Требования к имени:
 
          {% include [name-format](../../_includes/name-format.md) %}
 

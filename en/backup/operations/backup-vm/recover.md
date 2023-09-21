@@ -58,6 +58,10 @@ If the current VM is down, [create](../#connect-vm) a new one with a connection 
 
       For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/backup/recover.md).
 
+- API
+
+   To restore a VM from a backup, use the [startRecovery](../../backup/api-ref/Backup/startRecovery.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/StartRecovery](../../backup/api-ref/grpc/backup_service.md#StartRecovery) gRPC API call.
+
 {% endlist %}
 
 #### See also {#see-also}

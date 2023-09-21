@@ -17,23 +17,23 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
    ```bash
    yc iam key create \
-     --service-account-name <name of service account for Ingress controller> \
+     --service-account-name <name_of_service_account_for_Ingress_controller> \
      --format=json > sa-key.json
    ```
 
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the folder page and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired cluster and select the **{{ marketplace-short-name }}** ![Marketplace](../../_assets/marketplace.svg) tab.
-1. Under **Applications available for installation**, select [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) and click **Use**.
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the cluster name and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** ![Marketplace](../../_assets/marketplace.svg) tab.
+1. Under **Applications available for installation**, select [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../managed-kubernetes/concepts/index.md#namespace) or create a new one.
    * **Application name**: Enter an application name.
    * **Folder ID**: Specify a [folder ID](../../resource-manager/operations/folder/get-id.md).
    * **Cluster ID**: Specify a [cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
-   * **Secret Key**: Paste the contents of the `sa-key.json` file.
-1. Click **Install**.
+   * **Service account key**: Paste the contents of the `sa-key.json` file.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 
 
 ## Installation using a Helm chart {#install-alb-helm}
@@ -58,20 +58,17 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart \
-     --version <Helm chart version> \
+   helm pull oci://{{ mkt-k8s-key.yc_alb-ingress-controller.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_alb-ingress-controller.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     --set folderId=<folder ID> \
-     --set clusterId=<cluster ID> \
+     --set folderId=<folder_ID> \
+     --set clusterId=<cluster_ID> \
      --set-file saKeySecretKey=sa-key.json \
      yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
    ```
-
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/alb-ingress-controller#docker-images).
-
 
 
 ## See also {#see-also}
@@ -79,7 +76,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 * [Description of Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in the {{ k8s }} documentation.
 
 
-* [Practical guideline for configuring the {{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+* [Manual for configuring the {{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 
 
 * [Reference for the {{ alb-name }} Ingress controller](../../application-load-balancer/k8s-ref/index.md).

@@ -6,19 +6,19 @@ To create an HTTP router and add a route to it:
 
 - Management console
 
-   1. In the left menu, select **HTTP routers**.
-   1. Click **Create HTTP router**.
+   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
    1. Enter the router name.
-   1. Under **Virtual hosts**, click **Add virtual host**.
-   1. Enter the **Name**.
-   1. In the **Authority** field, specify the `*` or IP address of the load balancer
-   1. Click **Add route** and select `gRPC` as a **Type**.
-      1. Enter the **Name**.
-      1. Under **FQMN**, select one of the options:
+   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+   1. Enter **{{ ui-key.yacloud.common.name }}**.
+   1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, type `*` or specify the IP address of the load balancer.
+   1. Click **{{ ui-key.yacloud.alb.button_add-route }}** and select **{{ ui-key.yacloud.alb.label_route-type }}**: `{{ ui-key.yacloud.alb.label_proto-grpc }}`.
+      1. Enter **{{ ui-key.yacloud.common.name }}**.
+      1. Under **{{ ui-key.yacloud.alb.label_fqmn }}**, select one of the options:
 
-         * `Starts with` to route all requests starting with a specific FQMN. In the input field, specify the `/<first_word_in_service_name>`, e.g., `/helloworld`.
-         * `Matches` to route all requests that match the specified FQMN.
-         * `Regular expression` to route all requests that match a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
+         * `{{ ui-key.yacloud.alb.label_match-prefix }}` to route all requests starting with a specific FQMN. In the input field, specify the `/<first_word_in_service_name>`, e.g., `/helloworld`.
+         * `{{ ui-key.yacloud.alb.label_match-exact }}` to route all requests that match the specified FQMN.
+         * `{{ ui-key.yacloud.alb.label_match-regex }}` to route all requests that match a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
 
          {% note warning %}
 
@@ -26,25 +26,25 @@ To create an HTTP router and add a route to it:
 
          {% endnote %}
 
-      1. In the **Action** field, select one of the options: `Routing` or `Response`. Depending on the selected option:
+      1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, select one of the options: `{{ ui-key.yacloud.alb.label_route-action-route }}` or `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`. Depending on the selected option:
 
-         * `Routing`:
+         * `{{ ui-key.yacloud.alb.label_route-action-route }}`:
 
-            * In the **Backend group**, select the backend group name from the same folder where you create the router.
-            * (Optional) In the **Host header rewrite** field, select one of the options:
+            * In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select the backend group name from the same folder where you create the router.
+            * (Optional) In the **{{ ui-key.yacloud.alb.label_host-rewrite }}** field, select one of the options:
 
                * `none`: Do not rewrite.
                * `rewrite`: Rewrite the header to the specified value.
-               * `auto`: Automatically rewrite the header to the target VM's address.
+               * `auto`: Automatically rewrite the header to the target VM address.
 
-            * (Optional) In the **Timeout, sec** field, specify the maximum connection time.
-            * (Optional) In the **Idle timeout, sec** field, specify the maximum connection keep-alive time without data transmission.
+            * (Optional) In the **{{ ui-key.yacloud.alb.label_timeout }}** field, specify the maximum connection time.
+            * (Optional) In the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the maximum connection keep-alive time without data transmission.
 
-         * `Response`:
+         * `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`:
 
-            * In the **gRPC status code** field, select the code to be used for response.
+            * In the **{{ ui-key.yacloud.alb.label_grpc-status-code }}** field, select the code to be used for response.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -201,14 +201,14 @@ To create an HTTP router and add a route to it:
 
       For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-      * [Yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource.
-      * [Yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource.
+      * [Yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource
+      * [Yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource
 
    1. Create resources
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check if the resources are there and properly configured either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc alb http-router get <HTTP_router_name>

@@ -8,17 +8,17 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the name of the desired resource.
+   1. Click the resource name.
 
-   1. Go to the **Content** tab.
+   1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
-   1. At the top right, click ![image](../../../_assets/pencil.svg) **Edit**.
+   1. At the top right, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
 
-   1. In the **Segmentation of large files** field, enable **Optimize delivery**.
+   1. In the **{{ ui-key.yacloud.cdn.label_resource-content-slice }}** field, enable the **{{ ui-key.yacloud.cdn.label_resource-content-optimize-true }}** option.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -128,13 +128,13 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
       Where:
 
-      * `cname`: Primary domain name used for content distribution. This parameter is required.
-      * `active`: Flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, the default value is `true`.
-      * `origin_protocol`: Origin protocol. Optional parameter, the default value is `http`.
+      * `cname`: Primary domain name used for content distribution. This is a required parameter.
+      * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. This is an optional parameter, the default value is `true`.
+      * `origin_protocol`: Origin protocol. This is an optional parameter, the default value is `http`.
       * `secondary_hostnames`: Additional domain names. This is an optional parameter.
-      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This parameter is required. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
+      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
-         * `slice`: Flag that indicates whether segmentation will be used. Optional parameter, the default value is `false`.
+         * `slice`: Flag indicating whether segmentation will be used. This is an optional parameter, the default value is `false`.
 
       For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
@@ -156,7 +156,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

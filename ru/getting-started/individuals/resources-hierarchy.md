@@ -28,6 +28,8 @@
               --name new-folder
           ```
 
+          Требования к имени каталога:
+
           {% include [name-format](../../_includes/name-format.md) %}
 
       * с именем и описанием:
@@ -106,6 +108,8 @@
       ```
 
       Команда переименует каталог `default` в `myfolder` и обновит его описание.
+
+      Требования к имени каталога:
 
       {% include [name-format](../../_includes/name-format.md) %}
 

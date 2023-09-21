@@ -7,55 +7,55 @@ To create an HTTP router and add a route to it:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to create an HTTP router in.
-   1. In the list of services, select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/router.svg) **HTTP routers**.
-   1. Click **Create HTTP router**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
    1. Enter the router name.
-   1. Under **Virtual hosts**, click **Add virtual host**.
+   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
    1. Enter the host name.
-   1. Click **Add route**.
-   1. Enter the route **Name**.
-   1. In the **Path** field, select one of the options:
+   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
+   1. Enter the route **{{ ui-key.yacloud.common.name }}**.
+   1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select one of the options:
 
-      * `Matches` and specify the path `/` to route all requests that match the specified path.
-      * `Starts with` to route all requests with a specific beginning.
-      * `Regular expression` to route all requests that match a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
+      * `{{ ui-key.yacloud.alb.label_match-exact }}` and specify the path `/` to route all requests that match the specified path.
+      * `{{ ui-key.yacloud.alb.label_match-prefix }}` to route all requests with a specific beginning.
+      * `{{ ui-key.yacloud.alb.label_match-regex }}` to route all requests that match a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
 
-   1. In the **HTTP methods** list, select the required methods.
-   1. In the **Action** field, select one of the options: `Routing`, `Forward`, or `Response`. Depending on the selected option:
+   1. In the **{{ ui-key.yacloud.alb.label_http-methods }}** list, select the required methods.
+   1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, select one of the options: `{{ ui-key.yacloud.alb.label_route-action-route }}`, `{{ ui-key.yacloud.alb.label_route-action-redirect }}`, or `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`. Depending on the selected option:
 
-      * `Routing`:
+      * `{{ ui-key.yacloud.alb.label_route-action-route }}`:
 
-         * In the **Backend group** field, select the backend group name from the same folder where you create the router.
-         * (Optional) In the **Rewrite path or start** field, specify where the router should redirect traffic. If you select `Matches` in the **Path** field, the path will be completely rewritten. If you select `Starts with`, only the start will be rewritten.
-         * (Optional) In the **Host header rewrite** field, select one of the options:
+         * In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select the backend group name from the same folder where you create the router.
+         * (Optional) In the **{{ ui-key.yacloud.alb.label_prefix-rewrite }}** field, specify where the router should redirect traffic. If you select `{{ ui-key.yacloud.alb.label_match-exact }}` in the **{{ ui-key.yacloud.alb.label_path }}** field, the path will be completely rewritten. If you select `{{ ui-key.yacloud.alb.label_match-prefix }}`, only the beginning will be rewritten.
+         * (Optional) In the **{{ ui-key.yacloud.alb.label_host-rewrite }}** field, select one of the options:
 
             * `none`: Do not rewrite.
             * `rewrite`: Rewrite the header to the specified value.
-            * `auto`: Automatically rewrite the header to the target VM's address.
-         * (Optional) In the **Timeout, sec** field, specify the maximum connection time.
-         * (Optional) In the **Idle timeout, sec** field, specify the maximum connection keep-alive time without data transmission.
-         * (Optional) In the **Valid values for the Upgrade header** field, list the protocols the backend group can switch to within a TCP connection on the client's request.
-         * (Optional) Select **WebSocket** if you want to use the WebSocket protocol.
+            * `auto`: Automatically rewrite the header to the target VM address.
+         * (Optional) In the **{{ ui-key.yacloud.alb.label_timeout }}** field, specify the maximum connection time.
+         * (Optional) In the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the maximum connection keep-alive time without data transmission.
+         * (Optional) In the **{{ ui-key.yacloud.alb.label_upgrade-types }}** field, list the protocols the backend group can switch to within a TCP connection on the client's request.
+         * (Optional) Select **{{ ui-key.yacloud.alb.label_web-socket }}** if you want to use the WebSocket protocol.
 
-      * `Forwarding`:
+      * `{{ ui-key.yacloud.alb.label_route-action-redirect }}`:
 
-         * In the **HTTP status code** field, select the code to be used for forwarding.
-         * (Optional) In the **Rewrite path or start** field, specify where the router should redirect traffic. If you select `Matches` in the **Path** field, the path will be completely rewritten. If you select `Starts with`, only the start will be rewritten.
-         * (Optional) Select the **Delete query parameters** option.
-         * (Optional) Select the **Replace scheme** option.
-         * (Optional) Select the **Replace host** option and specify a new host.
-         * (Optional) Select the **Replace port** option and specify a new port.
+         * In the **{{ ui-key.yacloud.alb.label_http-status-code }}** field, select the code to be used for forwarding.
+         * (Optional) In the **{{ ui-key.yacloud.alb.label_replace }}** field, specify where the router should redirect traffic. If you select `{{ ui-key.yacloud.alb.label_match-exact }}` in the **{{ ui-key.yacloud.alb.label_path }}** field, the path will be completely rewritten. If you select `{{ ui-key.yacloud.alb.label_match-prefix }}`, only the beginning will be rewritten.
+         * (Optional) Select the **{{ ui-key.yacloud.alb.label_strict-query }}** option.
+         * (Optional) Select the **{{ ui-key.yacloud.alb.label_replace-scheme }}** option.
+         * (Optional) Select the **{{ ui-key.yacloud.alb.label_replace-host }}** option and specify a new host.
+         * (Optional) Select the **{{ ui-key.yacloud.alb.label_replace-port }}** option and specify a new port.
 
-      * `Response`:
+      * `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`:
 
-         * In the **HTTP status code** field, select the code to be used for response.
-         * In the **Response body** field, click **Select** and do the following in the window that opens:
+         * In the **{{ ui-key.yacloud.alb.label_http-status-code }}** field, select the code to be used for response.
+         * In the **{{ ui-key.yacloud.alb.label_body }}** field, click **{{ ui-key.yacloud.alb.button_select }}** and do the following in the window that opens:
 
-            * Select a response **Method**: **Text** or **File**.
+            * Select a response **{{ ui-key.yacloud.component.file-content-dialog.field_method }}**: **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** or **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}**.
             * Depending on the selected method, attach a file or specify the response text.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -232,8 +232,8 @@ To create an HTTP router and add a route to it:
 
       For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-      * [Yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource.
-      * [Yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource.
+      * [Yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource
+      * [Yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource
 
    1. Create resources
 

@@ -26,7 +26,7 @@ The settings apply to all VMs in the policy.
 
 ## Backup policy specification {#specification}
 
-In {{ backup-name }}, you can [create](../operations/policy-vm/create.md) or [update](../operations/policy-vm/update.md) backup policies based on the specification in [JSON](https://en.wikipedia.org/wiki/JSON) format using the {{ yandex-cloud }} [command line](../../cli/quickstart.md).
+In {{ backup-name }}, you can [create](../operations/policy-vm/create.md) or [update](../operations/policy-vm/update.md) backup policies based on the specification in [JSON](https://en.wikipedia.org/wiki/JSON) format by using the {{ yandex-cloud }} [command line](../../cli/quickstart.md) or making an API request.
 
 Full backup policy specification in {{ backup-name }}:
 

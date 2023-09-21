@@ -2,7 +2,17 @@
 
 ## Конференции и вебинары {#conf-and-webinars}
 
+### 2023: Practical ML Conf {#ml-conf-2023}
+
+* Удаленное исполнение кода в ML: подходы и инструменты.
+
+  * [Запись трансляции](https://www.youtube.com/watch?v=qa9c0f6D4Jw&t=24656s).
+
 ### 2023: Webinar {#webinar-2023}
+
+* Вебинар о возможностях {{ ml-platform-full-name }} для образования.
+
+  * [Запись трансляции](https://www.youtube.com/watch?v=pRTKbG-kaUg).
 
 * {{ ml-platform-full-name }} Dedicated. Выделенный режим работы.
 

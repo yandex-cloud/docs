@@ -1,4 +1,4 @@
-# Editing origin groups
+# Editing an origin group
 
 ## Editing a group {#editing-groups}
 
@@ -8,13 +8,13 @@ To edit an [origin group](../../concepts/origins.md):
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a resource group.
-   1. Select **{{ cdn-short-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **Origin groups**.
-   1. Select the group you wish to edit.
-   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
-   1. Make the necessary changes.
-   1. Click **Save**.
+   1. In the [management console]({{ link-console-main }}), select the folder to create a resource group in.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
+   1. Select the group to edit.
+   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. Edit as appropriate.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -55,8 +55,8 @@ To edit an [origin group](../../concepts/origins.md):
         --origin source=<new origin IP address or domain name>,enabled=true,backup=true
       ```
 
-      Where `origin`: The origin specification:
-      * `source`: The new origin IP address or domain name.
+      Where `origin` is the origin specification:
+      * `source`: New origin's IP address or domain name.
       * `enabled`: Flag indicating whether an origin is enabled.
       * `backup`: Flag indicating whether an origin is a backup.
 
@@ -76,7 +76,7 @@ To edit an [origin group](../../concepts/origins.md):
 
 - API
 
-   To update a source group, use the [update](../../api-ref/OriginGroup/update.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Update](../../api-ref/grpc/origin_group_service.md#Update) gRPC API call.
+   To update an origin group, use the [update](../../api-ref/OriginGroup/update.md) REST API method for the [OriginGroup](../../api-ref/OriginGroup/index.md) resource or the [OriginGroupService/Update](../../api-ref/grpc/origin_group_service.md#Update) gRPC API call.
 
 {% endlist %}
 
@@ -94,11 +94,11 @@ To remove an origin from an origin group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a resource group.
-   1. Select **{{ cdn-short-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **Origin groups** and click the name of the group to delete an origin from.
-   1. Select the desired origin and click **Delete** on the bottom panel.
-   1. In the window that opens, click **Delete**.
+   1. In the [management console]({{ link-console-main }}), select the folder to create a resource group in.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and click the name of the group to delete an origin from.
+   1. Select the appropriate origin and click **{{ ui-key.yacloud.common.delete }}** in the bottom panel.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - API
 
@@ -120,10 +120,10 @@ To remove multiple origins from a group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a resource group.
-   1. Select **{{ cdn-short-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **Origin groups** and click the name of the group to delete origins from.
-   1. Select the desired origins and click **Delete** on the bottom panel.
-   1. In the window that opens, click **Delete**.
+   1. In the [management console]({{ link-console-main }}), select the folder to create a resource group in.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and click the name of the group to delete origins from.
+   1. Select the appropriate origins and click **{{ ui-key.yacloud.common.delete }}** in the bottom panel.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 {% endlist %}

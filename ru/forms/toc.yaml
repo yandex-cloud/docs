@@ -51,6 +51,8 @@ items:
         href: send-request.md
       - name: Сохранять файлы из ответов в хранилище
         href: storage-for-attached-files.md
+      - name: Вызвать функцию {{ sf-name }}
+        href: call-function.md
       - name: Переменные в настройках интеграции
         href: vars.md
   - name: Опубликовать форму

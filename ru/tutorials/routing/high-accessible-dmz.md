@@ -163,7 +163,7 @@
          yc iam service-account create --name sa-terraform
          ```
 
-         Где `name` — имя сервисного аккаунта в формате:
+         Где `name` — имя сервисного аккаунта. Требования к имени:
 
          {% include [name-format](../../_includes/name-format.md) %}
 

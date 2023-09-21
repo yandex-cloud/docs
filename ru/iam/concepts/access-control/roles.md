@@ -162,9 +162,11 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ compute-full-name }} {#compute-roles}
 
-{% include [roles-compute-admin](../../../_includes/roles-compute-admin.md) %}
-
 {% include [roles-compute-viewer](../../../_includes/roles-compute-viewer.md) %}
+
+{% include [roles-compute-editor](../../../_includes/roles-compute-editor.md) %}
+
+{% include [roles-compute-admin](../../../_includes/roles-compute-admin.md) %}
 
 {% include [roles-disks-user](../../../_includes/roles-disks-user.md) %}
 
@@ -172,9 +174,9 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-compute-operator](../../../_includes/roles-compute-operator.md) %}
 
-{% include [roles-compute-snapshotSchedules-editor](../../../_includes/roles-compute-snapshotSchedules-editor.md) %}
-
 {% include [roles-compute-snapshotSchedules-viewer](../../../_includes/roles-compute-snapshotSchedules-viewer.md) %}
+
+{% include [roles-compute-snapshotSchedules-editor](../../../_includes/roles-compute-snapshotSchedules-editor.md) %}
 
 ## {{ container-registry-full-name }} {#cr-roles}
 

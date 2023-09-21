@@ -1,13 +1,16 @@
-# {{ wiki-full-name }} revision history for July 2023
+# {{ wiki-full-name }} revision history for August 2023
 
-* [Mermaid support](#mermaid-support)
-* [Recovering deleted pages](#page-recover)
+* [Adapting embedded forms to the {{ wiki-name }} theme](#matching-themes)
+* [Find on page](#search-by-page)
 
-## Mermaid support {#mermaid-support}
+## Adapting embedded forms to the {{ wiki-name }} theme {#matching-themes}
 
-You can now add [Mermaid](https://mermaid.js.org/) diagrams to {{ wiki-name }} pages. To insert a diagram, switch to edit mode, open the list of commands using the `/` character, and select ![](../../_assets/wiki/svg/mermaid.svg) **Mermaid**.
-The option is only available in the [new editor](../wysiwyg-edit.md).
+Now, the theme of the [forms embedded](../actions/forms.md) in Wiki pages matches the theme of your {{ wiki-name }} interface.
 
-## Recovering deleted pages {#page-recover}
+## Find on page {#search-by-page}
 
-The [Revision history](../history.md) now has a **Recently deleted** tab which lists deleted pages. Select a page there to restore or permanently delete it.
+The **Actions** menu now contains the **Find on page** option. To start searching, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** → **Find on page** in the top-right corner or use the keyboard shortcuts:
+* Windows and Linux: **Ctrl+Shift+F**
+* macOS: **⌘ + ⌥ + F**
+
+The **Find on page** window will open on the right.

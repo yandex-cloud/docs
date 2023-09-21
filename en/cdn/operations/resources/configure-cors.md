@@ -8,20 +8,20 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the name of the desired resource.
+   1. Click the resource name.
 
-   1. Go to **HTTP headers and methods**.
+   1. Go to the **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
 
-   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
+   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
 
-   1. Under **CORS when responding to client requests**:
+   1. Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors }}**:
 
-      * In the **Access-Control-Allow-Origin header** field, specify whether to add this header to responses.
-      * When adding a header, select the values of the `Origin` header that allow access to the content. To allow access only to certain origins, select `Same as Origin if on the list`, specify the domain names of the origins, and click **Add domain name**.
+      * In the **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors-access }}** field, specify whether to add this header to responses.
+      * When adding a header, select the values of the `Origin` header that allow access to the content. To grant access only to specific origins, select `{{ ui-key.yacloud.cdn.label_resource-http-headers-cors-settings-http-origin-for-source-domains }}`, specify the origin domain names and click **{{ ui-key.yacloud.cdn.button_add-domain }}**.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -133,14 +133,14 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
       Where:
 
-      * `cname`: Primary domain name used for content distribution. This parameter is required.
-      * `active`: Flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, the default value is `true`.
-      * `origin_protocol`: Origin protocol. Optional parameter, the default value is `http`.
+      * `cname`: Primary domain name used for content distribution. This is a required parameter.
+      * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. This is an optional parameter, the default value is `true`.
+      * `origin_protocol`: Origin protocol. This is an optional parameter, the default value is `http`.
       * `secondary_hostnames`: Additional domain names. This is an optional parameter.
-      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This parameter is required. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
+      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
          * `cors`: Value that the CDN will send in the `Access-Control-Allow-Origin` header in response to a [CORS request](../../concepts/cors.md).
-         * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, `405`(Method Not Allowed) is returned. For methods that are not supported, `501` (Not Implemented) is returned. Optional parameter, the default values are `GET`, `HEAD`, `POST`, or `OPTIONS`.
+         * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, `405`(Method Not Allowed) is returned. For methods that are not supported, `501` (Not Implemented) is returned. This is an optional parameter, the default values are `GET`, `HEAD`, `POST`, or `OPTIONS`.
 
       For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
@@ -162,7 +162,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

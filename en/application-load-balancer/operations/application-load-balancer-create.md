@@ -8,56 +8,56 @@ To create an L7 load balancer:
 
    1. In the [management console]({{ link-console-main }}), select the folder to create a load balancer in.
 
-   1. In the list of services, select **{{ alb-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 
-   1. Click **Create load balancer** and select **Manual**.
+   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
 
-   1. Enter the name of your load balancer: `test-load-balancer`.
+   1. Enter the load balancer name.
 
-   1. Under **Network Settings**, select the network whose subnets will host the load balancer's nodes, as well as the [appropriate security groups](../concepts/application-load-balancer.md#security-groups). If there is no appropriate field, all incoming and outgoing traffic will be allowed for the load balancer.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network whose subnets will host the load balancer nodes, as well as the [appropriate security groups](../concepts/application-load-balancer.md#security-groups). If there is no appropriate field, all incoming and outgoing traffic will be allowed for the load balancer.
 
       {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
-   1. (Optional) In the **Autoscaling settings** section, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
+   1. (Optional) Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
 
       The number of units will change automatically depending on the actual load on the load balancer and the limits you specified. The number of units affects the [load balancer pricing](../pricing.md).
 
-   1. (Optional) Under **Log settings**:
-      1. Enable **Write logs**.
+   1. (Optional) Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
+      1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
       1. Select the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to write load balancer logs to.
-      1. Click **Add discard rule** and set up its [parameters](../concepts/application-load-balancer.md#discard-logs-rules):
+      1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and set up its [parameters](../concepts/application-load-balancer.md#discard-logs-rules):
 
-         * **HTTP codes**: Add HTTP status codes.
-         * **HTTP code classes**: Add classes of HTTP status codes.
-         * **gRPC codes**: Add gRPC codes.
-         * **Share of discarded logs**: Set the percentage of logs to discard.
+         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Add HTTP status codes.
+         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Add classes of HTTP status codes.
+         * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Add gRPC codes.
+         * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Set the percentage of logs to discard.
 
          You can set multiple rules.
 
 
-   1. Under **Allocation**, select three subnets for the load balancer's nodes and enable traffic to these subnets.
+   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select three subnets for the load balancer nodes and enable traffic to these subnets.
 
-   1. Click **Add listener** under **Listeners**. Set the listener settings:
-      1. Enter the listener name: `test-listener`.
-      1. (Optional) Select the **Public IP address** option. Set the **Port** to `80` and the **Type** to:
-         * `Automatically`.
-         * `List`: Select an address from the drop-down list of the field that appears on the right.
-      1. (Optional) Select the **Internal IP address** option. Specify the **Port** and select a subnet from the drop-down list in the **Subnet** field.
-      1. Under **Receiving and processing traffic**, select the listener type: `HTTP` or `Stream`.
+   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Set the listener settings:
+      1. Enter the listener name.
+      1. (Optional) Enable **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Set the **{{ ui-key.yacloud.alb.label_port }}** to `80` and the **{{ ui-key.yacloud.common.type }}** to:
+         * `{{ ui-key.yacloud.alb.label_address-auto }}`.
+         * `{{ ui-key.yacloud.alb.label_address-list }}`: Select an address from the drop-down list of the field that appears on the right.
+      1. (Optional) Enable **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Specify **{{ ui-key.yacloud.alb.label_port }}** and select **{{ ui-key.yacloud.common.label_subnet }}** from the drop-down list.
+      1. Under **{{ ui-key.yacloud.alb.section_common-address-specs }}**, select the listener type: `{{ ui-key.yacloud.alb.label_listener-type-http }}` or `{{ ui-key.yacloud.alb.label_listener-type-stream }}`.
 
-         For `HTTP`, select:
+         For `{{ ui-key.yacloud.alb.label_listener-type-http }}`, select:
 
-         * Protocol: `HTTP`, `HTTPS`, or `Redirect to HTTPS`.
-         * [HTTP router](http-router-create.md) in the drop-down list.
+         * Protocol: `{{ ui-key.yacloud.alb.label_proto-http-plain }}`, `{{ ui-key.yacloud.alb.label_proto-http-tls }}`, or `{{ ui-key.yacloud.alb.label_redirect-to-https }}`.
+         * [HTTP router](http-router-create.md) from the drop-down list.
 
-         For `Stream`, select a protocol:
+         For `{{ ui-key.yacloud.alb.label_listener-type-stream }}`, select a protocol:
 
-         * `Unencrypted`: Select **Backend groups** in the drop-down list.
-         * `Encrypted`: Under **Main listener**, select **Certificates** and **Backend groups** from the drop-down lists.
+         * `{{ ui-key.yacloud.alb.label_proto-stream-plain }}`: Select **{{ ui-key.yacloud.alb.label_backend-groups }}** from the drop-down list.
+         * `{{ ui-key.yacloud.alb.label_proto-stream-tls }}`: Under **{{ ui-key.yacloud.alb.section_default-sni-match }}**, select **{{ ui-key.yacloud.alb.label_certificate }}** and **{{ ui-key.yacloud.alb.label_backend-groups }}** from the drop-down lists.
 
    1. Add more listeners if needed.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -76,6 +76,7 @@ To create an L7 load balancer:
       ```bash
       yc alb load-balancer create <load_balancer_name> \
         --network-name <network_name> \
+        --security-group-id <security_group_ID>
         --location subnet-name=<subnet_name>,zone=<availability_zone>
       ```
 
@@ -84,23 +85,23 @@ To create an L7 load balancer:
       Result:
 
       
-      ```yaml
+      ```text
       done (1m40s)
-      id: a5d88ep483cmbfm.....
+      id: a5d88ep483cm********
       name: test-balancer2
-      folder_id: aoe197919j8elpe.....
+      folder_id: aoe197919j8e********
       status: ACTIVE
       region_id: {{ region-id }}
-      network_id: c64l1c06d15178s.....
+      network_id: c64l1c06d151********
       allocation_policy:
         locations:
         - zone_id: {{ region-id }}-a
-          subnet_id: buc4gsmpj8hvram.....
+          subnet_id: buc4gsmpj8hv********
         - zone_id: {{ region-id }}-b
-          subnet_id: blt6pcatjje62sq.....
+          subnet_id: blt6pcatjje6********
         - zone_id: {{ region-id }}-c
-          subnet_id: fo2ap2nrhjk9vpf.....
-      log_group_id: eolul9ap0bv02i8.....
+          subnet_id: fo2ap2nrhjk9********
+      log_group_id: eolul9ap0bv0********
       created_at: "2021-04-26T12:12:13.624832586Z"
       ```
 
@@ -138,14 +139,14 @@ To create an L7 load balancer:
 
          Result:
 
-         ```yaml
+         ```text
          done (42s)
-         id: ds76g83js9gfej12nab6
+         id: ds76g83js9gf********
          name: test-load-balancer
-         folder_id: b1gu33ev7lh690at5bm7
+         folder_id: b1gu33ev7lh6********
          ...
          log_options:
-           log_group_id: e23p9bfjvsgra3tliktf
+           log_group_id: e23p9bfjvsgr********
            discard_rules:
              - http_codes:
                  - "200"
@@ -169,10 +170,10 @@ To create an L7 load balancer:
          1. Add a listener by running the command:
 
             ```bash
-            yc alb load-balancer add-listener <load balancer name> \
-              --listener-name <listener name> \
-              --http-router-id <HTTP router ID> \
-              --external-ipv4-endpoint port=<listener port>
+            yc alb load-balancer add-listener <load_balancer_name> \
+              --listener-name <listener_name> \
+              --http-router-id <HTTP_router_ID> \
+              --external-ipv4-endpoint port=<listener_port>
             ```
 
       * Stream listener:
@@ -186,21 +187,21 @@ To create an L7 load balancer:
          1. Add a listener by running the command:
 
             ```bash
-            yc alb load-balancer add-stream-listener <load balancer name> \
-              --listener-name=<listener name> \
-              --backend-group-id=<backend group ID> \
-              --external-ipv4-endpoint port=<listener port>
+            yc alb load-balancer add-stream-listener <load_balancer_name> \
+              --listener-name=<listener_name> \
+              --backend-group-id=<backend_group_ID> \
+              --external-ipv4-endpoint port=<listener_port>
             ```
 
-      Result of adding two listeners:
+      The result of adding two listeners is:
 
-      ```yaml
+      ```text
       done (42s)
-      id: ds76g8b2op3fej1.....
+      id: ds76g8b2op3f********
       name: test-load-balancer
-      folder_id: b1gu6g9ielh690a.....
+      folder_id: b1gu6g9ielh6********
       status: ACTIVE
-      network_id: enp0uulja5s3j1f.....
+      network_id: enp0uulja5s3********
       listeners:
       - name: tslistener
         endpoints:
@@ -211,7 +212,7 @@ To create an L7 load balancer:
           - "80"
         http:
           handler:
-            http_router_id: ds7d7b14b3fsv7q.....
+            http_router_id: ds7d7b14b3fs********
       - name: teststreamlistener
         endpoints:
         - addresses:
@@ -221,21 +222,21 @@ To create an L7 load balancer:
           - "443"
         stream:
           handler:
-            backend_group_id: ds77tero4f5h46l.....
+            backend_group_id: ds77tero4f5h********
       allocation_policy:
         locations:
         - zone_id: {{ region-id }}-a
-          subnet_id: e9bs1hp7lgdl1g3.....
+          subnet_id: e9bs1hp7lgdl********
         - zone_id: {{ region-id }}-b
-          subnet_id: e2le8i7hqa216f6.....
+          subnet_id: e2le8i7hqa21********
         - zone_id: {{ region-id }}-c
-          subnet_id: b0cgk1au6fn203f.....
-      log_group_id: ckgs4u5km3u8j9f.....
+          subnet_id: b0cgk1au6fn2********
+      log_group_id: ckgs4u5km3u8********
       security_group_ids:
-      - enp49ot04g63ih1.....
+      - enp49ot04g63********
       created_at: "2022-04-04T02:12:40.160629110Z"
       log_options:
-        log_group_id: e23p9bfjvsgra3t.....
+        log_group_id: e23p9bfjvsgr********
         discard_rules:
           - http_codes:
               - "200"
@@ -258,6 +259,7 @@ To create an L7 load balancer:
       resource "yandex_alb_load_balancer" "test-balancer" {
         name        = "<name_of_L7_load_balancer>"
         network_id  = "<network_ID>"
+        security_group_ids = ["<security_group_ID>"]
 
         allocation_policy {
           location {
@@ -340,9 +342,9 @@ To create an L7 load balancer:
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
          ```bash
          yc alb load-balancer list

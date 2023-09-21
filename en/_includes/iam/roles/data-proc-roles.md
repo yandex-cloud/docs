@@ -20,10 +20,10 @@ The `dataproc.provisioner` role grants access to the API to create, update, and 
 
 The `dataproc.editor` role enables you to create, edit, and delete clusters and jobs, view information about them, and provides access to the {{ dataproc-name }} [component web interfaces](../../../data-proc/concepts/interfaces.md).
 
-It includes the `{{ roles.mgp.viewer }}` role.
+It includes the `dataproc.viewer` role.
 
 #### dataproc.admin {#mdb-dataproc-admin}
 
 The `dataproc.admin` role enables you to create, edit, and delete clusters and jobs, view information about them, provides access to the {{ dataproc-name }} [component web interfaces](../../../data-proc/concepts/interfaces.md), and manages access to clusters.
 
-It includes the `{{ roles.mgp.editor }}` role.
+It includes the `dataproc.editor` role.

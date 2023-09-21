@@ -13,7 +13,7 @@
   1. На панели слева выберите ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте параметры расписания снимков:
-      * Введите имя расписания:
+      * Введите имя расписания в формате:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 

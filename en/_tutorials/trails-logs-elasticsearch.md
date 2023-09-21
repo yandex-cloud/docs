@@ -60,14 +60,14 @@ The infrastructure support cost includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../storage/concepts/bucket.md).
-   1. Select **{{ objstorage-name }}**.
-   1. Click **Create bucket**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
    1. On the bucket creation page:
       1. Enter the bucket name according to the [naming requirements](../storage/concepts/bucket.md#naming).
-      1. Specify the maximum size of the bucket: **No limit**.
-      1. Select the **Limited** [access](../storage/concepts/bucket.md#bucket-access) type.
-      1. Select the [storage class](../storage/concepts/storage-class.md): **Standard**.
-      1. Click **Create bucket** to complete the operation.
+      1. Specify the maximum size of the bucket: **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**.
+      1. Select the `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}` [access](../storage/concepts/bucket.md#bucket-access) type.
+      1. Select the [storage class](../storage/concepts/storage-class.md): `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
+      1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
 {% endlist %}
 
@@ -78,10 +78,10 @@ The infrastructure support cost includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Click **Create service account**.
-   1. Enter the name of the service account.
-   1. Click **Create**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. Enter a name for the service account.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
 
@@ -106,26 +106,26 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
    1. The `storage.uploader` [role](../storage/security/index.md#storage-uploader) to the folder with a bucket:
 
       1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
-      1. Go to the **Access bindings** tab.
-      1. Click **Assign roles**.
-      1. In the **Configure access bindings** window, click **Select user**.
-      1. At the top of the screen, go to the **Service accounts** tab.
+      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. In the **{{ ui-key.yacloud.component.acl.update-dialog.label_title }}** window, click **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
+      1. At the top of the screen, go to the **{{ ui-key.yacloud.component.acl-dialog.label_select-section-service-accounts }}** tab.
       1. Select the `trails-sa` service account.
-      1. Click **Add role**.
+      1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}**.
       1. Select the `storage.uploader` role.
-      1. Click **Save**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
    1. The `audit-trails.viewer` [role](../audit-trails/security/index.md#roles-list) to the cloud whose logs will be sent to the {{ ES }} cluster:
 
       1. In the [management console]({{ link-console-main }}), go to the appropriate cloud.
-      1. Go to the **Access bindings** tab.
-      1. Click **Assign roles**.
-      1. In the **Configure access bindings** window, click **Select user**.
-      1. At the top of the screen, go to the **Service accounts** tab.
+      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. In the **{{ ui-key.yacloud.component.acl.update-dialog.label_title }}** window, click **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
+      1. At the top of the screen, go to the **{{ ui-key.yacloud.component.acl-dialog.label_select-section-service-accounts }}** tab.
       1. Select the `trails-sa` service account.
-      1. Click **Add role**.
+      1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}**.
       1. Select the `audit-trails.viewer` role.
-      1. Click **Save**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -166,11 +166,11 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the cloud to collect the audit logs from.
-   1. Click the **Access bindings** tab.
-   1. At the top right, select **Inherited roles** to display the roles inherited from the organization.
+   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+   1. At the top right, select **{{ ui-key.yacloud_org.common.resource-acl.label_inherited-bindings }}** to display the roles inherited from the organization.
    1. Make sure that you have the following roles:
-      * `iam.serviceAccounts.user` for the service account.
-      * `audit-trails.editor` for the folder to host the trail.
+      * `iam.serviceAccounts.user` for the service account
+      * `audit-trails.editor` for the folder to host the trail
       * `audit-trails.viewer` for the cloud whose audit logs will be collected.
       * `storage.viewer` for the bucket or the folder.
 
@@ -178,18 +178,18 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
 
 ### Create a cloud network {#create-network}
 
-If you don't have a [cloud network](../vpc/concepts/network.md), create one:
+If you do not have a [cloud network](../vpc/concepts/network.md), create one:
 
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a cloud network.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. Click **Create network**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
    1. Enter a network name, such as `trails-network`.
-   1. Select the **Create subnets** option.
-   1. Click **Create network**.
+   1. Select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+   1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 - CLI
 
@@ -210,16 +210,16 @@ If you don't have a [cloud network](../vpc/concepts/network.md), create one:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to create a subnet in.
-   1. In the list of services, select **{{ vpc-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. Select a cloud network, such as `trails-network`.
-   1. Click **Add subnet**.
+   1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
    1. Name the subnet, such as `trails-subnet-1`.
    1. Select an availability zone, such as `{{ region-id }}-a`.
    1. Enter the subnet CIDR: its IP address and mask (for example, `10.128.0.0/24`).
-   1. Click **Create subnet**.
+   1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
    1. Create two more subnets:
-      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR.
-      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR.
+      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR
+      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR
 
 - CLI
 
@@ -271,14 +271,14 @@ If you don't have a [cloud network](../vpc/concepts/network.md), create one:
 
    If a security group is available, [add](../vpc/operations/security-group-update.md#add-rule) the rules below to it:
 
-   | Traffic<br>direction | Description | Port<br>range | Protocol | Source<br>type | Source/Purpose |
-   --- | --- | --- | --- | --- | ---
-   | Incoming | incoming-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-   | Incoming | incoming-9002 | 9200 | TCP | CIDR | 0.0.0.0/0 |
+   | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+   | --- | --- | --- | --- | --- | --- |
+   | `Incoming` | `incoming-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+   | `Incoming` | `incoming-9002` | `9200` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
 {% note info %}
 
-You can also deploy the required environment using {{ TF }}. See also a [sample configuration file](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/terraform/example/main.tf).
+You can also deploy the required environment using {{ TF }}. See a [sample configuration file](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/terraform/example/main.tf).
 
 {% endnote %}
 
@@ -288,20 +288,20 @@ You can also deploy the required environment using {{ TF }}. See also a [sample 
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to host the trail.
-   1. Select **{{ at-name }}**.
-   1. Click **Create trail**.
-   1. In the **Name** field, enter a name for the trail.
-   1. Under **Filter**, set up the audit log scope:
-      * **Resource**: Select `Cloud`.
-      * **Cloud**: An automatically populated field showing the name of the cloud to host the trail.
-      * **Folders**: Leave the default `all folders` value.
-   1. Under **Destination**, set up the destination object:
-      * **Destination**: `{{ objstorage-name }}`.
-      * **Bucket**: Select the bucket where you want to upload audit logs.
-      * **Object prefix**: An optional parameter used in the [full name](../audit-trails/concepts/format.md#log-file-name) of the audit log file.
-   1. Under **Service account**, select the service account that the trail will use to upload audit log files to the bucket, such as `trails-sa`.
-   1. Click **Create**.
+   1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_filter }}**, set up the audit log scope:
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Automatically populated field showing the name of the cloud to host the trail.
+      * **Folders**: Keep the default value, `All folders`.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket to upload audit logs to.
+      * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../audit-trails/concepts/format.md#log-file-name) of the audit log file.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket, such as `trails-sa`.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -392,14 +392,14 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
       Where:
       * `token`: [OAuth token](../iam/concepts/authorization/oauth-token.md).
       * `cloud_id`: Cloud ID.
-      * `folder_id`: ID of the folder.
+      * `folder_id`: Folder ID.
       * `source` in the `yc-managed-elk` module section: Path to the `yc-managed-elk` directory.
       * `source` in the `yc-elastic-trail` module section: Path to the `yc-elastic-trail` directory.
       * `subnet_ids`: IDs of the subnets that will host the {{ ES }} cluster, such as `trails-subnet-1`, `trails-subnet-2`, and `trails-subnet-3`.
       * `network_id`: ID of the cloud network that will host the {{ ES }} cluster, such as `trails-network`.
       * `elk_public_ip`: Set `true` if public access to the {{ ES }} cluster is required, or else, set `false`.
       * `bucket_name`: Name of the bucket to send audit logs to.
-      * `bucket_folder`: Prefix of audit logs in the bucket. Leave it empty if logs are written to the bucket's root directory.
+      * `bucket_folder`: Prefix of audit logs in the bucket. Leave it empty if logs are written to the bucket root directory.
       * `sa_id`: ID of the service account on whose behalf audit logs are transferred, such as `trails-sa`.
       * `coi_subnet_id`: ID of the subnet that will host the intermediate VM, such as `trails-subnet-1`.
 

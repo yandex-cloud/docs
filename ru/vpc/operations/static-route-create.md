@@ -20,7 +20,7 @@ description: "Статический маршрут по умолчанию (0.0
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. Задайте имя таблицы маршрутизации.
+  1. Задайте имя таблицы маршрутизации. Требования к нему:
 
      {% include [name-format](../../_includes/name-format.md) %}
 

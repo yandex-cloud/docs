@@ -6,52 +6,52 @@ To create a [resource](../../concepts/resource.md):
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource.
+   1. In the [management console]({{ link-console-main }}), select the folder to create a resource in.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. If you don't have any CDN resources, click **Activate provider**. A connection is established automatically.
+   1. If you do not have any CDN resources, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**. A connection is established automatically.
 
-   1. Click **Create resource**.
+   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 
-   1. Under **Content**, select **Content query** `From one origin` or `From origin group`:
+   1. Under **{{ ui-key.yacloud.cdn.label_section-content }}**, select **{{ ui-key.yacloud.cdn.label_content-query-type }}** `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` or `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`:
 
-      * When requesting content `From one origin`, select an **Origin type**: `Server`, `Bucket`, or `L7 load balancer`. Specify an origin. For more information about types, see [{#T}](../../concepts/origins.md).
+      * When requesting content `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`, select an **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Specify an origin. For more information about types, see [{#T}](../../concepts/origins.md).
 
-      * When requesting content from an `Origin group`, select an [origin group](../../concepts/origins.md#groups) or create a new one:
-         * Click **Create new**.
-         * Enter a **Group name**.
-         * Configure **Origins**:
-            * Specify the **Origin type**: `Server`, `Bucket`, or `L7 load balancer`. For more information about types, see [{#T}](../../concepts/origins.md).
+      * When requesting content from an `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`, select an [origin group](../../concepts/origins.md#groups) or create a new one:
+         * Click **{{ ui-key.yacloud.common.label_create-new_female }}**.
+         * Enter **{{ ui-key.yacloud.cdn.field_group-name }}**.
+         * Configure **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
+            * Specify the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. For more information about types, see [{#T}](../../concepts/origins.md).
             * Specify an origin.
-            * Select the **Priority**: `Active` or `Backup`. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
+            * Select the **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.label_status-active }}` or `{{ ui-key.yacloud.cdn.label_status-backup }}`. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
          * Add other origins if needed.
-         * Click **Create**. In the **Origin group** field, you will see the name of the created group.
+         * Click **{{ ui-key.yacloud.common.create }}**. In the **{{ ui-key.yacloud.cdn.label_origins-group }}** field, you will see the name of the created group.
 
       For more information, see [{#T}](../../concepts/origins.md).
 
-   1. Under **Domain names for content distribution**, enter the **Domain name**. You can add multiple **Domain names**. Names containing characters other than ASCII (for example, Сyrillic) and [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) are supported. The first name is considered the primary domain name.
+   1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, enter **{{ ui-key.yacloud.cdn.label_personal-domain }}**. You can add multiple **Domain names**. Names containing characters other than ASCII (for example, Сyrillic) and [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) are supported. The first name is considered the primary domain name.
 
       {% note warning %}
 
-      After you create a resource, you can't change the primary domain name.
+      Once you create a resource, you cannot change the primary domain name.
 
       {% endnote %}
 
-      In the settings of your DNS hosting, create CNAME records for the specified domain names using the value displayed at the bottom of the **Domain names for content distribution** section. For more information, see [{#T}](../../concepts/resource.md#hostnames).
+      In the settings of your DNS hosting, create CNAME records for the specified domain names using the value displayed at the bottom of the **{{ ui-key.yacloud.cdn.label_section-domain }}** section. For more information, see [{#T}](../../concepts/resource.md#hostnames).
 
-   1. In the **Advanced** section:
+   1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
 
-      1. Select **Origin request protocol**.
-      1. Select a client redirect method: `Don't use` or `HTTPS to HTTP`.
+      1. Select **{{ ui-key.yacloud.cdn.label_protocol }}**.
+      1. Select a client redirect method: `{{ ui-key.yacloud.cdn.value_do-not-use }}` or `{{ ui-key.yacloud.cdn.value_redirect-https-to-http }}`.
 
-         To enable a client redirect from HTTP to HTTPS, create a CDN resource without a redirect and get a TLS certificate for your domain name. Next, in the CDN resource settings, [select](configure-basics.md) the `HTTP to HTTPS` client redirect method.
+         To enable a client redirect from HTTP to HTTPS, create a CDN resource without a redirect and get a TLS certificate for your domain name. Next, in the CDN resource settings, [select](configure-basics.md) the `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` client redirect method.
 
-      1. Enable or disable **End-user access to content**.
-      1. If you selected the `HTTP` protocol, under **Certificate type**, select `Don't use`. Otherwise, select `Let's Encrypt®` or `Your certificate`. For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
-      1. Select a **Host header** value: `Primary domain name`, `Forward`, or select `Custom` and input the **Header value**. For more information, see [{#T}](../../concepts/servers-to-origins-host.md).
+      1. Enable or disable **{{ ui-key.yacloud.cdn.label_access }}**.
+      1. If you selected the `{{ ui-key.yacloud.common.label_http }}` protocol, select `{{ ui-key.yacloud.cdn.value_certificate-no }}` in the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field. Otherwise, select `Let's Encrypt` or `{{ ui-key.yacloud.cdn.value_certificate-custom }}`. For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
+      1. Select the **{{ ui-key.yacloud.cdn.label_host-header }}** value (`{{ ui-key.yacloud.cdn.value_host-header-default }}` or `{{ ui-key.yacloud.cdn.value_host-header-resend }}`) or choose `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and enter the **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. For more information, see [{#T}](../../concepts/servers-to-origins-host.md).
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -166,11 +166,11 @@ To create a [resource](../../concepts/resource.md):
 
       Where:
 
-      * `cname`: Primary domain name used for content distribution. This parameter is required.
-      * `active`: Flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, the default value is `true`.
-      * `origin_protocol`: Origin protocol. Optional parameter, the default value is `http`.
+      * `cname`: Primary domain name used for content distribution. This is a required parameter.
+      * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. This is an optional parameter, the default value is `true`.
+      * `origin_protocol`: Origin protocol. This is an optional parameter, the default value is `http`.
       * `secondary_hostnames`: Additional domain names. This is an optional parameter.
-      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This parameter is required. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
+      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
 
       For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
@@ -192,7 +192,7 @@ To create a [resource](../../concepts/resource.md):
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

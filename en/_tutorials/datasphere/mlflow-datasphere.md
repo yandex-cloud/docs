@@ -10,7 +10,7 @@ To create an MLFlow server for logging {{ jlab }}Lab Notebook experiments and ar
 1. [Create a VM](#create-vm).
 1. [Create a managed DB](#create-db).
 1. [Create a bucket](#create-bucket).
-1. [Install the MLFlow tracking server]({#setup-mlflow}).
+1. [Install the MLFlow tracking server and add it to the VM autoload](#setup-mlflow).
 1. [Create secrets](#create-secrets).
 1. [Train the model](#train-model).
 
@@ -122,17 +122,18 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter a name for the VM, e.g., `mlflow-vm`.
-      * Select an availability zone `{{ region-id }}-a`.
+      * Select the `{{ region-id }}-a` availability zone.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select `Ubuntu 20.04`.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab and configure the boot disk:
-      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`.
-      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `50 GB`.
+      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`
+      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `20 GB`
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4`
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet that is specified in the {{ ml-platform-name }} [project settings](../../datasphere/operations/projects/update.md). Make sure to [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
-      * **{{ ui-key.yacloud.compute.instances.create.field_service-account }}**: `datasphere-sa`.
-      * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * **{{ ui-key.yacloud.compute.instances.create.field_service-account }}**: `datasphere-sa`
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](#create-ssh-keys) file.
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -175,7 +176,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 
 {% endlist %}
 
-## Install the MLFlow tracking server {#setup-mlflow}
+## Install the MLFlow tracking server and add it to the VM autoload {#setup-mlflow}
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM via SSH.
 1. Download the `Anaconda` distribution:
@@ -201,7 +202,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 1. Activate the environment:
 
    ```bash
-   сonda activate mlflow
+   conda activate mlflow
    ```
 
 1. Install the required packages by running the following commands one by one:
@@ -250,13 +251,65 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
       aws_secret_access_key=<secret_key>
       ```
 
+1. Add authentication at server startup:
+
+   ```bash
+   mlflow server --app-name basic-auth
+   ```
+
 1. Run the MLFlow Tracking Server by substituting your cluster data:
 
    ```bash
-   mlflow server --backend-store-uri postgresql://<username>:<password>@<host>:6432/db1 --default-artifact-root s3://mlflow-bucket/artifacts -h 0.0.0.0 -p 8000
+   mlflow server --backend-store-uri postgresql://<username>:<password>@<host>:6432/db1?sslmode=verify-full --default-artifact-root s3://mlflow-bucket/artifacts -h 0.0.0.0 -p 8000
    ```
 
    You can check your connection to MLFlow at `http://<VM_public_IP>:8000`.
+
+### Enable MLFlow autorun {#autorun}
+
+For MLFlow to run automatically after the VM restarts, make it the `Systemd` service.
+
+1. Create directories for storing logs and error details:
+
+   ```bash
+   mkdir ~/mlflow_logs/
+   mkdir ~/mlflow_errors/
+   ```
+
+1. Create a file named `mlflow-tracking.service`:
+
+   ```bash
+   sudo nano /etc/systemd/system/mlflow-tracking.service
+   ```
+
+1. Add the following lines to the file by substituting your cluster data:
+
+   ```bash
+   [Unit]
+   Description=MLflow Tracking Server
+   After=network.target
+
+   [Service]
+   Environment=MLFLOW_S3_ENDPOINT_URL=https://storage.yandexcloud.net/
+   Restart=on-failure
+   RestartSec=30
+   StandardOutput=file:/home/ubuntu/mlflow_logs/stdout.log
+   StandardError=file:/home/ubuntu/mlflow_errors/stderr.log
+   User=ubuntu
+   ExecStart=/bin/bash -c 'PATH=/home/ubuntu/anaconda3/envs/mlflow_env/bin/:$PATH exec mlflow server --backend-store-uri postgresql://<username>:<password>@<host>:6432/db1?sslmode=verify-full --default-artifact-root s3://mlflow-bucket/artifacts -h 0.0.0.0 -p 8000'
+
+   [Install]
+   WantedBy=multi-user.target
+   ```
+
+1. Run the service and activate autoload at system startup:
+
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl enable mlflow-tracking
+   sudo systemctl start mlflow-tracking
+   sudo systemctl status mlflow-tracking
+   ```
 
 ## Create secrets {#create-secrets}
 
@@ -281,7 +334,6 @@ The example uses a set of data to forecast the quality of wine based on quantita
 
    ```python
    %pip install mlflow
-   %pip install scikit-learn
    ```
 
 1. Import the required libraries:

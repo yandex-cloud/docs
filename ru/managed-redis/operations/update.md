@@ -20,6 +20,11 @@
 * [Изменить группы безопасности](#change-sg-set).
 
 
+{% note info %}
+
+О том, как изменить версию {{ RD }} кластера, читайте в разделе [{#T}](cluster-version-update.md).
+
+{% endnote %}
 
 ## Изменить имя и описание кластера {#change-name-and-description}
 

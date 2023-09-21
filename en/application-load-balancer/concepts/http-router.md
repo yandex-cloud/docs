@@ -2,7 +2,7 @@
 
 An HTTP router defines the routing rules for HTTP requests to [backend groups](backend-group.md).
 
-You can only set HTTP routers for [listeners](application-load-balancer.md#listener) of the **HTTP** type. If a listener accepts <q>pure</q> TCP traffic (of the **Stream** type), a backend group is explicitly specified for it.
+You can only set HTTP routers for [listeners](application-load-balancer.md#listener) of the **{{ ui-key.yacloud.alb.label_listener-type-http }}** type. If a listener accepts <q>pure</q> TCP traffic (**{{ ui-key.yacloud.alb.label_listener-type-stream }}** type), a backend group is explicitly specified for it.
 
 {% include [http-router-deletion-restriction](../../_includes/application-load-balancer/http-router-deletion-restriction.md) %}
 
@@ -26,7 +26,7 @@ Routes are sets of conditions (predicates) that are used by the load balancer to
 
 ### Route types {#routes-types}
 
-HTTP routers support two route types: **HTTP** and **gRPC**:
+HTTP routers support two types of routes, **{{ ui-key.yacloud.alb.label_proto-http }}** and **{{ ui-key.yacloud.alb.label_proto-grpc }}**:
 
 1. HTTP routes process HTTP requests over HTTP/1.1 and HTTP/2.
 
@@ -34,7 +34,7 @@ HTTP routers support two route types: **HTTP** and **gRPC**:
 
    You can perform one of the actions with the request that satisfies the conditions:
 
-   * Sending a request to a [backend group](backend-group.md) of the **HTTP** type for processing. In this case, you can set up timeouts for request processing, add WebSocket support, or modification of the URI before sending the request to the backends.
+   * Sending a request to a **{{ ui-key.yacloud.alb.label_proto-http }}** [backend group](backend-group.md) for processing. In this case, you can set up timeouts for request processing, add WebSocket support, or modification of the URI before sending the request to the backends.
    * Redirecting a request to another address with the selected response code and request URI modifications. In this case, you can modify the path (completely or partially), delete query parameters, and change the host, port, and schema.
    * Immediate return of the static response.
 
@@ -44,7 +44,7 @@ HTTP routers support two route types: **HTTP** and **gRPC**:
 
    You can perform one of the actions with the request that satisfies the conditions:
 
-   * Sending a request to a [backend group](backend-group.md) of the **gRPC** type for processing. In this case, you can replace the Host header and configure timeouts to process the request.
+   * Sending a request to a **{{ ui-key.yacloud.alb.label_proto-grpc }}** [backend group](backend-group.md) for processing. In this case, you can replace the Host header and configure timeouts to process the request.
    * Immediate return of the static response.
 
 

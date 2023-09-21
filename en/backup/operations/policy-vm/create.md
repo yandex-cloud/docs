@@ -1,6 +1,9 @@
-# Creating a backup policy
+---
+title: "Creating a backup policy"
+description: "In this tutorial, you will learn how to create a backup policy in **{{ backup-name }}**."
+---
 
-To create a [backup policy](../../concepts/policy.md):
+# Creating a backup policy
 
 {% list tabs %}
 
@@ -40,7 +43,7 @@ To create a [backup policy](../../concepts/policy.md):
 
       The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) VM backups every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
-      See also [Full backup policy specification](../../concepts/policy.md#specification).
+      See [Full backup policy specification](../../concepts/policy.md#specification).
 
    1. Create a backup policy:
 
@@ -115,6 +118,10 @@ To create a [backup policy](../../concepts/policy.md):
       ```
 
       For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/create.md).
+
+- API
+
+   To create a [backup policy](../../concepts/policy.md), use the [create](../../backup/api-ref/Policy/create.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Create](../../backup/api-ref/grpc/policy_service.md#Create) gRPC API call.
 
 {% endlist %}
 

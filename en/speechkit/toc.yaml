@@ -31,6 +31,8 @@ items:
             href: stt/transcribation.md
       - name: Recognition result normalization
         href: stt/normalization.md
+      - name: Analyzing recognition results
+        href: stt/analysis.md
       - name: Extending a speech recognition model
         href: stt/additional-training.md
       - name: Detecting the end of utterance

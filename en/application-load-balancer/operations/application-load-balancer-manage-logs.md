@@ -9,21 +9,21 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
-   1. Select **{{ alb-name }}**.
-   1. In the list of load balancers, choose the one you need, click ![image](../../_assets/horizontal-ellipsis.svg), and select **Edit**.
-   1. Under **Log settings**:
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the list of load balancers, select the one you need, click ![image](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
 
-      1. Enable **Write logs**.
+      1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
       1. Select the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to write load balancer logs to.
-      1. Click **Add discard rule** and set up its [parameters](../concepts/application-load-balancer.md#discard-logs-rules):
+      1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and set up its [parameters](../concepts/application-load-balancer.md#discard-logs-rules):
 
-         * **HTTP codes**: Add HTTP status codes.
-         * **HTTP code classes**: Add classes of HTTP status codes.
-         * **gRPC codes**: Add gRPC codes.
-         * **Share of discarded logs**: Set the percentage of logs to discard.
+         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Add HTTP status codes.
+         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Add classes of HTTP status codes.
+         * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Add gRPC codes.
+         * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Set the percentage of logs to discard.
 
          You can set multiple rules.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -58,14 +58,14 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
       Result:
 
-      ```yaml
+      ```bash
       done (42s)
-      id: ds76g8b2op3fej1.....
+      id: ds76g8b2op3f*********
       name: test-load-balancer
-      folder_id: b1gu6g9ielh690a.....
+      folder_id: b1gu6g9ielh6********
       ...
       log_options:
-        log_group_id: e23p9bfj2kyra3t.....
+        log_group_id: e23p9bfj2kyr********
         discard_rules:
           - http_codes:
               - "200"
@@ -126,21 +126,21 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
-   1. Select **{{ alb-name }}**.
-   1. In the list of load balancers, choose the one you need, click ![image](../../_assets/horizontal-ellipsis.svg), and select **Edit**.
-   1. Under **Log settings**:
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the list of load balancers, select the one you need, click ![image](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
 
       1. Change the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
       1. Edit the [rules for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
 
-         * **HTTP codes**: Update the HTTP status codes.
-         * **HTTP code classes**: Update the classes of HTTP status codes.
-         * **gRPC codes**: Update the gRPC codes.
-         * **Share of discarded logs**: Update the percentage of logs to discard.
+         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Update the HTTP status codes.
+         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Update the classes of HTTP status codes.
+         * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Update the gRPC codes.
+         * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Update the percentage of logs to discard.
 
-         To add another rule, click **Add discard rule**.
+         To add another rule, click **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -173,14 +173,14 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
       Result:
 
-      ```yaml
+      ```bash
       done (42s)
-      id: ds76g8b2op3fej1.....
+      id: ds76g8b2op3f********
       name: test-load-balancer
-      folder_id: b1gu6g9ielh690a.....
+      folder_id: b1gu6g9ielh6********
       ...
       log_options:
-        log_group_id: e23p9bfj2kyra3t.....
+        log_group_id: e23p9bfj2kyr********
         discard_rules:
           - http_codes:
               - "200"
@@ -241,10 +241,10 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer is stored.
-   1. Select **{{ alb-name }}**.
-   1. In the list of load balancers, choose the one you need, click ![image](../../_assets/horizontal-ellipsis.svg), and select **Edit**.
-   1. Under **Log settings**, disable **Write logs**.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the list of load balancers, select the one you need, click ![image](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**, disable the **{{ ui-key.yacloud.alb.label_log-requests }}** option.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -268,11 +268,11 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
       Result:
 
-      ```yaml
+      ```bash
       done (42s)
-      id: ds76g8b2op3fej1.....
+      id: ds76g8b2op3f********
       name: test-load-balancer
-      folder_id: b1gu6g9ielh690a.....
+      folder_id: b1gu6g9ielh6********
       ...
       log_options:
         disable: true

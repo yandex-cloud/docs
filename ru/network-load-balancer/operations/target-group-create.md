@@ -10,7 +10,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
-  1. Введите имя целевой группы.
+  1. Введите имя целевой группы. Требования к нему:
   
       {% include [name-format](../../_includes/name-format.md) %}
   

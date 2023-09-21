@@ -53,7 +53,7 @@
 1. Выберите целевую группу или [создайте новую](operations/target-group-create.md):
   
    * Нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
-   * Введите имя целевой группы.
+   * Введите имя целевой группы. Требования к нему:
 
      {% include [name-format](../_includes/name-format.md) %}
   
@@ -62,7 +62,7 @@
 
 1. (Опционально) Под блоком **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}** нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}** и в открывшемся окне:
   
-   * Введите имя проверки состояния.
+   * Введите имя проверки состояния. Требования к имени:
 
      {% include [name-format](../_includes/name-format.md) %}
   

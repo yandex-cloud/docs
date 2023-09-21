@@ -54,7 +54,7 @@ A {{ cdn-name }} resource can have one of the following statuses:
 * `Active` if the content is available to everyone (or will be available to everyone [once the settings apply](#delay)).
 * `Not active` if the content is not available to anyone.
 
-The **End-user access to content** option in the basic resource settings is used to switch between them.
+To switch between them, use the **{{ ui-key.yacloud.cdn.field_access }}** option in the basic resource settings.
 
 If no user requests have been sent to the resource for 90 days, its status changes to `Not active`.
 
@@ -62,15 +62,15 @@ If no user requests have been sent to the resource for 90 days, its status chang
 
 {{ cdn-name }} provides resource usage metrics for the last 30 days:
 
-* **Upstream from origins**: The volume of traffic streamed by CDN servers from origins.
-* **Sent**: The volume of traffic sent from CDN servers to clients.
-* **All traffic**: The sum of the metrics **Upstream from origins** and **Sent**.
-* **Requests**: The number of client requests to the CDN.
-* **Responses hit**: The number of client requests that were responded by CDN servers with [cached](caching.md) copies of files without requesting them from origins (if caching is enabled for CDN servers).
-* **Response miss**: The number of client requests that were not responded by CDN servers with cached copies of files (for example, because caching was disabled, the file hasn't been cached by the server yet, or the [cache lifetime](caching.md#server-side-cache-age) expired) and CDN servers had to access origins to load files.
-* **Cache hit ratio**: The ratio of traffic sent from CDN servers to clients without accessing origins. It is calculated using this formula: `(1 − (Upstream from origins / Sent)) × 100%`.
-* **Uploaded by shielding server**: Amount of traffic uploaded by shielding server from origins (if [shielding](origins-shielding.md) is enabled).
-* **Responses with 2xx codes**, **3xx codes**, **4xx codes**, **5xx codes**: The number of responses with those HTTP status codes sent by CDN servers to clients.
+* **{{ ui-key.yacloud.cdn.label_metrics-upstream-bytes }}**: Amount of traffic loaded by CDN servers from origins.
+* **{{ ui-key.yacloud.cdn.label_metrics-send-bytes }}**: Amount of traffic sent from CDN servers to clients.
+* **{{ ui-key.yacloud.cdn.label_metrics-total-bytes }}**: Sum of **{{ ui-key.yacloud.cdn.label_metrics-upstream-bytes }}** and **{{ ui-key.yacloud.cdn.label_metrics-send-bytes }}** metrics.
+* **{{ ui-key.yacloud.cdn.label_metrics-requests }}**: Number of client requests to the CDN.
+* **{{ ui-key.yacloud.cdn.label_responses-hit }}**: Number of client requests to which CDN servers responded by sending [cached](caching.md) copies of files without requesting them from origins (if caching is enabled for CDN servers).
+* **{{ ui-key.yacloud.cdn.label_responses-miss }}**: Number of client requests to which CDN servers failed to respond by sending cached copies of files (e.g., caching disabled, file not yet cached by the server, or [cache lifetime](caching.md#server-side-cache-age) expired) and had to access origins to load files.
+* **{{ ui-key.yacloud.cdn.label_cache-hit-ratio }}**: Ratio of traffic sent from CDN servers to clients without accessing origins. It is calculated using this formula: `(1 − ({{ ui-key.yacloud.cdn.label_metrics-upstream-bytes }} / {{ ui-key.yacloud.cdn.label_metrics-send-bytes }})) × 100%`.
+* **{{ ui-key.yacloud.cdn.label_metrics-shield-bytes }}**: Amount of traffic loaded from origins by the shielding server (if [shielding](origins-shielding.md) is enabled).
+* **{{ ui-key.yacloud.cdn.label_responses2xx }}**, **3xx**, **4xx**, and **5xx**: Number of responses with the respective HTTP status codes sent by CDN servers to clients.
 
 You can view statistics on the resource page in the [management console]({{ link-console-main }}).
 
