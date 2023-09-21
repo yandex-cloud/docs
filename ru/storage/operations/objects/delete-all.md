@@ -27,7 +27,9 @@
            --query '{Objects: Versions[].{Key: Key, VersionId: VersionId}}' \
            --max-items 1000)"
      ```
-         
+
+     Также вместо параметра `--max-items` вы можете использовать `--max-keys`.
+
      Результат:
          
      ```json
@@ -59,9 +61,11 @@
            --endpoint-url https://{{ s3-storage-host }} \
            --bucket $BUCKET_NAME \
            --query '{Objects: DeleteMarkers[].{Key: Key, VersionId: VersionId}}' \
-           --max-keys 1000)"
+           --max-items 1000)"
      ```
-       
+
+     Также вместо параметра `--max-items` вы можете использовать `--max-keys`.
+
      Результат:
        
      ```json
