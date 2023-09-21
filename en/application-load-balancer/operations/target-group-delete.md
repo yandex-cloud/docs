@@ -18,13 +18,13 @@ To delete a target group:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the target group was created.
-   1. Select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/trgroups.svg) **Target groups**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
    1. Select the target group and click ![image](../../_assets/horizontal-ellipsis.svg).
-   1. In the menu that opens, select **Delete**.
+   1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.
 
-      To do this with multiple groups, select the groups to delete from the list and click **Delete** at the bottom of the screen.
-   1. In the window that opens, click **Delete**.
+      To do this with multiple groups, select the groups to delete from the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

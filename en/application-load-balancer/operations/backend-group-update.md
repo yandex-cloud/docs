@@ -18,28 +18,28 @@ description: "Step-by-step guide for editing a backend group."
    {% endnote %}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend group was created.
-   1. Select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
    1. Click on the name of the group you need.
-   1. Click ![image](../../_assets/pencil.svg) **Edit**.
+   1. Click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the group parameters:
 
-      * The **Name** and **Description** of the backend group.
-      * **Session affinity**: If you select this option, requests within one user session are processed by the same endpoint.
+      * **{{ ui-key.yacloud.common.name }}** and **{{ ui-key.yc-ui-datasphere.common.description }}** backend groups.
+      * **{{ ui-key.yacloud.alb.label_session-affinity }}**: If you select this option, requests within one user session are processed by the same endpoint.
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-         `HTTP` and `gRPC` backend groups support the following modes:
+         `{{ ui-key.yacloud.alb.label_proto-http }}` and `{{ ui-key.yacloud.alb.label_proto-grpc }}` backend groups support the following modes:
 
-         * `By IP address`.
-         * `By HTTP header`.
-         * `By cookie`.
+         * `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
+         * `{{ ui-key.yacloud.alb.label_affinity-header }}`.
+         * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
 
-         For the `Stream` type, session affinity is always by IP address.
+         For the `{{ ui-key.yacloud.alb.label_proto-stream }}` type, session affinity is always by IP address.
 
          For more information about session affinity and its modes, see this [section](../concepts/backend-group.md#session-affinity).
 
-   1. At the bottom of the page, click **Save**.
+   1. At the bottom of the page, click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -168,15 +168,15 @@ description: "Step-by-step guide for editing a backend group."
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend was created.
-   1. Select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**.
-   1. Click on the name of the group you need.
-   1. Click ![image](../../_assets/plus.svg) **Add backend**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+   1. Click the name of the group you need.
+   1. Click ![image](../../_assets/plus.svg) **{{ ui-key.yacloud.alb.button_add-backend }}**.
    1. In the window that opens, set the backend settings:
 
       {% include [backend-settings-console](../../_includes/application-load-balancer/backend-settings-console.md) %}
 
-   1. Click **Add**.
+   1. Click **{{ ui-key.yacloud.common.add }}**.
 
 - CLI
 
@@ -199,7 +199,7 @@ description: "Step-by-step guide for editing a backend group."
      --target-group-id=<target_group_ID> \
      --panic-threshold 90 \
      --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15, \
-     timeout=10s,interval=2s,host=your-host.com,path=/ping
+   timeout=10s,interval=2s,host=your-host.com,path=/ping
    ```
 
    Where:
@@ -319,33 +319,34 @@ description: "Step-by-step guide for editing a backend group."
 
    1. Open the {{ TF }} configuration file and add a section describing a backend (`http_backend`, `grpc_backend`, or `stream_backend`) to the fragment with the backend group description:
 
-       ```hcl
-       resource "yandex_alb_backend_group" "test-backend-group" {
-         name                     = "<backend_group_name>"
-         http_backend {
-           name                   = "<backend_name>"
-           weight                 = 1
-           port                   = 80
-           target_group_ids       = ["<target_group_ID>"]
-           load_balancing_config {
-             panic_threshold      = 90
-           }    
-           healthcheck {
-             timeout              = "10s"
-             interval             = "2s"
-             healthy_threshold    = 10
-             unhealthy_threshold  = 15
-             http_healthcheck {
-               path               = "/"
-             }
-           }
-         }
-       }
-       ```
+      ```hcl
+      resource "yandex_alb_backend_group" "test-backend-group" {
+        name  = "<backend_group_name>"
+
+        http_backend {
+          name             = "<backend_name>"
+          weight           = 1
+          port             = 80
+          target_group_ids = ["<target_group_ID>"]
+          load_balancing_config {
+            panic_threshold = 90
+          }    
+          healthcheck {
+            timeout             = "10s"
+            interval            = "2s"
+            healthy_threshold   = 10
+            unhealthy_threshold = 15
+            http_healthcheck {
+              path = "/"
+            }
+          }
+        }
+      }
+      ```
 
        `yandex_alb_backend_group` specifies the backend group parameters:
        * `name`: Backend group name.
-       * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
+       * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: `HTTP`, `gRPC`, or `Stream`.
 
        Backend parameters:
        * `name`: Backend name.
@@ -386,12 +387,12 @@ description: "Step-by-step guide for editing a backend group."
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend was created.
-   1. Select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**.
-   1. Click on the name of the group you need.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the backend name and select **Edit**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+   1. Click the name of the group you need.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the backend name and select **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, set the backend settings. For more information about the settings, see [above](#add-backend).
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -609,11 +610,11 @@ To remove a backend from a group:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backend was created.
-   1. Select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**.
-   1. Click on the name of the group you need.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the backend name and select **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+   1. Click the name of the group you need.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the backend name and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

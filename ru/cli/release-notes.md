@@ -2,9 +2,49 @@
 
 ## Текущая версия {#latest-release}
 
+## Версия 0.111.0 (21.09.23) {#version0.111.0}
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ compute-name }} {#compute}
+
+* Поддержан параметр `--network-interface` в команде `yc compute instance relocate`.
+* Добавлена группа команд `yc compute ssh` для подключения к ВМ по сертификату, выписанному с помощью OS Login, и экспорта этого сертификата. OS Login используется для предоставления пользователям доступа к ВМ по SSH через {{ iam-short-name }}.
+
+##### {{ mpg-name }}
+
+* В команды `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update` и `yc managed-postgresql cluster restore` добавлено значение `16` для флага `--postgresql-version string`. Оно позволяет создать кластер {{ PG }} версии 16.
+
+
+##### {{ iot-name }} {#iot}
+
+* Добавлена группа команд `yc iot registry yds-export` для управления экспортом сообщений из IoT в Data Streams.
+
+
+
+##### {{ cloud-logging-name }} {#cloud-logging}
+
+* Исправлена ошибка вывода `yc logging read` для форматов json и json-rest
+
+
+
+##### {{ sf-name }} {#serverless-functions}
+
+В команду `yc serverless function version create` добавлены параметры асинхронного вызова:
+* `--async-max-retries` - для указания максимального количества попыток вызова функции
+* `--async-service-account-id` - для указания сервисного аккаунта для вызова функции
+* `--async-success-ymq-arn` - для указания очереди для успешного результата
+* `--async-success-sa-id` - для указания сервисного аккаунта для записи в очередь успешного результата
+* `--async-failure-ymq-arn` - для указания очереди для неуспешного результата
+* `--async-failure-sa-id` - для указания сервисного аккаунта для записи в очередь неуспешного результата
+
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.110.0 (14.09.23) {#version0.110.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
+
 
 ##### {{ api-gw-name }} {#api-gw}
 
@@ -16,6 +56,7 @@
 * Добавлена команда `yc serverless api-gateway release-canary` для замены параметров спецификации параметрами канареечного релиза и удаления последнего.
 
 * Добавлена команда `yc serverless api-gateway rollback-canary` для отключения канареечного релиза за счет установки параметру `weight` значения, равного `0`.
+
 
 
 ##### {{ iam-name }} {#iam}
@@ -31,9 +72,11 @@
 
 * В командах `yc compute instance create` и `yc compute instance update` добавлен флаг `--placement-group-partition` для указания номера раздела в группе размещения (partition).
 
+
 ##### {{ cloud-logging-name }} {#cloud-logging}
 
 * В команде `yc logging read` убрали ограничение для флага `--limit`. Теперь можно выводить более 1000 записей.
+
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
@@ -52,8 +95,6 @@
 **{{ mch-name }}**
 
 * В команды `yc managed-clickhouse cluster create` и `yc managed-clickhouse cluster update` добавлен флаг `--cloud-storage-prefer-not-to-merge`, позволяющий отключать слияние частей данных в {{ objstorage-name }}.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.109.0 (10.08.23) {#version0.109.0}
 

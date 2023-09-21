@@ -6,17 +6,17 @@ To create an [origin group](../../concepts/origins.md):
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a resource group.
-   1. Select **{{ cdn-short-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **Origin groups**.
-   1. Click **Create origin group**.
-   1. Enter the name of the group.
-   1. Configure **Origins**:
-      * Specify the **Origin type**: `Server`, `Bucket`, or `L7 load balancer`. For more information about types, see [{#T}](../../concepts/origins.md).
+   1. In the [management console]({{ link-console-main }}), select the folder to create a resource group in.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/cdn/origin-groups.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
+   1. Click **{{ ui-key.yacloud.cdn.button_origins-group-create }}**.
+   1. Enter a name for the group.
+   1. Configure **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
+      * Specify the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. For more information about types, see [{#T}](../../concepts/origins.md).
       * Specify an origin.
-      * Select the **Priority**: `Active` or `Backup`. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
+      * Select the **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` or `{{ ui-key.yacloud.cdn.value_backup }}`. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
       * Add other origins if needed.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

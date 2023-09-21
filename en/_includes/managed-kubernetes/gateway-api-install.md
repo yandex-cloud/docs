@@ -21,24 +21,24 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
 
    ```bash
    yc iam key create \
-     --service-account-name <name of service account for Gateway API> \
+     --service-account-name <name_of_service_account_for_Gateway_API> \
      --output sa-key.json
    ```
 
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the folder page and select **{{ managed-k8s-name }}**.
-1. Click the name of the cluster you need and select the ![Marketplace](../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select [Gateway API](/marketplace/products/yc/gateway-api) and click **Use**.
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the cluster name and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** ![Marketplace](../../_assets/marketplace.svg) tab.
+1. Under **Applications available for installation**, select [Gateway API](/marketplace/products/yc/gateway-api) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../managed-kubernetes/concepts/index.md#namespace) or create a new one.
    * **Application name**: Enter an application name.
    * **Folder ID**: Select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create load balancers in.
    * **Network ID**: Select the [cloud network](../../vpc/concepts/network.md#network) to [host the load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
    * **Subnet ID 1**, **Subnet ID 2**, **Subnet ID 3**: Select the [subnets](../../vpc/concepts/network.md#subnet) to [host the load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
-   * **Secret Key**: Paste the contents of the `sa-key.json` file or create a new service account key.
-1. Click **Install**.
+   * **Service account key**: Paste the contents of the `sa-key.json` file or create a new service account key.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 
 
 ## Installation using a Helm chart {#helm-install}
@@ -49,20 +49,18 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
 
    ```bash
     export HELM_EXPERIMENTAL_OCI=1 && \
-    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api \
-      --version <Helm chart version> \
+    helm pull oci://{{ mkt-k8s-key.yc_gateway-api.helmChart.name }} \
+      --version {{ mkt-k8s-key.yc_gateway-api.helmChart.tag }} \
       --untar && \
     helm install \
       --namespace <namespace> \
       --create-namespace \
-      --set folderId='<folder ID>' \
-      --set networkId='<cloud network ID>' \
-      --set subnetId='<subnet ID>' \
-      --set-file saKeySecretKey='<path to previously generated sa-key.json>' \
+      --set folderId='<folder_ID>' \
+      --set networkId='<cloud_network_ID>' \
+      --set subnetId='<subnet_ID>' \
+      --set-file saKeySecretKey='<path_to_generated_sa-key.json>' \
       gateway-api ./gateway-api/
    ```
-
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/gateway-api#docker-images).
 
 ## See also {#see-also}
 

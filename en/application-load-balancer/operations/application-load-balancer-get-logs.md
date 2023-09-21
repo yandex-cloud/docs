@@ -9,11 +9,11 @@ To view logs of the L7 Load balancer:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
-   1. Select **{{ alb-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Select the load balancer to view logs for.
-   1. Click the **Logs** tab.
+   1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
    1. Select the number of messages per page and the period: 1 hour, 3 hours, 1 day, 1 week, or 2 weeks.
-   1. To view full information about the message, click the arrow at the beginning of the line.
+   1. To view full information about the message, click the arrow at the beginning of the row.
 
 {% endlist %}
 
@@ -24,10 +24,10 @@ You can also view logs in [{{ cloud-logging-full-name }}](../../logging/):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
-   1. Select **{{ cloud-logging-name }}**.
-   1. Select the log group where load balancer logs are sent.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+   1. Select the log group the load balancer logs are sent to.
    1. Select the number of messages per page and the period: 1 hour, 3 hours, 1 day, 1 week, or 2 weeks.
-   1. To view full information about the message, click the arrow at the beginning of the line.
+   1. To view full information about the message, click the arrow at the beginning of the row.
 
 - CLI
 
@@ -53,7 +53,7 @@ You can also view logs in [{{ cloud-logging-full-name }}](../../logging/):
    ```json
    [
      {
-       "uid": "488ece3c-75b8-4d35-95ac-2b491b123472",
+       "uid": "488ece3c-75b8-4d35-95ac-2b49********",
        "resource": {},
        "timestamp": "2021-06-22T02:10:40Z",
        "ingested_at": "2021-06-22T08:49:15.716Z",

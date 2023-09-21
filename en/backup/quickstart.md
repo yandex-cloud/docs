@@ -5,10 +5,15 @@
 {{ backup-name }} supports backing up [{{ compute-name }} VMs](../compute/concepts/vm.md) running Ubuntu, CentOS, and Windows Server. For more information, see [{#T}](concepts/vm-connection.md#os).
 
 To get started with {{ backup-name }}:
+1. [Request access to the service](#write-to-support).
 1. [Activate the service](#activate-provider).
 1. [Set up a service account](#prepare-service-account).
 1. [Create a VM](#vm-create).
 1. [Link your VM to a backup policy](#add-policy).
+
+## Request access to the service {#write-to-support}
+
+{% include [ask-for-turning-on](../_includes/backup/ask-for-turning-on.md) %}
 
 ## Activate the service {#activate-provider}
 
@@ -59,10 +64,10 @@ To activate the service:
    1. Click **Create VM**.
    1. Under **Basic parameters**:
       1. Enter a name and description for the VM.
-      1. Select an [availability zone](../overview/concepts/geo-scope.md) to place the VM in.
-   1. Under **Image/boot disk selection**, choose [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
+      1. Select an [availability zone](../overview/concepts/geo-scope.md) to place your VM in.
+   1. Under **Image/boot disk selection**, select [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
    1. Under **Network settings**:
-      1. Select the [cloud network](../vpc/concepts/network.md#network) and [subnet](../vpc/concepts/network.md#subnet) to connect the VM to. If you don't have a network, click ![plus-sign](../_assets/plus-sign.svg) **Create network**:
+      1. Select the [cloud network](../vpc/concepts/network.md#network) and [subnet](../vpc/concepts/network.md#subnet) to connect the VM to. If you do not have a network, click ![plus-sign](../_assets/plus-sign.svg) **Create network**:
          1. In the window that opens, enter the network name and specify the folder to host the network.
          1. Click **Create**.
 

@@ -19,7 +19,7 @@ To restore a VM from a backup of another VM:
    1. Go to the ![backups](../../../_assets/backup/backups.svg) **Backups** tab.
    1. Next to the backup to restore the VM from, click ![image](../../../_assets/options.svg) and select **Restore VM**.
    1. In the **Target VM** field, select the VM to restore the backup to or [create](../#connect-vm) a new VM with a connection to {{ backup-name }}. To create a new VM for recovery, click **Create**:
-      1. On the page that opens, specify the parameters of the new VM and click **Create VM**.
+      1. On the page that opens, set the parameters of the new VM and click **Create VM**.
          Wait until the VM [connects](../../concepts/vm-connection.md) to {{ backup-name }}.
       1. Return to the VM recovery page.
       1. To update the list of VMs, click ![refresh](../../../_assets/backup/refresh.svg).
@@ -82,8 +82,8 @@ To restore a VM from a backup of another VM:
 
       ```bash
       yc backup backups recover \
-        --source-backup-id <идентификатор_резервной копии> \
-        --destination-instance-id <идентификатор_целевой_ВМ>
+        --source-backup-id <backup_ID> \
+        --destination-instance-id <target_VM_instance_ID>
       ```
 
       Where:
@@ -100,6 +100,10 @@ To restore a VM from a backup of another VM:
       For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/backup/recover.md).
 
    Once the source VM you created the backup from is restored, it becomes outdated. To avoid conflicts between the two VMs when making backups, [delete](../../../compute/operations/vm-control/vm-delete.md) the outdated VM or [refresh](../refresh-connection.md) its connection to {{ backup-name }}:
+
+- API
+
+   To restore a VM from a backup of another VM, use the [startRecovery](../../backup/api-ref/Backup/startRecovery.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/StartRecovery](../../backup/api-ref/grpc/backup_service.md#StartRecovery) gRPC API call.
 
 {% endlist %}
 

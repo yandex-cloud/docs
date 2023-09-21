@@ -7,12 +7,12 @@ To enable [origin shielding](../../concepts/origins-shielding.md) for a [resourc
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
-  1. Select **{{ cdn-name }}**.
-  1. Click the name of the desired resource.
-  1. Click the **Origin shielding** tab.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Click the resource name.
+  1. Go to the **{{ ui-key.yacloud.cdn.label_shielding }}** tab.
   1. In the top-right corner, enable the origin shielding option.
-  1. In the **Shielding settings** window, select the required location in the **Location** field.
-  1. Click **Enable**.
+  1. In the **{{ ui-key.yacloud.cdn.label_shielding-settings-title }}** window, select the required location in the **{{ ui-key.yacloud.cdn.label_shielding-location }}** field.
+  1. Click **{{ ui-key.yacloud.cdn.button_activate-shielding }}**.
 
   Following activation, shielding status will change from `Not activated` to `Active`.
 

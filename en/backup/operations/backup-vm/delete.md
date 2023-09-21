@@ -1,3 +1,8 @@
+---
+title: "Deleting a backup"
+description: "In this tutorial, you will learn how to delete a VM backup in **{{ backup-name }}**."
+---
+
 # Deleting a backup
 
 {% list tabs %}
@@ -7,7 +12,7 @@
    1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
    1. Select **{{ backup-name }}**.
    1. Go to the ![backups](../../../_assets/backup/backups.svg) **Backups** tab.
-   1. Next to the backup you wish to delete, click ![image](../../../_assets/options.svg) and select **Delete**.
+   1. Click ![image](../../../_assets/options.svg) next to the appropriate backup, and select **Delete**.
    1. Confirm the deletion.
 
 - CLI
@@ -44,6 +49,10 @@
       * `--instance-id`: ID of the VM instance whose backup you want to delete.
 
    For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/backup/delete.md).
+
+- API
+
+   To delete a backup, use the [delete](../../backup/api-ref/Backup/delete.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/Delete](../../backup/api-ref/grpc/backup_service.md#Delete) gRPC API call.
 
 {% endlist %}
 

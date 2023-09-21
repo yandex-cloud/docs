@@ -7,12 +7,12 @@ To change the HTTP router parameters:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
-   1. Select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/router.svg) **HTTP routers**.
-   1. Click on the name of the router you need.
-   1. Click **Edit**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. Click the router name.
+   1. Click **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the router, virtual host, or route settings.
-   1. At the bottom of the page, click **Save**.
+   1. At the bottom of the page, click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -150,12 +150,12 @@ To add a new route to an HTTP router's virtual host:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
-   1. Select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/router.svg) **HTTP routers**.
-   1. Click on the name of the router you need.
-   1. Click **Edit**.
-   1. Click **Add route**.
-   1. Set the route parameters and click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. Click the router name.
+   1. Click **{{ ui-key.yacloud.common.edit }}**.
+   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
+   1. Set the route parameters and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -417,7 +417,7 @@ To add a new route to an HTTP router's virtual host:
            --http-router-name <HTTP_router_name> \
            --prefix-fqmn-match /<first_word_in_service_name> \
            --backend-group-name <backend_group_name> \
-           --request-max-timeout <timeout>s  
+           --request-max-timeout <timeout>s
          ```
 
          For more information about the `yc alb virtual-host prepend-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/prepend-grpc-route.md).
@@ -459,7 +459,7 @@ To add a new route to an HTTP router's virtual host:
            --http-router-name <HTTP_router_name> \
            --prefix-fqmn-match /<first_word_in_service_name> \
            --backend-group-name <backend_group_name> \
-           --request-max-timeout <timeout>s  
+           --request-max-timeout <timeout>s
          ```
 
          For more information about the `yc alb virtual-host insert-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-grpc-route.md).
@@ -502,7 +502,7 @@ To add a new route to an HTTP router's virtual host:
            --http-router-name <HTTP_router_name> \
            --prefix-fqmn-match /<first_word_in_service_name> \
            --backend-group-name <backend_group_name> \
-           --request-max-timeout <timeout>s  
+           --request-max-timeout <timeout>s
          ```
 
          For more information about the `yc alb virtual-host insert-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-grpc-route.md).
@@ -604,14 +604,14 @@ To change the order of HTTP router routes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
-   1. Select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/router.svg) **HTTP routers**.
-   1. Click on the name of the router you need.
-   1. Click **Edit**.
-   1. Click **Sort**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+   1. Click the router name.
+   1. Click **{{ ui-key.yacloud.common.edit }}**.
+   1. Click **{{ ui-key.yacloud.alb.button_routes-sort }}**.
    1. In the window that opens, drag the route to a new position in the list.
-   1. Click **Save**.
-   1. Finish editing the router and click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
+   1. Finish editing the router and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

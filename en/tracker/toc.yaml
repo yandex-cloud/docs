@@ -87,7 +87,7 @@ items:
     items:
       - name: Overview
         href: queue-intro.md
-      - name: Create a queue
+      - name: Creating a queue
         href: manager/create-queue.md
       - name: Queue templates
         href: manager/workflows.md
@@ -95,20 +95,22 @@ items:
         href: user/queue.md
       - name: Changing basic queue settings
         href: manager/edit-queue-general.md
-      - name: Changing basic queue settings
+      - name: Workflows in queues
         items:
           - name: Overview
             href: manager/workflow.md
-          - name: Configuring issue types
+          - name: Issue types
             href: manager/add-ticket-type.md
-          - name: Creating a workflow
-            href: manager/add-workflow.md
-          - name: Setting up statuses
-            href: manager/workflow-status-edit.md
-          - name: Configuring transitions
-            href: manager/workflow-action-edit.md
-          - name: Setting up resolutions
+          - name: Resolutions
             href: manager/create-resolution.md
+          - name: Statuses
+            href: manager/workflow-status-edit.md
+          - name: Transitions between statuses
+            href: manager/workflow-action-edit.md
+          - name: Managing workflows
+            href: manager/add-workflow.md
+          - name: Backward compatibility
+            href: manager/backward-compatibility.md
       - name: Local issue fields
         href: local-fields.md
       - name: Adding a queue team
@@ -119,11 +121,11 @@ items:
         href: manager/queue-advanced.md
       - name: Viewing the history of queue changes
         href: manager/queue-history.md
-      - name: Delete a queue
+      - name: Deleting a queue
         href: manager/delete-queue.md
   - name: Working with issues
     items:
-      - name: Create an issue
+      - name: Creating an issue
         items:
           - name: Overview
             href: user/create-ticket.md
@@ -133,7 +135,7 @@ items:
             href: user/create-ticket-with-forms.md
           - name: Cloning an issue
             href: user/clone.md
-      - name: Edit an issue
+      - name: Editing an issue
         items:
           - name: Overview
             href: user/edit-ticket.md
@@ -149,7 +151,7 @@ items:
             href: user/markup.md
           - name: Voting for an issue
             href: user/votes.md
-          - name: Move an issue to another queue
+          - name: Moving an issue to another queue
             href: user/move-ticket.md
           - name: Changing multiple issues
             href: manager/bulk-change.md
@@ -209,7 +211,7 @@ items:
             href: manager/create-agile-sprint.md
           - name: Planning Poker
             href: manager/poker.md
-          - name: Burn down charts
+          - name: Burndown charts
             href: manager/burndown-diagram.md
       - name: Old boards
         items:
@@ -217,7 +219,7 @@ items:
             href: manager/agile.md
           - name: Switching to new technology
             href: manager/boards-convertor.md
-          - name: Create a board
+          - name: Creating a board
             href: manager/create-agile-board.md
           - name: Working with an agile board
             href: user/agile.md
@@ -227,9 +229,9 @@ items:
             href: manager/epic.md
           - name: Collaborative workload estimation
             href: manager/planning-poker.md
-          - name: Burn down charts
+          - name: Burndown charts
             href: manager/burndown.md
-  - name: Find issues
+  - name: Finding issues
     items:
       - name: Finding issues by key or name
         href: user/search-task.md

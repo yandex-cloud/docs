@@ -1,68 +1,51 @@
-# Creating a workflow
+# Managing workflows
 
-{% note warning %}
+A workflow defines acceptable issue statuses and their sequence. Queue workflow management is available to the queue owner and users granted [permission to access the queue settings](queue-access.md).
 
-By default, [only the queue owner](queue-access.md) can configure a queue.
+How to manage workflows:
 
-{% endnote %}
+* Add [issue types](./add-ticket-type.md) to existing workflows or create new issue types.
+* [Set up resolutions](./create-resolution.md) for different issue types.
+* Edit and remove workflows, bearing in mind [compatibility](./backward-compatibility.md) with existing queue issues.
+* Copy workflows.
+* Open the workflow editor where you can [create a workflow](#create-workflow), add [statuses](./workflow-status-edit.md) to it, and [set up transitions](./workflow-action-edit.md) between workflows.
 
-The workflow defines acceptable issue statuses and their sequence.
+## Rules for new workflows {#rules}
 
-{{ tracker-name }} provides a number of standard workflows that can't be deleted or edited. If standard workflows aren't enough to track your team's issues, create a new workflow based on a standard one. For this, copy the existing workflow and edit the [acceptable issue statuses](workflow-status-edit.md) and [rules of status change](workflow-action-edit.md).
+1. A workflow should contain at least two statuses and a transition between them.
 
-## Copying a workflow {#section_osf_wz5_vbb}
+1. A workflow may not have statuses without any transitions.
 
-1. Open the queue page.
+1. One of the statuses should be the [workflow start](./workflow-status-edit.md#initial-status).  Statuses of any type can act as the workflow start.
 
-1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. At least one status must be of the <q>Completed</q> or <q>Canceled</q> [type](./workflow-status-edit.md#status-types): you will not be able to close issues in your queue without it.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--workflows }}** tab.
+## Creating a workflow {#create}
 
-1. Click ![](../../_assets/tracker/button-copy.png)to copy the workflow.
+To create a workflow:
 
-1. Enter a name for the new workflow. If you leave this box empty, the new workflow will have a name like `Copy of ...`.
-
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_workflows.actions--copy }}**.
-
-1. If you need to edit the new workflow, click ![](../../_assets/tracker/button-edit.png).
-
-## Copying a workflow from a different queue {#section_pcf_xz5_vbb}
-
-If you already set up a similar workflow for a different queue, you can copy it instead:
-
-1. Open the queue page.
+1. Go to the queue page.
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--workflows }}** tab.
+1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab and click **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_WorkflowsStateList.action-new-process }}**. The workflow visual editor will open.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_workflows.copy-queue-workflow }}**.
-
-1. Select the key and workflow that you want to copy.
-
-1. Enter a name for the new workflow. If you leave this box empty, the new workflow will have a name like `Copy of ...`.
-
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_workflows.actions--copy }}**.
-
-1. If you need to edit the new workflow, click ![](../../_assets/tracker/button-edit.png).
+1. [Add statuses to the diagram](./workflow-status-edit.md#add-status) and [set up transitions](./workflow-action-edit.md#add-action) between them. Stick to the [rules](#rules).
 
 ## Deleting a workflow {#section_s35_xz5_vbb}
 
 {% note warning %}
 
-You can't delete a workflow if it's followed by at least one issue in the queue.
+You cannot delete a workflow that is currently active for at least one issue in the queue. Before deleting a workflow, we recommend that you move its [issue types to a different workflow](backward-compatibility.md).
 
 {% endnote %}
 
-To delete the workflow that you created:
+To delete a workflow:
 
 1. Open the queue page.
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--workflows }}** tab.
+1. Go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab.
 
-1. Select the workflow and click ![](../../_assets/tracker/button-delete.png).
-
-1. Confirm the deletion.
-
+1. Select the appropriate workflow and click ![](../../_assets/tracker/button-delete.png).

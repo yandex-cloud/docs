@@ -1,0 +1,1 @@
+Make sure you are authorized in {{ tracker-name }} as an [administrator](../../tracker/role-model.md).

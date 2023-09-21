@@ -47,11 +47,11 @@ To create a network:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
-   1. Click **Create network**.
-   1. Enter the network **Name**: `alb-logging-network`.
-   1. In the **Advanced** field, select **Create subnets**.
-   1. Click **Create network**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+   1. Enter a **{{ ui-key.yacloud.vpc.networks.create.field_name }}** for the network: `alb-logging-network`.
+   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+   1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 {% endlist %}
 
@@ -62,11 +62,11 @@ To create a network:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Click **Create service account**.
-   1. In the **Name** field, enter `alb-logging-service-account`.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, enter `alb-logging-service-account`.
    1. Add roles: `serverless.functions.invoker` and `editor`.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -90,48 +90,48 @@ To create security groups:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
-   1. Open the **Security groups** tab.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Open the **{{ ui-key.yacloud.vpc.switch_security-groups }}** tab.
    1. Create a security group for the load balancer:
 
-      1. Click **Create group**.
-      1. Enter the **Name** for the group: `alb-logging-sg-balancer`.
-      1. Select the **Network**: `alb-logging-network`.
-      1. Under **Rules**, create the following rules using the instructions below the table:
+      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+      1. Enter a **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** for the group: `alb-logging-sg-balancer`.
+      1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}**: `alb-logging-network`.
+      1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
 
-         | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source/<br/>destination type | Source /<br/>destination |
+         | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
          | --- | --- | --- | --- | --- | --- |
-         | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
-         | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | N/A |
+         | `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+         | `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+         | `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+         | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | N/A |
 
-         1. Select the **Outgoing traffic** or **Incoming traffic** tab.
-         1. Click **Add rule**.
-         1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
-         1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
-         1. In the **Purpose** or **Source** field, select the purpose of the rule:
+         1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
+         1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
-            * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-            * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
-            * **Load balancer health checks**: Rule that allows a load balancer to check the health of VMs.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule that allows a load balancer to check the health of VMs.
 
-         1. Click **Save**. Repeat the steps to create all rules from the table.
+         1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
 
-      1. Click **Save**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
    1. In the same way, create a security group for the VMs named `alb-logging-sg-vms` with the same `alb-logging-network` network and the following rules:
 
-      | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source type | Source |
+      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | Incoming | balancer | 80 | TCP | Security group | `alb-logging-sg-balancer` |
-      | Incoming | ssh | 22 | TCP | CIDR | 0.0.0.0/0 |
+      | `Incoming` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `alb-logging-sg-balancer` |
+      | `Incoming` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
    1. In the same way, create a security group for the {{ PG }} cluster named `alb-logging-sg-cluster` with the same network `alb-logging-network` and the following rules:
 
-      | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source type | Source |
+      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | Incoming | db | 6432 | TCP | CIDR | 0.0.0.0/0 |
+      | `Incoming` | `db` | `6432` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
 {% endlist %}
 
@@ -147,12 +147,12 @@ To create a cluster and a database:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ mpg-name }}**.
-   1. Click **Create cluster**.
-   1. In the **Cluster name** field, enter `alb-logging-cluster`.
-   1. In the **Environment** field, select `PRODUCTION`.
-   1. In the **Version** field, select `12`.
-   1. Under **Host class**:
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter `alb-logging-cluster`.
+   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** field, select `PRODUCTION`.
+   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select `12`.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
 
       * Specify the `Intel Cascade Lake` platform.
       * Select the `burstable` type.
@@ -160,13 +160,13 @@ To create a cluster and a database:
 
       {% note warning %}
 
-      The `b2.medium` class was only selected as part of testing. In real projects, it isn't recommended to use hosts with a guaranteed vCPU share under 100%.
+      The `b2.medium` class was only selected as part of testing. In real projects, we do not recommend using hosts with a guaranteed vCPU share under 100%.
 
       {% endnote %}
 
-   1. Under **Storage size**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
-      * Choose `network-ssd`.
+      * Select `network-ssd`.
       * Set the size to 10 GB.
 
       {% note info %}
@@ -175,23 +175,23 @@ To create a cluster and a database:
 
       {% endnote %}
 
-   1. Under **Database**, specify the DB attributes:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
-      * Database name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
-      * The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
-      * User password. From 8 to 128 characters.
+      * Database name. It must be unique within the folder and contain only Latin letters, numbers, and underscores.
+      * DB owner username. It may only contain Latin letters, numbers, and underscores.
+      * User password. It must be from 8 to 128 characters.
 
-      For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
+      For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You cannot change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
 
-   1. Under **Network settings**:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**:
 
-      * Select the network `alb-logging-network`.
-      * Select the security group `alb-logging-sg-cluster`.
+      * Select the `alb-logging-network` network.
+      * Select the `alb-logging-sg-cluster` security group.
 
-   1. Under **Hosts**, add a host to be accessible from outside of {{ yandex-cloud }}. To do this, enable **Public access**.
-   1. Under **Additional settings**, enable the options **Access from the management console** and **Serverless access**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add a host to be accessible from outside {{ yandex-cloud }}. To do this, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
    1. Leave the default values in the other fields.
-   1. Click **Create cluster**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
 
@@ -215,12 +215,12 @@ You need to create a log table in advance:
 
 - Management console
 
-   After [creating the cluster](#set-up-db-create-cluster), you'll be automatically redirected to the **Clusters** page.
+   After [creating the cluster](#set-up-db-create-cluster), you will be automatically redirected to the **{{ ui-key.yacloud.mdb.clusters.label_title }}** page.
 
-   1. Wait until the `alb-logging-cluster cluster` changes its status to **Alive**, then select this cluster.
-   1. Go to the **SQL** tab.
+   1. Wait until `alb-logging-cluster` changes its status to **Alive**, then select this cluster.
+   1. Go to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
    1. Select the user that you [created together with the cluster](#set-up-db-create-cluster) and enter their password.
-   1. Select the database that you created together with the cluster, and click **Connect**.
+   1. Select the database you created along with the cluster and click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
    1. In the edit window, enter the following query:
 
       ```sql
@@ -233,7 +233,7 @@ You need to create a log table in advance:
       );
       ```
 
-   1. Click **Run**.
+   1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
    1. Wait until a message that the query is executed appears.
 
 {% endlist %}
@@ -248,43 +248,43 @@ To create an instance group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
-   1. Open the **Instance groups** tab. Click **Create group**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Open the **{{ ui-key.yacloud.compute.switch_groups }}** tab. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
    1. Enter the instance group name: `alb-logging-ig`.
-   1. In the **Service account** field, select the [previously created](#create-sa) service account.
-   1. Under **Allocation**, select multiple availability zones to ensure fault tolerance of your hosting.
-   1. Under **Instance template**, click **Define**.
-   1. Under **Image/boot disk selection**, open the **{{ marketplace-name }}** tab and click **Show more**. Select [LEMP](/marketplace/products/yc/lemp) and click **Use**.
-   1. Under **Computing resources**:
+   1. In the **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** field, select the account you [previously created](#create-sa).
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure fault tolerance of your hosting.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
       - Select the VM's [platform](../../compute/concepts/vm-platforms.md).
       - Specify the required number of vCPUs and the amount of RAM.
 
       The minimum configuration is enough for functional website testing:
-      * **Platform**: Intel Cascade Lake.
-      * **Guaranteed vCPU share**: 5%.
-      * **vCPU**: 2.
-      * **RAM**: 1 GB.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `5%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
-   1. Under **Network settings**, select the **Network** named `alb-logging-network` [that you created earlier](#create-network) and its subnets.
-   1. In the **Public address** field, select **Auto**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** named `alb-logging-network` that you [created earlier](#create-network) and its subnets.
+   1. In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select **{{ ui-key.yacloud.compute.instances.create.value_address-auto }}**.
    1. Select the [previously created](#create-security-groups) `alb-logging-sg-vms` security group.
-   1. Specify data required for accessing the VM:
-      - Enter the username in the **Login** field.
-      - In the **SSH key** field, paste the contents of the public key file.
+   1. Specify the data required for accessing the VM:
+      - Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      - In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-         You need to create a key pair for the SSH connection yourself. See the [section about how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
+         You need to create a key pair for the SSH connection yourself. See [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
 
       {% note alert %}
 
-      The IP address and host name (FQDN) to connect to the VM are assigned on VM creation. If you selected **No address** in the **Public address** field, you won't be able to access the VM from the internet.
+      The IP address and host name (FQDN) to connect to the VM are assigned on VM creation. If you selected **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
 
       {% endnote %}
 
-   1. Click **Save**.
-   1. Under **Scaling**, enter the **Size** of the instance group: 2.
-   1. Under **Integration with Application Load Balancer**, select **Create target group** and specify `alb-logging-tg` as the group name. You can read more about target groups [here](../../application-load-balancer/concepts/target-group.md).
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, enter the **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** of the instance group: 2.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_alb }}**, select **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** and specify `alb-logging-tg` as the group name. You can read more about target groups [here](../../application-load-balancer/concepts/target-group.md).
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -299,11 +299,11 @@ It may take a few minutes to create an instance group. Once created, the group [
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [log group](../../logging/concepts/log-group.md).
-   1. Select **{{ cloud-logging-name }}**.
-   1. Click **Create group**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+   1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
    1. Enter a name, such as `alb-logging-group`, and description for the log group.
    1. Set the log group record retention period.
-   1. Click **Create group**.
+   1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
 
 {% endlist %}
 
@@ -321,17 +321,17 @@ To create a backend group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**. Click **Create backend group**.
-   1. Enter the **Name** for the backend group: `alb-logging-bg`.
-   1. Under **Backends**, click **Add**.
-   1. Enter the **Name** for the backend: `alb-logging-backend`.
-   1. In the **Target group** field, select the `alb-logging-tg` group.
-   1. Specify the **Port** that the backend VMs will use to receive incoming traffic from the load balancer: `80`.
-   1. Click **Add health check**.
-   1. Enter the **Port** that the backend VMs will use to accept health check connections from the load balancer: `80`.
-   1. Enter the **Path** to be accessed by the load balancer's health checks: `/`.
-   1. Click **Create**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the backend group: `alb-logging-bg`.
+   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the backend: `alb-logging-backend`.
+   1. In the **{{ ui-key.yacloud.alb.label_target-groups }}** field, select the `alb-logging-tg` group.
+   1. Specify the **{{ ui-key.yacloud.alb.label_port }}** that the backend VMs will use to receive incoming traffic from the load balancer: `80`.
+   1. Click **{{ ui-key.yacloud.alb.button_add-healthcheck }}**.
+   1. Specify the **{{ ui-key.yacloud.alb.label_port }}** that the backend VMs will use to accept health check connections: `80`.
+   1. Enter the **{{ ui-key.yacloud.alb.label_path }}** to be accessed by the load balancer for health checks: `/`.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -345,15 +345,15 @@ To create an HTTP router:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/router.svg) **HTTP routers**. Click **Create HTTP router**.
-   1. Enter the **Name** of the HTTP router: `alb-logging-router`.
-   1. Click **Add virtual host**.
-   1. Enter the **Name** of the virtual host: `alb-logging-host`.
-   1. Click **Add route**.
-   1. Enter the **Name** of the route: `alb-logging-route`.
-   1. In the **Backend group** field, select the `alb-logging-bg` group.
-   1. Click **Create**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the HTTP router: `alb-logging-router`.
+   1. Click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the virtual host: `alb-logging-host`.
+   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the route: `alb-logging-route`.
+   1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select the `alb-logging-bg` group.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -365,16 +365,16 @@ To create a load balancer:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-   1. Click **Create L7 load balancer** and select **Manual**.
-   1. Enter the **Name** of the load balancer: `alb-logging-balancer`.
-   1. Under **Network settings**, select the `alb-logging-network` network and the `alb-logging-sg-balancer` security group you created previously.
-   1. Under **Log settings**, specify `alb-logging-group`.
-   1. Click **Add listener** under **Listeners**.
-   1. Enter the **Name** of the listener: `alb-logging-listener`.
-   1. In the **Protocol** field, select **HTTP**.
-   1. In the **HTTP Router** field, select the router `alb-logging-router` you [created previously](#create-http-router).
-   1. Click **Create**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the load balancer: `alb-logging-balancer`.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the `alb-logging-network` network and the `alb-logging-sg-balancer` security group that you previously created.
+   1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**, specify `alb-logging-group`.
+   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the listener: `alb-logging-listener`.
+   1. In the **{{ ui-key.yacloud.alb.label_protocol-type }}** field, select `{{ ui-key.yacloud.alb.label_proto-http-tls }}`.
+   1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select the `alb-logging-router` router that you [previously created](#create-http-router).
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -390,11 +390,11 @@ To create a function:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ sf-name }}**.
-   1. Click **Create function**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
    1. Enter the function name: `alb-logging-function`.
-   1. Click **Create**. After creating the function, you'll be automatically redirected to the **Editor** page.
-   1. Select **Python** **3.8** as the runtime environment and click **Next**.
+   1. Click **{{ ui-key.yacloud.common.create }}**. After creating the function, you will be automatically redirected to the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** page.
+   1. Select **Python** **3.8** as the runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
    1. Clear the file editing area and paste the following code into it:
 
       {% cut "Function code" %}
@@ -472,8 +472,8 @@ To create a function:
 
    1. Specify the following version parameters:
 
-      * **Timeout, sec:** 10.
-      * **RAM:** 128 MB.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
 
    1. Select the previously created `alb-logging-service-account`. On behalf of this account, the function will write data to the DB.
 
@@ -488,14 +488,14 @@ To create a function:
 
       To define the values of connection parameters:
 
-      1. In the [management console]({{ link-console-main }}), select **{{ mpg-name }}**.
-      1. Select the cluster `alb-logging-cluster`.
-      1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line with the desired DB.
-      1. Click **Connect**.
+      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+      1. Select the `alb-logging-cluster` cluster.
+      1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the required DB row.
+      1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
       1. On the **Shell** tab, find a sample connection string.
-      1. Move the values of the `host`, `port`, `dbname`, and `user` variables to the appropriate **Value** field of the function environment variables.
+      1. Move the values of the `host`, `port`, `dbname`, and `user` variables to the appropriate **{{ ui-key.yacloud.common.value }}** field of the function environment variables.
 
-   1. In the top-right corner, click **Create version**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
 
@@ -511,32 +511,32 @@ To create a trigger:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
+   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **Basic parameters**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Give your trigger a name, such as `alb-logging-trigger`.
-      * In the **Type** field, select **{{ cloud-logging-name }}**.
-      * In the **Launched resource** field, select **Function**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_logging }}`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-   1. Under **{{ cloud-logging-name }} settings**:
-      * Select `alb-logging-group` in the **Log group** field.
-      * Specify `alb.loadBalancer` in the **Resource types** field.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}**:
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_log-group }}** field, select `alb-logging-group`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_resource-type }}** field, specify `alb.loadBalancer`.
 
-   1. Under **Batch message settings**:
-      * In the **Waiting time, s** field, enter `15`.
-      * In the **Group size** field, enter `10`.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**:
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}** field, enter `15`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}** field, enter `10`.
 
-   1. Under **Function settings**, select the function you previously created and specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the function you previously created, and specify:
 
-      * Function version tag: `$latest`.
-      * Previously created service account.
+      * Function version tag: `$latest`
+      * Previously created service account
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -581,8 +581,8 @@ To create a trigger:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-      1. Find the load balancer `alb-logging-balancer` in the list and copy its IP address.
+      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. Find the `alb-logging-balancer` load balancer in the list and copy its IP address.
 
    {% endlist %}
 
@@ -593,12 +593,12 @@ To create a trigger:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select **{{ mpg-name }}**.
-      1. Select the cluster `alb-logging-cluster`.
-      1. Go to the **SQL** tab.
+      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+      1. Select the `alb-logging-cluster` cluster.
+      1. Go to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
       1. Select the user that you [created together with the cluster](#set-up-db-create-cluster) and enter their password.
-      1. Select the database you created along with the cluster and click **Connect**.
-      1. Click on the `load_balancer_requests` table. You should now see the first rows of this table with the data about your requests to the load balancer.
+      1. Select the database you created along with the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+      1. Click the `load_balancer_requests` table. You should now see the first rows of this table with your requests to the load balancer.
 
    {% endlist %}
 

@@ -7,11 +7,11 @@ To delete an L7 load balancer:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
-   1. Select **{{ alb-name }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **{{ ui-key.yacloud.common.delete }}**.
 
-      To do this with multiple load balancers, select the load balancers to delete from the list and click **Delete** at the bottom of the screen.
-   1. In the window that opens, click **Delete**.
+      To do this with multiple load balancers, select the load balancers to delete in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -28,7 +28,7 @@ To delete an L7 load balancer:
    1. Run this command:
 
       ```bash
-      yc alb load-balancer delete <ID or name of the load balancer>
+      yc alb load-balancer delete <load_balancer_ID_or_name>
       ```
 
       Result:
@@ -39,7 +39,7 @@ To delete an L7 load balancer:
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete an L7 load balancer created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the L7 load balancer description.
@@ -49,7 +49,7 @@ To delete an L7 load balancer:
       ```hcl
       ...
       resource "yandex_alb_load_balancer" "test-balancer" {
-        name        = "my-load-balancer"
+        name        = "<load_balancer_name>"
         network_id  = yandex_vpc_network.test-network.id
 
         allocation_policy {
@@ -60,7 +60,7 @@ To delete an L7 load balancer:
         }
 
         listener {
-          name = "my-listener"
+          name = "<my-listener>"
           endpoint {
             address {
               external_ipv4_address {
@@ -99,7 +99,7 @@ To delete an L7 load balancer:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -108,7 +108,7 @@ To delete an L7 load balancer:
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc alb load-balancer list

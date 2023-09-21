@@ -1,4 +1,4 @@
-# Creating load balancer with DDoS protection
+# Creating a load balancer with DDoS protection
 
 In this scenario, you will create an L7 load balancer with a listener and public IP address with [DDoS protection](../../vpc/ddos-protection/index.md).
 
@@ -32,11 +32,11 @@ To create a network:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
-  1. Click **Create network**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Name the network: `ddos-network`.
-  1. In the **Advanced** field, select **Create subnets**.
-  1. Click **Create network**.
+  1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
 - CLI
 
@@ -103,42 +103,42 @@ To create security groups:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
-   1. Open the **Security groups** tab.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
    1. Create a security group for the load balancer:
 
-      1. Click **Create group**.
-      1. **Name** the group: `ddos-sg-balancer`.
-      1. Select the `ddos-network` **network**.
-      1. Under **Rules**, create the following rules using the instructions below the table:
+      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+      1. Enter a **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** for the group: `ddos-sg-balancer`.
+      1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}**: `ddos-network`.
+      1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
 
-         | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source/<br/>destination type | Source /<br/>destination |
+         | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
          | --- | --- | --- | --- | --- | --- |
-         | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
-         | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | N/A |
+         | `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+         | `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+         | `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+         | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | N/A |
 
-         1. Select the **Outgoing traffic** or **Incoming traffic** tab.
-         1. Click **Add rule**.
-         1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
-         1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
-         1. In the **Purpose** or **Source** field, select the purpose of the rule:
+         1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
+         1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
-            * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-            * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
-            * **Load balancer health checks**: Rule that allows a load balancer to check the health of VMs.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule that allows a load balancer to check the health of VMs.
 
-         1. Click **Save**. Repeat the steps to create all rules from the table.
+         1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
 
-      1. Click **Save**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   1. Similarly create a security group for the VM named `ddos-sg-vms` with the same `ddos-network` network and the following rules:
+   1. In the same way, create a security group for the VM named `ddos-sg-vms` with the same `ddos-network` network and the following rules:
 
-      | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source type | Source |
+      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | Incoming | balancer | 80 | TCP | Security group | `ddos-sg-balancer` |
-      | Incoming | ssh | 22 | TCP | CIDR | 0.0.0.0/0 |
+      | `Incoming` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `ddos-sg-balancer` |
+      | `Incoming` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
 - CLI
 
@@ -182,45 +182,45 @@ To create an instance group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
-   1. Open the **Instance groups** tab and click **Create group**.
-   1. Under **Basic parameters**:
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
-      * **Name** the instance group: `ddos-group`.
-      * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. In {{ ig-name }}, all operations are performed on behalf of a service account.
+      * Enter a **{{ ui-key.yacloud.compute.groups.create.field_name }}** for the instance group: `ddos-group`.
+      * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete instances in the instance group, assign the `editor` role to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
 
-   1. Under **Allocation**, select multiple availability zones to ensure fault tolerance of your hosting.
-   1. Under **Instance template**, click **Define** and set up the configuration for a basic instance:
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure fault tolerance of your hosting.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** and set up the configuration for a basic instance:
 
-      * Under **Basic parameters**, enter the template **Description**:
-      * Under **Image/boot disk selection**, open the **{{ marketplace-name }}** tab and click **Show more**. Select [LEMP](/marketplace/products/yc/lemp) and click **Use**.
-      * Under **Disks**, specify:
-         * **Disk type**: HDD.
-         * Disk **size**: 3 GB.
-      * Under **Computing resources**, specify:
-         * **Platform**: Intel Cascade Lake.
-         * **vCPU**: 2.
-         * **Guaranteed vCPU share**: 5%
-         * **RAM**: 1 GB.
-      * Under **Network settings**:
-         * Choose the `ddos-network` network and its subnets.
-         * In the **Public address** field, select **Auto**.
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a **{{ ui-key.yacloud.compute.instances.create.field_description }}** for the template.
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, specify:
+         * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `HDD`
+         * Disk **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify:
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `5%`
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+         * Select the `ddos-network` network and its subnets.
+         * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
          * Choose the `ddos-sg-vms` security group.
-      * Under **Access**, specify the data required to access the VM:
-         * Enter the username in the **Login** field.
-         * In the **SSH key** field, paste the contents of the public key file.
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data required to access the VM:
+         * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+         * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_key }}** field, paste the contents of the public key file.
 
          To establish an SSH connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-      * Click **Save**.
+      * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 
-   1. Under **Scaling**, enter the **Size** of the instance group: 2.
-   1. Under **Integration with Application Load Balancer**, select **Create target group** and specify `tg-ddos` as the group name. [Read more about target groups](../../application-load-balancer/concepts/target-group.md).
-   1. Click **Create**.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, enter a **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** for the instance group: `2`.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_alb }}**, select **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** and enter `tg-ddos` as the group name. You can read more about target groups [here](../../application-load-balancer/concepts/target-group.md).
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
-   1. Get the resource IDs required to create an instance group using the commands:
+   1. Get the resource IDs required to create an instance group using the following commands:
 
       * [yc iam service-account get <service account name>](../../cli/cli-ref/managed-services/iam/service-account/get.md): For a service account.
       * [yc vpc network get ddos-network](../../cli/cli-ref/managed-services/vpc/network/get.md): For the `ddos-network` network.
@@ -350,17 +350,17 @@ You can't do this using the [CLI](../../cli/).
 
 {% endnote %}
 
-To protect a load balancer against DDoS attacks, you need to reserve a static public IP address with the **DDoS protection** option:
+To protect a load balancer against DDoS attacks, reserve a static public IP address with the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}** option:
 
 {% list tabs %}
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
-  1. Open the **IP addresses** tab and click **Reserve address**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** and click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. Select the availability zone where you want to reserve the address.
-  1. Enable the **DDoS protection** option.
-  1. Click **Reserve address**.
+  1. Enable **{{ ui-key.yacloud.vpc.addresses.popup-create_field_ddos-protection-provider }}**.
+  1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 - {{ TF }}
 
@@ -380,17 +380,17 @@ To create a backend group:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-  1. Open the **Backend groups** tab. Click **Create backend group**.
-  1. **Name** the backend group: `ddos-backend-group`.
-  1. Under **Backends**, click **Add**.
-  1. **Name** the backend: `backend-1`.
-  1. In the **Target group** field, select the `tg-ddos` group.
-  1. Specify the **Port** that the backend VMs will use to receive incoming traffic from the load balancer: `80`.
-  1. Click **Add health check**.
-  1. Enter the **Port** that the backend VMs will use to accept health check connections from the load balancer: `80`.
-  1. Enter the **Path** to be accessed by the load balancer's health checks: `/`.
-  1. Click **Create**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+  1. Enter a **{{ ui-key.yacloud.common.name }}** for the backend group: `ddos-backend-group`.
+  1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**.
+  1. Enter a **{{ ui-key.yacloud.common.name }}** for the backend: `backend-1`.
+  1. In the **{{ ui-key.yacloud.alb.label_target-groups }}** field, select the `tg-ddos` group.
+  1. Specify the **{{ ui-key.yacloud.alb.label_port }}** that the backend VMs will use to receive incoming traffic from the load balancer: `80`.
+  1. Click **{{ ui-key.yacloud.alb.button_add-healthcheck }}**.
+  1. Specify the **{{ ui-key.yacloud.alb.label_port }}** that the backend VMs will use to accept health check connections: `80`.
+  1. Enter the **{{ ui-key.yacloud.alb.label_path }}** to be accessed by the load balancer for health checks: `/`.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -483,18 +483,18 @@ To create an HTTP router and add a route to it:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-  1. Open the **HTTP routers** tab. Click **Create HTTP router**.
-  1. **Name** the HTTP router: `ddos-router`.
-  1. Click **Add virtual host**.
-  1. **Name** the virtual host: `ddos-host`.
-  1. Specify the Authority value: `alb-with-ddos.com`.
-  1. Click **Add route**.
-  1. **Name** it: `route-1`.
-  1. In the **Path** field, select `Starts with` and specify the path `/`.
-  1. In the **Action** field, leave the `Routing` value.
-  1. In the **Backend group** list, select the group you created earlier.
-  1. Leave all other settings as they are and click **Create**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. In the left-hand panel, select ![image](../../_assets/router.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+  1. Enter a **{{ ui-key.yacloud.common.name }}** for the HTTP router: `ddos-router`.
+  1. Click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+  1. Enter a **{{ ui-key.yacloud.common.name }}** for the virtual host: `ddos-host`.
+  1. Enter a **{{ ui-key.yacloud.alb.label_authority }}** value: `alb-with-ddos.com`.
+  1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
+  1. Enter a **{{ ui-key.yacloud.common.name }}**: `route-1`.
+  1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select `{{ ui-key.yacloud.alb.label_match-prefix }}` and specify the path `/`.
+  1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, leave `{{ ui-key.yacloud.alb.label_route-action-route }}`.
+  1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select the group you created earlier.
+  1. Leave all other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -572,21 +572,21 @@ To create a load balancer:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-   1. In the left menu, select **Load balancers**.
-   1. Click **Create L7 load balancer**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_load-balancers }}**.
+   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
    1. Name the load balancer: `ddos-protect-alb`.
-   1. Under **Network settings**, select the `ddos-network` network and the `ddos-sg-balancer` security group.
-   1. Under **Allocation**, select the subnets for the load balancer's nodes in each availability zone and enable traffic.
-   1. Click **Add listener** under **Listeners**. Set the listener settings:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the `ddos-network` network and the `ddos-sg-balancer` security group.
+   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select the subnets for the load balancer nodes in each availability zone and enable traffic.
+   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Set the listener settings:
 
       1. Name the listener: `ddos-listener`.
-      1. Under **Public IP address settings**, enable traffic.
+      1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, enable traffic.
       1. Set the port to `80`.
-      1. Select the **List** type and specify the [previously reserved](#reserve-ip) IP address with DDoS protection.
+      1. Select the **{{ ui-key.yacloud.alb.label_address-list }}** type and specify the [previously reserved](#reserve-ip) IP address with DDoS protection.
 
-   1. In the **HTTP router** field, select `ddos-router`.
-   1. Click **Create**.
+   1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select `ddos-router`.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -727,9 +727,9 @@ To create an L7 load balancer with DDoS protection using {{ TF }}:
 
 1. In the `alb-with-ddos-protection.auto.tfvars` file, set user-defined parameters:
 
-   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
+   * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
    * `vm_user`: VM username.
-   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Create resources:
 

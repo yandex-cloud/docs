@@ -8,17 +8,17 @@ To [pre-load content](../../concepts/caching.md#prefetch) from [origins](../../c
 
    1. In the [management console]({{ link-console-main }}), select the folder where your [resource](../../concepts/resource.md) is located.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the name of the desired resource.
+   1. Click the resource name.
 
-   1. Go to the **Content** tab.
+   1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
-   1. In the top right-hand corner, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Preload content**.
+   1. In the top-right corner, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
-   1. In the **File path** field, enter the names of preloaded files.
+   1. Enter the file names in the **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** field.
 
-   1. Click **Preload content**.
+   1. Click **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
 - CLI
 

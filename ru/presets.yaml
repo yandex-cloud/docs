@@ -3935,9 +3935,6 @@ default:
       blocks-desktop_b-page-queue-admin-tab_type_types:
         add-issue-type: Добавить тип задачи
         save: Сохранить
-      blocks-desktop_b-page-queue-admin-tab_type_workflows:
-        actions--copy: Копировать
-        copy-queue-workflow: Скопировать воркфлоу из другой очереди
       blocks-desktop_b-page-queue-admin:
         group-title--automatization: Автоматизация
         tab-title--events: Журнал изменений
@@ -3949,7 +3946,6 @@ default:
         tab-title--sla: SLA
         tab-title--team: Команда очереди
         tab-title--triggers: Триггеры
-        tab-title--workflows: Рабочие процессы
       blocks-desktop_b-page-queue-description:
         description: Описание очереди
       blocks-desktop_b-page-queue:
@@ -3991,9 +3987,6 @@ default:
         add-issue-key-in-email-checkbox: Добавлять номер задачи в тему письма
         advanced-settings: Расширенные настройки
         advanced-settings-show: Показать расширенные настройки
-        choose-issue-type: Тип задачи
-        choose-resolutions: Резолюции
-        choose-workflow: Воркфлоу
         commits: Отображать вкладку «Коммиты»
         department: Подразделение
         goals: Отображать вкладку «Цели»
@@ -4016,10 +4009,6 @@ default:
         show-create-issue-form--team: Только команде
         status-on-link: Статус при добавлении внешней связи
         voting: Голосование в задачах
-      blocks-desktop_b-queue-issue-type__workflow-table:
-        button-name: Название кнопки
-      blocks-desktop_b-queue-issue-type:
-        workflow-view-label: Статусы и переходы
       blocks-desktop_b-queues-info:
         admin: Администрирование
         projects: Проекты
@@ -4158,7 +4147,6 @@ default:
         field-type--uri: Ссылка
         table-head--type: Тип
       blocks-desktop_page-admin-tab_type_repositories:
-        connect: Подключить репозиторий
         status--success: Подключен
       blocks-desktop_page-admin-tab:
         create--resolutions: Создать резолюцию
@@ -4169,7 +4157,6 @@ default:
         tab-title--fields: Поля
         tab-title--resolutions: Резолюции
         tab-title--statuses: Статусы задач
-        tab-title--types: Типы задач
       blocks-desktop_page-agile-boards:
         create: Создать доску
         filter-type--favorite: Избранные
@@ -4308,13 +4295,6 @@ default:
         title: Будут выполнены условия
       blocks-desktop_wiki-widget-copy-url:
         title: Получить код для Вики
-      blocks-desktop_workflow-condition:
-        type--all: все
-        type--any: любые
-      blocks-desktop_workflow-editor--action_tab_general:
-        name-en--label: Название кнопки на английском
-        name-ru--label: Название кнопки
-        target-status--label: Переход в статус
       blocks-desktop_workflow-editor--action_tab_screen:
         comment-enable: Форма для комментария
         linking-enable: Добавление связей на экране перехода
@@ -4322,29 +4302,13 @@ default:
         screen-title--label-en: Название экрана на английском языке
         screen-title--label-ru: Название экрана
         worklogs-enable: Форма учёта времени
-      blocks-desktop_workflow-editor--action:
-        tab-title--conditions: Условия
-        tab-title--functions: Функции
-        tab-title--general: Основная информация
-        tab-title--screen: Экран перехода
       blocks-desktop_workflow-editor--step_tab_actions-on-comment:
-        make-no-transition: Ничего не делать
-        make-transition: Выполнить переход
         on-assignee-comment-only: Только если комментарий оставил исполнитель
-        prev-status: Вернуться в предыдущий статус
         revert-assignee: Назначить исполнителя из предыдущего статуса
-        select-action: Выберите действие
-      blocks-desktop_workflow-editor--step_tab_create-action:
-        name-en--label: Название кнопки на английском
-        target-status--label: Переход в статус
       blocks-desktop_workflow-editor--step:
         button--submit: Сохранить
-        tab-title--actions-on-comment: Действия при комментировании
         tab-title--create-action: Добавить переход
       blocks-desktop_workflow-editor:
-        add-status-popup--name: Название кнопки перехода
-        add-status-popup--name-en: Название кнопки перехода на английском
-        sidebar-add-status: Добавить статус
         sidebar-title: Статусы и переходы
       components_Checklist:
         header-title: Чеклист
@@ -4739,11 +4703,9 @@ default:
       ui_components_page-admin_PageAdmin:
         access-and-payment: Доступы и оплата
         menu-item-groups: Группы
-        menu-item-issue-statuses: Статусы задач
         menu-item-orgs: Организации
         menu-item-repositories: Репозитории
         menu-item-users: Пользователи
-        tracker-settings: Настройки Tracker
       ui_components_page-issues_touch_FilterSettingsMenu:
         item-filters: Фильтры
         item-group: Группировка
@@ -5621,7 +5583,6 @@ default:
         label_source-type: Тип источника
         label_status-active: Основной
         label_status-backup: Резервный
-        md_value_certificate-le: Let's Encrypt^®^
         value_active: Основной
         value_backup: Резервный
         value_certificate-custom: Свой сертификат

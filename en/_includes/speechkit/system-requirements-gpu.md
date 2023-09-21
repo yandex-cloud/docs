@@ -16,9 +16,9 @@ The data in the tables is for the Russian language only:
    |---|---|---|---|---|---|
    | **Speech recognition** |
    | Streaming recognition | 50 | 64 | 200 | 8 | 16 |
-   | Audio file recognition | 250 | 250 | 200 | 8 | 16 |
+   | Audio file recognition | 250 | 64 | 200 | 8 | 16 |
    | **Speech synthesis** |
-   | Speech synthesis | 80 | 80 | 200 | 8 | 16 |
+   | Speech synthesis | 80 | 64 | 200 | 8 | 16 |
 
 - Containers with GPU V100
 
@@ -26,9 +26,9 @@ The data in the tables is for the Russian language only:
    |---|---|---|---|---|---|
    | **Speech recognition** |
    | Streaming recognition | 110 | 64 | 200 | 8 | 16 |
-   | Audio file recognition | 500 | 500 | 200 | 8 | 16 |
+   | Audio file recognition | 500 | 64 | 200 | 8 | 16 |
    | **Speech synthesis** |
-   | Speech synthesis | 200 | 200 | 200 | 8 | 16 |
+   | Speech synthesis | 200 | 64 | 200 | 8 | 16 |
 
 - Containers with GPU A100
 
@@ -36,9 +36,9 @@ The data in the tables is for the Russian language only:
    |---|---|---|---|---|---|
    | **Speech recognition** |
    | Streaming recognition | 245 | 64 | 200 | 14 | 28 |
-   | Audio file recognition | 1,000 | 1,000 | 200 | 14 | 28 |
+   | Audio file recognition | 1,000 | 64 | 200 | 14 | 28 |
    | **Speech synthesis** |
-   | Speech synthesis | 480 | 480 | 200 | 14 | 28 |
+   | Speech synthesis | 480 | 64 | 200 | 14 | 28 |
 
 {% endlist %}
 

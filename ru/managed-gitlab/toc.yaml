@@ -21,6 +21,9 @@ items:
         href: operations/instance/instance-backups.md
       - name: Удаление инстанса
         href: operations/instance/instance-delete.md
+      - name: Настройка правил ревью кода
+        href: operations/approval-rules.md
+        hidden: true
       - name: Настройка OmniAuth
         href: operations/omniauth.md
   - name: Практические руководства

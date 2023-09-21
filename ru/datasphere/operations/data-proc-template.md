@@ -9,7 +9,7 @@
 1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %} 
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.data-proc.create-template }}**. 
-1. В поле **{{ ui-key.yc-ui-datasphere.data-proc.template-name }}** задайте имя.
+1. В поле **{{ ui-key.yc-ui-datasphere.data-proc.template-name }}** задайте имя. Требования к нему:
 
     {% include [name-format](../../_includes/name-format.md) %}
 

@@ -1,6 +1,6 @@
-1. Under **Network** on the VM page in the [management console]({{ link-console-main }}) find the VM's public IP address.
+1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** on the VM page in the [management console]({{ link-console-main }}), find the VM public IP address.
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
-1. Grant your user write access to the directory `/var/www/html`:
+1. Grant your user write access to the `/var/www/html` directory:
 
    {% list tabs %}
 

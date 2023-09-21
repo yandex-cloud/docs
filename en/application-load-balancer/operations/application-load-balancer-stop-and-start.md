@@ -2,9 +2,9 @@
 
 ## Stopping a load balancer {#stop}
 
-The **Stop** command shuts down an L7 load balancer. Once shut down, the load balancer status changes to `STOPPED`. As long as the load balancer is stopped, you are not charged for its use.
+The **{{ ui-key.yacloud.common.stop }}** command shuts down an L7 load balancer. Once shut down, the load balancer status changes to `STOPPED`. As long as the load balancer is stopped, you are not charged for its use.
 
-You can re-start a load balancer at any time to continue using it. All data and changes you've made are saved.
+You can re-start a load balancer at any time to continue using it. All data and changes you have made are saved.
 
 To stop an L7 load balancer:
 
@@ -13,10 +13,10 @@ To stop an L7 load balancer:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
-   1. Select **{{ alb-name }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **Stop**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **{{ ui-key.yacloud.common.stop }}**.
 
-      To apply this action to several load balancers, select the desired load balancers in the list, click **Stop** at the bottom of the screen, then click **Stop** in the window that opens.
+      To apply this action to multiple load balancers, select the appropriate load balancers in the list, click **{{ ui-key.yacloud.common.stop }}** at the bottom of the screen, and then click **{{ ui-key.yacloud.common.stop }}** in the window that opens.
 
 - CLI
 
@@ -40,11 +40,11 @@ To stop an L7 load balancer:
 
       
       ```bash
-      - id: ds79cfnvmti39p7k83sa
+      - id: ds79cfnvmti3********
         name: test-load-balancer
-        folder_id: b1gv87ssvu497lpgjh5o
+        folder_id: b1gv87ssvu49********
         status: ACTIVE
-        network_id: enp45glgitd6e44dn1fj
+        network_id: enp45glgitd6********
         listeners:
         - name: test-listener
           endpoints:
@@ -55,40 +55,40 @@ To stop an L7 load balancer:
             - "80"
           http:
             handler:
-              http_router_id: ds7bharmjfs30dll9r3s
+              http_router_id: ds7bharmjfs3********
         allocation_policy:
           locations:
           - zone_id: {{ region-id }}-a
-            subnet_id: e9bn57jvjnbujnmk3mba
+            subnet_id: e9bn57jvjnbu********
           - zone_id: {{ region-id }}-b
-            subnet_id: e2ltcj4urgpbsbaq9977
+            subnet_id: e2ltcj4urgpb********
           - zone_id: {{ region-id }}-c
-            subnet_id: b0c29k6anelkik7jg5v1
-        log_group_id: ckgph76s449vsca8ho9p
+            subnet_id: b0c29k6anelk********
+        log_group_id: ckgph76s449v********
         created_at: "2022-02-11T09:00:31.911019416Z"
-      - id: ds7o71924t0hqmu9h0n2
+      - id: ds7o71924t0h********
         name: balancer2
-        folder_id: b1gv87ssvu497lpgjh5o
+        folder_id: b1gv87ssvu49********
         status: ACTIVE
-        network_id: enp45glgitd6e44dn1fj
+        network_id: enp45glgitd********
         allocation_policy:
           locations:
           - zone_id: {{ region-id }}-a
-            subnet_id: e9bn57jvjnbujnmk3mba
+            subnet_id: e9bn57jvjnbu********
           - zone_id: {{ region-id }}-b
-            subnet_id: e2ltcj4urgpbsbaq9977
+            subnet_id: e2ltcj4urgpb********
           - zone_id: {{ region-id }}-c
-            subnet_id: b0c29k6anelkik7jg5v1
-        log_group_id: ckgjhe81a23v2miqfl7u
+            subnet_id: b0c29k6anelk********
+        log_group_id: ckgjhe81a23v********
         created_at: "2022-02-11T09:01:46.724279145Z"
       ```
 
 
 
-   1. Stop a balancer by including its `id` or `name` in your command, such as `balancer2`:
+   1. Stop the load balancer by including its ID or name in the command below:
 
       ```bash
-      yc application-load-balancer load-balancer stop balancer2
+      yc application-load-balancer load-balancer stop <load_balancer_name>
       ```
 
       For more information about the `application-load-balancer load-balancer stop` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/stop.md).
@@ -101,7 +101,7 @@ To stop an L7 load balancer:
 
 ## Start a load balancer {#start}
 
-The **Start** command starts a stopped L7 load balancer. Once started, a load balancer changes its status to `ACTIVE`. From this point on, you will be charged for using the load balancer.
+The **{{ ui-key.yacloud.common.start }}** command starts a stopped L7 load balancer. Once started, a load balancer changes its status to `ACTIVE`. From this point on, you will be charged for using the load balancer.
 
 To start a load balancer:
 
@@ -110,10 +110,10 @@ To start a load balancer:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
-   1. Select **{{ alb-name }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **Start**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **{{ ui-key.yacloud.common.start }}**.
 
-      To apply this action to several load balancers, select the desired load balancers in the list, click **Start** at the bottom of the screen, then click **Start** again in the window that opens.
+      To apply this action to multiple load balancers, select the appropriate load balancers in the list, click **{{ ui-key.yacloud.common.start }}** at the bottom of the screen, and then click **{{ ui-key.yacloud.common.start }}** in the window that opens.
 
 - CLI
 
@@ -137,11 +137,11 @@ To start a load balancer:
 
       
       ```bash
-      - id: ds79cfnvmti39p7k83sa
+      - id: ds79cfnvmti3********
         name: test-load-balancer
-        folder_id: b1gv87ssvu497lpgjh5o
+        folder_id: b1gv87ssvu49********
         status: ACTIVE
-        network_id: enp45glgitd6e44dn1fj
+        network_id: enp45glgitd6********
         listeners:
         - name: test-listener
           endpoints:
@@ -152,40 +152,40 @@ To start a load balancer:
             - "80"
           http:
             handler:
-              http_router_id: ds7bharmjfs30dll9r3s
+              http_router_id: ds7bharmjfs3********
         allocation_policy:
           locations:
           - zone_id: {{ region-id }}-a
-            subnet_id: e9bn57jvjnbujnmk3mba
+            subnet_id: e9bn57jvjnbu********
           - zone_id: {{ region-id }}-b
-            subnet_id: e2ltcj4urgpbsbaq9977
+            subnet_id: e2ltcj4urgpb********
           - zone_id: {{ region-id }}-c
-            subnet_id: b0c29k6anelkik7jg5v1
-        log_group_id: ckgph76s449vsca8ho9p
+            subnet_id: b0c29k6anelk********
+        log_group_id: ckgph76s449v********
         created_at: "2022-02-11T09:00:31.911019416Z"
-      - id: ds7o71924t0hqmu9h0n2
+      - id: ds7o71924t0h********
         name: balancer2
-        folder_id: b1gv87ssvu497lpgjh5o
+        folder_id: b1gv87ssvu49********
         status: STOPPED
-        network_id: enp45glgitd6e44dn1fj
+        network_id: enp45glgitd********
         allocation_policy:
           locations:
           - zone_id: {{ region-id }}-a
-            subnet_id: e9bn57jvjnbujnmk3mba
+            subnet_id: e9bn57jvjnbu********
           - zone_id: {{ region-id }}-b
-            subnet_id: e2ltcj4urgpbsbaq9977
+            subnet_id: e2ltcj4urgpb********
           - zone_id: {{ region-id }}-c
-            subnet_id: b0c29k6anelkik7jg5v1
-        log_group_id: ckgjhe81a23v2miqfl7u
+            subnet_id: b0c29k6anelk********
+        log_group_id: ckgjhe81a23v********
         created_at: "2022-02-11T09:01:46.724279145Z"
       ```
 
 
 
-   1. Start a balancer by including its `id` or `name` in your command, such as `balancer2`:
+   1. Start the load balancer by including its ID or name in the command below:
 
       ```bash
-      yc application-load-balancer load-balancer start balancer2
+      yc application-load-balancer load-balancer start <load_balancer_name>
       ```
 
       For more information about the `application-load-balancer load-balancer start` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/start.md).

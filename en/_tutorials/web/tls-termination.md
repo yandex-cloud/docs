@@ -42,11 +42,11 @@ To create a network:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
-   1. Click **Create network**.
-   1. Specify a network **Name**: `mysite-network`.
-   1. In the **Advanced** field, select **Create subnets**.
-   1. Click **Create network**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+   1. Enter a **{{ ui-key.yacloud.vpc.networks.create.field_name }}** for the network: `mysite-network`.
+   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+   1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 {% endlist %}
 
@@ -60,9 +60,9 @@ To reserve an address:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
-   1. Go to the **IP addresses** tab. Click **Reserve address**.
-   1. In the window that opens, select the `{{ region-id }}-a` availability zone. Click **Reserve address**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Open the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+   1. In the window that opens, select the `{{ region-id }}-a` availability zone. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 {% endlist %}
 
@@ -74,7 +74,7 @@ To reserve an address:
 
 {% endnote %}
 
-[Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that let the load balancer receive incoming traffic and redirect it to the VMs so they can receive the traffic. Two security groups will be created in the use case: the first one for the load balancer and the second one for all VMs.
+[Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that allow the load balancer to receive incoming traffic and redirect it to the VMs so they can receive the traffic. In this use case, we will create two security groups: one for the load balancer and another one for all VMs.
 
 To create security groups:
 
@@ -82,42 +82,42 @@ To create security groups:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
-   1. Open the **Security groups** tab.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Open the **{{ ui-key.yacloud.vpc.switch_security-groups }}** tab.
    1. Create a security group for the load balancer:
 
-      1. Click **Create group**.
-      1. Specify a group **Name**: `mysite-sg-balancer`.
-      1. Select the **Network**: `mysite-network`.
-      1. Under **Rules**, create the following rules using the instructions below the table:
+      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+      1. Enter a **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** for the group: `mysite-sg-balancer`.
+      1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}**: `mysite-network`.
+      1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
 
-         | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source/<br/>destination type | Source /<br/>destination |
+         | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
          | --- | --- | --- | --- | --- | --- |
-         | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
-         | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | N/A |
+         | `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+         | `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+         | `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+         | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | N/A |
 
-         1. Select the **Outgoing traffic** or **Incoming traffic** tab.
-         1. Click **Add rule**.
-         1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
-         1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
-         1. In the **Purpose** or **Source** field, select the purpose of the rule:
+         1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
+         1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
+         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
-            * **CIDR**: Rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
-            * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
-            * **Load balancer health checks**: Rule that allows a load balancer to check the health of VMs.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.network.security-groups.forms.button_add-cidr }}**.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
+            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule that allows a load balancer to check the health of VMs.
 
-         1. Click **Save**. Repeat the steps to create all rules from the table.
+         1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
 
-      1. Click **Save**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   1. In a similar manner, create a security group called `mysite-sg-vms` for the VM and a network named `mysite-network` with the following rules:
+   1. In the same way, create a security group named `mysite-sg-vms` for the VM and a network named `mysite-network` with the following rules:
 
-      | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source/<br/>destination type | Source /<br/>destination |
+      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | Incoming | balancer | 80 | TCP | Security group | `mysite-sg-balancer` |
-      | Incoming | ssh | 22 | TCP | CIDR | 0.0.0.0/0 |
+      | `Incoming` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `mysite-sg-balancer` |
+      | `Incoming` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
 {% endlist %}
 
@@ -133,13 +133,13 @@ To import an existing certificate for `my-site.com`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ certificate-manager-name }}**.
-   1. Click **Add certificate** and select **User certificate**.
-   1. Specify a certificate **Name**: `mysite-cert`.
-   1. In the **Certificate** field, click **Add certificate**. Upload the **File** with your certificate or enter its **Contents** and click **Add**.
-   1. If your certificate is issued by a third-party certificate authority, in the **Intermediate certificate chain** field, click **Add chain**. Upload the **File** with the certificate chain or enter its **Contents** and click **Add**.
-   1. In the **Private key** field, click **Add private key**. Upload the **File** with the key or enter its **Contents** and click **Add**.
-   1. Click **Create**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+   1. Click **{{ ui-key.yacloud.certificate-manager.button_add }}** and select the **{{ ui-key.yacloud.certificate-manager.action_import }}** option.
+   1. Enter a **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** for the certificate: `mysite-cert`.
+   1. In the **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**. Upload the **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** with your certificate or enter its **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** and click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+   1. If your certificate is issued by a third-party certificate authority, click **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}** in the **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** field. Upload the **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** with the certificate chain or enter its **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** and click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+   1. In the **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**. Upload the **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** with the key or enter its **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** and click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -151,45 +151,45 @@ To create a VM group for `my-site.com`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
-   1. Open the **Instance groups** tab. Click **Create group**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Open the **{{ ui-key.yacloud.compute.switch_groups }}** tab. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
    1. Specify a VM group name: `mysite-ig`.
-   1. Under **Allocation**, select multiple availability zones to ensure fault tolerance of your hosting.
-   1. Under **Instance template**, click **Define**.
-   1. Under **Image/boot disk selection**, open the **{{ marketplace-name }}** tab and click **Show more**. Select [LEMP](/marketplace/products/yc/lemp) and click **Use**.
-   1. Under **Computing resources**:
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure fault tolerance of your hosting.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_button_show-all-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
       * Select the VM's [platform](../../compute/concepts/vm-platforms.md).
       * Specify the required number of vCPUs and the amount of RAM.
 
       The minimum configuration is enough for functional website testing:
-      * **Platform**: Intel Cascade Lake.
-      * **Guaranteed vCPU share**: 5%.
-      * **vCPU**: 2.
-      * **RAM**: 1 GB.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `5%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
-   1. Under **Network settings**, select the **Network** named `mysite-network` that you [created earlier](#create-network) and its subnets.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** named `mysite-network` that you [created earlier](#create-network) and its subnets.
    1. Select the [previously created](#create-security-groups) `mysite-sg-vms` security group.
-   1. Specify data required for accessing the VM:
-      * Enter the username in the **Login** field.
-      * In the **SSH key** field, paste the contents of the public key file.
+   1. Specify the data required for accessing the VM:
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-         You need to create a key pair for the SSH connection yourself. See the [section about how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
+         You need to create a key pair for the SSH connection yourself. See [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
 
       {% note alert %}
 
-      The IP address and host name (FQDN) to connect to the VM are assigned at VM creation. If you selected **No address** in the **Public address** field, you won't be able to access the VM from the internet.
+      The IP address and host name (FQDN) to connect to the VM are assigned at VM creation. If you selected **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
 
       {% endnote %}
 
-   1. Click **Save**.
-   1. Under **Scaling**, enter the **Size** of the instance group: 2.
-   1. Under **Integration with Application Load Balancer**, select **Create target group** and specify `mysite-tg` as the group name. [Read more about target groups](../../application-load-balancer/concepts/target-group.md).
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, enter the **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** of the instance group: 2.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_alb }}**, select **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** and specify `mysite-tg` as the group name. You can read more about target groups [here](../../application-load-balancer/concepts/target-group.md).
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
-It may take several minutes to create an instance group. Once the group's [status](../../compute/concepts/instance-groups/statuses.md#group-statuses) changes to `RUNNING` and the [status](../../compute/concepts/instance-groups/statuses.md#vm-statuses) of all of its VMs to `RUNNING_ACTUAL`, you can [upload the website files to them](#upload-site-files).
+It may take a few minutes to create an instance group. When the group [status](../../compute/concepts/instance-groups/statuses.md#group-statuses) changes to `RUNNING` and the [status](../../compute/concepts/instance-groups/statuses.md#vm-statuses) of all its VMs to `RUNNING_ACTUAL`, you can [upload the website files to them](#upload-site-files).
 
 ## Upload the site files to the VM {#upload-site-files}
 
@@ -227,17 +227,17 @@ To create a backend group for `my-site.com`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-   1. Open the **Backend groups** tab. Click **Create backend group**.
-   1. Specify a **Name** for the backend group: `my-site-bg`.
-   1. Under **Backends**, click **Add**.
-   1. Specify a **Name** for the backend: `mysite-backend`.
-   1. In the **Target group** field, select `mysite-tg`.
-   1. Specify the **Port** that the backend VMs will use to receive incoming traffic from the load balancer: `80`.
-   1. Click **Add health check**.
-   1. Enter the **Port** that the backend VMs will use to accept health check connections from the load balancer: `80`.
-   1. Enter the **Path** to be accessed by the load balancer's health checks: `/`.
-   1. Click **Create**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. Open the **{{ ui-key.yacloud.alb.label_backend-groups }}** tab. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the backend group: `my-site-bg`.
+   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the backend: `mysite-backend`.
+   1. In the **{{ ui-key.yacloud.alb.label_target-groups }}** field, select the `mysite-tg` group.
+   1. Specify the **{{ ui-key.yacloud.alb.label_port }}** that the backend VMs will use to receive incoming traffic from the load balancer: `80`.
+   1. Click **{{ ui-key.yacloud.alb.button_add-healthcheck }}**.
+   1. Specify the **{{ ui-key.yacloud.alb.label_port }}** that the backend VMs will use to accept health check connections: `80`.
+   1. Enter the **{{ ui-key.yacloud.alb.label_path }}** to be accessed by the load balancer for health checks: `/`.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -251,16 +251,16 @@ To create an HTTP router:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-   1. Open the **HTTP routers** tab. Click **Create HTTP router**.
-   1. Specify a **Name** for the HTTP router: `mysite-router`.
-   1. Click **Add virtual host**.
-   1. Specify a **Name** for the virtual host: `mysite-host`.
-   1. In the **Authority** field, specify the site's domain name as `my-site.com`.
-   1. Click **Add route**.
-   1. Specify a **Name** for the route: `mysite-route`.
-   1. In the **Backend group** field, select `my-site-bg` as the group.
-   1. Click **Create**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. Open the **{{ ui-key.yacloud.alb.label_http-routers }}** tab. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the HTTP router: `mysite-router`.
+   1. Click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the virtual host: `mysite-host`.
+   1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, specify the site domain name: `my-site.com`.
+   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the route: `mysite-route`.
+   1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select the `my-site-bg` group.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -270,32 +270,32 @@ To create an HTTP router:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
-   1. Click **Create L7 load balancer**.
-   1. Specify a **Name** for the load balancer: `mysite-alb`.
-   1. Under **Network settings**, select the `mysite-sg-balancer` security group that you [created previously](#create-security-groups).
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
+   1. Enter a **{{ ui-key.yacloud.common.name }}** for the load balancer: `mysite-alb`.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the `mysite-sg-balancer` security group that you [previously created](#create-security-groups).
    1. Create a listener to redirect HTTP requests to HTTPS:
 
-      1. Click **Add listener** under **Listeners**.
-      1. Enter a **Name** for the listener: `listener-http`.
-      1. Under **Public IP address settings**, select the **List** type and the IP address [reserved previously](#reserve-ip).
-      1. In the **Protocol** field, select **Redirect to HTTPS**.
+      1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**.
+      1. Enter a **{{ ui-key.yacloud.common.name }}** for the listener: `listener-http`.
+      1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, select the `{{ ui-key.yacloud.alb.label_address-list }}` type and the IP address you [reserved earlier](#reserve-ip).
+      1. In the **{{ ui-key.yacloud.alb.label_protocol-type }}** field, select `{{ ui-key.yacloud.alb.label_redirect-to-https }}`.
 
    1. Create an HTTPS request listener:
 
-      1. Click **Add listener** again.
-      1. Enter a **Name** for the listener: `listener-https`.
-      1. Under **Public IP address settings**, select the **List** type and the IP address [reserved previously](#reserve-ip).
-      1. In the **Protocol** field, select **HTTPS**.
-      1. Under **Main listener**, select the `mysite-cert` certificate and the `mysite-router` HTTP router.
+      1. Click **{{ ui-key.yacloud.alb.button_add-listener }}** again.
+      1. Enter a **{{ ui-key.yacloud.common.name }}** for the listener: `listener-https`.
+      1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, select the `{{ ui-key.yacloud.alb.label_address-list }}` type and the IP address you [reserved earlier](#reserve-ip).
+      1. In the **{{ ui-key.yacloud.alb.label_protocol-type }}** field, select `{{ ui-key.yacloud.alb.label_proto-http-tls }}`.
+      1. Under **{{ ui-key.yacloud.alb.section_default-sni-match }}**, select the `mysite-cert` certificate and the `mysite-router` HTTP router.
       1. Add an SNI match for `my-site.com`:
 
-         1. Click **Add SNI match**.
-         1. Specify a **Name** for the SNI match: `mysite-sni`.
-         1. In the **Server names** field, enter `my-site.com`.
+         1. Click **{{ ui-key.yacloud.alb.button_add-sni-match }}**.
+         1. Specify the **{{ ui-key.yacloud.common.name }}** for the SNI match: `mysite-sni`.
+         1. In the **{{ ui-key.yacloud.alb.label_server-names }}** field, enter `my-site.com`.
          1. Select the `mysite-cert` certificate and the `mysite-router` HTTP router.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

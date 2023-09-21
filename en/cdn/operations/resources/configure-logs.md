@@ -12,19 +12,19 @@ To enable log export for a [resource](../../concepts/resource.md):
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the name of the desired resource.
+   1. Click the resource name.
 
-   1. Go to the **Export logs** tab.
+   1. Go to the **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}** tab.
 
-   1. In the top-right corner, click **Enable**.
+   1. In the top-right corner, click **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
 
-   1. Select **Bucket**.
+   1. Select **{{ ui-key.yacloud.cdn.label_bucket }}**.
 
-   1. (Optional) Specify a **Prefix** for log file names.
+   1. (Optional) Specify a **{{ ui-key.yacloud.cdn.label_bucket-key-prefix }}** for log file names.
 
-   1. Click **Enable**.
+   1. Click **{{ ui-key.yacloud.cdn.button_resource-activate-raw-logs }}**.
 
 - API
 
@@ -46,15 +46,15 @@ To edit export parameters:
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the name of the desired resource.
+   1. Click the resource name.
 
-   1. Go to the **Export logs** tab.
+   1. Go to the **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}** tab.
 
-   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
+   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
 
-   1. Enter the required parameters and click **Save**.
+   1. Enter the required parameters and click **{{ ui-key.yacloud.common.save }}**.
 
 - API
 
@@ -72,13 +72,13 @@ To disable export:
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the name of the desired resource.
+   1. Click the resource name.
 
-   1. Go to the **Export logs** tab.
+   1. Go to the **{{ ui-key.yacloud.cdn.label_resource-raw-logs }}** tab.
 
-   1. In the top-right corner, click **Disable**.
+   1. In the top-right corner, click **{{ ui-key.yacloud.cdn.button_resource-deactivate-raw-logs }}**.
 
 - API
 

@@ -2,6 +2,8 @@
 
 {{ backup-name }} supports backing up [{{ compute-name }} VMs](../../compute/concepts/vm.md) running such Linux OS's as Ubuntu 20.04 or lower and CentOS 7. For more information, see [{#T}](../concepts/vm-connection.md#os).
 
+{% include [ask-for-turning-on](../../_includes/backup/ask-for-turning-on.md) %}
+
 {% list tabs %}
 
 - Management console

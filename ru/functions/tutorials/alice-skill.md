@@ -53,7 +53,7 @@ keywords:
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана функция.
 1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
 1. Выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
-1. Введите имя функции.
+1. Введите имя функции. Требования к нему:
 
     {% include [name-format](../../_includes/name-format.md) %}
 

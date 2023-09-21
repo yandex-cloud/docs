@@ -38,6 +38,8 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
           yc iam service-account create --name my-robot
           ```
 
+          Требования к имени сервисного аккаунта:
+
           {% include [name-format](../../../_includes/name-format.md) %}
 
     - API

@@ -20,7 +20,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где нужно создать балансировщик.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
-  1. Задайте имя балансировщика.
+  1. Задайте имя балансировщика. Требования к имени:
   
       {% include [name-format](../../_includes/name-format.md) %}
 

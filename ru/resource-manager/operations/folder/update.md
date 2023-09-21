@@ -72,7 +72,7 @@
         --description "this is my default-folder"
       ```
 
-      Команда переименует каталог `default` в `myfolder` и обновит его описание.
+      Команда переименует каталог `default` в `myfolder` и обновит его описание. Требования к имени каталога:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 

@@ -14,11 +14,11 @@ The backend group includes a list of backends. Each backend, depending on its [t
 
 The type of a backend group determines what traffic the load balancer will send to it:
 
-* **HTTP**: HTTP or HTTPS traffic.
-* **gRPC**: HTTP or HTTPS traffic with a [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC) call.
-* **Stream**: Unencrypted TCP traffic or TCP traffic with TLS encryption support.
+* **{{ ui-key.yacloud.alb.label_proto-http }}**: HTTP or HTTPS traffic.
+* **{{ ui-key.yacloud.alb.label_proto-grpc }}**: HTTP or HTTPS traffic with a [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC) call.
+* **{{ ui-key.yacloud.alb.label_proto-stream }}**: Unencrypted TCP traffic or TCP traffic with TLS encryption support.
 
-Groups of the **HTTP** and **gRPC** types connect to [listeners](application-load-balancer.md#listener) of the **HTTP** type via [HTTP routers](http-router.md). Groups of the **Stream** type connect to **Stream** listeners directly.
+Groups of the **{{ ui-key.yacloud.alb.label_proto-http }}** and **{{ ui-key.yacloud.alb.label_proto-grpc }}** types connect to [listeners](application-load-balancer.md#listener) of the **{{ ui-key.yacloud.alb.label_listener-type-http }}** type via [HTTP routers](http-router.md). Groups of the **{{ ui-key.yacloud.alb.label_proto-stream }}** type connect to **{{ ui-key.yacloud.alb.label_listener-type-stream }}** listeners directly.
 
 {% note alert %}
 
@@ -28,14 +28,14 @@ You can only select a backend group's type when creating it. You can't change th
 
 ## Backend types {#types}
 
-Backends in a group of the **HTTP** type can be of two types:
+Backends in **{{ ui-key.yacloud.alb.label_proto-http }}** groups can be of two types:
 
 * One or more [_target groups_](target-group.md): Sets of IP addresses of {{ compute-name }} VM instances that your network applications are running on. Traffic between all VMs in target groups belonging to the same backend is distributed evenly based on the [backend settings](#settings) and results of [health checks](#health-checks).
-* {{ objstorage-name }} _bucket_: A set of files (objects) and settings related to their storage. For more information, see [{#T}](../../storage/concepts/bucket.md) in the {{ objstorage-name }} documentation.
+* {{ objstorage-name }} _bucket_: Set of files (objects) and settings related to their storage. For more information, see [{#T}](../../storage/concepts/bucket.md) in the {{ objstorage-name }} documentation.
 
    {% include [bucket-availability-note](../_includes_service/bucket-availability-note.md) %}
 
-In groups of the **gRPC** and **Stream** types, only target groups and their sets can act as backends.
+In **{{ ui-key.yacloud.alb.label_proto-grpc }}** and **{{ ui-key.yacloud.alb.label_proto-stream }}** groups, only target groups and their sets can act as backends.
 
 ## Session affinity {#session-affinity}
 
@@ -43,16 +43,16 @@ If you want requests from one user session to be processed by the same applicati
 
 {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-Session affinity mode determines how incoming requests are grouped into one session: **HTTP** and **gRPC** backend groups support the following modes:
+Session affinity mode determines how incoming requests are grouped into one session: **{{ ui-key.yacloud.alb.label_proto-http }}** and **{{ ui-key.yacloud.alb.label_proto-grpc }}** backend groups support the following modes:
 
-* **By IP address**: Requests received from a single IP address are combined into a session.
-* **By HTTP header**: Requests with the same value of the specified HTTP header, such as with user authentication data, are combined into a session.
-* **By cookie**: Requests with the same cookie value and the specified file name are combined into a session.
+* **{{ ui-key.yacloud.alb.label_affinity-connection }}**: Requests received from the same IP are combined into a session.
+* **{{ ui-key.yacloud.alb.label_affinity-header }}**: Requests with the same value of the specified HTTP header, such as with user authentication data, are combined into a session.
+* **{{ ui-key.yacloud.alb.label_affinity-cookie }}**: Requests with the same cookie value and the specified file name are combined into a session.
 
    * If session affinity settings include cookie lifetime, the load balancer generates a cookie with a unique value and sends it in its response to a user's first request. To use session cookies that are stored on a client, such as a browser, and reset when it restarts, specify a lifetime of `0`.
    * If a lifetime is not specified, the load balancer does not generate cookies. Instead, it only uses cookie values from incoming requests to bind sessions.
 
-**Stream** backend groups only support session affinity by client IP address.
+**{{ ui-key.yacloud.alb.label_proto-stream }}** backend groups only support session affinity by client IP address.
 
 ## Protocol and load balancing settings {#settings}
 
@@ -63,9 +63,9 @@ For backends consisting of target groups, you can configure:
 
 ### Protocol {#protocol}
 
-The load balancer can establish unencrypted backend connections and backend connections with TLS encryption. When using TLS, the load balancer doesn't validate certificates returned by backends. However, you can specify certificates from Certificate Authorities that the load balancer will trust when establishing a secure connection with backend endpoints.
+The load balancer can establish unencrypted backend connections and backend connections with TLS encryption. When using TLS, the load balancer does not validate certificates returned by backends. However, you can specify certificates from Certificate Authorities that the load balancer will trust when establishing a secure connection with backend endpoints.
 
-If the type of a backend group is **HTTP**, you can use HTTP 1.1 or HTTP 2 for exchanging data between the load balancer and backend endpoints. Backend groups of the **gRPC** type only support HTTP/2 connections.
+If the type of a backend group is **{{ ui-key.yacloud.alb.label_proto-http }}**, you can use HTTP 1.1 or HTTP 2 for exchanging data between the load balancer and backend endpoints. Backend groups of the **{{ ui-key.yacloud.alb.label_proto-grpc }}** type only support HTTP/2 connections.
 
 ### Balancing mode {#balancing-mode}
 
@@ -106,7 +106,7 @@ If strict locality is enabled, the load balancer will respond with an error (503
 
 You can enable _health checks_ for backends consisting of target groups. The load balancer will send health check requests to the endpoints at certain intervals and wait for a response during a given timeout.
 
-Health checks of the **HTTP**, **gRPC**, and **Stream** types are supported. They match the backend group types. However, the type of a health check doesn't have to be the same as the group type.
+Health checks of the **{{ ui-key.yacloud.alb.label_hc-type-http }}**, **{{ ui-key.yacloud.alb.label_hc-type-grpc }}**, and **{{ ui-key.yacloud.alb.label_hc-type-stream }}** types are supported. They match the backend group types. However, the type of a health check does not have to be the same as the group type.
 
 The following health check settings are supported:
 
@@ -128,7 +128,7 @@ The following health check settings are supported:
    * Request body.
    * Substring in the response that indicates that the health check was successful. If the request body or response body is not specified, a successful connection to the backend is checked.
 
-Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. For example:
+Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS, e.g.:
 
 * If the type of a health check is HTTP, it will be made over HTTPS.
 * For Stream health checks, a TLS connection will be established and the check results will be returned through this connection.

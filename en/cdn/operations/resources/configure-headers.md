@@ -4,7 +4,7 @@ To configure, for your resource, the HTTP headers of requests and responses:
 
 {% note info %}
 
-The `Access-Control-Allow-Origin` header for the CORS configuration is configured under **CORS when responding to client requests**. For more information, see [{#T}](configure-cors.md).
+The `Access-Control-Allow-Origin` header for the CORS configuration is configured under **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors }}**. For more information, see [{#T}](configure-cors.md).
 
 {% endnote %}
 
@@ -14,25 +14,25 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the name of the desired resource.
+   1. Click the resource name.
 
-   1. Go to **HTTP headers and methods**.
+   1. Go to the **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
 
-   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
+   1. In the top-right corner, click ![image](../../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
 
-   1. Under **Origin request headers**:
+   1. Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-request-headers }}**:
 
-      * In the **Header** field, click **Add**.
-      * Enter names and values of the desired headers.
+      * In the **{{ ui-key.yacloud.cdn.label_headers }}** field, click **{{ ui-key.yacloud.common.add }}**.
+      * Enter names and values of the headers you need.
 
-   1. Under **Client response headers**:
+   1. Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-response-headers }}**:
 
-      * In the **Header** field, click **Add**.
-      * Enter names and values of the desired headers.
+      * In the **{{ ui-key.yacloud.cdn.label_headers }}** field, click **{{ ui-key.yacloud.common.add }}**.
+      * Enter names and values of the headers you need.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -152,11 +152,11 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
 
       Where:
 
-      * `cname`: Primary domain name used for content distribution. This parameter is required.
-      * `active`: Flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, the default value is `true`.
-      * `origin_protocol`: Origin protocol. Optional parameter, the default value is `http`.
+      * `cname`: Primary domain name used for content distribution. This is a required parameter.
+      * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. This is an optional parameter, the default value is `true`.
+      * `origin_protocol`: Origin protocol. This is an optional parameter, the default value is `http`.
       * `secondary_hostnames`: Additional domain names. This is an optional parameter.
-      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This parameter is required. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
+      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
          * `static_response_headers`: Custom headers that CDN servers send in response to the client. This is an optional parameter.
 
@@ -180,7 +180,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

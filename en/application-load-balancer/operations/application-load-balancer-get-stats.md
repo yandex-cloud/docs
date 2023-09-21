@@ -15,10 +15,10 @@ To view the statistics:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
-   1. Select **{{ alb-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Click the name of the load balancer you need.
-   1. Go to the **Monitoring** tab.
-   1. Select a dashboard: **HTTP statistics** or **Capacity statistics**.
+   1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab.
+   1. Select the dashboard: **{{ ui-key.yacloud.alb.label_tab-http-stats }}** or **{{ ui-key.yacloud.alb.label_tab-capacity-stats }}**.
    1. Select the time period to view statistics for: 1 hour, 3 hours, 1 day, 1 week, or 1 month.
 
 {% endlist %}
@@ -34,12 +34,12 @@ To view the statistics:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
-   1. Select **{{ alb-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Click the name of the load balancer you need.
-   1. Go to the **Monitoring** tab.
-   1. Select a dashboard: **HTTP statistics** or **Capacity statistics**.
-   1. Click **Open in Monitoring**.
-   1. Select the resources for which you wish to view statistics:
+   1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab.
+   1. Select the dashboard: **{{ ui-key.yacloud.alb.label_tab-http-stats }}** or **{{ ui-key.yacloud.alb.label_tab-capacity-stats }}**.
+   1. Click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**.
+   1. Select the resources to view the statistics for:
 
       * **HTTP Router**: [HTTP router](../concepts/http-router.md).
       * **Virtual Host**: HTTP router virtual host.

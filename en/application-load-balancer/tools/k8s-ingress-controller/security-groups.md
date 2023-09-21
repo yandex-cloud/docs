@@ -44,18 +44,18 @@ Then, you need to create the following rules in the security groups:
 
    - Outgoing traffic
 
-      | Port range | Protocol | Destination type | Purpose | Description |
+      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
       --- | --- | --- | --- | ---
-      | All (`{{ port-any }}`) | `Any` | CIDR | `0.0.0.0/0` | For all outgoing traffic |
+      | `All` (`{{ port-any }}`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For all outgoing traffic |
 
    - Incoming traffic
 
-      | Port range | Protocol | Source type | Source | Description |
+      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
       --- | --- | --- | --- | ---
-      | All (`{{ port-any }}`) | TCP | Load balancer health checks | N/A | For a network load balancer |
-      | All (`{{ port-any }}`) | `Any` | Security group | `Self` | For traffic between [master](../../../managed-kubernetes/concepts/index.md#master) and nodes |
-      | All (`{{ port-any }}`) | `Any` | CIDR | `10.96.0.0/16`[^\[C\]^](#example)<br>`10.112.0.0/16`[^\[S\]^](#example) | For traffic between [pods](../../../managed-kubernetes/concepts/index.md#pod) and [services](../../../managed-kubernetes/concepts/index.md#service) |
-      | All (`{{ port-any }}`) | ICMP | CIDR | `10.0.0.0/8`<br>`192.168.0.0/16`<br>`172.16.0.0/12` | For functionality verification of nodes from subnets within {{ yandex-cloud }} |
+      | `All` (`{{ port-any }}`) | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | N/A | For a network load balancer |
+      | `All` (`{{ port-any }}`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`) | For traffic between [master](../../../managed-kubernetes/concepts/index.md#master) and nodes |
+      | `All` (`{{ port-any }}`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.96.0.0/16`[^\[C\]^](#example)<br>`10.112.0.0/16`[^\[S\]^](#example) | For traffic between [pods](../../../managed-kubernetes/concepts/index.md#pod) and [services](../../../managed-kubernetes/concepts/index.md#service) |
+      | `All` (`{{ port-any }}`) | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_icmp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.0.0/8`<br>`192.168.0.0/16`<br>`172.16.0.0/12` | For functionality verification of nodes from subnets within {{ yandex-cloud }} |
 
    {% endlist %}
 
@@ -65,9 +65,9 @@ Then, you need to create the following rules in the security groups:
 
    - Incoming traffic
 
-      | Port range | Protocol | Source type | Source | Description |
+      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
       --- | --- | --- | --- | ---
-      | `30000-32767` | TCP | CIDR | `0.0.0.0/0` | For service access from the Internet and from the {{ yandex-cloud }} subnets |
+      | `30000-32767` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For service access from the Internet and from the {{ yandex-cloud }} subnets |
 
    {% endlist %}
 
@@ -77,9 +77,9 @@ Then, you need to create the following rules in the security groups:
 
    - Incoming traffic
 
-      | Port range | Protocol | Source type | Source | Description |
+      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
       --- | --- | --- | --- | ---
-      | `30000-32767` | TCP | CIDR | `203.0.113.0/24`[^\[Con\]^](#example) | For connecting to nodes over SSH |
+      | `30000-32767` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `203.0.113.0/24`[^\[Con\]^](#example) | For connecting to nodes over SSH |
 
    {% endlist %}
 
@@ -89,10 +89,10 @@ Then, you need to create the following rules in the security groups:
 
    - Outgoing traffic
 
-      | Port range | Protocol | Destination type | Purpose | Description |
+      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
       --- | --- | --- | --- | ---
-      | `443` | TCP | CIDR | `203.0.113.0/24`[^\[Con\]^](#example) | For access to the {{ k8s }} API |
-      | `6443` | TCP | CIDR | `203.0.113.0/24`[^\[Con\]^](#example) | For access to the {{ k8s }} API |
+      | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `203.0.113.0/24`[^\[Con\]^](#example) | For access to the {{ k8s }} API |
+      | `6443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `203.0.113.0/24`[^\[Con\]^](#example) | For access to the {{ k8s }} API |
 
    {% endlist %}
 
@@ -102,9 +102,9 @@ Then, you need to create the following rules in the security groups:
 
    - Incoming traffic
 
-      | Port range | Protocol | Source type | Source | Description |
+      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
       --- | --- | --- | --- | ---
-      | `10501` | TCP | CIDR | `10.128.0.0/24`[^\[B\]^](#example)<br>`10.129.0.0/24`[^\[B\]^](#example)<br>`10.130.0.0/24`[^\[B\]^](#example) | For backend status checks |
+      | `10501` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.128.0.0/24`[^\[B\]^](#example)<br>`10.129.0.0/24`[^\[B\]^](#example)<br>`10.130.0.0/24`[^\[B\]^](#example) | For backend status checks |
 
    {% endlist %}
 
@@ -114,16 +114,16 @@ Then, you need to create the following rules in the security groups:
 
    - Outgoing traffic
 
-      | Port range | Protocol | Destination type | Purpose | Description |
+      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
       --- | --- | --- | --- | ---
-      | All (`{{ port-any }}`) | TCP | CIDR | `10.140.0.0/24`[^\[Nod\]^](#example) | For outgoing traffic to nodes, including status checks |
+      | `All` (`{{ port-any }}`) | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.140.0.0/24`[^\[Nod\]^](#example) | For outgoing traffic to nodes, including status checks |
 
    - Incoming traffic
 
-      | Port range | Protocol | Source type | Source | Description |
+      | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
       --- | --- | --- | --- | ---
-      | `80` | TCP | CIDR | `0.0.0.0/0` | For receiving incoming HTTP traffic |
-      | `443` | TCP | CIDR | `0.0.0.0/0` | For receiving outgoing HTTP traffic |
-      | `30080` | TCP | Load balancer health checks | N/A | For load balancer node status checks |
+      | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For receiving incoming HTTP traffic |
+      | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For receiving outgoing HTTP traffic |
+      | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | N/A | For load balancer node status checks |
 
    {% endlist %}

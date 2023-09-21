@@ -8,20 +8,20 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select **{{ cdn-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
-   1. Click the name of the desired resource.
+   1. Click the resource name.
 
-   1. Go to the **Content** tab.
+   1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
-   1. In the top right-hand corner, click ![image](../../../_assets/basket.svg) **Purge cache**.
+   1. In the top-right corner, click ![image](../../../_assets/basket.svg) **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
    1. Select the type of cache purging:
 
-      * `Full`: To purge the cache for all files.
-      * `Selective`: To purge the cache for selected files. Enter names of desired files in the **File path field**.
+      * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-full }}`: To purge the cache for all files.
+      * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`: To purge the cache for selected files. Enter the names of the required files in the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-paths }}** field.
 
-   1. Click **Purge cache**.
+   1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
 - CLI
 

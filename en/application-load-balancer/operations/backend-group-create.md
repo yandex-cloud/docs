@@ -7,31 +7,31 @@ To create a [backend group](../concepts/backend-group.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your backend group in.
-   1. In the list of services, select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**.
-   1. Click **Create backend group**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+   1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
    1. Enter a name for the backend group.
    1. Select the [backend group type](../concepts/backend-group.md#group-types):
 
-      * `HTTP`: For HTTP or HTTPS traffic.
-      * `gRPC`: For HTTP or HTTPS traffic with a [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC) call.
-      * `Stream`: For unencrypted TCP traffic or TCP traffic with TLS encryption support.
+      * `{{ ui-key.yacloud.alb.label_proto-http }}`: For HTTP or HTTPS traffic.
+      * `{{ ui-key.yacloud.alb.label_proto-grpc }}`: For HTTP or HTTPS traffic with a [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC) call.
+      * `{{ ui-key.yacloud.alb.label_proto-stream }}`: For unencrypted TCP traffic or TCP traffic with TLS encryption support.
 
-   1. (Optional) Enable [session affinity](../concepts/backend-group.md#session-affinity). `HTTP` and `gRPC` backend groups support the following session affinity modes:
+   1. (Optional) Enable [session affinity](../concepts/backend-group.md#session-affinity). `{{ ui-key.yacloud.alb.label_proto-http-plain }}` and `{{ ui-key.yacloud.alb.label_proto-grpc }}` backend groups support the following session affinity modes:
 
-      * `By IP address`.
-      * `By HTTP header`.
-      * `By cookie`.
+      * `{{ ui-key.yacloud.alb.label_affinity-connection }}`
+      * `{{ ui-key.yacloud.alb.label_affinity-header }}`
+      * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`
 
-      For a `Stream` backend group, sessions are assigned to the client IP address.
+      For a `{{ ui-key.yacloud.alb.label_proto-stream }}` backend group, sessions are assigned to the client IP address.
 
       {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-   1. Under **Backends**, click **Add**. Specify the backend settings:
+   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**. Specify the backend settings:
 
       {% include [backend-settings-console](../../_includes/application-load-balancer/backend-settings-console.md) %}
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

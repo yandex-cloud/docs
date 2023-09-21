@@ -6,9 +6,9 @@ Only an [administrator](../role-model.md) can connect repositories.
 
 {% endnote %}
 
-Connecting your repositories to {{ tracker-name }} lets you link commits to issues. If you can connect any number of repositories hosted on GitHub, GitLab, or Bitbucket.
+Connecting your repositories to {{ tracker-name }} enables you to link commits to issues. You can connect any number of repositories hosted on GitHub, GitLab, or Bitbucket.
 
-The connect repositories hosted in cloud services, use the tutorials from this section. To connect to {{ tracker-name }} a Git repository hosted on your server, contact [support]({{ link-tracker-support}}).
+You can also connect your own server associated with GitHub, GitLab, or Bitbucket to {{ tracker-name }}. In this case, all repositories that a token has access to will be connected to {{ tracker-name }}.
 
 ## GitHub {#section_mhj_yrk_m2b}
 
@@ -18,19 +18,21 @@ To connect your repository on [GitHub](https://github.com) to {{ tracker-name }}
 
 - Public repository
 
+   1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
+
    1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
    1. Choose GitHub in the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field.
 
-   1. Enter the public repository's address using the format `https://github.com/<repository owner login>/<repository name>`. Leave the **{{ ui-key.startrek.blocks-desktop_repository-modal.token }}** field blank.
+   1. Enter the public repository address in the `https://github.com/<repository owner login>/<repository name>` format. Leave the **{{ ui-key.startrek.blocks-desktop_repository-modal.token }}** field blank.
 
-   1. Tap **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+   1. Click **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
    1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
 - Private repository
 
-   1. Make sure you are authorized in {{ tracker-name }} as an [administrator](../role-model.md).
+   1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
 
    1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
@@ -38,13 +40,13 @@ To connect your repository on [GitHub](https://github.com) to {{ tracker-name }}
 
    1. Get an OAuth token for your repository on GitHub:
 
-      - Log in to GitHub. If the repository is linked to an organization on GitHub, make sure that you have administrative rights for it.
+      - Log in to GitHub. If the repository is linked to an organization on GitHub, make sure that you have admin rights for it.
 
-      - Click on your picture in the upper-right corner and choose **Settings**.
-      - Select **Developer settings** → **Personal access token** on the left-hand panel.
+      - Click your profile picture in the top-right corner and select **Settings**.
+      - In the left-hand panel, select **Developer settings** → **Personal access token** → **Tokens (classic)**.
       - Click **Generate new token**.
 
-      - Come up with the token name.
+      - Enter a name for the token.
 
       - Configure the token's access right. To make sure {{ tracker-name }} operates properly, enable the **repo** and **read:org** options:
 
@@ -56,13 +58,13 @@ To connect your repository on [GitHub](https://github.com) to {{ tracker-name }}
 
          {% note alert %}
 
-         The token value is displayed only once. If you close the page, you won't be able to view it again.
+         The token value is displayed only once. If you close the page, you will not be able to view it again.
 
          {% endnote %}
 
-   1. Enter the repository address using the format `https://github.com/<repository owner login>/<repository name>` and specify the access token.
+   1. Enter the repository address in the `https://github.com/<repository owner login>/<repository name>` format and specify the access token.
 
-   1. Tap **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+   1. Click **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
    1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
@@ -83,15 +85,15 @@ To connect your repository on [GitLab](https://gitlab.com) to {{ tracker-name }}
 
 - Public repository
 
-   1. Make sure you are authorized in {{ tracker-name }} as an [administrator](../role-model.md).
+   1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
 
    1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
    1. Choose GitLab in the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field.
 
-   1. Enter the public repository's address using the format `https://gitlab.com/<repository owner login>/<repository name>`. Leave the **{{ ui-key.startrek.blocks-desktop_repository-modal.token }}** field blank.
+   1. Enter the public repository address in the `https://gitlab.com/<repository owner login>/<repository name>` format. Leave the **{{ ui-key.startrek.blocks-desktop_repository-modal.token }}** field blank.
 
-   1. Tap **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+   1. Click **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
    1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
@@ -103,7 +105,7 @@ To connect your repository on [GitLab](https://gitlab.com) to {{ tracker-name }}
 
    {% endnote %}
 
-   1. Make sure you are authorized in {{ tracker-name }} as an [administrator](../role-model.md).
+   1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
 
    1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
@@ -131,13 +133,13 @@ To connect your repository on [GitLab](https://gitlab.com) to {{ tracker-name }}
 
          {% note alert %}
 
-         The token value is displayed only once. If you close the page, you won't be able to view it again.
+         The token value is displayed only once. If you close the page, you will not be able to view it again.
 
          {% endnote %}
 
-   1. Enter the public repository's address using the format `https://gitlab.com/<repository owner login>/<repository name>` and specify the access token.
+   1. Enter the public repository address in the `https://gitlab.com/<repository owner login>/<repository name>` format and specify the access token.
 
-   1. Tap **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+   1. Click **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
    1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
@@ -153,6 +155,8 @@ If the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}** ta
 ## Bitbucket {#section_u5z_zxk_m2b}
 
 To connect your repository on [Bitbucket](https://bitbucket.org) to {{ tracker-name }}:
+
+1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
 
 1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
@@ -172,15 +176,15 @@ To connect your repository on [Bitbucket](https://bitbucket.org) to {{ tracker-n
 
       {% note alert %}
 
-      The password value is displayed only once. If you close the page, you won't be able to view it again.
+      The password value is displayed only once. If you close the page, you will not be able to view it again.
 
       {% endnote %}
 
-1. Enter the repository's address using the format `https://bitbucket.org/<repository owner's login>/<repository name>` and specify your Bitbucket login.
+1. Enter the repository address in the `https://bitbucket.org/<repository owner's login>/<repository name>` format and specify your Bitbucket login.
 
 1. Enter the password you used when linking {{ tracker-name }} to Bitbucket. You cannot use your Bitbucket password for this purpose.
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+1. Click **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
 
 1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
 
@@ -190,3 +194,21 @@ To link a commit to an issue in {{ tracker-name }}, specify the issue key in the
 - In the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}** tab on the queue page.
 
 If the **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}** tab is missing, make sure it is enabled in your [queue settings](edit-queue-general.md#ul_gcz_xlp_m2b).
+
+## Own server {#server}
+
+To connect your own server to {{ tracker-name }}:
+
+1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
+
+1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
+
+1. In the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field, select the platform your server is connected to.
+
+1. In the **{{ ui-key.startrek.ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField.server-url-label }}** field, specify your server address to any repository that can be accessed using a token.
+
+1. In the **{{ ui-key.startrek.ui_components_admin-repositories_ConnectRepositoryDialog.token-label }}** field, enter the token for connecting to your server.
+
+1. Click **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+
+1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.

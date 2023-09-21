@@ -11,6 +11,6 @@ editable: false
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-Если вам необходимо больше ресурсов, обратитесь в [техническую поддержку]({{ link-console-support }}) и расскажите, какие потребляемые квоты нужно увеличить и на сколько.
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
 {% include [org-limits.md](../../_includes/organization/org-limits.md) %}

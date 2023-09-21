@@ -73,7 +73,7 @@
 
      ![create-vm](../../_assets/tutorials/wordpress/vm-create-1.png)
 
-  1. В поле **Имя** введите имя ВМ: `wordpress`.
+  1. В поле **Имя** введите имя ВМ `wordpress`. Требования к имени:
 
      {% include [name-format](../../_includes/name-format.md) %}
 

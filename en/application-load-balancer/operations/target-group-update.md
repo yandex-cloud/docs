@@ -11,12 +11,12 @@ To add a VM to a target group:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the target group was created.
-   1. Select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/trgroups.svg) **Target groups**.
-   1. Click on the name of the group you need.
-   1. Click **Add targets**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
+   1. Click the name of the group.
+   1. Click **{{ ui-key.yacloud.alb.button_add-targets }}**.
    1. Select a VM from the list or add the target manually:
-      1. In the **IP address** field, specify the target's IP and select the [subnet](../../vpc/concepts/network.md#subnet).
+      1. In the **{{ ui-key.yacloud.alb.column_target }}** field, specify the target's IP and select the [subnet](../../vpc/concepts/network.md#subnet).
 
       
       1. (Optional) If the target's IP does not belong to {{ vpc-name }}, select **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
@@ -24,8 +24,8 @@ To add a VM to a target group:
          For example, specify a private IPv4 address belonging to your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/index.yaml). The IP address must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
 
-      1. Click **Add target resource**.
-   1. Click **Save**.
+      1. Click **{{ ui-key.yacloud.alb.button_add-target }}**.
+   1. Click **{{ ui-key.yacloud.common.add }}**.
 
 - CLI
 
@@ -153,35 +153,6 @@ To add a VM to a target group:
          * `private_ipv4_address`: Parameter indicating that the IP is outside {{ vpc-name }}.
          * `ip_address`: Private IPv4 address of the target. The IP addresses must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
-      You can also add targets that reside outside {{ vpc-name }}, to a target group, e.g., those in your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/):
-
-      ```hcl
-      resource "yandex_alb_target_group" "foo" {
-        name                   = "<target_group_name>"
-
-        target {
-          private_ipv4_address = true
-          ip_address           = "<private_IPv4_address_of_target_1>"
-        }
-
-        target {
-          private_ipv4_address = true
-          ip_address           = "<private_IPv4_address_of_target_2>"
-        }
-
-        target {
-          private_ipv4_address = true
-          ip_address           = "<private_IPv4_address_of_target_3>"
-        }
-      }
-      ```
-
-      Where `yandex_alb_target_group` specifies the target group parameters:
-      * `name`: Target group name.
-      * `target`: Target parameters:
-         * `private_ipv4_address`: Parameter indicating that the IP is outside {{ vpc-name }}.
-         * `ip_address`: Private IPv4 address of the target. The IP addresses must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
-
       For more information about the `yandex_alb_target_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-targetgroup }}).
    1. Apply the changes:
 
@@ -208,11 +179,11 @@ To remove a VM from a target group:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the target group was created.
-   1. Select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/trgroups.svg) **Target groups**.
-   1. Click on the name of the group you need.
-   1. To the right of the VM, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete target**.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
+   1. Click the name of the group.
+   1. To the right of the VM, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

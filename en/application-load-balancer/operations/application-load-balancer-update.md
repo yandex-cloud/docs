@@ -7,24 +7,23 @@ To update the parameters of an L7 load balancer:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
-   1. Select **{{ alb-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. Click the name of the load balancer you need.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the load balancer settings.
-   1. Under **Listeners**, click ![image](../../_assets/horizontal-ellipsis.svg) next to the desired listener and select **Edit**.
-   1. Edit the listener settings and click **Save**.
-   1. (Optional) Under **Log settings**:
+   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, change the parameters of the appropriate listeners.
+   1. (Optional) Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
 
       1. Change the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to write the load balancer logs to.
       1. Edit the [rules for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
 
-         * **HTTP codes**: Update the HTTP status codes.
-         * **HTTP code classes**: Update the classes of HTTP status codes.
-         * **gRPC codes**: Update the gRPC codes.
-         * **Share of discarded logs**: Update the percentage of logs to discard.
+         * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Update the HTTP status codes.
+         * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Update the classes of HTTP status codes.
+         * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}**: Update the gRPC codes.
+         * **{{ ui-key.yacloud.alb.label_discard-percent }}**: Update the percentage of logs to discard.
 
-         To add another rule, click **Add discard rule**.
-   1. At the bottom of the page, click **Save**.
+         To add another rule, click **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
+   1. At the bottom of the page, click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -47,13 +46,13 @@ To update the parameters of an L7 load balancer:
       Result:
 
       
-      ```yaml
-      id: a5d88ep483cmbfm.....
+      ```bash
+      id: a5d88ep483cm********
       name: test-balancer2-updated
-      folder_id: aoe197919j8elpe.....
+      folder_id: aoe197919j8e********
       status: ACTIVE
       region_id: {{ region-id }}
-      network_id: c64l1c06d15178s.....
+      network_id: c64l1c06d151********
       listeners:
       - name: test-listener
         endpoints:
@@ -64,16 +63,16 @@ To update the parameters of an L7 load balancer:
           - "80"
         http:
           handler:
-            http_router_id: a5dv7tjdo9gt2pq.....
+            http_router_id: a5dv7tjdo9gt********
       allocation_policy:
         locations:
         - zone_id: {{ region-id }}-a
-          subnet_id: buc4gsmpj8hvram.....
+          subnet_id: buc4gsmpj8hv********
         - zone_id: {{ region-id }}-b
-          subnet_id: blt6pcatjje62sq.....
+          subnet_id: blt6pcatjje6********
         - zone_id: {{ region-id }}-c
-          subnet_id: fo2ap2nrhjk9vpf.....
-      log_group_id: eolul9ap0bv02i8.....
+          subnet_id: fo2ap2nrhjk9********
+      log_group_id: eolul9ap0bv0********
       created_at: "2021-04-26T12:12:13.624832586Z"
       ```
 
@@ -105,14 +104,14 @@ To update the parameters of an L7 load balancer:
 
          Result:
 
-         ```yaml
+         ```bash
          done (42s)
-         id: ds76g2zpgp3fej1.....
+         id: ds76g2zpgp3f********
          name: test-load-balancer
-         folder_id: b1gug7dbelh690.....
+         folder_id: b1gug7dbelh********
          ...
          log_options:
-           log_group_id: e23p9bcvh6gra3t.....
+           log_group_id: e23p9bcvh6gr********
            discard_rules:
              - http_codes:
                  - "200"
@@ -159,15 +158,15 @@ To update the parameters of an L7 load balancer:
               --external-ipv4-endpoint port=<listener_port>
             ```
 
-      Result of updating two listeners:
+      The result of updating two listeners is:
 
-      ```yaml
+      ```bash
       done (42s)
-      id: ds76g8b2op3fej1.....
+      id: ds76g8b2op3f********
       name: test-load-balancer
-      folder_id: b1gu6g9ielh690a.....
+      folder_id: b1gu6g9ielh6********
       status: ACTIVE
-      network_id: enp0uulja5s3j1f.....
+      network_id: enp0uulja5s3********
       listeners:
       - name: tslistener
         endpoints:
@@ -178,7 +177,7 @@ To update the parameters of an L7 load balancer:
           - "80"
         http:
           handler:
-            http_router_id: ds7d7b14b3fsv7q.....
+            http_router_id: ds7d7b14b3fs********
       - name: teststreamlistener
         endpoints:
         - addresses:
@@ -188,21 +187,21 @@ To update the parameters of an L7 load balancer:
           - "443"
         stream:
           handler:
-            backend_group_id: ds77tero4f5h46l.....
+            backend_group_id: ds77tero4f5h********
       allocation_policy:
         locations:
         - zone_id: {{ region-id }}-a
-          subnet_id: e9bs1hp7lgdl1g3.....
+          subnet_id: e9bs1hp7lgdl********
         - zone_id: {{ region-id }}-b
-          subnet_id: e2le8i7hqa216f6.....
+          subnet_id: e2le8i7hqa21********
         - zone_id: {{ region-id }}-c
-          subnet_id: b0cgk1au6fn203f.....
-      log_group_id: ckgs4u5km3u8j9f.....
+          subnet_id: b0cgk1au6fn2********
+      log_group_id: ckgs4u5km3u8********
       security_group_ids:
-      - enp49ot04g63ih1.....
+      - enp49ot04g63********
       created_at: "2022-04-04T02:12:40.160629110Z"
       log_options:
-        log_group_id: e23p9bfjvsgra3t.....
+        log_group_id: e23p9bfjvsgr********
         discard_rules:
           - http_codes:
               - "200"
@@ -285,7 +284,7 @@ To update the parameters of an L7 load balancer:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -316,10 +315,10 @@ To delete a listener for your L7 load balancer:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
-   1. Select **{{ alb-name }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **Edit**.
-   1. Under **Listeners**, click ![image](../../_assets/horizontal-ellipsis.svg) next to the listener name and select **Delete**.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click ![image](../../_assets/horizontal-ellipsis.svg) next to the listener name and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -336,8 +335,8 @@ To delete a listener for your L7 load balancer:
    1. Run the following command:
 
       ```bash
-      yc alb load-balancer remove-listener <load balancer ID or name> \
-        --listener-name=<listener name>
+      yc alb load-balancer remove-listener <load_balancer_ID_or_name> \
+        --listener-name=<listener_name>
       ```
 
       Result:
@@ -404,7 +403,7 @@ To delete a listener for your L7 load balancer:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -414,10 +413,10 @@ To delete a listener for your L7 load balancer:
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change to the L7 load balancer using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      You can verify the change to the L7 load balancer using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
-      yc alb load-balancer get <L7 load balancer name>
+      yc alb load-balancer get <L7_load_balancer_name>
       ```
 
 - API

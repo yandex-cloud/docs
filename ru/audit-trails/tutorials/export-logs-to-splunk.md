@@ -111,7 +111,7 @@
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы хотите создать сервисный аккаунт.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Введите имя сервисного аккаунта:
+  1. Введите имя сервисного аккаунта. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -235,7 +235,7 @@
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. На панели слева выберите **{{ ui-key.yacloud.vpc.switch_gateways }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-      1. Задайте имя шлюза:
+      1. Задайте имя шлюза. Требования к имени:
 
           {% include [name-format](../../_includes/name-format.md) %}
    

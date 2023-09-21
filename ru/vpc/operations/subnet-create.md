@@ -10,7 +10,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.common.create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите название подсети.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите название подсети. Требования к названию:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
@@ -74,7 +74,9 @@
 
       * `--network-id` – идентификатор облачной сети. Также можно выбрать облачную сеть, указав ее имя с помощью флага `--network-name`. При создании подсети указывается имя облачной сети, в которой создается подсеть, и CIDR.
       * `--zone` – зона доступности, в которой создается подсеть. Если флаг не указан, подсеть будет создана в зоне доступности по умолчанию.
-      
+
+      Требования к названию подсети:
+
       {% include [name-format](../../_includes/name-format.md) %}
 
       ```
@@ -142,7 +144,7 @@
 
   1. Опишите в конфигурационном файле параметры подсети:
 
-     * `name` — имя подсети. Формат имени:
+     * `name` — имя подсети. Требования к нему:
 
         {% include [name-format](../../_includes/name-format.md) %}
 

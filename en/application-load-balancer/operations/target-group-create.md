@@ -14,13 +14,13 @@ To create a target group:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your target group in.
-   1. In the list of services, select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/trgroups.svg) **Target groups**.
-   1. Click **Create target group**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
+   1. Click **{{ ui-key.yacloud.alb.button_target-group-create }}**.
    1. Enter a name and description for the target group.
-   1. Under **Targets**, select a VM from the list or add the target manually:
+   1. Under **{{ ui-key.yacloud.alb.label_targets }}**, select a VM from the list or add the target manually:
 
-      1. In the **IP address** field, specify the target's IP and select the [subnet](../../vpc/concepts/network.md#subnet).
+      1. In the **{{ ui-key.yacloud.alb.column_target }}** field, specify the target's IP and select the [subnet](../../vpc/concepts/network.md#subnet).
 
       
       1. (Optional) If the target's IP does not belong to {{ vpc-name }}, select **{{ ui-key.yacloud.alb.label_target-private-ip }}**.
@@ -28,9 +28,9 @@ To create a target group:
          For example, specify a private IPv4 address belonging to your data center connected to {{ yandex-cloud }} through [{{ interconnect-name }}](../../interconnect/index.yaml). The IP address must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
 
-      1. Click **Add target resource**.
+      1. Click **{{ ui-key.yacloud.alb.button_add-target }}**.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -167,7 +167,7 @@ To create a target group:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. To check whether the resources are there, use the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc alb target-group list
