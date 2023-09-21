@@ -27,7 +27,9 @@
            --query '{Objects: Versions[].{Key: Key, VersionId: VersionId}}' \
            --max-items 1000)"
      ```
-         
+
+     Также вместо параметра `--max-items` вы можете использовать `--max-keys`.
+
      Результат:
          
      ```json
@@ -61,7 +63,9 @@
            --query '{Objects: DeleteMarkers[].{Key: Key, VersionId: VersionId}}' \
            --max-items 1000)"
      ```
-       
+
+     Также вместо параметра `--max-items` вы можете использовать `--max-keys`.
+
      Результат:
        
      ```json
