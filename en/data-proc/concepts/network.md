@@ -18,12 +18,6 @@ When you reduce the number of hosts in a subcluster, the service selects the hos
 
 ## Security groups {#security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 Security groups follow the "All traffic that is not allowed is prohibited" principle. If the security group settings are missing the required rules, you will not be able to connect to the cluster. Furthermore, there will be no connectivity between the subclusters, the cluster, and the intermediate VM instance used for [port forwarding](interfaces.md).
 
 For example, let's assume a VM located on the 10.128.0.0/16 subnet is used to connect to the cluster. If only the 10.133.0.0/24 subnet is specified in the security group rules, you will not be able to connect to the cluster. Moreover, you will not be able to connect to a cluster with a VM located in the 10.128.0.0/16 subnet, which the permissions for the required ports have not been specified for.

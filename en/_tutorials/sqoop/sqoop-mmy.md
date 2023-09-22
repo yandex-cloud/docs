@@ -36,8 +36,6 @@ You can create other resources manually or using {{ TF }}.
    * [To the VM instance and the {{ dataproc-name }} cluster](../../data-proc/operations/connect.md).
    * [To the {{ mmy-name }} cluster](../../managed-mysql/operations/connect.md#configure-security-groups).
 
-   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 ### Using {{ TF }} {#create-terraform}
 
 1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

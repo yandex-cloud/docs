@@ -1,4 +1,4 @@
-# Donut chart ![](../../_assets/datalens/ring.svg)
+# Donut chart
 
 This chart shows the proportion of different categories using donut segments. The sum of all segments is 100%. The size of each segment corresponds to the percentage of a category in the total amount. A number in the center of a ring depends on the selected measure and indicates the overall total. Donut charts are a good choice if you need to display a small number of segments.
 

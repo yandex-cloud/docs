@@ -611,7 +611,7 @@ items:
           Устранение проблем изменения конфигурации кластеров с дисками
           local-ssd
         href: >-
-          managed-postgresql/known-issues/unproсessable-entity-issue-when-enlarging-local-disk.md
+          managed-postgresql/known-issues/unprocessable-entity-issue-when-enlarging-local-disk.md
       - name: Устранение последствий переполнения хранилища кластера WAL-журналами
         href: >-
           managed-postgresql/known-issues/cluster-in-readonly-due-to-wal-overflow.md

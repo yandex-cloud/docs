@@ -14,8 +14,6 @@
 
 * Select the [appropriate security groups](../../vpc/concepts/security-groups.md).
 
-   {% include [security-groups-note-vm](../vpc/security-groups-note-vm.md) %}
-
 * (Optional) Create records for the VM in the [DNS zone](../../dns/concepts/dns-zone.md):
 
    * Expand the **{{ ui-key.yacloud.dns.label_dns-internal-settings }}** section and click **{{ ui-key.yacloud.dns.button_add-record }}**.

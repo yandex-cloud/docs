@@ -23,8 +23,6 @@ Prepare the infrastructure:
    
    1. Set up [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups) and make sure they allow cluster connections.
 
-      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
    1. [Grant](../../managed-postgresql/operations/grant.md#grant-privilege) the `mdb_replication` role to the `pg-user`.
 

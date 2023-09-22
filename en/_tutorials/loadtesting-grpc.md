@@ -54,12 +54,6 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ### Configure security groups {#security-group-setup}
 
-{% note info %}
-
-{% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 1. Set up the test agent's security group:
 
    {% include [security-groups-agent](../_includes/load-testing/security-groups-agent.md) %}

@@ -1,17 +1,75 @@
-# Системы контроля версий
+# GitHub
+
+В [задачах {{ tracker-name }}](../about-tracker.md#zadacha) можно автоматически добавлять ссылки на коммиты из GitHub, указывая [ключ](../glossary.md#key) нужной задачи в комментарии к коммиту. Ссылки будут размещаться на вкладке **{{ ui-key.startrek-backend.fields.issue.commits-key-value }}**.
 
 
-## {{ GL }} {#gitlab}
+## Подключить репозиторий {#repo}
 
-В [задачах {{ tracker-name }}](../about-tracker.md#zadacha) можно автоматически добавлять ссылки на [Merge Requests]({{ gl.docs }}/ee/user/project/merge_requests/) из {{ GL }}, указывая [ключ](../glossary.md#key) нужной задачи в названии или описании нового Merge Request. Ссылки будут размещаться в разделе [{{ ui-key.startrek.ui_components_issue-links_ExternalLinksCollapse.external-relations}}](../external-links.md).
+Чтобы подключить репозиторий на [GitHub](https://github.com) к {{ tracker-name }}:
 
-Дополнительно можно включить автоматическое создание комментариев в задаче с информацией о Merge Requests. Автоматическое комментирование доступно только для [{{ mgl-name }}](../../managed-gitlab/).
+{% list tabs %}
 
-{% include [create hook](../../_includes/managed-gitlab/create-hook.md) %}
+- Публичный репозиторий
 
-{% include [test hook](../../_includes/managed-gitlab/test-hook.md) %}
+    1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
 
-### См. также {#see-also}
+    1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %} 
 
-* [Практическое руководство по интеграции {{ GL }} с {{ tracker-full-name }}](../../managed-gitlab/tutorials/tracker-integration.md).
+    1. В поле **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** выберите GitHub.
 
+    1. Укажите адрес публичного репозитория в формате `https://github.com/<логин_владельца_репозитория>/<имя_репозитория>`. Поле **{{ ui-key.startrek.blocks-desktop_repository-modal.token }}** оставьте пустым.
+
+    1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+
+    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
+
+- Закрытый репозиторий
+
+    1. {% include [make sure you are admin](../../_includes/tracker/make-sure-admin.md) %}
+
+    1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
+
+    1. В поле **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** выберите GitHub.
+
+    1. Получите на GitHub OAuth-токен для своего репозитория:
+
+        - Авторизуйтесь на GitHub. Если репозиторий прикреплен к GitHub-организации, убедитесь, что у вас есть права администратора.
+
+        - Нажмите на свое фото в правом верхнем углу и выберите **Settings**.
+        - На панели слева выберите **Developer settings** → **Personal access token** → **Tokens (classic)**.
+        - Нажмите кнопку **Generate new token**.
+
+        - Придумайте название для токена.
+
+        - Настройте разрешения для токена. Для правильной работы с {{ tracker-name }} необходимо, чтобы опции **repo** и **read:org** были включены:
+
+            ![](../../_assets/tracker/github-token-settings.png)
+
+        - Нажмите кнопку **Generate token**.
+
+        - Скопируйте токен в буфер обмена.
+
+            {% note alert %}
+
+            Значение токена отображается только один раз. Если закрыть страницу, вы больше не сможете его просмотреть.
+
+            {% endnote %}
+
+    1. Укажите адрес репозитория в формате `https://github.com/<логин_владельца_репозитория>/<имя_репозитория>` и токен для подключения.
+
+    1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+
+    1. Убедитесь, что статус репозитория отображается в {{ tracker-name }} как **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
+
+{% endlist %}
+
+Чтобы привязать коммит к задаче в {{ tracker-name }}, укажите ключ задачи в комментарии к коммиту. Привязанные коммиты можно просмотреть:
+
+- на странице задачи на вкладке **{{ ui-key.startrek-backend.fields.issue.commits-key-value }}**;
+- на странице очереди на вкладке **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}**.
+
+Если вы не видите вкладки **{{ ui-key.startrek.blocks-desktop_b-page_type_queue.tab_commits }}**, убедитесь, что она включена в [настройках очереди](../manager/edit-queue-general.md#ul_gcz_xlp_m2b).
+
+## Собственный сервер {#on-premise}
+
+{% include [on-premise server](../../_includes/tracker/on-premise-server.md) %}

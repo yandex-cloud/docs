@@ -32,8 +32,6 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
       * [{{ mch-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
       * [{{ mpg-name }}](../managed-postgresql/operations/connect.md#configuring-security-groups).
 
-      {% include [preview-pp.md](../_includes/preview-pp.md) %}
-
 
    1. [Grant the `mdb_replication` role](../managed-postgresql/operations/grant#grant-privilege) to the `pg-user` in the {{ mpg-name }} cluster.
 

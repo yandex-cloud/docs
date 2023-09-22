@@ -61,12 +61,6 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       * Cloud network for the cluster.
       * Security groups for the cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
-         {% note info %}
-
-         {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-         {% endnote %}
-
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add the DB hosts created with the cluster:
 

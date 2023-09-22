@@ -498,8 +498,6 @@ To host a WordPress website based on a MySQL cluster via {{ TF }}:
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
 1. Prepare files with the infrastructure description:
 
-   This tutorial uses [security groups](../../vpc/concepts/security-groups.md). If you don't have access to them, write to support or remove from the configuration file the `yandex_vpc_security_group` section and other mentions of `security_group`.
-
    {% list tabs %}
 
    - Ready-made archive

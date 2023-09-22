@@ -58,12 +58,6 @@ These instructions assume that you're connecting to the cluster from the interne
 
 ## Configure security groups {#configuring-security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 [Configure security groups](operations/cluster-connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 
 

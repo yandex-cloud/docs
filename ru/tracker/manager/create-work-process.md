@@ -20,7 +20,7 @@
   * [доска задач](agile-new.md) с [бэклогом](backlog.md) и [покером планирования](planning-poker.md);
   * [очередь](create-queue.md) с базовым набором [типов и статусов](workflow.md) задач.
 
-Если вы используете облачные сервисы GitHub, GitLab или Bitbucket, вы можете [подключить](add-repository.md) любое число репозиториев и [привязывать](../user/ticket-links.md#section_commit) коммиты к задачам.
+Если вы используете облачные сервисы GitHub, GitLab или Bitbucket, вы можете [подключить](../user/add-repository.md) любое число репозиториев и [привязывать](../user/ticket-links.md#section_commit) коммиты к задачам.
 
 ## {{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.process-type-support }} {#for-support-template}
 

@@ -22,8 +22,6 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    * [Configuring {{ mkf-name }} cluster security groups](../../managed-kafka/operations/connect.md#configuring-security-groups).
    * [Configuring {{ mpg-name }} cluster security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
-   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 1. [Connect to a virtual machine over SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) and perform preliminary setup:
 

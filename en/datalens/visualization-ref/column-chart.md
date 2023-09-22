@@ -1,4 +1,4 @@
-# Column chart ![](../../_assets/datalens/column.svg)
+# Column chart
 
 This chart displays the values of one or more measures by period or category. The height of a column determines the measure value: the higher the column, the larger the value.
 Unlike line charts, this type of chart assumes that different periods are compared directly and an emphasis is made on a measure's individual value rather than its general trend.

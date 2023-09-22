@@ -40,7 +40,6 @@ Some steps are completed in [{{ TF }}](https://www.terraform.io/intro). If you d
 Some {{ yandex-cloud }} features described in this tutorial are at the [Preview](../overview/concepts/launch-stages.md) stage. [Request access to these features from the support team]({{ link-console-support }}/create-ticket):
 
 * [{{ at-name }}](../audit-trails/).
-* [Security groups](../vpc/concepts/security-groups.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -267,9 +266,9 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
 ### Configure the subnet {#configure-subnet}
 
 1. [Enable](../vpc/operations/create-nat-gateway.md) an NAT gateway for the subnet where the intermediate VM will be deployed.
-1. Configure network traffic permissions in the [default security group](../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing traffic will be allowed for the {{ ES }} cluster.
+1. Configure network traffic permissions in the [default security group](../vpc/concepts/security-groups.md#default-security-group).
 
-   If a security group is available, [add](../vpc/operations/security-group-update.md#add-rule) the rules below to it:
+   [Add](../vpc/operations/security-group-update.md#add-rule) the rules below to it:
 
    | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
    | --- | --- | --- | --- | --- | --- |

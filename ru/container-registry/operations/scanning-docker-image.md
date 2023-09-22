@@ -3,6 +3,7 @@
 Вы можете [сканировать](../concepts/vulnerability-scanner.md) загруженные в [реестр](../concepts/registry.md) [Docker-образы](../concepts/docker-image.md) на наличие уязвимостей. Это можно делать:
 * [{#T}](#manual).
 * [{#T}](#automatically).
+* [{#T}](#scheduled).
 
 {% note warning %}
 
@@ -103,9 +104,15 @@
      +----------------------+----------------------+---------------------+--------+--------------------------------+
      ```
 
+- API
+
+  Чтобы сканировать Docker-образ, воспользуйтесь методом REST API [scan](../api-ref/Scanner/scan.md) для ресурса [Scanner](../api-ref/Scanner/) или вызовом gRPC API [ScannerService/Scan](../api-ref/grpc/scanner_service.md#Scan).
+
+  Чтобы получить детальную информацию о результатах сканирования, воспользуйтесь методом REST API [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) для ресурса [Scanner](../api-ref/Scanner/) или вызовом gRPC API [ScannerService/ListVulnerabilities](../api-ref/grpc/scanner_service.md#ListVulnerabilities).
+
 {% endlist %}
 
-## Автоматически {#automatically}
+## При загрузке {#automatically}
 
 {% list tabs %}
 
@@ -115,28 +122,48 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Выберите реестр или [создайте](registry/registry-create.md) новый.
   1. Перейдите на вкладку **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}** и укажите настройки сканирования:
-     * **{{ ui-key.yacloud.cr.registry.field_scan-on-upload }}** — включите автоматическое сканирование Docker-образов при загрузке в реестр.
-     * **{{ ui-key.yacloud.cr.registry.label_repositories }}** — выберите один из вариантов сканирования:
-       * **{{ ui-key.yacloud.cr.registry.label_all-repositories }}** — всех репозиториев реестра.
-       * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** — только выбранных из списка:
-         1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
-         1. Укажите репозитории из списка.
-         1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
+  1. В блоке **Сканирование Docker-образов при загрузке** выберите `Сканировать` и один из вариантов сканирования:
+     * **{{ ui-key.yacloud.cr.registry.label_all-repositories }}** — сканировать все репозитории реестра.
+     * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** — сканировать только выбранные репозитории:
+       1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
+       1. Выберите репозитории из списка.
+       1. Нажмите кнопку **Сохранить**.
   1. Нажмите кнопку **Сохранить изменения**.
 
 - API
 
-  1. Получите список Docker-образов в реестре. Воспользуйтесь методом [list](../api-ref/Image/list.md) для ресурса [Image](../api-ref/Image/) и передайте:
-     * Идентификатор каталога, в котором размещен реестр, в параметре `folderId`.
-     * Идентификатор реестра, в котором находится нужный Docker-образ, в параметре `registryId`.
+  Чтобы автоматически сканировать Docker-образы при загрузке в реестр, воспользуйтесь методом REST API [create](../api-ref/ScanPolicy/create.md) для ресурса [ScanPolicy](../api-ref/ScanPolicy/) или вызовом gRPC API [ScanPolicyService/Create](../api-ref/grpc/scan_policy_service.md#Create).
 
-     В ответе на запрос скопируйте идентификатор нужного Docker-образа в параметре `id`.
-  1. Запустите сканирование Docker-образа. Воспользуйтесь методом [scan](../api-ref/Scanner/scan.md) для ресурса [Scanner](../api-ref/Scanner/) и передайте в запросе идентификатор Docker-образа в параметре `imageId`.
+  Чтобы получить детальную информацию о результатах сканирования, воспользуйтесь методом REST API [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) для ресурса [Scanner](../api-ref/Scanner/) или вызовом gRPC API [ScannerService/ListVulnerabilitiesListVulnerabilities](../api-ref/grpc/scanner_service.md#ListVulnerabilities).
 
-     В ответе на запрос скопируйте идентификатор результата сканирования в параметре `scanResultId`.
-  1. Получите детальную информацию о результатах сканирования. Воспользуйтесь методом [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) для ресурса Scanner и передайте в запросе идентификатор результата сканирования в параметре `scanResultId`.
+{% endlist %}
 
-     Чтобы посмотреть запуски сканирования по Docker-образу, воспользуйтесь методом [list](../api-ref/Scanner/list.md) для ресурса Scanner. Передайте идентификатор Docker-образа в параметре `imageId`.
+## По расписанию {#scheduled}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит реестр с Docker-образами.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Выберите реестр или [создайте](registry/registry-create.md) новый.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
+  1. В блоке **Сканирование Docker-образов при расписанию** нажмите **Добавить правило сканирования**.
+  1. Выберите `Сканировать` и один из вариантов сканирования:
+     * **{{ ui-key.yacloud.cr.registry.label_all-repositories }}** — сканировать все репозитории реестра.
+     * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** — сканировать только выбранные репозитории:
+       1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
+       1. Выберите репозитории из списка.
+       1. Нажмите кнопку **Сохранить**.
+  1. Укажите, как часто хотите сканировать Docker-образы.
+  1. Нажмите кнопку **Сохранить изменения**.
+
+- API
+
+  Чтобы сканировать Docker-образы по расписанию, воспользуйтесь методом REST API [create](../api-ref/ScanPolicy/create.md) для ресурса [ScanPolicy](../api-ref/ScanPolicy/) или вызовом gRPC API [ScanPolicyService/Create](../api-ref/grpc/scan_policy_service.md#Create).
+
+  Чтобы получить детальную информацию о результатах сканирования, воспользуйтесь методом REST API [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) для ресурса [Scanner](../api-ref/Scanner/) или вызовом gRPC API [ScannerService/ListVulnerabilitiesListVulnerabilities](../api-ref/grpc/scanner_service.md#ListVulnerabilities).
 
 {% endlist %}

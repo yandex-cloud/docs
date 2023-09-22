@@ -1,4 +1,4 @@
-# Bar chart ![](../../_assets/datalens/horizontal-bar.svg)
+# Bar chart
 
 This chart displays the values of one or more measures by each category, using horizontal bars. The length of a bar determines the measure value: the longer the bar, the larger the value. For example, you can compare sales of products by their subcategory.
 

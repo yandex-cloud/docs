@@ -27,6 +27,14 @@ Aliases:
 	- [yc organization-manager federation saml add-user-accounts](saml/add-user-accounts.md) — Add user accounts to the specified federation
 	- [yc organization-manager federation saml list-user-accounts](saml/list-user-accounts.md) — List user accounts of the specified federation
 	- [yc organization-manager federation saml list-operations](saml/list-operations.md) — List operations for the specified federation
+- [yc organization-manager federation group-mapping](group-mapping/index.md) — Manage group mappings for federation
+	- [yc organization-manager federation group-mapping get](group-mapping/get.md) — Show group mapping information about the specified federation
+	- [yc organization-manager federation group-mapping create](group-mapping/create.md) — Create a group mapping for specified federation
+	- [yc organization-manager federation group-mapping delete](group-mapping/delete.md) — Delete a group mapping for specified federation
+	- [yc organization-manager federation group-mapping update](group-mapping/update.md) — Update a group mapping for specified federation
+	- [yc organization-manager federation group-mapping list-mapping-items](group-mapping/list-mapping-items.md) — List group mapping items for specified federation
+	- [yc organization-manager federation group-mapping add-mapping-items](group-mapping/add-mapping-items.md) — Add group mapping items to the specified federation
+	- [yc organization-manager federation group-mapping remove-mapping-items](group-mapping/remove-mapping-items.md) — Remove group mapping items from the specified federation
 
 #### Global Flags
 

@@ -1,7 +1,5 @@
 # Configuring security groups
 
-{% include [security-groups-note](../../../_includes/vpc/security-groups-note-services.md) %}
-
 [Security groups](../../../vpc/concepts/security-groups.md) follow the "All traffic that is not allowed is prohibited" principle. For a cluster to run, you need to [create rules](../../../vpc/operations/security-group-add-rule.md) in its security groups to allow:
 * [Service traffic within the cluster](#rules-internal).
 * [Connections to services from the internet](#rules-nodes).

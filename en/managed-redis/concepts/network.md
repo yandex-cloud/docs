@@ -29,8 +29,6 @@ When you delete a host with a public IP, its respective FQDN is withdrawn.
 
 ## Security groups {#security-groups}
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
 {% note tip %}

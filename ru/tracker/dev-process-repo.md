@@ -22,7 +22,7 @@
 
     - Для репозитория Bitbucket — ваш логин на Bitbucket и специально созданный пароль для {{ tracker-name }}.
 
-    Подробнее о параметрах подключения читайте в разделе [{#T}](manager/add-repository.md).
+    Подробнее о параметрах подключения читайте в разделе [{#T}](user/add-repository.md).
 
 1. Чтобы на странице задачи отображались связанные коммиты, в [настройках вашей очереди](manager/edit-queue-general.md#integration) включите опцию **{{ ui-key.startrek.blocks-desktop_b-queue-form.commits }}**.
 

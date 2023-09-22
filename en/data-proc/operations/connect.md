@@ -7,8 +7,6 @@ After creating a {{ dataproc-name }} cluster, you can connect to hosts of subclu
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 Security groups might block cluster connections. If this happens, edit the group rules.
 
 {% note alert %}

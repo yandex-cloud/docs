@@ -49,8 +49,6 @@ To get started with {{ managed-k8s-name }}:
      * **Region**: A single master host will be created in every availability zone. Specify a cloud network and subnet for each availability zone.
    * Select [security groups](operations/connect/security-groups.md) for the cluster's network traffic.
 
-      {% include [security-groups-note-services](../_includes/vpc/security-groups-note-services.md) %}
-
 1. Under **Cluster network settings**:
    * **Cluster CIDR**: Specify an IP range to allocate addresses to pods from.
    * **Service CIDR**: Specify an IP range to allocate IP addresses to services from.

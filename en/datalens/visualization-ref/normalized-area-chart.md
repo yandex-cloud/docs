@@ -1,4 +1,4 @@
-# Normalized area chart ![](../../_assets/datalens/normalized-area.svg)
+# Normalized area chart
 
 A normalized area chart shows changes to the contribution of each category in a measure value over a time interval. Areas are highlighted in different colors and located above each other. The chart shows the percentage of areas and not their absolute value. The width of an area indicates its ratio to the total amount represented as 100%. For example, the percentage of different expenses in the total budget amount.
 

@@ -169,12 +169,6 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
 
 1. Create a security group:
 
-   {% note info %}
-
-   {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-   {% endnote %}
-
    {% list tabs %}
 
    - Management console
@@ -764,8 +758,6 @@ To set up scaling for your instance group using {{ TF }}:
          * `config.tpl`: Description of VM user parameters.
          * `vm-autoscale.auto.tfvars`: User data.
 
-         {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
-
    - Creating files manually
 
       1. Create a directory for configuration files.
@@ -773,8 +765,6 @@ To set up scaling for your instance group using {{ TF }}:
       1. In the directory, create:
 
          1. The `vm-autoscale.tf` configuration file:
-
-            {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
 
             {% cut "vm-autoscale.tf" %}
 

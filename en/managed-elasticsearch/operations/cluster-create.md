@@ -53,8 +53,6 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
    
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
 
-      {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_user }}**, specify the `admin` user password.
 

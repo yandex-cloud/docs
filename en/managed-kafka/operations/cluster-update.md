@@ -379,12 +379,6 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
 ## Updating security group and public access settings {#change-sg-set}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 {% list tabs %}
 
 - Management console
@@ -706,8 +700,6 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 
 ## Changing security groups {#change-sg-set}
-
-{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
 
 {% list tabs %}
 

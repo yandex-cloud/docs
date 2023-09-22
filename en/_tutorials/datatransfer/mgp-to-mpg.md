@@ -29,8 +29,6 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
       * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
       * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
-      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 * Using {{ TF }}
 

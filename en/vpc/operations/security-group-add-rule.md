@@ -7,12 +7,6 @@ description: "You can add rules using the management console, CLI, and {{ vpc-na
 
 You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time.
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 {% list tabs %}
 
 - Management console

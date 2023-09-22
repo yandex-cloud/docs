@@ -54,12 +54,6 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       * [Cloud network](../../vpc/concepts/network.md#network) for the {{ mmy-name }} cluster.
       * [Security groups](../../vpc/concepts/security-groups.md) for the {{ mmy-name }} cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the {{ mmy-name }} cluster.
 
-         {% note info %}
-
-         {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-         {% endnote %}
-
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters for the DB hosts created with the {{ mmy-name }} cluster. Click ![image](../../_assets/edit.svg) if you need to choose specific [subnets](../../vpc/concepts/network.md#subnet) for each host. By default, each host is created in a separate subnet.
 

@@ -27,8 +27,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * [Instructions for {{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups)
    * [Instructions for {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups)
 
-   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 1. Install the `kcat` (`kafkacat`) [utility](https://github.com/edenhill/kcat) and the [MySQL command-line tool](https://www.mysql.com/downloads/) on the local machine. For example, in Ubuntu 20.04, run:
 

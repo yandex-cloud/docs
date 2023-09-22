@@ -5,12 +5,6 @@ description: "Security groups allow you to manage VM access to resources and sec
 
 # Security groups
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 Security groups allow you to manage [VM](../../compute/concepts/vm.md) access to {{ yandex-cloud }} resources and security groups, or resources on the internet. A security group is assigned to the network interface when creating or updating a VM and should contain rules for receiving and sending traffic. You can assign multiple security groups to each VM.
 
 Security groups:

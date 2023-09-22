@@ -36,8 +36,6 @@ To connect to {{ MG }} hosts with public access, get an SSL certificate:
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [security-groups-note](../../../_includes/vpc/security-groups-note-services.md) %}
-
 {% include [sg-rules](../../../_includes/mdb/sg-rules-connect.md) %}
 
 Settings of rules depend on the connection method you select:

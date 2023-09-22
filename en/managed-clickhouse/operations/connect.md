@@ -11,12 +11,6 @@ You can connect to a cluster both using encryption via ports `{{ port-mch-cli }}
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
 Rule settings depend on the connection method you select:

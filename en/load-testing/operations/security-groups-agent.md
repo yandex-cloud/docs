@@ -1,7 +1,5 @@
 # Set up the test agent's security group
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% note warning %}
 
 You must create and configure security groups before creating an [agent](../concepts/agent.md). This way you can restrict the agent's access.

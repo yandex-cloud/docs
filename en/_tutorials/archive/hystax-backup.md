@@ -53,9 +53,9 @@ Hystax Acura Backup will run under a [service account](../../iam/concepts/users/
 
 ### Configure network traffic permissions {#network-settings}
 
-Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing VM traffic will be allowed.
+Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group).
 
-If a security group is available, [add](../../vpc/operations/security-group-update.md#add-rule) the rules below to it:
+[Add](../../vpc/operations/security-group-update.md#add-rule) the rules below to it:
 
 | Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
 --- | --- | --- | --- | --- | ---
@@ -142,8 +142,6 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
          * Select a cloud [network](../../vpc/concepts/network.md#network) from the list. If you don't have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**. Set the network parameters and click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
          * Select a [subnet](../../vpc/concepts/network.md#subnet). If you don't have a subnet, click ![image](../../_assets/plus.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**. Set the subnet parameters and click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**. Save the subnet ID. You will need it later.
          * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions.
-
-            {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
          * Select the [previously created](#create-sa) `hystax-acura-account` service account.

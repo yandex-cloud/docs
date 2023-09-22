@@ -33,8 +33,6 @@ You can connect to {{ mrd-name }} cluster hosts:
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [security-groups-note](../../../_includes/vpc/security-groups-note-services.md) %}
-
 {% include [Security groups notice](../../../_includes/mdb/sg-rules-connect.md) %}
 
 {% include [Security groups rules for VM](../../../_includes/mdb/mrd/connect/sg-rules-for-vm.md) %}

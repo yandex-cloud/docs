@@ -1,4 +1,4 @@
-# Choropleth map ![](../../_assets/datalens/heatmap.svg)
+# Choropleth map
 
 A choropleth map uses different colors or shades to display entire areas and regions. Areas on a map are set using geopolygons. A geopolygon is an element that consists of an area bounded by a close line and the line itself. The value of a measure is indicated through the intensity of color or its shade.
 

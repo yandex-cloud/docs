@@ -1,11 +1,5 @@
 # Deleting a rule from a security group
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 {% list tabs %}
 
 - Management console

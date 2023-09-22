@@ -1,7 +1,5 @@
 # Delete a security group
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% note warning %}
 
 You can't delete security group created by default in the network.

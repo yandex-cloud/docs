@@ -22,12 +22,6 @@ Regardless of the connection method, {{ mos-name }} only supports cluster host c
 
 ## Configuring security groups {#security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 {% include notitle [Configuring security groups](../../_includes/mdb/mos/configuring-security-groups.md) %}
 
 

@@ -41,12 +41,6 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 ### Configure the security group {#security-group-setup}
 
-{% note info %}
-
-{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 1. For the agents, [create](../../vpc/operations/security-group-create.md) a security group named `agent-sg`.
 1. [Add rules](../../vpc/operations/security-group-add-rule.md):
    * Rule for outgoing HTTPS traffic to the {{ load-testing-full-name }} public API:

@@ -28,6 +28,7 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/restrictions.md)
 * [{#T}](projects/delete.md)
 * [{#T}](projects/delete-user.md)
+* [{#T}](projects/remote-connect.md)
 
 ## Работа в ноутбуке {#notebook}
 

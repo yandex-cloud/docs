@@ -20,12 +20,6 @@ Before deleting a cloud network, check that it doesn't include:
 
 To check for the remaining resources that may prevent deletion of your cloud network, you can use the [quota list page](https://console.cloud.yandex.com/cloud?section=quotas) for the cloud.
 
-{% note info %}
-
-The security groups feature is currently in the **Preview** stage. If you haven't requested preview access to this feature, this section will not be available to you in the management console.
-
-{% endnote %}
-
 ## If the issue persists {#if-issue-still-persists}
 
 If the above actions didn't help, [create a request for support](https://console.cloud.yandex.ru/support?section=contact).

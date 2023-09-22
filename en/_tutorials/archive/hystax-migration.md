@@ -48,9 +48,9 @@ Save the following details to use in subsequent steps:
 
 ## Configure network traffic permissions {#network-settings}
 
-Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing VM traffic will be allowed.
+Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group).
 
-If a security group is available, [add](../../vpc/operations/security-group-add-rule.md) the rules below to it:
+[Add](../../vpc/operations/security-group-add-rule.md) the rules below to it:
 
 | Traffic<br>direction | Description | Port<br>range | Protocol | Source<br>type | Source/Purpose |
 --- | --- | --- | --- | --- | ---

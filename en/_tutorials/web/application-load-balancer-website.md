@@ -41,12 +41,6 @@ Before creating a VM:
 
 ## Create security groups {#create-security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that let the load balancer receive incoming traffic and redirect it to the VMs so they can receive the traffic.
 
 To create security groups for the load balancer and an instance group:
@@ -365,8 +359,6 @@ To deploy an infrastructure to host a fault-tolerant load-balanced website in an
 
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
 1. Prepare files with the infrastructure description:
-
-   This tutorial uses [security groups](#create-security-groups). If you don't have access to them, write to support or remove from the configuration file the `yandex_vpc_security_group` section and other mentions of `security_group`.
 
    {% list tabs %}
 

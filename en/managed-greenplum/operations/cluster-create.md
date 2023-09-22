@@ -31,8 +31,6 @@ For more information, see [{#T}](../concepts/index.md).
       * Select the cloud network for the cluster.
       * In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** parameter, specify the [security group](../operations/connect.md#configuring-security-groups) that contains the rules allowing all incoming and outgoing traffic over any protocol from any IP address.
 
-         {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
          {% note alert %}
 
          For a {{ mgp-name }} cluster to work properly, at least one of its security groups must have rules allowing all incoming and outgoing traffic from any IP address.

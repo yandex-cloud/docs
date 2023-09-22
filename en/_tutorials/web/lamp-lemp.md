@@ -54,12 +54,6 @@ To create a network:
 
 ## Create a security group {#create-security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that allow accessing your VMs from the internet. In this tutorial, you will create a security group called `sg-web`.
 
 To create a security group:
@@ -214,8 +208,6 @@ To use {{ TF }} to deploy a LAMP or LEMP web server for your site running on a V
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) and [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 1. Specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
 1. Prepare files with the infrastructure description:
-
-   {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
 
    {% list tabs %}
 

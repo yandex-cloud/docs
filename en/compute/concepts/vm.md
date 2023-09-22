@@ -51,6 +51,4 @@ You can specify your own metadata when creating or updating VMs. For example, to
 
 When creating a VM, you need to specify its network interface settings by selecting the [subnet](../../vpc/concepts/network.md#subnet)to connect the VM to, configuring an [internal and public IP address](../../vpc/concepts/address.md), and adding the required [security groups](../../vpc/concepts/security-groups.md). This will allow the VM to work with other services on the intranet and internet.
 
-{% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
-
 For more information, see [{#T}](network.md).

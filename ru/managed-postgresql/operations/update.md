@@ -128,13 +128,13 @@
 
 ## Увеличить размер хранилища {#change-disk-size}
 
-{% note info %}
-
-Некоторые настройки {{ PG }} [зависят от размера хранилища](../concepts/settings-list.md#settings-instance-dependent).
-
-{% endnote %}
+{% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
+
+
+{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
 
 {% list tabs %}
 
@@ -213,6 +213,47 @@
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+
+## Настроить автоматическое увеличение размера хранилища {#disk-size-autoscale}
+
+{% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
+
+{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
+
+
+{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
+  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+  1. В блоке **Автоматическое увеличение размера хранилища** укажите желаемые настройки:
+
+      * В поле **Увеличивать размер** задайте соответствующие условия, чтобы:
+
+          * Размер хранилища увеличился в следующее окно обслуживания, когда хранилище окажется заполнено более чем на указанную долю (%).
+          * Размер хранилища увеличился незамедлительно, когда хранилище окажется заполнено более чем на указанную долю (%).
+
+          Можно задать оба условия, но порог для незамедлительного увеличения должен быть выше порога для увеличения в окно обслуживания.
+
+      * В поле **Новый размер хранилища** укажите новый размер хранилища, который будет установлен при выполнении одного из заданных условий.
+
+  1. Нажмите кнопку **Сохранить изменения**.
+
+- API
+
+  Чтобы разрешить автоматическое увеличение размера хранилища, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+
+  {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
+
+{% endlist %}
+
+{% include [storage-resize-maintenance](../../_includes/mdb/mpg/storage-resize-maintenance.md) %}
+
+{% include [storage-resize-reset](../../_includes/mdb/mpg/storage-resize-reset.md) %}
 
 ## Изменить настройки {{ PG }} {#change-postgresql-config}
 
@@ -353,6 +394,7 @@
             --deletion-protection=<защита от удаления кластера: true или false> \
             --connection-pooling-mode=<режим работы менеджера соединений> \
             --serverless-access=<true или false> \
+            --yandexquery-access=<доступ через {{ yq-full-name }}: true или false> \
             --performance-diagnostics enabled=<true или false>,`
                                      `sessions-sampling-interval=<интервал сбора сессий (в секундах)>,`
                                      `statements-sampling-interval=<интервал сбора запросов (в секундах)>
@@ -375,6 +417,8 @@
     
     
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
+    * `--yandexquery-access` — разрешает доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
 
 
 
@@ -494,6 +538,8 @@
 
         
     Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
+    Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/index.yaml), передайте значение `true` для параметра `configSpec.access.yandexQuery`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
 
 
     Чтобы активировать [сбор статистики](./performance-diagnostics.md#activate-stats-collector):

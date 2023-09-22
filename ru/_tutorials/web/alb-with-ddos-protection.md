@@ -702,8 +702,6 @@ Commercial support is available at
 
    {% endlist %}
 
-   {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
-
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
    * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)

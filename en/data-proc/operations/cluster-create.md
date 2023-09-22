@@ -9,8 +9,6 @@ Configure access to the internet from the subnet to which the subcluster with a 
 
 ## Configure security groups {#change-security-groups}
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% note warning %}
 
 Security groups must be created and configured before creating a cluster. If the selected security groups do not have the required rules, {{ yandex-cloud }} disables cluster creation.

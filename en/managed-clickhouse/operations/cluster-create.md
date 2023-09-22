@@ -101,8 +101,6 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters of database hosts created together with the cluster. To change the settings of a host, click the ![pencil](../../_assets/pencil.svg) icon in the line with its number:
 

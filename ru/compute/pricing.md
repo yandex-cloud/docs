@@ -242,12 +242,6 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 ### Файловые хранилища {#prices-nfs}
 
-{% note info %}
-
-Файловые хранилища переходят в [общий доступ](../overview/concepts/launch-stages.md) и начнут тарифицироваться 20 сентября 2023 года.
-
-{% endnote %}
-
 
 {% include [rub-nfs.md](../_pricing/compute/rub-nfs.md) %}
 

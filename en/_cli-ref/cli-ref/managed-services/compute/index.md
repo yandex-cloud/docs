@@ -169,6 +169,7 @@ Syntax:
 	- [yc compute gpu-cluster delete](gpu-cluster/delete.md) — Delete the specified GPU cluster
 	- [yc compute gpu-cluster list-operations](gpu-cluster/list-operations.md) — List operations for the specified GPU cluster
 	- [yc compute gpu-cluster list-instances](gpu-cluster/list-instances.md) — List instances created in the specified GPU cluster
+- [yc compute ssh](ssh/index.md) — Connect to instance
 
 #### Global Flags
 

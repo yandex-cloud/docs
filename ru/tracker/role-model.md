@@ -55,7 +55,7 @@
 Действия, доступные администратору:
 
 * Добавление в {{ tracker-name }} [пользователей](add-users.md) и настройка для них [уровня доступа](access.md).
-* Управление настройками {{ tracker-name }}: создание новых [статусов](manager/workflow-status-edit.md#create-status), [резолюций](manager/create-resolution.md#create-resolution) и [типов задач](manager/add-ticket-type.md#create-ticket-type), настройка [глобальных полей](user/create-param.md#section_global_field) задач, подключение [репозиториев](manager/add-repository.md).
+* Управление настройками {{ tracker-name }}: создание новых [статусов](manager/workflow-status-edit.md#create-status), [резолюций](manager/create-resolution.md#create-resolution) и [типов задач](manager/add-ticket-type.md#create-ticket-type), настройка [глобальных полей](user/create-param.md#section_global_field) задач, подключение [репозиториев](user/add-repository.md).
 * Управление [настройками очереди](manager/edit-queue-general.md).
 * Привязка к {{ tracker-name }} [платежного аккаунта](billing-account.md), который используется для оплаты услуг. 
 

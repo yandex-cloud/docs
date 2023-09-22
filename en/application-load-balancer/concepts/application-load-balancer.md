@@ -8,8 +8,6 @@ For convenience and security, you can use the load balancer in combination with 
 
 ## Security groups {#security-groups}
 
-{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
 When you create a load balancer, specify [security groups](../../vpc/concepts/security-groups.md) as they contain a set of rules for the load balancer to receive incoming traffic and send it to backend VMs. Security groups are also assigned to each VM.
 
 For the load balancer to work correctly:

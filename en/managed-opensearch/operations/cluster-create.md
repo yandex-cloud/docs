@@ -43,8 +43,6 @@ When creating a cluster, you need to specify individual parameters for each [hos
    
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
 
-      {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 
    1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the[`{{ OS }}` host group](../concepts/host-groups.md):
 

@@ -683,8 +683,6 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
 ## Changing security groups {#change-sg-set}
 
-{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% list tabs %}
 
 - Management console

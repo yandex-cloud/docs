@@ -201,8 +201,6 @@
 1. Укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
-   {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
-
    {% list tabs %}
 
    - Готовый архив

@@ -1,4 +1,4 @@
-# Indicator ![](../../_assets/datalens/indicator.svg)
+# Indicator
 
 An indicator reflects the value of a single key measure. It's used when a dashboard contains values that need to be monitored on a regular basis to understand the overall situation. These can be the number of incidents for the past day, plan performance, or a YoY increase in sales. Indicators are most often placed at the top or on the right side of a dashboard. Be sure there are no more than 6 indicators per screen so that they don't lose their urgency or confuse users. Using indicators of different sizes, you can build a hierarchy of the various metrics according to significance.
 

@@ -22,8 +22,6 @@ Prepare the infrastructure:
    
    1. If you are using [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups) in your cluster, make sure they have been set up correctly and allow connecting to the cluster:
 
-      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
    1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
 

@@ -53,6 +53,28 @@
 
 
      * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
+
+  1. (Опционально) В блоке **Автоматическое увеличение размера хранилища** укажите желаемые настройки:
+
+      * В поле **Увеличивать размер** задайте соответствующие условия, чтобы:
+
+          * Размер хранилища увеличился в следующее окно обслуживания, когда хранилище окажется заполнено более чем на указанную долю (%).
+          * Размер хранилища увеличился незамедлительно, когда хранилище окажется заполнено более чем на указанную долю (%).
+
+          Можно задать оба условия, но порог для незамедлительного увеличения должен быть выше порога для увеличения в окно обслуживания.
+
+      * В поле **Новый размер хранилища** укажите новый размер хранилища, который будет установлен при выполнении одного из заданных условий.
+
+      
+      {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
+
+      {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
+
+      {% include [storage-resize-maintenance](../../_includes/mdb/mpg/storage-resize-maintenance.md) %}
+
+      {% include [storage-resize-reset](../../_includes/mdb/mpg/storage-resize-reset.md) %}
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
      * Имя БД. Это имя должно быть уникальным в рамках каталога.
 
@@ -138,9 +160,13 @@
        --deletion-protection=<защита от удаления кластера: true или false>
      ```
 
+
+
+     
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной [зоне доступности](../../overview/concepts/geo-scope.md) создано две и больше подсетей.
 
      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+
 
 
      Доступные [режимы работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
@@ -156,6 +182,8 @@
      
      
      Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
+     Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/index.yaml), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
 
 
 
@@ -298,6 +326,8 @@
   
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+  Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/index.yaml), передайте значение `true` для параметра `configSpec.access.yandexQuery`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
+
 
 
   Чтобы активировать [сбор статистики](performance-diagnostics.md#activate-stats-collector):
@@ -305,6 +335,16 @@
   {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
 {% endlist %}
+
+  Чтобы разрешить автоматическое увеличение размера хранилища, передайте в запросе:
+
+  {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
+
+  
+  {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
+
+  {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
 
 {% note warning %}
