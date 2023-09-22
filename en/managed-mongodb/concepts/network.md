@@ -29,12 +29,6 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 ## Security groups {#security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
 {% note tip %}

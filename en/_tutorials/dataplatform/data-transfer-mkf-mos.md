@@ -31,8 +31,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
          * [{{ mos-name }}](../../managed-opensearch/operations/connect.md#security-groups).
 
-         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
    - Using {{ TF }}
 

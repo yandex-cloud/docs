@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Install the {{ mpg-name }} client SSL certificates on the hosts of the target cluster](../../managed-postgresql/operations/connect.md#get-ssl-cert) to successfully connect to the source cluster that is publicly available.
 
 
-1. Set up the firewall and [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups), if required, so that you can connect to the source cluster from the target cluster, as well as to each cluster separately, e.g., using the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility). The security groups feature is currently in the [Preview](../../overview/concepts/launch-stages.md) stage.
+1. Set up the firewall and [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups), if required, so that you can connect to the source cluster from the target cluster, as well as to each cluster separately, e.g., using the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility.
 
 
 1. Make sure you can connect to the source cluster's hosts from the target cluster's hosts.

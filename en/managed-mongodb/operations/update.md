@@ -444,12 +444,6 @@ You can change the DBMS settings of the hosts in your cluster.
 
 ## Changing security groups {#change-sg-set}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 {% list tabs %}
 
 - Management console

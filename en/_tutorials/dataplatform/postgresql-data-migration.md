@@ -343,8 +343,6 @@ Create the required resources:
    
    1. If you use security groups for the intermediate VM and the {{ mpg-name }} cluster, [configure them](../../managed-postgresql/operations/connect.md#configure-security-groups).
 
-      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 * Using {{ TF }}
 

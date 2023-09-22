@@ -1,4 +1,4 @@
-# Point map ![](../../_assets/datalens/heatmap.svg)
+# Point map
 
 Each point is plotted by its geographic coordinates.
 

@@ -24,8 +24,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * Outgoing and incoming traffic through ports `80` and `443` to and from any IP address for HTTP/HTTPS.
       * Outgoing and incoming traffic through port `6379` to and from internal network IP addresses for {{ RD }}.
 
-      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
       For details, see [{#T}](../../vpc/concepts/security-groups.md).
 
 

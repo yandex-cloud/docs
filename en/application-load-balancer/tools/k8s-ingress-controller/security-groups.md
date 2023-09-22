@@ -7,8 +7,6 @@ description: "For an Ingress controller or Gateway API to work properly, you nee
 
 For the [Ingress controller](index.md) or [Gateway API](../k8s-gateway-api/index.md) to work properly, you need to configure [security groups](../../../vpc/concepts/security-groups.md) for your [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster), [{{ managed-k8s-full-name }} node groups](../../../managed-kubernetes/concepts/index.md#node-group), and {{ alb-name }} [load balancer](../../concepts/application-load-balancer.md).
 
-{% include [security-groups-note-services](../../../_includes/vpc/security-groups-note-services.md) %}
-
 You can use different security groups (recommended) or the same group for the cluster, the node groups, and the load balancer.
 
 Within the security groups, you must configure:

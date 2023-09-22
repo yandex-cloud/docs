@@ -648,7 +648,7 @@ default:
   link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.ru/iam
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
-  link-console-support: https://support.yandex.cloud/
+  link-console-support: https://console.cloud.yandex.ru/support
   link-cloud-calculator: /prices#calculator
   link-cloud-services: /services
   link-cloud-services-infrastructure: /services#infrastructure-network
@@ -6130,10 +6130,8 @@ default:
         registry:
           button_change-scan-settings: Изменить настройки
           button_select-repositories: Выбрать репозитории
-          field_scan-on-upload: Сканировать образы при загрузке
           label_all-repositories: Все репозитории
           label_only-selected: Только выбранные
-          label_repositories: Репозитории
           label_vulnerabilities-scanner: Сканер уязвимостей
       data-streams:
         label_data-introspection: Просмотр данных
@@ -7124,10 +7122,12 @@ default:
         switch_lang: Язык и регион
       smartcaptcha:
         button_captcha-settings-create: Создать капчу
+        label_additional-challenge: Дополнительное задание
         label_allowed-sites: Список сайтов
         label_captcha-settings-list: Список капч
         label_client-key: Ключ клиента
         label_complexity: Сложность
+        label_main-challenge: Основное задание
         label_section-customization: Настройка внешнего вида
         label_section-style: Внешний вид
         label_server-key: Ключ сервера
@@ -7381,6 +7381,7 @@ default:
         switch_gateways: Шлюзы
         switch_networks: Подсети
         switch_security-groups: Группы безопасности
+        title_network-map-page: Карта облачной сети
       ydb:
         browse:
           button_sql-query: Новый SQL-запрос

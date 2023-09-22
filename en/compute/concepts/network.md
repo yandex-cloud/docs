@@ -2,8 +2,6 @@
 
 When creating a VM, you need to specify its network interface settings by selecting the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to, configuring an [internal](#internal-ip) and [public IP address](#public-ip), and adding the required [security groups](../../vpc/concepts/security-groups.md). This will allow the VM to connect to other services on the intranet and internet.
 
-{% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
-
 Once the network interface is connected, the VM will be assigned an internal IP address in the subnet and an [internal FQDN](#hostname). A public IP address will only be assigned in case it was specified when creating the VM.
 
 You can find out the IP addresses, FQDNs, and other information in the management console by going to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the virtual machine page. This data can be used to connect to the VM.

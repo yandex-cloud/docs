@@ -37,8 +37,6 @@ You can also configure a public IP address for each instance. This allows the in
 
 You can specify the [appropriate security groups](../../../vpc/concepts/security-groups.md) in a template or configure them individually for each instance in the group.
 
-{% include [security-groups-note-vm](../../../_includes/vpc/security-groups-note-vm.md) %}
-
 ## Metadata {#metadata}
 
 You can use a template to describe the metadata for the instances in the group. For example, you can use the `user-data` key to describe the system users to be created on new instance startup. For more information about the metadata supported by {{ compute-name }}, see [{#T}](../vm-metadata.md).

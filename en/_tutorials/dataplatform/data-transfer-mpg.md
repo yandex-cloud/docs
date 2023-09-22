@@ -27,8 +27,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * [Instructions for {{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups)
    * [Instructions for {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups)
 
-   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 1. Install the `kcat` (`kafkacat`) [utility](https://github.com/edenhill/kcat) and [PostgreSQL command-line client](https://www.postgresql.org/download/) on the local machine. For example, in Ubuntu 20.04, run:
 

@@ -18,8 +18,6 @@ To use [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#m
 
 1. If you are using security groups, [configure them](../../managed-kafka/operations/connect.md#configuring-security-groups) to allow all required traffic between the {{ mkf-name }} cluster and the VM.
 
-   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 ## Create producer and consumer scripts {#create-scripts}
 

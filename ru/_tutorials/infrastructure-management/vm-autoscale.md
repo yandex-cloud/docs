@@ -758,8 +758,6 @@
           * `config.tpl` — описание параметров пользователя ВМ;
           * `vm-autoscale.auto.tfvars` — пользовательские данные.
 
-          {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
-
     - Создание вручную
 
       1. Создайте папку для конфигурационных файлов.
@@ -767,8 +765,6 @@
       1. Создайте в папке:
 
           1. Конфигурационный файл `vm-autoscale.tf`:
-
-              {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
 
               {% cut "vm-autoscale.tf" %}
 

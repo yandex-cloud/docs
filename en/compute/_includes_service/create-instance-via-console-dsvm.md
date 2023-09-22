@@ -37,8 +37,6 @@ Creating an instance from a public [DSVM](/marketplace/products/f2e4v304qn35mhil
          * (Optional) Enable [DDoS protection](../../vpc/ddos-protection/index.md) in the **{{ ui-key.yacloud.component.compute.network-select.field_advanced }}** field, if required.
       * Select the [appropriate security groups](../../vpc/concepts/security-groups.md) in the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field.
 
-         {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
-
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data required to access the VM:
       * (Optional) Select or create a [service account](../../iam/concepts/index.md#sa). With a service account, you can flexibly configure access rights for your resources.
       * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.

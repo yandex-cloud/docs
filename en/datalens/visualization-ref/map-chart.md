@@ -1,4 +1,4 @@
-# Map ![](../../_assets/datalens/heatmap.svg)
+# Map
 
 Maps are used for geoanalytics: displaying and analyzing business indicators on a map. These indicators may include population and population density, the number of commercial facilities and their profit, and other parameters that may affect the efficiency of a business.
 

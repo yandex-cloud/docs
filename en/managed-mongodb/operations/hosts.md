@@ -200,7 +200,7 @@ To enable security groups, request access to this feature from the [support team
 
 {% note warning %}
 
-If you cannot [connect](connect/index.md) to the added host, check that the {{ mmg-name }} cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently in the [Preview](../../overview/concepts/launch-stages.md) stage.
+If you cannot [connect](connect/index.md) to the added host, check that the {{ mmg-name }} cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
 

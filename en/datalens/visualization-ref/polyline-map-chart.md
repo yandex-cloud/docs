@@ -1,4 +1,4 @@
-# Polyline map ![](../../_assets/datalens/polyline-map.svg)
+# Polyline map
 
 A polyline map is a type of geolayer on a **Map** chart that lets you draw polylines on the map. A polyline consists of points connected in a certain order. A polyline map is used, for example, to show the path of a moving object.
 

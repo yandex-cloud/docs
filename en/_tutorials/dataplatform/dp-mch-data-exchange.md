@@ -43,8 +43,6 @@ Prepare the infrastructure:
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
    1. [Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) in any [suitable host configuration](../../data-proc/concepts/instance-types.md) with the following settings:
 
       * Components:
@@ -64,8 +62,6 @@ Prepare the infrastructure:
 
    
    1. If you are using security groups in your {{ mch-name }} cluster, make sure they have been [set up correctly](../../managed-clickhouse/operations/connect.md#configuring-security-groups) and allow connecting to the cluster:
-
-      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 
 - Using {{ TF }}

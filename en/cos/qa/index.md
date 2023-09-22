@@ -28,5 +28,3 @@ The Docker Compose specification does not support `build` instructions: the imag
 - If you need other network settings for containers, you can configure them using a COI with the [Docker Compose specification](../tutorials/docker-compose.md#docker-compose).
 - To make your container port open on the host but disable access to it from the internet, you can use [security groups](../../vpc/concepts/security-groups.md).
 
-   {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
-

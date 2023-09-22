@@ -45,8 +45,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
    
    1. If you use {{ vpc-name }} security groups, [configure them](../../managed-redis/operations/connect/index.md#configuring-security-groups).
 
-      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 - Using {{ TF }}
 

@@ -6,8 +6,6 @@ Before you start, install the [{{ ydb-short-name }} CLI](https://ydb.tech/en/doc
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 To connect to your DB in {{ dd }} mode, allow incoming and outgoing traffic over TCP on port `{{ ydb.port-dedicated }}`. Make sure the assigned [security group](../../vpc/concepts/security-groups.md) contains the appropriate rule, or add one:
 
 * Port range: `{{ ydb.port-dedicated }}`

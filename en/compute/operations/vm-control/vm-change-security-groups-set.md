@@ -2,12 +2,6 @@
 
 You can assign multiple [security groups](../../../vpc/operations/security-group-create.md) to the network interface of a VM.
 
-{% note info %}
-
-{% include [security-groups-note](../../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 For more information about how to change a VM name, description, and tags, see [{#T}](vm-update.md).
 
 {% list tabs %}

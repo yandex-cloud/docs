@@ -25,7 +25,7 @@
     1. В меню слева выберите **System Hooks**.
     1. Нажмите кнопку **Add new webhook**.
     1. Укажите параметры Webhook:
-        * **URL** — `http://localhost:24080/post`.
+        * **URL** — `http://localhost:24080/default`.
         * В блоке **Trigger** выключите все опции кроме **Merge request events**, **Push events** и **Repository update events**.
     1. Нажмите кнопку **Add system hook**.
 1. Включите правила ревью кода в инстансе {{ mgl-name }}:

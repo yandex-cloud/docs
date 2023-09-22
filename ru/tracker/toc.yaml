@@ -399,8 +399,16 @@ items:
             href: slack.md
           - name: Telegram
             href: telegram.md
-      - name: Системы контроля версий
-        href: user/github.md
+      - name: Репозитории
+        items:
+          - name: Обзор
+            href: user/add-repository.md
+          - name: Bitbucket
+            href: user/bitbucket.md
+          - name: Github
+            href: user/github.md
+          - name: GitLab
+            href: user/gitlab.md
       - name: Настроить связи с внешним приложением
         items:
           - name: Обзор
@@ -415,8 +423,6 @@ items:
         href: user/API.md
       - name: Python клиент
         href: user/python.md
-      - name: Подключить репозиторий
-        href: manager/add-repository.md
   - name: Мобильное приложение Tracker
     items:
       - name: Обзор возможностей

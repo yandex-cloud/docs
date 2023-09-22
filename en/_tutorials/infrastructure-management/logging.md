@@ -72,12 +72,6 @@ To create a network:
 
 ## Create security groups {#create-security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that:
 * Allow the load balancer to receive incoming traffic and redirect it to the VMs so they can receive the traffic.
 * Allow the load balancer to send logs to the log group and the {{ PG }} cluster, to receive the logs from it.

@@ -1,13 +1,5 @@
 # File storage
 
-{% note info %}
-
-File storage is currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-File storage will be [publicly available](../../overview/concepts/launch-stages.md) and charged for starting September 20, 2023.
-
-{% endnote %}
-
 _File storage_ is a virtual file system that can be attached to multiple {{ compute-name }} [VMs](vm.md) in the same availability zone. Users can share files in storage and use them from different VMs.
 
 Each file storage is located either in the `{{ region-id }}-a` or `{{ region-id }}-b` availability zone where it is replicated to provide data protection. File storage is not replicated across availability zones.

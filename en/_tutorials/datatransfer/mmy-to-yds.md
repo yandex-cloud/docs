@@ -25,8 +25,6 @@ Prepare the infrastructure:
    
    1. Set up [security groups](../../managed-mysql/operations/connect.md#configure-security-groups) and make sure they allow cluster connections.
 
-      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md#create-db) named `ydb-example` in any suitable configuration.
 

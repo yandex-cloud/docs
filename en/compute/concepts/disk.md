@@ -30,7 +30,7 @@ In case you create a disk from a snapshot or image, its information will contain
 * Network SSD (`network-ssd`): Fast network drive, which is an SSD based network block storage.
 * Network HDD (`network-hdd`): Standard network drive, which is an HDD based network block storage.
 * Non-replicated SSD (`network-ssd-nonreplicated`): Network drive with enhanced performance but no redundancy.
-* High-performance SSD (`network-ssd-io-m3`): Network drive with the same characteristics as `network-ssd-nonreplicated`, plus redundancy. High-performance SSDs are currently at the [Preview](../../overview/concepts/launch-stages.md) stage. Users will be charged for high-performance SSDs starting September 1, 2023.
+* High-performance SSD (`network-ssd-io-m3`): Network drive with the same characteristics as `network-ssd-nonreplicated`, plus redundancy. Users will be charged for high-performance SSDs starting September 1, 2023.
 * [Local disk](dedicated-host.md#resource-disks) drives on dedicated hosts.
 
 Network SSDs, high-performance SSDs, and network HDDs provide sufficient redundancy for reliable data storage and enable continuous read and write operations, even when multiple physical disks fail at the same time. Non-replicated disks do not ensure data durability.

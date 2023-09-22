@@ -6,7 +6,7 @@
 
 #### Если ли интеграция {{ GL }} с {{ tracker-full-name }}? {#tracker-integration}
 
-Да, настройки интеграции описаны в разделе [Интеграция с {{ tracker-full-name }}](../../tracker/user/github.md#gitlab).
+Да, настройки интеграции описаны в разделе [Интеграция с {{ tracker-full-name }}](../../tracker/user/gitlab.md).
 
 #### Почему не получается отправить изменения в репозиторий {{ mgl-name }}? {#push}
 

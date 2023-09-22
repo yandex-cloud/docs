@@ -28,8 +28,6 @@ The cost of hosting a website in WordPress includes:
 
 ## Create a security group {#create-security-group}
 
-{% include [security-groups-note](../../compute/_includes_service/security-groups-note.md) %}
-
 To create a security group:
 
 {% list tabs %}
@@ -172,8 +170,6 @@ To host your site in WordPress CMS via {{ TF }}:
 
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
 1. Prepare files with the infrastructure description:
-
-   This tutorial uses [security groups](#create-security-groups). If you don't have access to them, write to support or remove from the configuration file the `yandex_vpc_security_group` section and other mentions of `security_group`.
 
    {% list tabs %}
 

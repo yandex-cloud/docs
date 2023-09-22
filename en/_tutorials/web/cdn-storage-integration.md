@@ -393,12 +393,6 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 ## Create a security group {#create-security-group}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 [Security groups](../../vpc/concepts/security-groups.md) contain rules that allow the L7 load balancer to receive incoming traffic and send it to backend buckets.
 
 To create security groups:

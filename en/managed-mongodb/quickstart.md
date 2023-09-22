@@ -49,8 +49,6 @@ To get started with the service:
 
 1. If you are using security groups for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
-   {% include [preview-pp.md](../_includes/preview-pp.md) %}
-
 
 1. Get an SSL certificate:
 

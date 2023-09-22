@@ -10,8 +10,6 @@ To learn more about {{ metastore-name }} clusters in {{ dataproc-name }}, see [{
 
 ## Configure security groups {#set-up-security-groups}
 
-{% include [security-groups-note](../../../_includes/vpc/security-groups-note-services.md) %}
-
 If the cloud network uses security groups, they can hinder the cluster's operation. Set up the default security group to work with {{ metastore-name }}. To do this, [add](../../../vpc/operations/security-group-add-rule.md) the following rules to it:
 
 * For incoming client traffic:

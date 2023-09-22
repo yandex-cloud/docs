@@ -38,8 +38,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
          * [{{ mes-name }}](../../managed-elasticsearch/operations/cluster-connect.md#configuring-security-groups).
 
-         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
    - Using {{ TF }}
 

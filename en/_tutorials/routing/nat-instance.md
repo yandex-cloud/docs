@@ -66,12 +66,6 @@ The cost of NAT instance support includes:
 
 ## Create a security group {#create-security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that allow your VMs to be accessed via SSH. In this tutorial, you will create a security group called `nat-instance-sg`.
 
 To create a security group:
@@ -265,8 +259,6 @@ To set up routing through a NAT instance using {{ TF }}:
          {% endcut %}
 
    {% endlist %}
-
-   {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 

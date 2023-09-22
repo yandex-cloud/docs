@@ -44,6 +44,12 @@ Syntax:
 |`--log-folder-id`|<b>`string`</b><br/>Send logs to default log group of custom folder by id.|
 |`--log-folder-name`|<b>`string`</b><br/>Send logs to default log group of custom folder by name.|
 |`--min-log-level`|<b>`string`</b><br/>Min log level. Values: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'|
+|`--async-max-retries`|<b>`int`</b><br/>Max retries for async invocation.|
+|`--async-service-account-id`|<b>`string`</b><br/>Service account for asynchronous function invocation.|
+|`--async-success-ymq-arn`|<b>`string`</b><br/>YMQ ARN target for success invocation.|
+|`--async-success-sa-id`|<b>`string`</b><br/>Service account for writing successful result of async invocation function.|
+|`--async-failure-ymq-arn`|<b>`string`</b><br/>YMQ ARN target for failure.|
+|`--async-failure-sa-id`|<b>`string`</b><br/>Service account for writing unsuccessful result of async invocation function.|
 
 #### Global Flags
 

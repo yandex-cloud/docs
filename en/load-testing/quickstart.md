@@ -14,8 +14,6 @@ This guide will help you create a test agent in your cloud, configure a simple l
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `CIDR`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-   {% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
-
 1. The agent will need access to the subnet hosting the test target. For the agent to be able to connect to {{ load-testing-name }}, set up a [NAT gateway](../vpc/operations/create-nat-gateway.md) for the subnet.
 1. If you do not have an SSH key pair yet, [create them](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 

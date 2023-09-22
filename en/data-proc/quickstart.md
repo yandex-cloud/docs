@@ -19,8 +19,6 @@ To get started with the service:
 
 1. If you use security groups, [configure them](operations/cluster-create.md#change-security-groups).
 
-   {% include [preview-pp.md](../_includes/preview-pp.md) %}
-
 1. You can connect to an {{ dataproc-name }} cluster from both inside and outside {{ yandex-cloud }}:
 
    * To connect from inside {{ yandex-cloud }}, create a [Linux-](../compute/quickstart/quick-create-linux.md) virtual machine, which must be in the same network as the cluster.
@@ -51,8 +49,6 @@ To connect to a cluster:
 
 
 1. If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
-
-   {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 
 1. Copy the SSL key that you specified when creating the {{ dataproc-name }} cluster to the VM.

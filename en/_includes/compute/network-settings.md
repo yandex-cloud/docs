@@ -22,5 +22,3 @@
    * To create another record, click **{{ ui-key.yacloud.dns.button_add-record }}**.
 
 * Select the [appropriate security groups](../../vpc/concepts/security-groups.md).
-
-   {% include [security-groups-note-vm](../vpc/security-groups-note-vm.md) %}

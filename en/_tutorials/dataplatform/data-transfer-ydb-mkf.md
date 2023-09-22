@@ -29,8 +29,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
       
       1. If you are using security groups, [configure them so that you can connect to the cluster from the internet](../../managed-kafka/operations/connect.md#configuring-security-groups).
 
-         {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
       1. Configure {{ KF }} topics in the target cluster. The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. Data topic names are generated in `<topic prefix>.<{{ ydb-short-name}} table name>` format. In this tutorial, we will use the `cdc` prefix as an example.
 

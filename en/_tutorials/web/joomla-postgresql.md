@@ -361,8 +361,6 @@ To create infrastructure for your Joomla-based website with a {{ PG }} DB:
 
    {% endlist %}
 
-   {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
-
    For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 1. In the `joomla-postgresql-terraform.auto.tfvars` file, set the user-defined parameters:
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).

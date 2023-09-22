@@ -244,12 +244,6 @@ GPU clusters will be [publicly available](../overview/concepts/launch-stages.md)
 
 ### File storage {#prices-nfs}
 
-{% note info %}
-
-File storage will be [publicly available](../overview/concepts/launch-stages.md) and charged for starting September 20, 2023.
-
-{% endnote %}
-
 
 
 

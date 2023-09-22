@@ -69,8 +69,6 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       1. Select [security groups](../../vpc/concepts/security-groups.md) for the {{ mkf-name }} cluster's network traffic.
 
-         {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
       1. To access broker hosts from the internet, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
 
 

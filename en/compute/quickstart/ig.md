@@ -55,8 +55,6 @@ To create an instance group:
          * Enter a name and description for the security group. You will be able to add rules to the security group at a later stage using **{{ vpc-name }}**.
          * Click **{{ ui-key.yacloud.common.create }}**.
 
-         {% include [security-groups-note-vm](../../_includes/vpc/security-groups-note-vm.md) %}
-
    * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
       * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one.
       * If you selected a Linux-based public image:

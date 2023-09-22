@@ -384,8 +384,6 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
 ## Changing security groups {#change-sg-set}
 
-{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% list tabs %}
 
 - Management console

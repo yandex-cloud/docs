@@ -89,12 +89,6 @@ To create a network:
 
 ## Create security groups {#create-security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 [Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that allow the load balancer receive incoming traffic and redirect it to the VMs so they can receive the traffic. In this use case, we will create two security groups: one for the load balancer and another one for all VMs.
 
 To create security groups:
@@ -707,8 +701,6 @@ To create an L7 load balancer with DDoS protection using {{ TF }}:
           {% endcut %}
 
    {% endlist %}
-
-   {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 

@@ -68,8 +68,6 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       * [Security groups](../../vpc/concepts/security-groups.md) for the cluster's network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-         {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 
    1. Under **Hosts**, select the parameters for the DB hosts created with the cluster: If you open **Advanced settings**, you can choose specific [subnets](../../vpc/concepts/network.md#subnet) for each host. By default, each host is created in a separate subnet.
 

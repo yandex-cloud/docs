@@ -30,8 +30,6 @@ Once you create a cluster, you cannot request or disable public addresses.
 
 ## Security groups {#security-groups}
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 
 {% note tip %}
 

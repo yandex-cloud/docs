@@ -37,8 +37,6 @@ Using a public IP address is a paid service. For more information, see [{#T}](..
 
 ## Security groups {#security-groups}
 
-{% include [security-groups-note](../../application-load-balancer/_includes_service/security-groups-note.md) %}
-
 Security groups allow you to manage VM access to resources in {{ yandex-cloud }} or on the web.
 
 For your VM instance to be able to exchange data with the backup provider servers, when creating it and connecting to {{ backup-name }}, you need to select a security group that allows outgoing TCP traffic to the `193.32.199.0/24` IP range on ports `443`, `7770-7800`, `43234`, and `45284`. For this, you need to create the following (or broader) rules in the group:

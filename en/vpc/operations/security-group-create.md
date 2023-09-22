@@ -1,7 +1,5 @@
 # Create a security group
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 
 To create a new [security group](../concepts/security-groups.md):

@@ -359,8 +359,6 @@ keywords:
 
    {% endlist %}
 
-   {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
-
    Подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 1. В файле `joomla-postgresql-terraform.auto.tfvars` задайте пользовательские параметры:
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).

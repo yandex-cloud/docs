@@ -61,8 +61,6 @@ To get started with the service:
 
 1. If you are using [security groups](../vpc/concepts/security-groups.md) for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
-   {% include [preview-pp.md](../_includes/preview-pp.md) %}
-
 
 1. To connect to the DB server, get an SSL certificate:
 

@@ -16,8 +16,6 @@ To create an L7 load balancer:
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network whose subnets will host the load balancer nodes, as well as the [appropriate security groups](../concepts/application-load-balancer.md#security-groups). If there is no appropriate field, all incoming and outgoing traffic will be allowed for the load balancer.
 
-      {% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
    1. (Optional) Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
 
       The number of units will change automatically depending on the actual load on the load balancer and the limits you specified. The number of units affects the [load balancer pricing](../pricing.md).

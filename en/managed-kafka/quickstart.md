@@ -85,8 +85,6 @@ To connect to a cluster:
 
 1. If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
-   {% include [preview-pp.md](../_includes/preview-pp.md) %}
-
 
 1. Install an SSL certificate on the VM:
 

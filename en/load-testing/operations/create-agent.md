@@ -7,8 +7,6 @@
    {% include [sa-create](../../_includes/load-testing/sa-create.md) %}
 1. [Set up](../../load-testing/operations/security-groups-agent.md) the test agent's security group.
 
-   {% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 ## Creating a test agent {#create-agent}
 
 {% include [create-agent](../../_includes/load-testing/create-agent.md) %}

@@ -2,8 +2,6 @@
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [security-groups-note-services](../../_includes/vpc/security-groups-note-services.md) %}
-
 {{ mgl-name }} uses the [default security group](../../vpc/concepts/security-groups.md#default-security-group) for the selected [network](../../vpc/concepts/network.md#network). You cannot create a different security group when creating an instance.
 
 Set up the default security group for the selected network to allow incoming traffic from any IP addresses on ports 22, 2222, 80, 443, and 5050. To do this, [create rules](../../vpc/operations/security-group-add-rule.md) for incoming traffic:

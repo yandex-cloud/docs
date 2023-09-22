@@ -47,8 +47,6 @@ These instructions assume that you're connecting to the cluster from the interne
 
 ## Configure security groups {#configure-security-groups}
 
-{% include [security-groups-note](../_includes/vpc/security-groups-note-services.md) %}
-
 {% include notitle [Configuring security groups](../_includes/mdb/mos/configuring-security-groups.md) %}
 
 

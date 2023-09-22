@@ -5,7 +5,7 @@
 | Ресурс | Описание |
 | ----- | ----- |
 | [Диск](disk.md) | Виртуальный аналог физического накопителя, подключаемый к ВМ как [сетевое блочное устройство](https://en.wikipedia.org/wiki/Network_block_device). Один диск может быть подключен только к одной ВМ. С файловой системы диска можно снять копию — [_снимок диска_](snapshot.md). |
-| [Файловое хранилище](filesystem.md) | _Файловые хранилища находятся на стадии [Preview](../../overview/concepts/launch-stages.md)._ <br> Виртуальная файловая система, подключаемая к ВМ через интерфейс [Filesystem in Userspace](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)) (FUSE) как устройство [virtiofs](https://www.kernel.org/doc/html/latest/filesystems/virtiofs.html). Одно файловое хранилище может быть подключено к нескольким ВМ одновременно. |
+| [Файловое хранилище](filesystem.md) | Виртуальная файловая система, подключаемая к ВМ через интерфейс [Filesystem in Userspace](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)) (FUSE) как устройство [virtiofs](https://www.kernel.org/doc/html/latest/filesystems/virtiofs.html). Одно файловое хранилище может быть подключено к нескольким ВМ одновременно. |
 
 К каждой ВМ можно подключить несколько дисков (помимо обязательного загрузочного) и несколько файловых хранилищ.
 

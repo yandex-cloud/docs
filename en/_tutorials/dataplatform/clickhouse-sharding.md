@@ -59,8 +59,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
    
   1. If you are using security groups, [configure them](../../managed-clickhouse/operations/connect.md#configuring-security-groups) so that you can connect to the cluster from the internet.
 
-     {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 - Using {{ TF }}
 

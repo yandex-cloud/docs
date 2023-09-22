@@ -24,12 +24,6 @@ There are ready-made {{ KF }} API implementations for most popular programming l
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
 Rule settings depend on the connection method you select:

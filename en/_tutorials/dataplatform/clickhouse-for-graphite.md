@@ -146,8 +146,6 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 
 1. If you are using security groups for a cloud network, [set them up](../../managed-clickhouse/operations/connect.md#configuring-security-groups) to allow all required traffic between the cluster and the VM.
 
-   {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 1. [Connect](../../compute/operations/vm-connect/ssh.md).
 1. Run the ClickHouse CLI with the following parameters: replace `<host FQDN>`, `<database name>`, `<database username>`, and `<database user password>` with the previously saved values.
 

@@ -632,8 +632,6 @@ After the cluster is moved, it will continue using the cloud network from the so
 
 ## Changing security groups {#change-sg-set}
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% list tabs %}
 
 - Management console

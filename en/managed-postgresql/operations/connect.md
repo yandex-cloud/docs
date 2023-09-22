@@ -13,8 +13,6 @@ If only some cluster hosts have public access configured, the master may not be 
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
 Rule settings depend on the connection method you select:

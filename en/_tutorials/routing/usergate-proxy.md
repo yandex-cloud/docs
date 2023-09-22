@@ -142,12 +142,6 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 ## Create a security group {#create-security-group}
 
-{% note info %}
-
-{% include [security-groups-note](../../_includes/vpc/security-groups-note-services.md) %}
-
-{% endnote %}
-
 {% list tabs %}
 
 - Management console
