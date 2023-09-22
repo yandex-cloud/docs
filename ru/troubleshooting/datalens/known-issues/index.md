@@ -12,3 +12,7 @@
 * [Устранение ошибки Validation error Request failed with status code 500 при сохранении дашборда](validation-error-request-failed-with-status-code-500.md)
 * [Устранение проблем с доступом к дашборду со статистикой подкастов в Яндекс Музыке](yandex-music-stats-dashboard-issue.md)
 * [Устранение ошибки ERR.DS_API.FORMULA.TRANSLATION.DATA_TYPE](err-ds_api_formula-translation-data_type.md)
+* [Устранение ошибки Bad Request for url MetrikaHttpApiException direct_client_logins](client-error-400.md)
+* [Устранение ошибки ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT - Inconsistent aggregation among operands](err-ds-api-formula-validation-agg-inconsistent.md)
+* [Устранение ошибки ERR.DS_API.US.BAD_REQUEST data.key should not start with /](err-ds-api-us-bad-request-data-key-should-not-start-with.md)
+* [В датасетах по Яндекс Метрике отображаются не все поля](metrika-not-all-fields.md)

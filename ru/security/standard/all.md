@@ -31,3 +31,7 @@
 ## 8. Физическая безопасность {#physical-security}
 
 {% include notitle [physical-security](../../_includes/security/standard/physical-security.md) %}
+
+## 9. Защита приложений {#app-security}
+
+{% include notitle [app-security](../../_includes/security/standard/app-security.md) %}

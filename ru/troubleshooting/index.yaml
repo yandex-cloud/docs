@@ -24,6 +24,9 @@ links:
   - title: Certificate Manager
     description: Решения для Certificate Manager
     href: certificate-manager/
+  - title: ClickHouse
+    description: Решения для ClickHouse
+    href: clickhouse/
   - title: DNS
     description: Решения для Cloud DNS
     href: dns/
@@ -108,3 +111,6 @@ links:
   - title: Tracker
     description: Решения для Tracker
     href: tracker/
+  - title: Partner
+    description: Решения для Partner
+    href: partner/

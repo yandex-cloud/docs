@@ -7,3 +7,5 @@
 * [Устранение проблем при переносе облака между разными организациями](move-org-public-access-bindings-error.md)
 * [Устранение проблем при создании OAuth-токенов от имени учетных записей Яндекс ID](unauthorised-client-issue.md)
 * [Устранение ошибки OAuth token is invalid or expired](error-oauth-token-is-invalid-or-expired.md)
+* [Устранение ошибки Обратитесь к администратору организации за новым приглашением](invitation-already-accepted.md)
+* [Устранение ошибки Service account is not available](service-account-is-not-available.md)

@@ -1,0 +1,1 @@
+## Примеры конфигураций и сценариев ClickHouse {#configuration-examples}

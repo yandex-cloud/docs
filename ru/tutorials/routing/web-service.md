@@ -1,1 +1,1 @@
-{% include [openvpn](../../_tutorials/routing/web-service.md) %}
+{% include [openvpn](../../_tutorials/infrastructure/web-service.md) %}

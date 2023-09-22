@@ -1,4 +1,4 @@
-{% include [index](../../../_tutorials/routing/ipsec/index.md) %}
+{% include [index](../../../_tutorials/infrastructure/ipsec/index.md) %}
 
 Для организации сетевой связности с помощью IPsec-шлюзов воспользуйтесь одним из вариантов:
 

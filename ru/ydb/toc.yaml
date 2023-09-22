@@ -255,6 +255,23 @@ items:
                 href: api-ref/StorageType/get.md
               - name: list
                 href: api-ref/StorageType/list.md
+  - name: Работа с YDB через Terraform
+    href: ./terraform/intro.md
+    items:
+      - name: Получение данных для аутентификации
+        href: ./terraform/credentials.md
+      - name: Установка и настройка Terraform и провайдера для подключения к YDB
+        href: ./terraform/install.md
+      - name: Создание конфигурационных файлов и подключение к YDB
+        href: ./terraform/configure.md
+      - name: Создание и изменение параметров бессерверной базы данных
+        href: ./terraform/serverless-database.md
+      - name: Создание и изменение параметров выделенной базы данных
+        href: ./terraform/dedicated-database.md
+      - name: Создание строковых таблиц в базе данных
+        href: ./terraform/row-tables.md
+      - name: Создание потока изменений таблицы
+        href: ./terraform/cdc.md
   - name: Вопросы и ответы
     href: faq.md
   - name: Публичные материалы

@@ -1,1 +1,1 @@
-{% include [application-load-balancer-website](../../_tutorials/web/application-load-balancer-website.md) %}
+{% include [application-load-balancer-website](../../_tutorials/infrastructure/application-load-balancer-website.md) %}
