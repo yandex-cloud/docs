@@ -8,3 +8,6 @@
 * [Устранение ошибки Not enough resources при запуске виртуальной машины](not-enough-resources.md)
 * [ Устранение проблем с созданием снимков дисков](shapshots-creation-issue.md)
 * [Не увеличился размер загрузочного диска](disk-volume-did-not-increase.md)
+* [Виртуальная машина выключается операцией "Instance guest stop processing"](instance-guest-stop-processing.md)
+* [Устранение ошибки WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED](warning-remote-host-identification-has-changed.md)
+* [Устранение поломки нереплицируемого диска](non-replicated-disk-broke-down.md)

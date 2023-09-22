@@ -87,4 +87,7 @@
 
 ## Тарификация по фактическому использованию {#on-demand}
 
-Потоки данных, работающие в режиме тарификации по фактическому использованию, тарифицируются на уровне топиков Serverless базы данных {{ ydb-short-name }}, в которых они хранят данные. Перейдите на страницу [правил тарификации для бессерверного режима {{ ydb-short-name }}](../ydb/pricing/serverless.md) для получения информации о ценах и порядке расчета стоимости.
+При тарификации по фактическому использованию:
+* Потоки данных, хранящие данные в [Serverless базах данных {{ ydb-short-name }}](https://cloud.yandex.ru/docs/ydb/concepts/serverless-and-dedicated#serverless), тарифицируются по [правилам тарификации для бессерверного режима {{ ydb-short-name }}](../ydb/pricing/serverless.md).
+
+* Потоки данных, хранящие данные в [Dedicated базах данных {{ ydb-short-name }}](https://cloud.yandex.ru/docs/ydb/concepts/serverless-and-dedicated#dedicated), отдельно не тарифицируются (оплачивается только dedicated база, см. [правила тарификации для dedicated баз](https://cloud.yandex.ru/docs/ydb/pricing/dedicated)).

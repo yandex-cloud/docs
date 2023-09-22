@@ -18,6 +18,11 @@ links:
   - title: Для разработчиков
     description: Используйте сервисы {{ yandex-cloud }} в разработке
     href: dev/
+  - title: Базовая инфраструктура
+    description: >-
+      Развертывайте базовую инфраструктуру удобными средствами управления
+      облачными ресурсами
+    href: infrastructure/
   - title: Прикладные решения
     description: Выполняйте практические задачи средствами {{ yandex-cloud }}
     href: applied/
@@ -35,7 +40,7 @@ links:
   - title: Продукты Microsoft в {{ yandex-cloud }}
     description: Развертывайте продукты Microsoft в {{ yandex-cloud }}
     href: windows/
-  - title: Сетевая инфраструктура
+  - title: Архитектура, сетевое взаимодействие
     description: Настройте статические маршруты и VPN для доступа к облачным ресурсам
     href: routing/
   - title: Визуализация и анализ данных

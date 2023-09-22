@@ -40,7 +40,7 @@ items:
         href: domains/physical-security.md
       - name: Безопасность Kubernetes
         href: domains/kubernetes.md
-  - name: Стандарт по защите облачной инфраструктуры 1.0
+  - name: Стандарт по защите облачной инфраструктуры 1.1
     items:
       - name: Все разделы на одной странице
         href: standard/all.md
@@ -62,6 +62,8 @@ items:
         href: standard/backup.md
       - name: Физическая безопасность
         href: standard/physical-security.md
+      - name: Защита приложений
+        href: standard/app-security.md
   - name: Практические руководства
     items:
       - name: ViPNet Coordinator в {{ yandex-cloud }}

@@ -84,7 +84,7 @@
 ## Удалить Docker-образ {#delete}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![docker](../../_assets/datasphere/docker.svg).**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![docker](../../_assets/datasphere/docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. В списке Docker-образов выберите тот, который хотите удалить.
 1. Нажмите ![options](../../_assets/options.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.

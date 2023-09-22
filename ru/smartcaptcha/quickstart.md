@@ -24,8 +24,6 @@
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
     1. Введите имя капчи.
-    1. Выберите тип [основного задания](./concepts/tasks.md#main-task), которое предлагается решить пользователю.
-    1. Выберите тип [дополнительного задания](./concepts/tasks.md#additional-task), которое предлагается решить пользователю.
     1. Выберите сложность `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
     1. Укажите список сайтов, на которых будет размещаться капча.
     1. **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** оставьте стандартным.

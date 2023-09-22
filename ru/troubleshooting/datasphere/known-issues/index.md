@@ -6,3 +6,7 @@
 * [Получение доступа к конфигурациям GPU g1.1 и выше в DataSphere](getting-access-go-g1-1-config.md)
 * [Устранение проблем с долгим запуском кода внутри ячеек проекта DataSphere](project-cells-dont-load-for-a-long-time.md)
 * [Устранение ошибки Servant not allocated при запуске кода внутри ячеек проекта DataSphere](servant-not-allocated-issue.md)
+* [Устранение ошибки TestsFailure](tests-failure-error.md)
+* [Устранение ошибки открытия проекта](project-not-starting.md)
+* [Устранение ошибки Token authentication is enabled](error-token-authentication-is-enabled.md)
+* [Устранение ошибок с доступом или входом в проект](opening-project-issues.md)

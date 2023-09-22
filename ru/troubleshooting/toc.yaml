@@ -61,12 +61,20 @@ items:
           Устранение ошибки ILLEGAL_REQUEST_CONTRACT при формировании счета на
           оплату
         href: billing/known-issues/illegal_request_contract.md
+      - name: В консоли недоступны закрывающие документы
+        href: billing/known-issues/closing-documents-unavailable.md
       - name: >-
           С баланса платежного аккаунта списываются средства за неиспользуемые
           ресурсы
         href: billing/known-issues/billing-account-is-charged-by-unused-resources.md
       - name: Что делать, если деньги долго не приходят на баланс после платежа
         href: billing/known-issues/recover-lost-payment.md
+      - name: >-
+          Устранение ошибки «Приглашение не найдено» при подключении к
+          партнёрской программе
+        href: billing/known-issues/cannot-access-partner-programme.md
+      - name: Могут ли ресурсы удалиться при неоплате
+        href: billing/known-issues/cloud-and-files-removal.md
       - name: Примеры конфигураций и сценариев Cloud Billing
         href: billing/how-to/index.md
         hidden: true
@@ -92,10 +100,24 @@ items:
           Как восстановить доступ к платежному аккаунту, созданному на основе
           упрощенной регистрации в Яндекс ID
         href: billing/how-to/recover-access-to-billing-account-via-lite-account.md
+      - name: Как работает резервированное потребление ресурсов
+        href: billing/how-to/how-cvos-works.md
+      - name: Как получать счета на электронную почту автоматически
+        href: billing/how-to/getting-invoices-automatically.md
+      - name: Как узнать, на какую электронную почту отправляются счета на оплату
+        href: billing/how-to/viewing-email-for-invoices.md
       - name: Как получить акт сверки
         href: billing/how-to/getting-reconcillation-report.md
       - name: Как получить закрывающие документы
         href: billing/how-to/getting-reporting-docs.md
+      - name: Как изменить адрес электронной почты
+        href: billing/how-to/change-email.md
+      - name: В каких сервисах доступна тарификация по меткам
+        href: billing/how-to/services-with-tags-available.md
+      - name: Какой формат закрывающих документов в ЭДО
+        href: billing/how-to/closing-documents-format.md
+      - name: Лимит отрицательного баланса при оплате банковским переводом
+        href: billing/how-to/overdraft-while-transferring.md
   - name: Business
     items:
       - name: Все решения для Business
@@ -123,6 +145,20 @@ items:
       - name: Примеры конфигураций и сценариев Certificate Manager
         href: certificate-manager/how-to/index.md
         hidden: true
+  - name: ClickHouse
+    items:
+      - name: Все решения для ClickHouse
+        href: clickhouse/index.md
+      - name: Решения для известных проблем ClickHouse
+        href: clickhouse/known-issues/index.md
+        hidden: true
+      - name: >-
+          Устранение ошибки при выполнении запроса Exception Memory limit
+          (total) exceeded
+        href: clickhouse/known-issues/error-memory-limit-total-exceeded.md
+      - name: Примеры конфигураций и сценариев ClickHouse
+        href: clickhouse/how-to/index.md
+        hidden: true
   - name: Cloud CDN
     items:
       - name: Все решения для Cloud CDN
@@ -134,6 +170,13 @@ items:
           Устранение ошибок no such bucket и no such key при загрузке объектов
           из CDN
         href: cdn/known-issues/no-such-bucket-no-such-key.md
+      - name: Устранение ошибки CNAME already exists
+        href: cdn/known-issues/cname-already-exists.md
+      - name: >-
+          Устранение ошибки You cannot enable redirect HTTP to HTTPS when HTTPS
+          is disabled
+        href: >-
+          cdn/known-issues/you-cannot-enable-redirect-http-to-https-when-https-is-disabled.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: cdn/how-to/index.md
         hidden: true
@@ -160,6 +203,8 @@ items:
       - name: Примеры конфигураций и сценариев Cloud Functions
         href: functions/how-to/index.md
         hidden: true
+      - name: Как настроить статический IP-адрес
+        href: functions/how-to/static-ip-address.md
   - name: Cloud Logging
     items:
       - name: Все решения для Cloud Logging
@@ -207,6 +252,14 @@ items:
         href: compute/known-issues/shapshots-creation-issue.md
       - name: Не увеличился размер загрузочного диска
         href: compute/known-issues/disk-volume-did-not-increase.md
+      - name: >-
+          Виртуальная машина выключается операцией "Instance guest stop
+          processing"
+        href: compute/known-issues/instance-guest-stop-processing.md
+      - name: Устранение ошибки WARNING REMOTE HOST IDENTIFICATION HAS CHANGED
+        href: compute/known-issues/warning-remote-host-identification-has-changed.md
+      - name: Устранение поломки нереплицируемого диска
+        href: compute/known-issues/non-replicated-disk-broke-down.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: compute/how-to/index.md
         hidden: true
@@ -236,6 +289,26 @@ items:
           Как подключиться к Linux-ВМ в Облаке через WinSCP со сгенерированным
           при создании ключом
         href: compute/how-to/winscp-and-key-authorization.md
+      - name: Как создать бэкап виртуальной машины с возможностью отката
+        href: compute/how-to/create-vm-backups.md
+      - name: Как подключиться по SSH от root с паролем или ключом
+        href: compute/how-to/ssh-root-authorization.md
+      - name: Как отслеживать объём потребляемой памяти
+        href: compute/how-to/ram-monitoring.md
+      - name: Как сохранить снимки и образы локально
+        href: compute/how-to/download-snapshots-and-images.md
+      - name: Как сменить внутренний IP-адрес
+        href: compute/how-to/change-ip-address.md
+      - name: Как читать график Connections quota utilization
+        href: compute/how-to/connections-quota-utilization.md
+      - name: Какая скорость доступа к дискам виртуальной машины
+        href: compute/how-to/disk-access-speed.md
+      - name: Как создать виртуальную машину с доступом по паролю
+        href: compute/how-to/create-password-protected-vm.md
+      - name: >-
+          Какое максимальное количество сетевых интерфейсов можно подключить к
+          одной виртуальной машине
+        href: compute/how-to/maximum-web-interfaces-for-one-vm.md
   - name: Container Registry
     items:
       - name: Все решения для Container Registry
@@ -260,6 +333,16 @@ items:
         href: datalens/how-to/access-yandex-direct-data.md
       - name: Получение токена для подключения к БД Битрикс24 из DataLens
         href: datalens/how-to/get-bitrix24-token-connector.md
+      - name: Как подключиться к коннектору МойСклад
+        href: datalens/how-to/marketplace-connector-support.md
+      - name: Как восстановить сломанный датасет
+        href: datalens/how-to/restoring-dataset.md
+      - name: Как восстановить удалённые объекты
+        href: datalens/how-to/restoring-deleted-objects.md
+      - name: С каких IP-адресов происходит подключение к внешним источникам данных
+        href: datalens/how-to/ip-address-range.md
+      - name: Как отфильтровать селектором уже отфильтрованные данные
+        href: datalens/how-to/filtering-filtered-data.md
       - name: Решения для известных проблем DataLens
         href: datalens/known-issues/index.md
         hidden: true
@@ -308,6 +391,22 @@ items:
           datalens/known-issues/validation-error-request-failed-with-status-code-500.md
       - name: Поддержка пользовательских полей Битрикс24 в DataLens
         href: datalens/known-issues/bitrix24-user-fields-support.md
+      - name: >-
+          Устранение ошибки Bad Request for url MetrikaHttpApiException
+          direct_client_logins
+        href: datalens/known-issues/client-error-400.md
+      - name: >-
+          Устранение ошибки ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT -
+          Inconsistent aggregation among operands
+        href: >-
+          datalens/known-issues/err-ds-api-formula-validation-agg-inconsistent.md
+      - name: >-
+          Устранение ошибки ERR.DS_API.US.BAD_REQUEST data.key should not start
+          with /
+        href: >-
+          datalens/known-issues/err-ds-api-us-bad-request-data-key-should-not-start-with.md
+      - name: В датасетах по Яндекс Метрике отображаются не все поля
+        href: datalens/known-issues/metrika-not-all-fields.md
   - name: DataProc
     items:
       - name: Все решения для DataProc
@@ -318,6 +417,8 @@ items:
       - name: Кластер DataProc находится в состоянии Unknown сразу после создания
         href: >-
           dataproc/known-issues/hosts-of-dataproc-cluster-are-in-status-unknown-after-creation.md
+      - name: Устранение ошибки доступа к бакетам S3 из кластера DataProc 1.4
+        href: dataproc/known-issues/cannot-access-buckets.md
       - name: Примеры конфигураций и сценариев DataProc
         href: dataproc/how-to/index.md
         hidden: true
@@ -348,6 +449,14 @@ items:
           Устранение ошибки Servant not allocated при запуске кода внутри ячеек
           проекта DataSphere
         href: datasphere/known-issues/servant-not-allocated-issue.md
+      - name: Устранение ошибки TestsFailure
+        href: datasphere/known-issues/tests-failure-error.md
+      - name: Устранение ошибки открытия проекта
+        href: datasphere/known-issues/project-not-starting.md
+      - name: Устранение ошибки Token authentication is enabled
+        href: datasphere/known-issues/error-token-authentication-is-enabled.md
+      - name: Устранение ошибок с доступом или входом в проект
+        href: datasphere/known-issues/opening-project-issues.md
       - name: Примеры конфигураций и сценариев DataSphere
         href: datasphere/how-to/index.md
         hidden: true
@@ -360,6 +469,10 @@ items:
         hidden: true
       - name: Устранение ошибки Incorrect format. Text string too long
         href: dns/known-issues/error-incorrect-format-text-string-too-long.md
+      - name: >-
+          Устранение ошибки Incorrect format expected an integer при создании
+          MX-записи
+        href: dns/known-issues/error-incorrect-format-expected-an-integer.md
       - name: Примеры конфигураций и сценариев Cloud DNS
         href: dns/how-to/index.md
         hidden: true
@@ -426,6 +539,12 @@ items:
         href: iam/known-issues/move-org-public-access-bindings-error.md
       - name: Устранение ошибки OAuth token is invalid or expired
         href: iam/known-issues/error-oauth-token-is-invalid-or-expired.md
+      - name: >-
+          Устранение ошибки Обратитесь к администратору организации за новым
+          приглашением
+        href: iam/known-issues/invitation-already-accepted.md
+      - name: Устранение ошибки Service account is not available
+        href: iam/known-issues/service-account-is-not-available.md
       - name: Примеры конфигураций и сценариев IAM
         href: iam/how-to/index.md
         hidden: true
@@ -433,6 +552,10 @@ items:
         href: iam/how-to/deleting-cloud.md
       - name: Отмена удаления облака
         href: iam/how-to/cancel-pending-deletion.md
+      - name: Как изменить владельца облака
+        href: iam/how-to/change-cloud-owner.md
+      - name: Как изменить владельца организации
+        href: iam/how-to/change-organization-owner.md
   - name: KMS
     items:
       - name: Все решения для Cloud KMS
@@ -467,6 +590,13 @@ items:
           статусе Reconciling
         href: >-
           managed-kubernetes/known-issues/node-group-hosts-are-in-reconciling-status-for-a-long-time.md
+      - name: Под kube-dns-autoscaler постоянно перезапускается
+        href: >-
+          managed-kubernetes/known-issues/pod-kube-dns-autoscaler-constantly-restarting.md
+      - name: Не уменьшается количество узлов в группе
+        href: managed-kubernetes/known-issues/cannot-reduce-the-number-of-nodes.md
+      - name: Устранение ошибки Multi-Attach error for volume
+        href: managed-kubernetes/known-issues/multi-attach-error-for-volume.md
       - name: Примеры конфигураций и сценариев Managed Service for Kubernetes
         href: managed-kubernetes/how-to/index.md
         hidden: true
@@ -482,6 +612,10 @@ items:
           managed-kubernetes/how-to/assign-static-ip-address-for-worker-nodes-mk8s.md
       - name: Выдача нодам Kubernetes доступа в Интернет
         href: managed-kubernetes/how-to/providing-internet-access-for-mk8s-nodes.md
+      - name: Как изменить сеть или подсеть для MDB-кластера
+        href: managed-kubernetes/how-to/changing-net-or-subnet.md
+      - name: Как создать внутренний Ingress-контроллер
+        href: managed-kubernetes/how-to/create-internal-ingress-balancer.md
   - name: Managed GitLab
     items:
       - name: Все решения для Managed Service for Kubernetes
@@ -496,6 +630,8 @@ items:
         href: managed-gitlab/how-to/change-gitlab-instance-flavour.md
       - name: Обновление ПО на инстансе Managed Service for GitLab
         href: managed-gitlab/how-to/update-gitlab-software-version.md
+      - name: Как настроить Cleanup Policy когда закончилось место
+        href: managed-gitlab/how-to/cleanup-policy.md
   - name: Managed YDB
     items:
       - name: Все решения для Managed Service for YDB
@@ -505,6 +641,8 @@ items:
         hidden: true
       - name: Устранение ошибки RESOURCE_EXHAUSTED
         href: managed-ydb/known-issues/resource-exhausted.md
+      - name: Устранение ошибки Unauthenticated
+        href: managed-ydb/known-issues/sdk-unauthenticated.md
       - name: Примеры конфигураций и сценариев Managed Service for YDB
         href: managed-ydb/how-to/index.md
         hidden: true
@@ -550,6 +688,18 @@ items:
           Устранение ошибок доступа к бакету с назначенной политикой
           безопасности
         href: storage/known-issues/unable-to-access-bucket-with-assigned-policy.md
+      - name: Устранение ошибки 429
+        href: storage/known-issues/error-429.md
+      - name: Устранение ошибки 409 BucketAlreadyExists
+        href: storage/known-issues/error-409-bucket-already-exists.md
+      - name: Устранение ошибки доступа к бакетам S3 из кластера DataProc 1.4
+        href: storage/known-issues/cannot-access-buckets.md
+      - name: >-
+          Устранение ошибки 403 (не отдаётся заголовок при использовании метода
+          OPTION)
+        href: storage/known-issues/error-403-cors-header.md
+      - name: Устранение ошибки сертификата
+        href: storage/known-issues/wrong-certificate.md
       - name: Примеры конфигураций и сценариев Object Storage
         href: storage/how-to/index.md
         hidden: true
@@ -565,6 +715,16 @@ items:
         href: storage/how-to/curl-api-request-example.md
       - name: Просмотр и удаление незавершённых загрузок
         href: storage/how-to/incomplete-downloads.md
+      - name: Как узнать скорость загрузки и скачивания данных
+        href: storage/how-to/upload-download-speed.md
+      - name: >-
+          Как настроить заголовки кэширования cache-control для объектов в
+          бакете при HTTP-запросах
+        href: storage/how-to/configure-cache-headings-with-http-queries.md
+      - name: Как ограничить доступ к бакету для пользователя
+        href: storage/how-to/restrict-bucket-access.md
+      - name: Как подключить собственный домен к бакету
+        href: storage/how-to/configuring-bucket-domain.md
   - name: Managed MySQL
     items:
       - name: Все решения для Managed MySQL
@@ -620,9 +780,26 @@ items:
           nodename nor servname provided, or not known
         href: >-
           managed-postgresql/known-issues/error-could-not-translate-host-name-to-address-nodename-nor-servname-provided-or-not-known.md
+      - name: >-
+          Устранение ошибки Unrecognized configuration parameter
+          "stats_temp_directory"
+        href: >-
+          managed-postgresql/known-issues/error-unrecognized-configuration-parameter.md
+      - name: Устранение ошибки max_connections сonn_limit is too high
+        href: managed-postgresql/known-issues/conn-limit-is-too-high.md
+      - name: >-
+          Устранение ошибки 422 UNPROCESSABLE ENTITY The specified extension
+          <'ext_name'> is not present in shared_preload_libraries
+        href: managed-postgresql/known-issues/error-422.md
       - name: Примеры конфигураций и сценариев Managed PostgreSQL
         href: managed-postgresql/how-to/index.md
         hidden: true
+      - name: Как работает параметр Conn limit
+        href: managed-postgresql/how-to/conn-limit-parameter.md
+      - name: Как настроить фильтрацию SQL-запросов
+        href: managed-postgresql/how-to/sql-queries-filtering.md
+      - name: Как включить логирование SQL-запросов
+        href: managed-postgresql/how-to/sql-queries-logging.md
   - name: Monitoring
     items:
       - name: Все решения для Yandex Monitoring
@@ -654,9 +831,13 @@ items:
           Error during function invocation
         href: >-
           serverless-containers/known-issues/serverless-container-invoking-error-502.md
+      - name: Устранение ошибки Service account is not available
+        href: serverless-containers/known-issues/service-account-is-not-available.md
       - name: Примеры конфигураций и сценариев Serverless Containers
         href: serverless-containers/how-to/index.md
         hidden: true
+      - name: Как настроить статический IP-адрес
+        href: serverless-containers/how-to/static-ip-address.md
   - name: SmartCaptcha
     items:
       - name: Все решения для SmartCaptcha
@@ -664,6 +845,10 @@ items:
       - name: Решения для известных проблем SmartCaptcha
         href: smartcaptcha/known-issues/index.md
         hidden: true
+      - name: >-
+          Устранение ошибки Ключ не может использоваться на домене
+          captcha-api.yandex.ru
+        href: smartcaptcha/known-issues/error-captcha-cannot-be-used-on-domain.md
       - name: Примеры конфигураций и сценариев SmartCaptcha
         href: smartcaptcha/how-to/index.md
         hidden: true
@@ -671,6 +856,10 @@ items:
           Как получить информацию о количестве использованных проверок за
           определённый период
         href: smartcaptcha/how-to/learning-about-monitoring-and-tarification.md
+      - name: >-
+          Какое время жизни токена, который возвращает метод check в
+          SmartCaptcha
+        href: smartcaptcha/how-to/check-token-expiration-time.md
   - name: SpeechKit
     items:
       - name: Все решения для SpeechKit
@@ -680,6 +869,8 @@ items:
         hidden: true
       - name: Устранение ошибки audio duration should be less than 30s в SpeechKit
         href: speechkit/known-issues/error-audio-duration-should-be-less-then-30s.md
+      - name: Устранение ошибки Invalid audio received
+        href: speechkit/known-issues/invalid-audio-received.md
       - name: Примеры конфигураций и сценариев SpeechKit
         href: speechkit/how-to/index.md
         hidden: true
@@ -706,6 +897,8 @@ items:
         href: vpc/known-issues/network-perfomance-issue.md
       - name: Устранение ошибок при установке TLS-соединений на ВМ
         href: vpc/known-issues/resolving-tls-traffic-issues.md
+      - name: Не удаляется группа безопасности
+        href: vpc/known-issues/security-group-cannot-be-deleted.md
       - name: Примеры конфигураций и сценариев VPC
         href: vpc/how-to/index.md
         hidden: true
@@ -717,6 +910,20 @@ items:
         href: vpc/how-to/incoming-and-outcoming-traffic-logs.md
       - name: Как узнать скорость каналов связи
         href: vpc/how-to/connection-speed.md
+      - name: >-
+          Существуют ли ограничения трафика, скорости соединения и ширины
+          канала?
+        href: vpc/how-to/connection-speed-bandwidth-restriction.md
+      - name: Как изменить сеть или подсеть для MDB-кластера
+        href: vpc/how-to/changing-net-or-subnet.md
+      - name: Как читать график Connections quota utilization
+        href: vpc/how-to/connections-quota-utilization.md
+      - name: Как привязать фиксированный IP-адрес к NAT-шлюзу
+        href: vpc/how-to/link-ip-address-to-nat-gateway.md
+      - name: Как включить Egress NAT
+        href: vpc/how-to/activate-egress-nat.md
+      - name: Как осуществить маршутизацию трафика между двумя облачными сетями
+        href: vpc/how-to/routing-traffic-between-two-vpcs.md
   - name: Консоль управления
     items:
       - name: Все решения для Консоли управления
@@ -724,6 +931,8 @@ items:
       - name: Решения для известных проблем Консоли управления
         href: console/known-issues/index.md
         hidden: true
+      - name: Устранение ошибки подключения к консоли
+        href: console/known-issues/console-connection-timeout.md
       - name: Примеры сценариев использования Консоли управления
         href: console/how-to/index.md
         hidden: true
@@ -732,7 +941,7 @@ items:
   - name: Terraform-провайдер Yandex Cloud
     items:
       - name: Все решения по Terraform-провайдеру для Yandex Cloud
-        href: console/index.md
+        href: terraform/index.md
       - name: Решения для известных проблем c провайдером Terraform для Yandex Cloud
         href: terraform/known-issues/index.md
         hidden: true
@@ -740,6 +949,10 @@ items:
           Устранение ошибки Failed to query available provider packages при
           использовании Terraform
         href: terraform/known-issues/failed-to-quety-available-provider-packages.md
+      - name: Зона создаётся публичной и приватной одновременно
+        href: terraform/known-issues/zone-private-and-public.md
+      - name: Устранение ошибки Invalid provider registry host
+        href: terraform/known-issues/invalid-provider-registry-host.md
       - name: Примеры конфигураций и сценариев провайдера Terraform для Yandex Cloud
         href: terraform/how-to/index.md
         hidden: true
@@ -757,4 +970,20 @@ items:
         href: tracker/how-to/activating-tracker-after-inactivity.md
       - name: Отключение или удаление Трекера
         href: tracker/how-to/deactivating-tracker.md
+      - name: Как удалить задачу из очереди
+        href: tracker/how-to/removing-task-from-queue.md
+  - name: Partner
+    items:
+      - name: Все решения для Partner
+        href: partner/index.md
+      - name: Решения для известных проблем c Partner
+        href: partner/known-issues/index.md
+        hidden: true
+      - name: >-
+          Устранение ошибки «Приглашение не найдено» при подключении к
+          партнёрской программе
+        href: partner/known-issues/cannot-access-partner-programme.md
+      - name: Примеры конфигураций и сценариев Partner
+        href: partner/how-to/index.md
+        hidden: true
 base: ru/troubleshooting

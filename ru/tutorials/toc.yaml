@@ -5,18 +5,8 @@ items:
     items:
       - name: Все руководства
         href: web/index.md
-      - name: >-
-          Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
-          network-load-balancer-name }}
-        href: web/load-balancer-website.md
-      - name: >-
-          Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-name
-          }}
-        href: web/application-load-balancer-website.md
       - name: Создание балансировщика с защитой от DDoS
         href: web/alb-with-ddos-protection.md
-      - name: Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}
-        href: web/cdn-storage-integration.md
       - name: Терминирование TLS-соединений
         href: web/tls-termination.md
   - name: Хранение и восстановление данных
@@ -87,6 +77,87 @@ items:
         href: testing/loadtesting-https-pandora.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: testing/loadtesting-multiply.md
+  - name: Базовая инфраструктура
+    items:
+      - name: Все руководства
+        href: infrastructure/index.md
+      - name: Архитектура и защита базового интернет-сервиса
+        href: routing/web-service.md
+      - name: Отказоустойчивость и масштабирование
+        items:
+          - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
+            href: infrastructure-management/fault-tolerance.md
+          - name: >-
+              Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
+              network-load-balancer-name }}
+            href: web/load-balancer-website.md
+          - name: >-
+              Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
+              alb-name }}
+            href: web/application-load-balancer-website.md
+          - name: >-
+              Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name
+              }}
+            href: web/cdn-storage-integration.md
+          - name: Работа с группой ВМ с автомасштабированием
+            href: infrastructure-management/vm-autoscale.md
+          - name: Масштабирование группы ВМ по расписанию
+            href: infrastructure-management/vm-scale-scheduled.md
+          - name: >-
+              Автомасштабирование группы ВМ для обработки сообщений из очереди
+              {{ message-queue-name }}
+            href: infrastructure-management/autoscale-monitoring.md
+          - name: Обновление группы ВМ под нагрузкой
+            href: infrastructure-management/updating-under-load.md
+      - name: Инструменты
+        items:
+          - name: Начало работы с {{ TF }}
+            href: infrastructure-management/terraform-quickstart.md
+          - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
+            href: infrastructure-management/terraform-state-storage.md
+          - name: Начало работы с Packer
+            href: infrastructure-management/packer-quickstart.md
+          - name: >-
+              Сборка образа ВМ с набором инфраструктурных инструментов с помощью
+              Packer
+            href: infrastructure-management/packer-custom-image.md
+      - name: Сеть
+        items:
+          - name: Настройка синхронизации часов с помощью NTP
+            href: infrastructure-management/ntp.md
+          - name: Настройки DHCP для работы с корпоративным DNS-сервером
+            href: routing/dhcp-options.md
+          - name: Маршрутизация с помощью NAT-инстанса
+            href: routing/nat-instance.md
+          - name: Установка виртуального роутера Cisco CSR 1000v
+            href: routing/cisco.md
+          - name: Установка виртуального роутера Mikrotik CHR
+            href: routing/mikrotik.md
+      - name: VPNs
+        items:
+          - name: Организация сетевой связности с помощью IPsec-шлюзов
+            items:
+              - name: Схема решения
+                href: routing/ipsec/index.md
+              - name: Самостоятельная реализация средствами {{ yandex-cloud }}
+                href: routing/ipsec/ipsec-vpn.md
+              - name: Решение SGW от команды архитекторов {{ yandex-cloud }}
+                href: routing/ipsec/sgw.md
+            href: routing/ipsec/index.md
+          - name: Соединение с облачной сетью при помощи OpenVPN
+            href: routing/openvpn.md
+          - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
+            href: routing/usergate-proxy.md
+      - name: '{{ dns-name }}'
+        items:
+          - name: Настройка локального кеширующего DNS-резолвера
+            href: infrastructure-management/local-dns-cache.md
+          - name: Миграция DNS-зон из Яндекс 360 в {{ dns-name }}
+            href: infrastructure-management/connect-migration.md
+          - name: >-
+              Настройка {{ dns-name }} для доступа к кластерам управляемых баз
+              данных из других облачных сетей
+            href: dataplatform/mdb-dns-peering.md
   - name: Прикладные решения
     items:
       - name: Все руководства
@@ -145,40 +216,12 @@ items:
     items:
       - name: Все руководства
         href: infrastructure-management/index.md
-      - name: Начало работы с {{ TF }}
-        href: infrastructure-management/terraform-quickstart.md
-      - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
-        href: infrastructure-management/terraform-state-storage.md
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
         href: infrastructure-management/terraform-state-lock.md
       - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
         href: infrastructure-management/terraform-modules.md
-      - name: Начало работы с Packer
-        href: infrastructure-management/packer-quickstart.md
-      - name: >-
-          Сборка образа ВМ с набором инфраструктурных инструментов с помощью
-          Packer
-        href: infrastructure-management/packer-custom-image.md
-      - name: Настройка синхронизации часов с помощью NTP
-        href: infrastructure-management/ntp.md
-      - name: Работа с группой ВМ с автомасштабированием
-        href: infrastructure-management/vm-autoscale.md
-      - name: Масштабирование группы ВМ по расписанию
-        href: infrastructure-management/vm-scale-scheduled.md
-      - name: >-
-          Автомасштабирование группы ВМ для обработки сообщений из очереди {{
-          message-queue-name }}
-        href: infrastructure-management/autoscale-monitoring.md
-      - name: Обновление группы ВМ под нагрузкой
-        href: infrastructure-management/updating-under-load.md
       - name: Передача логов с ВМ в {{ cloud-logging-name }}
         href: infrastructure-management/vm-fluent-bit-logging.md
-      - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
-        href: infrastructure-management/fault-tolerance.md
-      - name: Настройка локального кеширующего DNS-резолвера
-        href: infrastructure-management/local-dns-cache.md
-      - name: Миграция DNS-зон из Яндекс 360 в {{ dns-name }}
-        href: infrastructure-management/connect-migration.md
       - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
         href: infrastructure-management/dns-integration.md
       - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
@@ -289,10 +332,6 @@ items:
       - name: Шардирование таблиц {{ mch-name }}
         href: dataplatform/clickhouse-sharding.md
       - name: >-
-          Настройка {{ dns-name }} для доступа к кластерам управляемых БД из
-          других облачных сетей
-        href: dataplatform/mdb-dns-peering.md
-      - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
           других облачных сетей
         href: dataplatform/clickhouse-dns-peering.md
@@ -396,35 +435,14 @@ items:
         href: windows/mssql-alwayson-lb.md
       - name: Развертывание Remote Desktop Gateway
         href: windows/rds-gw.md
-  - name: Сетевая инфраструктура
+  - name: Архитектура, сетевое взаимодействие
     items:
       - name: Все руководства
         href: routing/index.md
       - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
         href: routing/multi-folder-vpc.md
-      - name: Архитектура и защита базового интернет-сервиса
-        href: routing/web-service.md
-      - name: Настройки DHCP для работы с корпоративным DNS-сервером
-        href: routing/dhcp-options.md
       - name: Создание бастионного хоста
         href: routing/bastion.md
-      - name: Маршрутизация с помощью NAT-инстанса
-        href: routing/nat-instance.md
-      - name: Организация сетевой связности с помощью IPsec-шлюзов
-        items:
-          - name: Схема решения
-            href: routing/ipsec/index.md
-          - name: Самостоятельная реализация средствами {{ yandex-cloud }}
-            href: routing/ipsec/ipsec-vpn.md
-          - name: Решение SGW от команды архитекторов {{ yandex-cloud }}
-            href: routing/ipsec/sgw.md
-        href: routing/ipsec/index.md
-      - name: Установка виртуального роутера Cisco CSR 1000v
-        href: routing/cisco.md
-      - name: Установка виртуального роутера Mikrotik CHR
-        href: routing/mikrotik.md
-      - name: Соединение с облачной сетью при помощи OpenVPN
-        href: routing/openvpn.md
       - name: >-
           Создание туннеля между двумя подсетями при помощи OpenVPN Access
           Server
@@ -433,8 +451,6 @@ items:
           Защищенный доступ пользователей к облачным ресурсам на основе
           WireGuard VPN
         href: routing/remote-wireguard-vpn.md
-      - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
-        href: routing/usergate-proxy.md
       - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
         href: routing/usergate-firewall.md
       - name: Реализация отказоустойчивых сценариев для сетевых виртуальных машин

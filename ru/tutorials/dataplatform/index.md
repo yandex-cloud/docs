@@ -28,18 +28,12 @@
 
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](rdbms-to-clickhouse.md)
-
-
 * [{#T}](dp-mch-data-exchange.md)
-
-
 * [{#T}](clickhouse-for-graphite.md)
 * [{#T}](fetch-data-from-mkf.md)
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](fetch-data-from-rabbitmq.md)
 * [{#T}](yds-to-clickhouse.md)
-
-
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)
 
@@ -75,11 +69,7 @@
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](mmy-to-yds.md)
-
-
 * [{#T}](sqoop-mmy.md)
-
-
 * [{#T}](data-transfer-mmy.md)
 * [{#T}](debezium-mmy.md)
 * [{#T}](mmy-ydb-migration.md)
@@ -101,17 +91,10 @@
 * [{#T}](mkf-to-mpg.md)
 * [{#T}](data-transfer-mpg.md)
 * [{#T}](debezium-mpg.md)
-
-
 * [{#T}](sqoop-mpg.md)
-
-
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](mpg-to-objstorage.md)
-
-
 * [{#T}](mpg-to-yds.md)
-
 
 
 ## {{ RD }} {#redis}
@@ -121,9 +104,7 @@
 
 ## {{ dns-full-name }} {#dns}
 
-* [{#T}](mdb-dns-peering.md)
 * [{#T}](clickhouse-dns-peering.md)
-
 
 ## {{ dataproc-full-name }} {#dataproc}
 

@@ -1,1 +1,1 @@
-{% include [vm-autoscale](../../_tutorials/infrastructure-management/vm-autoscale.md) %}
+{% include [vm-autoscale](../../_tutorials/infrastructure/vm-autoscale.md) %}

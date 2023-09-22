@@ -6116,8 +6116,10 @@ default:
         registry:
           button_change-scan-settings: Edit settings
           button_select-repositories: Select repositories
+          field_scan-on-upload: Scan images on upload
           label_all-repositories: All repositories
           label_only-selected: Only selected
+          label_repositories: Repositories
           label_vulnerabilities-scanner: Vulnerability scanner
       data-streams:
         label_data-introspection: Data viewer
@@ -7108,12 +7110,10 @@ default:
         switch_lang: Language and region
       smartcaptcha:
         button_captcha-settings-create: Create captcha
-        label_additional-challenge: Additional challenge
         label_allowed-sites: Site list
         label_captcha-settings-list: Captcha list
         label_client-key: Client key
         label_complexity: Complexity
-        label_main-challenge: Main challenge
         label_section-customization: Сustomize style
         label_section-style: Style
         label_server-key: Server key

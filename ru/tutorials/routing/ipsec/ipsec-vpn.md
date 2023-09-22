@@ -2,4 +2,4 @@
 
 Вы можете самостоятельно реализовать защищенное соединение между облачной инфраструктурой и условным корпоративным ЦОД с помощью IPsec-шлюзов по схеме из [подраздела](index.md). Для этого:
 
-{% include notitle [ipsec-vpn](../../../_tutorials/routing/ipsec/ipsec-vpn.md) %}
+{% include notitle [ipsec-vpn](../../../_tutorials/infrastructure/ipsec/ipsec-vpn.md) %}
