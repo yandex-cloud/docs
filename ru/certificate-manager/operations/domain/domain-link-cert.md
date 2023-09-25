@@ -1,3 +1,8 @@
+---
+title: "Как привязать сертификат к домену"
+description: "Следуя данной инструкции, вы сможете привязать сертификат к домену."
+---
+
 # Привязать сертификат к домену
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

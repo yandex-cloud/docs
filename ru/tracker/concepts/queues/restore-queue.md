@@ -1,6 +1,9 @@
 ---
+title: "Как восстановить очередь"
+description: "В данной статье описаны особенности восстановлени очередей."
 sourcePath: ru/tracker/api-ref/concepts/queues/restore-queue.md
 ---
+
 # Восстановить очередь
 
 {% note warning %}

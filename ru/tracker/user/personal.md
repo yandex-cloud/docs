@@ -108,16 +108,10 @@
 
 1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-## Бета-версия нового интерфейса {#sec_beta}
+## Новый интерфейс {#sec_beta}
 
 Чтобы включить новый интерфейс {{ tracker-name }}:
 
 1. Перейдите по ссылке [{{ link-settings }}]({{ link-settings }}).
 
-1. Включите опцию **Бета-версия нового интерфейса**.
-
-Чтобы отключить новый интерфейс {{ tracker-name }}:
-
-1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
-
-1. В блоке **{{ ui-key.yacloud.settings.switch_experiments }}** выключите опцию **Бета-версия нового интерфейса**.
+1. В разделе **{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}** включите опцию **{{ ui-key.startrek.ui_components_NavigationBar.new-ui }}**.

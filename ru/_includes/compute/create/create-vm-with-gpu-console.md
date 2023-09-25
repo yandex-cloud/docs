@@ -23,6 +23,10 @@
     * Выберите [тип диска](../../../compute/concepts/disk.md#disks_types).
     * Укажите нужный размер диска.
 
+    
+    * {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
+
+
 
 1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** подключите [файловое хранилище](../../../compute/concepts/filesystem.md):
 

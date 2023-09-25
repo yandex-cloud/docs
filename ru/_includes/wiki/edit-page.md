@@ -1,0 +1,1 @@
+Вы можете изменить любую страницу {{ wiki-name }}, к которой у вас есть [доступ на редактирование](../../wiki/page-management/access-setup.md#read-only). Чтобы сделать это, в правом верхнем углу нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-comment.edit }}**.

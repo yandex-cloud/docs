@@ -14,12 +14,21 @@
    * Select [disk type](../concepts/disk.md#disks_types).
    * Specify the required disk size.
 
+   
+   * {% include [encryption-section-boot](../../_includes/compute/encryption-section-boot.md) %}
+
+
       If you want to create a VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](../operations/vm-create/create-from-disks.md):
       * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Enter the disk name.
       * Select [disk type](../concepts/disk.md#disks_types).
       * Specify the desired block size.
       * Specify the desired disk size.
+
+      
+      * {% include [encryption-section-secondary](../../_includes/compute/encryption-section-secondary.md) %}
+
+
       * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_additional }}** option in the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** field if you need to automatically delete the disk when deleting the VM it will be attached to.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}`.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.

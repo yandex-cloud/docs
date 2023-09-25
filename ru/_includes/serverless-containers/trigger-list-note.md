@@ -1,1 +1,1 @@
-Чтобы узнать имя или уникальный идентификатор триггера, [получите](../../serverless-containers/operations/trigger-list#trigger-list) список триггеров в каталоге.
+Чтобы узнать имя или уникальный идентификатор триггера, [получите](../../serverless-containers/operations/trigger-list.md) список триггеров в каталоге.

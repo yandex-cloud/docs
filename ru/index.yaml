@@ -164,9 +164,15 @@ links:
   - title: SmartCaptcha
     description: Инструмент для верификации запросов
     href: smartcaptcha/
+  - title: Smart Web Security
+    description: Сервис для продвинутой защиты от DDoS-атак
+    href: smartwebsecurity/
   - title: '{{ speechkit-name }}'
     description: Комплекс технологий распознавания и синтеза речи
     href: speechkit/
+  - title: SpeechSense
+    description: Речевая аналитика
+    href: speechsense/
   - title: Object Storage
     description: Масштабируемое хранилище данных
     href: storage/

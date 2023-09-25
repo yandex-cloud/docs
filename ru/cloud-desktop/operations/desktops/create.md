@@ -1,3 +1,8 @@
+---
+title: "Как создать рабочий стол"
+description: "Следуя данной инструкции, вы сможете создать рабочий стол."
+---
+
 # Создать рабочий стол
 
 {% include [create-desktop](../../../_includes/cloud-desktop/create-desktop.md) %}

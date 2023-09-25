@@ -35,6 +35,8 @@ items:
     items:
       - name: Валидация пользователя
         href: concepts/validation.md
+      - name: Типы заданий
+        href: concepts/tasks.md
       - name: Методы подключения виджета
         href: concepts/widget-methods.md
       - name: Невидимая капча

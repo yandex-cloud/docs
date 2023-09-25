@@ -569,5 +569,14 @@ Field | Description
 id | **string**<br>ID of the host. 
 status | enum **Status**<br>Current status of the host. New instances are unable to start on host in DOWN status. 
 server_id | **string**<br>ID of the physical server that the host belongs to. 
+replacement | **[Replacement](#Replacement)**<br>Set temporarily if maintenance is planned for this host, and a new host was provided as a replacement. 
+
+
+### Replacement {#Replacement}
+
+Field | Description
+--- | ---
+host_id | **string**<br>ID of the host which replaces this one. 
+deadline_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The date and time when this host will be automatically freed of instances. 
 
 

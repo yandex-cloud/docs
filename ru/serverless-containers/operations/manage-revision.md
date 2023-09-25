@@ -1,3 +1,8 @@
+---
+title: "Как создать ревизию контейнера"
+description: "Следуя данной инструкции, вы сможете создать ревизию контейнера."
+---
+
 # Создать ревизию контейнера
 
 {% include [create-revision-note](../../_includes/serverless-containers/create-revision-note.md) %}

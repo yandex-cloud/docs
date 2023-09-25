@@ -1,3 +1,8 @@
+---
+title: "Как создать подключение к {{ monitoring-name }}"
+description: "Следуя данной инструкции, вы сможете создать подключение к {{ monitoring-name }}."
+---
+
 # Создание подключения к {{ monitoring-name }}
 
 {% note info %}

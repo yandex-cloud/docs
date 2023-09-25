@@ -1,3 +1,8 @@
+---
+title: "Как управлять расширениями {{ ES }}"
+description: "Следуя данной инструкции, вы научитесь управлять расширениями {{ ES }}."
+---
+
 # Управление расширениями {{ ES }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

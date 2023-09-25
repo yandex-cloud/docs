@@ -69,6 +69,8 @@ items:
         items:
           - name: Вызвать функцию
             href: operations/function/function-invoke.md
+          - name: Вызвать функцию асинхронно
+            href: operations/function/function-invoke-async.md
           - name: Аутентифицироваться при вызове приватной функции через HTTPS
             href: operations/function/auth.md
       - name: Управление функцией
@@ -93,6 +95,8 @@ items:
             href: operations/function/network-add.md
           - name: Передать секреты {{ lockbox-full-name }}
             href: operations/function/lockbox-secret-transmit.md
+          - name: Смонтировать бакеты
+            href: operations/function/mount-bucket.md
           - name: Управлять тегами
             items:
               - name: Добавить тег
@@ -138,7 +142,11 @@ items:
           - name: Создать триггер для {{ cloud-logging-name }}
             href: operations/trigger/cloud-logging-trigger-create.md
           - name: Создать триггер для {{ iot-name }}
-            href: operations/trigger/iot-core-trigger-create.md
+            items:
+              - name: Устройство
+                href: operations/trigger/iot-core-trigger-create.md
+              - name: Брокер
+                href: operations/trigger/iot-core-trigger-broker-create.md
           - name: Создать триггер для бюджетов
             href: operations/trigger/budget-trigger-create.md
           - name: Создать триггер для {{ yds-name }}
@@ -148,11 +156,7 @@ items:
       - name: Управление триггером
         items:
           - name: Изменить триггер
-            items:
-              - name: Изменить имя
-                href: operations/trigger/name-update.md
-              - name: Изменить описание
-                href: operations/trigger/description-update.md
+            href: operations/trigger/trigger-update.md
           - name: Управлять метками
             items:
               - name: Добавить метку
@@ -173,6 +177,8 @@ items:
         href: concepts/function.md
       - name: Вызов функции
         href: concepts/function-invoke.md
+      - name: Асинхронный вызов функции
+        href: concepts/function-invoke-async.md
       - name: Сетевое взаимодействие
         href: concepts/networking.md
       - name: Среда выполнения
@@ -185,6 +191,8 @@ items:
             href: concepts/runtime/execution-context.md
           - name: Предзагружаемая среда выполнения
             href: concepts/runtime/preload-runtime.md
+      - name: Монтирование бакетов
+        href: concepts/mounting.md
       - name: Сборщик
         href: concepts/builder.md
       - name: Триггер
@@ -407,6 +415,8 @@ items:
         href: tutorials/ory-kratos-authorization.md
       - name: Регулярное распознавание аудиофайлов в бакете {{ objstorage-name }}
         href: tutorials/batch-recognition-stt.md
+      - name: Канареечный релиз функции {{ sf-name }}
+        href: tutorials/canary-release.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

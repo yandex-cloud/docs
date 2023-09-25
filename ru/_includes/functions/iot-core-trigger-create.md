@@ -1,4 +1,4 @@
-Создайте [триггер](../../functions/concepts/trigger/iot-core-trigger.md) для топика устройства или реестра сервиса {{ iot-name }} и обрабатывайте копии сообщений с помощью [функции](../../functions/concepts/function.md) {{ sf-name }}.
+Создайте [триггер](../../functions/concepts/trigger/iot-core-trigger.md) для топика устройства или реестра {{ iot-name }} и обрабатывайте копии сообщений с помощью [функции](../../functions/concepts/function.md) {{ sf-name }}.
 
 {% note warning %}
 
@@ -34,10 +34,10 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите **{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}**.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}** укажите реестр, устройство и MQTT-топик, для которого хотите создать триггер. Если вы создаете триггер для топика реестра, устройство и MQTT-топик можно не указывать.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}** укажите реестр, устройство и MQTT-топик, для которого хотите создать триггер. Если вы создаете триггер для топика реестра, устройство и MQTT-топик можно не указывать. Если MQTT-топик не указан, триггер срабатывает для всех топиков реестра или устройства.
 
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию и укажите:
 
@@ -61,16 +61,18 @@
 
     ```bash
     yc serverless trigger create internet-of-things \
-      --name <имя триггера> \
-      --registry-id <идентификатор реестра> \
-      --device-id <идентификатор устройства> \
-      --mqtt-topic '$devices/<идентификатор устройства>/events' \
-      --invoke-function-id <идентификатор функции> \
-      --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
+      --name <имя_триггера> \
+      --registry-id <идентификатор_реестра> \
+      --device-id <идентификатор_устройства> \
+      --mqtt-topic '$devices/<идентификатор_устройства>/events' \
+      --batch-size <размер_группы_сообщений> \
+      --batch-cutoff <максимальное_время_ожидания> \
+      --invoke-function-id <идентификатор_функции> \
+      --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
       --retry-interval 10s \
-      --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
-      --dlq-service-account-id <идентификатор сервисного аккаунта>
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
 
     Где:
@@ -78,7 +80,9 @@
     * `--name` — имя триггера.
     * `--registry-id` — [идентификатор реестра](../../iot-core/operations/registry/registry-list.md).
     * `--device-id` — [идентификатор устройства](../../iot-core/operations/device/device-list.md). Если вы создаете триггер для топика реестра, этот параметр можно не указывать.
-    * `--mqtt-topic` — топик, для которого вы хотите создать триггер.
+    * `--mqtt-topic` — MQTT-топик, для которого вы хотите создать триггер. Необязательный параметр. Если параметр не указан, триггер срабатывает для всех топиков реестра или устройства.
+    
+    {% include [trigger-param](../iot-core/trigger-param-cf.md) %}
     
     {% include [trigger-cli-param](trigger-cli-param.md) %}
 
@@ -94,6 +98,9 @@
         registry_id: arenou2oj4ct********
         device_id: areqjd6un3af********
         mqtt_topic: $devices/areqjd6un3af********/events
+        batch_settings:
+          size: "1"
+          cutoff: 0s
         invoke_function:
           function_id: d4eofc7n0m03********
           function_tag: $latest
@@ -102,7 +109,7 @@
             retry_attempts: "1"
             interval: 10s
     status: ACTIVE
-   ```
+    ```
 
 - {{ TF }}
 
@@ -118,16 +125,16 @@
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {
-       name        = "<имя триггера>"
-       description = "<описание триггера>"
+       name        = "<имя_триггера>"
+       description = "<описание_триггера>"
        iot {
-         registry_id = "<идентификатор реестра>"
-         device_id   = "<идентификатор устройства>"
-         topic       = "<идентификатор топика>"
+         registry_id = "<идентификатор_реестра>"
+         device_id   = "<идентификатор_устройства>"
+         topic       = "<идентификатор_топика>"
        }
        function {
-         id                 = "<идентификатор функции>"
-         service_account_id = "<идентификатор сервисного аккаунта>"
+         id                 = "<идентификатор_функции>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
        }
      }
      ```
@@ -142,7 +149,7 @@
      * `iot` — параметры [топика](../../iot-core/concepts/topic/):
 	    * `registry-id` — [идентификатор реестра](../../iot-core/operations/registry/registry-list.md).
         * `device-id` — [идентификатор устройства](../../iot-core/operations/device/device-list.md). Если вы создаете триггер для топика реестра, этот параметр можно не указывать.
-        * `topic` — идентификатор [топика](../../iot-core/concepts/topic/), для которого вы хотите создать триггер.
+        * `topic` — идентификатор [топика](../../iot-core/concepts/topic/), для которого вы хотите создать триггер. Если топик не указан, триггер срабатывает для всех топиков реестра или устройства.
      * `function` — настройки функции, которую будет запускать триггер:
         * `id` — идентификатор функции.
         * `service_account_id` — идентификатор сервисного аккаунта с правами на вызов функции.
@@ -188,4 +195,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ iot-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}](../../serverless-containers/operations/iot-core-trigger-create.md).
+* [Триггер для {{ iot-name }}, который передает сообщения из топиков реестров и устройств в контейнер {{ serverless-containers-name }}](../../serverless-containers/operations/iot-core-trigger-create.md).

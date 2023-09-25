@@ -1,0 +1,1 @@
+{% include [grafana-loga-plugin](../../_tutorials/serverless/grafana-logs-plugin.md) %}

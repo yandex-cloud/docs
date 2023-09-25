@@ -60,17 +60,19 @@
     
     ```bash
     yc serverless trigger create object-storage \
-      --name <имя триггера> \
-      --bucket-id <идентификатор бакета> \
-      --prefix '<префикс ключа объекта>' \
-      --suffix '<суффикс ключа объекта>' \
+      --name <имя_триггера> \
+      --bucket-id <идентификатор_бакета> \
+      --prefix '<префикс_ключа_объекта>' \
+      --suffix '<суффикс_ключа_объекта>' \
       --events 'create-object','delete-object','update-object' \
-      --invoke-function-id <идентификатор функции> \
-      --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
+      --batch-size <размер_группы> \
+      --batch-cutoff <максимальное_время_ожидания> \
+      --invoke-function-id <идентификатор_функции> \
+      --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
       --retry-interval 10s \
-      --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
-      --dlq-service-account-id <идентификатор сервисного аккаунта>
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
   
 
@@ -81,7 +83,9 @@
     * `--prefix` — [префикс](../../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
     * `--suffix` — [суффикс](../../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
     * `--events` — [события](../../concepts/trigger/os-trigger.md#event), после наступления которых триггер запускается.
-    
+
+    {% include [batch-settings-events](../../../_includes/functions/batch-settings-events.md) %}
+
     {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
     Результат:
@@ -100,6 +104,9 @@
         bucket_id: s3-for-trigger
         prefix: dev
         suffix: 12.jpg
+        batch_settings:
+          size: "3"
+          cutoff: 20s
         invoke_function:
           function_id: d4eofc7n0m03********
           function_tag: $latest

@@ -1,0 +1,7 @@
+title: Yandex SpeechSense
+href: index.yaml
+stage: preview
+items:
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/speechsense

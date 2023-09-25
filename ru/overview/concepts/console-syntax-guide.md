@@ -1,3 +1,8 @@
+---
+title: "Работа с {{ yandex-cloud }} CLI и API в Microsoft Windows"
+description: "Сервисы {{ yandex-cloud }} предоставляют различные интерфейсы для решения ваших задач. Как правило, сервисы {{ yandex-cloud }} имеют веб-интерфейс в консоли управления или в собственной инсталляции, как {{ datalens-full-name }} и {{ ml-platform-full-name }}. Кроме того, сервисы имеют интерфейсы для автоматизации процессов: API, CLI, Terraform и SDK для различных языков программирования. Информация о предоставляемых интерфейсах доступна в документации интересующего вас сервиса."
+---
+
 # Работа с {{ yandex-cloud }} CLI и API в Microsoft Windows
 
 {% include [interface architecture](../../_includes/overview/console-syntax.md) %}

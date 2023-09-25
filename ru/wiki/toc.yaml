@@ -29,41 +29,35 @@ items:
         href: wysiwyg-create.md
       - name: Старый редактор
         href: create-page.md
-      - name: Таблица
+      - name: Динамическая таблица
         href: create-grid.md
       - name: Импорт из файла
         href: import-page.md
       - name: Копия страницы
         href: create-copy.md
-  - name: Редактирование страниц {{ wiki-full-name }} и динамических таблиц
+  - name: Новый редактор
     items:
-      - name: Отредактировать страницу {{ wiki-full-name }}
-        href: edit-page.md
-      - name: Отредактировать таблицу в новом редакторе
-        href: edit-grid-wysiwig.md
-      - name: Отредактировать динамическую таблицу
-        href: edit-grid.md
-      - name: Базовые возможности
-        items:
-          - name: Форматировать текст
-            href: basic-markup.md
-          - name: Вставить изображение
-            href: add-image.md
-          - name: Вставить таблицу
-            href: add-grid.md
-          - name: Вставить видео или аудио
-            href: add-video.md
-      - name: Расширенные возможности
-        items:
-          - name: Динамические блоки
-            href: actions.md
-          - name: Динамические таблицы
-            href: actions/grid-reference.md
-          - name: Объекты из внешних источников
-            href: actions/iframe.md
-          - name: Формулы, диаграммы и блок-схемы
-            href: add-diagram-formula.md
-      - name: Структурировать контент
+      - name: Обзор
+        href: new-editor.md
+      - name: Форматирование текста
+        href: wysiwyg/text-format.md
+      - name: Блочное форматирование
+        href: wysiwyg/block-format.md
+      - name: Вставка таблиц и оглавлений
+        href: wysiwyg/tables-format.md
+      - name: Вставка стороннего контента
+        href: wysiwyg/embed-content.md
+  - name: Старый редактор
+    items:
+      - name: Обзор
+        href: old-editor.md
+      - name: Форматирование текста
+        href: basic-markup.md
+      - name: Вставка изображения
+        href: add-image.md
+      - name: Вставка таблицы
+        href: add-grid.md
+      - name: Структурирование контента
         items:
           - name: Оглавление страницы
             href: actions/toc.md
@@ -71,8 +65,8 @@ items:
             href: actions/anchor.md
           - name: Списки страниц
             href: actions/page-lists.md
-  - name: Работа в визуальном редакторе (Wysiwyg)
-    href: wysiwyg-edit.md
+  - name: Динамические таблицы
+    href: edit-grid-wysiwyg.md
   - name: Управление страницами
     items:
       - name: Обзор
@@ -143,6 +137,16 @@ items:
             href: static-markup/html-code.md
           - name: Экранирование символов
             href: static-markup/escaping.md
+      - name: Динамические блоки
+        items:
+          - name: Обзор
+            href: actions.md
+          - name: Динамические таблицы
+            href: actions/grid-reference.md
+          - name: Объекты из внешних источников
+            href: actions/iframe.md
+          - name: Формулы, диаграммы и блок-схемы
+            href: add-diagram-formula.md
       - name: Блоки со специальным форматированием
         items:
           - name: Обзор

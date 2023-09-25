@@ -1,3 +1,8 @@
+---
+title: "Как читать метрики"
+description: "Следуя данной инструкции, вы сможете прочитать метрики."
+---
+
 # Чтение метрик
 
 {% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}

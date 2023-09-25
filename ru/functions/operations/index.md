@@ -31,6 +31,7 @@ description: "Из статьи вы узнаете как работать с {
 ## Вызов функции {#function-invoke}
 
 * [{#T}](function/function-invoke.md)
+* [{#T}](function/function-invoke-async.md)
 * [{#T}](function/auth.md)
 
 ## Управление функцией {#function-manage}
@@ -43,6 +44,7 @@ description: "Из статьи вы узнаете как работать с {
 * [Добавить переменные окружения](function/environment-variables-add.md)
 * [{#T}](function/network-add.md)
 * [{#T}](function/lockbox-secret-transmit.md)
+* [Смонтировать бакеты](function/mount-bucket.md)
 * [Добавить тег](function/tag-add.md)
 * [Удалить тег](function/tag-delete.md)
 * [Добавить метку](function/label-add.md)
@@ -67,15 +69,15 @@ description: "Из статьи вы узнаете как работать с {
 * [Создать триггер для {{ container-registry-name }}](trigger/cr-trigger-create.md)
 * [Создать триггер для {{ cloud-logs-name }}](trigger/cloudlogs-trigger-create.md)
 * [Создать триггер для {{ cloud-logging-name }}](trigger/cloud-logging-trigger-create.md)
-* [Создать триггер для {{ iot-name }}](trigger/iot-core-trigger-create.md)
+* [Создать триггер для {{ iot-name }} (устройство)](trigger/iot-core-trigger-create.md)
+* [Создать триггер для {{ iot-name }} (брокер)](trigger/iot-core-trigger-broker-create.md)
 * [Создать триггер для бюджетов](trigger/budget-trigger-create.md)
 * [Создать триггер для {{ yds-name }}](trigger/data-streams-trigger-create.md)
 * [Создать триггер для почты](trigger/mail-trigger-create.md)
 
 ## Управление триггером {#trigger-manage}
 
-* [Изменить имя](trigger/name-update.md)
-* [Изменить описание](trigger/description-update.md)
+* [Изменить триггер](trigger/trigger-update.md)
 * [Добавить метку](trigger/label-add.md)
 * [Изменить метку](trigger/label-update.md)
 * [Удалить метку](trigger/label-delete.md)

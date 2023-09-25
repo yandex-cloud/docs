@@ -1,3 +1,8 @@
+---
+title: "Домен"
+description: "Домен — уникальное доменное имя, которое можно использовать в сервисах {{ yandex-cloud }}, которым требуется подтверждение прав пользователя на домен."
+---
+
 # Домен
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

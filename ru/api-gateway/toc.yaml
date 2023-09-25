@@ -58,6 +58,8 @@ items:
         href: tutorials/jwt-authorizer-firebase.md
       - name: Авторизация с помощью функции {{ sf-name }} в сервисе Ory Kratos
         href: tutorials/ory-kratos-authorization.md
+      - name: Канареечный релиз функции {{ sf-name }}
+        href: tutorials/canary-release.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -102,6 +104,12 @@ items:
             href: concepts/extensions/validator.md
           - name: CORS
             href: concepts/extensions/cors.md
+          - name: Параметризация спецификации
+            href: concepts/extensions/parametrization.md
+          - name: Канареечный релиз
+            href: concepts/extensions/canary.md
+          - name: Ограничение скорости запросов
+            href: concepts/extensions/rate-limit.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

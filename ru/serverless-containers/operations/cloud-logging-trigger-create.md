@@ -33,7 +33,7 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}** укажите:
 
         * лог-группу;
-        * (опционально) типы ресурсов — ваши сервисы или сервисы {{ yandex-cloud }}, например `serverless.function`;
+        * (опционально) типы ресурсов, например функции {{ sf-name }} `serverless.function`;
         * (опционально) идентификаторы ваших ресурсов или ресурсов {{ yandex-cloud }}, например контейнеров {{ serverless-containers-name }};
         * (опционально) уровни логирования.
 
@@ -71,6 +71,10 @@
       --log-group-name <имя_лог-группы> \
       --batch-size 1 \
       --batch-cutoff 1s \
+      --resource-ids <идентификатор_ресурса> \
+      --resource-types <тип_ресурса> \
+      --stream-names <поток_логирования> \
+      --log-levels <уровень_логирования> \
       --invoke-container-id <идентификатор_контейнера> \
       --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
@@ -87,6 +91,8 @@
     * `--batch-size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 до 100, значение по умолчанию — 1.
     * `--batch-cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 0 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в контейнер. Число сообщений при этом не превышает `batch-size`.
 
+    {% include [logging-cli-param](../../_includes/functions/logging-cli-param.md) %}
+
     {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
     Результат:
@@ -100,6 +106,14 @@
     rule:
       logging:
         log_group_id: e23bidnftl**********
+        resource_type:
+          - serverless.functions
+        resource_id:
+          - d4e1gpsgam78********
+        stream_name:
+          - test
+        levels:
+          - INFO
         batch_settings:
           size: "1"
           cutoff: 1s

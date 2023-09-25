@@ -3208,6 +3208,45 @@ Field | Description
 --- | ---
 instance_id | **string**<br>Required. ID of the instance to move. <br>To get the instance ID, make a [InstanceService.List](#List) request. The maximum string length in characters is 50.
 destination_zone_id | **string**<br>Required. ID of the availability zone to move the instance to. <br>To get the zone ID, make a [ZoneService.List](./zone_service#List) request. The maximum string length in characters is 50.
+network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>Required. Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance. The number of elemets must be exactly 1.
+
+
+### NetworkInterfaceSpec {#NetworkInterfaceSpec1}
+
+Field | Description
+--- | ---
+subnet_id | **string**<br>Required. ID of the subnet. The maximum string length in characters is 50.
+primary_v4_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv4 address that will be assigned to the instance for this network interface. 
+primary_v6_address_spec | **[PrimaryAddressSpec](#PrimaryAddressSpec)**<br>Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet. 
+security_group_ids[] | **string**<br>ID's of security groups attached to the interface 
+
+
+### PrimaryAddressSpec {#PrimaryAddressSpec2}
+
+Field | Description
+--- | ---
+address | **string**<br>An IPv4 internal network address that is assigned to the instance for this network interface. If not specified by the user, an unused internal IP is assigned by the system. 
+one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>An external IP address configuration. If not specified, then this instance will have no external internet access. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>Internal DNS configuration 
+
+
+### OneToOneNatSpec {#OneToOneNatSpec3}
+
+Field | Description
+--- | ---
+ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
+address | **string**<br> 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>External DNS configuration 
+
+
+### DnsRecordSpec {#DnsRecordSpec3}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required) 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone used) 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional) Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional) 
 
 
 ### Operation {#Operation16}

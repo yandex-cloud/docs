@@ -1,4 +1,4 @@
-# Line chart
+# Line chart ![](../../_assets/datalens/line.svg)
 
 This chart displays a change to one or more measures over a time interval. It indicates trends, seasonality, dynamics, and a ratio of multiple measures in a single point in time. A chart is built using points with (X, Y) coordinates that are then connected by a line.
 

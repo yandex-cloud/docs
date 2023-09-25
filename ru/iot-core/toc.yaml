@@ -17,10 +17,16 @@ items:
         href: operations/publish.md
       - name: Подписка устройства или реестра на получение сообщений
         href: operations/subscribe.md
+      - name: Экспорт сообщений в {{ yds-name}}
+        href: operations/yds-export.md
       - name: Просмотр журнала подключений
         href: operations/logs.md
       - name: Создание триггера для топика
-        href: operations/trigger-create.md
+        items:
+          - name: Реестр устройств
+            href: operations/trigger-create.md
+          - name: Брокер
+            href: operations/trigger-broker-create.md
       - name: Управление реестрами
         items:
           - name: Получение информации о реестре

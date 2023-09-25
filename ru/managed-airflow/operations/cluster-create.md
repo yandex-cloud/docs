@@ -24,6 +24,10 @@ keywords:
 
 - Консоль управления
 
+  
+  @[youtube](https://www.youtube.com/watch?v=vWCmvbrhDsI)
+
+
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
@@ -89,7 +93,3 @@ keywords:
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
-
-
-@[youtube](https://www.youtube.com/watch?v=HHi1WZIcMdA)
-

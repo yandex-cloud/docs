@@ -1,3 +1,8 @@
+---
+title: "Как создать версию функции"
+description: "Следуя данной инструкции, вы сможете создать версию функции."
+---
+
 # Создать версию функции
 
 {% include [create-version](../../../_includes/functions/create-version.md) %}

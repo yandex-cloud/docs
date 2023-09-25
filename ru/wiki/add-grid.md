@@ -38,7 +38,7 @@
 
 1. Нажмите **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-settings.save }}**.
 
-1. [Заполните таблицу](edit-grid.md).
+1. [Заполните таблицу](edit-grid-wysiwyg.md).
 
 ### Как встроить существующую таблицу {#section-integrate-table}
 
@@ -74,7 +74,7 @@
 
 #### См. также
 
-- [{#T}](edit-grid.md)
+- [{#T}](edit-grid-wysiwyg.md)
 
 - [{#T}](import-page.md)
 

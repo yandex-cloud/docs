@@ -356,6 +356,7 @@ pip3 install protobuf varint pycapnp
      
    {% endlist %}
 
+   О том, как получить FQDN хоста, см. [инструкцию](../operations/connect.md#fqdn).
 
 ### Вставка данных {#insert-data}
 

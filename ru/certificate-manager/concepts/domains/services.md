@@ -1,3 +1,8 @@
+---
+title: "Интеграция системы управления доменами с сервисами {{ yandex-cloud }}"
+description: "Вы можете использовать подтвержденные домены из {{ certificate-manager-name }} в сервисе {{ api-gw-full-name }}."
+---
+
 # Интеграция системы управления доменами с сервисами {{ yandex-cloud }}
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

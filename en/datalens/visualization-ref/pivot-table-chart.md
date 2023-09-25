@@ -1,4 +1,4 @@
-# Pivot table
+# Pivot table ![](../../_assets/datalens/pivot-table.svg)
 
 A table is a standard form of data representation with as many details as possible. Tables are most suitable for detailed analysis (a deep dive into figures) and problem detection. It's best to place tables at the end of a dashboard. Graphical representations are simpler for reading information, while tables take you deeper into the data and require more time to read.
 

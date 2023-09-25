@@ -1,3 +1,8 @@
+---
+title: "Обучающие курсы по {{ iam-full-name }}"
+description: "В этом разделе собраны обучающие курсы по {{ iam-full-name }}."
+---
+
 # Обучающие курсы по {{ iam-full-name }}
 
 {% include [training-intro](../_includes/training/training-intro.md) %}

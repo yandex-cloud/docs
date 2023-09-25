@@ -1,3 +1,8 @@
+---
+title: "Как управлять плагинами {{ ES }}"
+description: "Следуя данной инструкции, вы научитесь управлять плагинами {{ ES }}."
+---
+
 # Управление плагинами {{ ES }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

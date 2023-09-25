@@ -63,6 +63,8 @@
       --prefix '<префикс_ключа_объекта>' \
       --suffix '<суффикс_ключа_объекта>' \
       --events 'create-object','delete-object','update-object' \
+      --batch-size <размер_группы> \
+      --batch-cutoff <максимальное_время_ожидания> \
       --invoke-container-id <идентификатор_контейнера> \
       --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
@@ -79,6 +81,8 @@
     * `--prefix` — [префикс](../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
     * `--suffix` — [суффикс](../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
     * `--events` — [события](../concepts/trigger/os-trigger.md#event), после наступления которых триггер запускается.
+
+    {% include [batch-settings-events](../../_includes/functions/batch-settings-events.md) %}
     
     {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -99,6 +103,9 @@
         bucket_id: s3-for-trigger
         prefix: dev
         suffix: 12.jpg
+        batch_settings:
+          size: "3"
+          cutoff: 20s
         invoke_container:
           container_id: bba5jb38o8**********
           service_account_id: aje3932acd**********

@@ -1,3 +1,8 @@
+---
+title: "Перевод текста"
+description: "Переводит заданный текст на указанный язык."
+---
+
 # Перевод текста
 
 {% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}

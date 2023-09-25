@@ -233,6 +233,7 @@ shardName | <p>Required. Name of the shard to request information about. To get 
           "maxPartitionSizeToDrop": "integer",
           "builtinDictionariesReloadInterval": "integer",
           "timezone": "string",
+          "geobaseEnabled": true,
           "geobaseUri": "string",
           "queryLogRetentionSize": "integer",
           "queryLogRetentionTime": "integer",
@@ -252,26 +253,14 @@ shardName | <p>Required. Name of the shard to request information about. To get 
           "textLogRetentionTime": "integer",
           "textLogLevel": "string",
           "opentelemetrySpanLogEnabled": true,
-          "backgroundPoolSize": "integer",
-          "backgroundSchedulePoolSize": "integer",
-          "backgroundFetchesPoolSize": "integer",
-          "backgroundMovePoolSize": "integer",
-          "backgroundDistributedSchedulePoolSize": "integer",
-          "backgroundBufferFlushSchedulePoolSize": "integer",
-          "backgroundMessageBrokerSchedulePoolSize": "integer",
-          "defaultDatabase": "string",
-          "totalMemoryProfilerStep": "integer",
-          "totalMemoryTrackerSampleProbability": "number",
-          "backgroundCommonPoolSize": "integer",
-          "backgroundMergesMutationsConcurrencyRatio": "integer",
+          "opentelemetrySpanLogRetentionSize": "integer",
+          "opentelemetrySpanLogRetentionTime": "integer",
           "queryViewsLogEnabled": true,
           "queryViewsLogRetentionSize": "integer",
           "queryViewsLogRetentionTime": "integer",
           "asynchronousMetricLogEnabled": true,
           "asynchronousMetricLogRetentionSize": "integer",
           "asynchronousMetricLogRetentionTime": "integer",
-          "opentelemetrySpanLogRetentionSize": "integer",
-          "opentelemetrySpanLogRetentionTime": "integer",
           "sessionLogEnabled": true,
           "sessionLogRetentionSize": "integer",
           "sessionLogRetentionTime": "integer",
@@ -281,7 +270,18 @@ shardName | <p>Required. Name of the shard to request information about. To get 
           "asynchronousInsertLogEnabled": true,
           "asynchronousInsertLogRetentionSize": "integer",
           "asynchronousInsertLogRetentionTime": "integer",
-          "geobaseEnabled": true
+          "backgroundPoolSize": "integer",
+          "backgroundMergesMutationsConcurrencyRatio": "integer",
+          "backgroundSchedulePoolSize": "integer",
+          "backgroundFetchesPoolSize": "integer",
+          "backgroundMovePoolSize": "integer",
+          "backgroundDistributedSchedulePoolSize": "integer",
+          "backgroundBufferFlushSchedulePoolSize": "integer",
+          "backgroundMessageBrokerSchedulePoolSize": "integer",
+          "backgroundCommonPoolSize": "integer",
+          "defaultDatabase": "string",
+          "totalMemoryProfilerStep": "integer",
+          "totalMemoryTrackerSampleProbability": "number"
         },
         "userConfig": {
           "logLevel": "string",
@@ -486,6 +486,7 @@ shardName | <p>Required. Name of the shard to request information about. To get 
           "maxPartitionSizeToDrop": "integer",
           "builtinDictionariesReloadInterval": "integer",
           "timezone": "string",
+          "geobaseEnabled": true,
           "geobaseUri": "string",
           "queryLogRetentionSize": "integer",
           "queryLogRetentionTime": "integer",
@@ -505,26 +506,14 @@ shardName | <p>Required. Name of the shard to request information about. To get 
           "textLogRetentionTime": "integer",
           "textLogLevel": "string",
           "opentelemetrySpanLogEnabled": true,
-          "backgroundPoolSize": "integer",
-          "backgroundSchedulePoolSize": "integer",
-          "backgroundFetchesPoolSize": "integer",
-          "backgroundMovePoolSize": "integer",
-          "backgroundDistributedSchedulePoolSize": "integer",
-          "backgroundBufferFlushSchedulePoolSize": "integer",
-          "backgroundMessageBrokerSchedulePoolSize": "integer",
-          "defaultDatabase": "string",
-          "totalMemoryProfilerStep": "integer",
-          "totalMemoryTrackerSampleProbability": "number",
-          "backgroundCommonPoolSize": "integer",
-          "backgroundMergesMutationsConcurrencyRatio": "integer",
+          "opentelemetrySpanLogRetentionSize": "integer",
+          "opentelemetrySpanLogRetentionTime": "integer",
           "queryViewsLogEnabled": true,
           "queryViewsLogRetentionSize": "integer",
           "queryViewsLogRetentionTime": "integer",
           "asynchronousMetricLogEnabled": true,
           "asynchronousMetricLogRetentionSize": "integer",
           "asynchronousMetricLogRetentionTime": "integer",
-          "opentelemetrySpanLogRetentionSize": "integer",
-          "opentelemetrySpanLogRetentionTime": "integer",
           "sessionLogEnabled": true,
           "sessionLogRetentionSize": "integer",
           "sessionLogRetentionTime": "integer",
@@ -534,7 +523,18 @@ shardName | <p>Required. Name of the shard to request information about. To get 
           "asynchronousInsertLogEnabled": true,
           "asynchronousInsertLogRetentionSize": "integer",
           "asynchronousInsertLogRetentionTime": "integer",
-          "geobaseEnabled": true
+          "backgroundPoolSize": "integer",
+          "backgroundMergesMutationsConcurrencyRatio": "integer",
+          "backgroundSchedulePoolSize": "integer",
+          "backgroundFetchesPoolSize": "integer",
+          "backgroundMovePoolSize": "integer",
+          "backgroundDistributedSchedulePoolSize": "integer",
+          "backgroundBufferFlushSchedulePoolSize": "integer",
+          "backgroundMessageBrokerSchedulePoolSize": "integer",
+          "backgroundCommonPoolSize": "integer",
+          "defaultDatabase": "string",
+          "totalMemoryProfilerStep": "integer",
+          "totalMemoryTrackerSampleProbability": "number"
         },
         "defaultConfig": {
           "logLevel": "string",
@@ -739,6 +739,7 @@ shardName | <p>Required. Name of the shard to request information about. To get 
           "maxPartitionSizeToDrop": "integer",
           "builtinDictionariesReloadInterval": "integer",
           "timezone": "string",
+          "geobaseEnabled": true,
           "geobaseUri": "string",
           "queryLogRetentionSize": "integer",
           "queryLogRetentionTime": "integer",
@@ -758,26 +759,14 @@ shardName | <p>Required. Name of the shard to request information about. To get 
           "textLogRetentionTime": "integer",
           "textLogLevel": "string",
           "opentelemetrySpanLogEnabled": true,
-          "backgroundPoolSize": "integer",
-          "backgroundSchedulePoolSize": "integer",
-          "backgroundFetchesPoolSize": "integer",
-          "backgroundMovePoolSize": "integer",
-          "backgroundDistributedSchedulePoolSize": "integer",
-          "backgroundBufferFlushSchedulePoolSize": "integer",
-          "backgroundMessageBrokerSchedulePoolSize": "integer",
-          "defaultDatabase": "string",
-          "totalMemoryProfilerStep": "integer",
-          "totalMemoryTrackerSampleProbability": "number",
-          "backgroundCommonPoolSize": "integer",
-          "backgroundMergesMutationsConcurrencyRatio": "integer",
+          "opentelemetrySpanLogRetentionSize": "integer",
+          "opentelemetrySpanLogRetentionTime": "integer",
           "queryViewsLogEnabled": true,
           "queryViewsLogRetentionSize": "integer",
           "queryViewsLogRetentionTime": "integer",
           "asynchronousMetricLogEnabled": true,
           "asynchronousMetricLogRetentionSize": "integer",
           "asynchronousMetricLogRetentionTime": "integer",
-          "opentelemetrySpanLogRetentionSize": "integer",
-          "opentelemetrySpanLogRetentionTime": "integer",
           "sessionLogEnabled": true,
           "sessionLogRetentionSize": "integer",
           "sessionLogRetentionTime": "integer",
@@ -787,7 +776,18 @@ shardName | <p>Required. Name of the shard to request information about. To get 
           "asynchronousInsertLogEnabled": true,
           "asynchronousInsertLogRetentionSize": "integer",
           "asynchronousInsertLogRetentionTime": "integer",
-          "geobaseEnabled": true
+          "backgroundPoolSize": "integer",
+          "backgroundMergesMutationsConcurrencyRatio": "integer",
+          "backgroundSchedulePoolSize": "integer",
+          "backgroundFetchesPoolSize": "integer",
+          "backgroundMovePoolSize": "integer",
+          "backgroundDistributedSchedulePoolSize": "integer",
+          "backgroundBufferFlushSchedulePoolSize": "integer",
+          "backgroundMessageBrokerSchedulePoolSize": "integer",
+          "backgroundCommonPoolSize": "integer",
+          "defaultDatabase": "string",
+          "totalMemoryProfilerStep": "integer",
+          "totalMemoryTrackerSampleProbability": "number"
         }
       },
       "resources": {
@@ -963,6 +963,7 @@ config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>maxTableSizeToDrop | **
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>maxPartitionSizeToDrop | **integer** (int64)<br><p>Maximum size of the partition that can be deleted using a DROP query.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>The setting is deprecated and has no effect.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>timezone | **string**<br><p>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>geobaseEnabled | **boolean** (boolean)<br><p>Enable or disable geobase.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>geobaseUri | **string**<br><p>Address of the archive with the user geobase in Object Storage.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryLogRetentionSize | **integer** (int64)<br><p>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryLogRetentionTime | **integer** (int64)<br><p>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled.</p> 
@@ -981,37 +982,36 @@ config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>textLogEnabled | **bool
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>textLogRetentionSize | **integer** (int64)<br><p>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>textLogRetentionTime | **integer** (int64)<br><p>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>textLogLevel | **string**<br><p>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>opentelemetrySpanLogEnabled | **boolean** (boolean)
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>opentelemetrySpanLogEnabled | **boolean** (boolean)<br><p>Enable or disable opentelemetry_span_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>opentelemetrySpanLogRetentionSize | **integer** (int64)<br><p>The maximum size that opentelemetry_span_log can grow to before old data will be removed. If set to 0 (default), automatic removal of opentelemetry_span_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>opentelemetrySpanLogRetentionTime | **integer** (int64)<br><p>The maximum time that opentelemetry_span_log records will be retained before removal. If set to 0, automatic removal of opentelemetry_span_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryViewsLogEnabled | **boolean** (boolean)<br><p>Enable or disable query_views_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryViewsLogRetentionSize | **integer** (int64)<br><p>The maximum size that query_views_log can grow to before old data will be removed. If set to 0 (default), automatic removal of query_views_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryViewsLogRetentionTime | **integer** (int64)<br><p>The maximum time that query_views_log records will be retained before removal. If set to 0, automatic removal of query_views_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>asynchronousMetricLogEnabled | **boolean** (boolean)<br><p>Enable or disable asynchronous_metric_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>asynchronousMetricLogRetentionSize | **integer** (int64)<br><p>The maximum size that asynchronous_metric_log can grow to before old data will be removed. If set to 0 (default), automatic removal of asynchronous_metric_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>asynchronousMetricLogRetentionTime | **integer** (int64)<br><p>The maximum time that asynchronous_metric_log records will be retained before removal. If set to 0, automatic removal of asynchronous_metric_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>sessionLogEnabled | **boolean** (boolean)<br><p>Enable or disable session_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>sessionLogRetentionSize | **integer** (int64)<br><p>The maximum size that session_log can grow to before old data will be removed. If set to 0 (default), automatic removal of session_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>sessionLogRetentionTime | **integer** (int64)<br><p>The maximum time that session_log records will be retained before removal. If set to 0, automatic removal of session_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>zookeeperLogEnabled | **boolean** (boolean)<br><p>Enable or disable zookeeper_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>zookeeperLogRetentionSize | **integer** (int64)<br><p>The maximum size that zookeeper_log can grow to before old data will be removed. If set to 0 (default), automatic removal of zookeeper_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>zookeeperLogRetentionTime | **integer** (int64)<br><p>The maximum time that zookeeper_log records will be retained before removal. If set to 0, automatic removal of zookeeper_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>asynchronousInsertLogEnabled | **boolean** (boolean)<br><p>Enable or disable asynchronous_insert_log system table. Default value: false. Minimal required ClickHouse version: 22.10.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>asynchronousInsertLogRetentionSize | **integer** (int64)<br><p>The maximum size that asynchronous_insert_log can grow to before old data will be removed. If set to 0 (default), automatic removal of asynchronous_insert_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>asynchronousInsertLogRetentionTime | **integer** (int64)<br><p>The maximum time that asynchronous_insert_log records will be retained before removal. If set to 0, automatic removal of asynchronous_insert_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundPoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundMergesMutationsConcurrencyRatio | **integer** (int64)<br><p>Sets a ratio between the number of threads and the number of background merges and mutations that can be executed concurrently. For example, if the ratio equals to 2 and background_pool_size is set to 16 then ClickHouse can execute 32 background merges concurrently. This is possible, because background operations could be suspended and postponed. This is needed to give small merges more execution priority. You can only increase this ratio at runtime. To lower it you have to restart the server. The same as for background_pool_size setting background_merges_mutations_concurrency_ratio could be applied from the default profile for backward compatibility. Default: 2 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundFetchesPoolSize | **integer** (int64)<br><p>Sets the number of threads performing background fetches for tables with <strong>ReplicatedMergeTree</strong> engines. Default value: 8.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size">ClickHouse documentation</a>.</p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundMovePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundDistributedSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundBufferFlushSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundMessageBrokerSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundCommonPoolSize | **integer** (int64)<br><p>The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for *MergeTree-engine tables in a background. Default: 8 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_common_pool_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
 config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>totalMemoryTrackerSampleProbability | **number** (double)
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundCommonPoolSize | **integer** (int64)<br><p>The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for *MergeTree-engine tables in a background. Default: 8 Min version: 21.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_common_pool_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>backgroundMergesMutationsConcurrencyRatio | **integer** (int64)<br><p>Sets a ratio between the number of threads and the number of background merges and mutations that can be executed concurrently. For example, if the ratio equals to 2 and background_pool_size is set to 16 then ClickHouse can execute 32 background merges concurrently. This is possible, because background operations could be suspended and postponed. This is needed to give small merges more execution priority. You can only increase this ratio at runtime. To lower it you have to restart the server. The same as for background_pool_size setting background_merges_mutations_concurrency_ratio could be applied from the default profile for backward compatibility. Default: 2 Min_version: 21.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryViewsLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 21.9</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryViewsLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>queryViewsLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>asynchronousMetricLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 20.11</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>asynchronousMetricLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>asynchronousMetricLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>opentelemetrySpanLogRetentionSize | **integer** (int64)<br><p>Default: 0 Min version: 20.11</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>opentelemetrySpanLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>sessionLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 21.11</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>sessionLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>sessionLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>zookeeperLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 21.9</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>zookeeperLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>zookeeperLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>asynchronousInsertLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 22.10</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>asynchronousInsertLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>asynchronousInsertLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>effectiveConfig.<br>geobaseEnabled | **boolean** (boolean)
 config.<br>clickhouse.<br>config.<br>userConfig | **object**<br><p>User-defined settings for a ClickHouse cluster.</p> <p>ClickHouse configuration options. Detailed description for each set of options is available in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/">ClickHouse documentation</a>.</p> <p>Any options not listed here are not supported.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>logLevel | **string**<br><p>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>mergeTree | **object**<br><p>Settings for the MergeTree engine. See description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree">ClickHouse documentation</a>.</p> <p>Options specific to the MergeTree table engine.</p> 
@@ -1166,6 +1166,7 @@ config.<br>clickhouse.<br>config.<br>userConfig.<br>maxTableSizeToDrop | **integ
 config.<br>clickhouse.<br>config.<br>userConfig.<br>maxPartitionSizeToDrop | **integer** (int64)<br><p>Maximum size of the partition that can be deleted using a DROP query.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>The setting is deprecated and has no effect.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>timezone | **string**<br><p>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>geobaseEnabled | **boolean** (boolean)<br><p>Enable or disable geobase.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>geobaseUri | **string**<br><p>Address of the archive with the user geobase in Object Storage.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>queryLogRetentionSize | **integer** (int64)<br><p>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>queryLogRetentionTime | **integer** (int64)<br><p>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled.</p> 
@@ -1184,37 +1185,36 @@ config.<br>clickhouse.<br>config.<br>userConfig.<br>textLogEnabled | **boolean**
 config.<br>clickhouse.<br>config.<br>userConfig.<br>textLogRetentionSize | **integer** (int64)<br><p>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>textLogRetentionTime | **integer** (int64)<br><p>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>textLogLevel | **string**<br><p>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>opentelemetrySpanLogEnabled | **boolean** (boolean)
+config.<br>clickhouse.<br>config.<br>userConfig.<br>opentelemetrySpanLogEnabled | **boolean** (boolean)<br><p>Enable or disable opentelemetry_span_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>opentelemetrySpanLogRetentionSize | **integer** (int64)<br><p>The maximum size that opentelemetry_span_log can grow to before old data will be removed. If set to 0 (default), automatic removal of opentelemetry_span_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>opentelemetrySpanLogRetentionTime | **integer** (int64)<br><p>The maximum time that opentelemetry_span_log records will be retained before removal. If set to 0, automatic removal of opentelemetry_span_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>queryViewsLogEnabled | **boolean** (boolean)<br><p>Enable or disable query_views_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>queryViewsLogRetentionSize | **integer** (int64)<br><p>The maximum size that query_views_log can grow to before old data will be removed. If set to 0 (default), automatic removal of query_views_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>queryViewsLogRetentionTime | **integer** (int64)<br><p>The maximum time that query_views_log records will be retained before removal. If set to 0, automatic removal of query_views_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>asynchronousMetricLogEnabled | **boolean** (boolean)<br><p>Enable or disable asynchronous_metric_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>asynchronousMetricLogRetentionSize | **integer** (int64)<br><p>The maximum size that asynchronous_metric_log can grow to before old data will be removed. If set to 0 (default), automatic removal of asynchronous_metric_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>asynchronousMetricLogRetentionTime | **integer** (int64)<br><p>The maximum time that asynchronous_metric_log records will be retained before removal. If set to 0, automatic removal of asynchronous_metric_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>sessionLogEnabled | **boolean** (boolean)<br><p>Enable or disable session_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>sessionLogRetentionSize | **integer** (int64)<br><p>The maximum size that session_log can grow to before old data will be removed. If set to 0 (default), automatic removal of session_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>sessionLogRetentionTime | **integer** (int64)<br><p>The maximum time that session_log records will be retained before removal. If set to 0, automatic removal of session_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>zookeeperLogEnabled | **boolean** (boolean)<br><p>Enable or disable zookeeper_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>zookeeperLogRetentionSize | **integer** (int64)<br><p>The maximum size that zookeeper_log can grow to before old data will be removed. If set to 0 (default), automatic removal of zookeeper_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>zookeeperLogRetentionTime | **integer** (int64)<br><p>The maximum time that zookeeper_log records will be retained before removal. If set to 0, automatic removal of zookeeper_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>asynchronousInsertLogEnabled | **boolean** (boolean)<br><p>Enable or disable asynchronous_insert_log system table. Default value: false. Minimal required ClickHouse version: 22.10.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>asynchronousInsertLogRetentionSize | **integer** (int64)<br><p>The maximum size that asynchronous_insert_log can grow to before old data will be removed. If set to 0 (default), automatic removal of asynchronous_insert_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>asynchronousInsertLogRetentionTime | **integer** (int64)<br><p>The maximum time that asynchronous_insert_log records will be retained before removal. If set to 0, automatic removal of asynchronous_insert_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundPoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundMergesMutationsConcurrencyRatio | **integer** (int64)<br><p>Sets a ratio between the number of threads and the number of background merges and mutations that can be executed concurrently. For example, if the ratio equals to 2 and background_pool_size is set to 16 then ClickHouse can execute 32 background merges concurrently. This is possible, because background operations could be suspended and postponed. This is needed to give small merges more execution priority. You can only increase this ratio at runtime. To lower it you have to restart the server. The same as for background_pool_size setting background_merges_mutations_concurrency_ratio could be applied from the default profile for backward compatibility. Default: 2 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundFetchesPoolSize | **integer** (int64)<br><p>Sets the number of threads performing background fetches for tables with <strong>ReplicatedMergeTree</strong> engines. Default value: 8.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size">ClickHouse documentation</a>.</p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundMovePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundDistributedSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundBufferFlushSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundMessageBrokerSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundCommonPoolSize | **integer** (int64)<br><p>The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for *MergeTree-engine tables in a background. Default: 8 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_common_pool_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
 config.<br>clickhouse.<br>config.<br>userConfig.<br>totalMemoryTrackerSampleProbability | **number** (double)
-config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundCommonPoolSize | **integer** (int64)<br><p>The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for *MergeTree-engine tables in a background. Default: 8 Min version: 21.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_common_pool_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>backgroundMergesMutationsConcurrencyRatio | **integer** (int64)<br><p>Sets a ratio between the number of threads and the number of background merges and mutations that can be executed concurrently. For example, if the ratio equals to 2 and background_pool_size is set to 16 then ClickHouse can execute 32 background merges concurrently. This is possible, because background operations could be suspended and postponed. This is needed to give small merges more execution priority. You can only increase this ratio at runtime. To lower it you have to restart the server. The same as for background_pool_size setting background_merges_mutations_concurrency_ratio could be applied from the default profile for backward compatibility. Default: 2 Min_version: 21.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>queryViewsLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 21.9</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>queryViewsLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>queryViewsLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>asynchronousMetricLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 20.11</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>asynchronousMetricLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>asynchronousMetricLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>opentelemetrySpanLogRetentionSize | **integer** (int64)<br><p>Default: 0 Min version: 20.11</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>opentelemetrySpanLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>sessionLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 21.11</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>sessionLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>sessionLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>zookeeperLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 21.9</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>zookeeperLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>zookeeperLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>asynchronousInsertLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 22.10</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>asynchronousInsertLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>asynchronousInsertLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>userConfig.<br>geobaseEnabled | **boolean** (boolean)
 config.<br>clickhouse.<br>config.<br>defaultConfig | **object**<br><p>Default configuration for a ClickHouse cluster.</p> <p>ClickHouse configuration options. Detailed description for each set of options is available in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/">ClickHouse documentation</a>.</p> <p>Any options not listed here are not supported.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>logLevel | **string**<br><p>Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>mergeTree | **object**<br><p>Settings for the MergeTree engine. See description in <a href="https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree">ClickHouse documentation</a>.</p> <p>Options specific to the MergeTree table engine.</p> 
@@ -1369,6 +1369,7 @@ config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxTableSizeToDrop | **in
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>maxPartitionSizeToDrop | **integer** (int64)<br><p>Maximum size of the partition that can be deleted using a DROP query.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>builtinDictionariesReloadInterval | **integer** (int64)<br><p>The setting is deprecated and has no effect.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>timezone | **string**<br><p>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>geobaseEnabled | **boolean** (boolean)<br><p>Enable or disable geobase.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>geobaseUri | **string**<br><p>Address of the archive with the user geobase in Object Storage.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryLogRetentionSize | **integer** (int64)<br><p>The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of query_log data based on size is disabled.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryLogRetentionTime | **integer** (int64)<br><p>The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of query_log data based on time is disabled.</p> 
@@ -1387,37 +1388,36 @@ config.<br>clickhouse.<br>config.<br>defaultConfig.<br>textLogEnabled | **boolea
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>textLogRetentionSize | **integer** (int64)<br><p>The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of text_log data based on size is disabled.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>textLogRetentionTime | **integer** (int64)<br><p>The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of text_log data based on time is disabled.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>textLogLevel | **string**<br><p>Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>opentelemetrySpanLogEnabled | **boolean** (boolean)
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>opentelemetrySpanLogEnabled | **boolean** (boolean)<br><p>Enable or disable opentelemetry_span_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>opentelemetrySpanLogRetentionSize | **integer** (int64)<br><p>The maximum size that opentelemetry_span_log can grow to before old data will be removed. If set to 0 (default), automatic removal of opentelemetry_span_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>opentelemetrySpanLogRetentionTime | **integer** (int64)<br><p>The maximum time that opentelemetry_span_log records will be retained before removal. If set to 0, automatic removal of opentelemetry_span_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryViewsLogEnabled | **boolean** (boolean)<br><p>Enable or disable query_views_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryViewsLogRetentionSize | **integer** (int64)<br><p>The maximum size that query_views_log can grow to before old data will be removed. If set to 0 (default), automatic removal of query_views_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryViewsLogRetentionTime | **integer** (int64)<br><p>The maximum time that query_views_log records will be retained before removal. If set to 0, automatic removal of query_views_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>asynchronousMetricLogEnabled | **boolean** (boolean)<br><p>Enable or disable asynchronous_metric_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>asynchronousMetricLogRetentionSize | **integer** (int64)<br><p>The maximum size that asynchronous_metric_log can grow to before old data will be removed. If set to 0 (default), automatic removal of asynchronous_metric_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>asynchronousMetricLogRetentionTime | **integer** (int64)<br><p>The maximum time that asynchronous_metric_log records will be retained before removal. If set to 0, automatic removal of asynchronous_metric_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>sessionLogEnabled | **boolean** (boolean)<br><p>Enable or disable session_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>sessionLogRetentionSize | **integer** (int64)<br><p>The maximum size that session_log can grow to before old data will be removed. If set to 0 (default), automatic removal of session_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>sessionLogRetentionTime | **integer** (int64)<br><p>The maximum time that session_log records will be retained before removal. If set to 0, automatic removal of session_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>zookeeperLogEnabled | **boolean** (boolean)<br><p>Enable or disable zookeeper_log system table. Default value: false.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>zookeeperLogRetentionSize | **integer** (int64)<br><p>The maximum size that zookeeper_log can grow to before old data will be removed. If set to 0 (default), automatic removal of zookeeper_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>zookeeperLogRetentionTime | **integer** (int64)<br><p>The maximum time that zookeeper_log records will be retained before removal. If set to 0, automatic removal of zookeeper_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>asynchronousInsertLogEnabled | **boolean** (boolean)<br><p>Enable or disable asynchronous_insert_log system table. Default value: false. Minimal required ClickHouse version: 22.10.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>asynchronousInsertLogRetentionSize | **integer** (int64)<br><p>The maximum size that asynchronous_insert_log can grow to before old data will be removed. If set to 0 (default), automatic removal of asynchronous_insert_log data based on size is disabled.</p> <p>The minimum value is 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>asynchronousInsertLogRetentionTime | **integer** (int64)<br><p>The maximum time that asynchronous_insert_log records will be retained before removal. If set to 0, automatic removal of asynchronous_insert_log data based on time is disabled.</p> <p>The minimum value is 0.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundPoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundMergesMutationsConcurrencyRatio | **integer** (int64)<br><p>Sets a ratio between the number of threads and the number of background merges and mutations that can be executed concurrently. For example, if the ratio equals to 2 and background_pool_size is set to 16 then ClickHouse can execute 32 background merges concurrently. This is possible, because background operations could be suspended and postponed. This is needed to give small merges more execution priority. You can only increase this ratio at runtime. To lower it you have to restart the server. The same as for background_pool_size setting background_merges_mutations_concurrency_ratio could be applied from the default profile for backward compatibility. Default: 2 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundFetchesPoolSize | **integer** (int64)<br><p>Sets the number of threads performing background fetches for tables with <strong>ReplicatedMergeTree</strong> engines. Default value: 8.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size">ClickHouse documentation</a>.</p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundMovePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundDistributedSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundBufferFlushSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundMessageBrokerSchedulePoolSize | **integer** (int64)<br><p>Value must be greater than 0.</p> 
+config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundCommonPoolSize | **integer** (int64)<br><p>The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for *MergeTree-engine tables in a background. Default: 8 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_common_pool_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>defaultDatabase | **string**<br><p>The default database.</p> <p>To get a list of cluster databases, see <a href="https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db">Yandex Managed ClickHouse documentation</a>.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>totalMemoryProfilerStep | **integer** (int64)<br><p>Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: <strong>4194304</strong>.</p> <p>More info see in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step">ClickHouse documentation</a>.</p> 
 config.<br>clickhouse.<br>config.<br>defaultConfig.<br>totalMemoryTrackerSampleProbability | **number** (double)
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundCommonPoolSize | **integer** (int64)<br><p>The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for *MergeTree-engine tables in a background. Default: 8 Min version: 21.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_common_pool_size">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>backgroundMergesMutationsConcurrencyRatio | **integer** (int64)<br><p>Sets a ratio between the number of threads and the number of background merges and mutations that can be executed concurrently. For example, if the ratio equals to 2 and background_pool_size is set to 16 then ClickHouse can execute 32 background merges concurrently. This is possible, because background operations could be suspended and postponed. This is needed to give small merges more execution priority. You can only increase this ratio at runtime. To lower it you have to restart the server. The same as for background_pool_size setting background_merges_mutations_concurrency_ratio could be applied from the default profile for backward compatibility. Default: 2 Min_version: 21.11 See in-depth description in <a href="https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio">ClickHouse documentation</a></p> <p>Value must be greater than 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryViewsLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 21.9</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryViewsLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>queryViewsLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>asynchronousMetricLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 20.11</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>asynchronousMetricLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>asynchronousMetricLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>opentelemetrySpanLogRetentionSize | **integer** (int64)<br><p>Default: 0 Min version: 20.11</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>opentelemetrySpanLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>sessionLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 21.11</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>sessionLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>sessionLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>zookeeperLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 21.9</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>zookeeperLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>zookeeperLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>asynchronousInsertLogEnabled | **boolean** (boolean)<br><p>Default: false Min version: 22.10</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>asynchronousInsertLogRetentionSize | **integer** (int64)<br><p>Default: 0</p> <p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>asynchronousInsertLogRetentionTime | **integer** (int64)<br><p>The minimum value is 0.</p> 
-config.<br>clickhouse.<br>config.<br>defaultConfig.<br>geobaseEnabled | **boolean** (boolean)
 config.<br>clickhouse.<br>resources | **object**<br><p>Computational resources for a shard.</p> 
 config.<br>clickhouse.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-clickhouse/concepts/instance-types">documentation</a></p> 
 config.<br>clickhouse.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 

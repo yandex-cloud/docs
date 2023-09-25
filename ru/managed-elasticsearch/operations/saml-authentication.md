@@ -1,3 +1,8 @@
+---
+title: "Как настроить SAML-аутентификацию"
+description: "Следуя данной инструкции, вы сможете настроить SAML-аутентификацию."
+---
+
 # Настройка SAML-аутентификации
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

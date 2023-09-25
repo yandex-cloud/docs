@@ -1,0 +1,51 @@
+title: Yandex Smart Web Security
+href: index.yaml
+stage: preview
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Managing profiles
+        items:
+          - name: Creating a profile
+            href: operations/profile-create.md
+          - name: Editing basic profile settings
+            href: operations/profile-update.md
+          - name: Deleting a profile
+            href: operations/profile-delete.md
+      - name: Managing rules
+        items:
+          - name: Adding a rule
+            href: operations/rule-add.md
+          - name: Editing a rule
+            href: operations/rule-update.md
+          - name: Delete a rule
+            href: operations/rule-delete.md
+      - name: Managing host connections
+        items:
+          - name: Connecting a profile to a host
+            href: operations/host-connect.md
+          - name: Editing connection settings
+            href: operations/host-update.md
+          - name: Disconnecting a profile from a host
+            href: operations/host-delete.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Security profiles
+        href: concepts/profiles.md
+      - name: Rules
+        href: concepts/rules.md
+      - name: Conditions
+        href: concepts/conditions.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+base: en/smartwebsecurity

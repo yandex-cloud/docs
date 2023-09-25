@@ -1,3 +1,8 @@
+---
+title: "История изменений в {{ mes-full-name }}"
+description: "В разделе представлена история изменений сервиса {{ mes-name }}."
+---
+
 # История изменений в {{ mes-full-name }}
 
 {% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}

@@ -49,7 +49,7 @@ items:
       - name: gRPC
         items:
           - name: Overview
-            href: api-ref/grpc/index.md
+            href: metering/api-ref/grpc/index.md
           - name: ImageProductUsageService
-            href: api-ref/grpc/image_product_usage_service.md
+            href: metering/api-ref/grpc/image_product_usage_service.md
 base: en/marketplace

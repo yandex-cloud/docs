@@ -71,6 +71,7 @@ default:
   yq-full-name: Yandex Query
   search-api-full-name: Yandex Search API
   captcha-full-name: Yandex SmartCaptcha
+  sws-full-name: Yandex Smart Web Security
   backup-full-name: Yandex Cloud Backup
   metastore-full-name: Hive Metastore
   preview-stage: <code><b><small>Preview</small></b></code>
@@ -155,6 +156,7 @@ default:
   load-testing-name: Load Testing
   cloud-desktop-name: Cloud Desktop
   captcha-name: SmartCaptcha
+  sws-name: Smart Web Security
   yt-name: YT
   ytsaurus-name: YTsaurus
   eventhub-name: EventHub
@@ -3899,6 +3901,7 @@ default:
         access-denied-msg: Message for users without access
         allow-external: Allow access for external users
         column-title--create: Create issues
+        column-title--grant: Queue settings
         column-title--read: View issues
         column-title--write: Edit issues
         issues-access: Access control
@@ -4663,6 +4666,7 @@ default:
         appearance-title: Interface
         boards: Boards
         issue-lists-menu-item: Issues
+        new-ui: New interface
         start-page-title: Start page
         templates-settings: Template management
       ui_components_new-process_ProcessTypeStep:
@@ -4745,6 +4749,7 @@ default:
         menu-item-autoactions: Auto actions
         menu-item-calendars: Schedules
         menu-item-forms: Form integration
+        menu-item-permissions: Permissions
         menu-item-timetracking: Time tracking
         menu-item-types: Issue types
         menu-item-workflows: Workflows
@@ -6142,13 +6147,12 @@ default:
         registry:
           button_change-scan-settings: Edit settings
           button_select-repositories: Select repositories
-          field_scan-on-upload: Scan images on upload
           label_all-repositories: All repositories
           label_only-selected: Only selected
-          label_repositories: Repositories
           label_vulnerabilities-scanner: Vulnerability scanner
       data-streams:
         label_data-introspection: Data viewer
+        label_data-stream: Data stream
         label_database: Database
       data-transfer:
         button_create-endpoint: Create endpoint
@@ -6396,11 +6400,14 @@ default:
         button_add-alias: Add alias
         button_add-device: Add device
         button_add-label: Add label
+        button_add-yds-export: Add export
         button_create-broker: Create broker
         button_create-registry: Create registry
         label_brokers: Brokers
         label_devices: Devices
+        label_mqtt-topic-filter: MQTT topic filter
         label_registries: Registries
+        label_yds-exports: Export to Data Stream
       k8s:
         cluster:
           marketplace:
@@ -6593,11 +6600,16 @@ default:
         label_section-secrets: Secrets
       logging:
         button_create-group: Create group
+        button_create-sink: Create sink
+        button_execute: Run
         column_header-level: Level
         column_header-message: Message
         column_header-time: Time
+        label_export: Export log
         label_loggroup: Log group
         label_retention-period: Log retention
+        label_sink-destination: Destination
+        label_sinks: Sinks
       marketplace-v2:
         button_use: Use
       mdb:
@@ -7073,6 +7085,7 @@ default:
             button_create-function: Create function
             button_create-trigger: Create trigger
             button_update-trigger: Save
+            field_broker: Broker
             field_bucket: Bucket
             field_container-registry: Registry
             field_cron-expression: Cron expression
@@ -7109,6 +7122,7 @@ default:
             label_data-streams: Data Streams
             label_function: Function
             label_iot: IoT Core (device)
+            label_iot-broker: IoT Core (broker)
             label_logging: Cloud Logging
             label_mail: Email
             label_storage: Object Storage
@@ -7143,10 +7157,12 @@ default:
         switch_lang: Language and region
       smartcaptcha:
         button_captcha-settings-create: Create captcha
+        label_additional-challenge: Additional challenge
         label_allowed-sites: Site list
         label_captcha-settings-list: Captcha list
         label_client-key: Client key
         label_complexity: Complexity
+        label_main-challenge: Main challenge
         label_section-customization: Сustomize style
         label_section-style: Style
         label_server-key: Server key

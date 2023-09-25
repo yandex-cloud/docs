@@ -1,3 +1,8 @@
+---
+title: "Как настроить доступ к {{ objstorage-name }} из {{ ES }}-кластера"
+description: "Следуя данной инструкции, вы сможете настроить доступ к {{ objstorage-name }} из {{ ES }}-кластера."
+---
+
 # Настройка доступа к {{ objstorage-name }} из {{ ES }}-кластера
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

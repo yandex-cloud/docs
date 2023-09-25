@@ -1,3 +1,8 @@
+---
+title: "Yandex Translate API v1"
+description: "Набор методов для сервиса Yandex Translate."
+---
+
 # Yandex Translate API v1
 
 {% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}

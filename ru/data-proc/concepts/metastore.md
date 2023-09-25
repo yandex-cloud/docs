@@ -1,3 +1,8 @@
+---
+title: "Кластеры {{ metastore-full-name }}"
+description: "В сервисе {{ dataproc-name }} вы можете создавать кластеры {{ metastore-full-name }}."
+---
+
 # Кластеры {{ metastore-full-name }}
 
 {% include [Доступ по запросу](../../_includes/note-preview-by-request.md) %}

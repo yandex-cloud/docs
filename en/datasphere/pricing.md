@@ -93,6 +93,14 @@ Starting July 10, 2023, background operations will be charged according to the r
 {% include [usd-data-storage.md](../_pricing/datasphere/usd-dataset.md) %}
 
 
+#### Models {#prices-models}
+
+
+
+
+{% include [usd-model.md](../_pricing/datasphere/usd-model.md) %}
+
+
 ### Egress traffic {#prices-traffic}
 
 

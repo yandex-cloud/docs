@@ -1,3 +1,8 @@
+---
+title: "Воркбуки и коллекции"
+description: "В данном разделе собраны ответы на частые вопросы о воркбуках и коллекциях."
+---
+
 # Воркбуки и коллекции
 
 {% include [switch-to-workbooks](../../_qa/datalens/switch-to-workbooks.md) %}

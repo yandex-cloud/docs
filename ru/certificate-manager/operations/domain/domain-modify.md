@@ -1,3 +1,8 @@
+---
+title: "Как изменить описание домена"
+description: "Следуя данной инструкции, вы сможете изменить описание домена."
+---
+
 # Изменить описание домена
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

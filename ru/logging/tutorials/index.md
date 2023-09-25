@@ -5,3 +5,4 @@
 * [{#T}](coi-fluent-bit-logging.md)
 * [{#T}](replicate-logs-to-storage.md)
 * [{#T}](replicate-logs-to-storage-via-data-streams.md)
+* [{#T}](grafana-logs-plugin.md)

@@ -1,0 +1,2 @@
+* `--attachements-bucket` — имя бакета, в который будут сохраняться вложения из писем.
+* `--attachements-service-account-id` — идентификатор сервисного аккаунта, у которого есть права на загрузку объектов в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}.

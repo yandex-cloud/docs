@@ -41,6 +41,8 @@
 
 {% endlist %}
 
+О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+
 После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
 После подключения к СУБД выполните команду `SELECT version();`.
@@ -69,6 +71,8 @@
     ```
 
 {% endlist %}
+
+О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
 
 ### Go {#go}
 
@@ -189,6 +193,8 @@ sudo apt update && sudo apt install --yes golang git
     ```
 
 {% endlist %}
+
+О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Подключение:**
 
@@ -370,6 +376,8 @@ go run connect.go
 
 {% endlist %}
 
+О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+
 **Подключение:**
 
 ```bash
@@ -473,6 +481,8 @@ npm install querystring
 
 {% endlist %}
 
+О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+
 **Подключение:**
 
 ```bash
@@ -573,6 +583,8 @@ node app.js
 
 {% endlist %}
 
+О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+
 **Подключение:**
 
 ```bash
@@ -594,7 +606,7 @@ isql -v ClickHouse
     * Подключение без SSL
 
         * **Name** — имя подключения.
-        * **Host** — FQDN любого хоста {{ CH }}.
+        * **Host** — [FQDN любого хоста {{ CH }}](../../managed-clickhouse/operations/connect.md#fqdn).
         * **Port** — `{{ port-mch-http }}`.
         * **Database** — имя БД.
         * **User** — имя пользователя БД.
@@ -603,7 +615,7 @@ isql -v ClickHouse
     * Подключение с SSL
 
         * **Name** — имя подключения.
-        * **Host** — FQDN любого хоста {{ CH }}.
+        * **Host** — [FQDN любого хоста {{ CH }}](../../managed-clickhouse/operations/connect.md#fqdn).
         * **Port** — `{{ port-mch-http }}`.
         * **Database** — имя БД.
         * **SSLMode** — `allow`.
@@ -710,6 +722,8 @@ isql -v ClickHouse
 
 {% endlist %}
 
+О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
+
 **Подключение:**
 
 ```bash
@@ -741,6 +755,8 @@ php connect.php
     ```
 
 {% endlist %}
+
+О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
 
 ### Python (clickhouse-driver) {#python-clickhouse-driver}
 
@@ -789,6 +805,8 @@ pip3 install clickhouse-driver
     ```
 
 {% endlist %}
+
+О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Подключение:**
 
@@ -853,6 +871,8 @@ pip3 install requests
     ```
 
 {% endlist %}
+
+О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Подключение:**
 
@@ -935,6 +955,8 @@ sudo apt update && sudo apt install --yes ruby
     ```
 
 {% endlist %}
+
+О том, как получить FQDN хоста, см. [инструкцию](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Подключение:**
 

@@ -1,3 +1,8 @@
+---
+title: "Шифрование секретов в {{ TF-full }}"
+description: "Следуя данному руководству, вы научитесь шифровать секреты в {{ TF-full }}."
+---
+
 # Шифрование секретов в {{ TF-full }}
 
 {% include [terraform-encryption](../../_includes/kms/terraform-encryption.md) %}

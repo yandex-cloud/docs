@@ -1,3 +1,8 @@
+---
+title: "Электронная подпись в {{ kms-short-name }}"
+description: "В данной статье описаны особенности использования электронной подписи в {{ kms-short-name }}."
+---
+
 # Электронная подпись в {{ kms-short-name }}
 
 {% note info %}
@@ -49,13 +54,26 @@ _Электронная подпись_ — это результат крипт
 * `ECDSA_NIST_P521_SHA_512`
 * `ECDSA_NIST_SECP256_K1_SHA_256`
 
-### Проверка электронной подписи {#signature-verification}
+## Проверка электронной подписи {#signature-verification}
 
 Проверка электронной подписи выполняется стороной, у которой нет доступа к закрытому ключу электронной подписи. Для проверки подписи используется открытый ключ.
 
-Для проверки электронной подписи можно воспользоваться утилитой [OpenSSL](https://www.openssl.org/).
+### Подпись на эллиптических кривых (ECDSA) {#ecdsa-verification}
+
+Для проверки электронной подписи:
 
 1. Получите открытый ключ электронной подписи.
-1. Проверьте электронную подпись с помощью OpenSSL. Отдельным параметром в команде укажите подходящий алгоритм хэширования:
 
-    {% include [signature-verification](../../_includes/kms/signature-verification.md) %}
+1. Выполните проверку:
+
+    {% include [signature-verification-ecdsa](../../_includes/kms/signature-verification-ecdsa.md) %}
+
+### Подпись RSA {#rca-verification}
+
+Для проверки электронной подписи:
+
+1. Получите открытый ключ электронной подписи.
+
+1. Выполните проверку:
+
+    {% include [signature-verification-rsa](../../_includes/kms/signature-verification-rsa.md) %}

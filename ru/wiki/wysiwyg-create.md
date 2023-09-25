@@ -20,4 +20,4 @@
 
 1. Нажмите кнопку **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.create }}**. 
 
-1. Добавьте на страницу текст с помощью [визуального редактора](wysiwyg-edit.md).
+1. Добавьте на страницу текст с помощью [визуального редактора](new-editor.md#wysiwyg-edit).

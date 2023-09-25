@@ -423,7 +423,7 @@ user_spec | **[UserSpec](#UserSpec)**<br>Required. Properties of the user to be 
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the ClickHouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+name | **string**<br>Required. Name of the ClickHouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `.
 password | **string**<br>Required. Password of the ClickHouse user. The string length in characters must be 8-128.
 permissions[] | **[Permission](#Permission2)**<br>Set of permissions to grant to the user. If not set, it's granted permissions to access all databases. 
 settings | **[UserSettings](#UserSettings2)**<br> 

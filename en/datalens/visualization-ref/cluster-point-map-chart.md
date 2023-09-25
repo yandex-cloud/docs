@@ -1,4 +1,4 @@
-# Point map with clusters
+# Point map with clusters ![](../../_assets/datalens/heatmap.svg)
 
 A point map with clusters differs from a [regular point map](point-map-chart.md) in clustering adjacent points. On the map, a cluster is represented as a donut chart with the number of points displayed in the center.
 

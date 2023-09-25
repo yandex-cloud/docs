@@ -8,7 +8,7 @@ The size of a disk must be a multiple of 93 GB.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
@@ -26,6 +26,11 @@ The size of a disk must be a multiple of 93 GB.
    1. Select `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-io-m3 }}` as disk type.
    1. Select the desired block size.
    1. Specify the desired disk size.
+
+   
+   1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
+
+
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
 - CLI

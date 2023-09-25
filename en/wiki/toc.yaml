@@ -40,7 +40,7 @@ items:
       - name: Editing a {{ wiki-full-name }} page
         href: edit-page.md
       - name: Editing a page in the new editor
-        href: edit-grid-wysiwig.md
+        href: edit-grid-wysiwyg.md
       - name: Editing a dynamic table
         href: edit-grid.md
       - name: Basic features

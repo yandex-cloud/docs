@@ -35,6 +35,7 @@ default:
   speechkit-full-name: Yandex SpeechKit
   speechkit-pro-full-name: Yandex SpeechKit Pro
   brand-voice-full-name: Yandex SpeechKit Brand Voice
+  speechsense-full-name: Yandex SpeechSense
   network-load-balancer-full-name: Yandex Network Load Balancer
   message-queue-full-name: Yandex Message Queue
   cloud-apps-full-name: Yandex Cloud Apps
@@ -69,6 +70,7 @@ default:
   cloud-desktop-full-name: Yandex Cloud Desktop
   marketplace-full-name: Yandex Cloud Marketplace
   captcha-full-name: Yandex SmartCaptcha
+  sws-full-name: Yandex Smart Web Security
   search-api-full-name: Yandex Search API
   backup-full-name: Yandex Cloud Backup
   metastore-full-name: Hive Metastore
@@ -118,6 +120,7 @@ default:
   brand-voice-premium-name: SpeechKit Brand Voice Premium
   brand-voice-cc-name: SpeechKit Brand Voice Call Center
   sk-hybrid-name: SpeechKit Hybrid
+  speechsense-name: SpeechSense
   network-load-balancer-name: Network Load Balancer
   message-queue-name: Message Queue
   cloud-apps-name: Cloud Apps
@@ -156,6 +159,7 @@ default:
   load-testing-name: Load Testing
   cloud-desktop-name: Cloud Desktop
   captcha-name: SmartCaptcha
+  sws-name: Smart Web Security
   yt-name: YT
   ytsaurus-name: YTsaurus
   eventhub-name: EventHub
@@ -683,6 +687,7 @@ default:
   link-datalens-main: https://datalens.yandex.ru
   link-datalens-settings: https://datalens.yandex.ru/settings
   link-datasphere-main: https://datasphere.yandex.ru/
+  link-speechsense: https://speechsense.cloud.yandex.ru/
   link-docs: https://cloud.yandex.ru/docs
   link-org-main: https://org.cloud.yandex.ru/
   link-org-acl: https://org.cloud.yandex.ru/acl
@@ -3913,6 +3918,7 @@ default:
         access-denied-msg: Сообщение для пользователей без доступа
         allow-external: Разрешить доступ внешним сотрудникам
         column-title--create: Создание задач
+        column-title--grant: Настройки очереди
         column-title--read: Просмотр задач
         column-title--write: Редактирование задач
         issues-access: Права доступа
@@ -4677,6 +4683,7 @@ default:
         appearance-title: Интерфейс
         boards: Доски задач
         issue-lists-menu-item: Задачи
+        new-ui: Новый интерфейс
         start-page-title: Стартовая страница
         templates-settings: Управление шаблонами
       ui_components_new-process_ProcessTypeStep:
@@ -4759,6 +4766,7 @@ default:
         menu-item-autoactions: Автодействия
         menu-item-calendars: Графики работы
         menu-item-forms: Интеграция форм
+        menu-item-permissions: Права доступа
         menu-item-timetracking: Учет времени
         menu-item-types: Типы задач
         menu-item-workflows: Рабочие процессы
@@ -6158,13 +6166,12 @@ default:
         registry:
           button_change-scan-settings: Изменить настройки
           button_select-repositories: Выбрать репозитории
-          field_scan-on-upload: Сканировать образы при загрузке
           label_all-repositories: Все репозитории
           label_only-selected: Только выбранные
-          label_repositories: Репозитории
           label_vulnerabilities-scanner: Сканер уязвимостей
       data-streams:
         label_data-introspection: Просмотр данных
+        label_data-stream: Поток данных
         label_database: База данных
       data-transfer:
         button_create-endpoint: Создать эндпоинт
@@ -6412,11 +6419,14 @@ default:
         button_add-alias: Добавить алиас
         button_add-device: Добавить устройство
         button_add-label: Добавить метку
+        button_add-yds-export: Добавить экспорт
         button_create-broker: Создать брокер
         button_create-registry: Создать реестр
         label_brokers: Брокеры
         label_devices: Устройства
+        label_mqtt-topic-filter: Фильтр MQTT-топиков
         label_registries: Реестры
+        label_yds-exports: Экспорт в Data Stream
       k8s:
         cluster:
           marketplace:
@@ -6609,11 +6619,16 @@ default:
         label_section-secrets: Секреты
       logging:
         button_create-group: Создать группу
+        button_create-sink: Создать приемник
+        button_execute: Выполнить
         column_header-level: Уровень
         column_header-message: Сообщение
         column_header-time: Время
+        label_export: Выгрузить лог
         label_loggroup: Лог-группа
         label_retention-period: Срок хранения логов
+        label_sink-destination: Назначение
+        label_sinks: Приемники логов
       marketplace-v2:
         button_use: Использовать
       mdb:
@@ -7089,6 +7104,7 @@ default:
             button_create-function: Создать функцию
             button_create-trigger: Создать триггер
             button_update-trigger: Сохранить
+            field_broker: Брокер
             field_bucket: Бакет
             field_container-registry: Реестр
             field_cron-expression: Cron-выражение
@@ -7125,6 +7141,7 @@ default:
             label_data-streams: Data Streams
             label_function: Функция
             label_iot: IoT Core (устройство)
+            label_iot-broker: IoT Core (брокер)
             label_logging: Cloud Logging
             label_mail: Почта
             label_storage: Object Storage
@@ -7159,10 +7176,12 @@ default:
         switch_lang: Язык и регион
       smartcaptcha:
         button_captcha-settings-create: Создать капчу
+        label_additional-challenge: Дополнительное задание
         label_allowed-sites: Список сайтов
         label_captcha-settings-list: Список капч
         label_client-key: Ключ клиента
         label_complexity: Сложность
+        label_main-challenge: Основное задание
         label_section-customization: Настройка внешнего вида
         label_section-style: Внешний вид
         label_server-key: Ключ сервера

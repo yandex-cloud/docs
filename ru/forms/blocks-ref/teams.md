@@ -1,3 +1,8 @@
+---
+title: "Команды"
+description: "В этом блоке пользователь может указать команду в {{ org-full-name }}. При вводе текста в поле будет работать подсказка по названиям команд."
+---
+
 # Команды
 
 {% include [staff-question-warning](../../_includes/forms/staff-question-warning.md) %}

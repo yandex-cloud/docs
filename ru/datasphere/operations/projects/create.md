@@ -1,3 +1,8 @@
+---
+title: "Как создать пустой проект"
+description: "Следуя данной инструкции, вы сможете создать пустой проект."
+---
+
 # Создать пустой проект
 
 {% include [include](../../../_includes/datasphere/ui-create-project.md) %}

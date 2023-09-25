@@ -1,3 +1,8 @@
+---
+title: "Как начать работать с {{ mes-name }}"
+description: "Следуя данной инструкции, вы сможете начать работать с {{ mes-name }}."
+---
+
 # Как начать работать с {{ mes-name }}
 
 {% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}

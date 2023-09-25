@@ -1,0 +1,1 @@
+To activate {{ sws-name }}, [request access to the service from the support team]({{ link-console-support }}/create-ticket). You can also request access from the [management console]({{ link-console-main }}) by selecting **{{ sws-name }}** in the service list.

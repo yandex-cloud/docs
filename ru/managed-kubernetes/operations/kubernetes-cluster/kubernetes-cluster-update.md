@@ -1,3 +1,8 @@
+---
+title: "Как измененить кластер {{ managed-k8s-name }}"
+description: "Следуя данной инструкции, вы сможете измененить кластер {{ managed-k8s-name }}."
+---
+
 # Изменение кластера {{ managed-k8s-name }}
 
 {% include [yc-cluster-list](../../../_includes/managed-kubernetes/cluster-list.md) %}

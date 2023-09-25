@@ -1,3 +1,8 @@
+---
+title: "Список поддерживаемых языков"
+description: "Получение списка направлений перевода, поддерживаемых сервисом."
+---
+
 # Список поддерживаемых языков
 
 {% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}

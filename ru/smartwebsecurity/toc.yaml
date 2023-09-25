@@ -1,0 +1,51 @@
+title: Yandex Smart Web Security
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Управление профилями
+        items:
+          - name: Создать профиль
+            href: operations/profile-create.md
+          - name: Изменить основные параметры профиля
+            href: operations/profile-update.md
+          - name: Удалить профиль
+            href: operations/profile-delete.md
+      - name: Управление правилами
+        items:
+          - name: Добавить правило
+            href: operations/rule-add.md
+          - name: Изменить правило
+            href: operations/rule-update.md
+          - name: Удалить правило
+            href: operations/rule-delete.md
+      - name: Управление подключениями к хостам
+        items:
+          - name: Подключить профиль к хосту
+            href: operations/host-connect.md
+          - name: Изменить параметры подключения
+            href: operations/host-update.md
+          - name: Отключить профиль от хоста
+            href: operations/host-delete.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Профили безопасности
+        href: concepts/profiles.md
+      - name: Правила
+        href: concepts/rules.md
+      - name: Условия
+        href: concepts/conditions.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/smartwebsecurity

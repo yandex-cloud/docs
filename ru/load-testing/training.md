@@ -1,3 +1,8 @@
+---
+title: "Обучающие курсы по {{ load-testing-full-name }}"
+description: "В этом разделе собраны обучающие курсы по {{ load-testing-full-name }}."
+---
+
 # Обучающие курсы по {{ load-testing-full-name }}
 
 {% include [training-intro](../_includes/training/training-intro.md) %}

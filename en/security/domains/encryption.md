@@ -9,17 +9,30 @@
 
 By default, all user data at rest is encrypted at the {{ yandex-cloud }} level. Encryption at the {{ yandex-cloud }} level implements one of the best practices for protecting user data and is performed using {{ yandex-cloud }} keys.
 
-If your corporate information security policy sets specific key size and rotation frequency requirements, you can encrypt data with your own keys. To do this, you can use the {{ kms-short-name }} service and its integration with other {{ yandex-cloud }} services or implement data plane encryption completely on your own.
+If your corporate information security policy sets specific key size and rotation frequency requirements, you can encrypt data with your own keys. To do this, you can use {{ kms-short-name }} and its integration with other {{ yandex-cloud }} services or implement data plane encryption all by yourself.
 
 {{ yandex-cloud }} provides data-at-rest encryption for the following services:
 
+
+* [{{ compute-full-name }}](#compute-at-rest)
+
+
 * [{{ objstorage-full-name }}](#storage-at-rest)
-* [{{ managed-k8s-name }}](#kubernetes)
+* [{{ managed-k8s-full-name }}](#kubernetes)
 
-### {{ objstorage-full-name }} {#storage-at-rest}
 
-To protect critical data in [{{ objstorage-full-name }}](../../storage/), we recommend using bucket server-side encryption with [{{ kms-full-name }}](../../kms/) keys. This encryption method protects against accidental or intentional publication of the bucket content on the web. For more information, see [{#T}](../../storage/concepts/encryption.md) in the {{ objstorage-name }} documentation.
+### {{ compute-name }} {#compute-at-rest}
 
+To protect critical data in [{{ compute-name }}](../../compute/), we recommend encrypting [disks](../../compute/concepts/disk.md) and [disk snapshots](../../compute/concepts/snapshot.md) with [{{ kms-name }}](../../kms/) keys.
+
+For more information, see [{#T}](../../compute/concepts/encryption.md).
+
+
+### {{ objstorage-name }} {#storage-at-rest}
+
+To protect critical data in [{{ objstorage-name }}](../../storage/), we recommend using bucket server-side encryption with [{{ kms-name }}](../../kms/) keys. This encryption method protects against accidental or intentional publication of the bucket content on the web.
+
+For more information, see [{#T}](../../storage/concepts/encryption.md).
 
 ### {{ managed-k8s-name }} {#kubernetes}
 
@@ -38,22 +51,22 @@ When working with (or connecting to) {{ yandex-cloud }} APIs, make sure to use T
 {{ yandex-cloud }} allows you to use your own TLS certificates for the following services:
 - [{{ objstorage-full-name }}](#storage-in-transit)
 - [{{ alb-full-name }}](#load-balancer)
-- [{{ vpc-name }} (VPC)](#vpc)
+- [{{ vpc-full-name }} (VPC)](#vpc)
 - [{{ api-gw-full-name }}](#api-gw)
 - [{{ cdn-full-name }}](#cdn)
 
-### {{ objstorage-full-name }} {#storage-in-transit}
+### {{ objstorage-name }} {#storage-in-transit}
 
-[{{ objstorage-full-name }}](../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your Object Storage site requires HTTPS access. Additionally, you can use integration with [{{ certificate-manager-full-name }}](../../certificate-manager/). For details, see the following guides in the Object Storage documentation:
+[{{ objstorage-name }}](../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your Object Storage site requires HTTPS access. Additionally, you can use integration with [{{ certificate-manager-full-name }}](../../certificate-manager/). See the following guides in the Object Storage documentation:
 
 - [{#T}](../../storage/operations/hosting/certificate.md)
 - [{#T}](../../storage/concepts/bucket.md#bucket-https)
 
 When using Object Storage, be sure that support for TLS protocols below version 1.2 is disabled at the client level. Use the bucket policy [aws:securetransport](../../storage/s3/api-ref/policy/conditions.md) to ensure that running without TLS is disabled for the bucket.
 
-### {{ alb-full-name }} {#load-balancer}
+### {{ alb-name }} {#load-balancer}
 
-[{{ alb-full-name }}](../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. For details, see [how to set up the listener](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) in the Application Load Balancer documentation.
+[{{ alb-name }}](../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. See [how to set up the listener](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) in the Application Load Balancer documentation.
 
 ### {{ vpc-name }} (VPC) {#vpc}
 
@@ -68,29 +81,19 @@ Please note: [{{ interconnect-full-name }}](../../interconnect/index.yaml) does 
 
 
 
-### {{ api-gw-full-name }} {#api-gw}
+### {{ api-gw-name }} {#api-gw}
 
 [{{ api-gw-full-name }}](../../api-gateway/) supports secure connections over HTTPS. You can upload your own security certificate to access your [API gateway](../../api-gateway/concepts/) over HTTPS.
 
-### {{ cdn-full-name }} {#cdn}
+### {{ cdn-name }} {#cdn}
 
-[{{ cdn-full-name }}](../../cdn/) supports secure connections over HTTPS. You can upload your own security certificate to access your [CDN resource](../../cdn/concepts/resource.md) over HTTPS.
+[{{ cdn-name }}](../../cdn/) supports secure connections over HTTPS. You can upload your own security certificate to access your [CDN resource](../../cdn/concepts/resource.md) over HTTPS.
 
 
 
 ## Providing encryption on your own {#self-encryption}
 
 When using services with no built-in encryption, it's the customer's responsibility to ensure that critical data is encrypted.
-
-
-
-### {{ compute-full-name }} {#self-encryption-compute}
-
-If disk encryption is mandatory under regulatory requirements, place your application files on a VM's secondary disk (not the boot disk) and configure full disk encryption for it.
-
-![](../../_assets/overview/solution-library-icon.svg)[Solution: VM disk encryption using {{ kms-short-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
-
-
 
 ### Managed Services for Databases {#mdb}
 
@@ -157,7 +160,7 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
 
 ## Managing secrets {#secrets}
 
-Don't use critical data and access secrets (such as authentication tokens, API keys, and encryption keys) explicitly in the code, cloud object names and descriptions, VM metadata, and so on. Instead, use secret storage services like {{ lockbox-name }} or HashiCorp Vault.
+Do not use critical data and access secrets (such as authentication tokens, API keys, and encryption keys) explicitly in the code, cloud object names and descriptions, VM metadata, and so on. Instead, use secret storage services like {{ lockbox-name }} or HashiCorp Vault.
 
 ### {{ lockbox-name }} {#lockbox}
 
@@ -191,7 +194,7 @@ To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the 
 
 ### Transferring secrets to a VM using {{ TF }} and {{ kms-short-name }} {#secrets-tf-kms}
 
-{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, such as to transfer secrets to a VM in encrypted form. For details, see the instructions in the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/terraform-secret.md). It's not safe to explicitly pass secrets through environment variables, because they are displayed in the VM properties.
+{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, such as to transfer secrets to a VM in encrypted form. See the instructions in the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/terraform-secret.md). It is not safe to explicitly pass secrets through environment variables, because they are displayed in the VM properties.
 
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Encrypting secrets in {{ TF }} to transfer them to a VM from a Container Optimized Image](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI)

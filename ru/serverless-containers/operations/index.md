@@ -37,6 +37,7 @@
 * [Добавить переменные окружения](./environment-variables-add.md)
 * [{#T}](./network-add.md)
 * [{#T}](./lockbox-secret-transmit.md)
+* [Смонтировать бакеты](./mount-bucket.md)
 * [Добавить метку](./label-add.md)
 * [Изменить метку](./label-update.md)
 * [Удалить метку](./label-delete.md)
@@ -56,14 +57,14 @@
 * [Создать триггер для {{ objstorage-name }}](./os-trigger-create.md)
 * [Создать триггер для {{ container-registry-name }}](./cr-trigger-create.md)
 * [Создать триггер для {{ cloud-logging-name }}](./cloud-logging-trigger-create.md)
-* [Создать триггер для {{ iot-name }}](./iot-core-trigger-create.md)
+* [Создать триггер для {{ iot-name }} (устройство)](./iot-core-trigger-create.md)
+* [Создать триггер для {{ iot-name }} (брокер)](./iot-core-trigger-broker-create.md)
 * [Создать триггер для бюджетов](./budget-trigger-create.md)
 * [Создать триггер для {{ yds-name }}](./data-streams-trigger-create.md)
 * [Создать триггер для почты](./mail-trigger-create.md)
 
 ## Управление триггером {#manage-trigger}
 
-* [Изменить имя](./trigger-name-update.md)
-* [Изменить описание](./trigger-description-update.md)
+* [Изменить триггер](./trigger-update.md)
 * [Посмотреть графики мониторинга](./trigger-monitoring.md)
 * [Удалить триггер](./trigger-delete.md)

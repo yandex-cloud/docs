@@ -9,6 +9,7 @@ description: "Из статьи вы узнаете как работать с {
 * [{#T}](subscribe.md)
 * [{#T}](logs.md)
 * [{#T}](trigger-create.md)
+* [{#T}](trigger-broker-create.md)
 
 ## Управление реестрами {#registry}
 

@@ -59,6 +59,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ resmgr-full-name }}](../../resource-manager/index.yaml) | Cloud resource management |
 | [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications |
 | [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | System user identification |
+| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | {{ preview-stage }} Service for protection against DDoS attacks at the OSI model L7 application level |
 | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/index.yaml) | Speech recognition and synthesis technologies |
 | [{{ tracker-full-name }}](../../tracker/index.yaml) | Service for business collaboration and workflows |
 | [{{ translate-full-name }}](../../translate/index.yaml) | Machine translation service |

@@ -18,6 +18,7 @@ description: "Расширение x-yc-apigateway позволяет задат
  `service_account_id` | `string`          | Идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого API-шлюз будет выполнять операции.     
  `validator`          | `ValidatorObject` | [Валидатор HTTP-запросов и ответов](validator.md#validator_object) или ссылка на него. Может быть переопределен на уровне конкретной операции. 
  `cors`               | `CorsRuleObject`  | [Правило обработки preflight-запросов CORS](cors.md#corsrule_object) или ссылка на него. Может быть переопределено на уровне конкретного пути. 
+ `rateLimit`          | `RateLimitObject` | [Ограничение скорости запросов](rate-limit.md#rate_limit_object) или ссылка на него. Может быть переопределено на уровне конкретного пути и/или операции. 
 
 ### Спецификация расширения {#tl-spec}
 
@@ -26,6 +27,7 @@ x-yc-apigateway:
   service_account_id: <ID сервисного аккаунта>
   validator: <ValidatorObject или ссылка на него>
   cors: <CorsRuleObject или ссылка на него>
+  rateLimit: <RateLimitObject или ссылка на него>
 ```
 
 ## Расширение x-yc-apigateway-integration {#integration}
@@ -63,3 +65,46 @@ x-yc-apigateway:
  
 Все типы поддерживают подстановку параметров — замену всех ключей на соответствующее значение. Ключ должен быть определен как параметр соответствующей операции (допускаются все типы параметров, определенные в [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification) — `path`, `query`, `header`, `cookie`).
 Подстановка параметров производится только в некоторых значениях, в зависимости от типа расширения.
+
+## Расширение components:x-yc-apigateway-integrations
+
+Расширение `x-yc-apigateway-integrations` позволяет указывать интеграцию в стандартной секции [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object). На определенные таким образом интеграции можно ссылаться с помощью параметра `$ref` в расширении `x-yc-apigateway-integration`.
+
+### Спецификация расширения
+
+Пример спецификации расширения:
+```yaml
+openapi: 3.0.0
+info:
+  title: Sample API
+  version: 1.0.0
+
+x-yc-apigateway:
+  variables:
+    handler:
+      default: "#/components/x-yc-apigateway-integrations/BaseGetDefault"
+      enum:
+        - "#/components/x-yc-apigateway-integrations/BaseGetDefault"
+        - "#/components/x-yc-apigateway-integrations/BaseGetUnimplemented"
+
+paths:
+  /:
+    get:
+      x-yc-apigateway-integration:
+        $ref: "${var.handler}"
+
+components:
+  x-yc-apigateway-integrations:
+    BaseGetDefault:
+      type: cloud_functions
+      function_id: b095c95icnvbuf4v755l
+      tag: "$latest"
+      service_account_id: ajehfe84hhlaq4n59q1
+    BaseGetUnimplemented:
+      type: dummy
+      content:
+        '*': Sorry, endpoint is not implemented yet.
+      http_code: 501
+      http_headers:
+        Content-Type: text/plain
+```

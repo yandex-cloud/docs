@@ -9,17 +9,30 @@
 
 По умолчанию все пользовательские данные в состоянии покоя (at rest) зашифрованы на уровне {{ yandex-cloud }}. Шифрование на уровне {{ yandex-cloud }} является реализации одной из лучших практик по защите данных пользователей и выполняется на ключах {{ yandex-cloud }}.
 
-Если ваша корпоративная политика информационной безопасности предъявляет требования к длине ключа или частоте ротации ключей, вы можете шифровать данные собственными ключами. Для этого вы можете использовать сервис {{ kms-short-name }} и его интеграцию с другими сервисами {{ yandex-cloud }}, либо реализовать шифрование на data plane-уровне полностью самостоятельно.
+Если ваша корпоративная политика информационной безопасности предъявляет требования к длине ключа или частоте ротации ключей, вы можете шифровать данные собственными ключами. Для этого вы можете использовать сервис {{ kms-short-name }} и его интеграцию с другими сервисами {{ yandex-cloud }}, либо реализовать шифрование на уровне data plane полностью самостоятельно.
 
-{{ yandex-cloud }} предоставляет функции шифрования в состоянии покоя (at rest) для следующих сервисов:
+{{ yandex-cloud }} предоставляет функциональность шифрования в состоянии покоя (at rest) для следующих сервисов:
+
+
+* [{{ compute-full-name }}](#compute-at-rest)
+
 
 * [{{ objstorage-full-name }}](#storage-at-rest)
-* [{{ managed-k8s-name }}](#kubernetes)
+* [{{ managed-k8s-full-name }}](#kubernetes)
 
-### {{ objstorage-full-name }} {#storage-at-rest}
 
-Для защиты критичных данных в [{{ objstorage-full-name }}](../../storage/) рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей [{{ kms-full-name }}](../../kms/) (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее см. в разделе [{#T}](../../storage/concepts/encryption.md) документации {{ objstorage-name }}.
+### {{ compute-name }} {#compute-at-rest}
 
+Для защиты критичных данных в [{{ compute-name }}](../../compute/) рекомендуется использовать шифрование [дисков](../../compute/concepts/disk.md) и [снимков дисков](../../compute/concepts/snapshot.md) с помощью ключей [{{ kms-name }}](../../kms/).
+
+Подробнее см. в разделе [{#T}](../../compute/concepts/encryption.md).
+
+
+### {{ objstorage-name }} {#storage-at-rest}
+
+Для защиты критичных данных в [{{ objstorage-name }}](../../storage/) рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей [{{ kms-name }}](../../kms/) (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. 
+
+Подробнее см. в разделе [{#T}](../../storage/concepts/encryption.md).
 
 ### {{ managed-k8s-name }} {#kubernetes}
 
@@ -38,22 +51,22 @@
 {{ yandex-cloud }} предоставляет возможность использования собственных TLS-сертификатов для следующих сервисов:
 - [{{ objstorage-full-name }}](#storage-in-transit)
 - [{{ alb-full-name }}](#load-balancer)
-- [{{ vpc-name }} (VPC)](#vpc)
+- [{{ vpc-full-name }} (VPC)](#vpc)
 - [{{ api-gw-full-name }}](#api-gw)
 - [{{ cdn-full-name }}](#cdn)
 
-### {{ objstorage-full-name }} {#storage-in-transit}
+### {{ objstorage-name }} {#storage-in-transit}
 
-[{{ objstorage-full-name }}](../../storage/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности, если к вашему сайту в Object Storage требуется доступ по протоколу HTTPS. Также доступна интеграция с сервисом [{{ certificate-manager-full-name }}](../../certificate-manager/). См. инструкции в документации Object Storage:
+[{{ objstorage-name }}](../../storage/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности, если к вашему сайту в{{ objstorage-name }} требуется доступ по протоколу HTTPS. Также доступна интеграция с сервисом [{{ certificate-manager-full-name }}](../../certificate-manager/). См. инструкции в документации {{ objstorage-name }}:
 
 - [{#T}](../../storage/operations/hosting/certificate.md)
 - [{#T}](../../storage/concepts/bucket.md#bucket-https)
 
 При работе с сервисом Object Storage необходимо убедиться, что в клиенте отключена поддержка протоколов TLS ниже версии 1.2. При помощи политики (bucket policy) [aws:securetransport](../../storage/s3/api-ref/policy/conditions.md) необходимо проверить, что для бакета настроен запрет на работу без протокола TLS.
 
-### {{ alb-full-name }} {#load-balancer}
+### {{ alb-name }} {#load-balancer}
 
-Сервис [{{ alb-full-name }}](../../application-load-balancer/) поддерживает HTTPS-обработчик с загрузкой [сертификата](../../certificate-manager/concepts/imported-certificate.md) из {{certificate-manager-name}}. См. [описание настройки обработчика](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) в документации Application Load Balancer.
+Сервис [{{ alb-name }}](../../application-load-balancer/) поддерживает HTTPS-обработчик с загрузкой [сертификата](../../certificate-manager/concepts/imported-certificate.md) из {{certificate-manager-name}}. См. [описание настройки обработчика](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) в документации Application Load Balancer.
 
 ### {{ vpc-name }} (VPC) {#vpc}
 
@@ -68,29 +81,19 @@
 
 
 
-### {{ api-gw-full-name }} {#api-gw}
+### {{ api-gw-name }} {#api-gw}
 
 [{{ api-gw-full-name }}](../../api-gateway/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности для доступа к вашему [API-шлюзу](../../api-gateway/concepts/) по протоколу HTTPS.
 
-### {{ cdn-full-name }} {#cdn}
+### {{ cdn-name }} {#cdn}
 
-[{{ cdn-full-name }}](../../cdn/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности для доступа к вашему [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS.
+[{{ cdn-name }}](../../cdn/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности для доступа к вашему [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS.
 
 
 
 ## Самостоятельное шифрование {#self-encryption}
 
 При использовании сервисов, которые не имеют встроенных функций шифрования, шифрование критичных данных является ответственностью клиента.
-
-
-
-### {{ compute-full-name }} {#self-encryption-compute}
-
-Если согласно требованиям регуляторов необходимо шифрование диска, разместите файлы приложения на дополнительном (не загрузочном) диске виртуальной машины и настройте для этого диска полное шифрование (full disk encryption).
-
-![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование диска ВМ с помощью {{ kms-short-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
-
-
 
 ### Managed Services for Databases {#mdb}
 

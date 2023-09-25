@@ -1,12 +1,14 @@
 # Триггер для {{ iot-short-name }}, который передает сообщения в функцию {{ sf-name }}
 
-[Триггер](../trigger/) для {{ iot-short-name }} предназначен для управления сообщениями, которыми обмениваются устройства и реестры. Он создается для топиков: принимает из них копии сообщений и передает в функцию {{ sf-name }} для обработки.
+[Триггер](../trigger/) для {{ iot-short-name }} предназначен для управления сообщениями, которыми обмениваются устройства, реестры и брокеры. Он создается для топиков: принимает из них копии сообщений и передает в функцию {{ sf-name }} для обработки.
 
 {% include [trigger](../../../_includes/iot-core/trigger.md) %}
  
 Триггеру для {{ iot-short-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова функции. 
 
-О том, как создать триггер для {{ iot-short-name }}, читайте в инструкции [{#T}](../../operations/trigger/iot-core-trigger-create.md).
+О том, как создать триггер для {{ iot-short-name }}, читайте в инструкциях [{#T}](../../operations/trigger/iot-core-trigger-create.md) и [{#T}](../../operations/trigger/iot-core-trigger-broker-create.md).
+
+{% include [batching-messages](../../../_includes/functions/batching-messages.md) %}
 
 ## Роли, необходимые для корректной работы триггера для {{ iot-short-name }} {#roles}
 
@@ -17,9 +19,15 @@
 
 ## Формат сообщения от триггера {{ iot-short-name }} {#format}
 
-Перед тем как передать копию сообщения в функцию, триггер приводит ее к следующему формату:
+Перед тем как передать копию сообщения в функцию, триггер приводит ее к указанному ниже формату.
+
+### Устройство {#device}
 
 {% include [iot-format](../../../_includes/functions/iot-format.md) %}
+
+### Брокер {#broker}
+
+{% include [iot-format](../../../_includes/functions/iot-format-broker.md) %}
 
 ## См. также {#see-also}
 

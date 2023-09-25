@@ -13,6 +13,13 @@
   1. Введите имя роутера.
   1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
   1. Введите имя хоста.
+
+  
+  1. (опционально) В поле **Профиль безопасности {{ sws-name }}** выберите [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-full-name }}.
+
+      Сервис {{ sws-name }} находится на [стадии Preview](../../overview/concepts/launch-stages.md).
+
+
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
   1. Введите **{{ ui-key.yacloud.common.name }}** маршрута.
   1. В поле **{{ ui-key.yacloud.alb.label_path }}** выберите одну из опций:
