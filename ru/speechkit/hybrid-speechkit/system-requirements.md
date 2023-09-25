@@ -1,3 +1,8 @@
+---
+title: "Системные требования"
+description: "Для установки {{ sk-hybrid-name }} вам необходим сервер с ОС Linux, который поддерживает Docker Engine. Список поддерживаемых ОС см. в официальной документации Docker."
+---
+
 # Системные требования
 
 {% include [system-requirements](../../_includes/speechkit/system-requirements.md) %}

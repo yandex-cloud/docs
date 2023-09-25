@@ -1,3 +1,8 @@
+---
+title: "Как управлять пользователями {{ ES }}"
+description: "Следуя данной инструкции, вы научитесь управлять пользователями {{ ES }}."
+---
+
 # Управление пользователями {{ ES }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

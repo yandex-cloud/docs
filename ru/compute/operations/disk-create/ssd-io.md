@@ -26,6 +26,11 @@
   1. Укажите тип диска `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-io-m3 }}`.
   1. Выберите нужный размер блока.
   1. Задайте нужный размер диска.
+
+  
+  1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
+
+
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
 - CLI

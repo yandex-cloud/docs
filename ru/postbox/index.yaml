@@ -14,7 +14,7 @@ meta:
 links:
   - title: Начало работы
     description: Узнайте, как начать работать с Yandex Cloud Postbox
-    href: quickstart/index
+    href: quickstart
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

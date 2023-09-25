@@ -1,3 +1,8 @@
+---
+title: "Как создать домен"
+description: "Следуя данной инструкции, вы сможете создать домен."
+---
+
 # Создать домен
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

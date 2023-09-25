@@ -1,4 +1,4 @@
-# Stacked area chart
+# Stacked area chart ![](../../_assets/datalens/area.svg)
 
 This chart shows how a measure changed over time. The area between the axis and the line is filled with colors, which shows the volume. If multiple data categories are displayed, they overlap. The top line represents all data.
 

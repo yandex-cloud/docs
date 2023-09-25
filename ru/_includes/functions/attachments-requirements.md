@@ -1,0 +1,1 @@
+Для сохранения вложений в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }} сервисному аккаунту необходима роль [storage.uploader](../../storage/security/index.md#storage-uploader).

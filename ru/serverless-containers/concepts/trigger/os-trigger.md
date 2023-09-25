@@ -8,6 +8,8 @@
 
 {% include [os-event](../../../_includes/functions/os-event.md) %}
 
+{% include [batching-events](../../../_includes/functions/batching-events.md) %}
+
 ## Роли, необходимые для корректной работы триггера для {{ objstorage-name }} {#roles}
 
 * Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor) и выше.

@@ -28,6 +28,11 @@ The size of a disk must be a multiple of 93 GB.
    1. Select `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}` as disk type.
    1. Select the desired block size.
    1. Specify the desired disk size.
+
+   
+   1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
+
+
    1. If required, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
 
       When creating a disk, you can select only one snapshot schedule. After the disk is created, you can add a few more schedules, if required, by following [this guide](../disk-control/configure-schedule.md#add-schedule).

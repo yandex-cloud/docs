@@ -1,4 +1,6 @@
 ---
+title: "Правила тарификации для {{ vision-name }}"
+description: "Сервис {{ vision-short-name }} предоставляет возможности для анализа изображений."
 editable: false
 ---
 
@@ -17,12 +19,6 @@ editable: false
 * Учитывается только выполненный анализ. С вас не снимут деньги, если сервер не работал или вы задали неправильную конфигурацию в запросе.
 
 Возможности [обнаружение лиц](concepts/face-detection/index.md) и [классификация изображений](concepts/classification/index.md) сейчас находятся на [стадии Preview](../overview/concepts/launch-stages), поэтому их использование не тарифицируется.
-
-{% note warning %}
-
-[Распознавание шаблонов](concepts/ocr/template-recognition.md) также находится на [стадии Preview](../overview/concepts/launch-stages) и не тарифицируется дополнительно, но его использование тарифицируется [по правилам для распознавания текста](#prices).
-
-{% endnote %}
 
 ## Цены {#prices}
 

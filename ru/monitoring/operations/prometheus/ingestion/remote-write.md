@@ -1,3 +1,8 @@
+---
+title: "Как записать метрики через Remote API"
+description: "Следуя данной инструкции, вы сможете записать метрики через Remote API."
+---
+
 # Запись метрик через Remote API
 
 {% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}

@@ -1,3 +1,8 @@
+---
+title: "Настройки {{ ES }}"
+description: "Для кластера {{ mes-name }} можно задать настройки, которые относятся к {{ ES }}."
+---
+
 # Настройки {{ ES }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

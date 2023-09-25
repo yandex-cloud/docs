@@ -1,0 +1,1 @@
+Данные, хранящиеся в `MATERIALIZED VIEW`, не переносятся. Для переноса данных из `MATERIALIZED VIEW` создайте обыкновенный `VIEW`, ссылающийся на переносимый `MATERIALIZED VIEW`.

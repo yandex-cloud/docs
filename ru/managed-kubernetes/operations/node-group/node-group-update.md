@@ -1,3 +1,8 @@
+---
+title: "Как изменить группу узлов"
+description: "Следуя данной инструкции, вы сможете изменить группу узлов."
+---
+
 # Изменение группы узлов
 
 {% include [yc-node-group-list](../../../_includes/managed-kubernetes/node-group-list.md) %}

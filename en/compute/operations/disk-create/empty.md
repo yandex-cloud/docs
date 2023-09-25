@@ -19,6 +19,11 @@ You can create an empty disk of the specified size.
    1. Select the desired disk type: `{{ ui-key.yacloud.compute.instances.create-disk.value_network-hdd }}`, `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`, `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-io-m3 }}`, or `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}`.
    1. Select the desired block size (the minimum chunk used to store data on the disk). By default, the block size of all created disks is 4 KB; however, this is not enough for disks larger than 8 TB.
    1. Specify the desired disk size. The maximum disk size depends on the specified block size.
+
+   
+   1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
+
+
    1. If required, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}

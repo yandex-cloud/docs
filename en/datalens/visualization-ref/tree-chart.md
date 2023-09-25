@@ -1,4 +1,4 @@
-# Tree chart
+# Tree chart ![](../../_assets/datalens/treemap.svg)
 
 A tree chart displays hierarchy data as a set of nested rectangles. Each hierarchy level corresponds to a dimension and is represented as a colored rectangle with nested rectangles. The size of each rectangle depends on the measure value: the higher the value, the larger the size. A chart doesn't take up much space on a dashboard even if there is a large amount of data.
 

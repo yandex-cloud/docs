@@ -51,19 +51,27 @@
     
     ```bash
     yc serverless trigger create mail \
-      --name <имя триггера> \
-      --invoke-function-id <идентификатор функции> \
-      --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
+      --name <имя_триггера> \
+      --batch-size <размер_группы> \
+      --batch-cutoff <максимальное_время_ожидания> \
+      --attachements-bucket <имя_бакета> \
+      --attachements-service-account-id <идентификатор_сервисного_аккаунта> \
+      --invoke-function-id <идентификатор_функции> \
+      --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
       --retry-interval 10s \
-      --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
-      --dlq-service-account-id <идентификатор сервисного аккаунта>
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
   
 
     Где:
 
     * `--name` — имя триггера.
+    * `--batch-size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 до 10, значение по умолчанию — 1.
+    * `--batch-cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в функцию. Число сообщений при этом не превышает `batch-size`.
+
+    {% include [attachments-params](../../../_includes/functions/attachments-params.md) %}
     
     {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
@@ -78,6 +86,12 @@
     rule:
       mail:
         email: a1s8h8avgl**********-cho1****@serverless.yandexcloud.net
+        batch_settings:
+          size: "3"
+          cutoff: 20s
+        attachments_bucket:
+          bucket_id: bucket-for-attachments
+          service_account_id: ajejeis235ma********
         invoke_function:
           function_id: d4eofc7n0m**********
           function_tag: $latest

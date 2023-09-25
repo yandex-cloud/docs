@@ -210,7 +210,8 @@ A set of methods for managing InstanceGroup resources.
     "maxCreating": "string",
     "maxExpansion": "string",
     "startupDuration": "string",
-    "strategy": "string"
+    "strategy": "string",
+    "minimalAction": "string"
   },
   "allocationPolicy": {
     "zones": [
@@ -427,6 +428,7 @@ deployPolicy.<br>maxCreating | **string** (int64)<br><p>The maximum number of in
 deployPolicy.<br>maxExpansion | **string** (int64)<br><p>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If ``maxUnavailable`` is not specified or set to zero, ``maxExpansion`` must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 deployPolicy.<br>startupDuration | **string**<br><p>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See ``ManagedInstanceStatus`` for more information.</p> <p>Acceptable values are 0 seconds to 3600 seconds, inclusive.</p> 
 deployPolicy.<br>strategy | **string**<br><p>Affects the lifecycle of the instance during deployment.</p> <ul> <li>PROACTIVE: Instance Groups can forcefully stop a running instance. This is the default.</li> <li>OPPORTUNISTIC: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li> </ul> 
+deployPolicy.<br>minimalAction | **string**<br><p>If instance update requires a less disruptive action than ``minimalAction``, Instance Groups performs ``minimalAction`` to execute the update</p> <ul> <li>LIVE_UPDATE: Updating an instance without stopping. This is the default.</li> <li>RESTART: Updating an instance with restart: stopping and then starting the instance.</li> <li>RECREATE: Re-creating an instance: deleting an instance and creating a new one.</li> </ul> 
 allocationPolicy | **object**<br><p>Allocation policy of the instance group by zones and regions.</p> 
 allocationPolicy.<br>zones[] | **object**<br><p>Required. List of availability zones.</p> <p>The minimum number of elements is 1.</p> 
 allocationPolicy.<br>zones[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the instance resides.</p> 

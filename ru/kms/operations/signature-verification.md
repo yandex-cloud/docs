@@ -1,3 +1,8 @@
+---
+title: "Как создать электронную подпись"
+description: "Следуя данной инструкции, вы сможете создать электронную подпись."
+---
+
 # Электронная подпись и проверка подписи по хэшу данных
 
 {% note info %}
@@ -259,5 +264,11 @@
     {% endlist %}
 
 ## Проверьте электронную подпись {#verify-digital-signature}
- 
-{% include [signature-verification](../../_includes/kms/signature-verification.md) %}
+
+### Подпись на эллиптических кривых (ECDSA) {#ecdsa-verification}
+
+{% include [signature-verification-ecdsa](../../_includes/kms/signature-verification-ecdsa.md) %}
+
+### Подпись RSA {#rca-verification}
+
+{% include [signature-verification-rsa](../../_includes/kms/signature-verification-rsa.md) %}

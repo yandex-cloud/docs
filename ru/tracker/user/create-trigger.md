@@ -1,3 +1,8 @@
+---
+title: "Как создать триггер в {{ tracker-name }}"
+description: "Следуя данной инструкции, вы сможете создать триггер в {{ tracker-name }}."
+---
+
 # Создать триггер в {{ tracker-name }}
 
 {% note warning %}

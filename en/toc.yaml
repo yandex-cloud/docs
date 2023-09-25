@@ -110,6 +110,8 @@ items:
     href: security/index.yaml
   - name: SmartCaptcha
     href: smartcaptcha/index.yaml
+  - name: Smart Web Security
+    href: smartwebsecurity/index.yaml
   - name: '{{ speechkit-name }}'
     href: speechkit/index.yaml
   - name: Object Storage

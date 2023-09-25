@@ -1,3 +1,8 @@
+---
+title: "Как читать метрики через Remote API"
+description: "Следуя данной инструкции, вы сможете прочитать метрики через Remote API."
+---
+
 # Чтение метрик через Remote API
 
 {% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}

@@ -79,12 +79,14 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](disk-create/empty-disk-blocksize.md)
 * [{#T}](disk-create/nonreplicated.md)
 * [{#T}](disk-create/from-snapshot.md)
+* [{#T}](disk-create/from-image.md)
 
 ## Disk management {#disk-control}
 
 * [{#T}](disk-control/update.md)
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
+* [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/delete.md)
 
 ## Disk snapshots {#snapshots}
@@ -94,6 +96,7 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](snapshot-control/create-schedule.md)
 * [{#T}](snapshot-control/update-schedule.md)
 * [{#T}](snapshot-control/stop-and-start-schedule.md)
+* [{#T}](snapshot-control/snapshot-encrypt.md)
 * [{#T}](snapshot-control/delete-schedule.md)
 
 

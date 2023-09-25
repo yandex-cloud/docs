@@ -1,3 +1,8 @@
+---
+title: "Обучающие курсы по {{ kms-full-name }}"
+description: "В этом разделе собраны обучающие курсы по {{ kms-full-name }}."
+---
+
 # Обучающие курсы по {{ kms-full-name }}
 
 {% include [training-intro](../_includes/training/training-intro.md) %}

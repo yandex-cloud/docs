@@ -93,6 +93,14 @@ editable: false
 
 
 
+#### Модели {#prices-models}
+
+
+{% include [rub-model.md](../_pricing/datasphere/rub-model.md) %}
+
+
+
+
 ### Исходящий трафик {#prices-traffic}
 
 

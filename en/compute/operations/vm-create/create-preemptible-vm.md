@@ -31,18 +31,27 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the required disk size.
 
+      
+      * {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
+
+
          If you want to create a VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](create-from-disks.md):
          * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
          * Enter the disk name.
          * Select the [disk type](../../concepts/disk.md#disks_types).
          * Specify the desired block size.
          * Specify the desired disk size.
-         * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
-         * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}` as content.
-         * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
+
+      
+      * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
+
+
+      * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
+      * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}` as content.
+      * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
    
-1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
+   1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
 
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
       * In the window that opens, select a file store.
@@ -75,14 +84,14 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
          {% endnote %}
 
-   * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
-   * If required, grant access to the [serial console](../../operations/serial-console/index.md).
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
+      * If required, grant access to the [serial console](../../operations/serial-console/index.md).
 
-   {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
+      {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 
-1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-The VM appears in the list.
+   The VM appears in the list.
 
 - CLI
 
@@ -208,7 +217,7 @@ The VM appears in the list.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

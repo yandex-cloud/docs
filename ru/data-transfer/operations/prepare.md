@@ -86,7 +86,7 @@
 
 {% note info %}
 
-Данные, хранящиеся в `MATERIALIZED VIEW`, не переносятся. Для переноса данных из `MATERIALIZED VIEW` создайте обыкновенный `VIEW`, ссылающийся на переносимый `MATERIALIZED VIEW`.
+{% include [matview limits](../../_includes/data-transfer/pg-gp-matview.md) %}
 
 {% endnote %}
 
@@ -456,7 +456,9 @@
 
 При трансфере из {{ PG }} в любой тип приемника объекты типа [large objects](https://www.postgresql.org/docs/current/largeobjects.html) не переносятся.
 
-Данные, хранящиеся в `MATERIALIZED VIEW`, не переносятся. Для переноса данных из `MATERIALIZED VIEW` создайте обыкновенный `VIEW`, ссылающийся на переносимый `MATERIALIZED VIEW`.
+{% include [matview limits](../../_includes/data-transfer/pg-gp-matview.md) %}
+
+Если определение переносимого `VIEW` содержит вызов `VOLATILE` [функции]({{ pg.docs.org }}/current/xfunc-volatility.html), то трансфер читает данные из такого `VIEW` с уровнем изоляции `READ UNCOMMITTED`. Консистентность между данными в этом `VIEW` и данными других переносимых объектов не гарантируется. Чтение из `MATERIALIZED VIEW` в определении `VIEW` равносильно вызову `VOLATILE` функции.
 
 Большие объекты в [системе хранения TOAST](https://www.postgresql.org/docs/12/storage-toast.html) и данные с [типом bytea](https://www.postgresql.org/docs/12/datatype-binary.html) переносятся без ограничений.
 
@@ -1219,7 +1221,9 @@
 
 {% endlist %}
 
-Данные, хранящиеся в `MATERIALIZED VIEW`, не переносятся. Для переноса данных из `MATERIALIZED VIEW` создайте обыкновенный `VIEW`, ссылающийся на переносимый `MATERIALIZED VIEW`.
+{% include [matview limits](../../_includes/data-transfer/pg-gp-matview.md) %}
+
+Если определение переносимого `VIEW` содержит вызов `VOLATILE` [функции]({{ pg.docs.org }}/current/xfunc-volatility.html), то трансфер читает данные из такого `VIEW` с уровнем изоляции `READ UNCOMMITTED`. Консистентность между данными в этом `VIEW` и данными других переносимых объектов не гарантируется. Чтение из `MATERIALIZED VIEW` в определении `VIEW` равносильно вызову `VOLATILE` функции.
 
 
 ### Приемник {{ ydb-full-name }} {#target-ydb}

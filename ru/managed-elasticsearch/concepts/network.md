@@ -1,3 +1,8 @@
+---
+title: "Сеть в {{ mes-name }}"
+description: "При создании кластера вы можете задать сеть для самого кластера, задать подсети для каждого из хостов кластера, а такде запросить публичный доступ, чтобы подключаться к хостам кластера с ролью Data node извне {{ yandex-cloud }}."
+---
+
 # Сеть в {{ mes-name }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

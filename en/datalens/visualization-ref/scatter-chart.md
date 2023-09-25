@@ -1,4 +1,4 @@
-# Scatter chart
+# Scatter chart ![](../../_assets/datalens/scatter-chart.svg)
 
 A scatter chart shows the relationship between two values (dimensions or measures). Their values are represented as points. A scatter chart always has two axes: the values of one dimension or measure are plotted along the X-axis and those of the other along the Y-axis. A data point that links these two values is displayed at the intersection of the X and Y coordinates. These data points can be distributed along the X-axis evenly or unevenly, depending on specific data.
 

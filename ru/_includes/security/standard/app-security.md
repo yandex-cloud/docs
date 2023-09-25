@@ -33,18 +33,9 @@
 - Проверка в консоли управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит реестр с Docker-образами.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Выберите реестр или [создайте](../../../container-registry/operations/registry/registry-create.md) новый.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}** и укажите настройки сканирования:
-     * **{{ ui-key.yacloud.cr.registry.field_scan-on-upload }}** — включите автоматическое сканирование Docker-образов при загрузке в реестр.
-     * **{{ ui-key.yacloud.cr.registry.label_repositories }}** — выберите один из вариантов сканирования:
-       * **{{ ui-key.yacloud.cr.registry.label_all-repositories }}** — всех репозиториев реестра.
-       * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** — только выбранных из списка:
-         1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
-         1. Укажите репозитории из списка.
-         1. Нажмите кнопку **Сохранить**.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Выберите реестр в сервисе **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** и нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
+  1. Убедитесь, что сканирование Docker-образов при загрузке включено.
 
 {% endlist %}
 
@@ -63,19 +54,9 @@
 - Проверка в консоли управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит реестр с Docker-образами.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Выберите реестр или [создайте](../../../container-registry/operations/registry/registry-create.md) новый.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
-  1. В блоке **Сканирование Docker-образов при расписанию** нажмите **Добавить правило сканирования**.
-  1. Выберите `Сканировать` и один из вариантов сканирования:
-     * **{{ ui-key.yacloud.cr.registry.label_all-repositories }}** — сканировать все репозитории реестра.
-     * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** — сканировать только выбранные репозитории:
-       1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
-       1. Выберите репозитории из списка.
-       1. Нажмите кнопку **Сохранить**.
-  1. Укажите, как часто хотите сканировать Docker-образы.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Выберите реестр в сервисе **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** и нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
+  1. Убедитесь, что сканирование Docker-образов по расписанию включено и оно проходит не реже, чем раз в неделю.
 
 {% endlist %}
 
@@ -85,7 +66,7 @@
 
 #### 9.4 Контейнерные образы, используемые в продакшн-среде, имеют последнюю дату сканирования не позднее недели {#last-scan-date}
 
-Проверка Docker-образов, используемых в рабочей среде, с датой последнего сканирования не позднее недели гарантирует, что вы постоянно отслеживаете и обновляете меры безопасности, устраняя потенциальные уязвимости, которые могли возникнуть с момента последнего сканирования, а также помогает убедиться, что вы не развертываете контейнеры с недавно обнаруженными уязвимостями, тем самым повышая уровень защищенности. Автоматизировать этот процесс можно с помощью [настройки расписания](#periodic-scan) в сканере уязвимостей.
+Проверка Docker-образов, используемых в рабочей среде, с датой последнего сканирования не позднее недели гарантирует, что вы постоянно отслеживаете и обновляете меры безопасности, устраняя потенциальные уязвимости, которые могли возникнуть с момента последнего сканирования, а также помогает убедиться, что вы не разворачиваете контейнеры с недавно обнаруженными уязвимостями, тем самым повышая уровень защищенности. Автоматизировать этот процесс можно с помощью [настройки расписания](#periodic-scan) в Сканере уязвимостей.
 
 {% list tabs %}
 
@@ -143,7 +124,7 @@
 
 Артефакты в рамках пайплайна можно подписывать с помощью стороннего ПО [Cosign](https://github.com/sigstore/cosign) для подписи [артефактов](https://docs.sigstore.dev/signing/quickstart/), образов, [in-to-to аттестаций](https://github.com/in-toto/attestation/tree/main/spec/predicates), чтобы в дальнейшем загрузить их в {{ container-registry-full-name }}.
 
-#### 9.7 Артефакты проверяются при развертывании в {{ managed-k8s-full-name }} {#k8s-artifacts}
+#### 9.7 Выполняется проверка подлинности артефактов при развертывании {#artifacts-checked}
 
 Чтобы обеспечить надежность, безопасность и совместимость приложений в [{{ managed-k8s-name }}](../../../managed-kubernetes/), сервисе для автоматического масштабирования и развертывания приложений, необходимо свести к минимуму риск возникновения проблем, уязвимостей и сбоев во время развертывания и выполнения. Для этого используется [подпись и проверка подписи](../../../container-registry/tutorials/sign-with-cosign.md) в {{ managed-k8s-name }} с помощью Cosign и [Kyverno](../../../managed-kubernetes/operations/applications/kyverno.md).
 

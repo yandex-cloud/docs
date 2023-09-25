@@ -1,3 +1,8 @@
+---
+title: "Как удалить очередь в {{ tracker-name }}"
+description: "Следуя данной инструкции, вы сможете удалить очередь в {{ tracker-name }}."
+---
+
 # Удалить очередь в {{ tracker-name }}
 
 {% note warning %}

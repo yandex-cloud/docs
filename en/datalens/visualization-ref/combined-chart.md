@@ -1,4 +1,4 @@
-# Combined chart
+# Combined chart ![](../../_assets/datalens/combined.svg)
 
 A combined chart is a visualization type that consists of layers. Each layer is represented with its own chart type. You can combine [linear charts](line-chart.md), [column charts](column-chart.md), and [area charts](area-chart.md).
 

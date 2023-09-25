@@ -1,3 +1,8 @@
+---
+title: "Пошаговые инструкции для {{ mes-name }}"
+description: "В этом разделе собраны пошаговые инструкции для {{ mes-name }}."
+---
+
 # Пошаговые инструкции для {{ mes-name }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

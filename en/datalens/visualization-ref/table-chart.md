@@ -1,4 +1,4 @@
-# Table
+# Table ![](../../_assets/datalens/table-chart.svg)
 
 A table is a standard form of data representation with as many details as possible. It stores data as a two-dimensional array that consists of columns and rows. Table column headers show dimension or measure names, while cells contain their values. Each row is a set of cells with each column's value. A table may also contain a row with results.
 

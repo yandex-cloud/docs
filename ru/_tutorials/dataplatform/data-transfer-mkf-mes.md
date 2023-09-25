@@ -1,4 +1,4 @@
-# Поставка данных из очереди {{ KF }} {{ ES }} с помощью {{ data-transfer-full-name }}
+# Поставка данных из очереди {{ KF }} в {{ ES }} с помощью {{ data-transfer-full-name }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 

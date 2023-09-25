@@ -1,3 +1,8 @@
+---
+title: "Как изменить версии и редакции {{ ES }}"
+description: "Следуя данной инструкции, вы сможете изменить версии и редакции {{ ES }}."
+---
+
 # Изменение версии и редакции {{ ES }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

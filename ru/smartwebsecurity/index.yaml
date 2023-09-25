@@ -1,0 +1,31 @@
+title: Yandex Smart Web Security
+description:
+  - >-
+    <i>Сервис Yandex Smart Web Security находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a>.</i>
+  - >-
+    Yandex Smart Web Security позволяет защитить вашу инфраструктуру от
+    DDoS-атак и ботов на уровне приложений (L7).
+meta:
+  title: Yandex Smart Web Security
+links:
+  - title: Начало работы
+    description: Создайте первый профиль безопасности и подключите его к L7-балансировщику
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: >-
+      Узнайте про профили безопасности, базовые правила и правила smart
+      protection L7
+    href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

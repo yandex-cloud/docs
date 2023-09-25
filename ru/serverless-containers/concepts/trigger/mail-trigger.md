@@ -6,10 +6,13 @@
 
 О том, как создать триггер для почты, читайте в инструкции [{#T}](../../operations/mail-trigger-create.md).
 
+{% include [batching-messages](../../../_includes/functions/batching-messages.md) %}
+
 ## Роли, необходимые для корректной работы триггера для почты {#roles}
 
 * Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user), [editor](../../../iam/concepts/access-control/roles#editor) и выше.
 * Для работы триггера сервисному аккаунту необходима роль `serverless.containers.invoker` на контейнер, которую вызывает триггер.
+* {% include [attachments-requirements](../../../_includes/functions/attachments-requirements.md) %}
 
 ## Формат сообщения от триггера для почты {#format}
 

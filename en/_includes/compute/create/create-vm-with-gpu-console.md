@@ -1,6 +1,6 @@
 1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. In the top-right corner, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+1. At the top right, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
    * Enter a name and description for the VM. The naming requirements are as follows:
 
@@ -20,14 +20,18 @@
    {% include [gpu-os](../gpu-os.md) %}
 
 1. (Optional) Configure the boot disk under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**:
-   * Select [disk type](../../../compute/concepts/disk.md#disks_types).
+   * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
    * Specify the required disk size.
+
+
+   * {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
+
 
 
 1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../../compute/concepts/filesystem.md):
 
    * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
-   * In the window that opens, select a file store.
+   * In the window that opens, select the file storage.
    * Enter the device name.
    * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
 

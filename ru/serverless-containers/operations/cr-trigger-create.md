@@ -61,6 +61,8 @@
       --name <имя_триггера> \
       --registry-id <идентификатор_реестра> \
       --events 'create-image','delete-image','create-image-tag','delete-image-tag' \
+      --batch-size <размер_группы> \
+      --batch-cutoff <максимальное_время_ожидания> \
       --invoke-container-id <идентификатор_контейнера> \
       --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
@@ -75,6 +77,8 @@
     * `--name` — имя триггера.
     * `--registry-id` — [идентификатор реестра](../../container-registry/operations/registry/registry-list.md).
     * `--events` — [события](../concepts/trigger/cr-trigger.md#event), после наступления которых триггер запускается.
+
+    {% include [batch-settings-events](../../_includes/functions/batch-settings-events.md) %}
 
     {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -94,6 +98,9 @@
         - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
         - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
         registry_id: crtlds4tdfg12kil77**********
+        batch_settings:
+          size: "3"
+          cutoff: 20s
         invoke_container:
           container_id: bba5jb38o8**********
           service_account_id: aje3932acd**********

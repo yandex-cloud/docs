@@ -85,7 +85,17 @@ Snapshots are replicated across all availability zones, which allows you to migr
 
 Sometimes, you may want to restore a disk to a specific state on a regular basis, for instance, when you need to attach the same boot drive to every new VM. In this case, you can upload a disk [image](image.md) to {{ compute-name }}, which will allow you to create disks faster than you would do it from snapshots. Images are also automatically replicated to multiple availability zones.
 
+{% include [boot-disk-recover](../../_includes/compute/boot-disk-recover.md) %}
+
 For more information on backing up and restoring VMs, see [{#T}](backups.md).
+
+
+## Encrypting disks {#encryption}
+
+To protect critical data in {{ compute-name }}, we recommend encrypting disks with [{{ kms-full-name }}](../../kms/) keys.
+
+For more information, see [{#T}](encryption.md).
+
 
 #### See also {#see-also}
 

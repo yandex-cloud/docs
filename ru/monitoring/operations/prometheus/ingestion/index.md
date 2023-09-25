@@ -1,3 +1,8 @@
+---
+title: "Как записать метрики"
+description: "Следуя данной инструкции, вы сможете записать метрики."
+---
+
 # Запись метрик
 
 {% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}

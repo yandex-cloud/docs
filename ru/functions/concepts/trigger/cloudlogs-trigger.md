@@ -1,3 +1,8 @@
+---
+title: "Триггер для {{ cloud-logs-name }}"
+description: "В данной статье описаны особенности триггеров для {{ cloud-logs-name }}."
+---
+
 # Триггер для {{ cloud-logs-name }}
 
 {% note alert %}

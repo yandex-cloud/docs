@@ -6,6 +6,8 @@
 
 {% include [cr-event](cr-event.md) %}
 
+{% include [batching-events](batching-events.md) %}
+
 ## Роли, необходимые для корректной работы триггера для {{ container-registry-name }} {#roles}
 
 * Для создания триггера вам необходимы:

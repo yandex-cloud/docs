@@ -2,6 +2,8 @@
 
 Значение поля `event_type` (_тип события_) аудитного лога уровня сервисов (Data Plane) определяется сервисом-источником события.
 
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
+
 Общий вид значения:
 
 ```text

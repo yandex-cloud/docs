@@ -1,3 +1,8 @@
+---
+title: "Как подключить {{ dataproc-name }} к {{ metastore-name }}"
+description: "Следуя данной инструкции, вы сможете подключить {{ dataproc-name }} к {{ metastore-name }}."
+---
+
 # Подключение {{ dataproc-name }} к {{ metastore-name }}
 
 {% note info %}

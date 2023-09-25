@@ -23,6 +23,8 @@ items:
         href: concepts/version.md
       - name: Тариф
         href: concepts/tariff.md
+      - name: Подписка
+        href: concepts/subscription.md
       - name: Требования к продуктам Marketplace
         expanded: true
         items:
@@ -49,7 +51,45 @@ items:
       - name: gRPC (англ.)
         items:
           - name: Overview
-            href: api-ref/grpc/index.md
+            href: metering/api-ref/grpc/index.md
           - name: ImageProductUsageService
-            href: api-ref/grpc/image_product_usage_service.md
+            href: metering/api-ref/grpc/image_product_usage_service.md
+  - name: Справочник License Manager API
+    items:
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: license-manager/api-ref/grpc/index.md
+          - name: InstanceService
+            href: license-manager/api-ref/grpc/instance_service.md
+          - name: LockService
+            href: license-manager/api-ref/grpc/lock_service.md
+          - name: OperationService
+            href: license-manager/api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: license-manager/api-ref/index.md
+          - name: Instance
+            items:
+              - name: Overview
+                href: license-manager/api-ref/Instance/index.md
+              - name: get
+                href: license-manager/api-ref/Instance/get.md
+              - name: list
+                href: license-manager/api-ref/Instance/list.md
+          - name: Lock
+            items:
+              - name: Overview
+                href: license-manager/api-ref/Lock/index.md
+              - name: create
+                href: license-manager/api-ref/Lock/create.md
+              - name: delete
+                href: license-manager/api-ref/Lock/delete.md
+              - name: ensure
+                href: license-manager/api-ref/Lock/ensure.md
+              - name: get
+                href: license-manager/api-ref/Lock/get.md
+              - name: getByInstanceAndResource
+                href: license-manager/api-ref/Lock/getByInstanceAndResource.md
 base: ru/marketplace

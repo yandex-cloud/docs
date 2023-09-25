@@ -64,5 +64,6 @@ Method | Description
 [listOperations](listOperations.md) | List operations for the specified subnet.
 [listUsedAddresses](listUsedAddresses.md) | List used addresses in specified subnet.
 [move](move.md) | Move subnet to another folder.
+[relocate](relocate.md) | 
 [removeCidrBlocks](removeCidrBlocks.md) | Removes CIDR blocks from the specified subnet. Method starts an asynchronous operation that can be cancelled while it is in progress.
 [update](update.md) | Updates the specified subnet. Method starts an asynchronous operation that can be cancelled while it is in progress.

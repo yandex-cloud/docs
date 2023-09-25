@@ -1,3 +1,8 @@
+---
+title: "Список поддерживаемых фонем в TTS"
+description: "Использование фонем в TTS поддерживается только для русского и узбекского языков."
+---
+
 # Список поддерживаемых фонем в TTS
 
 {% include [note-not-silence](../../../_includes/speechkit/note-not-silence.md) %}

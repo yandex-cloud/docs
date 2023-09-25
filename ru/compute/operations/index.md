@@ -78,12 +78,14 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](disk-create/empty-disk-blocksize.md)
 * [{#T}](disk-create/nonreplicated.md)
 * [{#T}](disk-create/from-snapshot.md)
+* [{#T}](disk-create/from-image.md)
 
 ## Управление диском {#disk-control}
 
 * [{#T}](disk-control/update.md)
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
+* [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/delete.md)
 
 ## Снимки дисков {#snapshots}
@@ -93,6 +95,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](snapshot-control/create-schedule.md)
 * [{#T}](snapshot-control/update-schedule.md)
 * [{#T}](snapshot-control/stop-and-start-schedule.md)
+* [{#T}](snapshot-control/snapshot-encrypt.md)
 * [{#T}](snapshot-control/delete-schedule.md)
 
 

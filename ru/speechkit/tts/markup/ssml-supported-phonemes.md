@@ -1,3 +1,8 @@
+---
+title: "Список поддерживаемых фонем в SSML"
+description: "Использование фонем в SSML поддерживается только для русского языка."
+---
+
 # Список поддерживаемых фонем в SSML
 
 {% include [note-not-silence](../../../_includes/speechkit/note-not-silence.md) %}

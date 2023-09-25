@@ -113,5 +113,5 @@
 
 ## Что дальше {#whats-next}
 
-* Узнайте о [формате аудитных логов](./concepts/format.md).
-* Узнайте о [событиях](./concepts/events.md).
+* Узнайте больше о [сервисе](./concepts/index.md).
+* Узнайте о [типах аудитных логов](./concepts/control-plane-vs-data-plane.md).

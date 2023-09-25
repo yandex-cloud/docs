@@ -75,6 +75,8 @@ items:
             href: operations/network-add.md
           - name: Передать секреты {{ lockbox-full-name }}
             href: operations/lockbox-secret-transmit.md
+          - name: Смонтировать бакеты
+            href: operations/mount-bucket.md
           - name: Управлять метками
             items:
               - name: Добавить метку
@@ -112,7 +114,11 @@ items:
           - name: Создать триггер для {{ cloud-logging-name }}
             href: operations/cloud-logging-trigger-create.md
           - name: Создать триггер для {{ iot-name }}
-            href: operations/iot-core-trigger-create.md
+            items:
+              - name: Устройство
+                href: operations/iot-core-trigger-create.md
+              - name: Брокер
+                href: operations/iot-core-trigger-broker-create.md
           - name: Создать триггер для бюджетов
             href: operations/budget-trigger-create.md
           - name: Создать триггер для {{ yds-name }}
@@ -122,11 +128,7 @@ items:
       - name: Управление триггером
         items:
           - name: Изменить триггер
-            items:
-              - name: Изменить имя
-                href: operations/trigger-name-update.md
-              - name: Изменить описание
-                href: operations/trigger-description-update.md
+            href: operations/trigger-update.md
           - name: Посмотреть графики мониторинга
             href: operations/trigger-monitoring.md
           - name: Удалить триггер
@@ -143,6 +145,8 @@ items:
         href: concepts/networking.md
       - name: Среда выполнения
         href: concepts/runtime.md
+      - name: Монтирование бакетов
+        href: concepts/mounting.md
       - name: Триггер
         items:
           - name: Обзор

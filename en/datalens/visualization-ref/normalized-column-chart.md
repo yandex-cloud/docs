@@ -1,4 +1,4 @@
-# Normalized column chart
+# Normalized column chart ![](../../_assets/datalens/normalized-column.svg)
 
 A normalized column chart shows the contribution of each measure or category to the total amount. Unlike a [stacked column chart](column-chart.md#stacked), the proportion of segment ratios and not the total column length is important for this type of chart. Segments are highlighted in different colors and located one above the other. The height of a segment indicates its ratio to the total amount represented as 100%. For example, the percentage of sales for different product categories.
 

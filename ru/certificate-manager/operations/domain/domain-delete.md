@@ -1,3 +1,8 @@
+---
+title: "Как удалить домен"
+description: "Следуя данной инструкции, вы сможете удалить домен."
+---
+
 # Удалить домен
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

@@ -1,6 +1,11 @@
-# Создать триггер для {{ iot-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}
+---
+title: "Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика реестра или устройства {{ iot-full-name }}"
+description: "Создайте триггер для топика устройства или реестра {{ iot-name }} для обработки копии сообщений в контейнере {{ serverless-containers-name }}." 
+---
 
-Создайте [триггер](../concepts/trigger/iot-core-trigger.md) для топика устройства или реестра сервиса {{ iot-name }} и обрабатывайте копии сообщений с помощью [контейнера](../concepts/container.md) {{ serverless-containers-name }}.
+# Создать триггер, который передает сообщения в контейнер {{ serverless-containers-name }} из топика реестра или устройства {{ iot-full-name }}
+
+Создайте [триггер](../concepts/trigger/iot-core-trigger.md) для топика устройства или реестра {{ iot-name }} и обрабатывайте копии сообщений с помощью [контейнера](../concepts/container.md) {{ serverless-containers-name }}.
 
 {% note warning %}
 
@@ -39,7 +44,7 @@
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}`.
         * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}** укажите реестр, устройство и MQTT-топик, для которого хотите создать триггер. Если вы создаете триггер для топика реестра, устройство и MQTT-топик можно не указывать.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}** укажите реестр, устройство и MQTT-топик, для которого хотите создать триггер. Если вы создаете триггер для топика реестра, устройство и MQTT-топик можно не указывать. Если MQTT-топик не указан, триггер срабатывает для всех топиков реестра или устройства.
 
     1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -65,6 +70,8 @@
       --registry-id <идентификатор_реестра> \
       --device-id <идентификатор_устройства> \
       --mqtt-topic '$devices/<идентификатор_устройства>/events' \
+      --batch-size <размер_группы_сообщений> \
+      --batch-cutoff <максимальное_время_ожидания> \
       --invoke-container-id <идентификатор_контейнера> \
       --invoke-container-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
@@ -72,12 +79,15 @@
       --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
       --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
+
     Где:
 
     * `--name` — имя триггера.
     * `--registry-id` — [идентификатор реестра](../../iot-core/operations/registry/registry-list.md).
     * `--device-id` — [идентификатор устройства](../../iot-core/operations/device/device-list.md). Если вы создаете триггер для топика реестра, этот параметр можно не указывать.
-    * `--mqtt-topic` — топик, для которого вы хотите создать триггер.
+    * `--mqtt-topic` — MQTT-топик, для которого вы хотите создать триггер. Необязательный параметр. Если параметр не указан, триггер срабатывает для всех топиков реестра или устройства.
+
+    {% include [trigger-param](../../_includes/iot-core/trigger-param-sc.md) %}
 
     {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -93,6 +103,9 @@
         registry_id: arenou2oj4**********
         device_id: areqjd6un3**********
         mqtt_topic: $devices/areqjd6un**********/events
+        batch_settings:
+          size: "1"
+          cutoff: 0s
         invoke_container:
           container_id: bba5jb38o8**********
           service_account_id: aje3932acd**********
@@ -100,7 +113,7 @@
             retry_attempts: "1"
             interval: 10s
     status: ACTIVE
-   ```
+    ```
 
 - API
 
@@ -114,4 +127,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ iot-name }}, который передает сообщения в функцию {{ sf-name }}](../../functions/operations/trigger/iot-core-trigger-create.md).
+* [Триггер для {{ iot-name }}, который передает сообщения из топиков реестров и устройств в функцию {{ sf-name }}](../../functions/operations/trigger/iot-core-trigger-create.md).

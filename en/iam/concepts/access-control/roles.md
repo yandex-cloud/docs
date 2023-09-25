@@ -500,6 +500,18 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% include [smartcaptcha-admin](../../../_includes/roles-smartcaptcha-admin.md) %}
 
+## {{ sws-full-name }} {#sws-roles}
+
+{% include [sws-auditor](../../../_includes/iam/roles/sws-auditor.md) %}
+
+{% include [sws-viewer](../../../_includes/iam/roles/sws-viewer.md) %}
+
+{% include [sws-user](../../../_includes/iam/roles/sws-user.md) %}
+
+{% include [sws-editor](../../../_includes/iam/roles/sws-editor.md) %}
+
+{% include [sws-admin](../../../_includes/iam/roles/sws-admin.md) %}
+
 
 ## {{ speechkit-full-name }} {#speechkit-roles}
 

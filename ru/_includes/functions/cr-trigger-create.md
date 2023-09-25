@@ -60,15 +60,17 @@
     
     ```bash
     yc serverless trigger create container-registry \
-      --name <имя триггера> \
-      --registry-id <идентификатор реестра> \
+      --name <имя_триггера> \
+      --registry-id <идентификатор_реестра> \
       --events 'create-image', 'delete-image', 'create-image-tag', 'delete-image-tag' \
-      --invoke-function-id <идентификатор функции> \
-      --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
+      --batch-size <размер_группы> \
+      --batch-cutoff <максимальное_время_ожидания> \
+      --invoke-function-id <идентификатор_функции> \
+      --invoke-function-service-account-id <идентификатор_сервисного_аккаунта> \
       --retry-attempts 1 \
       --retry-interval 10s \
-      --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
-      --dlq-service-account-id <идентификатор сервисного аккаунта>
+      --dlq-queue-id <идентификатор_очереди_Dead_Letter_Queue> \
+      --dlq-service-account-id <идентификатор_сервисного_аккаунта>
     ```
   
 
@@ -78,6 +80,8 @@
     * `--registry-id` — [идентификатор реестра](../../container-registry/operations/registry/registry-list.md).
     * `--events` — [события](../../functions/concepts/trigger/cr-trigger.md#event), после наступления которых триггер запускается.
     
+    {% include [batch-settings-events](batch-settings-events.md) %}
+
     {% include [trigger-cli-param](trigger-cli-param.md) %}
 
     Результат:
@@ -95,6 +99,9 @@
         - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
         - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
         registry_id: crtlds4tdfg12kil77**********
+        batch_settings:
+          size: "3"
+          cutoff: 20s
         invoke_function:
           function_id: d4eofc7n0m**********
           function_tag: $latest

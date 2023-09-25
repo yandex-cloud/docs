@@ -11,3 +11,8 @@
 * [{#T}](./list.md)
 * [{#T}](./monitoring.md)
 * [{#T}](./delete-group.md)
+
+### Выгрузка логов
+
+* [{#T}](./create-sink.md)
+* [{#T}](./export-logs.md)

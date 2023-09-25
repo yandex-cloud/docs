@@ -16,12 +16,13 @@ If you need to create multiple disks with the same content, you can use [images]
 
 A disk snapshot only contains the data that had already been written to the disk when the snapshot was created. If the disk is attached to a running VM, the OS and app cache will not be included in the snapshot. For more information about preparing a VM for disk snapshot creation and ensuring the integrity of the snapshot data, see [this guide](../operations/disk-control/create-snapshot.md#prepare).
 
-You can create disk snapshots both manually or automatically, based on a [schedule](snapshot-schedule.md).
+You can create disk snapshots both manually and automatically, based on a [schedule](snapshot-schedule.md).
 
 A single snapshot can only be created for one disk at a time.
 
 {% include [snapshot-disk-types](../../_includes/compute/snapshot-disk-types.md) %}
 
+{% include [boot-disk-recover](../../_includes/compute/boot-disk-recover.md) %}
 
 ## Disk snapshot as a {{ yandex-cloud }} resource {#snapshot-as-resource}
 
@@ -39,6 +40,15 @@ Snapshots are stored in {{ ydb-full-name }}, replicated in multiple availability
 The checksum is stored for blocks in the snapshot. This checksum is checked when creating a disk from a snapshot.
 
 To test disk recovery from a snapshot, [create a VM with a snapshot disk](../operations/vm-create/create-from-snapshots.md) and check the integrity of your data.
+
+
+
+## Encrypting snapshots {#encryption}
+
+To protect critical data in {{ compute-name }}, we recommend encrypting snapshots with [{{ kms-full-name }}](../../kms/) keys.
+
+For more information, see [{#T}](encryption.md).
+
 
 #### See also {#see-also}
 

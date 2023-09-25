@@ -26,6 +26,10 @@ You can create a VM with disks restored from the snapshots that exist in the fol
       * In the window that opens, go to the **{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}** tab.
       * Select a disk snapshot from the list and click **{{ ui-key.yacloud.common.apply }}**.
 
+   
+   1. {% include [encryption-section-boot](../../../_includes/compute/encryption-section-boot.md) %}
+
+
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](create-from-disks.md):
 
       * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
@@ -33,6 +37,11 @@ You can create a VM with disks restored from the snapshots that exist in the fol
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the desired block size.
       * Specify the desired disk size.
+
+      
+      * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
+
+
       * (Optional) Enable the **{{ ui-key.yacloud.compute.instances.create-disk.field_auto-delete }}** option if you need to automatically delete the disk when deleting the VM it will be attached to.
       * Select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` as content.
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.

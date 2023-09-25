@@ -1,3 +1,8 @@
+---
+title: "Как пополнить лицевой счет"
+description: "Следуя данной инструкции, вы сможете пополнить лицевой счет."
+---
+
 # Пополнить лицевой счет
 
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}

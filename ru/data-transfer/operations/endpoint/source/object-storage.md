@@ -1,3 +1,8 @@
+---
+title: "Как настроить эндпоинт-источник {{ objstorage-name }}"
+description: "Следуя данной инструкции, вы сможете настроить эндпоинт-источник {{ objstorage-name }}."
+---
+
 # Настройка эндпоинта-источника {{ objstorage-name }}
 
 {% include [note-preview](../../../../_includes/preview-pp.md) %}

@@ -1,3 +1,8 @@
+---
+title: "Как создать секрет"
+description: "Следуя данной инструкции, вы сможете создать секрет."
+---
+
 # Создать секрет
 
 {% include [secret-create](../../_includes/lockbox/secret-create.md) %}

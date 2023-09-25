@@ -1,3 +1,8 @@
+---
+title: "Как установить зависимости"
+description: "Следуя данной инструкции, вы сможете установить зависимости."
+---
+
 # Установить зависимости
 
 {% include [include](../../../_includes/datasphere/install-dependencies-intro.md) %}

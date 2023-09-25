@@ -1,3 +1,8 @@
+---
+title: "Резервные копии в {{ mes-name }}"
+description: "{{ mes-short-name }} обеспечивает автоматическое и ручное резервное копирование индексов."
+---
+
 # Резервные копии в {{ mes-name }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

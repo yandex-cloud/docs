@@ -25,6 +25,12 @@ items:
             href: operations/monitoring.md
           - name: Удаление лог-группы
             href: operations/delete-group.md
+      - name: Выгрузка логов
+        items:
+          - name: Создать приемник логов
+            href: operations/create-sink.md
+          - name: Выгрузить логи
+            href: operations/export-logs.md
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -41,6 +47,10 @@ items:
         href: tutorials/replicate-logs-to-storage.md
       - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
         href: tutorials/replicate-logs-to-storage-via-data-streams.md
+      - name: >-
+          Визуализация логов в {{ grafana-name }} с помощью плагина {{
+          cloud-logging-full-name }}
+        href: tutorials/grafana-logs-plugin.md
   - name: Концепции
     items:
       - name: Лог-группа

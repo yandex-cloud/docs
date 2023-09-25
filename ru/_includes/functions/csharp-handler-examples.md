@@ -6,7 +6,7 @@
 
 {% note warning %}
 
-Функцию необходимо вызывать с помощью [CLI {{ yandex-cloud }}](../../functions/concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `integration=raw`.
+Функцию необходимо вызывать с помощью [CLI {{ yandex-cloud }}](../../functions/concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `?integration=raw`.
 
 {% endnote %}
 
@@ -51,7 +51,7 @@ Message is Hello, number is 24
 
 {% note warning %}
 
-Не используйте для вызова функции параметр `integration=raw`. При применении этого параметра функция не получает данных о методах, заголовках и параметрах исходного запроса.
+Не используйте для вызова функции параметр `?integration=raw`. При применении этого параметра функция не получает данных о методах, заголовках и параметрах исходного запроса.
 
 {% endnote %}
 

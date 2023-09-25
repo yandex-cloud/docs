@@ -1,3 +1,8 @@
+---
+title: "Как читать и визуализировать метрики при помощи Grafana"
+description: "Следуя данной инструкции, вы сможете прочитать и визуализировать метрики при помощи Grafana."
+---
+
 # Чтение и визуализация метрик при помощи Grafana
 
 {% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}

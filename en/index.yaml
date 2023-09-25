@@ -147,6 +147,9 @@ links:
   - title: SmartCaptcha
     description: A request verification tool
     href: smartcaptcha/
+  - title: Smart Web Security
+    description: Service for advanced protection against DDoS attacks
+    href: smartwebsecurity/
   - title: '{{ speechkit-name }}'
     description: Speech recognition and speech synthesis technologies
     href: speechkit/

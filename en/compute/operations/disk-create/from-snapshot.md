@@ -1,12 +1,18 @@
 # Recovering a disk from a snapshot
 
+{% note info %}
+
+{% include [boot-disk-recover](../../../_includes/compute/boot-disk-recover.md) %}
+
+{% endnote %}
+
 To create a disk from a [snapshot](../../concepts/snapshot.md):
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
@@ -17,13 +23,13 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
    1. If required, provide an arbitrary description for the disk.
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
    1. Set the disk parameters: [disk type](../../concepts/disk.md#disks_types), [block size](../../concepts/disk.md#maximum-disk-size), and [disk size](../../concepts/disk.md#maximum-disk-size).
+   1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and then select the snapshot you need from the list below. Use the filter to find the snapshot.
    1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
       When creating a disk, you can select only one snapshot schedule. Once the disk is created, you can add a few more schedules by following the [instructions](../disk-control/configure-schedule.md#add-schedule).
 
-   1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and then select the snapshot you need from the list below. Use the filter to find the snapshot.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
 - CLI
