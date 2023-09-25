@@ -1,31 +1,69 @@
+
 {% list tabs %}
 
-- Linux (Bash) and macOS (Zsh)
+- Linux (Bash)
+
+   ```bash
+   sudo mkdir --parents {{ crt-local-dir }} && \
+   sudo wget "{{ crt-web-path-root }}" \
+        --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
+   sudo wget "{{ crt-web-path-int }}" \
+        --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
+   sudo chmod 655 \
+        {{ crt-local-dir }}{{ crt-local-file-root }} \
+        {{ crt-local-dir }}{{ crt-local-file-int }} && \
+   sudo update-ca-certificates
+   ```
+
+   The certificates will be saved to the following files:
+
+   * `{{ crt-local-dir }}{{ crt-local-file-root }}`
+   * `{{ crt-local-dir }}{{ crt-local-file-int }}`
+
+- macOS (Zsh)
 
    ```bash
    sudo mkdir -p {{ crt-local-dir }} && \
-   sudo wget "{{ crt-web-path }}" \
-        --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
-   sudo chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+   sudo wget "{{ crt-web-path-root }}" \
+        --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
+   sudo wget "{{ crt-web-path-int }}" \
+        --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
+   sudo chmod 655 \
+        {{ crt-local-dir }}{{ crt-local-file-root }} \
+        {{ crt-local-dir }}{{ crt-local-file-int }} && \
+   security import {{ crt-local-dir }}{{ crt-local-file-root }} -k ~/Library/Keychains/login.keychain; \
+   security import {{ crt-local-dir }}{{ crt-local-file-int }} -k ~/Library/Keychains/login.keychain
    ```
 
-   The certificate is saved to the `{{ crt-local-dir }}{{ crt-local-file }}` file.
+   The certificates will be saved to the following files:
+
+   * `{{ crt-local-dir }}{{ crt-local-file-root }}`
+   * `{{ crt-local-dir }}{{ crt-local-file-int }}`
 
 - Windows (PowerShell)
 
-   1. Download and import the certificate:
+   1. Download and import the certificates:
 
       ```powershell
-      mkdir -Force $HOME\.clickhouse; `
-      (Invoke-WebRequest {{ crt-web-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
-        | Out-File -Encoding ASCII $HOME\.clickhouse\{{ crt-local-file }}; `
+      mkdir -Force $HOME\.yandex; `
+      curl.exe {{ crt-web-path-root }} `
+        --output $HOME\.yandex\{{ crt-local-file-root }}; `
+      curl.exe {{ crt-web-path-int }} `
+        --output $HOME\.yandex\{{ crt-local-file-int }}; `
       Import-Certificate `
-        -FilePath $HOME\.clickhouse\{{ crt-local-file }} `
+        -FilePath $HOME\.yandex\{{ crt-local-file-root }} `
+        -CertStoreLocation cert:\CurrentUser\Root; `
+      Import-Certificate `
+        -FilePath $HOME\.yandex\{{ crt-local-file-int }} `
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 
-   1. Confirm that you agree to install the certificate in the <q>Trusted Root Certification Authorities</q> store.
+   1. Agree to install the certificates in the <q>Trusted Root Certification Authorities</q> store.
 
-   The certificate is saved to the `$HOME\.clickhouse\{{ crt-local-file }}` file.
+   The certificates will be saved to the following files:
+
+   * `$HOME\.yandex\{{ crt-local-file-root }}`
+   * `$HOME\.yandex\{{ crt-local-file-int }}`
 
 {% endlist %}
+

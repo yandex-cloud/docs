@@ -42,6 +42,7 @@
 * [{#T}](managed-kafka-to-greenplum.md)
 * [{#T}](greenplum-to-clickhouse.md)
 * [{#T}](greenplum-to-postgresql.md)
+* [{#T}](greenplum-yezzey.md)
 
 
 ## {{ ES }} {#elasticsearch}

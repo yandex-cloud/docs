@@ -1,0 +1,27 @@
+title: WebSQL
+href: index.yaml
+stage: preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Подключение к базе данных
+        href: operations/connect.md
+      - name: Выполнение SQL-запросов
+        href: operations/query-executor.md
+      - name: Работа с шаблонами запросов
+        href: operations/templates.md
+      - name: Просмотр истории запросов
+        href: operations/history.md
+  - name: Концепции
+    items:
+      - name: О сервисе {{ websql-name }}
+        href: concepts/index.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/websql

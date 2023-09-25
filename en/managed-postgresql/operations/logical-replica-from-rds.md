@@ -54,23 +54,23 @@ To migrate a database from an Amazon RDS source cluster for {{ PG }} to a {{ mpg
 * If you need to recreate the subscription, clear the tables in the target cluster to prevent primary key constraint errors.
 * To view errors relating to logical replication, see the [{{ mpg-name }} logs](cluster-logs.md).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-Create the necessary resources:
+Create the required resources:
 
 {% list tabs %}
 
 * Manually
 
-   [Create a {{ mpg-name }} cluster](../operations/cluster-create.md) with public host access. In this case:
+   [Create a {{ mpg-name }} cluster](../operations/cluster-create.md) with public host access. In which case:
 
-   * The {{ PG }} version must be the same or higher than the version in the source cluster. Migration with a {{ PG }} version downgrade is impossible.
+   * The {{ PG }} version must be the same or higher than the version in the source cluster. You cannot perform migration while downgrading {{ PG }} version.
    * The name of the database must be the same as in the source cluster.
    * Enable the same [{{ PG }} extensions](../operations/extensions/cluster-extensions.md) as in the source database.
 
 * Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. If you do not have {{ TF }} yet, [set up and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the configuration file [logical-replica-amazon-rds-to-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/logical-replica-amazon-rds-to-postgresql.tf) to the same working directory.
 
@@ -88,14 +88,14 @@ Create the necessary resources:
       * `username` and `password`: Database owner username and password.
       * Names and versions of {{ PG }} extensions used in Amazon RDS. Uncomment and multiply the `extension` section.
 
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -144,11 +144,11 @@ The DB instance must have public access: `Public accessibility = yes`.
 
    {% note info %}
 
-   We don't recommend using `FOR ALL TABLES` publications as you won't be able to edit the table list later.
+   We do not recommend using `FOR ALL TABLES` publications as you will not be able to edit the table list later.
 
    {% endnote %}
 
-1. Add a rule for incoming traffic in [{{ vpc-short-name }} security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). For example:
+1. Add a rule for incoming traffic in [{{ vpc-short-name }} security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). E.g.:
 
    ```text
    protocol: tcp, port: 5432, source: 84.201.175.90/32
@@ -194,7 +194,7 @@ To complete synchronization of the source cluster and the target cluster:
            --table='*.*_seq' > /tmp/seq-data.sql
    ```
 
-   Take note of the `*.*_seq` pattern used. If the database you're migrating has sequences that don't match this pattern, enter a different pattern to export them.
+   Pay attention to the used `*.*_seq` pattern. If the database you are migrating has sequences that do not match this pattern, enter a different pattern to export them.
 
    For more information about patterns, see the [{{ PG }} documentation]({{ pg-docs }}/app-psql.html#APP-PSQL-PATTERNS).
 
@@ -202,7 +202,7 @@ To complete synchronization of the source cluster and the target cluster:
 
    ```bash
    psql \
-       --host=<IP address or FQDN of the target cluster master host> \
+       --host=<FQDN of the target cluster master host> \
        --username=<username> \
        --port={{ port-mpg }} \
        --dbname=<database name> < /tmp/seq-data.sql

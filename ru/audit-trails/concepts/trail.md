@@ -5,8 +5,8 @@
 ## Область сбора аудитных логов {#collecting-area}
 
 В настройках трейла можно выбрать область сбора аудитных логов:
-* организация — аудитные логи всех ресурсов во всех облаках организации;
-* облако — аудитные логи ресурсов, которые находятся в выбранных каталогах облака;
+* организация — аудитные логи ресурсов сервисов во всех облаках организации;
+* облако — аудитные логи ресурсов сервисов, которые находятся в выбранных каталогах облака;
 * каталог — аудитные логи каталога, в котором находится трейл.
 
 Трейл будет собирать и загружать в бакет, лог-группу или поток данных аудитные логи всех [ресурсов](./events.md), которые находятся в заданной области сбора аудитных логов, в том числе ресурсов, которые будут добавлены в область после создания трейла. 
@@ -32,15 +32,6 @@
 Трейл содержит в себе все настройки аудитного лога:
 * **{{ ui-key.yacloud.common.name }}** — обязательный параметр.
 * **{{ ui-key.yacloud.common.description }}** — опциональный параметр.
-* Блок **{{ ui-key.yacloud.audit-trails.label_filter }}**:
-    * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}` или `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-    * Для значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`:
-        *  **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** – имя текущей организации. Значение подставляется автоматически.
-    * Для значения `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`:
-        * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** — имя облака, в котором находится текущий трейл. Значение подставляется автоматически.
-        * **Каталоги** — каталоги, для ресурсов в которых трейл будет собирать аудитные логи. Если не указать ни один каталог, то трейл будет собирать аудитные логи всех ресурсов в облаке.
-    * Для параметра `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`:
-        * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — имя каталога, в котором находится трейл. Значение подставляется автоматически.
 * Блок **{{ ui-key.yacloud.audit-trails.label_destination }}**:
     * **{{ ui-key.yacloud.audit-trails.label_destination }}** — значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`, `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}` или `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
     * Для значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`:
@@ -51,6 +42,19 @@
     * Для значения `{{ ui-key.yacloud.audit-trails.label_dataStream }}`:
         * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — имя потока данных.
 * Блок **{{ ui-key.yacloud.audit-trails.label_service-account }}** — сервисный аккаунт, от имени которого будет выполняться загрузка аудитных логов в бакет, лог-группу или поток данных. Если аккаунту нужны дополнительные роли, появится предупреждение с перечнем ролей.
+* Блок **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**:
+    * **Статус** — включение и выключение сбора аудитных логов уровня конфигурации.
+    * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}` или `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+    * Для значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`:
+        *  **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** – имя текущей организации. Значение подставляется автоматически.
+    * Для значения `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`:
+        * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}** — имя облака, в котором находится текущий трейл. Значение подставляется автоматически.
+        * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — каталоги, для ресурсов в которых трейл будет собирать аудитные логи уровня конфигурации. Если не указать ни один каталог, то трейл будет собирать аудитные логи всех ресурсов в облаке.
+    * Для параметра `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`:
+        * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — имя каталога, в котором находится трейл. Значение подставляется автоматически.
+* Блок **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
+    * **Статус** — включение и выключение сбора аудитных логов уровня сервисов.
+    * Список [сервисов](../../audit-trails/concepts/events-data-plane.md#services), для каждого из которых отдельно настраивается [область](../../audit-trails/concepts/trail.md#collecting-area) и объекты сбора аудитных логов уровня сервисов.
 
 ## Что дальше {#whats-next}
 

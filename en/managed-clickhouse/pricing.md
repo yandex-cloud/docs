@@ -44,11 +44,11 @@ In clusters with disabled [{{ CK }}](./concepts/replication.md#ck) support and w
 
 {% endnote %}
 
-The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You aren't charged for time when the DBMS or {{ ZK }} host isn't performing its main functions.
+The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
-The following is charged:
+You are charged for the following:
 
 * Storage allocated for DB clusters.
 
@@ -154,6 +154,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endnote %}
 
+
 ## Pricing {#prices}
 
 
@@ -176,7 +177,6 @@ All prices are shown without VAT.
 ### {{ ZK }} host computing resources {#prices-zookeeper}
 
 
-
 {% note info %}
 
 You can't order {{ ZK }} host resources using a CVoS.
@@ -191,7 +191,6 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 
 
-
 ### Storage and backups {#prices-storage}
 
 
@@ -199,7 +198,6 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 
 {% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
-
 
 
 

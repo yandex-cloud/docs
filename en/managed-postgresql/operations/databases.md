@@ -46,8 +46,8 @@ You can add and remove databases, as well as view information about them.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mpg-name }}**.
-   1. Click the name of the cluster you need.
-   1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
+   1. Click the cluster name.
+   1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
    1. Select the **Databases** tab.
    1. Click ![image](../../_assets/plus-sign.svg) **Add**.
    1. Specify the database settings.
@@ -134,7 +134,7 @@ You can add and remove databases, as well as view information about them.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -150,6 +150,8 @@ You can add and remove databases, as well as view information about them.
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new database settings in the `databaseSpec` parameter.
+
+      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
 {% endlist %}
 
@@ -192,7 +194,7 @@ You can add and remove databases, as well as view information about them.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

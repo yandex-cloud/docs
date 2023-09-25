@@ -21,7 +21,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a DB cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-   1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
+   1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
    1. Select the environment where you want to create the {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including {{ mmy-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -35,16 +35,19 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the storage size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
          {% note info %}
 
-         If DB storage is 95% full, the {{ mmy-name }} cluster switches to read-only mode. Increase the storage size in advance.
+         If DB storage is 95% full, the {{ mmy-name }} cluster will switch to read-only mode. Increase the storage size in advance.
 
          {% endnote %}
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
-      * DB name; it must be unique within the folder and contain only Latin letters, numbers, and underscores.
+      * DB name; it must be unique within the folder.
+
+         {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
       * DB owner username and password.
 
          {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
@@ -55,7 +58,12 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       * [Security groups](../../vpc/concepts/security-groups.md) for the {{ mmy-name }} cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the {{ mmy-name }} cluster.
 
 
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters for the DB hosts created with the {{ mmy-name }} cluster. Click ![image](../../_assets/edit.svg) if you need to choose specific [subnets](../../vpc/concepts/network.md#subnet) for each host. By default, each host is created in a separate subnet.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/edit.svg) and select the parameters for the DB hosts created together with the {{ mmy-name }} cluster:
+      * Availability zone.
+      * Host [subnet](../../vpc/concepts/network.md#subnet): By default, each host is created in a separate subnet.
+      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+      * [Priority for assigning the host as a master](../concepts/replication.md#master-failover).
+      * [Host priority as a {{ MY }} replica](../concepts/backup.md#size) for creating backups.
 
       
       If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, you need to add at least three hosts to the {{ mmy-name }} cluster. After creating a {{ mmy-name }} cluster, you can add extra hosts to it if there are enough [folder resources](../concepts/limits.md) available.
@@ -104,11 +112,15 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --name=<cluster name> \
         --environment <environment, prestable or production> \
         --network-name <network name> \
-        --host zone-id=<availability zone>,subnet-id=<subnet ID> \
+        --host zone-id=<availability zone>,`
+          `subnet-id=<subnet ID>,`
+          `assign-public-ip=<public access to the host: true or false>,`
+          `priority=<priority when selecting a new master host: from 0 to 100>,`
+          `backup-priority=<backup priority: from 0 to 100> \
         --mysql-version <{{ MY }} version: {{ versions.cli.str }}> \
         --resource-preset <host class> \
         --user name=<username>,password=<user password> \
-        --database name=<DB name> \
+        --database name=<database name> \
         --disk-size <storage size in GB> \
         --disk-type <disk type> \
         --security-group-ids <list of security group IDs>
@@ -134,6 +146,8 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
 
+      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
       {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       Configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings), if required.
@@ -154,9 +168,12 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    To create a {{ mmy-name }} cluster:
    1. In the configuration file, describe the parameters of the resources you want to create:
-      * DB cluster: Description of the cluster and its hosts.
-      * Database: Description of the cluster's DB.
-      * User: Description of the cluster user.
+      * DB cluster: Description of the cluster and its hosts
+      * Database: Description of the cluster DB
+
+         {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+      * User: Description of the cluster user
 
       * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -182,14 +199,17 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         }
 
         host {
-          zone      = "<availability zone>"
-          subnet_id = "<subnet ID>"
+          zone             = "<availability zone>"
+          subnet_id        = "<subnet ID>"
+          assign_public_ip = <public access to the host: true or false>
+          priority         = <priority when selecting a new master host: from 0 to 100>
+          backup_priority  = <backup priority: from 0 to 100>
         }
       }
 
-      resource "yandex_mdb_mysql_database" "<DB name>" {
+      resource "yandex_mdb_mysql_database" "<database name>" {
         cluster_id = "<cluster ID>"
-        name       = "<DB name>"
+        name       = "<database name>"
       }
 
       resource "yandex_mdb_mysql_user" "<username>" {
@@ -197,7 +217,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         name       = "<username>"
         password   = "<user password>"
         permission {
-          database_name = "<DB name>"
+          database_name = "<database name>"
           roles         = ["ALL"]
         }
       }
@@ -241,6 +261,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
            ...
              backup_retain_period_days = <retention period for automatic backups (in days)>
              ...
+
          }
          ```
 
@@ -261,12 +282,15 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    To create a {{ MY }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ mmy-name }} cluster should be placed, in the `folderId` parameter.
-   * {{ mmy-name }} cluster name in the `name` parameter. It must be unique within the folder.
+   * {{ mmy-name }} cluster name in the `name` parameter. The cluster name must be unique within the folder.
    * {{ mmy-name }} cluster environment in the `environment` parameter.
    * {{ mmy-name }} cluster configuration in the `configSpec` parameter.
    * DB configuration in one or more `databaseSpecs` parameters.
+
+      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
    * User settings in one or more `userSpecs` parameters.
-   * Configuration of the {{ mmy-name }} cluster's hosts in one or more `hostSpecs` parameters.
+   * Configuration of the {{ mmy-name }} cluster hosts in one or more `hostSpecs` parameters.
    * [Network](../../vpc/concepts/network.md#network) ID in the `networkId` parameter.
 
    
@@ -316,7 +340,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
    1. Run this command to create a {{ mmy-name }} cluster:
 
-         
+      
       ```bash
       {{ yc-mdb-my }} cluster create \
         --name="my-mysql" \
@@ -332,7 +356,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
         --database name=db1 \
         --deletion-protection=true
       ```
-   
+
 
    1. Run the change permissions command for the `user1` user.
 
@@ -353,8 +377,12 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    * In the cloud with the `{{ tf-cloud-id }}` ID.
    * In the folder with the `{{ tf-folder-id }}` ID.
    * In the new `mynet` network.
-   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have the `10.5.0.0/24` range.
-      * In a new security group called `mysql-sg` allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
+   * With one `{{ host-class }}` host in the new `mysubnet` subnet and the `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+
+   
+   * In a new security group named `mysql-sg` allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
+
+
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
    * With one `db1` database, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
@@ -421,6 +449,198 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
      zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
+   }
+   ```
+
+
+
+
+{% endlist %}
+
+### Creating a multi-host cluster {#creating-multiple-hosts-cluster}
+
+{% list tabs %}
+
+- CLI
+
+   To create a multi-host {{ mmy-name }} cluster, provide as many `--host` parameters as there should be hosts in your cluster.
+
+   Create a {{ mmy-name }} cluster with test characteristics:
+
+   
+   * Named `my-mysql-3`.
+   * `{{ versions.cli.latest }}` version.
+   * In the `prestable` environment.
+   * In the `default` network.
+   * In the security group with the `{{ security-group }}` ID.
+   * With three public hosts of the `{{ host-class }}` class.
+
+      One host will be added to each subnet of the `default` network:
+      * `subnet-a`: `10.5.0.0/24`, the `{{ region-id }}-a` availability zone.
+      * `subnet-b`: `10.6.0.0/24`, the `{{ region-id }}-b` availability zone.
+      * `subnet-c`: `10.7.0.0/24`, the `{{ region-id }}-c` availability zone.
+
+      The host residing in `subnet-b` will have the backup priority. Backups will be created from this host's data unless you choose it to be the master host.
+
+   * With a network SSD storage (`{{ disk-type-example }}`) of 32 GB.
+   * With one user, `user1`, with the password `user1user1`.
+   * With one `db1` database, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
+
+
+   1. Run this command to create a {{ mmy-name }} cluster:
+
+      
+      ```bash
+      {{ yc-mdb-my }} cluster create \
+        --name="my-mysql-3" \
+        --mysql-version {{ versions.cli.latest }} \
+        --environment=prestable \
+        --network-name=default \
+        --security-group-ids {{ security-group }} \
+        --host zone-id={{ region-id }}-a,`
+               `subnet-name=subnet-a,`
+               `assign-public-ip=true \
+        --host zone-id={{ region-id }}-b,`
+               `subnet-name=subnet-b,`
+               `backup-priority=10,`
+               `assign-public-ip=true \
+        --host zone-id={{ region-id }}-c,`
+               `subnet-name=subnet-c,`
+               `assign-public-ip=true \
+        --resource-preset {{ host-class }} \
+        --disk-type {{ disk-type-example }} \
+        --disk-size 32 \
+        --user name=user1,password="user1user1" \
+        --database name=db1
+      ```
+
+
+   1. Run the change permissions command for the `user1` user.
+
+      ```bash
+      {{ yc-mdb-my }} user grant-permission user1 \
+        --cluster-name="my-mysql-3" \
+        --database=db1 \
+        --permissions ALL
+      ```
+
+- {{ TF }}
+
+   Create a {{ mmy-name }} cluster and a network for it with test characteristics:
+
+   * Named `my-mysql-3`.
+   * `{{ versions.tf.latest }}` version.
+   * In the `prestable` environment.
+   * In the cloud with the `{{ tf-cloud-id }}` ID.
+   * In the folder with the `{{ tf-folder-id }}` ID.
+   * In the new `mynet` network.
+   * With three public hosts of the `{{ host-class }}` class.
+
+      One host will be added to the new subnets:
+      * `mysubnet-a`: `10.5.0.0/24`, the `{{ region-id }}-a` availability zone.
+      * `mysubnet-b`: `10.6.0.0/24`, the `{{ region-id }}-b` availability zone.
+      * `mysubnet-c`: `10.7.0.0/24`, the `{{ region-id }}-c` availability zone.
+
+      These subnets will belong to the `mynet` network.
+
+      The host residing in `mysubnet-b` will have the backup priority. Backups will be created from this host's data unless you choose it to be the master host.
+
+   
+   * In a new security group named `mysql-sg` allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
+
+
+   * With a network SSD storage (`{{ disk-type-example }}`) of 32 GB.
+   * With one user, `user1`, with the password `user1user1`.
+   * With one `db1` database, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
+
+   The configuration file for the {{ mmy-name }} cluster is as follows:
+
+   
+   
+   ```hcl
+   resource "yandex_mdb_mysql_cluster" "my-mysql-3" {
+     name               = "my-mysql-3"
+     environment        = "PRESTABLE"
+     network_id         = yandex_vpc_network.mynet.id
+     version            = "{{ versions.tf.latest }}"
+     security_group_ids = [ yandex_vpc_security_group.mysql-sg.id ]
+
+     resources {
+       resource_preset_id = "{{ host-class }}"
+       disk_type_id       = "{{ disk-type-example }}"
+       disk_size          = 32
+     }
+
+     host {
+       zone             = "{{ region-id }}-a"
+       subnet_id        = yandex_vpc_subnet.mysubnet-a.id
+       assign_public_ip = true
+     }
+
+     host {
+       zone             = "{{ region-id }}-b"
+       subnet_id        = yandex_vpc_subnet.mysubnet-b.id
+       assign_public_ip = true
+       backup_priority  = 10
+     }
+
+     host {
+       zone             = "{{ region-id }}-c"
+       subnet_id        = yandex_vpc_subnet.mysubnet-c.id
+       assign_public_ip = true
+     }
+   }
+
+   resource "yandex_mdb_mysql_database" "db1" {
+     cluster_id = yandex_mdb_mysql_cluster.my-mysql-3.id
+     name       = "db1"
+   }
+
+   resource "yandex_mdb_mysql_user" "user1" {
+     cluster_id = yandex_mdb_mysql_cluster.my-mysql-3.id
+     name       = "user1"
+     password   = "user1user1"
+     permission {
+       database_name = yandex_mdb_mysql_database.db1.name
+       roles         = ["ALL"]
+     }
+   }
+
+   resource "yandex_vpc_network" "mynet" {
+     name = "mynet"
+   }
+
+   resource "yandex_vpc_security_group" "mysql-sg" {
+     name       = "mysql-sg"
+     network_id = yandex_vpc_network.mynet.id
+
+     ingress {
+       description    = "{{ MY }}"
+       port           = {{ port-mmy }}
+       protocol       = "TCP"
+       v4_cidr_blocks = [ "0.0.0.0/0" ]
+     }
+   }
+
+   resource "yandex_vpc_subnet" "mysubnet-a" {
+     name           = "mysubnet-a"
+     zone           = "{{ region-id }}-a"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
+
+   resource "yandex_vpc_subnet" "mysubnet-b" {
+     name           = "mysubnet-b"
+     zone           = "{{ region-id }}-b"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.6.0.0/24"]
+   }
+
+   resource "yandex_vpc_subnet" "mysubnet-c" {
+     name           = "mysubnet-c"
+     zone           = "{{ region-id }}-c"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.7.0.0/24"]
    }
    ```
 

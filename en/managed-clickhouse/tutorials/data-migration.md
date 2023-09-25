@@ -2,7 +2,7 @@
 
 To migrate your database to {{ mch-name }}, you need to directly transfer your data, lock the old database for write access, and transfer the load on the database cluster to {{ yandex-cloud }}.
 
-To transfer data to a {{ mch-name }} cluster, you can use [Apache {{ ZK }}](http://zookeeper.apache.org) and [clickhouse-copier]({{ ch.docs }}/operations/utils/clickhouse-copier/).
+To transfer data to a {{ mch-name }} cluster, you can use [Apache {{ ZK }}](http://zookeeper.apache.org) and [clickhouse-copier]({{ ch.docs }}/operations/utilities/clickhouse-copier/).
 
 Transfer your data to an intermediate VM in {{ compute-name }} if:
 
@@ -35,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * SSL is enabled for encrypting traffic.
    * The load on the database or shard the data is copied from does not cause
       any issues.
-   * `Clickhouse-copier` has access to the database, and the account used has
+   * `Clickhouse-copier` has access to the database, and the account being used has
       read-only access.
 
 1. If you are using a virtual machine in {{ yandex-cloud }} for migration:
@@ -141,7 +141,7 @@ The configuration file (`config.xml`) has to specify:
 * In the `<zookeeper>` element : Address of the host where you installed {{ ZK }}.
 * In the `<caConfig>` element: Path to the certificate for connecting to {{ mch-name }}.
 
-You can download a certificate at [{{ crt-web-path }}]({{ crt-web-path }}).
+You can download a certificate at [{{ crt-web-path-root }}]({{ crt-web-path-root }}).
 
 Sample configuration:
 
@@ -164,7 +164,7 @@ Sample configuration:
   <openSSL>
     <client>
       <loadDefaultCAFile>true</loadDefaultCAFile>
-      <caConfig>CA.pem</caConfig>
+      <caConfig>{{ crt-local-file-root }}</caConfig>
       <cacheSessions>true</cacheSessions>
       <disableProtocols>sslv2,sslv3</disableProtocols>
       <preferServerCiphers>true</preferServerCiphers>

@@ -160,6 +160,10 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [organization-manager-groups-memberAdmin](../../../_includes/roles-organization-manager-groups-memberAdmin.md) %}
 
+{% include [organization-manager-oslogins-admin](../../../_includes/roles-organization-manager-oslogins-admin.md) %}
+
+{% include [organization-manager-oslogins-viewer](../../../_includes/roles-organization-manager-oslogins-viewer.md) %}
+
 ## {{ compute-full-name }} {#compute-roles}
 
 {% include [roles-compute-viewer](../../../_includes/roles-compute-viewer.md) %}
@@ -177,6 +181,10 @@ _Роль_ — это набор разрешений, который опред
 {% include [roles-compute-snapshotSchedules-viewer](../../../_includes/roles-compute-snapshotSchedules-viewer.md) %}
 
 {% include [roles-compute-snapshotSchedules-editor](../../../_includes/roles-compute-snapshotSchedules-editor.md) %}
+
+{% include [roles-compute-osLogin](../../../_includes/roles-compute-osLogin.md) %}
+
+{% include [roles-compute-osAdminLogin](../../../_includes/roles-compute-osAdminLogin.md) %}
 
 ## {{ container-registry-full-name }} {#cr-roles}
 

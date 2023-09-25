@@ -1,13 +1,17 @@
-{% include [support-headers](../../_includes/ai-common/support-headers.md) %}
+# Диагностика ошибок в {{ vision-full-name }}
 
-## Примеры {#examples}
+{% include [support-with-headers](../../_includes/ai-common/support-with-headers.md) %}
 
-Пример добавления заголовка с помощью [cURL](https://curl.haxx.se):
+## Заголовки запросов {#request-headers}
 
-```bash
-curl -X POST \
-  -H "X-Client-Request-ID: fa18fa9b-176d-4ae0-92b8-bd7897f7c00c" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
-  -d '@body.json' \
-  https://vision.{{ api-host }}/vision/v1/batchAnalyze
-```
+{% include [request-headers](../../_includes/ai-common/request-headers.md) %}
+
+### Примеры {#examples}
+
+Например, используйте эти заголовки, чтобы быстрее найти запрос.
+
+{% include [example-headers-vision](../../_includes/ai-common/example-headers-vision.md) %}
+
+## Заголовки ответов {#response-headers}
+
+{% include [response-headers](../../_includes/ai-common/response-headers.md) %}

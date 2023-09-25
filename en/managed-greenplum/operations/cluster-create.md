@@ -41,7 +41,7 @@ For more information, see [{#T}](../concepts/index.md).
        * Select the availability zone and subnet for the cluster. To create a new subnet, click **{{ ui-key.yacloud.common.label_create-new_female }}** next to the availability zone.
        * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to allow accessing the cluster from the internet.
 
-   1. Specify the admin user settings. This is a special user that is needed to manage clusters and cannot be deleted. For more information, see [{#T}](../concepts/cluster-users.md).
+   1. Specify the admin user settings. This special user is required for managing the cluster and cannot be deleted. For more information, see [{#T}](../concepts/cluster-users.md).
 
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** may contain Latin letters, numbers, hyphens, and underscores, and may not start with a hyphen. It must be from 1 to 32 characters long.
 
@@ -51,7 +51,7 @@ For more information, see [{#T}](../concepts/index.md).
 
             {% endnote %}
 
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be between 8 and 128 characters.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be between 8 and 128 characters long.
 
    1. Configure additional cluster settings, if required:
 
@@ -74,10 +74,10 @@ For more information, see [{#T}](../concepts/index.md).
 
    1. Specify the master host parameters on the **{{ ui-key.yacloud.greenplum.section_resource-master }}** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#master).
 
-      * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md): Defines technical properties of the virtual machines where a cluster's master hosts will be deployed.
+      * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster's master hosts will be deployed.
 
       * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
-         * Select the [disk type](../concepts/storage.md).
+         * Select [disk type](../concepts/storage.md).
 
             
             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
@@ -85,9 +85,9 @@ For more information, see [{#T}](../concepts/index.md).
 
    1. Specify the parameters of segment hosts on the **{{ ui-key.yacloud.greenplum.section_resource-segment }}** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#segment).
 
-      * The number of segment hosts.
-      * The number of segments per host. The maximum value of this parameter depends on the host class.
-      * [Host class](../concepts/instance-types.md): Defines technical properties of the virtual machines where a cluster's segment hosts will be deployed.
+      * Number of segment hosts.
+      * Number of segments per host. The maximum value of this parameter depends on a host class.
+      * [Host class](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster's segment hosts will be deployed.
       * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
          * Select the [disk type](../concepts/storage.md).
 
@@ -139,14 +139,14 @@ For more information, see [{#T}](../concepts/index.md).
                         `disk-type=<disk type> \
          --zone-id=<availability zone> \
          --subnet-id=<subnet ID> \
-         --assign-public-ip=<access to hosts via public IP address: true or false> \
+         --assign-public-ip=<public access to hosts: true or false> \
          --security-group-ids=<list of security group IDs> \
          --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       {% note info %}
 
-      The cluster name must be unique within a folder. It may contain Latin letters, numbers, hyphens, and underscores. It must be maximum 63 characters long.
+      The cluster name must be unique within a folder. It may contain Latin letters, numbers, hyphens, and underscores. The name may be up to 63 characters long.
 
       {% endnote %}
 
@@ -170,8 +170,8 @@ For more information, see [{#T}](../concepts/index.md).
 
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It is required if the selected availability zone includes 2 or more subnets.
-      * `--assign-public-ip`: The flag that is specified if the hosts need a [public IP address](../../vpc/concepts/address.md#public-addresses).
-      * `--security-group-ids`: list of [security group](../../vpc/concepts/security-groups.md) IDs.
+      * `--assign-public-ip`: Flag to specify if the hosts require [public access](../concepts/network.md#public-access-to-a-host).
+      * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
       * `--deletion-protection`: Cluster deletion protection.
 
 
@@ -261,7 +261,7 @@ For more information, see [{#T}](../concepts/index.md).
         network_id          = yandex_vpc_network.<network name in {{ TF }}>.id
         zone                = "<availability zone>"
         subnet_id           = yandex_vpc_subnet.<subnet name in {{ TF }}>.id
-        assign_public_ip    = <getting a public IP: true or false>
+        assign_public_ip    = <public access to cluster hosts: true or false>
         deletion_protection = <cluster deletion protection: true or false>
         version             = "<{{ GP }} version>"
         master_host_count   = <number of master hosts: 1 or 2>

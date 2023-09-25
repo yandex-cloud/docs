@@ -24,6 +24,14 @@
 * [Keycloak](../tutorials/federations/integration-keycloak.md).
 * [Другие SAML-совместимые поставщики удостоверений](../tutorials/federations/integration-common.md).
 
+### Сопоставление групп пользователей {#group-mapping}
+
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
+
+Для организаций, в которых много участников, одинаковые права доступа к ресурсам {{ yandex-cloud }} могут потребоваться сразу нескольким пользователям. В этом случае роли и доступы удобнее выдавать не персонально, а для группы.
+
+Если вы используете группы пользователей в вашем поставщике удостоверений, или собираетесь это сделать, [настройте сопоставление групп](../operations/manage-groups.md#group-mapping) пользователей между поставщиком удостоверений и {{org-name}}. Пользователи в группах поставщика удостоверений будут иметь права доступа к ресурсам {{ yandex-cloud }} из сопоставленных групп в {{org-name}}.
+
 ## Как происходит аутентификация в федерации {#saml-authentication}
 
 {% include [federated-user-auth](../../_includes/iam/federated-user-auth.md) %}

@@ -126,20 +126,33 @@ keywords:
 
 {% endnote %}
 
-## Подключение из Docker-контейнера {#connection-docker}
+## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
-Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#ssl-certificate).
+Чтобы подключаться к кластеру {{ mos-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-Для подключения к кластеру {{ mos-name }} добавьте в Dockerfile строки:
+{% list tabs %}
 
-```bash
-RUN apt-get update && \
-    apt-get install wget curl --yes && \
-    mkdir -p ~/.opensearch && \
-    wget "{{ crt-web-path }}" \
-         --output-document ~/.opensearch/root.crt && \
-    chmod 0600 ~/.opensearch/root.crt
-```
+
+* Подключение без SSL
+
+    ```bash
+    RUN apt-get update && \
+        apt-get install curl --yes
+    ```
+
+
+* Подключение с SSL
+
+    ```bash
+    RUN apt-get update && \
+        apt-get install wget curl --yes && \
+        mkdir --parents ~/.opensearch && \
+        wget "{{ crt-web-path }}" \
+             --output-document ~/.opensearch/root.crt && \
+        chmod 0600 ~/.opensearch/root.crt
+    ```
+
+{% endlist %}
 
 ## Примеры строк подключения {#code-examples}
 

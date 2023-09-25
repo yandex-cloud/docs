@@ -45,10 +45,10 @@ You cannot disable automatic backups. However, when [creating](../operations/clu
 
 After a backup is created, it is compressed for storage.
 
-In single-host clusters, you create a backup by reading data from the master host while the solution for multi-host clusters is to read one of the replicas, since it is a resource-intensive operation. In this case:
+In single-host clusters, you create a backup by reading data from the master host while the solution for multi-host clusters is to read one of the replicas, since it is a resource-intensive operation. In which case:
 
 * The replica with the highest backup priority is selected. You can set the priority when [creating](../operations/cluster-create.md) a cluster, [adding](../operations/hosts.md#add) new hosts, or [modifying the settings](../operations/hosts.md#update) of the existing ones. This defines which replica to use for backups. The minimum backup priority value is `0`, while the maximum one is `100` and the default one is `0`.
-* If there are multiple replicas with the highest priority, a backup source is selected randomly from among these.
+* If there are multiple replicas with the highest priority, a backup source is selected randomly out of them.
 
 If the service is unable to create a backup using the selected replica, the backup operation will proceed with the master host.
 
@@ -72,12 +72,6 @@ Storing backups in {{ mmy-name }}:
 
    For more information, see the [{{ mmy-name }} pricing policy](../pricing.md#rules-storage).
 
-## Checking backups {#verify}
-
-### Checking backup integrity {#integrity}
-
-Backup integrity is checked on synthetic data using integration tests available in the service.
-
-### Checking backup recovery {#capabilities}
+## Checking backup recovery {#capabilities}
 
 To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.

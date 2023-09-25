@@ -465,7 +465,7 @@
 
 * **Join use nulls**{#setting-join-use-nulls} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
-   Controls the behavior of `JOIN` clauses. If the setting is enabled, empty cells resulting from a join are filled with `NULL` values. Otherwise, the cells are filled with the defaults for the specific field type.
+   Controls the behavior of `JOIN` clauses. If the setting is enabled, empty cells resulting from a join are filled with `NULL` values; otherwise, the cells are filled with the defaults for the specific field type.
 
    This setting is disabled by default.
 
@@ -546,9 +546,9 @@
 
    Data accumulated during the `GROUP BY` aggregation are stored in RAM for a certain period of time. This parameter sets a threshold (in bytes) which, when exceeded, will cause data to be flushed to disk to save RAM.
 
-   It is useful if queries fail because there is not enough RAM to aggregate a large amount of data. If this is the case, set this parameter to a non-zero value to get {{ CH }} to flush data to disk and perform successful aggregation.
+   The setting is useful if queries fail because there is not enough RAM to aggregate a large amount of data. If this is the case, set this parameter to a non-zero value to get {{ CH }} to flush data to disk and perform successful aggregation.
 
-   Minimum value is `0` (`GROUP BY` in external memory disabled). Default is `0`.
+   The minimum value is `0` (`GROUP BY` in external memory is disabled), while the default one is `0`.
 
    When using aggregation in the external memory, we recommend setting the value of this setting twice as low as the [Max memory usage](#setting-max-memory-usage) setting value (by default, the maximum memory usage is limited to 10 GB).
 
@@ -656,9 +656,9 @@
 
    The maximum amount of RAM (in bytes) to execute a query on a single server. This setting does not account for the amount of free memory or the total amount of a machine's memory. It applies to a single query on a single server.
 
-   Minimum value is `0` (no limit). Default is `10737418240` (10 GB). The maximum value is limited to the Max server memory usage setting value, which cannot be changed directly. For more information, see [{#T}](../../managed-clickhouse/concepts/memory-management.md).
+   The minimum and default value is `0` (no limitation is set). The maximum value is limited to the `Max server memory usage` setting value, which cannot be changed directly. For more information, see [{#T}](../../managed-clickhouse/concepts/memory-management.md). If the set value is greater than the `Max server memory usage` value, the latter is used.
 
-   If you are using [Max bytes before external `GROUP BY`](#setting-max-bytes-before-external-group-by) or [Max bytes before external sort](#setting-max-bytes-before-external-sort), we recommend setting their values to half of Max memory usage.
+   If you are using [Max bytes before external `GROUP BY`](#setting-max-bytes-before-external-group-by) or [Max bytes before external sort](#setting-max-bytes-before-external-sort), we recommend setting their values to half of the Max memory usage.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/query-complexity#settings_max_memory_usage).
 
@@ -842,7 +842,7 @@
 
    Sets the minimum count of structurally identical queries to start [compilation](#setting-compile) from.
 
-   For a value of `0`, compilation is performed in synchronous mode: a query waits for the compilation to finish, and then continues running. We recommend setting this value only for testing purposes.
+   For a value of `0`, compilation is performed in synchronous mode: a query waits for the compilation to finish, and then continues running. We recommended setting this value only for testing purposes.
 
    For all other values, compilation is performed asynchronously in a separate thread: the result is used as soon as it is available, including by currently running queries.
 
@@ -852,11 +852,11 @@
 
    Sets the minimum count of identical expressions to start [expression compilation](#setting-compile-expressions) with.
 
-   For a value of `0`, compilation is performed in synchronous mode: an expression waits for the compilation to finish, after which the query continues running. We recommend setting this value only for testing purposes.
+   For a value of `0`, compilation is performed in synchronous mode: an expression waits for the compilation to finish, after which the query continues running. We recommended setting this value only for testing purposes.
 
    For all other values, compilation is performed asynchronously in a separate thread: the result is used as soon as it is available, including by currently running queries.
 
-   Minimum value is `0`. Default is `3`.
+   The minimum value is `0`, while the default one is `3`.
 
 * **Min execution speed**{#setting-min-execution-speed} {{ tag-all }}
 

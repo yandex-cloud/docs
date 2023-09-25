@@ -85,6 +85,18 @@
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+        * **{{ cloud-storage-name }}** — включает [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ cloud-storage-full-name }}. Так данные хранятся в служебном бакете {{ objstorage-full-name }} в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+
+            {{ cloud-storage-name }} нельзя отключить после сохранения настроек кластера.
+
+            
+            {% note info %}
+
+            Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и не тарифицируется.
+
+            {% endnote %}
+
+
         * **{{ ui-key.yacloud.mdb.forms.section_pooler }}** — режим работы и параметры [менеджера подключений](../concepts/pooling.md):
 
             {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}

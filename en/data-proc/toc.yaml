@@ -63,6 +63,8 @@ items:
               Diagnostics and troubleshooting of Spark application performance
               issues
             href: operations/spark-diagnostics.md
+      - name: Setting up and using Python virtual environments
+        href: operations/python-env.md
   - name: Tutorials
     items:
       - name: All tutorials

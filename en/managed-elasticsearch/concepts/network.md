@@ -3,16 +3,16 @@
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
 
- When creating a cluster, you can:
+When creating a cluster, you can:
 
 * Specify a network for the entire cluster.
 * Specify subnets for each host in the cluster.
-* Request a public IP address to access cluster hosts with the [_Data node_ role](./index.md) from outside {{ yandex-cloud }}.
+* Request public access to connect to cluster hosts with the [_Data node_ role](./index.md) from outside {{ yandex-cloud }}.
 
-You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
+You can create a cluster without specifying any subnets for the hosts if the availability zone selected for each host contains exactly one subnet of the cluster network.
 
 
-## Hostname and FQDN {#hostname}
+## Host name and FQDN {#hostname}
 
 {{ mes-short-name }} generates a name for each cluster host when it is being created. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, the FQDN cannot be changed.
 
@@ -31,7 +31,7 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 Security groups follow the _All traffic that is not allowed is prohibited_ principle. To connect to a cluster, security groups must include rules allowing traffic from certain ports, IP addresses, or other security groups.
 
-For example, let's assume a host with the _Data node_ role is assigned a public IP address. If there is no security group rule that allows connecting to it from the internet on port `443`, you will not be able to connect to the Kibana web interface. Furthermore, you will not be able to access a host either, unless it has a security group rule configured that explicitly allows incoming traffic on port `9200`.
+For example, let's assume public access is enabled for a host with the _Data node_ role. If there is no security group rule that allows connecting to it from the internet on port `443`, you will not be able to connect to the Kibana web interface. Furthermore, you will not be able to access a host either, unless it has a security group rule configured that explicitly allows incoming traffic on port `9200`.
 
 {% note tip %}
 

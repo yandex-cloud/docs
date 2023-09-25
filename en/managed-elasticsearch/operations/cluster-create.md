@@ -82,7 +82,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
                {% note warning %}
 
-               You can't assign a public IP address to a host after creating a cluster.
+               You cannot enable public access to a host after creating a cluster.
 
                {% endnote %}
 

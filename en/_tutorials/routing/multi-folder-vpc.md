@@ -237,7 +237,7 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
          terraform apply
          ```
 
-      1. Confirm the resources have been updated.
+      1. Confirm that the resources have been updated.
 
       1. Wait for the operation to complete.
 
@@ -266,7 +266,7 @@ In `net-folder`, create a network named `shared-net`, with three subnets that ha
       1. Enter the subnet CIDR: the IP address `10.1.11.0` and mask `24`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
       1. Click **Create subnet**.
 
-      Similarly, create `subnet-b` and `subnet-с` in **net-folder**.
+      Similarly, create `subnet-b` and `subnet-c` in **net-folder**.
 
 
    - CLI
@@ -654,7 +654,7 @@ Create VMs with the following parameters:
 1. Check IP connectivity to `dev-vm` inside the VPC:
 
    ```bash
-   ping -с3 <dev-vm_internal_IP_address>
+   ping -c3 <dev-vm_internal_IP_address>
    ```
 
    Result:

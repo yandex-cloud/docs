@@ -23,7 +23,6 @@
   
 
   1. (Опционально) Если вы хотите подключить к ВМ дополнительные [файловые хранилища](../../concepts/filesystem.md), подключите их в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** на вкладке **{{ ui-key.yacloud.compute.nfs.label_filesystems }}**. Предварительно необходимо [создать](../filesystem/create.md) хранилища.
-
 
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
@@ -55,9 +54,20 @@
      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите [подходящие группы безопасности](../../../vpc/concepts/security-groups.md) (если соответствующего поля нет, для ВМ будет разрешен любой входящий и исходящий трафик).
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
      * (Опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/index.md#sa). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
+     * (Опционально) [Включите доступ к ВМ через OS Login](../vm-connect/os-login.md). Опция доступна для образов Linux из [{{ marketplace-name }}](/marketplace), которые содержат `OS Login` в названии.
+
+        {% include notitle [preview](../../../_includes/note-preview-by-request.md) %}
+
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [публичного ключа](../vm-connect/ssh.md#creating-ssh-keys).
-     * (Опционально) При необходимости  в поле **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** разрешите доступ к [серийной консоли](../index.md#serial-console).
+
+       {% note info %}
+
+       На ВМ с включенным доступом через OS Login указать собственные SSH-ключи невозможно.
+
+       {% endnote %}
+
+     * (Опционально) При необходимости в поле **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** разрешите доступ к [серийной консоли](../index.md#serial-console).
 
      {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 

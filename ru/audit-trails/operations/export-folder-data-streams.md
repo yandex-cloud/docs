@@ -1,9 +1,9 @@
 # Загрузка аудитных логов каталога в {{ yds-name }}
 
-Создайте новый [трейл](../concepts/trail.md), который будет загружать аудитные логи ресурсов отдельного каталога в поток данных {{ yds-name }}.
+По этой инструкции вы создадите новый [трейл](../concepts/trail.md), который будет загружать аудитные логи уровня конфигурации (Control Plane) всех ресурсов и (опционально) аудитные логи уровня сервисов (Data Plane) выбранных сервисов отдельного каталога в поток данных {{ yds-name }}.
 
 
-## Подготовка окружения {#before-you-begin}
+## Подготовить окружения {#before-you-begin}
 
 Для экспорта аудитных логов каталога:
 
@@ -24,8 +24,8 @@
         ```
         yc resource-manager folder add-access-binding \
           --role audit-trails.viewer \
-          --id <идентификатор каталога> \
-          --service-account-id <идентификатор сервисного аккаунта>
+          --id <идентификатор_каталога> \
+          --service-account-id <идентификатор_сервисного_аккаунта>
         ```
 
         Где:
@@ -38,8 +38,8 @@
         ```
         yc resource-manager folder add-access-binding \
           --role yds.writer \
-          --id <идентификатор каталога> \
-          --service-account-id <идентификатор сервисного аккаунта>
+          --id <идентификатор_каталога> \
+          --service-account-id <идентификатор_сервисного_аккаунта>
         ```
 
         Где:
@@ -67,15 +67,25 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}** и укажите:
+
       * **{{ ui-key.yacloud.common.name }}** — имя создаваемого трейла.
       * **{{ ui-key.yacloud.common.description }}** — описание трейла, необязательный параметр.
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_filter }}** задайте параметры области сбора аудитных логов:
+
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
+
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — выберите поток данных. Также вы можете создать новый поток данных, для этого нажмите кнопку **{{ ui-key.yacloud.common.create-new }}** и [укажите](../../data-streams/operations/manage-streams.md#create-data-stream) параметры потока данных.
+
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите сервисный аккаунт, от имени которого трейл будет загружать аудитные логи в поток данных.
+
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
+
+      * **Статус** — выберите `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя каталога, в котором будет находиться трейл.
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}** —  `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — выберите поток данных. Также вы можете создать новый поток данных, для этого нажмите кнопку **{{ ui-key.yacloud.common.create-new }}** и [укажите](../../data-streams/operations/manage-streams.md#create-data-stream) параметры потока данных.
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите сервисный аккаунт, от имени которого трейл будет загружать аудитные логи в поток данных.
+
+  1. {% include [data-plane-on-console](../../_includes/audit-trails/data-plane-on-console.md) %}
+
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

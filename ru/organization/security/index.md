@@ -26,6 +26,10 @@
 
 * `organization-manager.groups.memberAdmin` — роль дает возможность просматривать информацию о группе, добавлять и удалять участников.
 
+* `organization-manager.osLogins.admin` — роль позволяет редактировать профили OS Login и SSH-ключи, а также создавать сертификаты для пользователей организации.
+
+* `organization-manager.osLogins.viewer` — роль позволяет просматривать профили OS Login и SSH-ключи пользователей организации.
+
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

@@ -103,20 +103,33 @@
 
 Полученный SSL-сертификат также используется при работе с [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
 
-## Подключение из Docker-контейнера {#connection-docker}
+## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
-Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+Чтобы подключаться к кластеру {{ mkf-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-Для подключения к кластеру {{ mkf-name }} добавьте в Dockerfile строки:
+{% list tabs %}
 
-```bash
-RUN apt-get update && \
-    apt-get install wget kafkacat --yes && \
-    mkdir -p {{ crt-local-dir }} && \
-    wget "{{ crt-web-path }}" \
-         --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
-    chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
-```
+
+* Подключение без SSL
+
+  ```bash
+  RUN apt-get update && \
+      apt-get install kafkacat --yes
+  ```
+
+
+* Подключение с SSL
+
+  ```bash
+  RUN apt-get update && \
+      apt-get install wget kafkacat --yes && \
+      mkdir --parents {{ crt-local-dir }} && \
+      wget "{{ crt-web-path }}" \
+           --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
+      chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+  ```
+
+{% endlist %}
 
 ## Примеры строк подключения {#connection-string}
 

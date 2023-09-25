@@ -57,6 +57,10 @@ In a failover cluster with multiple hosts, you can switch the master role from t
       {{ yc-mdb-my }} cluster start-failover --help
       ```
 
-   1. Run the command: `{{ yc-mdb-my }} cluster start-failover`.
+   1. Run the `{{ yc-mdb-my }} cluster start-failover` command.
 
 {% endlist %}
+
+#### How do I restart a host? {#host-reboot}
+
+You cannot restart a separate cluster host. To restart hosts, [stop and restart the cluster](../../managed-mysql/operations/cluster-stop.md).

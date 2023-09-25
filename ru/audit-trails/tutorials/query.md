@@ -141,14 +141,19 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}** и укажите:
-      * **{{ ui-key.yacloud.common.name }}** — `logsyq`;
-      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`;
-      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** — не требует заполнения, содержит имя текущей организации;
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}** —  `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`;
-      * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — выберите бакет, [созданный ранее](#create-backet);
-      * **{{ ui-key.yacloud.audit-trails.label_service-account }}** — `trail-sa`;
-      * Для остальных параметров оставьте значения по умолчанию.
+  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите `logsyq`.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — выберите [созданный ранее](#create-backet) бакет.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите `trail-sa`.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
+
+      * **Статус** — выберите `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** — не требует заполнения, содержит имя текущей организации.
+
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** в поле **Статус** выберите `{{ ui-key.yacloud.common.disabled }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

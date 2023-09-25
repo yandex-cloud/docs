@@ -1,6 +1,6 @@
 # Загрузка аудитных логов в SIEM ArcSight
 
-Создайте трейл, который будет загружать аудитные логи ресурсов отдельного каталога в бакет {{ objstorage-full-name }} с включенным шифрованием. Затем настройте непрерывную доставку логов в SIEM ArcSight.
+Создайте трейл, который будет загружать аудитные логи уровня конфигурации (Control Plane) ресурсов отдельного каталога в бакет {{ objstorage-full-name }} с включенным шифрованием. Затем настройте непрерывную доставку логов в SIEM ArcSight.
 
 Для успешного прохождения руководства у вас должен быть установлен экземпляр ArcSight.
 
@@ -272,18 +272,13 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
-  2. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  3. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}** и укажите:
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}** и укажите:
 
      * **{{ ui-key.yacloud.common.name }}** — имя создаваемого трейла, например, `arcsight-trail`.
      * **{{ ui-key.yacloud.common.description }}** — описание трейла, необязательный параметр.
 
-  4. В блоке **{{ ui-key.yacloud.audit-trails.label_filter }}** задайте параметры области сбора аудитных логов:
-
-     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя текущего каталога.
-
-  5. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
 
      * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
      * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — имя бакета.
@@ -295,8 +290,16 @@
   
      {% endnote %}
   
-  6. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите `sa-arcsight`.
-  7. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите `sa-arcsight`.
+
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
+
+     * **Статус** — выберите `{{ ui-key.yacloud.common.enabled }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя текущего каталога.
+
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** в поле **Статус** выберите `{{ ui-key.yacloud.common.disabled }}`.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
   {% note warning %}
   

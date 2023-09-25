@@ -46,6 +46,8 @@ items:
         href: operations/connection.md
       - name: Управление привязками
         href: operations/binding.md
+      - name: Загрузка схемы данных
+        href: operations/schema-uploading.md
       - name: Управление запросами
         href: operations/query.md
   - name: Источники и приемники данных
@@ -68,6 +70,10 @@ items:
             href: sources-and-sinks/data-streams-binding.md
           - name: Запись данных
             href: sources-and-sinks/data-streams-write.md
+      - name: Работа с базами данных {{ mch-name }}
+        href: sources-and-sinks/clickhouse.md
+      - name: Работа с данных {{ mpg-name }}
+        href: sources-and-sinks/postgresql.md
       - name: Запись метрик в {{monitoring-full-name}}
         href: sources-and-sinks/monitoring.md
   - name: Сценарии использования

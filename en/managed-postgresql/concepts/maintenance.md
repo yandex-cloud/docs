@@ -15,10 +15,10 @@ Changing a major DBMS version is not part of maintenance. For more information a
 
 ## Maintenance window {#maintenance-window}
 
-You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or updating [its settings](../operations/update.md):
+You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/update.md):
 
-* **Unspecified time** (default): Maintenance is possible at any time.
-* **On schedule**: Set the preferred maintenance start time, i.e., the day and time (UTC) you want to perform maintenance at. For example, you can choose a time when the cluster is least loaded.
+* **Unspecified time** (default): Maintenance can be performed at any time.
+* **On schedule**: Set the preferred maintenance start time, i.e., the day and time (UTC) you want to perform maintenance at. For example, you can choose a time window when the cluster is least loaded.
 
 ## Maintenance procedure {#maintenance-order}
 
@@ -29,4 +29,4 @@ In multi-host clusters, the maintenance is run as follows:
 1. [Replica hosts](replication.md) undergo maintenance one by one. The replicas are queued randomly. A replica becomes unavailable while it is being restarted during maintenance.
 1. Master host undergoes maintenance and gets updated. If it is restarted and becomes unavailable, one of the replicas takes its role.
 
-   If you access the cluster using the FQDN or IP address of the master host, such a cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect.md#fqdn-master) that always points to the master host.
+   If you access a cluster using the [FQDN](../concepts/network.md#hostname) of the master host, the cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect.md#fqdn-master) that always points to the master host.

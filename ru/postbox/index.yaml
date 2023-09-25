@@ -1,0 +1,23 @@
+title: Yandex Cloud Postbox
+description:
+  - >-
+    <em>Сервис Yandex Cloud Postbox находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+  - Yandex Cloud Postbox — сервис отправки транзакционных почтовых сообщений.
+nav:
+  title: Yandex Cloud Postbox
+meta:
+  title: Yandex Cloud Postbox
+  description: >-
+    Yandex Cloud Postbox позволяет отправлять транзакционные сообщения, например
+    о восстановлении пароля или создании заказа.
+links:
+  - title: Начало работы
+    description: Узнайте, как начать работать с Yandex Cloud Postbox
+    href: quickstart/index
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

@@ -303,6 +303,11 @@ default:
         cluster-admin: k8s.cluster-api.cluster-admin
         editor: k8s.cluster-api.editor
         viewer: k8s.cluster-api.viewer
+    maf:
+      admin: managed-airflow.admin
+      editor: managed-airflow.editor
+      viewer: managed-airflow.viewer
+      user: managed-airflow.user
     mch:
       admin: managed-clickhouse.admin
       auditor: managed-clickhouse.auditor
@@ -403,6 +408,10 @@ default:
   crt-local-dir: /usr/local/share/ca-certificates/Yandex/
   crt-local-file: YandexInternalRootCA.crt
   crt-alias: YandexCA
+  crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
+  crt-local-file-root: RootCA.crt
+  crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
+  crt-local-file-int: IntermediateCA.crt
   mdb-host: mdb.cloud.yandex.net
   dns-zone: mdb.yandexcloud.net
   network-name: default
@@ -941,8 +950,8 @@ default:
         inet:
           egress|string: ₸4.8000
     logs:
-      raw|int|string: ₸30000
-      shielding|int|string: ₸21000
+      raw|int|string: ₸25000
+      shielding|int|string: ₸17500
   sku|KZT|compute:
     hostgroup:
       cpu:
@@ -1363,7 +1372,7 @@ default:
     ingress:
       inet:
         antiddos:
-          qrator|string: ₸14.5800
+          qrator|string: ₸12.1500
     public_fips:
       deallocated|string: ₸1.5500
     public_fips|string: ₸1.2000
@@ -1659,23 +1668,23 @@ default:
   sku|KZT|yds:
     events:
       puts|pricingRate:
-        2|string: ₸7.0800
+        2|string: ₸5.9000
     reserved_resources:
       128k:
-        12h|string: ₸0.8000
+        12h|string: ₸0.6667
         1h|pricingRate:
-          744|string: ₸0.6000
+          744|string: ₸0.5000
         1h|string: Free
-        24h|string: ₸1.2000
-        4h|string: ₸0.7000
+        24h|string: ₸1.0000
+        4h|string: ₸0.5833
       1m:
-        12h|string: ₸3.8000
-        24h|string: ₸5.6000
-        4h|string: ₸2.6000
+        12h|string: ₸3.1667
+        24h|string: ₸4.6667
+        4h|string: ₸2.1667
       512k:
-        12h|string: ₸2.4000
-        24h|string: ₸3.6000
-        4h|string: ₸1.6000
+        12h|string: ₸2.0000
+        24h|string: ₸3.0000
+        4h|string: ₸1.3333
   sku|KZT|ymq:
     queue:
       fifo:
@@ -2530,8 +2539,8 @@ default:
         inet:
           egress|string: $0.007680
     logs:
-      raw|string: $64.102565
-      shielding|string: $44.871796
+      raw|string: $40.000000
+      shielding|string: $28.000000
   sku|USD|compute:
     hostgroup:
       cpu:
@@ -2932,7 +2941,7 @@ default:
     ingress:
       inet:
         antiddos:
-          qrator|string: $0.031154
+          qrator|string: $0.019440
     public_fips:
       deallocated|string: $0.002480
     public_fips|string: $0.001920
@@ -3230,23 +3239,23 @@ default:
   sku|USD|yds:
     events:
       puts|pricingRate:
-        2|string: $0.015128
+        2|string: $0.009440
     reserved_resources:
       128k:
-        12h|string: $0.001709
+        12h|string: $0.001067
         1h|pricingRate:
-          744|string: $0.001282
+          744|string: $0.000800
         1h|string: Free
-        24h|string: $0.002564
-        4h|string: $0.001496
+        24h|string: $0.001600
+        4h|string: $0.000933
       1m:
-        12h|string: $0.008120
-        24h|string: $0.011966
-        4h|string: $0.005556
+        12h|string: $0.005067
+        24h|string: $0.007467
+        4h|string: $0.003467
       512k:
-        12h|string: $0.005128
-        24h|string: $0.007692
-        4h|string: $0.003419
+        12h|string: $0.003200
+        24h|string: $0.004800
+        4h|string: $0.002133
   sku|USD|ymq:
     queue:
       fifo:
@@ -5153,6 +5162,15 @@ default:
           create:
             action:
               create: Create federation
+        group-mapping:
+          create:
+            add: Add
+          field:
+            idp: Mapping group in IdP
+          note:
+            group-name: Group name
+            iam-group: IAM group
+            tab-idp: IdP group
         organization:
           select:
             action:
@@ -5196,7 +5214,12 @@ default:
       airflow:
         button_create-cluster: Create a cluster
         section_airflow-configuration: Airflow configuration
+        section_dependencies: Dependencies
+        section_scheduler: Scheduler configuration
         section_storage: DAG file storage
+        section_triggerer: Triggerer configuration
+        section_webserver: Web server configuration
+        section_workers: Worker configuration
       alb:
         button_add-backend: Add backend
         button_add-discard-rule: Add discard rule
@@ -5322,11 +5345,13 @@ default:
         label_cloudLogging: Cloud Logging
         label_dataStream: Data Streams
         label_destination: Destination
+        label_event-filter-section: Collecting events from the service level (Data plane)
         label_filter: Filter
         label_object-prefix: Object prefix
         label_objectStorage: Object Storage
         label_organization-manager:
           organization: Organization
+        label_path-filter-section: Collecting events from the configuration level (Control plane)
         label_resource-manager:
           cloud: Cloud
           folder: Folder
@@ -5676,6 +5701,7 @@ default:
         section_resources: Application resources
       common:
         add: Add
+        all: All
         apply: Apply
         availability: Availability
         button_cron-15min: Every 15 minutes
@@ -6219,6 +6245,13 @@ default:
       greenplum:
         action_expand-open: Expand cluster
         action_expand-start: Save
+        cluster:
+          perf-diag:
+            label_field-query-cpu-time: CPU time
+            label_field-query-peak-memory: Peak memory
+            title_consumption-history: Usage history
+            title_current-state: Current state
+            title_states-history: State history
         field_expand-add-segments-per-host-count: Add segments to host
         field_expand-duration: Redistribution timeout
         field_expand-segment-host-count: Number of new segment hosts

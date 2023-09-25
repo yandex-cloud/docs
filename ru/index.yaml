@@ -87,7 +87,6 @@ links:
   - title: Managed Service for Apache Airflow™
     description: Управление кластерами Apache Airflow™
     href: managed-airflow/
-    stage: hidden
   - title: Managed Service for Apache Kafka®
     description: Управление кластерами Apache Kafka®
     href: managed-kafka/
@@ -139,6 +138,9 @@ links:
   - title: Cloud Organization
     description: Облачные сервисы для корпоративных клиентов
     href: organization/
+  - title: Cloud Postbox
+    description: Облачные сервисы для корпоративных клиентов
+    href: postbox/
   - title: Обзор платформы Yandex Cloud
     description: Обзор облачных ресурсов Yandex Cloud
     href: overview/
@@ -186,6 +188,9 @@ links:
   - name: '{{ ydb-name }}'
     description: Распределенная отказоустойчивая Distributed SQL СУБД
     href: ydb/
+  - title: WebSQL
+    description: SQL-запросы к кластеру управляемых баз данных.
+    href: websql/
   - title: Query
     description: Аналитические и потоковые запросы в реальном времени
     href: query/

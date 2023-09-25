@@ -2,34 +2,56 @@
 
 {% list tabs %}
 
-- Аккаунт пользователя на Яндексе
+- Аккаунт пользователя
 
-  1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
-  1. [Получите IAM-токен](../../iam/operations/iam-token/create.md), необходимый для аутентификации.
-  1. [Получите идентификатор любого каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
+  1. Получите IAM-токен для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md).
+  1. [Получите идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
+  1. При обращении к {{ vision-name }} через API в каждом запросе передавайте полученные параметры: 
+
+      * Для [Vision API](../../vision/vision/api-ref/index.md) и [Classifier API](../../vision/classifier/api-ref/grpc/index.md):
+
+          Указывайте IAM-токен в заголовке `Authorization` в следующем формате:
+
+          ```
+          Authorization: Bearer <IAM-токен>
+          ```
+
+          Идентификатор каталога указывайте в теле запроса в параметре `folderId`.
+
+      * Для [OCR API](../../vision/ocr/api-ref/index.md):
+
+          * в заголовке `Authorization` указывайте IAM-токен;
+          * в заголовке `x-folder-id` указывайте идентификатор каталога.
+
+          ```
+          Authorization: Bearer <IAM-токен> 
+          x-folder-id <идентификатор_каталога>
+          ```
 
 - Сервисный аккаунт
 
-  1. Выберите способ аутентификации:
-     * Получите [IAM-токен](../../iam/operations/iam-token/create-for-sa.md), используемый в примерах.
-     * [Создайте API-ключ](../../iam/operations/api-key/create.md). Передайте API-ключ в заголовке `Authorization` в следующем формате:
+  {{ vision-name }} поддерживает два способа аутентификации с сервисным аккаунтом:
+
+  * С помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md):
+
+      1. [Получите IAM-токен](../../iam/operations/iam-token/create-for-sa.md).
+      1. Полученный IAM-токен передавайте в заголовке `Authorization` в следующем формате:
+
+          ```
+          Authorization: Bearer <IAM-токен>
+          ```
+
+  * С помощью [API-ключей](../../iam/concepts/authorization/api-key).
+
+      {% include [api-keys-disclaimer](../iam/api-keys-disclaimer.md) %}
+
+      1. [Получите API-ключ](../../iam/operations/api-key/create.md).
+      1. Полученный API-ключ передавайте в заголовке `Authorization` в следующем формате:
 
           ```
           Authorization: Api-Key <API-ключ>
           ```
-  1. [Назначьте сервисному аккаунту роль](../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-vision-user }}` или выше на каталог, в котором он был создан.
 
-      Не указывайте в запросах идентификатор каталога — сервис использует каталог, в котором был создан сервисный аккаунт.
+  Не указывайте в запросах идентификатор каталога — сервис использует каталог, в котором был создан сервисный аккаунт.
 
-- Федеративный аккаунт
-
-  1. [Аутентифицируйтесь в CLI от имени федеративного пользователя](../../cli/operations/authentication/federated-user.md).
-  1. С помощью CLI получите [IAM-токен](../../iam/concepts/authorization/iam-token.md), необходимый для аутентификации:
-
-      ```bash
-      yc iam create-token
-      ```
-  1. [Получите идентификатор любого каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
-  
 {% endlist %}
-

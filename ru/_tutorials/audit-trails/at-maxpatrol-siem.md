@@ -238,7 +238,7 @@ MaxPatrol SIEM использует [статические ключи дост�
 
 ## Создайте трейл {#create-trail}
 
-Трейл будет собирать аудитные логи всех ресурсов вашей организации и [загружать](../../audit-trails/operations/export-organization-data-streams.md) их в поток данных `maxpatrol-stream`.
+Трейл будет собирать аудитные логи уровня конфигурации (Control Plane) всех ресурсов вашей организации и [загружать](../../audit-trails/operations/export-organization-data-streams.md) их в поток данных `maxpatrol-stream`.
 
 {% list tabs %}
 
@@ -247,13 +247,15 @@ MaxPatrol SIEM использует [статические ключи дост�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_audit-trails }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** создаваемого трейла `maxpatrol-trail`.
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_filter }}** задайте параметры области сбора аудитных логов:
-      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** — не требует заполнения (содержит имя организации, в котором будет находиться трейл).
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
       * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
       * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — выберите поток данных `maxpatrol-stream`.
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите сервисный аккаунт `maxpatrol-sa`.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
+      * **Статус** — выберите `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}** — не требует заполнения (содержит имя организации, в котором будет находиться трейл).
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** в поле **Статус** выберите `{{ ui-key.yacloud.common.disabled }}`.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

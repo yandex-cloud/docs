@@ -61,6 +61,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](vm-connect/ssh.md)
 * [{#T}](vm-connect/rdp.md)
 * [{#T}](vm-connect/powershell.md)
+* [{#T}](vm-connect/os-login.md)
 * [{#T}](vm-connect/auth-inside-vm.md)
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)

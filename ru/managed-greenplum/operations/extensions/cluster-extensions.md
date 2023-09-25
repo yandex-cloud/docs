@@ -89,6 +89,9 @@ CREATE EXTENSION <имя расширения>;
 || uuid-cb
 Добавляет возможность генерации и валидации уникальных идентификаторов по требованиям Центробанка РФ. Подробнее см. в разделе [{#T}](./uuid-cb.md).
 | 1.0 ||
+|| [{{ YZ }}](../../tutorials/yezzey.md). Расширение от {{ yandex-cloud }}
+Переносит [таблицы AO и AOCO](../../concepts/tables.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ cloud-storage-full-name }}. Так данные хранятся в служебном бакете {{ objstorage-full-name }} в сжатом и зашифрованном виде.
+| 1.8 ||
 |#
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

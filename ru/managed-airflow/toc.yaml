@@ -1,38 +1,28 @@
 title: Yandex Managed Service for Apache Airflow™
 href: index.yaml
-stage: hidden
 items:
   - name: Начало работы
     href: quickstart.md
-    stage: hidden
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
         href: operations/index.md
-        stage: hidden
       - name: Создание кластера
         href: operations/cluster-create.md
-        stage: hidden
+      - name: Изменение кластера
+        href: operations/cluster-update.md
       - name: Работа с интерфейсами {{ AF }}
         href: operations/af-interfaces.md
-        stage: hidden
       - name: Удаление кластера
         href: operations/cluster-delete.md
-        stage: hidden
-    stage: hidden
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
-        stage: hidden
       - name: Квоты и лимиты
         href: concepts/limits.md
-        stage: hidden
       - name: Правила тарификации
         href: pricing.md
-        stage: hidden
-    stage: hidden
   - name: Управление доступом
     href: security/index.md
-    stage: hidden
 base: ru/managed-airflow

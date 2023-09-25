@@ -105,20 +105,33 @@ keywords:
 
   Этот способ подходит только в том случае, если для всех хостов с ролью _Data node_ включен публичный доступ или же подключение осуществляется только с виртуальных машин {{ yandex-cloud }}. Это связано с тем, что хост для подключения, на который указывает этот FQDN, выбирается случайным образом среди все хостов с ролью _Data node_.
 
-## Подключение из Docker-контейнера {#connection-docker}
+## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
-Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+Чтобы подключаться к кластеру {{ mes-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-Для подключения к кластеру {{ mes-name }} добавьте в Dockerfile строки:
+{% list tabs %}
 
-```bash
-RUN apt-get update && \
-    apt-get install wget curl --yes && \
-    mkdir -p ~/.elasticsearch && \
-    wget "{{ crt-web-path }}" \
-         --output-document ~/.elasticsearch/root.crt && \
-    chmod 0600 ~/.elasticsearch/root.crt
-```
+
+* Подключение без SSL
+
+  ```bash
+  RUN apt-get update && \
+      apt-get install curl --yes
+  ```
+
+
+* Подключение с SSL
+
+  ```bash
+  RUN apt-get update && \
+      apt-get install wget curl --yes && \
+      mkdir --parents ~/.elasticsearch && \
+      wget "{{ crt-web-path }}" \
+           --output-document ~/.elasticsearch/root.crt && \
+      chmod 0600 ~/.elasticsearch/root.crt
+  ```
+
+{% endlist %}
 
 ## Примеры строк подключения {#connection-string}
 

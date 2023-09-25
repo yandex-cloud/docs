@@ -33,6 +33,8 @@ description: "Управление доступом в сервисе предо
 `compute.operator` | Позволяет [останавливать, запускать и перезапускать виртуальные машины](../../compute/operations/vm-control/vm-stop-and-start.md), но не позволяет создавать и удалять ВМ.
 `compute.snapshotSchedules.editor` | Дает права на [создание](../operations/snapshot-control/create-schedule.md) и [изменение](../operations/snapshot-control/update-schedule.md) снимков дисков по расписаниям.
 `compute.snapshotSchedules.viewer` | Дает права на просмотр информации о [снимках дисков по расписаниям](../concepts/snapshot-schedule.md).
+`compute.osLogin` | Разрешает доступ к виртуальным машинам по протоколу SSH через OS Login.
+`compute.osAdminLogin` | Разрешает доступ к виртуальным машинам по протоколу SSH через OS Login с возможностью выполнять команды от имени суперпользователя (`sudo`).
 `iam.serviceAccounts.user` | Подтверждает права на использование сервисного аккаунта.<br/>Эта роль необходима для выполнения операций с группами ВМ. Если вы указали сервисный аккаунт в запросе, {{ iam-short-name }} проверит, есть ли у вас права на использование этого аккаунта.
 `resource-manager.clouds.member` | Роль, необходимая для доступа к ресурсам в облаке всем, кроме [владельцев облака](../../resource-manager/concepts/resources-hierarchy.md#owner) и [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md).
 `resource-manager.clouds.owner` | Дает полный доступ к облаку и ресурсам в нем. Можно назначить только на облако.

@@ -24,7 +24,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-      * Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
+      * Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
       * (Optional) Add a cluster description.
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
@@ -71,8 +71,8 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
    
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
-       * Cloud network for the cluster.
-       * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+      * Cloud network for the cluster.
+      * Security groups for the cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
@@ -238,7 +238,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all required resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder, and the [FQDNs of the cluster hosts](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
@@ -404,7 +404,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       * `subnet-b` with the `10.2.0.0/24` range.
       * `subnet-c` with the `10.3.0.0/24` range.
    * With three hosts of the `{{ host-class }}` class, one in each subnet.
-   * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
+  * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
    * With protection against accidental cluster deletion.

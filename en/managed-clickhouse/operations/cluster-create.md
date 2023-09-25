@@ -86,7 +86,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-      * DB name. Database name may contain Latin letters, numbers, and underscores. The name may be up to 63 characters in length. You cannot create a database named `default`.
+      * DB name. Database name may contain Latin letters, numbers, and underscores. The name may be up to 63 characters long. You cannot create a database named `default`.
 
       * Enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster, if required.
 
@@ -198,6 +198,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       
       1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
+      1. To allow access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), provide the `--yandexquery-access=true` parameter.
 
 
       1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
@@ -338,6 +340,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
              data_lens  = <access from DataLens: true or false>
              metrika    = <access from Yandex Metrica and AppMetrika: true or false>
              serverless = <access from Cloud Functions: true or false>
+             yandex_query = <access from Yandex Query: true or false>
              web_sql    = <executing SQL queries from the management console: true or false>
            }
            ...
@@ -393,13 +396,13 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
-   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+   To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter.
 
-   To allow cluster access from {{ yq-full-name }}, set `true` for the `configSpec.access.yandexQuery` parameter.
+   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    To configure [hybrid storage settings](../concepts/storage.md##hybrid-storage-settings):
 
-   * Pass `true` in the `configSpec.cloudStorage.enabled` parameter to enable hybrid storage.
+   * Set `true` for the `configSpec.cloudStorage.enabled` parameter to enable hybrid storage.
    * Pass the hybrid storage settings in the `configSpec.cloudStorage` parameters:
 
       {% include [Hybrid Storage settings API](../../_includes/mdb/mch/hybrid-storage-settings-api.md) %}

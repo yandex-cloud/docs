@@ -114,23 +114,23 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
       ```bash
       {{ yc-mdb-my }} host add \
-         --cluster-name=<cluster name> \
-         --host zone-id=<availability zone ID>,`
-               `subnet-id=<subnet ID>,`
-               `assign-public-ip=<public access to the subcluster host: true or false>,`
-               `replication-source=<source host name>,`
-               `backup-priority=<host priority for backups>,`
-               `priority=<priority for assigning the host as a master: from 0 to 100>
+        --cluster-name=<cluster name> \
+        --host zone-id=<availability zone ID>,`
+          `subnet-id=<subnet ID>,`
+          `assign-public-ip=<public access to the subcluster host: true or false>,`
+          `replication-source=<source host name>,`
+          `backup-priority=<host priority for backups: from 0 to 100>,`
+          `priority=<priority for assigning the host as master: from 0 to 100>
       ```
 
       Where:
-      * `--cluster-name`: Name of a {{ mmy-name }} cluster.
+      * `--cluster-name`: Name of {{ mmy-name }} cluster.
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
-         * `assign-public-ip` indicates whether the host is reachable from the internet over a public IP address.
-         * `replication-source` is the [replication](../concepts/replication.md) source for the host.
-         * `backup-priority` is host priority for [backups](../concepts/backup.md#size).
+         * `assign-public-ip`: Host accessibility from the internet.
+         * `replication-source`: [Replication](../concepts/replication.md) source for the host.
+         * `backup-priority`: Host priority for [backups](../concepts/backup.md#size).
          * `priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
 
       The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -192,6 +192,12 @@ For each host in a {{ mmy-name }} cluster, you can:
 * Setting [priority](../concepts/backup.md#size) for backups.
 * Set a priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
 
+{% note info %}
+
+You cannot restart a separate cluster host. To restart hosts, [stop and restart the cluster](cluster-stop.md).
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
@@ -225,10 +231,10 @@ For each host in a {{ mmy-name }} cluster, you can:
    ```
 
    Where:
-   * `--cluster-name`: Name of a {{ mmy-name }} cluster.
-   * `--replication-source` is the [replication](../concepts/replication.md) source for the host.
-   * `--assign-public-ip` indicates whether the host is reachable from the internet over a public IP address.
-   * `--backup-priority` is host priority for [backups](../concepts/backup.md#size).
+   * `--cluster-name`: Name of {{ mmy-name }} cluster.
+   * `--replication-source`: [Replication](../concepts/replication.md) source for the host.
+   * `--assign-public-ip`: Host accessibility from the internet.
+   * `--backup-priority`: Host priority for [backups](../concepts/backup.md#size).
    * `--priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
 
    The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

@@ -4,13 +4,13 @@
 
 You can:
 
-* [Get a list of connectors](#list).
-* [Get detailed information about a connector](#get).
-* [Create a connector](#create).
-* [Edit a connector](#update).
-* [Pause a connector](#pause).
-* [Resume a connector](#resume).
-* [Delete a connector](#delete).
+* [Get a list of connectors](#list)
+* [Get detailed information about a connector](#get)
+* [Create a connector](#create)
+* [Edit a connector](#update)
+* [Pause a connector](#pause)
+* [Resume a connector](#resume)
+* [Delete a connector](#delete)
 
 ## Getting a list of connectors {#list}
 
@@ -92,7 +92,7 @@ You can:
 
 - API
 
-   To get connector details, use the [get](../api-ref/Connector/get.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the  [ConnectorService/Get](../api-ref/grpc/connector_service.md#Get) gRPC API call and provide the following in the request:
+   To get connector details, use the [get](../api-ref/Connector/get.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Get](../api-ref/grpc/connector_service.md#Get) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
    * Connector name in the `connectorName` parameter. To find out the name, retrieve a [list of cluster connectors](#list).
@@ -273,7 +273,7 @@ You can:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -415,7 +415,7 @@ You can:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -539,7 +539,7 @@ To pause a connector:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -566,6 +566,7 @@ To pause a connector:
    * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: Number of topic copies stored in the cluster.
    * Under **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-source-cluster }}**, specify the parameters for connecting to the source cluster:
       * **{{ ui-key.yacloud.kafka.field_connector-alias }}**: Prefix for the source cluster in the connector settings.
+
 
          {% note info %}
 
