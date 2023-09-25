@@ -33,7 +33,8 @@
 1. В PDF-файле должно быть не больше 8 страниц. Если страниц больше, разбейте его на файлы по 8 страниц.
 1. Кодируйте PDF-файл в формат Base64.
 
-    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
+    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command-pdf.md) %}
+
 1. Создайте файл с телом запроса, например `body.json`.
 
     **body.json:**
@@ -75,6 +76,7 @@
 1. Кодируйте файл изображения в формат Base64.
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
+
 1. Создайте файл с телом запроса, например `body.json`:
 
     **body.json:**
@@ -108,6 +110,7 @@
 1. Кодируйте файл в формат Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
+
 1. Создайте файл с телом запроса, например `body.json`:
 
     **body.json:**
@@ -168,6 +171,7 @@
 ### Готовая функция для отправки запросов в bash {#oneliner}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
+
 1. Скопируйте в терминал функцию:
 
     ```bash

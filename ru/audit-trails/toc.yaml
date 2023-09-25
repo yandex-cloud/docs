@@ -63,7 +63,6 @@ items:
           - name: Загрузка аудитных логов в SIEM ArcSight
             href: tutorials/export-logs-to-arcsight.md
   - name: Концепции
-    expanded: true
     items:
       - name: Обзор
         href: concepts/index.md
@@ -71,10 +70,20 @@ items:
         href: concepts/trail.md
       - name: Лог диагностики
         href: concepts/diagnostics.md
-      - name: Аудитный лог событий
-        href: concepts/format.md
-      - name: Справочник событий
-        href: concepts/events.md
+      - name: Сравнение логов событий уровня конфигурации и уровня сервисов
+        href: concepts/control-plane-vs-data-plane.md
+      - name: Логи событий уровня конфигурации
+        items:
+          - name: Аудитный лог событий
+            href: concepts/format.md
+          - name: Справочник событий
+            href: concepts/events.md
+      - name: Логи событий уровня сервисов
+        items:
+          - name: Аудитный лог событий
+            href: concepts/format-data-plane.md
+          - name: Справочник событий
+            href: concepts/events-data-plane.md
       - name: Экспорт в SIEM
         href: concepts/export-siem.md
       - name: Квоты и лимиты

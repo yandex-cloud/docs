@@ -62,7 +62,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
 * Connecting via SSL
 
    ```bash
-   curl --cacert {{ crt-local-dir }}{{ crt-local-file }} \
+   curl --cacert {{ crt-local-dir }}{{ crt-local-file-root }} \
         --header "X-ClickHouse-User: <DB username>" \
         --header "X-ClickHouse-Key: <DB user password>" \
         'https://<FQDN of any {{ CH }} host>:8443/?database=<DB name>&query=SELECT%20version()'
@@ -150,7 +150,7 @@ sudo apt update && sudo apt install --yes golang git
        const DB_USER = "<DB user name>"
        const DB_PASS = "<DB user password>"
 
-       const CACERT = "{{ crt-local-dir }}{{ crt-local-file }}"
+       const CACERT = "{{ crt-local-dir }}{{ crt-local-file-root }}"
 
        caCert, err := ioutil.ReadFile(CACERT)
        if err != nil {
@@ -444,7 +444,7 @@ npm install querystring
    const DB_USER = "<DB user name>";
    const DB_PASS = "<DB user password>";
 
-   const CACERT = "{{ crt-local-dir }}{{ crt-local-file }}";
+   const CACERT = "{{ crt-local-dir }}{{ crt-local-file-root }}";
 
    const options = {
        'method': 'GET',
@@ -567,7 +567,7 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
    Port = 8443
    Proto = https
    SSLMode = allow
-   CertificateFile = {{ crt-local-dir }}{{ crt-local-file }}
+   CertificateFile = {{ crt-local-dir }}{{ crt-local-file-root }}
    CALocation = /etc/ssl/certs/ca-certificates.crt
    ```
 
@@ -688,7 +688,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
        ];
 
        $ssl = [
-           'cafile' => '{{ crt-local-dir }}{{ crt-local-file }}',
+           'cafile' => '{{ crt-local-dir }}{{ crt-local-file-root }}',
            'verify_peer' => true,
        ];
 
@@ -783,7 +783,7 @@ pip3 install clickhouse-driver
                    port=9440,
                    secure=True,
                    verify=True,
-                   ca_certs='{{ crt-local-dir }}{{ crt-local-file }}')
+                   ca_certs='{{ crt-local-dir }}{{ crt-local-file-root }}')
 
    print(client.execute('SELECT version()'))
    ```
@@ -842,7 +842,7 @@ pip3 install requests
        params={
            'query': 'SELECT version()',
        },
-       verify='/usr/local/share/ca-certificates/Yandex/YandexCA.crt',
+       verify='{{ crt-local-dir }}{{ crt-local-file-root }}',
        headers={
            'X-ClickHouse-User': '<DB user name>',
            'X-ClickHouse-Key': '<DB user password>',
@@ -926,7 +926,7 @@ sudo apt update && sudo apt install --yes ruby
    req.add_field("X-ClickHouse-Key", DB_PASS)
 
    conn = Net::HTTP.new(uri.host, uri.port)
-   conn.ca_file = "{{ crt-local-dir }}{{ crt-local-file }}"
+   conn.ca_file = "{{ crt-local-dir }}{{ crt-local-file-root }}"
    conn.use_ssl = true
    conn.verify_mode = OpenSSL::SSL::VERIFY_PEER
 

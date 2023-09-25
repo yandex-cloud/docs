@@ -13,14 +13,14 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 Point-in-Time Recovery (PITR) technology allows you to restore the cluster state to any point in time in the interval from the creation of the oldest full backup to the archiving of the most recent write ahead log (WAL). For more information, see [{#T}](../concepts/backup.md).
 
-When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
+When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
 When creating a new cluster, set all required parameters.
 
-When restoring to the current state, the new cluster will reflect the state of:
+When restored to the current state, the new cluster will match the state of:
 
-* An existing cluster at the time of recovery.
-* A deleted cluster at the time of archiving the last write ahead log.
+* Existing cluster at the time of recovery.
+* Deleted cluster at the time of archiving the most recent WAL.
 
 {% list tabs %}
 
@@ -44,8 +44,8 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    1. Go to the folder page and select **{{ mpg-name }}**.
    1. Click the **Backups** tab.
-   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
+   1. Find the backup you need using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the backup you need and click **Restore cluster**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
    1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC) setting**. You can enter the value manually or select it from the drop-down calendar.
 
@@ -98,7 +98,7 @@ When restoring to the current state, the new cluster will reflect the state of:
          --network-name=<network name> \
          --host zone-id=<availability zone>,`
                `subnet-name=<subnet name>,`
-               `assign-public-ip=<host access via public IP: true or false> \
+               `assign-public-ip=<public access to the host: true or false> \
          --resource-preset=<host class> \
          --disk-size=<storage size in GB> \
          --disk-type=<disk type>
@@ -112,7 +112,7 @@ When restoring to the current state, the new cluster will reflect the state of:
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing, including the {{ PG }} service itself. The Prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including {{ PG }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -122,7 +122,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
          
          * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
-         * `assign-public-ip`: Flag to specify if a host requires a [public IP address](../../vpc/concepts/address.md#public-addresses).
+         * `assign-public-ip`: Flag to be set if [public access to the host](../concepts/network.md#public-access-to-a-host) is required.
 
 
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
@@ -196,7 +196,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -223,7 +223,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -233,7 +233,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
-   * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+   * ID of the backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Timestamp of the point to which you want to recover the cluster, in the `time` parameter.
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
@@ -425,7 +425,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -55,14 +55,14 @@ To access {{ objstorage-name }} bucket data from a cluster:
 1. Register the bucket as a snapshot repository using the [public {{ ES }} API](https://www.elastic.co/guide/en/elasticsearch/reference/current/put-snapshot-repo-api.html):
 
    ```http
-   PUT --cacert ~/.elasticsearch/root.crt https://admin:<password>@<FQDN or IP address of the host>:9200/_snapshot/<repository>
+   PUT --cacert ~/.elasticsearch/root.crt https://admin:<password>@<host FQDN>:9200/_snapshot/<repository>
    ```
 
    In the request parameters, specify the bucket associated with the cluster service account:
 
    ```bash
    curl --request PUT \
-        "https://admin:<password>@<host's FQDN or IP address>:9200/_snapshot/<repository>" \
+        "https://admin:<password>@<host FQDN>:9200/_snapshot/<repository>" \
         --cacert ~/.elasticsearch/root.crt \
         --header "Content-Type: application/json" \
         --data '{

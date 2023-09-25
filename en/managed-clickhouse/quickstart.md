@@ -62,19 +62,19 @@ To get started with the service:
 1. If you are using [security groups](../vpc/concepts/security-groups.md) for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
 
-1. To connect to the DB server, get an SSL certificate:
+1. To connect to the DB server, get your SSL certificates:
 
    {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
 
 1. Use the {{ CH }} CLI to connect:
-   1. Specify the path to the SSL certificate in the [configuration file]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
+   1. Specify the path to the `{{ crt-local-file-root }}` SSL certificate in the [configuration file]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
 
       ```xml
       <config>
         <openSSL>
           <client>
             <loadDefaultCAFile>true</loadDefaultCAFile>
-            <caConfig>{{ crt-local-dir }}{{ crt-local-file }}</caConfig>
+            <caConfig>{{ crt-local-dir }}{{ crt-local-file-root }}</caConfig>
             <cacheSessions>true</cacheSessions>
             <disableProtocols>sslv2,sslv3</disableProtocols>
             <preferServerCiphers>true</preferServerCiphers>

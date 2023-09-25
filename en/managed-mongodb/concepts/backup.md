@@ -56,19 +56,13 @@ Storing backups in {{ mmg-name }}:
 
    * Manually created backups are stored with no time limit.
 
-* Once you delete a cluster, all its backups persist for 7 days.
+* Once you delete a cluster, all its backups persist for seven days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
    For more information, see the [{{ mmg-name }} pricing policy](../pricing.md#rules-storage).
 
-## Checking backups {#verify}
-
-### Checking backup integrity {#integrity}
-
-Backup integrity is checked on synthetic data using integration tests available in the service.
-
-### Checking backup recovery {#capabilities}
+## Checking backup recovery {#capabilities}
 
 To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.

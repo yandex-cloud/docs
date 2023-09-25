@@ -4,13 +4,29 @@
 
 You can run Hive jobs from the [{{ yandex-cloud }} CLI](#run-hive-job-cli) and directly on the server using the [Hive CLI](#run-job-hive-shell).
 
+## Getting started {#before-you-begin}
+
+1. [Create a service account](../../iam/operations/sa/create.md) with the `mdb.dataproc.agent` role.
+
+1. {% include [tutorials-basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+
+1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following settings:
+
+   * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
+      * `HDFS`
+      * `SPARK`
+      * `HIVE`
+   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the previously created service account with the `mdb.dataproc.agent` role.
+   * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
+   * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**: Select this option to grant access to hosts in all subclusters.
+
 ## Running jobs using the {{ yandex-cloud }} CLI {#run-hive-job-cli}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
 {% include [cli-job-intro](../../_includes/data-proc/cli-job-intro.md) %}
 
-The calculation result is saved in the {{objstorage-full-name}} bucket along with the service output.
+The calculation result is saved in the {{ objstorage-full-name }} bucket along with the service output.
 
 There are two ways to send an SQL query to Hive:
 
@@ -23,7 +39,7 @@ There are two ways to send an SQL query to Hive:
       --query-list="SELECT Month, COUNT(*) FROM flights GROUP BY Month;"
    ```
 
-* In the {{objstorage-name}} object that the {{dataproc-name}} cluster service account has read access to:
+* In the {{ objstorage-name }} object that the {{ dataproc-name }} cluster service account has read access to:
 
    ```bash
    {{ yc-dp }} job create-hive \
@@ -32,22 +48,21 @@ There are two ways to send an SQL query to Hive:
       --query-file-uri="s3a://<your bucket>/hive-query.sql"
    ```
 
-You can find the query execution results and additional diagnostic information in the {{objstorage-name}} bucket that you specified when creating the cluster: `s3://<your bucket>/dataproc/clusters/<cluster ID>/jobs/<job ID>/`.
+You can find the query execution results and additional diagnostic information in the {{ objstorage-name }} bucket that you specified when creating the cluster: `s3://<your bucket>/dataproc/clusters/<cluster ID>/jobs/<job ID>/`.
 
 The job ID is contained in the YC CLI job execution command output and in the API response to the job execution.
 
-
 ## Running jobs using the Hive CLI {#run-job-hive-shell}
 
-To run the Apache Hive command shell (CLI), connect to the master host over SSH and run the `hive` command.
+1. Connect to the master host over SSH and run the `hive` command.
 
-Then run a Hive health check by executing the `select 1;` command. The correct result looks like this:
+1. Run a Hive health check by executing the `select 1;` command. The correct result looks like this:
 
-```text
-OK
-1
-Time taken: 0.077 seconds, Fetched: 1 row(s)
-```
+   ```text
+   OK
+   1
+   Time taken: 0.077 seconds, Fetched: 1 row(s)
+   ```
 
 1. Create an external table for the data from the example in parquet format. The table will contain a list of flights between US cities in 2018. Run the following query in the Hive CLI:
 

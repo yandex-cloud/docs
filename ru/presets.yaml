@@ -79,6 +79,8 @@ default:
   yagpt-full-name: YandexGPT
   billing-name: Yandex Cloud Billing
   console-full-name: Yandex Cloud Console
+  postbox-full-name: Yandex Cloud Postbox
+  cloud-storage-full-name: Yandex Cloud Storage
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver
@@ -163,6 +165,10 @@ default:
   search-api-name: Search API
   yagpt-name: YandexGPT
   console-name: Cloud Console
+  postbox-name: Cloud Postbox
+  cloud-storage-name: Cloud Storage
+  websql-name: WebSQL
+  websql-link: http://webbsql.cloud.ru/
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -221,6 +227,7 @@ default:
   datalens-public: DataLens Public
   search-api: Search API
   speechkit-slug: speechkit
+  ocr-max-filesize: 20 МБ
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   roles-alb-viewer: alb.viewer
   roles-alb-editor: alb.editor
@@ -463,6 +470,7 @@ default:
   ssms: SQL Server Management Studio
   pgadmin: "pgAdmin\_4"
   google-looker: Looker Studio
+  YZ: Yezzey
   tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
@@ -656,6 +664,7 @@ default:
   link-cloud-services-infrastructure: /services#infrastructure-network
   link-cloud-marketplace: /marketplace
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=ru
+  link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
   link-yandex-connect: https://connect.yandex.ru
   link-passport-login: https://passport.yandex.ru/auth
   link-sla-greenplum: https://yandex.ru/legal/cloud_sla_greenplum/
@@ -955,8 +964,8 @@ default:
         inet:
           egress|string: "4,8000\_₸"
     logs:
-      raw|int|string: "30\_000\_₸"
-      shielding|int|string: "21\_000\_₸"
+      raw|int|string: "25\_000\_₸"
+      shielding|int|string: "17\_500\_₸"
   sku|KZT|compute:
     hostgroup:
       cpu:
@@ -1377,7 +1386,7 @@ default:
     ingress:
       inet:
         antiddos:
-          qrator|string: "14,5800\_₸"
+          qrator|string: "12,1500\_₸"
     public_fips:
       deallocated|string: "1,5500\_₸"
     public_fips|string: "1,2000\_₸"
@@ -1673,23 +1682,23 @@ default:
   sku|KZT|yds:
     events:
       puts|pricingRate:
-        2|string: "7,0800\_₸"
+        2|string: "5,9000\_₸"
     reserved_resources:
       128k:
-        12h|string: "0,8000\_₸"
+        12h|string: "0,6667\_₸"
         1h|pricingRate:
-          744|string: "0,6000\_₸"
+          744|string: "0,5000\_₸"
         1h|string: Не тарифицируется
-        24h|string: "1,2000\_₸"
-        4h|string: "0,7000\_₸"
+        24h|string: "1,0000\_₸"
+        4h|string: "0,5833\_₸"
       1m:
-        12h|string: "3,8000\_₸"
-        24h|string: "5,6000\_₸"
-        4h|string: "2,6000\_₸"
+        12h|string: "3,1667\_₸"
+        24h|string: "4,6667\_₸"
+        4h|string: "2,1667\_₸"
       512k:
-        12h|string: "2,4000\_₸"
-        24h|string: "3,6000\_₸"
-        4h|string: "1,6000\_₸"
+        12h|string: "2,0000\_₸"
+        24h|string: "3,0000\_₸"
+        4h|string: "1,3333\_₸"
   sku|KZT|ymq:
     queue:
       fifo:
@@ -2544,8 +2553,8 @@ default:
         inet:
           egress|string: "0,007680\_$"
     logs:
-      raw|string: "64,102565\_$"
-      shielding|string: "44,871796\_$"
+      raw|string: "40,000000\_$"
+      shielding|string: "28,000000\_$"
   sku|USD|compute:
     hostgroup:
       cpu:
@@ -2946,7 +2955,7 @@ default:
     ingress:
       inet:
         antiddos:
-          qrator|string: "0,031154\_$"
+          qrator|string: "0,019440\_$"
     public_fips:
       deallocated|string: "0,002480\_$"
     public_fips|string: "0,001920\_$"
@@ -3244,23 +3253,23 @@ default:
   sku|USD|yds:
     events:
       puts|pricingRate:
-        2|string: "0,015128\_$"
+        2|string: "0,009440\_$"
     reserved_resources:
       128k:
-        12h|string: "0,001709\_$"
+        12h|string: "0,001067\_$"
         1h|pricingRate:
-          744|string: "0,001282\_$"
+          744|string: "0,000800\_$"
         1h|string: Не тарифицируется
-        24h|string: "0,002564\_$"
-        4h|string: "0,001496\_$"
+        24h|string: "0,001600\_$"
+        4h|string: "0,000933\_$"
       1m:
-        12h|string: "0,008120\_$"
-        24h|string: "0,011966\_$"
-        4h|string: "0,005556\_$"
+        12h|string: "0,005067\_$"
+        24h|string: "0,007467\_$"
+        4h|string: "0,003467\_$"
       512k:
-        12h|string: "0,005128\_$"
-        24h|string: "0,007692\_$"
-        4h|string: "0,003419\_$"
+        12h|string: "0,003200\_$"
+        24h|string: "0,004800\_$"
+        4h|string: "0,002133\_$"
   sku|USD|ymq:
     queue:
       fifo:
@@ -5169,6 +5178,15 @@ default:
           create:
             action:
               create: Создать федерацию
+        group-mapping:
+          create:
+            add: Добавить
+          field:
+            idp: Маппинг групп в IdP
+          note:
+            group-name: Имя группы
+            iam-group: IAM-группы
+            tab-idp: IdP-группы
         organization:
           select:
             action:
@@ -5212,7 +5230,12 @@ default:
       airflow:
         button_create-cluster: Создать кластер
         section_airflow-configuration: Конфигурация Airflow
+        section_dependencies: Зависимости
+        section_scheduler: Конфигурация планировщика
         section_storage: Хранилище DAG-файлов
+        section_triggerer: Конфигурация triggerer
+        section_webserver: Конфигурация веб-сервера
+        section_workers: Конфигурация воркеров
       alb:
         button_add-backend: Добавить бэкенд
         button_add-discard-rule: Добавить правило отбрасывания логов
@@ -5338,11 +5361,13 @@ default:
         label_cloudLogging: Cloud Logging
         label_dataStream: Data Streams
         label_destination: Назначение
+        label_event-filter-section: Сбор событий с уровня сервисов (Data plane)
         label_filter: Фильтр
         label_object-prefix: Префикс объекта
         label_objectStorage: Object Storage
         label_organization-manager:
           organization: Организация
+        label_path-filter-section: Сбор событий c уровня конфигураций (Control plane)
         label_resource-manager:
           cloud: Облако
           folder: Каталог
@@ -5692,6 +5717,7 @@ default:
         section_resources: Ресурсы приложения
       common:
         add: Добавить
+        all: Все
         apply: Применить
         availability: Доступность
         button_cron-15min: Каждые 15 минут
@@ -6235,6 +6261,13 @@ default:
       greenplum:
         action_expand-open: Расширить кластер
         action_expand-start: Сохранить
+        cluster:
+          perf-diag:
+            label_field-query-cpu-time: CPU time
+            label_field-query-peak-memory: Peak memory
+            title_consumption-history: История потребления
+            title_current-state: Текущее состояние
+            title_states-history: История состояний
         field_expand-add-segments-per-host-count: Добавить сегментов на хост
         field_expand-duration: Таймаут редистрибуции
         field_expand-segment-host-count: Количество новых хостов-сегментов

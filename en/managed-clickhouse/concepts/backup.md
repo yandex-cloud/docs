@@ -37,7 +37,7 @@ Backups are created based on a random replica host. This is why, if there is no 
 * [The tables are not replicated](replication.md#replicated-tables) on all shard hosts.
 * The tables are not replicated and are only hosted on some of the shard hosts.
 
-The backup process start time is set when a cluster is [created](../operations/cluster-create.md) or [updated](../operations/update.md#change-additional-settings). By default, the backup process starts at 10 p.m. UTC. The backup will start within 30 minutes of the specified time.
+You can set the backup start time when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-additional-settings) a cluster. By default, the backup process starts at 10 p.m. UTC. The backup will start within 30 minutes of the specified time.
 
 Backups are only created on running clusters. If you do not use a {{ mch-short-name }} cluster 24/7, check the [backup start time settings](../operations/update.md#change-additional-settings).
 
@@ -45,9 +45,9 @@ For more information about creating a backup manually, see [Managing backups](..
 
 ## Storing backups {#storage}
 
-* Backups of the data from [local](storage.md) and [network](storage.md) storage devices are stored in a separate {{ objstorage-name }} bucket and do not take up any space in the cluster storage. If there are N free GB of space in the cluster, the first N GB of backups are stored free of charge.
+* Backups of the data from [local](storage.md) and [network](storage.md) storage devices are stored in a separate {{ objstorage-name }} bucket and do not take up any space in the cluster storage. If there are N GB of free space in the cluster, the first N GB of backups are stored free of charge.
 
-* Backups of cold data from [hybrid storage](storage.md#hybrid-storage-features) are stored in the same {{ objstorage-name }} bucket as the regular data. The cost for using Object Storage factors in the space used by backups and the size of data.
+* Backups of cold data from [hybrid storage](storage.md#hybrid-storage-features) are stored in the same {{ objstorage-name }} bucket as the regular data. The cost of using Object Storage considers both the space used by the backups and the space used by the data itself.
 
    For more information, see the [{{ mch-short-name }} pricing policy](../pricing.md#rules-storage).
 
@@ -59,12 +59,6 @@ For more information about creating a backup manually, see [Managing backups](..
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
-## Checking backups {#verify}
-
-### Checking backup integrity {#integrity}
-
-Backup integrity is checked on synthetic data using integration tests available in the service.
-
-### Checking backup recovery {#capabilities}
+## Checking backup recovery {#capabilities}
 
 To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.

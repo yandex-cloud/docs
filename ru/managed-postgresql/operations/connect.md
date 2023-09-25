@@ -262,20 +262,33 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 
 1. Нажмите **Выполнить аутентификацию**.
 
-## Подключение из Docker-контейнера {#connection-docker}
+## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
-Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+Чтобы подключаться к кластеру {{ mpg-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-Для подключения к кластеру {{ mpg-name }} добавьте в Dockerfile строки:
+{% list tabs %}
 
-```bash
-RUN apt-get update && \
-    apt-get install wget postgresql-client --yes && \
-    mkdir -p ~/.postgresql && \
-    wget "{{ crt-web-path }}" \
-         --output-document ~/.postgresql/root.crt && \
-    chmod 0600 ~/.postgresql/root.crt
-```
+
+* Подключение без SSL
+
+    ```bash
+    RUN apt-get update && \
+        apt-get install postgresql-client --yes
+    ```
+
+
+* Подключение с SSL
+
+    ```bash
+    RUN apt-get update && \
+        apt-get install wget postgresql-client --yes && \
+        mkdir --parents ~/.postgresql && \
+        wget "{{ crt-web-path }}" \
+             --output-document ~/.postgresql/root.crt && \
+        chmod 0600 ~/.postgresql/root.crt
+    ```
+
+{% endlist %}
 
 ## Примеры строк подключения {#connection-string}
 

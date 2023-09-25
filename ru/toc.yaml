@@ -63,7 +63,6 @@ items:
     href: lockbox/index.yaml
   - name: Managed Service for Apache Airflow™
     href: managed-airflow/index.yaml
-    stage: hidden
   - name: Managed Service for Apache Kafka®
     href: managed-kafka/index.yaml
   - name: Managed Service for ClickHouse
@@ -126,6 +125,8 @@ items:
     href: vision/index.yaml
   - name: Virtual Private Cloud
     href: vpc/index.yaml
+  - name: WebSQL
+    href: websql/index.yaml
   - name: Wiki
     href: wiki/index.yaml
   - name: '{{ ydb-name }}'

@@ -4,7 +4,7 @@
 
 {{ mes-short-name }} supports automatic and manual [index](./indexing.md) backups.
 
-A backup is automatically created every hour and stored for 7 days. You can't disable automatic backups or change the retention period.
+A backup is automatically created every hour and stored for seven days. You cannot disable automatic backups or change the retention period.
 
 To restore a cluster from a backup, [follow this guide](../operations/cluster-backups.md#restore).
 
@@ -22,7 +22,7 @@ Storing backups in {{ mes-name }}:
 
 * Backups are stored in object storage as binaries.
 
-* All backups (automatic or manual) are stored for 7 days.
+* All backups (automatic or manual) are stored for seven days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
@@ -30,12 +30,6 @@ Storing backups in {{ mes-name }}:
 
    For more information, see the [{{ mes-name }} pricing policy](../pricing.md#rules-storage).
 
-## Checking backups {#verify}
-
-### Checking backup integrity {#integrity}
-
-Backup integrity is checked on synthetic data using integration tests available in the service.
-
-### Checking backup recovery {#capabilities}
+## Checking backup recovery {#capabilities}
 
 To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.

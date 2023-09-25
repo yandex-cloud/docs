@@ -128,39 +128,63 @@
 
 {% endlist %}
 
-## Подключение из Docker-контейнера {#connection-docker}
+## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
-Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификатов](#get-ssl-cert).
+Чтобы подключаться к кластеру {{ mch-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-Для подключения к кластеру {{ mch-name }} добавьте в Dockerfile строки:
+{% list tabs %}
 
 
-```bash
-# Подключить DEB-репозиторий.
-RUN apt-get update && \
-    apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
-    echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
-    /etc/apt/sources.list.d/clickhouse.list && \
-    # Установить зависимости.
-    apt-get update && \
-    apt-get install wget clickhouse-client --yes && \
-    # Загрузить файл конфигурации для clickhouse-client.
-    mkdir -p ~/.clickhouse-client && \
-    wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
-         --output-document ~/.clickhouse-client/config.xml && \
-    # Получить SSL-сертификаты.
-    mkdir --parents {{ crt-local-dir }} && \
-    wget "{{ crt-web-path-root }}" \
-         --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
-    wget "{{ crt-web-path-int }}" \
-         --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
-    chmod 655 \
-         {{ crt-local-dir }}{{ crt-local-file-root }} \
-         {{ crt-local-dir }}{{ crt-local-file-int }} && \
-    update-ca-certificates
-```
+* Подключение без SSL
 
+   ```bash
+   # Подключить DEB-репозиторий.
+   RUN apt-get update && \
+       apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
+       apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
+       echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
+       /etc/apt/sources.list.d/clickhouse.list && \
+       # Установить зависимости.
+       apt-get update && \
+       apt-get install wget clickhouse-client --yes && \
+       # Загрузить файл конфигурации для clickhouse-client.
+       mkdir --parents ~/.clickhouse-client && \
+       wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
+            --output-document ~/.clickhouse-client/config.xml
+   ```
+
+
+* Подключение с SSL
+
+   
+   ```bash
+   # Подключить DEB-репозиторий.
+   RUN apt-get update && \
+       apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
+       apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
+       echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
+       /etc/apt/sources.list.d/clickhouse.list && \
+       # Установить зависимости.
+       apt-get update && \
+       apt-get install wget clickhouse-client --yes && \
+       # Загрузить файл конфигурации для clickhouse-client.
+       mkdir --parents ~/.clickhouse-client && \
+       wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
+            --output-document ~/.clickhouse-client/config.xml && \
+       # Получить SSL-сертификаты.
+       mkdir --parents {{ crt-local-dir }} && \
+       wget "{{ crt-web-path-root }}" \
+            --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
+       wget "{{ crt-web-path-int }}" \
+            --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
+       chmod 655 \
+            {{ crt-local-dir }}{{ crt-local-file-root }} \
+            {{ crt-local-dir }}{{ crt-local-file-int }} && \
+       update-ca-certificates
+   ```
+
+
+{% endlist %}
 
 
 ## Подключение из браузера {#browser-connection}

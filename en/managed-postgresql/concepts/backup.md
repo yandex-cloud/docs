@@ -24,7 +24,7 @@ When creating backups and restoring data from them to a given point in time, kee
 
 * WAL consists of 16 MB files that are archived in a running cluster when the required size is reached or if the time specified by the [archive timeout](./settings-list.md#setting-archive-timeout) cluster-level DBMS setting has passed since a file was last archived. The archive is then uploaded to object storage.
 
-* It takes some time to create and upload a WAL archive to object storage. This is why the cluster state stored in object storage may differ from the actual one.
+* It takes some time to create and upload a WAL archive to object storage. This is why the cluster state stored in the object storage may differ from the actual one.
 
 You can learn more about PITR in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/continuous-archiving.html).
 
@@ -34,7 +34,7 @@ To restore a cluster from a backup, [follow this guide](../operations/cluster-ba
 
 The first and every seventh automatic backups as well as all manually created backups are full backups of all databases. Other backups are incremental and store only the data that has changed since the previous backup to save space.
 
-All cluster data is backed up once a day. You cannot disable automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set the following parameters for automatic backups:
+All cluster data is automatically backed up every day. You cannot disable such automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set the following parameters for automatic backups:
 
 * [Retention time](#storage).
 * Backup start time. By default, the backup process starts at 10 p.m. UTC. The backup will start within 30 minutes of the specified time.
@@ -61,7 +61,7 @@ Specifics of storing backups in {{ mpg-name }}:
 
    * Manually created backups are stored with no time limit.
 
-* Once you delete a cluster, all its backups persist for 7 days.
+* Once you delete a cluster, all its backups persist for seven days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
@@ -69,12 +69,6 @@ Specifics of storing backups in {{ mpg-name }}:
 
    For more information, see the [{{ mpg-name }} pricing policy](../pricing.md#rules-storage).
 
-## Checking backups {#verify}
+## Checking backup recovery {#capabilities}
 
-### Checking backup integrity {#integrity}
-
-Backup integrity is checked on synthetic data using integration tests available in the service.
-
-### Checking backup recovery {#capabilities}
-
-To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
+To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.

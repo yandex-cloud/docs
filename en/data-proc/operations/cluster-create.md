@@ -20,12 +20,12 @@ Security groups must be created and configured before creating a cluster. If the
 
    * One rule for inbound and another one for outbound service traffic:
 
-      * Port range: `{{ port-any }}`.
-      * Protocol: `Any`.
-      * Source: `Security group`.
-      * Security group: `Self`.
+      * Port range: `{{ port-any }}`
+      * Protocol: `Any`
+      * Source: `Security group`
+      * Security group: `Self`
 
-   * A separate rule for outgoing HTTPS traffic. This will enable you to use [{{ objstorage-full-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and cluster [autoscaling](../concepts/autoscaling.md).
+   * A separate rule for outgoing HTTPS traffic. This will allow you to use [{{ objstorage-full-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and cluster [autoscaling](../concepts/autoscaling.md).
 
       You can set up this rule using one of the two methods:
 
@@ -33,16 +33,16 @@ Security groups must be created and configured before creating a cluster. If the
 
       - To all addresses
 
-         * Port range: `{{ port-https }}`.
-         * Protocol: `TCP`.
-         * Destination type: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
+         * Port range: `{{ port-https }}`
+         * Protocol: `TCP`
+         * Destination type: `CIDR`
+         * CIDR blocks: `0.0.0.0/0`
 
       - To the addresses used by {{ yandex-cloud }}
 
-         * Port range: `{{ port-https }}`.
-         * Protocol: `TCP`.
-         * Destination type: `CIDR`.
+         * Port range: `{{ port-https }}`
+         * Protocol: `TCP`
+         * Destination type: `CIDR`
          * CIDR blocks:
             * `84.201.181.26/32`: Getting cluster status, running jobs, UI Proxy.
             * `158.160.59.216/32`: Monitoring cluster status, autoscaling.
@@ -94,7 +94,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       {% endnote %}
 
    1. Enter the public part of your SSH key in the **SSH key** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
-   1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be granted cluster access. Make sure to [assign](../security/index.md#grant-role) the `dataproc.agent` role to the cluster service account.
+   1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be granted cluster access. Make sure to [assign](../security/index.md#grant-role) the cluster service account the `dataproc.agent` role.
    1. Select the availability zone for the cluster.
    1. If necessary, configure the [properties of cluster components](../concepts/settings-list.md), jobs, and the environment.
    1. If necessary, specify the custom [initialization scripts](../concepts/init-action.md) of cluster hosts. For each script, specify:
@@ -233,7 +233,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       * `--bucket`: Name of the bucket in {{ objstorage-full-name }} to store job dependencies and results. The cluster service account must have `READ and WRITE` permissions for this bucket.
       * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) to host the cluster hosts.
-      * `--service-account-name`: Name of the [cluster service account](../../iam/concepts/users/service-accounts.md). Make sure to [assign](../security/index.md#grant-role) the `dataproc.agent` role to the cluster service account.
+      * `--service-account-name`: Name of the [cluster service account](../../iam/concepts/users/service-accounts.md). Make sure to [assign](../security/index.md#grant-role) the cluster service account the `dataproc.agent` role.
       * `--version`: [Image version](../concepts/environment.md).
 
          {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}

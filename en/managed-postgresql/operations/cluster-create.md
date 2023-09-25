@@ -49,9 +49,12 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
 
 
-      * Select the size of storage to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the storage size for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
    1. Under **Database**, specify the DB attributes:
-      * DB name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
+      * DB name; it must be unique within the folder
+
+         {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
       * The DB owner username and password. By default, the new user is assigned 50 connections to each host in the cluster.
 
          {% include [username-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
@@ -137,7 +140,11 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
 
-      Available [connection pooler modes](../concepts/pooling.md): `SESSION`, `TRANSACTION`, or `STATEMENT`.
+      Available [connection pooler modes](../concepts/pooling.md) include: `SESSION`, `TRANSACTION`, or `STATEMENT`.
+
+      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+      {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -236,6 +243,10 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
 
 
+      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+      {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
@@ -271,7 +282,12 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
 
    * DB configuration in one or more `databaseSpecs` parameters.
+
+      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
    * User settings in one or more `userSpecs` parameters.
+
+      {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 

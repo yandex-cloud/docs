@@ -59,12 +59,6 @@ Storing backups in {{ mrd-name }}:
 
    For more information, see the [{{ mrd-name }} pricing policy](../pricing.md#rules-storage).
 
-## Checking backups {#verify}
-
-### Checking backup integrity {#integrity}
-
-Backup integrity is checked on synthetic data using integration tests available in the service.
-
-### Checking backup recovery {#capabilities}
+## Checking backup recovery {#capabilities}
 
 To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.

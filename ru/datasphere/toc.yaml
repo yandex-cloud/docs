@@ -91,6 +91,8 @@ items:
             href: operations/data/dataset.md
           - name: Работа с коннекторами S3
             href: operations/data/s3-connectors.md
+          - name: Работа с моделями
+            href: operations/data/models.md
       - name: Подключение к источникам данных
         items:
           - name: Подключение к хранилищу S3
@@ -163,6 +165,8 @@ items:
             href: concepts/async.md
           - name: Вычисления на кластерах Apache Spark™
             href: concepts/data-proc.md
+      - name: DataSphere Jobs
+        href: concepts/jobs.md
       - name: Ресурсы
         items:
           - name: Обзор
@@ -179,8 +183,12 @@ items:
             href: concepts/data-proc-template.md
           - name: Коннекторы S3
             href: concepts/s3-connector.md
+          - name: Модели
+            href: concepts/models/index.md
       - name: Эксплуатация моделей
         href: concepts/deploy/index.md
+      - name: Фундаментальные модели
+        href: concepts/models/foundation-models.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Специальные условия для образования

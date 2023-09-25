@@ -143,7 +143,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       ```bash
       {{ yc-mdb-kf }} cluster create \
         ...
-        --maintenance-window type=<type>[,day=<day of the week>,hour=<hour of the day>]
+        --maintenance-window type=<type>[,day=<day of week>,hour=<hour>]
       ```
 
       Where:
@@ -252,7 +252,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all required resources will be created in the specified folder and the [IP addresses](../../vpc/concepts/address.md) of the [VMs](../../compute/concepts/vm.md) will be displayed in the terminal. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder, and the [FQDNs of the cluster hosts](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 

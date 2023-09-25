@@ -9,7 +9,7 @@ By using resource groups, the users with the `mdb_admin` role can set quotas for
 A resource group can include multiple [roles](cluster-users.md) that share its quotas.
 
 
-{{ GP }} gets a transaction query from the user and matches its required resources with the unused quotas in the resource group. If the quotas are enough, it immediately runs the query. If the quotas are not enough, the query waits until other queries complete and release resources. The query queue follows the _first in, first out_ (FIFO) principle<q></q>.
+{{ GP }} gets a transaction query from the user and matches its required resources with the unused quotas in the resource group. If the quotas are enough, it immediately runs the query. If the quotas are not enough, the query waits until other queries complete and release resources. The query queue follows the _first in, first out_ (FIFO) principle.
 
 ## Resource group parameters {#parameters}
 

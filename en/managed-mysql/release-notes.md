@@ -1,4 +1,4 @@
-# {{ mmy-full-name }} releases
+# Revision history for {{ mmy-full-name }}
 
 This section covers the revision history for {{ mmy-name }}.
 
@@ -6,9 +6,9 @@ This section covers the revision history for {{ mmy-name }}.
 
 ## Q2 2023 {#q2-2023}
 
-* New {{ MY }} versions are now available: [5.7](https://docs.percona.com/percona-server/5.7/release-notes/release-notes_index.html) and [8.0](https://docs.percona.com/percona-server/8.0/release-notes/release-notes_index.html).
-* {{ MY }} 5.7 now supports analyzing queries using `query_response_time_stats`. For more information, see the [Pecona documentation](https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html).
-* New global user permissions added: `FLUSH_OPTIMIZER_COSTS` and `SHOW_ROUTINE`.
+* New {{ MY }} versions are now available: [5.7.39](https://docs.percona.com/percona-server/5.7/release-notes/Percona-Server-5.7.39-42.html) and [8.0.30](https://docs.percona.com/percona-server/8.0/release-notes/8.0.30-22.upd.html).
+* {{ MY }} 5.7 now supports analyzing queries using `query_response_time_stats`. For more information, see the [Percona documentation](https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html).
+* Added new global user permissions: `FLUSH_OPTIMIZER_COSTS` and `SHOW_ROUTINE`.
 
 ## Q4 2022 {#q4-2022}
 

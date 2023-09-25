@@ -1,0 +1,13 @@
+title: Yandex Cloud Postbox
+stage: preview
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Концепции
+    items:
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/postbox

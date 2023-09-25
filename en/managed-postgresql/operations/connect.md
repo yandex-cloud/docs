@@ -23,10 +23,10 @@ Rule settings depend on the connection method you select:
 
    [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
 
-   * Port range: `6432`.
-   * Protocol: `TCP`.
-   * Source: `CIDR`.
-   * CIDR blocks: `0.0.0.0/0`.
+   * Port range: `6432`
+   * Protocol: `TCP`
+   * Source: `CIDR`
+   * CIDR blocks: `0.0.0.0/0`
 
 - With a VM in {{ yandex-cloud }}
 
@@ -37,23 +37,23 @@ Rule settings depend on the connection method you select:
       * Source: `Security group`.
       * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
 
-   1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+   1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
 
-      Example of rules for a VM:
+      For example, you can set the following rules for a VM:
 
       * For incoming traffic:
-         * Port range: `22`.
-         * Protocol: `TCP`.
-         * Source: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
+         * Port range: `22`
+         * Protocol: `TCP`
+         * Source: `CIDR`
+         * CIDR blocks: `0.0.0.0/0`
 
          This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
       * For outgoing traffic:
-         * Port range: `{{ port-any }}`.
-         * Protocol: `Any`.
-         * Destination type: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
+         * Port range: `{{ port-any }}`
+         * Protocol: `Any`
+         * Destination type: `CIDR`
+         * CIDR blocks: `0.0.0.0/0`
 
          This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
@@ -72,7 +72,7 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 ## Special FQDNs {#special-fqdns}
 
-Just like usual FQDNs, which can be requested with a [list of cluster hosts](hosts.md#list), {{ mpg-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
+Just like usual [FQDNs](../concepts/network.md#hostname), which can be requested with a [list of cluster hosts](hosts.md#list), {{ mpg-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
 
 {% note warning %}
 
@@ -130,7 +130,7 @@ To guarantee a connection to the master host:
 1. In the `host` argument, provide one of the following:
 
    * [Special master host FQDN](#fqdn-master) as shown in the [examples below](#connection-string).
-   * FQDNs of all cluster hosts.
+   * [FQDNs](../concepts/network.md#hostname) of all cluster hosts.
 
 1. Provide the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
 
@@ -169,7 +169,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
             jdbc:postgresql://<special FQDN>:{{ port-mpg }}>/<DB name>
             ```
 
-            You can also use a list of all the cluster host FQDNs in the connection string:
+            You can also use a list of all the cluster host [FQDNs](../concepts/network.md#hostname) in the connection string:
 
             ```http
             jdbc:postgresql://<{{ PG }} host 1:{{ port-mpg }}>,...,<{{ PG }} host N:{{ port-mpg }}>/<DB name>
@@ -189,7 +189,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Select **{{ PG }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
-         * **Host**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
+         * **Host**: [Special master host FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
          * **Port**: `{{ port-mpg }}`.
          * **Database**: DB you want to connect to.
          * Under **Authentication**, specify the DB user's name and password.
@@ -213,7 +213,7 @@ Create a new server connection:
 1. On the **General** tab, in the **Name** field, specify the name for the cluster. This name will be shown in the {{ pgadmin }} interface. You can set any name.
 1. In the **Connection** tab, specify the connection parameters:
 
-   * **Host name/address**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
+   * **Host name/address**: [Special master host FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
    * **Port**: `{{ port-mpg }}`.
    * **Maintenance database**: DB you want to connect to.
    * **Username**: Username for connection.
@@ -247,7 +247,7 @@ You can only use [{{ google-looker }}](https://lookerstudio.google.com/overview)
 1. Choose {{ PG }}.
 1. Fill out the fields below:
 
-   * **Host name or IP address**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
+   * **Host name or IP address**: [Special master host FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
    * **Port**: `{{ port-mpg }}`.
    * **Database**: DB you want to connect to.
    * **Username**: Username for connection.
@@ -290,7 +290,7 @@ The examples below assume that the `root.crt` SSL certificate is located in the 
 
 Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. If this is the case, internal cloud network traffic will not be encrypted for connecting to a database.
 
-You can connect to a cluster using both regular host FQDNs (you can send a comma-separated list consisting of several such FQDNs) and [special FQDNs](#special-fqdns). The examples use a special FQDN of the current master host.
+You can connect to a cluster using both regular host [FQDNs](../concepts/network.md#hostname) (you can send a comma-separated list consisting of several such FQDNs) and [special FQDNs](#special-fqdns). The examples use a special FQDN of the current master host.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

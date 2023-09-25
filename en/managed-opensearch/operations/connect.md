@@ -36,8 +36,8 @@ To use an encrypted connection, get an SSL certificate:
 
 You can connect to {{ OS }} Dashboards:
 
-* Over the internet, if a host with the `DASHBOARDS` role is assigned a public IP address.
-* Using a VM instance in {{ yandex-cloud }}, if no host with the `DASHBOARDS` role is assigned a public IP address.
+* Over the internet, if public access is enabled for a host with the `DASHBOARDS` role.
+* Using a VM instance in {{ yandex-cloud }}, if public access is not enabled for any hosts with the `DASHBOARDS` role.
 
 {% list tabs %}
 

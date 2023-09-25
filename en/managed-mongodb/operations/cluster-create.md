@@ -28,7 +28,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-      * Enter a name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
+      * Enter a name in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
       * (Optional) Enter a cluster **{{ ui-key.yacloud.mdb.forms.base_field_description }}**.
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
@@ -52,6 +52,9 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
       * DB name
+
+         {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
       * Username
       * User password; minimum 8 characters long
 
@@ -75,7 +78,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       To ensure fault tolerance, you need at least 3 hosts for `local-ssd` and `network-ssd-nonreplicated` disk types. For more information, see [Storage](../concepts/storage.md).
 
 
-      By default, hosts are created in different availability zones. See about [host management](hosts.md).
+      By default, hosts are created in different availability zones. For details, see the [host management](hosts.md).
 
    1. Configure additional cluster settings, if required:
 
@@ -130,6 +133,8 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       You need to specify `subnet-id` if the selected availability zone has two or more subnets.
 
+
+      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -211,6 +216,8 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
 
 
+      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
@@ -225,7 +232,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all required resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder, and the [host FQDNs](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -245,6 +252,9 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
 
    * Database configuration in one or more `databaseSpecs` parameters.
+
+      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
    * User settings in one or more `userSpecs` parameters.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 

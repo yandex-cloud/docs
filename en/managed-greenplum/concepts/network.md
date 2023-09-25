@@ -4,7 +4,7 @@
 When creating a cluster, you can:
 
 * Set the network and subnet for the cluster.
-* Request public IP addresses to access the cluster from outside {{ yandex-cloud }}.
+* Request public access to connect to the cluster from outside {{ yandex-cloud }}.
 
 
 You can only connect to {{ mgp-short-name }} clusters via master hosts. You cannot connect to segment hosts directly.
@@ -24,7 +24,7 @@ You can use FQDNs to access master hosts from both inside and outside {{ yandex-
 
 ## Public access to clusters {#public-access-to-a-host}
 
-To get public IPs for accessing master hosts from outside {{ yandex-cloud }}, enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option when creating a cluster. To connect to a cluster, use the FQDNs of its master hosts.
+To enable public access to master hosts from outside {{ yandex-cloud }}, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** when creating a cluster. To connect to a cluster, use the FQDNs of its master hosts.
 
 Once you create a cluster, you cannot request or disable public addresses.
 

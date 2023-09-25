@@ -1,0 +1,38 @@
+title: Yandex Managed Service for Apache Airflow®
+href: index.yaml
+stage: hidden
+items:
+  - name: Getting started
+    href: quickstart.md
+    stage: hidden
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+        stage: hidden
+      - name: Creating clusters
+        href: operations/cluster-create.md
+        stage: hidden
+      - name: Working with {{ AF }} interfaces
+        href: operations/af-interfaces.md
+        stage: hidden
+      - name: Deleting clusters
+        href: operations/cluster-delete.md
+        stage: hidden
+    stage: hidden
+  - name: Concepts
+    items:
+      - name: Relationships between service resources
+        href: concepts/index.md
+        stage: hidden
+      - name: Quotas and limits
+        href: concepts/limits.md
+        stage: hidden
+      - name: Pricing policy
+        href: pricing.md
+        stage: hidden
+    stage: hidden
+  - name: Access management
+    href: security/index.md
+    stage: hidden
+base: en/managed-airflow

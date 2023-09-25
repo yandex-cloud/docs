@@ -1,1 +1,1 @@
-A database name may contain Latin letters, numbers, underscores, and hyphens. The maximum name length is 63 characters.
+A database name may contain Latin letters, numbers, underscores, and hyphens. The name may be up to 63 characters long. Such names as `config`, `local`, `admin`, and `mdb_internal` are reserved for {{ mmg-name }}. You cannot create DBs with these names.

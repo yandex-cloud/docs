@@ -23,7 +23,6 @@ items:
         href: operations/instance/instance-delete.md
       - name: Настройка правил ревью кода
         href: operations/approval-rules.md
-        hidden: true
       - name: Настройка OmniAuth
         href: operations/omniauth.md
   - name: Практические руководства
@@ -54,7 +53,6 @@ items:
         href: concepts/index.md
       - name: Правила ревью кода
         href: concepts/approval-rules.md
-        hidden: true
       - name: Резервные копии
         href: concepts/backup.md
       - name: Безопасность в {{ GL }}

@@ -1,6 +1,6 @@
 # Загрузка аудитных логов в SIEM Splunk
 
-Создайте трейл, который будет загружать аудитные логи ресурсов отдельного каталога в бакет {{ objstorage-full-name }} с включенным шифрованием. Затем настройте непрерывную доставку логов в SIEM Splunk.
+Создайте трейл, который будет загружать аудитные логи уровня конфигурации (Control Plane) ресурсов отдельного каталога в бакет {{ objstorage-full-name }} с включенным шифрованием. Затем настройте непрерывную доставку логов в SIEM Splunk.
 
 Решение, которое описано в руководстве, работает по следующей схеме:
 1. [Трейл](../concepts/trail.md) загружает логи в бакет {{ objstorage-name }}.
@@ -192,11 +192,6 @@
      * **{{ ui-key.yacloud.common.name }}** — имя создаваемого трейла.
      * **{{ ui-key.yacloud.common.description }}** — описание трейла, необязательный параметр.
 
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_filter }}** задайте параметры области сбора аудитных логов:
-
-     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя текущего каталога.
-
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
 
      * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
@@ -210,6 +205,15 @@
      {% endnote %}
   
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите сервисный аккаунт, от имени которого трейл будет загружать файлы аудитного лога в бакет.
+
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
+
+     * **Статус** — выберите `{{ ui-key.yacloud.common.enabled }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения, содержит имя текущего каталога.
+
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** в поле **Статус** выберите `{{ ui-key.yacloud.common.disabled }}`.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   {% note warning %}

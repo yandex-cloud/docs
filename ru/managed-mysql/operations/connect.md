@@ -180,20 +180,33 @@ mysql --host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 
 {% endlist %}
 
-## Подключение из Docker-контейнера {#connection-docker}
+## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
-Подключаться из Docker-контейнера можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+Чтобы подключаться к кластеру {{ mmy-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
-Для подключения к кластеру {{ mmy-name }} добавьте в Dockerfile строки:
+{% list tabs %}
 
-```bash
-RUN apt-get update && \
-    apt-get install wget mysql-client --yes && \
-    mkdir -p ~/.mysql && \
-    wget "{{ crt-web-path }}" \
-         --output-document ~/.mysql/root.crt && \
-    chmod 0600 ~/.mysql/root.crt
-```
+
+* Подключение без SSL
+
+  ```bash
+  RUN apt-get update && \
+      apt-get install mysql-client --yes
+  ```
+
+
+* Подключение с SSL
+
+  ```bash
+  RUN apt-get update && \
+      apt-get install wget mysql-client --yes && \
+      mkdir --parents ~/.mysql && \
+      wget "{{ crt-web-path }}" \
+           --output-document ~/.mysql/root.crt && \
+      chmod 0600 ~/.mysql/root.crt
+  ```
+
+{% endlist %}
 
 ## Примеры строк подключения {#connection-string}
 

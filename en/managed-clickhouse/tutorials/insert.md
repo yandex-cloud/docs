@@ -237,7 +237,7 @@ To prepare scripts:
       DB_NAME="db1"
       DB_USER="<DB user name>"
       DB_PASS="<DB user password>"
-      CA_CERT="{{ crt-local-dir }}{{ crt-local-file }}"
+      CA_CERT="{{ crt-local-dir }}{{ crt-local-file-root }}"
 
       SCHEMA_NAME = 'schema-capnproto'
       SCHEMA_TYPE = "CapnProto"
@@ -303,7 +303,7 @@ To prepare scripts:
       DB_NAME="db1"
       DB_USER="<DB user name>"
       DB_PASS="<DB user password>"
-      CA_CERT="{{ crt-local-dir }}{{ crt-local-file }}"
+      CA_CERT="{{ crt-local-dir }}{{ crt-local-file-root }}"
 
       SCHEMA_NAME = 'schema-protobuf'
       SCHEMA_TYPE = "Protobuf"

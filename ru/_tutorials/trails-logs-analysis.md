@@ -1,6 +1,6 @@
 # Загрузка аудитных логов в {{ mch-name }} и визуализация данных в {{ datalens-name }}
 
-Загрузите [аудитные логи](../audit-trails/concepts/format.md) каталога в [{{ mch-full-name }}](../managed-clickhouse/) и проанализируйте использование ресурсов в [{{ datalens-full-name }}]({{ link-datalens-main }}).
+Загрузите [аудитные логи](../audit-trails/concepts/format.md) уровня конфигурации (Control Plane) каталога в [{{ mch-full-name }}](../managed-clickhouse/) и проанализируйте использование ресурсов в [{{ datalens-full-name }}]({{ link-datalens-main }}).
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте окружение](#environment-preparing).
 1. [Создайте трейл](#create-trail).
@@ -327,7 +327,7 @@
 
 ## Создайте трейл {#create-trail}
 
-[Трейл](../audit-trails/concepts/trail.md) будет загружать [аудитные логи](../audit-trails/concepts/format.md) всех ресурсов вашего каталога в поток данных {{ yds-name }}.
+[Трейл](../audit-trails/concepts/trail.md) будет загружать [аудитные логи](../audit-trails/concepts/format.md) уровня конфигурации всех ресурсов вашего каталога в поток данных {{ yds-name }}.
 
 {% list tabs %}
 
@@ -335,13 +335,15 @@
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_audit-trails }}**.
   1. Введите имя создаваемого трейла: `folder-trail`.
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_filter }}** задайте параметры области сбора аудитных логов:
-     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения (содержит имя каталога, в котором будет находиться трейл).
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
      * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
      * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — выберите поток данных `trail-logs-stream`.
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите сервисный аккаунт `sa-trail-logs`.
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** задайте параметры сбора аудитных логов уровня конфигурации:
+     * **Статус** — выберите `{{ ui-key.yacloud.common.enabled }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — выберите `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}** — не требует заполнения (содержит имя каталога, в котором будет находиться трейл).
+  1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** в поле **Статус** выберите `{{ ui-key.yacloud.common.disabled }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

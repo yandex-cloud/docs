@@ -513,6 +513,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
                              `hour=<hour for weekly> \
          --metrika-access=<true or false> \
          --serverless-access=<true or false> \
+         --yandexquery-access=<{{ yq-full-name }} access: true or false> \
          --websql-access=<true or false>
       ```
 
@@ -542,7 +543,9 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
 
-   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
+   * `--yandexquery-access=true`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). The default value is `false`.
 
 
 
@@ -574,10 +577,11 @@ For more information, see [Memory management](../concepts/memory-management.md).
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
         ...
         access {
-          data_lens  = <access from DataLens: true or false>
-          metrika    = <access from Yandex Metrica and AppMetrika: true or false>
-          serverless = <access from Cloud Functions: true or false>
-          web_sql    = <executing SQL queries from the management console: true or false>
+          data_lens    = <access from DataLens: true or false>
+          metrika      = <access from Yandex Metrica and AppMetrika: true or false>
+          serverless   = <access from Cloud Functions: true or false>
+          web_sql      = <executing SQL queries from the management console: true or false>
+          yandex_query = <access from Yandex Query: true or false>
         }
         ...
       }
@@ -628,7 +632,9 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    
    
-   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
+   To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter.
 
 
 
@@ -724,6 +730,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
         ...
         security_group_ids = ["<list of cluster security group IDs>"]
+      }
       ```
 
    1. Make sure the settings are correct.

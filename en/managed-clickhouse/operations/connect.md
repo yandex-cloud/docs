@@ -21,10 +21,10 @@ Rule settings depend on the connection method you select:
 
    [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in a cluster to allow incoming traffic on ports 8443 and 9440 from any IP address. To do this, create the following rules for incoming traffic:
 
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8443`, `9440`.
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8443`, `9440`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
    A separate rule is created for each port.
 
@@ -44,18 +44,18 @@ Rule settings depend on the connection method you select:
       For example, you can set the following rules for a VM:
 
       * For incoming traffic:
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
          This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
       * For outgoing traffic:
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
          This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
@@ -72,9 +72,9 @@ Security groups must be configured correctly for all subnets that will include c
 For more information about security groups, see [DB network and clusters](../concepts/network.md#security-groups).
 
 
-## Getting an SSL certificate {#get-ssl-cert}
+## Getting your SSL certificates {#get-ssl-cert}
 
-To use an encrypted connection, get an SSL certificate:
+To use an encrypted connection, get your SSL certificates:
 
 {% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
 
@@ -130,9 +130,10 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 ## Connecting from a Docker container {#connection-docker}
 
-You can only use Docker containers to connect to public cluster hosts [using SSL certificates](#get-ssl-cert).
+You can only use Docker containers to connect to public cluster hosts [with your SSL certificates](#get-ssl-cert).
 
 To connect to a {{ mch-name }} cluster, add the following lines to the Dockerfile:
+
 
 ```bash
 # Connect the DEB repository.
@@ -148,12 +149,18 @@ RUN apt-get update && \
     mkdir -p ~/.clickhouse-client && \
     wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
          --output-document ~/.clickhouse-client/config.xml && \
-    # Get an SSL certificate.
-    mkdir -p {{ crt-local-dir }} && \
-    wget "{{ crt-web-path }}" \
-         --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
-    chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+    # Get SSL certificates.
+    mkdir --parents {{ crt-local-dir }} && \
+    wget "{{ crt-web-path-root }}" \
+         --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
+    wget "{{ crt-web-path-int }}" \
+         --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
+    chmod 655 \
+         {{ crt-local-dir }}{{ crt-local-file-root }} \
+         {{ crt-local-dir }}{{ crt-local-file-int }} && \
+    update-ca-certificates
 ```
+
 
 
 ## Connecting to a cluster from your browser {#browser-connection}
@@ -200,13 +207,13 @@ To make a query to the database, specify the username and password in the upper-
 
 {% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-You can connect to public {{ CH }} cluster hosts only if you use an SSL certificate. Before connecting, [prepare a certificate](#get-ssl-cert).
+You can only connect to public {{ CH }} cluster hosts with your SSL certificates. Before connecting, [prepare your certificates](#get-ssl-cert).
 
-In the examples below, it is assumed that the `{{ crt-local-file }}` certificate:
-* Is located in the `{{ crt-local-dir }}` folder (for Ubuntu).
-* Is imported to the Trusted Root Certificate store (for Windows).
+In the examples below, it is assumed that the `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates:
+* Are located in the `{{ crt-local-dir }}` directory (for Ubuntu).
+* Are imported to the Trusted Root Certificate store (for Windows).
 
-Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. For connections to the database, traffic inside the virtual network isn't encrypted in this case.
+Connecting without any SSL certificates is only supported for hosts that are not publicly accessible. For connections to the database, traffic inside the virtual network is not encrypted in this case.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
