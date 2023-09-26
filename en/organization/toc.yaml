@@ -43,6 +43,8 @@ items:
         href: operations/federations/integration-common.md
   - name: Managing clouds and services
     href: manage-services.md
+  - name: OS login
+    href: concepts/oslogin.md
   - name: Troubleshooting
     items:
       - name: Common federation errors
