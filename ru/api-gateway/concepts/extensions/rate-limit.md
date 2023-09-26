@@ -1,6 +1,6 @@
 # Ограничение скорости запросов
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [note-preview-by-request](../../../_includes/note-preview.md) %}
 
 Расширения `x-yc-apigateway-rate-limits` и `x-yc-apigateway-rate-limit` позволяют ограничить скорость обработки запросов. Лимиты можно настроить на API-шлюз или конкретные пути и/или HTTP-методы. Если количество запросов в заданный период времени превышает значение, которое указано в спецификации, новые запросы не обрабатываются, а в ответ возвращается статус-код `429 Too Many Requests`.
 
