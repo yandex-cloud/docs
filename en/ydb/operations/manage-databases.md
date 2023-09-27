@@ -259,6 +259,13 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    1. Under **Database type**, select the **Dedicated** option.
    1. Under **Computing resources**, select the type and amount of [computing resources](../concepts/resources.md#resource-presets).
+
+      {% note warning %}
+
+      For reliable and stable performance, a database needs multiple slots. A database run in the production environment must have at least three slots.
+
+      {% endnote %}
+
    1. Under **Storage groups**, select the disk type and number of [storage groups](../concepts/resources.md#storage-groups) that determines the total amount of storage.
    1. Under **Network**, configure network settings:
       1. (Optional) In the **Public IP addresses** field, select **Assign** if you plan to query the database from the {{ yandex-cloud }} network and the internet.
@@ -314,7 +321,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    * `--public-ip`: Flag indicating that public IP addresses are assigned. Without it, you cannot connect to the DB you created, from the internet.
    * `--fixed-size INT`: Number of cluster nodes, with the default value of 1. Nodes are allocated in different availability zones, so a configuration of three nodes will be geographically distributed across three availability zones.
-   * `--async`: Asynchronous DB creation flag. Creating a dedicated DB may take a long time, up to a few minutes. You can set this flag to return control as soon as the `create DB` command is accepted by the cloud.
+   * `--async`: Asynchronous DB creation flag. Creating a dedicated DB may take a long time, up to a few minutes. You can set this flag to recover control as soon as the command to create DB is accepted by the cloud.
 
    **Examples**
 
@@ -367,7 +374,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
          storage_config {
            group_count     = <number_of_storage_groups>
            storage_type_id = "<storage_media_type>"
-         } 
+         }
        }
       ```
 

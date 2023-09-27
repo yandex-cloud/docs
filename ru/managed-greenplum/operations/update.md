@@ -85,9 +85,9 @@
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * **{{ cloud-storage-name }}** — включает [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ cloud-storage-full-name }}. Так данные хранятся в служебном бакете {{ objstorage-full-name }} в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+        * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** — включает [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
 
-            {{ cloud-storage-name }} нельзя отключить после сохранения настроек кластера.
+            Эту опцию нельзя отключить после сохранения настроек кластера.
 
             
             {% note info %}

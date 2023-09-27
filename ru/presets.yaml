@@ -82,7 +82,6 @@ default:
   billing-name: Yandex Cloud Billing
   console-full-name: Yandex Cloud Console
   postbox-full-name: Yandex Cloud Postbox
-  cloud-storage-full-name: Yandex Cloud Storage
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver
@@ -170,7 +169,6 @@ default:
   yagpt-name: YandexGPT
   console-name: Cloud Console
   postbox-name: Cloud Postbox
-  cloud-storage-name: Cloud Storage
   websql-name: WebSQL
   websql-link: http://webbsql.cloud.ru/
   iam-short-name: IAM
@@ -4767,7 +4765,7 @@ default:
         menu-item-calendars: Графики работы
         menu-item-forms: Интеграция форм
         menu-item-permissions: Права доступа
-        menu-item-timetracking: Учет времени
+        menu-item-timetracking: Учёт времени
         menu-item-types: Типы задач
         menu-item-workflows: Рабочие процессы
       ui_components_page-queue-admin_Signature:
@@ -5110,10 +5108,10 @@ default:
         tab:
           access:
             title: Доступы
-      prometheus-form:
+      prometheus:
         form:
-          button:
-            submit: Отправить заявку
+          submit-button:
+            text: Отправить заявку
       service:
         field:
           function: Функция агрегации
@@ -6278,6 +6276,7 @@ default:
         field_expand-add-segments-per-host-count: Добавить сегментов на хост
         field_expand-duration: Таймаут редистрибуции
         field_expand-segment-host-count: Количество новых хостов-сегментов
+        section_cloud-storage: Cloud Storage
         section_resource-master: Master
         section_resource-segment: Segment
         wizard:
@@ -6619,16 +6618,16 @@ default:
         label_section-secrets: Секреты
       logging:
         button_create-group: Создать группу
-        button_create-sink: Создать приемник
+        button_create-sink: Создать приёмник
         button_execute: Выполнить
         column_header-level: Уровень
         column_header-message: Сообщение
         column_header-time: Время
-        label_export: Выгрузить лог
+        label_destination: Назначение
+        label_export: Выгрузить логи
         label_loggroup: Лог-группа
         label_retention-period: Срок хранения логов
-        label_sink-destination: Назначение
-        label_sinks: Приемники логов
+        label_sinks: Приёмники логов
       marketplace-v2:
         button_use: Использовать
       mdb:
