@@ -19,7 +19,7 @@ description: "{{ managed-prometheus-full-name }} — система монито
 
 1. Откройте [главную страницу сервиса]({{ link-monitoring }}) {{ monitoring-full-name }}.
 1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
-1. Заполните форму и нажмите **{{ ui-key.yacloud_monitoring.prometheus-form.form.button.submit }}**.
+1. Заполните форму и нажмите **{{ ui-key.yacloud_monitoring.prometheus.form.submit-button.text }}**.
 1. Дождитесь, пока {{ yandex-cloud }} обработает заявку.
 1. Когда заявка будет одобрена, на странице появятся ссылки на эндпоинты, которые необходимо использовать для текущего каталога.
 

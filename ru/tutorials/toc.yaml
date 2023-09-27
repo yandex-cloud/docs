@@ -415,7 +415,7 @@ items:
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Миграция БД из {{ GP }} в {{ PG }}
         href: dataplatform/greenplum-to-postgresql.md
-      - name: Выгрузка данных {{ GP }} в холодное хранилище
+      - name: Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-name }}
         href: dataplatform/greenplum-yezzey.md
       - name: Миграция БД из стороннего кластера {{ RD }} в {{ mrd-name }}
         href: dataplatform/redis-data-migration.md

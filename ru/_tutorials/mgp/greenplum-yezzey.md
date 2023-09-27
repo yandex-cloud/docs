@@ -1,6 +1,6 @@
-# Выгрузка данных {{ GP }} в холодное хранилище {{ cloud-storage-full-name }}
+# Выгрузка данных {{ GP }} в холодное хранилище
 
-Данные {{ mgp-full-name }} хранятся на дисках кластера. С помощью [расширения {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }} эти данные можно перенести в холодное хранилище {{ cloud-storage-full-name }}. Тогда они будут храниться в служебном бакете {{ objstorage-full-name }} в сжатом и зашифрованном виде. Это удобно, если данные нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../../storage/pricing.md).
+Данные {{ mgp-full-name }} хранятся на дисках кластера. С помощью [расширения {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }} эти данные можно перенести в холодное хранилище {{ objstorage-full-name }}. Тогда они будут храниться в служебном бакете в сжатом и зашифрованном виде. Это удобно, если данные нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../../storage/pricing.md).
 
 {{ YZ }} поддерживает таблицы AO и AOCO (append-optimized storage). Подробнее о таблицах см. в разделе [{#T}](../../managed-greenplum/concepts/tables.md) и [документации {{ GP }}](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-storage.html).
 
@@ -12,9 +12,9 @@
 {% endnote %}
 
 
-Чтобы перенести данные с дисков кластера {{ mgp-name }} в холодное хранилище {{ cloud-storage-name }}:
+Чтобы перенести данные с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-name }}:
 
-1. [Перенесите таблицу {{ GP }} в {{ cloud-storage-name }}](#transfer).
+1. [Перенесите таблицу {{ GP }} в {{ objstorage-name }}](#transfer).
 1. [Проверьте результат](#check).
 
 Также есть возможность [перенести данные обратно](#offload-to-local-storage) на диски кластера.
@@ -23,11 +23,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер](../../managed-greenplum/operations/cluster-create.md) {{ mgp-name }}. При создании убедитесь, что {{ cloud-storage-name }} включен.
+1. [Создайте кластер](../../managed-greenplum/operations/cluster-create.md) {{ mgp-name }}. При создании убедитесь, что включена опция **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
    {% note info %}
 
-   {{ cloud-storage-name }} нельзя отключить после сохранения настроек кластера.
+   Эту опцию нельзя отключить после сохранения настроек кластера.
 
    {% endnote %}
 
@@ -37,7 +37,7 @@
 
    {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
-## Выгрузите таблицу {{ GP }} в {{ cloud-storage-name }} {#transfer}
+## Выгрузите таблицу {{ GP }} в {{ objstorage-name }} {#transfer}
 
 1. Подключитесь к кластеру:
 
@@ -77,7 +77,7 @@
    INSERT INTO ao_table SELECT * FROM GENERATE_SERIES(1, 10000);
    ```
 
-1. Перенесите данные таблицы `ao_table` в холодное хранилище {{ cloud-storage-name }}:
+1. Перенесите данные таблицы `ao_table` в холодное хранилище {{ objstorage-name }}:
 
    ```bash
    SELECT yezzey_define_offload_policy('ao_table');
@@ -85,7 +85,7 @@
 
 ## Проверьте результат {#check}
 
-1. Проверьте, сколько места в локальном кеше кластера и в хранилище {{ cloud-storage-name }} занимают:
+1. Проверьте, сколько места в локальном кеше кластера и в хранилище {{ objstorage-name }} занимают:
 
    * таблица `ao_table`:
 
@@ -99,15 +99,15 @@
       SELECT * FROM yezzey_offload_relation_status_per_filesegment('ao_table');
       ```
 
-   Если столбец `external_bytes` в выводе команд содержит ненулевые значения, значит, таблица перенесена в холодное хранилище {{ cloud-storage-name }}.
+   Если столбец `external_bytes` в выводе команд содержит ненулевые значения, значит, таблица перенесена в холодное хранилище {{ objstorage-name }}.
 
-1. Посмотрите, какие сегментные файлы таблицы перенесены в хранилище {{ cloud-storage-name }}:
+1. Посмотрите, какие сегментные файлы таблицы перенесены в хранилище {{ objstorage-name }}:
 
    ```bash
    SELECT * FROM yezzey_relation_describe_external_storage_structure('ao_table');
    ```
 
-1. Убедитесь, что доступно чтение данных из {{ cloud-storage-name }}:
+1. Убедитесь, что доступно чтение данных из {{ objstorage-name }}:
 
    ```bash
    SELECT AVG(a) FROM ao_table;
@@ -122,7 +122,7 @@
    (1 row)
    ```
 
-1. Убедитесь, что доступна запись в {{ cloud-storage-name }}:
+1. Убедитесь, что доступна запись в {{ objstorage-name }}:
 
    1. Добавьте в таблицу `ao_table` ряд целых чисел от 1 до 10 000:
 
@@ -145,9 +145,9 @@
       (1 row)
       ```
 
-## Перенесите таблицу из {{ cloud-storage-name }} на диски кластера {#offload-to-local-storage}
+## Перенесите таблицу из {{ objstorage-name }} на диски кластера {#offload-to-local-storage}
 
-Если нужно перенести таблицу `ao_table` из хранилища {{ cloud-storage-name }} обратно на диски кластера {{ mgp-name }}, выполните команду:
+Если нужно перенести таблицу `ao_table` из хранилища {{ objstorage-name }} обратно на диски кластера {{ mgp-name }}, выполните команду:
 
 ```bash
 SELECT yezzey_load_relation('ao_table');

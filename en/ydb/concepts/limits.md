@@ -11,7 +11,7 @@ sourcePath: overlay/concepts/limits.md
 {{ ydb-full-name }} has the following limits:
 
 * [_Quotas_]({{ link-console-quotas }}) are organizational restrictions that can be changed by technical support on request.
-* _Limits_ are technical limitations due to architectural features {{ ydb-short-name }}. The limits cannot be changed.
+* _Limits_ are technical limitations due to {{ ydb-short-name }} architectural features. The limits cannot be changed.
 
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
@@ -19,4 +19,4 @@ sourcePath: overlay/concepts/limits.md
 
 #### Limits {#ydb-limits}
 
-To learn about the {{ ydb-short-name }} database limits, see the [documentation](https://ydb.tech/en/docs/concepts/limits-ydb).
+To learn about the {{ ydb-short-name }} limits, see the [relevant documentation](https://ydb.tech/en/docs/concepts/limits-ydb).

@@ -4,7 +4,7 @@
 
 В {{ ml-platform-name }} доступно два типа моделей:
 * модели, обученные в проектах;
-* дообученные по методу P-tuning [фундаментальные модели](foundation-models.md).
+* дообученные по методу Fine-tuning [фундаментальные модели](foundation-models.md).
 
 {% note info %}
 

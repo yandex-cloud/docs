@@ -5091,10 +5091,10 @@ default:
         tab:
           access:
             title: Access
-      prometheus-form:
+      prometheus:
         form:
-          button:
-            submit: Send request
+          submit-button:
+            text: Submit request
       service:
         field:
           function: Aggregation function
@@ -6259,6 +6259,7 @@ default:
         field_expand-add-segments-per-host-count: Add segments to host
         field_expand-duration: Redistribution timeout
         field_expand-segment-host-count: Number of new segment hosts
+        section_cloud-storage: Cloud Storage
         section_resource-master: Master
         section_resource-segment: Segment
         wizard:
@@ -6605,10 +6606,10 @@ default:
         column_header-level: Level
         column_header-message: Message
         column_header-time: Time
-        label_export: Export log
+        label_destination: Destination
+        label_export: Export logs
         label_loggroup: Log group
         label_retention-period: Log retention
-        label_sink-destination: Destination
         label_sinks: Sinks
       marketplace-v2:
         button_use: Use
