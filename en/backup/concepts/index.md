@@ -1,10 +1,12 @@
 # {{ backup-full-name }} overview
 
-{{ backup-full-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. You can back up and restore [{{ compute-name }} VMs](../../compute/concepts/vm.md) running Ubuntu, CentOS, and Windows Server.
+{{ backup-full-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. You can back up and recover [{{ compute-name }} VMs](../../compute/concepts/vm.md) running Ubuntu, CentOS, and Windows Server.
 
 VM backups are crash-consistent: they save both data stored on disks and intermediate data of running applications (in-memory data and active reads and writes to disks). This approach allows you to resume applications that were running at the time of backup creation directly after restoring a VM. This is important for VMs that are part of data storage systems, such as when a DBMS is running on the VM.
 
-{{ backup-name }} can create [full and incremental backups](backup.md#types). A full backup stores complete data of a VM. This is reliable, but full backups take a lot of space and restoring VMs from them is more time-consuming. Incremental backups only contain data that differs from that of previous VM backups. This allows you to save space and time for VM recovery. However, if any backup in the chain is corrupt, you will not be able to restore your VM.
+{{ backup-name }} can create [full and incremental backups](backup.md#types). A full backup stores complete data of a VM. This is reliable, but full backups take a lot of space and restoring VMs from them is more time-consuming. Incremental backups only contain data that differs from that of previous VM backups. This allows you to save space and time for VM recovery. However, if any backup in the chain is corrupt, you will not be able to recover your VM.
+
+With {{ backup-name }}, you can also restore individual files and directories from a backup to any VM connected to the service. For more information, see [File-by-file recovery](backup.md#file-by-file).
 
 To enable backups for your VM, you need to connect it to the service and configure it. For more information, see [{#T}](vm-connection.md).
 

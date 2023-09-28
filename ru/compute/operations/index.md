@@ -118,6 +118,7 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](image-control/get-list.md)
 * [{#T}](image-control/delete.md)
+* [{#T}](image-control/import.md)
 
 
 ## Файловые хранилища {#filesystem}

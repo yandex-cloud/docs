@@ -2,7 +2,7 @@
 
 The [AWS SDK for Go](https://aws.amazon.com/ru/sdk-for-go/) is a set of tools for developers working with AWS services in Go.
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
@@ -83,7 +83,7 @@ import (
 )
 
 func main() {
-	// Getting the bucket name from command line arguments
+	// Getting the bucket name from the command line argument
 	bucketName := flag.String("b", "", "The name of the bucket")
 	flag.Parse()
 
@@ -111,10 +111,10 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Creating the S3 client
+	// Creating an S3 client
 	client := s3.NewFromConfig(cfg)
 
-	// Getting list of objects in a bucket
+	// Getting the list of all files in the bucket
 	result, err := client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
 		Bucket: aws.String(*bucketName),
 	})

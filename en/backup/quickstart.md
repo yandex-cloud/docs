@@ -140,4 +140,4 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
 #### What's next {#what-is-next}
 
 * [Learn about service features](concepts/index.md).
-* [See other instructions on how to use the service](operations/index.md).
+* [See other service guides](operations/index.md).

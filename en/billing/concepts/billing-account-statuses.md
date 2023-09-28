@@ -41,3 +41,4 @@ Statuses are described in the table below.
 For more information, see the following sections:
 - [Billing cycle for individuals](../payment/billing-cycle-individual.md)
 - [Billing cycle for businesses and individual entrepreneurs](../payment/billing-cycle-business.md)
+

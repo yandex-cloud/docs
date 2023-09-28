@@ -183,6 +183,8 @@ items:
             href: operations/image-control/get-list.md
           - name: Удалить образ
             href: operations/image-control/delete.md
+          - name: Импортировать образ из другого облака или каталога
+            href: operations/image-control/import.md
       - name: Файловые хранилища
         items:
           - name: Создать файловое хранилище

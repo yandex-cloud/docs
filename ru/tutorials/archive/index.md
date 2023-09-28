@@ -10,4 +10,5 @@
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Bacula](backup-with-bacula.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Veritas Backup Exec](object-storage-veritas.md)
 * [Резервное копирование кластера {{ managed-k8s-name }} в {{ objstorage-name }}](kubernetes-backup.md)
-* [Развертывание параллельной файловой системы GlusterFS](ha-regional-glusterfs.md)
+* [Развертывание параллельной файловой системы GlusterFS в высокодоступном режиме](ha-regional-glusterfs.md)
+* [Развертывание параллельной файловой системы GlusterFS в высокопроизводительном режиме](ha-regional-glusterfs-high-performance.md)
