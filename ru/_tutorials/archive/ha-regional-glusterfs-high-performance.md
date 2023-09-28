@@ -1,17 +1,18 @@
-# Развертывание параллельной файловой системы GlusterFS в высокодоступном режиме
+# Развертывание параллельной файловой системы GlusterFS в высокопроизводительном режиме
 
 [GlusterFS](https://ru.wikipedia.org/wiki/GlusterFS) — это распределенная, параллельная, линейно масштабируемая файловая система. При использовании горизонтального масштабирования она обеспечивает в облаке агрегированную пропускную способность в десятки ГБ/с и в сотни тысяч [IOPS](https://ru.wikipedia.org/wiki/IOPS).
 
-При помощи этого руководства вы сможете создать инфраструктуру из трех сегментов, имеющих общую файловую систему GlusterFS. Размещение [дисков](../../compute/concepts/disk.md) для хранения данных в трех разных [зонах доступности](../../overview/concepts/geo-scope.md) обеспечит высокую доступность и отказоустойчивость файловой системы.
+При помощи этого руководства вы сможете создать инфраструктуру из тридцати сегментов, имеющих общую файловую систему GlusterFS. Размещение [дисков](../../compute/concepts/disk.md) для хранения данных в одной [зоне доступности](../../overview/concepts/geo-scope.md) обеспечит высокую производительность файловой системы. В данном сценарии производительность ограничивается скоростью обращения к физическим дискам, а сетевые задержки играют менее значимую роль.
 
-Чтобы настроить высокодоступную файловую систему:
+Чтобы настроить высокопроизводительную файловую систему:
 
 1. [Подготовьте облако к работе](#prepare-cloud).
 1. [Настройте профиль CLI](#setup-profile).
 1. [Подготовьте среду для развертывания ресурсов](#setup-environment).
 1. [Разверните ресурсы](#deploy-resources).
 1. [Установите и настройте GlusterFS](#install-glusterfs).
-1. [Протестируйте доступность и отказоустойчивость решения](#test-glusterfs).
+1. [Протестируйте доступность решения](#test-glusterfs).
+1. [Протестируйте производительность решения](#test-glusterfs-performance).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
  
@@ -175,10 +176,20 @@
 
    {% endnote %}
 
-   1. В секции `disk_size` значение `default` измените на `30`.
-   1. В секции `client_cpu_count` значение `default` измените на `2`.
-   1. В секции `storage_cpu_count` значение `default` измените на `2`.
+   1. В секции `is_ha` значение `default` измените на `false`.
+   1. В секции `client_node_per_zone` значение `default` измените на `30`.
+   1. В секции `storage_node_per_zone` значение `default` измените на `30`.
+
+      {% note info %}
+
+      В данном сценарии разворачивается 30 виртуальных машин. Вы можете изменить это количество в зависимости от требований к объёму конечного хранилища или общей пропускной способности.
+      Максимальная агрегированная пропускная способность всей системы рассчитывается как произведение пропускной способности каждого сегмента (450 МБ/с для [сетевых SSD-дисков](https://cloud.yandex.ru/docs/compute/concepts/disk#disks-types)) на количество сегментов (30), что составляет около 13,5 ГБ/с.
+      Объем системы рассчитывается как произведение количества сегментов (30) на размер каждого хранилища (1 ТБ), что составляет 30 ТБ.
+
+      {% endnote %}
+
    1. Если при создании пары ключей SSH вы указали имя, отличное от имени по умолчанию, в секции `local_pubkey_path` значение `default` измените на `<путь_к_публичному_ключу_SSH>`.
+   1. Если вам необходима повышенная производительность и не важна гарантия сохранности данных, вы можете использовать [нереплицируемые SSD-диски](https://cloud.yandex.ru/docs/compute/concepts/disk#nr-disks). Для этого в секции `disk_type` значение `default` измените на `network-ssd-nonreplicated`. Кроме этого, в секции `disk_size` значение `default` должно быть кратно 93.
 
 ## Разверните ресурсы {#deploy-resources}
    
@@ -206,7 +217,7 @@
       public_ip = "158.160.108.137"
       ```
 
-   В результате в каталоге будут созданы три ВМ для размещения клиентского кода (`client01`, `client02` и `client03`) и три привязанные к ним ВМ для распределенного хранения данных (`gluster01`, `gluster02` и `gluster03`) в трех разных зонах доступности.
+   В результате в каталоге будут созданы 30 ВМ для размещения клиентского кода (`client01`, `client02` и так далее) и 30 привязанных к ним ВМ для распределенного хранения данных (`gluster01`, `gluster02` и так далее) в одной зоне доступности.
 
 ## Установите и настройте GlusterFS {#install-glusterfs}
 
@@ -235,9 +246,9 @@
 
       cat > /etc/clustershell/groups.d/cluster.yaml <<EOF
       cluster:
-          all: '@clients,@gluster'
-          clients: 'client[01-03]'
-          gluster: 'gluster[01-03]'
+         all: '@clients,@gluster'
+         clients: 'client[01-30]'
+         gluster: 'gluster[01-30]'
       EOF 
       ```
    1. Установите GlusterFS:
@@ -255,60 +266,51 @@
       clush -w @gluster systemctl enable glusterd
       clush -w @gluster systemctl restart glusterd
       ```
-   1. Проверьте доступность ВМ `gluster02` и `gluster03`:
+   1. Проверьте доступность ВМ от `gluster02` до `gluster30`:
       ```bash
-      clush -w gluster01 gluster peer probe gluster02
-      clush -w gluster01 gluster peer probe gluster03
+      clush -w gluster01 'for i in {2..9}; do gluster peer probe gluster0$i; done'
+      clush -w gluster01 'for i in {10..30}; do gluster peer probe gluster$i; done'
       ```
-   1. Создайте папки `vol0` в ВМ для хранения данных и настройте доступность и отказоустойчивость за счет подключения к папке общего доступа `regional-volume`:
+   1. Создайте папки `vol0` в ВМ для хранения данных и настройте доступность и отказоустойчивость за счет подключения к папке общего доступа `stripe-volume`:
       ```bash
       clush -w @gluster mkdir -p /bricks/brick1/vol0
-      clush -w gluster01 gluster volume create regional-volume disperse 3 redundancy 1 gluster01:/bricks/brick1/vol0 gluster02:/bricks/brick1/vol0 gluster03:/bricks/brick1/vol0  
+      export STRIPE_NODES=$(nodeset -S':/bricks/brick1/vol0 ' -e @gluster)
+      clush -w gluster01 gluster volume create stripe-volume ${STRIPE_NODES}:/bricks/brick1/vol0 
       ```
 
    1. Выполните дополнительные настройки производительности:
       ```bash
-      clush -w gluster01 gluster volume set regional-volume client.event-threads 8
-      clush -w gluster01 gluster volume set regional-volume server.event-threads 8
-      clush -w gluster01 gluster volume set regional-volume cluster.shd-max-threads 8
-      clush -w gluster01 gluster volume set regional-volume performance.read-ahead-page-count 16
-      clush -w gluster01 gluster volume set regional-volume performance.client-io-threads on
-      clush -w gluster01 gluster volume set regional-volume performance.quick-read off 
-      clush -w gluster01 gluster volume set regional-volume performance.parallel-readdir on 
-      clush -w gluster01 gluster volume set regional-volume performance.io-thread-count 32
-      clush -w gluster01 gluster volume set regional-volume performance.cache-size 1GB
-      clush -w gluster01 gluster volume set regional-volume server.allow-insecure on   
+      clush -w gluster01 gluster volume set stripe-volume client.event-threads 8
+      clush -w gluster01 gluster volume set stripe-volume server.event-threads 8
+      clush -w gluster01 gluster volume set stripe-volume cluster.shd-max-threads 8
+      clush -w gluster01 gluster volume set stripe-volume performance.read-ahead-page-count 16
+      clush -w gluster01 gluster volume set stripe-volume performance.client-io-threads on
+      clush -w gluster01 gluster volume set stripe-volume performance.quick-read off 
+      clush -w gluster01 gluster volume set stripe-volume performance.parallel-readdir on 
+      clush -w gluster01 gluster volume set stripe-volume performance.io-thread-count 32
+      clush -w gluster01 gluster volume set stripe-volume performance.cache-size 1GB
+      clush -w gluster01 gluster volume set stripe-volume performance.cache-invalidation on
+      clush -w gluster01 gluster volume set stripe-volume performance.md-cache-timeout 600
+      clush -w gluster01 gluster volume set stripe-volume performance.stat-prefetch on
+      clush -w gluster01 gluster volume set stripe-volume server.allow-insecure on   
+      clush -w gluster01 gluster volume set stripe-volume network.inode-lru-limit 200000
+      clush -w gluster01 gluster volume set stripe-volume features.shard-block-size 128MB
+      clush -w gluster01 gluster volume set stripe-volume features.shard on
+      clush -w gluster01 gluster volume set stripe-volume features.cache-invalidation-timeout 600
+      clush -w gluster01 gluster volume set stripe-volume storage.fips-mode-rchecksum on  
       ```
-   1. Смонтируйте папку общего доступа `regional-volume` на клиентских ВМ:
+   1. Смонтируйте папку общего доступа `stripe-volume` на клиентских ВМ:
       ```bash
-      clush -w gluster01 gluster volume start regional-volume
-      clush -w @clients mount -t glusterfs gluster01:/regional-volume /mnt/
+      clush -w gluster01  gluster volume start stripe-volume      
+      clush -w @clients mount -t glusterfs gluster01:/stripe-volume /mnt/
       ```
 
-## Протестируйте доступность и отказоустойчивость решения {#test-glusterfs}
+## Протестируйте доступность решения {#test-glusterfs}
 
-   1. Проверьте статус папки общего доступа `regional-volume`:
+   1. Проверьте статус папки общего доступа `stripe-volume`:
       ```bash
-      clush -w gluster01 gluster volume status
-      ```
-      Результат:
-
-      ```bash
-      gluster01: Status of volume: regional-volume
-      gluster01: Gluster process                             TCP Port  RDMA Port  Online  Pid
-      gluster01: ------------------------------------------------------------------------------
-      gluster01: Brick gluster01:/bricks/brick1/vol0         54660     0          Y       1374
-      gluster01: Brick gluster02:/bricks/brick1/vol0         58127     0          Y       7716
-      gluster01: Brick gluster03:/bricks/brick1/vol0         53346     0          Y       7733
-      gluster01: Self-heal Daemon on localhost               N/A       N/A        Y       1396
-      gluster01: Self-heal Daemon on gluster02               N/A       N/A        Y       7738
-      gluster01: Self-heal Daemon on gluster03               N/A       N/A        Y       7755
-      gluster01:
-      gluster01: Task Status of Volume regional-volume
-      gluster01: ------------------------------------------------------------------------------
-      gluster01: There are no active volume tasks
-      gluster01:
-      ```
+      clush -w gluster01  gluster volume status
+      ```      
 
    1. Создайте текстовый файл:
       ```bash
@@ -317,7 +319,7 @@
       EOF
       ```
    
-   1. Убедитесь, что файл доступен на всех трех клиентских ВМ:
+   1. Убедитесь, что файл доступен на всех клиентских ВМ:
       ```bash
       clush -w @clients sha256sum /mnt/test.txt
       ```
@@ -326,68 +328,78 @@
       client01: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
       client02: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
       client03: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
+      ...
+      client30: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
       ```
-   1. Отключите одну из ВМ для хранения данных, например, `gluster02`:
 
-      {% list tabs %}
+## Протестируйте производительность решения {#test-glusterfs-performance}
 
-      - Консоль управления
+   [IOR](https://github.com/hpc/ior) — это бенчмарк для параллельных операций ввода-вывода, который может использоваться для тестирования производительности параллельных систем хранения данных с использованием различных интерфейсов и сценариев доступа.
 
-        1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-        1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-        1. Выберите ВМ `gluster02` в списке, нажмите значок ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.instances.button_action-stop }}**.
-        1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
-
-      - CLI
-
-        1. Посмотрите описание команды CLI для остановки ВМ:
-
-           ```bash
-           yc compute instance stop --help
-           ```
-        1. Остановите ВМ:
-
-           ```bash
-           yc compute instance stop gluster02
-           ```
-
-      - API
-
-        Воспользуйтесь методом REST API [stop](../../compute/api-ref/Instance/stop.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Stop](../../compute/api-ref/grpc/instance_service.md#Stop).
-
-      {% endlist %}
-
-   1. Убедитесь, что ВМ отключена:
+   1. Установите зависимости:
       ```bash
-      clush -w gluster01  gluster volume status
-      ```
-      Результат:
-
-      ```bash
-      gluster01: Status of volume: regional-volume
-      gluster01: Gluster process                             TCP Port  RDMA Port  Online  Pid
-      gluster01: ------------------------------------------------------------------------------
-      gluster01: Brick gluster01:/bricks/brick1/vol0         54660     0          Y       1374
-      gluster01: Brick gluster03:/bricks/brick1/vol0         53346     0          Y       7733
-      gluster01: Self-heal Daemon on localhost               N/A       N/A        Y       1396
-      gluster01: Self-heal Daemon on gluster03               N/A       N/A        Y       7755
-      gluster01:
-      gluster01: Task Status of Volume regional-volume
-      gluster01: ------------------------------------------------------------------------------
-      gluster01: There are no active volume tasks
-      gluster01:
+      clush -w @clients dnf install -y autoconf automake pkg-config m4 libtool git mpich mpich-devel make fio
+      cd /mnt/
+      git clone https://github.com/hpc/ior.git
+      cd ior
+      mkdir prefix
       ```
 
-   1. Убедитесь, что файл по-прежнему доступен на всех трех клиентских ВМ:
+   1. Выйдите из командной оболочки и войдите заново:
       ```bash
-      clush -w @clients sha256sum /mnt/test.txt
+      ^C
+      sudo -i
+      module load mpi/mpich-x86_64
+      cd /mnt/ior
       ```
+
+   1. Установите IOR:
+      ```bash
+      ./bootstrap
+      ./configure --disable-dependency-tracking  --prefix /mnt/ior/prefix
+      make 
+      make install
+      mkdir -p /mnt/benchmark/ior
+      ```
+
+   1. Запустите IOR:
+      ```bash
+      export NODES=$(nodeset  -S',' -e @clients)
+      mpirun -hosts $NODES -ppn 16 /mnt/ior/prefix/bin/ior  -o /mnt/benchmark/ior/ior_file -t 1m -b 16m -s 16 -F
+      mpirun -hosts $NODES -ppn 16 /mnt/ior/prefix/bin/ior  -o /mnt/benchmark/ior/ior_file -t 1m -b 16m -s 16 -F -C
+      ```
+
       Результат:
       ```bash
-      client01: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
-      client02: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
-      client03: 5fd9c031531c39f2568a8af5512803fad053baf3fe9eef2a03ed2a6f0a884c85  /mnt/test.txt
+      IOR-4.1.0+dev: MPI Coordinated Test of Parallel I/O
+      Options:
+      api                 : POSIX
+      apiVersion          :
+      test filename       : /mnt/benchmark/ior/ior_file
+      access              : file-per-process
+      type                : independent
+      segments            : 16
+      ordering in a file  : sequential
+      ordering inter file : no tasks offsets
+      nodes               : 30
+      tasks               : 480
+      clients per node    : 16
+      memoryBuffer        : CPU
+      dataAccess          : CPU
+      GPUDirect           : 0
+      repetitions         : 1
+      xfersize            : 1 MiB
+      blocksize           : 16 MiB
+      aggregate filesize  : 120 GiB
+
+      Results:
+
+      access    bw(MiB/s)  IOPS       Latency(s)  block(KiB) xfer(KiB)  open(s)    wr/rd(s)   close(s)   total(s)   iter
+      ------    ---------  ----       ----------  ---------- ---------  --------   --------   --------   --------   ----
+      write     1223.48    1223.99    4.65        16384      1024.00    2.44       100.39     88.37      100.44     0
+      read      1175.45    1175.65    4.83        16384      1024.00    0.643641   104.52     37.97      104.54     0
       ```
+
 
 ## Как удалить созданные ресурсы {#clear-out}
 

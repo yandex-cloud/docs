@@ -39,8 +39,14 @@ items:
           Резервное копирование кластера {{ managed-k8s-name }} в {{
           objstorage-name }}
         href: archive/kubernetes-backup.md
-      - name: Развертывание параллельной файловой системы GlusterFS
+      - name: >-
+          Развертывание параллельной файловой системы GlusterFS в
+          высокодоступном режиме
         href: archive/ha-regional-glusterfs.md
+      - name: >-
+          Развертывание параллельной файловой системы GlusterFS в
+          высокопроизводительном режиме
+        href: archive/ha-regional-glusterfs-high-performance.md
   - name: Для разработчиков
     items:
       - name: Все руководства
@@ -461,6 +467,8 @@ items:
           Реализация защищенной высокодоступной сетевой инфраструктуры с
           выделением DMZ на основе Next-Generation Firewall
         href: routing/high-accessible-dmz.md
+      - name: Настройка защищенного туннеля GRE поверх IPsec
+        href: routing/gre-over-ipsec.md
       - name: Настройка сети для {{ dataproc-name }}
         href: routing/dataproc-nat-instance.md
       - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}

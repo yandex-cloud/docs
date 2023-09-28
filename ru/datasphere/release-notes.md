@@ -9,6 +9,14 @@
 
 {% endnote %}
 
+## Релиз 25.09.2023 {#250923}
+
+1. С помощью [DataSphere Jobs](concepts/jobs.md) стало возможным использовать облачные вычислительные ресурсы в рамках {{ ml-platform-name }} из локальной среды пользователя.
+1. У проектов {{ ml-platform-name }} появился новый тип ресурсов — [Модели](concepts/models/index.md).
+1. В JupyterLab 3 (доступен в режиме [Dedicated](concepts/project.md#dedicated)) добавлены расширения, повышающие удобство работы.
+1. На стадии [Preview](../overview/concepts/launch-stages.md) доступно [дообучение модели YandexGPT](concepts/models/foundation-models.md#yagpt-tuning).
+1. Исправлены ошибки и добавлены небольшие улучшения в работе платформы.
+
 ## Релиз 18.09.2023 {#180923}
 
 1. Новый системный образ DS Default (Python 3.10) используется по умолчанию.

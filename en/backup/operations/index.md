@@ -17,4 +17,5 @@
 
 * [Restoring a VM from a backup](./backup-vm/recover.md)
 * [Restoring a VM from a backup of another VM](./backup-vm/non-native-recovery.md)
+* [Restoring individual directories and files on a VM](./backup-vm/recover-file-by-file.md)
 * [Deleting a backup](./backup-vm/delete.md)
