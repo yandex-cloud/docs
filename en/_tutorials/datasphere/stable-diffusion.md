@@ -4,7 +4,7 @@ In {{ ml-platform-name }}, you can deploy a neural network based on the Stable D
 
 [Stable Diffusion](https://github.com/CompVis/stable-diffusion/blob/main/README.md) is an open-source text-to-image model developed by [stability.ai](https://stability.ai/).
 
-In this tutorial, you will generate an image based on a text description using an implementation of the Stable Diffusion model in the [KerasCV](https://keras.io/keras_cv/) library. Compared to other Stable Diffusion model implementations, KerasCV has a number of advantages that ensure a high image generation rate. These include [XLA complilation](https://www.tensorflow.org/xla) and support for [mixed precision](https://www.tensorflow.org/guide/mixed_precision).
+In this tutorial, you will generate an image based on a text description using an implementation of the Stable Diffusion model in the [KerasCV](https://keras.io/keras_cv/) library. Compared to other Stable Diffusion model implementations, KerasCV has a number of advantages, one of them is [ai product photo generator](ai product photo generator), that ensure a high image generation rate. These include [XLA complilation](https://www.tensorflow.org/xla) and support for [mixed precision](https://www.tensorflow.org/guide/mixed_precision).
 
 To generate an image using the Stable Diffusion model:
 
