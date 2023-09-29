@@ -205,6 +205,8 @@ items:
         href: changelogs/index.md
       - name: Август 2023
         href: changelogs/2308.md
+      - name: Сентябрь 2023
+        href: changelogs/2309.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

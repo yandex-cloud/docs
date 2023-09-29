@@ -4,7 +4,7 @@
 
 To collaborate on issues with your colleagues, add them to {{ tracker-name }}. There are several ways to do this:
 - [Inviting users with Yandex accounts to {{ tracker-name }}](#invite_user).
-- [Adding users](../organization/add-account.md) to {{ org-full-name }}.
+- [Adding users](../organization/operations/add-account.md) to {{ org-full-name }}.
 - [Creating new accounts](#create_users) on your organization's domain.
 - [Configuring an identity federation](#federation). With an identity federation, your employees can log in to {{ tracker-name }} using their corporate accounts in Active Directory, Google Workspace, or other user account management systems.
 
@@ -43,7 +43,7 @@ To create an identity federation:
 
 Users with corporate accounts can [log in to {{ tracker-name }}](user/login.md) by clicking **Log in via SSO**.
 
-To learn more about creating an identity federation, see the [{{ org-full-name }}](../organization/add-federation.md) documentation.
+To learn more about creating an identity federation, see the [{{ org-full-name }}](../organization/concepts/add-federation.md) documentation.
 
 ## Creating user accounts {#create_users}
 
@@ -69,7 +69,7 @@ To [log in to {{ tracker-name }}](user/login.md), an employee with an account on
 
 To delete a user account from {{ tracker-name }}, remove the employee from the organization they belong to:
 
-- [{{ org-full-name }}](../organization/edit-account.md).
+- [{{ org-full-name }}](../organization/operations/edit-account.md).
 
 - [{{ ya-360 }}](https://yandex.ru/support/business/users.html#sec_delete).
 

@@ -17,6 +17,6 @@ You can see a list of users in the organization on the [Yandex Cloud Organizati
 
 {% note info %}
 
-The process of adding roles for accounts in an organization is described in [Granting access rights](../../../organization/roles.md#admin).
+The process of adding roles for accounts in an organization is described in [Granting access rights](../../../organization/security/index.md#admin).
 
 {% endnote %}

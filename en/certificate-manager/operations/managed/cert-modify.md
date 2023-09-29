@@ -37,7 +37,7 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
       +----------------------+---------------+-------------+-----------+---------+------------+
       |          ID          |     NAME      |   DOMAINS   | NOT AFTER |  TYPE   |   STATUS   |
       +----------------------+---------------+-------------+-----------+---------+------------+
-      | fpq6gvvm6piuegbb2nol | mymanagedcert | example.com |           | MANAGED | VALIDATING |
+      | fpq6gvvm6piu******** | mymanagedcert | example.com |           | MANAGED | VALIDATING |
       +----------------------+---------------+-------------+-----------+---------+------------+
       ```
 
@@ -45,7 +45,7 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
       ```bash
       yc certificate-manager certificates update \
-        --id fpq6gvvm6piuegbb2nol \
+        --id fpq6gvvm6piu******** \
         --new-name myupdatedmanagedcert \
         --description "description of myupdatedmanagedcert"
       ```
@@ -58,14 +58,50 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
       Command result:
 
       ```bash
-      id: fpq6gvvm6piuegbb2nol
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: fpq6gvvm6piu********
+      folder_id: b1g7gvsi89m3********
       created_at: "2020-09-15T08:49:11.533Z"
       ...
       - example.com
       status: VALIDATING
       updated_at: "2020-09-15T09:10:06.981875Z"
       ```
+
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the {{ TF }} configuration file and edit the fragment with the certificate description:
+
+      {% cut "Sample certificate description" %}
+
+      ```hcl
+      ...
+      resource "yandex_cm_certificate" "le-certificate" {
+        name        = "managed-certificate-for-dns"
+        description = "this is a certificate for tls"
+        domains     = ["my-domain.ru"]
+
+        managed {
+        challenge_type = "DNS_CNAME"
+        }
+      }
+      ...
+      ```
+
+      {% endcut %}
+
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   You can check the changes done to the certificate and its configuration either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+
+   ```bash
+   yc certificate-manager certificate get <certificate_name>
+   ```
 
 - API
 

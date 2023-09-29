@@ -45,14 +45,54 @@ To add a new Let's Encrypt [certificate](../../concepts/managed-certificate.md):
       Command result:
 
       ```bash
-      id: fpq6gvvm6piuegbb2nol
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: fpq6gvvm6piu********
+      folder_id: b1g7gvsi89m3********
       created_at: "2020-09-15T08:49:11.533771Z"
       ...
       - example.com
       status: VALIDATING
       updated_at: "2020-09-15T08:49:11.533771Z"
       ```
+
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
+
+      ```hcl
+      resource "yandex_cm_certificate" "le-certificate" {
+        name    = "<certificate_name>"
+        domains = ["<domain>"]
+
+        managed {
+        challenge_type = "<type_of_domain_owner_check>"
+        }
+      }
+      ```
+
+      Where:
+
+      * `domains`: List of domains to create a certificate for.
+      * `challenge_type`: [Type of domain rights check](../../concepts/challenges.md) to be [passed](cert-validate.md) by the domain owner. Possible values:
+
+         * `DNS_CNAME`: Create a DNS record in CNAME format with the specified value. Method recommended for automatic certificate renewal.
+         * `DNS_TXT`: Create a DNS record in TXT format with the specified value.
+         * `HTTP`: Place the specified value in the specified URL.
+
+      For more information about the `yandex_cm_certificate` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/cm_certificate).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   This will create a certificate in the specified folder. You can check if the certificate is there and properly configured either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+
+   ```bash
+   yc certificate-manager certificate get <certificate_name>
+   ```
 
 - API
 

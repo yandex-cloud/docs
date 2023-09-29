@@ -1,9 +1,3 @@
----
-title: "Правила тарификации для {{ speechkit-name }}"
-description: "Чтобы рассчитать стоимость использования сервиса, воспользуйтесь нашим калькулятором или ознакомьтесь с тарифами в этом разделе."
-editable: false
----
-
 # Правила тарификации для {{ speechkit-name }}
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}

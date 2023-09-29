@@ -8,6 +8,9 @@
 * повысить уровень контроля доступа к данным на диске за счет необходимости прав на ключ {{ kms-short-name }}, см. [{#T}](../../kms/operations/key-access.md);
 * отслеживать операции шифрования и расшифрования вашим ключом {{ kms-short-name }} с помощью сервиса {{ at-full-name }}, см. [Аудит использования ключей](../../kms/concepts/#keys-audit).
 
+
+{% include [encryption-preview-note](../../_includes/compute/encryption-preview-note.md) %}
+
 Вы можете зашифровать диски следующих типов:
 * Сетевой SSD-диск (`network-ssd`).
 * Сетевой HDD-диск (`network-hdd`).

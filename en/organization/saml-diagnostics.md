@@ -2,7 +2,7 @@
 
 ## Error when creating a new user {#automatic-user-creation}
 
-An attempt to add a new user to a federation has failed because the auto user creation option is disabled. [Add a user manually](add-account.md#add-user-sso) or enable the **Automatically create users** option in the federation settings.
+An attempt to add a new user to a federation has failed because the auto user creation option is disabled. [Add a user manually](operations/add-account.md#add-user-sso) or enable the **Automatically create users** option in the federation settings.
 
 ## SAMLResponse assertions not encrypted {#response-not-encrypted}
 

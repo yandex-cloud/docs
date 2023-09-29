@@ -34,8 +34,8 @@ You can't delete an IAM token. If you create a new IAM token, the previous one r
    * For a service account: [reissue](#key-reissue) the authorized key of the service account that the token is granted for or delete the account.
    * For a Yandex or federated account, do one of the following:
 
-      * [Remove the account](../../organization/edit-account.md) from all organizations while the token is valid.
-      * Revoke the rights of the account in any [cloud](users/delete) and [organization](../../organization/roles.md#revoke) for the token's validity period.
+      * [Remove the account](../../organization/operations/edit-account.md) from all organizations while the token is valid.
+      * Revoke the rights of the account in any [cloud](users/delete) and [organization](../../organization/security/index.md#revoke) for the token's validity period.
 
          {% note info %}
 
@@ -60,8 +60,8 @@ To prevent a hacker from using your token:
 
 1. Revoke the rights of the account that the OAuth token belongs to in one of the following ways:
 
-   * [Remove the account](../../organization/edit-account.md) from all organizations while the IAM token is valid.
-   * Revoke the rights of the account in any [cloud](users/delete) and [organization](../../organization/roles.md#revoke) for the IAM token's validity period.
+   * [Remove the account](../../organization/operations/edit-account.md) from all organizations while the IAM token is valid.
+   * Revoke the rights of the account in any [cloud](users/delete) and [organization](../../organization/security/index.md#revoke) for the IAM token's validity period.
 
       {% note info %}
 

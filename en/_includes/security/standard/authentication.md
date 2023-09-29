@@ -5,7 +5,7 @@ In {{ yandex-cloud }}, identification, authentication, and access control is per
 The platform works with three categories of users:
 
 * [Yandex accounts](../../../iam/concepts/index.md#passport): Accounts in Yandex ID.
-* [Federated accounts](../../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../../organization/add-federation.md), such as Active Directory.
+* [Federated accounts](../../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../../organization/concepts/add-federation.md), such as Active Directory.
 * [Service accounts](../../../iam/concepts/#sa): Accounts that can be used by a program to manage resources.
 
 Yandex ID accounts and federated accounts are authenticated in their own systems. {{ yandex-cloud }} has no access to these users' passwords and only authenticates service accounts via {{ iam-short-name }}.
@@ -18,7 +18,7 @@ This ensures interaction of different categories of resources, roles, and users 
 
 [{{ org-full-name }}](../../../organization/) is a single service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources.
 
-For the purpose of centralized account management, use [SAML-compatible identity federations](../../../organization/add-federation.md). By using identity federations, a company can set up Single Sign-On, which is authentication in {{ yandex-cloud }} via their IdP server. With this approach, employees can use their corporate accounts that are subject to the company's security policies, such as:
+For the purpose of centralized account management, use [SAML-compatible identity federations](../../../organization/concepts/add-federation.md). By using identity federations, a company can set up Single Sign-On, which is authentication in {{ yandex-cloud }} via their IdP server. With this approach, employees can use their corporate accounts that are subject to the company's security policies, such as:
 
 * Revoking and blocking accounts.
 * Password policies.
@@ -63,7 +63,7 @@ To make sure that all authentication requests from {{ yandex-cloud }} contain a 
 
 **Instructions and solutions to use:**
 
-* [Instructions for setting up SAML-based identity federations](../../../organization/add-federation.md#federation-usage).
+* [Instructions for setting up SAML-based identity federations](../../../organization/concepts/add-federation.md#federation-usage).
 * [Instructions for setting up SAML-based federations with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
 
 #### 1.2 Yandex ID accounts are only used in exceptional cases {#yandex-id-accounts}
@@ -606,7 +606,7 @@ For a Yandex ID account, set up 2FA using these [instructions](https://yandex.c
 * `{{ roles-admin }}` assigned for a cloud.
 * `{{ roles-admin }}` assigned for a folder.
 
-The `billing.accounts.owner` role is granted automatically when creating a billing account and can't be reassigned to another user. The role lets you perform any action with the billing account.
+The `billing.accounts.owner` role is granted automatically when creating a billing account and cannot be reassigned to another user. The role allows you to perform any action with the billing account.
 
 The `billing.accounts.owner` role can only be assigned to a Yandex ID account. An account with the `billing.accounts.owner` role is used when setting up payment methods and adding clouds.
 
@@ -922,7 +922,7 @@ Specify up-to-date contact information using the [instructions](../../../billing
 
 #### 1.18 The cookie lifetime in a federation is less than 6 hours {#cookie-timeout}
 
-In the [identity federation](../../../organization/add-federation.md) settings, make sure the **Cookie lifetime** parameter value is less than or equal to 6 hours. This is necessary to minimize the risk of compromising cloud users' workstations.
+In the [identity federation](../../../organization/concepts/add-federation.md) settings, make sure the **Cookie lifetime** parameter value is less than or equal to 6 hours. This is necessary to minimize the risk of compromising cloud users' workstations.
 
 {% list tabs %}
 

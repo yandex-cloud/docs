@@ -1430,6 +1430,12 @@ default:
             102400|string: ₸5.7500
             51200|string: ₸6.0000
           egress|string: Free
+      options:
+        cold|string: ₸4.8500
+        ice|string: ₸9.7000
+        standard|pricingRate:
+          10|string: ₸1.9500
+        standard|string: Free
       post:
         cold|string: ₸5.9000
         ice|string: ₸11.8000
@@ -2231,6 +2237,12 @@ default:
             102400|string: ₽1.1500
             51200|string: ₽1.2000
           egress|string: Free
+      options:
+        cold|string: ₽0.9700
+        ice|string: ₽1.9400
+        standard|pricingRate:
+          10|string: ₽0.3900
+        standard|string: Free
       post:
         cold|string: ₽1.1800
         ice|string: ₽2.3600
@@ -2999,6 +3011,12 @@ default:
             102400|string: $0.009200
             51200|string: $0.009600
           egress|string: Free
+      options:
+        cold|string: $0.007760
+        ice|string: $0.015520
+        standard|pricingRate:
+          10|string: $0.003120
+        standard|string: Free
       post:
         cold|string: $0.009440
         ice|string: $0.018880
@@ -7437,7 +7455,6 @@ default:
           label_field_name: Name
           label_serverless-type: Serverless
         overview:
-          label_database: Database
           label_document-endpoint: Document API endpoint
           label_endpoint: Endpoint
           label_title: Overview
@@ -8803,7 +8820,6 @@ default:
         content: Value
         name: Name
       spaces-page:
-        access-in-project: Available in project
         community-resources: Community resources
         configurations: Configurations
       transferring:

@@ -1,6 +1,6 @@
 # Authentication using Keycloak
 
-With an [identity federation](../../add-federation.md), you can use [Keycloak](https://www.keycloak.org/) to authenticate users in an organization.
+With an [identity federation](../../concepts/add-federation.md), you can use [Keycloak](https://www.keycloak.org/) to authenticate users in an organization.
 
 Setting up authentication includes the following steps:
 
@@ -164,7 +164,7 @@ To follow the steps in this section, you will need:​
 
       {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-   1. Enable **Automatically create users** to automatically add a new user to your organization after authentication. If this option is disabled, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
+   1. Enable **Automatically create users** to automatically add a new user to your organization after authentication. If this option is disabled, you will need to [manually add](../../operations/add-account.md#add-user-sso) your federated users.
 
       {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
@@ -199,7 +199,7 @@ To follow the steps in this section, you will need:​
              --issuer "http://<host>:8080/realms/master" \
              --sso-binding POST \
              --sso-url "http://<host>:8080/realms/master/protocol/saml" \
-             --force-authn
+             --force-authn  
          ```
 
       - Keycloak 16 or lower
@@ -226,7 +226,7 @@ To follow the steps in this section, you will need:​
 
             This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
 
          * `encrypted-assertions`: Flag that enables a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
 
@@ -309,7 +309,7 @@ To follow the steps in this section, you will need:​
                "forceAuthn": true
            },
            "ssoBinding": "POST"
-         }
+         }       
          ```
 
       - Keycloak 16 or lower
@@ -327,7 +327,7 @@ To follow the steps in this section, you will need:​
              "forceAuthn": true
            },
            "ssoBinding": "POST"
-         }
+         }       
          ```
 
          Where:
@@ -339,7 +339,7 @@ To follow the steps in this section, you will need:​
          * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
             This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
 
          * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
 
@@ -480,7 +480,7 @@ To follow the steps in this section, you will need:​
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
       * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
          If the option is enabled, the IDs of federated user names are case-insensitive.
       * `security_settings`: Federation security settings:
@@ -528,9 +528,9 @@ To follow the steps in this section, you will need:​
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using this command:
 
-        ```
-        terraform plan
-        ```
+         ```
+         terraform plan
+         ```
 
       If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
@@ -538,9 +538,9 @@ To follow the steps in this section, you will need:​
 
       1. If the configuration does not contain any errors, run this command:
 
-        ```
-        terraform apply
-        ```
+         ```
+         terraform apply
+         ```
 
       1. Confirm you want to create a federation.
 
@@ -786,7 +786,7 @@ To do this, you will need user Name IDs. They are returned by the IdP server alo
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
+A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../security/index.md#admin).
 
 {% list tabs %}
 
@@ -798,7 +798,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
+   1. In the top-right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -853,7 +853,7 @@ A user can be added by an organization administrator (the `organization-manager.
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation_ID>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
       ```
 
 {% endlist %}
@@ -870,7 +870,7 @@ You can set up a mapping between the SAML message attributes and the personal da
 
 1. Enable the option for mapping the identity provider roles and {{ org-full-name }}:
 
-   1. In the left-hand panel, select **Client Scopes** → **role_list**.
+   1. In the left-hand panel, select **Client Scopes**  →  **role_list**.
 
    1. Go to the **Mappers** tab and select **role list**.
 
@@ -938,7 +938,7 @@ You can set up a mapping between the SAML message attributes and the personal da
 | Name | Used for search in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `firstName` |
 | Full name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-display-name }}. | `name` |
 | Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `email` |
-| Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `phone` |
+| Phone | Used to send notifications from {{yandex-cloud}} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `phone` |
 | Profile image | Displayed in {{ yandex-cloud }} services. The image must be provided in Base64 format.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `thumbnailPhoto` |
 
 {% note warning %}

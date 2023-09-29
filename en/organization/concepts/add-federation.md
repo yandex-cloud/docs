@@ -18,19 +18,19 @@ Since authentication takes place on the IdP server's side, you can configure a m
 
 You can set up identity federations for different identity providers:
 
-* [Active Directory](operations/federations/integration-adfs.md).
-* [Google Workspace](operations/federations/integration-gworkspace.md).
-* [Azure Active Directory](operations/federations/integration-azure.md).
-* [Keycloak](operations/federations/integration-keycloak.md).
-* [Other SAML-compatible identity providers](operations/federations/integration-common.md).
+* [Active Directory](../tutorials/federations/integration-adfs.md).
+* [Google Workspace](../tutorials/federations/integration-gworkspace.md).
+* [Azure Active Directory](../tutorials/federations/integration-azure.md).
+* [Keycloak](../tutorials/federations/integration-keycloak.md).
+* [Other SAML-compatible identity providers](../tutorials/federations/integration-common.md).
 
 ## Authenticating in a federation {#saml-authentication}
 
-{% include [federated-user-auth](../_includes/iam/federated-user-auth.md) %}
+{% include [federated-user-auth](../../_includes/iam/federated-user-auth.md) %}
 
 The authentication process is shown in the diagram:
 
-![image](../_assets/iam/federations/saml-authentication.svg)
+![image](../../_assets/iam/federations/saml-authentication.svg)
 
 1. The user opens a console login link in the browser.
 

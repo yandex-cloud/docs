@@ -29,7 +29,7 @@ To identify users performing operations with resources, use [Yandex accounts](#p
 
 {% note info %}
 
-Billing accounts aren't used for managing resources in {{ yandex-cloud }} and aren't part of {{ iam-short-name }}. For more information, see [{#T}](../../billing/concepts/billing-account.md) in the documentation.
+Billing accounts aren't used for managing resources in {{ yandex-cloud }} and aren't part of {{ iam-short-name }}. For more information, see [{#T}](../../billing/concepts/billing-account.md) in the {{ billing-name }} documentation.
 
 {% endnote %}
 
@@ -56,7 +56,7 @@ A _federated account_ is a user account from an identity federation, like Active
 
 {% include [about-saml-federations](../../_includes/iam/about-saml-federations.md) %}
 
-For more information, see [{#T}](../../organization/add-federation.md).
+For more information, see [{#T}](../../organization/concepts/add-federation.md).
 
 ## Authorization keys {#keys}
 

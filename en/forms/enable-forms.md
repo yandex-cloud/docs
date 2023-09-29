@@ -34,4 +34,4 @@ An organization can only be created for users who have a Yandex account.
 
 1. In {{ org-full-name }}, add users to your organization or set up an identity federation so that your employees can use their work accounts to access {{ yandex-cloud }} services.
 
-   For more information, see the [{{ org-full-name }} documentation](../organization/manage-users.md).
+   For more information, see the [{{ org-full-name }} documentation](../organization/operations/manage-users.md).

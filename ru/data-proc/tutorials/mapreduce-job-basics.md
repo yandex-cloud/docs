@@ -1,8 +1,3 @@
----
-title: "Как работать с заданиями MapReduce"
-description: "В этой статье на простом примере показывается, как в {{ dataproc-name }} использовать MapReduce."
----
-
 # Работа с заданиями MapReduce
 
 {% include [MapReduce](../../_includes/data-proc/mapreduce-intro.md) %}

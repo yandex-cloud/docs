@@ -18,7 +18,7 @@ When you try to accept an invitation to a cloud organization, you see one of the
 ## Solution {#issue-resolution}
 
 Try deleting the current invitation, then create a new one and send it to the user again.
-To learn more about the steps to delete and create an invitation, see [Invite a Yandex user](../../../organization/add-account.md#add-or-invite-user-account) in the Yandex Cloud Organization documentation.
+To learn more about the steps to delete and create an invitation, see [Invite a Yandex user](../../../organization/operations/add-account.md#add-or-invite-user-account) in the Yandex Cloud Organization documentation.
 
 ## If the issue persists {#if-issue-still-persists}
 

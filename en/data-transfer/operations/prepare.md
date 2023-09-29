@@ -37,7 +37,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 - {{ mkf-name }}
 
-   [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` role for the source topic.
+   1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` role for the source topic.
 
 - {{ KF }}
 
@@ -47,7 +47,18 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. [Configure user access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the topic you need.
 
-   1. (Optional) To use username and password authorization, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
+   1. Grant the `READ` permissions to the consumer group whose ID matches the transfer ID.
+
+      ```text
+      bin/kafka-acls --bootstrap-server localhost:9092 \
+        --command-config adminclient-configs.conf \
+        --add \
+        --allow-principal User:username \
+        --operation Read \
+        --group <transfer_id>
+      ```
+
+   1. (Optional) To use username and password authorization, configure [SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
 
 {% endlist %}
 
@@ -90,7 +101,7 @@ Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZ
       CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
       ```
 
-   1. Configure the source cluster to enable the user you created to connect to all the cluster's [master hosts](../../managed-greenplum/concepts/index.md).
+   1. Configure the source cluster to enable the user you created to connect to all the cluster [master hosts](../../managed-greenplum/concepts/index.md).
 
    1. If you are going to use [parallel copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's [segment hosts](../../managed-greenplum/concepts/index.md) in utility mode. To do this, make sure that the "Access from {{ data-transfer-name }}" setting is enabled for the cluster.
 
@@ -118,9 +129,9 @@ Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZ
       CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
       ```
 
-   1. Configure the source cluster to enable the user you created to connect to all the cluster's [master hosts](../../managed-greenplum/concepts/index.md).
+   1. Configure the source cluster to enable the user you created to connect to all the cluster [master hosts](../../managed-greenplum/concepts/index.md).
 
-   1. If you are going to use [parallel copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's [segment hosts](../../managed-greenplum/concepts/index.md) in utility mode.
+   1. If you are going to use [parallel copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster [segment hosts](../../managed-greenplum/concepts/index.md) in utility mode.
 
    1. Grant the user you created the `SELECT` privilege for the tables to be transferred and the `USAGE` privilege for the schemas these tables belong to.
 
@@ -147,13 +158,13 @@ Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZ
 
 - {{ mmg-name }}
 
-   1. Estimate the total number of databases for transfer and the total {{ mmg-name }} workload. If database workload exceeds 10,000 writes per second, create several endpoints and transfers. For more information, see [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
-   1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the `readWrite` role for each source database to be replicated. The `readWrite` role is required so that a transfer can write data to the `__dt_cluster_time` service collection.
+   1. Estimate the total number of databases for transfer and the total {{ mmg-name }} workload. If the workload on the database exceeds 10,000 writes per second, create multiple endpoints and transfers. For more information, see [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
+   1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the `readWrite` role for each source database to be replicated. The `readWrite` role is required so that a transfer can write data to the `__data_transfer.__dt_cluster_time` service collection.
 
 
 - {{ MG }}
 
-   1. Estimate the total number of databases for transfer and the total {{ MG }} workload. If database workload exceeds 10,000 writes per second, create several endpoints and transfers. For more information, see [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
+   1. Estimate the total number of databases for transfer and the total {{ MG }} workload. If the workload on the database exceeds 10,000 writes per second, create multiple endpoints and transfers. For more information, see [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
 
    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -227,7 +238,7 @@ Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZ
       });
       ```
 
-      Once started, the transfer will connect to the source on behalf of this user. The `readWrite` role is required so that a transfer can write data to the `__dt_cluster_time` service collection.
+      Once started, the transfer will connect to the source on behalf of this user. The `readWrite` role is required so that a transfer can write data to the `__data_transfer.__dt_cluster_time` service collection.
 
       {% note info %}
 
@@ -445,7 +456,7 @@ If you get an error like "`can only select from fixed tables/views`" when granti
 
 When performing a transfer from {{ PG }} to a target of any type, objects of the [large object](https://www.postgresql.org/docs/current/largeobjects.html) type will not get transferred.
 
-Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZED VIEW` data, create an ordinary `VIEW` that refers to the `MATERIALIZED VIEW` to be transferred.
+Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZED VIEW` data, create an ordinary `VIEW` that refers to the `MATERIALIZED VIEW` being transferred.
 
 Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/storage-toast.html) and those of the [bytea](https://www.postgresql.org/docs/12/datatype-binary.html) type get transferred without restrictions.
 
@@ -472,7 +483,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
     1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
-   1. Disable the transfer of external keys at the step of creating a source endpoint. Recreate them once the transfer is completed.
+   1. Disable the transfer of external keys when creating a source endpoint. Recreate them once the transfer is completed.
 
    1. Find and terminate DDL queries that are running for too long. To do this, make a selection from the {{ PG }} `pg_stat_activity` housekeeping table:
 
@@ -489,6 +500,25 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
    1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
       Then specify the number of jobs and threads in the [transfer parameters](transfer.md#create) under **Runtime environment**.
+
+   1. Configure WAL monitoring. For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers, [logical replication]({{ pg-docs }}/logicaldecoding.html) is used. To perform it, the transfer creates a replication slot with the `slot_name` equal to the transfer ID that you can get by selecting the transfer from the list of your transfers. The WAL size may increase for different reasons: due to a long-running transaction or a transfer issue. Therefore, we recommend setting up WAL monitoring on the source side.
+
+      1. To monitor the size of the used storage or disk, [set up an alert using the monitoring tools](../../managed-postgresql/operations/monitoring.md#monitoring-hosts) (see the `disk.used_bytes` description).
+
+      1. Set the maximum WAL size for replication in the `Max slot wal keep size` [setting](../../managed-postgresql/concepts/settings-list.md#setting-max-slot-wal-keep-size). The value of this setting can be edited as of {{ PG }} ver. 13. To urgently disable a transfer to perform data reads, [delete the replication slot](../../managed-postgresql/operations/replication-slots.md#delete).
+
+         {% note warning %}
+
+         If set to `-1` (unlimited size), you will not be able to delete WAL files due to open logical replication slots that information is not read from. As a result, the WAL files will take up the entire disk space and you will not be able to connect to the cluster.
+
+         {% endnote %}
+
+      1. [Set up an alert](../../managed-postgresql/operations/monitoring.md) with the {{ monitoring-full-name }} tools for the metric used for `Total size of WAL files`. Make sure the threshold values are less than those specified for the `disk.used_bytes` metric because, apart from the data, the disk stores temporary files, the WAL, and other types of data. You can monitor the current slot size by making a DB request with the correct `slot_name` equal to the transfer ID:
+
+         ```sql
+         SELECT slot_name, pg_size_pretty(pg_current_wal_lsn() - restart_lsn), active_pid, catalog_xmin, restart_lsn, confirmed_flush_lsn
+         FROM pg_replication_slots WHERE slot_name = '<идентификатор_трансфера>'
+         ```
 
 - {{ PG }}
 
@@ -599,7 +629,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
-   1. Disable the transfer of external keys at the step of creating a source endpoint. Recreate them once the transfer is completed.
+   1. Disable the transfer of external keys when creating a source endpoint. Recreate them once the transfer is completed.
 
    1. Find and terminate DDL queries that are running for too long. To do this, make a selection from the {{ PG }} `pg_stat_activity` housekeeping table:
 
@@ -634,6 +664,19 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
       ```
       Warn(Termination): unable to create new pg source: Replication slotID <replication slot name> does not exist.
       ```
+
+   1. Configure WAL monitoring. For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers, [logical replication]({{ pg-docs }}/logicaldecoding.html) is used. To perform it, the transfer creates a replication slot with the `slot_name` equal to the transfer ID that you can get by selecting the transfer from the list of your transfers. The WAL size may increase for different reasons: due to a long-running transaction or a transfer issue. Therefore, we recommend setting up WAL monitoring on the source side.
+
+      1. Set up alerts following the [disk usage recommendations]({{ pg-docs }}/diskusage.html).
+
+      1. [Set the maximum WAL size]({{ pg-docs }}/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE). This feature is available starting with {{ PG }} version 13.
+
+      1. You can track the current slot size by making a DB request with the correct `slot_name` equal to the transfer ID:
+
+         ```sql
+         SELECT slot_name, pg_size_pretty(pg_current_wal_lsn() - restart_lsn), active_pid, catalog_xmin, restart_lsn, confirmed_flush_lsn
+         FROM pg_replication_slots WHERE slot_name = '<идентификатор_трансфера>'
+         ```
 
 {% endlist %}
 
@@ -888,7 +931,7 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
    1. [Create a database](../../managed-mongodb/operations/databases.md#add-db) with the same name as the source database.
    1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the created database.
    1. To shard the migrated collections in the {{ mmg-full-name }} target cluster:
-      1. In the target database, create and configure blank sharded collections with the same names as in the source by following these [instructions](../../managed-mongodb/tutorials/sharding.md).
+      1. Use this [guide](../../managed-mongodb/tutorials/sharding.md) to create and configure empty sharded collections in the target database.
 
          {{ data-transfer-name }} does not automatically shard the migrated collections. Sharding large collections may take a long time and slow down the transfer.
 

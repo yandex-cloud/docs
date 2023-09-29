@@ -42,12 +42,12 @@ This section describes how to assign a role to a user with a Yandex account. The
 
       Where:
 
-      * `<service-name>`: The name of the service whose resource a role is assigned for (for example, `resource-manager`).
-      * `<resource>`: The resource category, for example, `cloud`.
-      * `<resource-name>`: The name of the resource. You can specify a resource by its name or ID.
-      * `<resource-id>`: The resource ID.
-      * `<role-id>`: The role ID, for example, `{{ roles-cloud-owner }}`.
-      * `<user-account-id>`: The ID of the user account assigned the role.
+      * `<service-name>`: Name of the service to whose resource the role (e.g., `resource-manager`) is assigned.
+      * `<resource>`: Resource category, e.g., `cloud`.
+      * `<resource-name>`: Resource name. You can specify a resource by its name or ID.
+      * `<resource-id>`: Resource ID.
+      * `<role-id>`: Role ID, e.g., `{{ roles-cloud-owner }}`.
+      * `<user-account-id>`: ID of the user account to which the role is assigned.
 
       For example, assign the `viewer` role for the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
 
@@ -135,7 +135,7 @@ This section describes how to assign a role to a user with a Yandex account. The
           terraform apply
           ```
 
-        1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+        1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
         All the resources you need will then be created in the specified folder. You can check if the resource is there either from the [management console]({{ link-console-main }}) or using this [CLI] command (../../../cli/quickstart.md):
 
@@ -259,7 +259,7 @@ This section describes how to assign a role to a user with a Yandex account. The
 
 ## Resource access for a federated user {#access-to-federated-user}
 
-In the management console, you can assign a [federated user](../../../organization/add-federation.md) a role for an individual cloud or folder.
+In the management console, you can assign a [federated user](../../../organization/concepts/add-federation.md) a role for an individual cloud or folder.
 
 {% list tabs %}
 
@@ -291,9 +291,9 @@ In the management console, you can assign a [federated user](../../../organizati
 
       Where:
 
-      * `<service-name>`: The name of the service whose resource a role is assigned for (for example, `resource-manager`).
+      * `<service-name>`is the name of the service to whose resource a role (such as `resource-manager`) is assigned.
       * `<resource>`: The resource category, for example, `cloud`.
-      * `<resource-name>`: The name of the resource. You can specify a resource by its name or ID.
+      * `<resource-name>`: Name of the resource. You can specify a resource by its name or ID.
       * `<resource-id>`: The resource ID.
       * `<role-id>`: The role ID, for example, `{{ roles-cloud-owner }}`.
       * `<federated-user-id>`: The ID of the user account assigned the role.
@@ -371,9 +371,9 @@ In the management console, you can assign a [federated user](../../../organizati
 
       Where:
 
-      * `<service-name>`: The name of the service whose resource a role is assigned for (for example, `resource-manager`).
+      * `<service-name>`is the name of the service to whose resource a role (such as `resource-manager`) is assigned.
       * `<resource>`: The resource category, for example, `cloud`.
-      * `<resource-name>`: The name of the resource. You can specify a resource by its name or ID.
+      * `<resource-name>`: Name of the resource. You can specify a resource by its name or ID.
       * `<resource-id>`: The resource ID.
       * `<role-id>`: The role ID, for example, `{{ roles-cloud-owner }}`.
       * `<group-id>`: The ID of the group assigned the role.

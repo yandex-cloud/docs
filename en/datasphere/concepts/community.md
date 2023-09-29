@@ -14,7 +14,7 @@ To create resources and run projects in the IDE, link a {{ yandex-cloud }} [bill
 #### See also {#see-also}
 
 * [{#T}](../security/index.md)
-* [{#T}](../../organization/roles.md)
+* [{#T}](../../organization/security/index.md)
 * [{#T}](../operations/index.md#community)
 * [{#T}](../operations/community/link-ba.md)
 * [Sharing secrets](../operations/data/secrets.md#share)
