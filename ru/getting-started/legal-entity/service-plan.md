@@ -6,4 +6,4 @@
 
 По умолчанию всем пользователям предоставляется бесплатный базовый тарифный план. Чтобы изменить тарифный план:
 
-{% include [internal-mdb](../../_includes/support/change-pricing.md) %}
+{% include [change-pricing](../../_includes/support/change-pricing.md) %}

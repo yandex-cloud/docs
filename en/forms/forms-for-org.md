@@ -14,7 +14,7 @@ Users of organizations registered on {{ yandex-cloud }} enjoy advanced features 
 
    If a company has a system for user and access management (such as Active Directory or Google Workspace), employees can use their corporate accounts to log in to the organization in {{ yandex-cloud }} and get access to forms using a Single Sign-On (SSO) system. To do this, the administrator of the organization needs to set up an identity federation.
 
-   For more information, see the [{{ org-full-name }} documentation](../organization/add-federation.md).
+   For more information, see the [{{ org-full-name }} documentation](../organization/concepts/add-federation.md).
 
 - To create and edit forms for business, go to [{{ link-forms-b2b }}]({{ link-forms-b2b }}) and [log in to your corporate account](login.md).
 

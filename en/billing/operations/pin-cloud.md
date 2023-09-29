@@ -67,7 +67,3 @@ To link a cloud or transfer an existing one:
 
 If you are migrating a cloud because you want to stop using the old billing account, make sure the free Basic service plan is activated in it. Otherwise, even though it has no linked clouds remaining, you will continue to be charged for the paid service plan.
 
-
-
-
-

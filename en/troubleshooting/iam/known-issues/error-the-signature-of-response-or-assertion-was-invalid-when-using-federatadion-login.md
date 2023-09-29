@@ -17,7 +17,7 @@ The certificate used to sign requests on the IdP provider side has probably bee
 When the certificate changes on the IdP provider side, you also need to replace it on the cloud federation side.
 
 As an example, you can use a guide on how to add a certificate to a federation manually from AD FS.
-This process is described on the ["Authenticating using Active Directory"](../../../organization/operations/federations/integration-adfs.md#add-certificate) documentation page.
+This process is described on the ["Authenticating using Active Directory"](../../../organization/tutorials/federations/integration-adfs.md#add-certificate) documentation page.
 
 You can also automate the certificate update process using the [`create` method](../../../organization/api-ref/Certificate/create.md) for the `Certificate` resource or using [YC CLI](../../../cli/quickstart.md#install).
 

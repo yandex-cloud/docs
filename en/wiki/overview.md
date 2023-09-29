@@ -12,7 +12,7 @@ Users registered in [{{ org-full-name }}](../organization/) can work in {{ wiki-
 
 To access {{ wiki-name }}, [log in to the account](login.md) you use to work in your organization.
 
-If a company has a system for user and access management (such as Active Directory or Google Workspace), employees can use their corporate accounts to log in to the organization in {{ yandex-cloud }} and get access to {{ wiki-name }} using a Single Sign-On (SSO) system. To do this, the administrator of the organization needs to set up an identity federation. Read more in the {{ org-full-name }} documentation under [{#T}](../organization/add-federation.md).
+If a company has a system for user and access management (such as Active Directory or Google Workspace), employees can use their corporate accounts to log in to the organization in {{ yandex-cloud }} and get access to {{ wiki-name }} using a Single Sign-On (SSO) system. To do this, the administrator of the organization needs to set up an identity federation. Read more in the {{ org-full-name }} documentation under [{#T}](../organization/concepts/add-federation.md).
 
 
 ## {{ wiki-full-name }} Features {#features}

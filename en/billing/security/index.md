@@ -12,7 +12,7 @@ description: "Billing account access is provided through the {{ billing-name }} 
 * If you have not created an account for yourself or an employee yet, create one in [Yandex](https://passport.yandex.ru/registration) or [Yandex 360](https://yandex.com/support/business/add-users.html).
 * If you use a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 
-The operations a user can perform on a billing account are determined by the role assigned to them.
+The operations a user can perform on a billing account are determined by the role assigned to them. Roles can be assigned to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md).
 
 {% note info %}
 
@@ -24,15 +24,15 @@ Access can only be granted to a user whose billing account has a cloud linked in
 
 ### Service roles {#service-roles}
 
-  Service roles are roles that provide access to {{ billing-name }}:
+Service roles are roles that provide access to {{ billing-name }}:
 
-  * `billing.accounts.member` is granted automatically when a user is added to {{ billing-name }}. It is required to display the selected billing account in the list of all user accounts.
-  * `billing.accounts.owner` is granted automatically when you create a billing account. The role granted when creating an account cannot be revoked, but it can be assigned to other users and revoked from them.
-  * `billing.accounts.viewer` is assigned for a billing account. This role enables you to view billing account data, get information about resource consumption, monitor expenses, and export reconciliation reports and reporting documents.
-  * `billing.accounts.editor` is assigned for a billing account. It enables you to get payment invoices, activate promo codes, link clouds and services to your billing account, create details export and budgets, generate reconciliation reports, and reserve resources. This role includes the `billing.accounts.viewer` role.
-  * `billing.accounts.admin` is assigned for a billing account. It enables you to manage billing account access permissions (except for the `billing.accounts.owner` role). It includes the `billing.accounts.editor` role.
-  * `billing.accounts.varWithoutDiscounts` is assigned for a billing account. This role grants partner accounts all administrator privileges, except the permission to get information about discounts. This role includes the `billing.partners.editor` role.
-  * `billing.partners.editor` is assigned for a billing account. It grants permission to edit information about a partner and their products in the partner product catalog.
+* `billing.accounts.member` is granted automatically when a user is added to {{ billing-name }}. It is required to display the selected billing account in the list of all user accounts.
+* `billing.accounts.owner` is granted automatically when you create a billing account. The role granted when creating an account cannot be revoked, but it can be assigned to other users and revoked from them.
+* `billing.accounts.viewer` is assigned for a billing account. This role enables you to view billing account data, get information about resource consumption, monitor expenses, and export reconciliation reports and reporting documents.
+* `billing.accounts.editor` is assigned for a billing account. It enables you to get payment invoices, activate promo codes, link clouds and services to your billing account, create details export and budgets, generate reconciliation reports, and reserve resources. This role includes the `billing.accounts.viewer` role.
+* `billing.accounts.admin` is assigned for a billing account. It enables you to manage billing account access permissions (except for the `billing.accounts.owner` role). It includes the `billing.accounts.editor` role.
+* `billing.accounts.varWithoutDiscounts` is assigned for a billing account. This role grants partner accounts all administrator privileges, except the permission to get information about discounts. This role includes the `billing.partners.editor` role.
+* `billing.partners.editor` is assigned for a billing account. It grants permission to edit information about a partner and their products in the partner product catalog.
 
 ### Primitive roles {#primitive-roles}
 

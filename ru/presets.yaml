@@ -1445,6 +1445,12 @@ default:
             102400|string: "5,7500\_₸"
             51200|string: "6,0000\_₸"
           egress|string: Не тарифицируется
+      options:
+        cold|string: "4,8500\_₸"
+        ice|string: "9,7000\_₸"
+        standard|pricingRate:
+          10|string: "1,9500\_₸"
+        standard|string: Не тарифицируется
       post:
         cold|string: "5,9000\_₸"
         ice|string: "11,8000\_₸"
@@ -2246,6 +2252,12 @@ default:
             102400|string: "1,1500\_₽"
             51200|string: "1,2000\_₽"
           egress|string: Не тарифицируется
+      options:
+        cold|string: "0,9700\_₽"
+        ice|string: "1,9400\_₽"
+        standard|pricingRate:
+          10|string: "0,3900\_₽"
+        standard|string: Не тарифицируется
       post:
         cold|string: "1,1800\_₽"
         ice|string: "2,3600\_₽"
@@ -3014,6 +3026,12 @@ default:
             102400|string: "0,009200\_$"
             51200|string: "0,009600\_$"
           egress|string: Не тарифицируется
+      options:
+        cold|string: "0,007760\_$"
+        ice|string: "0,015520\_$"
+        standard|pricingRate:
+          10|string: "0,003120\_$"
+        standard|string: Не тарифицируется
       post:
         cold|string: "0,009440\_$"
         ice|string: "0,018880\_$"
@@ -7454,7 +7472,6 @@ default:
           label_field_name: Имя
           label_serverless-type: Serverless
         overview:
-          label_database: Размещение базы данных
           label_document-endpoint: Document API эндпоинт
           label_endpoint: Эндпоинт
           label_title: Обзор
@@ -8818,7 +8835,6 @@ default:
         content: Значение
         name: Имя
       spaces-page:
-        access-in-project: Доступность в проекте
         community-resources: Ресурсы сообщества
         configurations: Конфигурации вычислительных ресурсов
       transferring:

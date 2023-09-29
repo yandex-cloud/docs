@@ -39,7 +39,7 @@ To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) me
     **body.json:**
     ```json
     {
-        "folderId": "b1gvmob95yysaplct532",
+        "folderId": "b1gvmob95yys********",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "mime_type": "application/pdf",
@@ -54,8 +54,8 @@ To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) me
     ```
 
     Where:
-
-    * `analyze_specs: content`: A Base64-encoded PDF file.
+    * `folderId`: [ID of any folder](../../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-vision-user }}` role or higher.
+    * `analyze_specs: content`: Base64-encoded PDF file.
     * `analyze_specs: mime_type`: [MIME-type](https://en.wikipedia.org/wiki/Media_type) `application/pdf`.
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
@@ -80,7 +80,7 @@ To recognize a line of text:
     **body.json:**
     ```json
     {
-        "folderId": "b1gvmob95yysaplct532",
+        "folderId": "b1gvmob95yys********",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{
@@ -95,9 +95,9 @@ To recognize a line of text:
     ```
 
     Where:
-
+    * `folderId`: [ID of any folder](../../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-vision-user }}` role or higher.
     * `analyze_specs: content`: Image encoded in Base64.
-    * `analyze_specs: features: text_detection_config: model`: The model `line`.
+    * `analyze_specs: features: text_detection_config: model`: `line` model.
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
@@ -113,7 +113,7 @@ If you know the language of the text, specify it in the request to improve the q
     **body.json:**
     ```json
     {
-        "folderId": "b1gvmob95yysaplct532",
+        "folderId": "b1gvmob95yys********",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             ...
@@ -128,7 +128,7 @@ If you know the language of the text, specify it in the request to improve the q
        **body.json:**
        ```json
        {
-           "folderId": "b1gvmob95yysaplct532",
+           "folderId": "b1gvmob95yys********",
            "analyze_specs": [{
                "content": "iVBORw0KGgo...",
                "features": [{
@@ -146,7 +146,7 @@ If you know the language of the text, specify it in the request to improve the q
        **body.json:**
        ```json
        {
-           "folderId": "b1gvmob95yysaplct532",
+           "folderId": "b1gvmob95yys********",
            "analyze_specs": [{
                "content": "iVBORw0KGgo...",
                "features": [{

@@ -47,7 +47,7 @@ The infrastructure support cost includes:
 
 You can use a VM that has access to an ArcSight instance or create a new one:
 
-1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) from a Linux image based on Ubuntu 20.04.
+1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) from a Linux image based on [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
 1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md#vm-connect) via SSH.
 
 ### Create a bucket for audit logs {#create-backet}
@@ -60,7 +60,7 @@ You can use a VM that has access to an ArcSight instance or create a new one:
    1. Select **{{ objstorage-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
-      1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter bucket name according to the [naming requirements](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
@@ -371,6 +371,6 @@ To complete this stage of the tutorial, you need an ArcSight SmartConnector dist
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-1. [Delete](../../storage/operations/buckets/delete.md) the bucket {{ objstorage-name }}.
+1. [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket.
 1. [Destroy](../../kms/operations/key.md#delete) the {{ kms-name }} key.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the intermediate VM if you created it in {{ compute-short-name }}.

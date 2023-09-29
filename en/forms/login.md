@@ -9,7 +9,7 @@ To work with [{{ forms-full-name }} for business](forms-for-org.md)log in to you
    - To log in using your Yandex email address or the email address on your company's domain, click **{{ ui-key.forms.common.blocks_error-message.login-passport }}** and enter your username, such as `{{ example-account }}` or `login@example.com`.
    - If organization uses the Single Sign-On authentication scheme with an identity federation, click **{{ ui-key.forms.common.blocks_error-message.login-sso }}**, specify the federation ID, and log in to your corporate account.
 
-   Get your federation ID from your administrator. For more information about the identity federations, see the [{{ org-full-name }} documentation](../organization/add-federation.md).
+   Get your federation ID from your administrator. For more information about the identity federations, see the [{{ org-full-name }} documentation](../organization/concepts/add-federation.md).
 
    {% note info %}
 

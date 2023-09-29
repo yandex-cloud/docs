@@ -20,11 +20,11 @@ Starting April 17, 2023, the free {{ ya-360 }} version will be disabled and the 
 
 ||
 || **Employee accounts** | Accounts on Yandex or your enterprise domain. | Accounts on Yandex and domains delegated to {{ ya-360 }}. ||
-|| **Single Sign-On (SSO)** | Supported.  | Supported. [Learn more](../organization/add-federation.md) ||
+|| **Single Sign-On (SSO)** | Supported.  | Supported. [Learn more](../organization/concepts/add-federation.md) ||
 || **Organizations per user on the {{ ya-360 }} domain** | Users with domain accounts may only belong to the organization this domain is connected for. | Users with domain accounts may belong to any organization. ||
 || **Connecting a domain** | You can connect a domain for an organization. | You cannot connect a domain. ||
-|| **Groups** | Support for hierarchy-based divisions and one-level groups. | You can only set up [one-level groups](../organization/manage-groups.md) of users. ||
-|| **Organization administrator privileges** | The {{ ya-360 }} administrator becomes an administrator in {{ tracker-name }}. | Starting March 2023, {{ org-full-name }} administrators will also be administrators in {{ tracker-name }}. You will also be able to appoint administrators by [granting](../organization/roles.md) them the `tracker.admin` role. ||
+|| **Groups** | Support for hierarchy-based divisions and one-level groups. | You can only set up [one-level groups](../organization/operations/manage-groups.md) of users. ||
+|| **Organization administrator privileges** | The {{ ya-360 }} administrator becomes an administrator in {{ tracker-name }}. | Starting March 2023, {{ org-full-name }} administrators will also be administrators in {{ tracker-name }}. You will also be able to appoint administrators by [granting](../organization/security/index.md) them the `tracker.admin` role. ||
 || **Additional features** | {{ ya-360 }} services | [{{ yandex-cloud }} services]({{ link-cloud-services }}) ||
 |#
 
@@ -60,11 +60,11 @@ A {{ ya-360 }} organization administrator can change an organization for {{ trac
 
 The steps below can only be completed by a {{ ya-360 }} organization administrator who will also become a {{ org-full-name }} organization administrator.
 
-1. If you do not have an organization in {{ org-full-name }}, create one following [this guide](../organization/enable-org.md). If you already have an organization, skip this step.
+1. If you do not have an organization in {{ org-full-name }}, create one following [this guide](../organization/operations/enable-org.md). If you already have an organization, skip this step.
 
 1. In {{ tracker-name }}, click ![](../_assets/tracker/svg/admin.svg) **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → ![](../_assets/tracker/svg/organizations.svg) [**{{ ui-key.startrek.ui_components_page-admin_PageAdmin.menu-item-orgs }}**]({{ link-tracker }}admin/orgs) in the left-hand panel. In the {{ org-full-name }} organizations section, click **{{ ui-key.startrek.ui_components_page-admin_OrgPanes_DirectoryOrgPane.domain-task-action }}** and select the organization you need. Wait until the users and groups from {{ org-full-name }} are synced in {{ tracker-name }}, which may take up to 30 minutes.
 
-1. In {{ org-full-name }}, add [users](../organization/manage-users.md) and [groups](../organization/manage-groups.md) in the same way as in {{ ya-360 }}. A group name in {{ tracker-name }} is generated as per the **{{ ui-key.startrek.blocks-desktop_b-form-new-component.desc }}** field value or, if it is not provided, the **{{ ui-key.startrek.blocks-desktop_b-form-new-component.name }}** field value.
+1. In {{ org-full-name }}, add [users](../organization/operations/manage-users.md) and [groups](../organization/operations/manage-groups.md) in the same way as in {{ ya-360 }}. A group name in {{ tracker-name }} is generated as per the **{{ ui-key.startrek.blocks-desktop_b-form-new-component.desc }}** field value or, if it is not provided, the **{{ ui-key.startrek.blocks-desktop_b-form-new-component.name }}** field value.
 
    {% note info %}
 
@@ -72,7 +72,7 @@ The steps below can only be completed by a {{ ya-360 }} organization administrat
 
    {% endnote %}
 
-1. Set up roles in {{ org-full-name }}: if your organization had other administrators, [grant them roles](../organization/roles.md#add-role), such as `admin` or `tracker.admin`.
+1. Set up roles in {{ org-full-name }}: if your organization had other administrators, [grant them roles](../organization/security/index.md#add-role), such as `admin` or `tracker.admin`.
 
 1. In {{ tracker-name }}, set up [access permissions](./access.md) for the users or groups.
 

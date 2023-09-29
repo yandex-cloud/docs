@@ -10,17 +10,17 @@ When using {{ yandex-cloud }} services, you create _resources_: [VMs](../compute
 
 In addition, organizations may have the following enabled: [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), a [{{ datalens-full-name }}]({{ link-datalens-main }}) instance, and services such as [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), and [{{ forms-full-name }}]({{ link-forms-b2b }}). All of them store their resources on their own, yet are able to exchange information with other services within the same organization. Organizations do not interact with each other.
 
-In the [{{ org-full-name }} interface]({{ link-org-main }}), you can [view](../organization/manage-services.md) which clouds and services your organization has.
+In the [{{ org-full-name }} interface]({{ link-org-main }}), you can [view](../organization/concepts/manage-services.md) which clouds and services your organization has.
 
 [Learn more about the resource hierarchy in {{ yandex-cloud }}](../resource-manager/concepts/resources-hierarchy.md).
 
 ## Users {#users}
 
-Each {{ yandex-cloud }} user has their own _account_ that is used for identification when performing operations with resources. This can be a [Yandex ID](https://yandex.ru/id/about) account or a federated account of an [identity federation](../organization/add-federation.md). In addition, there are service accounts: a special type of account your software can use to perform operations with {{ yandex-cloud }} resources. [Learn more about accounts](../iam/concepts/index.md#accounts).
+Each {{ yandex-cloud }} user has their own _account_ that is used for identification when performing operations with resources. This can be a [Yandex ID](https://yandex.ru/id/about) account or a federated account of an [identity federation](../organization/concepts/add-federation.md). In addition, there are service accounts: a special type of account your software can use to perform operations with {{ yandex-cloud }} resources. [Learn more about accounts](../iam/concepts/index.md#accounts).
 
 Each user belongs to at least one organization. When logging in to {{ yandex-cloud }} with your Yandex ID for the first time, you will be prompted to register your own organization. After creating an organization, you can enable and disable {{ yandex-cloud }} services, create clouds, folders, and other resources.
 
-You can invite other members with Yandex accounts to your organization to grant them access to its services and resources. If your company already uses a different account management system (such as [Active Directory](https://learn.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) or [Keycloak](https://www.keycloak.org/)), you can [configure an identity federation](../organization/add-federation.md). This will allow company employees to use their corporate accounts to access {{ yandex-cloud }} services. For bulk access management, users can be combined into [groups](../organization/manage-groups.md).
+You can invite other members with Yandex accounts to your organization to grant them access to its services and resources. If your company already uses a different account management system (such as [Active Directory](https://learn.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) or [Keycloak](https://www.keycloak.org/)), you can [configure an identity federation](../organization/concepts/add-federation.md). This will allow company employees to use their corporate accounts to access {{ yandex-cloud }} services. For bulk access management, users can be combined into [groups](../organization/operations/manage-groups.md).
 
 ## Access management {#access}
 

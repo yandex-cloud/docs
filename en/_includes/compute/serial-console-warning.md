@@ -14,6 +14,6 @@ We recommend using the serial console only when absolutely necessary, grant acce
 
 Make sure you [disable access](../../compute/operations/serial-console/disable.md) after you finish using the serial console.
 
-[Federated users](../../organization/add-federation.md) can only connect to the serial console using the [CLI](../../cli/) or [SSH](../../compute/operations/vm-connect/ssh.md). These users cannot access the serial console from the {{ yandex-cloud }} management console.
+[Federated users](../../organization/concepts/add-federation.md) can only connect to the serial console using the [CLI](../../cli/) or [SSH](../../compute/operations/vm-connect/ssh.md). These users cannot access the serial console from the {{ yandex-cloud }} management console.
 
 {% endnote %}

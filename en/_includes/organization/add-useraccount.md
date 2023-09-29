@@ -14,6 +14,6 @@
     1. Click the invite link and accept the invitation.
     1. Log in to the organization.
 
-    To access the [services](../../organization/manage-services.md#collaboration) enabled for the organization, the users you invited just need to log in to their Yandex account.
+    To access the [services](../../organization/concepts/manage-services.md#collaboration) enabled for the organization, the users you invited just need to log in to their Yandex account.
 
 {% endlist %}

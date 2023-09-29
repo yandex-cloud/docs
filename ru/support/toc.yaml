@@ -7,6 +7,8 @@ items:
     href: support-center.md
   - name: Оповещения от {{ yandex-cloud }}
     href: notify.md
+  - name: Центр поддержки
+    href: support-center.md
   - name: Запросы данных
     href: request.md
   - name: Копирование ошибок из консоли браузера
@@ -14,7 +16,13 @@ items:
   - name: Сохранение взаимодействия браузера и сервера в HAR-файл
     href: create-har.md
   - name: Правила тарификации
-    href: pricing.md
+    items:
+      - name: Действующие правила
+        href: pricing.md
+      - name: Архив
+        items:
+          - name: До 1 октября 2023 года
+            href: pricing-archive/pricing01102023.md
   - name: Вопросы и ответы
     href: qa.md
 base: ru/support

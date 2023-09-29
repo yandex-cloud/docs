@@ -154,8 +154,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This parameter is required.
-      * `role`: Role being assigned. This parameter is required.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. Required parameter.
+      * `role`: Role being assigned. Required parameter.
 
          {% note info %}
 
@@ -163,10 +163,10 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% endnote %}
 
-      * `member`: User to assign the role to. This parameter is required. Possible values:
+      * `member`: User to assign the role to. Required parameter. Possible values:
                   * `userAccount:<user ID>`: [User ID](../../../iam/operations/users/get.md).
          * `serviceAccount:<service account ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
-         * `federatedUser:<user account ID>`: [User account ID](../../../organization/users-get.md).
+         * `federatedUser:<user account ID>`: [User account ID](../../../organization/operations/users-get.md).
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -186,7 +186,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -204,7 +204,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```
@@ -319,8 +319,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This parameter is required.
-      * `role`: Role being assigned. This parameter is required.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. Required parameter.
+      * `role`: Role being assigned. Required parameter.
 
          {% note info %}
 
@@ -328,7 +328,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% endnote %}
 
-      * `member`: User to assign the role to. To add a user to the list, create an entry in the format `userAccount:<user ID>` where `<user ID>` is the email address of the Yandex account (for example, `ivan@yandex.ru`). This parameter is required.
+      * `member`: User to assign the role to. To add a user to the list, create an entry in the format `userAccount:<user ID>` where `<user ID>` is the email address of the Yandex account (for example, `ivan@yandex.ru`). Required parameter.
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -354,7 +354,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -372,7 +372,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```
@@ -422,8 +422,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This parameter is required.
-      * `role`: Role being assigned. This parameter is required.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. Required parameter.
+      * `role`: Role being assigned. Required parameter.
 
          {% note info %}
 
@@ -431,7 +431,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% endnote %}
 
-      * `member`: User to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service account ID>`, where `<service account ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. This parameter is required.
+      * `member`: User to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service account ID>`, where `<service account ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. Required parameter.
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -451,7 +451,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       {% endcut %}
 
-      For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+      For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
    1. Check the configuration using this command:
       ```
@@ -469,7 +469,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

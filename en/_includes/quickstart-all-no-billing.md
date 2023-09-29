@@ -16,7 +16,7 @@
   * [Store your confidential data securely in {{ lockbox-name }}](../lockbox/quickstart.md).
 * Resources and management:
   * [Manage resources in folders and clouds using {{ resmgr-name }}](../resource-manager/quickstart.md).
-  * [Set up corporate accounts in {{ org-name }}](../organization/quick-start.md).
+  * [Set up corporate accounts in {{ org-name }}](../organization/quickstart.md).
   * [Set up metrics and monitor your resources using {{ monitoring-name }}](../monitoring/quickstart.md).
   * [Visualize your data in {{ datalens-name }}](../datalens/quickstart.md).
   * [Collect resource logs using {{ cloud-logging-name }}](../logging/quickstart.md).

@@ -3,7 +3,7 @@ title: "Relationships between {{ data-transfer-full-name }} resources"
 description: "With {{ data-transfer-full-name }}, you can easily transfer data between databases. The service enables you to save time on migration, minimize downtime when switching to a new database, and maintain a database replica that is always up to date."
 ---
 
-# Relationships between resources in {{ data-transfer-name }}
+# Resource relationships in {{ data-transfer-name }}
 
 {{ data-transfer-full-name }} helps transfer data between DBMS, object storages, and message brokers. This way you can reduce the migration period and minimize downtime when switching to a new database.
 
@@ -19,23 +19,22 @@ The following can be the data source or target:
 
 
 | Service                                                                                                                               |                               Source                                |                Target                |
-|---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------:|:------------------------------------:|
-| {{ KF }} topic: Your own topic or a topic in [{{ mkf-short-name }}](../../managed-kafka/)                                             |                ![yes](../../_assets/common/yes.svg)                 | ![yes](../../_assets/common/yes.svg) |
-| AWS CloudTrail message stream                                                                                                         |                ![yes](../../_assets/common/yes.svg)                 |  ![no](../../_assets/common/no.svg)  |
-| Your own BigQuery database                                                                                                            |                ![yes](../../_assets/common/yes.svg)                 |  ![no](../../_assets/common/no.svg)  |
+|---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------:|:------------------------------------:|
+| {{ KF }} topic: Your own or as part of the [{{ mkf-short-name }} service](../../managed-kafka/)                                       |                ![yes](../../_assets/common/yes.svg)                 | ![yes](../../_assets/common/yes.svg) |
+| AWS CloudTrail message stream                                                                                                         |                ![yes](../../_assets/common/yes.svg)                 | ![no](../../_assets/common/no.svg)   |
+| Your own BigQuery database                                                                                                            |                ![yes](../../_assets/common/yes.svg)                 | ![no](../../_assets/common/no.svg)   |
 | {{ CH }} database: Your own or as part of the [{{ mch-short-name }} service](../../managed-clickhouse/)                               |                ![yes](../../_assets/common/yes.svg)                 | ![yes](../../_assets/common/yes.svg) |
-| {{ ES }} database: Your own or as part of the [{{ mes-short-name }} service](../../managed-elasticsearch/)                            |                 ![no](../../_assets/common/no.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ ES }} database: Your own or as part of the [{{ mes-short-name }} service](../../managed-elasticsearch/)                            |                ![no](../../_assets/common/no.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | {{ GP }} database: Your own or as part of the [{{ mgp-short-name }} service](../../managed-greenplum/)                                |                ![yes](../../_assets/common/yes.svg)                 | ![yes](../../_assets/common/yes.svg) |
 | {{ MG }} database: Your own or as part of the [{{ mmg-short-name }} service](../../managed-mongodb/)                                  |                ![yes](../../_assets/common/yes.svg)                 | ![yes](../../_assets/common/yes.svg) |
 | {{ MY }} database: Your own or as part of the [{{ mmy-short-name }} service](../../managed-mysql/)                                    |                ![yes](../../_assets/common/yes.svg)                 | ![yes](../../_assets/common/yes.svg) |
-| Your own Oracle database                                                                                                              |                ![yes](../../_assets/common/yes.svg)                 |  ![no](../../_assets/common/no.svg)  |
+| Your own Oracle database                                                                                                              |                ![yes](../../_assets/common/yes.svg)                 | ![no](../../_assets/common/no.svg)   |
 | {{ PG }} database: Your own or as part of the [{{ mpg-short-name }} service](../../managed-postgresql/)                               |                ![yes](../../_assets/common/yes.svg)                 | ![yes](../../_assets/common/yes.svg) |
-| {{ OS }} database: Your own or as part of the [{{ mos-short-name }} service](../../managed-opensearch/)                               |                 ![no](../../_assets/common/no.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| S3-compatible bucket |                ![yes](../../_assets/common/yes.svg)                 |  ![no](../../_assets/common/no.svg)  |
-| Data stream [{{ yds-full-name }}](../../data-streams/)                                                                                |                ![yes](../../_assets/common/yes.svg)                 | ![yes](../../_assets/common/yes.svg) |
-| {{ ydb-name }} database: A database in [{{ ydb-name }}](../../ydb/)                                                                   |                ![yes](../../_assets/common/yes.svg)                 | ![yes](../../_assets/common/yes.svg) |
-| Bucket [{{ objstorage-full-name }}](../../storage/)                                                                                   |                 ![no](../../_assets/common/no.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| 
+| {{ OS }} database: Your own or as part of the [{{ mos-short-name }} service](../../managed-opensearch/)                               |                ![no](../../_assets/common/no.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| S3-compatible bucket |                ![yes](../../_assets/common/yes.svg)                 | ![no](../../_assets/common/no.svg)   |
+| [{{ yds-full-name }}](../../data-streams/) data stream                                                                                |                ![yes](../../_assets/common/yes.svg)                 | ![yes](../../_assets/common/yes.svg) |
+| {{ ydb-name }} database: as part of the [{{ ydb-name }} service](../../ydb/)                                                          |                ![yes](../../_assets/common/yes.svg)                 | ![yes](../../_assets/common/yes.svg) |
+| [{{ objstorage-full-name }}](../../storage/) bucket                                                                                   |                ![no](../../_assets/common/no.svg)                  | ![yes](../../_assets/common/yes.svg) |
 
 
 

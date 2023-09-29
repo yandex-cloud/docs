@@ -516,7 +516,7 @@ Don't use critical data and access secrets (such as authentication tokens, API k
 
 #### 4.13 The organization uses {{ lockbox-full-name }} as a secret management service {#secrets-lockbox}
 
-Don't use critical data and access secrets (such as authentication tokens, API keys, and encryption keys) explicitly in the code, cloud object names and descriptions, VM metadata, and so on. Instead, use secret storage services like {{ lockbox-short-name }} or HashiCorp Vault (from {{ marketplace-name }}).
+Don't use critical data and access secrets (such as authentication tokens, API keys, and encryption keys) explicitly in the code, cloud object names and descriptions, VM metadata, and so on. Instead, use secret storage services like {{ lockbox-short-name }} or [HashiCorp Vault](/marketplace/products/yc/vault-yckms) (from {{ marketplace-name }}).
 
 {{ lockbox-short-name }} securely stores secrets in an encrypted form only. Encryption is performed using {{ kms-short-name }}. For secret access control, use service roles.
 
@@ -561,7 +561,7 @@ To store secrets with Vault, you can use a VM based on an [image](/marketplace/p
 
 **Instructions and solutions to use:**
 
-Store secrets in {{ lockbox-short-name }} or Hashicorp Vault from {{ marketplace-short-name }}.
+Store secrets in {{ lockbox-short-name }} or [Hashicorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-short-name }}.
 
 #### 4.14 For {{ serverless-containers-name }} and {{ sf-name }}, {{ lockbox-short-name }} secrets are used {#secrets-serverless-functions}
 

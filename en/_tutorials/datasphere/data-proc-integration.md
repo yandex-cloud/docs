@@ -3,9 +3,10 @@
 You can use the Apache Spark™ clusters deployed in {{ dataproc-full-name }}, in your {{ ml-platform-full-name }} projects. To set up integration with {{ dataproc-name }} in {{ ml-platform-name }}:
 
 1. [Prepare your infrastructure](#infra).
-2. [Create a {{ dataproc-name }} cluster](#cluster).
-3. [Set up the {{ ml-platform-name }} project](#project).
-4. [Run your computations](#run-code).
+1. [Create a bucket](#create-bucket).
+1. [Create a {{ dataproc-name }} cluster](#create-cluster).
+1. [Set up the {{ ml-platform-name }} project](#project).
+1. [Run your computations](#run-code).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -118,7 +119,7 @@ To work with {{ dataproc-name }} clusters in {{ ml-platform-name }}, create and 
 
 ### Edit the project settings {#change-settings}
 
-1. Click the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
+1. Go to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**, click **![pencil](../../_assets/pencil-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Specify the parameters:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
@@ -131,7 +132,22 @@ To work with {{ dataproc-name }} clusters in {{ ml-platform-name }}, create and 
 
 1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
-## Create a {{ dataproc-name }} cluster {#cluster}
+## Create a bucket {#create-bucket}
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
+   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+
+{% endlist %}
+
+## Create a {{ dataproc-name }} cluster {#create-cluster}
 
 Before creating a cluster, make sure that your cloud has enough total SSD space (200 GB is allocated for a new cloud by default).
 
@@ -143,7 +159,7 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
    1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** from the drop-down list.
-   1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
+   1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
    1. In the **{{ ui-key.yacloud.mdb.forms.config_field_version }}** field, select `2.0`.
    1. In the **{{ ui-key.yacloud.mdb.forms.config_field_services }}** field, select: `LIVY`, `SPARK`, `YARN`, and `HDFS`.
    1. Enter the public part of your SSH key in the **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** field.
@@ -174,6 +190,7 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
 
       {% endcut %}
 
+   1. Select the created bucket in the **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** field.
    1. Select a network for the cluster.
    1. Enable the **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** option to access the [web interfaces of {{ dataproc-name }} components](../../data-proc/concepts/interfaces.md).
    1. Configure subclusters: no more than one main subcluster with a **{{ ui-key.yacloud.mdb.forms.label_master-subcluster }}** host and subclusters for data storage or computing.
@@ -201,12 +218,11 @@ The {{ dataproc-name }} cluster you created will be added to your {{ ml-platform
 
 ## Run your computations on the cluster {#run-code}
 
-1. In the {{ ml-platform-name }} interface, open the project that you created the {{ dataproc-name }} cluster for.
-1. Open our new **DataSphere Kernel** notebook.
+1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
 1. In the cell, insert the code to compute. For example:
 
-   ```
-   #!spark --cluster <cluster name>
+   ```python
+   #!spark --cluster <cluster_name>
    import random
 
    def inside(p):
@@ -220,10 +236,24 @@ The {{ dataproc-name }} cluster you created will be added to your {{ ml-platform
    print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
    ```
 
-   Where `#!spark --cluster <cluster name>` is a mandatory system command to run computations on a cluster.
-1. Click ![Run](../../_assets/datasphere/jupyterlab/run.svg) to execute the cell.
+   Where `#!spark --cluster <cluster_name>` is a mandatory system command to run computations on a cluster.
 
-Wait for the computation to start. While it is in progress, you'll see logs under the cell.
+   Wait for the computation to start. While it is in progress, you'll see logs under the cell.
+
+1. Write data to S3 by specifying the bucket name:
+
+   ```python
+   #!spark
+   data = [[1, "tiger"], [2, "lion"], [3, "snow leopard"]]
+   df = spark.createDataFrame(df, schema="id LONG, name STRING")
+   df.repartition(1).write.option("header", True).csv("s3://<bucket_name>/")
+   ```
+
+1. Run the cells. To do this, select **Run** ⟶ **Run Selected Cells** or press **Shift** + **Enter**.
+
+The file will appear in the bucket. To view bucket contents in the {{ jlab }}Lab interface, create and activate an [S3 connector](../../datasphere/operations/data/s3-connectors.md) in your project.
+
+{% include [dataproc-s3-connector](../../_includes/datasphere/dataproc-s3-connector.md) %}
 
 To learn more about running computations in the {{ dataproc-name }} clusters in {{ ml-platform-name }}, see [{#T}](../../datasphere/concepts/data-proc.md#session).
 
@@ -235,19 +265,9 @@ Using the cluster deployed in {{ dataproc-name }}, you manage its lifecycle on y
 
 {% endnote %}
 
-Delete the resources you no longer need to avoid being charged for them:
+To stop paying for the resources you created:
 
-{% list tabs %}
-
-- Management console
-
-   To delete a cluster:
-   1. In the [management console]({{ link-console-main }}), open the folder with the cluster that you want to delete.
-   1. [Disable deletion protection](../../data-proc/operations/cluster-update.md) for the cluster if it is enabled.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
-
-   {{ dataproc-name }} runs the delete cluster operation.
-
-{% endlist %}
+* [Delete the objects](../../storage/operations/objects/delete-all.md) from the bucket.
+* [Delete the bucket](../../storage/operations/buckets/delete.md).
+* [Delete the cluster](../../data-proc/operations/cluster-delete.md).
+* [Delete your project](../../datasphere/operations/projects/delete.md).

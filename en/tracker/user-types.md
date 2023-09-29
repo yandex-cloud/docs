@@ -32,6 +32,6 @@ Things to remember when using Yandex ID accounts:
 
 ## {{ org-full-name }} accounts {#cloud-org}
 
-If you plan to use a {{ org-full-name }} organization, users can be registered using an [identity federation](../organization/add-federation.md). To log in, users should specify the federation ID or use a special link.
+If you plan to use a {{ org-full-name }} organization, users can be registered using an [identity federation](../organization/concepts/add-federation.md). To log in, users should specify the federation ID or use a special link.
 
 You can set up multiple federations for your organization. Federated users will not be able to log in to any services other than {{ yandex-cloud }} services.

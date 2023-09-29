@@ -25,6 +25,6 @@ To revoke a group role from a user:
 
 {% note tip %}
 
-To open the list of users with group management permissions at the [roles in the organization](../../organization/roles.md) level (such as organization admin or owner), go to the **Group access bindings** tab and enable the **Inherited roles** option.
+To open the list of users with group management permissions at the [roles in the organization](../../organization/security/index.md) level (such as organization admin or owner), go to the **Group access bindings** tab and enable the **Inherited roles** option.
 
 {% endnote %}

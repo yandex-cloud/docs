@@ -2,6 +2,8 @@
 
 To get started, create an organization and add users to it.
 
+_Organization_ is a workspace that combines different types of {{ yandex-cloud }} resources and users. [Learn more about organizations, resources, and users](../overview/roles-and-resources.md).
+
 ## Create an organization {#create}
 
 1. [Log in]({{link-passport}}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
@@ -67,12 +69,12 @@ To configure your identity federation, follow these steps:
 
 1. Enable **Automatically create users** to add authenticated users to your organization automatically.
 
-   If you do not enable this option, you will need to [manually add](add-account.md#add-user-sso) your federated users.
+   If you do not enable this option, you will need to [manually add](operations/add-account.md#add-user-sso) your federated users.
 
 1. Configure the identity provider's server to transmit successful authentication information and user attributes to {{yandex-cloud}}.
 
    User attributes supported by {{org-full-name}} services are listed in identity federation setup guides for different identity providers:
 
-   * [Active Directory](operations/federations/integration-adfs.md).
-   * [Google Workspace](operations/federations/integration-gworkspace.md).
-   * [Other SAML-compatible identity providers](operations/federations/integration-common.md).
+   * [Active Directory](tutorials/federations/integration-adfs.md).
+   * [Google Workspace](tutorials/federations/integration-gworkspace.md).
+   * [Other SAML-compatible identity providers](tutorials/federations/integration-common.md).

@@ -1,13 +1,16 @@
 # Change payment method
 
-The payment method can only be changed for the billing account of the **{{ ui-key.yacloud.billing.account.create-new.account-type_label_company }}**. You can only use wire transfer instead of bank card payment. To change payment method, send a request to [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).
+The payment method can only be changed for the billing account of the **{{ ui-key.yacloud.billing.account.create-new.account-type_label_company }}**. You can use wire transfer instead of bank card payment.
 
+To change the payment method:
+
+1. Draw up a request to change the payment method.
 
 
 {% include [change-payment-docs](../_includes/change-payment-docs.md) %}
 
 
-Your request will be reviewed within three business days. As soon as a decision is made, a {{ yandex-cloud }} manager will contact you.
+1. Send your request to [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru). The request will be reviewed within three business days. Your {{ yandex-cloud }} account manager will notify you of the decision.
 
 {% note info %}
 

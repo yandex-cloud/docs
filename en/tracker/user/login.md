@@ -14,7 +14,7 @@ Depending on your organization settings, you can use accounts of different types
 
 * Account on the domain connected to [{{ ya-360 }}]({{ link-ya-360 }}) (for example, `login@example.com`).
 
-* Account in the corporate account management system, e.g., Active Directory or Google Workspace, if [single sign-on](../../organization/add-federation.md) is enabled.
+* Account in the corporate account management system, e.g., Active Directory or Google Workspace, if [single sign-on](../../organization/concepts/add-federation.md) is enabled.
 
 To create and edit issues, you will need [full access](../access.md) to {{ tracker-name }}. If you have read-only access to {{ tracker-name }}, contact your organization's administrator.
 

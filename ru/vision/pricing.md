@@ -1,6 +1,6 @@
 ---
 title: "Правила тарификации для {{ vision-name }}"
-description: "Сервис {{ vision-short-name }} предоставляет возможности для анализа изображений."
+description: "В этой статье описаны правила тарификации {{ vision-short-name }}."
 editable: false
 ---
 

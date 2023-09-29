@@ -33,7 +33,7 @@ In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set t
    **body.json:**
    ```json
    {
-       "folderId": "b1gvmob95yysaplct532",
+       "folderId": "b1gvmob95yys********",
        "analyze_specs": [{
            "content": "iVBORw0KGgo...",
            "features": [{
@@ -46,9 +46,14 @@ In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set t
    }
    ```
 
-   Where `analyze_specs: content`: Image [encoded in Base64](../base64-encode.md).
+   Where:
+
+   * `folderId`: [ID of any folder](../../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-vision-user }}` role or higher.
+   * `analyze_specs: content`: Image [encoded in Base64](../base64-encode.md).
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
+
+   Where `IAM_TOKEN` is the IAM token received [before starting](#before-you-begin).
 
    The response will contain the properties and the probability of matching them. You can use these properties to moderate the image:
 
@@ -86,6 +91,8 @@ In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set t
    ```
 
 ### Ready-to-use function for sending requests in bash {#oneliner}
+
+{% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 1. Copy the function to the terminal:

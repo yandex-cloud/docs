@@ -181,6 +181,8 @@ items:
         href: concepts/deploy/index.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Special terms for educational institutions
+        href: concepts/freetier.md
   - name: Tutorials
     items:
       - name: All tutorials

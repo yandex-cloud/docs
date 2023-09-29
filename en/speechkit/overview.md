@@ -2,7 +2,7 @@
 
 {{ speechkit-full-name }} voice technologies help handle any task related to human speech. {{ speechkit-name }} can recognize speech in real time and using pre-recorded audio files, automatically detecting the speaker's language. It can also voice pattern phrases and long texts using {{ speechkit-name }} standard voices.
 
-{{ speechkit-name }} runs using the API interfaces. Depending on the task at hand, you can use the gRPC or REST interfaces. For more information about API implementations in {{ yandex-cloud }}, see [{{ yandex-cloud }} API concepts](../api-design-guide/).
+{{ speechkit-name }} runs using the API interfaces. Depending on the task, you can use the gRPC or REST interfaces. For more information about API implementations in {{ yandex-cloud }}, see [{{ yandex-cloud }} API concepts](../api-design-guide/).
 
 The table provides the most common {{ speechkit-name }} use cases so that you can choose the appropriate technologies and configure them to meet your needs.
 

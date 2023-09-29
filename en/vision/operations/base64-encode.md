@@ -8,7 +8,7 @@ Pass the content of the resulting `output.txt` file in the request body:
 
 ```json
 {
-    "folderId": "b1gvmob95yysaplct532",
+    "folderId": "b1gvmob95yys********",
     "analyze_specs": [{
         "content": "iVBORw0KGgo...",
         ...
@@ -17,4 +17,6 @@ Pass the content of the resulting `output.txt` file in the request body:
 
 ```
 
-Where `analyze_specs: content` is the content of the created `output.txt` file.
+Where:
+* `folderId`: [ID of any folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-vision-user }}` role or higher.
+* `analyze_specs: content`: Content of the created `output.txt` file.

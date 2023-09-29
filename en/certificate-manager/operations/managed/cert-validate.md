@@ -29,7 +29,7 @@ To check rights for domains:
 
       ```bash
       yc certificate-manager certificate get \
-        --id fpq6gvvm6piuegbb2nol \
+        --id fpq6gvvm6piu******** \
         --full
       ```
 
@@ -41,8 +41,8 @@ To check rights for domains:
       Result:
 
       ```bash
-      id: fpq6gvvm6piuegbb2nol
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: fpq6gvvm6piu********
+      folder_id: b1g7gvsi89m3********
       created_at: "2020-09-15T08:49:11.533771Z"
       name: mymanagedcert
       type: MANAGED
@@ -67,7 +67,7 @@ To check rights for domains:
    1. When the rights check for a domain is passed, the domain check status changes to `Valid`:
 
       ```bash
-      yc certificate-manager certificate get --id fpq6gvvm6piuegbb2nol --full
+      yc certificate-manager certificate get --id fpq6gvvm6piu******** --full
       ...
       domains:
       - example.com
@@ -85,6 +85,83 @@ To check rights for domains:
       status: ISSUED
       ...
       ```
+
+- {{ TF }}
+
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   With {{ TF }}, you can create a DNS record required to pass a check for domain rights. To do this:
+
+   1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+
+      ```hcl
+      resource "yandex_cm_certificate" "le-certificate" {
+        name    = "<certificate_name>"
+        domains = ["<domain>"]
+
+        managed {
+        challenge_type = "DNS_CNAME"
+        }
+      }
+
+      resource "yandex_dns_recordset" "validation-record" {
+        zone_id = "<zone_ID>"
+        name    = yandex_cm_certificate.le-certificate.challenges[0].dns_name
+        type    = yandex_cm_certificate.le-certificate.challenges[0].dns_type
+        data    = [yandex_cm_certificate.le-certificate.challenges[0].dns_value]
+        ttl     = <record_lifetime_in_seconds>
+      }
+
+      data "yandex_cm_certificate" "example" {
+        depends_on      = [yandex_dns_recordset.example]
+        certificate_id  = yandex_cm_certificate.example.id
+        wait_validation = true
+      }
+
+      # Use data.yandex_cm_certificate.example.id to get validated certificate
+
+      output "cert-id" {
+        description = "Certificate ID"
+        value       = data.yandex_cm_certificate.example.id
+      }
+      ```
+
+      Where:
+
+      * The `yandex_cm_certificate` resource parameters are as follows:
+
+         * `domains`: Domain to create a certificate for.
+         * `challenge_type`: Domain owner verification method. Possible values:
+
+            * `DNS_CNAME`: Create a DNS record in CNAME format with the specified value. Method recommended for automatic certificate renewal.
+            * `DNS_TXT`: Create a DNS record in TXT format with the specified value.
+
+      * The `yandex_dns_recordset` resource parameters are as follows:
+
+         * `zone_id`: ID of the DNS zone where the record for owner verification will be located.
+         * `name`: Record name.
+         * `type`: DNS record type.
+         * `data`: Record value.
+         * `ttl`: Record time to live (TTL) in seconds before updating the record value.
+
+      * The `yandex_dns_recordset` data source parameters are as follows:
+         * `depends_on`: Indicates dependence on another {{ TF }} resource.
+         * `certificate_id`: Certificate ID.
+         * `wait_validation`: Certificate validation wait flag. If `true`, the operation will not be completed while the certificate status is `VALIDATING`. The default value is `false`.
+
+      For more information about the resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-link }}).
+
+   1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+   This will create a certificate and DNS record in the specified folder. You can check if the certificate is there and properly configured either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+
+   ```bash
+   yc certificate-manager certificate get <certificate_name>
+   ```
 
 - API
 

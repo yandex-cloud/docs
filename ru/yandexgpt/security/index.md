@@ -1,8 +1,3 @@
----
-title: "Управление доступом в {{ yagpt-full-name }}"
-description: "Все операции в {{ yandex-cloud }} проверяются в сервисе {{ iam-full-name }}. Если у субъекта нет необходимых разрешений, сервис вернет ошибку."
----
-
 # Управление доступом в {{ yagpt-full-name }}
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}

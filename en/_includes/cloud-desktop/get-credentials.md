@@ -14,7 +14,7 @@
 - User desktop showcase
 
    1. Open the [User desktop showcase]({{ link-cloud-desktop-showcase }}).
-   1. Authenticate using [Yandex ID](https://yandex.com/support/id/index.html) or [Single Sign-On (SSO)](../../organization/add-federation.md).
+   1. Authenticate using [Yandex ID](https://yandex.com/support/id/index.html) or [Single Sign-On (SSO)](../../organization/concepts/add-federation.md).
    1. If the desktop you want to connect to is in the `Stopped` status, run it by clicking ![image](../../_assets/cloud-desktop/play.svg) and confirm the action.
 
       Wait for the desktop status to change to `Active`.

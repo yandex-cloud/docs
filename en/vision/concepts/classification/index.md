@@ -20,7 +20,7 @@ To use this feature, specify `CLASSIFICATION` in the feature type and pass the n
 
 ```json
 {
-  "folderId": "b1gvmob95yysaplct532",
+  "folderId": "b1gvmob95yys********",
   "analyze_specs": [{
     "content": "iVBORw0KGgo...",
     "features": [{
@@ -37,7 +37,7 @@ Only one model can be used within a single analysis feature. If you need to appl
 
 ```json
 {
-  "folderId": "b1gvmob95yysaplct532",
+  "folderId": "b1gvmob95yys********",
   "analyze_specs": [{
     "content": "iVBORw0KGgo...",
     "features": [{
@@ -62,7 +62,7 @@ The service returns a list of properties in the following format:
 
 ```json
 {
-  "name": "low", // Property name.
+  "name": "low", // Property name
   "probability": 0.71257284 // Probability of matching the property.
 }
 ```

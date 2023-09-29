@@ -37,7 +37,7 @@ Storage usage is measured in GB per month. The volume of data stored during a mo
 
 Data operations are charged according to the following policy:
 * The minimum pricing unit for PUT and POST operations is 10.
-* The minimum billable unit for GET and HEAD operations is 100.
+* The minimum billable unit for GET, HEAD, OPTIONS operations is 100.
 * You aren't charged for deleting data (the DELETE operation).
 
 ## Pricing {#prices}
@@ -112,14 +112,15 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 {% note info %}
 
 Data operations that result in an error are charged only in the following cases:
-* Error code 403 for a GET or HEAD operation.
-* Error code 404 for a PUT, POST, GET, or HEAD operation.
+
+* Error code 403 for a GET, HEAD, OPTIONS operation.
+* Error code 404 for a PUT, POST, GET, HEAD, OPTIONS operation.
 
 Prices for standard storage are applied when calculating costs.
 
 {% endnote %}
 
-Each month, the first 10000 PUT and POST operations and the first 100000 GET and HEAD operations in standard storage are free of charge.
+Each month, the first 10000 PUT and POST operations and the first 100000 GET, HEAD, OPTIONS operations in standard storage are free of charge.
 
 
 

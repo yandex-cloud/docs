@@ -28,7 +28,7 @@ Unless you switch to the paid service plan, the following changes take effect st
 
 Starting March 2023, {{ org-full-name }} will support user group management in {{ tracker-name }}.
 
-{{ org-full-name }} administrators will also be administrators in {{ tracker-name }} (the `organization-manager.admin` and `organization-manager.organizations.owner` [roles](../organization/roles.md#admin)). You will be able to appoint an administrator by [granting](../organization/roles.md) a user the `tracker.admin` role.
+{{ org-full-name }} administrators will also be administrators in {{ tracker-name }} (the `organization-manager.admin` and `organization-manager.organizations.owner` [roles](../organization/security/index.md#admin)). You will be able to appoint an administrator by [granting](../organization/security/index.md) a user the `tracker.admin` role.
 
 {{ org-full-name }} will remain free of charge.
 

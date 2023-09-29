@@ -13,7 +13,7 @@ Yes, you can request log records about your resources from {{ yandex-cloud }} se
 
 * {{ datalens-short-name }} is a {{ yandex-cloud }} service, which is compliant with Federal Law No. 152 and industry security standards. For more information, see [{{ yandex-cloud }} security](/security).
 
-* For {{ datalens-short-name }}, you can [set up identity federations](../../organization/quick-start.md).
+* For {{ datalens-short-name }}, you can [set up identity federations](../../organization/quickstart.md).
 
 ### Why is the cloud with a {{ datalens-short-name }} instance blocked? {#datalens-suspended}
 

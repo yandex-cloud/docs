@@ -10,7 +10,7 @@ The instructions provide actions for mitigating risks related a federation failu
 
 ## Primary actions {#main-steps}
 
-1. Create a [federation](../../organization/add-federation.md).
+1. Create a [federation](../../organization/concepts/add-federation.md).
 1. Verify federation functionality by logging in as a federated user.
 1. Assign the `organization-manager.organizations.owner` role to a federated user:
 

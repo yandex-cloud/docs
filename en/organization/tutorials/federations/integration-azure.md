@@ -1,6 +1,6 @@
 # Authentication using Azure Active Directory
 
-With an [identity federation](../../add-federation.md), you can use [Azure Active Directory (Azure AD)]({{ link-azure-ad }}) to authenticate users in an organization.
+With an [identity federation](../../concepts/add-federation.md), you can use [Azure Active Directory (Azure AD)]({{ link-azure-ad }}) to authenticate users in an organization.
 
 Setting up authentication includes the following steps:
 
@@ -92,7 +92,7 @@ Add users to the IdP server:
       https://sts.windows.net/<SAML application ID>/
       ```
 
-   1. In the **Link to the IdP login page** field, copy the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. The link should have the following format:
+   1. In the **Link to the IdP login page** field, copy the link from the **Login URL** field on the Azure AD  **SAML-based sign-on** page. The link should have the following format:
 
       ```
       https://login.microsoftonline.com/<SAML application ID>/saml2
@@ -100,7 +100,7 @@ Add users to the IdP server:
 
       {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-   1. Enable **Automatically create users** to add authenticated users to your organization automatically. If this option is disabled, you will need to [manually add](../../add-account.md#add-user-sso) your federated users.
+   1. Enable **Automatically create users** to add authenticated users to your organization automatically. If this option is disabled, you will need to [manually add](../../operations/add-account.md#add-user-sso) your federated users.
 
       {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
@@ -143,7 +143,7 @@ Add users to the IdP server:
 
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
 
       * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate.
 
@@ -196,7 +196,7 @@ Add users to the IdP server:
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
 
       * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
 
@@ -257,7 +257,7 @@ Add users to the IdP server:
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
       * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
          If the option is enabled, the IDs of federated user names are case-insensitive.
       * `security_settings`: Federation security settings:
@@ -271,7 +271,7 @@ Add users to the IdP server:
        name            = "my-federation"
        organization_id = "<organization ID>"
        auto_create_account_on_login = "true"
-       issuer          = "https://sts.windows.net/<SAML application ID>/"
+       issuer          = "https://sts.windows.net/<SAML application ID>/"      
        sso_url         = "https://login.microsoftonline.com/<SAML application ID>/saml2"
        sso_binding     = "POST"
        security_settings {
@@ -440,7 +440,7 @@ To do this, you will need user Name IDs. They are returned by the IdP server alo
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
+A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../security/index.md#admin).
 
 {% list tabs %}
 
@@ -452,7 +452,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
+   1. In the top-right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
 
    1. Select the identity federation to add users from.
 
@@ -507,7 +507,7 @@ A user can be added by an organization administrator (the `organization-manager.
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \
-        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation_ID>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
       ```
 
 {% endlist %}
@@ -538,4 +538,4 @@ On successful authentication, the IdP server will redirect you to the `https://{
 
 #### What's next {#what-is-next}
 
-* [Assign roles to the new users](../../roles.md#add-role).
+* [Assign roles to the new users](../../security/index.md#add-role).

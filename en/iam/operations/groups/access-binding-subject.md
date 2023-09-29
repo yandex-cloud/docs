@@ -1,6 +1,6 @@
 # Granting permissions to a user group
 
-Grant a [group](../../../organization/manage-groups.md) access bindings to a resource. To grant a [subject](../../concepts/access-control/index.md#subject) group access bindings, follow the [{#T}](access-binding-object.md) instructions.
+Grant a [group](../../../organization/operations/manage-groups.md) access bindings to a resource. To grant a [subject](../../concepts/access-control/index.md#subject) group access bindings, follow the [{#T}](access-binding-object.md) instructions.
 
 [Access](../../concepts/access-control/index.md#how-do-i-perform-access-management) management in {{ yandex-cloud }} is based on roles.
 

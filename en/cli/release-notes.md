@@ -523,7 +523,7 @@ Added the following flags to the `yc serverless container revision deploy` comma
 ##### {{ org-name }} {#organization}
 
 * Added the `--organization-id` parameter to the commands of the `yc organization-manager federation saml` group to specify organization IDs. Fixed an error that occurred in these commands when specifying the name of a SAML-compatible identity federation as a positional argument.
-* Added a group of `yc organization-manager group` commands to manage [user groups](../organization/manage-groups.md).
+* Added a group of `yc organization-manager group` commands to manage [user groups](../organization/operations/manage-groups.md).
 
 
 ### Version 0.94.0 (16/08/22) {#version0.94.0}
@@ -2263,7 +2263,7 @@ Added support for {{ api-gw-full-name }}.
 
 #### {{ iam-name }} {#iam}
 
-* Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. Learn more about SAML-compatible identity federations in [our documentation](../organization/add-federation.md).
+* Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. Learn more about SAML-compatible identity federations in [our documentation](../organization/concepts/add-federation.md).
 
 
 ### Version 0.50.0 (27/01/20) {#version0.50.0}
@@ -2440,7 +2440,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **Fixed**
 
-* For Windows Subsystem for Linux (WSL), the browser now opens correctly when logging in to the CLI using [SAML-compatible identity federations](../organization/add-federation.md).
+* For Windows Subsystem for Linux (WSL), the browser now opens correctly when logging in to the CLI using [SAML-compatible identity federations](../organization/concepts/add-federation.md).
 
 
 ### Version 0.43.0 (11/11/19) {#version0.43.0}
@@ -2448,7 +2448,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### Changes to the CLI {#cli}
 
-* Added CLI authentication using [SAML-compatible identity federations](../organization/add-federation.md).
+* Added CLI authentication using [SAML-compatible identity federations](../organization/concepts/add-federation.md).
 
    To do this, run the `yc init --federation-id=<FEDERATION_ID>` command to use the CLI on behalf of the federated user.
 

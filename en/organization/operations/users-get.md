@@ -8,7 +8,7 @@ You can get the following information about an organization's registered users:
 
 {% note info %}
 
-An ID or email can be received by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](roles.md#admin).
+An ID or email can be received by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](../security/index.md#admin).
 
 {% endnote %}
 
@@ -16,7 +16,7 @@ An ID or email can be received by users with the `organization-manager.admin` or
 
 - {{ org-name }}
 
-   {% include [users-info](../_includes/users-info.md) %}
+   {% include [users-info](../../_includes/users-info.md) %}
 
 - CLI
 
@@ -40,6 +40,6 @@ An ID or email can be received by users with the `organization-manager.admin` or
 
 - API
 
-   Get user parameters with an [API call](../organization/api-ref/User/listMembers.md).
+   Get user parameters with an [API call](../api-ref/User/listMembers.md).
 
 {% endlist %}

@@ -53,7 +53,7 @@ Roles are assigned to subjects. There are four types of subjects:
 * `serviceAccount`: [A service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
 
    {% include [include](../../../_includes/sa-assign-role-note.md) %}
-* `federatedUser`: A user account  from an [identity federation](../../../organization/add-federation.md), like Active Directory.
+* `federatedUser`: A user account  from an [identity federation](../../../organization/concepts/add-federation.md), like Active Directory.
 
 * `group`: A group of users created in [{{ org-full-name }}](../../../organization/).
 
@@ -87,7 +87,6 @@ Some restrictions apply to assigning roles in the management console:
 
 * You can't assign roles to a system group.
 * You can only assign cloud and folder roles to users with a Yandex account and federated account.
-* You can only assign a role for the folder where the service account was created.
 * You can't assign roles to multiple subjects at once, unlike in the API or CLI. In the management console, you should first select the subject (user or service account), and then assign roles to it.
 
 #### See also {#see-also}

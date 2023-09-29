@@ -78,7 +78,7 @@ An IAM token is a unique sequence of characters issued to a user after authentic
 
 {% note info %}
 
-The IAM token is valid for no more than {{ iam-token-lifetime }} and is limited by the cookie lifetime for the [federation](../../organization/add-federation.md). After the lifetime expires, the `401 Unauthorized` error is returned.
+The IAM token is valid for no more than {{ iam-token-lifetime }} and is limited by the cookie lifetime for the [federation](../../organization/concepts/add-federation.md). After the lifetime expires, the `401 Unauthorized` error is returned.
 
 {% endnote %}
 

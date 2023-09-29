@@ -2,7 +2,7 @@
 
 With [{{ ml-platform-name }} communities](../../datasphere/concepts/community.md), you can arrange team work and shared access to different materials and resources. For example, you can [publish](../../datasphere/operations/index.md#share) [Docker images](../../datasphere/concepts/docker.md) with pre-installed libraries, connections to [{{ objstorage-full-name }}](../../storage/) buckets, and ready-made datasets created in a single project to grant all community projects access to them. This may be useful when preparing training tasks or when multiple developers are working on the same research.
 
-You can use the [{{ ml-platform-name }}]({{ link-datalens-main }}) interface to create and set up projects in {{ ml-platform-name }}. However, if you need to set up a number of identical projects, you can automate operations using the [{{ ml-platform-name }} API](../../datasphere/api-ref/overview.md)  and [{{ org-name }} API](../../organization/api-authentication.md). To do this, you will need a preset custom community with a project to call the {{ ml-platform-name }} API methods from.
+You can use the [{{ ml-platform-name }}]({{ link-datalens-main }}) interface to create and set up projects in {{ ml-platform-name }}. However, if you need to set up a number of identical projects, you can automate operations using the [{{ ml-platform-name }} API](../../datasphere/api-ref/overview.md)  and [{{ org-name }} API](../../organization/api-ref/authentication.md). To do this, you will need a preset custom community with a project to call the {{ ml-platform-name }} API methods from.
 
 To create and set up a community and multiple projects:
 

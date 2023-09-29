@@ -32,6 +32,7 @@ Collecting audit logs lets you use analytical tools and rapidly respond to event
 * {{ mch-full-name }}
 * {{ mgl-full-name }}
 * {{ mmg-full-name }}
+* {{ managed-k8s-name }}
 * {{ mmy-full-name }}
 * {{ mpg-full-name }}
 * {{ mrd-full-name }}

@@ -14,6 +14,14 @@ Before you get started, check the [Service specifics for {{ PG }} sources and ta
 
 ## {{ mpg-name }} cluster {#managed-service}
 
+
+{% note warning %}
+
+To create or edit an endpoint of a managed database, you need the [`{{ roles.mpg.viewer }}` role](../../../../managed-postgresql/security/index.md#mpg-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+
+{% endnote %}
+
+
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mpg-name }}](../../../../managed-postgresql/).
 
 {% list tabs %}
@@ -144,7 +152,7 @@ For OnPremise, all fields are filled in manually.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.object_transfer_settings.title }}**: If required, select the DB schema elements to transfer when activating or deactivating a transfer.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB. This setting does not prevent disk overflow in the source database. You can only use it for {{ PG }} version below 13, and we recommend [monitoring the WAL slot value](../../prepare.md#source-pg) in the source database.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.service_schema.title }}**: Specify the name of the schema to store service tables (`__consumer_keeper` and `__data_transfer_mole_finder`).
 
