@@ -69,7 +69,7 @@ We will use Pandora as load generator, since it is best suited for testing cloud
 
       This instructs the generator to increase the load from 1 to 100 requests per second for the first 60 seconds, and then maintain a load of 100 requests per second for 5 minutes.
    1. **Request type**: Specify `URI`.
-   1. In the **Set requests via form** menu:
+   1. In the **{{ ui-key.yacloud.load-testing.test-data-section }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-form }}**. In the menu that opens:
       * In the **Requests** submenu, add the following requests:
         * `/ index`
         * `/test?param1=1&param2=2 get_test`

@@ -9,3 +9,4 @@
 * [Как настроить заголовки кэширования cache-control для объектов в бакете при HTTP-запросах](configure-cache-headings-with-http-queries.md)
 * [Как ограничить доступ к бакету для пользователя](restrict-bucket-access.md)
 * [Как подключить собственный домен к бакету](configuring-bucket-domain.md)
+* [Как изменить класс хранения](change-storage-class.md)

@@ -18,5 +18,5 @@ After registering, you become the organization owner and can manage its settings
 
 To get started:
 
-- [Add](add-account.md) users with a Yandexaccount to the organization.
+- [Add](add-account.md) users with a Yandex account to the organization.
 - [Configure an identity federation](../concepts/add-federation.md), so that your employees can log in to the organization using their work accounts.

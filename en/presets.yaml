@@ -648,7 +648,7 @@ default:
   link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.com/iam
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
-  link-console-support: https://console.cloud.yandex.com/support
+  link-console-support: https://support.yandex.cloud/
   link-cloud-calculator: /prices#calculator
   link-cloud-services: /services
   link-cloud-services-infrastructure: /services#infrastructure-network
@@ -1458,10 +1458,10 @@ default:
   sku|KZT|support:
     business:
       fixed_consumption:
-        v1|string: ₸36000.0000
+        v1|string: Free
     standard:
       fixed_consumption:
-        v1|string: ₸5400.0000
+        v1|string: Free
   sku|KZT|v1:
     commitment:
       selfcheckout:
@@ -2265,10 +2265,10 @@ default:
   sku|RUB|support:
     business:
       fixed_consumption:
-        v1|int|string: ₽6000
+        v1|int|string: Free
     standard:
       fixed_consumption:
-        v1|int|string: ₽900
+        v1|int|string: Free
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -3039,10 +3039,10 @@ default:
   sku|USD|support:
     business:
       fixed_consumption:
-        v1|string: $76.923078
+        v1|string: Free
     standard:
       fixed_consumption:
-        v1|string: $11.538462
+        v1|string: Free
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -6169,7 +6169,12 @@ default:
           label_only-selected: Only selected
           label_vulnerabilities-scanner: Vulnerability scanner
       data-streams:
+        button_connect: Connect
+        button_create-stream: Create stream
+        button_update-stream: Update
         label_data-introspection: Data viewer
+        label_data-storage-size-limit: Size Limit
+        label_data-storage-time-limit: Time Limit
         label_data-stream: Data stream
         label_database: Database
       data-transfer:
@@ -6579,7 +6584,6 @@ default:
         field_target-address: Target address
         field_target-port: Target port
         label_agents-list: Agents
-        label_bucket-source: Bucket
         label_choose-from-bucket: Select from bucket
         label_import-tests-from-overload: Import tests from Overload
         label_local-source: From computer
@@ -7304,12 +7308,6 @@ default:
         contact:
           label_title: Queries
         label_service: Support
-        plan:
-          button_submit: Switch
-          popup-confirm_button-submit: Confirm
-        request-callback:
-          button_submit: Submit
-        switch_plan: Pricing plan
       vdi:
         button_acl: Configure ACL
         button_add-image: Add image

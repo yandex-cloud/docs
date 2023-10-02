@@ -12,28 +12,26 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to {#resources}
+## Which resources you can assign roles to {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
-The chart below shows which roles are available in the service and how they inherit each other's permissions. `dns.editor`, for instance, includes all the permissions of `dns.viewer`. You can find the description of each role under the chart.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/dns/security/service-roles-hierarchy.svg)
 
-Active roles in the service:
+### Service roles {#service-roles}
 
-* Service roles:
-   * {% include [dns.auditor](../../_includes/iam/roles/dns-auditor-short.md) %}
-   * {% include [dns.viewer](../../_includes/iam/roles/dns-viewer-short.md) %}
-   * {% include [dns.editor](../../_includes/iam/roles/dns-editor-short.md) %}
-   * {% include [dns.admin](../../_includes/iam/roles/dns-admin-short.md) %}
+* {% include [dns.auditor](../../_includes/iam/roles/dns-auditor-short.md) %}
+* {% include [dns.viewer](../../_includes/iam/roles/dns-viewer-short.md) %}
+* {% include [dns.editor](../../_includes/iam/roles/dns-editor-short.md) %}
+* {% include [dns.admin](../../_includes/iam/roles/dns-admin-short.md) %}
 
-* Primitive roles:
-   * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-   * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-   * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+### Primitive roles {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## What roles do I need {#required-roles}
 

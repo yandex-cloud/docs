@@ -9,7 +9,7 @@
 
 Для подключения собственного домена к бакету нужно:
 
-1. [Создать бакет с именем домена]; 
+1. Создать бакет с именем домена; 
 2. [Настроить бакет в качестве хостинга](../../../storage/operations/hosting/setup);
 3. Настроить DNS: [добавить CNAME запись](../../../storage/operations/hosting/own-domain);
 4. [Добавить свой сертификат в {{ certificate-manager-full-name }}](../../../certificate-manager/operations);

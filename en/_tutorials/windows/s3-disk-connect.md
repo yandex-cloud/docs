@@ -33,9 +33,16 @@ The cost for bucket support includes:
 ## Set up a working environment {#environment-prepare}
 
 1. Download and install the [winfsp distribution](https://winfsp.dev/rel/) from the developer site.
-1. Download the [archive with sysinternals suite utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/) and unpack it to your working directory on your local desktop.
-1. From the developer's site, download an [archive with the Windows Service Wrapper (winsw)](https://github.com/winsw/winsw/releases) and unpack it to your local working directory.
-1. From the developer's site, download an [archive with the rclone utility](https://rclone.org/downloads/) and unpack it to your local working directory.
+1. Download the [archive with sysinternals suite utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/) from the developer's website and unpack it to your local working directory.
+1. Download the [Windows Service Wrapper (WinSW) executable file](https://github.com/winsw/winsw/releases) depending on your OS configuration and save it to a separate directory.
+1. Download the [archive with the rclone utility](https://rclone.org/downloads/) from the developer's website and unpack it to your local working directory.
+1. Add the names of the directories with the utilities and the distribution to the `PATH` variable. To do this:
+
+   1. Click **Start** and type **Change system environment variables** in the Windows search bar.
+   1. Click **Environment Variables...** at the bottom right.
+   1. In the window that opens, find the `PATH` parameter and click **Edit**.
+   1. Add paths to the directories with the utilities to the list.
+   1. Click **OK**.
 
 ## Create a service account {#create-sa}
 
@@ -179,7 +186,7 @@ The cost for bucket support includes:
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API
 
@@ -196,7 +203,7 @@ The cost for bucket support includes:
    ```
 
 1. In the console that opens, run `whoami` and make sure that the session has been started by the system user.
-1. Go to the working directory and run a configuration session for `rclone`:
+1. Go to the directory with the `rclone` utility and run a configuration session for it:
 
    ```powershell
    rclone.exe config
@@ -245,7 +252,7 @@ If required, you can run an advanced connection setup. For this, at the `Edit ad
 
 To mount the bucket at your desktop startup, set up mounting on behalf of the system service.
 
-1. In the working directory, create `rclone.xml` with the following contents:
+1. In the directory with the `WinSW` utility, create a file named `<WinSW_executable_file_name>.xml`, such as `WinSW-x64.xml`, with the following contents:
 
    ```xml
    <service>
@@ -259,10 +266,10 @@ To mount the bucket at your desktop startup, set up mounting on behalf of the sy
    </service>
    ```
 
-1. Open the command prompt as a system administrator and execute the command:
+1. In the same directory, open the command prompt as an admin user and run the following command:
 
-   ```powershell
-   WinSW-x64.exe install .\rclone.xml
+   ```cmd
+   <WinSW_executable_file_name>.exe install .\<WinSW_executable_file_name>.xml
    ```
 
 1. Open the Windows services panel and make sure that `rclone-s3-disk` is listed:

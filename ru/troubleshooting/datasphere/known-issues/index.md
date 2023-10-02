@@ -10,3 +10,4 @@
 * [Устранение ошибки открытия проекта](project-not-starting.md)
 * [Устранение ошибки Token authentication is enabled](error-token-authentication-is-enabled.md)
 * [Устранение ошибок с доступом или входом в проект](opening-project-issues.md)
+* [Устранение ошибки KernelNotResponding: The kernel died unexpectedly](error-kernel-not-responding.md)

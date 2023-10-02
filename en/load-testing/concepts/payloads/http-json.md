@@ -11,12 +11,18 @@ Data format:
 
 Where:
 
-* `host`: The value of the `Host` header.
-* `method`: The HTTP request method.
-* `uri`: The request URI.
-* `tag`: The request tag to display in reports.
-* `headers`: Request headers.
-* `body`: The POST request body. Specified if `method=POST`.
+* `host`: Value of the `Host` header
+* `method`: HTTP request method
+* `uri`: Request URI
+* `tag`: Request tag to display in reports
+* `headers`: Request headers
+* `body`: POST request body; specified if `method=POST`
+
+When passing a JSON structure in the `body` parameter, use the `\` character to escape quotation marks:
+
+```
+{"host": "example.com", "method": "POST", "uri": "/api/url2", "tag": "url2", "headers": {"User-agent": "Tank", "Connection": "close"}, "body": "{\"data\": \"some_data\"}"}
+```
 
 When configuring the Pandora load generator using a file, specify the `http/json` type in the `ammo` section:
 

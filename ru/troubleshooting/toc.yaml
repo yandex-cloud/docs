@@ -457,6 +457,8 @@ items:
         href: datasphere/known-issues/error-token-authentication-is-enabled.md
       - name: Устранение ошибок с доступом или входом в проект
         href: datasphere/known-issues/opening-project-issues.md
+      - name: Устранение ошибки KernelNotResponding The kernel died unexpectedly
+        href: datasphere/known-issues/error-kernel-not-responding.md
       - name: Примеры конфигураций и сценариев DataSphere
         href: datasphere/how-to/index.md
         hidden: true
@@ -597,6 +599,8 @@ items:
         href: managed-kubernetes/known-issues/cannot-reduce-the-number-of-nodes.md
       - name: Устранение ошибки Multi-Attach error for volume
         href: managed-kubernetes/known-issues/multi-attach-error-for-volume.md
+      - name: Устранение ошибки DEADLINE_EXCEEDED
+        href: managed-kubernetes/known-issues/error-504.md
       - name: Примеры конфигураций и сценариев Managed Service for Kubernetes
         href: managed-kubernetes/how-to/index.md
         hidden: true
@@ -632,6 +636,8 @@ items:
         href: managed-gitlab/how-to/update-gitlab-software-version.md
       - name: Как настроить Cleanup Policy когда закончилось место
         href: managed-gitlab/how-to/cleanup-policy.md
+      - name: Как настроить миграцию проектов
+        href: managed-gitlab/how-to/migrate-projects.md
   - name: Managed YDB
     items:
       - name: Все решения для Managed Service for YDB
@@ -700,6 +706,8 @@ items:
         href: storage/known-issues/error-403-cors-header.md
       - name: Устранение ошибки сертификата
         href: storage/known-issues/wrong-certificate.md
+      - name: Устранение ошибки GATEWAY_REQUEST_ERROR
+        href: storage/known-issues/error-gateway-request.md
       - name: Примеры конфигураций и сценариев Object Storage
         href: storage/how-to/index.md
         hidden: true
@@ -725,6 +733,8 @@ items:
         href: storage/how-to/restrict-bucket-access.md
       - name: Как подключить собственный домен к бакету
         href: storage/how-to/configuring-bucket-domain.md
+      - name: Как изменить класс хранения
+        href: storage/how-to/change-storage-class.md
   - name: Managed MySQL
     items:
       - name: Все решения для Managed MySQL
@@ -910,9 +920,7 @@ items:
         href: vpc/how-to/incoming-and-outcoming-traffic-logs.md
       - name: Как узнать скорость каналов связи
         href: vpc/how-to/connection-speed.md
-      - name: >-
-          Существуют ли ограничения трафика, скорости соединения и ширины
-          канала?
+      - name: Существуют ли ограничения трафика, скорости соединения и ширины канала
         href: vpc/how-to/connection-speed-bandwidth-restriction.md
       - name: Как изменить сеть или подсеть для MDB-кластера
         href: vpc/how-to/changing-net-or-subnet.md

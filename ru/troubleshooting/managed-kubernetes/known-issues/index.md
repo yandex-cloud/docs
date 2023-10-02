@@ -6,3 +6,4 @@
 * [Устранение ошибки Multi-Attach error for volume](multi-attach-error-for-volume.md)
 * [Под kube-dns-autoscaler постоянно перезапускается](pod-kube-dns-autoscaler-constantly-restarting.md)
 * [Не уменьшается количество узлов в группе](cannot-reduce-the-number-of-nodes.md)
+* [Устранение ошибки DEADLINE_EXCEEDED](error-504.md)

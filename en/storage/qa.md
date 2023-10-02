@@ -30,7 +30,7 @@ You can store data in any format. {{ objstorage-full-name }} saves data in its o
 
 #### How can I leave feedback on {{ objstorage-full-name }}? {#qa-feedback}
 
-Use the feedback form on the support page in the management console.
+Use the feedback form in the [support center]({{ link-console-support }}).
 
 
 #### How do I contact technical support? {qa-support-channels}

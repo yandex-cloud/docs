@@ -24,8 +24,7 @@ The expected support specialist response time is shown in the table below. A das
 -------------------------------------------|-----------------------------------------------|----------------------------------------------------------------------| --- | ---
 | | For personal and research projects | For development and pilot projects | For professional projects | For business projects with stringent fault tolerance requirements |
 | Request in console | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 8 hours<br>Critical: 2 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
-| Chat | - | 15 minutes | 5 minutes | Immediate |
-| Phone | - | - | On additional request | On additional request |
+| Chat | - | 15 minutes | 5 minutes | 5 minutes, a messenger of your choice |
 
 ^*^ This service plan is valid until October 1, 2023.
 
@@ -72,13 +71,5 @@ The list of services offered under the "Premium" plan isn't fixed and can update
 
 ## How to change your service plan {#change-service-plan}
 
-Only the service account's owner can change the service plan. To change your service plan:
-
-1. In the [management console]({{ link-console-support }}), go to the **Pricing plan** tab.
-1. Select a service plan and click **Switch**.
-1. To change to:
-   * Any service plan except Premium, click **Confirm**.
-   * Premium plan, complete the form and click **Send**.
-
-Service plan upgrades are activated immediately, while downgrades are applied on the first day of the following month.
+{% include [change-tariff](../_includes/support/change-pricing.md) %}
 

@@ -7,3 +7,4 @@
 * [Устранение ошибки доступа к бакетам S3 из кластера DataProc 1.4](cannot-access-buckets.md)
 * [Устранение ошибки 403 (не отдаётся заголовок при использовании метода OPTION)](error-403-cors-header.md)
 * [Устранение ошибки сертификата](wrong-certificate.md)
+* [Устранение ошибки GATEWAY_REQUEST_ERROR](error-gateway-request.md)

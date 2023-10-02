@@ -123,7 +123,7 @@ To connect to your VM using the serial console, set up the `ttyS0` terminal (COM
    GRUB_CMDLINE_LINUX="foo=bar baz console=ttyS0"
    ```
 
-1. Check that the `/etc/securetty` file with a list of terminals, through which the `root` user can log in to the OS, contains the `ttyS0` line. If the file doesn't exist, create it.
+1. Check that the `/etc/securetty` file with a list of terminals, through which the `root` user can log in to the OS, contains the `ttyS0` line. If there is no such file, create one.
 
    {% note info %}
 
@@ -178,7 +178,7 @@ If working with a VM requires a [GPU](../../concepts/gpus.md), [install NVIDIA d
 
 ## Create an image file {#create-image-file}
 
-Supported formats: `Qcow2`, `VMDK`, and `VHD`.
+The supported formats are `Qcow2`, `VMDK`, and `RAW`.
 
 We recommend that you use `Qcow2` format with an optimized cluster size for faster import. To convert your image from other formats, use the `qemu-img` utility:
 
@@ -188,6 +188,6 @@ qemu-img convert -p -O qcow2 -o cluster_size=2M <name of your image file> <name 
 
 {% note info %}
 
-Don't use file compression or archiving software when preparing the image file. To speed up creating VMs from an image, you can [optimize](../../concepts/image.md#images-optimized-for-deployment) it.
+Do not use file compression or archiving software when preparing the image file. To speed up creating VMs from an image, you can [optimize](../../concepts/image.md#images-optimized-for-deployment) it.
 
 {% endnote %}
