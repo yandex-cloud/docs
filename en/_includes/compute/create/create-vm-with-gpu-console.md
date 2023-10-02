@@ -40,12 +40,12 @@
    * Choose a [platform](../../../compute/concepts/vm-platforms.md#gpu-platforms):
 
       
-      * {{ v100-broadwell }}
-      * {{ v100-cascade-lake }}
-      * {{ a100-epyc }}
-      * {{ t4-ice-lake }}
-
-
+     * {{ v100-broadwell }}
+     * {{ v100-cascade-lake }}
+     * {{ a100-epyc }}
+     * {{ t4-ice-lake }}
+     
+     
 
    * Select a VM [configuration](../../../compute/concepts/gpus.md#config) specifying the required number of GPUs.
    * Make your VM [preemptible](../../../compute/concepts/preemptible-vm.md), if required.

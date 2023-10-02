@@ -3,28 +3,28 @@
 
 | Type of limit | Value |
 --- | ---
-| Number of virtual machines per cloud | 12 |
-| Total number of vCPUs for all VMs per cloud | 32 |
-| Total virtual memory for all VMs per cloud | 128 GB |
-| Total number of disks per cloud | 32 |
-| Total HDD storage capacity per cloud | 500 GB |
+| Number of [virtual machines](../compute/concepts/vm.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) | 12 |
+| Total number of [vCPUs](../compute/concepts/performance-levels.md) across all VMs per cloud | 32 |
+| Total virtual memory across all VMs per cloud | 128 GB |
+| Total number of [disks](../compute/concepts/disk.md) per cloud | 32 |
+| Total [HDD storage](../compute/concepts/disk.md#disks-types) capacity per cloud | 500 GB |
 | Total SSD storage capacity per cloud | 200 GB |
 | Total non-replicated SSD storage capacity per cloud | 558 GB |
 | Total high-performance SSD storage capacity per cloud | 186 GB |
-| Number of non-replicated disk placement groups per cloud | 5 |
-| Total number of disk snapshots per cloud | 32 |
+| Number of [non-replicated disk placement groups](../compute/concepts/disk-placement-group.md) per cloud | 5 |
+| Total number of [disk snapshots](../compute/concepts/snapshot.md) per cloud | 32 |
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
 | Number of [disk snapshot schedules](../compute/concepts/snapshot-schedule.md) per cloud | 32 |
-| Total number of file stores per cloud^1^ | 100 |
-| Total HDD file storage capacity per cloud^1^ | 0 B |
+| Total number of [file stores](../compute/concepts/filesystem.md) per cloud^1^ | 100 |
+| Total [HDD](../compute/concepts/filesystem.md#types) file storage capacity per cloud^1^ | 0 B |
 | Total SDD file storage capacity per cloud^1^ | 0 B |
-| Number of images per cloud | 8 |
-| Number of images optimized for deployment per cloud^1^ | 0 |
-| Number of instance groups per cloud | 10 |
-| Number of GPUs for all VMs per cloud | 0 |
-| Number of concurrent [operations](../api-design-guide/concepts/operation.md) per folder | 15 |
+| Number of [images](../compute/concepts/image.md) per cloud | 8 |
+| Number of [images optimized for deployment](../compute/concepts/image.md#images-optimized-for-deployment) per cloud^1^ | 0 |
+| Number of [instance groups](../compute/concepts/instance-groups/index.md) per cloud | 10 |
+| Number of [GPUs](../compute/concepts/gpus.md) across all VMs per cloud | 0 |
+| Number of concurrent [operations](../api-design-guide/concepts/operation.md) per [folder](../resource-manager/concepts/resources-hierarchy.md#folder) | 15 |
 | Maximum number of [placement groups](../compute/concepts/placement-groups.md) per cloud | 2 |
-| Number of dedicated hosts per dedicated host group^1^ | 0 |
+| Number of [dedicated hosts](../compute/concepts/dedicated-host.md) per dedicated host group^1^ | 0 |
 | Number of dedicated host groups per cloud | 6 |
 
 
@@ -33,7 +33,7 @@
 
 #### VM limits {#compute-limits-vm}
 
-Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-platforms.md):
+Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
 {% list tabs %}
 
@@ -43,22 +43,22 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Type of limit | Value |
    --- | ---
    | Maximum number of vCPUs per VM | 32 |
-   | Maximum virtual memory per VM | Without [GPU](../compute/concepts/gpus.md#gpu): 256 GB<br>With GPU: 384 GB |
-   | Maximum number of disks and file stores attached to a single VM^2^ | 18 vCPUs or fewer: 8<br>18 vCPUs or more: 16^3^ |
+   | Maximum virtual memory per VM | Without GPU: 256 GB<br>With GPU: 384 GB |
+   | Maximum number of disks and file stores attached to a single VM^2^ | 18 vCPUs or fewer: 8<br>More than 18 vCPUs: 16^3^ |
    | Maximum number of GPUs connected to a single VM | 4 |
-   | Maximum number of security groups per interface | 5 |
-   | Maximum number of VMs per [placement group](../compute/concepts/placement-groups.md) | 5 |
+   | Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5 |
+   | Maximum number of VMs per placement group | 5 |
 
 - Intel Cascade Lake
 
    | Type of limit | Value |
    --- | ---
-   | Maximum number of vCPUs per VM | Without [GPU](../compute/concepts/gpus.md#gpu): 80<br>With GPU: 64 |
+   | Maximum number of vCPUs per VM | Without GPU: 80<br>With GPU: 64 |
    | Maximum virtual memory per VM | Without GPU: 1280 GB<br>With GPU: 384 GB |
-   | Maximum number of disks and file stores attached to a single VM^2^ | 20 vCPUs or fewer: 8<br>20 vCPUs or more: 16^3^ |
+   | Maximum number of disks and file stores attached to a single VM^2^ | 20 vCPUs or fewer: 8<br>More than 20 vCPUs: 16^3^ |
    | Maximum number of GPUs connected to a single VM | 8 |
-   | Maximum number of security groups per interface | 5 |
-   | Maximum number of VMs per [placement group](../compute/concepts/placement-groups.md) | 5 |
+   | Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5 |
+   | Maximum number of VMs per placement group | 5 |
 
 
 - Intel Ice Lake
@@ -67,27 +67,27 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    --- | ---
    | Maximum number of vCPUs per VM | 96 |
    | Maximum virtual memory per VM | 640 GB |
-   | Maximum number of disks and file stores attached to a single VM^2^ | Up to 32 vCPUs: 8<br>Over 32 vCPUs: 16^3^ |
-   | Maximum number of security groups per interface | 5 |
-   | Maximum number of VMs per [placement group](../compute/concepts/placement-groups.md) | 5 |
+   | Maximum number of disks and file stores attached to a single VM^2^ | 32 vCPUs or fewer: 8<br>More than 32 vCPUs: 16^3^ |
+   | Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5 |
+   | Maximum number of VMs per placement group | 5 |
 
 
 - Intel Ice Lake (Compute Optimized)
 
-| Type of limit | Value |
---- | ---
-| Maximum number of vCPUs per VM | 56 |
-| Maximum virtual memory per VM | 448 GB |
-| Maximum number of disks and file stores attached to a single VM^2^ | Up to 32 vCPUs: 8<br>Over 32 vCPUs: 16^3^ |
-| Maximum number of security groups per interface | 5 |
-| Maximum number of VMs per [placement group](../compute/concepts/placement-groups.md) | 5 |
+   | Type of limit | Value |
+   --- | ---
+   | Maximum number of vCPUs per VM | 56 |
+   | Maximum virtual memory per VM | 448 GB |
+   | Maximum number of disks and file stores attached to a single VM^2^ | 32 vCPUs or fewer: 8<br>More than 32 vCPUs: 16^3^ |
+   | Maximum number of security groups per interface | 5 |
+   | Maximum number of VMs per placement group | 5 |
 
 
 {% endlist %}
 
 ^2^ Including the boot disk.
 
-^3^ When a VM is starting, a maximum of 14 devices, including the boot disk and a NIC, can be connected to it. Other devices must be connected to a running VM. Please note: If you restart a VM with more than 14 devices connected, it will not be able to load and run.
+^3^ When a VM starts, a maximum of 14 devices, including the boot disk and a NIC, can be connected to it. Other devices must be connected when the VM is already running. Please note that if you restart a VM with more than 14 devices connected, it will not be able to boot.
 
 #### VM limits on disk operations {#compute-limits-vm-disks}
 
@@ -139,9 +139,9 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    --- | ---
    | Maximum disk size | 256 TB |
    | [Allocation unit](../compute/concepts/storage-read-write.md) size | 32 GB |
-   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 40,000 |
+   | Maximum^4^ IOPS for writes per disk | 40,000 |
    | Maximum^4^ IOPS for writes per allocation unit | 1,000 |
-   | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) for writes per disk | 450 MB/s |
+   | Maximum^5^ bandwidth for writes per disk | 450 MB/s |
    | Maximum^5^ bandwidth for writes per allocation unit | 15 MB/s |
    | Maximum^4^ IOPS for reads per disk | 20,000 |
    | Maximum^4^ IOPS for reads per allocation unit | 1,000 |
@@ -154,9 +154,9 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    --- | ---
    | Maximum disk size | 256 TB |
    | [Allocation unit](../compute/concepts/storage-read-write.md) size | 256 GB |
-   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 11,000 |
+   | Maximum^4^ IOPS for writes per disk | 11,000 |
    | Maximum^4^ IOPS for writes per allocation unit | 300 |
-   | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) for writes per disk | 240 MB/s |
+   | Maximum^5^ bandwidth for writes per disk | 240 MB/s |
    | Maximum^5^ bandwidth for writes per allocation unit | 30 MB/s |
    | Maximum^4^ IOPS for reads per disk | 2,000 |
    | Maximum^4^ IOPS for reads per allocation unit | 300 |
@@ -169,11 +169,11 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    --- | ---
    | Minimum non-replicated disk size | 93 GB |
    | [Allocation unit](../compute/concepts/storage-read-write.md) size | 93 GB |
-   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 75,000<br> |
+   | Maximum^4^ IOPS for writes per disk | 75,000 |
    | Maximum^4^ IOPS for writes per allocation unit | 5,600 |
-   | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) for writes per disk | 1 GB/s |
+   | Maximum^5^ bandwidth for writes per disk | 1 GB/s |
    | Maximum^5^ bandwidth for writes per allocation unit | 82 MB/s |
-   | Maximum^4^ IOPS for reads per disk | 75,000<br> |
+   | Maximum^4^ IOPS for reads per disk | 75,000 |
    | Maximum^4^ IOPS for reads per allocation unit | 28,000 |
    | Maximum^5^ bandwidth for reads per disk | 1 GB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 110 MB/s |
@@ -184,11 +184,11 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    --- | ---
    | Minimum size of high-performance disk | 93 GB |
    | [Allocation unit](../compute/concepts/storage-read-write.md) size | 93 GB |
-   | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 40,000<br> |
+   | Maximum^4^ IOPS for writes per disk | 40,000 |
    | Maximum^4^ IOPS for writes per allocation unit | 5,600 |
-   | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) for writes per disk | 1 GB/s |
+   | Maximum^5^ bandwidth for writes per disk | 1 GB/s |
    | Maximum^5^ bandwidth for writes per allocation unit | 82 MB/s |
-   | Maximum^4^ IOPS for reads per disk | 75,000<br> |
+   | Maximum^4^ IOPS for reads per disk | 75,000 |
    | Maximum^4^ IOPS for reads per allocation unit | 28,000 |
    | Maximum^5^ bandwidth for reads per disk | 1 GB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 110 MB/s |
@@ -203,7 +203,7 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Type of limit | Value |
    --- | ---
    | Maximum storage size | 8 TB |
-   | [Allocation unit](../compute/concepts/storage-read-write.md) size | 32 GB |
+   | Allocation unit size | 32 GB |
    | Maximum number of files in storage | 1,000,000 |
    | Maximum size of file in storage | 300 GB |
 
@@ -212,7 +212,7 @@ Limits per virtual machine depend on the VM [platform](../compute/concepts/vm-pl
    | Type of limit | Value |
    --- | ---
    | Maximum storage size | 8 TB |
-   | [Allocation unit](../compute/concepts/storage-read-write.md) size | 256 GB |
+   | Allocation unit size | 256 GB |
    | Maximum number of files in storage | 1,000,000 |
    | Maximum size of file in storage | 300 GB |
 
@@ -224,7 +224,6 @@ Read and write operations utilize the same disk resource. The more read operatio
 ^4^ To achieve maximum IOPS, we recommend performing read and write operations whose size is close to that of the disk block (4 KB by default).
 
 ^5^ To achieve the maximum possible bandwidth, we recommend performing 4 MB reads and writes.
-
 
 #### Limits of disk snapshot schedules {#compute-limits-snapshot-schedule}
 

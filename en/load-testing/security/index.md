@@ -15,22 +15,21 @@ In this section, you will learn:
 
 ## Which roles exist in the service {#roles-list}
 
-The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/load-testing/service-roles-hierarchy.svg)
 
-Active roles in the service:
+### Service roles {#service-roles}
 
-* Primitive roles:
-   * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-   * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-   * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
-* Service roles:
-   * `loadtesting.viewer`: Allows viewing reports and created agents.
-   * `loadtesting.editor`: Allows viewing and deleting reports, creating, deleting, and editing VMs with agents, enables running and stopping load tests, loading test data, deleting reports, and uploading output to the repository.
-   * `loadtesting.admin`: At the moment, the service does not include an administrative function, so the role has the same permissions as `loadtesting.editor`.
-   * `loadtesting.loadTester`: Allows viewing and deleting reports, creating, deleting, and editing VMs with agents, enables the running of load tests, stopping tests, loading test data, and deleting reports.
-   * `loadtesting.generatorClient`: Allows starting VMs, running tests on agents, and uploading the output to the repository (assigned to a service account that is used to create VMs with agents).
+* `loadtesting.viewer`: Allows viewing reports and created agents.
+* `loadtesting.editor`: Allows viewing and deleting reports, creating, deleting, and editing VMs with agents, enables running and stopping load tests, and uploading test data and output to the repository.
+* `loadtesting.admin`: At the moment, the service does not include an administrative function, so the role has the same permissions as `loadtesting.editor`.
+* `loadtesting.loadTester`: Allows viewing and deleting reports, creating, deleting, and editing VMs with agents, enables running and stopping load tests, and loading test data.
+* `loadtesting.generatorClient`: Allows starting VMs, running tests on agents, and uploading the output to the repository (assigned to a service account that is used to create VMs with agents).
+
+### Primitive roles {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 #### What's next {#next}
 

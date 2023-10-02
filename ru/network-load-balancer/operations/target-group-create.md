@@ -1,3 +1,8 @@
+---
+title: "Создать целевую группу {{ network-load-balancer-name }}"
+description: "Следуя данной инструкции, вы сможете создать целевую группу {{ network-load-balancer-name }}."
+---
+
 # Создать целевую группу {{ network-load-balancer-name }}
 
 {% list tabs %}

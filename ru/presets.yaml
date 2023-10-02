@@ -1473,10 +1473,10 @@ default:
   sku|KZT|support:
     business:
       fixed_consumption:
-        v1|string: "36\_000,0000\_₸"
+        v1|string: Не тарифицируется
     standard:
       fixed_consumption:
-        v1|string: "5\_400,0000\_₸"
+        v1|string: Не тарифицируется
   sku|KZT|v1:
     commitment:
       selfcheckout:
@@ -2280,10 +2280,10 @@ default:
   sku|RUB|support:
     business:
       fixed_consumption:
-        v1|int|string: "6\_000\_₽"
+        v1|int|string: Не тарифицируется
     standard:
       fixed_consumption:
-        v1|int|string: "900\_₽"
+        v1|int|string: Не тарифицируется
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -3054,10 +3054,10 @@ default:
   sku|USD|support:
     business:
       fixed_consumption:
-        v1|string: "76,923078\_$"
+        v1|string: Не тарифицируется
     standard:
       fixed_consumption:
-        v1|string: "11,538462\_$"
+        v1|string: Не тарифицируется
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -6186,7 +6186,12 @@ default:
           label_only-selected: Только выбранные
           label_vulnerabilities-scanner: Сканер уязвимостей
       data-streams:
+        button_connect: Подключиться
+        button_create-stream: Создать поток
+        button_update-stream: Изменить
         label_data-introspection: Просмотр данных
+        label_data-storage-size-limit: Лимит размера
+        label_data-storage-time-limit: Лимит времени
         label_data-stream: Поток данных
         label_database: База данных
       data-transfer:
@@ -6596,7 +6601,6 @@ default:
         field_target-address: Адрес цели
         field_target-port: Порт цели
         label_agents-list: Агенты
-        label_bucket-source: Из бакета
         label_choose-from-bucket: Выбрать из бакета
         label_import-tests-from-overload: Импортировать тесты из Overload
         label_local-source: С компьютера
@@ -7321,12 +7325,6 @@ default:
         contact:
           label_title: Запросы
         label_service: Поддержка
-        plan:
-          button_submit: Перейти
-          popup-confirm_button-submit: Подтвердить
-        request-callback:
-          button_submit: Отправить
-        switch_plan: Тарифный план
       vdi:
         button_acl: Настроить ACL
         button_add-image: Добавить образ
