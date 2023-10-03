@@ -6,7 +6,7 @@ In this use case, you'll learn how to use serverless technologies to create a Sl
 ## Prepare the environment {#start}
 
 1. [Download](https://{{ s3-storage-host }}/doc-files/slackbot.zip) the archive with the files required to create a bot.
-1. If you do not have a folder, [create](../../resource-manager/operations/folder/create.md) one.
+1. If you do not have any folders yet, [create](../../resource-manager/operations/folder/create.md) one.
 1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#access-to-sa) it the `editor` role for your folder.
 
 ## Create an app and connect it to {{ yandex-cloud }} {#app}
@@ -27,15 +27,16 @@ In this use case, you'll learn how to use serverless technologies to create a Sl
 
 1. [Create](../../api-gateway/operations/api-gw-create.md) an API gateway named `for-slack-bot`.
 
-1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-challenge`. Make sure that it's [private](../../functions/operations/function/function-private.md).
+1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-challenge`. Make sure it is [private](../../functions/operations/function/function-private.md).
 
 1. [Create](../../functions/operations/function/version-manage.md) a function version:
    1. Create a file named `index.py` and paste the contents of the `0_for-slack-bot-challenge.py` file from the [archive](#start) into it.
-   1. Indicate the following:
-      * Runtime environment: `python37`.
-      * Entry point: `index.handler`.
-      * Timeout: 5 seconds.
-      * Service account.
+   1. Specify the following parameters:
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Service account you created earlier
+
 1. [Edit](../../api-gateway/operations/api-gw-update.md) the `for-slack-bot` API gateway. Add to the `paths` parameter the `POST` method configuration:
 
    ```
@@ -80,9 +81,9 @@ In this use case, you'll learn how to use serverless technologies to create a Sl
 The bot will use responses to chat commands and messages taken from {{ ydb-full-name }}. To enable this, prepare a table:
 1. [Create](../../ydb/quickstart.md#serverless) a database named `for-slack-bot` in Serverless mode.
 1. In the `for-slack-bot` database, [create](../../ydb/operations/schema.md#create-table)a {{ ydb-short-name }} table named `coffee`:
-   1. Go to the **Navigation** tab.
-   1. In the upper-right corner, click **SQL query**. The **Query** page opens.
-   1. In the **Query** field, enter:
+   1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+   1. In the top-right corner, click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**. The **{{ ui-key.yacloud.ydb.sql.label_query }}** page opens.
+   1. In the **{{ ui-key.yacloud.ydb.sql.label_query }}** field, enter:
 
       ```sql
       CREATE TABLE coffee
@@ -93,7 +94,7 @@ The bot will use responses to chat commands and messages taken from {{ ydb-full-
       );
       ```
 
-   1. Click **Run**.
+   1. Click **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 1. [Add](../../ydb/operations/crud.md#web-sql) an entry to the table. For example, specify the coffee variety name and id = 1.
 
 ## Create functions {#create-functions}
@@ -105,7 +106,7 @@ Using functions, you can configure the bot's reactions to user actions in the ch
 
 ### A function for messaging {#message-func}
 
-1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-small-talk`. Make sure that it's [private](../../functions/operations/function/function-private.md).
+1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-small-talk`. Make sure it is [private](../../functions/operations/function/function-private.md).
 
 1. [Create](../../functions/operations/function/version-manage.md) a function version:
    1. Create a file named `requirements.txt` and specify the following libraries in it:
@@ -117,14 +118,14 @@ Using functions, you can configure the bot's reactions to user actions in the ch
       ```
 
    1. Create a file named `index.py` and paste the contents of the `1_for-slack-bot-small-talk.py` file from the [archive](#start) into it.
-   1. Indicate the following:
-      * Runtime environment: `python37`.
-      * Entry point: `index.handler`.
-      * Timeout: 5 seconds.
-      * Service account.
+   1. Specify the following parameters:
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Service account you created earlier
    1. Add [environment variables](#env):
-      * `SLACK_BOT_TOKEN`.
-      * `SLACK_SIGNING_SECRET`.
+      * `SLACK_BOT_TOKEN`
+      * `SLACK_SIGNING_SECRET`
 
 ### A function for responding to commands {#command-func}
 
@@ -140,21 +141,21 @@ Using functions, you can configure the bot's reactions to user actions in the ch
       ```
 
    1. Create a file named `index.py` and paste the contents of the `2_for-slack-bot-hello-from-serverless.py` file from the [archive](#start) into it.
-   1. Indicate the following:
-      * Runtime environment: `python37`.
-      * Entry point: `index.handler`.
-      * Timeout: 5 seconds.
-      * Service account.
+   1. Specify the following parameters:
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Service account you created earlier
    1. Add [environment variables](#env):
-      * `SLACK_BOT_TOKEN`.
-      * `SLACK_SIGNING_SECRET`.
+      * `SLACK_BOT_TOKEN`
+      * `SLACK_SIGNING_SECRET`
 
 ### A function for selecting responses to commands {#db-func}
 
-1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-what-kind-of-coffee`. Make sure that it's [private](../../functions/operations/function/function-private.md).
+1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-what-kind-of-coffee`. Make sure it is [private](../../functions/operations/function/function-private.md).
 
 1. [Create](../../functions/operations/function/version-manage.md) a function version:
-   1. Create a file named `requirements.txt` and specify in it the libraries and the version of**{{ ydb-name }}** :
+   1. Create a file named `requirements.txt` and specify the libraries and the version of **{{ ydb-name }}** in it:
 
       ```text
       slack_sdk
@@ -164,17 +165,17 @@ Using functions, you can configure the bot's reactions to user actions in the ch
       ```
 
    1. Create a file named `index.py` and paste the contents of the `3_for-slack-bot-what-kind-of-coffee.py` file from the [archive](#start) into it.
-   1. Indicate the following:
-      * Runtime environment: `python37`.
-      * Entry point: `index.handler`.
-      * Timeout = 5 seconds.
-      * Service account.
+   1. Specify the following parameters:
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Service account you created earlier
    1. Add [environment variables](#env):
-      * `SLACK_BOT_TOKEN`.
-      * `SLACK_SIGNING_SECRET`.
+      * `SLACK_BOT_TOKEN`
+      * `SLACK_SIGNING_SECRET`
    1. Add the variables to work with {{ ydb-name }}:
-      * `DATABASE`: The value of the **Database** field from the **Overview **section in the `for-slack-bot` database properties. For example: `/{{ region-id }}/a1bcd23mbaomkfvsleds/etn456khb7jn1ddedfht`.
-      * `ENDPOINT`: The value of the **Endpoint **field from the **Overview** section in the `for-slack-bot` database properties. For example: `grpcs://ydb.serverless.yandexcloud.net:1234`.
+      * `ENDPOINT`: First part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value from the **{{ ui-key.yacloud.ydb.overview.label_title }}** section in the `for-slack-bot` database properties (the one preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
+      * `DATABASE`: Second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value from the **{{ ui-key.yacloud.ydb.overview.label_title }}** section in the `for-slack-bot` database properties (the one following `/?database=`), e.g., `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
       * `USE_METADATA_CREDENTIALS` = 1.
 
 ## Edit the API gateway {#create-api-gw}

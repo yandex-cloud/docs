@@ -10,11 +10,11 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 
 - Management console
 
-    1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a function.
-    1. Select **{{ sf-name }}**.
-    1. Click **Create function**.
-    1. Enter a name for the function: `java-function`.
-    1. Click **Create**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+    1. Name the function: `java-function`.
+    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -59,11 +59,10 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 ### Prepare a ZIP archive with the function code {#create-zip}
 
 1. Save the following code to a file named `Handler.java`:
-
-    ```java
-    import java.util.HashMap;
-    import java.util.Map;
-    import java.util.function.Function;
+   ```java
+   import java.util.HashMap;
+   import java.util.Map;
+   import java.util.function.Function;
 
     class Request {
         Map<String, String> queryStringParameters;
@@ -106,19 +105,19 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 
 - Management console
 
-    1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
-    1. Select **{{ sf-name }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select `java-function`.
-    1. Under **Latest version**, click **Create in editor**.
+    1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
+   1. Select the `java17` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Set the version parameters:
-        * **Runtime environment:** `java11`.
-        * **Method:** ZIP archive.
-        * **File:** `hello-java.zip`.
-        * **Entry point:** `Handler`.
-        * **Timeout, seconds:** 3.
-        * **RAM:** 128 MB.
-        * **Service account:** Not selected.
-    1. Click **Create version**.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-java.zip`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `Handler`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`
+    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
 
@@ -140,11 +139,11 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 
     Where:
 
-    * `--function-name`: The name of the function you want to create a version of.
-    * `--runtime`: The runtime environment.
-    * `--entrypoint`: The entry point.
-    * `--memory`: The amount of RAM.
-    * `--execution-timeout`: The maximum function execution time before the timeout is reached.
+    * `--function-name`: Name of the function you want to create a version of.
+    * `--runtime`: Runtime environment.
+    * `--entrypoint`: Entry point.
+    * `--memory`: Amount of RAM.
+    * `--execution-timeout`: Maximum function execution time before the timeout is reached.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:

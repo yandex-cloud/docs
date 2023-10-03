@@ -21,15 +21,15 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Select a function.
-   1. Under **Version history**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) you wish to add scaling settings for.
-   1. In the pop-up window, click **Add**.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) you wish to add scaling settings for.
+   1. In the pop-up window, click **{{ ui-key.yacloud.common.add }}**.
    1. In the window that opens, specify:
       * **zone_instances_limit**: Number of function instances in an availability zone.
       * **zone_requests_limit**: Number of concurrent function calls in an availability zone.
       * **provisioned_instances_count**: Number of provisioned instances.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -124,7 +124,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -133,7 +133,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
       ```
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   You can verify that you have deleted the scaling settings in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
+   You can check the scaling settings' deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```
    yc serverless function list-scaling-policies <function_name>|<function_ID>

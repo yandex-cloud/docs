@@ -12,9 +12,9 @@ Function execution logs are stored for 3 days. The log uses [UTC time](https://e
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Click a function to view its runtime log.
-   1. In the resulting window, go to **Logs** and specify the period for which you wish to view logs. The default time period is 1 hour.
+   1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the period for which you want to view logs. The default period is 1 hour.
 
 - CLI
 

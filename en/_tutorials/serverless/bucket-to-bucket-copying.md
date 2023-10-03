@@ -39,7 +39,7 @@ The cost of resources includes:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
-      1. Click the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+      1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter the service account name: `s3-copy-fn`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.uploader`, `storage.viewer`, and `{{ roles-lockbox-payloadviewer }}` roles.
@@ -125,8 +125,8 @@ The cost of resources includes:
 
          Where:
 
-         * `name`: Service account name. This parameter is required.
-         * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
+         * `name`: Service account name. Required parameter.
+         * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Optional parameter. By default, the value specified in the provider settings is used.
          * `role`: Role being assigned.
 
          For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
@@ -152,7 +152,7 @@ The cost of resources includes:
 
          1. Confirm the service account creation by typing `yes` in the terminal and pressing **Enter**.
 
-            The service account will then be created. You can verify that the service account is there in the [management console]({{ link-console-main }}) or using the [CLI](../../cli/quickstart.md) command:
+            The service account will then be created. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
             ```bash
             yc iam service-account list
@@ -177,7 +177,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the service account.
-   1. Click the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose a service account and click the line with its name.
    1. On the top panel, click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
@@ -264,7 +264,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a secret.
-   1. In the list of services, select **{{ lockbox-short-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter the secret name: `s3-static-key`.
    1. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
@@ -378,12 +378,12 @@ Create two buckets: the main one to store files and the backup one to copy the m
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your buckets.
-   1. In the list of services, select **{{ objstorage-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Create the main bucket:
 
       1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
-      1. In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
+      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
    1. Similarly, create a backup bucket.
@@ -475,7 +475,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-   1. In the list of services, select **{{ sf-name }}**
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
    1. Create a function:
 
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -484,13 +484,13 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 
    1. Create the function version:
 
-      1. Select the `Bash` runtime environment, disable the **Add files with code examples** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-      1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and select the `handler-sh.zip` archive created in the previous step.
+      1. Select the `Bash` runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+      1. Specify the `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` upload method and select the `handler-sh.zip` archive created in the previous step.
       1. Specify the entry point: `handler.sh`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: 600 seconds.
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: 128 MB.
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`.
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `s3-copy-fn`.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
@@ -675,7 +675,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
-   1. In the list of services, select **{{ sf-name }}**
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
    1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
@@ -800,7 +800,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder with the main bucket.
-   1. In the list of services, select **{{ objstorage-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click the name of the main bucket.
    1. In the top-right corner, click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
    1. In the window that opens, select the required files and click **Open**.

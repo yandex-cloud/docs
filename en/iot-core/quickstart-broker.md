@@ -33,13 +33,13 @@ openssl req -x509 \
 
 Where:
 
-* `-x509`: Certificate type, X.509.
-* `-newkey`: Encryption algorithm.
+* `-x509`: Certificate type, X.509
+* `-newkey`: Encryption algorithm
 * `-keyout`: File with the private key of the certificate.
 * `-out`: File with the public key of the certificate.
 * `-nodes`: This flag is set when no public key encryption is required.
-* `-days`: Certificate validity period in days.
-* `-subj`: Request object.
+* `-days`: Certificate validity period in days
+* `-subj`: Request object
 
 ## Create a broker {#create-broker}
 
@@ -52,7 +52,7 @@ Where:
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Click **{{ ui-key.yacloud.iot.button_create-broker }}**.
    1. Under **General information**, specify the broker name: `my-broker`.
-   1. Add certificates:
+   1. Add a certificate:
 
       * To add a file:
 
@@ -88,22 +88,7 @@ Where:
       folder_id: aoek49ghmk*********
       created_at: "2022-05-28T11:29:42.420Z"
       name: my-broker
-      ```
-
-   1. Make sure the broker was created:
-
-      ```bash
-      yc iot broker list
-      ```
-
-      Result:
-
-      ```text
-      +----------------------+-------------+
-      |          ID          |    NAME     |
-      +----------------------+-------------+
-      | b91ki3851h********** |  my-broker  |
-      +----------------------+-------------+
+      status: ACTIVE
       ```
 
    1. Add the certificate to the broker:
@@ -116,7 +101,7 @@ Where:
 
       Where:
 
-      * `--broker-name`: Broker name.
+      * `--broker-name`: Broker name
       * `--certificate-file`: Path to the public key of the certificate.
 
       Result:
@@ -135,10 +120,8 @@ Where:
 
 ## Set up message exchange {#exchange}
 
-Find out how to:
-
-* [Subscribe to receive messages in a broker](operations/subscribe.md#broker).
-* [Sending a message in a broker](operations/publish.md#broker).
+1. [Subscribe to receive messages in a broker](operations/subscribe.md#broker).
+1. [Send a message in a broker](operations/publish.md#broker).
 
 ## What's next {#what-is-next}
 

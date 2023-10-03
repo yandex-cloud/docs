@@ -17,34 +17,34 @@ As an example, we use the function described in [{#T}](../function/version-manag
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
 
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
    1. Select a function.
 
-   1. Go to the **Testing** tab.
+   1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
 
-   1. In the **Tag version** field, specify which function version to invoke.
+   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** field, specify which function version to invoke.
 
-   1. Under **Payload template**, choose one of the options:
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload-template }}**, choose one of the options:
 
-      * **Without preset**: Custom data format.
-      * **HTTPS call**: Data format for a function acting as an HTTPS request handler. For more information, see [Concepts](../../concepts/function-invoke.md).
-            * **Trigger for {{ message-queue-short-name }}**: Data format for the function invoked by a trigger in order to process messages from the queue.
-            * **Alice's skill**: Data format for a function receiving [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from the Yandex.Dialogs platform.
+      * **{{ ui-key.yacloud.serverless-functions.item.testing.value_empty }}**: Custom data format.
+      * **{{ ui-key.yacloud.serverless-functions.item.testing.value_http-request }}**: Data format for a function acting as an HTTPS request handler. For more information, see [Concepts](../../concepts/function-invoke.md).
+            * **{{ ui-key.yacloud.serverless-functions.item.testing.value_ymq-trigger }}**: Data format for the function invoked by a trigger in order to process messages from the queue.
+            * **{{ ui-key.yacloud.serverless-functions.item.testing.value_alice-skill }}**: Data format for a function receiving [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from the Yandex.Dialogs platform.
 
-   1. In the **Input field**, enter the input data to test the function.
+   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}**, enter the input data to test the function.
 
-   1. Click **Run test**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
 
-   1. You will see the testing status under **Test result** in the **Function status** field. **Important**: Maximum function execution time before [timeout](../../operations/function/version-manage.md) (including original initialization at first call) is 10 minutes.
+   1. You will see the testing status under **{{ ui-key.yacloud.serverless-functions.item.testing.label_title-test-result }}** in the **{{ ui-key.yacloud.serverless-functions.item.testing.field_execution-result }}** field. **Important**: Maximum function execution time before [timeout](../../operations/function/version-manage.md) (including original initialization at first call) is 10 minutes.
 
-   1. You will see the function execution result in the **Function output** field.
+   1. You will see the function execution result in the **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** field.
 
 - HTTPS
 
    You can find the function invocation link in:
-   * The **Link to invoke** field. To do this, in the [management console]({{ link-console-main }}), select **{{ sf-name }}** and click the line with the desired function.
-   * The `http_invoke_url` parameter. To do this, run the command:
+   * The **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field. To do this, in the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** and click the required function row.
+   * The `http_invoke_url` parameter. To do this, run the following command:
       ```
       yc serverless function get <function name>
       ```

@@ -14,11 +14,6 @@
 
   В консоли управления можно посмотреть только роли на каталог, облако и организацию. Чтобы посмотреть роли на другие ресурсы, используйте CLI или API.
 
-  Вы сможете видеть список пользователей, если:
-
-  * настройка **Доступно:** установлена в значение **{{ ui-key.yacloud.iam.users.label_user-listing-allowed-everybody-title }}**;
-  * настройка **Доступно:** установлена в значение **{{ ui-key.yacloud.iam.users.label_user-listing-allowed-admins-title }}**, и вы имеете роль администратора.
-
   Чтобы посмотреть роли [пользователя с аккаунтом на Яндексе](../../concepts/index.md#passport), [федеративного пользователя](../../concepts/index.md#saml-federation) или [сервисного аккаунта](../../concepts/users/service-accounts.md):
 
     {% include [include](../../../_includes/iam/configure-roles-console.md) %}

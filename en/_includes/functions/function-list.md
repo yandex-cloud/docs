@@ -3,8 +3,8 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of functions.
-   1. Select **{{ sf-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/functions/functions.svg) **Functions**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. In the left-hand panel, select ![image](../../_assets/functions/functions.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
 
 - CLI
 
@@ -24,7 +24,7 @@
     +----------------------+--------------------+----------------------+--------+
     |          ID          |        NAME        |      FOLDER ID       | STATUS |
     +----------------------+--------------------+----------------------+--------+
-    | b097d9ous3gep99khe83 | my-beta-function   | aoek49ghmknnpj1ll45e | ACTIVE |
+    | b097d9ous3ge******** | my-beta-function   | aoek49ghmknn******** | ACTIVE |
     +----------------------+--------------------+----------------------+--------+
     ```
 

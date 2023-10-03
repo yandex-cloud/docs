@@ -15,16 +15,16 @@ For more information about backing up [Docker images](../../container-registry/c
 
 ## Getting a container revision list {#revision-list}
 
-{% include [container-list](../../_includes/serverless-containers/revision-list.md) %}
+{% include [revision-list](../../_includes/serverless-containers/revision-list.md) %}
 
 ## Getting information about a container revision {#revision-get}
 
-{% include [container-ger](../../_includes/serverless-containers/revision-get.md) %}
+{% include [revision-get](../../_includes/serverless-containers/revision-get.md) %}
 
 ## Getting a list of triggers {#trigger-list}
 
-{% include [version-list](../../_includes/serverless-containers/trigger-list.md) %}
+{% include [trigger-list](../../_includes/serverless-containers/trigger-list.md) %}
 
 ## Getting information about a trigger {#trigger-get}
 
-{% include [version-list](../../_includes/serverless-containers/trigger-get.md) %}
+{% include [trigger-get](../../_includes/serverless-containers/trigger-get.md) %}

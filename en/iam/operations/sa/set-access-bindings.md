@@ -14,12 +14,14 @@ This section describes how to assign [roles](../../concepts/access-control/roles
    1. Go to **Access rights**.
    1. Click **Assign roles**.
    1. In the **Configure access bindings** window, click **Select user**.
-   1. Select a user from the list or search for a user.
+   1. Select a user from the list or search by user.
    1. Click **Add role**.
    1. Choose the role.
    1. Click **Save**.
 
 - CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -160,8 +162,8 @@ This section describes how to assign [roles](../../concepts/access-control/roles
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
       * `service_account_id`: ID of the service account that access must be configured for.
-      * `role`: Role being assigned. This parameter is required.
-      * `members`: List of users or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This parameter is required.
+      * `role`: Role being assigned. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
 
       Example of the configuration file structure:
 
@@ -196,9 +198,9 @@ This section describes how to assign [roles](../../concepts/access-control/roles
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or with the following [CLI](../../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
@@ -208,16 +210,18 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
 ## Examples {#examples}
 
-* [{#T}](#multiple-roles).
-* [{#T}](#impersonation).
-* [{#T}](#access-to-sa).
-* [{#T}](#access-to-all).
+* [{#T}](#multiple-roles)
+* [{#T}](#impersonation)
+* [{#T}](#access-to-sa)
+* [{#T}](#access-to-all)
 
 ### Assign multiple roles {#multiple-roles}
 
 {% list tabs %}
 
 - CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
    The `add-access-binding` command allows you to add only one role. You can assign multiple roles using the `set-access-binding` command.
 
@@ -278,6 +282,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
     {% endnote %}
 
+
     ```bash
     curl -X POST \
         -H 'Content-Type: application/json' \
@@ -302,18 +307,19 @@ This section describes how to assign [roles](../../concepts/access-control/roles
     1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
        * `service_account_id`: ID of the service account that access must be configured for.
-       * `role`: Role being assigned. This parameter is required.
+       * `role`: Role being assigned. This is a required parameter.
 
        {% note info %}
 
-       For each role, only one `yandex_iam_service_account_iam_binding resource can be used`.
+       For each role, only one `yandex_iam_service_account_iam_binding` resource can be used.
 
        {% endnote %}
 
-       * `members`: List of users or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This parameter is required.
+       * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
 
      {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
 
+     
      ```hcl
      ...
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
@@ -333,9 +339,10 @@ This section describes how to assign [roles](../../concepts/access-control/roles
      ...
      ```
 
+  
      {% endcut %}
 
-     For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
     1. Check the configuration using this command:
        ```
@@ -353,7 +360,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
        terraform plan
        ```
 
-       The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
     1. Apply the configuration changes:
        ```
@@ -362,7 +369,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
     1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-       You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+       You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
        ```
        yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
@@ -378,7 +385,9 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
 - CLI
 
-   1. Find out the ID of the service account that you want to assign the role to (for example, `test-sa`). For this, get a list of available service accounts (in the administrator profile):
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   1. Find out the ID of the service account that you want to assign the role to (for example, `test-sa`). To do this, get a list of available service accounts (in the administrator profile):
 
       ```bash
       yc iam service-account list
@@ -454,6 +463,8 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 {% list tabs %}
 
 - CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
    1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
 
@@ -538,8 +549,8 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
       * `service_account_id`: ID of the service account that access must be configured for.
-      * `role`: Role being assigned. This parameter is required.
-      * `members`: List of users or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This parameter is required.
+      * `role`: Role being assigned. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
 
    {% cut "Example of allowing the `test-sa` service account to manage the `my-robot` service account using {{ TF }}" %}
 
@@ -575,7 +586,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -584,7 +595,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+      You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
@@ -601,6 +612,8 @@ For example, allow any authenticated user to view information about the `my-robo
 {% list tabs %}
 
 - CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
    Assign the `viewer` role to the `allAuthenticatedUsers` system group. In the subject type, specify `system`:
 
@@ -640,8 +653,8 @@ For example, allow any authenticated user to view information about the `my-robo
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
       * `service_account_id`: ID of the service account that access must be configured for.
-      * `role`: Role being assigned. This parameter is required.
-      * `members`: List of users or service account the role is being assigned to. Specified in the format `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This parameter is required.
+      * `role`: Role being assigned. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the format `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
 
    {% cut "Example of allowing any authenticated user to view information about the `my-robot` service account" %}
 
@@ -677,7 +690,7 @@ For example, allow any authenticated user to view information about the `my-robo
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -686,7 +699,7 @@ For example, allow any authenticated user to view information about the `my-robo
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+      You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc resource-manager service-account list-access-bindings <service account name>|<service account ID>

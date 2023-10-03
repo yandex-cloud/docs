@@ -57,7 +57,7 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
    1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
    1. Under **General information**, add `my-registry` as the registry name.
-   1. Add certificates:
+   1. Add a certificate:
 
       * To add a file:
 
@@ -80,7 +80,7 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
    {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-   1. Run this command:
+   1. Create a registry:
 
       ```bash
       yc iot registry create --name my-registry
@@ -93,6 +93,8 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
       folder_id: aoek49ghmk*********
       created_at: "2019-05-27T13:40:06.923Z"
       name: my-registry
+      status: ACTIVE
+      log_group_id: ckghotead**********
       ```
 
    1. Add a certificate to the registry:
@@ -134,7 +136,7 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
    1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
    1. Under **General information**, add `my-device` as the device name.
-   1. Add certificates:
+   1. Add a certificate:
 
       * To add a file:
 
@@ -153,7 +155,7 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
 - CLI
 
-   1. Run this command:
+   1. Create a device:
 
       ```bash
       yc iot device create \
@@ -204,10 +206,8 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
 ## Set up message exchange between the device and the registry {#exchange}
 
-Find out how to:
-
-* [Subscribe a device or registry to receive messages](operations/subscribe.md).
-* [Send a message](operations/publish.md).
+1. [Subscribe a device or registry to receive messages](operations/subscribe.md).
+1. [Send a message](operations/publish.md).
 
 ## What's next {#what-is-next}
 

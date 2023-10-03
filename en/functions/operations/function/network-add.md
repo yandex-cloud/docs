@@ -11,11 +11,11 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) wher
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Select a function.
-   1. Go to the **Editor** tab.
-   1. Under **Parameters**, in the **Network** field, choose a network for function execution.
-   1. Click **Create version**.
+   1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, in the **{{ ui-key.yacloud.vpc.label_network }}** field, choose a network for function execution.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
 
@@ -51,6 +51,6 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) wher
 
 {% endlist %}
 
-## See also
+## For more information, see also
 
 * [Networking in {{ sf-name }}](../../concepts/networking.md).

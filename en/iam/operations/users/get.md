@@ -11,6 +11,8 @@ You can get the ID, email address, and other user information.
 
 - CLI
 
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
    1. See the description of the get user information command:
 
       ```bash

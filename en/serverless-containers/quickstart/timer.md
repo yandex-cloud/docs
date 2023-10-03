@@ -17,23 +17,23 @@ Create a [timer](../concepts/trigger/timer.md) that invokes a {{ serverless-cont
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a timer.
 
-   1. Select **{{ serverless-containers-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-   1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
+   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **Basic parameters**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter the trigger name: `timer`.
-      * In the **Type** field, select **Timer**.
-      * In the **Launched resource** field, select **Container**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-   1. Under **Timer settings**, specify `* * ? * * *` or select `Every minute`.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, enter `* * ? * * *` or select `{{ ui-key.yacloud.common.button_cron-1min }}`.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -85,9 +85,9 @@ Create a [timer](../concepts/trigger/timer.md) that invokes a {{ serverless-cont
 To make sure the timer is running properly, view the container logs. They should show that the container is invoked every minute.
 
 1. In the [management console]({{ link-console-main }}), select the folder with your container.
-1. Select **{{ serverless-containers-name }}**.
-1. Click on the container to view its invocation log.
-1. In the window that opens, go to **Logs** and specify the period you want to view the logs for. The default period is 1 hour.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+1. Click the container to view its invocation log.
+1. In the window that opens, go to **{{ ui-key.yacloud.common.logs }}** and specify the period to view them for. The default period is 1 hour.
 
 ## What's next {#what-is-next}
 

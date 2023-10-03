@@ -23,14 +23,14 @@
    Result:
 
    ```
-   id: b097d9ous3gep99khe83
-   folder_id: aoek49ghmknnpj1ll45e
+   id: b097d9ous3ge********
+   folder_id: aoek49ghmknn********
    created_at: "2019-06-06T11:36:48.688Z"
    name: my-beta-function
    description: My beta function.
    labels:
      new_labels: my-beta-function
-   log_group_id: eolv6578frac08uh5h6s
+   log_group_id: eolv6578frac********
    http_invoke_url: https://{{ sf-url }}/b097d9ous3gep99khe83
    ```
 
@@ -87,7 +87,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

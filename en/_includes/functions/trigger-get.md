@@ -3,8 +3,8 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
-   1. Select **{{ sf-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
    1. Select the trigger to get detailed information about.
 
 - CLI

@@ -1,9 +1,9 @@
 ---
 title: "Creating skills for Alice"
-description: "An example of creating a skill for Alice in two programming languages: Python and Node.js As an example, we'll create an Alice's skill called <q>Parrot</q> that will repeat everything the user writes or says."
+description: "Example of creating a skill for Alice based on two programming languages: Python and Node.js As an example, we will create an Alice skill called <q>Parrot</q> that will repeat everything the user writes or says."
 keywords:
   - creating skills for Alice
-  - Alice skills
+  - Alice's skill
   - example of creating a skill for Alice
 ---
 
@@ -51,13 +51,13 @@ To create a [version](../../functions/concepts/function.md#version) of a functio
 Once created, the function will only contain information about itself, like its name, description, and unique ID. The skill's code will be added to the function when [creating a version](#create-version).
 
 1. In the [management console]({{ link-console-main }}), select the folder to create your function in.
-1. Click **Create resource**.
-1. Select **Function**.
+1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
 1. Enter a function name.
 
    {% include [name-format](../../_includes/name-format.md) %}
 
-1. Click **Create**.
+1. Click **{{ ui-key.yacloud.common.create }}**.
 
 ## Create a function version {#create-version}
 
@@ -67,19 +67,19 @@ Select the programming language and create a [version of the function](../concep
 
 - Python
 
-   1. In the [management console]({{ link-console-main }}), open **{{ sf-name }}** in the folder where you want to create the function version.
+   1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** in the folder where you want to create the function version.
    1. Select the function to create the version for.
-   1. Under **Latest version**, click **Create in editor**.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
    1. Set the version parameters:
-      * **Runtime environment:** `python37`.
-      * **Timeout, seconds:** 2.
-      * **RAM:** 128 MB.
-      * **Service account:** None selected.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `2`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`
    1. Prepare the function code:
-      * **Method:** ZIP archive.
-      * **File:** `parrot-py.zip`.
-      * **Entry point:** `parrot.handler`.
-   1. Click **Create version**.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `parrot-py.zip`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `parrot.handler`
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - Node.js
 
@@ -87,15 +87,15 @@ Select the programming language and create a [version of the function](../concep
    1. Select the function to create the version for.
    1. Under **Latest version**, click **Create in editor**.
    1. Set the version parameters:
-      * **Runtime environment:** `nodejs12`.
-      * **Timeout, seconds:** 2.
-      * **RAM:** 128 MB.
-      * **Service account:** None selected.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs12`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `2`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud_portal.common.units.label_megabyte }}`
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`
    1. Prepare the function code:
-      * **Method:** ZIP archive.
-      * **File:** `parrot-js.zip`.
-      * **Entry point:** `index.handler`.
-   1. Click **Create version**.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `parrot-js.zip`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
 
@@ -107,7 +107,7 @@ Select the programming language and create a [version of the function](../concep
 
    {% note warning %}
 
-   The list shows the functions that you're allowed to view. To attach a function to a skill, you need permission to launch the function. This permission is part of the roles [{{ roles-functions-ivoker }}](../security/index.md#serverless-functions-invoker), [{{ roles-editor }}](../security/index.md#editor) and higher.
+   The list shows the functions that you are allowed to view. To attach a function to a skill, you need permission to launch the function. This permission is part of the roles [{{ roles-functions-ivoker }}](../security/index.md#serverless-functions-invoker), [{{ roles-editor }}](../security/index.md#functions-editor) and higher.
 
    {% endnote %}
 1. Click **Save** at the bottom of the page to save changes.
@@ -118,6 +118,6 @@ Select the programming language and create a [version of the function](../concep
 1. If everything is set up correctly, the **Chat** section will display a message inviting you to start a conversation: `Hello! I'll repeat anything you say to me.`.
 1. Send a message and make sure the response is the same.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop the skill, [delete](../operations/function/function-delete.md) the function.

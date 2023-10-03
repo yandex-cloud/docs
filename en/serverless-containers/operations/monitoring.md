@@ -11,13 +11,13 @@ The chart update period is 15 seconds.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-   1. Select **{{ serverless-containers-name }}**.
-   1. Select a container to view its monitoring charts.
-   1. Go to the **Monitoring** tab.
-   1. The following charts open on the page:
-      * **Requests**: number of container calls.
-      * **Requests latency**: average time for a container to process a call.
-      * **Errors**: number of errors generated while a container was processing a call.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+   1. Select the container to view its monitoring charts.
+   1. Go to the **{{ ui-key.yacloud.common.monitoring }}** tab.
+   1. The following charts will open on the page:
+      * **Requests**: Number of container calls
+      * **Requests latency**: Average time for a container to process a call.
+      * **Errors**: Number of errors generated while a container was processing a call.
 
       You can select the period to display information for: an hour, three hours, a day, week, month, or a custom interval.
 
@@ -25,7 +25,7 @@ The chart update period is 15 seconds.
 
 ## Custom {#metrics} metrics
 
- To proceed to working with [metrics](../../monitoring/concepts/data-model.md#metric), [dashboards](../../monitoring/concepts/visualization/dashboard.md), and [alerts](../../monitoring/concepts/alerting.md#alert), in {{ monitoring-name }}, in the upper-right corner, click **Open in Monitoring**. 
+ To get started with [metrics](../../monitoring/concepts/data-model.md#metric), [dashboards](../../monitoring/concepts/visualization/dashboard.md), and [alerts](../../monitoring/concepts/alerting.md#alert) in {{ monitoring-name }}, in the top-right corner, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**.
 
 | Metric name | Units | Explanations |
 |----|----|----|
@@ -44,5 +44,5 @@ The chart update period is 15 seconds.
 | Label name | Possible values | Explanations |
 |----|----|----|
 | `container` | Container name | The label contains the name of the container that the metric values pertain to. |
-| `revision` | Revision ID | The label contains the container revision ID that the metric values pertain to |
+| `revision` | Revision ID | The label contains the container revision ID that the metric values pertain to. |
 | `bin` | Interval of histogram values | For metrics represented by a histogram, the label value describes the interval of the measured value during which the event occurred. |

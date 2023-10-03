@@ -3,7 +3,7 @@
 - Management console
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of containers.
-    1. Select **{{ serverless-containers-name }}**.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
 - CLI
 

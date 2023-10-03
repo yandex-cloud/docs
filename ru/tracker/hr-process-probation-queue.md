@@ -33,7 +33,7 @@
 
 1. Нажмите кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**.
 1. В поле **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_name }}** введите название триггера, например `probation_checklist`.
-1. В качастве условий срабатывания триггера выберите **{{ ui-key.startrek-backend.messages.trigger.condition.field.checklist }}** и **{{ ui-key.startrek-backend.fields.issue.type-key-value }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}** → **Испытательный срок**.
+1. В качестве условий срабатывания триггера выберите **{{ ui-key.startrek-backend.messages.trigger.condition.field.checklist }}** и **{{ ui-key.startrek-backend.fields.issue.type-key-value }}** → **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldEquals }}** → **Испытательный срок**.
 1. В качестве действия триггера выберите **{{ ui-key.startrek-backend.types.types.trigger.action.transition }}** и укажите статус, например **В работе**.
 
    {% note warning %}

@@ -5,11 +5,11 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
-   1. Open **{{ serverless-containers-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
+   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
    1. Select the trigger whose description you want to update.
-   1. In the upper-right corner of the page, click **Edit**.
-   1. Edit the description and click **Save**.
+   1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
+   1. Edit the description and click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
 
 - CLI
 

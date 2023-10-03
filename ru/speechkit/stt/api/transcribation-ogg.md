@@ -1,13 +1,12 @@
 # Асинхронное распознавание аудиофайлов в формате OggOpus
 
-Пример показывает, как с помощью [API v2](transcribation-api.md) распознать речь, записанную в аудиофайле формата [OggOpus](../../formats.md#OggOpus), в режиме [асинхронного распознавания](../transcribation.md).
+Ниже рассмотрены примеры [асинхронного распознавания речи](../transcribation.md) из аудиофайла с помощью [API v2](transcribation-api.md) {{ speechkit-name }}. В примерах заданы параметры:
 
-В примерах заданы следующие параметры:
-
-* [язык](../index.md#langs) — русский;
+* [язык](../models.md#languages) — русский;
+* формат аудиопотока — [OggOpus](../../formats.md#OggOpus) с расширением файла OPUS;
 * остальные параметры оставлены по умолчанию.
 
-Формирование и отправка запроса к серверу, выполняющему распознавание, происходит с помощью утилиты [cURL](https://curl.haxx.se).
+Вы можете сформировать и отправить запрос на распознавание речи с помощью утилиты [cURL](https://curl.haxx.se) или Python-скрипта.
 
 Аутентификация происходит от имени сервисного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Подробнее об [аутентификации в API {{speechkit-name}}](../../concepts/auth.md).
 
@@ -15,13 +14,16 @@
 
 {% include [transcribation-before-you-begin](../../../_includes/speechkit/transcribation-before-you-begin.md) %}
 
+Если у вас нет аудиофайла формата OggOpus, вы можете скачать [пример файла](https://{{ s3-storage-host }}/doc-files/speech.ogg).
+
 ## Выполните распознавание с помощью API {#recognize-using-api}
 
 {% list tabs %}
 
 - cURL
 
-  1. Создайте файл, например `body.json`, и добавьте в него следующий код:
+  1. [Получите ссылку на аудиофайл](../../../storage/operations/objects/link-for-download.md) в {{ objstorage-name }}.
+  1. Создайте файл, например `body.json`, и добавьте в него код:
 
       ```json
       {
@@ -31,31 +33,35 @@
               }
           },
           "audio": {
-              "uri": "https://{{ s3-storage-host }}/speechkit/speech.ogg"
+              "uri": "<ссылка_на_аудиофайл>"
           }
       }
       ```
 
       Где:
 
-      * `languageCode` — [язык](../index.md#langs), для которого будет выполнено распознавание.
-      * `uri` — ссылка на аудиофайл в {{ objstorage-name }}.
+      * `languageCode` — [язык](../models.md#languages), для которого будет выполнено распознавание.
+      * `uri` — ссылка на аудиофайл в {{ objstorage-name }}. Пример ссылки: `https://{{ s3-storage-host }}/speechkit/speech.opus`.
+
+         Для бакета с ограниченным доступом в ссылке присутствуют дополнительные query-параметры (после знака `?`). Эти параметры не нужно передавать в {{ speechkit-name }} — они игнорируются.
+
+      Формат аудиопотока указывать не нужно, так как OggOpus — формат по умолчанию.
 
   1. Выполните созданный файл:
 
       ```bash
-      export IAM_TOKEN=<IAM-токен_сервисного_аккаунта>
+      export IAM_TOKEN=<IAM-токен_сервисного_аккаунта> && \
       curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d "@body.json" \
           https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
       ```
 
-      Где `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
+      Где `IAM_TOKEN` — IAM-токен сервисного аккаунта.
 
-      Результат:
+      Пример результата:
 
-      ```bash
+      ```text
       {
           "done": false,
           "id": "e03sup6d5h1qr574ht99",
@@ -67,17 +73,17 @@
 
       Сохраните идентификатор (`id`) операции распознавания, полученный в ответе.
 
-  1. Подождите немного, пока закончится распознавание. Одна минута аудио распознается примерно за 10 секунд.
+  1. Подождите немного, пока закончится распознавание. Одна минута аудио распознается примерно за 10 секунд.
   1. Отправьте запрос на [получение информации об операции](../../../api-design-guide/concepts/operation.md#monitoring):
 
       ```bash
       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-          https://operation.{{ api-host }}/operations/e03sup6d5h1qr574ht99
+          https://operation.{{ api-host }}/operations/<ID_операции_распознавания>
       ```
 
-      Результат:
+      Пример результата:
 
-      ```bash
+      ```text
       {
        "done": true,
        "response": {
@@ -103,7 +109,13 @@
 
 - Python 3
 
-  1. Создайте файл, например `test.py`, и добавьте в него следующий код:
+  1. Установите пакет `requests` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):
+
+     ```bash
+     pip install requests
+     ```
+
+  1. Создайте файл, например `test.py`, и добавьте в него код:
 
       ```python
       # -*- coding: utf-8 -*-
@@ -112,9 +124,9 @@
       import time
       import json
 
-      # Укажите ваш IAM-токен и ссылку на аудиофайл в Object Storage.
+      # Укажите ваш IAM-токен и ссылку на аудиофайл в {{ objstorage-name }}.
       key = '<IAM-токен_сервисного_аккаунта>'
-      filelink = 'https://{{ s3-storage-host }}/speechkit/speech.ogg'
+      filelink = '<ссылка_на_аудиофайл>'
      
       POST ='https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize'
 
@@ -162,13 +174,13 @@
 
       Где:
 
-      * `key` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
+      * `key` — IAM-токен сервисного аккаунта;
       * `filelink` — ссылка на аудиофайл в {{ objstorage-name }}.
 
   1. Выполните созданный файл:
 
       ```bash
-      python test.py
+      python3 test.py
       ```
 
 {% endlist %}

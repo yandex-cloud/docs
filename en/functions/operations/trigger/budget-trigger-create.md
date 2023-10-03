@@ -6,7 +6,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
 {% include [trigger-before-you-begin](../../../_includes/functions/trigger-before-you-begin.md) %}
 
-* A budget which, when exceeded, a trigger is fired. If you don't have a budget, [create one](../../../billing/operations/budgets.md).
+* A budget which, when exceeded, fires a trigger. If you do not have a budget, [create one](../../../billing/operations/budgets.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -18,31 +18,31 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. On the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **Triggers**.
+   1. In the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **Basic parameters**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter a name and description for the trigger.
-      * In the **Type** field, select **Budget**.
-      * In the **Launched resource** field, select **Function**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_billing-budget }}**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
 
-   1. Under **Budget settings**, select your billing account and budget. You can select **All budgets**.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}**, select your billing account and budget. You can select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_any-budget }}**.
 
-   1. Under **Function settings**, select a function and specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
       {% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-   1. (Optional) Under **Repeat request settings**:
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -111,7 +111,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## See also {#see-also}
+## For more information, see also {#see-also}
 
 * [{#T}](../../../serverless-containers/operations/budget-trigger-create.md).
 * [{#T}](../../tutorials/serverless-trigger-budget-vm.md).

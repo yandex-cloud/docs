@@ -9,18 +9,18 @@ A new version of a function is created when secrets are transmitted. You cannot 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Open **{{ sf-name }}**.
+   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Select a function where you want to transmit a {{ lockbox-name }} secret to.
-   1. Go to the **Editor** tab.
-   1. Under **Parameters**, specify:
-      * In the **Service account** field, the service account with the `lockbox.payloadViewer` role.
-      * In the **{{ lockbox-name }} secret** field:
+   1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
+      * In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, the service account with the `lockbox.payloadViewer` role.
+      * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field:
          * Name of the environment variable where the secret will be kept.
          * Secret ID.
          * Secret version ID.
          * Non-secret key ID.
-   1. Click **Add**. You can transmit multiple secrets to a function.
-   1. Click **Create version**. A new version of the function with the specified secrets will be created.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**. You can transmit multiple secrets to a function.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. A new version of the function with the specified secrets will be created.
 
 - CLI
 
@@ -102,10 +102,10 @@ A new version of a function is created when secrets are transmitted. You cannot 
       Where:
 
       * `secrets`: Section with secret settings. It contains the following parameters:
-         * `id`: Secret ID. This parameter is required.
-         * `version_id`: Secret version ID. This parameter is required.
-         * `key`: Non-secret key ID to be stored in an environment variable. This parameter is required.
-         * `environment_variable`: Name of the environment variable where the secret will be kept. This parameter is required.
+         * `id`: Secret ID. Required parameter.
+         * `version_id`: Secret version ID. Required parameter.
+         * `key`: Non-secret key ID to be stored in an environment variable. Required parameter.
+         * `environment_variable`: Name of the environment variable where the secret will be kept. Required parameter.
 
    1. Apply the changes:
 

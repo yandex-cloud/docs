@@ -207,7 +207,7 @@ description: "Следуя данной инструкции, вы сможет�
      
      1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-     1. Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md), передайте параметр `--yandexquery-access=true`.
+     1. Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 
      1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
@@ -404,7 +404,7 @@ description: "Следуя данной инструкции, вы сможет�
 
     Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-  Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md), передайте значение `true` для параметра `configSpec.access.yandexQuery`.
+  Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md), передайте значение `true` для параметра `configSpec.access.yandexQuery`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 

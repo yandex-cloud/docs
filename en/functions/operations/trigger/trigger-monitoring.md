@@ -17,13 +17,13 @@ The chart update period is 15 seconds.
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
 
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
    1. Select a trigger to view its monitoring charts.
 
-   1. Go to the **Monitoring** tab.
+   1. Go to the **{{ ui-key.yacloud.component.navigation-menu.label_monitoring }}** tab.
 
-   1. The following charts open on the page:
+   1. The following charts will open on the page:
 
       * **Request latency**: The average time it takes a trigger to process a request.
       * **Read events**: The number of events causing a trigger to fire.
@@ -38,7 +38,7 @@ The chart update period is 15 seconds.
 
 ## Custom metrics {#metrics}
 
- To proceed to working with [metrics](../../../monitoring/concepts/data-model.md#metric), [dashboards](../../../monitoring/concepts/visualization/dashboard.md), and [alerts](../../../monitoring/concepts/alerting.md#alert), in {{ monitoring-name }}, in the upper-right corner, click **Open in Monitoring**. 
+To get started with [metrics](../../../monitoring/concepts/data-model.md#metric), [dashboards](../../../monitoring/concepts/visualization/dashboard.md), and [alerts](../../../monitoring/concepts/alerting.md#alert) in {{ monitoring-name }}, in the upper-right corner, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**.
 
 | Metric name | Units | Entity type | Explanations |
 |----|----|----|----|

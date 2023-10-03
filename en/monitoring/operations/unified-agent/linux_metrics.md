@@ -91,7 +91,7 @@ To configure {{ unified-agent-full-name }} to collect system metrics from a {{ y
 
 1. Make sure the metrics are delivered to {{ monitoring-full-name }}:
 
-   1. On the [home page]({{ link-monitoring }}) {{ monitoring-full-name }}, go to **Metric Explorer**.
+   1. On the {{ monitoring-full-name }} [homepage]({{ link-monitoring }}), go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
 
    1. In the query block, select:
    - The folder where metrics are collected.

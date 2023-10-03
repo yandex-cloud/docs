@@ -5,11 +5,11 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
-   1. Select **{{ sf-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **Triggers**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
    1. Select the trigger whose name you want to update.
-   1. In the upper-right corner of the page, click **Edit**.
-   1. Edit the name and click **Save**.
+   1. In the upper-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
+   1. Edit the name and click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
 
 - CLI
 
@@ -91,7 +91,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -101,7 +101,7 @@
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change to the trigger in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+      You can check the trigger update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc serverless trigger get <trigger ID>

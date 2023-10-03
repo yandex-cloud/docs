@@ -1,4 +1,4 @@
-To provide the container with access to the secret, specify a [service account](../../iam/concepts/users/service-accounts.md) with the following roles in the container parameters:
+To provide the container with access to the [secret](../../lockbox/concepts/secret.md), specify a [service account](../../iam/concepts/users/service-accounts.md) with the following roles in the container parameters:
 * `lockbox.payloadViewer` for the secret (see [how to grant access rights to secrets](../../lockbox/operations/secret-access.md)).
 * `kms.keys.encrypterDecrypter` for the encryption key if the secret was created using a {{ kms-full-name }} key (see [how to grant access rights to encryption keys](../../kms/operations/key-access.md)).
 
@@ -9,16 +9,16 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-   1. Open **{{ serverless-containers-name }}**.
+   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
    1. Select a container you want to transmit a secret to.
-   1. Go to the **Editor** tab.
-   1. In the window that opens, under **Image parameters**, in the **{{ lockbox-name }} secret** field, specify:
+   1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
+   1. In the window that opens, under **{{ ui-key.yacloud.serverless-containers.section_image }}**, in the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field, specify:
       * Name of the environment variable where the secret will be kept.
       * Secret ID.
       * Secret version ID.
       * Non-secret key ID.
-   1. Click **Add**. You can transmit several secrets to a container.
-   1. Click **Create revision**. A new container revision with the specified secrets will be created.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**. You can transmit several secrets to a container.
+   1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. A new container revision with the specified secrets will be created.
 
 - CLI
 

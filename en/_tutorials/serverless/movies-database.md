@@ -25,9 +25,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of CRUD API resources includes:
-* A fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-name }} pricing for serverless mode](../../ydb/pricing/serverless.md)).
-* A fee for the number of container calls, computing resources allocated to execute the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
-* A fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-name }} pricing for serverless mode](../../ydb/pricing/serverless.md)).
+* Fee for the number of container calls, computing resources allocated to execute the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
+* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Configure the environment {#setup-environment}
 
@@ -215,7 +215,7 @@ The cost of CRUD API resources includes:
    cd <path_to_deploy_folder>
    ```
 
-1. Find out the name of the `ACTIVE` profile of the {{ yandex-cloud }} CLI command line interface. In the terminal, run the command:
+1. Find out the name of the `ACTIVE` profile of the {{ yandex-cloud }} CLI command line interface. In the terminal, run this command:
 
    ```bash
    yc config profile list
@@ -392,7 +392,7 @@ Interaction with the database via the [Document API](../../ydb/docapi/api-ref/) 
    ```
 
    Where:
-   * `role`: The role assigned.
+   * `role`: Role being assigned.
    * `-subject serviceAccount`: Service account ID.
 
    The service account is assigned roles for the following actions:
@@ -467,7 +467,7 @@ Build the application as a Docker image and run it in [{{ serverless-containers-
    ```
 
    Where:
-   * `name` is the container name.
+   * `name`: Container name.
    * `folder-id`: ID of the folder.
 1. The command result shows the ID of the container. Export it to the environment variable:
 
@@ -499,7 +499,7 @@ Build the application as a Docker image and run it in [{{ serverless-containers-
    * `execution-timeout`: Execution timeout.
    * `concurrency`: Maximum number of concurrent container calls. If the number of requests to a container exceeds the value of the `concurrency` parameter, the service scales the container up by launching additional copies.
    * `environment`: Environment variables. The Document API endpoint of a database is passed to the application via the `DOCUMENT_API_ENDPOINT` environment variable.
-   * `service-account-id`: The ID of your service account.
+   * `service-account-id`: ID of your service account.
    * `image`: Repository name.
 
 ### Deploy the API in {{ api-gw-name }} {#deploy-api-gw}
@@ -575,13 +575,13 @@ To check the performance of the created CRUD API, run the following HTTP request
 
 You can also upload the specifications to [Postman](https://www.postman.com) or [SwaggerHub](https://swagger.io/tools/swaggerhub/) by adding the address of the created API gateway from the `${MOVIES_API_GATEWAY_DOMAIN}` variable to the `servers` section. This enables you to easily run requests to the REST API.
 
-View diagnostic information about the container. In the [management console]({{ link-console-main }}), go to the container page. The **Logs** tab shows messages about container calls and the **Monitoring** tab charts of container calls, average request processing times, and number of errors.
+View diagnostic information about the container. In the [management console]({{ link-console-main }}), go to the container page. The **{{ ui-key.yacloud.common.logs }}** tab shows messages about container calls and the **{{ ui-key.yacloud.common.monitoring }}** tab charts of container calls, average request processing times, and number of errors.
 
 You can also view monitoring logs and charts on the API gateway page.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for resources created using {{ TF }}, delete them. In the terminal, run the command:
+To stop paying for resources created using {{ TF }}, delete them. In the terminal, run this command:
 
 ```bash
 terraform destroy
@@ -589,11 +589,11 @@ terraform destroy
 
 Confirm resource deletion: type `yes` in the terminal and press **Enter**.
 
-#### See also {#see-also}
+#### For more information, see also {#see-also}
 
-* [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
-* [{{ TF }} reference. {{ yandex-cloud }} provider]({{ tf-provider-link }}).
-* [Document table](../../ydb/operations/schema.md).
-* [X-yc-apigateway-integration extension](../../api-gateway/concepts/extensions/containers.md).
-* [{#T}](../../serverless-containers/concepts/logs.md).
-* [{#T}](../../serverless-containers/operations/monitoring.md).
+* [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md)
+* [{{ TF }} reference. {{ yandex-cloud }} provider]({{ tf-provider-link }})
+* [Document table](../../ydb/operations/schema.md)
+* [X-yc-apigateway-integration extension](../../api-gateway/concepts/extensions/containers.md)
+* [{#T}](../../serverless-containers/concepts/logs.md)
+* [{#T}](../../serverless-containers/operations/monitoring.md)

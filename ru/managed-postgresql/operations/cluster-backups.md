@@ -458,6 +458,28 @@ description: "Вы можете создавать резервные копии
     1. Выберите пункт **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
     1. Подтвердите удаление и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.action_delete-backup }}**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить резервную копию:
+
+    1. Посмотрите описание команды CLI для удаления резервной копии {{ PG }}:
+
+        ```bash
+        {{ yc-mdb-pg }} backup delete --help
+        ```
+
+    1. Запросите удаление резервной копии, указав ее идентификатор:
+
+        ```bash
+        {{ yc-mdb-pg }} backup delete <идентификатор_резервной_копии>
+        ```
+
+    Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
+
 - API
 
     Чтобы удалить резервную копию, воспользуйтесь методом REST API [delete](../api-ref/Backup/delete.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Delete](../api-ref/grpc/backup_service.md#Delete) и передайте в запросе идентификатор резервной копии в параметре `backupId`.

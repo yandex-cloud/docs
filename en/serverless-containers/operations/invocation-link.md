@@ -5,8 +5,8 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-   1. Select **{{ serverless-containers-name }}**.
-   1. Select the container. The invocation link is in the **Link to invoke** field.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+   1. Select the container. You will find the invocation link in the **{{ ui-key.yacloud.serverless-containers.label_url }}** field.
 
 - CLI
 

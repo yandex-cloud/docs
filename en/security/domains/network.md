@@ -22,9 +22,9 @@ To control network access to your resources, use one of the following:
 
 * Router-on-a-Stick method based on [{{ interconnect-name }}](../../interconnect/index.yaml): you can connect your firewall to the {{ yandex-cloud }} infrastructure via a dedicated channel and route traffic to cloud networks through this firewall.
 
-To deliver traffic to an application within your cloud infrastructure, we recommend that you use a network load balancer, such as [{{ alb-full-name }}](../../application-load-balancer/), to route your traffic through the selected ports only. We recommend that you use the network load balancer together with security groups to limit the list of IP addresses that have access to the application.
+To deliver traffic to an application within your cloud infrastructure, we recommend using a network load balancer, such as [{{ alb-full-name }}](../../application-load-balancer/), to route your traffic through the selected ports only. Use the network load balancer together with security groups to limit the list of IP addresses that have access to the application.
 
-To isolate applications from each other, put resources in different security groups, and, if strict isolation is required, in different {{ vpc-short-name }}. Traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }} (it is only allowed via VMs with two network interfaces in different networks, VPNs or {{ interconnect-name }}).
+To isolate applications from each other, put resources in different security groups, and, if strict isolation is required, in different {{ vpc-short-name }}. Traffic within {{ vpc-short-name }} is allowed by default; it is not allowed between {{ vpc-short-name }}, unless there is a VM with two network interfaces in different networks, either VPN or {{ interconnect-name }}.
 
 ## DDoS protection
 
@@ -41,7 +41,7 @@ To enable administrators to establish remote connections to your cloud resources
    * [Creating an IPsec VPN tunnel using the strongSwan](../../tutorials/routing/ipsec-vpn.md).
    * ![](../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
 
-* Client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image](/marketplace?categories=network) from {{ marketplace-name }}. For details, see the details in the [Creating a VPN connection using OpenVPN](../../tutorials/routing/openvpn.md) section.
+* Client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image](/marketplace?categories=network) from {{ marketplace-name }}. For more information, see the guide in the [Creating a VPN connection using OpenVPN](../../tutorials/routing/openvpn.md) section.
 * Dedicated private connection between a remote site and {{ yandex-cloud }} using [{{ interconnect-name }}](../../interconnect/index.yaml).
 {#gost-vpn}
 * VPN on certified data cryptographic security tools:

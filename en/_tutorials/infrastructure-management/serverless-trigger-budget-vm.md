@@ -150,13 +150,13 @@ zip src.zip index.go go.mod
       1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and select the archive created in the previous step.
       1. Specify the `index.StopComputeInstances` entry point.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-         * **{{ ui-key.yacloud.serverless-functions.item.overview.label_latest-timeout }}**: `5 {{ ui-key.yacloud.common.label_seconds_many }}`.
-         * **{{ ui-key.yacloud.serverless-functions.item.overview.label_latest-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-         * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}**: `service-account-for-budget`.
-         * **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-environment-vars }}**:
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`.
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
             * `FOLDER_ID`: ID of the folder to stop the VM instances in.
             * `TAG`: `target-for-stop`.
-      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_create }}**.
+      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
 
@@ -198,7 +198,7 @@ zip src.zip index.go go.mod
       * `--runtime`: Runtime environment.
       * `--entrypoint`: Entry point.
       * `--service-account-id`: ID of the `service-account-for-budget`.
-      * `--environment`: Environment variables. `FOLDER_ID`: ID of the folder to stop the VM instances in.
+      * `--environment`: Environment variables. `FOLDER_ID`: The ID of the folder to stop the VM instances in.
       * `--source-path`: Path to the `src.zip` archive.
 
       Result:
@@ -251,8 +251,8 @@ The user can create a budget if they have the `editor` role. To get notification
       * Budget type: `{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}`.
       * Total usage cost.
       * Calculation period: `{{ ui-key.yacloud.billing.account.budgets.reset-period_value_monthly }}`.
-      * Budget end date. The end date is when the budget stops calculating usage and sending notifications. The end date is the last day of the month. This date must be within five years from the current date.
-      * Th users to be notified when the threshold values are reached.
+      * Budget end date. The end date is when the budget stops calculating usage and sending notifications. The end date is the last day of the month. It must be within five years of the current date.
+      * Users to be notified when the threshold values are reached.
    1. Under **{{ ui-key.yacloud.billing.account.budgets.section_scope }}**, select the current folder and the **{{ compute-name }}** service.
    1. Under **{{ ui-key.yacloud.billing.account.budgets.label_limits }}**, set the threshold values as a percentage, upon reaching which:
       * Specified users will get notifications.

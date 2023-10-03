@@ -22,12 +22,21 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### Service roles {#service-roles}
 
-| Role | Permissions |
------ | -----
-| `resource-manager.clouds.member` | Role everyone requires to access cloud resources, except for [cloud owners](../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../iam/concepts/users/service-accounts.md). |
-| `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. You can only assign this role for a cloud. |
-| `iot.devices.writer` | The role required to send gRPC messages to {{ iot-short-name }} on behalf of a device. |
-| `iot.registries.writer` | The role required to send gRPC messages to {{ iot-short-name }} on behalf of a registry. |
+{% include [resource-manager.clouds.member](../../_includes/roles-resource-manager-clouds-member.md) %}
+
+{% include [resource-manager.clouds.owner](../../_includes/roles-resource-manager-clouds-owner.md) %}
+
+{% include [iot-admin](../../_includes/roles-iot-admin.md) %}
+
+{% include [iot-editor](../../_includes/roles-iot-editor.md) %}
+
+{% include [iot-viewer](../../_includes/roles-iot-viewer.md) %}
+
+{% include [iot-auditor](../../_includes/roles-iot-auditor.md) %}
+
+{% include [iot-devices-writer](../../_includes/roles-iot-devices-writer.md) %}
+
+{% include [iot-registries-writer](../../_includes/roles-iot-registries-writer.md) %}
 
 For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
 

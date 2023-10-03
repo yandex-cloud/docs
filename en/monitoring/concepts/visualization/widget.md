@@ -36,7 +36,7 @@ To set the interval more precisely, use the timeline located above the chart.
  <!-- Cloud widgets -->
 
 ## Text {#text}
-Text in [markdown](https://en.wikipedia.org/wiki/Markdown) format, which lets you include additional information in the dashboard. For example, you can post links to other dashboards.
+Text in [YFM](https://ydocs.tech/en/) format that allows you to include additional information in the dashboard. For example, you can post links to other dashboards.
 
 ## Title {#heading}
-Text that lets you label a dashboard or group of charts.
+Text that allows you to label a dashboard or group of charts.

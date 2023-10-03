@@ -1,8 +1,14 @@
 # Automatic Docker image scan at push
 
-This scenario describes how to configure automatic vulnerability [scanning](../concepts/vulnerability-scanner.md) of a [Docker image](../concepts/docker-image.md) at push.
+{% note info %}
 
-To set up automatic Docker image scan at push:
+You can enable auto [scans](../concepts/vulnerability-scanner.md) of [Docker images](../concepts/docker-image.md) for vulnerabilities on push to {{ container-registry-name }} in the [vulnerability scanner settings](../operations/scanning-docker-image.md#automatically) without creating any [{{ sf-full-name }}](../../functions/) [functions](../../functions/concepts/function.md) and [triggers](../../functions/concepts/trigger).
+
+{% endnote %}
+
+In this tutorial, you will create a {{ container-registry-full-name }} registry to store a [Docker image](../concepts/docker-image.md) and set up automatic [scanning for vulnerabilities](../concepts/vulnerability-scanner.md) on push to the registry. Using a {{ sf-name }} trigger, you will track changes to the registry and a function will be invoked to start scanning an image on push to the registry.
+
+To set up automatic Docker image scan on push:
 1. [Prepare your cloud](#before-you-begin).
 1. [Prepare the environment](#prepare).
 1. [Create a function](#create-function).
@@ -11,6 +17,8 @@ To set up automatic Docker image scan at push:
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+You can also deploy an infrastructure for automatic scanning of Docker images on push via {{ TF }} using a [ready-made configuration file](#terraform).
 
 ## Getting started {#before-you-begin}
 
@@ -52,6 +60,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
      created_at: "2019-01-09T14:34:06.601Z"
      ```
 
+   - {{ TF }}
+
+      See [How to create an infrastructure using {{ TF }}](#terraform).
+
    - API
 
      Use the [create](../api-ref/Registry/create.md) method for the [Registry](../api-ref/Registry/) resource.
@@ -64,10 +76,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select a folder where you wish to create a service account.
-     1. Go to the **Service accounts** tab.
+     1. In the [management console]({{ link-console-main }}), select a folder to create a service account in.
+     1. At the top of the screen, go to the **Service accounts** tab.
      1. Click **Create service account**.
-     1. Enter the name of the service account.
+     1. Enter a name for the service account.
      1. Click **Add role** and select `container-registry.images.scanner`.
      1. Click **Create**.
 
@@ -91,10 +103,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. Assign the role to the service account:
 
         ```bash
-        yc resource-manager folder add-access-binding <folder ID> \
+        yc resource-manager folder add-access-binding <folder_ID> \
           --role container-registry.images.scanner \
-          --subject serviceAccount:<service account ID>
+          --subject serviceAccount:<service_account_ID>
         ```
+
+   - {{ TF }}
+
+      See [How to create an infrastructure using {{ TF }}](#terraform).
 
    - API
 
@@ -107,7 +123,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a function {#create-function}
 
-Create a [function](../../functions/concepts/function.md) in [{{ sf-full-name }}](../../functions/) named `scan-on-push` to start the image scan:
+In {{ sf-name }}, create a function named `scan-on-push` that will run the Docker image scan:
 
 {% list tabs %}
 
@@ -135,10 +151,10 @@ Create a [function](../../functions/concepts/function.md) in [{{ sf-full-name }}
 
         * Specify the entry point: `handler.sh`.
      1. Under **Parameters**, specify:
-        * Timeout, sec: 60.
-        * RAM: 128 MB.
-        * Service account: `scanner`.
-     1. In the upper-right corner, click **Create version**.
+        * Timeout, sec: 60
+        * RAM: 128 MB
+        * Service account: `scanner`
+     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
 
@@ -160,37 +176,31 @@ Create a [function](../../functions/concepts/function.md) in [{{ sf-full-name }}
      status: ACTIVE
      ```
 
-  1. Create the `handler.sh` file and copy the following code to it:
+  1. Create the `handler.sh` file and paste the following code to it:
 
-     ```bash
-     DATA=$(cat | jq -sr '.[0].messages[0].details')
-     ID=$(echo $DATA | jq -r '.image_id')
-     NAME=$(echo $DATA | jq -r '.repository_name')
-     TAG=$(echo $DATA | jq -r '.tag')
-     yc container image scan --id ${ID} --async 1>&2
-     ```
+     {% include [handler-sh-function](../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
 
   1. Create a version of the `scan-on-push` function:
 
      ```bash
      yc serverless function version create \
-       --function-name=<scan-on-push> \
+       --function-name=scan-on-push \
        --runtime bash \
        --entrypoint handler.sh \
        --memory 128m \
        --execution-timeout 60s \
        --source-path handler.sh \
-       --service-account-id <service account ID>
+       --service-account-id <service_account_ID>
      ```
 
      Where:
-     * `function-name`: Name of the function you want to create a version of.
-     * `runtime`: Runtime environment.
-     * `entrypoint`: The entry point specified in the `<function file name>.<handler name>` format.
-     * `memory`: Amount of RAM.
-     * `execution-timeout`: Maximum function execution time before the timeout is reached.
-     * `source-path`: A file with the function code.
-     * `service-account-id`: ID of your service account.
+     * `--function-name`: Name of the function you want to create a version of.
+     * `--runtime`: Runtime environment
+     * `--entrypoint`: Entry point specified in the `<function_file_name>.\<handler_name>` format.
+     * `--memory`: Amount of RAM
+     * `--execution-timeout`: Maximum function execution time before the timeout is reached.
+     * `--source-path`: File with the function code
+     * `--service-account-id`: Service account ID
 
      Result:
 
@@ -204,6 +214,10 @@ Create a [function](../../functions/concepts/function.md) in [{{ sf-full-name }}
      log_group_id: ckg6nb0c7uf19oo8pvjj
      ```
 
+- {{ TF }}
+
+  See [How to create an infrastructure using {{ TF }}](#terraform).
+
 - API
 
   Use the [create](../../functions/functions/api-ref/Function/create) and the [createVersion](../../functions/functions/api-ref/Function/createVersion) methods for the [Function](../../functions/functions/api-ref/Function/) resource.
@@ -212,7 +226,7 @@ Create a [function](../../functions/concepts/function.md) in [{{ sf-full-name }}
 
 ## Create a trigger {#create-trigger}
 
-Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will invoke your function when creating an image [tag](../concepts/docker-image.md#version).
+Create a trigger that will invoke your function when creating a Docker image [tag](../concepts/docker-image.md#version).
 
 {% list tabs %}
 
@@ -226,7 +240,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
      * Enter a name and description for the trigger.
      * In the **Type** field, select **{{ container-registry-name }}**.
   1. Under **{{ container-registry-name }} settings**:
-     * In the **Registry** field, select the registry where you want to push the image.
+     * In the **Registry** field, select the registry to push the Docker image to.
      * In the **Event types** field, select **Create Docker image tag** as your [event](../../functions/concepts/trigger/cr-trigger.md#event).
   1. Under **Function settings**:
      * Select the `scan-on-push` function.
@@ -240,19 +254,19 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
   ```bash
   yc serverless trigger create container-registry \
-    --name <trigger name> \
-    --registry-id <registry ID> \
+    --name <trigger_name> \
+    --registry-id <registry_ID> \
     --events 'create-image-tag' \
-    --invoke-function-id <function ID> \
-    --invoke-function-service-account-id <service account ID>
+    --invoke-function-id <function_ID> \
+    --invoke-function-service-account-id <service_account_ID>
   ```
 
   Where:
-  * `name`: Trigger name.
-  * `registry-id`: The [ID of the registry](../operations/registry/registry-list.md) where you want to push the image.
-  * `events`: [Events](../../functions/concepts/trigger/cr-trigger.md#event) after which the trigger activates.
-  * `invoke-function-id`: Function ID.
-  * `invoke-function-service-account-id`: The ID of the service account with rights to invoke the function.
+  * `--name`: Trigger name
+  * `--registry-id`: [ID of the registry](../operations/registry/registry-list.md) to push the Docker image to.
+  * `--events`: [Events](../../functions/concepts/trigger/cr-trigger.md#event) activating the trigger.
+  * `--invoke-function-id`: Function ID
+  * `--invoke-function-service-account-id`: ID of the service account with rights to invoke the function.
 
   Result:
 
@@ -272,7 +286,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
 {% endlist %}
 
-## Upload an image {#download-image}
+## Push the Docker image {#download-image}
 
 1. Run Docker Desktop.
 1. Log in to the registry under your username:
@@ -309,7 +323,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
         "{{ registry }}": "yc"
         ```
 
-     1. You can now use Docker, for example, to [push Docker images](../operations/docker-image/docker-image-push.md). You don't need to run `docker login` for that.
+     1. You can now use Docker, for example, to [push Docker images](../operations/docker-image/docker-image-push.md). You do not need to run the `docker login` command for that.
 
    
    - Using an OAuth token
@@ -328,7 +342,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
         ```
 
 
-   - Using an IAM token
+   - Using an {{ iam-full-name }} token
 
      {% note info %}
 
@@ -336,8 +350,8 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
      {% endnote %}
 
-     1. [Get](../../iam/operations/iam-token/create.md) an [IAM token](../../iam/concepts/authorization/iam-token.md).
-     1. Run the following command:
+     1. [Get](../../iam/operations/iam-token/create.md) an [{{ iam-name }} token](../../iam/concepts/authorization/iam-token.md).
+     1. Run this command:
 
         ```bash
         yc iam create-token | docker login --username iam --password-stdin {{ registry }}
@@ -369,13 +383,13 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 1. Assign a tag to the Docker image:
 
    ```bash
-   docker tag ubuntu:20.04 {{ registry }}/<registry ID>/ubuntu:20.04
+   docker tag ubuntu:20.04 {{ registry }}/<registry_ID>/ubuntu:20.04
    ```
 
 1. Push the Docker image to {{ container-registry-name }}:
 
    ```bash
-   docker push {{ registry }}/<registry ID>/ubuntu:20.04
+   docker push {{ registry }}/<registry_ID>/ubuntu:20.04
    ```
 
    Result:
@@ -434,14 +448,14 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
      1. Select **{{ container-registry-name }}**.
      1. Select the registry where you pushed your Docker image.
      1. Open the repository with the Docker image.
-     1. Select the image you need and check the **Date of last scan** parameter value.
+     1. Select the relevant Docker image and check the **Date of last scan** parameter value.
 
    - CLI
 
      To view scans by Docker image, run the command:
 
      ```bash
-     yc container image list-scan-results --repository-name=<registry ID>/<Docker image name>
+     yc container image list-scan-results --repository-name=<registry_ID>/<Docker_image_name>
      ```
 
      Result:
@@ -456,7 +470,85 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
 
    {% endlist %}
 
+
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
+
 * [Delete the Docker image](../../container-registry/operations/docker-image/docker-image-delete.md) stored in [{{ cos-full-name }}](../../cos/), as well as the [registry](../../container-registry/operations/registry/registry-delete.md).
+* [Delete](../../functions/operations/function/function-delete.md) the {{ sf-name }} function.
+* [Delete](../../functions/operations/function/function-delete.md) the {{ sf-name }} trigger.
+
+## How to create an infrastructure using {{ TF }} {#terraform}
+
+{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+To set up automatic Docker image scan at push using {{ TF }}:
+
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) and [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+1. Specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+1. Prepare files with the infrastructure description:
+
+   {% list tabs %}
+
+   - Ready-made archive
+
+      1. Create a directory for files.
+      1. Download the [archive](https://{{ s3-storage-host }}/doc-files/image-auto-scan-tf.zip) (2 KB).
+      1. Unpack the archive to the directory. As a result, it should contain the `image-auto-scan.tf` configuration file, the `image-auto-scan.auto.tfvars` file with user data, and the `function.zip` archive with the function code.
+
+   - Creating files manually
+
+      1. Create a directory for configuration files.
+      1. In the directory, create a configuration file named `image-auto-scan.tf`:
+
+         {% cut "image-auto-scan.tf" %}
+
+         {% include [image-auto-scan-tf-config](../../_includes/web/image-auto-scan-tf-config.md) %}
+
+         {% endcut %}
+
+      1. Create the `image-auto-scan.auto.tfvars` file with user data:
+
+         {% cut "image-auto-scan.auto.tfvars" %}
+
+         {% include [image-auto-scan-tf-variables](../../_includes/web/image-auto-scan-tf-variables.md) %}
+
+         {% endcut %}
+
+      1. Prepare a ZIP archive with the function code:
+
+         1. Create the `handler.sh` file and paste the following code to it:
+
+            {% cut "handler.sh" %}
+
+            {% include [warning-unix-lines](../../_tutorials/_tutorials_includes/warning-unix-lines.md) %}
+
+            {% include [handler-sh-function](../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
+
+            {% endcut %}
+
+         1. Create a ZIP archive named `function.zip` with the `handler.sh` file.
+
+   {% endlist %}
+
+   For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+
+   * [yandex_iam_service_account]({{ tf-provider-resources-link }}/yandex_iam_service_account)
+   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/yandex_resourcemanager_folder_iam_member)
+   * [yandex_container_registry]({{ tf-provider-resources-link }}/yandex_container_registry)
+   * [yandex_function]({{ tf-provider-resources-link }}/yandex_function)
+
+1. In the `image-auto-scan.auto.tfvars` file, set the user-defined parameters:
+   * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) to create the infrastructure in.
+   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create the infrastructure in.
+
+1. Create resources:
+
+   {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+1. [Create a trigger](#create-trigger).
+
+1. [Push the image](#download-image).
+
+1. [Check the result](#check-result).

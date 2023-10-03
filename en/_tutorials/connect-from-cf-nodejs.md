@@ -31,8 +31,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for this scenario includes:
 
-* A fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
-* A fee for querying the database (see [{{ ydb-full-name }} pricing](../ydb/pricing/serverless.md)).
+* Fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
+* Fee for querying the database (see [{{ ydb-full-name }} pricing](../ydb/pricing/serverless.md)).
 
 
 ## Prepare the environment {#prepare-environment}
@@ -43,25 +43,44 @@ The infrastructure support cost for this scenario includes:
    git clone https://github.com/yandex-cloud/examples.git
    ```
 
-1. In the repository, go to the folder with the project files: `examples/serverless/functions/YDB-connect-from-serverless-function`.
 1. Install and initialize the [{{ yandex-cloud }} CLI](../cli/quickstart.md).
-1. Install the [jq](https://stedolan.github.io/jq/download/) utility. In the root of the folder with the project files, start the terminal and run the command:
+
+1. Go to the project root directory:
+
+   ```bash
+   cd ~/examples/serverless/functions/YDB-connect-from-serverless-function
+   ```
+
+   Make sure to run all further commands in this directory.
+
+1. Install the [jq](https://stedolan.github.io/jq/download/) utility:
 
    ```bash
    sudo apt-get install jq
    ```
 
-1. Install [Node.js](https://nodejs.org/en/download/package-manager/) by running the command below:
+1. Install [Node.js](https://nodejs.org/en/download/package-manager/):
 
    ```
    curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - \
    sudo apt-get install -y nodejs
    ```
 
-1. Install dependencies by running the command below:
+1. Install the dependencies:
 
-   ```
+   ```bash
    npm install
+   ```
+
+   Result:
+
+   ```bash
+   up to date, audited 269 packages in 1s
+
+   29 packages are looking for funding
+      run `npm fund` for details
+
+   found 0 vulnerabilities
    ```
 
 ## Create a service account {#create-sa}
@@ -71,21 +90,51 @@ The infrastructure support cost for this scenario includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Click **Create service account**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter the service account name: `sa-function`.
-   1. Click **Add role** and choose the `editor role`.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and choose the `editor` role.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
 
-   Run this command:
+   1. [Create](../iam/operations/sa/create.md#create-sa) a service account:
 
-   ```bash
-   yc iam service-account create --name sa-function
-   ```
+      ```bash
+      yc iam service-account create --name sa-function
+      ```
 
-   For more information about the `yc iam service-account create` command, see the [CLI reference](../cli/cli-ref/managed-services/iam/service-account/create.md).
+      Result:
+
+      ```bash
+      id: aje028do8n9r********
+      folder_id: b1g681qpemb4********
+      created_at: "2023-08-23T06:24:49.759304161Z"
+      name: sa-function
+      ```
+
+   1. [Assign](../iam/operations/sa/set-access-bindings.md#assign-role-to-sa) the `editor` role to the service account:
+
+      ```bash
+      yc resource-manager folder add-access-binding <folder_ID> \
+         --role editor \
+         --subject serviceAccount:<service_account_ID>
+      ```
+
+      Result:
+
+      ```bash
+      ...1s...done (4s)
+      effective_deltas:
+      - action: ADD
+         access_binding:
+            role_id: viewer
+            subject:
+            id: aje028do8n9r********
+            type: serviceAccount
+      ```
+
+   For more information about the commands, see the [CLI reference](../cli/cli-ref/managed-services/iam/service-account/index.md).
 
 - {{ TF }}
 
@@ -104,7 +153,7 @@ The infrastructure support cost for this scenario includes:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -120,11 +169,11 @@ The infrastructure support cost for this scenario includes:
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API
 
-   To create a service account, use the [create](../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../iam/api-ref/ServiceAccount/index.md) resource.
+   To create a service account and assign it a role, use the [create](../iam/api-ref/ServiceAccount/create.md) and [setAccessBindings](../iam/api-ref/ServiceAccount/setAccessBindings.md) methods for the [ServiceAccount](../iam/api-ref/ServiceAccount/index.md) resource.
 
 {% endlist %}
 
@@ -135,17 +184,17 @@ The infrastructure support cost for this scenario includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. At the top of the screen, go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose the `sa-function` service account and click the line with its name.
-   1. Click **Create new key** in the top panel.
-   1. Click **Create authorized key**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
+   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
    1. Select the encryption algorithm.
    1. Enter a description of the key so that you can easily find it in the management console.
-   1. Save public and private keys to the `service_account_key_file.json` file:
+   1. Save the public and the private keys to the `examples/serverless/functions/YDB-connect-from-serverless-function/service_account_key_file.json` file:
 
       ```json
       {
-         "service_account_id": "<sa-function service account ID>",
+         "service_account_id": "<sa-function_service_account_ID>",
          "key_algorithm": "RSA_2048",
          "public_key": "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----\n",
          "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
@@ -180,7 +229,7 @@ The infrastructure support cost for this scenario includes:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -196,7 +245,7 @@ The infrastructure support cost for this scenario includes:
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API
 
@@ -211,19 +260,19 @@ The infrastructure support cost for this scenario includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
-   1. In the list of services, select **{{ ydb-name }}**.
-   1. Click **Create database**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
    1. Enter a name for the database. The naming requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
-   1. Under **Database type**, select the **Serverless** option.
-   1. Click **Create database**.
+   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
+   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-      Wait until the database starts. When a database is being created, it has the `Provisioning` status. When it's ready for use, the status changes to `Running`.
+      Wait until the database starts. When a database is being created, it has the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
 
    1. Click on the name of the created database.
-   1. Save the **Endpoint** and **Database** field values under **Connection**. You will need them in the next step.
+   1. Save the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** and **{{ ui-key.yacloud.ydb.overview.label_database }}** field values under **{{ ui-key.yacloud.ydb.overview.section_connection }}**. You will need them in the next step.
 
 {% endlist %}
 
@@ -231,19 +280,25 @@ The infrastructure support cost for this scenario includes:
 
 {% note info %}
 
-Before creating a function, make sure the `.env` file and the `create-func.sh` and `create-func-ver.sh` files from the `deploy` folder have the `LF` (Line Feed) character set.
+Before creating a function, make sure the `.env` file and the `create-func.sh` and `create-func-ver.sh` files from the `deploy` directory have the `LF` (line feed) character set.
 
 {% endnote %}
 
+1. Go to the project root directory:
+
+   ```bash
+   cd ~/examples/serverless/functions/YDB-connect-from-serverless-function
+   ```
+
 1. Edit the `.env` file:
 
-   * `ENDPOINT`: String in <protocol>://<**Endpoint** field value under **Connection**> format. For example, if the protocol is `grpcs` and the endpoint is `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, enter `{{ ydb.ep-serverless }}`.
-   * `DATABASE`: Value of the **Database** field under **Connection**.
+   * `ENDPOINT`: String in <protocol>://<**{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value under **{{ ui-key.yacloud.ydb.overview.section_connection }}**> format. For example, if the protocol is `grpcs` and the endpoint is `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, enter `{{ ydb.ep-serverless }}`.
+   * `DATABASE`: Value of the **{{ ui-key.yacloud.ydb.overview.label_database }}** field under **{{ ui-key.yacloud.ydb.overview.section_connection }}**.
    * `FUNCTION_NAME`: `func-test-ydb`.
    * `FOLDER_ID`: ID of the folder.
    * `SERVICE_ACCOUNT_ID`: ID of the `sa-function` service account.
 
-1. Start the command line in the project root and run the command:
+1. Create a function:
 
    ```bash
    ./deploy/create-func.sh
@@ -257,6 +312,46 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
    ./deploy/create-func-ver.sh
    ```
 
+   Result:
+
+   ```bash
+   npx tsc --build tsconfig.json
+   rm: couldn't delete '../build/func.zip': File or folder doesn't exist
+   adding: queries/ (stored 0%)
+   adding: queries/clients-table.js (deflated 57%)
+   adding: queries/helpers.js.map (deflated 43%)
+   adding: queries/helpers.js (deflated 48%)
+   adding: queries/clients-table.js.map (deflated 59%)
+   adding: index.js (deflated 49%)
+   adding: index.js.map (deflated 56%)
+   adding: database.js.map (deflated 62%)
+   adding: index-local.js (deflated 42%)
+   adding: package.json (deflated 55%)
+   adding: database.js (deflated 60%)
+   adding: index-local.js.map (deflated 43%)
+   yc function version create func-test-ydb
+   done (27s)
+   id: abcd2d363b4b********
+   function_id: efghm9el0ja9********
+   created_at: "2023-08-15T07:41:07.591Z"
+   runtime: nodejs16
+   entrypoint: index.handler
+   resources:
+         memory: "268435456"
+   execution_timeout: 5s
+   service_account_id: hijk3hlu8gqe********
+   image_size: "33497088"
+   status: ACTIVE
+   tags:
+         - $latest
+   log_group_id: lmnoivbe341g********
+   environment:
+         DATABASE: /ru-central1/b1gia87mbaom********/etnilt3o6v9e********
+         ENDPOINT: grpcs://ydb.serverless.yandexcloud.net:2135
+   log_options:
+         folder_id: pqrs81qpemb********
+   ```
+
 ## Test the function {#test-function}
 
 {% list tabs %}
@@ -264,12 +359,17 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the function is located.
-   1. In the list of services, select **{{ sf-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Select the `func-test-ydb` function.
-   1. Go to the **Overview** tab.
-   1. Under **General information**, click the function call link.
-   1. In the browser address bar, add the `api_key` parameter to the link, such as `?api_key=b95`.
-   1. If a connection to the DB is successful, a table named `b95` is created and a single record is added to it. A message in JSON format appears on the page, such as:
+   1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_overview }}** tab.
+   1. In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, click the link.
+   1. In the browser address bar, add the `api_key` parameter to the link, such as `?api_key=b95`:
+
+      ```
+      https://functions.yandexcloud.net/efghm9el0ja9********?api_key=b95
+      ```
+
+   1. If a connection to the DB is successful, a table named `b95` will be created and a single record will be added to it. A message in JSON format will appear on the page, such as:
 
       ```json
       {
@@ -283,5 +383,5 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 
 To stop paying for the resources you created:
 
-* [Delete the database](../ydb/operations/manage-databases.md#delete-db).
-* [Delete the function](../functions/operations/function/function-delete.md).
+1. [Delete the database](../ydb/operations/manage-databases.md#delete-db).
+1. [Delete the function](../functions/operations/function/function-delete.md).

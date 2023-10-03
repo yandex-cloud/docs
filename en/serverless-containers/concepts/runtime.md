@@ -18,7 +18,7 @@ You can write your application in any programming language and have it use any i
 
 {% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
 
-After receiving a request, a container instance must send a response within the timeout specified in the **Timeout** field of the container revision settings. It includes the container instance launch time. Otherwise, the request terminates returning a 504 error.
+After receiving a request, a container instance must send a response within the timeout specified in the **{{ ui-key.yacloud.serverless-containers.label_timeout }}** field of the container revision settings. It includes the container instance launch time. Otherwise, the request terminates returning a 504 error.
 
 ## Environment variables {#environment-variables}
 
@@ -48,7 +48,7 @@ A CPU resource is allocated whenever a container instance is processing at least
 
 ### RAM {#ram}
 
-Each container instance is allocated RAM. The default is 128 MB.
+Each container instance is allocated RAM. The default value is 128 MB.
 
 For example, RAM is consumed for:
 

@@ -15,7 +15,7 @@
 ### Настройте предустановленный процесс
 
 1. Откройте страницу очереди.
-1. В верхнем правом углу нажмите ![](../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}** и выбирите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**.
+1. В верхнем правом углу нажмите ![](../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}** и выберите **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}**.
 1. Выберите предустановленный рабочий процесс **Recruiting**.
 1. На странице процесса поменяйте название на **Квалифицированные кадры**.
 1. Укажите тип задач, к которым применим этот процесс. Для этого нажмите ![](../_assets/tracker/svg/icon-add.svg) справа от названия процесса и введите имя нового типа задачи, например `Специалисты`.
@@ -30,9 +30,9 @@
 1. На карточке рабочего процесса <q>Квалифицированные кадры</q> нажмите кнопку ![](../_assets/tracker/button-copy.png).
 1. Дождитесь появления карточки процесса <q>Квалифицированные кадры (1)</q> и нажмите кнопку редактирования ![](../_assets/tracker/button-edit.png).
 1. На странице рабочего процесса <q>Квалифицированные кадры (1)</q> поменяйте название на **Неквалифицированные кадры**. 
-1. Укажите тип задач, к которым применим этот процесс, создав тип `Неспециалисты` как описано выше.
+1. Укажите тип задач, к которым применим этот процесс, создав тип `Неспециалисты`, как описано выше.
 1. Удалите из процесса этап согласования. Для этого на схеме процесса кликните на статус **Согласование результата** и в панели настроек статуса справа вверху нажмите ![](../_assets/tracker/svg/actions.svg). Выберите опцию **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.action-remove }}**.
-1. Сохраните процесс как описано выше.
+1. Сохраните процесс, как описано выше.
 
 ## Создайте шаблоны задач
 
@@ -78,7 +78,7 @@
 
 ### Создайте тестовые задачи и сгруппируйте по типу
 
-1. На странице создания новой задачи в справа вверху в поле **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}** выберите опцию **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}**.
+1. На странице создания новой задачи справа вверху в поле **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}** выберите опцию **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}**.
 1. Кликните виджет с названием нужной вам формы, например `Специалист`.
 1. Заполните форму и нажмите кнопку **Отправить**.
 1. Аналогично создайте задачу с типом `Неспециалист`.

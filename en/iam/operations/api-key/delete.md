@@ -14,6 +14,8 @@
 
 - CLI
 
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
    1. Get a list of API key `IDs` for a specific service account. Specify the service account name in the `--service-account-name` parameter:
 
       ```bash
@@ -90,9 +92,9 @@
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can check if the resources are there and properly configured either from the [management console]({{ link-console-main }}) or using this CLI command:
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) and this CLI command:
 
       ```
       yc iam key list --service-account-id <service account ID>

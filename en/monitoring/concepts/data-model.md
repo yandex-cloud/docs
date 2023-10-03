@@ -18,8 +18,8 @@ A _label_ is a metric characteristic in `key: "value"` format. Each metric is id
 
 The service has mandatory and optional labels. Mandatory labels:
 
-- `cloudId`: The [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) that the resource belongs to.
-- `folderId`: The ID of the folder that the resource belongs to.
+- `cloudId`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) the resource belongs to.
+- `folderId`: ID of the folder the resource belongs to.
 - `service`: Indicates the {{ yandex-cloud }} service that the resource belongs to. For example, `compute` or `managed-postgresql`.
 
 {% note warning %}
@@ -27,6 +27,17 @@ The service has mandatory and optional labels. Mandatory labels:
 When uploading custom metrics, you should write the `custom` value in the `service` label.
 
 {% endnote %}
+
+#### Label constraints and their values {#limits}
+
+The following constraints apply to labels and their values:
+
+* A metric can have no more than 16 labels, including the mandatory `cloudId`, `folderId`, and `service` labels.
+* Label name cannot be empty.
+* Label name cannot include the `-` character.
+* Name length: 32 characters or less.
+* Label name must start with an uppercase or lowecase letter and may contain letters, digits, the `.` and `_` characters.
+* Label names and metric values cannot include any non-Latin letters.
 
 ### Metric types {#metric-types}
 The {{ monitoring-full-name }} service offers the following metric types:
@@ -51,9 +62,9 @@ The following templates are available in {{ monitoring-name }}:
 | `label="*"` | Outputs all metrics with the specified label. For example, the `host="*"` query displays all metrics with `host` label. |
 | `label="glob"` | Displays all metrics whose label value matches a [glob expression](https://en.wikipedia.org/wiki/Glob_(programming)):<br/><br/>`*`: Any number of characters (including none). For example, `name="folder*"` displays all metrics that have the `name` label and whose value begins with the `folder` prefix.<br/><br/>`?`: One arbitrary character. For example, `name="metric?"` displays all labels that have one character after `metric`<br/><br/>`|`: All specified options. For example, `name="metric1|metric2"` displays two metrics with label values `metric1` and `metric2`. |
 
-#### See also {#see-also}
+
+
+
+## See also {#see-also}
 
 - [{#T}](visualization/index.md)
-
-
-

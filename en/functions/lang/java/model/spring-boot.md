@@ -15,10 +15,10 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
 
 Function version parameters:
 
-* **Runtime environment**: `java17`.
-* **Timeout, s**: `10`.
-* **RAM**: `128 MB`.
-* **Entry point**: `app.Application`.
+* **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `java17`
+* **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`
+* **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+* **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `app.Application`
 
 Project structure:
 

@@ -51,8 +51,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 - Instructions
 
    Generate the parts that make up a JWT:
-   * `header`: Base64Url encoded JWT headers.
-   * `payload`: Base64Url encoded JWT Claims Set.
+   * `header`: Base64Url-encoded JWT headers.
+   * `payload`: Base64Url-encoded JWT Claims Set.
    * `signature`: Signature generated from parts of the header and payload.
 
    To create a JWT, join all parts using a period as the delimiter:
@@ -68,7 +68,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
    * `alg`: Encryption algorithm. The only supported algorithm is [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
    * `kid`: ID of the public key obtained when [creating authorized keys](../authorized-key/create.md). The key must belong to the service account that the IAM token is requested for.
 
-   Example:
+   For example:
 
    ```
    {
@@ -88,11 +88,11 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
    * `iat`: JWT issue time in [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) format.
    * `exp`: JWT expiration time in Unix timestamp format. The expiration time must not exceed the issue time by more than one hour, i.e., `exp - iat ≤ 3600`.
 
-   Example:
+   For example:
 
    ```
    {
-    "iss": "ajepg0mjt06s********",
+     "iss": "ajepg0mjt06s********",
      "aud": "https://iam.{{ api-host }}/iam/v1/tokens",
      "iat": 1516239022,
      "exp": 1516240822
@@ -571,5 +571,5 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
 #### What's next {#what-is-next}
 
-* [{#T}](../sa/set-access-bindings.md).
-* [{#T}](../sa/assign-role-for-sa.md).
+* [{#T}](../sa/set-access-bindings.md)
+* [{#T}](../sa/assign-role-for-sa.md)

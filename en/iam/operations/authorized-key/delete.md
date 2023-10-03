@@ -17,6 +17,8 @@ description: "In this tutorial, you will learn how to delete authorized keys in 
 
 - CLI
 
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
    1. Get a list of authorized key `IDs` for a specific service account. Specify the service account name in the `--service-account-name` parameter:
 
       ```bash

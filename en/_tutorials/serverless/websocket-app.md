@@ -668,9 +668,9 @@ The following service accounts were created when deploying the project:
 1. Transfer new values to the `game-secrets` secret:
 
    1. In the [management console]({{ link-console-main }}), select your working folder.
-   1. Select **{{ message-queue-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
    1. Select `capturing-queue`.
-   1. Copy the value from the **URL** field and save it to the `YMQ_CAPTURE_QUEUE_URL` variable:
+   1. Copy the value from the **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** field and save it to the `YMQ_CAPTURE_QUEUE_URL` variable:
 
       ```bash
       echo "export YMQ_CAPTURE_QUEUE_URL=<URL>" >> ~/.bashrc && . ~/.bashrc
