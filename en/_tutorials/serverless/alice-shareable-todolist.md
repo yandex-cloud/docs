@@ -14,7 +14,7 @@ To deploy a project:
 ## Prepare the environment {#prepare}
 
 1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) repository using Git.
-1. [Create a folder](../../resource-manager/operations/folder/create.md) if you don't have any. For convenience, you can use a separate folder named `alice-skill`.
+1. [Create a folder](../../resource-manager/operations/folder/create.md) if you do not have any. For convenience, you can use a separate folder named `alice-skill`.
 1. Install and initialize the following software programs:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
    * [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/reference/ydb-cli/install).
@@ -31,8 +31,8 @@ To deploy a project:
 ## Create resources {#create-resources}
 
 1. [Create a bucket](../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-full-name }}.
-1. [Create an API gateway](../../api-gateway/operations/api-gw-create.md) named `gate-1`. Save the **ID** and **Service domain** field values from the **General information** section to use them in the configuration.
-1. [Create a database](../../ydb/quickstart.md#serverless) in Serverless mode. Save the **Endpoint** and **Database** fields under **Connection**. You will need them when setting up your project.
+1. [Create an API gateway](../../api-gateway/operations/api-gw-create.md) named `gate-1`. Save the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_id }}** and **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field values from the **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}** section to use them in the configuration.
+1. [Create a database](../../ydb/quickstart.md#serverless) in Serverless mode. Save the value of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it when setting up your project.
 1. [Create an app](https://oauth.yandex.com/) in Yandex OAuth:
    1. Go to the [service website](https://oauth.yandex.com/) and log in.
    1. Click **Create new client**.
@@ -62,8 +62,8 @@ Set the project parameters in the `variables.json` file:
 * `folder-id`: ID of the cloud folder.
 * `domain`: API gateway service domain.
 * `oauth-client-id`: ID of the client app registered in [Yandex OAuth](https://oauth.yandex.com/).
-* `database`: DB location from the {{ ydb-name }} configuration.
-* `database-endpoint`: Endpoint from the {{ ydb-name }} configuration.
+* `database-endpoint`: Endpoint, the first part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
+* `database`: Database location, the second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
 * `yc-profile`: {{ yandex-cloud }} CLI [profile name](../../cli/operations/profile/profile-list.md).
 * `secure-config-path`: Path to the secret file.
 * `storage-bucket`: Name of the bucket you created for storing static data.
@@ -293,4 +293,4 @@ To start a dialog, use any device or service supported by [Alice](https://yandex
 
 ### On the website {#site-test}
 
-In your browser, follow the URL specified in the **Service domain** field of your API gateway and log in. The "My lists" page opens. In any of the lists, you can add or remove items and grant other users access to the list.
+In your browser, follow the URL specified in the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field of your API gateway and log in. The **My lists** page opens. In any of the lists, you can add or remove items and grant other users access to the list.

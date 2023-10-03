@@ -5,13 +5,13 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-   1. Select **{{ sf-name }}**.
-   1. Click **Create function**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
    1. Enter a name and description for the function. The name format is as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -28,11 +28,11 @@
    Result:
 
    ```
-   id: b09bhaokchn9pnbrlseb
-   folder_id: aoek49ghmknnpj1ll45e
+   id: b09bhaokchn9********
+   folder_id: aoek49ghmknn********
    created_at: "2019-06-14T10:03:37.475Z"
    name: python_function
-   log_group_id: eolm8aoq9vcppsieej6h
+   log_group_id: eolm8aoq9vcp********
    http_invoke_url: https://{{ sf-url }}/b09bhaokchn9pnbrlseb
    status: ACTIVE
    ```
@@ -122,7 +122,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -131,7 +131,7 @@
       ```
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+      You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc serverless function list

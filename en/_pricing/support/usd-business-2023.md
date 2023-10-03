@@ -1,1 +1,1 @@
-The cost of support under the service plan is fixed at $24 per month plus 5% of the cost of paid resources consumed in the organization. The cost of support is charged to the billing account the paid resource is linked to.
+The cost of support under the service plan is fixed at {{ sku|USD|support.organization.business.fixed_consumption.v1|int|string }} per month plus 5% of the cost of paid resources consumed in the organization. The cost of support is charged to the billing account the paid resource is linked to.

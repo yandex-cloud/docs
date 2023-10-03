@@ -23,11 +23,11 @@ The cost of the resources includes charges for the number of API gateway request
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-   1. In the list of services, select **{{ api-gw-name }}**.
-   1. Click Create **API gateway**.
-   1. In the **Name** field, enter `websocket`.
-   1. (Optional) In the **Description** field, enter a description.
-   1. In the **Specification** section, add a specification:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field, enter `websocket`.
+   1. (Optional) In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_description }}** field, enter a description.
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add a specification:
       ```yaml
       openapi: 3.0.0
       info:
@@ -60,7 +60,7 @@ The cost of the resources includes charges for the number of API gateway request
               content:
                 text/plain: '{"connection_id":"{X-Yc-Apigateway-Websocket-Connection-Id}"}'
       ```
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 {% endlist %}
 

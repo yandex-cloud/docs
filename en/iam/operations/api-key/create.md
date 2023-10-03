@@ -14,6 +14,8 @@ To create an API key:
 
 - CLI
 
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
    1. See the description of the create API key command:
@@ -77,11 +79,11 @@ To create an API key:
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Add parameters of resource to the configuration file:
+   1. Add resource parameters to the configuration file:
 
-      * `service_account_id` = service account [ID](../sa/get-id.md). Required parameter.
-      * `-description`: Key description. Optional parameter.
-      * `pgp_key`: Additional PGP key for encrypting a private key. Optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
+      * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
+      * `-description`: Key description. This is an optional parameter.
+      * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
 
       Example of the configuration file structure:
 
@@ -114,9 +116,9 @@ To create an API key:
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) and this CLI command:
 
       ```
       yc iam key list --service-account-id <service account ID>
@@ -156,10 +158,10 @@ To make it easier to find an API key without knowing its ID, add a description w
 
 - {{ TF }}
 
-   1. Add parameters of resource to the configuration file:
+   1. Add resource parameters to the configuration file:
 
-      * `service_account_id`: Service account ID. Required parameter.
-      * `-description`: Key description. Optional parameter.
+      * `service_account_id`: Service account ID. This is a required parameter.
+      * `-description`: Key description. This is an optional parameter.
 
       {% cut "Example of adding a description when creating a service account API key using {{ TF }}" %}
 
@@ -193,9 +195,9 @@ To make it easier to find an API key without knowing its ID, add a description w
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

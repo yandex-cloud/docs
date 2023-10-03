@@ -103,16 +103,6 @@
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#cancel-http-readonly-queries-on-client-close).
 
-* **Compile**{#setting-compile} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
-
-  Настройка устарела.
-
-  Определяет, компилировать ли запросы при их выполнении. При включенной компиляции структурно идентичные запросы могут выполняться быстрее за счет использования скомпилированных частей запроса.
-
-  Используется вместе с настройкой [Min count to compile](#setting-min-count-to-compile).
-
-  По умолчанию компиляция выключена.
-
 * **Compile expressions**{#setting-compile-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Определяет, компилировать ли выражения при выполнении запросов. При включенной компиляции запросы, в которых используются идентичные выражения, могут выполняться быстрее за счет использования скомпилированных выражений.
@@ -137,16 +127,18 @@
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#connect-timeout-with-failover-ms).
 
-* **Count distinct implementation**{#setting-count-distinct-implementation} {{ tag-all }}
+* **Count distinct implementation**{#setting-count-distinct-implementation} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
   Определяет, какая из функций `uniq*` используется при выполнении конструкции `COUNT(DISTINCT …)`:
-  * [uniq]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq)
-  * [uniqCombined]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined)
-  * [uniqCombined64]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64)
-  * [uniqHLL12]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12)
-  * [uniqExact]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact)
+  * [uniq]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniq#agg_function-uniq)
+  * [uniqCombined]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqcombined#agg_function-uniqcombined)
+  * [uniqCombined64]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqcombined64#agg_function-uniqcombined64)
+  * [uniqHLL12]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqhll12#agg_function-uniqhll12)
+  * [uniqExact]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqexact#agg_function-uniqexact)
 
   По умолчанию используется функция `uniqExact`.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#settings-count_distinct_implementation).
 
 * **Date time input format**{#setting-date-time-input-format} {{ tag-con }} {{ tag-sql }}
 
@@ -353,6 +345,14 @@
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
 
+* **Input format import nested json**{#setting-input-format-import-nested-json} {{ tag-con }}
+
+  Определяет, вставлять ли данные JSON с вложенными объектами.
+
+  По умолчанию такая вставка данных выключена.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-input_format_import_nested_json).
+
 * **Input format null as default**{#setting-input-format-null-as-default} {{ tag-con }} {{ tag-sql }}
 
   Определяет, заполнять ли ячейки со значением `NULL` значениями по умолчанию, если тип данных столбца не позволяет хранить значение `NULL`.
@@ -360,6 +360,14 @@
   По умолчанию настройка включена (ячейки `NULL` заполняются значениями по умолчанию).
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-input-format-null-as-default).
+
+* **Input format parallel parsing**{#setting-input-format-parallel-parsing} {{ tag-con }}
+
+  Определяет, разбивать ли входящие данные на части, парсинг каждой из которых осуществляется параллельно с сохранением исходного порядка. Поддерживается только для форматов [TSV](https://clickhouse.com/docs/en/interfaces/formats#tabseparated), [TKSV](https://clickhouse.com/docs/en/interfaces/formats#tskv), [CSV](https://clickhouse.com/docs/en/interfaces/formats#csv) и [JSONEachRow](https://clickhouse.com/docs/en/interfaces/formats#jsoneachrow).
+
+  По умолчанию такая разбивка входящих данных включена.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#input-format-parallel-parsing).
 
 * **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -380,6 +388,14 @@
   По умолчанию проверка включена.
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-input-format-with-names-use-header).
+
+* **Insert keeper max retries**{#setting-insert-keeper-max-retries} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Максимальное количество повторных попыток для запросов {{ CK }} (или {{ ZK }}) во время вставки в реплицированные таблицы семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
+
+  Минимальное значение — `0` (повторные попытки отключены), по умолчанию — `20`.
+
+  Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#insert_keeper_max_retries).
 
 * **Insert null as default**{#setting-insert-null-as-default} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
@@ -417,22 +433,6 @@
   Задает время ожидания [кворумной записи](#setting-insert-quorum) в миллисекундах. Если время прошло, а запись так и не состоялась, то {{ CH }} прервет выполнение запроса `INSERT` и вернет ошибку.
 
   Минимальное значение — `1000` (1 секунда), по умолчанию — `60000` (1 минута).
-
-* **Input format import nested json**{#setting-input-format-import-nested-json} {{ tag-con }}
-
-  Определяет, вставлять ли данные JSON с вложенными объектами.
-
-  По умолчанию такая вставка данных выключена.
-
-  Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/ru/operations/settings/settings/#settings-input_format_import_nested_json).
-
-* **Input format parallel parsing**{#setting-input-format-parallel-parsing} {{ tag-con }}
-
-  Определяет, разбивать ли входящие данные на части, парсинг каждой из которых осуществляется параллельно с сохранением исходного порядка. Поддерживается только для форматов [TSV](https://clickhouse.com/docs/en/interfaces/formats#tabseparated), [TKSV](https://clickhouse.com/docs/en/interfaces/formats#tskv), [CSV](https://clickhouse.com/docs/en/interfaces/formats#csv) и [JSONEachRow](https://clickhouse.com/docs/en/interfaces/formats#jsoneachrow).
-
-  По умолчанию такая разбивка входящих данных включена.
-
-  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#input-format-parallel-parsing).
 
 * **Join algorithm**{#setting-join-algorithm} {{ tag-con }} {{ tag-sql }}
 
@@ -682,6 +682,14 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
+* **Max parser depth**{#setting-max-parser-depth} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Максимальная глубина рекурсии в парсере рекурсивного спуска. Позволяет контролировать размер стека.
+
+  Минимальное значение — `0` (глубина рекурсии не ограничена), по умолчанию — `1000`.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#max_parser_depth).
+
 * **Max partitions per insert block**{#setting-partitions-per-insert-block} {{ tag-con }} {{ tag-sql }}
 
   Ограничивает максимальное количество партиций в одном вставленном блоке.
@@ -771,7 +779,23 @@
   Максимальное количество временных столбцов, которое единовременно хранится в оперативной памяти при выполнении запроса (с учетом постоянных столбцов).
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
-  
+
+* **Max temporary data on disk size for query**{#setting-max-temporary-data-on-disk-size-for-query} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Максимальный объем данных (в байтах), потребляемых временными файлами на диске, для всех одновременно выполняемых запросов.
+
+  Минимальное значение — `0` (нет ограничения).
+
+  Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query).
+
+* **Max temporary data on disk size for user**{#setting-max-temporary-data-on-disk-size-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Максимальный объем данных (в байтах), потребляемых временными файлами на диске, для всех одновременно выполняемых пользовательских запросов.
+
+  Минимальное значение — `0` (нет ограничения).
+
+  Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user).
+
 * **Max temporary non const columns**{#setting-max-temporary-non-const-columns} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Максимальное количество временных столбцов, которое единовременно хранится в оперативной памяти при выполнении запроса (без учета постоянных столбцов).
@@ -786,6 +810,22 @@
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-max_threads).
 
+* **Memory overcommit ratio denominator**{#setting-memory-overcommit-ratio-denominator} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Лимит для [перегрузки памяти](https://clickhouse.com/docs/en/operations/settings/memory-overcommit) (в ГБ), когда достигнут жесткий лимит на уровне пользователя.
+
+  Минимальное значение — `0` (нет лимита). Значение по умолчанию — `1`.
+
+  Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator).
+
+* **Memory overcommit ratio denominator for user**{#setting-memory-overcommit-ratio-denominator-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Лимит для [перегрузки памяти](https://clickhouse.com/docs/en/operations/settings/memory-overcommit) (в ГБ), когда достигнут жесткий лимит на глобальном уровне.
+
+  Минимальное значение — `0` (нет лимита). Значение по умолчанию — `1`.
+
+  Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator_for_user).
+
 * **Memory profiler sample probability**{#setting-memory-profiler-sample-probability} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
   Система будет с указанной вероятностью сохранять информацию о том или ином выделении и освобождении оперативной памяти в файл лога `system.trace_log` с типом трассировки `MemorySample`. Вероятность сохранения не зависит от размера выделенной/освобожденной памяти.
@@ -797,6 +837,14 @@
   Шаг профилировщика памяти (в байтах). Если на следующем шаге выполнения запроса потребление памяти возрастает на число байт, большее указанного в данной настройке, то профилировщик сохраняет выделенный стектрейс. Значения менее нескольких мегабайт замедляют обработку запросов.
 
   По умолчанию — `4194304` (4 МБ). Если задан `0` — профилировщик памяти отключен.
+
+* **Memory usage overcommit max wait microseconds**{#setting-memory-usage-overcommit-max-wait-microseconds} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Время ожидания (в микросекундах) для освобождения памяти при [перегрузке памяти](https://clickhouse.com/docs/en/operations/settings/memory-overcommit) на уровне пользователя.
+
+  По умолчанию выбрано значение `5000000` (5 секунд).
+
+  Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds).
 
 * **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -950,6 +998,17 @@
   Время ожидания приема данных (в миллисекундах).
 
   По умолчанию выбрано значение `300000` (5 минут).
+
+* **Remote filesystem read method**{#setting-remote-filesystem-read-method} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Определяет способ считывания данных из удаленной файловой системы.
+
+  Возможные значения:
+
+  * `read`
+  * `threadpool`
+
+  Значение по умолчанию — `threadpool`.
 
 * **Replication alter partitions sync**{#setting-replication-alter-partitions-sync} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 

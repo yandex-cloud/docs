@@ -1,3 +1,4 @@
+
 {% include [revision-service-account-note](./revision-service-account-note.md) %}
 
 {% list tabs %}
@@ -5,11 +6,11 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-   1. Select **{{ serverless-containers-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
    1. Select the container to create a revision for.
-   1. Go to the **Editor** tab.
+   1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
    1. Specify the revision parameters.
-   1. Click **Create revision**.
+   1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
 - CLI
 
@@ -96,7 +97,7 @@
    1. Make sure the configuration files are valid.
 
       1. In the command line, switch to the folder where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -112,7 +113,7 @@
 
    1. Confirm the resource creation or update by typing `yes` in the terminal and pressing **Enter**.
 
-      This will create the revision. You can verify that the revision has been created in the [management console]({{ link-console-main }}) or with the following [CLI](../../cli/) command:
+      This will create the revision. You can check the new revision using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
       ```
       yc serverless container revision list

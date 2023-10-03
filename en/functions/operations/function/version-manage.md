@@ -10,30 +10,31 @@
 
 When creating a version, set the following parameters:
 
-* _Runtime environment_: Provides additional libraries and environment variables that can be accessed from the function code. It corresponds to the programming language that your function is written in. For more information, see [Runtime environment](../../concepts/runtime/index.md).
-* _Entry point_: The function to be invoked as a handler. To read more about the handler, see [Programming model](../../concepts/function.md#programming-model).
-* _Timeout_: The maximum function execution time, after which the service will terminate its execution without waiting for a response. It includes the time of the first initialization when the function is first run.
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}_: Provides additional libraries and environment variables that can be accessed from the function code. It corresponds to the programming language that your function is written in. For more information, see [Runtime environment](../../concepts/runtime/index.md).
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}_: The function to be invoked as a handler. To read more about the handler, see [Programming model](../../concepts/function.md#programming-model).
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}_: The maximum function execution time, after which the service will terminate its execution without waiting for a response. It includes the time of the first initialization when the function is first run.
 
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Select the function to create a version of.
-   1. Under **Latest version**, click **Create in editor**.
-   1. Select the [runtime environment](../../concepts/runtime/index.md). Don't select the **Add files with code examples** option.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
+   1. Select the [runtime environment](../../concepts/runtime/index.md). Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
    1. Prepare the function code:
-      * Runtime environment: `nodejs12`.
-      * Method: ZIP archive.
-      * File: `hello-js.zip`.
-      * Entry point: `index.handler`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**:: `nodejs12`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `hello-js.zip`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
    1. Set the version parameters:
-      * Timeout: 5 sec.
-      * RAM: 128 MB.
-      * [Service account](../../../iam/concepts/users/service-accounts): None selected.
-      * [Environment variables](../../concepts/runtime/environment-variables.md): None selected.
-   1. In the top right-hand corner, click **Create version**.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+      * [**{{ ui-key.yacloud.forms.label_service-account-select }}**](../../../iam/concepts/users/service-accounts.md): `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`
+      * [**{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**](../../concepts/runtime/environment-variables.md): `{{ ui-key.yacloud.common.not-selected }}`
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
 
@@ -57,7 +58,7 @@ When creating a version, set the following parameters:
 
    Where:
 
-   * `--function-name`: The name of the function you want to create a version of.
+   * `--function-name`: Name of the function you want to create a version of.
    * `--runtime`: Runtime environment.
    * `--entrypoint`: Entry point specified in the `<filename without extension>`.`<handler name>` format.
    * `--memory`: Amount of RAM.
@@ -151,7 +152,7 @@ When creating a version, set the following parameters:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -160,7 +161,7 @@ When creating a version, set the following parameters:
       ```
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   You can verify that the version is there on the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+   You can check the new version using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```
    yc serverless function version list --function-name <function name>

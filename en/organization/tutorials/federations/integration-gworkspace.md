@@ -2,7 +2,7 @@
 
 With an [identity federation](../../concepts/add-federation.md), you can use [Google Workspace](https://workspace.google.com/) to authenticate users in an organization.
 
-Setting up authentication includes the following steps:
+Authentication setup includes the following steps:
 
 1. [Creating and setting up a SAML application in Google Workspace](#gworkspace-settings).
 
@@ -112,7 +112,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate.
 
@@ -166,7 +166,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
       * `autoCreateAccountOnLogin`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
 
@@ -226,9 +226,9 @@ Do not close the page where you create an app in Google Workspace: you will get 
       * `auto_create_account_on_login`: Flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
-         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
+         If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
-         If the option is enabled, the IDs of federated user names are case-insensitive.
+         If the option is enabled, the IDs of federated user names will be case-insensitive.
       * `security_settings`: Federation security settings:
          * `encrypted_assertions`: Sign authentication requests.
             If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
@@ -270,7 +270,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
       1. Confirm you want to create a federation.
 
-      This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{ link-org-federations }}) section.
+      This will create a federation in the specified organization. You can check the new federation and its settings in the organization's [Federations]({{ link-org-federations }}) section.
 
 {% endlist %}
 
@@ -288,9 +288,9 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
    1. At the bottom of the page, click **Add certificate**.
 
-   1. Enter the certificate name and description.
+   1. Enter certificate name and description.
 
-   1. Choose how to add the certificate:
+   1. Choose how to add a certificate:
 
       * To add a certificate as a file, click **Choose a file** and specify the path to it.
 
@@ -347,7 +347,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 {% note tip %}
 
-To ensure the authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to the federation, i.e. both the current one and those to use afterwards. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
+To ensure the authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to the federation, i.e., both the current one and those to be used afterwards. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
 
 {% endnote %}
 
@@ -405,15 +405,16 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 ### Mapping user attributes {#claims-mapping}
 
-| User data | Comment | Application Attributes |
-------------------- | ----------- | -------------------
-| Unique user ID | Required attribute. Using an email address is recommended. | **Name ID** field in service provider settings |
-| Last name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
-| Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
-| Full name | Displayed in {{ yandex-cloud }} services.<br>Example: John Smith.<br> Value length limit: {{ saml-limit-display-name }}. | Attribute unavailable |
-| Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
-| Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone` |
-| Profile image | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | Attribute unavailable |
+
+User data | Comment | Application Attributes
+--------- | ------- | ----------------------
+Unique user ID | Required attribute. Using an email address is recommended. | **Name ID** field in service provider settings
+Last name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+First name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+Full name | Displayed in {{ yandex-cloud }} services.<br>Example: John Smith.<br> Value length limit: {{ saml-limit-display-name }}. | Attribute unavailable
+Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone`
+Profile image | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | Attribute unavailable
 
 {% note warning %}
 
@@ -429,7 +430,7 @@ The `thumbnailPhoto` attribute value exceeding the length limit is ignored. If t
 
 If you did not enable the **Automatically create users** option when [creating a federation](#yc-settings), you will have to add federated users to your organization manually.
 
-To do this, you will need user Name IDs. They are returned by the IdP server along with a response confirming successful authentication.
+To do this, you will need user name IDs. They are returned by the IdP server along with a response confirming successful authentication.
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
@@ -449,7 +450,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. Select the identity federation to add users from.
 
-   1. List the Name IDs of users, separating them with line breaks.
+   1. List the name IDs of users, separating them with line breaks.
 
    1. Click **Add**. This will give the users access to the organization.
 
@@ -465,7 +466,7 @@ A user can be added by an organization administrator (the `organization-manager.
       yc organization-manager federation saml add-user-accounts --help
       ```
 
-   1. Add users by listing their Name IDs separated by a comma:
+   1. Add users by listing their name IDs separated by a comma:
 
       ```
       yc organization-manager federation saml add-user-accounts --id <federation_ID> \
@@ -482,7 +483,7 @@ A user can be added by an organization administrator (the `organization-manager.
 
    To add identity federation users to the cloud:
 
-   1. Create a file with the request body, e.g., `body.json`. In the request body, specify the array of Name IDs of users you want to add:
+   1. Create a file with the request body, e.g., `body.json`. In the request body, specify the array of name IDs of users you want to add:
 
       ```json
       {

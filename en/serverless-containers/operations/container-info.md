@@ -5,10 +5,10 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-   1. Select **{{ serverless-containers-name }}**.
-   1. On the left-hand panel, select **Containers**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-containers.label_containers }}**.
    1. Select the container.
-   1. The **Overview** page shows the container details.
+   1. The **{{ ui-key.yacloud.common.overview }}** page will show the container details.
 
 - CLI
 

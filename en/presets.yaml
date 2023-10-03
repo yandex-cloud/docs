@@ -1459,6 +1459,10 @@ default:
     business:
       fixed_consumption:
         v1|string: Free
+    organization:
+      business:
+        fixed_consumption:
+          v1|int|string: ₸15000
     standard:
       fixed_consumption:
         v1|string: Free
@@ -2266,6 +2270,10 @@ default:
     business:
       fixed_consumption:
         v1|int|string: Free
+    organization:
+      business:
+        fixed_consumption:
+          v1|int|string: ₽3000
     standard:
       fixed_consumption:
         v1|int|string: Free
@@ -3040,6 +3048,10 @@ default:
     business:
       fixed_consumption:
         v1|string: Free
+    organization:
+      business:
+        fixed_consumption:
+          v1|int|string: $24
     standard:
       fixed_consumption:
         v1|string: Free
@@ -5751,7 +5763,6 @@ default:
         label_https: HTTPS
         label_key: Key
         label_list: List
-        label_seconds_many: seconds
         label_subnet: Subnet
         label_tcp: TCP
         label_udp: UDP
@@ -6418,8 +6429,6 @@ default:
         users:
           button_tune-role: Configure roles
           label_folders-roles: Roles for folders
-          label_user-listing-allowed-admins-title: Administrators
-          label_user-listing-allowed-everybody-title: All users
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
@@ -7049,7 +7058,6 @@ default:
           editor:
             button_action-continue: Continue
             button_add-environment-variable: Add
-            button_create: Create version
             button_deploy-version: Save changes
             create-file: Create file
             field_entry: Entrypoint
@@ -7071,10 +7079,7 @@ default:
             button_editor-create: Сreate in editor
             label_all-users-invoke: Public function
             label_invoke-link: Link to invoke
-            label_latest-memory: Memory
-            label_latest-timeout: Timeout
             label_title: Overview
-            label_title-environment-vars: Environment variables
             label_title-history: Version history
             label_title-latest-version: Last version
             label_title-metadata: General information
@@ -7453,6 +7458,7 @@ default:
           label_field_name: Name
           label_serverless-type: Serverless
         overview:
+          label_database: Database
           label_document-endpoint: Document API endpoint
           label_endpoint: Endpoint
           label_title: Overview

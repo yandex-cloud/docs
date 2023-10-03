@@ -1,3 +1,8 @@
+---
+title: "Публичные материалы о {{ ml-platform-name }}"
+description: "Видеозаписи конференций и вебинаров, посвященных {{ ml-platform-name }}."
+---
+
 # Публичные материалы о {{ ml-platform-name }}
 
 ## Конференции и вебинары {#conf-and-webinars}
@@ -6,7 +11,7 @@
 
 * Удаленное исполнение кода в ML: подходы и инструменты.
 
-  * [Запись трансляции](https://www.youtube.com/watch?v=qa9c0f6D4Jw&t=24656s).
+  * [Запись трансляции](https://youtu.be/iWnh2Da1RG4?si=R26ZdYqwqqQrv8rR).
 
 ### 2023: Webinar {#webinar-2023}
 

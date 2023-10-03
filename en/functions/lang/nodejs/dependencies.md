@@ -1,29 +1,15 @@
 # Managing Node.js function dependencies
 
-{% note warning %}
-
-This section describes functionality that is unavailable in the `nodejs10` runtime environment.
-
-{% endnote %}
-
 {{ sf-name }} can automatically install dependencies required for a Node.js function to run when creating a new [function version](../../operations/function/version-manage.md).
 
 To install dependencies, use the `npm ci --production` command that runs in the project root (function directory). This installs only the primary dependencies. It will not install the development dependencies from the `devDependencies` section.
 
 You can list the required libraries in the following ways:
-* Specify the required libraries and their versions in the `package.json` file:
 
-   ```json
-   {
-     "name": "my-app",
-     "version": "1.0.0",
-     "dependencies": {
-       "lodash": "^4.17.15"
-     }
-   }
-   ```
-* Run the `npm install <library>` command in the project root.
-   * If the `package.json` file exists, the library is added to it.
-   * If the `package.json` file is missing, a file named `package-lock.json` is created listing the registered versions of all the libraries in use.
+* Upload `package.json` and `package-lock.json` with the function code so {{ sf-name }} can automatically install dependencies.
+
+   If you do not upload `package-lock.json`, the `npm i --production` command will be executed instead of `npm ci --production`, and the function will take longer to initialize.
+
+* Add all the required dependencies to a single file yourself using a code bundler, such as `webpack`, or upload `node_modules` with the function code.
 
 The dependency installation process has some technical restrictions. For more information, see [{#T}](../../concepts/limits.md). You can view the dependency installation log using the link that appears in the list of operations.

@@ -7,11 +7,11 @@ When you add environment variables, a new version of the function is created. Yo
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Select the function whose version you want to add an environment variable for.
-   1. Go to the **Editor** tab.
-   1. Under **Parameters**, specify the environment variable and click **Add**. You can add multiple environment variables.
-   1. Click **Create version**. This will create a new version of the function with the specified environment variables.
+   1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the environment variable and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**. You can add multiple environment variables.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. This will create a new version of the function with the specified environment variables.
 
 - CLI
 
@@ -100,7 +100,7 @@ When you add environment variables, a new version of the function is created. Yo
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -125,6 +125,6 @@ When you add environment variables, a new version of the function is created. Yo
 {% endlist %}
 
 
-## See also
+## For more information, see also
 
 * [Environment variables](../../concepts/runtime/environment-variables.md#env).

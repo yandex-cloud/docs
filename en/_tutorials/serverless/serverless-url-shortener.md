@@ -329,10 +329,10 @@ To create and set up a URL shortening function:
          For example, if the protocol is `grpcs` and the endpoint is `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, enter `{{ ydb.ep-serverless }}`.
       * `database`: Enter the previously saved **Database** field value.
       * `USE_METADATA_CREDENTIALS`: Enter `1`.
-   1. In the upper-right part of the **Editor** section, click **Create version**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
    1. Under **General information**, enable **Public function**.
 
-   Save the function ID, you'll need it in the next steps.
+   Save the function ID, you will need it at the next steps.
 
 {% endlist %}
 

@@ -1,4 +1,4 @@
-# Установка и настройка Terraform и провайдера для подключения к YDB {#terraform-install}
+# Установка и настройка Terraform и провайдера для подключения к YDB
 
 Terraform можно скачать с официального сайта [HashiCorp](https://developer.hashicorp.com/terraform/downloads), но если сайт не доступен – воспользуйтесь нашим специально созданным [зеркалом](https://hashicorp-releases.yandexcloud.net/terraform/). Скачайте дистрибутив Terraform для вашей платформы и добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH: export PATH=$PATH:/path/to/terraform`.
 

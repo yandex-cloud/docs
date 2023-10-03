@@ -28,9 +28,9 @@ After receiving and verifying the SAML token signature, {{ iam-short-name }} cre
 
 [Service accounts](../iam/concepts/users/service-accounts.md) are a special type of account for accessing {{ yandex-cloud }} resources on behalf of an application. Service account authentication can be done using the following types of keys:
 
-* Authorized keys: RSA keys that are generated in {{ iam-short-name }}. Such keys can be downloaded by the user only once after their creation. {{ iam-short-name }} only stores the public part of a key. Its private part is stored by the user. It's the user's responsibility to ensure security for the private part. For details, see [Authorized keys](../iam/concepts/authorization/key.md).
-* Static keys that are used to access {{ message-queue-short-name }} (YMQ) and {{ objstorage-full-name }}. Copies of static keys are issued to the user immediately after they're created by {{ iam-short-name }}. Static keys are stored in {{ iam-short-name }} and used to check the integrity of requests to YMQ and {{ objstorage-full-name }}. For details, see [Static access keys compatible with the AWS API](../iam/concepts/authorization/access-key.md).
-* API keys that are used to access the {{ yandex-cloud }} API. API keys are used in some services for simplified authentication. For details, see [API key](../iam/concepts/authorization/api-key.md).
+* Authorized keys: RSA keys that are generated in {{ iam-short-name }}. Such keys can be downloaded by the user only once after their creation. {{ iam-short-name }} only stores the public part of the key. Its private part stays with the user. It is the user's responsibility to keep the private part safe. See [Authorized keys](../iam/concepts/authorization/key.md).
+* Static keys used to access {{ message-queue-short-name }} (YMQ) and {{ objstorage-full-name }}. Copies of static keys are issued to the user immediately after they're created by {{ iam-short-name }}. Static keys are stored in {{ iam-short-name }} and used to check the integrity of requests to YMQ and {{ objstorage-full-name }}. See [Static access keys compatible with the AWS API](../iam/concepts/authorization/access-key.md).
+* API keys used to access the {{ yandex-cloud }} API. API keys are used in some services for simplified authentication. See [API key](../iam/concepts/authorization/api-key.md).
 
 ## Network security {#network-sec}
 

@@ -85,6 +85,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](disk-control/update.md)
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
+* [{#T}](disk-control/disk-change-zone.md)
 * [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/delete.md)
 

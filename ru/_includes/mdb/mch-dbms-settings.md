@@ -1,3 +1,43 @@
+* **Asynchronous insert log enabled**{#setting-asynchronous-insert-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Определяет, будет ли логироваться информация об асинхронных вставках. Логи сохраняются в таблицу `system.asynchronous_insert_log`.
+
+    По умолчанию выбрано значение `false`.
+
+    Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/system-tables/asynchronous_insert_log).
+
+* **Asynchronous insert log retention size**{#setting-asynchronous-insert-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Размер таблицы `system.asynchronous_insert_log` (в байтах), при превышении которого из нее начнут удаляться старые записи.
+
+    По умолчанию выбрано значение `0` (старые записи при росте размера таблицы не удаляются).
+
+* **Asynchronous insert log retention time**{#setting-asynchronous-insert-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Время (в миллисекундах) от внесения записи в таблицу `system.asynchronous_insert_log` до удаления этой записи. Значение должно быть кратно 1000.
+
+    По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
+
+* **Asynchronous metric log enabled**{#setting-asynchronous-metric-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Определяет, будут ли логироваться исторические значения метрик из таблицы `system.asynchronous_metrics` в таблицу `system.asynchronous_metric_log`.
+
+    По умолчанию выбрано значение `false`.
+
+    Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/system-tables/asynchronous_metric_log).
+
+* **Asynchronous metric log retention size**{#setting-asynchronous-metric-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Размер таблицы `system.asynchronous_metric_log` (в байтах), при превышении которого из нее начнут удаляться старые записи.
+
+    По умолчанию выбрано значение `0` (старые записи при росте размера таблицы не удаляются).
+
+* **Asynchronous metric log retention time**{#setting-asynchronous-metric-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Время (в миллисекундах) от внесения записи в таблицу `system.asynchronous_metric_log` до удаления этой записи. Значение должно быть кратно 1000.
+
+    По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
+
 * **Background buffer flush schedule pool size**{#setting-background-buffer-flush-schedule-pool-size} {{ tag-con }}
 
     Количество потоков для выполнения фонового сброса данных в таблицах семейства [Buffer]({{ ch.docs }}/engines/table-engines/special/buffer).
@@ -6,6 +46,13 @@
 
     Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_buffer_flush_schedule_pool_size).
 
+* **Background common pool size**{#setting-background-common-pool-size} {{ tag-con }} {{ tag-api }}
+
+    Количество потоков для выполнения фоновых неспециализированных операций, например, очистки файловой системы, в таблицах семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
+
+    Минимальное значение — `1`, по умолчанию — `8`.
+
+    Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_common_pool_size).
 
 * **Background distributed schedule pool size**{#setting-background-distributed-schedule-pool-size} {{ tag-con }}
 
@@ -17,11 +64,19 @@
 
 * **Background fetches pool size**{#setting-background-fetches-pool-size} {{ tag-con }} {{ tag-api }}
 
-    Количество потоков для выполнения фоновых извлечений в таблицах семейства [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+    Количество потоков для выполнения фоновых задач копирования данных с реплики в таблицах семейства [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
 
-    По умолчанию выбрано значение `8`.
+    Минимальное значение — `1`, по умолчанию — `8`.
 
     Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
+
+* **Background merges mutations concurrency ratio**{#setting-background-merges-mutations-concurrency-ratio} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Количество фоновых слияний и мутаций, которые могут выполняться одновременно каждым потоком.
+
+    По умолчанию выбрано значение `2`.
+
+    Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio).
 
 * **Background message broker schedule pool size**{#setting-background-message-broker-schedule-pool-size} {{ tag-con }}
 
@@ -31,30 +86,33 @@
 
     Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_message_broker_schedule_pool_size).
 
-* **Background pool size**{#setting-background-pool-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
-
-    Количество потоков для выполнения фоновых слияний и [мутаций]({{ ch.docs }}/sql-reference/statements/alter/#mutations) в таблицах семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
-
-    По умолчанию выбрано значение `16`.
-
 * **Background move pool size**{#setting-background-move-pool-size} {{ tag-con }}
 
     Количество потоков для фонового перемещения кусков данных в таблицах семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
 
-    По умолчанию выбрано значение `8`.
+    Минимальное значение — `1`, по умолчанию — `8`.
 
     Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_move_pool_size).
+
+* **Background pool size**{#setting-background-pool-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+
+    Количество потоков для выполнения фоновых слияний и [мутаций]({{ ch.docs }}/sql-reference/statements/alter/#mutations) в таблицах семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
+
+    Минимальное значение — `1`, по умолчанию — `16`.
+
+    Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_pool_size).
 
 * **Background schedule pool size**{#setting-background-schedule-pool-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
     Количество потоков для выполнения фоновых задач. Применяется для реплицируемых таблиц, стримов в {{ KF }} и обновления IP-адресов записей во внутреннем DNS-кеше.
 
-    По умолчанию выбрано значение `128`.
+    Минимальное значение — `1`, по умолчанию — `128`.
 
 * **Compression**{#setting-compression} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
     Правила сжатия данных для таблиц семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/). Для каждого правила указываются:
 
+    * **Level** — уровень сжатия. Доступен только для метода сжатия [zstd]({{ ch.docs }}/sql-reference/statements/create/table#zstd). Минимальное значение — `1`, максимальное — `12`, по умолчанию — `9`.
     * **Method** — метод сжатия. Доступно два метода: [LZ4](https://lz4.github.io/lz4/) и [zstd](https://facebook.github.io/zstd/).
     * **Min part size** — минимальный размер [куска данных]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) (в байтах).
     * **Min part size ratio** — отношение размера наименьшего куска таблицы к полному размеру таблицы. {{ CH }} будет применять правило только к тем таблицам, у которых это отношение не превышает значение **Min part size ratio**.
@@ -66,6 +124,12 @@
 * **Default database**{#setting-default-database} {{ tag-con }} {{ tag-api }}
 
     База данных по умолчанию. Инструкцию о получении списка баз данных в кластере см. в разделе [Управление базами данных](../../managed-clickhouse/operations/databases#list-db).
+
+* **Geobase enabled**{#setting-geobase-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Включение [встроенного словаря-геобазы](../../managed-clickhouse/concepts/dictionaries.md#internal-dicts).
+
+    По умолчанию выбрано значение `false`.
 
 * **Geobase uri**{#setting-geobase-uri} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
@@ -90,6 +154,7 @@
 
     Глобальные настройки аутентификации для [интеграции с {{ KF }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/):
     * **Enable ssl certificate verification** — определяет, будет ли проводиться проверка SSL-сертификата. По умолчанию выбрано значение `false`.
+    * **Max poll interval ms** — максимальный интервал (в миллисекундах) между вызовами для получения сообщений высокоуровневых потребителей. При превышении интервала пользователь удаляется из группы и запускается перебалансировка. По умолчанию выбрано значение `300000` (5 минут).
     * **Sasl mechanism** — механизм аутентификации SASL:
       * `GSSAPI` — аутентификация с [использованием Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
       * `PLAIN` — аутентификация с [использованием пары логин-пароль в виде открытого текста](https://kafka.apache.org/documentation/#security_sasl_plain).
@@ -101,6 +166,7 @@
         * `SSL` — данные для аутентификации передаются в зашифрованном виде с помощью SSL.
         * `SASL_PLAINTEXT` — данные для аутентификации передаются в открытом виде, в качестве транспорта используется SASL.
         * `SASL_SSL` — данные для аутентификации передаются в зашифрованном виде с помощью SSL, в качестве транспорта используется SASL.
+    * **Session timeout ms** — время ожидания (в миллисекундах) периодического сигнала от пользователя для поддержки сессии клиентской группы. При превышении времени брокер удаляет пользователя из группы и запускает перебалансировку. По умолчанию выбрано значение `45000` (45 секунд).
 
 * **Kafka topics**{#setting-kafka-topics} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -190,6 +256,10 @@
 
         Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/merge-tree-settings/#inactive-parts-to-throw-insert).
 
+    * **Max avg part size for too many parts** — максимальный средний размер активных кусков данных таблицы (в байтах) для выполнения проверок **Parts to delay insert** и **Parts to throw insert**. При превышении указанного значения вставки данных в таблицу не будут замедлены или отклонены.
+
+        Минимальное значение — `0`, по умолчанию — `1073741824` (1 ГБ).
+
     * **Max bytes to merge at max space in pool** — максимальный общий размер кусков данных (в байтах) для слияния, когда в фоновом пуле есть свободные ресурсы.
 
         По умолчанию выбрано значение `161061273600` (150 ГБ).
@@ -202,15 +272,25 @@
 
         Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool).
 
-    * **Max replicated merges in queue** — максимальное количество задач слияния, которые могут одновременно находиться в очереди `ReplicatedMergeTree`.
+    * **Max number of merges with ttl in pool** — предельное количество слияний по TTL в фоновом пуле.
 
-        По умолчанию выбрано значение `16`.
+        По умолчанию выбрано значение `2`.
 
     * **Max parts in total** — количество активных кусков данных во всех партициях таблицы, при превышении которого {{ CH }} отправляет исключение `Too many parts ...`.
 
         По умолчанию выбрано значение `100000`.
 
         Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-parts-in-total).
+
+    * **Max replicated merges in queue** — максимальное количество задач слияния, которые могут одновременно находиться в очереди `ReplicatedMergeTree`.
+
+        По умолчанию выбрано значение `16`.
+
+    * **Merge selecting sleep ms** — время ожидания (в миллисекундах) для слияния выборки, если ни один кусок не выбран.
+
+        По умолчанию выбрано значение `5000` (5 секунд).
+
+        Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#merge_selecting_sleep_ms).
 
     * **Merge with recompression TTL timeout** — минимальное время (в секундах) между слияниями для повторного сжатия данных с истекшим TTL.
 
@@ -223,6 +303,18 @@
         По умолчанию выбрано значение `14400` (4 часа).
 
         Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/guides/developer/ttl/#triggering-ttl-events).
+
+    * **Min age to force merge on partition only** — определяет, применять ли объединение из настройки **Min age to force merge seconds** только к [партициям]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key).
+
+        По умолчанию применение только к партициям отключено.
+
+        Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_on_partition_only).
+
+    * **Min age to force merge seconds** — минимальное время (в секундах) существования кусков данных для объединения.
+
+        По умолчанию выбрано значение `0` (объединение отключено).
+
+        Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds).
 
     * **Min bytes for wide part** — минимальное количество байтов в куске данных, который может храниться в формате `Wide`. Можно задать одновременно с параметром **Min rows for wide part**.
 
@@ -299,11 +391,23 @@
 
 * **Opentelemetry span log enabled**{#setting-opentelemetry-span-log-enabled} {{ tag-con }}
 
-    Определяет, будут ли логироваться значения трассировок и метрик из распределенного приложения.
+    Определяет, будут ли логироваться значения трассировок и метрик из распределенного приложения. Логи сохраняются в таблицу `system.opentelemetry_span_log`.
 
     По умолчанию выбрано значение `false`.
 
     Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/opentelemetry).
+
+* **Opentelemetry span log retention size**{#setting-opentelemetry-span-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Размер таблицы `system.opentelemetry_span_log` (в байтах), при превышении которого из нее начнут удаляться старые записи.
+
+    По умолчанию выбрано значение `0` (старые записи при росте размера таблицы не удаляются).
+
+* **Opentelemetry span log retention time**{#setting-opentelemetry-span-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Время (в миллисекундах) от внесения записи в таблицу `system.opentelemetry_span_log` до удаления этой записи. Значение должно быть кратно 1000.
+
+    По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
 * **Part log retention size**{#setting-part-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -349,6 +453,26 @@
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
+* **Query views log enabled**{#setting-query-views-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Определяет, будет ли логироваться информация о зависимых представлениях, выполняемых при выполнении запроса. Логи сохраняются в таблицу `system.query_views_log`.
+
+    По умолчанию выбрано значение `false`.
+
+    Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/system-tables/query_views_log).
+
+* **Query views log retention size**{#setting-query-views-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Размер таблицы `system.query_views_log` (в байтах), при превышении которого из нее начнут удаляться старые записи.
+
+    По умолчанию выбрано значение `0` (старые записи при росте размера таблицы не удаляются).
+
+* **Query views log retention time**{#setting-query-views-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Время (в миллисекундах) от внесения записи в таблицу `system.query_views_log` до удаления этой записи. Значение должно быть кратно 1000.
+
+    По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
+
 * **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Глобальные настройки аутентификации для [интеграции с {{ RMQ }}]({{ ch.docs }}/engines/table-engines/integrations/rabbitmq/):
@@ -356,6 +480,26 @@
     * **Password** — пароль учетной записи {{ RMQ }}.
     * **Username** — имя учетной записи {{ RMQ }}.
     * **Vhost** — адрес виртуального хоста для {{ RMQ }}.
+
+* **Session log enabled**{#setting-session-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Определяет, будет ли логироваться информация об успешных и неудачных событиях входа и выхода из системы. Логи сохраняются в таблицу `system.session_log`.
+
+    По умолчанию выбрано значение `false`.
+
+    Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/system-tables/session_log).
+
+* **Session log retention size**{#setting-session-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Размер таблицы `system.session_log` (в байтах), при превышении которого из нее начнут удаляться старые записи.
+
+    По умолчанию выбрано значение `0` (старые записи при росте размера таблицы не удаляются).
+
+* **Session log retention time**{#setting-session-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Время (в миллисекундах) от внесения записи в таблицу `system.session_log` до удаления этой записи. Значение должно быть кратно 1000.
+
+    По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
 * **Text log enabled**{#setting-text-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -432,3 +576,23 @@
     Размер кеша (в байтах) для несжатых данных, используемых движками таблиц семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
 
     По умолчанию выбрано значение `8589934592` (8 ГБ).
+
+* **Zookeeper log enabled**{#setting-zookeeper-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Определяет, будет ли логироваться информация о параметрах запроса к серверу {{ ZK }} и ответа от него. Логи сохраняются в таблицу `system.zookeeper_log`.
+
+    По умолчанию выбрано значение `false`.
+
+    Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/system-tables/zookeeper_log).
+
+* **Zookeeper log retention size**{#setting-zookeeper-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Размер таблицы `system.zookeeper_log` (в байтах), при превышении которого из нее начнут удаляться старые записи.
+
+    По умолчанию выбрано значение `0` (старые записи при росте размера таблицы не удаляются).
+
+* **Zookeeper log retention time**{#setting-zookeeper-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Время (в миллисекундах) от внесения записи в таблицу `system.zookeeper_log` до удаления этой записи. Значение должно быть кратно 1000.
+
+    По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.

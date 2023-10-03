@@ -11,9 +11,9 @@ Container runtime logs are stored for 14 days. The log uses [UTC](https://en.wik
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ serverless-containers-name }}**.
-   1. Click on a container to view its runtime log.
-   1. Go to the **Logs** tab and specify the period for which you wish to view logs. The default time period is 1 hour.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+   1. Click the container to view its runtime log.
+   1. Go to the **{{ ui-key.yacloud.common.logs }}** tab and specify the period to view the logs for. The default period is 1 hour.
 
 - CLI
 

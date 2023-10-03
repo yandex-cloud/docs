@@ -154,7 +154,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
 - When creating a VM
 
-  You can install the agent when creating a VM in the [management console]({{ link-console-main }}). To do this, enable **Agent for delivering metrics** under **Monitoring**. The agent is installed automatically with the default configuration file that will send [basic VM metrics](./configuration.md#linux_metrics_input) and [agent health metrics](./configuration.md#agent_metrics_input). You'll be [charged](../../../pricing.md) for metric delivery.
+  You can install the agent when creating a VM in the [management console]({{ link-console-main }}). To do this, enable the **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** option under **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**. The agent is installed automatically with the default configuration file that will send [basic VM metrics](./configuration.md#linux_metrics_input) and [agent health metrics](./configuration.md#agent_metrics_input). You'll be [charged](../../../pricing.md) for metric delivery.
 
   The installed agent is a regular [Unified Agent](./index.md) that you can additionally [set up](./configuration.md) to deliver custom metrics or [logs to {{ cloud-logging-name }}](./configuration.md#yc_logs_output).
 

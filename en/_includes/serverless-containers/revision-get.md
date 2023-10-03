@@ -3,9 +3,9 @@
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. Select **{{ serverless-containers-name }}**.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container to get revision information for.
-    1. Under **Revisions**, you can find the list of container revisions and their details.
+    1. Under **{{ ui-key.yacloud.serverless-containers.section-revisions }}**, you can find the list of container revisions and their details.
 
 - CLI
 
