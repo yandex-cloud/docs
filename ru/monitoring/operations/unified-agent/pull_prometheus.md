@@ -4,11 +4,17 @@
 
 Для поставки в {{ monitoring-full-name }} метрик пользовательских приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает приложение по HTTP, ожидая получить метрики в формате {{ prometheus-name }}.
 
-Для примера рассмотрим поставку метрик тестового приложения на Python.
+Для примера рассмотрим поставку метрик тестового приложения на Python. Тестовое приложение и {{unified-agent-short-name}} могут быть запущены как на разных виртуальных машинах, так и на одной. Если ВМ разные, используемые ими [группы безопасности](../../../vpc/concepts/security-groups.md) должны разрешать входящий и исходящий трафик на порт `8000` по протоколу `TCP`.
 
 ## Пример поставки метрик пользовательского приложения {#example}
 
 Описанная методика может также применяться для поставки метрик любых пользовательских приложений, использующих [клиентские библиотеки Prometheus](https://prometheus.io/docs/instrumenting/clientlibs/).
+
+1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в {{ monitoring-full-name }}.
+
+   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
+
+   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой будет установлен {{unified-agent-short-name}}.
 
 1. Запустите тестовое Python-приложение, предоставляющее метрики в формате {{ prometheus-name }}.
 
@@ -50,10 +56,17 @@
        python3 example.py
        ```
 
-    1. Убедитесь, что приложение предоставляет метрики, выполнив команду `curl http://localhost:8000`. Пример работы команды:
+       Для успешной поставки метрик в {{unified-agent-short-name}} тестовое приложение должно оставаться запущенным: не прерывайте его.
+
+    1. Убедитесь, что приложение предоставляет метрики, выполнив команду с указанием публичного IP-адреса вашей ВМ с запущенным приложением:
 
         ```bash
-        curl http://localhost:8000
+        curl http://<публичный_адрес_ВМ>:8000
+        ```
+
+        Результат:
+
+        ```text
         # HELP python_gc_objects_collected_total Objects collected during gc
         # TYPE python_gc_objects_collected_total counter
         python_gc_objects_collected_total{generation="0"} 362.0
@@ -61,16 +74,15 @@
         python_gc_objects_collected_total{generation="2"} 0.0
         # HELP python_gc_objects_uncollectable_total Uncollectable object found during GC
         # TYPE python_gc_objects_uncollectable_total counter
-        ...
         ```
 
-1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в {{ monitoring-full-name }}.
-
-   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
-
-   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой установлен {{unified-agent-short-name}}.
-
 1. Установите и настройте {{unified-agent-full-name}}:
+
+   1. При необходимости установите Docker:
+
+      ```bash
+      sudo apt-get install docker.io
+      ```
 
    1. Создайте в домашнем каталоге файл **config.yml**.
 
@@ -96,7 +108,7 @@
               output:
                 plugin: yc_metrics
                 config:
-                  folder_id: "$FOLDER_ID"
+                  folder_id: "<идентификатор_каталога>"
                   iam:
                     cloud_meta: {}
 
@@ -104,7 +116,7 @@
           - input:
               plugin: metrics_pull
               config:
-                url: http://localhost:8000
+                url: http://<публичный_адрес_ВМ>:8000/metrics
                 format:
                   prometheus: {}
                 namespace: app
@@ -129,9 +141,12 @@
           - /etc/yandex/unified_agent/conf.d/*.yml
        ```
 
-       Где `$FOLDER_ID` – идентификатор каталога, в который будут записываться метрики.
+       Где:
 
-   1. Установите {{unified-agent-short-name}} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
+       * `folder_id` — идентификатор каталога, в который будут записываться метрики.
+       * `url` — публичный адрес ВМ с тестовым приложением, предоставляющим метрики.
+
+   1. Установите {{unified-agent-short-name}}, выполнив в домашнем каталоге следующую команду:
 
       ```bash
       docker run \
@@ -140,11 +155,13 @@
       -v /proc:/ua_proc \
       -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs... \
+      -e FOLDER_ID=<идентификатор_каталога> \
       {{ registry }}/yc/unified-agent
       ```
 
-       Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
+      Где `FOLDER_ID` — идентификатор каталога, в который будут записываться метрики.
+      
+      Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
 
  1. Убедитесь, что метрики поступают в {{ monitoring-full-name }}:
 
@@ -152,7 +169,7 @@
 
     1. В строке запроса выберите:
       - каталог, в который собираются метрики;
-      - значение метки `service=custom`;
+      - значение метки `Custom Metrics`;
       - имя метрики, начинающееся с префикса `app`.
 
 #### Что дальше {#what-is-next}

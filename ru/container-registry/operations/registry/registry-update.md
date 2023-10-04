@@ -14,11 +14,12 @@
 - Консоль управления
 
   Чтобы изменить имя [реестра](../../concepts/registry.md):
-  1. Откройте раздел **{{ container-registry-name }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить реестр.
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить реестр.
   1. Нажмите значок ![image](../../../_assets/vertical-ellipsis.svg) в строке реестра, который требуется изменить.
-  1. В открывшемся меню нажмите кнопку **Изменить**.
+  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
   1. В открывшемся окне укажите нужное имя реестра.
-  1. Нажмите кнопку **Изменить**.
+  1. (опционально) Измените метки.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-update_button_update }}**.
 
 - CLI
 
@@ -83,11 +84,11 @@
 - Консоль управления
 
   Чтобы добавить или удалить [IP-адрес](../../../vpc/concepts/address.md) и настроить доступ к реестру:
-  1. Откройте раздел **{{ container-registry-name }}** в каталоге, где требуется изменить реестр.
-  1. Нажмите на имя нужного реестра, затем выберите вкладку ![ip-address.svg](../../../_assets/container-registry/ip-access.svg) **Доступ для IP-адресов** и нажмите кнопку **Настроить**.
-  1. Нажмите кнопку **Добавить** и укажите IP-адрес и право на действие с реестром — `PULL` (позволяет скачивать Docker-образы из реестра) или `PUSH` (позволяет загружать Docker-образы в реестр).
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}** в каталоге, где требуется изменить реестр.
+  1. Нажмите на имя нужного реестра, затем выберите вкладку ![ip-address.svg](../../../_assets/container-registry/ip-access.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}** и нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}** и укажите IP-адрес и право на действие с реестром — `PULL` (позволяет скачивать Docker-образы из реестра) или `PUSH` (позволяет загружать Docker-образы в реестр).
   1. Нажмите значок ![image](../../../_assets/cross.svg) в строке IP-адреса, права доступа с которого требуется удалить.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

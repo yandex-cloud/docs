@@ -8,7 +8,7 @@
 
 {% include [os-event](../../../_includes/functions/os-event.md) %}
 
-{% include [batching-events](../../../_includes/functions/batching-events.md) %}
+{% include [batching-events](../../../_includes/serverless-containers/batching-events.md) %}
 
 ## Роли, необходимые для корректной работы триггера для {{ objstorage-name }} {#roles}
 

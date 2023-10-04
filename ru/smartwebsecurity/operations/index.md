@@ -15,5 +15,4 @@
 ## Управление подключениями к виртуальным хостам {#hosts}
 
 * [{#T}](host-connect.md)
-* [{#T}](host-update.md)
 * [{#T}](host-delete.md)

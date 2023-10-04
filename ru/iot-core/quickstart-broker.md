@@ -51,23 +51,23 @@ description: "Чтобы начать работать с {{ iot-name }}, соз
    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите иконку **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-broker }}**.
-   1. В блоке **Общая информация** укажите имя брокера `my-broker`.
+   1. В блоке **{{ ui-key.yacloud.common.section-base }}** укажите имя брокера `my-broker`.
    1. Добавьте сертификат:
 
       * Чтобы добавить файл:
 
-         1. Выберите способ **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}**.
+         1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
          1. Нажмите кнопку **Прикрепить файл**.
          1. Выберите файл с публичным ключом сертификата и нажмите кнопку **Открыть**.
          1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * Чтобы добавить текст:
 
-         1. Выберите способ **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}**.
+         1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
          1. Вставьте публичный ключ сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
          1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-   1. Нажмите кнопку **Создать**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

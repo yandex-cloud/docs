@@ -1,11 +1,18 @@
 #### Quotas {#quotas}
 
-| Type of limit | Value |
+| **Type of limit** | **Value** |
 ----- | -----
 | Maximum number of security profiles per cloud | 5 |
-| Maximum number of rules per profile | 50 |
-| Maximum number of IP address mapping conditions per rule | 10 |
+| Maximum total number of rules per cloud | 250 |
+| Maximum total number of IP address mapping conditions per cloud | 2500 |
 
 #### Limits {#limits}
 
-There are no limits for the {{ sws-name }} service.
+| **Type of limit** | **Value** |
+----- | -----
+| Maximum number of `HTTP header` conditions per rule | 20 |
+| Maximum number of `Query Match` conditions per rule | 20 |
+| Maximum number of IP address mapping conditions per rule | 10 000 |
+| Maximum number of `HTTP method` conditions per rule | 20 |
+| Maximum number of `Host` conditions per rule | 20 |
+| Maximum string length of regular expression | 255 characters |

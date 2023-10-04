@@ -10,7 +10,7 @@
 
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с ролями `logging.writer` и `container-registry.images.puller` на каталог.
 1. [Создайте реестр](../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.
-1. [Создайте облачную сеть](../vpc/operations/network-create.md). При создании выберите опцию **Создать подсети**.
+1. [Создайте облачную сеть](../vpc/operations/network-create.md). При создании выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
 
 ## Создайте приложение, генерирующее логи {#generate-logs}
 
@@ -125,7 +125,7 @@ if __name__ == '__main__':
 1. Создайте файл `spec.yaml`. Он описывает спецификацию двух контейнеров: с приложением, генерирующим логи, и агентом Fluent Bit.
 
    Укажите в поле:
-   * `image` — URL Docker-образа. Чтобы узнать его, в [консоли управления]({{ link-console-main }}) перейдите на страницу **Обзор Docker-образа** и скопируйте значение из поля **Теги**.
+   * `image` — URL Docker-образа. Чтобы узнать его, в [консоли управления]({{ link-console-main }}) перейдите на страницу **{{ ui-key.yacloud.cr.image.section_overview }}** и скопируйте значение из поля **{{ ui-key.yacloud.cr.image.label_tag }}**.
    * `YC_GROUP_ID` — идентификатор [лог-группы по умолчанию](../logging/concepts/log-group.md) `default`.
 
    В секции `fluentbit`, в поле `image`, указан актуальный на момент написания инструкции образ контейнера с агентом Fluent Bit. Список всех доступных образов можно найти по [ссылке](https://github.com/yandex-cloud/fluent-bit-plugin-yandex/releases).
@@ -253,7 +253,7 @@ yc compute instance create \
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится лог-группа `default`, идентификатор которой вы указали в файле `spec.yaml`.
-  1. Выберите сервис **{{ cloud-logging-name }}**.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Выберите лог-группу `default`. На открывшейся странице отобразятся записи.
 
 - CLI

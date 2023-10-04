@@ -8,11 +8,11 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором была создана ВМ.
-  1. В списке сервисов выберите **{{ compute-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на строку с ВМ, которую вы хотите изменить.
-  1. Нажмите кнопку **Изменить ВМ** на верхней панели.
-  1. Внесите необходимые изменения в блоке **Настройка Docker-контейнера**.
-  1. Нажмите **Сохранить изменения**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** на верхней панели.
+  1. Внесите необходимые изменения в блоке **{{ ui-key.yacloud.compute.instances.create.section_coi }}**.
+  1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
  
 
 - CLI
@@ -23,7 +23,7 @@
      yc compute instance update-container --help
      ```
 
-  1. Получите уникальный идентификатор ВМ. Для этого нажмите на строку с ее именем в разделе **{{ compute-name }}** в [консоли управления]({{ link-console-main }}) или воспользуйтесь командой CLI:
+  1. Получите уникальный идентификатор ВМ. Для этого нажмите на строку с ее именем в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}) или воспользуйтесь командой CLI:
 
      ```bash
      yc compute instance list

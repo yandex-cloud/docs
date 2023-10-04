@@ -3,9 +3,9 @@
 - Консоль управления
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится реестр.
-   1. Выберите сервис **{{ iot-short-name }}**.
+   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите реестр.
-   1. На странице **Обзор** отобразится подробная информация о реестре.
+   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о реестре.
 
 - CLI
 
@@ -22,8 +22,8 @@
   Результат:
 
   ```
-  id: b91ki3851hab9m0l68je
-  folder_id: aoek49ghmknnpj1ll45e
+  id: b91ki3851hab********
+  folder_id: aoek49ghmknn********
   created_at: "2019-05-28T11:29:42.420Z"
   name: my-registry
   ```

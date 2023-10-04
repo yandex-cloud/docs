@@ -7,21 +7,21 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
-  1. В списке сервисов выберите **{{ container-registry-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Выберите реестр и нажмите на строку с его именем.
   1. Выберите репозиторий и нажмите на строку с его именем.
-  1. На панели слева нажмите ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **Жизненный цикл**.
-  1. В строке с нужной политикой удаления нажмите кнопку ![image](../../../_assets/options.svg) и выберите **Редактировать**.
+  1. На панели слева нажмите ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
+  1. В строке с нужной политикой удаления нажмите кнопку ![image](../../../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры политики удаления:
-     * **Имя**.
-     * **Описание**.
-     * **Статус**.
-     * В блоке **Правила политики удаления** измените параметры правил:
+     * **{{ ui-key.yacloud.common.name }}**.
+     * **{{ ui-key.yacloud.common.description }}**.
+     * **{{ ui-key.yacloud.common.label_status }}**.
+     * В блоке **{{ ui-key.yacloud.cr.registry.label_lifecycle-rules }}** измените параметры правил:
 
        {% include [lifecycle-rules-console](../../../_includes/container-registry/lifecycle-rules-console.md) %}
 
-       * **Описание**.
-  1. Нажмите кнопку **Создать**.
+       * **{{ ui-key.yacloud.common.description }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

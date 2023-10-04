@@ -16,6 +16,8 @@
 
    {% endcut %}
 
+{% include [target-backet-note](../../../_includes/storage/target-bucket-note.md) %}
+
 1. Включите механизм логирования в исходном бакете, который вы хотите отслеживать.
 
    {% list tabs %}

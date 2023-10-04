@@ -20,7 +20,7 @@
 {% endnote %}
 
 * Проверьте, что имя Docker-образа указано верно.
-* Проверьте, что у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), привязанного к ВМ, есть права `container-registry.images.puller` на нужный Docker-образ.
+* Проверьте, что у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), привязанного к ВМ, есть права `{{ roles-cr-puller }}` на нужный Docker-образ.
 * Проверьте, что ВМ имеет доступ в интернет.
 * Вы также можете посмотреть логи, выполнив на ВМ команду `sudo journalctl -u yc-container-daemon`.
 

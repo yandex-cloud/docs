@@ -846,6 +846,7 @@ default:
   tf-docs-link: https://terraform-provider.yandexcloud.net
   tf-provider-link: https://terraform-provider.yandexcloud.net/
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
+  tf-provider-datasources-link: https://terraform-provider.yandexcloud.net/DataSources
   tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/Resources/datatransfer_endpoint
   tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/Resources/datatransfer_transfer
   tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/Resources/kubernetes_cluster
@@ -1396,6 +1397,12 @@ default:
   sku|KZT|nlb:
     balancer:
       active|string: "3,9000\_₸"
+  sku|KZT|searchapi:
+    requests:
+      day:
+        v1|int|string: "2\_400\_₸"
+      night:
+        v1|int|string: "1\_800\_₸"
   sku|KZT|serverless:
     containers:
       compute:
@@ -2207,6 +2214,12 @@ default:
   sku|RUB|nlb:
     balancer:
       active|string: "0,7800\_₽"
+  sku|RUB|searchapi:
+    requests:
+      day:
+        v1|int|string: "480\_₽"
+      night:
+        v1|int|string: "360\_₽"
   sku|RUB|serverless:
     containers:
       compute:
@@ -2985,6 +2998,12 @@ default:
   sku|USD|nlb:
     balancer:
       active|string: "0,006240\_$"
+  sku|USD|searchapi:
+    requests:
+      day:
+        v1|string: "3,840000\_$"
+      night:
+        v1|string: "2,880000\_$"
   sku|USD|serverless:
     containers:
       compute:
@@ -4982,6 +5001,8 @@ default:
           add-role: Добавить роль
         label:
           title: Настройка прав доступа
+      marketplace:
+        label_product-ids: Идентификаторы продукта
       organization:
         action:
           select: Продолжить
@@ -5265,6 +5286,7 @@ default:
     yacloud:
       airflow:
         button_create-cluster: Создать кластер
+        section_admin-password: Пользователь
         section_airflow-configuration: Конфигурация Airflow
         section_dependencies: Зависимости
         section_scheduler: Конфигурация планировщика
@@ -5305,6 +5327,7 @@ default:
         label_bucket: Бакет
         label_certificate: Сертификаты
         label_default-log-group: Лог-группа по умолчанию
+        label_detailed-settings: Расширенные настройки
         label_discard-grpc-codes: gRPC-коды
         label_discard-http-code-intervals: Классы HTTP-кодов
         label_discard-http-codes: HTTP-коды
@@ -5780,6 +5803,7 @@ default:
         label_https: HTTPS
         label_key: Ключ
         label_list: Список
+        label_status: Статус
         label_subnet: Подсеть
         label_tcp: TCP
         label_udp: UDP
@@ -5810,6 +5834,7 @@ default:
           label_service-account: Сервисный аккаунт
           label_service-accounts: Сервисные аккаунты
         save: Сохранить
+        save-changes: Сохранить изменения
         section-base: Общая информация
         select: Выбрать
         start: Запустить
@@ -5827,6 +5852,8 @@ default:
       component:
         acl-dialog:
           button_remove-new: Отменить
+          button_revoke: Отозвать
+          column_permissions: Разрешения
           label_select-placeholder: Выберите пользователя
           label_select-section-service-accounts: Сервисные аккаунты
           label_title: Редактирование ACL
@@ -5835,6 +5862,8 @@ default:
             button_add-role: Добавить роль
             button_select-subject: Выбрать пользователя
             label_title: Настройка прав доступа
+        certificates:
+          button_empty-add: Добавить сертификат
         compute:
           network-select:
             field_address: IP-адрес
@@ -6045,6 +6074,7 @@ default:
             field_security-groups-ids: Группы безопасности
           edit:
             button_update: Сохранить изменения
+          label_vm: Виртуальная машина
           overview:
             button_action-edit: Изменить ВМ
             button_action-stop: Остановить
@@ -6092,8 +6122,17 @@ default:
             button_net_empty-create: Создать сеть
             column_disk-size: Размер
             field_access-advanced: Дополнительно
+            field_coi-arguments: Аргументы команды
+            field_coi-command: Команда
+            field_coi-env: Переменные окружения
             field_coi-image: Docker-образ
             field_coi-name: Имя
+            field_coi-privileged: Запустить Docker-контейнер в привилегированном режиме
+            field_coi-restart-policy: Политика перезапуска
+            field_coi-stdin: >-
+              Выделить буфер для потока ввода во время выполнения
+              Docker-контейнера
+            field_coi-tty: Выделить TTY для Docker-контейнера
             field_description: Описание
             field_instance-group-address: Публичный адрес
             field_instance-group-network: Сеть
@@ -6128,12 +6167,17 @@ default:
             unified-agent: Агент сбора метрик
             value_address-auto: Автоматически
             value_address-none: Без адреса
+            value_coi-restart-always: Always
+            value_coi-restart-never: Never
+            value_coi-restart-on-failure: On-Failure
           label_title: Виртуальные машины
           popup-confirm_button_delete: Удалить
           popup-confirm_button_gr-stop: Остановить
           popup-confirm_button_restart: Перезапустить
           popup-confirm_button_start: Запустить
           popup-confirm_button_stop: Остановить
+        landing:
+          action_create-resource: Создать ресурс
         nfs:
           button_attach-filesystem-to-the-instance: Подключить файловое хранилище
           button_attach-instance-to-the-filesystem: Подключить к ВМ
@@ -6187,15 +6231,36 @@ default:
           label_scan-status-READY: Готово
           label_scan-status-RUNNING: Запущено
           label_start-scan: Сканировать
+          label_tag: Теги
+          popup-confirm_button_delete: Удалить
+          section_overview: Обзор Docker-образа
         overview:
           button_create: Создать реестр
+          popup-confirm_button_delete: Удалить
           popup-create_button_create: Создать реестр
+          popup-update_button_update: Изменить
         registry:
           button_change-scan-settings: Изменить настройки
+          button_lifecycle-dry-run: Проверить
           button_select-repositories: Выбрать репозитории
+          button_update-ip-permissions: Настроить
           label_all-repositories: Все репозитории
+          label_expire-period-days: Время от создания образа, в сутках
+          label_ip-permissions: Доступ  для IP-адресов
+          label_lifecycle: Жизненный цикл
+          label_lifecycle-dry-runs: Проверки жизненного цикла
+          label_lifecycle-rules: Правила политики удаления
           label_only-selected: Только выбранные
+          label_retained-top: Образов оставить
+          label_tag-regexp: Тег
+          label_untagged: Образов без тегов
           label_vulnerabilities-scanner: Сканер уязвимостей
+          overview:
+            button_registry-acl: ACL реестра
+            button_repository-acl: Настроить ACL
+            section_images: Docker-образы
+            section_repositories: Репозитории
+        switch_registry: Реестры
       data-streams:
         button_connect: Подключиться
         button_create-stream: Создать поток
@@ -6216,6 +6281,7 @@ default:
           section-endpoint: Параметры эндпоинта
         label_connector-operation-ACTIVATE: Активировать
         label_connector-operation-DEACTIVATE: Деактивировать
+        label_connector-status-CREATING: Создается
         label_connector-status-DONE: Завершен
         label_connector-status-RUNNING: Реплицируется
         label_connectors: Трансферы
@@ -6228,6 +6294,7 @@ default:
         label_endpoint-type-OBJECT_STORAGE: Object Storage
         label_endpoint-type-POSTGRES: PostgreSQL
         label_endpoint-type-YDB: YDB
+        label_endpoint-type-YDS_ru: Yandex Data Streams
         label_endpoints: Эндпоинты
         label_monitoring: Мониторинг
       dataproc:
@@ -6368,6 +6435,7 @@ default:
             label_data-proc: Data Proc
             label_data-streams: Data Streams
             label_data-transfer: Data Transfer
+            label_data-transfer_ru: Yandex Data Transfer
             label_datalens: DataLens
             label_datasphere: DataSphere
             label_dns: Cloud DNS
@@ -6450,12 +6518,16 @@ default:
         button_add-alias: Добавить алиас
         button_add-device: Добавить устройство
         button_add-label: Добавить метку
+        button_add-password: Добавить пароль
         button_add-yds-export: Добавить экспорт
         button_create-broker: Создать брокер
         button_create-registry: Создать реестр
+        label_aliases: Алиасы
         label_brokers: Брокеры
+        label_certificates: Сертификаты
         label_devices: Устройства
         label_mqtt-topic-filter: Фильтр MQTT-топиков
+        label_passwords: Пароли
         label_registries: Реестры
         label_yds-exports: Экспорт в Data Stream
       k8s:
@@ -6656,6 +6728,7 @@ default:
         column_header-time: Время
         label_destination: Назначение
         label_export: Выгрузить логи
+        label_groups: Группы
         label_loggroup: Лог-группа
         label_retention-period: Срок хранения логов
         label_sinks: Приёмники логов
@@ -7188,6 +7261,7 @@ default:
             section_storage: Настройки Object Storage
             section_timer: Настройки таймера
             section_ymq: Настройки сообщений Message Queue
+            value_event-type-create-image-tag: Создание тега Docker-образа
             value_event-type-create-object: Создание объекта
           list:
             button_create: Создать триггер
@@ -7270,6 +7344,7 @@ default:
             access_value_private: Ограниченный
             access_value_public: Публичный
             button_save: Сохранить
+            class_value_cold: Холодное
             class_value_standard: Стандартное
             field_access-config-read: Доступ на чтение настроек
             field_access-list: Доступ к списку объектов

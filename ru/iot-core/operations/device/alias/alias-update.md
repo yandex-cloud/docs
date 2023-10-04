@@ -9,12 +9,12 @@
    Чтобы изменить алиас:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить алиас.
-   1. Выберите сервис **{{ iot-short-name }}**.
+   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
-   1. В левой части окна выберите раздел **Устройства**.
-   1. Нажмите значок ![image](../../../../_assets/horizontal-ellipsis.svg) справа от имени нужного устройства, в выпадающем списке выберите **Редактировать**.
+   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
+   1. Нажмите значок ![image](../../../../_assets/horizontal-ellipsis.svg) справа от имени нужного устройства, в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Измените значения полей нужного алиаса.
-   1. Нажмите кнопку **Сохранить**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
     
@@ -31,18 +31,18 @@
     {% endnote %}
     
     ```
-    yc iot device update first --topic-aliases 'events=$devices/areqjd6un3afc3cefcvm/events,commands=$devices/areqjd6un3afc3cefcvm/commands'
+    yc iot device update first --topic-aliases 'events=$devices/areqjd6un3af********/events,commands=$devices/areqjd6un3af********/commands'
     ```
 	
     Результат:
     ```
-    id: areqjd6un3afc3cefcvm
-    registry_id: arenou2oj4ct42eq8g3n
+    id: areqjd6un3af********
+    registry_id: arenou2oj4ct********
     created_at: "2019-09-16T10:41:06.489Z"
     name: first
     topic_aliases:
-      commands: $devices/areqjd6un3afc3cefcvm/commands
-      events: $devices/areqjd6un3afc3cefcvm/events
+      commands: $devices/areqjd6un3af********/commands
+      events: $devices/areqjd6un3af********/events
     ```
 
 - {{ TF }}

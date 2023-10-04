@@ -78,7 +78,7 @@
     * `--registry-id` — [идентификатор реестра](../../container-registry/operations/registry/registry-list.md).
     * `--events` — [события](../concepts/trigger/cr-trigger.md#event), после наступления которых триггер запускается.
 
-    {% include [batch-settings-events](../../_includes/functions/batch-settings-events.md) %}
+    {% include [batch-settings-events](../../_includes/serverless-containers/batch-settings-events.md) %}
 
     {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 

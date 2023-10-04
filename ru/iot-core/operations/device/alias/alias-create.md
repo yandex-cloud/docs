@@ -11,15 +11,15 @@
    Чтобы создать алиас:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать алиас.
-   1. Выберите сервис **{{ iot-short-name }}**.
+   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
-   1. В левой части окна выберите раздел **Устройства**.
-   1. Нажмите значок ![image](../../../../_assets/horizontal-ellipsis.svg) справа от имени нужного устройства, в выпадающем списке выберите **Редактировать**.
+   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
+   1. Нажмите значок ![image](../../../../_assets/horizontal-ellipsis.svg) справа от имени нужного устройства, в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
    1. Добавьте алиас:
-      1. Нажмите кнопку **Добавить алиас**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-alias }}**.
       1. Заполните поля: введите алиас (например, `events`) и тип топика после `$devices/<deviceID>` (например, `events`).<br/>Вы сможете использовать алиас `events` вместо топика `$devices/<deviceID>/events`.
       1. Повторите действия для каждого добавляемого алиаса.
-   1. Нажмите кнопку **Сохранить**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
     
@@ -30,19 +30,19 @@
     Создайте алиас: 
     
     ```
-    yc iot device add-topic-aliases arenak5ciqss6pbas6js
-      --topic-aliases commands='$devices/arenak5ciqss6pbas6js/commands'
+    yc iot device add-topic-aliases arenak5ciqss********
+      --topic-aliases commands='$devices/arenak5ciqss********/commands'
     ```
 	
 	  Результат:
 	  
     ```
-    id: arenak5ciqss6pbas6js
-    registry_id: arenou2oj4ct42eq8g3n
+    id: arenak5ciqss********
+    registry_id: arenou2oj4ct********
     created_at: "2019-09-16T12:32:48.911Z"
     name: second
     topic_aliases:
-      commands: $devices/arenak5ciqss6pbas6js/commands
+      commands: $devices/arenak5ciqss********/commands
     ``` 
 
     Также вы можете добавить алиас при [создании устройства](../device-create.md). Для этого вместо уникального идентификатора в топике устройства указывается `{id}`, так как уникальный идентификатор еще неизвестен:

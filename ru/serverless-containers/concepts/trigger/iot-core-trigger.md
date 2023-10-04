@@ -8,7 +8,7 @@
 
 О том, как создать триггер для {{ iot-short-name }}, читайте в инструкциях [{#T}](../../operations/iot-core-trigger-create.md) и [{#T}](../../operations/iot-core-trigger-broker-create.md).
 
-{% include [batching-messages](../../../_includes/functions/batching-messages.md) %}
+{% include [batching-messages](../../../_includes/serverless-containers/batching-messages.md) %}
 
 ## Роли, необходимые для корректной работы триггера для {{ iot-short-name }} {#roles}
 

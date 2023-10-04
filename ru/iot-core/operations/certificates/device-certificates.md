@@ -23,24 +23,24 @@
    Чтобы добавить сертификат устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который вы хотите добавить сертификат устройства.
-   1. Выберите сервис **{{ iot-short-name }}**.
+   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Нажмите на имя нужного реестра.
-   1. В левом меню выберите **Устройства**.
+   1. Перейдите в раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Выберите в списке нужное устройство.
-   1. На странице **Обзор** перейдите к разделу **Сертификаты** и нажмите кнопку **Добавить сертификат**.
+   1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}** и нажмите кнопку **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
 
       - Чтобы добавить файл:
 
-         1. Выберите способ **Файл**.
-         1. Нажмите **Выбрать файл**.
+         1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
+         1. Нажмите **Прикрепить файл**.
          1. Укажите файл сертификата на вашем компьютере, нажмите **Открыть**.
-         1. Нажмите **Добавить**.
+         1. Нажмите **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       - Чтобы добавить текст:
 
-         1. Выберите способ **Текст**.
-         1. Вставьте тело сертификата в поле **Содержимое**.
-         1. Нажмите **Добавить**.
+         1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
+         1. Вставьте тело сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
+         1. Нажмите **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
 - CLI
 
@@ -56,7 +56,7 @@
   
   Результат:
   ```
-  device_id: b9135goeh1uc1s2i07nm
+  device_id: b9135goeh1uc********
   fingerprint: 65e5b050069da5ca5996a4a8a92514098b0a5dd1
   certificate_data: |
     -----BEGIN CERTIFICATE-----
@@ -146,13 +146,13 @@
    Чтобы удалить сертификат устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого вы хотите удалить сертификат устройства.
-   1. Выберите сервис **{{ iot-short-name }}**.
+   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Нажмите на имя нужного реестра.
-   1. В левом меню выберите **Устройства**.
+   1. Перейдите в раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Выберите в списке нужное устройство.
-   1. На странице **Обзор** перейдите к разделу **Сертификаты**.
-   1. В строке с нужным сертификатом нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **Удалить**.
-   1. В открывшемся окне нажмите кнопку **Удалить**.
+   1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}**.
+   1. В строке с нужным сертификатом нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
+   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 

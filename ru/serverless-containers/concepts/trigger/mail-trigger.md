@@ -6,7 +6,7 @@
 
 О том, как создать триггер для почты, читайте в инструкции [{#T}](../../operations/mail-trigger-create.md).
 
-{% include [batching-messages](../../../_includes/functions/batching-messages.md) %}
+{% include [batching-messages](../../../_includes/serverless-containers/batching-messages.md) %}
 
 ## Роли, необходимые для корректной работы триггера для почты {#roles}
 

@@ -13,12 +13,12 @@
    Чтобы изменить имя устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить имя устройства.
-   1. Выберите сервис **{{ iot-short-name }}**.
+   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
-   1. В левой части окна выберите раздел **Устройства**.
-   1. Справа от имени нужного устройства нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **Редактировать**.
-   1. Измените поле **Имя**.
-   1. Нажмите кнопку **Сохранить**.
+   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
+   1. Справа от имени нужного устройства нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
+   1. Измените поле **{{ ui-key.yacloud.common.name }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -32,8 +32,8 @@
   
   Результат:
   ```
-  id: b9135goeh1uc1s2i07nm
-  registry_id: b91ki3851hab9m0l68je
+  id: b9135goeh1uc********
+  registry_id: b91ki3851hab********
   created_at: "2019-05-28T16:08:30.938Z"
   name: test-device
   ```
@@ -109,12 +109,12 @@
    Чтобы изменить описание устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить описание устройства.
-   1. Выберите сервис **{{ iot-short-name }}**.
+   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
-   1. В левой части окна выберите раздел **Устройства**.
-   1. Справа от имени нужного устройства нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **Редактировать**.
-   1. Измените поле **Описание**.
-   1. Нажмите кнопку **Сохранить**.
+   1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
+   1. Справа от имени нужного устройства нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
+   1. Измените поле **{{ ui-key.yacloud.common.description }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -129,8 +129,8 @@
   Результат:
   
   ```
-  id: b9135goeh1uc1s2i07nm
-  registry_id: b91ki3851hab9m0l68je
+  id: b9135goeh1uc********
+  registry_id: b91ki3851hab********
   created_at: "2019-05-28T16:08:30.938Z"
   name: my-device
   description: My first device.

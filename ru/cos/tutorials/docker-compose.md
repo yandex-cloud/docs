@@ -62,7 +62,7 @@
      * `--service-account-name` — имя сервисного аккаунта.
      * `--docker-compose-file` — YAML-файл со спецификацией контейнеров.
 
-     После создания ВМ появится в списке ВМ в разделе **{{ compute-name }}** в [консоли управления]({{ link-console-main }}).
+     После создания ВМ появится в списке ВМ в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}).
   1. Проверьте результат.
      1. [Подключитесь к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
      1. Посмотрите список запущенных Docker-контейнеров:

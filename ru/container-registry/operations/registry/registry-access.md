@@ -7,13 +7,13 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан реестр.
-  1. В списке сервисов выберите **{{ container-registry-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Выберите реестр, доступ к которому нужно настроить.
-  1. На панели слева нажмите ![IP-access](../../../_assets/container-registry/ip-access.svg) **Доступ для IP-адресов**.
-  1. Нажмите **Настроить**.
+  1. На панели слева нажмите ![IP-access](../../../_assets/container-registry/ip-access.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}**.
+  1. Нажмите **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
   1. Введите IP-адрес и укажите действие. PULL — разрешение на скачивание, PUSH — разрешение на загрузку Docker-образов в реестр.
-  1. Если нужно настроить доступ для нескольких IP-адресов, нажмите **Добавить**.
-  1. Нажмите кнопку **Сохранить**.
+  1. Если нужно настроить доступ для нескольких IP-адресов, нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
