@@ -68,8 +68,8 @@
     Где:
 
     * `--name` — имя триггера.
-    * `--batch-size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 до 10, значение по умолчанию — 1.
-    * `--batch-cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует сообщения не дольше `batch-cutoff` и отправляет их в функцию. Число сообщений при этом не превышает `batch-size`.
+
+    {% include [batch-settings-messages](../../../_includes/functions/batch-settings-messages.md) %}
 
     {% include [attachments-params](../../../_includes/functions/attachments-params.md) %}
     

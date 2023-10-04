@@ -12,13 +12,6 @@
    1. Select a service and click the section with the new offer.
    1. Choose a platform.
    1. Use the service cost calculator: set the amount of resources and compare the cost when committing to 6 months and 1 year. Select the appropriate option.
-
-      {% note warning %}
-
-      You can reserve a maximum of 20 vCPUs and 40 GB RAM in a single step.
-
-      {% endnote %}
-
 1. Check the terms of the selected agreement.
 1. Read the agreement. If you agree to the terms, check **By clicking <q>Purchase commitment</q>, I have read and accept the Terms**.
 1. Click **{{ ui-key.yacloud.billing.cud.purchase.button_purchase }}**.

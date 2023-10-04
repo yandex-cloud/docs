@@ -7,23 +7,23 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
-  1. В списке сервисов выберите **{{ container-registry-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Выберите реестр и нажмите на строку с его именем.
   1. Выберите репозиторий и нажмите на строку с его именем.
-  1. На панели слева нажмите ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **Жизненный цикл**.
-  1. В правом верхнем углу нажмите кнопку **Создать**.
+  1. На панели слева нажмите ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
+  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте параметры политики удаления:
-     * (Опционально) **Имя**.
-     * (Опционально) **Описание**.
-     * **Статус** — статус политики удаления после создания. Не рекомендуется создавать сразу активную политику со статусом `ACTIVE`.
-     * В блоке **Правила политики удаления** добавьте правила:
-       1. Нажмите кнопку **Добавить**.
+     * (Опционально) **{{ ui-key.yacloud.common.name }}**.
+     * (Опционально) **{{ ui-key.yacloud.common.description }}**.
+     * **{{ ui-key.yacloud.common.label_status }}** — статус политики удаления после создания. Не рекомендуется создавать сразу активную политику со статусом `ACTIVE`.
+     * В блоке **{{ ui-key.yacloud.cr.registry.label_lifecycle-rules }}** добавьте правила:
+       1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
        1. Задайте параметры правила:
 
           {% include [lifecycle-rules-console](../../../_includes/container-registry/lifecycle-rules-console.md) %}
 
-          * (Опционально) **Описание**.
-  1. Нажмите кнопку **Создать**.
+          * (Опционально) **{{ ui-key.yacloud.common.description }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

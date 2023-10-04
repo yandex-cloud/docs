@@ -128,8 +128,8 @@
      * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** — сканировать только выбранные репозитории:
        1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
        1. Выберите репозитории из списка.
-       1. Нажмите кнопку **Сохранить**.
-  1. Нажмите кнопку **Сохранить изменения**.
+       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
 
 - API
 

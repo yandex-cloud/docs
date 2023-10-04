@@ -1381,6 +1381,12 @@ default:
   sku|KZT|nlb:
     balancer:
       active|string: ₸3.9000
+  sku|KZT|searchapi:
+    requests:
+      day:
+        v1|int|string: ₸2400
+      night:
+        v1|int|string: ₸1800
   sku|KZT|serverless:
     containers:
       compute:
@@ -2192,6 +2198,12 @@ default:
   sku|RUB|nlb:
     balancer:
       active|string: ₽0.7800
+  sku|RUB|searchapi:
+    requests:
+      day:
+        v1|int|string: ₽480
+      night:
+        v1|int|string: ₽360
   sku|RUB|serverless:
     containers:
       compute:
@@ -2970,6 +2982,12 @@ default:
   sku|USD|nlb:
     balancer:
       active|string: $0.006240
+  sku|USD|searchapi:
+    requests:
+      day:
+        v1|string: $3.840000
+      night:
+        v1|string: $2.880000
   sku|USD|serverless:
     containers:
       compute:
@@ -4965,6 +4983,8 @@ default:
           add-role: Add role
         label:
           title: Configuring access bindings
+      marketplace:
+        label_product-ids: Product IDs
       organization:
         action:
           select: Continue
@@ -5248,6 +5268,7 @@ default:
     yacloud:
       airflow:
         button_create-cluster: Create a cluster
+        section_admin-password: User
         section_airflow-configuration: Airflow configuration
         section_dependencies: Dependencies
         section_scheduler: Scheduler configuration
@@ -5288,6 +5309,7 @@ default:
         label_bucket: Bucket
         label_certificate: Certificates
         label_default-log-group: Default log group
+        label_detailed-settings: Advanced settings
         label_discard-grpc-codes: gRPC codes
         label_discard-http-code-intervals: HTTP code classes
         label_discard-http-codes: HTTP codes
@@ -5763,6 +5785,7 @@ default:
         label_https: HTTPS
         label_key: Key
         label_list: List
+        label_status: Status
         label_subnet: Subnet
         label_tcp: TCP
         label_udp: UDP
@@ -5793,6 +5816,7 @@ default:
           label_service-account: Service account
           label_service-accounts: Service accounts
         save: Save
+        save-changes: Save changes
         section-base: General information
         select: Select
         start: Start
@@ -5810,6 +5834,8 @@ default:
       component:
         acl-dialog:
           button_remove-new: Cancel
+          button_revoke: Revoke
+          column_permissions: Permissions
           label_select-placeholder: Select a user
           label_select-section-service-accounts: Service accounts
           label_title: ACL editing
@@ -5818,6 +5844,8 @@ default:
             button_add-role: Add role
             button_select-subject: Select subject
             label_title: Configure permissions
+        certificates:
+          button_empty-add: Add certificate
         compute:
           network-select:
             field_address: IP address
@@ -6028,6 +6056,7 @@ default:
             field_security-groups-ids: Security groups
           edit:
             button_update: Save changes
+          label_vm: Virtual machine instance
           overview:
             button_action-edit: Edit VM
             button_action-stop: Stop
@@ -6075,8 +6104,15 @@ default:
             button_net_empty-create: Create a network
             column_disk-size: Size
             field_access-advanced: Advanced
+            field_coi-arguments: Command arguments
+            field_coi-command: Command
+            field_coi-env: Environment variables
             field_coi-image: Docker image
             field_coi-name: Name
+            field_coi-privileged: Run Docker container in privileged mode
+            field_coi-restart-policy: Restart policy
+            field_coi-stdin: Allocate an stdin buffer for a running Docker container
+            field_coi-tty: Attach a TTY to the Docker container
             field_description: Description
             field_instance-group-address: Public address
             field_instance-group-network: Network
@@ -6111,12 +6147,17 @@ default:
             unified-agent: Agent for delivering metrics
             value_address-auto: Auto
             value_address-none: No address
+            value_coi-restart-always: Always
+            value_coi-restart-never: Never
+            value_coi-restart-on-failure: On-Failure
           label_title: Virtual machines
           popup-confirm_button_delete: Delete
           popup-confirm_button_gr-stop: Stop
           popup-confirm_button_restart: Restart
           popup-confirm_button_start: Start
           popup-confirm_button_stop: Stop
+        landing:
+          action_create-resource: Create resource
         nfs:
           button_attach-filesystem-to-the-instance: Attach file storage
           button_attach-instance-to-the-filesystem: Attach to VM
@@ -6170,15 +6211,36 @@ default:
           label_scan-status-READY: Ready
           label_scan-status-RUNNING: Running
           label_start-scan: Scan
+          label_tag: Tags
+          popup-confirm_button_delete: Delete
+          section_overview: Overview of Docker image
         overview:
           button_create: Create registry
+          popup-confirm_button_delete: Delete
           popup-create_button_create: Create registry
+          popup-update_button_update: Edit
         registry:
           button_change-scan-settings: Edit settings
+          button_lifecycle-dry-run: Dry run
           button_select-repositories: Select repositories
+          button_update-ip-permissions: Set
           label_all-repositories: All repositories
+          label_expire-period-days: Expire period, in days
+          label_ip-permissions: Access for IP address
+          label_lifecycle: Lifecycle
+          label_lifecycle-dry-runs: Lifecycle dru runs
+          label_lifecycle-rules: Lifecycle policy rules
           label_only-selected: Only selected
+          label_retained-top: Retained top
+          label_tag-regexp: Tag regexp
+          label_untagged: Untagged
           label_vulnerabilities-scanner: Vulnerability scanner
+          overview:
+            button_registry-acl: ACL registry
+            button_repository-acl: Configure ACL
+            section_images: Docker images
+            section_repositories: Repositories
+        switch_registry: Registries
       data-streams:
         button_connect: Connect
         button_create-stream: Create stream
@@ -6199,6 +6261,7 @@ default:
           section-endpoint: Endpoint parameters
         label_connector-operation-ACTIVATE: Activate
         label_connector-operation-DEACTIVATE: Deactivate
+        label_connector-status-CREATING: Creating
         label_connector-status-DONE: Completed
         label_connector-status-RUNNING: Replicating
         label_connectors: Transfers
@@ -6211,6 +6274,7 @@ default:
         label_endpoint-type-OBJECT_STORAGE: Object Storage
         label_endpoint-type-POSTGRES: PostgreSQL
         label_endpoint-type-YDB: YDB
+        label_endpoint-type-YDS_ru: Yandex Data Streams
         label_endpoints: Endpoints
         label_monitoring: Monitoring
       dataproc:
@@ -6351,6 +6415,7 @@ default:
             label_data-proc: Data Proc
             label_data-streams: Data Streams
             label_data-transfer: Data Transfer
+            label_data-transfer_ru: Yandex Data Transfer
             label_datalens: DataLens
             label_datasphere: DataSphere
             label_dns: Cloud DNS
@@ -6433,12 +6498,16 @@ default:
         button_add-alias: Add alias
         button_add-device: Add device
         button_add-label: Add label
+        button_add-password: Add password
         button_add-yds-export: Add export
         button_create-broker: Create broker
         button_create-registry: Create registry
+        label_aliases: Aliases
         label_brokers: Brokers
+        label_certificates: Certificates
         label_devices: Devices
         label_mqtt-topic-filter: MQTT topic filter
+        label_passwords: Passwords
         label_registries: Registries
         label_yds-exports: Export to Data Stream
       k8s:
@@ -6639,6 +6708,7 @@ default:
         column_header-time: Time
         label_destination: Destination
         label_export: Export logs
+        label_groups: Groups
         label_loggroup: Log group
         label_retention-period: Log retention
         label_sinks: Sinks
@@ -7171,6 +7241,7 @@ default:
             section_storage: Object Storage settings
             section_timer: Timer settings
             section_ymq: Message Queue message settings
+            value_event-type-create-image-tag: Create Docker image tag
             value_event-type-create-object: Create object
           list:
             button_create: Create trigger
@@ -7253,6 +7324,7 @@ default:
             access_value_private: Restricted
             access_value_public: Public
             button_save: Save
+            class_value_cold: Cold
             class_value_standard: Standard
             field_access-config-read: Read access to settings
             field_access-list: Object listing access

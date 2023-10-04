@@ -28,10 +28,12 @@ items:
         items:
           - name: Подключить профиль к хосту
             href: operations/host-connect.md
-          - name: Изменить параметры подключения
-            href: operations/host-update.md
           - name: Отключить профиль от хоста
             href: operations/host-delete.md
+  - name: Практические руководства
+    items:
+      - name: Создание L7-балансировщика с профилем безопасности
+        href: tutorials/balancer-with-sws-profile.md
   - name: Концепции
     items:
       - name: Обзор

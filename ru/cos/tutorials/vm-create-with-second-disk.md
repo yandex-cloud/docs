@@ -65,7 +65,7 @@
      * `--ssh-key` — путь к файлу с [открытым ключом](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--docker-compose-file` — YAML-файл со спецификацией контейнера.
 
-     После создания ВМ появится в списке ВМ в разделе **{{ compute-name }}** в [консоли управления]({{ link-console-main }}).
+     После создания ВМ появится в списке ВМ в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}).
   1. Проверьте результат.
      1. [Подключитесь к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
      1. Получите идентификатор запущенного Docker-контейнера:

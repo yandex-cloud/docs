@@ -31,11 +31,16 @@ keywords:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** введите:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-     * Имя кластера. Имя должно быть уникальным в рамках каталога.
-     * (Опционально) Описание кластера.
-     * Пароль пользователя-администратора. Пароль должен иметь длину не менее 8 символов и содержать как минимум:
+        1. Введите имя кластера. Имя должно быть уникальным в рамках каталога.
+        1. (Опционально) Введите описание кластера.
+        1. (Опционально) Создайте [метки](../../resource-manager/concepts/labels.md):
+            1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+            1. Введите метку в формате `ключ: значение`.
+            1. Нажмите **Enter**.
+
+  1. В блоке **{{ ui-key.yacloud.airflow.section_admin-password }}** задайте пароль пользователя-администратора. Пароль должен иметь длину не менее 8 символов и содержать как минимум:
 
         * одну заглавную букву;
         * одну строчную букву;
@@ -50,9 +55,10 @@ keywords:
      
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите:
 
-      * [Зоны доступности](../../overview/concepts/geo-scope) для размещения кластера.
-      * Облачную сеть.
-      * Подсеть в каждой из выбранных зон доступности.
+      * [зоны доступности](../../overview/concepts/geo-scope) для размещения кластера;
+      * облачную сеть;
+      * подсеть в каждой из выбранных зон доступности;
+      * [группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера.
 
   1. Задайте количество экземпляров и ресурсы для [компонентов](../concepts/index.md#components) {{ maf-name }}:
 
@@ -68,7 +74,7 @@ keywords:
 
       * (опционально) службы Triggerer.
 
-  1. (Опционально) В блоке **{{ ui-key.yacloud.airflow.section_dependencies }}** укажите названия pip- и deb-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.airflow.section_dependencies }}** укажите названия pip-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов.
 
       Чтобы указать более одного пакета, нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
@@ -79,16 +85,22 @@ keywords:
       kafkacat=1.2.0-2
       ```
 
-      Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
+      Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов.
+
+      {% note warning %}
+
+      Для установки pip-пакетов из публичных репозиториев необходимо в блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** указать сеть с настроенным [NAT в интернет](../../vpc/operations/create-nat-gateway.md).
+
+      {% endnote %}
 
   1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** задайте:
 
       * Имя ранее созданного бакета, в котором будут храниться DAG-файлы.
       * Параметры статического ключа доступа для сервисного аккаунта.
 
-  1. (Опционально) В блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}** задайте [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) в формате `ключ:значение`, например `api.maximum_page_limit` **:** `150`.
-
   1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите защиту от удаления кластера.
+
+  1. (Опционально) В блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}** задайте [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) в формате `ключ:значение`, например `api.maximum_page_limit` **:** `150`.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
