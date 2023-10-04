@@ -34,7 +34,7 @@ column {
     type = "Timestamp"
   }
 
-    primary_key = ["a","b”]
+  primary_key = ["a","b"]
   
 }
 ```
