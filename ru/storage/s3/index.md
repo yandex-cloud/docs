@@ -1,5 +1,6 @@
 ---
 title: "Как пользоваться S3 API. {{ objstorage-name }}"
+description: "Из статьи вы узнаете, как подготовиться к работе с API, что представляет собой запрос к {{ objstorage-name }} API и как использовать кросс-доменные запросы."
 keywords:
   - s3
   - s3 storage

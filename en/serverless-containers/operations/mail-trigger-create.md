@@ -16,27 +16,27 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-   1. Select **{{ serverless-containers-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-   1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
+   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **Basic parameters**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * (Optional) Enter a trigger name and description.
-      * In the **Type** field, select **Email**.
-      * In the **Launched resource** field, select **Container**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_mail }}`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-   1. (Optional) Under **Repeat request settings**:
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -57,7 +57,7 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
      --dlq-queue-id <Dead_Letter_Queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
-  
+
 
    Where:
 
@@ -68,7 +68,7 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
    Result:
 
    
-   ```yaml
+   ```
    id: a1sfe084v4**********
    folder_id: b1g88tflru**********
    created_at: "2022-12-04T08:45:31.131391Z"

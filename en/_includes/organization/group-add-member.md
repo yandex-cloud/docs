@@ -35,7 +35,7 @@
       Where:
 
       * `organization_id`: ID of the group to add the members to.
-      * `members`: [IDs](../../organization/users-get.md) of the members to be added to the group.
+      * `members`: [IDs](../../organization/operations/users-get.md) of the members to be added to the group.
 
    1. Create resources:
 

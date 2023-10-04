@@ -14,19 +14,19 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
-  1. В списке сервисов выберите **{{ compute-name }}**.
-  1. Нажмите кнопку **Создать ВМ**.
-  1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **Container Solution**.
-  1. Нажмите кнопку **Настроить**.
-  1. В открывшемся окне **Настройка Docker-контейнера** задайте параметры, используя подсказки:
-     * Укажите **Docker-образ**, на основе которого будет запущен Docker-контейнер на ВМ.
-     * Выберите значение поля **Политика перезапуска** для Docker-контейнера:
-       * **Always** — всегда перезапускать Docker-контейнер при его остановке.
-       * **Never** — не перезапускать Docker-контейнер автоматически.
-       * **On-Failure** — перезапускать Docker-контейнер, только если он завершил работу с ненулевым кодом возврата.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
+  1. В открывшемся окне **{{ ui-key.yacloud.compute.instances.create.section_coi }}** задайте параметры, используя подсказки:
+     * Укажите **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}**, на основе которого будет запущен Docker-контейнер на ВМ.
+     * Выберите значение поля **{{ ui-key.yacloud.compute.instances.create.field_coi-restart-policy }}** для Docker-контейнера:
+       * **{{ ui-key.yacloud.compute.instances.create.value_coi-restart-always }}** — всегда перезапускать Docker-контейнер при его остановке.
+       * **{{ ui-key.yacloud.compute.instances.create.value_coi-restart-never }}** — не перезапускать Docker-контейнер автоматически.
+       * **{{ ui-key.yacloud.compute.instances.create.value_coi-restart-on-failure }}** — перезапускать Docker-контейнер, только если он завершил работу с ненулевым кодом возврата.
      * Заполните остальные поля при необходимости.
 
-     Нажмите кнопку **Применить**.
+     Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
   1. Задайте остальные параметры ВМ по [инструкции](../compute/operations/vm-create/create-linux-vm.md).
  
 
@@ -86,7 +86,7 @@
      ...
      ```
 
-     После создания ВМ появится в списке ВМ в разделе **{{ compute-name }}** в [консоли управления]({{ link-console-main }}). Подробнее о работе с ВМ читайте в [пошаговых инструкциях](../compute/operations/index.md).
+     После создания ВМ появится в списке ВМ в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}). Подробнее о работе с ВМ читайте в [пошаговых инструкциях](../compute/operations/index.md).
 
 {% endlist %}
 

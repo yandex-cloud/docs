@@ -20,7 +20,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       yc resource-manager folder add-access-binding --help
       ```
 
-   2. Select a folder (for example, `my-folder`):
+   1. Select a folder (for example, `my-folder`):
 
       ```bash
       yc resource-manager folder list
@@ -36,7 +36,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       +----------------------+-----------+--------+--------+
       ```
 
-   3. Choose the [role](../../../iam/concepts/access-control/roles.md).
+   1. Choose the [role](../../../iam/concepts/access-control/roles.md).
 
       ```bash
       yc iam role list
@@ -57,7 +57,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       ```
 
 
-  4. Find out the user's ID from the login or email address. To assign a role to a service account or system group instead of a user, see the [examples](#examples) below.
+  1. Find out the user ID from the login or email address. To assign a role to a service account or system group instead of a user, see the [examples](#examples) below.
 
       ```bash
       yc iam user-account get test-user
@@ -72,7 +72,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
         default_email: test-user@yandex.ru
       ```
 
-  5. Assign the `editor` role for the `my-folder` folder to a user named `test-user`. In the subject, specify the `userAccount` type and user ID:
+  1. Assign the `editor` role for the `my-folder` folder to a user named `test-user`. In the subject, specify the `userAccount` type and user ID:
 
       ```bash
       yc resource-manager folder add-access-binding my-folder \
@@ -105,7 +105,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
        ]
       }
       ```
-  2. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
+  1. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
         https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
@@ -122,7 +122,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
        }
       }
       ```
-  3. Assign the `editor` role for the `my-folder` folder to the user. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
+  1. Assign the `editor` role for the `my-folder` folder to the user. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 
       ```bash
       curl -X POST \
@@ -154,8 +154,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This parameter is required.
-      * `role`: Role being assigned. This parameter is required.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. Required parameter.
+      * `role`: Role being assigned. Required parameter.
 
          {% note info %}
 
@@ -163,13 +163,14 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% endnote %}
 
-      * `member`: User to assign the role to. This parameter is required. Possible values:
+      * `member`: User to assign the role to. Required parameter. Possible values:
                   * `userAccount:<user ID>`: [User ID](../../../iam/operations/users/get.md).
          * `serviceAccount:<service account ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
-         * `federatedUser:<user account ID>`: [User account ID](../../../organization/users-get.md).
+         * `federatedUser:<user account ID>`: [User account ID](../../../organization/operations/users-get.md).
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
+      
       ```hcl
       ...
       data "yandex_resourcemanager_folder" "project1" {
@@ -184,9 +185,9 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       ...
       ```
 
-     {% endcut %}
+      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -204,7 +205,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```
@@ -213,7 +214,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+     You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```
      yc resource-manager folder list-access-bindings <folder name>|<folder ID>
@@ -246,7 +247,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       ```bash
       yc resource-manager folder list-access-bindings my-folder
       ```
-   2. For example, assign a role to multiple users:
+   1. For example, assign a role to multiple users:
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
         --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
@@ -290,6 +291,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
   {% endnote %}
 
+
   ```bash
   curl -X POST \
       -H 'Content-Type: application/json' \
@@ -319,8 +321,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This parameter is required.
-      * `role`: Role being assigned. This parameter is required.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. Required parameter.
+      * `role`: Role being assigned. Required parameter.
 
          {% note info %}
 
@@ -328,10 +330,11 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% endnote %}
 
-      * `member`: User to assign the role to. To add a user to the list, create an entry in the format `userAccount:<user ID>` where `<user ID>` is the email address of the Yandex account (for example, `ivan@yandex.ru`). This parameter is required.
+      * `member`: User to assign the role to. To add a user to the list, create an entry in the format `userAccount:<user ID>` where `<user ID>` is the email address of the Yandex account (for example, `ivan@yandex.ru`). Required parameter.
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
+      
       ```hcl
       ...
       data "yandex_resourcemanager_folder" "project1" {
@@ -352,9 +355,9 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       ```
 
 
-     {% endcut %}
+      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -372,7 +375,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```
@@ -381,7 +384,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+     You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```
      yc resource-manager folder list-access-bindings <folder name>|<folder ID>
@@ -422,8 +425,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This parameter is required.
-      * `role`: Role being assigned. This parameter is required.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. Required parameter.
+      * `role`: Role being assigned. Required parameter.
 
          {% note info %}
 
@@ -431,7 +434,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% endnote %}
 
-      * `member`: User to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service account ID>`, where `<service account ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. This parameter is required.
+      * `member`: User to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service account ID>`, where `<service account ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. Required parameter.
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -451,7 +454,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       {% endcut %}
 
-      For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_member).
+      For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
    1. Check the configuration using this command:
       ```
@@ -469,7 +472,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -478,7 +481,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+      You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc resource-manager folder list-access-bindings <folder name>|<folder ID>
@@ -511,7 +514,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       Where:
 
-      * `<folder-name>`: Folder name. You can specify a folder by name or ID.
+      * `<folder-name>`: Folder name. You can specify a folder by its name or ID.
       * `<folder-id>`: Folder ID.
       * `<role-id>`: Role ID, such as `editor`.
       * `<federated-user-id>`: ID of user account assigned the role.

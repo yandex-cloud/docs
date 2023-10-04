@@ -319,7 +319,7 @@
     WS connection opened
     Local client ready.
     Check url: https://d5ddt4ltdvh7********.apigw.yandexcloud.net
-    Waiting requests...   
+    Waiting requests...
     ```
 
     Где `Check url` — публичный адрес [API-шлюза](../../api-gateway/concepts/index.md) {{ api-gw-name }}.

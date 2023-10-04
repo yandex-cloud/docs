@@ -14,11 +14,6 @@ You can view a list of inherited roles for the folder or the cloud in the manage
 
    In the management console, you can view roles only for the folder, cloud, or organization. To view roles for other resources, use the CLI or API.
 
-   You can view a list of users if:
-
-   * The **Available:** setting is set to **All users**.
-   * The **Available:** setting is set to **Administrators** and you have the administrator role.
-
    To view the roles of a [user with a Yandex account](../../concepts/index.md#passport), [federated user](../../concepts/index.md#saml-federation), or [service account](../../concepts/users/service-accounts.md):
 
    {% include [include](../../../_includes/iam/configure-roles-console.md) %}

@@ -46,10 +46,10 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ cloud-logging-name }}**.
-  1. Напротив лог-группы, в которую поступают логи, нажмите ![options](../_assets/options.svg) и выберите **Редактировать**.
-  1. В поле **Поток данных** выберите поток `logs-stream`, созданный ранее.
-  1. Нажмите кнопку **Сохранить**.
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. Напротив лог-группы, в которую поступают логи, нажмите ![options](../_assets/options.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В поле **{{ ui-key.yacloud.data-streams.label_data-stream }}** выберите поток `logs-stream`, созданный ранее.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 

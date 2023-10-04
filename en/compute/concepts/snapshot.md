@@ -42,13 +42,12 @@ The checksum is stored for blocks in the snapshot. This checksum is checked when
 To test disk recovery from a snapshot, [create a VM with a snapshot disk](../operations/vm-create/create-from-snapshots.md) and check the integrity of your data.
 
 
-
 ## Encrypting snapshots {#encryption}
 
 To protect critical data in {{ compute-name }}, we recommend encrypting snapshots with [{{ kms-full-name }}](../../kms/) keys.
 
 For more information, see [{#T}](encryption.md).
-
+
 
 #### See also {#see-also}
 

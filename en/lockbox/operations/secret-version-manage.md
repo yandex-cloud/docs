@@ -19,7 +19,7 @@ Secret version control enables you to:
    1. Click the name of the secret you need.
    1. Under **Versions**, click **Add version**.
    1. Add the following parameters:
-      * (optional) **Description**: Version description.
+      * (Optional) **Description**: Version description.
       * **Key**: Non-secret name that identifies a value.
       * **Value**: Explicitly represented secret data.
          You can create multiple key-value pairs per version.
@@ -62,18 +62,18 @@ Secret version control enables you to:
 
       Where:
 
-      * `secret_id`: ID of the secret you are creating a version for. This parameter is required.
+      * `secret_id`: ID of the secret you are creating a version for. This is a required parameter.
       * `entries`: Section with secret parameters. For each secret, create a separate `entries` section. It may contain the following parameters:
-         * `key`: Secret key, which is a non-secret name that identifies a value. This parameter is required.
-         * `text_value`: Explicitly represented secret data. This parameter is required.
+         * `key`: Secret key, which is a non-secret name that identifies a value. This is a required parameter.
+         * `text_value`: Explicitly represented secret data. This is a required parameter.
 
-      For more information about the parameters of the `yandex_lockbox_secret_version` resource in Terraform, see the [provider documentation]({{ tf-provider-resources-link }}/lockbox_secret_version).
+      You can learn more about the parameters of the `yandex_lockbox_secret_version` resource in Terraform in the [provider documentation]({{ tf-provider-resources-link }}/lockbox_secret_version).
 
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   This creates a new version of the specified secret. You can verify that the version is there and its configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+   This creates a new version of the specified secret. You can check if the version is there and properly configured either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
    ```bash
    yc lockbox secret list-versions <secret_ID>
@@ -115,7 +115,7 @@ Secret version control enables you to:
    1. Under **Versions**, click ![image](../../_assets/horizontal-ellipsis.svg) next to the appropriate version.
    1. Select **Create a new version based on this one**.
    1. Edit or add the following parameters:
-      * (optional) **Description**: Version description.
+      * (Optional) **Description**: Version description.
       * **Key**: Non-secret name that identifies a value.
       * **Value**: Explicitly represented secret data.
          You can create multiple key-value pairs per version.

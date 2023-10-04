@@ -7,9 +7,9 @@ To allow any user to invoke a function without passing an authorization header, 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Select the function you want to make public.
-   1. On the **Overview** page, under **General information,** switch the **Public function** option to on.
+   1. On the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page, enable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
 
 - CLI
 
@@ -77,7 +77,7 @@ To allow any user to invoke a function without passing an authorization header, 
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

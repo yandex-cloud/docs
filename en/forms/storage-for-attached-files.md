@@ -39,7 +39,7 @@ This option is only available for [business forms](forms-for-org.md).
 
 {% endnote %}
 
-1. Make sure the form is linked to an organization that has a [cloud](../organization/manage-services.md#cloud). To find out the organization, click on **For organization** in the top panel: the linked organization will be highlighted in the list. You can check if there is a cloud in the {{ yandex-cloud }} [management console]({{ link-console-main }}). If there is no cloud, create one by following the [guide](../resource-manager/operations/cloud/create.md).
+1. Make sure the form is linked to an organization that has a [cloud](../organization/concepts/manage-services.md#cloud). To find out the organization, click on **For organization** in the top panel: the linked organization will be highlighted in the list. You can check if there is a cloud in the {{ yandex-cloud }} [management console]({{ link-console-main }}). If there is no cloud, create one by following the [guide](../resource-manager/operations/cloud/create.md).
 
 1. The cloud must have a [service account](../iam/concepts/users/service-accounts.md). If there is no service account, create one by following the [guide](../iam/operations/sa/create.md).
 

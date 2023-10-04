@@ -18,6 +18,8 @@
 На целевом бакете не должно быть включено [шифрование](../operations/buckets/encrypt.md).
 
 
+{% include [target-backet-note](../../_includes/storage/target-bucket-note.md) %}
+
 ## Формат ключа объекта с логами {#key-format}
 
 {{ objstorage-name }} использует следующий формат ключа объекта с логами:

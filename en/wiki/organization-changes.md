@@ -32,7 +32,7 @@ This can only be set up by the {{ ya-360 }} organization administrator.
 
 The {{ ya-360 }} organization features can be enhanced with the {{ org-full-name }} features.
 
-1. Create an organization in {{ org-full-name }} following [this guide](../organization/quick-start.md#create).
+1. Create an organization in {{ org-full-name }} following [this guide](../organization/quickstart.md#create).
 
    {% note alert %}
 

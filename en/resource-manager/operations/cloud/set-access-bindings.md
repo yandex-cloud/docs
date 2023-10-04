@@ -153,7 +153,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       * `member`: User to assign the role to. Each `yandex_resourcemanager_cloud_iam_member` resource may have one of the following values:
          * `userAccount:<user ID>`: [User ID](../../../iam/operations/users/get.md).
          * `serviceAccount:<ID of service account>`: [ID of the service account](../../../iam/operations/sa/get-id.md).
-         * `federatedUser:<federated user ID>`: [ID of the federated user](../../../organization/users-get.md).
+         * `federatedUser:<federated user ID>`: [ID of the federated user](../../../organization/operations/users-get.md).
 
       Example of the configuration file structure:
 
@@ -171,7 +171,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
 
 
-      For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud_iam_member).
+      For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member).
    1. In the command line, go to the directory where you created the configuration file.
    1. Make sure the configuration file is correct using this command:
 
@@ -191,7 +191,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -337,7 +337,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -471,7 +471,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

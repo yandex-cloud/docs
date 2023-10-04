@@ -5,10 +5,10 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Select **{{ sf-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/functions/functions.svg) **Functions**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/functions/functions.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
    1. Select a function.
-   1. The **Overview** page shows the function details.
+   1. The **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page shows the function details.
 
 - CLI
 

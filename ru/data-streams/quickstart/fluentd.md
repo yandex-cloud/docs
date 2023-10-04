@@ -15,9 +15,9 @@ description: "Из статьи вы узнаете, как собирать и 
    ```
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится поток данных.
-1. Выберите сервис **{{ yds-full-name }}**.
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Выберите поток данных.
-1. Нажмите **Подключиться** и перейдите на вкладку **Fluentd**.
+1. Нажмите **{{ ui-key.yacloud.data-streams.button_connect }}** и перейдите на вкладку **Fluentd**.
 1. Скопируйте пример файла конфигурации и вставьте его в файл `/etc/td-agent/td-agent.conf`.
 
    {% include [aws-sdk-attr](../../_includes/data-streams/aws-sdk-attr.md) %}

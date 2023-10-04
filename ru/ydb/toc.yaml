@@ -256,8 +256,9 @@ items:
               - name: list
                 href: api-ref/StorageType/list.md
   - name: Работа с YDB через Terraform
-    href: ./terraform/intro.md
     items:
+      - name: Введение в работу с YDB через Terraform
+        href: ./terraform/intro.md
       - name: Получение данных для аутентификации
         href: ./terraform/credentials.md
       - name: Установка и настройка Terraform и провайдера для подключения к YDB

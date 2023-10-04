@@ -11,9 +11,12 @@ meta:
     Yandex Cloud provides technical support in Russian and English in accordance
     with the Maintenance Regulations (in Russian).
 links:
-  - title: Requesting technical support
+  - title: Procedure for provision of technical support
     description: How to contact technical support
     href: overview
+  - title: Support Center
+    description: Troubleshooting in Support Center
+    href: support-center
   - title: Notifications from Yandex Cloud support
     description: What events technical support notifies you about and how
     href: notify

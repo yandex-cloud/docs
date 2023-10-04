@@ -139,6 +139,8 @@ items:
             href: operations/disk-control/disk-change-folder.md
           - name: Зашифровать диск
             href: operations/disk-control/disk-encrypt.md
+          - name: Перенести диск в другую зону доступности
+            href: operations/disk-control/disk-change-zone.md
           - name: Удалить диск
             href: operations/disk-control/delete.md
       - name: Снимки дисков
@@ -183,6 +185,8 @@ items:
             href: operations/image-control/get-list.md
           - name: Удалить образ
             href: operations/image-control/delete.md
+          - name: Импортировать образ из другого облака или каталога
+            href: operations/image-control/import.md
       - name: Файловые хранилища
         items:
           - name: Создать файловое хранилище

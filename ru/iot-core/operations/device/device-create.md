@@ -1,3 +1,8 @@
+---
+title: "Создание устройства"
+description: "Следуя данной инструкции, вы сможете создать устройство."
+---
+
 # Создание устройства
 
 {% list tabs %}
@@ -9,11 +14,11 @@
    1. Выберите в списке нужный реестр.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-device }}**.
-   1. В блоке **Общая информация** добавьте:
+   1. В блоке **{{ ui-key.yacloud.common.section-base }}** добавьте:
 
       * **{{ ui-key.yacloud.common.name }}** устройства. Например, `my-device`.
       * (Опционально) **{{ ui-key.yacloud.common.description }}** с дополнительной информацией об устройстве.
-      * (Опционально) **Пароль**, который вы будете использовать для доступа к устройству. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
+      * (Опционально) **{{ ui-key.yacloud.common.password }}**, который вы будете использовать для доступа к устройству. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
 
          {% note info %}
 
@@ -30,18 +35,18 @@
 
       * Чтобы добавить файл:
 
-         1. Выберите способ **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}**.
+         1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
          1. Нажмите кнопку **Прикрепить файл**.
          1. Выберите файл с публичным ключом сертификата и нажмите кнопку **Открыть**.
          1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * Чтобы добавить текст:
 
-         1. Выберите способ **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}**.
+         1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
          1. Вставьте публичный ключ сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
          1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-   1. Нажмите кнопку **Создать**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

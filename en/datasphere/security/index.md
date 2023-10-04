@@ -7,7 +7,7 @@ description: "Access management in {{ ml-platform-full-name }}, a service that p
 
 Access to {{ ml-platform-full-name }} is regulated by assigning permissions in an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
 
-The list of operations available to {{ ml-platform-short-name }} users is determined by the roles they have. For more information about managing access to {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
+The list of operations available to {{ ml-platform-short-name }} users is determined by the roles they have. Roles can be assigned to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md). For more information about managing access to {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
 ## Which resources you can assign roles to {#resources}
 
@@ -20,7 +20,7 @@ You can assign a role to a user in the {{ ml-platform-name }} interface:
 * [{#T}](../operations/projects/add-user.md)
 * [Share resources with community members](../operations/index.md#share)
 
-You can also [grant access rights](../../organization/roles.md) through the {{ org-name }} interface.
+You can also [grant access rights](../../organization/security/index.md) through the {{ org-name }} interface.
 
 ## Which roles exist in the service {#roles-list}
 

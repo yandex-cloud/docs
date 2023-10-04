@@ -50,11 +50,10 @@ In {{ yandex-cloud }}, you pay for services based on the amount of resources con
 
    You are a resident of the Russian Federation and registered a business account with the **Bank card** payment method.
 
-   In 20 days, you spent ₽500 on Yandex Compute Cloud and ₽3000 on other services. Since you have fully spent one of the grant parts, the trial period terminates automatically and access to {{ yandex-cloud }} services is suspended unless you upgrade to the paid version.
+   In 20 days, you spent ₽500 on Yandex Compute Cloud and ₽3,000 on other services. As you have fully spent one of the grant parts, the trial period terminates automatically and access to {{ yandex-cloud }} services is suspended unless you upgrade to the paid version.
 
    If you upgrade to the paid version within 30 days, you can use the remainder of the grant until it expires:
-
-   - (1000&nbsp;- 500) = ₽500 for Compute Cloud.
+   - (1,000 - 500) = ₽500 for Compute Cloud.
 
 - Example 3
 
@@ -77,7 +76,7 @@ In {{ yandex-cloud }}, you pay for services based on the amount of resources con
    You upgraded to the paid version. The trial period terminates automatically.
 
    After upgrading to the paid version, you can continue to use the remainder of the grant until it expires:
-   - (4000 - 2500) = ₽1500 for services other than Compute Cloud.
+   - (4,000 - 2,500) = ₽1,500 on various services.
 
 
 {% endlist %}

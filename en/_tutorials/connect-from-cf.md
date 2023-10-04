@@ -21,8 +21,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost for this scenario includes:
-* A fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
-* A fee for making queries to the database (see [{{ ydb-name }} pricing](../ydb/pricing/serverless.md)).
+* Fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
+* Fee for querying the database (see [{{ ydb-name }} pricing](../ydb/pricing/serverless.md)).
 
 
 ## Create a service account {#create-sa}
@@ -31,15 +31,15 @@ The infrastructure support cost for this scenario includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you wish to create a service account.
-   1. Go to the **Service accounts** tab.
-   1. Click **Create service account**.
-   1. Enter a name for the service account, such as `sa-function`. For naming requirements, see below:
+   1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. Enter a name for the service account, such as `sa-function`. The naming requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
-   1. Click **Add role** and choose the `editor` role.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and choose the `editor` role.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -50,18 +50,18 @@ The infrastructure support cost for this scenario includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
-   1. In the list of services, select **{{ ydb-name }}**.
-   1. Click **Create database**.
-   1. Enter a name for the database. For naming requirements, see below:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+   1. Enter a name for the database. The naming requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
-   1. Under **Database type**, select the **Serverless** option.
-   1. Click **Create database**.
+   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
+   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
       Wait until the database starts. When a database is being created, it has the `Provisioning` status. When it's ready for use, the status changes to `Running`.
    1. Click on the name of the created database.
-   1. Under **Connection**, find the **Endpoint** and **Database location** fields and save their values. You'll need them in the next step.
+   1. Under **{{ ui-key.yacloud.ydb.overview.section_connection }}**, find the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** and **{{ ui-key.yacloud.ydb.overview.label_database }}** fields and save their values. You will need them in the next step.
 
 {% endlist %}
 
@@ -72,15 +72,15 @@ The infrastructure support cost for this scenario includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create the function.
-   1. In the list of services, select **{{ sf-name }}**.
-   1. Click **Create function**.
-   1. Enter a name and description for the function. For naming requirements, see below:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+   1. Enter a name and description for the function. The naming requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
-   1. Click **Create**.
-   1. Under **Editor**, select the **Python** runtime environment and click **Continue**.
-   1. Under **Function code**, clear the contents of the `index.py` file and paste the following code into it:
+   1. Click **{{ ui-key.yacloud.common.create }}**.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select `Python` as the runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, create a file named `index.py` and paste the following code to it:
 
       ```python
       import os
@@ -95,6 +95,7 @@ The infrastructure support cost for this scenario includes:
       )
 
       # Wait for the driver to become active for requests.
+
       driver.wait(fail_fast=True, timeout=5)
 
       # Create the session pool instance to manage YDB sessions.
@@ -117,18 +118,18 @@ The infrastructure support cost for this scenario includes:
         }
       ```
 
-   1. Under **Function code**, create a file named `requirements.txt` and paste the following text into it:
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, create a file named `requirements.txt` and paste the following text into it:
 
       ```txt
       ydb
       ```
 
    1. Specify the entry point: `index.handler`.
-   1. Select a service account, such as `sa-function`.
+   1. Select a service account, e.g., `sa-function`.
    1. Configure the environment variables:
-      * `YDB_ENDPOINT`: Enter the previously saved **Endpoint** field value, e.g., `grpcs://ydb.serverless.yandexcloud.net:2135`.
-      * `YDB_DATABASE`: Enter the previously saved **Database** field value, e.g., `/{{ region-id }}/b1gia87mbaomkfvsleds/etn02j1mlm4vgjhij03e`.
-   1. In the top right corner of the **Editor** section, click **Create version**.
+      * `YDB_ENDPOINT`: Enter the first part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
+      * `YDB_DATABASE`: Enter the second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
 
@@ -138,10 +139,10 @@ The infrastructure support cost for this scenario includes:
 
 - Management console
 
-   1. Go to the **Testing** tab.
-   1. Click **Run test** and check out the testing results.
+   1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** and check out the testing results.
 
-      If a DB connection is established and a query is executed, the function status changes to `Done` and its output contains the following text:
+      If a DB connection is established and a query is executed, the function status will change to `Done` and its output will contain the following text:
 
       ```json
       {
@@ -152,7 +153,7 @@ The infrastructure support cost for this scenario includes:
 
 {% endlist %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
 1. [Delete the database](../ydb/operations/manage-databases.md#delete-db).

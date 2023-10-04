@@ -71,10 +71,10 @@ Firebase:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-   1. In the list of services, select **{{ api-gw-name }}**.
-   1. Click Create **API gateway**.
-   1. In the **Name** field, enter `jwt-api-gw`.
-   1. In the **Specification** section, add a specification:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field, enter `jwt-api-gw`.
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add a specification:
 
       ```yaml
       openapi: 3.0.0
@@ -116,7 +116,7 @@ Firebase:
                 - email
       ```
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 - CLI
 
@@ -314,11 +314,11 @@ Deploy a static website:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
-      1. Select **{{ objstorage-name }}**.
-      1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. On the bucket creation page:
          1. Enter the bucket name: `bucket-for-tutorial`.
-         1. In the **Object read access** field, select `Public`.
+         1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
          1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
    - CLI
@@ -415,10 +415,9 @@ Deploy a static website:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder to upload objects to.
-      1. Select **{{ objstorage-name }}**.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Click `bucket-for-tutorial`.
-      1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
-      1. In the window that opens, select the objects [generated previously](#project-prepare) in the `build` folder and click **Open**.
+      1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the [previously generated](#project-prepare) objects in the `build` folder.
       1. The management console displays all the objects selected for uploading and prompts you to select a [storage class](../../storage/concepts/storage-class.md). The default storage class is defined in the [bucket settings](../../storage/concepts/bucket.md#bucket-settings).
       1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
       1. Refresh the page.
@@ -439,7 +438,7 @@ Deploy a static website:
          * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the website home page: `index.html`.
          * In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to display for 4xx errors: `error.html`.
       1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-      1. In the **Link** field, copy your website's URL.
+      1. In the **{{ ui-key.yacloud.storage.bucket.website.field_link }}** field, copy your website's URL.
 
    - CLI
 
@@ -459,7 +458,7 @@ Deploy a static website:
          Where:
 
          * `index`: Absolute path to the file of the website home page.
-         * `error`: Absolute path to the file to display to the user in the event of 4xx errors.
+         * `error`: Absolute path to the file displayed to the user upon a `4xx` error.
 
       1. Run this command:
 
@@ -515,8 +514,8 @@ Deploy a static website:
          Where:
 
          * `website`: Website parameters:
-            * `index_document`: Absolute path to the file of the website home page. This parameter is required.
-            * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
+            * `index_document`: Absolute path to the file of the website home page. Required parameter.
+            * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. Optional parameter.
 
          For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
 

@@ -18,22 +18,21 @@ In this section, you will learn:
 
 ## Which roles exist in the service {#roles-list}
 
-The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
+{% include [roles-intro](../../_includes/roles-intro.md) %}
 
 ![image](../../_assets/network-load-balancer/security/service-roles-hierarchy.svg)
 
-Active roles in the service:
+### Service roles {#service-roles}
 
-* Service roles:
-   * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-   * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-   * {% include [load-balancer.viewer](../../_includes/iam/roles/short-descriptions/load-balancer.viewer.md) %}
-   * {% include [load-balancer.privateAdmin](../../_includes/iam/roles/short-descriptions/load-balancer.privateAdmin.md) %}
-   * {% include [load-balancer.admin](../../_includes/iam/roles/short-descriptions/load-balancer.admin.md) %}
-* Primitive roles:
-   * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-   * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-   * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+* {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+* {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+* {% include [load-balancer.viewer](../../_includes/iam/roles/short-descriptions/load-balancer.viewer.md) %}
+* {% include [load-balancer.privateAdmin](../../_includes/iam/roles/short-descriptions/load-balancer.privateAdmin.md) %}
+* {% include [load-balancer.admin](../../_includes/iam/roles/short-descriptions/load-balancer.admin.md) %}
+
+### Primitive roles {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## What roles do I need {#choosing-roles}
 

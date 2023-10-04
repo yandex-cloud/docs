@@ -7,11 +7,11 @@ When you add environment variables, a new container revision is created. You can
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-   1. Select **{{ serverless-containers-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
    1. Select the container whose version you want to add an environment variable for.
-   1. Go to the **Editor** tab.
-   1. In the window that opens, under **Image parameters**, specify the environment variable and click **Add**. You can add multiple environment variables.
-   1. Click **Create revision**. A new container revision with the specified environment variables will be created.
+   1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
+   1. In the window that opens, under **{{ ui-key.yacloud.serverless-containers.section_image }}**, specify the environment variable and click **{{ ui-key.yacloud.common.add }}**. You can add multiple environment variables.
+   1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. A new container revision with the specified environment variables will be created.
 
 - CLI
 
@@ -89,7 +89,7 @@ When you add environment variables, a new container revision is created. You can
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

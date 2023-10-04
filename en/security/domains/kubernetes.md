@@ -254,7 +254,7 @@ Set up backups in {{ managed-k8s-name }} by following the [guide](../../managed-
 
 Requirements listed in [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) from {{ k8s }} let you prevent threats related to {{ k8s }} objects.
 
-To implement the requirements, you can either use the {{ k8s }} built-in [Pod Security Admission Controller](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) tool or open-source software (for example, other Admission Controllers: OPA Gatekeeper, Kyverno).
+To implement the requirements, you can either use the {{ k8s }} built-in [Pod Security Admission Controller](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) tool or open-source software (for example, other Admission Controllers: OPA Gatekeeper, [Kyverno](/marketplace/products/yc/kyverno)).
 
 Examples using Kyverno:
 
@@ -291,7 +291,7 @@ Data loads with different security contexts (such as different severities of dat
 
 Events available to the user in the {{ managed-k8s-name }} service can be classified as levels:
 
-* {{ k8s }} API events ({{ k8s }} Audit logging).
+* {{ k8s }} API events ({{ k8s }} Audit logging)
 * {{ k8s }} node events
 * {{ k8s }} pod events
 * {{ k8s }} metrics

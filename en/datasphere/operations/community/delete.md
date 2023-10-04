@@ -2,7 +2,7 @@
 
 {% note info %}
 
-You can only delete the communities in which you have the `{{ roles-datasphere-communities-editor }}` or `{{ roles-datasphere-communities-admin }}` role [assigned](../../../organization/roles.md) to you.
+You can only delete the communities in which you have the `{{ roles-datasphere-communities-editor }}` or `{{ roles-datasphere-communities-admin }}` role [assigned](../../../organization/security/index.md) to you.
 
 {% endnote %}
 

@@ -5,7 +5,7 @@ In {{ yandex-cloud }}, identification, authentication, and access control is per
 The platform works with three categories of users:
 
 * [Yandex accounts](../../iam/concepts/#passport): Accounts in Yandex ID.
-* [Federated accounts](../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../organization/add-federation.md), such as Active Directory.
+* [Federated accounts](../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../organization/concepts/add-federation.md), such as Active Directory.
 * [Service accounts](../../iam/concepts/#sa): Accounts that can be used by a program to manage resources.
 
 Yandex accounts and federated accounts are authenticated in their own systems. {{ yandex-cloud }} has no access to these users' passwords and only authenticates service accounts via {{ iam-short-name }}.
@@ -30,7 +30,7 @@ To simplify and automate role-based access management, the {{ iam-short-name }} 
 
 [{{ org-full-name }}](../../organization/) is a single service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources.
 
-For the purpose of centralized account management, use [SAML-compatible identity federations](../../organization/add-federation.md). By using identity federations, a company can set up Single Sign-On, which is authentication in {{ yandex-cloud }} via their IdP server. With this approach, employees can use their corporate accounts that are subject to the company's security policies, such as:
+For the purpose of centralized account management, use [SAML-compatible identity federations](../../organization/concepts/add-federation.md). By using identity federations, a company can set up Single Sign-On, which is authentication in {{ yandex-cloud }} via their IdP server. With this approach, employees can use their corporate accounts that are subject to the company's security policies, such as:
 
 * Revoking and blocking accounts.
 * Password policies.
@@ -38,7 +38,7 @@ For the purpose of centralized account management, use [SAML-compatible identity
 * Blocking access sessions upon expiry of a preset user's idle time.
 * Two-factor authentication.
 
-[Instructions for setting up SAML-based identity federations](../../organization/add-federation#federation-usage).
+[Instructions for setting up SAML-based identity federations](../../organization/concepts/add-federation#federation-usage).
 [Instructions for setting up SAML-based federations with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
 
 {% note tip %}
@@ -104,7 +104,7 @@ To set up 2FA for a Yandex ID account, follow the [instructions](https://yandex
 * `{{ roles-admin }}` assigned for a cloud.
 * `{{ roles-admin }}` assigned for a folder.
 
-The `billing.accounts.owner` role is granted automatically when creating a billing account and can't be reassigned to another user. The role lets you perform any action with the billing account. The `billing.accounts.owner` role can only be assigned to a Yandex ID account. An account with the `billing.accounts.owner` role is used when setting up payment methods and adding clouds.
+The `billing.accounts.owner` role is granted automatically when creating a billing account and cannot be reassigned to another user. The role allows you to perform any action with the billing account. The `billing.accounts.owner` role can only be assigned to a Yandex ID account. An account with the `billing.accounts.owner` role is used when setting up payment methods and adding clouds.
 
 Make sure to properly secure this account, since it has significant privileges and can't be federated with a corporate account.
 

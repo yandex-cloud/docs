@@ -2,13 +2,15 @@
 
 {% note info %}
 
-The [IAM token](../../../iam/concepts/authorization/iam-token.md) lifetime cannot exceed {{ iam-token-lifetime }} and is limited by the cookie lifetime for the [federation](../../../organization/add-federation.md).
+The [IAM token](../../../iam/concepts/authorization/iam-token.md) lifetime cannot exceed {{ iam-token-lifetime }} and is limited by the cookie lifetime for the [federation](../../../organization/concepts/add-federation.md).
 
 {% endnote %}
 
 {% list tabs %}
 
 - CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
    1. [Authenticate with the CLI as a federated user](../../../cli/operations/authentication/federated-user.md).
 

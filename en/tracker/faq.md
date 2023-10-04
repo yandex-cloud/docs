@@ -3,7 +3,7 @@
 
 ## How to migrate data from {{ ya-360 }} to {{ org-full-name }}
 
-Since {{ release-date }} 2021, when connecting {{ tracker-full-name }}, an organization is created automatically in {{ org-full-name }}. The administrator can add, to the organization, an [identity federation](../organization/add-federation.md) so that employees can use their work accounts to log in to {{ tracker-name }}. The usage of {{ tracker-name }} is rated via the [{{ yandex-cloud }} billing](../billing/).
+Since {{ release-date }} 2021, when connecting {{ tracker-full-name }}, an organization is created automatically in {{ org-full-name }}. The administrator can add, to the organization, an [identity federation](../organization/concepts/add-federation.md) so that employees can use their work accounts to log in to {{ tracker-name }}. The usage of {{ tracker-name }} is rated via the [{{ yandex-cloud }} billing](../billing/).
 
 If {{ tracker-name }} is connected to {{ release-date }}, the service is linked to an organization in {{ ya-360 }}. We will gradually migrate all organizations from {{ ya-360 }} to {{ org-full-name }} with no effort needed from your organization's administrator. We will notify your administrator about migrating to {{ org-full-name }} in advance.
 
@@ -142,7 +142,7 @@ If you add keywords to issue names to use them for grouping issues in widgets, w
 
 ## How do I disable automatic sign-out for a federated user account? {#disable-auto-log-out}
 
-If a federated user signs out of their account automatically, this may be due to the [federation](../organization/add-federation.md) settings. When a session is over, a user logs out of the system and needs to log in again.
+If a federated user signs out of their account automatically, this may be due to the [federation](../organization/concepts/add-federation.md) settings. When a session is over, a user logs out of the system and needs to log in again.
 
 These settings can be changed by the organization owner or administrator. To disable automatic sign-out for a user:
 

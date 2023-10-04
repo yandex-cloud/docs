@@ -12,9 +12,11 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
 
 - CLI
 
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. See the description of the command for creating a service account:
+   1. Check the description of the command for creating a service account:
 
       ```bash
       yc iam service-account create --help
@@ -48,7 +50,7 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
       }
       ```
 
-      * `name`: Service account name. This parameter is required.
+      * `name`: Service account name. This is a required parameter.
       * `description`: Service account description. This is an optional parameter.
       * `folder_id`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
 
@@ -73,9 +75,9 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
          terraform apply
          ```
 
-      1. Confirm the service account creation by typing `yes` in the terminal and pressing **Enter**.
+      1. Confirm creating the service account by typing `yes` in the terminal and pressing **Enter**.
 
-         The service account will then be created. You can verify that the service account is there in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
+         The service account will then be created. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
          ```bash
          yc iam service-account list
@@ -126,6 +128,6 @@ Create a service account with the following name and description:
 
 #### What's next {#what-is-next}
 
-* [{#T}](assign-role-for-sa.md).
-* [{#T}](create-access-key.md).
-* [{#T}](set-access-bindings.md).
+* [{#T}](assign-role-for-sa.md)
+* [{#T}](create-access-key.md)
+* [{#T}](set-access-bindings.md)

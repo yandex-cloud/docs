@@ -1,4 +1,4 @@
-# Creating trigger for {{ iot-name }} that sends messages to {{ serverless-containers-name }} container
+# Creating a trigger for {{ iot-name }} that sends messages to a {{ serverless-containers-name }} container
 
 Create a [trigger](../concepts/trigger/iot-core-trigger.md) for a device topic or the {{ iot-name }} service registry and process copies of messages using a {{ serverless-containers-name }} [container](../concepts/container.md).
 
@@ -27,29 +27,29 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-   1. Open **{{ serverless-containers-name }}**.
+   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-   1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
+   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **Basic parameters**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter a name and description for the trigger.
-      * In the **Type** field, select **{{ iot-name }}**.
-      * In the Launched resource field, select **Container**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-   1. Under **{{ iot-name }} message settings**, specify the registry, device, and MQTT topic to create a trigger for. If you are creating a trigger for a registry topic, you don't need to specify a device or an MQTT topic.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-   1. (Optional) Under **Repeat request settings**:
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 

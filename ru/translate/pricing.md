@@ -1,9 +1,3 @@
----
-title: "Правила тарификации для {{ translate-name }}"
-description: "Чтобы рассчитать стоимость использования сервиса, воспользуйтесь нашим калькулятором или ознакомьтесь с тарифами в этом разделе."
-editable: false
----
-
 # Правила тарификации для {{ translate-name }}
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}

@@ -43,16 +43,16 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-     1. В верхней части экрана перейдите на вкладку **Сервисные аккаунты**.
-     1. Нажмите кнопку **Создать сервисный аккаунт**.
-     1. Введите имя сервисного аккаунта и нажмите кнопку **Создать**.
-     1. В списке сервисов выберите **{{ container-registry-name }}**.
+     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+     1. Введите имя сервисного аккаунта и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. Выберите реестр и нажмите на строку с его именем.
-     1. Перейдите на вкладку **Права доступа**.
-     1. В правом верхнем углу нажмите кнопку **Назначить роли**.
-     1. Нажмите кнопку **+ Выбрать пользователя** и добавьте сервисный аккаунт, указав его идентификатор.
-     1. Нажмите **Добавить роль** и выберите роль `container-registry.images.puller`.
-     1. Нажмите кнопку **Сохранить**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+     1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+     1. Нажмите кнопку ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** и добавьте сервисный аккаунт, указав его идентификатор.
+     1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `container-registry.images.puller`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
    - CLI
 
@@ -116,9 +116,9 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
-     1. В списке сервисов выберите **{{ compute-name }}**.
-     1. Нажмите кнопку **Создать ВМ**.
-     1. В блоке **Базовые параметры**:
+     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.landing.action_create-resource }}** и выберите **{{ ui-key.yacloud.compute.instance.label_vm }}**.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
         * Введите имя и описание ВМ. Требования к имени:
 
           {% include [name-format](../../_includes/name-format.md) %}
@@ -127,30 +127,30 @@
 
         * Выберите созданный на предыдущем шаге [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
         * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-     1. В блоке **Образы из {{ marketplace-name }}** выберите один из [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) и версию операционной системы на базе Linux.
-     1. (Опционально) В блоке **Диски** настройте загрузочный диск:
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) и версию операционной системы на базе Linux.
+     1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный диск:
         * Укажите нужный размер [диска](../../compute/concepts/disk.md).
         * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
 
-          Если вы хотите создать ВМ из существующего диска, в блоке **Диски** [добавьте диск](../../compute/operations/vm-create/create-from-disks.md).
-     1. В блоке **Вычислительные ресурсы**:
+          Если вы хотите создать ВМ из существующего диска, в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** [добавьте диск](../../compute/operations/vm-create/create-from-disks.md).
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
         * Выберите [платформу](../../compute/concepts/vm-platforms.md).
         * Укажите [гарантированную долю](../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
         * При необходимости сделайте ВМ [прерываемой](../../compute/concepts/preemptible-vm.md).
-     1. В блоке **Сетевые настройки**:
-        * Укажите идентификатор подсети или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка. Если сети нет, нажмите кнопку **Создать новую сеть** и создайте ее:
-          * В открывшемся окне укажите имя новой сети и выберите, к какой подсети необходимо подключить ВМ. У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet) (если подсети нет, создайте ее). Затем нажмите кнопку **Создать**.
-        * В поле **Публичный адрес** выберите способ назначения адреса:
-          * **Автоматически** — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
-          * **Список** — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../vpc/operations/set-static-ip.md).
-          * **Без адреса** — чтобы не назначать публичный IP-адрес.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+        * Укажите идентификатор подсети или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка. Если сети нет, нажмите кнопку **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
+          * В открывшемся окне укажите имя новой сети и выберите, к какой подсети необходимо подключить ВМ. У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet) (если подсети нет, создайте ее). Затем нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+        * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения адреса:
+          * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
+          * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../vpc/operations/set-static-ip.md).
+          * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` — чтобы не назначать публичный IP-адрес.
 
           
           * (Опционально) Выберите опцию [защиты от DDoS-атак](../../vpc/ddos-protection/).
 
 
-     1. В блоке **Доступ** укажите данные для доступа на ВМ:
-        * В поле **Логин** введите имя пользователя.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
 
           {% note alert %}
 
@@ -158,8 +158,8 @@
 
           {% endnote %}
 
-        * В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-     1. Нажмите кнопку **Создать ВМ**.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    - CLI
 

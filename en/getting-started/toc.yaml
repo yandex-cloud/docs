@@ -7,10 +7,10 @@ items:
         href: individuals/registration.md
       - name: Step 2. Payment
         href: individuals/payments.md
-      - name: Step 3. Selecting a service plan
-        href: individuals/service-plan.md
-      - name: Step 4. Resource hierarchy
+      - name: Step 3. Resource hierarchy
         href: individuals/resources-hierarchy.md
+      - name: Step 4. Selecting a service plan
+        href: individuals/service-plan.md
       - name: Step 5. Setting up a secure network configuration
         href: individuals/configure-network.md
       - name: Step 6. Logging
@@ -21,10 +21,10 @@ items:
         href: legal-entity/registration.md
       - name: Step 2. Payment
         href: legal-entity/payments.md
-      - name: Step 3. Selecting a service plan
-        href: legal-entity/service-plan.md
-      - name: Step 4. Creating an organization
+      - name: Step 3. Creating an organization
         href: legal-entity/create-organization.md
+      - name: Step 4. Selecting a service plan
+        href: legal-entity/service-plan.md
       - name: Step 5. Managing users
         href: legal-entity/manage-users.md
       - name: Step 6. Resource hierarchy

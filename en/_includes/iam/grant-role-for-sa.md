@@ -69,9 +69,9 @@ Access rights will be inherited by child resources from their parent resources. 
       ```
 
       Where:
-      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This parameter is required.
-      * `role`: Role being assigned. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md). This parameter is required.
-      * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is being assigned to. It should be specified in `serviceAccount:<service_account_ID>` format. This parameter is required.
+      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Required parameter.
+      * `role`: Role being assigned. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md). Required parameter.
+      * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is being assigned to. It should be specified in `serviceAccount:<service_account_ID>` format. Required parameter.
 
       For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
@@ -94,9 +94,9 @@ Access rights will be inherited by child resources from their parent resources. 
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or with the following [CLI](../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can check if the resource is there either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc resource-manager folder list-access-bindings <folder name>|<folder_ID>
@@ -318,9 +318,9 @@ To grant a service account access rights to an organization, you need the `{{ ro
       ```
 
       Where:
-      * `organization_id`: [Organization ID](../../organization/org-profile.md). This parameter is required.
-      * `role`: Role being assigned. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`. This parameter is required.
-      * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is being assigned to. It should be specified in `serviceAccount:<service_account_ID>` format. This parameter is required.
+      * `organization_id`: [Organization ID](../../organization/operations/org-profile.md). Required parameter.
+      * `role`: Role being assigned. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`. Required parameter.
+      * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is being assigned to. It should be specified in `serviceAccount:<service_account_ID>` format. Required parameter.
 
       For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
@@ -343,9 +343,9 @@ To grant a service account access rights to an organization, you need the `{{ ro
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified organization. You can verify that the resource has been created in the [management console]({{ link-console-main }}) or with the following [CLI](../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified organization. You can check if the resource is there either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc organization-manager organization list-access-bindings <organization_technical_name>|<organization_ID>

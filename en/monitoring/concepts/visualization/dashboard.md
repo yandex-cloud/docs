@@ -23,15 +23,15 @@ Parameters are displayed as drop-down menus above dashboard widgets. When you se
 
 The following types of dashboards are available:
 
-* *Label value*: The parameter takes a set of values of the specified label.
-* *Set of values*: The parameter takes a set of fixed comma-separated values.
-* *Text field*: The parameter takes the only value specified in the text field.
+* *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}*: Parameter takes a set of values of the specified label.
+* *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}*: Parameter takes a set of fixed comma-separated values.
+* *{{ ui-key.yacloud_monitoring.component.parametrizer.type.text-field }}*: Parameter takes the only value specified in the text field.
 
  <!-- Big Yandex dashboards -->
 
-For parameters of the *Label value* and *Set of values* type, the *Multiple choice* setting is available. It lets you select multiple parameter values at the same time.
+For parameters of the *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* and *{{ ui-key.yacloud_monitoring.component.parametrizer.type.custom }}* type, the *{{ ui-key.yacloud_monitoring.component.parametrizer.dashboard.multivalue-key-value }}* setting is available. It lets you select multiple parameter values at the same time.
 
-For all parameter types, you can set the *Default value* that will be used when loading a dashboard in the {{monitoring-full-name}} web interface.
+For all parameter types, you can set the *{{ ui-key.yacloud_monitoring.component.parametrizer.default-value }}* that will be used when loading a dashboard in the {{monitoring-full-name}} web interface.
 
  <!-- Big Yandex dashboards -->
 
@@ -61,11 +61,11 @@ Substituting parameter values in query strings looks like this:
 
 ### Label value filter {#common-labels-filter}
 
-The label value filter lets you limit the list of possible parameter values with the *Label value* type. The filter specifies labels and their values. The filter is applied to all parameters of the *Label value* type at the same time.
+The label value filter lets you limit the list of possible parameter values with the *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* type. The filter specifies labels and their values. The filter is applied to all parameters of the *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* type at the same time.
 
 #### Examples of filtering label values {#common-labels-filter-example}
 
-Let's say a dashboard has a *Label value* type parameter set for the `cluster` label that takes the `prod`, `preprod-1`, `preprod-2`, and `testing` values.
+Let's assume a dashboard has a *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* type parameter set for a `cluster` label that takes the values `prod`, `preprod-1`, `preprod-2`, and `testing`.
 
 Filtering settings and result:
 
@@ -84,7 +84,7 @@ Below is a more complex example. Let's say the system has the following metrics:
 Filtering settings:
 
 * The filter contains the `cluster=*prod*` value.
-* A dashboard has *Label value* type parameters set for the `cluster` and `account` labels.
+* A dashboard has *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* type parameters set for the `cluster` and `account` labels.
 
 Result:
 

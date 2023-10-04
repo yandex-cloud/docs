@@ -20,8 +20,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of resources to support a web application includes:
 * Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
-* A fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
-* Fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
+* Fee for the number of function calls, computing resources allocated to a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
 
 ## Prepare the environment {#prepare}
@@ -38,18 +38,17 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-   1. Select **{{ objstorage-name }}**.
-   1. Click **Create bucket**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. On the bucket creation page:
-      1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter bucket name according to the [naming requirements](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
-      1. In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
+      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
-      1. Click **Create bucket** to complete the operation.
+      1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
    1. Select the created bucket.
-   1. Click **Upload**.
-   1. In the window that opens, in the project folder, select the `src/main/resources/index.html` file and click **Open**.
-   1. Select the [storage class](../../storage/concepts/storage-class.md) for the file and click **Upload**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the `src/main/resources/index.html` file in the project folder.
+   1. Select the [storage class](../../storage/concepts/storage-class.md) for the file and click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
 
 {% endlist %}
 
@@ -62,17 +61,17 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
-      1. Select **{{ ydb-name }}**.
-      1. Click **Create database**.
-      1. Enter the database **Name**. The naming requirements are as follows:
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+      1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+      1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      1. Under **Database type**, select **Serverless**.
-      1. Click **Create database**.
-      1. Wait until the database starts. When a database is being created, it has the `Provisioning` status. When it's ready for use, the status changes to `Running`.
+      1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
+      1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
+      1. Wait until the database starts. When a database is being created, it has the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
       1. Select the database created.
-      1. Under **Connection**, find the **Endpoint** and **Database location** fields and save their values. You'll need them when creating functions.
+      1. Under **{{ ui-key.yacloud.ydb.overview.section_connection }}**, find the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field and save its value. You will need it when creating functions.
 
    {% endlist %}
 
@@ -83,11 +82,11 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the database.
-      1. Select **{{ ydb-name }}**.
-      1. Select a database on the **Databases** page.
-      1. To open the DB root directory, go to the **Navigation** tab.
-      1. To make a query to the database, click **SQL query** in the upper-right corner. The **Query** page opens.
-      1. In the **Query** field, enter:
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+      1. Select a database on the **{{ ui-key.yacloud.ydb.databases.label_title }}** page.
+      1. To open the DB root directory, go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+      1. To make a query to the database, click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** in the top-right corner. The **{{ ui-key.yacloud.ydb.sql.label_query }}** page opens.
+      1. In the **{{ ui-key.yacloud.ydb.sql.label_query }}** field, enter:
 
          ```sql
          CREATE TABLE Tasks (
@@ -99,7 +98,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
          );
          ```
 
-      1. Click **Run**.
+      1. Click **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 
    - CLI
 
@@ -129,21 +128,22 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you created the bucket and database.
-   1. Select **{{ sf-name }}**.
-   1. Click **Create function**.
-   1. Enter the name `add-task` and a function description.
-   1. Click **Create**.
-   1. Under **Editor**, select the **Java 11** runtime environment and click **Continue**.
-   1. Prepare the function code. For this, in the **Method** field, select **ZIP archive**, and specify the path to the downloaded `servlet.zip` archive, then click **Open**.
-   1. In the **Entry point** field, enter `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
-   1. In the **Timeout, sec** field, enter `5`.
-   1. In the **Service account** field, enter the account that you created when [preparing the environment](#prepare).
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+   1. Enter `add-task` as a function name, and add a function description.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select the `java11` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+   1. Prepare the function code. To do this, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field.
+   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select the `servlet.zip` archive you downloaded.
+   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, enter `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
+   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** field, enter `5`.
+   1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, enter the account that you created when [preparing the environment](#prepare).
    1. Add environment variables:
-      * `ENDPOINT`: Enter the name of the **Endpoint** field that you saved when [creating the {{ ydb-short-name }} database](#create-db).
-      * `DATABASE`: Enter the value from the **Database location** field that you also saved when [creating your {{ ydb-short-name }} database](#create-db).
-   1. Click **Create version**.
-   1. Repeat steps 3–12 and create a function named `list-tasks` with the entry point `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
-   1. Repeat steps 3–12 and create a function named `delete-task` with the entry point `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
+      * `ENDPOINT`: Enter the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }} database](#create-db) (the one preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
+      * `DATABASE`: Enter the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }}](#create-db) database (the one following `/?database=`), e.g., `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
+   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+   1. Repeat steps 3–12 and create a function named `list-tasks` with the `yandex.cloud.examples.serverless.todo.ListTasksServlet` entry point.
+   1. Repeat steps 3–12 and create a function named `delete-task` with the `yandex.cloud.examples.serverless.todo.DeleteTaskServlet` entry point.
 
 - CLI
 
@@ -223,10 +223,10 @@ To ensure interaction between services, create an API gateway:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you created your bucket, database, and functions.
-   1. Select **{{ api-gw-name }}**.
-   1. Click **Create API gateway**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
    1. Enter a name and description of the gateway.
-   1. In the **Specification** field, add the specification:
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, add the specification:
 
       ```yaml
       openapi: 3.0.0
@@ -269,7 +269,7 @@ To ensure interaction between services, create an API gateway:
       * `/add` section, `function_id` parameter: ID of the `add-task` function.
       * `/list` section, `function_id` parameter: ID of the `list-tasks` function.
       * `/delete` section, `function_id` parameter: ID of the `delete-task` function.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 - CLI
 
@@ -350,7 +350,7 @@ To ensure interaction between services, create an API gateway:
 
 ## Test the application {#test}
 
-To open the app, follow the link in the **Service domain** field of the created API gateway.
+To open the app, follow the link in the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field of the created API gateway.
 
 ## How to delete the resources you created {#clear-out}
 

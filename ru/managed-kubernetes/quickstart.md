@@ -17,7 +17,7 @@ description: "В этой инструкции вы создадите клас�
 
 
 1. Если у вас еще нет [каталога](../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../resource-manager/operations/folder/create.md).
-1. Установите [{{ k8s }} CLI (kubectl)]({{ k8s-docs }}/tasks/tools/install-kubectl/).
+1. Установите [интерфейс командной строки](../glossary/cli.md) {{ k8s }} — [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/).
 1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](concepts/limits.md).
 1. Если у вас еще нет [сети](../vpc/concepts/network.md#network), [создайте ее](../vpc/operations/network-create.md).
 1. Если у вас еще нет [подсетей](../vpc/concepts/network.md#subnet), [создайте их](../vpc/operations/subnet-create.md) в [зонах доступности](../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и группа узлов.

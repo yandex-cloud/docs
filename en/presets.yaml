@@ -648,7 +648,7 @@ default:
   link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.com/iam
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
-  link-console-support: https://console.cloud.yandex.com/support
+  link-console-support: https://support.yandex.cloud/
   link-cloud-calculator: /prices#calculator
   link-cloud-services: /services
   link-cloud-services-infrastructure: /services#infrastructure-network
@@ -1381,6 +1381,12 @@ default:
   sku|KZT|nlb:
     balancer:
       active|string: ₸3.9000
+  sku|KZT|searchapi:
+    requests:
+      day:
+        v1|int|string: ₸2400
+      night:
+        v1|int|string: ₸1800
   sku|KZT|serverless:
     containers:
       compute:
@@ -1430,6 +1436,12 @@ default:
             102400|string: ₸5.7500
             51200|string: ₸6.0000
           egress|string: Free
+      options:
+        cold|string: ₸4.8500
+        ice|string: ₸9.7000
+        standard|pricingRate:
+          10|string: ₸1.9500
+        standard|string: Free
       post:
         cold|string: ₸5.9000
         ice|string: ₸11.8000
@@ -1452,10 +1464,14 @@ default:
   sku|KZT|support:
     business:
       fixed_consumption:
-        v1|string: ₸36000.0000
+        v1|string: Free
+    organization:
+      business:
+        fixed_consumption:
+          v1|int|string: ₸15000
     standard:
       fixed_consumption:
-        v1|string: ₸5400.0000
+        v1|string: Free
   sku|KZT|v1:
     commitment:
       selfcheckout:
@@ -2182,6 +2198,12 @@ default:
   sku|RUB|nlb:
     balancer:
       active|string: ₽0.7800
+  sku|RUB|searchapi:
+    requests:
+      day:
+        v1|int|string: ₽480
+      night:
+        v1|int|string: ₽360
   sku|RUB|serverless:
     containers:
       compute:
@@ -2231,6 +2253,12 @@ default:
             102400|string: ₽1.1500
             51200|string: ₽1.2000
           egress|string: Free
+      options:
+        cold|string: ₽0.9700
+        ice|string: ₽1.9400
+        standard|pricingRate:
+          10|string: ₽0.3900
+        standard|string: Free
       post:
         cold|string: ₽1.1800
         ice|string: ₽2.3600
@@ -2253,10 +2281,14 @@ default:
   sku|RUB|support:
     business:
       fixed_consumption:
-        v1|int|string: ₽6000
+        v1|int|string: Free
+    organization:
+      business:
+        fixed_consumption:
+          v1|int|string: ₽3000
     standard:
       fixed_consumption:
-        v1|int|string: ₽900
+        v1|int|string: Free
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -2950,6 +2982,12 @@ default:
   sku|USD|nlb:
     balancer:
       active|string: $0.006240
+  sku|USD|searchapi:
+    requests:
+      day:
+        v1|string: $3.840000
+      night:
+        v1|string: $2.880000
   sku|USD|serverless:
     containers:
       compute:
@@ -2999,6 +3037,12 @@ default:
             102400|string: $0.009200
             51200|string: $0.009600
           egress|string: Free
+      options:
+        cold|string: $0.007760
+        ice|string: $0.015520
+        standard|pricingRate:
+          10|string: $0.003120
+        standard|string: Free
       post:
         cold|string: $0.009440
         ice|string: $0.018880
@@ -3021,10 +3065,14 @@ default:
   sku|USD|support:
     business:
       fixed_consumption:
-        v1|string: $76.923078
+        v1|string: Free
+    organization:
+      business:
+        fixed_consumption:
+          v1|int|string: $24
     standard:
       fixed_consumption:
-        v1|string: $11.538462
+        v1|string: Free
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -4935,6 +4983,8 @@ default:
           add-role: Add role
         label:
           title: Configuring access bindings
+      marketplace:
+        label_product-ids: Product IDs
       organization:
         action:
           select: Continue
@@ -5091,10 +5141,10 @@ default:
         tab:
           access:
             title: Access
-      prometheus-form:
+      prometheus:
         form:
-          button:
-            submit: Send request
+          submit-button:
+            text: Submit request
       service:
         field:
           function: Aggregation function
@@ -5218,6 +5268,7 @@ default:
     yacloud:
       airflow:
         button_create-cluster: Create a cluster
+        section_admin-password: User
         section_airflow-configuration: Airflow configuration
         section_dependencies: Dependencies
         section_scheduler: Scheduler configuration
@@ -5258,6 +5309,7 @@ default:
         label_bucket: Bucket
         label_certificate: Certificates
         label_default-log-group: Default log group
+        label_detailed-settings: Advanced settings
         label_discard-grpc-codes: gRPC codes
         label_discard-http-code-intervals: HTTP code classes
         label_discard-http-codes: HTTP codes
@@ -5733,7 +5785,7 @@ default:
         label_https: HTTPS
         label_key: Key
         label_list: List
-        label_seconds_many: seconds
+        label_status: Status
         label_subnet: Subnet
         label_tcp: TCP
         label_udp: UDP
@@ -5764,6 +5816,7 @@ default:
           label_service-account: Service account
           label_service-accounts: Service accounts
         save: Save
+        save-changes: Save changes
         section-base: General information
         select: Select
         start: Start
@@ -5781,6 +5834,8 @@ default:
       component:
         acl-dialog:
           button_remove-new: Cancel
+          button_revoke: Revoke
+          column_permissions: Permissions
           label_select-placeholder: Select a user
           label_select-section-service-accounts: Service accounts
           label_title: ACL editing
@@ -5789,6 +5844,8 @@ default:
             button_add-role: Add role
             button_select-subject: Select subject
             label_title: Configure permissions
+        certificates:
+          button_empty-add: Add certificate
         compute:
           network-select:
             field_address: IP address
@@ -5999,6 +6056,7 @@ default:
             field_security-groups-ids: Security groups
           edit:
             button_update: Save changes
+          label_vm: Virtual machine instance
           overview:
             button_action-edit: Edit VM
             button_action-stop: Stop
@@ -6046,8 +6104,15 @@ default:
             button_net_empty-create: Create a network
             column_disk-size: Size
             field_access-advanced: Advanced
+            field_coi-arguments: Command arguments
+            field_coi-command: Command
+            field_coi-env: Environment variables
             field_coi-image: Docker image
             field_coi-name: Name
+            field_coi-privileged: Run Docker container in privileged mode
+            field_coi-restart-policy: Restart policy
+            field_coi-stdin: Allocate an stdin buffer for a running Docker container
+            field_coi-tty: Attach a TTY to the Docker container
             field_description: Description
             field_instance-group-address: Public address
             field_instance-group-network: Network
@@ -6082,12 +6147,17 @@ default:
             unified-agent: Agent for delivering metrics
             value_address-auto: Auto
             value_address-none: No address
+            value_coi-restart-always: Always
+            value_coi-restart-never: Never
+            value_coi-restart-on-failure: On-Failure
           label_title: Virtual machines
           popup-confirm_button_delete: Delete
           popup-confirm_button_gr-stop: Stop
           popup-confirm_button_restart: Restart
           popup-confirm_button_start: Start
           popup-confirm_button_stop: Stop
+        landing:
+          action_create-resource: Create resource
         nfs:
           button_attach-filesystem-to-the-instance: Attach file storage
           button_attach-instance-to-the-filesystem: Attach to VM
@@ -6141,17 +6211,43 @@ default:
           label_scan-status-READY: Ready
           label_scan-status-RUNNING: Running
           label_start-scan: Scan
+          label_tag: Tags
+          popup-confirm_button_delete: Delete
+          section_overview: Overview of Docker image
         overview:
           button_create: Create registry
+          popup-confirm_button_delete: Delete
           popup-create_button_create: Create registry
+          popup-update_button_update: Edit
         registry:
           button_change-scan-settings: Edit settings
+          button_lifecycle-dry-run: Dry run
           button_select-repositories: Select repositories
+          button_update-ip-permissions: Set
           label_all-repositories: All repositories
+          label_expire-period-days: Expire period, in days
+          label_ip-permissions: Access for IP address
+          label_lifecycle: Lifecycle
+          label_lifecycle-dry-runs: Lifecycle dru runs
+          label_lifecycle-rules: Lifecycle policy rules
           label_only-selected: Only selected
+          label_retained-top: Retained top
+          label_tag-regexp: Tag regexp
+          label_untagged: Untagged
           label_vulnerabilities-scanner: Vulnerability scanner
+          overview:
+            button_registry-acl: ACL registry
+            button_repository-acl: Configure ACL
+            section_images: Docker images
+            section_repositories: Repositories
+        switch_registry: Registries
       data-streams:
+        button_connect: Connect
+        button_create-stream: Create stream
+        button_update-stream: Update
         label_data-introspection: Data viewer
+        label_data-storage-size-limit: Size Limit
+        label_data-storage-time-limit: Time Limit
         label_data-stream: Data stream
         label_database: Database
       data-transfer:
@@ -6165,6 +6261,7 @@ default:
           section-endpoint: Endpoint parameters
         label_connector-operation-ACTIVATE: Activate
         label_connector-operation-DEACTIVATE: Deactivate
+        label_connector-status-CREATING: Creating
         label_connector-status-DONE: Completed
         label_connector-status-RUNNING: Replicating
         label_connectors: Transfers
@@ -6177,6 +6274,7 @@ default:
         label_endpoint-type-OBJECT_STORAGE: Object Storage
         label_endpoint-type-POSTGRES: PostgreSQL
         label_endpoint-type-YDB: YDB
+        label_endpoint-type-YDS_ru: Yandex Data Streams
         label_endpoints: Endpoints
         label_monitoring: Monitoring
       dataproc:
@@ -6259,6 +6357,7 @@ default:
         field_expand-add-segments-per-host-count: Add segments to host
         field_expand-duration: Redistribution timeout
         field_expand-segment-host-count: Number of new segment hosts
+        section_cloud-storage: Cloud Storage
         section_resource-master: Master
         section_resource-segment: Segment
         wizard:
@@ -6316,6 +6415,7 @@ default:
             label_data-proc: Data Proc
             label_data-streams: Data Streams
             label_data-transfer: Data Transfer
+            label_data-transfer_ru: Yandex Data Transfer
             label_datalens: DataLens
             label_datasphere: DataSphere
             label_dns: Cloud DNS
@@ -6394,18 +6494,20 @@ default:
         users:
           button_tune-role: Configure roles
           label_folders-roles: Roles for folders
-          label_user-listing-allowed-admins-title: Administrators
-          label_user-listing-allowed-everybody-title: All users
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
         button_add-label: Add label
+        button_add-password: Add password
         button_add-yds-export: Add export
         button_create-broker: Create broker
         button_create-registry: Create registry
+        label_aliases: Aliases
         label_brokers: Brokers
+        label_certificates: Certificates
         label_devices: Devices
         label_mqtt-topic-filter: MQTT topic filter
+        label_passwords: Passwords
         label_registries: Registries
         label_yds-exports: Export to Data Stream
       k8s:
@@ -6560,7 +6662,6 @@ default:
         field_target-address: Target address
         field_target-port: Target port
         label_agents-list: Agents
-        label_bucket-source: Bucket
         label_choose-from-bucket: Select from bucket
         label_import-tests-from-overload: Import tests from Overload
         label_local-source: From computer
@@ -6605,10 +6706,11 @@ default:
         column_header-level: Level
         column_header-message: Message
         column_header-time: Time
-        label_export: Export log
+        label_destination: Destination
+        label_export: Export logs
+        label_groups: Groups
         label_loggroup: Log group
         label_retention-period: Log retention
-        label_sink-destination: Destination
         label_sinks: Sinks
       marketplace-v2:
         button_use: Use
@@ -7026,7 +7128,6 @@ default:
           editor:
             button_action-continue: Continue
             button_add-environment-variable: Add
-            button_create: Create version
             button_deploy-version: Save changes
             create-file: Create file
             field_entry: Entrypoint
@@ -7048,10 +7149,7 @@ default:
             button_editor-create: Сreate in editor
             label_all-users-invoke: Public function
             label_invoke-link: Link to invoke
-            label_latest-memory: Memory
-            label_latest-timeout: Timeout
             label_title: Overview
-            label_title-environment-vars: Environment variables
             label_title-history: Version history
             label_title-latest-version: Last version
             label_title-metadata: General information
@@ -7143,6 +7241,7 @@ default:
             section_storage: Object Storage settings
             section_timer: Timer settings
             section_ymq: Message Queue message settings
+            value_event-type-create-image-tag: Create Docker image tag
             value_event-type-create-object: Create object
           list:
             button_create: Create trigger
@@ -7225,6 +7324,7 @@ default:
             access_value_private: Restricted
             access_value_public: Public
             button_save: Save
+            class_value_cold: Cold
             class_value_standard: Standard
             field_access-config-read: Read access to settings
             field_access-list: Object listing access
@@ -7285,12 +7385,6 @@ default:
         contact:
           label_title: Queries
         label_service: Support
-        plan:
-          button_submit: Switch
-          popup-confirm_button-submit: Confirm
-        request-callback:
-          button_submit: Submit
-        switch_plan: Pricing plan
       vdi:
         button_acl: Configure ACL
         button_add-image: Add image
@@ -8802,7 +8896,6 @@ default:
         content: Value
         name: Name
       spaces-page:
-        access-in-project: Available in project
         community-resources: Community resources
         configurations: Configurations
       transferring:
@@ -8813,7 +8906,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.1.22
+        tag: v0.1.23
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

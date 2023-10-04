@@ -17,26 +17,26 @@ Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a timer.
 
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. On the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **Triggers**.
+   1. In the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **Basic parameters**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter the trigger name: `timer`.
-      * In the **Type** field, select **Timer**.
-      * In the **Launched resource** field, select **Function**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-   1. Under **Timer settings**, specify `* * ? * * *` or select `Every minute`.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, enter `* * ? * * *` or select `{{ ui-key.yacloud.common.button_cron-1min }}`.
 
-   1. Under **Function settings**, select a function and specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select your function and specify:
 
-      * [Function version tag](../../concepts/function.md#tag): `$latest`.
-      * [Service account](../../../iam/concepts/users/service-accounts.md) you previously created.
+      * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**](../../concepts/function.md#tag): `$latest`.
+      * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}**](../../../iam/concepts/users/service-accounts.md) you created earlier.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -94,11 +94,11 @@ To make sure the timer is running properly, view the function logs. They should 
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
 
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
    1. Click a function to view its runtime log.
 
-   1. In the window that opens, go to **Logs** and specify the period for which you want to view logs. The default period is 1 hour.
+   1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the period for which you want to view logs. The default period is 1 hour.
 
 - CLI
 

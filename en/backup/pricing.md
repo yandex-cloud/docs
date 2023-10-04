@@ -4,9 +4,44 @@ editable: false
 
 # Pricing for {{ backup-full-name }}
 
-You will be charged for each VM connected to {{ backup-name }} and for the volume of your stored backups.
+To calculate the cost of using {{ backup-name }}, see the prices on this page.
 
-## VMs connected to {{ backup-name }} {#backups}
+## What goes into the cost of using {{ backup-name }} {#rules}
+
+The cost of {{ backup-name }} depends on the number of protected VMs and the total size of storage used by backups.
+
+### VM protection {#vms}
+
+You start paying for a VM in {{ backup-name }} once you link it to a [backup policy](./concepts/policy.md). You will be charged for the VM until you unlink it from the policy regardless of the VM status.
+
+If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), the VM will be unlinked from all the policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from the policies automatically. You need to unlink it yourself.
+
+The minimum billing unit is 1 VM per month.
+
+### Using storage {#backups}
+
+A fee is charged for the total size of storage used by backups.
+
+The minimum billable unit is 1 hour of storing 1 MB of data.
+
+{% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+
+If a VM is stopped or deleted, its backups are still stored in {{ backup-name }} and you continue to pay for their volume stored. The backup size depends on the following:
+* VM disk usage
+* Amount of data updated during regular backups
+* Data compression option
+
+{% note info %}
+
+To pay less, delete the backups of deleted VMs that you no longer need.
+
+{% endnote %}
+
+The size of VM backups can fall short of the VM disk size, e.g., if the VM disk usage is low and the level of data compression is high, or exceed the same, e.g., when there are many backups and their data is continuously modified and poorly compressed.
+
+## Pricing {#prices}
+
+### Protected {{ backup-name }} VMs {#prices-vms}
 
 
 
@@ -16,11 +51,34 @@ You will be charged for each VM connected to {{ backup-name }} and for the volum
 
 
 
-## Backup storage {#backups-size}
+### Backup storage {#prices-backups}
 
 
 
 
 
 {% include [usd-backup-size](../_pricing/backup/usd-backup-size.md) %}
+
+
+
+The monthly usage rate is based on 720 hours a month.
+
+## Example of cost calculation {#price-example}
+
+Example of calculating the cost of {{ backup-name }} for the following configuration:
+* One VM is linked to backup policies.
+* The total size of backups is 50 GB.
+
+
+
+
+> 1 VM × $1.910400 + 50 GB × $0.033600 = $3.590400
+
+> Total: $3.590400 is the cost of using {{ backup-name }} to protect one VM with the total size of backups amounting to 50 GB per month, without VAT.
+
+Where:
+* 1: Number of VMs linked to backup policies.
+* $1.910400: Cost of connecting 1 VM to {{ backup-name }} per month, including
+* 50 GB: Total size of backups.
+* $0.033600: Cost of storing 1 GB of backups per month, without VAT.
 

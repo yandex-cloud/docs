@@ -22,6 +22,9 @@ links:
   - title: Запросы данных
     description: Какие данные можно запросить у технической поддержки
     href: request
+  - title: Центр поддержки
+    description: Решение проблем в Центре поддержки
+    href: support-center
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг технической поддержки
     href: pricing

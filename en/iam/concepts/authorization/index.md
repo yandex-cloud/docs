@@ -1,4 +1,4 @@
-# Authorization in {{ yandex-cloud }}
+# Authorizing in {{ yandex-cloud }}
 
 When a user does something with a resource in {{ yandex-cloud }}, IAM checks whether the user has the necessary access rights to perform this operation.
 
@@ -6,13 +6,13 @@ Users get permissions along with resource roles. For more information about how 
 
 ## Authentication in {{ yandex-cloud }} {#authentication}
 
-Before authorization, a user must get authenticated, meaning they must log in under their account. Authentication is performed in different ways, depending on the type of account and the interface used:
+Before authorization, a user must get authenticated, meaning they must log in under their account. Authentication is performed in different ways depending on the type of account and the interface used:
 
 * [Authentication using a Yandex account](#passport)
 * [Service account authentication](#sa)
 * [Federated user authentication](#saml-federation)
 
-### Authentication using a Yandex account {#passport}
+### Authentication using a {{ yandex-cloud }} account {#passport}
 
 {% list tabs %}
 
@@ -33,7 +33,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
   To perform operations in the API:
 
   1. [Get an IAM token](../../operations/iam-token/create.md) in exchange for your [OAuth token](oauth-token.md).
-  2.  {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+  1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
       {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 
@@ -51,12 +51,12 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
   There are three ways to perform operations on behalf of a service account:
 
-  * Using an [IAM token](iam-token.md).
+  * Using an [IAM token](iam-token.md):
 
-      This is the recommended authentication method, but IAM tokens have a short [lifetime](iam-token.md#lifetime). Therefore, such a method is good for applications that will request the IAM token automatically.
+      This is the recommended authentication method, but IAM tokens have a short [lifetime](iam-token.md#lifetime). That's why this is a good method for applications that automatically request an IAM token.
 
       [Instructions for how to get an IAM token](../../operations/iam-token/create-for-sa.md).
-  * Using [API keys](api-key).
+  * With [API keys](api-key).
 
       {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
 
@@ -75,7 +75,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
   {% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
 
-  The authentication process for a federated user depends on the IdP server settings. For more information, see [{#T}](../../../organization/add-federation.md).
+  The authentication process for a federated user depends on the IdP server settings. For more information, see [{#T}](../../../organization/concepts/add-federation.md).
 
 - CLI
 

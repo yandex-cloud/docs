@@ -31,6 +31,8 @@ items:
             href: operations/backup-vm/recover.md
           - name: Restoring a VM from a backup of another VM
             href: operations/backup-vm/non-native-recovery.md
+          - name: Restoring individual folders and files on a VM
+            href: operations/backup-vm/recover-file-by-file.md
           - name: Deleting a backup
             href: operations/backup-vm/delete.md
   - name: Concepts

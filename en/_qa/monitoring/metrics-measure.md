@@ -1,6 +1,6 @@
 # Metrics and units of measure
 
-#### What does the comma mean? {#comma}
+#### What does the dot mean? {#comma}
 
 It separates the integer part from the fractional part of a number. For example, the value `123.456` should be interpreted as 123 and 456 thousandths.
 
@@ -17,11 +17,11 @@ Metrics are described in the documentation for services, such as:
 * [{{ mmy-full-name }}](../../managed-mysql/operations/monitoring.md).
 * [{{ mrd-full-name }}](../../managed-redis/operations/monitoring.md).
 
-Important metrics are displayed on each service's dashboard. For a full list of metrics for each service, see **Metric Explorer**. To export a full list of metrics, follow the [instructions](../../monitoring/operations/metric/list.md).
+Important metrics are displayed on each service's dashboard. For a full list of metrics for each service, see **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**. To export a full list of metrics, follow the [instructions](../../monitoring/operations/metric/list.md).
 
 #### How do I set up units on a chart? {#graph-units}
 
-Units are set up in the **Axes** tab when editing a chart. You can select the unit type, set the number format, scale (linear or logarithmic), and the maximum and minimum values.
+Units are set up in the **{{ ui-key.yacloud_monitoring.wizard.tab.axes }}** tab when editing a chart. You can select the unit type, set the number format, scale (linear or logarithmic), and the maximum and minimum values.
 
 
 #### How are maximum/peak values displayed on a chart? {#graph-peaks}
@@ -33,10 +33,10 @@ This also works in the opposite direction: when choosing a larger time interval,
 
 #### The chart is missing or looks cropped. Why? {#graph-lost}
 
-The data could fall outside the established chart boundaries. Check the scale settings and the maximum and minimum values in the **Axes** tab.
+The data could fall outside the established chart boundaries. Check the scale settings and the maximum and minimum values in the **{{ ui-key.yacloud_monitoring.wizard.tab.axes }}** tab.
 
 #### Is there a description of functions in the query language? {#function-description}
 
 You can find the function description in the [Reference](../../monitoring/concepts/querying.md#functions).
 
-You can test the functions in the **Metric Explorer** section.
+You can test the functions in the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** section.

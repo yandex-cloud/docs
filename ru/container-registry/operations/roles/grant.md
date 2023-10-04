@@ -7,19 +7,19 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно назначить роль на ресурс.
-  1. В списке сервисов выберите **{{ container-registry-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Назначьте роль на ресурс.
      * Назначить на [реестр](../../concepts/registry.md):
-       1. Справа от имени нужного реестра нажмите значок ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **ACL реестра**.
-       1. В открывшемся окне выберите группу, пользователя или [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и нажмите кнопку **Добавить**.
-       1. В выпадающем списке **Разрешения** отметьте нужные роли.
-       1. Нажмите кнопку **Сохранить**.
+       1. Справа от имени нужного реестра нажмите значок ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.cr.registry.overview.button_registry-acl }}**.
+       1. В открывшемся окне выберите группу, пользователя или [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+       1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.column_permissions }}** отметьте нужные роли.
+       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
      * Назначить на [репозиторий](../../concepts/repository.md):
        1. Выберите нужный репозиторий.
-       1. Справа от имени нужного репозитория нажмите значок ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **Настроить ACL**.
-       1. В открывшемся окне выберите группу, пользователя или сервисный аккаунт и нажмите кнопку **Добавить**.
-       1. В выпадающем списке **Разрешения** отметьте нужные роли.
-       1. Нажмите кнопку **Сохранить**.
+       1. Справа от имени нужного репозитория нажмите значок ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
+       1. В открывшемся окне выберите группу, пользователя или сервисный аккаунт и нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+       1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.column_permissions }}** отметьте нужные роли.
+       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

@@ -16,32 +16,32 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-   1. Select **{{ serverless-containers-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-   1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
+   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **Basic parameters**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter a name and description for the trigger.
-      * In the **Type** field, select **Timer**.
-      * In the **Launched resource** field, select **Container**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-   1. Under **Timer settings**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**:
 
-      * In the **Cron expression** field, specify the function invocation schedule in the [cron expression](../concepts/trigger/timer.md#cron-expression) format.
-      * (Optional) In the **Data** field, enter the message to be delivered to the function if the timer triggers in the `payload` field. Data type: string limited to 4,096 characters.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, specify the function invocation schedule in the [cron expression](../concepts/trigger/timer.md#cron-expression) format.
+      * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, enter the message to be delivered to the function if the timer triggers in the `payload` field. Data type is a string of no more than 4096 characters.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-   1. (Optional) Under **Repeat request settings**:
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 

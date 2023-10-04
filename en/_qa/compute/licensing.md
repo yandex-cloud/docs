@@ -32,6 +32,7 @@ As of January 24, 2022, to use Microsoft products, you need to specify user name
 
 #### Can I use Microsoft products with my own licenses in {{ compute-name }}? {#custom}
 
+
 To learn more about Windows Server licensing, see the [{#T}](../../microsoft/byol.md) section.
 
 In the case of other software that you want to use inside your VM, see the terms of the license you purchased or contact Microsoft to find out whether you can use the product with such a license in {{ yandex-cloud }}.

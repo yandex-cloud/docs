@@ -34,6 +34,7 @@ To get an IAM token:
                const fetch = require("node-fetch");
                let url = 'http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token';
                let headers = {'Metadata-Flavor': 'Google'};
+
                exports.main = async function (event) {
                    const resp = await fetch(url, {
                        headers: headers,
@@ -56,7 +57,7 @@ To get an IAM token:
          1. Add `index.js` and `package.json` (if you get your IAM token using the API) to a ZIP file called `index-js.zip`.
       1. [Create](../operations/function/version-manage.md) a function version. Indicate the following:
          * Runtime environment: `nodejs16`.
-         * Code upload method: `ZIP archive`.
+         * Code upload method: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
          * File: `index-js.zip`.
          * Entry point: `index.main`.
          * The service account to get the IAM token for.
@@ -67,6 +68,7 @@ To get an IAM token:
             * From the handler context.
                ```py
                def main(event, context):
+
                    return {
                        'statusCode': 200,
                        'headers': {
@@ -98,12 +100,12 @@ To get an IAM token:
                    }
                ```
          1. Add `index.py` to the `index-py.zip` archive.
-      1. [Create](../operations/function/version-manage.md) a function version. Indicate the following:
-         * Runtime environment: `python311`.
-         * Code upload method: `ZIP archive`.
-         * File: `index-py.zip`.
-         * Entry point: `index.main`.
-         * The service account to get the IAM token for.
+      1. [Create](../operations/function/version-manage.md) a function version. Specify the following:
+         * Runtime environment: `python37`
+         * Code upload method: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
+         * File: `index-py.zip`
+         * Entry point: `index.main`
+         * Service account to get the IAM token for.
 
    {% endlist %}
 

@@ -7,24 +7,38 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a broker.
-   1. Select **{{ iot-short-name }}**.
-   1. On the left-hand panel, select **Brokers**.
-   1. Click **Create broker**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. Click **{{ ui-key.yacloud.iot.button_create-broker }}**.
    1. Under **General information**, specify:
-      * Broker **name**. For example, `my-broker`.
-      * (Optional) **Description**: Additional information about the broker.
-      * (Optional) **Password** that you will use to access the broker. To create a password, you can use the [password generator](https://passwordsgenerator.net/). Make sure to save your password, as you will need it later.
-      * (Optional) To assign a label to the broker, fill in the **Key** and **Value** fields and click **Add label**.
-   1. (Optional) Add [certificates](../../operations/certificates/create-certificates.md):
+
+      * Broker **{{ ui-key.yacloud.common.name }}**, e.g., `my-broker`.
+      * (Optional) **{{ ui-key.yacloud.common.description }}**: Additional information about the broker.
+      * (Optional) **Password** if you are going to use it instead of a certificate to access the broker. To create a password, you can use the [password generator](https://passwordsgenerator.net/).
+
+         {% note info %}
+
+         Make sure to save your password, as you will need it for [authentication](../../concepts/authorization.md).
+
+         {% endnote %}
+
+      * (Optional) To assign a label to the broker, fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.iot.button_add-label }}**.
+
+   1. (Optional) Add a [certificate](../certificates/create-certificates.md):
+
       * To add a file:
-         1. Choose the **File** method.
-         1. Click **Select file**.
-         1. Select the certificate file on your computer and click **Open**.
-         1. Click **Add**.
+
+         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}** method.
+         1. Click **Attach file**.
+         1. Select the file with the public key of the certificate and click **Open**.
+         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+
       * To add text:
-         1. Choose the **Text** method.
-         1. Insert the certificate body in the **Contents** field.
-         1. Click **Add**.
+
+         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** method.
+         1. Paste the public key of the certificate into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+
    1. Click **Create**.
 
 - CLI
@@ -35,34 +49,66 @@
 
    1. Create a broker:
 
+      ```bash
+      yc iot broker create --name <broker name>
       ```
-      yc iot broker create --name my-broker
-      ```
+
+      The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
       Result:
 
-      ```
+      ```text
       id: b91ki3851h**********
       folder_id: aoek49ghmk*********
       created_at: "2022-05-28T11:29:42.420Z"
-      name: my-broker
+      name: <broker name>
+      status: ACTIVE
       ```
 
-   1. Make sure the broker was created:
+   1. (Optional) Assign the broker a password for authentication using a [username and password](../../concepts/authorization.md#log-pass):
 
+      ```bash
+      yc iot broker password add --broker-name <broker name>
       ```
-      yc iot broker list
-      ```
+
+      You will be prompted to enter a password. The password requirements are as follows:
+
+      * The password must contain numbers, upper-case and lower-case letters, and special characters.
+      * It must be at least 14 characters long.
 
       Result:
+
+      ```text
+      broker_id: b91ki3851h**********
+      id: aoek49ghmk*********
+      created_at: "2022-05-28T11:32:42.420Z"
       ```
-      +----------------------+-------------+
-      |          ID          |    NAME     |
-      +----------------------+-------------+
-      | b91ki3851h********** |  my-broker  |
-      +----------------------+-------------+
+
+   1. (Optional) Add a certificate to the broker for authentication using [certificates](../../concepts/authorization.md#certs):
+
+      ```bash
+      yc iot broker certificate add \
+         --broker-name <broker name> \
+         --certificate-file <certificate>
+      ```
+
+      Where:
+
+      * `--broker-name`: Broker name
+      * `--certificate-file`: Path to the public key of the certificate, such as `cert.pem`.
+
+      Result:
+
+      ```text
+      broker_id: b91ki3851h**********
+      fingerprint: 1f21cf6d0183d****
+      certificate_data: |
+         -----BEGIN CERTIFICATE-----
+         MIIEpDCCAow...
+         -----END CERTIFICATE-----
+      created_at: "2023-07-11T16:20:53.466370019Z"
       ```
 
 - {{ TF }}
@@ -82,12 +128,12 @@
    1. In the configuration file, describe the parameters of the resource to create:
 
       * `yandex_iot_core_broker`: Broker parameters:
-         * `name`: Broker name.
-         * `description`: Broker description.
-         * `labels`: Broker labels in `key:value` format.
-         * `certificates`: List of broker certificates for authorization using [certificates](../../concepts/authorization.md#certs).
+         * `name`: Broker name
+         * `description`: Broker description
+         * `labels`: Broker labels in `key:value` format
+         * `certificates`: List of broker certificates for authentication using [certificates](../certificates/create-certificates.md).
 
-      Sample resource structure in the configuration file:
+      Here is an example of the resource structure in the configuration file:
 
       ```
       resource "yandex_iot_core_broker" "my_broker" {

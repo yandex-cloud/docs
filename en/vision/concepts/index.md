@@ -17,7 +17,7 @@ For example, if you want the service to detect faces and recognize text in an im
 
 ```json
 {
-  "folderId": "b1gvmob95yysaplct532",
+  "folderId": "b1gvmob95yys********",
   "analyze_specs": [{
     "content": "iVBORw0KGgo...",
     "features": [{

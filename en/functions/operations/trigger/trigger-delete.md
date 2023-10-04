@@ -10,11 +10,11 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ sf-
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
-   1. Select **{{ sf-name }}**.
-   1. On the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **Triggers**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
    1. Select the trigger you want to update.
-   1. In the upper-right corner of the page, click **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. In the top-right corner, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.triggers.list.popup-confirm_button_delete }}**.
 
 - CLI
 
@@ -100,7 +100,7 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ sf-
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

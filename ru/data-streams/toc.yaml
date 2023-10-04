@@ -119,6 +119,8 @@ items:
         href: kinesisapi/common-errors.md
       - name: Примеры
         href: kinesisapi/examples.md
+  - name: Kafka API
+    href: kafkaapi/index.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/data-streams

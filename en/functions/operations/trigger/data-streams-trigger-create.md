@@ -6,7 +6,7 @@
 
 To create a trigger, you need:
 
-* A function that the trigger will invoke. If you don't have a function:
+* A function that the trigger will invoke. If you do not have a function:
 
    * [Create a function](../function/function-create.md).
    * [Create a function version](../function/version-manage.md).
@@ -19,9 +19,9 @@ To create a trigger, you need:
    * To read from the stream that activates the trigger when data is sent there.
    * (optional) To write to the Dead Letter Queue.
 
-   You can use the same service account or different ones. If you don't have a service account, [create one](../../../iam/operations/sa/create.md).
+   You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
 
-* The stream that activates the trigger when it receives data.  If you don't have a stream, [create one](../../../data-streams/quickstart/create-stream.md). 
+* The stream that activates the trigger when it receives data. If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -33,38 +33,38 @@ To create a trigger, you need:
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. On the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **Triggers**.
+   1. In the left-hand panel, select ![image](../../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **Basic parameters**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter a name and description for the trigger.
-      * In the **Type** field, select **{{ yds-name }}**.
-      * In the **Launched resource** field, select **Function**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
 
-   1. Under **{{ yds-name }} settings**, select a data stream and a service account with rights to read data from this data stream and write data to it.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with rights to read data from and write data to it.
 
-   1. (Optional) Under **Batch message settings**, specify:
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * Size of the message group in bytes. Valid values range from 1 B to 64 KB. The default is 1 B.
+      * Size of the message group in bytes. The values may range from 1 B to 64 KB. The default value is 1 B.
       * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
 
       The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. The total amount of data passed to a function may exceed the specified group size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the group size.
 
-   1. Under **Function settings**, select a function and specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
       {% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-   1. (Optional) Under **Repeat request settings**:
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -98,8 +98,8 @@ To create a trigger, you need:
       To find out where the database is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, the `database` parameter, such as `/{{ region-id }}/b1gia87mba**********/etn7hehf6g*******`.
 
    * `--stream`: {{ yds-name }} data stream name.
-   * `--batch-size`: Message batch size. Optional parameter. Values can range from 1 B to 64 KB. The default value is 1 B.
-   * `--batch-cutoff`: Maximum waiting time. Optional parameter. Values can range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data passed to a function may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
+   * `--batch-size`: Message batch size. Optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
+   * `--batch-cutoff`: Maximum waiting time. Optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data passed to a function may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
    * `--stream-service-account-id`: ID of the service account with rights to read from the data stream and write to it.
 
    {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
@@ -142,6 +142,6 @@ To create a trigger, you need:
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## See also {#see-also}
+## For more information, see also {#see-also}
 
 * [Trigger for {{ yds-name }} that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/data-streams-trigger-create.md).

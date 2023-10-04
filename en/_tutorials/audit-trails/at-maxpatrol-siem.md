@@ -310,7 +310,7 @@ To view the logs, go to the event review page:
 
 ## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid paying for them:
+Delete the resources you no longer need to avoid being charged for them:
 
 * [Delete](../../data-streams/operations/manage-streams.md#delete-data-stream) the `maxpatrol-stream` data stream.
 * [Delete](../../ydb/operations/manage-databases.md#delete-db) the `maxpatrol-db` database.

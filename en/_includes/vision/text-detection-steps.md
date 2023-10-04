@@ -1,6 +1,7 @@
 1. Encode the file as Base64:
 
     {% include [base64-encode-command](base64-encode-command.md) %}
+
 1. Create a file with the request body (for example, `body.json`). In the `content` property, specify the [Base64-encoded](../../vision/operations/base64-encode.md) image.
 
     For the service to automatically detect the text language, specify the `"language_codes": ["*"]` property in the configuration.
@@ -8,7 +9,7 @@
     **body.json:**
     ```json
     {
-        "folderId": "b1gvmob95yysaplct532",
+        "folderId": "b1gvmob95yys********",
         "analyze_specs": [{
             "content": "iVBORw0KGgo...",
             "features": [{
@@ -78,9 +79,48 @@
 
 1. To get all the recognized words from the image, find all the lines with the `text` property (for example, using the [grep](https://www.gnu.org/software/grep/) utility):
 
-    ```bash
-    grep -o "\"text\":\s\".*\"" output.json
-    "text": "PENGUINS"
-    "text": "CROSSING"
-    "text": "SLOW"
-    ```
+   {% list tabs %}
+
+   - Bash
+
+      ```bash
+      grep -o "\"text\":\s\".*\"" output.json
+      ```
+
+      Result:
+
+      ```text
+      "text": "PENGUINS"
+      "text": "CROSSING"
+      "text": "SLOW"
+      ```
+
+   - CMD
+
+      ```bash
+      findstr text output.json
+      ```
+
+      Result:
+
+      ```text
+      "text": "PENGUINS"
+      "text": "CROSSING"
+      "text": "SLOW"
+      ```
+
+   - PowerShell
+
+      ```powershell
+      Select-String -Pattern '\"text\":\s\".*\"' -Path .\output.json
+      ```
+
+      Result:
+
+      ```text
+      output.json:1:      "text": "PENGUINS"
+      output.json:2:      "text": "CROSSING"
+      output.json:3:      "text": "SLOW"
+      ```
+
+   {% endlist %}

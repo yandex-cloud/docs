@@ -40,6 +40,7 @@ Some steps are completed in [{{ TF }}](https://www.terraform.io/intro). If you d
 Some {{ yandex-cloud }} features described in this tutorial are at the [Preview](../overview/concepts/launch-stages.md) stage. [Request access to these features from the support team]({{ link-console-support }}/create-ticket):
 
 * [{{ at-name }}](../audit-trails/).
+* [Security groups](../vpc/concepts/security-groups.md)
 
 ### Required paid resources {#paid-resources}
 
@@ -79,7 +80,7 @@ The infrastructure support cost includes:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account.
+   1. Enter the name of the service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
@@ -168,8 +169,8 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. At the top right, select **{{ ui-key.yacloud_org.common.resource-acl.label_inherited-bindings }}** to display the roles inherited from the organization.
    1. Make sure that you have the following roles:
-      * `iam.serviceAccounts.user` for the service account
-      * `audit-trails.editor` for the folder to host the trail
+      * `iam.serviceAccounts.user` for the service account.
+      * `audit-trails.editor` for the folder to host the trail.
       * `audit-trails.viewer` for the cloud whose audit logs will be collected.
       * `storage.viewer` for the bucket or the folder.
 
@@ -217,8 +218,8 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
    1. Enter the subnet CIDR: its IP address and mask (for example, `10.128.0.0/24`).
    1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
    1. Create two more subnets:
-      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR
-      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR
+      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR.
+      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR.
 
 - CLI
 
@@ -266,9 +267,9 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
 ### Configure the subnet {#configure-subnet}
 
 1. [Enable](../vpc/operations/create-nat-gateway.md) an NAT gateway for the subnet where the intermediate VM will be deployed.
-1. Configure network traffic permissions in the [default security group](../vpc/concepts/security-groups.md#default-security-group).
+1. Configure network traffic permissions in the [default security group](../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing traffic will be allowed for the {{ ES }} cluster.
 
-   [Add](../vpc/operations/security-group-update.md#add-rule) the rules below to it:
+   If a security group is available, [add](../vpc/operations/security-group-update.md#add-rule) to it the following rules:
 
    | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
    | --- | --- | --- | --- | --- | --- |
@@ -297,8 +298,8 @@ You can also deploy the required environment using {{ TF }}. See a [sample confi
       * **Folders**: Keep the default value, `All folders`.
    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket to upload audit logs to.
-      * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../audit-trails/concepts/format.md#log-file-name) of the audit log file.
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket where you want to upload audit logs.
+      * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: An optional parameter used in the [full name](../audit-trails/concepts/format.md#log-file-name) of the audit log file.
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket, such as `trails-sa`.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -472,7 +473,7 @@ You can also check the [yandex-cloud/yc-solution-library-for-security](https://g
 
 ## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 * Delete the resources created with {{ TF }}:
 

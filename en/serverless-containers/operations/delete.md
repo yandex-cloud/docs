@@ -5,10 +5,10 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with your container.
-   1. Select **{{ serverless-containers-name }}**.
-   1. In the line with the container, click ![image](../../_assets/horizontal-ellipsis.svg).
-   1. In the menu that opens, click **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+   1. In the required container row, click ![image](../../_assets/horizontal-ellipsis.svg).
+   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -67,7 +67,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -76,7 +76,7 @@
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   You can verify that you have deleted the container in the [management console]({{ link-console-main }}) or with the following [CLI](../../cli/) command:
+   You can check that the container has been deleted using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
    ```
    yc serverless container list

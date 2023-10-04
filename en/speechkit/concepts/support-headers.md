@@ -45,4 +45,4 @@ Each {{ speechkit-short-name }} server response contains headers that provide ev
 
 To be able to retrieve the `x-request-id` and `x-server-trace-id` values, your application must log server response headers.
 
-An implementation example for access to gRPC headers is provided in the [`grpc-go` library documentation](https://github.com/grpc/grpc-go/blob/master/Documentation/grpc-metadata.md).
+You can look up an implementation example for access to gRPC headers in the [`grpc-go` library documentation](https://github.com/grpc/grpc-go/blob/master/Documentation/grpc-metadata.md).

@@ -1,6 +1,6 @@
 # Roles and access rights in {{ tracker-name }}
 
-{{ tracker-full-name }} is a [service](../organization/manage-services.md) that can be enabled for your organization in {{ yandex-cloud }}. The organization's administrator who enabled {{ tracker-name }} also becomes an [administrator in {{ tracker-name }}](#admin).
+{{ tracker-full-name }} is a [service](../organization/concepts/manage-services.md) that can be enabled for your organization in {{ yandex-cloud }}. The organization's administrator who enabled {{ tracker-name }} also becomes an [administrator in {{ tracker-name }}](#admin).
 
 {% note info %}
 

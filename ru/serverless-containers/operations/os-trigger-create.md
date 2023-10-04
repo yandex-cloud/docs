@@ -82,7 +82,7 @@
     * `--suffix` — [суффикс](../concepts/trigger/os-trigger.md#filter) ключа объекта в бакете. Необязательный параметр. Используется для фильтрации.
     * `--events` — [события](../concepts/trigger/os-trigger.md#event), после наступления которых триггер запускается.
 
-    {% include [batch-settings-events](../../_includes/functions/batch-settings-events.md) %}
+    {% include [batch-settings-events](../../_includes/serverless-containers/batch-settings-events.md) %}
     
     {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 

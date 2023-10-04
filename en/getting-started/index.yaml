@@ -18,12 +18,14 @@ meta:
     Step-by-step instructions for a comfortable start and exploring the
     possibilities of Yandex Cloud.
 links:
-  - title: Getting started
-    description: Information for individuals
-    href: quickstart-individuals
-  - title: Registering in Yandex Cloud
-    description: Instructions for businesses
-    href: quickstart-legal-entity
+  - title: Information for individuals
+    description: >-
+      Step-by-step instructions for a comfortable start and exploring the
+      possibilities of {{ yandex-cloud }}
+    href: individuals/registration
+  - title: Instructions for businesses
+    description: Step-by-step deployment of an organization in {{ yandex-cloud }}
+    href: legal-entity/registration
   - title: How does the trial period work
     description: How to use Yandex Cloud during the trial period and who can access it
     href: free-trial/concepts/quickstart

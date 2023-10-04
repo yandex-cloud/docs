@@ -79,7 +79,9 @@ items:
         href: tutorials/greenplum-to-postgresql.md
       - name: Миграция базы данных из {{ GP }} в {{ CH }}
         href: tutorials/greenplum-to-clickhouse.md
-      - name: Выгрузка данных {{ GP }} в холодное хранилище
+      - name: >-
+          Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-full-name
+          }}
         href: tutorials/yezzey.md
   - name: Концепции
     items:

@@ -14,7 +14,7 @@ Only the community's administrator can link a billing account to it. To work wit
 
 {% note tip %}
 
-Billing account management can only be performed by users with a [Yandex account](../../../iam/concepts/index.md#passport). If you use {{ yandex-cloud }} via an [identity federation](../../../organization/add-federation.md), [contact]({{ link-console-support }}) support.
+Billing account management can only be performed by users with a [Yandex account](../../../iam/concepts/index.md#passport). If you use {{ yandex-cloud }} via an [identity federation](../../../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
 
 {% endnote %}
 

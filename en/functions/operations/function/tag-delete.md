@@ -17,10 +17,10 @@
    Result:
 
    ```
-   id: b09ch6pmpohfc9sogj5f
-   function_id: b097d9ous3gep99khe83
-   created_at: "2023-08-22T09:12:38.464Z"
-   runtime: python311
+   id: b09ch6pmpohf********
+   function_id: b097d9ous3ge********
+   created_at: "2019-06-13T09:12:38.464Z"
+   runtime: python37
    entrypoint: test.handler
    resources:
      memory: "134217728"
@@ -29,7 +29,7 @@
    status: ACTIVE
    tags:
    - beta
-   log_group_id: eolv6578frac08uh5h6s
+   log_group_id: eolv6578frac********
    ```
 
 - {{ TF }}
@@ -81,7 +81,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -90,7 +90,7 @@
       ```
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   You can verify that the tags have been deleted in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+   You can check the tags' deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```
    yc serverless function version list --function-name <function name>

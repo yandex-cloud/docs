@@ -25,31 +25,31 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-   1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
+   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **Basic parameters**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter a name and description for the trigger.
-      * In the **Type** field, select **{{ iot-name }}**.
-      * In the **Launched resource** field, select **Function**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
 
-   1. Under **{{ iot-name }} message settings**, specify the registry, device, and MQTT topic to create a trigger for. If you are creating a trigger for a registry topic, you don't need to specify a device or an MQTT topic.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic.
 
-   1. Under **Function settings**, select a function and specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
       {% include [function-settings](function-settings.md) %}
 
-   1. (Optional) Under **Repeat request settings**:
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
       {% include [repeat-request.md](repeat-request.md) %}
 
-   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -85,19 +85,19 @@ The trigger must be in the same cloud with the registry or device it reads messa
    Result:
 
    ```text
-   id: a1sl0mkmimfj3uv52fr8
-   folder_id: b1g88tflru0ek1omtsu0
+   id: a1sl0mkmimfj********
+   folder_id: b1g88tflru0e********
    created_at: "2019-09-25T13:54:35.654935Z"
    name: iot-trigger
    rule:
      iot_message:
-       registry_id: arenou2oj4ct42eq8g3n
-       device_id: areqjd6un3afc3cefcvm
-       mqtt_topic: $devices/areqjd6un3afc3cefcvm/events
+       registry_id: arenou2oj4ct********
+       device_id: areqjd6un3af********
+       mqtt_topic: $devices/areqjd6un3af********/events
        invoke_function:
-         function_id: d4eofc7n0m03lmudse8l
+         function_id: d4eofc7n0m03********
          function_tag: $latest
-         service_account_id: aje3932acd0c5ur7dagp
+         service_account_id: aje3932acd0c********
          retry_settings:
            retry_attempts: "1"
            interval: 10s
@@ -168,9 +168,9 @@ The trigger must be in the same cloud with the registry or device it reads messa
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
          ```
          yc serverless trigger get <trigger ID>
@@ -186,6 +186,6 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 {% include [check-result](check-result.md) %}
 
-## See also {#see-also}
+## For more information, see also {#see-also}
 
 * [Trigger for {{ iot-name }} that sends messages to the {{ serverless-containers-name }} container](../../serverless-containers/operations/iot-core-trigger-create.md).

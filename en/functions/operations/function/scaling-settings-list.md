@@ -5,9 +5,9 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-   1. Select **{{ sf-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Select a function.
-   1. Under **Version history**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) whose scaling settings you wish to view.
+   1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) whose scaling settings you wish to view.
    1. Information on these scaling settings will be displayed in a pop-up window:
       * **zone_instances_limit**: Number of function instances in an availability zone.
       * **zone_requests_limit**: Number of concurrent function calls in an availability zone.

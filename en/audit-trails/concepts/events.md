@@ -248,15 +248,18 @@ Service name: `containerregistry`.
 --- | ---
 | `CreateImage` | Creating an image |
 | `CreateImageTag` | Creating an image tag |
+| `CreateLifecyclePolicy` | Creating a lifecycle policy |
 | `CreateRegistry` | Creating a registry |
 | `CreateRepository` | Creating a repository |
 | `CreateScanPolicy` | Creating a scan policy |
 | `DeleteImage` | Deleting an image |
 | `DeleteImageTag` | Deleting an image tag |
+| `DeleteLifecyclePolicy` | Deleting a lifecycle policy |
 | `DeleteRegistry` | Deleting a registry |
 | `DeleteRepository` | Deleting a repository |
 | `ScanImage` | Scanning an image |
 | `UpdateIpPermission` | Updating policies for accessing a registry from IP addresses |
+| `UpdateLifecyclePolicy` | Updating a lifecycle policy |
 | `UpdateRegistry` | Updating a registry |
 | `UpdateScanPolicy` | Updating a scan policy |
 | `UpdateRegistryAccessBindings` | Updating access bindings for a registry |
@@ -594,6 +597,7 @@ Service name: `storage`.
 | `BucketHttpsUpdate` | Updating the HTTPS configuration for a bucket |
 | `BucketLifecycleUpdate` | Changing the lifecycle of an object in a bucket |
 | `BucketPolicyUpdate` | Updating the access policies for a bucket |
+| `BucketTagsUpdate` | Updating bucket tags |
 | `BucketUpdate` | Updating a bucket |
 | `BucketWebsiteUpdate` | Updating a website configuration |
 | `ObjectAclUpdate` | Updating an object's ACL in a bucket ^*^ |

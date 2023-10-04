@@ -27,9 +27,10 @@ keywords:
 
 ```bash
 curl -X GET \
-    'http://c-<идентификатор кластера>.rw.mdb.yandexcloud.net/api/v1/dags' \
+    'https://c-<идентификатор кластера>.airflow.yandexcloud.net/api/v1/dags' \
     --user 'admin:<пароль пользователя admin>' \
-    --header 'Content-Type: application/json'
+    --header 'Content-Type: application/json' \
+    --header 'X-Cloud-Authorization: Bearer <iam токен субъекта с ролью managed-airflow.user на Airflow кластер>'
 ```
 
 Запрос возвращает список DAG-файлов. Пример ответа см. в [документации API {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html#operation/get_dags).

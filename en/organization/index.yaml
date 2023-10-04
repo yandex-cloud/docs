@@ -13,15 +13,15 @@ meta:
 links:
   - title: Getting started
     description: Create an organization
-    href: enable-org
+    href: operations/enable-org
   - title: Add users
     description: >-
       Connect your employees via their Yandex accounts to grant access your
       organization's services
-    href: add-account
+    href: operations/add-account
   - title: Set up an identity federation
     description: Allow your employees to access services via their work accounts
-    href: add-federation
+    href: concepts/add-federation
   - title: Manage services
     description: Choose the services your organization's employees will have access to
-    href: manage-services
+    href: concepts/manage-services

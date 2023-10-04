@@ -9,12 +9,12 @@ If there are multiple organizations registered in your account, you can move clo
 
 {% note info %}
 
-Manually [add](../../../organization/add-account.md) to the target organization all users having the roles assigned for the cloud to transfer, folders, or resources in the source organization. The roles are transferred to the new organization automatically.
+Manually [add](../../../organization/operations/add-account.md) to the target organization all users having the roles assigned for the cloud to transfer, folders, or resources in the source organization. The roles are transferred to the new organization automatically.
 
 {% endnote %}
 
 
-To move a cloud to another organization, you must have the `{{ roles-organization-owner }}` role for the organization and `{{ roles-cloud-owner }}` for the cloud. For information on assigning roles to users, see [Roles for cloud](set-access-bindings.md#access-to-user) and [Roles for organization](../../../organization/roles.md#add-role).
+To move a cloud to another organization, you must have the `{{ roles-organization-owner }}` role for the organization and `{{ roles-cloud-owner }}` for the cloud. For information on assigning roles to users, see [Roles for cloud](set-access-bindings.md#access-to-user) and [Roles for organization](../../../organization/security/index.md#add-role).
 
 {% list tabs %}
 

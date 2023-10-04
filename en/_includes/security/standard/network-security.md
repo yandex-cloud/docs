@@ -3,17 +3,17 @@
 This section provides users with recommendations on security settings in [{{ vpc-full-name }}](../../../vpc/).
 
 
-To isolate applications from each other, put resources in different [security groups](../../../vpc/concepts/security-groups.md), and, if strict isolation is required, in different [networks](../../../vpc/concepts/network.md#network). By default, internal network traffic is allowed, while traffic between networks is not. Traffic between networks is only allowed via [VMs](../../../compute/concepts/vm.md) with two network interfaces in different networks, VPN, or [{{ interconnect-full-name }}](../../../interconnect/index.yaml).
+To isolate applications from each other, put resources in different [security groups](../../../vpc/concepts/security-groups.md), and, if strict isolation is required, in different [networks](../../../vpc/concepts/network.md#network). By default, internal network traffic is allowed, while traffic between networks is not. Traffic between networks is only allowed via a [VM](../../../compute/concepts/vm.md) with two network interfaces in different networks, VPN, or [{{ interconnect-full-name }}](../../../interconnect/index.yaml).
 
 #### 2.1 Cloud objects use a firewall or security groups {#firewall}
 
-With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the status of sessions and, if a rule allows creating a session, they automatically allow response traffic. For instructions on how to set up security groups, see [{#T}](../../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
+With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the status of sessions and, if a rule allows a session to be created, they automatically allow response traffic. For instructions on how to set up security groups, see [{#T}](../../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
 
 You can use security groups to protect:
-* VMs.
-* [Managed databases](/services#data-platform).
-* [{{ alb-full-name }}](../../../application-load-balancer/) [load balancers](../../../application-load-balancer/concepts/application-load-balancer.md).
-* [{{ managed-k8s-full-name }}](../../../managed-kubernetes/) [clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+* VMs
+* [Managed databases](/services#data-platform)
+* [{{ alb-full-name }}](../../../application-load-balancer/) [load balancers](../../../application-load-balancer/concepts/application-load-balancer.md)
+* [{{ managed-k8s-full-name }}](../../../managed-kubernetes/) [clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster)
 
 The list of available services is being extended.
 
@@ -119,7 +119,7 @@ To apply security groups to your cloud objects in {{ vpc-name }}, make sure ther
       done
       ```
 
-   1. If each of the `SG_ID` combinations next to the `FOLDER_ID` of the folder hosting it has the `ID` specified, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
+   1. If each of the `SG_ID` combinations next to the `FOLDER_ID` of the folder hosting it has the `IDs` specified, the recommendation is fulfilled. Otherwise, proceed to the "Instructions and solutions to use".
 
 {% endlist %}
 
@@ -287,8 +287,7 @@ To enable administrators to establish remote connections to your cloud resources
    * [Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
    * Client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
 
-   For details, see the details in the [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md) section. You can also use certified data cryptographic security tools.
-  
+   See the details in the [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md) section. You can also use certified data cryptographic security tools.
 * A dedicated private connection between a remote site and {{ yandex-cloud }} using {{ interconnect-name }}.
 
 To access the infrastructure using control protocols (such as SSH or RDP), create a bastion VM. You can do this using a free [Teleport](https://goteleport.com/) solution. Access to the bastion VM or VPN gateway from the internet must be restricted.
@@ -306,7 +305,7 @@ To access web services deployed in the cloud, use TLS version 1.2 or higher.
    1. Go to the **Route tables** section.
    1. If routes to remote sites' private networks through VMs with a VPN gateway are found, the recommendation is fulfilled.
    1. Check the VMs in each cloud for VPN gateways. In addition, check if their security groups have open ports for the VPN.
-  
+
 
 - Manual check
 

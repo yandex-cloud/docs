@@ -1,3 +1,8 @@
+---
+title: "Создание реестра"
+description: "Следуя данной инструкции, вы сможете создать реестр."
+---
+
 # Создание реестра
 
 {% list tabs %}
@@ -8,11 +13,11 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. На панели слева выберите иконку **{{ ui-key.yacloud.iot.label_registries }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-registry }}**.
-  1. В блоке **Общая информация** добавьте:
+  1. В блоке **{{ ui-key.yacloud.common.section-base }}** добавьте:
 
       * **{{ ui-key.yacloud.common.name }}** реестра. Например, `my-registry`.
       * (Опционально) **{{ ui-key.yacloud.common.description }}** с дополнительной информацией о реестре.
-      * **Пароль**, который вы будете использовать для доступа к реестру. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
+      * **{{ ui-key.yacloud.common.password }}**, который вы будете использовать для доступа к реестру. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
 
           {% note info %}
 
@@ -26,18 +31,18 @@
 
       * Чтобы добавить файл:
 
-        1. Выберите способ **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}**.
+        1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
         1. Нажмите кнопку **Прикрепить файл**.
         1. Выберите файл с публичным ключом сертификата и нажмите кнопку **Открыть**.
         1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * Чтобы добавить текст:
 
-        1. Выберите способ **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}**.
+        1. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
         1. Вставьте публичный ключ сертификата в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 

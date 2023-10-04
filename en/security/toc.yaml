@@ -68,6 +68,8 @@ items:
         href: tutorials/vipnet-to-yc.md
       - name: Setting up and testing PT Application Firewall
         href: tutorials/pt-application-firewall.md
+      - name: Secure user access to cloud resources based on WireGuard VPN
+        href: tutorials/remote-wireguard-vpn.md
   - name: Guides
     items:
       - name: Deleting a passport account from {{ org-full-name }}

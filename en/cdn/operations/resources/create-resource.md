@@ -48,7 +48,14 @@ To create a [resource](../../concepts/resource.md):
          To enable a client redirect from HTTP to HTTPS, create a CDN resource without a redirect and get a TLS certificate for your domain name. Next, in the CDN resource settings, [select](configure-basics.md) the `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` client redirect method.
 
       1. Enable or disable **{{ ui-key.yacloud.cdn.label_access }}**.
-      1. If you selected the `{{ ui-key.yacloud.common.label_http }}` protocol, select `{{ ui-key.yacloud.cdn.value_certificate-no }}` in the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field. Otherwise, select `Let's Encrypt` or `{{ ui-key.yacloud.cdn.value_certificate-custom }}`. For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
+      1. In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select one of the options:
+
+         * `{{ ui-key.yacloud.cdn.value_certificate-no }}`: Resource will only be available over HTTP.
+         * `Let's Encrypt®`: Certificate will be issued by the CDN provider. You will not be able to manage such a certificate from {{ certificate-manager-name }}.
+         * `{{ ui-key.yacloud.cdn.value_certificate-custom }}`: Select a certificate in {{ certificate-manager-name }}. This can be both a [Let's Encrypt® certificate](../../../certificate-manager/concepts/managed-certificate.md) and a [user certificate](../../../certificate-manager/concepts/imported-certificate.md).
+
+         For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
+
       1. Select the **{{ ui-key.yacloud.cdn.label_host-header }}** value (`{{ ui-key.yacloud.cdn.value_host-header-default }}` or `{{ ui-key.yacloud.cdn.value_host-header-resend }}`) or choose `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and enter the **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. For more information, see [{#T}](../../concepts/servers-to-origins-host.md).
 
    1. Click **{{ ui-key.yacloud.common.create }}**.

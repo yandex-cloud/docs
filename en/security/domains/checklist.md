@@ -2,12 +2,12 @@
 
 ## Network security {#network-security}
 
-* **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, different {{ vpc-short-name }}. Traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }} (it is only allowed via VMs with two network interfaces in different networks, VPN or {{ interconnect-full-name }}). Watch our webinar to learn [how a network works in {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
+* **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, in different {{ vpc-short-name }}. Traffic within a {{ vpc-short-name }} is allowed by default but not allowed between {{ vpc-short-name }} (only via a VM with two network interfaces in different networks, either VPN or {{ interconnect-full-name }}). Watch our webinar to learn [how a network works in {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
 * **Network access restriction, security groups**: Restrict network access across resources using [security groups](../../vpc/operations/security-group-create.md).
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Setting up security groups (dev/stage/prod) using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 * **NGFW from {{ marketplace-short-name }}**: If more robust network protection is required, use [NGFW](/marketplace?tab=software&search=NGFW) from {{ marketplace-full-name }}.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Installing an NGFW on a {{ yandex-cloud }} VM: Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
-* **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN (see [this guide](../../tutorials/routing/ipsec-vpn.md) to learn how to set it up using the strongSwan daemon) or use [{{ interconnect-name }}](../../interconnect/index.yaml). You can also leverage the GOST VPN service.
+* **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN (see the [setup instructions using the strongSwan daemon](../../tutorials/routing/ipsec-vpn.md)) or use [{{ interconnect-name }}](../../interconnect/index.yaml) (the GOST VPN service is also available).
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
 
@@ -19,7 +19,7 @@
 
 ## Authentication and access control {#authentication}
 
-* **Centralized management and identity federations**: Create an organization in [{{ org-full-name }}](/services/organization) and set up Single Sign-On in {{ yandex-cloud }} via your IdP server. See the setup instructions for [AD FS](../../organization/operations/federations/integration-adfs.md), [Keycloak](https://www.youtube.com/watch?v=m-oe7V9PvC4), and [Google Workspace](../../organization/operations/federations/integration-gworkspace.md).
+* **Centralized management and identity federations**: Create an organization in [{{ org-full-name }}](/services/organization) and set up Single Sign-On in {{ yandex-cloud }} via your IdP server. See the setup instructions for [AD FS](../../organization/tutorials/federations/integration-adfs.md), [Keycloak](https://www.youtube.com/watch?v=m-oe7V9PvC4), and [Google Workspace](../../organization/tutorials/federations/integration-gworkspace.md).
 * **Federated accounts**: Use federated accounts instead of Yandex accounts whenever possible.
 * **Principle of least privilege**: Assign service roles (for example, `compute.images.user`) instead of primitive roles (`viewer`, `editor`, or `admin`). See a [list of all roles](../../iam/concepts/access-control/roles.md) and [examples of assigning roles](../../iam/operations/roles/grant.md). Watch our webinar to learn how to [manage cloud access permissions](https://www.youtube.com/watch?v=7VwSfPZ6eRM&t=3s).
 * **{{ TF }} {{ yandex-cloud }} {{ iam-full-name }} module**: Organize access groups for cloud users.
@@ -45,8 +45,8 @@
 * **Standards and baseline**: Configure the OS and software in accordance with the baseline and standards (such as CIS and PCI DSS). To automate compliance, use, for example, [OpenSCAP](https://www.open-scap.org/getting-started/).
 * **Disabling the serial console**: Do not use the serial console; if you still have to, [evaluate your risks](../../compute/operations/serial-console/index.md) and disable it once you are done.
 * **Safe use of {{ TF }}**: Use `terraform remote state` based on {{ objstorage-name }} with a lock function in {{ ydb-full-name }}. You can see a setup example [here](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state). Set [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) if required. Do not transfer private data to the configuration; if you still have to, use [secret management](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#:~:text=this%20blog%20post%3A-,Do%20not%20store%20secrets%20in%20plain%20text.,secrets%20into%20your%20Terraform%20code) services or environment variables. You can read more [here](./secure-config.md#terraform).
-  ![](../../_assets/overview/solution-library-icon.svg)[Example: Scanning tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
-* **Integrity control on guest OS**: Use free host-based solutions, such as Wazuh or Osquery, or paid solutions from {{ marketplace-name }}.
+  ![](../../_assets/overview/solution-library-icon.svg)[Example: Scanning .tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
+* **Integrity control on guest OS**: Use free host-based solutions, such as [Wazuh](/marketplace/products/opennix/wazuh) or Osquery, or paid solutions from {{ marketplace-name }}.
 * **Secure configuration of {{ objstorage-name }}**: Use encryption, [bucket policies](../../storage/concepts/policy.md), and ACLs, or [versioning for deletion protection](../../storage/concepts/versioning.md), enable [built-in access auditing](../../storage/operations/buckets/enable-logging.md) and configure CORS, if required.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Secure configuration of {{ objstorage-name }} in {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
 * **Secure configuration of {{ sf-full-name }}**: Provide a service account token via the [native authentication mechanism](../../functions/operations/function-sa.md) using the assigned service account and metadata. If possible, use [private functions](../../functions/operations/function/function-private.md).
@@ -61,7 +61,7 @@
 
 ## Managing vulnerabilities {#vulnerability-management}
 
-* **Automated vulnerability scanning**: Use free network scanners, such as Nmap, OpenVAS, and OWASP ZAP, or host-based solutions, such as Wazuh and Tripwire.
+* **Automated vulnerability scanning**: Use free network scanners, such as Nmap, OpenVAS, and OWASP ZAP, or host-based solutions, such as [Wazuh](/marketplace/products/opennix/wazuh) and Tripwire.
 * **External security scans**: Perform scans according to the [rules](../compliance/pentest.md).
 * **Software and OS updates**: Install updates manually and use automated update tools.
 * **Web Application Firewall**: Install a WAF from [{{ marketplace-name }}](/marketplace?categories=security) or use Managed WAF — contact your account manager to get access.
@@ -71,7 +71,7 @@
 ## Collecting, monitoring, and analyzing audit logs {#logs-analysis}
 
 * **{{ at-full-name }}**: Enable [{{ at-name }}](../../audit-trails/quickstart.md) for all clouds and folders.
-* **Collecting events on the guest OS and applications side**: Collect events, for example, using [{{ mes-full-name }}](../../managed-elasticsearch/) or free solutions, such as Osquery and Wazuh.
+* **Collecting events on the guest OS and applications side**: Collect events, for example, using [{{ mes-full-name }}](../../managed-elasticsearch/) or free solutions, such as Osquery and [Wazuh](/marketplace/products/opennix/wazuh).
 * **Collecting Flow logs (if required)**: For example, using NGFW from {{ marketplace-name }} or free software (options are available in service plans).
 * **Exporting {{ at-name }} events to SIEM**.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Exporting to {{ mes-name }} (ELK)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
@@ -124,7 +124,7 @@
 ### Secure configuration {#kubernetes-secure-configuration}
 
 * **Node group configuration according to baseline and standards**: Configure node groups according to standards and baseline: NIST, CIS, and other. You can use automated tools, such as kube-bench and kubescape.
-* **Runtime security and policy engine**: Use runtime security solutions, such as Falco, as well as policy engine solutions, such as OPA Gatekeeper and Kyverno.
+* **Runtime security and policy engine**: Use runtime security solutions, such as [Falco](/marketplace/products/yc/falco), as well as policy engine solutions, such as OPA Gatekeeper and [Kyverno](/marketplace/products/yc/kyverno).
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Installing Falco and a policy engine with alerts delivered to {{ mes-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
 * **Security updates**: Select a relevant [update channel](../../managed-kubernetes/concepts/release-channels-and-updates.md) and enable automatic or manual installation of updates immediately after publication in the selected channel. Also perform timely updates of your own software on node groups.
 * **Distribution of pods into different node groups**: Configure node taints and tolerations + node affinity (by load and degree of privacy).
@@ -133,7 +133,7 @@
 
 * **Collecting and analyzing {{ k8s }} audit logs and security tools**.
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: Analyzing {{ k8s }} security logs in {{ mes-name }}: audit logs, a policy engine, and Falco](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
-* **Collecting and analyzing audit logs of workloads and node groups**: For example, using open-source tools, such as Fluent Bit and Beats.
+* **Collecting and analyzing audit logs of workloads and node groups**: For example, using open-source tools, such as [Fluent Bit](/marketplace/products/yc/fluent-bit) and Beats.
 
 
 * **Monitoring abnormal loads**: Use [{{ monitoring-full-name }}](../../monitoring/).

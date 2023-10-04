@@ -6,7 +6,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
-* The log group that activates the trigger when records are added to it. If you don't have a log group, [create one](../../logging/operations/create-group.md).
+* A log group that activates the trigger when entries are added there. If you do not have a log group, [create one](../../logging/operations/create-group.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -18,28 +18,28 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
 
-   1. Open **{{ serverless-containers-name }}**.
+   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
-   1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
+   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **Basic parameters**:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Enter a name and description for the trigger.
-      * In the **Type** field, select **{{ cloud-logging-name }}**.
-      * In the **Launched resource** field, select **Container**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_logging }}`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-   1. Under **{{ cloud-logging-name }} settings**, specify:
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}**, specify:
 
-      * The log group.
-      * (Optional) Resource types: {{ yandex-cloud }} or your services, such as, `serverless.function`.
+      * Log group.
+      * (Optional) Resource types: {{ yandex-cloud }} or your services, such as `serverless.function`.
       * (Optional) IDs of {{ yandex-cloud }} or your resources, such as {{ serverless-containers-name }} containers.
       * (Optional) Logging levels.
 
       A trigger activates when records that match all the optional settings are added to the specified log group. If an optional setting is undefined, the trigger activates for any value of the setting.
 
-   1. (Optional) Under **Batch message settings**, specify:
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
       * Batch size. The values may range from 1 to 100. The default value is 1.
       * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
@@ -48,13 +48,13 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
-   1. (Optional) Under **Repeat request settings**:
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
       {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
-   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
+   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
-   1. Click **Create trigger**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI
 
@@ -78,7 +78,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
      --dlq-queue-id <Dead_Letter_Queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
-  
+
 
    Where:
 
@@ -91,11 +91,11 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    Result:
 
-     
+   
    ```text
    id: a1s5msktij**********
    folder_id: b1gmit33hg**********
-   created_at: "2023-08-04T15:19:15.353909857Z"
+   created_at: "2022-10-24T15:19:15.353909857Z"
    name: logging-trigger
    rule:
      logging:
@@ -114,7 +114,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
            service-account-id: aje3lebfem**********
    status: ACTIVE
    ```
-  
+
 
 - API
 
