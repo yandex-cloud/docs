@@ -85,6 +85,23 @@
       created_at: "2022-12-16T14:05:12.196007Z"
       ```
 
+- AWS CLI
+
+  Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../storage/tools/aws-cli.md).
+    
+  В терминале выполните команду, указав имя бакета и эндпоинт {{ objstorage-name }}:
+
+  ```bash
+  aws --endpoint-url=https://{{ s3-storage-host }} \
+    s3 mb s3://<имя_бакета>
+  ```
+
+  {% note info %}
+
+  По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../../storage/operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}. Подробнее см. [Правила именования бакетов](../../storage/concepts/bucket.md#naming).
+
+  {% endnote %}
+
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -171,7 +188,3 @@
   Чтобы создать бакет, воспользуйтесь методом REST API [create](../../storage/api-ref/Bucket/create.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Create](../../storage/api-ref/grpc/bucket_service.md#Create) или методом S3 API [create](../../storage/s3/api-ref/bucket/create.md).
 
 {% endlist %}
-
-- AWS CLI
-
-- aws --endpoint-url=https://storage.yandexcloud.net s3 mb s3://bucket-name
