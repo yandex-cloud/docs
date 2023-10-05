@@ -8,8 +8,8 @@ You can request detailed information about each target group you created.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ network-load-balancer-name }}**.
-   1. On the left-hand panel, select ![trgroups.svg](../../_assets/trgroups.svg) **Target groups**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+   1. In the left-hand panel, select ![trgroups.svg](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
 
 - CLI
 
@@ -30,7 +30,7 @@ You can request detailed information about each target group you created.
    +----------------------+-------------+---------------------+-------------+--------------+
    |          ID          |    NAME     |       CREATED       |  REGION ID  | TARGET COUNT |
    +----------------------+-------------+---------------------+-------------+--------------+
-   | enp1d7t5pdeaan2rk8c9 | test-group1 | 2023-02-03 07:17:56 | {{ region-id }} |            1 |
+   | enp1d7t5pdea******** | test-group1 | 2023-02-03 07:17:56 | {{ region-id }} |            1 |
    | ...                  |             |                     |             |              |
    +----------------------+-------------+---------------------+-------------+--------------+
    ```
@@ -49,8 +49,8 @@ You can request detailed information about each target group you created.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ network-load-balancer-name }}**.
-   1. On the left-hand panel, select ![trgroups.svg](../../_assets/trgroups.svg) **Target groups**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+   1. In the left-hand panel, select ![trgroups.svg](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
    1. Click the name of the target group you need.
 
 - CLI
@@ -81,9 +81,9 @@ You can request detailed information about each target group you created.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ network-load-balancer-name }}**.
-   1. On the left-hand panel, select ![trgroups.svg](../../_assets/trgroups.svg) **Target groups**.
-   1. Click the name of the target group and go to ![operations.svg](../../_assets/mdb/operations.svg) **Operations**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+   1. In the left-hand panel, select ![trgroups.svg](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
+   1. Click the name of the target group and go to ![operations.svg](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
 - CLI
 

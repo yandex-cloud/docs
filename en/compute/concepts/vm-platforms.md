@@ -19,7 +19,7 @@
 
 | Platform | Processor | Max number of cores (vCPUs)</br> per VM | CPU base</br> clock rate (GHz) |
 --- | --- | --- | ---
-| Ice Lake Compute-optimized</br>(`highfreq-v3`) | [Intel® Xeon® Processor 6354](https://ark.intel.com/content/www/us/en/ark/products/212460/intel-xeon-gold-6354-processor-39m-cache-3-00-ghz.html) | 56 | 3.00 |
+| {{ highfreq-ice-lake }}</br>(`highfreq-v3`) | [Intel® Xeon® Processor 6354](https://ark.intel.com/content/www/us/en/ark/products/212460/intel-xeon-gold-6354-processor-39m-cache-3-00-ghz.html) | 56 | 3.00 |
 
 
 ## Platforms with GPUs {#gpu-platforms}

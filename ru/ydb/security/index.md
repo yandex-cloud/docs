@@ -34,7 +34,10 @@ sourcePath: overlay/security/start_auth.md
 
 {% include [ydb-admin](../../_includes/iam/roles/ydb-admin.md) %}
 
+{% include [kafka-api](../../_includes/iam/roles/ydb-kafka-api-client.md) %}
+
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
+
 
 ### Примитивные роли {#primitive-roles}
 

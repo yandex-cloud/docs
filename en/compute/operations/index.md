@@ -162,6 +162,8 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](instance-groups/deploy/zero-downtime.md)
 * [{#T}](instance-groups/pause-processes.md)
 * [{#T}](instance-groups/resume-processes.md)
+* [{#T}](instance-groups/rolling-restart.md)
+* [{#T}](instance-groups/rolling-recreate.md)
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/delete.md)

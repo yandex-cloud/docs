@@ -12,13 +12,13 @@ keywords:
 
 To work with most {{ yandex-cloud }} services, you need a billing account. The account stores information about the payer and payment details; however, {{ yandex-cloud }} does not debit funds from your bank account and does not invoice you until you switch to the [paid version](../operations/activate-commercial.md). While some services, such as {{ tracker-name }} or {{ datalens-short-name }}, do not require a billing account, if you still create one, you will get an [initial grant](../concepts/bonus-account.md#start) that you can then use to pay for resources.
 
-Under one Yandex account, all payers must be either residents of Russia or Kazakhstan, or residents of other countries. You can learn more about billing accounts [here](../concepts/billing-account.md).
+Under one Yandex account, all payers must be either residents of Russia or Kazakhstan or residents of other countries. You can learn more about billing accounts [here](../concepts/billing-account.md).
 
 New customers are entitled to a trial period. The [trial period](../concepts/trial-period.md) allows you to discover the features of the cloud infrastructure for free with some limitations. To fully use the resources, you need to switch to the paid version after your trial period ends.
 
 {% list tabs %}
 
-- Individual
+- Individuals
 
    To create a billing account:
 
@@ -30,10 +30,10 @@ New customers are entitled to a trial period. The [trial period](../concepts/tri
 
    1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, click **{{ ui-key.yacloud.billing.accounts.button_create }}**. Fill in your information:
 
-      * Select the payer's country.
+      * Select the payer country.
       * Enter the name of the billing account. The name will be displayed in the list of your billing accounts and will help you select the right one.
 
-   1. If you see a list of available payersin the **{{ ui-key.yacloud.billing.account.create-new.section_persons }}** section, you can select one of them or add a new one.
+   1. If you see a list of available payers in the **{{ ui-key.yacloud.billing.account.create-new.section_persons }}** section, you can select one of them or add a new one.
 
       To add a payer:
 
@@ -63,7 +63,7 @@ New customers are entitled to a trial period. The [trial period](../concepts/tri
 
    1. Click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**.
 
-- Legal entity, individual entrepreneur, or non-resident of Russia or Kazakhstan
+- Business, individual entrepreneur, or non-resident of Russia or Kazakhstan
 
    To create a billing account:
 
@@ -75,7 +75,7 @@ New customers are entitled to a trial period. The [trial period](../concepts/tri
 
    1. On the **{{ ui-key.yacloud.billing.label_accounts }}** page, click **{{ ui-key.yacloud.billing.accounts.button_create }}**. Fill in your information:
 
-      * Select the payer's country.
+      * Select the payer country.
       * Enter the name of the billing account. The name will be displayed in the list of your billing accounts and will help you select the right one.
 
    1. If you see a list of available payers in the **{{ ui-key.yacloud.billing.account.create-new.section_persons }}** section, you can select one of them or add a new one.

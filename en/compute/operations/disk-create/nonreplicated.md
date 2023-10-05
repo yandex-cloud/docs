@@ -162,7 +162,7 @@ You can only create a disk in an existing disk placement group.
    1. Select `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}` as the disk type.
    1. Select a disk placement group.
 
-      If you select a group with the [partition](../../concepts/disk-placement-group.md#partition) placement strategy, specify the number of the partition you want to add the disk to.
+      If you select a group with the [partition](../../concepts/disk-placement-group.md#partition), specify the number of the partition you want to add the disk to.
    1. Specify the required disk size.
    1. If required, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
 
@@ -182,7 +182,7 @@ You can only create a disk in an existing disk placement group.
       ```
 
    1. In a placement group, create a non-replicated disk in the default folder using one of the strategies:
-      * [Spread](../../concepts/disk-placement-group.md#spread) placement:
+      * [Distributed placement](../../concepts/disk-placement-group.md#spread):
 
       ```bash
       yc compute disk create \

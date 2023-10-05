@@ -31,6 +31,9 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
 ## Creating an endpoint {#create}
 
+{% include [access-requirements](../../../_includes/data-transfer/note-on-required-role.md) %}
+
+
 {% list tabs %}
 
 - Management console
@@ -120,7 +123,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -148,6 +151,9 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 {% endlist %}
 
 ## Updating the endpoint {#update}
+
+{% include [access-requirements](../../../_includes/data-transfer/note-on-required-role.md) %}
+
 
 {% note info %}
 
@@ -210,7 +216,7 @@ You cannot change the endpoint and database types. For some endpoints, you canno
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm that the resources have been updated.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

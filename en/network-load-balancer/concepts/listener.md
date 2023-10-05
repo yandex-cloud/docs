@@ -7,8 +7,8 @@ You can create multiple traffic listeners for each load balancer.
 All traffic listeners on a load balancer always use a single IP address. You cannot use multiple IP addresses on a load balancer.
 
 Here are the required attributes of each traffic listener:
-* `Name` is used to identify the listener and connect it to other components of the load balancer.
-* `IP address`: IPv4 address for the load balancer to receive incoming traffic. IPv6 protocol is currently not supported. The listener IP address will be announced as a `/32` prefix from all {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
+* `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}` is used to identify the listener and connect it to other components of the load balancer.
+* `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-address }}`: IPv4 address for the load balancer to receive incoming traffic. IPv6 protocol is currently not supported. The listener IP address will be announced as a `/32` prefix from all {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
    Hence, if an availability zone fails, the network equipment will redirect incoming traffic to the listener IP address to other active availability zones.
 
    {% note info %}
@@ -19,9 +19,9 @@ Here are the required attributes of each traffic listener:
 
    {% endnote %}
 
-* `Protocol`: Type of transport protocol whose traffic the listener will accept. Currently, TCP and UDP protocols are supported ([UDP protocol support is limited](#nlb-udp)). You can only select one transport protocol per listener.
-* `Port`: Port for the selected transport protocol where the listener will accept incoming traffic. Ports ranging from 1 to 32767 can be used for receiving traffic.
-* `Target port`: Port where the resources in the target group will accept traffic. This port may be the same as in the `Port` attribute. After creating a listener, this port will deny connections from resources within {{ vpc-short-name }} on the VMs of the target group. VMs in the target group will only accept traffic from the load balancer's traffic listener.
+* `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}`: Type of transport protocol whose traffic the listener will accept. Currently, TCP and UDP protocols are supported ([UDP protocol support is limited](#nlb-udp)). You can only select one transport protocol per listener.
+* `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}`: Port for the selected transport protocol where the listener will accept incoming traffic. Ports ranging from 1 to 32767 can be used for receiving traffic.
+* `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}`: Port where the resources in the target group will accept traffic. This port may be the same as in the `Port` attribute. After creating a listener, this port will deny connections from resources within {{ vpc-short-name }} on the VMs of the target group. VMs in the target group will only accept traffic from the load balancer's traffic listener.
 
 {% note warning %}
 

@@ -2,6 +2,59 @@
 
 ## Current version {#latest-release}
 
+### Version 0.110.0 (14/09/23) {#version0.110.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ api-gw-name }} {#api-gw}
+
+* Added the following parameters to the `yc serverless api-gateway create` and `yc serverless api-gateway update` commands:
+   * `--variables` to set specification parameter values.
+   * `--canary-weight` to specify the ratio of incoming requests handled by the gateway canary release.
+   * `--canary-variables` to set specification parameter values for the canary release.
+
+* Added the `yc serverless api-gateway release-canary` command to replace the specification parameters with the parameters of the canary release and remove the latter.
+
+* Added the `yc serverless api-gateway rollback-canary` command to disable the canary release by setting the `weight` parameter to `0`.
+
+
+##### {{ iam-name }} {#iam}
+
+* Deleted the `yc iam federation` and `yc iam certificate` command groups that were used for managing SAML-compatible federations at the folder level. From now on, use the `yc organization-manager federation` command group to work with SAML-compatible federations.
+
+
+##### {{ ig-name }} {#instance-groups}
+
+Fixed the issue with the `yc compute instance-group update` command when the instance group name failed to be processed if the configuration contained a YAML file.
+
+##### {{ compute-name }} {#compute}
+
+* Added the `--placement-group-partition` flag to the `yc compute instance create` and `yc compute instance update` commands to set the partition number in a placement group.
+
+##### {{ cloud-logging-name }} {#cloud-logging}
+
+* Removed a limit for the `--limit` flag in the `yc logging read` command. You can now output more than 1,000 records.
+
+##### Managed database services {#managed-db}
+
+**{{ mmg-name }}**
+
+* You can now create sharded clusters. If a configuration contains the appropriate host types, a cluster will be created automatically.
+* Added the `--performance-diagnostics` parameter to the `yc mongodb cluster create`, `yc mongodb cluster update`, and `yc mongodb cluster restore` commands.
+
+**{{ mpg-name }}**
+
+* Added the `yc managed-postgresql backup delete` command to delete manual backups.
+* Added the following flags to the `yc managed-postgresql cluster update` command:
+   * `--disk-size-autoscaling` to manage the settings of the automatic disk size expansion service.
+   * `--yandexquery-access` to enable cluster access from {{ yq-full-name }}.
+
+**{{ mch-name }}**
+
+* Added the `--cloud-storage-prefer-not-to-merge` flag to the `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster update` commands to disable merging of data chunks in {{ objstorage-name }}.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.109.0 (10/08/23) {#version0.109.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -50,8 +103,6 @@
 **{{ mmg-name }}**
 
 * Added the `yc managed-mongodb backup delete` command to delete backups.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.108.1 (06/07/23) {#version0.108.1}
 
@@ -1709,7 +1760,7 @@ Added primary support for {{ mkf-name }}:
 
 **Fixed**
 
-* Fixed the issue when it was not possible to add a VM to an existing placement group.
+* Fixed the issue of it being impossible to add a VM to an existing placement group.
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -2195,7 +2246,7 @@ Added support for {{ api-gw-full-name }}.
 **Improved**
 
 * When you start `yc` with the `--help` or `-h` flag, interactive help opens: in `less` (`$PAGER`) on Linux and macOS and in `more` on Windows. Now you no longer have to scroll up through the help result.
-* The execution and API interaction debug logs are now saved to the `$HOME/.config/yandex-cloud/logs` configuration directory rather than the installation directory. This fixes the issue where `yc`, installed as a stand-alone binary file, would suddenly try to save its log in the same directory without proper authorization.
+* The execution and API interaction debug logs are now saved to the `$HOME/.config/yandex-cloud/logs` configuration directory instead of the installation directory. This fixes the issue where `yc`, installed as a stand-alone binary file, would suddenly try to save its log in the same directory without proper authorization.
 * Debug logs are also saved for successful requests. When reporting an issue with a `yc` command, attach your saved log file so we can help you faster.
 
 **Fixed**
@@ -2748,9 +2799,9 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **Fixed**
 
-* Attempts to get resources by specifying their unique ID failed if the CLI configuration did not specify a `folder-id` parameter.
-* Attempts to get folders by specifying their unique ID failed if the user did not have the `viewer` role for the folder in {{ yandex-cloud }}.
-* The `yc init` command failed if the user did not have the `viewer` role in {{ yandex-cloud }}.
+* An attempt to get a resource by specifying its unique ID would fail if the CLI configuration did not specify the `folder-id` parameter.
+* An attempt to get a folder by specifying its unique ID would fail if the user did not have the `viewer` role for the folder in {{ yandex-cloud }}.
+* The `yc init` command would fail if the user did not have the `viewer` role in {{ yandex-cloud }}.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 

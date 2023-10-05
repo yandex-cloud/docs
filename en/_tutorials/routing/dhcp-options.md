@@ -51,7 +51,7 @@ To create a new subnet with DHCP settings, follow these steps:
 
    To create a subnet:
    1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
-   1. Click on the name of the `ad-network`cloud network.
+   1. Click the name of the `ad-network`cloud network.
    1. Click **Add subnet**.
    1. Fill out the form:
       * Enter a name for the subnet: `test-subnet-1`. Select an availability zone `{{ region-id }}-a`.
@@ -81,12 +81,12 @@ To create a new subnet with DHCP settings, follow these steps:
 
    Result:
    ```
-   	id: e2ldy0b1prtj837re3fb
-   	folder_id: b1gbvco8fejm38siik76
+   	id: e2ldy0b1prtj********
+   	folder_id: b1gbvco8fejm********
    	created_at: "2021-07-12T13:28:54Z"
    	name: test-subnet-1
    	description: My test subnet
-   	network_id: enpl0t90hept99f9hsh4
+   	network_id: enpl0t90hept********
    	zone_id: {{ region-id }}-a
    	v4_cidr_blocks:
    	- 10.128.0.0/24
@@ -112,11 +112,11 @@ To check the configuration, create a VM and connect to it via RDP:
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name: `vm-for-tests-in-subnet`.
       1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
-      1. Under **Image/boot disk selection**, choose Windows Server. In the drop-down list, select the OS version: **2016 Datacenter**.
+      1. Under **Image/boot disk selection**, select your image with Windows Server.
       1. Under **Disks**, enter 50 GB for the size of the boot disk.
       1. Under **Computing resources**:
          * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
-         * Specify the number of vCPUs and the amount of RAM:
+         * Specify the required number of vCPUs and the amount of RAM:
             * **vCPU**: 2
             * **Guaranteed vCPU share**: 100%
             * **RAM**: 4 GB
@@ -145,8 +145,10 @@ To check the configuration, create a VM and connect to it via RDP:
       	    --cores 2 \
       	    --memory 4 \
       	    --network-interface subnet-name=test-subnet-1,nat-ip-version=ipv4 \
-      	    --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk
+      	    --create-boot-disk image-id=<image_ID>
       ```
+
+      Where `<image_ID>` is the ID of your Windows Server image used for creating a VM.
 
       If the command is successful, save the IP address from the `one_to_one_nat` field. The address is used in the next step to create an RDP connection:
 
@@ -179,7 +181,7 @@ To check the configuration, create a VM and connect to it via RDP:
    ```
    	Windows IP Configuration
 
-   	   Host Name . . . . . . . . . . . . : epdpjtgc4i5eudo
+   	   Host Name . . . . . . . . . . . . : epdpjtg********
    	   Primary Dns Suffix  . . . . . . . :
    	   Node Type . . . . . . . . . . . . : Hybrid
    	   IP Routing Enabled. . . . . . . . : No

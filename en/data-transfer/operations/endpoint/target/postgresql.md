@@ -12,6 +12,14 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 ## {{ mpg-name }} cluster {#managed-service}
 
+
+{% note warning %}
+
+To create or edit an endpoint of a managed database, you need the [`{{ roles.mpg.viewer }}` role](../../../../managed-postgresql/security/index.md#mpg-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+
+{% endnote %}
+
+
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mpg-full-name }}](../../../../managed-postgresql/).
 
 {% list tabs %}
@@ -142,7 +150,7 @@ For OnPremise, all fields are filled in manually.
       
       {% note warning %}
 
-      This feature is in the [Preview stage](../../../../overview/concepts/launch-stages.md).
+      This feature is at the [Preview stage](../../../../overview/concepts/launch-stages.md).
 
       {% endnote %}
 

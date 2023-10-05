@@ -245,6 +245,10 @@ items:
             href: operations/instance-groups/pause-processes.md
           - name: Resuming an instance group
             href: operations/instance-groups/resume-processes.md
+          - name: Restarting group instances one by one
+            href: operations/instance-groups/rolling-restart.md
+          - name: Recreating group instances one by one
+            href: operations/instance-groups/rolling-recreate.md
           - name: Stopping an instance group
             href: operations/instance-groups/stop.md
           - name: Starting an instance group
@@ -383,6 +387,8 @@ items:
             href: concepts/instance-groups/balancers.md
           - name: Stopping and pausing an instance group
             href: concepts/instance-groups/stopping-pausing.md
+          - name: Restarting and recreating instances in a group one by one
+            href: concepts/instance-groups/rolling-actions.md
           - name: Statuses
             href: concepts/instance-groups/statuses.md
       - name: Dedicated hosts

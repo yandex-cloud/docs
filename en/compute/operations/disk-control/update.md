@@ -129,20 +129,20 @@ You can only increase the size of a disk that is not attached to a running VM. T
 
 {% endlist %}
 
-## Increasing a partition {#change-part-size}
+## Increasing the size of a Linux disk partition {#change-part-size-linux}
 
-After increasing the disk size, you also need to increase its partition and file system. For boot disks, this should be done automatically.
+After increasing the disk size, you also need to increase its partition and file system. For boot disks, this should happen automatically.
 
-If the disk partition doesn't increase or you're increasing the size of a non-boot disk, do this manually:
+If the disk partition has not increased, or if you mean to increase the size of a non-boot disk, do it manually. The procedure depends on the file system:
 
 {% list tabs %}
 
-- Linux
+- ext4
 
    1. [Connect](../../operations/vm-connect/ssh.md) to the VM over SSH:
 
       ```bash
-      ssh <username>@<VM public IP>
+      ssh <username>@<VM_public_IP_address>
       ```
 
    1. See the disks attached to the VM:
@@ -153,7 +153,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
 
       Result:
 
-      ```bash
+      ```text
       NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
       vda    252:0    0  25G  0 disk
       ├─vda1 252:1    0   1M  0 part
@@ -178,7 +178,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
 
       Result:
 
-      ```bash
+      ```text
       e2fsck 1.44.1 (24-Mar-2018)
       Pass 1: Checking inodes, blocks, and sizes
       Pass 2: Checking directory structure
@@ -196,11 +196,11 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
 
       Where:
       * `/dev/vdb` is the name of the device.
-      * `1` is the partition number, so it's separated by a space.
+      * `1` is the partition number, so it is separated by a space.
 
       Result:
 
-      ```bash
+      ```text
       CHANGED: partition=1 start=2048 old: size=67106816 end=67108864 new: size=134215647,end=134217695
       ```
 
@@ -214,7 +214,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
 
       Result:
 
-      ```bash
+      ```text
       Resizing the filesystem on /dev/vdb1 to 16776955 (4k) blocks.
       The filesystem on /dev/vdb1 is now 16776955 (4k) blocks long.
       ```
@@ -233,7 +233,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
 
       Result:
 
-      ```bash
+      ```text
       NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
       vda    252:0    0  25G  0 disk
       ├─vda1 252:1    0   1M  0 part
@@ -242,5 +242,89 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       └─vdb1 252:17   0  64G  0 part /data
       ```
 
+- xfs
+
+   1. [Connect](../../operations/vm-connect/ssh.md) to the VM over SSH:
+
+      ```bash
+      ssh <username>@<VM_public_IP_address>
+      ```
+
+   1. See the disks attached to the VM:
+
+      ```bash
+      lsblk
+      ```
+
+      Result:
+
+      ```text
+      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+      vda    252:0    0  25G  0 disk
+      ├─vda1 252:1    0   1M  0 part
+      └─vda2 252:2    0  25G  0 part /
+      vdb    252:16   0  64G  0 disk
+      └─vdb1 252:17   0  32G  0 part /data
+      ```
+
+      Disk partitions are listed in the `NAME` column. Partition mount points are shown in the `MOUNTPOINT` column.
+
+   1. Run this command:
+
+      ```bash
+      sudo growpart /dev/vdb 1
+      ```
+
+      Where:
+      * `/dev/vdb` is the name of the device.
+      * `1` is the partition number, so it is separated by a space.
+
+      Result:
+
+      ```text
+      CHANGED: partition=1 start=2048 old: size=67106816 end=67108864 new: size=134215647,end=134217695
+      ```
+
+   1. Change the file system size:
+
+      ```bash
+      sudo xfs_growfs /data -d
+      ```
+
+      Where:
+
+      * `/data`: Mount point of the partition you need to increase.
+      * `-d`: Partition extension parameter.
+
+      Result:
+
+      ```text
+      meta-data=/dev/vdb1              isize=512    agcount=4, agsize=655360 blks
+               =                       sectsz=4096  attr=2, projid32bit=1
+               =                       crc=1        finobt=1, sparse=1, rmapbt=0
+               =                       reflink=1    bigtime=0 inobtcount=0
+      data     =                       bsize=4096   blocks=2621440, imaxpct=25
+               =                       sunit=0      swidth=0 blks
+      naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
+      log      =internal log           bsize=4096   blocks=2560, version=2
+               =                       sectsz=4096  sunit=1 blks, lazy-count=1
+      realtime =none                   extsz=4096   blocks=0, rtextents=0
+      data blocks changed from 2621440 to 11796219
+      ```
+
+   1. Make sure that the partition increased:
+
+      ```bash
+      lsblk /dev/vdb
+      ```
+
+      Result:
+
+      ```text
+      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+      vdb    252:16   0  64G  0 disk
+      └─vdb1 252:17   0  64G  0 part /data
+      ```
 
 {% endlist %}
+

@@ -22,7 +22,9 @@ For more information, see [{#T}](../../compute/operations/vm-control/vm-update-r
 
 #### How do I create a multi-interface VM? {#multi-interface}
 
-You can only add a network interface when [creating a VM](../../compute/operations/index.md#vm-create). Currently, multiple interfaces can only be created using network images from [{{ marketplace-full-name }}](/marketplace?categories=network).
+You can add a network interface only when [creating a VM](../../compute/operations/index.md#vm-create). Currently, multiple interfaces can be created only on network images from [{{ marketplace-full-name }}](/marketplace?categories=network).
+
+You can also create a [NAT instance](../../vpc/tutorials/nat-instance) to use multiple network interfaces.
 
 ### VM parameters {#parameters-vm}
 

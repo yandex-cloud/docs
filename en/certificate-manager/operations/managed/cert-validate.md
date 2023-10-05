@@ -78,7 +78,7 @@ To check rights for domains:
    1. After the rights check status for all your domains changes to `Valid`, the certificate is issued and its status becomes `Issued`:
 
       ```bash
-      yc certificate-manager certificate get --id fpq6gvvm6piuegbb2nol --full
+      yc certificate-manager certificate get --id fpq6gvvm6piu******** --full
       ...
       domains:
       - example.com
@@ -115,8 +115,8 @@ To check rights for domains:
       }
 
       data "yandex_cm_certificate" "example" {
-        depends_on      = [yandex_dns_recordset.example]
-        certificate_id  = yandex_cm_certificate.example.id
+        depends_on      = [yandex_dns_recordset.validation-record]
+        certificate_id  = yandex_cm_certificate.le-certificate.id
         wait_validation = true
       }
 
@@ -160,7 +160,7 @@ To check rights for domains:
    This will create a certificate and DNS record in the specified folder. You can check if the certificate is there and properly configured either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
-   yc certificate-manager certificate get <certificate_name>
+   yc certificate-manager certificate get <certificate_name> --full
    ```
 
 - API

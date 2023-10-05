@@ -52,7 +52,9 @@ You can assign a role for a [cloud](../../resource-manager/concepts/resources-hi
 
 ## Roles required {#required-roles}
 
-To use the service, you need the [role](../../iam/concepts/access-control/roles.md) of `editor` or higher to the folder that projects are being created in. With the `viewer` role, you can only view the list of projects and the contents of files that were downloaded.
+To use the service, you need the `editor` [role](../../iam/concepts/access-control/roles.md) or higher to the folder that projects are being created in. With the `viewer` role, you can only view the list of projects and the contents of files that were downloaded.
+
+To create or edit an endpoint of a managed database, you need a service or primitive [`viewer` role](../../iam/concepts/access-control/roles.md) issued for the folder hosting a cluster of this managed database.
 
 You can always assign a role granting more permissions than the role specified. For example, assign the `admin` role instead of `editor`.
 

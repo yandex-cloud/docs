@@ -24,5 +24,5 @@
 | 1 NVIDIA A100 GPU | {{ sku|USD|compute.vm.gpu.gpu-standard.v3|string }} | {{ sku|USD|compute.vm.gpu.gpu-standard.preemptible.v3|string }} | − | − |
 | RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.gpu-standard.v3|string }} | {{ sku|USD|compute.vm.ram.gpu-standard.preemptible.v3|string }} | − | − |
 | **Intel Ice Lake (Compute Optimized)** | Regular VM | Preemptible&nbsp;VM | | |
-| 100% vCPU | $0.014080 | - | − | − |
-| RAM (for 1 GB) | $0.002560 | - | − | − |
+| 100% vCPU | {{ sku|USD|compute.vm.cpu.c100.highfreq-v3|string }} | - | − | − |
+| RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.highfreq-v3|string }} | - | − | − |

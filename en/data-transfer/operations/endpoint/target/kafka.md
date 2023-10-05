@@ -12,6 +12,14 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 ## {{ mkf-name }} cluster {#managed-service}
 
+
+{% note warning %}
+
+To create or edit an endpoint of a managed database, you need the [`{{ roles.mkf.viewer }}` role](../../../../managed-kafka/security/index.md#mkf-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+
+{% endnote %}
+
+
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mkf-full-name }}](../../../../managed-kafka/).
 
 {% list tabs %}

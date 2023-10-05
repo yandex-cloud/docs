@@ -78,7 +78,7 @@
     1. После того, как статус проверки прав всех доменов изменится на `Valid`, сертификат будет выпущен и перейдет в статус `Issued`:
 
         ```bash
-        yc certificate-manager certificate get --id fpq6gvvm6piuegbb2nol --full
+        yc certificate-manager certificate get --id fpq6gvvm6piu******** --full
         ...
         domains:
         - example.com
@@ -115,8 +115,8 @@
       }
 
       data "yandex_cm_certificate" "example" {
-        depends_on      = [yandex_dns_recordset.example]
-        certificate_id  = yandex_cm_certificate.example.id
+        depends_on      = [yandex_dns_recordset.validation-record]
+        certificate_id  = yandex_cm_certificate.le-certificate.id
         wait_validation = true
       }
 
@@ -160,7 +160,7 @@
   После этого в указанном каталоге будут созданы сертификат и DNS-запись. Проверить появление сертификата и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../../cli/quickstart.md):
 
     ```bash
-    yc certificate-manager certificate get <имя_сертификата>
+    yc certificate-manager certificate get <имя_сертификата> --full
     ```
 
 - API

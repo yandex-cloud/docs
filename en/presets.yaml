@@ -524,6 +524,7 @@ default:
   s2-7xlarge: s2.7xlarge (80 vCPU, 320 GB)
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
+  highfreq-ice-lake: Intel Ice Lake Compute-Optimized
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
   h100-sapphire-rapids: Intel Sapphire Rapids with NVIDIA® Hopper® H100
@@ -960,12 +961,14 @@ default:
         c100:
           v1|string: ₸6.5794
           v3|string: ₸5.9139
+          v4|string: ₸9.7000
       localssd:
         v1|month|string: ₸44.0000
         v1|string: ₸0.0611
       ram:
         v1|string: ₸1.7423
         v3|string: ₸1.5665
+        v4|string: ₸1.7500
     image|month|string: ₸15.6000
     snapshot|month|string: ₸15.6000
     vm:
@@ -983,6 +986,7 @@ default:
             preemptible:
               v3|string: ₸1.8000
             v3|string: ₸4.5000
+          highfreq-v3|string: ₸8.8000
           preemptible:
             v2|string: ₸1.6000
             v3|string: ₸1.4500
@@ -1012,6 +1016,10 @@ default:
           v2|string: ₸1247.6000
           v3|string: ₸1858.5000
         gpu-standard|string: ₸1247.6000
+        infiniband:
+          ic:
+            preemptible|string: ₸318.0000
+          ic|string: ₸318.0000
         standard:
           v3-t4:
             preemptible|string: ₸80.0000
@@ -1021,6 +1029,7 @@ default:
           preemptible:
             v3|string: ₸0.5500
           v3|string: ₸1.4000
+        highfreq-v3|string: ₸1.6000
         preemptible:
           v2|string: ₸0.3500
           v3|string: ₸0.3500
@@ -1364,6 +1373,8 @@ default:
     network-nvme:
       allocated|month|string: ₸59.5500
       allocated|string: ₸0.0827
+    network-ssd-io-m3:
+      allocated|month|string: ₸99.0000
     network-ssd-nonreplicated:
       allocated|month|string: ₸44.0000
   sku|KZT|network:
@@ -1767,12 +1778,14 @@ default:
         c100:
           v1|string: ₽1.3159
           v3|string: ₽1.1828
+          v4|string: ₽1.9400
       localssd:
         v1|month|string: ₽8.8000
         v1|string: ₽0.0122
       ram:
         v1|string: ₽0.3485
         v3|string: ₽0.3133
+        v4|string: ₽0.3500
     image|month|string: ₽3.1200
     snapshot|month|string: ₽3.1200
     vm:
@@ -1790,6 +1803,7 @@ default:
             preemptible:
               v3|string: ₽0.3600
             v3|string: ₽0.9000
+          highfreq-v3|string: ₽1.7600
           preemptible:
             v2|string: ₽0.3200
             v3|string: ₽0.2900
@@ -1819,6 +1833,10 @@ default:
           v2|string: ₽249.5200
           v3|string: ₽371.7000
         gpu-standard|string: ₽249.5200
+        infiniband:
+          ic:
+            preemptible|string: ₽63.6000
+          ic|string: ₽63.6000
         standard:
           v3-t4:
             preemptible|string: ₽16.0000
@@ -1828,6 +1846,7 @@ default:
           preemptible:
             v3|string: ₽0.1100
           v3|string: ₽0.2800
+        highfreq-v3|string: ₽0.3200
         preemptible:
           v2|string: ₽0.0700
           v3|string: ₽0.0700
@@ -2181,6 +2200,8 @@ default:
     network-nvme:
       allocated|month|string: ₽11.9100
       allocated|string: ₽0.0165
+    network-ssd-io-m3:
+      allocated|month|string: ₽19.8000
     network-ssd-nonreplicated:
       allocated|month|string: ₽8.8000
   sku|RUB|network:
@@ -2581,12 +2602,14 @@ default:
         c100:
           v1|string: $0.010527
           v3|string: $0.009462
+          v4|string: $0.015520
       localssd:
         v1|month|string: $0.070400
         v1|string: $0.000098
       ram:
         v1|string: $0.002788
         v3|string: $0.002506
+        v4|string: $0.002800
     image|month|string: $0.024960
     snapshot|month|string: $0.024960
     vm:
@@ -2604,6 +2627,7 @@ default:
             preemptible:
               v3|string: $0.002880
             v3|string: $0.007200
+          highfreq-v3|string: $0.014080
           preemptible:
             v2|string: $0.002560
             v3|string: $0.002320
@@ -2633,6 +2657,10 @@ default:
           v2|string: $1.996160
           v3|string: $2.973600
         gpu-standard|string: $1.996160
+        infiniband:
+          ic:
+            preemptible|string: $0.508800
+          ic|string: $0.508800
         standard:
           v3-t4:
             preemptible|string: $0.128000
@@ -2642,6 +2670,7 @@ default:
           preemptible:
             v3|string: $0.000880
           v3|string: $0.002240
+        highfreq-v3|string: $0.002560
         preemptible:
           v2|string: $0.000560
           v3|string: $0.000560
@@ -2965,6 +2994,8 @@ default:
     network-nvme:
       allocated|month|string: $0.095280
       allocated|string: $0.000132
+    network-ssd-io-m3:
+      allocated|month|string: $0.158400
     network-ssd-nonreplicated:
       allocated|month|string: $0.070400
   sku|USD|network:
@@ -5046,7 +5077,7 @@ default:
           alerts:
             title: Alerts
           channels:
-            title: Channels
+            title: Notification channels
           dashboards:
             title: Dashboards
           explorer:

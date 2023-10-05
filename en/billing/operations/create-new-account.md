@@ -20,7 +20,7 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
    {% list tabs %}
 
-   - Individual
+   - Individuals
 
       Enter your full name and link a bank card:
 
@@ -32,7 +32,7 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
       {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-   - Business or individual entrepreneur
+   - Businesses and individual entrepreneurs
 
       7.1. Select a payment method (bank card or bank transfer):
       - **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}**.

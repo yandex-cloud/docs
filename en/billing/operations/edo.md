@@ -1,18 +1,19 @@
 # Enabling electronic document management
+Businesses and individual entrepreneurs that are residents of Russia can use the electronic document management (EDM) service in {{ yandex-cloud }}.
+With EDM, you can get [closing reporting documents](../concepts/edo.md#document).
 
-Once you enable electronic document management (EDM), {{ yandex-cloud }} stops sending:
-* Electronic versions of closing documents to your email address.
-* Originals of closing documents by Russian Post to your physical address.
+{% note warning %}
 
-Learn more about [what documents can be received using electronic document management](../concepts/edo.md#document).
+If you enable EDM, you will no longer receive electronic versions of closing documents to your e-mail address and their original copies to your mailing address.
+However, you will be able to download closing documents in the management console. For details, see [this guide](download-reporting-docs.md).
 
-{{ yandex-cloud }} only uses EDM with businesses and individual entrepreneurs that are residents of Russia.
+{% endnote %}
 
 ## Enable EDM {#connect}
 
 To start working with {{ yandex-cloud }} via EDM:
 
-1. Connect to an EDM [operator](../concepts/edo.md#operator): [Diadoc (SKB Kontur)](https://promo.diadoc.ru/yandexfd?p=z05983&utm_abtest=order-lightbox) or [SBIS (Tensor)](https://sbis.ru/edo/telecoms/yandex). For instructions on how to connect, visit the operator's website. {{ yandex-cloud }} does not partner with other operators and does not support roaming.
+1. Connect to an EDM [operator](../concepts/edo.md#operator): [Diadoc (SKB Kontur)](https://promo.diadoc.ru/yandexfd?p=z05983&utm_abtest=order-lightbox) or [SBIS (Tensor)](https://sbis.ru/edo/telecoms/yandex). For connection guide, visit the operator's website. {{ yandex-cloud }} does not partner with other operators and does not support roaming.
 
 1. Sign an agreement from {{ yandex-cloud }} in your profile on the EDM operator's website.
 

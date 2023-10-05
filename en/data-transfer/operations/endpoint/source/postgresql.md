@@ -190,7 +190,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `exclude_tables`: List of excluded tables. Data from the listed tables will not be transferred.
+   * `exclude_tables`: List of excluded tables. Data from tables on this list will not be transferred.
 
       The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 
@@ -236,7 +236,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `excludeTables`: List of excluded tables. Data from the listed tables will not be transferred.
+   * `excludeTables`: Blacklist of tables. Data from the listed tables will not be transferred.
 
       The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 

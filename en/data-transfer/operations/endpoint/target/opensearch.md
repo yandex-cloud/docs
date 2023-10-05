@@ -13,6 +13,14 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 ## {{ mos-name }} cluster {#managed-service}
 
+
+{% note warning %}
+
+To create or edit an endpoint of a managed database, you need the [`{{ roles.mos.viewer }}` role](../../../../managed-opensearch/security/index.md#mos-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+
+{% endnote %}
+
+
 Connection with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mos-full-name }}](../../../../managed-opensearch/).
 
 {% list tabs %}

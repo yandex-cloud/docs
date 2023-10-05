@@ -36,15 +36,7 @@ To top up your personal account:
 
 {% list tabs %}
 
-- Bank card transfer
-
-   Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**. Then enter your card details and click **Pay**.
-
-   {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
-
-   Payment is processed in real time and completed within 15 minutes.
-
-- Bank transfer from your account
+- Bank transfer
 
    Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
 
@@ -52,13 +44,21 @@ To top up your personal account:
 
    Before paying, please make sure the following is correct in your payment order:
    * Payment amount.
-   * Banking information of Yandex.Cloud LLC (Russian Federation), Yandex.Cloud Kazakhstan LLP (Republic of Kazakhstan), SAG (outside the Russian Federation and the Republic of Kazakhstan).
+   * Banking information of Yandex.Cloud LLC (Russian Federation), Yandex.Cloud Kazakhstan LLP (Kazakhstan), and Intertech Services AG (for non-residents of Russia and Kazakhstan).
    * Your company or individual entrepreneur TIN.
    * [Personal account number](../concepts/personal-account.md#id) in the payment details.
    * [Contract number](../concepts/contract.md) in the payment details.
 
-   The amount of time required for the funds to be credited depends on the bank carrying out the transaction.
+   How fast the funds will be credited to your personal account depends on the bank performing the transaction.
 
    {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
+
+- Bank card
+
+   Enter the payment amount and click **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**. Then enter your card details and click **Pay**.
+
+   {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+
+   Payment is processed in real time and completed within 15 minutes.
 
 {% endlist %}

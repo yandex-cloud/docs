@@ -24,5 +24,5 @@
 | 1 GPU Nvidia A100 | {{ sku|RUB|compute.vm.gpu.gpu-standard.v3|string }} | {{ sku|RUB|compute.vm.gpu.gpu-standard.preemptible.v3|string }} | − | − |
 | RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.gpu-standard.v3|string }} | {{ sku|RUB|compute.vm.ram.gpu-standard.preemptible.v3|string }} | − | − |
 | **Intel Ice Lake (Compute Optimized)** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
-| 100% vCPU | 1,7600 ₽ | - | − | − |
-| RAM (за 1 ГБ) | 0,3200 ₽ | - | − | − |
+| 100% vCPU | {{ sku|RUB|compute.vm.cpu.c100.highfreq-v3|string }} | - | − | − |
+| RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.highfreq-v3|string }} | - | − | − |

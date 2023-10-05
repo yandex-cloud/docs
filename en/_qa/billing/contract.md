@@ -8,15 +8,15 @@
 
 {% list tabs %}
 
-- For residents of Russia
+- Residents of Russia
 
    You can learn more about the terms of the contract in [Yandex Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
 
-- For residents of Kazakhstan
+- Residents of Kazakhstan
 
    You can learn more about the terms of the contract in [Yandex Legal documents](https://yandex.com/legal/cloud_oferta_kz/?lang=en).
 
-- For non-residents of Russia and Kazakhstan
+- Non-residents of Russia or Kazakhstan
 
    You can learn more about the terms of the contract in [Yandex Legal documents](https://yandex.com/legal/cloud_customer_agreement/?lang=en).
 
@@ -24,9 +24,9 @@
 
 #### Can a signed agreement be finalized? {#contract}
 
-Businesses may conclude an agreement that is signed by both parties. To do this, you must submit a request using the **Ask a question** form on the [Contact us]({{ link-console-support }}) page. A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement.
+Businesses may conclude an agreement that is signed by both parties. To do this, you must submit a request using the **Ask a question** form on the [Contact us]({{ link-console-support }}) page. A {{ yandex-cloud }} manager will contact you to discuss the signing conditions.
 
 
 #### How do I get a hard copy of the agreement? {#paper-contract}
 
-Contact [support]({{ link-console-support }}?section=contact). A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement. It will take about two weeks to prepare the agreement: a company representative will sign it and we'll send it to you by mail.
+Contact [support]({{ link-console-support }}?section=contact). A {{ yandex-cloud }} manager will contact you to discuss the signing conditions. It will take about two weeks to prepare the agreement: a company representative will sign it and we will send it to you by mail.

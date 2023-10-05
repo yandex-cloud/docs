@@ -35,6 +35,10 @@ Use the {{ yandex-cloud }} [mobile app](/mobile-app) to quickly view logs, monit
 
 {% include [permission-denied](../../_includes/data-transfer/troubles/permission-denied.md) %}
 
+
+{% include [required-role](../../_includes/data-transfer/troubles/required-roles.md) %}
+
+
 ## API errors {#api}
 
 Error example:

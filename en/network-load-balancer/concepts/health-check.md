@@ -42,8 +42,8 @@ There is a delay between changing a resource status to `UNHEALTHY` and the time 
 Status checks for resources in target groups are transmitted from the `198.18.235.0/24` and `198.18.248.0/24` IP address ranges. Traffic filtering rules configured for targets must allow incoming traffic from these subnets; otherwise, no checks will be performed. As a result, the targets will not be assigned the `HEALTHY` status and will not receive traffic.
 
 To allow traffic from the status check module, you can bind to targets a [security group](../../vpc/concepts/security-groups.md) with the following ingress rule:
-* **Port range**: Use the port range specified in the health check settings.
-* **Protocol**: `TCP`.
-* **Source**: `Load balancer health checks`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: Use the port range specified in the health check settings.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** : `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`
 
 When performing HTTP verification, a resource gets the `HEALTHY` status only when responding with code `200`.

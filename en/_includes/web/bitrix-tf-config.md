@@ -1,5 +1,25 @@
-
 ```hcl
+variable "folder_id" {
+  type = string
+}
+
+variable "vm_user" {
+  type = string
+}
+
+variable "ssh_key_path" {
+  type = string
+}
+
+variable "mysql_user" {
+  type = string
+}
+
+variable "mysql_password" {
+  type = string
+  sensitive = true
+}
+
 terraform {
   required_providers {
     yandex = {
@@ -10,118 +30,7 @@ terraform {
 }
 
 provider "yandex" {
-  zone = "{{ region-id }}-a"
-}
-
-resource "yandex_compute_instance" "vm-bitrix" {
-  name        = "bitrixwebsite"
-  platform_id = "standard-v3"
-  zone        = "{{ region-id }}-a"
-
-  resources {
-    core_fraction = 20
-    cores         = 2
-    memory        = 4
-  }
-
-  boot_disk {
-    initialize_params {
-      image_id = "fd8kdq6d0p8sij7h5qe3"
-      type     = "network-ssd"
-      size     = "20"
-    }
-  }
-
-  network_interface {
-    subnet_id          = yandex_vpc_subnet.subnet-1.id
-    security_group_ids = ["${yandex_vpc_security_group.sg-1.id}"]
-    nat                = true
-  }
-
-  metadata = {
-    ssh-keys = "<username>:<SSH_key_contents>"
-  }
-}
-
-resource "yandex_mdb_mysql_cluster" "bitrix-cluster" {
-  name               = "BitrixMySQL"
-  environment        = "PRESTABLE"
-  network_id         = yandex_vpc_network.network-1.id
-  version            = "8.0"
-  security_group_ids = ["${yandex_vpc_security_group.sg-1.id}"]
-
-  resources {
-    resource_preset_id = "s2.micro"
-    disk_type_id       = "network-ssd"
-    disk_size          = "10"
-  }
-
-  host {
-    zone             = "{{ region-id }}-a"
-    subnet_id        = yandex_vpc_subnet.subnet-1.id
-    assign_public_ip = false
-  }
-
-  host {
-    zone             = "{{ region-id }}-b"
-    subnet_id        = yandex_vpc_subnet.subnet-2.id
-    assign_public_ip = false
-  }
-}
-
-resource "yandex_mdb_mysql_database" "bitrix-db" {
-  cluster_id = yandex_mdb_mysql_cluster.bitrix-cluster.id
-  name       = "db1"
-}
-
-resource "yandex_mdb_mysql_user" "bitrix-user" {
-  cluster_id = yandex_mdb_mysql_cluster.bitrix-cluster.id
-  name       = "user1"
-  password   = "p@s$woRd!"
-  permission {
-    database_name = yandex_mdb_mysql_database.bitrix-db.name
-    roles         = ["ALL"]
-  }
-}
-
-resource "yandex_vpc_security_group" "sg-1" {
-  name        = "wordpress"
-  description = "Description for security group"
-  network_id  = yandex_vpc_network.network-1.id
-
-  ingress {
-    protocol       = "TCP"
-    description    = "ext-http"
-    v4_cidr_blocks = ["0.0.0.0/0"]
-    port           = 80
-  }
-
-  ingress {
-    protocol       = "TCP"
-    description    = "ext-ssh"
-    v4_cidr_blocks = ["0.0.0.0/0"]
-    port           = 22
-  }
-
-  ingress {
-    protocol       = "TCP"
-    description    = "ext-https"
-    v4_cidr_blocks = ["0.0.0.0/0"]
-    port           = 443
-  }
-
-  ingress {
-    protocol       = "TCP"
-    description    = "ext-msql"
-    v4_cidr_blocks = ["0.0.0.0/0"]
-    port           = 3306
-  }
-
-  egress {
-    protocol       = "ANY"
-    description    = "any"
-    v4_cidr_blocks = ["0.0.0.0/0"]
-  }
+  zone = var.folder_id
 }
 
 resource "yandex_vpc_network" "network-1" {
@@ -148,6 +57,135 @@ resource "yandex_vpc_subnet" "subnet-3" {
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.3.0/24"]
 }
+
+resource "yandex_vpc_security_group" "sg-vm" {
+  name        = "bitrix-sg-vm"
+  description = "Description for security group"
+  network_id  = yandex_vpc_network.network-1.id
+
+  egress {
+    protocol       = "ANY"
+    description    = "ANY"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    from_port      = 0
+    to_port        = 65535
+  }
+
+  ingress {
+    protocol       = "TCP"
+    description    = "EXT-HTTP"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 80
+  }
+
+  ingress {
+    protocol       = "TCP"
+    description    = "EXT-SSH"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 22
+  }
+
+  ingress {
+    protocol       = "TCP"
+    description    = "EXT-HTTPS"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 443
+  }
+}
+
+resource "yandex_vpc_security_group" "sg-mysql" {
+  name        = "bitrix-sg"
+  description = "Security group for mysql"
+  network_id  = yandex_vpc_network.network-1.id
+
+  egress {
+    protocol       = "ANY"
+    description    = "any"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    from_port      = 0
+    to_port        = 65535
+  }
+
+  ingress {
+    protocol       = "TCP"
+    description    = "ext-msql"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 3306
+  }
+}
+
+data "yandex_compute_image" "ubuntu-image" {
+  family = "ubuntu-2204-lts"
+}
+
+resource "yandex_compute_instance" "vm-bitrix" {
+  name        = "bitrixwebsite"
+  platform_id = "standard-v3"
+  zone        = "{{ region-id }}-a"
+
+  resources {
+    core_fraction = 20
+    cores         = 2
+    memory        = 4
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = data.yandex_compute_image.ubuntu-image.id
+      type     = "network-ssd"
+      size     = "24"
+    }
+  }
+
+  network_interface {
+    subnet_id          = yandex_vpc_subnet.subnet-1.id
+    security_group_ids = ["${yandex_vpc_security_group.sg-vm.id}"]
+    nat                = true
+  }
+
+  metadata = {
+     user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("${var.ssh_key_path}")}"
+  }
+}
+
+resource "yandex_mdb_mysql_cluster" "bitrix-cluster" {
+  name               = "BitrixMySQL"
+  environment        = "PRESTABLE"
+  network_id         = yandex_vpc_network.network-1.id
+  version            = "8.0"
+  security_group_ids = ["${yandex_vpc_security_group.sg-mysql.id}"]
+
+  resources {
+    resource_preset_id = "s2.micro"
+    disk_type_id       = "network-hdd"
+    disk_size          = "10"
+  }
+
+  host {
+    zone             = "{{ region-id }}-a"
+    subnet_id        = yandex_vpc_subnet.subnet-1.id
+    assign_public_ip = false
+  }
+
+  host {
+    zone             = "{{ region-id }}-b"
+    subnet_id        = yandex_vpc_subnet.subnet-2.id
+    assign_public_ip = false
+  }
+}
+
+resource "yandex_mdb_mysql_database" "bitrix-db" {
+  cluster_id = yandex_mdb_mysql_cluster.bitrix-cluster.id
+  name       = "db1"
+}
+
+resource "yandex_mdb_mysql_user" "bitrix-user" {
+  cluster_id = yandex_mdb_mysql_cluster.bitrix-cluster.id
+  name       = var.mysql_user
+  password   = var.mysql_password
+  permission {
+    database_name = yandex_mdb_mysql_database.bitrix-db.name
+    roles         = ["ALL"]
+  }
+}
 ```
-
-

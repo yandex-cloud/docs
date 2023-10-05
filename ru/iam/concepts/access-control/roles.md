@@ -477,6 +477,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [ydb-admin](../../../_includes/iam/roles/ydb-admin.md) %}
 
+{% include [kafka-api](../../../_includes/iam/roles/ydb-kafka-api-client.md) %}
+
 ## {{ message-queue-full-name }} {#ymq-roles}
 
 {% include [roles-ymq-reader](../../../_includes/roles-ymq-reader.md) %}

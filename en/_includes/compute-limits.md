@@ -5,8 +5,11 @@
 --- | ---
 | Number of [virtual machines](../compute/concepts/vm.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) | 12 |
 | Total number of [vCPUs](../compute/concepts/performance-levels.md) across all VMs per cloud | 32 |
+| Total number of vCPUs across all VMs per cloud in a {{ zone-id }} zone | 0 |
+| Total number of vCPUs across all VMs per cloud on {{ highfreq-ice-lake }} | 0 |
 | Total virtual memory across all VMs per cloud | 128 GB |
 | Total number of [disks](../compute/concepts/disk.md) per cloud | 32 |
+| Total number of disks per cloud in a {{ zone-id }} zone | 0 |
 | Total [HDD storage](../compute/concepts/disk.md#disks-types) capacity per cloud | 500 GB |
 | Total SSD storage capacity per cloud | 200 GB |
 | Total non-replicated SSD storage capacity per cloud | 558 GB |
@@ -16,12 +19,15 @@
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
 | Number of [disk snapshot schedules](../compute/concepts/snapshot-schedule.md) per cloud | 32 |
 | Total number of [file stores](../compute/concepts/filesystem.md) per cloud^1^ | 100 |
+| Total number of file stores per cloud in a {{ zone-id }} zone | 0 |
 | Total [HDD](../compute/concepts/filesystem.md#types) file storage capacity per cloud^1^ | 0 B |
 | Total SDD file storage capacity per cloud^1^ | 0 B |
 | Number of [images](../compute/concepts/image.md) per cloud | 8 |
 | Number of [images optimized for deployment](../compute/concepts/image.md#images-optimized-for-deployment) per cloud^1^ | 0 |
 | Number of [instance groups](../compute/concepts/instance-groups/index.md) per cloud | 10 |
-| Number of [GPUs](../compute/concepts/gpus.md) across all VMs per cloud | 0 |
+| Total number of NVIDIA® Tesla® V100 [GPUs](../compute/concepts/gpus.md) across all VMs per cloud | 0 |
+| Total number of GPUs across all VMs per cloud on {{ a100-epyc }} | 0 |
+| Total number of GPUs across all VMs per cloud on {{ t4-ice-lake }} | 0 |
 | Number of concurrent [operations](../api-design-guide/concepts/operation.md) per [folder](../resource-manager/concepts/resources-hierarchy.md#folder) | 15 |
 | Maximum number of [placement groups](../compute/concepts/placement-groups.md) per cloud | 2 |
 | Number of [dedicated hosts](../compute/concepts/dedicated-host.md) per dedicated host group^1^ | 0 |
