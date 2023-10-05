@@ -9,7 +9,7 @@ You can view the full history of payments to your [personal account](../concepts
 
   Businesses and individual entrepreneurs can track their full payment history in Yandex Balance on the [Invoices](https://balance.yandex.com/invoices.xml) page.
 
-- For individuals
+- Individuals
 
    Individuals can view the full history of payments on the **{{ ui-key.yacloud.billing.account.switch_history }}** page.
 

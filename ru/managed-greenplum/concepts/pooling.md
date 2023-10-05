@@ -26,7 +26,7 @@ Odyssey поддерживает два режима управления сое
 
     Транзакционный режим обеспечивает высокую производительность и позволяет максимально эффективно нагрузить СУБД. Однако такой режим поддерживается не всеми клиентами {{ GP }}, и в нем недоступно использование:
 
-    * временных таблиц ([temporary tables]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html)), курсоров ([cursors]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-DECLARE.html)) и рекомендательных блокировок ([advisory locks]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-system_catalogs-pg_locks.html)), которые существуют дольше одной транзакции;
+    * временных таблиц ([temporary tables]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html)), курсоров ([cursors]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-DECLARE.html)) и рекомендательных блокировок ([advisory locks]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-system_catalogs-pg_locks.html)), которые существуют дольше одной транзакции;
     * подготовленных операторов ([prepared statements]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-PREPARE.html)).
 
     {% note info %}

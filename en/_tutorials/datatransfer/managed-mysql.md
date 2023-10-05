@@ -55,8 +55,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [Prepare the source cluster](../../data-transfer/operations/prepare.md#source-my).
       1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-      1. Download the configuration file [data-transfer-mysql-mmy.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/data-transfer-mysql-mmy.tf) to the same working directory.
+      1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+      1. Download the [data-transfer-mysql-mmy.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/data-transfer-mysql-mmy.tf) configuration file to the same working directory.
 
          This file describes:
 
@@ -85,7 +85,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -114,9 +114,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 * Manually
 
-   * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
+   * [Delete a {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
    * [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete).
-   * [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both source and target.
+   * [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
 * Using {{ TF }}
 
@@ -128,9 +128,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated:
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

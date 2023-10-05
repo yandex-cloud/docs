@@ -132,13 +132,15 @@ To create a disk snapshot:
 
       1. Confirm that you want to create the resources.
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
-A snapshot is created asynchronously. The snapshot is created with the `Creating` status immediately after the create command is run. From this point on, you can resume writing data to disk, and disk operations will not affect the data in the snapshot.
+An HDD or SSD snapshot is created asynchronously. The snapshot is created with the `Creating` status immediately after the create command is run. From this point on, you can resume writing data to disk, and disk operations will not affect the data in the snapshot.
 
-Once the snapshot has been created, the snapshot status will change to `Ready`. From this point on, you can use the snapshot to create images, populate disks, and so on.
+While creating a snapshot of a high-performance or non-replicated SSD, any write operations will be suspended and the disk will be read-only. All suspended writes (if they are requested on the guest OS side) will be completed after the snapshot is created.
+
+Once a snapshot is created, the snapshot status will change to `Ready`. From this point on, you can use the snapshot to create images, populate disks, and so on.
 
 {% note alert %}
 

@@ -1,12 +1,14 @@
 title: Search API
 description:
   - >-
-    <em>Сервис Search API находится на <a
-    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
-  - >-
     Search API — сервис, позволяющий отправлять запросы к поисковой базе Яндекса
-    и получать ответы в формате XML. Сервис  предназначен для разработчиков,
+    и получать ответы в формате XML. Сервис предназначен для разработчиков,
     которым необходимо организовать поиск по сайту, группе сайтов или интернету.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    документе <a href="https://yandex.ru/legal/cloud_sla_search_api">Уровень
+    обслуживания {{ search-api-full-name }}</a>.
 meta:
   title: Search API
   description: >-

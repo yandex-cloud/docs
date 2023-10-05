@@ -12,6 +12,14 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 ## {{ mmy-name }} cluster {#managed-service}
 
+
+{% note warning %}
+
+To create or edit an endpoint of a managed database, you need the [`{{ roles.mmy.viewer }}` role](../../../../managed-mysql/security/index.md#mmy-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+
+{% endnote %}
+
+
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mmy-full-name }}](../../../../managed-mysql/).
 
 {% list tabs %}
@@ -159,7 +167,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `exclude_table_regex`: List of excluded tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
+   * `exclude_table_regex`: List of excluded tables. Data from tables on this list will not be transferred. This option is specified using regular expressions.
 
    * `timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
@@ -181,7 +189,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `excludeTablesRegex`: List of ecluded tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
+   * `excludeTablesRegex`: Blacklist of tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
 
    * `timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 

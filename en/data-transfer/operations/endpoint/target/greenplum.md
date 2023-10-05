@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on setting up {{ GP }} target endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you'll learn how to set up {{ GP }} target endpoint in {{ data-transfer-full-name }}."
+title: "Tutorial on setting up a {{ GP }} target endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you will learn how to set up a {{ GP }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring a {{ GP }} target endpoint
@@ -12,6 +12,14 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 
 ## {{ mgp-name }} cluster {#managed-service}
+
+
+{% note warning %}
+
+To create or edit an endpoint of a managed database, you need the [`{{ roles.mgp.viewer }}` role](../../../../managed-greenplum/security/index.md#mgp-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+
+{% endnote %}
+
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mgp-full-name }}](../../../../managed-greenplum/).
 

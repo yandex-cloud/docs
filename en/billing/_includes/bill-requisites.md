@@ -1,12 +1,12 @@
 
 {% list tabs %}
 
-- For residents of Russia
+- Residents of Russia
 
    | Name | Description |
    --- | ---
    | Payment invoice number | Unique payment invoice ID |
-   | Date of invoicing | Date when the payment invoice was generated in Yandex's accounting system |
+   | Date of invoicing | Date when the payment invoice was generated in Yandex accounting system |
    | Customer | Billing account owner |
    | Phone | Phone number of the billing account owner |
    | Name of the product, work, or service | Information about the services rendered |
@@ -15,12 +15,12 @@
    | Total amount payable | Total amount for all lines of the payment invoice, including VAT, in rubles |
    | Due and payable | Total amount for all lines of the payment invoice, including VAT, in rubles |
 
-- For residents of Kazakhstan
+- Residents of Kazakhstan
 
    | Name | Description |
    --- | ---
    | Payment invoice number | Unique payment invoice ID |
-   | Date of invoicing | Date when the payment invoice was generated in Yandex's accounting system |
+   | Date of invoicing | Date when the payment invoice was generated in Yandex accounting system |
    | Customer | Billing account owner |
    | Phone | Phone number of the billing account owner |
    | Name of the product, work, or service | Information about the services rendered |
@@ -29,16 +29,16 @@
    | Total amount payable | Total amount for all lines of the payment invoice, including VAT, in tenge |
    | Due and payable | Total amount for all lines of the payment invoice, including VAT, in tenge |
 
-- For non-residents of Russia and Kazakhstan
+- Non-residents of Russia or Kazakhstan
 
    | Name | Description |
    --- | ---
-   | Invoice No. | Unique payment invoice ID |
-   | Personal Account No. | Your personal account number |
-   | Customer Agreement No. | Agreement number and date of signing |
-   | Invoice Date | Date when the payment invoice was generated in Yandex's accounting system |
+   | Invoice No | Unique payment invoice ID |
+   | Personal Account No | Your personal account number |
+   | Customer Agreement No | Agreement number and date of signing |
+   | Invoice Date | Date when the payment invoice was generated in Yandex accounting system |
    | Payment Terms | Terms of payment |
-   | Due Date | Deadline when an invoice should be paid |
+   | Due Date | Deadline for the invoice payment |
    | Description | Information about the services rendered |
    | Amount | Total amount for service rendered, in US dollars, excluding taxes and fees |
    | Total | Total amount for all lines of the payment invoice without taxes and fees, in US dollars |

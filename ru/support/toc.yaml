@@ -7,8 +7,6 @@ items:
     href: support-center.md
   - name: Оповещения от {{ yandex-cloud }}
     href: notify.md
-  - name: Центр поддержки
-    href: support-center.md
   - name: Запросы данных
     href: request.md
   - name: Копирование ошибок из консоли браузера

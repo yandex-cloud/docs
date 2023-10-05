@@ -6,10 +6,10 @@ To create a [placement group](../../concepts/disk-placement-group.md) for non-re
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk placement group.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk placement group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
-   1. Click the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
+   1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
    1. In the top-right corner, click **{{ ui-key.yacloud.compute.placement-groups.button_create }}** → **{{ ui-key.yacloud.compute.placement-groups.button_create-disk-pg }}**.
    1. Enter a name for the group.
 
@@ -24,7 +24,7 @@ To create a [placement group](../../concepts/disk-placement-group.md) for non-re
 
    1. Select a placement strategy: [spread](../../concepts/disk-placement-group.md#spread) or [partition](../../concepts/disk-placement-group.md#partition).
 
-      If you choose the partition placement strategy, specify the number of partitions for non-replicated disks.
+      If you select the partition placement strategy, specify the number of partitions for non-replicated disks.
 
    1. Click **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
 
@@ -34,7 +34,7 @@ To create a [placement group](../../concepts/disk-placement-group.md) for non-re
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI commands to create a disk placement group:
+   1. View a description of the CLI command to create a disk placement group:
 
       ```bash
       yc compute disk-placement-group create --help

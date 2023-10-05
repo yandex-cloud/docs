@@ -30,7 +30,7 @@
 
    {% note info %}
 
-   If a document with a different data type is added to a collection after a transfer starts, the transfer will move it at the replication stage after the parallel copy operation is completed. However, when re-enabled, the transfer will not be able to partition a collection because the `_id` field's type requirement will not be met for some documents in the collection.
+   If a document with a different data type is added to a collection after a transfer starts, the transfer will move it at the replication stage after the parallel copy operation is completed. However, when re-enabled, the transfer will not be able to partition a collection because the `_id` field's type requirement will not be met for some of the documents in the collection.
 
    {% endnote %}
 

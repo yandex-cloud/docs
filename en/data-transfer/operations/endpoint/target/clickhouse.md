@@ -1,6 +1,6 @@
 ---
 title: "How to configure a {{ CH }} target endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you'll learn how to set up a {{ CH }} target endpoint in {{ data-transfer-full-name }}."
+description: "In this tutorial, you will learn how to set up a {{ CH }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring a {{ CH }} target endpoint
@@ -11,6 +11,14 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 * [Additional parameters](#additional-settings).
 
 ## {{ mch-name }} cluster {#managed-service}
+
+
+{% note warning %}
+
+To create or edit an endpoint of a managed database, you need the [`{{ roles.mch.viewer }}` role](../../../../managed-clickhouse/security/index.md#mch-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+
+{% endnote %}
+
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mch-full-name }}](../../../../managed-clickhouse/).
 

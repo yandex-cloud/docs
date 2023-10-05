@@ -18,10 +18,10 @@ After you create a network load balancer, you can:
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ network-load-balancer-name }}**.
-   1. Select a load balancer and click **Edit** at the top of the page.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+   1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
    1. Enter a new name and description for the load balancer.
-   1. Click **Edit**.
+   1. Click **{{ ui-key.yacloud.common.edit }}**.
 
 - CLI
 
@@ -74,7 +74,7 @@ After you create a network load balancer, you can:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -97,10 +97,10 @@ After you create a network load balancer, you can:
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ network-load-balancer-name }}**.
-   1. Select a load balancer and click **Edit** at the top of the page.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+   1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
    1. Change load balancer labels.
-   1. Click **Edit**.
+   1. Click **{{ ui-key.yacloud.common.edit }}**.
 
 - CLI
 
@@ -156,7 +156,7 @@ After you create a network load balancer, you can:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -178,14 +178,14 @@ After you create a network load balancer, you can:
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ network-load-balancer-name }}**.
-   1. Select a load balancer and click **Edit** at the top of the page.
-   1. Under **Target groups**, select a new target group from the drop-down list or [create a new one](target-group-create.md).
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+   1. Select a load balancer and click **{{ ui-key.yacloud.common.edit }}** at the top of the page.
+   1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, select a new target group from the drop-down list or [create a new one](target-group-create.md).
    1. To change target group health check settings:
-      1. In the section of the appropriate target group, click **Configure**.
+      1. In the section of the appropriate target group, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**.
       1. Set up new target group health check parameters.
-      1. Click **Apply**.
-   1. Click **Edit**.
+      1. Click **{{ ui-key.yacloud.common.apply }}**.
+   1. Click **{{ ui-key.yacloud.common.edit }}**.
 
 - CLI
 
@@ -261,7 +261,7 @@ After you create a network load balancer, you can:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

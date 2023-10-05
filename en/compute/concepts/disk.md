@@ -29,8 +29,8 @@ In case you create a disk from a snapshot or image, its information will contain
 {{ yandex-cloud }} VMs can use the following disk types:
 * Network SSD (`network-ssd`): Fast network drive, which is an SSD based network block storage.
 * Network HDD (`network-hdd`): Standard network drive, which is an HDD based network block storage.
-* Non-replicated SSD (`network-ssd-nonreplicated`): Network drive with enhanced performance but no redundancy.
-* High-performance SSD (`network-ssd-io-m3`): Network drive with the same characteristics as `network-ssd-nonreplicated`, plus redundancy. Users will be charged for high-performance SSDs starting September 1, 2023.
+* Non-replicated SSD (`network-ssd-nonreplicated`): Network drive with enhanced performance without redundancy.
+* High-performance SSD (`network-ssd-io-m3`): Network drive with the same performance characteristics as `network-ssd-nonreplicated`, plus redundancy. High-performance SSDs are currently at the [Preview](../../overview/concepts/launch-stages.md) stage.
 * [Local disk](dedicated-host.md#resource-disks) drives on dedicated hosts.
 
 Network SSDs, high-performance SSDs, and network HDDs provide sufficient redundancy for reliable data storage and enable continuous read and write operations, even when multiple physical disks fail at the same time. Non-replicated disks do not ensure data security.
@@ -45,7 +45,6 @@ Non-replicated disks and high-performance SSDs outperform network SSDs but have 
 
   {% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
 
-* You cannot create [snapshots](snapshot.md) or [images](image.md) from these disks.
 * {% include [nrd-az](../../_includes/compute/nrd-az.md) %}
 
 {% note alert %}
@@ -54,7 +53,7 @@ Our recommendation is to avoid using a non-replicated disk as your boot drive. T
 
 {% endnote %}
 
-If you need enhanced performance and guaranteed fault tolerance, we recommend using high-performance SSDs. Currently, high-performance SSDs have the same limitations on creating images and snapshots as non-replicated disks. We will soon add support for creating snapshots with write freeze and, moving forward, full-featured snapshots with no write freeze.
+If you need enhanced performance and guaranteed fault tolerance, we recommend using high-performance SSDs.
 
 ## Maximum disk size {#maximum-disk-size}
 
@@ -79,7 +78,7 @@ If you would like to delete a disk with a VM, specify this option when creating 
 Backups are required to make sure no data is lost if damaged. Different disk types allow using different backup methods:
 
 * [{{ backup-name }}](../../backup/) enables you to create consistent data copies on VMs with any disk types. The service is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-* [Disk snapshots](snapshot.md): Use them to manually or automatically create [scheduled](snapshot-schedule.md) snapshots of network SSDs and HDDs. You cannot take snapshots of non-replicated disks and high-performance SSDs.
+* [Disk snapshots](snapshot.md): Use them to manually or automatically create [scheduled](snapshot-schedule.md) snapshots of network SSDs and HDDs, as well as high-performance and non-replicated SSDs. You can also use snapshots to migrate disks from one availability zone to another.
 
 Snapshots are replicated across all availability zones, which allows you to migrate disks from one zone to another.
 

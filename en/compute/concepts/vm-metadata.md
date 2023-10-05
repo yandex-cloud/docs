@@ -212,7 +212,7 @@ An identity document can be signed to then verify the obtained document.
       * **GCE**:
 
          ```bash
-         curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/document > rsa2048
+         curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/vendor/identity/rsa > rsa2048
          ```
 
       * **EC2**:
@@ -251,7 +251,7 @@ An identity document can be signed to then verify the obtained document.
 
    1. Verify the signature and save the contents of the document to a file named `document`:
 
-      ```
+      ```bash
       openssl smime -verify -in rsa2048 -inform PEM -certfile certificate -noverify | tee document
       ```
 

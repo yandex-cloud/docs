@@ -66,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -125,8 +125,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    Depending on the number of {{ mkf-name }} clusters:
 
-   - If there is a single {{ KF }} cluster, [specify authentication data](../../managed-clickhouse/operations/update.md#change-clickhouse-config) under **DBMS settings** → **Kafka**. In this case, the {{ mch-name }} cluster will use these authentication credentials to access any topic.
-   - If there are multiple {{ KF }} clusters, specify authentication data for each {{ mkf-name }} topic in the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/update.md#change-clickhouse-config) under **DBMS settings** → **Kafka topics**.
+   - If there is a single {{ KF }} cluster, [specify authentication data](../../managed-clickhouse/operations/update.md#change-clickhouse-config) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka**. In this case, the {{ mch-name }} cluster will use these authentication credentials to access any topic.
+   - If there are multiple {{ KF }} clusters, specify authentication data for each {{ mkf-name }} topic in the [{{ mch-name }} cluster settings](../../managed-clickhouse/operations/update.md#change-clickhouse-config) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka topics**.
 
    Authentication data:
 
@@ -175,7 +175,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -273,7 +273,7 @@ To learn more about creating a table on the `Kafka` engine, see the [{{ CH }} do
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username="<producer username>" \
       -X sasl.password="<user password for the producer>" \
-      -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
+      -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
    ```
 
 Data is sent on behalf of users [with the `ACCESS_ROLE_PRODUCER` role](#before-you-begin). To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect.md).
@@ -356,9 +356,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated:
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

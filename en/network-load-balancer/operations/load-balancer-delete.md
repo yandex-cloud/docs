@@ -1,13 +1,13 @@
-# Delete a network load balancer
+# Deleting a network load balancer
 
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete a load balancer from.
-   1. In the list of services, select **{{ network-load-balancer-name }}**.
-   1. In the line of the load balancer to delete, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+   1. In the line of the load balancer to delete, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -70,12 +70,6 @@
    1. Delete the network load balancer.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-- API
-
-   Use the [delete](../api-ref/NetworkLoadBalancer/delete.md) API method and provide the load balancer ID in the `networkLoadBalancerId` request parameter.
-
-   You can get the load balancer ID with a [list of network load balancers in the folder](load-balancer-list.md#list).
 
 - API
 

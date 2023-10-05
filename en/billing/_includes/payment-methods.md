@@ -3,11 +3,15 @@ The method for crediting funds depends on your legal status ([billing account ty
 {% list tabs %}
 
 - Individuals
-  - [Transfer from your bank card](../payment/payment-methods-individual.md)
+
+  - [Bank card transfer](../payment/payment-methods-individual.md)
+
 
 - Businesses and individual entrepreneurs
-  - [Bank transfer from your account](../payment/payment-methods-business.md)
-  - [Transfer from your bank card](../payment/payment-methods-card-business.md)
+
+  - [Wire transfer](../payment/payment-methods-business.md)
+  - [Bank card transfer](../payment/payment-methods-card-business.md)
+
 
 {% endlist %}
 

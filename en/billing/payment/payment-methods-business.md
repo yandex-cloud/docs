@@ -8,7 +8,7 @@ To have funds transferred, you should first receive a [payment invoice](../conce
 
 
 * Payment amount.
-* Banking information of Yandex.Cloud LLC (Russian Federation), Yandex.Cloud Kazakhstan LLP (Republic of Kazakhstan), SAG (outside the Russian Federation and the Republic of Kazakhstan).
+* Banking information of Yandex.Cloud LLC (Russian Federation), Yandex.Cloud Kazakhstan LLP (Kazakhstan), and Intertech Services AG (for non-residents of Russia and Kazakhstan).
 * Your company or individual entrepreneur TIN.
 * [Personal account number](../concepts/personal-account.md#id) in the payment details.
 * [Contract number](../concepts/contract.md) in the payment details.
@@ -19,7 +19,7 @@ To have funds transferred, you should first receive a [payment invoice](../conce
 
 ## Payment terms {#limits}
 
-Invoices must be paid before the deadline stipulated in the [agreement](../concepts/contract.md). How fast the funds will be credited to your personal account depends on the bank performing the transaction.
+Payment invoices must be paid before the deadline stipulated in the [agreement](../concepts/contract.md). How fast the funds will be credited to your personal account depends on the bank performing the transaction.
 
 
 {% note info %}

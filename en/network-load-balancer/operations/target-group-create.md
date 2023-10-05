@@ -7,15 +7,15 @@
    To create a new [target group](../concepts/target-resources.md):
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a target group.
-   1. In the list of services, select **{{ network-load-balancer-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/trgroups.svg) **Target groups**.
-   1. Click **Create target group**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+   1. In the left-hand panel, select ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
+   1. Click **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
    1. Enter the name of the target group.
 
       {% include [name-format](../../_includes/name-format.md) %}
 
    1. Select the VMs to add to the target group.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -73,16 +73,6 @@
    1. Create a target group.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-- API
-
-   Use the [create](../api-ref/TargetGroup/create.md) API method and include the following information in the request:
-
-   * ID of the folder where the target group should be placed, in the `folderId` parameter.
-   * Target group name in the `name` parameter.
-   * Subnet ID and target internal IP in the `targets` parameter.
-
-   You can add targets after creating the target group. To do this, use the [addTargets](../api-ref/TargetGroup/addTargets) API method.
 
 - API
 

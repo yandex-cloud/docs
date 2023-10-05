@@ -9,6 +9,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 Для создания внутреннего сетевого балансировщика необходима роль `load-balancer.privateAdmin`.
 
+{% include [type-update](../../_includes/network-load-balancer/type-update.md) %}
+
 {% endnote %}
 
 {% note info %}

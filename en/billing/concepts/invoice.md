@@ -20,11 +20,11 @@ A service [report](../concepts/act.md) and an invoice are generated at the end o
 
 {% list tabs %}
 
-- For residents of Russia or Kazakhstan
+- Residents of Russia or Kazakhstan
 
    {% include [nds-only-res](../_includes/nds-only-res.md) %}
 
-- For non-residents of Russia and Kazakhstan
+- Non-residents of Russia and Kazakhstan
 
    An invoice is not issued to non-residents of Russia and Kazakhstan
 

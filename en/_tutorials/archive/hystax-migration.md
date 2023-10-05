@@ -30,10 +30,10 @@ Please note that the infrastructure for Hystax Acura and Hystax Acura Cloud Agen
 {% endnote %}
 
 The cost of the resources required to use Hystax Acura Live Migration includes:
-* Charge for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Charges for object storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* A fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* A charge for each completed migration (see [product description](/marketplace/products/hystax/hystax-acura-live-cloud-migration) in {{ marketplace-name }}).
+* Fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for each completed migration (see [product description](/marketplace/products/hystax/hystax-acura-live-cloud-migration) in {{ marketplace-name }}).
 
 ## Create a service account and authorized key {#create-sa}
 
@@ -48,9 +48,9 @@ Save the following details to use in subsequent steps:
 
 ## Configure network traffic permissions {#network-settings}
 
-Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group).
+Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing VM traffic will be allowed.
 
-[Add](../../vpc/operations/security-group-add-rule.md) the rules below to it:
+If a security group is available, [add](../../vpc/operations/security-group-add-rule.md) the rules below to it:
 
 | Traffic<br>direction | Description | Port<br>range | Protocol | Source<br>type | Source/Purpose |
 --- | --- | --- | --- | --- | ---
@@ -61,7 +61,7 @@ Configure network traffic permissions in the [default security group](../../vpc/
 | Incoming | vmware | 902 | UDP | CIDR | 0.0.0.0/0 |
 | Incoming | iSCSI | 3260 | TCP | CIDR | 0.0.0.0/0 |
 | Incoming | udp | 12201 | UDP | CIDR | 0.0.0.0/0 |
-| Incoming | TCP | 15000 | TCP | CIDR | 0.0.0.0/0 |
+| Incoming | tcp | 15000 | TCP | CIDR | 0.0.0.0/0 |
 | Outgoing | http | 80 | TCP | CIDR | 0.0.0.0/0 |
 | Outgoing | https | 443 | TCP | CIDR | 0.0.0.0/0 |
 | Outgoing | vmware | 902 | TCP | CIDR | 0.0.0.0/0 |
@@ -84,7 +84,7 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
    1. Click **Create VM**.
    1. Under **Basic parameters**:
       * Enter `hystax-acura-vm` as your VM name and add a description.
-      * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
+      * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 
    1. Under **Image/boot disk selection**:
 
@@ -165,7 +165,7 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
 
    {% note info %}
 
-   Booting the Hystax Acura Live Cloud Migration VM for the first time initiates an installation process which can take over 20 minutes.
+   Booting the Hystax Acura Live Cloud Migration VM for the first time will start an installation process which can take over 20 minutes.
 
    {% endnote %}
 
@@ -183,10 +183,10 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
 
      {% note info %}
 
-     {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
+      {% include [hystax-auth-key-newlines](../_tutorials_includes/hystax-auth-key-newlines.md) %}
 
-     {% endnote %}
-     
+      {% endnote %}
+
    * **Default Folder id**: ID of your folder.
    * **Availability zone**: Availability zone for `hystax-acura-vm` VM.
    * **Hystax Service Subnet**: ID of the subnet the `hystax-acura-vm` virtual machine is connected to.
@@ -202,6 +202,7 @@ Hystax Acura will automatically check whether it can access your cloud. If every
 ## Prepare and install agents for migration {#prepare-agent}
 
 The agents are normally installed onto VMs to be migrated to {{ yandex-cloud }}. To download and install an agent:
+1. If you are migrating from VMware ESXi, Microsoft Hyper-V, or any other hypervisor different from KVM, make sure to [install virtio drivers](../../compute/operations/image-create/custom-image#virtio) on the VM before performing migration.
 1. In the Hystax Acura Control Panel, click the **Download agents** tab.
 1. Choose one of the agent types depending on the OS:
    * VMware

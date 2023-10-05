@@ -1,6 +1,6 @@
 ---
 title: "How to configure a {{ MY }} target endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you'll learn how to set up a {{ MY }} target endpoint in {{ data-transfer-full-name }}."
+description: "In this tutorial, you will learn how to set up a {{ MY }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring a {{ MY }} target endpoint
@@ -11,6 +11,14 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 * [Additional parameters](#additional-settings).
 
 ## {{ mmy-name }} cluster {#managed-service}
+
+
+{% note warning %}
+
+To create or edit an endpoint of a managed database, you need the [`{{ roles.mmy.viewer }}` role](../../../../managed-mysql/security/index.md#mmy-viewer) or the primitive [`viewer` role](../../../../iam/concepts/access-control/roles.md#viewer) issued for the folder hosting a cluster of this managed database.
+
+{% endnote %}
+
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mmy-full-name }}](../../../../managed-mysql/).
 

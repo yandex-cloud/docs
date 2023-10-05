@@ -61,13 +61,13 @@ Where:
 
 ### NAT gateways {#nat-gateways}
 
-When using NAT gateway, you pay for every hour of using a gateway and for traffic outgoing via gateway. Billing starts when you add a gateway to a route table.
-
 {% note info %}
 
-NAT gateways will be [publicly available](../overview/concepts/launch-stages.md) and charged for starting September 25, 2023.
+NAT gateways will be [publicly available](../overview/concepts/launch-stages.md) and billable starting September 25, 2023.
 
 {% endnote %}
+
+You will be charged per hour of NAT gateway usage and for outgoing traffic via the gateway. Charges will apply as soon as you add a gateway to a route table.
 
 
 
@@ -75,17 +75,17 @@ NAT gateways will be [publicly available](../overview/concepts/launch-stages.md)
 {% include notitle [usd-egress-nat.md](../_pricing/vpc/usd-egress-nat.md) %}
 
 
-#### Egress traffic via NAT gateway {#nat-gateway-egress-traffic}
+#### Egress traffic via NAT gateways {#nat-gateway-egress-traffic}
 
-You pay for traffic from outgoing via NAT gateway to the internet.
+Outgoing traffic via a NAT gateway exceeding 100 GB per month is billable.
 
-Please note that traffic transmitted via NAT gateway is billed separately from other egress [traffic](#prices-traffic) but billed by the same rules.
+Please note that traffic transmitted via a NAT gateway is charged separately from other [outgoing traffic](#prices-traffic) but according to the same pricing policy.
 
 > For example:
 >
-> If you sent 110 GB of egress traffic to the internet via NAT gateway and 5 GB of other traffic, you will pay for 10 GB of egress traffic via NAT gateway.
+> If you transmit 110 GB of outgoing traffic via a NAT gateway and 5 GB of outgoing traffic using other ways per month, you pay for 10 GB of the outgoing traffic sent via the NAT gateway.
 >
-> If you sent 110 GB of egress traffic to the internet via NAT gateway and 105 GB of other traffic, you will pay for 10 GB of egress traffic via NAT gateway and for 5 GB of other traffic.
+> If you transmit 110 GB of outgoing traffic via a NAT gateway and 105 GB of outgoing traffic using other ways per month, you pay for 10 GB of the outgoing traffic sent via the NAT gateway and 5 GB of the other outgoing traffic.
 
 
 

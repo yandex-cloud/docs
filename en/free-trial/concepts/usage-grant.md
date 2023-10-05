@@ -20,25 +20,25 @@ Grant terms of use depend on:
 
 {% list tabs %}
 
-- For residents of Russia
+- Residents of Russia
 
    | Payment method | Using the grant |
    --- | ---
-   | Bank card | The grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: ₽2500 from the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_Part 2_: ₽7500 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services. |
-   | Bank transfer | The total grant in the amount of ₽10,000 can be used to pay for any {{ yandex-cloud }} services. |
+   | Bank card | Grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: ₽2,500 from the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_Part 2_: ₽7,500 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services |
+   | Bank transfer | Total grant in the amount of ₽10,000 can be used to pay for any {{ yandex-cloud }} services |
 
-- For residents of Kazakhstan
-
-   | Payment method | Using the grant |
-   --- | ---
-   | Any | The total grant in the amount of ₸60,000 can be used to pay for any {{ yandex-cloud }} services. |
-
-- For non-residents of Russia and Kazakhstan
+- Residents of Kazakhstan
 
    | Payment method | Using the grant |
    --- | ---
-   | Bank card | The grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: $15 of the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_Part 2_: $35 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services. |
-   | Bank transfer | The grant in the amount of $125 can be used to pay for any {{ yandex-cloud }} services. |
+   | Any | Total grant in the amount of ₸60,000 can be used to pay for any {{ yandex-cloud }} services |
+
+- Non-residents of Russia and Kazakhstan
+
+   | Payment method | Using the grant |
+   --- | ---
+   | Bank card | The grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: $15 of the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_Part 2_: $35 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services |
+   | Bank transfer | The grant in the amount of $125 can be used to pay for any {{ yandex-cloud }} services |
 
 {% endlist %}
 
@@ -46,26 +46,26 @@ Grant terms of use depend on:
 
 {% list tabs %}
 
-- For residents of Russia
+- Residents of Russia
 
    | Payment method | Using the grant |
    --- | ---
-   | Bank card | The grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: ₽1000 from the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_Part 2_: ₽3000 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services. |
-   | Bank transfer | The total grant in the amount of ₽4000 can be used to pay for any {{ yandex-cloud }} services. |
+   | Bank card | Grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: ₽1,000 from the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_Part 2_: ₽3,000 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services |
+   | Bank transfer | Total grant in the amount of ₽4,000 can be used to pay for any {{ yandex-cloud }} services |
 
-- For residents of Kazakhstan
-
-   | Payment method | Using the grant |
-   --- | ---
-   | Any | The total grant in the amount of ₸24,000 can be used to pay for any {{ yandex-cloud }} services. |
-
-- For non-residents of Russia and Kazakhstan
+- Residents of Kazakhstan
 
    | Payment method | Using the grant |
    --- | ---
-   | Bank card | The grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: $15 of the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_Part 2_: $35 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services. |
-   | Bank transfer | The total grant in the amount of $50 can be used to pay for any {{ yandex-cloud }} services. |
+   | Any | Total grant in the amount of ₸24,000 can be used to pay for any {{ yandex-cloud }} services |
+
+- Non-residents of Russia and Kazakhstan
+
+   | Payment method | Using the grant |
+   --- | ---
+   | Bank card | The grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: $15 of the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_Part 2_: $35 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services |
+   | Bank transfer | The total grant in the amount of $50 can be used to pay for any {{ yandex-cloud }} services |
 
 {% endlist %}
 
-For more information about the [billing account](../../billing/concepts/billing-account.md) and the [terms and conditions](../../billing/qa/non-resident.md) for non-residents of the Russian Federation, read the {{ billing-name }} documentation.
+For more information about [billing accounts](../../billing/concepts/billing-account.md) and the [terms and conditions for non-residents of Russia](../../billing/qa/non-resident.md), see the {{ billing-name }} documentation.

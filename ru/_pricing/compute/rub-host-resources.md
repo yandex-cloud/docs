@@ -5,8 +5,8 @@
 
 | **Intel Ice Lake (Compute Optimized)**<br>`intel-6354-c56-m956-n3200x6` | Цена за 1 час, вкл. НДС |
 | --- | --- |
-| 1 vCPU (100%) | 1,9400 ₽ |
-| 1 ГБ RAM | 0,3500 ₽ |
+| 1 vCPU (100%) | {{ sku|RUB|compute.hostgroup.cpu.c100.v4|string }} |
+| 1 ГБ RAM | {{ sku|RUB|compute.hostgroup.ram.v4|string }} |
 
 {% cut "Архивные типы хостов" %}
 

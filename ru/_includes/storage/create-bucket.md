@@ -96,11 +96,13 @@
     s3 mb s3://<имя_бакета>
   ```
 
+  
   {% note info %}
 
   По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../../storage/operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}. Подробнее см. [Правила именования бакетов](../../storage/concepts/bucket.md#naming).
 
   {% endnote %}
+
 
 - {{ TF }}
 

@@ -1,8 +1,14 @@
 # Electronic document management
 
-Electronic document management is used for the electronic exchange of documents that are signed with a qualified electronic signature (advanced e-signature). Electronic documents carry the same weight as their paper versions and are accepted by tax and judicial authorities over the internet.
+{% note info %}
 
-{{ yandex-cloud }} sends unilateral [reports](./act.md) using electronic document management.
+Electronic document management (EDM) is only available to residents of Russia.
+
+{% endnote %}
+
+Electronic document management is used for the electronic exchange of documents that are signed with a qualified electronic signature (advanced e-signature). Electronic documents carry the same weight as their paper versions and are accepted by tax and judicial authorities over the internet. The EDM service can be used by businesses and individual entrepreneurs that are residents of Russia.
+
+{{ yandex-cloud }} sends unilateral [reports](./act.md) using electronic document management. Once you sign the notice of document receipt in the EDM system, the document flow is considered completed.
 
 ## What documents can be received via electronic document management {#document}
 

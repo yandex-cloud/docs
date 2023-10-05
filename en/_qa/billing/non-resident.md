@@ -35,7 +35,7 @@ Non-residents of Russia or Kazakhstan can pay for {{ yandex-cloud }} services on
 
 Taxes and fees of the country of registration of a non-resident business of Russia or Kazakhstan are not added to the cost of services on the [Usage details](../../billing/operations/check-charges.md) page, nor included into the total invoice amount.
 
-Non-residents of Russia or Kazakhstan should themselves pay all the taxes and fees under the laws of their country of residence.
+Non-residents of Russia or Kazakhstan should pay all the taxes and fees themselves under the laws of their country of residence.
 
 #### Why was my billing account created with the PAYMENT_NOT_CONFIRMED status? {#pending-status}
 
@@ -48,4 +48,4 @@ When you click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create 
 It may take up to three business days to activate your billing account.
 If no email arrived within that period, send a request to: [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).
 
-In the request, specify the full organization name and the [billing account ID](../../billing/concepts/billing-account.md#billing-account-id), as well as a copy of the certificate of incorporation or business registration (translated into English or Russian).
+In the request, specify the full organization name and the [billing account ID](../../billing/concepts/billing-account.md#billing-account-id), and attach a copy of the certificate of incorporation (translated into English or Russian).

@@ -4,7 +4,7 @@
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ network-load-balancer-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. Click the name of the required network load balancer.
 
 - CLI
