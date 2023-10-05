@@ -3,7 +3,7 @@ default:
   locale: ru
   link-yandex: https://yandex.ru
   link-homepage: https://wiki.yandex.ru/homepage/
-  link-homepage-access: https://wiki.yandex.ru/homepage/.access
+  link-homepage-access: https://wiki.yandex.ru/homepage/.settings?tabId=access
   link-support: https://support.cloud.yandex.ru/?referral=wiki
   link-passport: https://passport.yandex.ru/
   link-tracker: https://tracker.yandex.ru/
