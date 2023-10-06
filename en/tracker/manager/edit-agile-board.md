@@ -14,7 +14,7 @@
    | **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_main.use-ranking }}** | If the option is enabled, the order of issues on the board can be changed by dragging issues. |
    | **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_main.default-queue }}** | Queue key You can create issues in this queue directly from the board page. |
    | **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_main.filter-title }}** | Settings of the filter used to add issues with certain parameters automatically on the board. There are multiple ways to set up filters:<br/><ul><li>Set your filters on the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_main.filter-type-conditions }}** tab.</li><li>Set your filters using the query language on the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_main.filter-type-query }}** tab.</li></ul> |
-   | **Board type** | You won't be able to change the board type after [creating it](create-agile-board.md). |
+   | **Board type** |You will not be able to change board type after you [create a board](create-agile-board.md). |
 
 1. Use the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin.tab-title--columns }}** tab to customize the settings and appearance of your board's columns:
 
@@ -46,7 +46,7 @@ By default, the issue card displays the values of required fields: key, name, as
 
 1. In the upper-right corner of the board page, click ![](../../_assets/tracker/edit-agile.png).
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.title }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.title }}** tab.
 
 1. Click **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.action_add-field }}** and select issue fields you wish to add to the issue card.
 
@@ -66,7 +66,7 @@ To make the issues with certain tags or components stand out on the board, highl
 
 1. In the upper-right corner of the board page, click ![](../../_assets/tracker/edit-agile.png).
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.title }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_card-settings.title }}** tab.
 
 1. To set up colors for tags:
 
@@ -105,4 +105,3 @@ To delete a board:
 1. Click **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_main.delete-btn }}** at the bottom of the page.
 
 1. Confirm the deletion.
-

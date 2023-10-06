@@ -9,7 +9,7 @@ This section guides you through the old {{ tracker-name }} boards. Any new board
 To manage your issues and projects in {{ tracker-name }}, you can use Agile tools and methodologies: issue boards, sprints, burnout charts, and planning pocker.
 
 
-[Agile development methodologies]({{ link-wiki-agile-en }}) were created for managing software development processes. Nowadays, they are successfully employed in a variety of domains. There are several agile development approaches, such as [Scrum]({{ link-wiki-scrum }}) and [Kanban]({{ link-wiki-kanban }}).
+[Agile development methodologies]({{ link-wiki-agile-en }}) were created for managing software development processes. Nowadays, they are successfully employed in a variety of domains. There are various agile development approaches, such as Scrum and Kanban.
 
 For more information, see [{#T}](agile.md#sec_basics).
 
@@ -54,17 +54,17 @@ Issue board {#dlen_board}
 :   A board for tracking the status of issues in the current sprint. Columns on the board correspond to issue statuses. Cards with issue descriptions are pinned to the board and [moved between columns as the issue status updates](../user/agile.md).
 
 Burn down chart {#dlen_burndown}
-:  A chart that [shows the completion speed of planned issues](burndown.md) during a sprint and the amount of work remaining.
+:  Chart that [shows how fast planned issues are completed](burndown.md) during a sprint and the amount of work remaining.
 
 User Story
-:  A <q>User Story</q> is a description of a feature that needs to be implemented in a product as a result of previous experiences or issues faced by users. User Story is broken down into individual issues. You can use Story issues to [group any issues](../user/links.md) based on a common topic in {{ tracker-name }}.
+:   Description of a feature that needs to be implemented in a product as a result of previous experiences or issues faced by users. User Story is broken down into individual issues. You can use Story issues to [group any issues](../user/links.md) based on a common topic in {{ tracker-name }}.
 
 Story Point {#dlen_sp}
 :   Relative rating that describes the effort needed to complete an issue. The Story Point unit is not usually measured in terms of man-hours. [The team rates issues collectively](planning-poker.md) by comparing them to a simple task.
 
 Epic
-:  A larger feature or requirement that can't be implemented within a single sprint. It's usually broken down into several User Stories or issues. You can use Epics to [group any issues](../user/links.md) based on a common topic in {{ tracker-name }}.
+:   Large feature or requirement that cannot be implemented within a single sprint. It is usually broken down into several User Stories or issues. You can use Epics to [group any issues](../user/links.md) based on a common topic in {{ tracker-name }}.
 
 Sub-epic
-:  An issue that is included in an epic.
+:   Issue that is included in an epic.
 

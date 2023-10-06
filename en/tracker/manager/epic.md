@@ -14,7 +14,7 @@ An issue can belong to only one epic.
 
 1. In the {{ tracker-name }} top panel, click **{{ ui-key.startrek.blocks-desktop_m-head.menu-agile }}** and select your board.
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.sprints }}** in the upper-right corner.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.sprints }}** in the top-right corner of the page.
 
 1. In the left part of the page, select grouping issues by epics.
 

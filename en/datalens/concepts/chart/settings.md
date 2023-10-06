@@ -143,8 +143,9 @@ Sorting is available for the following chart types:
 
 ### Filters {#filter}
 
-They allow making a selection of values by dimension or measure.
+These allow making a selection of values by dimension or measure.
 Filters are available for all chart types.
+
 
 ## Map section settings {#map-settings}
 
@@ -193,3 +194,4 @@ You can set a color for geopoints and geopolygons, which will depend on the meas
 | Set threshold values | Allows you to set threshold values that will correspond to each color. |
 
 You can [create color palettes](../../operations/chart/create-palette.md) and use them in your charts.
+

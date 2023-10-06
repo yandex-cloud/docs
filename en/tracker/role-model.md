@@ -74,7 +74,7 @@ The employees with full access can enjoy all the features of {{ tracker-full-nam
 
 {% note info %}
 
-If you have six or more users with full access in your organization, you'll need to [pay](pricing.md) for the service monthly. Small teams can use {{ tracker-name }} free-of-charge, if no more than five employees would create or edit issues.
+If you have six or more users with full access in your organization, you will need to [pay](pricing.md) for the service monthly. Small teams can use {{ tracker-name }} free of charge, if no more than five employees create or edit issues.
 
 {% endnote %}
 

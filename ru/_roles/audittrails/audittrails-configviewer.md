@@ -1,0 +1,1 @@
+Роль `audit-trails.configViewer` (deprecated) позволяет просматривать информацию о трейлах. Используйте роль `audit-trails.auditor` вместо этой роли.

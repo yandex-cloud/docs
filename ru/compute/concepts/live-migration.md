@@ -14,13 +14,13 @@
 ## Ограничения {#limitations}
 
 Следующие типы ВМ не могут быть перемещены:
-* ВМ с [GPU](../concepts/gpus.md)[^1].
-* [Прерываемые](../concepts/preemptible-vm.md)[^1] ВМ.
+* ВМ с [GPU](../concepts/gpus.md) ^1^.
+* [Прерываемые](../concepts/preemptible-vm.md) ^1^ ВМ.
 * ВМ [{{ sf-full-name }}](../../functions/).
 * ВМ управляемых СУБД с локальными SSD-дисками.
 * ВМ с запретом миграции.
 
-\* Будут динамически перемещены после [остановки вручную](../operations/vm-control/vm-stop-and-start.md#stop).
+^1^ Будут динамически перемещены после [остановки вручную](../operations/vm-control/vm-stop-and-start.md#stop).
 
 ## Смотрите также {#see-also}
 

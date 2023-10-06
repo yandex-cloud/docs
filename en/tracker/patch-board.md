@@ -108,7 +108,7 @@ id | Country ID | String
 > Host: {{ host }}
 > Authorization: OAuth <token>
 > X-Org-ID: <organization ID>
-> If-Match: "<version ID>"
+> If-Match: "<version number>"
 >
 > {
 >  "name": "Testing new",

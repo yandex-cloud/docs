@@ -117,6 +117,8 @@ items:
         href: manager/queue-team.md
       - name: Setting access rights for queues
         href: manager/queue-access.md
+      - name: Setting up time tracking
+        href: manager/queue-spent-time.md
       - name: Advanced queue features
         href: manager/queue-advanced.md
       - name: Viewing the history of queue changes
@@ -367,6 +369,8 @@ items:
             href: slack.md
           - name: Telegram
             href: telegram.md
+      - name: Version control systems
+        href: user/github.md
       - name: Setting up links to external applications
         items:
           - name: Overview
@@ -677,8 +681,10 @@ items:
         href: organizations.md
   - name: Releases
     items:
-      - name: July 2023
+      - name: August 2023
         href: changelogs/index.md
+      - name: July 2023
+        href: changelogs/2307.md
       - name: June 2023
         href: changelogs/2306.md
       - name: May 2023

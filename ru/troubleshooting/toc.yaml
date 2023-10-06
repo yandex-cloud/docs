@@ -75,6 +75,12 @@ items:
         href: billing/known-issues/cannot-access-partner-programme.md
       - name: Могут ли ресурсы удалиться при неоплате
         href: billing/known-issues/cloud-and-files-removal.md
+      - name: Устранение ошибки BALANCE.WRONG.ACCOUNT
+        href: billing/known-issues/balance-wrong-account-issue.md
+      - name: Платежный аккаунт находится в статусе PAYMENT_NOT_CONFIRMED
+        href: billing/known-issues/payment-not-confirmed-issue.md
+      - name: Что делать, если документы перестали поступать в систему ЭДО?
+        href: billing/known-issues/no-new-incoming-documents-in-edi.md
       - name: Примеры конфигураций и сценариев Cloud Billing
         href: billing/how-to/index.md
         hidden: true
@@ -118,6 +124,18 @@ items:
         href: billing/how-to/closing-documents-format.md
       - name: Лимит отрицательного баланса при оплате банковским переводом
         href: billing/how-to/overdraft-while-transferring.md
+      - name: До какой даты вносить оплату
+        href: billing/how-to/deadline-for-paymens.md
+      - name: Получение чеков при совершении платежа с банковской карты
+        href: billing/how-to/getting-invoices-when-paying-by-card.md
+      - name: Как привязать облако к другому платежному аккаунту
+        href: billing/how-to/move-cloud-between-billing-accounts.md
+      - name: Как получить заверенный оригинал договора
+        href: billing/how-to/getting-contract-originals.md
+      - name: Как отвязать банковскую карту от платежного аккаунта
+        href: billing/how-to/unpin-card.md
+      - name: Как остановить списания средств с платежного аккаунта
+        href: billing/how-to/analyzing-charges-chart.md
   - name: Business
     items:
       - name: Все решения для Business
@@ -260,6 +278,10 @@ items:
         href: compute/known-issues/warning-remote-host-identification-has-changed.md
       - name: Устранение поломки нереплицируемого диска
         href: compute/known-issues/non-replicated-disk-broke-down.md
+      - name: Устранение проблем при подключении к Kosmos VM
+        href: compute/known-issues/kosmos-vm-connection-issues.md
+      - name: Устранение проблем со сбросом пароля для ВМ на базе образа Kosmos
+        href: compute/known-issues/kosmos-vm-password-reseting-issue.md
       - name: Примеры конфигураций и сценариев Cloud CDN
         href: compute/how-to/index.md
         hidden: true
@@ -324,14 +346,16 @@ items:
         hidden: true
   - name: DataLens
     items:
-      - name: Все решения для DataLens
+      - name: Все решения для {{ datalens-short-name }}
         href: datalens/index.md
-      - name: Примеры конфигураций и сценариев DataLens
+      - name: Примеры конфигураций и сценариев {{ datalens-short-name }}
         href: datalens/how-to/index.md
         hidden: true
-      - name: Подключение к Яндекс Директ из DataLens
+      - name: Подключение к Яндекс Директ из {{ datalens-short-name }}
         href: datalens/how-to/access-yandex-direct-data.md
-      - name: Получение токена для подключения к БД Битрикс24 из DataLens
+      - name: >-
+          Получение токена для подключения к БД Битрикс24 из {{
+          datalens-short-name }}
         href: datalens/how-to/get-bitrix24-token-connector.md
       - name: Как подключиться к коннектору МойСклад
         href: datalens/how-to/marketplace-connector-support.md
@@ -343,53 +367,65 @@ items:
         href: datalens/how-to/ip-address-range.md
       - name: Как отфильтровать селектором уже отфильтрованные данные
         href: datalens/how-to/filtering-filtered-data.md
-      - name: Решения для известных проблем DataLens
+      - name: Добавление существующего пользователя в {{ datalens-short-name }}
+        href: datalens/how-to/add-existing-user-to-organization.md
+      - name: Решения для известных проблем {{ datalens-short-name }}
         href: datalens/known-issues/index.md
         hidden: true
-      - name: Устранение ошибки ERR.DS_API.FIELD.TITLE.CONFLICT в DataLens
+      - name: >-
+          Устранение ошибки ERR.DS_API.FIELD.TITLE.CONFLICT в {{
+          datalens-short-name }}
         href: datalens/known-issues/err-ds_api_field-title_conflict.md
-      - name: Устранение ошибки ERR.DS_API.REQUEST_TIMEOUT в DataLens
+      - name: >-
+          Устранение ошибки ERR.DS_API.REQUEST_TIMEOUT в {{ datalens-short-name
+          }}
         href: datalens/known-issues/err-ds_api_request_timeout.md
       - name: >-
-          Устранение ошибки ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED в
-          DataLens
+          Устранение ошибки ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED в {{
+          datalens-short-name }}
         href: >-
           datalens/known-issues/validation-error-in-dataset-preview-when-using-csv-or-gsheets-as-data-source.md
-      - name: Проблема при создании подключения к таблице Google Sheets из DataLens
+      - name: >-
+          Проблема при создании подключения к таблице Google Sheets из {{
+          datalens-short-name }}
         href: >-
           datalens/known-issues/unable-to-load-file-when-using-gsheets-as-data-source.md
       - name: >-
-          У табличных чартов DataLens не совпадают значения в полях «Итого» с
-          аналогичными данными из Метрики
+          У табличных чартов {{ datalens-short-name }} не совпадают значения в
+          полях «Итого» с аналогичными данными из Метрики
         href: >-
           datalens/known-issues/values-in-total-fields-dont-match-with-data-from-ymetrics.md
-      - name: Устранение ошибки ERR.DS_API.US Not correct folder_id в DataLens
+      - name: >-
+          Устранение ошибки ERR.DS_API.US Not correct folder_id в {{
+          datalens-short-name }}
         href: datalens/known-issues/err-ds_api_us-not-correct-folder-id.md
       - name: >-
           Устранение проблем использования связанных таблиц при подключении к
           Bitrix
         href: datalens/known-issues/bitrix24-linking-talbes-issue.md
-      - name: Устранение ошибки ERR.DS_API.FORMULA.TRANSLATION.DATA_TYPE в DataLens
+      - name: >-
+          Устранение ошибки ERR.DS_API.FORMULA.TRANSLATION.DATA_TYPE в {{
+          datalens-short-name }}
         href: datalens/known-issues/err-ds_api_formula-translation-data_type.md
       - name: >-
           Устранение проблем с доступом к дашборду со статистикой подкастов в
           Яндекс Музыке
         href: datalens/known-issues/yandex-music-stats-dashboard-issue.md
       - name: >-
-          Устранение ошибки ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT в
-          DataLens
+          Устранение ошибки ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT в {{
+          datalens-short-name }}
         href: >-
           datalens/known-issues/err-ds_api_formula-validation-agg-inconsistent.md
       - name: >-
           Устранение проблем при загрузке CSV-файла в датасет в качестве
-          источника данных в DataLens
+          источника данных в {{ datalens-short-name }}
         href: datalens/known-issues/csv-upload-issue.md
       - name: >-
           Устранение ошибки Validation error Request failed with status code 500
-          при сохранении дашборда в DataLens
+          при сохранении дашборда в {{ datalens-short-name }}
         href: >-
           datalens/known-issues/validation-error-request-failed-with-status-code-500.md
-      - name: Поддержка пользовательских полей Битрикс24 в DataLens
+      - name: Поддержка пользовательских полей Битрикс24 в {{ datalens-short-name }}
         href: datalens/known-issues/bitrix24-user-fields-support.md
       - name: >-
           Устранение ошибки Bad Request for url MetrikaHttpApiException
@@ -679,6 +715,8 @@ items:
         hidden: true
       - name: Получение доступа к дата-центрам в Казахстане
         href: legal/how-to/accessing-data-centers-in-kazakhstan.md
+      - name: Узнать физический (географический) адрес ЦОД Yandex Cloud
+        href: legal/how-to/data-centers-physical-addresses.md
   - name: Object Storage
     items:
       - name: Все решения для Object Storage
@@ -708,6 +746,10 @@ items:
         href: storage/known-issues/wrong-certificate.md
       - name: Устранение ошибки GATEWAY_REQUEST_ERROR
         href: storage/known-issues/error-gateway-request.md
+      - name: >-
+          Устранение проблем с некорректным MIME-типов объектов при их загрузке
+          в {{ objstorage-short-name }}
+        href: storage/known-issues/incorrect-mime-type.md
       - name: Примеры конфигураций и сценариев Object Storage
         href: storage/how-to/index.md
         hidden: true
@@ -909,6 +951,8 @@ items:
         href: vpc/known-issues/resolving-tls-traffic-issues.md
       - name: Не удаляется группа безопасности
         href: vpc/known-issues/security-group-cannot-be-deleted.md
+      - name: Устранение проблем с отправкой писем по SMTP со внешних IP-адресов
+        href: vpc/known-issues/issues-with-outgoing-emails-on-external-ips.md
       - name: Примеры конфигураций и сценариев VPC
         href: vpc/how-to/index.md
         hidden: true
@@ -932,6 +976,8 @@ items:
         href: vpc/how-to/activate-egress-nat.md
       - name: Как осуществить маршутизацию трафика между двумя облачными сетями
         href: vpc/how-to/routing-traffic-between-two-vpcs.md
+      - name: Подключение расширенной защиты от DDoS
+        href: vpc/how-to/enable-advanced-anti-ddos-protection.md
   - name: Консоль управления
     items:
       - name: Все решения для Консоли управления

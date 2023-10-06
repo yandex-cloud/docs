@@ -5,7 +5,7 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте функцию](../../operations/index.md#create-function), которую хотите вызывать по таймеру. Например, можно создать любую функцию из [списка](../../quickstart/create-function/index.md).
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), от имени которого будет вызываться функция и назначьте ему роль `functions.functionInvoker`.
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), от имени которого будет вызываться функция и назначьте ему роль `{{ roles-functions-invoker }}`.
 
 ## Создайте таймер {#timer-create}
 

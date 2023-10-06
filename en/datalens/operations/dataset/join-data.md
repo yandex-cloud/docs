@@ -2,8 +2,8 @@
 
 When multiple source tables are available, you can combine their data:
 
-1. Open the dataset. If you don't have a dataset, [create one](create.md).
-1. In the upper left-hand corner, select the **Sources** tab.
+1. Open the dataset. If you do not have a dataset, [create one](create.md).
+1. In the top-left corner, select the **Sources** tab.
 1. Under **Tables**, select a table and drag it to your workspace.
 1. Select another table and drag it to your workspace. A link will automatically be created between these tables based on the first matching field name and field data type.
 1. To edit this table link:

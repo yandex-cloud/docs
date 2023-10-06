@@ -14,9 +14,6 @@ items:
         href: concepts/limits.md
       - name: Courses
         href: training.md
-      - name: Step-by-step guides
-        href: operations/index.md
-        hidden: true
   - name: Workbooks and collections
     items:
       - name: Overview
@@ -150,6 +147,8 @@ items:
             href: operations/dataset/create-calculated-field.md
           - name: Creating a default filter for new charts
             href: operations/dataset/create-filter.md
+          - name: Replacing a connection in a dataset
+            href: operations/dataset/replace-connection.md
           - name: Updating fields in datasets
             href: operations/dataset/update-field.md
           - name: Describing a dataset via a source SQL query
@@ -596,6 +595,8 @@ items:
             items:
               - name: Creating a chart
                 href: operations/chart/create-chart.md
+              - name: Replacing a dataset in a chart
+                href: operations/chart/replace-dataset.md
               - name: Creating a multi-dataset chart
                 href: operations/chart/create-multidataset-chart.md
               - name: Adding a hierarchy
@@ -845,6 +846,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API.md
       - name: Invalid clique specification. Probably, clique does not exists
         hidden: true
         href: >-
@@ -926,6 +930,12 @@ items:
       - name: Could not create <object type>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: Object request error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-BAD_REQUEST.md
+      - name: Error executing a query in the data source
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB.md
       - name: Database-side error
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md

@@ -2,6 +2,10 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [06.10.2023 — CVE-2023-35943 CORS filter segfault when origin header is removed](../../_includes/security/security-bulletins/cve-2023-35943-cors-filter-segfault-origin-header-removed.md) %}
+
+{% include [06.10.2023 — CVE-2023-35941 OAuth2 credentials exploit with permanent validity](../../_includes/security/security-bulletins/cve-2023-35941-oauth2-credentials-exploit-permanent-validity.md) %}
+
 {% include [29.06.2023 — CVE-2023-2478 GitLab Critical Security Release: 15.11.2, 15.10.6, and 15.9.7](../../_includes/security/security-bulletins/cve-2023-2478-gitlab-critical-security-release.md) %}
 
 {% include [29.06.2023 — CVE-2023-27561 Race-condition to bypass masked paths](../../_includes/security/security-bulletins/cve-2023-27561.md) %}

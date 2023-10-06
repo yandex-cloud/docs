@@ -34,7 +34,7 @@
 ## Подготовьте ресурсы {#create-resources}
 
 1. [Скачайте](https://{{ s3-storage-host }}/doc-files/telegrambot.zip) архив с файлами, необходимыми для создания бота.
-1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `editor` и `serverless.functions.invoker` на ваш каталог. 
+1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `{{ roles-editor }}` и `{{ roles-functions-invoker }}` на ваш каталог. 
 
 ## Зарегистрируйте Telegram-бота {#create-bot}
 

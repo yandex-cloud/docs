@@ -14,13 +14,13 @@ To set up sending of notification about issue status changes in the queue:
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg)&nbsp;**{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Click the **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}** tab.
+1. Go to the **{{ ui-key.yacloud.component.navigation-menu.label_notifications }}** tab.
 
 1. Set up sending of notifications:
 
    **About all issues in the queue**
 
-   1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_notifications.queue }}** tab.
+   1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_notifications.queue }}** tab.
 
    1. List the names of the logins of users who need to send notifications.
 
@@ -34,7 +34,7 @@ To set up sending of notification about issue status changes in the queue:
 
    You can set up sending of notifications about the issues whose properties include a certain version.
 
-   1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_notifications.versions }}** tab.
+   1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_notifications.versions }}** tab.
 
    1. Select a version.
 
@@ -50,7 +50,7 @@ To set up sending of notification about issue status changes in the queue:
 
    You can set up sending of notifications about the issues whose properties include a certain component:
 
-   1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_notifications.components }}** tab.
+   1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_notifications.components }}** tab.
 
    1. Select the component.
 

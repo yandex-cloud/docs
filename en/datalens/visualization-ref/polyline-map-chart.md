@@ -30,7 +30,7 @@ You can color polyline segments in one of the following ways:
 | Colors | Dimension or measure. Affects the intensity of line segment fill. A segment is filled in from the originating point. |
 | Order | Dimension. Defines the order for connecting points within a group. |
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
-| Chart filters | Dimension or measure. Used as a filter for the entire chart. |
+| Filters | Dimension or measure. Used as a filter for the entire chart. |
 
 ## Creating a polyline map {#create-diagram}
 

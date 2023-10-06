@@ -1,0 +1,1 @@
+The `audit-trails.editor` role lets you manage trails (create, update, and delete them). Includes all access rights of the `audit-trails.viewer` role.

@@ -1,6 +1,7 @@
 # Creating a QL chart
 
 
+
 You can create a QL chart using one of the following methods:
 
 * [From the home page](#main-page).
@@ -17,10 +18,11 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
 
 
 
-1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 
 
-1. In the left-hand panel, click ![image](../../../_assets/datalens/chart.svg) and then, in the window that opens, click **Create chart** -> **QL chart**.
+1. In the left-hand panel, select ![image](../../../_assets/datalens/chart.svg) **Charts**.
+1. Click **Create chart** → **QL chart**.
 1. In the window that opens, select a **Chart type**:
 
    {% list tabs %}
@@ -31,7 +33,7 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
      1. In the list, select a database connection that you have access to. Make sure **SQL query access level** → **Allow subqueries in datasets and queries from charts** is enabled.
      1. Click **Create**.
      1. Use the **Query** tab to enter a query in the flavor of SQL native to the database you are accessing.
-     1. In the lower left-hand corner, click **Start**.
+     1. In the bottom-left corner, click **Start**.
 
      After the query runs, a visualization of your data will be displayed.
 
@@ -43,7 +45,7 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
      1. In the list, select a {{ prometheus-name }} connection that you have access to.
      1. Click **Create**.
      1. Click **Add query** and specify a query in the {{ prometheus-name }} language.
-     1. In the lower left-hand corner, click **Start**.
+     1. In the bottom-left corner, click **Start**.
 
      After the query runs, a visualization of your data will be displayed.
 
@@ -53,9 +55,9 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
 
      | Parameter | Data type | Description |
      |---|---|---|
-     | from | datetime | Lower time limit. |
-     | to | datetime | Upper time limit. |
-     | step | number | Step on the time scale (seconds). |
+     | from | datetime | Lower time limit |
+     | to | datetime | Upper time limit |
+     | step | number | Step on the time scale (seconds) |
 
      On the dashboard, you can use a single selector for the date with a special `interval` name instead of the two selectors — `from` and `to`.
 
@@ -66,7 +68,7 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
      1. In the list, select a {{ monitoring-short-name }} connection that you have access to.
      1. Click **Create**.
      1. Click **Add query** and specify a query in the {{ monitoring-short-name }} language.
-     1. In the lower left-hand corner, click **Start**.
+     1. In the bottom-left corner, click **Start**.
 
 
      After the query runs, a visualization of your data will be displayed.
@@ -77,8 +79,8 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
 
      | Parameter | Data type | Description |
      |---|---|---|
-     | from | datetime | Lower time limit. |
-     | to | datetime | Upper time limit. |
+     | from | datetime | Lower time limit |
+     | to | datetime | Upper time limit |
 
      On the dashboard, you can use a single selector for the date with a special `interval` name instead of the two selectors — `from` and `to`.
 
@@ -87,7 +89,7 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
 ## Creating a QL chart using a connection {#connection}
 
 1. Go to an existing database connection.
-1. Make sure **Raw SQL level** → **Allow subqueries in datasets and queries from charts** is enabled.
+1. Make sure **SQL query access level** → **Allow subqueries in datasets and queries from charts** is enabled.
 1. In the top-right corner, click **Create QL chart**.
 1. Use the **Query** tab to enter a query in the flavor of SQL native to the database you are accessing.
 1. In the bottom-left corner, click **Start**.
@@ -109,9 +111,13 @@ To add a parameter:
 
 1. Go to the **Parameters** tab when creating a chart.
 1. Click **Add parameter**.
-1. Set the value type to `date-interval` (`datetime-interval`).
-1. Name the parameter.
-1. Set the range start and end values.
+1. Set the value type for the parameter, e.g., `date-interval`.
+1. Name the parameter, e.g., `interval`.
+1. Set the range start and end values, e.g., `2017-01-01 — 2019-12-31`.
+
+   ![image](../../../_assets/datalens/parameters/date-interval.png =450x167)
+
+In your query, use a parameter name with `_from` and `_to` postfixes to get the interval start and end, respectively. For example, use `interval_from` to get the interval start (`2017-01-01`) and `interval_to` to get the interval end (`2019-12-31`).
 
 {% cut "Sample query" %}
 

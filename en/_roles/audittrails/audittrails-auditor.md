@@ -1,0 +1,1 @@
+The `audit-trails.auditor` role lets you view information about trails.

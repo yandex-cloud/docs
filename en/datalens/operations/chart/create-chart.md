@@ -8,6 +8,7 @@ To create a chart:
 
 
 
+
 1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
 1. Click **Create chart**.
 
@@ -16,9 +17,6 @@ To create a chart:
 
 1. On the top panel, select a [visualization type](../../visualization-ref/index.md).
 
+#### See also {#see-also}
 
-##### For more information, see also
-
-- [{#T}](../../concepts/chart/index.md)
-
-
+* [{#T}](../../concepts/chart/index.md)

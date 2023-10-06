@@ -1,0 +1,1 @@
+The `audit-trails.admin` role lets you manage your trails and user access to them. Includes all access rights of the `audit-trails.editor` role.

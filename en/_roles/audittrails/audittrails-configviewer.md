@@ -1,0 +1,1 @@
+The `audit-trails.configViewer` role lets you view information about trails. The role is deprecated, use the `audit-trails.auditor` role instead.

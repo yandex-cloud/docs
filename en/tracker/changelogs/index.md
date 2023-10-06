@@ -1,72 +1,73 @@
-# {{ tracker-full-name }} revision history for July 2023
+# {{ tracker-full-name }} revision history for August 2023
 
 * [Updates](#top-news)
 * [Fixes and improvements](#fixes)
 
 ## Updates {#top-news}
 
-### Limit on the number of issues per group on a board {#desks-groups-limits}
+### Integrations in queue settings {#queue-integrations}
+Added a new page, **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--integrations }}**, to the queue settings. You can use it to set up the following integrations:
 
-On [issue boards](../manager/agile-new.md) with [grouping](../manager/agile-new-issues.md#group) enabled, you can set the maximum number of issues per group. The number of issues may exceed the limit, in which case the group will be highlighted in yellow.
+* [Forms](../manager/forms-integration.md) to create issues based on responses from {{ forms-name }} forms.
+* [Email](../manager/queue-mail.md) to send and receive emails right on the issue page.
+* [Commits](../user/ticket-links.md#section_commit) to track commits made while completing an issue.
 
-To set a limit on the number of issues per group, click ![](../../_assets/tracker/svg/actions.svg) → **Maximum number of issues** to the right of the group name, specify the number of issues, and click **Save**. The limit can be applied to both a single group and all groups of the selected type.
 
-### Changing the order of groups on issue boards {#desks-groups-order}
+### Changing an organization {#change-org}
 
-On issue boards with [grouping](../manager/agile-new-issues.md#group) enabled, you can now rank groups by dragging them. To do this, click **Change order** above the group list. In the window that opens, change the order of groups and click **Apply**.
+You can now use the organizations page to change the organization that {{ tracker-name }} is enabled for. To do this:
 
-{% note warning %}
+1. Go to the [organizations page]({{ link-tracker }}admin/orgs).
+1. Click **{{ ui-key.startrek.ui_components_page-admin_ChangeOrganizationModal.add-button }}**.
+1. In the window that opens, select an available organization and click **{{ ui-key.startrek.ui_components_page-admin_ChangeOrganizationModal.add-button }}**.
 
-Reordering is available for a groupings with fewer than 2,000 groups. You can only do the ranking for 10 groupings per board.
+You can change both {{ yandex-cloud }} and {{ ya-360 }} organizations.
 
-{% endnote %}
 
-### Searching for local fields from dashboard queues {#find-local-params}
 
-When creating and editing widgets on [dashboards](../user/dashboard.md), you can now search for local fields from specific queues.
 
-To find a local field in a queue, specify the field name and the queue key in brackets. E.g., `Status (QUEUE)`.
+### New page for connecting repositories {#reposutory-new-ui}
 
-### Critical path on a project's Gantt chart {#gantt-citical-path}
+The new interface now has the [connect repositories page]({{ link-tracker }}admin/repositories).
 
-A [project's Gantt chart](../gantt/project.md) can now be configured to show the [critical path](../gantt/project.md#critical-path). To do that, click ![](../../_assets/tracker/svg/gantt-critical-path.svg) above the timeline on the right:
+### Adding a repository on your own server {#repository-personal-server}
 
-* A red line will appear on the timeline. It indicates an interval from the start date of the earliest issue to the deadline of the latest issue.
-* The issue with the latest deadline will be highlighted in red. All issues blocking the project's final issues will also be highlighted in red.
+You can now [connect a repository](../manager/add-repository.md) hosted on your own server without contacting support. To do this, make sure your server is associated with GitHub, GitLab, or Bitbucket.
 
-To disable critical path display, click ![](../../_assets/tracker/svg/gantt-critical-path.svg) once again.
+To connect a custom repository:
+1. Go to the [connect repositories page]({{ link-tracker }}admin/repositories).
+1. In the top-right corner, click **{{ ui-key.startrek.ui_components_admin-repositories_ConnectRepositoryDialog.connect }}**.
+1. In the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field, select the platform your server is connected to.
+1. In the **{{ ui-key.startrek.ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField.server-url-label }}** field, specify your server address to any repository that can be accessed using a token.
+1. In the **{{ ui-key.startrek.ui_components_admin-repositories_ConnectRepositoryDialog.token-label }}** field, enter the token for connecting to your server.
+1. Click **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
+1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
+
+
+### Migrating boards to new technologies {#boards-migration}
+
+Starting September 1, 2023, all boards with no migration restrictions were automatically transferred to the [new technologies](../manager/agile-new.md).
+
+You can learn more about the board migration [here](../manager/boards-convertor.md).
+
+### Mermaid support {#mermaid}
+
+You can now add [Mermaid](https://mermaid.js.org/) diagrams to {{ tracker-name }} issue descriptions and comments. To insert a diagram, open the list of commands using the `/` character and select ![](../../_assets/tracker/svg/mermaid.svg) **Mermaid**.
 
 ## Fixes and improvements {#fixes}
 
-### Commits on issue pages {#tasks-commits}
+### Fixed a search of issues by field value {#search-filters-fix}
 
-In the new interface, there is now a **Commits** tab on issue pages. It is located at the bottom of the issue next to comments and is available if your {{ tracker-name }} has a [repository linked](../manager/add-repository.md) and if at least one commit has been made for the issue.
+Fixed the filter parameter error that occurred when searching for a selected parameter's value, such as **Status** or **Issue type**. The value being searched for was not displayed in the search results in the event of an exact match.
 
-### Commits in queues {#queues-commits}
 
-The new interface allows you to view commits from issues in a queue if your {{ tracker-name }} has a repository linked. To do this, click ![](../../_assets/tracker/svg/actions.svg) → **Commits** in the top-right corner of the queue page.
+### Fixed the error that occurred when switching to inactive tabs at an organization change {#organizations-fix}
 
-### Strike-through for keys of canceled and completed issues {#strikethrough-key}
+The fixed error occurred when multiple tabs with {{ tracker-name }} were open in the browser and the user changed the organization in one of them. The context persisted in the open tabs, which caused errors when switching to them.
 
-If an issue gets the **Completed** or **Canceled** status type, its key is now struck through on a greater number of pages than [before](2306.md#strikethrough-key). The changes apply to the following pages:
+Now, when navigating across open tabs, the user will see a pop-up window prompting them to stay in the current organization or switch to a new one.
 
-* Search
-* List of filtered issues
-* Gantt chart for filters
-* Queue issue list
-* Gantt chart for queues
-* Dashboards
-* Links with other issues
 
-If an issue is closed with a certain resolution, its key is also struck through, as usual.
+### New project page {#projects-new}
 
-### Issue status color depending on status type {#status-colour}
-
-Issue status is now colored depending on status type on a greater number of pages than [before](2306.md#{#gantt-colour-status}):
-
-* List of filtered issues
-* Gantt chart for filters
-* Queue issue list
-* Gantt chart for queues
-* Dashboards
-* Links with other issues
+Updated the layout of [project pages](../manager/project-new.md). Their interface is now similar to that of {{ tracker-name}} issues.

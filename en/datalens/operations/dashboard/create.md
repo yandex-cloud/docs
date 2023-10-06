@@ -13,6 +13,7 @@ To create a dashboard:
 
 
 
+
 1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
 1. Click **Create dashboard**.
 
@@ -22,4 +23,5 @@ To create a dashboard:
 1. In the window that opens, enter a name for the dashboard and click **Create**. The dashboard will appear in the list on the navigation page.
 
 #### What's next {#what-is-next}
-- [{#T}](add-chart.md)
+
+* [{#T}](add-chart.md)
