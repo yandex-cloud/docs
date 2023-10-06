@@ -11,9 +11,9 @@
 ## Роли, необходимые для корректной работы триггера для {{ container-registry-name }} {#roles}
 
 * Для создания триггера вам необходимы:
-    * Разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../iam/concepts/access-control/roles.md#sa-user), [editor](../../iam/concepts/access-control/roles.md#editor) и выше.
+    * Разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../iam/concepts/access-control/roles.md#sa-user), [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) и выше.
     * Роль `{{ roles-cr-puller }}` на реестр, события которого триггер обрабатывает.
-* Для работы триггера сервисному аккаунту необходима роль `{{ roles-functions-ivoker }}` на каталог с функцией, которую вызывает триггер.
+* Для работы триггера сервисному аккаунту необходима роль `{{ roles-functions-invoker }}` на каталог с функцией, которую вызывает триггер.
 
 Подробнее об [управлении доступом](../../functions/security/index.md).
 

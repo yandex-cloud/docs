@@ -13,7 +13,7 @@ To set up the basic parameters of the queue:
 
 1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--main }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--main }}** tab.
 
 1. Configure the queue's settings.
     * Basic parameters:

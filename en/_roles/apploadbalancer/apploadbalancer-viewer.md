@@ -1,0 +1,1 @@
+The `alb.viewer` role lets you view resource model objects.

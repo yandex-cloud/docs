@@ -2,7 +2,7 @@
 
 | Type of limit | Value |
 ----- | -----
-| Maximum number of secrets per cloud | 1,000 |
+| Maximum number of secrets per cloud | 10,000 |
 
 #### Limits {#limits}
 

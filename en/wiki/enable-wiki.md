@@ -8,7 +8,7 @@ You can enable {{ wiki-full-name }} for an existing organization or create a new
 
 If you already have an organization in {{ org-full-name}}, {{ wiki-full-name }} is automatically activated when any user of the organization logs in for the first time:
 
-1. Go to the {{ wiki-name }} homepage: [{{ link-wiki }}]({{ link-wiki }}).
+1. Go to the {{ wiki-name }} home page: [{{ link-wiki }}]({{ link-wiki }}).
 
 1. [Log in](login.md) to the account you use to work in the organization.
 
@@ -20,7 +20,7 @@ If you are using Confluence and want to migrate to {{ wiki-full-name }}, our exp
 
 ## Create a new organization {#new-org}
 
-If you have no organization in {{ org-full-name}}, you can create a new one when you first log in to {{ wiki-full-name }}.
+If you have no organization in {{ org-full-name }}, you can create a new one when you first log in to {{ wiki-full-name }}.
 
 {% note warning %}
 
@@ -30,10 +30,10 @@ An organization can only be created for users who have a Yandex account.
 
 1. Log in to your [Yandex account]({{ link-passport }}). If you do not have an account, [create]({{ support-passport-create }}) one.
 
-1. Go to the {{ wiki-name }} homepage: [{{ link-wiki }}]({{ link-wiki }}).
+1. Go to the {{ wiki-name }} home page: [{{ link-wiki }}]({{ link-wiki }}).
 
 1. Accept the {{ yandex-cloud }} terms of use and click **{{ ui-key.yacloud_components.usermenu.label_login }}**.
 
    Your organization is automatically created and {{ wiki-full-name }} is activated.
 
-1. In {{ org-full-name}}, add users to your organization or set up an identity federation so that your employees can use their work accounts to access {{ yandex-cloud }} services. For more information, see the [{{ org-full-name}} documentation](../organization/operations/manage-users.md).
+1. In {{ org-full-name }}, add users to your organization or set up an identity federation so that your employees can use their work accounts to access {{ yandex-cloud }} services. For more information, see the [{{ org-full-name}} documentation](../organization/operations/manage-users.md).

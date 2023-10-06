@@ -3,7 +3,7 @@
 
 
 
-1. Go to the {{ datalens-full-name }} home page.
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. Click **Create dataset**.
 
 
@@ -15,8 +15,8 @@
    {% note warning %}
 
    * The maximum number of tables in a single dataset is 32.
-   * The maximum number of fields in a single dataset is 1200.
+   * The maximum number of fields in a single dataset is 1,200.
 
    {% endnote %}
 
-1. Enter the dataset name and click **Create**. The dataset appears in the list.
+1. Enter the dataset name and click **Create**. The dataset will appear in the list.

@@ -13,17 +13,17 @@ A heat map helps find dependencies that can be hidden due to overlapping map poi
 
 | Section<br/> in the wizard | Description |
 ----- | ----
-| Heatmap (Geopoints) | Measure with the type [Geopoint](../concepts/data-types.md#geopoint). |
+| Heat map (Geopoints) | Measure with the type [Geopoint](../concepts/data-types.md#geopoint). |
 | Colors | Dimension or measure. Affects the intensity of point fill. |
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
-| Chart filters | Dimension or measure. Used as a filter for the entire chart. |
+| Filters | Dimension or measure. Used as a filter for the entire chart. |
 
 ## Creating a heat map {#create-diagram}
 
 1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization. If you don't have a dataset, [create one](../operations/dataset/create.md).
+1. Under **Dataset**, select a dataset for visualization. If you do not have a dataset, [create one](../operations/dataset/create.md).
 1. Select the **Map** chart type.
-1. Select the **Heatmap (Geopoints)** layer type.
+1. Select the **Heat map (Geopoints)** layer type.
 1. Drag a dimension with the [Geopoint](../concepts/data-types.md#geopoint) type from the dataset to the layer type selection section.
 1. Change the weight of the points on the heat map. To do this, drag the measure to the **Colors** section.
 

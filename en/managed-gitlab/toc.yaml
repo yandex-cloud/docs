@@ -35,6 +35,8 @@ items:
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
       - name: Building a CI/CD pipeline using serverless products
         href: tutorials/ci-cd-serverless.md
+      - name: Integration with {{ GL }} in {{ tracker-full-name }}
+        href: tutorials/tracker-integration.md
   - name: Concepts
     items:
       - name: Relationships between service resources

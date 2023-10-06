@@ -1,6 +1,6 @@
 # Using Agile methodologies
 
-If your team leverages [Agile development methodology]({{ link-wiki-agile-en }}), try Agile boards in {{ tracker-name }}. You can use boards to track your team's current issues, for example, during daily meetings. On the board, issues are shown as cards assigned to columns depending on status.
+If your team leverages [Agile development methodology]({{ link-wiki-agile-en }}), try Agile boards in {{ tracker-name }}. You can use boards to track your team's current issues, for example, during daily meetings. On the board, issues are shown as cards assigned to columns depending on their status.
 
 
 ![](../_assets/tracker/agile-board-c.png)

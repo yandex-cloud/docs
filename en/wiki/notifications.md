@@ -50,7 +50,7 @@ To tag a page:
 
 1. In the panel on the left, click ![](../_assets/wiki/svg/edited-icon.svg) **Created and edited**.
 
-1. You can filter the list of pages that you created or made edits to:
+1. You can filter the list of the pages you created or made edits to:
 
    * **By name**: Enter the page title in the search bar.
 
@@ -76,7 +76,7 @@ Subscribe to a page or cluster to receive notifications about any changes to the
 
 1. Open the page.
 
-1. In the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/subscriptions.svg) **Subscription**.
+1. In the top-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/subscriptions.svg) **Subscription**.
 
 1. Next, select an action:
 

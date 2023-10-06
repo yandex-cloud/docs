@@ -39,7 +39,7 @@
     1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Введите имя сервисного аккаунта: `my-db-function-service-account`.
-    1. Нажмите кнопку ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../iam/concepts/access-control/roles.md) `{{ roles-functions-ivoker }}` и `{{ roles-editor }}`.
+    1. Нажмите кнопку ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../iam/concepts/access-control/roles.md) `{{ roles-functions-invoker }}` и `{{ roles-editor }}`.
     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}

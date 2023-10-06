@@ -595,6 +595,8 @@ items:
             href: concepts/queues/restore-queue.md
           - name: Удалить тег из очереди
             href: concepts/queues/delete-tag.md
+          - name: Выдать права доступа к очереди
+            href: concepts/queues/manage-access.md
           - name: Автоматизация
             items:
               - name: Автодействия

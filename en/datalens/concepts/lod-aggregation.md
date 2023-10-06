@@ -26,14 +26,14 @@ The `FIXED` keyword allows you to group data by explicitly listed dimensions. If
 
 **Example 1**
 
-In a chart grouped by the `Region` and `Category` dimensions, you need to calculate the share of each category in the region from the total sales amount (`% of Total`).
+In a chart grouped by the `Region` and `Category` dimensions, we need to calculate the share of each category in the region from the total sales amount (`% of Total`).
 
 Let's create the `SUM([Sales]) / SUM([Sales] FIXED)` measure, where:
 
 * `SUM([Sales])`: Sales amount per category in the city (calculated with the default grouping in the chart).
 * `SUM([Sales] FIXED)`: Total sales amount (calculated with grouping without dimensions).
 
-For example, for the **Table** chart, the result looks like this:
+For example, for the **Table** chart, the result will be as follows:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-1.png)
 
@@ -52,10 +52,10 @@ For example, for the **Table** chart, the result looks like this:
 
 ### INCLUDE {#include}
 
-The `INCLUDE` keyword allows adding specified dimensions to the chart grouping. As a result, the level of detail is greater when calculating the aggregate function.
-Expressions with `INCLUDE` can be useful if you need to calculate a measure with a high level of detail and display it at a coarser level in the chart. For example, you can calculate the sales amount of sales per day and then average it.
-
 `INCLUDE` with an empty list of dimensions is equivalent to the same grouping as in the chart.
+Expressions with `INCLUDE` can be useful if you need to calculate a measure with a higher level of detail and display it at a less detailed level in the chart. For example, you can calculate the sales amount per day and then average it.
+
+If used with an empty list of dimensions, `INCLUDE` results in the same grouping as in the chart.
 
 **Example 1**
 
@@ -150,7 +150,7 @@ Let's have a look at the chart with calculation of the share of each goods categ
 * % Total by city lod: `SUM([Sales]) / SUM([Sales] FIXED [City])`
 * % Total by city window: `SUM([Sales]) / SUM(SUM([Sales]) WITHIN [City])`
 
-`FIXED` with an empty list of dimensions, in some cases, is similar to using a window function with the [TOTAL](window-function-tutorial.md#one-window-grouping) grouping (which, in turn, is synonymous with `WITHIN` with an empty list).
+In some cases, `FIXED` with an empty list of dimensions gives the same result as a window function with the [TOTAL](window-function-tutorial.md#one-window-grouping) grouping (which, in turn, is synonymous with `WITHIN` with an empty list).
 
 **Example 2**
 
@@ -161,7 +161,7 @@ Let's have a look at the chart with calculation of the share of each goods categ
 
 For `INCLUDE`, there is no equivalent in window functions as you cannot add new dimensions there.
 
-## Constraints {#restrictions}
+## Limitations {#restrictions}
 
 The level of detail in LOD expressions can be used with some limitations:
 
@@ -191,7 +191,7 @@ The level of detail in LOD expressions can be used with some limitations:
 
    {% endlist %}
 
-1. Aggregations that are at the same nesting level can't have different sets of dimensions. At least one of the nested aggregations must contain all the dimensions that are in the other nested aggregations.
+1. Aggregations that are at the same nesting level cannot have different sets of dimensions. At least one of the nested aggregations must contain all the dimensions that are in the other nested aggregations.
 
    **Example**
 
@@ -223,4 +223,4 @@ The level of detail in LOD expressions can be used with some limitations:
 
    {% endlist %}
 
-1. You can't use aggregations with a given level of detail and the [AGO](../function-ref/AGO.md) and [AT_DATE](../function-ref/AT_DATE.md) functions in the same query (in the same chart or in the dataset preview), even if they are in different fields.
+1. You cannot use aggregations with a given level of detail and the [AGO](../function-ref/AGO.md) and [AT_DATE](../function-ref/AT_DATE.md) functions in the same query (in the same chart or in the dataset preview), even if they are in different fields.

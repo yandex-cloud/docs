@@ -107,7 +107,7 @@ keywords:
 
     {% note warning %}
     
-    В списке отображаются функции, которые вы имеете право просматривать. Чтобы прикрепить функцию к навыку, вам необходимо разрешение на запуск функции. Это разрешение входит в роли [{{ roles-functions-ivoker }}](../security/index.md#serverless-functions-invoker), [{{ roles-editor}} ](../security/index.md#functions-editor) и выше.
+    В списке отображаются функции, которые вы имеете право просматривать. Чтобы прикрепить функцию к навыку, вам необходимо разрешение на запуск функции. Это разрешение входит в роли [{{ roles-functions-invoker }}](../security/index.md#serverless-functions-invoker), [{{ roles-editor}} ](../security/index.md#functions-editor) и выше.
     
     {% endnote %}
 1. Нажмите кнопку **Сохранить** внизу страницы и сохраните изменения.

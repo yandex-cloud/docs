@@ -36,7 +36,7 @@ The estimation system used in planning poker usually includes Fibonacci numbers 
 
 1. Open your board and click ![](../../_assets/tracker/edit-agile.png).
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_poker.title }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_poker.title }}** tab.
 
 1. To add a number to the scoring system, enter it in the **Add estimate** field.
 
@@ -50,7 +50,7 @@ You can select how the values assigned by planners will affect the final effort 
 
 1. Open your board and click ![](../../_assets/tracker/edit-agile.png).
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_poker.title }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-agile-admin-tab_type_poker.title }}** tab.
 
 1. In the **{{ ui-key.startrek.ui_components_agile_settings_PokerSettings.aggregation-function-field-label }}** field, choose a calculation function. **{{ ui-key.startrek-backend.messages.boards.poker.aggregate.function.maximum.double }}** is selected by default.
 

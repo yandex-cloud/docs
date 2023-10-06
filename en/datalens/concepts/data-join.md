@@ -43,15 +43,19 @@ In a dataset, you can add an [ad-hoc SQL query](dataset/settings.md#sql-request-
 
 ### At the chart level {#chart-join}
 
+
 {{ datalens-short-name }} enables you to combine data at the chart level. To combine data at the chart level, you can use an [SQL chart](#sql-chart) or [multi-dataset charts](#datasets-chart).
 
 #### QL chart {#sql-chart}
 
 [QL charts](chart/index.md#sql-charts) are charts created from a connection if there is a database at the other end of the connection. Running a SQL query does not create a separate Dataset object. One is generated on the fly and displayed in the preview panel. For more information, see the instructions [{#T}](../operations/chart/create-sql-chart.md).
 
+
+
 #### Multi-dataset charts {#datasets-chart}
 
 [Multi-dataset charts](chart/index.md#multi-dataset-charts) are charts that visualize data from different datasets. Queries for each dataset are processed independently of each other. For more information, see the instructions [{#T}](../operations/chart/create-multidataset-chart.md).
+
 
 ### At the selector link level {#selector-join}
 
@@ -89,10 +93,10 @@ Let's look at examples of query optimization using different datasets for a sour
 | 2 | Petrov | 4 |
 | 3 | Sidorov | 1 |
 | 4 | Stepanov | 1 |
-| 5 | Sokolov |               |
+| 5 | Sokolov |   |
 | 6 | Orlova | 3 |
 | 7 | Shishkina | 3 |
-| 8 | Semyonov |               |
+| 8 | Semyonov |   |
 | 9 | Antonova | 3 |
 | 10 | Sergeev | 4 |
 
@@ -114,9 +118,9 @@ Let's look at examples of query optimization using different datasets for a sour
 | employee_id | bonus |
 |-------------|--------|
 | 1 | 35,000 |
-| 2 | 40000 |
+| 2 | 40,000 |
 | 5 | 28,000 |
-| 7 | 30000 |
+| 7 | 30,000 |
 | 9 | 50,000 |
 
 {% endcut %}

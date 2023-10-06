@@ -18,8 +18,10 @@ The following types of charts are available in {{ datalens-full-name }}:
    - [Combined chart](combined-chart.md)
 
 * **Tables**:
+
    - [Table](table-chart.md)
    - [Pivot table](pivot-table-chart.md)
+
 
 * **Geographical map**:
 
@@ -31,16 +33,16 @@ The following types of charts are available in {{ datalens-full-name }}:
       - [Choropleth map](choropleth-map-chart.md)
       - [Heat map](heat-map-chart.md)
 
+
 * **Other**:
 
    - [Indicator](indicator-chart.md)
 
-
 {% note info %}
 
-[QL charts](../concepts/chart/index.md#sql-charts) don't support:
+[QL charts](../concepts/chart/index.md#sql-charts) do not support:
 
-- Any type of map
-- Pivot tables
+* Any type of map
+* Pivot table
 
 {% endnote %}

@@ -109,7 +109,7 @@
 
         ```bash
         yc resource-manager folder add-access-binding <идентификатор_каталога> \
-          --role admin \
+          --role {{ roles-admin }} \
           --subject serviceAccount:<идентификатор_сервисного_аккаунта>
         ```
 
@@ -133,9 +133,9 @@
           folder_id   = "<идентификатор_каталога>"
         }
 
-        resource "yandex_resourcemanager_folder_iam_member" "admin" {
+        resource "yandex_resourcemanager_folder_iam_member" "{{ roles-admin }}" {
           folder_id = "<идентификатор каталога>"
-          role      = "admin"
+          role      = "{{ roles-admin }}"
           member    = "serviceAccount:${yandex_iam_service_account.sa-for-kratos id}"
         }
         ```
@@ -183,7 +183,7 @@
 
    {% endlist %}
 
-1. Таким же образом создайте сервисный аккаунт `sa-func-authorizer` с ролью `{{ roles-functions-ivoker }}`, от имени которого будет вызываться функция.
+1. Таким же образом создайте сервисный аккаунт `sa-func-authorizer` с ролью `{{ roles-functions-invoker }}`, от имени которого будет вызываться функция.
 
 ## Разверните Identity Server based on Ory Kratos {#deploy-kratos}
 

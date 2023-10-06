@@ -2,7 +2,7 @@
 
 A table is a standard form of data representation with as many details as possible. It stores data as a two-dimensional array that consists of columns and rows. Table column headers show dimension or measure names, while cells contain their values. Each row is a set of cells with each column's value. A table may also contain a row with results.
 
-Tables are a great tool for detailed analysis (a deep dive into figures) and problem detection. At the same time, it takes longer to read information from a table than from a graph or chart. That's why it's a good idea to place it at the end of a dashboard.
+Tables are a great tool for detailed analysis (a deep dive into figures) and problem detection. At the same time, it takes longer to read information from a table than from a graph or chart. That is why you should place it at the end of a dashboard.
 
 A table is a good choice for quantitative comparison, where you can see different values of multiple categories or dimensions. The table below shows three different measures by three categories.
 
@@ -37,7 +37,7 @@ To make it easier to compare different values, you can add conditional formattin
 ----- | ----
 | Columns | Dimensions and measures to be used as columns. Field names are used as column headers. |
 | Colors | Measure. Affects shading of all cells within a row. It may only contain one measure. |
-| Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. |
+| Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/datalens/sort_asc.svg) ascending or ![image](../../_assets/datalens/sort_desc.svg) descending. To change the sorting direction, click the icon. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a table {#create-diagram}
@@ -54,7 +54,7 @@ To create a table:
 
    {% note info %}
 
-   * After dragging a **Tree of strings** dimension to the **Columns** section, you'll see a [tree hierarchy](../concepts/data-types.md#how-to-create-tree) in the visualization area.
+   * After dragging a **Tree of strings** dimension to the **Columns** section, you will see a [tree hierarchy](../concepts/data-types.md#how-to-create-tree) in the visualization area.
    * You can change the order of columns by dragging dimensions in the **Columns** section.
 
    {% endnote %}
@@ -66,9 +66,15 @@ To create a table:
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
 1. In the window that opens, change the **Name** field value and click **Apply**.
 
+### Setting up table data sorting by multiple columns {#sorting-columns}
+
+1. On the left side of the screen above the chart, click ![image](../../_assets/datalens/gear.svg).
+1. Enable the **Pagination** setting and click **Apply**.
+1. Press and hold **Ctrl** while clicking the headers of columns to change the sorting for.
+
 ### Setting up the width of table columns {#set-column-width}
 
-1. In the top-right corner of the **Columns** section, click ![image](../../_assets/datalens/gear.svg) (the icon is displayed when you hover the mouse over the section).
+1. In the top-right corner of the **Columns** section, click ![image](../../_assets/datalens/gear.svg) (the icon is displayed when you hover over the section).
 1. In the **Column width** window that opens, set up the width of each column:
 
    * `Auto`: Automatic column width.
@@ -184,10 +190,10 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
 ## Recommendations {#recomendations}
 
-* Limit the size of a table, or use filters or sorting. It's hard to read tables with a large number of rows or columns.
-* Use tables for their intended purpose only. Don't try to replace all visual data representation forms with them.
-* Place dimensions on the left and measures on the right. This facilitates information perception.
-* Make sure column names you use are short and easy to read.
+* Limit the size of a table, or use filters or sorting. It is hard to read tables with a large number of rows or columns.
+* Use tables for their intended purpose only. Do not replace all data visualization types with them.
+* Place dimensions on the left and measures on the right. This makes it easier to comprehend the data.
+* Make sure column names you use are short and readable.
 * Enable the display of totals at the bottom of a table. If the **Pagination** option is selected, the `Total` row is placed on the last page.
 
   {% cut "Table with totals and pagination" %}

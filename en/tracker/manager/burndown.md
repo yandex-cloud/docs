@@ -14,7 +14,6 @@ To view the chart:
 
 1. Choose a board from the **{{ ui-key.startrek.blocks-desktop_m-head.menu-agile }}** menu in the top panel.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.reports }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-agile-board.reports }}** tab.
 
 1. From the drop-down list, select the sprint whose issues you want to add to the chart.
-

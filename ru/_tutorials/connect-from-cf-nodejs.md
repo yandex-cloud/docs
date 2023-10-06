@@ -93,7 +93,7 @@
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта: `sa-function`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите `editor`.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите `{{ roles-editor }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
  
 - CLI

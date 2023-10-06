@@ -115,6 +115,9 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник ролей
+    href: roles-reference.md
+    hidden: true
   - name: Справочник API
     items:
       - name: Аутентификация в API

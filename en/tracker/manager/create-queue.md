@@ -1,4 +1,4 @@
-# Creating queue
+# How to create a queue
 
 Each issue belongs to a queue. Queues are usually created for issues that belong to the same subject. These can be issues of a project, department, or team.
 
@@ -101,6 +101,7 @@ If none of the preset queue types fit your issues, you can set all parameters fo
 1. Assign the owner for the queue. The owner can change the queue settings.
 
 1. Choose the [queue team](queue-team.md) members. Just start typing the login, username, or department name and select one of the suggested options.
+
    Fill in the list of team members if you want to [configure special access rights for them](queue-access.md) or assign issues to them faster.
 
 1. Configure [notifications about issue changes for a particular queue](subscriptions.md).

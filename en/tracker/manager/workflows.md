@@ -59,11 +59,11 @@ Possible transitions between statuses:
 
 When an issue is **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**, the user is asked to leave a comment and choose a resolution:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
-- **Can't reproduce**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
-- **Later**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**
+- **Can't reproduce**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**
+- **Later**
 
 ## Software development as a service {#sec_outsource_dev}
 
@@ -71,21 +71,21 @@ This queue template is optimized for developing applications for external custo
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**.
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**
 
 Issues can have the following statuses:
 
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.open }}**.
-- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.need.info }}**.
-- **Need estimate**.
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.in.progress }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}**.
-- **Demonstration to customer**.
-- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.release.candidate }}**.
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**.
+- **{{ ui-key.startrek-backend.presets.devPreset.board.column.open }}**
+- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.need.info }}**
+- **Need estimate**
+- **{{ ui-key.startrek-backend.presets.devPreset.board.column.in.progress }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}**
+- **Demonstration to customer**
+- **{{ ui-key.startrek-backend.presets.developmentPreset.board.column.release.candidate }}**
+- **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**
 
 Possible transitions between statuses:
 
@@ -93,36 +93,36 @@ Possible transitions between statuses:
 
 When an issue is **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**, the user is asked to leave a comment and choose a resolution:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
-- **Can't reproduce**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**
+- **Can't reproduce**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**
 
 ## Scrum {#sec_scrum}
 
 This queue template fits the [Scrum]({{ link-wiki-scrum }}) methodology.
 
-A [<q>Scrum</q> issue board](agile.md#sec_boards) is automatically created when you select this template. It lets you plan [sprints](create-agile-sprint.md), [estimate issues](planning-poker.md), and view [burn down charts](burndown.md).
+A [<q>Scrum</q> issue board](agile.md#sec_boards) is automatically created when you select this template. It allows you to plan [sprints](create-agile-sprint.md), [estimate issues](planning-poker.md), and view [burn down charts](burndown.md).
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--epic }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }}**.
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--epic }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }}**
 
 Issues can have the following statuses:
 
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.open }}**.
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.in.progress }}**.
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.need.info }}**.
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.review }}**.
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.ready.for.test }}**.
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.testing }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}**.
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.tested }}**.
-- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.release.candidate }}**.
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**.
+- **{{ ui-key.startrek-backend.presets.devPreset.board.column.open }}**
+- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.in.progress }}**
+- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.need.info }}**
+- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.review }}**
+- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.ready.for.test }}**
+- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.testing }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}**
+- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.tested }}**
+- **{{ ui-key.startrek-backend.presets.scrumDevelopmentPreset.board.column.release.candidate }}**
+- **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**
 
 Possible transitions between statuses:
 
@@ -130,9 +130,9 @@ Possible transitions between statuses:
 
 When an issue is **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**, the user is asked to leave a comment and choose a resolution:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**
 
 ## Kanban {#section_lnl_jrm_qz}
 
@@ -142,23 +142,23 @@ A [<q>Kanban</q> issue board](agile.md#sec_boards) is created when you select th
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--epic }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }}**.
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--epic }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }}**
 
 Issues can have the following statuses:
 
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.open }}**.
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.in.progress }}**.
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.need.info }}**.
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.review }}**.
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.ready.for.test }}**.
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.testing }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}**.
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.tested }}**.
-- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.release.candidate }}**.
-- **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**.
+- **{{ ui-key.startrek-backend.presets.devPreset.board.column.open }}**
+- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.in.progress }}**
+- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.need.info }}**
+- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.review }}**
+- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.ready.for.test }}**
+- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.testing }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.resolved }}**
+- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.tested }}**
+- **{{ ui-key.startrek-backend.presets.kanbanDevelopmentPreset.board.column.release.candidate }}**
+- **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**
 
 Possible transitions between statuses:
 
@@ -166,9 +166,9 @@ Possible transitions between statuses:
 
 When an issue is **{{ ui-key.startrek-backend.presets.devPreset.board.column.closed }}**, the user is asked to leave a comment and choose a resolution:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**
 
 
 ## Services {#section_service}
@@ -177,19 +177,19 @@ This queue template is good for the organizations that provide services to compa
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**.
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**
 
 Issues can have the following statuses:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**.
-- **Awaiting confirmation**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**.
-- **Awaiting approval**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.on.hold }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**
+- **Awaiting confirmation**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**
+- **Awaiting approval**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.on.hold }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**
 
 Possible transitions between statuses:
 
@@ -197,9 +197,9 @@ Possible transitions between statuses:
 
 When an issue is **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**, the user is asked to leave a comment and choose a resolution:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**
 
 ## Production {#section_production}
 
@@ -207,17 +207,17 @@ This queue template is good for the companies and departments that produce tangi
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**.
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**
 
 Issues can have the following statuses:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**.
-- **Awaiting confirmation**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**.
-- **Awaiting approval**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**
+- **Awaiting confirmation**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**
+- **Awaiting approval**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**
 
 Possible transitions between statuses:
 
@@ -225,9 +225,9 @@ Possible transitions between statuses:
 
 When an issue is **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**, the user is asked to leave a comment and choose a resolution:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**
 
 ## Marketing and advertising {#section_marketing}
 
@@ -237,16 +237,16 @@ A [simple issue board](agile.md#sec_boards) is created when you select this temp
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**.
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**
 
 Issues can have the following statuses:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.status.open }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.status.open }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**
 
 Possible transitions between statuses:
 
@@ -254,9 +254,9 @@ Possible transitions between statuses:
 
 When an issue is **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**, the user is asked to leave a comment and choose a resolution:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**
 
 ## Document flow {#section_docflow}
 
@@ -266,13 +266,13 @@ The workflow includes one issue type: **{{ ui-key.startrek.blocks-desktop_queue-
 
 Issues can have the following statuses:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**.
-- **Awaiting confirmation**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**.
-- **Documents ready**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.on.hold }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**
+- **Awaiting confirmation**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**
+- **Documents ready**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.on.hold }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**
 
 Possible transitions between statuses:
 
@@ -280,9 +280,9 @@ Possible transitions between statuses:
 
 When an issue is **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**, the user is asked to leave a comment and choose a resolution:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**
 
 ## HR processes {#section_hr}
 
@@ -290,21 +290,21 @@ This queue template is designed for the HR department issues.
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--absence }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--mission }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--changes }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--documents }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--request }}**.
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--absence }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--mission }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--changes }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--documents }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--request }}**
 
 Issues can have the following statuses:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**.
-- **Awaiting confirmation**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**.
-- **Documents ready**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.on.hold }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**
+- **Awaiting confirmation**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**
+- **Documents ready**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.on.hold }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**
 
 Possible transitions between statuses:
 
@@ -312,9 +312,9 @@ Possible transitions between statuses:
 
 When an issue is **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**, the user is asked to leave a comment and choose a resolution:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**
 
 ## Staffing and recruitment {#section_hire}
 
@@ -322,17 +322,17 @@ This queue template is designed for the recruitment process.
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--vacancy }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--candidate }}**.
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--vacancy }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--candidate }}**
 
 Issues can have the following statuses:
-- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**.
-- **Awaiting confirmation**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**.
-- **Awaiting approval**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.on.hold }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.status.new }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.need.info }}**
+- **Awaiting confirmation**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.in.progress }}**
+- **Awaiting approval**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.on.hold }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**
 
 Possible transitions between statuses:
 
@@ -340,9 +340,9 @@ Possible transitions between statuses:
 
 When an issue is **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**, the user is asked to leave a comment and choose a resolution:
 
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.resolved }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.rejected }}**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**
 
 ## Goal management {#section_goals}
 
@@ -350,17 +350,17 @@ This queue template is designed for setting the corporate or departmental goals 
 
 The workflow includes issue types:
 
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**.
-- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**.
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--task }}**
+- **{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--project }}**
 
 Issues can have the following statuses:
 
-- **{{ ui-key.startrek.lib_goals-info.status--NEW }}**.
-- **{{ ui-key.startrek.lib_goals-info.status--PLANNED }}**.
-- **{{ ui-key.startrek.lib_goals-info.status--RISK }}**.
-- **{{ ui-key.startrek.lib_goals-info.status--CANCELLED }}**.
-- **{{ ui-key.startrek.lib_goals-info.status--REACHED }}**.
-- **{{ ui-key.startrek.lib_goals-info.status--BLOCKED }}**.
+- **{{ ui-key.startrek.lib_goals-info.status--NEW }}**
+- **{{ ui-key.startrek.lib_goals-info.status--PLANNED }}**
+- **{{ ui-key.startrek.lib_goals-info.status--RISK }}**
+- **{{ ui-key.startrek.lib_goals-info.status--CANCELLED }}**
+- **{{ ui-key.startrek.lib_goals-info.status--REACHED }}**
+- **{{ ui-key.startrek.lib_goals-info.status--BLOCKED }}**
 
 Possible transitions between statuses:
 
@@ -368,8 +368,8 @@ Possible transitions between statuses:
 
 When an issue is **{{ ui-key.startrek-backend.applinks.samsara.status.closed }}**, the user is asked to leave a comment and choose a resolution:
 
-- **Success**.
-- **Goal exceeded**.
-- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**.
-- **Later**.
-- **Won't resolve**.
+- **Success**
+- **Goal exceeded**
+- **{{ ui-key.startrek-backend.applinks.samsara.resolution.duplicate }}**
+- **Later**
+- **Won't resolve**

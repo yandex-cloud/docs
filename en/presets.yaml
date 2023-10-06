@@ -6555,7 +6555,9 @@ default:
             switch_auto: Auto
         node-groups:
           create:
+            field_driverless-gpu: Do not install GPU drivers
             field_key: SSH key
+            section_gpu-settings: GPU settings
       kafka:
         button_add-topic: Add topic
         button_create-connector: Create connector

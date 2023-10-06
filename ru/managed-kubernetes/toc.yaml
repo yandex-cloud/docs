@@ -178,6 +178,8 @@ items:
         href: tutorials/gitlab-containers.md
       - name: Изменение параметров сервера метрик (Metrics Server)
         href: tutorials/metrics-server.md
+      - name: Использование групп узлов c GPU без предустановленных драйверов
+        href: tutorials/driverless-gpu.md
       - name: >-
           Построение пайплайна CI/CD в {{ GL }} с использованием
           serverless-продуктов

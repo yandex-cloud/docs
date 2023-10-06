@@ -8,7 +8,7 @@
 
 1. [Скачайте](https://{{ s3-storage-host }}/doc-files/slackbot.zip) архив с файлами, необходимыми для создания бота.
 1. Если у вас еще нет каталога, [создайте](../../resource-manager/operations/folder/create.md) его.
-1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../../iam/operations/roles/grant.md#access-to-sa) ему роль `editor` на ваш каталог.
+1. [Создайте](../../iam/operations/sa/create.md#create-sa) сервисный аккаунт и [назначьте](../../iam/operations/roles/grant.md#access-to-sa) ему роль `{{ roles-editor }}` на ваш каталог.
 
 ## Создайте приложение и подключите его к {{ yandex-cloud }} {#app}
 
