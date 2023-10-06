@@ -1,0 +1,1 @@
+The `api-gateway.websocketWriter` role allows you to work with the Websocket API.

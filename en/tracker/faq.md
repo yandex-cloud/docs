@@ -81,7 +81,7 @@ An issue can only have one assignee at a time. There are several ways to organiz
 
 For more information about issues, see [Working with issues](user/ticket-in-progress.md).
 
-## I don't have access to an issue {#section_xgr_zng_4bb}
+## I do not have access to an issue {#section_xgr_zng_4bb}
 
 Access permissions for issues are determined by the [queue settings](manager/queue-access.md).
 
@@ -135,7 +135,7 @@ If you add keywords to issue names to use them for grouping issues in widgets, w
 
    1. Create similar automatic actions for every possible keyword.
 
-1. If you use an external source to create an issue (for example, [{{ forms-full-name }}](../forms/create-task.md)) when setting up [integration](manager/forms-integration.md), save the widget data to a new field.
+1. If you use an external source to create an issue (for example, [{{ forms-full-name }}](../forms/create-task.md)), when setting up [integration](manager/forms-integration.md), save the widget data to a new field.
 
 1. [Edit](user/edit-dashboard.md#section_xz4_bk4_mz) the old widget: use the new field instead of the **{{ ui-key.startrek.ui_components_dashboard.summary-field-name }}** field in the settings.
 

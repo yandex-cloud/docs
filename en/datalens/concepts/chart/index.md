@@ -21,7 +21,6 @@ For more information about charts, see the following sections:
   * [{#T}](../../operations/chart/create-chart.md)
   * [{#T}](../../operations/chart/create-sql-chart.md)
   * [{#T}](../../operations/chart/create-multidataset-chart.md)
-  * [{#T}](../../operations/chart/create-sql-chart.md)
   * [{#T}](../../operations/chart/add-hierarchy.md)
   * [{#T}](../../operations/chart/config-chart-navigator.md)
   * [{#T}](../../operations/chart/chart-null-settings.md)

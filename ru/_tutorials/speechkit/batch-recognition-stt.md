@@ -11,7 +11,7 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с именем `asr-batch-sa`.
-1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли `storage.editor`, `functions.functionInvoker` и `{{ roles-speechkit-stt }}` на каталог, в котором аккаунт был создан.
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли `storage.editor`, `{{ roles-functions-invoker }}` и `{{ roles-speechkit-stt }}` на каталог, в котором аккаунт был создан.
 1. [Создайте](../../iam/operations/sa/create-access-key.md) статический ключ доступа для сервисного аккаунта.
 1. [Создайте](../../iam/operations/api-key/create.md) API-ключ доступа для сервисного аккаунта.
 1. [Создайте](../../storage/operations/buckets/create.md) бакет {{ objstorage-name }} с именем `asr-batch-bucket` в каталоге сервисного аккаунта.

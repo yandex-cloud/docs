@@ -39,6 +39,9 @@ links:
   - title: Cloud Logging
     description: Логи сервисов и пользовательских приложений
     href: logging/
+  - title: Cloud Video
+    description: Видеохостинг и проведение онлайн-трансляций
+    href: video/
   - title: Compute Cloud
     description: Виртуальные машины и диски
     href: compute/

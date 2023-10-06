@@ -1,0 +1,1 @@
+The `alb.editor` role lets you view, create, update, and delete resource model objects.

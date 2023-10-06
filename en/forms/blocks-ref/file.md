@@ -2,7 +2,7 @@
 
 Using this block, the user can attach a file, e.g., a photo or an error report, to a form.
 
-You can attach a maximum of 20 files, up to 20 MB each. This limit applies if you have not enabled saving attached files from responses to storage, i.e., files are saved in {{ forms-name }}. If you enabled storage, no limits are imposed.
+If [saving attached files from responses to storage](../storage-for-attached-files.md) is enabled, users can attach any number of files of up to 20 MB each to their response. If storage is not enabled and files are saved to {{ forms-name }}, users can upload up to 20 files with the maximum total size of 20 MB.
 
 {% note warning %}
 
@@ -24,4 +24,4 @@ Enter the block title.
 
 ### Allow multiple attachments {#alow-multi}
 
-This option is always on by default. The user can attach up to 20 files to the form. To only allow one file to be attached, turn off this option.
+This option is enabled by default. A user can attach up to 20 files to the form. To allow only one file to be attached, disable this option.

@@ -133,7 +133,7 @@
 
     {% endlist %}
 
-1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `admin` на облако: 
+1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `{{ roles-admin }}` на облако: 
 
     {% list tabs %}
 
@@ -143,7 +143,7 @@
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Найдите аккаунт `sa-live-debug` в списке и нажмите значок ![image](../../_assets/options.svg).
       1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите роль `admin`.
+      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите роль `{{ roles-admin }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
     - CLI
@@ -152,7 +152,7 @@
 
       ```
       yc resource-manager cloud add-access-binding <идентификатор_облака> \
-         --role admin \
+         --role {{ roles-admin }} \
          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
@@ -170,9 +170,9 @@
       1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
           ```
-          resource "yandex_resourcemanager_cloud_iam_member" "admin" {
+          resource "yandex_resourcemanager_cloud_iam_member" "{{ roles-admin }}" {
             cloud_id = "<идентификатор_облака>"
-            role     = "admin"
+            role     = "{{ roles-admin }}"
             member   = "serviceAccount:<идентификатор_сервисного_аккаунта>"
           }
           ```

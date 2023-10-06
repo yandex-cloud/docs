@@ -38,7 +38,7 @@
 
      {% include [name-format](../_includes/name-format.md) %}
 
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите `editor`.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите `{{ roles-editor }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}

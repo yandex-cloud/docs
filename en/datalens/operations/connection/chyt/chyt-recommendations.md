@@ -1,4 +1,6 @@
-# Recommendations for creating a {{ CH }} connection over {{ yt-name }}
+
+# Recommendations for creating a CHYT connection
+
 
 ## Distributing datasets across connections {#separation-by-connections}
 

@@ -1,0 +1,1 @@
+Роль `api-gateway.websocketWriter` позволяет работать с API Websocket.

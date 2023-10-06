@@ -1,0 +1,1 @@
+The `audit-trails.viewer` role gives you access to audit logs of the trails. Includes all access rights of the `audit-trails.auditor` role.

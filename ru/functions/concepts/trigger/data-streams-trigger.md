@@ -8,9 +8,9 @@
 
 ## Роли, необходимые для корректной работы триггера для {{ yds-name }} {#roles}
 
-* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user), [editor](../../../iam/concepts/access-control/roles#editor) и выше.
+* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user), [{{ roles-editor }}](../../../iam/concepts/access-control/roles#editor) и выше.
 * Для работы триггера сервисным аккаунтам необходимы роли:
-    * `serverless.functions.invoker` на функцию, которую вызывает триггер;
+    * `{{ roles-functions-invoker }}` на функцию, которую вызывает триггер;
     * `yds.admin` на поток, при отправке данных в который вызывается триггер.
 
 ## Формат сообщения от триггера для {{ yds-name }} {#format}

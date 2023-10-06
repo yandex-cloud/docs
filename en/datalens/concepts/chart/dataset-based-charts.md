@@ -1,6 +1,9 @@
 # Wizard charts
 
+
 Charts are created in a wizard based on data from one or more datasets (see [{#T}](./multidataset-chart.md)).
+
+
 You can create an unlimited number of charts based on a single dataset.
 
 The workspace in the wizard interface is divided into three main panels:

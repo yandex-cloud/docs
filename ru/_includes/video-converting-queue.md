@@ -38,11 +38,11 @@
 
    * `ymq.reader`;
    * `ymq.writer`;
-   * `lockbox.payloadViewer`;
+   * `{{ roles-lockbox-payloadviewer }}`;
    * `storage.viewer`;
    * `storage.uploader`;
    * `ydb.admin`;
-   * `serverless.functions.invoker`.
+   * `{{ roles-functions-invoker }}`.
 
 1. [Создайте статический ключ](../iam/operations/sa/create-access-key.md) для сервисного аккаунта. Сохраните **Идентификатор ключа** и **Ваш секретный ключ**.
 1. [Создайте секрет](../lockbox/quickstart.md) с именем `ffmpeg-sa-secret` в {{ lockbox-name }}. В блоке **{{ ui-key.yacloud.lockbox.forms.section_version }}** задайте:

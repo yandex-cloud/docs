@@ -8,7 +8,6 @@ description: "In this tutorial, you will learn how to connect to {{ PG }} in {{ 
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note-ip.md) %}
 
-
 To create a {{ PG }} connection:
 
 
@@ -16,23 +15,18 @@ To create a {{ PG }} connection:
 
 
 
-
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 
 1. Click **Create connection**.
-
-
-
-1. Select **PostgreSQL** as the connection type.
-
+1. Select a **{{ PG }}** connection.
 
 
 1. Select the connection type:
 
    {% list tabs %}
 
-   - Select in Yandex Cloud
+   - Select in a folder
 
       Specify the connection parameters for the {{ PG }} DB available in {{ yandex-cloud }}:
 
@@ -42,18 +36,18 @@ To create a {{ PG }} connection:
 
          The {{ PG }} clusters are shown in the list of clusters:
 
-         - With the permissions for the user that creates the connection.
-         - Created in the same folder with the {{ datalens-short-name }} instance.
+         * With the permissions for the user that creates the connection.
+         * Created in the same folder with the {{ datalens-short-name }} instance.
 
          {% endnote %}
 
-      - **Hostname**: Select the host name from the list of hosts available in the {{ PG }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-      - **Port**: Specify the {{ PG }} connection port. In {{ yandex-cloud }}, the default port is 6432.
-      - **Path to database**: Specify the name of the database to connect to.
-      - **Username**: Specify the username for the {{ PG }} connection.
-      - **Password**: Enter the password for the user.
-      - **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
-      - **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+      * **Hostname**: Select the host name from the list of hosts available in the {{ PG }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+      * **Port**: Specify the {{ PG }} connection port. In {{ yandex-cloud }}, the default port is 6432.
+      * **Path to database**: Specify the name of the database to connect to.
+      * **Username**: Specify the username for the {{ PG }} connection.
+      * **Password**: Enter the password for the user.
+      * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+      * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    - Specify manually
 
@@ -64,11 +58,12 @@ To create a {{ PG }} connection:
    {% endlist %}
 
 
-
-
-1. Click **Save**. The connection will appear in the list.
+1. Click **Create connection**.
+1. Enter a name for the connection and click **Create**.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
+
+
 
 ## Additional settings {#postgresql-additional-settings}
 
@@ -83,4 +78,3 @@ You can specify additional connection settings in the **Advanced connection sett
 * **TLS**: Indicates that TLS should be used. If the option is enabled, the `sslmode` parameter value is `required`; if disabled, the parameter value is `prefer`.
 * **CA Certificate**: To upload a certificate , click **Attach file** and specify the certificate file. When the certificate is uploaded, the field shows the file name.
 * {% include [datalens-db-connection-export-settings-item](../../../_includes/datalens/operations/datalens-db-connection-export-settings-item.md) %}
-

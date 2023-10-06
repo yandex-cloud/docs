@@ -47,7 +47,7 @@
  
      * `compute.admin` — для управления группой ВМ.
      * `iam.serviceAccounts.user` — для привязки сервисного аккаунта к ВМ, входящим в группу.
-     * `{{ roles-functions-ivoker }}` — для запуска функции {{ sf-name }}.
+     * `{{ roles-functions-invoker }}` — для запуска функции {{ sf-name }}.
    
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 

@@ -10,8 +10,8 @@
 
 ## Роли, необходимые для корректной работы триггера для почты {#roles}
 
-* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user), [editor](../../../iam/concepts/access-control/roles#editor) и выше.
-* Для работы триггера сервисному аккаунту необходима роль `serverless.functions.invoker` на функцию, которую вызывает триггер.
+* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user), [{{ roles-editor }}](../../../iam/concepts/access-control/roles#editor) и выше.
+* Для работы триггера сервисному аккаунту необходима роль `{{ roles-functions-invoker }}` на функцию, которую вызывает триггер.
 * {% include [attachments-requirements](../../../_includes/functions/attachments-requirements.md) %}
 
 ## Формат сообщения от триггера для почты {#format}

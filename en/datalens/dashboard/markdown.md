@@ -1,25 +1,24 @@
 # Markdown
 
 {{ datalens-short-name }} allows you to use the Markdown markup language in the [{#T}](./widget.md#text) widget on the dashboard.
-
 You can insert explanatory text, links, tables, images, or use formatting to highlight key points.
 
 In text widgets, you can use the following elements:
 
-- [Headers](#headings)
-- [Bold and italics](#emphasizing)
-- [Lists](#lists)
-   - [Simple unordered list](#unordered-list)
-   - [Nested unordered list](#unordered-sublist)
-   - [Simple ordered list](#ordered-list)
-   - [Nested ordered list](#ordered-sublist)
-- [Tables](#tables)
-- [Links](#links)
-- [Code formatting](#code)
-   - [Inline code snippet](#inline-code)
-   - [Code block](#codeblock)
-- [Image](#image)
-- [Cuts](#cuts)
+* [Headers](#headings)
+* [Bold and italics](#emphasizing)
+* [Lists](#lists)
+   * [Simple unordered list](#unordered-list)
+   * [Nested unordered list](#unordered-sublist)
+   * [Simple ordered list](#ordered-list)
+   * [Nested ordered list](#ordered-sublist)
+* [Tables](#tables)
+* [Links](#links)
+* [Code formatting](#code)
+   * [Inline code snippet](#inline-code)
+   * [Code block](#codeblock)
+* [Image](#image)
+* [Cuts](#cuts)
 
 ## Headers {#headings}
 
@@ -34,7 +33,6 @@ Syntax example:
 ### Level 3 heading
 #### Level 4 heading
 ```
-
 
 ## Highlighting text {#emphasizing}
 
@@ -96,10 +94,10 @@ For example, the following markup:
 
 will be displayed as:
 
-- Item 1
-   - Item A
-   - Item B
-- Item 2
+* Item 1
+   * Item A
+   * Item B
+* Item 2
 
 ### Simple ordered list {#ordered-list}
 
@@ -165,6 +163,7 @@ will be displayed as:
 | Text | Text | Text |
 
 To add a line break or a more complex element (such as a list or code block) to a table cell, use an alternative markup:
+
 ```
 #|
 || **Header1** | **Header2** ||
@@ -173,6 +172,7 @@ To add a line break or a more complex element (such as a list or code block) to 
 ```
 
 Sample markup with line breaks and a list:
+
 ```
 #|
 ||Text
@@ -184,8 +184,8 @@ on two lines
 - Item 4||
 |#
 ```
-See more in the [YFM documentation](https://ydocs.tech/ru/syntax/tables/multiline).
 
+See more in the [YFM documentation](https://ydocs.tech/ru/syntax/tables/multiline).
 
 ## Links {#links}
 
@@ -193,8 +193,9 @@ You can use links to enter information related to the dashboard or charts.
 For example, you can add links to other dashboards and specify data sources.
 
 A link consists of two parts:
-* `[text]` is the link text.
-* `(link)` is the URL or path to the file referenced.
+
+* `[text]`: Link text
+* `(link)`: URL or path to the referenced file
 
 For example, the following markup:
 
@@ -231,12 +232,12 @@ will be displayed as:
 
 A sentence with a `code snippet`.
 
-
 ### Code block {#codeblock}
 
 Use triple <code>`</code> and the programming language name to format your snippet as a code block.
 
 For example, the following markup:
+
 ```markdown
     ```kotlin
     val a: Int = 1
@@ -249,32 +250,40 @@ will be displayed as a highlighted Kotlin code snippet:
 val a: Int = 1
 ```
 
+
 ## Image {#image}
-To insert an image in the widget, use [{{ objstorage-full-name }}](../../storage/quickstart.md). You can use it for free for up to 1 GB of standard storage per month.
 
-{% note info %}
 
-* You cannot upload images from external storage.
-* The only supported [object link](../../storage/concepts/object.md#object-url) format is `https://{{ s3-storage-host }}/<bucket>/<key>`.
+You can add images from the `*.yandex.ru`, `*.yandex.net`, `yastat.net`, `yastatic.net`, or `storage.yandexcloud.net` domains. The easiest way is to upload and post an image in [{{ objstorage-full-name }}](../../storage/quickstart.md). The service is free of charge for up to 1 GB of standard storage per month.
 
-{% endnote %}
 
-To upload an image to the widget:
-1. Open the [management console]({{ link-console-main }}) and select **{{ objstorage-short-name }}** in the left-hand menu.
+To upload an image from **{{ objstorage-short-name }}** to a widget:
+
+1. Open the [management console]({{ link-console-main }}).
+1. In the top-left corner, click ![image](../../_assets/main-menu.svg) and select **{{ objstorage-short-name }}**.
 1. [Create a bucket](../../storage/operations/buckets/create.md) with public access.
 1. [Upload the image](../../storage/operations/objects/upload.md) to the bucket.
 1. Go to the object you got and click **Get link**.
 
 1. Copy the link to the image.
+
+   {% note info %}
+
+   The only supported [object link](../../storage/concepts/object.md#object-url) format is `https://{{ s3-storage-host }}/<bucket>/<key>`.
+
+   {% endnote %}
+
 1. Go to your {{ datalens-name }} dashboard and create a widget named **Text**.
 1. Paste the following code in the widget:
+
    ```markdown
    ![alt text](https://image_link "Text of a hint displayed when hovering over the image" =100x200)
    ```
 
+
 ## Cuts {#cuts}
 
-Use cuts to hide content. For example, additional information or long blocks of code.
+Use cuts to hide content, e.g., additional information or long blocks of code.
 
 For example, the following markup:
 

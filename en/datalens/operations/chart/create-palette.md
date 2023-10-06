@@ -10,8 +10,8 @@ To create a palette, the user needs the [admin](../../security/roles.md#datalens
 
 To create a color palette:
 
-1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
-1. On the left-hand panel, click ![image.](../../../_assets/datalens/service-settings.svg)
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![image](../../../_assets/datalens/service-settings.svg) **Service settings**.
 1. Under **Palettes**, add a new palette:
 
    {% list tabs %}
@@ -58,8 +58,8 @@ To create a color palette:
 
 To change a color palette:
 
-1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
-1. On the left-hand panel, click ![image.](../../../_assets/datalens/service-settings.svg)
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![image](../../../_assets/datalens/service-settings.svg) **Service settings**.
 1. Go to **Palettes** and click the line with the palette to change.
 1. Make changes in the **Configure color palettes** window.
 1. Click **Save**.
@@ -74,8 +74,8 @@ Deleting a color palette resets the [color settings](../../concepts/chart/settin
 
 To delete a color palette:
 
-1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
-1. On the left-hand panel, click ![image.](../../../_assets/datalens/service-settings.svg)
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![image](../../../_assets/datalens/service-settings.svg) **Service settings**.
 1. Go to **Palettes** and hover over the name of the palette to delete.
 1. Click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) on the right and select **Delete**.
 1. Click **Delete**.

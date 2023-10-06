@@ -81,6 +81,7 @@ default:
   yagpt-full-name: YandexGPT
   billing-name: Yandex Cloud Billing
   console-full-name: Yandex Cloud Console
+  video-full-name: Yandex Cloud Video
   postbox-full-name: Yandex Cloud Postbox
   cloud-beaver:
     name: Cloud Beaver
@@ -168,6 +169,7 @@ default:
   search-api-name: Search API
   yagpt-name: YandexGPT
   console-name: Cloud Console
+  video-name: Cloud Video
   postbox-name: Cloud Postbox
   websql-name: WebSQL
   websql-link: http://webbsql.cloud.ru/
@@ -228,6 +230,7 @@ default:
   backup-short-name: Cloud Backup
   datalens-public: DataLens Public
   search-api: Search API
+  video-short-name: Cloud Video
   speechkit-slug: speechkit
   ocr-max-filesize: 20 МБ
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
@@ -267,13 +270,22 @@ default:
   roles-datalens-workbooks-editor: datalens.workbooks.editor
   roles-datalens-workbooks-limitedViewer: datalens.workbooks.limitedViewer
   roles-datalens-workbooks-viewer: datalens.workbooks.viewer
-  roles-functions-ivoker: functions.functionInvoker
+  roles-functions-admin: functions.admin
+  roles-functions-auditor: functions.auditor
+  roles-functions-editor: functions.editor
+  roles-functions-invoker: functions.functionInvoker
+  roles-functions-mdbProxiesUser: functions.mdbProxiesUser
+  roles-functions-viewer: functions.viewer
   roles-image-user: compute.images.user
   roles-marketplace-trials-editor: marketplace.trials.editor
   roles-marketplace-trials-viewer: marketplace.trials.viewer
   roles-monitoring-viewer: monitoring.viewer
   roles-monitoring-editor: monitoring.editor
   roles-monitoring-admin: monitoring.admin
+  roles-resource-manager-admin: resource-manager.admin
+  roles-resource-manager-auditor: resource-manager.auditor
+  roles-resource-manager-editor: resource-manager.editor
+  roles-resource-manager-viewer: resource-manager.viewer
   roles-vpc-viewer: vpc.viewer
   roles-vpc-user: vpc.user
   roles-vpc-private-admin: vpc.privateAdmin
@@ -695,6 +707,7 @@ default:
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.ru
   link-support-mail: cloud@support.yandex.ru
+  link-video-main: https://video.cloud.yandex.ru/
   link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-yandex: https://yandex.ru
   link-cloud-desktop-showcase: https://console.cloud.yandex.ru/showcase/cloud-desktop
@@ -6574,7 +6587,9 @@ default:
             switch_auto: Автоматически
         node-groups:
           create:
+            field_driverless-gpu: Не устанавливать драйверы GPU
             field_key: SSH-ключ
+            section_gpu-settings: Настройки GPU
       kafka:
         button_add-topic: Добавить топик
         button_create-connector: Создать коннектор

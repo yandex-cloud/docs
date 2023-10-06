@@ -1,3 +1,3 @@
 #### functions.functionInvoker {#functions-invoker}
 
-Роль `{{ roles-functions-ivoker }}` позволяет вызывать функцию.
+Роль `{{ roles-functions-invoker }}` позволяет вызывать функцию.

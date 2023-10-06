@@ -66,7 +66,7 @@ When vulnerabilities are detected in the components of the production environmen
 
 ## Internal and external audits, penetration tests {#audits}
 
-Yandex regularly conducts internal and external audits and penetration tests to check the efficiency of the existing processes for ensuring information security and improves them.
+{{ yandex-cloud }} regularly conducts internal and external audits and penetration tests to check the efficiency of the existing processes for ensuring information security and improves them.
 
 * The ISMS is subject to regular internal audits based on ISO 19011 recommendations.
 * As part of the internal audits, we check asset management, physical security, change management, IS incident management, monitoring, and other processes and groups of IS controls.

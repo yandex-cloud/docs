@@ -79,7 +79,7 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 
 ## Create a dashboard {#create-dashboard}
 
-1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) homepage.
+1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
 1. Click **Create dashboard**.
 1. Enter a name for the dashboard and click **Create**.
 
@@ -115,5 +115,4 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 
 * Review the [tutorials](tutorials/index.md) for examples of using the service.
 * Read about [service concepts](./concepts/index.md).
-* See [step-by-step instructions](operations/index.md).
 * View an [example of a ready-to-use dashboard](https://datalens.yandex/9fms9uae7ip02).

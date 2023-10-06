@@ -1,6 +1,6 @@
 # Pivot table ![](../../_assets/datalens/pivot-table.svg)
 
-A table is a standard form of data representation with as many details as possible. Tables are most suitable for detailed analysis (a deep dive into figures) and problem detection. It's best to place tables at the end of a dashboard. Graphical representations are simpler for reading information, while tables take you deeper into the data and require more time to read.
+A table is a standard form of data representation with as many details as possible. Tables are most suitable for detailed analysis (a deep dive into figures) and problem detection. It is best to place tables at the end of a dashboard. Graphical representations are simpler for reading information, while tables take you deeper into the data and require more time to read.
 
 Unlike a flat [table](table-chart.md), categories in a pivot table can be stored both in columns and rows. They may contain multiple categories, while cells at their intersection contain measure values.
 
@@ -43,11 +43,11 @@ Pivot tables make it easier to work with large amounts of data and let you analy
 
 | Section<br/> in the wizard | Description |
 ----- | ----
-| Columns | Dimensions. |
-| Stings | Dimensions. |
+| Columns | Dimensions |
+| Stings | Dimensions |
 | Measures | Measures. If you add more than one measure to a section, the **Columns** section contains the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. [Measure Names](../concepts/chart/measure-values.md) can be moved to **Rows**. |
 | Colors | Measure. Affects shading of all cells containing indicators. It may only contain one measure. |
-| Sorting | Dimensions and measures specified in the **Columns** and **Rows** sections.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. Sorting by measure only impacts a request to the source and does not affect the pivot table. |
+| Sorting | Dimensions and measures specified in the **Columns** and **Rows** sections.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/datalens/sort_asc.svg) ascending or ![image](../../_assets/datalens/sort_desc.svg) descending. To change the sorting direction, click the icon. Sorting by measure only impacts a request to the source and does not affect the pivot table. |
 | Filters | Dimension or measure. Used as a filter. |
 
 ## Creating a pivot table {#create-diagram}

@@ -1,6 +1,9 @@
+
 #### Quotas {#datalens-quotas}
 
 There are no quotas for {{ datalens-short-name }}.
+
+
 
 #### General limits {#datalens-common-limits}
 
@@ -12,11 +15,11 @@ There are no quotas for {{ datalens-short-name }}.
 
 
 | Type of limit | Value |
------ | -----
-| Number of DataLens instances per organization or cloud | 1 |
+| ----- | ----- |
+| Number of instances {{ datalens-short-name }} per organization or cloud | 1 |
 | Maximum CSV file size | 200 MB |
 | Maximum number of tables in a single dataset | 32 |
-| Maximum number of fields in a single dataset | 1200 |
+| Maximum number of fields in a single dataset | 1,200 |
 
 
 #### Chart data limits {#datalens-chart-data-limits}
@@ -37,7 +40,7 @@ Charts in {{ datalens-short-name }} can only display a limited amount of data. I
 | Table | 100,000 rows |
 | Pivot table | 100,000 cells |
 | Pivot table | 800 columns |
-| **Geomaps** |
+| **Geomaps** | |
 | Point map | 40,000 rows |
 | Point map with clusters | 40,000 points |
 | Choropleth map | 40,000 rows |

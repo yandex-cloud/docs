@@ -7,7 +7,7 @@ There are two types of roles in {{ datalens-short-name }}:
 
 ## Roles required to access the service {#service-roles}
 
-To grant a user access to {{ datalens-short-name }}, assign them a role.
+To grant a user access to {{ datalens-short-name }}, assign them a role. Roles can be assigned to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md).
 
 
 {% list tabs %}
@@ -66,7 +66,7 @@ You can assign a user roles for collections.
 
 #### Limited viewer {#collections-limitedViewer}
 
-The `Limited viewer` role allows you to view collections and their workbooks without editing them. Within workbooks, you can only view [charts](../concepts/chart/index.md) and [dashboards](../concepts/dashboard.md).
+The `Limited viewer` role allows you to view collections and their workbooks without editing them. Within workbooks, users can only view [charts](../concepts/chart/index.md) and [dashboards](../concepts/dashboard.md).
 
 #### Viewer {#collections-viewer}
 
