@@ -15,7 +15,17 @@
    1. Настройте почтовый ящик для получения писем:
 
       1. В разделе **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-settings-title }}**, в поле **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-address }}**, укажите почтовый адрес, который вы завели на шаге 1, вместе с доменом, например, `{{ example-account }}`. Поле **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-login }}** заполнится автоматически.
-      1. В поле **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-password }}** укажите пароль для почтового адреса. Если выбранный почтовый сервер позволяет контролировать доступ к почтовому ящику с помощью пароля приложения, укажите в этом поле пароль приложения для почтовых клиентов. [Узнать больше о паролях приложений в документации Яндекс ID]({{ link-yandex }}/support/id/authorization/app-passwords.html). 
+      1. В поле **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-password }}** укажите пароль для почтового адреса. Если выбранный почтовый сервер позволяет контролировать доступ к почтовому ящику с помощью пароля приложения, укажите в этом поле пароль приложения для почтовых клиентов. 
+      
+         {% note info "Если в процессе настройки возникла ошибка 422" %} 
+
+            Проверьте активирована ли поддержка POP3 или IMAP для вашего ящика в сервисе Яндекс Почта: <https://mail.yandex.ru//#setup/client>. 
+            Отметьте протокол, которым вы планируете пользоваться, и сохраните изменения.
+   
+         {% endnote %}
+
+         [Узнать больше о паролях приложений в документации Яндекс ID]({{ link-yandex }}/support/id/authorization/app-passwords.html). 
+                 
       1. Укажите **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-imap }}** и **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-port }}** почтового сервера — это необходимо для сбора писем. Узнать эти данные можно в параметрах учетной записи почты.
       1. Чтобы включить шифрование с помощью протокола SSL, активируйте опцию **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-ssl }}**.
       1. Если требуется обрабатывать письма не только от сотрудников организации, но и от внешних пользователей, активируйте настройку **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-allow-external }}**.

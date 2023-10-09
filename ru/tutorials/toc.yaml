@@ -389,6 +389,10 @@ items:
         href: dataplatform/mmy-ydb-migration.md
       - name: Захват изменений {{ MY }} и поставка в {{ DS }}
         href: dataplatform/mmy-to-yds.md
+      - name: >-
+          Миграция данных из {{ mmy-name }} в {{ mpg-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/mmy-to-mpg.md
       - name: Миграция данных из {{ ES }} в {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
@@ -417,6 +421,10 @@ items:
         href: dataplatform/mpg-to-objstorage.md
       - name: Захват изменений {{ PG }} и поставка в {{ DS }}
         href: dataplatform/mpg-to-yds.md
+      - name: >-
+          Миграция данных из {{ mpg-name }} в {{ mmy-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/mpg-to-mmy.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Миграция БД из {{ GP }} в {{ PG }}

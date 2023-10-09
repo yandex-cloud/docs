@@ -17,7 +17,7 @@ Creating an instance from a public [DSVM](/marketplace/products/f2e4v304qn35mhil
       * Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [DSVM](/marketplace/products/yc/dsvm) image.
    1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab and configure a boot disk:
-      * Select [disk type](../concepts/disk.md#disks_types).
+      * Select the [disk type](../concepts/disk.md#disks_types).
       * Specify the required disk size.
             1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../concepts/filesystem.md). [Create](../operations/filesystem/create.md) the storages first.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:

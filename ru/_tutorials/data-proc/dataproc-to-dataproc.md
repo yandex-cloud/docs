@@ -25,8 +25,7 @@
 
         * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
             * `SPARK`;
-            * `YARN`;
-            * `HIVE`.
+            * `YARN`.
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-sa`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — бакет, который вы создали для выходных данных.
         * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `dataproc-network`.

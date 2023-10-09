@@ -6,7 +6,7 @@ To create a [VM](../../compute/concepts/vm.md) from an [image](../../compute/con
 1. [Create a Docker container specification file](#prepare-specification-docker).
 1. [Get the ID of the image to create the VM](#get-id).
 1. [Create a VM](#create-vm).
-1. [Check the results](#check-result).
+1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -23,8 +23,8 @@ If you don't have a [network](../../vpc/operations/network-create.md) or [subnet
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
-* A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a VM specification file {#prepare-specification-vm}
 
@@ -111,12 +111,12 @@ The infrastructure support cost includes:
 
         Where:
         * `--name`: VM name.
-        * `--zone`: [availability zone](../../overview/concepts/geo-scope.md).
+        * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md).
         * `--network-interface`: VM network settings.
         * `--metadata-from-file`: YAML [metadata](../../compute/concepts/vm-metadata.md) files to create the VM.
         * `--create-boot-disk`: ID of the image to create a boot disk from.
 
-        Once created, the VM appears in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
+        Once created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
      1. Check the results.
         1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ compute-name }}**.
         1. Click on the name of the `coi-vm-with-sp` VM.
@@ -174,19 +174,19 @@ To get the ID of the latest image used for VM creation, run:
 
 {% endlist %}
 
-Once created, the VM appears in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
+Once created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
 
-## Check the results {#check-result}
+## Check the result {#check-result}
 
 To check the result of configuring data output from the Docker container to the serial port:
 1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ compute-name }}**.
-1. Click the name of the `coi-vm-with-sp` VM.
+1. Click on the name of the `coi-vm-with-sp` VM.
 1. Under **Serial port**, select `COM2`. In a few minutes, the screen displays `Hello world!`.
 
 For more information about working with VMs, see our [step-by-step guides](../../compute/operations/index.md).
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete a VM](../../compute/operations/vm-control/vm-delete.md).
 1. If you reserved a public static IP address for the VM, [delete it](../../vpc/operations/address-delete.md).

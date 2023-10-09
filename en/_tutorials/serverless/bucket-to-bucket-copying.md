@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of resources includes:
 
 * Fee for storing data in a bucket (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* Payment for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Secret storage fees (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 
 
@@ -93,7 +93,7 @@ The cost of resources includes:
    - {{ TF }}
 
       
-      If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
       1. In the configuration file, describe the service account parameters:
@@ -134,7 +134,7 @@ The cost of resources includes:
       1. Make sure the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using this command:
+         1. Run a check using this command:
 
             ```bash
             terraform plan
@@ -150,7 +150,7 @@ The cost of resources includes:
             terraform apply
             ```
 
-         1. Confirm the service account creation by typing `yes` in the terminal and pressing **Enter**.
+         1. Confirm creating the service account by typing `yes` in the terminal and pressing **Enter**.
 
             The service account will then be created. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -222,7 +222,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
    1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -345,7 +345,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -424,7 +424,7 @@ Create two buckets: the main one to store files and the backup one to copy the m
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -489,9 +489,9 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
       1. Specify the entry point: `handler.sh`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`.
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `s3-copy-fn`.
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `s3-copy-fn`
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
             * `S3_ENDPOINT`: `https://storage.yandexcloud.net`.
@@ -640,7 +640,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -675,7 +675,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
@@ -769,7 +769,7 @@ Create a trigger for {{ objstorage-name }} that will invoke a `copy-function` wh
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan

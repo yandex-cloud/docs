@@ -1,6 +1,6 @@
 # Using the SDK for Bash functions
 
-The runtime environment has the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) installed by default to work with the {{ yandex-cloud }} API.
+The runtime environment has the [{{ yandex-cloud }} CLI](../../../cli/) installed by default to work with the {{ yandex-cloud }} API.
 
 The user interacts with {{ yandex-cloud }} services using the [service account](../../operations/function-sa.md) specified in the Bash function. This does not require any additional actions from the user: the utility applies the service account automatically.
 

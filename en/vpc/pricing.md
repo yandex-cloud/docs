@@ -61,12 +61,6 @@ Where:
 
 ### NAT gateways {#nat-gateways}
 
-{% note info %}
-
-NAT gateways will be [publicly available](../overview/concepts/launch-stages.md) and billable starting September 25, 2023.
-
-{% endnote %}
-
 You will be charged per hour of NAT gateway usage and for outgoing traffic via the gateway. Charges will apply as soon as you add a gateway to a route table.
 
 

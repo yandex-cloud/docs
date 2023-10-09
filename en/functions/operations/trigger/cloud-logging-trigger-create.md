@@ -6,7 +6,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
 {% include [trigger-before-you-begin](../../../_includes/functions/trigger-before-you-begin.md) %}
 
-* The log group that activates the trigger when records are added to it. If you do not have a log group, [create one](../../../logging/operations/create-group.md).
+* A log group that activates the trigger when entries are added there. If you do not have a log group, [create one](../../../logging/operations/create-group.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -54,11 +54,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-<<<<<<< HEAD
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
-=======
-      1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
->>>>>>> develop
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -84,7 +80,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
      --dlq-queue-id <Dead Letter Queue ID> \
      --dlq-service-account-id <service account ID>
    ```
-  
+
 
    Where:
 
@@ -121,7 +117,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
            service-account-id: aje3932a**********
    status: ACTIVE
    ```
-  
+
 
 - {{ TF }}
 
@@ -176,7 +172,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan

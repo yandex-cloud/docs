@@ -33,7 +33,7 @@
    created_at: "2019-06-14T10:03:37.475Z"
    name: python_function
    log_group_id: eolm8aoq9vcp********
-   http_invoke_url: https://{{ sf-url }}/b09bhaokchn9pnbrlseb
+   http_invoke_url: https://{{ sf-url }}/b09bhaokchn9********
    status: ACTIVE
    ```
 
@@ -49,7 +49,7 @@
 
       * `yandex_function`: Description of the function being created and its source code:
          * `name`: Function name.
-         * `folder_id`: ID of the folder.
+         * `folder_id`: Folder ID.
          * `description`: Text description of the function.
          * `labels`: Function labels in `key:value` format.
          * `user_hash`: Arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.

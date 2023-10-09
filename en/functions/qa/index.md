@@ -29,10 +29,9 @@ For function access, you need the `{{ roles-admin }}` or `{{ roles-cloud-owner }
 
 To access environment variables, use the `process.env` global variable. You can learn more in the [documentation](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_env).
 
-#### Python modules available for working with {{ sf-name }}. Connecting new modules {#python}
+#### Python modules available for working with {{ sf-name }}? How do I connect new modules? {#python}
 
 You can upload modules as a ZIP file up to 3.5 MB in size. A larger file must be [uploaded via {{ objstorage-name }}](../../storage/operations/objects/upload.md). You can learn more in the [documentation](../quickstart/create-function/python-function-quickstart.md).
-
 
 
 #### Invoking cloud functions for Alice's skills is free. If I invoke another one of my cloud functions from a skill cloud function? Will that be free as well? {#alice-pricing}

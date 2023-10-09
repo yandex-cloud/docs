@@ -86,7 +86,7 @@ To make sure the timer is running properly, view the container logs. They should
 
 1. In the [management console]({{ link-console-main }}), select the folder with your container.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-1. Click the container to view its invocation log.
+1. Click on the container to view its invocation log.
 1. In the window that opens, go to **{{ ui-key.yacloud.common.logs }}** and specify the period to view them for. The default period is 1 hour.
 
 ## What's next {#what-is-next}

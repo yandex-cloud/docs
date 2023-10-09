@@ -41,11 +41,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-<<<<<<< HEAD
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
-=======
-   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
->>>>>>> develop
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -70,7 +66,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
      --dlq-queue-id <Dead_Letter_Queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
-  
+
 
    Where:
 
@@ -104,7 +100,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
-  
+
 
 - {{ TF }}
 
@@ -148,7 +144,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan

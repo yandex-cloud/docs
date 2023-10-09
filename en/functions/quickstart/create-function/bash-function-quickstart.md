@@ -47,7 +47,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 
 - {{ yandex-cloud }} Toolkit
 
-    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 
 {% endlist %}
@@ -59,6 +59,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 ### Prepare a ZIP archive with the function code {#create-zip}
 
 1. Save the following code to a file named `hello.sh`:
+
    ```bash
    #!/bin/bash
    RESPONSE=$(echo '{"statusCode":200, "body":"Hello, World!"}' | jq '.')
@@ -79,7 +80,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the `bash` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Set the version parameters:
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `bash`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-sh.zip`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `hello.sh`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`
@@ -123,7 +124,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
-    created_at: "2023-08-22T19:09:19.531Z"
+    created_at: "2020-08-01T19:09:19.531Z"
     runtime: bash
     entrypoint: hello.sh
     resources:
@@ -135,7 +136,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
     - $latest
     log_group_id: ckg3qh8h363p********
     ```
-  
+
 
 - API
 
@@ -144,7 +145,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 
 - {{ yandex-cloud }} Toolkit
 
-    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 
 {% endlist %}

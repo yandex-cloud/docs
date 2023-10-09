@@ -164,7 +164,7 @@ description: "Use this tutorial to create a Linux VM."
       * `platformId`: [Platform](../../concepts/vm-platforms.md).
       * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
       * `metadata`: In the metadata, provide the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
-      * `bootDiskSpec`: Boot disk settings. Specify the selected image's ID and disk size.
+      * `bootDiskSpec`: Boot disk settings. Specify the selected image ID and disk size.
 
         {% include [id-info](../../../_includes/compute/id-info.md) %}
 
@@ -266,7 +266,7 @@ description: "Use this tutorial to create a Linux VM."
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 

@@ -98,8 +98,8 @@ To create a trigger, you need:
    * `--invoke-container-id`: Container ID
    * `--queue-service-account-name`: Service account with rights to read messages from the queue.
    * `--invoke-container-service-account-id`: Service account with rights to invoke the container.
-   * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
-   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
+   * `--batch-size`: Message batch size. Optional parameter. The values may range from 1 to 10. The default value is 1.
+   * `--batch-cutoff`: Maximum waiting time. Optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
 
    Result:
 

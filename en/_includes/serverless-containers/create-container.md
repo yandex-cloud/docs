@@ -51,7 +51,7 @@
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: Container name. This is a required parameter. The naming requirements are as follows:
+      * `name`: Container name. Required parameter. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -87,7 +87,7 @@
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan

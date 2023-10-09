@@ -21,6 +21,8 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 
 * [{{ MY }} в {{ ydb-short-name }}](managed-mysql-to-ydb.md)
 * [{{ PG }} в {{ ydb-short-name }}](mpg-to-ydb.md)
+* [{{ MY }} в {{ PG }}](mmy-to-mpg.md)
+* [{{ PG }} в {{ MY }}](mpg-to-mmy.md)
 
 ## Захват изменений данных {#cdc}
 
