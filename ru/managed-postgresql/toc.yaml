@@ -105,6 +105,14 @@ items:
               Миграция базы данных из {{ mpg-full-name }} в {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
+          - name: >-
+              Миграция данных из {{ mmy-full-name }} в {{ mpg-name }} с помощью
+              {{ data-transfer-full-name }}
+            href: tutorials/mmy-to-mpg.md
+          - name: >-
+              Миграция данных из {{ mpg-name }} в {{ mmy-full-name }} с помощью
+              {{ data-transfer-full-name }}
+            href: tutorials/mpg-to-mmy.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

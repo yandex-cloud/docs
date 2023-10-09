@@ -1,6 +1,6 @@
 To create a trigger, you need:
 
-* A container that the trigger will invoke. If you don't have a container:
+* A container that the trigger will invoke. If you do not have a container:
 
    * [Create a container](../../serverless-containers/operations/create.md).
    * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).

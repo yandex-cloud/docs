@@ -1,6 +1,6 @@
 # Using the Function interface to set a handler function in C#
 
-You can set a handler function in C# without [SDK](https://github.com/yandex-cloud/dotnet-sdk) class inheritance.
+You can set a handler function in C# without needing to inherit from [SDK](https://github.com/yandex-cloud/dotnet-sdk) classes.
 
 {% note warning %}
 

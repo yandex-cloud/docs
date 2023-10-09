@@ -585,6 +585,8 @@ items:
             href: concepts/queues/get-queue.md
           - name: Получить список очередей
             href: concepts/queues/get-queues.md
+          - name: Создать версию очереди
+            href: concepts/queues/create-version.md
           - name: Получить версии очереди
             href: concepts/queues/get-versions.md
           - name: Получить обязательные поля очереди

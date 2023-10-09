@@ -87,7 +87,7 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
-  
+
 
 - API
 

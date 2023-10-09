@@ -114,7 +114,7 @@ Key | Value
 `secondary_disk_specs` | (Optional) Secondary disks parameters.
 `secondary_disk_specs.name` | (Optional) Secondary disk name. In the same specification, names should be assigned either to all secondary disks or none of them. For more information, see [{#T}](./deploy/secondary-disk.md).
 `secondary_disk_specs.mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access.
-`secondary_disk_specs.disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance.
+`secondary_disk_specs.disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance.
 `secondary_disk_specs.disk_spec.type_id` | ID of the disk type. To get a list of available disk types, use the request [diskTypes](../../api-ref/DiskType/list.md).
 `secondary_disk_specs.disk_spec.size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB).
 `network_interface_specs.network_id` | ID of the network.

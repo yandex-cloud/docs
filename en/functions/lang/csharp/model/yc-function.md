@@ -4,7 +4,7 @@ You can set a handler function in C# by implementing the [YcFunction](https://gi
 
 {% note warning %}
 
-You should specify both values for `YcFunction` type parameters, the first one being the input argument type and the second one the type of the return value. The `handle` method also has [invocation context](../context.md) as its second argument.
+You should specify both values for `YcFunction` type parameters: the first one being the input argument type and the second one the type of the return value. The `handle` method also has [invocation context](../context.md) as its second argument.
 
 {% endnote %}
 

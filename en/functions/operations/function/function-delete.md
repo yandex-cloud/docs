@@ -92,7 +92,7 @@
       ```
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   You can check the function's deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   You can check the deletion of the function using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```
    yc serverless function list

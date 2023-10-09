@@ -59,7 +59,7 @@ A function instance processes one function call at a single point in time. If th
 
 {% note info %}
 
-Function calls are distributed across availability zones randomly. {{ sf-name }} does not guarantee their even distribution across zones. For example, all calls, regardless of their number, might end up in the same zone.
+Function calls are distributed across availability zones randomly. {{ sf-name }} does not guarantee their even distribution across zones. For example, all calls, no matter how many, might end up in the same zone.
 
 {% endnote %}
 

@@ -77,7 +77,7 @@ If you would like to delete a disk with a VM, specify this option when creating 
 
 Backups are required to make sure no data is lost if damaged. Different disk types allow using different backup methods:
 
-* [{{ backup-name }}](../../backup/) enables you to create consistent data copies on VMs with any disk types. The service is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+* [{{ backup-name }}](../../backup/) enables you to create consistent data copies on VMs with any disk types.
 * [Disk snapshots](snapshot.md): Use them to manually or automatically create [scheduled](snapshot-schedule.md) snapshots of network SSDs and HDDs, as well as high-performance and non-replicated SSDs. You can also use snapshots to migrate disks from one availability zone to another.
 
 Snapshots are replicated across all availability zones, which allows you to migrate disks from one zone to another.

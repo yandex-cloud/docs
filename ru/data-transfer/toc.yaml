@@ -107,6 +107,10 @@ items:
             href: tutorials/managed-mysql-to-ydb.md
           - name: Миграция {{ PG }} в {{ ydb-short-name }}
             href: tutorials/mpg-to-ydb.md
+          - name: Миграция {{ MY }} в {{ PG }}
+            href: tutorials/mmy-to-mpg.md
+          - name: Миграция {{ PG }} в {{ MY }}
+            href: tutorials/mpg-to-mmy.md
       - name: Захват изменений данных
         items:
           - name: Захват изменений {{ MY }} и поставка в {{ KF }}

@@ -12,21 +12,21 @@
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-    To get a list of functions, run the following command:
+   To get a list of functions, run the following command:
 
-    ```
-    yc serverless function list
-    ```
+   ```
+   yc serverless function list
+   ```
 
    Result:
 
    ```
-    +----------------------+--------------------+----------------------+--------+
-    |          ID          |        NAME        |      FOLDER ID       | STATUS |
-    +----------------------+--------------------+----------------------+--------+
-    | b097d9ous3ge******** | my-beta-function   | aoek49ghmknn******** | ACTIVE |
-    +----------------------+--------------------+----------------------+--------+
-    ```
+   +----------------------+--------------------+----------------------+--------+
+   |          ID          |        NAME        |      FOLDER ID       | STATUS |
+   +----------------------+--------------------+----------------------+--------+
+   | b097d9ous3ge******** | my-beta-function   | aoek49ghmknn******** | ACTIVE |
+   +----------------------+--------------------+----------------------+--------+
+   ```
 
 - API
 

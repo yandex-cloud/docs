@@ -1,9 +1,9 @@
 ---
-title: "Instructions for operations with {{ sf-full-name }}"
-description: "In this article, you'll learn how to work with {{ sf-full-name }} in {{ yandex-cloud }}. Find out how to manage functions (create, update, invoke, and delete a function) and triggers (create a timer or a trigger for {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}, and Cloud Logs)."
+title: "How to work with {{ sf-full-name }}"
+description: "In this article, you will learn how to work with {{ sf-full-name }} in {{ yandex-cloud }}. Find out how to manage functions (create, update, invoke, and delete a function) and triggers (create a timer or a trigger for {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}, and Cloud Logs)."
 ---
 
-# Step-by-step instructions for {{ sf-name }}
+# Step-by-step guides for {{ sf-name }}
 
 * [{#T}](function-sa.md)
 * [{#T}](database-connection.md)
@@ -71,7 +71,6 @@ description: "In this article, you'll learn how to work with {{ sf-full-name }} 
 * [Creating a trigger for budgets](trigger/budget-trigger-create.md)
 * [Creating a trigger for {{ yds-name }}](trigger/data-streams-trigger-create.md)
 * [Creating an email trigger](trigger/mail-trigger-create.md)
-
 
 ## Managing triggers {#trigger-manage}
 

@@ -1,6 +1,6 @@
 # Trigger for {{ iot-short-name }} that sends messages to the {{ serverless-containers-name }} container
 
-The [trigger](../trigger/) for {{ iot-short-name }} is designed for managing messages exchanged between devices and registries. The trigger is created for [topics](../../../iot-core/concepts/topic/index.md): it receives copies of messages from them and passes those copies to the {{serverless-containers-name }} container for processing.
+The [trigger](../trigger/) for {{ iot-short-name }} is designed for managing messages exchanged between devices and registries. The trigger is created for [topics](../../../iot-core/concepts/topic/index.md): it receives copies of messages from them and passes those copies to the {{ serverless-containers-name }} container for processing.
 
 {% include [trigger](../../../_includes/iot-core/trigger.md) %}
 

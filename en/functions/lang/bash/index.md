@@ -12,7 +12,7 @@ The [Bash runtime](../../concepts/runtime/index.md#runtimes) has the following u
 | Name | Purpose |
 |----|----|
 | [jq](https://stedolan.github.io/jq/) | For working with JSON. |
-| [{{ yandex-cloud }} CLI](../../../cli/index.yaml) | For working with the {{ yandex-cloud }} API. |
+| [{{ yandex-cloud }} CLI](../../../cli/) | For working with the {{ yandex-cloud }} API. |
 | [AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html) | For using AWS-compatible services. |
 
 For more information about how to use the SDK, see [Using the SDK](sdk.md).

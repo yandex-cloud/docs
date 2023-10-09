@@ -47,7 +47,7 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
 
 - {{ yandex-cloud }} Toolkit
 
-    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 
 {% endlist %}
@@ -78,7 +78,7 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
    }
    ```
 
-  1. Add the `hello.go` file to the `hello-go.zip` archive.
+1. Add the `hello.go` file to the `hello-go.zip` archive.
 
 ### Create a function version {#create-version}
 
@@ -86,19 +86,19 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your function.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select `go-function`.
-  1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-  1. Select the `golang119` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-  1. Set the version parameters:
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-go.zip`
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `hello.Handler`
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`
-  1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Select `go-function`.
+    1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
+    1. Select the `golang119` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+    1. Set the version parameters:
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-go.zip`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `hello.Handler`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`
+    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
 
@@ -148,7 +148,7 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
     - $latest
     log_group_id: ckg3qh8h363p********
     ```
-  
+
 
 - API
 
@@ -157,7 +157,7 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
 
 - {{ yandex-cloud }} Toolkit
 
-    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 
 {% endlist %}

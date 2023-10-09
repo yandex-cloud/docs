@@ -68,7 +68,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
      --dlq-queue-id <Dead_Letter_Queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
-  
+
 
    Where:
 
@@ -105,7 +105,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
-  
+
 
 - API
 

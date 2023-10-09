@@ -1,6 +1,6 @@
 To create a trigger, you need:
 
-* A function that the trigger will invoke. If you don't have a function:
+* A function that the trigger will invoke. If you do not have a function:
 
    * [Create a function](../../functions/operations/function/function-create.md).
    * [Create a function version](../../functions/operations/function/version-manage.md).

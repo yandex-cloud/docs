@@ -4,7 +4,7 @@ You can invoke a function:
 * [Using an HTTPS request](#http).
 * [Using the CLI](#cli).
 * [Using a trigger](#trigger).
-* [Using a {{ api-gw-full-name }} extension](#extension).
+* [Using the {{ api-gw-full-name }} extension](#extension).
 
 Each method has a specific data structure for function requests and responses. Learn more about how to [invoke a function](../operations/function/function-invoke.md).
 
@@ -16,7 +16,7 @@ The result returned by the function should also be a JSON document. It should co
 
 {% note info %}
 
-You can run functions by specifying the `integration=raw` request string parameter. When invoked this way, a function can't parse or set HTTP headers:
+You can run functions by specifying the `integration=raw` request string parameter. When invoked this way, a function cannot parse or set HTTP headers:
 * The contents of the HTTPS request body are passed as the first argument (without converting to a JSON structure).
 * The contents of the HTTPS response body is identical to the function response (without converting or checking the structure) and the HTTP response status is 200.
 

@@ -70,6 +70,7 @@
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](mmy-to-yds.md)
+* [{#T}](mmy-to-mpg.md)
 * [{#T}](sqoop-mmy.md)
 * [{#T}](data-transfer-mmy.md)
 * [{#T}](debezium-mmy.md)
@@ -95,6 +96,7 @@
 * [{#T}](sqoop-mpg.md)
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](mpg-to-objstorage.md)
+* [{#T}](mpg-to-mmy.md)
 * [{#T}](mpg-to-yds.md)
 
 

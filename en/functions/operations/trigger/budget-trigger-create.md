@@ -65,7 +65,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
      --dlq-queue-id <Dead Letter Queue ID> \
      --dlq-service-account-id <service account ID>
    ```
-  
+
 
    Where:
 
@@ -99,7 +99,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
            service-account-id: aje3932acd0c********
    status: ACTIVE
    ```
-  
+
 
 - API
 

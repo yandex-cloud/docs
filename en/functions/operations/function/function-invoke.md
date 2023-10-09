@@ -30,7 +30,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
       * **{{ ui-key.yacloud.serverless-functions.item.testing.value_empty }}**: Custom data format.
       * **{{ ui-key.yacloud.serverless-functions.item.testing.value_http-request }}**: Data format for a function acting as an HTTPS request handler. For more information, see [Concepts](../../concepts/function-invoke.md).
             * **{{ ui-key.yacloud.serverless-functions.item.testing.value_ymq-trigger }}**: Data format for the function invoked by a trigger in order to process messages from the queue.
-            * **{{ ui-key.yacloud.serverless-functions.item.testing.value_alice-skill }}**: Data format for a function receiving [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from the Yandex.Dialogs platform.
+            * **{{ ui-key.yacloud.serverless-functions.item.testing.value_alice-skill }}**: Data format for invoking the function receiving [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from Yandex Dialogs.
 
    1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}**, enter the input data to test the function.
 
@@ -51,7 +51,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
 
    {% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
 
-   For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTP request by inserting the function invoke link in the browser address bar. The link should have the following format:
+   For security reasons, you can only invoke a function via HTTPS. Invoke it as a regular HTTP request by inserting the function invoke link in the browser address bar. The link should have the following format:
 
    ```
    https://{{ sf-url }}/<function ID>

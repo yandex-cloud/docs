@@ -1,6 +1,6 @@
 ---
-title: "Как измененить кластер {{ managed-k8s-name }}"
-description: "Следуя данной инструкции, вы сможете измененить кластер {{ managed-k8s-name }}."
+title: "Как изменить кластер {{ managed-k8s-name }}"
+description: "Следуя данной инструкции, вы сможете изменить кластер {{ managed-k8s-name }}."
 ---
 
 # Изменение кластера {{ managed-k8s-name }}

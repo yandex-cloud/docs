@@ -4,7 +4,7 @@ You can set a handler function in Java by implementing the [Function](https://do
 
 {% note warning %}
 
-You should specify both values for the `Function` type parameters, the first one being the input argument type and the second one the type of the return value.
+You should specify both values for the `Function` type parameters: the first one being the input argument type and the second one the type of the return value.
 
 {% endnote %}
 
@@ -24,7 +24,7 @@ Examples of invalid handlers:
 ```java
 import java.util.function.Function;
 // the Function has only one parameter type specified
-// the Handler should not have any type parameters (see the handler requirements)
+// Handler should not have any type parameters (see the handler requirements)
 public class Handler<T> implements Function<T, Integer> {
   @Override
   public Integer apply(T i) {
@@ -35,7 +35,7 @@ public class Handler<T> implements Function<T, Integer> {
 
 ```java
 import java.util.function.Function;
-// the Function doesn't have both parameter types specified
+// Function does not have both parameter types specified
 public class Handler implements Function {
   @Override
   public Object apply(Object i) {
@@ -152,8 +152,8 @@ public class Handler implements Function<Request, Response> {
     System.out.println(String.format("%s, %s", method, body));
 
     var jsonObject = new JSONObject(body);
-    // here the "name" parameter is obtained from the request body
-    // if you don't pass it, an error is thrown
+    // here, the "name" parameter is obtained from the request body
+    // if you do not pass it, an error is thrown
     var name = jsonObject.getString("name");
     return new Response(200, String.format("Hello, %s", name));
   }

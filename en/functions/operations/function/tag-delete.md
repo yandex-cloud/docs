@@ -19,8 +19,8 @@
    ```
    id: b09ch6pmpohf********
    function_id: b097d9ous3ge********
-   created_at: "2019-06-13T09:12:38.464Z"
-   runtime: python37
+   created_at: "2023-08-22T09:12:38.464Z"
+   runtime: python311
    entrypoint: test.handler
    resources:
      memory: "134217728"
@@ -90,7 +90,7 @@
       ```
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   You can check the tags' deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   You can check the deletion of the tags using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```
    yc serverless function version list --function-name <function name>

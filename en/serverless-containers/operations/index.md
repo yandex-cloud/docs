@@ -1,4 +1,4 @@
-# All instructions for {{ serverless-containers-name }}
+# All {{ serverless-containers-name }} guides
 
 * [Getting an IAM token for a service account using a container](./sa.md)
 
@@ -60,7 +60,6 @@
 * [Creating a trigger for budgets](./budget-trigger-create.md)
 * [Creating a trigger for {{ yds-name }}](./data-streams-trigger-create.md)
 * [Creating an email trigger](./mail-trigger-create.md)
-
 
 ## Managing triggers {#manage-trigger}
 

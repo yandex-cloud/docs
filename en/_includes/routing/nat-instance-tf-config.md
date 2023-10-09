@@ -1,6 +1,6 @@
 
 ```hcl
-# Declaring variables for user-defined parameters
+# Declaring variables for custom parameters
 
 variable "folder_id" {
   type = string
@@ -30,7 +30,7 @@ locals {
   route_table_name = "nat-instance-route"
 }
 
-# Setting up a provider
+# Setting up the provider
 
 terraform {
   required_providers {
@@ -112,7 +112,7 @@ resource "yandex_compute_image" "nat-instance-ubuntu" {
   source_family = "nat-instance-ubuntu"
 }
 
-# Creating a VM instance
+# Creating a VM
 
 resource "yandex_compute_instance" "test-vm" {
   name        = local.vm_test_name
