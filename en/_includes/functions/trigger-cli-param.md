@@ -1,6 +1,6 @@
 * `--invoke-function-id`: Function ID.
 * `--invoke-function-service-account-id`: Service account with rights to invoke the function.
-* `--retry-attempts`: Number of invocation retries before the trigger moves a message to the Dead Letter Queue. This is an optional parameter. You can specify values from 1 to 5, 1 being default.
-* `--retry-interval`: Time after which the function will be invoked again if the current attempt fails. This is an optional parameter. You can specify values from 10 to 60 seconds, 10 being default.
-* `--dlq-queue-id`: Dead Letter Queue ID. This is an optional parameter.
-* `--dlq-service-account-id`: Service account with the permission to write messages to the Dead Letter Queue. This is an optional parameter.
+* `--retry-attempts`: Number of invocation retries before the trigger moves a message to the Dead Letter Queue. Optional parameter. The values may range from 1 to 5. The default value is 1.
+* `--retry-interval`: Time after which the function will be invoked again if the current attempt fails. Optional parameter. The values may range from 10 to 60 seconds. The default value is 10 seconds.
+* `--dlq-queue-id`: Dead Letter Queue ID. Optional parameter.
+* `--dlq-service-account-id`: Service account with the permission to write messages to the Dead Letter Queue. Optional parameter.

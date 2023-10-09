@@ -31,7 +31,7 @@
    labels:
      new_labels: my-beta-function
    log_group_id: eolv6578frac********
-   http_invoke_url: https://{{ sf-url }}/b097d9ous3gep99khe83
+   http_invoke_url: https://{{ sf-url }}/b097d9ous3ge********
    ```
 
 - {{ TF }}

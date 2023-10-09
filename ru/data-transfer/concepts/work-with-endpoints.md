@@ -38,6 +38,17 @@ db.<имя коллекции>.createIndex(<свойства индекса>)
 
 Описание функции `createIndex()` см. в [документации {{ MG }}](https://www.mongodb.com/docs/manual/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex).
 
+## {{ MY }} {#mysql}
+
+Типы данных в таблицах приемника {{ MY }} могут иметь свойство `unsigned`:
+
+* `unsigned smallint` — значения более 2^31 не поместятся на приемнике.
+* `unsigned bigint` — значения более 2^63 не поместятся на приемнике.
+
+Первичный ключ в {{ MY }} не может быть строкой неограниченной длины.
+
+Приемник {{ MY }} игнорирует имя схемы в источнике и создает таблицы в схеме, имя которой указано в настройках эндпоинта.
+
 ## {{ PG }} {#postgresql}
 
 {% include [matview limits](../../_includes/data-transfer/pg-gp-matview.md) %}

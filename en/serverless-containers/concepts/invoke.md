@@ -1,7 +1,7 @@
 # Invoking a container in {{ serverless-containers-name }}
 
 You can invoke a container:
-* Using [HTTPS](#https).
+* Over [HTTPS](#https).
 * Using a [trigger](#trigger).
 * Using a [{{ api-gw-full-name }} extension](#extension).
 

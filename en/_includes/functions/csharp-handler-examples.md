@@ -95,7 +95,7 @@ public class Handler {
 
     // here the "name" parameter is obtained from the request body
     // if you don't pass it, an error is thrown
-    var name = root.GetProperty("name").GetString(); 
+    var name = root.GetProperty("name").GetString();
     return new Response(200, $"Hello, {name}");
   }
 }

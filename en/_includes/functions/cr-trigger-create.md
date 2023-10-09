@@ -45,7 +45,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
      
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
- 
+
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -70,7 +70,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
      --dlq-queue-id <Dead Letter Queue ID> \
      --dlq-service-account-id <service account ID>
    ```
-  
+
 
    Where:
 

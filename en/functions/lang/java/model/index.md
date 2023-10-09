@@ -6,7 +6,7 @@
 The difference between the [Function](jdk-function.md) and [YcFunction](yc-function.md) models is in the [invocation context](../context.md) that is either available or not. If, for example, you need to interact with {{ yandex-cloud }} services using the [SDK](../sdk.md), we recommend choosing [YcFunction](yc-function.md). The model based on the [HttpServlet](servlet-api.md) class lets you get full control over the return value and `HTTP` method, which was used to call the function. Like the `YcFunction` model, it grants access to the [invocation context](../context.md).
 
 
-For the [Function](jdk-function.md) and [YcFunction](yc-function.md) models, there are two separate types: `byte[]` and `String`. Using them is different from using other types. If you use them as the handler function argument type, the runtime doesn't convert an incoming request to a `JSON` interpretation for these types and passes it directly to the user handler function. The exception is when the parameter [integration=raw](../../../concepts/function-invoke.md#http) is used.
+For the [Function](jdk-function.md) and [YcFunction](yc-function.md) models, there are two separate types: `byte[]` and `String`. Using them is different from using other types. If you use them as the handler function argument type, the runtime does not convert an incoming request to a `JSON` interpretation for these types and passes it directly to the user handler function. The exception is when the parameter [integration=raw](../../../concepts/function-invoke.md#http).
 
 {% note info %}
 

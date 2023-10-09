@@ -51,8 +51,8 @@ Apart from text, you can write [structured logs](../concepts/logs.md#structured-
    ```
 
    **index.py**
-  
-     
+
+   
    ```
    import logging
    import os
@@ -89,7 +89,7 @@ Apart from text, you can write [structured logs](../concepts/logs.md#structured-
    if __name__ == "__main__":
        app.run(host='0.0.0.0', port=int(os.environ['PORT']), motd=False, access_log=False)
    ```
-  
+
 
    **Dockerfile**
    ```

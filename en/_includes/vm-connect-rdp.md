@@ -16,10 +16,10 @@ To connect to the VM:
    1. Click **Start**.
    1. In the search box, type **Remote Desktop Connection** and select the appropriate item.
    1. In the **Remote Desktop Connection** window, enter the public IP address of the VM to connect to in the **Computer** field.
-   1. Click **Attach**.
+   1. Click **Connect**.
    1. Specify the account settings:
-      * **User name**: `Administrator`.
-      * **Password**.
+      * **User name**: `Administrator`
+      * **Password**
    1. Click **OK**.
 
    {% include [initialization-windows-vm](initialization-windows-vm.md) %}

@@ -2,7 +2,7 @@
 
 После создания [диска](../../concepts/disk.md) вы можете:
 * [Изменить имя и описание диска](#change-disk-name).
-* [Увеличить размер диска](#change-disk-size) (доступно только для [остановленной](../../concepts/vm-statuses.md#list-of-statuses) [виртуальной машины](../../concepts/vm.md)).
+* [Увеличить размер диска](#change-disk-size), в том числе подключенного к [запущенной](../../concepts/vm-statuses.md#list-of-statuses) виртуальной машине.
 
 ## Изменить имя и описание диска {#change-disk-name}
 
@@ -64,7 +64,7 @@
 
 {% endnote %}
 
-Размер диска можно увеличить, только если он не подключен к запущенной ВМ. Чтобы увеличить диск у запущенной ВМ, сначала остановите ее.
+Вы можете увеличить размер диска даже на [запущенной](../../concepts/vm-statuses.md#list-of-statuses) ВМ.
 
 {% list tabs %}
 
@@ -72,15 +72,12 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На странице **{{ ui-key.yacloud.compute.switch_instances }}** остановите ВМ (см. раздел [{#T}](../vm-control/vm-stop-and-start.md#stop)).
-  1. Дождитесь, когда статус ВМ изменится на `STOPPED`.
   1. На панели слева выберите ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
   1. Нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) напротив нужного диска и выберите **{{ ui-key.yacloud.compute.disks.button_action-edit }}**.
   1. Увеличьте размер диска.
   1. Нажмите **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 
      {{ compute-name }} запустит операцию изменения размера диска.
-  1. Когда операция завершится, вернитесь на страницу **{{ ui-key.yacloud.compute.switch_instances }}** и запустите остановленную ВМ.
 
 - CLI
 
@@ -98,12 +95,6 @@
 
      {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-  1. Остановите ВМ, диск которой нужно обновить. Для этого выберите `ID` нужной ВМ:
-
-     ```bash
-     {{ yc-compute }} instance stop --id a7lcvu28njbhnkcteb5n
-     ```
-
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужного диска, например `first-disk`.
   1. Укажите нужный размер (например, 32 ГБ) в команде изменения диска:
 
@@ -113,11 +104,6 @@
      ```
 
      {{ compute-name }} запустит операцию изменения размера диска.
-  1. Запустите ВМ:
-
-     ```bash
-     {{ yc-compute }} instance start --id a7lcvu28njbhnkcteb5n
-     ```
 
 - API
 
@@ -125,13 +111,11 @@
 
   Список доступных дисков запрашивайте методом REST API [list](../../api-ref/Disk/list.md) или вызовом gRPC API [DiskService/List](../../api-ref/grpc/disk_service.md#List).
 
-  Чтобы остановить или запустить ВМ, воспользуйтесь методами REST API [stop](../../api-ref/Instance/stop.md) и [start](../../api-ref/Instance/start.md) для ресурса [Instance](../../api-ref/Instance/) или вызовами gRPC API [InstanceService/Stop](../../api-ref/grpc/instance_service.md#Stop) и [InstanceService/Start](../../api-ref/grpc/instance_service.md#Start).
-
 {% endlist %}
 
 ## Увеличить раздел диска Linux {#change-part-size-linux}
 
-После увеличения диска нужно также увеличить его раздел и файловую систему. У загрузочных дисков это должно происходить автоматически.
+После увеличения диска нужно также увеличить его раздел и файловую систему. У загрузочных дисков это происходит автоматически после перезагрузки ВМ.
 
 Если раздел диска не увеличился или вы увеличиваете размер незагрузочного диска, необходимо сделать это вручную. Порядок действий зависит от файловой системы:
 

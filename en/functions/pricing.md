@@ -2,14 +2,14 @@
 editable: false
 ---
 
-# Pricing for {{ sf-name }}
+# {{ sf-name }} pricing
 
 
 
 
 ## What goes into the cost of using {{ sf-name }} {#rules}
 
-In {{ sf-name }}, you're billed for the number of function invocations, computing resources allocated for the function, downtime of [provisioned instances](concepts/function.md#provisioned-instances), and outgoing traffic.
+In {{ sf-name }}, you pay for the number of function calls, computing resources allocated for the function, downtime of [provisioned instances](concepts/function.md#provisioned-instances), and outgoing traffic.
 
 When billing computing resources (GB × hour), the memory allocated for the function and function execution time are taken into account:
 * The amount of memory specified when [creating a version](operations/function/version-manage.md), in GB.
@@ -66,7 +66,7 @@ Where:
 ## Alice skills
 
 {{ sf-name }} functions used for Alice skills are not billable and do not consume your [free amount of services](../billing/concepts/serverless-free-tier.md#sf), if:
-* The function is called by the [Yandex Dialogs platform](https://yandex.ru/dev/dialogs/).
+* The function is invoked by the [Yandex Dialogs platform](https://yandex.ru/dev/dialogs/).
 * The Alice's skill was created by the [instructions](https://yandex.ru/dev/dialogs/alice/doc/deploy-ycloud-function.html#deploy-ycloud-function__register).
 
 However, if the function uses other {{ yandex-cloud }} resources, they are billed. For example, if the function makes requests to the {{ message-queue-name }} queue, the requests are billed according to the [pricing](../message-queue/pricing.md#requests-to-queues).

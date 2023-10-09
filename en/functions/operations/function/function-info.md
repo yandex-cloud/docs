@@ -26,12 +26,12 @@
    Result:
    ```
    id: d4e155orh3nu********
-     folder_id: b1gc1t4cb638********
-     created_at: "2020-10-09T11:53:19.815Z"
-     name: test-function
-     log_group_id: ckg9ndpthgnu********
-     http_invoke_url: https://{{ sf-url }}/d4e155orh3nu********
-     status: ACTIVE
+   folder_id: b1gc1t4cb638********
+   created_at: "2020-10-09T11:53:19.815Z"
+   name: test-function
+   log_group_id: ckg9ndpthgnu********
+   http_invoke_url: https://{{ sf-url }}/d4e155orh3nu********
+   status: ACTIVE
    ```
 
 - API

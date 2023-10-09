@@ -574,14 +574,14 @@ To create an infrastructure for running a Docker image on a VM using the registr
 1. Under `locals`, set the parameters for resources to create:
    * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) that will host the VM.
    * `username`: Name of the user to be created on the VM.
-   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    * `target_folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to host the VM.
    * `registry_name`: {{ container-registry-name }} registry name.
    * `sa_name`: Service account name.
    * `network_name`: Name of the cloud network.
    * `subnet_name`: Name of the subnet.
    * `vm_name`: VM name.
-   * `image_id`: ID of the image to create the VM from. For details, see [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
+   * `image_id`: ID of the image to create the VM from. For more information, see [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
 1. Create resources:
 
    {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}

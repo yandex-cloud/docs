@@ -36,11 +36,7 @@ Create a [mail trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-
 
       {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-<<<<<<< HEAD
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
-=======
-   1. (Optional) Under **Dead Letter Queue settings**, select the Dead Letter Queue and the service account with write privileges for this queue.
->>>>>>> develop
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -63,7 +59,7 @@ Create a [mail trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-
      --dlq-queue-id <Dead Letter Queue ID> \
      --dlq-service-account-id <service account ID>
    ```
-  
+
 
    Where:
 
@@ -94,7 +90,7 @@ Create a [mail trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
-  
+
 
 - API
 

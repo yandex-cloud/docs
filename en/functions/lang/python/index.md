@@ -5,7 +5,7 @@ description: "With {{ sf-name }}, you can run applications written in Python. Th
 
 # Developing in Python. Overview
 
-With {{ sf-name }}, you can run applications written in [Python](https://python.org/). 
+With {{ sf-name }}, you can run applications written in [Python](https://python.org/).
 
 
 The service provides several [runtime environments](../../concepts/runtime/index.md) with different versions:

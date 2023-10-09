@@ -23,9 +23,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support costs include:
 
 * Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Payment for computing resources, the amount of storage and backups for a {{ PG }} cluster (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
+* Fee for computing resources, the amount of storage and backups for a {{ PG }} cluster (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
 * Fee for incoming traffic processed by a network load balancer and for the number of network load balancers (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
-* Payment for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for the number of container calls, computing resources allocated to execute the application, and outgoing traffic (see [{{ serverless-containers-full-name }} pricing](../../serverless-containers/pricing.md)).
 * Secret storage and request fees (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
@@ -105,7 +105,7 @@ The infrastructure support costs include:
 
          Save the `id` of the `sa-for-kratos` service account and that of the folder where it was created (`folder_id`).
 
-      1. Assign the service account the role `{{ roles-admin }}` for the folder.
+      1. Assign the service account the `{{ roles-admin }}` role for the folder.
 
          ```bash
          yc resource-manager folder add-access-binding <folder_ID> \
@@ -122,7 +122,7 @@ The infrastructure support costs include:
    - {{ TF }}
 
       
-      If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
       1. In the configuration file, describe the service account parameters:
@@ -151,7 +151,7 @@ The infrastructure support costs include:
       1. Make sure the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using this command:
+         1. Run a check using this command:
 
             ```bash
             terraform plan
@@ -167,7 +167,7 @@ The infrastructure support costs include:
             terraform apply
             ```
 
-         1. Confirm the service account creation by typing `yes` in the terminal and pressing **Enter**.
+         1. Confirm creating the service account by typing `yes` in the terminal and pressing **Enter**.
 
             The service account will then be created. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -231,7 +231,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Create a function:
 
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -245,9 +245,9 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
       1. Specify the entry point: `index.js`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-func-authorizer`.
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-func-authorizer`
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
             * `KRATOS_API_BASE_PATH`: `https://<kratos_api_gw_domain>/public`, where `<kratos_api_gw_domain>` is the API gateway service domain that you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
@@ -296,7 +296,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
       * `--runtime`: Runtime environment.
       * `--entrypoint`: Entry point.
       * `--service-account-id`: ID of the `sa-func-authorizer` service account.
-      * `--environment`: Environment variables.  `<kratos_api_gw_domain>`: API gateway service domain that you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
+      * `--environment`: Environment variables. `<kratos_api_gw_domain>`: API gateway service domain that you saved in the [Deploy Identity Server based on Ory Kratos](#deploy-kratos) step.
       * `--source-path`: Path to the `index-js.zip` archive.
 
       Result:
@@ -362,7 +362,7 @@ Create a function that will run Identity Server based on Ory Kratos for user aut
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -527,7 +527,7 @@ Create an API gateway that will be protected through authorization using the aut
    * `<authorized_api_gw_domain>`: Service domain of the `for-kratos-authorization` API gateway.
    * `<ory_kratos_cookie>`: Value of the `ory_kratos_session` cookie you copied in the previous step.
 
-The `Authorized!` response means that a user session is active and the API was successfully called after checking the authorization cookie.
+If you get `Authorized!` in response, it means that your user session is active and the API was successfully called after checking the authorization cookie.
 
 ## How to delete the resources you created {#clear-out}
 

@@ -76,8 +76,8 @@ resource "yandex_vpc_subnet" "joomla-pg-network-subnet-a" {
   network_id     = yandex_vpc_network.joomla-pg-network.id
 }
 
-# Creating a subnet in the {{ region-id }}-b
- availability zone
+# Creating a subnet in the {{ region-id }}-b availability zone
+
 resource "yandex_vpc_subnet" "joomla-pg-network-subnet-b" {
   name           = local.subnet_name2
   zone           = "{{ region-id }}-b"
@@ -85,8 +85,8 @@ resource "yandex_vpc_subnet" "joomla-pg-network-subnet-b" {
   network_id     = yandex_vpc_network.joomla-pg-network.id
 }
 
-# Creating a subnet in the {{ region-id }}-c
- availability zone
+# Creating a subnet in the {{ region-id }}-c availability zone
+
 resource "yandex_vpc_subnet" "joomla-pg-network-subnet-c" {
   name           = local.subnet_name3
   zone           = "{{ region-id }}-c"
@@ -94,7 +94,7 @@ resource "yandex_vpc_subnet" "joomla-pg-network-subnet-c" {
   network_id     = yandex_vpc_network.joomla-pg-network.id
 }
 
-# Creating a security group for the database cluster {{ PG }}
+# Creating a security group for the DB cluster {{ PG }}
 
 resource "yandex_vpc_security_group" "pgsql-sg" {
   name       = local.sg_pgsql_name
@@ -108,7 +108,7 @@ resource "yandex_vpc_security_group" "pgsql-sg" {
   }
 }
 
-# Creating a security group for the VM
+# Creating a security group for VM
 
 resource "yandex_vpc_security_group" "vm-sg" {
   name       = local.sg_vm_name
@@ -144,7 +144,7 @@ resource "yandex_vpc_security_group" "vm-sg" {
   }
 }
 
-# Adding a VM image
+# Adding a ready-made VM image
 
 resource "yandex_compute_image" "joomla-pg-vm-image" {
   source_family = "centos-stream-8"
@@ -238,7 +238,7 @@ resource "yandex_dns_zone" "joomla-pg" {
   public  = true
 }
 
-# Adding an A-type DNS record
+# Creating an A resource record
 
 resource "yandex_dns_recordset" "joomla-pg-a" {
   zone_id = yandex_dns_zone.joomla-pg.id
@@ -248,7 +248,7 @@ resource "yandex_dns_recordset" "joomla-pg-a" {
   data    = [ yandex_compute_instance.joomla-pg-vm.network_interface.0.nat_ip_address ]
 }
 
-# Adding a CNAME DNS record
+# Creating a CNAME resource record
 
 resource "yandex_dns_recordset" "joomla-pg-cname" {
   zone_id = yandex_dns_zone.joomla-pg.id

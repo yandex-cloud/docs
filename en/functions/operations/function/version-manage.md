@@ -25,7 +25,7 @@ When creating a version, set the following parameters:
    1. Select the [runtime environment](../../concepts/runtime/index.md). Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
    1. Prepare the function code:
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**:: `nodejs12`.
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs12`
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `hello-js.zip`
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
@@ -54,7 +54,7 @@ When creating a version, set the following parameters:
      --execution-timeout 5s \
      --source-path ./hello-js.zip
    ```
-  
+
 
    Where:
 
@@ -84,7 +84,7 @@ When creating a version, set the following parameters:
    - $latest
    log_group_id: ckg3qh8h363p********
    ```
-  
+
 
 - {{ TF }}
 

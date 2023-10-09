@@ -97,7 +97,7 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
-  
+
 
 - API
 

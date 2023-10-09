@@ -86,7 +86,7 @@
       ```
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   You can check the scaling settings' deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+   You can check the deletion of the scaling settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
    ```
    yc serverless function list-scaling-policies <function_name>|<function_ID>

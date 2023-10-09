@@ -25,7 +25,7 @@ JSON document returned:
 }
 ```
 
-Case 2: user code indicates an error by [stopping](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/stop) function execution.
+Case 2: user code indicates an error by [throwing](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/stop) an exception from the function.
 
 Function code:
 

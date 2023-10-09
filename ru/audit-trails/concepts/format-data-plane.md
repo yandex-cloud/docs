@@ -105,8 +105,15 @@
     "subject_name": string,
     "federation_id": string,
     "federation_name": string,
-    "federation_type": string
-
+    "federation_type": string,
+    "impersonator_info": {
+      "impersonator_id": string,
+      "type": string,
+      "name": string,
+      "federation_id": string,
+      "federation_name": string,
+      "federation_type": string
+    }
   },
   "authorization": {
     "authorized": boolean
@@ -157,6 +164,13 @@
 `authentication.federation_id`* | **string**<br>Идентификатор федерации, в которой состоит федеративный пользователь.
 `authentication.federation_name`* | **string**<br>Имя федерации, в которой состоит федеративный пользователь.
 `authentication.federation_type`* | **string**<br>Тип федерации. Возможное значение:<ul><li>`PRIVATE_FEDERATION` — федерация, управляемая клиентами {{ yandex-cloud }}.</li></ul>
+`authentication.impersonator_info` | **object**<br>Данные аутентификации субъекта события при использовании [имперсонации](../../iam/concepts/access-control/index.md#impersonation).
+`authentication.impersonator_info.impersonator_id` | **string**<br>Идентификатор субъекта-имперсонатора.
+`authentication.impersonator_info.type` | **string**<br>Тип субъекта-имперсонатора. Возможные значения:<ul><li>`YANDEX_PASSPORT_USER_ACCOUNT`— аккаунт на Яндексе;</li><li>`SERVICE_ACCOUNT` — сервисный аккаунт;</li><li>`FEDERATED_USER_ACCOUNT` — федеративный аккаунт.</li>
+`authentication.impersonator_info.name` | **string**<br>Имя субъекта-имперсонатора.
+`authentication.impersonator_info.federation_id`* | **string**<br>Идентификатор федерации, в которой состоит федеративный пользователь-имперсонатор.
+`authentication.impersonator_info.federation_name`* | **string**<br>Имя федерации, в которой состоит федеративный пользователь-имперсонатор.
+`authentication.impersonator_info.federation_type`* | **string**<br>Тип федерации. Возможное значение:<ul><li>`PRIVATE_FEDERATION` — федерация, управляемая клиентами {{ yandex-cloud }}.</li></ul>
 `authorization` | **object**<br>Данные авторизации субъекта события.
 `authorization.authorized` | **boolean**<br>Результат авторизации. Возможные значения:<ul><li>`true` — авторизация успешна;</li><li>`false` — авторизация неуспешна.</li>
 `resource_metadata` | **object**<br>Метаданные объекта события.

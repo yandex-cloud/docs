@@ -206,7 +206,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -297,7 +297,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -422,7 +422,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
       1. Make sure the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using this command:
+         1. Run a check using this command:
 
             ```bash
             terraform plan
@@ -585,7 +585,7 @@ To create security groups:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -668,7 +668,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-route-production`.
       1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select `{{ ui-key.yacloud.alb.label_match-prefix }}` and specify the path `/`.
       1. In the **{{ ui-key.yacloud.alb.label_http-methods }}** list, select `GET`.
-      1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, leave `{{ ui-key.yacloud.alb.label_route-action-route }}`.
+      1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, keep `{{ ui-key.yacloud.alb.label_route-action-route }}`.
       1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select `canary-bg-production`.
 
    1. Create a virtual host named `canary-vh-staging`:
@@ -839,7 +839,7 @@ To create security groups:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -1062,7 +1062,7 @@ To create security groups:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -1211,7 +1211,7 @@ To create security groups:
 
 - {{ TF }}
 
-   1. Add parameters of CDN resources to the configuration file:
+   1. Add parameters of the CDN resources to the configuration file:
 
       ```hcl
       ...
@@ -1250,7 +1250,7 @@ To create security groups:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -1330,9 +1330,9 @@ To configure DNS:
    cdn-staging CNAME cl-....edgecdn.ru
    ```
 
-   If you use {{ dns-name }}, follow these instructions to configure the record:
+   If you use {{ dns-name }}, follow this guide to configure the record:
 
-   {% cut "Instructions for configuring DNS records for {{ dns-name }}" %}
+   {% cut "Guide for configuring DNS records for {{ dns-name }}" %}
 
    {% list tabs %}
 
@@ -1426,7 +1426,7 @@ To configure DNS:
       1. Make sure the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using this command:
+         1. Run a check using this command:
 
             ```bash
             terraform plan

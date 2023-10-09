@@ -7,7 +7,7 @@ A _call handler_ is a method used to handle each Go function call. When creating
 
 {% note info %}
 
-At any given time, a single function instance processes only one request. This lets you use global variables without having to provide data integrity control.
+At any given time, a single function instance processes only one request. This allows you to use global variables without having to provide data integrity control.
 
 {% endnote %}
 
@@ -204,14 +204,14 @@ import (
   "fmt"
 )
 
-// The request structure (see the paragraph following this example).
-// The other fields aren't used anywhere in this example, so you can do without them
+// Request body structure (see the paragraph after the example).
+// The other fields are not used anywhere in this example, so you can do without them
 type RequestBody struct {
   HttpMethod string `json:"httpMethod"`
   Body       []byte `json:"body"`
 }
 
-// We convert the body field of the RequestBody object
+// Convert the body field of the RequestBody object
 type Request struct {
   Name string `json:"name"`
 }
@@ -223,7 +223,7 @@ type Response struct {
 
 func Greet(ctx context.Context, request []byte) (*Response, error) {
   requestBody := &RequestBody{}
-  // The array of bytes with the request body is converted to the corresponding object
+  // The byte array with the request body is converted to the corresponding object
   err := json.Unmarshal(request, &requestBody)
   if err != nil {
     return nil, fmt.Errorf("an error has occurred when parsing request: %v", err)
@@ -233,7 +233,7 @@ func Greet(ctx context.Context, request []byte) (*Response, error) {
   fmt.Println(requestBody.HttpMethod, string(requestBody.Body))
 
   req := &Request{}
-  // The request's body field is converted to a Request object to get the passed name
+  // The request body field is converted to a Request object to get the passed name
   err = json.Unmarshal(requestBody.Body, &req)
   if err != nil {
     return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
@@ -249,7 +249,7 @@ func Greet(ctx context.Context, request []byte) (*Response, error) {
 }
 ```
 
-For details about the request body structure (`type RequestBody struct`), see [{#T}](../../concepts/function-invoke.md#request).
+To learn more about the request body structure (`type RequestBody struct`), see [{#T}](../../concepts/function-invoke.md#request).
 
 Example of input data (the POST method):
 
@@ -273,7 +273,7 @@ Hello, Anonymous
 
 ### Parsing an {{ api-gw-name }} HTTP request
 
-The function is called by {{ api-gw-full-name }} with a service account, logs the request method and body, and returns a greeting.
+The function is invoked by {{ api-gw-full-name }} with a service account, logs the request method and body, and returns a greeting.
 
 The function decodes the body of an incoming request using `json.Unmarshal()`.
 
@@ -366,6 +366,4 @@ Response returned:
 ```
 Hello, Anonymous
 ```
-
-
 

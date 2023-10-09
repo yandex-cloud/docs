@@ -62,7 +62,7 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
 
    - {{ TF }}
 
-      See [How to create an infrastructure using {{ TF }}](#terraform).
+     See [How to create an infrastructure using {{ TF }}](#terraform).
 
    - API
 
@@ -103,14 +103,14 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
      1. Assign the role to the service account:
 
         ```bash
-        yc resource-manager folder add-access-binding <folder_ID> \
+        yc resource-manager folder add-access-binding <folder_id> \
           --role container-registry.images.scanner \
           --subject serviceAccount:<service_account_ID>
         ```
 
    - {{ TF }}
 
-      See [How to create an infrastructure using {{ TF }}](#terraform).
+     See [How to create an infrastructure using {{ TF }}](#terraform).
 
    - API
 
@@ -154,6 +154,7 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
         * Timeout, sec: 60
         * RAM: 128 MB
         * Service account: `scanner`
+
      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
@@ -195,12 +196,12 @@ In {{ sf-name }}, create a function named `scan-on-push` that will run the Docke
 
      Where:
      * `--function-name`: Name of the function you want to create a version of.
-     * `--runtime`: Runtime environment
+     * `--runtime`: Runtime environment.
      * `--entrypoint`: Entry point specified in the `<function_file_name>.\<handler_name>` format.
-     * `--memory`: Amount of RAM
+     * `--memory`: Amount of RAM.
      * `--execution-timeout`: Maximum function execution time before the timeout is reached.
-     * `--source-path`: File with the function code
-     * `--service-account-id`: Service account ID
+     * `--source-path`: A file with the function code.
+     * `--service-account-id`: Service account ID.
 
      Result:
 
@@ -262,10 +263,10 @@ Create a trigger that will invoke your function when creating a Docker image [ta
   ```
 
   Where:
-  * `--name`: Trigger name
+  * `--name`: Trigger name.
   * `--registry-id`: [ID of the registry](../operations/registry/registry-list.md) to push the Docker image to.
   * `--events`: [Events](../../functions/concepts/trigger/cr-trigger.md#event) activating the trigger.
-  * `--invoke-function-id`: Function ID
+  * `--invoke-function-id`: Function ID.
   * `--invoke-function-service-account-id`: ID of the service account with rights to invoke the function.
 
   Result:
@@ -293,7 +294,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
 
    {% list tabs %}
 
-   - Using a Docker Credential helper
+   - Using a Docker credential helper
 
      1. Configure Docker to use `docker-credential-yc`:
 
@@ -493,40 +494,40 @@ To set up automatic Docker image scan at push using {{ TF }}:
 
    - Ready-made archive
 
-      1. Create a directory for files.
-      1. Download the [archive](https://{{ s3-storage-host }}/doc-files/image-auto-scan-tf.zip) (2 KB).
-      1. Unpack the archive to the directory. As a result, it should contain the `image-auto-scan.tf` configuration file, the `image-auto-scan.auto.tfvars` file with user data, and the `function.zip` archive with the function code.
+     1. Create a directory for files.
+     1. Download the [archive](https://{{ s3-storage-host }}/doc-files/image-auto-scan-tf.zip) (2 KB).
+     1. Unpack the archive to the directory. As a result, it should contain the `image-auto-scan.tf` configuration file, the `image-auto-scan.auto.tfvars` file with user data, and the `function.zip` archive with the function code.
 
    - Creating files manually
 
-      1. Create a directory for configuration files.
-      1. In the directory, create a configuration file named `image-auto-scan.tf`:
+     1. Create a directory for configuration files.
+     1. In the directory, create a configuration file named `image-auto-scan.tf`:
 
-         {% cut "image-auto-scan.tf" %}
+          {% cut "image-auto-scan.tf" %}
 
-         {% include [image-auto-scan-tf-config](../../_includes/web/image-auto-scan-tf-config.md) %}
+          {% include [image-auto-scan-tf-config](../../_includes/web/image-auto-scan-tf-config.md) %}
 
-         {% endcut %}
+          {% endcut %}
 
-      1. Create the `image-auto-scan.auto.tfvars` file with user data:
+     1. Create an `image-auto-scan.auto.tfvars` file with user data:
 
-         {% cut "image-auto-scan.auto.tfvars" %}
+          {% cut "image-auto-scan.auto.tfvars" %}
 
-         {% include [image-auto-scan-tf-variables](../../_includes/web/image-auto-scan-tf-variables.md) %}
+          {% include [image-auto-scan-tf-variables](../../_includes/web/image-auto-scan-tf-variables.md) %}
 
-         {% endcut %}
+          {% endcut %}
 
-      1. Prepare a ZIP archive with the function code:
+     1. Prepare a ZIP archive with the function code:
 
-         1. Create the `handler.sh` file and paste the following code to it:
+         1. Create the `handler.sh` file and copy the following code to it:
 
-            {% cut "handler.sh" %}
+             {% cut "handler.sh" %}
 
-            {% include [warning-unix-lines](../../_tutorials/_tutorials_includes/warning-unix-lines.md) %}
+             {% include [warning-unix-lines](../../_tutorials/_tutorials_includes/warning-unix-lines.md) %}
 
-            {% include [handler-sh-function](../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
+             {% include [handler-sh-function](../../_tutorials/_tutorials_includes/handler-sh-function.md) %}
 
-            {% endcut %}
+             {% endcut %}
 
          1. Create a ZIP archive named `function.zip` with the `handler.sh` file.
 

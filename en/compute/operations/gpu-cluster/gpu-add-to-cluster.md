@@ -84,8 +84,8 @@ GPU clusters are now only available in the `ru-central1-a` availability zone. Yo
 
       Where:
 
-      * `gpu_cluster_id`: GPU cluster ID. This parameter is required.
-      * `image_id`: ID of the image with drivers. This parameter is required.
+      * `gpu_cluster_id`: GPU cluster ID. Required parameter.
+      * `image_id`: ID of the image with the drivers. Required parameter.
       * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md).
       * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) your VM will be created in.
 
@@ -104,7 +104,7 @@ GPU clusters are now only available in the `ru-central1-a` availability zone. Yo
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   This will create a VM in the specified cluster. You can verify that the VM is there and its configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+   This will create a VM in the specified cluster. You can check the new VM and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
    yc compute instance get <VM_name>

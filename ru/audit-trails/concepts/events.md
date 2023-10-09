@@ -16,15 +16,18 @@
 * [{{ certificate-manager-name }}](#certificate-manager)
 * [{{ dns-name }}](#dns)
 * [{{ sf-name }}](#functions)
+* [{{ backup-name }}](#backup)
 * [{{ cdn-name }}](#cdn)
 * [{{ cloud-logging-name }}](#cloud-logging)
 * [{{ compute-name }}](#compute)
 * [{{ container-registry-name }}](#container-registry)
 * [{{ dataproc-name }}](#dataproc)
+* [{{ data-transfer-name }}](#datatransfer)
 * [{{ iam-name }}](#iam)
 * [{{ iot-name }}](#iot)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
+* [{{ mkf-short-name }}](#managed-service-for-kafka)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
 * [{{ mgl-full-name }}](#managed-service-for-gitlab)
 * [{{ mgp-short-name }}](#managed-service-for-greenplum)
@@ -112,9 +115,12 @@
 `functions.CreateFunction` | Создание функции
 `functions.CreateFunctionVersion` | Создание версии функции
 `functions.DeleteFunction` | Удаление функции
+`functions.DeleteFunctionVersion` | Удаление версии функции
 `functions.RemoveFunctionTag` | Удаление тега функции
+`functions.RemoveScalingPolicy` | Удаление политики масштабирования функции
 `functions.SetFunctionTag` | Назначение тега функции
 `functions.SetFunctionAccessBindings` | Назначение привязок прав доступа для функции
+`functions.SetScalingPolicy` | Назначение политики масштабирования функции
 `functions.UpdateFunction` | Изменение функции
 `functions.UpdateFunctionAccessBindings` | Изменение привязок прав доступа для функции
 `mdbproxy.CreateProxy` | Создание прокси
@@ -123,6 +129,26 @@
 `triggers.CreateTrigger` | Создание триггера
 `triggers.DeleteTrigger` | Удаление триггера
 `triggers.UpdateTrigger` | Изменение триггера
+
+
+## {{ backup-name }} {#backup}
+
+Имя сервиса — `backup`.
+
+Имя события | Описание
+--- | ---
+`ApplyPolicy` | Применение политики резервного копирования
+`CreateDirectory` | Создание новой директории внутри ВМ
+`CreatePolicy` | Создание политики резервного копирования
+`DeleteBackup` | Удаление резервной копии
+`DeletePolicy` | Удаление политики резервного копирования
+`DeleteResource` | Удаление ВМ из сервиса {{ backup-name }}
+`ExecutePolicy` | Выполнение политики резервного копирования
+`RegisterResource` | Подключение ВМ к сервису {{ backup-name }}
+`RevokePolicy` | Отзыв политики резервного копирования
+`StartRecoverBackup` | Запуск восстановления ВМ
+`UpdatePolicy` | Изменение политики резервного копирования
+
 
 ## {{ cdn-name }} {#cdn}
 
@@ -233,6 +259,7 @@
 `instancegroup.DeleteInstanceGroupInstances` | Удаление ВМ из группы
 `instancegroup.PauseInstanceGroup` | Приостановка процессов управления группой ВМ
 `instancegroup.ResumeInstanceGroup` | Возобновление процессов управления группой ВМ
+`instancegroup.RollingRestartInstanceGroupInstances` | Поочередная перезагрузка виртуальных машин из группы
 `instancegroup.SetInstanceGroupAccessBindings` | Назначение ролей на группу ВМ
 `instancegroup.StartInstanceGroup` | Запуск группы ВМ
 `instancegroup.StopInstanceGroup` | Остановка группы ВМ
@@ -281,6 +308,25 @@
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
 `UpdateSubcluster` | Изменение подкластера
+
+## {{ data-transfer-name }} {#datatransfer}
+
+Имя сервиса — `datatransfer`.
+
+Имя события | Описание
+--- | ---
+`ActivateTransfer` | Активация трансфера
+`CreateEndpoint` | Создание эндпоинта
+`CreateTransfer` | Создание трансфера
+`DeactivateTransfer` | Деактивация трансфера
+`DeleteEndpoint` | Удаление эндпоинта
+`DeleteTransfer` | Удаление трансфера
+`FreezeTransferVersion` | Фиксация для трансфера определенной версии data plane
+`RestartTransfer` | Перезапуск трансфера
+`UnfreezeTransferVersion` | Разрешение обновления трансфера до последней версии data planе
+`UpdateEndpoint` | Изменение эндпоинта
+`UpdateTransfer` | Изменение трансфера
+`UpdateTransferVersion` | Обновление версии data planе трансфера
 
 ## {{ iam-name }} {#iam}
 
@@ -335,12 +381,20 @@
 --- | ---
 `CancelDeleteSymmetricKey` | Отмена ранее запланированного уничтожения ключа
 `CancelSymmetricKeyVersionDestruction` | Отмена ранее запланированного уничтожения версии симметричного ключа
+`CreateAsymmetricEncryptionKey` | Создание асимметричной ключевой пары шифрования
+`CreateAsymmetricSignatureKey` | Создание ключевой пары электронной подписи
 `CreateSymmetricKey` | Создание симметричного ключа
+`DeleteAsymmetricEncryptionKey` | Изменение асимметричной ключевой пары шифрования
+`DeleteAsymmetricSignatureKey` | Изменение ключевой пары электронной подписи
 `DeleteSymmetricKey` | Удаление симметричного ключа
 `RotateSymmetricKey` | Ротация симметричного ключа
-`ScheduleSymmetricKeyVersionDestruction` | Запланирование уничтожения версии симметричного ключа
+`ScheduleSymmetricKeyVersionDestruction` | Назначение срока уничтожения версии симметричного ключа
+`SetAsymmetricEncryptionKeyAccessBindings` | Выбор привязок прав доступа для асимметричной ключевой пары шифрования
+`SetAsymmetricSignatureKeyAccessBindings` | Выбор привязок прав доступа для ключевой пары электронной подписи
 `SetPrimarySymmetricKeyVersion` | Выбор основной версии симметричного ключа
 `SetSymmetricKeyAccessBindings` | Выбор привязок прав доступа для симметричного ключа
+`UpdateAsymmetricEncryptionKey` | Изменение асимметричной ключевой пары шифрования
+`UpdateAsymmetricSignatureKey` | Изменение ключевой пары электронной подписи
 `UpdateSymmetricKey` | Изменение симметричного ключа
 `UpdateSymmetricKeyAccessBindings` | Изменение привязок прав доступа для симметричного ключа
 
@@ -363,6 +417,18 @@
 `UpdateSecretAccessBindings` | Изменение привязок прав доступа для секрета
 
 \* Указанное событие по умолчанию не входит в аудитный лог. Чтобы оценить возможность добавления этого события, обратитесь в [службу поддержки]({{ link-console-support }}).
+
+## {{ mkf-short-name }} {#managed-service-for-kafka}
+
+Имя сервиса — `mdb.kafka`
+
+Имя события | Описание
+--- | ---
+`CreateCluster` | Создание кластера
+`DeleteCluster` | Удаление кластера
+`StartCluster` | Запуск кластера
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
 
 ## {{ mch-short-name }} {#managed-service-for-clickhouse}
 
@@ -496,6 +562,7 @@
 `CreateCluster` | Создание кластера
 `CreateDatabase` | Создание базы данных
 `CreateUser` | Создание пользователя базы данных
+`DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
 `DeleteDatabase` | Удаление базы данных
@@ -523,6 +590,7 @@
 `CreateCluster` | Создание кластера
 `CreateDatabase` | Создание базы данных
 `CreateUser` | Создание пользователя базы данных
+`DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
 `DeleteDatabase` | Удаление базы данных

@@ -72,7 +72,7 @@ items:
             href: sources-and-sinks/data-streams-write.md
       - name: Работа с базами данных {{ mch-name }}
         href: sources-and-sinks/clickhouse.md
-      - name: Работа с данных {{ mpg-name }}
+      - name: Работа с базами данных {{ mpg-name }}
         href: sources-and-sinks/postgresql.md
       - name: Запись метрик в {{monitoring-full-name}}
         href: sources-and-sinks/monitoring.md

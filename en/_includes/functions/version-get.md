@@ -23,7 +23,7 @@
       yc serverless function version get <version_ID>
       ```
       Result:
-     
+
       ```
       id: b09u830mb1n3********
       function_id: b097d9ous3ge********
@@ -45,7 +45,7 @@
       yc serverless function version get-by-tag --function-name <function_name> --tag <tag>
       ```
       Result:
-     
+
       ```
       id: b09ch6pmpohf********
       function_id: b097d9ous3ge********

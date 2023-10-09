@@ -111,6 +111,14 @@ items:
         href: tutorials/mmy-objs-migration.md
       - name: Захват изменений {{ MY }} и поставка в {{ DS }}
         href: tutorials/mmy-to-yds.md
+      - name: >-
+          Миграция данных из {{ mpg-full-name }} в {{ mmy-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/mpg-to-mmy.md
+      - name: >-
+          Миграция данных из {{ mmy-name }} в {{ mpg-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/mmy-to-mpg.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

@@ -5,7 +5,7 @@ description: "With {{ sf-name }}, you can run applications written in Go. The se
 
 # Developing in Go. Overview
 
-With {{ sf-name }}, you can run applications written in [Go](https://go.dev/doc/). 
+With {{ sf-name }}, you can run applications written in [Go](https://go.dev/doc/).
 
 
 The service provides the [runtime environment](../../concepts/runtime/index.md) with different versions:

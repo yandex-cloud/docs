@@ -78,7 +78,7 @@
     }
     ```
     
-  1. Добавьте файл `hello.go` в ZIP-архив `hello-go.zip`.
+1. Добавьте файл `hello.go` в ZIP-архив `hello-go.zip`.
 
 ### Создайте версию функции {#create-version}
 

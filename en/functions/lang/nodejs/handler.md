@@ -4,7 +4,7 @@ A _call handler_ is a method used to handle each Node.js function call. When cre
 
 {% note info %}
 
-At any given time, a single function instance processes only one request. This lets you use global variables without having to provide data integrity control.
+At any given time, a single function instance processes only one request. This allows you to use global variables without having to provide data integrity control.
 
 {% endnote %}
 
