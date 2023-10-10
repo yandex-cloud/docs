@@ -81,6 +81,16 @@
 
    Параметры `target.s3.bucket` и `serviceaccountawskeyvalue` необходимы только при включенном экспорте в {{ objstorage-name }} `target.s3.enabled=true`, а `target.kinesis.endpoint` и `target.kinesis.streamName` — при включенном экспорте в {{ yds-name }} `target.kinesis.enabled=true`.
 
+## Проверка работы приложения {#check}
+
+1. Настройте в кластере {{ managed-k8s-name }} приложение Kyverno & Kyverno Policies и создайте тестовую политику согласно [инструкции](../../tutorials/marketplace/kyverno.md).
+1. [Подключитесь к Policy Reporter UI](https://kyverno.github.io/policy-reporter/#core--policy-reporter-ui--kyverno-plugin) для анализа и визуализации PolicyReports или убедитесь, что данные поступают в {{ objstorage-name }} или {{ yds-name }}.
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/marketplace/kyverno.md)
+* [{#T}](../../tutorials/sign-cr-with-cosign.md)
+
 ## См. также {#see-also}
 
 * [Документация Policy Reporter](https://kyverno.github.io/policy-reporter/).

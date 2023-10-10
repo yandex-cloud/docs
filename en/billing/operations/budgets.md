@@ -35,10 +35,10 @@ To create a budget:
    1. Select **{{ ui-key.yacloud.billing.account.budgets.label_type }}**.
    1. Set the **Budget amount**: 
             * For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** or **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** type, specify total usage cost.
-      * For the **{{ ui-key.yacloud.billing.account.budgets.label_type-balance }}** type, set an account balance.
+      * For the **{{ ui-key.yacloud.billing.account.budgets.label_type-balance }}** type, specify account balance.
    1. For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** and **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** types, select a budget tracking period:
       * If you selected **{{ ui-key.yacloud.billing.account.budgets.reset-period_value_custom }}** as the tracking period type, set the budget start date. The start date is the first day of the month.
-      * Set the budget end date. The end date defines when the budget stops tracking usage or the account balance and sending notifications. The end date is the last day of the month. It must be no more than five years from the current date.
+      * Set the budget end date. The end date defines when the budget stops tracking usage or the account balance and sending notifications. The end date is the last day of the month. It must be within five years of the current date.
    1. Select the users to notify.
    1. For the **{{ ui-key.yacloud.billing.account.budgets.label_type-cost }}** and **{{ ui-key.yacloud.billing.account.budgets.label_type-expense }}** types, define the budget scope. You can select individual clouds, folders, and services to include in a set budget. By default, data is collected from all the clouds, folders, and services that the selected billing account has access to.
    1. Set at least one utilization threshold to trigger notifications. You can specify a threshold as a percentage or a cash value and select the users to receive notifications. A budget can have multiple thresholds.
@@ -54,7 +54,7 @@ To create a budget:
 1. After filling in all the fields, click **{{ ui-key.yacloud.billing.accounts.button_empty-billing-create }}**. This will create a budget.
 
 
+
 ## See also
 
-* [{#T}](../tutorials/serverless-trigger-budget-vm.md).
-
+* [{#T}](../tutorials/serverless-trigger-budget-vm.md)

@@ -59,7 +59,7 @@ To implement an example from this section:
              yandex/cloud/ai/stt/v3/stt.proto
          ```
 
-         As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
+         As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
       1. In the root of the `output` directory, create a file, e.g. `test.py`, and add to it the following code:
 

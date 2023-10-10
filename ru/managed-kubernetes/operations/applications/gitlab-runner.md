@@ -1,26 +1,27 @@
 # Установка {{ GLR }}
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) — приложение с открытым исходным кодом, которое выполняет задания конвеерной обработки {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) по инструкциям из специального файла `.gitlab-ci.yml`. Оно позволяет запускать автоматизированные сборки внутри [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
+[{{ GLR }}](https://docs.gitlab.com/runner/) — приложение с открытым исходным кодом, которое выполняет задания конвейерной обработки {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) по инструкциям из специального файла `.gitlab-ci.yml`. Оно позволяет запускать автоматизированные сборки внутри [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
 
 ## Перед началом работы {#before-you-begin}
 
-Получите регистрационный токен (registration token):
-* Для настройки {{ GLR }} на весь [инстанс {{ GL }}](../../../managed-gitlab/concepts/index.md) (требуются права администратора {{ GL }}):
-  1. Откройте в браузере административную панель {{ GL }}, используя [FQDN](../../../compute/concepts/network.md#hostname) инстанса.
-  1. Нажмите кнопку **Menu** и выберите пункт **Admin**.
-  1. Перейдите в раздел **CI/CD** → **Runners**.
-  1. Нажмите кнопку **Register an instance runner** и сохраните значения параметра `registration token`.
-* Для настройки {{ GLR }} для группы или проекта:
-  1. Откройте в браузере административную панель {{ GL }}, используя FQDN инстанса.
-  1. Выберите необходимую группу или проект.
-  1. В открывшемся окне слева нажмите кнопку **Settings** и выберите пункт **CI/CD**.
-  1. В блоке **Runners** нажмите кнопку **Expand**.
-  1. Сохраните значения параметра `registration token`.
+1. Откройте в браузере административную панель {{ GL }}:
+   * Если {{ GL }} развернут на [виртуальной машине](../../../compute/concepts/vm.md) [{{ compute-full-name }}](../../../compute/), используйте ее [публичный IP-адрес](../../../compute/concepts/network.md#public-ip).
+   * Если {{ GL }} развернут в [сервисе {{ mgl-full-name }}](../../../managed-gitlab/), используйте [FQDN инстанса](../../../compute/concepts/network.md##hostname).
+1. Получите регистрационный токен (registration token):
+   * Для настройки {{ GLR }} для всего [инстанса {{ GL }}](../../../managed-gitlab/concepts/index.md) (требуются права администратора {{ GL }}):
+     1. Нажмите кнопку **Menu** и выберите пункт **Admin**.
+     1. Выберите пункт **CI/CD** → **Runners**.
+     1. Нажмите кнопку **Register an instance runner** и сохраните значение параметра `Registration token`.
+   * Для настройки {{ GLR }} для группы или проекта:
+     1. Выберите необходимую группу или проект.
+     1. В открывшемся окне слева нажмите кнопку **Settings** и выберите пункт **CI/CD**.
+     1. В блоке **Runners** нажмите кнопку **Expand**.
+     1. Сохраните значение параметра `Registration token`.
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
-1. Нажмите на имя нужного кластера {{ k8s }} и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
+1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
 1. В разделе **Доступные для установки приложения** выберите [{{ GLR }}](/marketplace/products/yc/gitlab-runner) и нажмите кнопку **Использовать**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для {{ GLR }} или создайте новое.
@@ -41,11 +42,11 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ mkt-k8s-key.yc_gitlab-runner.helmChart.name }}  \
+   helm pull oci://{{ mkt-k8s-key.yc_gitlab-runner.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_gitlab-runner.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство_имен> \
+     --namespace <пространство имен> \
      --create-namespace \
      --set gitlabDomain=<публичный_IP-адрес_ВМ_или_FQDN_инстанса_Yandex_Managed_Service_for_GitLab> \
      --set runnerToken=<ранее_полученный_регистрационный_токен> \

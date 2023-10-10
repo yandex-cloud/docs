@@ -71,8 +71,28 @@ items:
             href: support-process-dashboards.md
           - name: Configuring integration with third-party platforms
             href: support-process-integration.md
+      - name: Setting up Yandex Tracker for HR
+        items:
+          - name: Overview
+            href: hr-process.md
+          - name: Creating an HR queue
+            href: hr-process-basic-queue.md
+          - name: Setting up a form for creating standard issues
+            href: hr-process-vacancy-queue.md
+          - name: Enabling notifications by email
+            href: hr-process-candidate-queue.md
+          - name: Setting up automatic issue creation
+            href: hr-process-employment-queue.md
+          - name: Automating recurring actions in issues
+            href: hr-process-probation-queue.md
+          - name: Setting up regular reminders
+            href: hr-process-vacations-queue.md
+          - name: Adding a feedback form
+            href: hr-process-general-queue.md
       - name: Visualizing data with {{ datalens-name }}
         href: tutorials/visualisation-in-datalens.md
+      - name: Integrating {{ tracker-name }} with {{ sf-short-name }}
+        href: tutorials/tracker-cloud-function.md
   - name: Concepts
     items:
       - name: Service overview
@@ -179,18 +199,28 @@ items:
         href: manager/components.md
       - name: Versions
         href: manager/versions.md
-  - name: Projects
+  - name: Portfolios and projects
     items:
-      - name: Overview
-        href: manager/project-new.md
-      - name: My projects
-        href: manager/my-projects.md
-      - name: Creating a project
-        href: manager/create-project.md
-      - name: List of project issues
-        href: manager/project-list.md
-      - name: Issue board
-        href: manager/boards-project.md
+      - name: Working with projects
+        items:
+          - name: Projects
+            href: manager/project-new.md
+          - name: My projects
+            href: manager/my-projects.md
+          - name: Creating a project
+            href: manager/create-project.md
+          - name: List of project issues
+            href: manager/project-list.md
+          - name: Issue board
+            href: manager/boards-project.md
+          - name: Project milestones
+            href: manager/milestones.md
+      - name: Working with portfolios
+        items:
+          - name: Project portfolios
+            href: manager/portfolio.md
+          - name: Creating a portfolio
+            href: manager/create-portfolio.md
   - name: Issue boards
     items:
       - name: Overview
@@ -369,8 +399,16 @@ items:
             href: slack.md
           - name: Telegram
             href: telegram.md
-      - name: Version control systems
-        href: user/github.md
+      - name: Repositories
+        items:
+          - name: Overview
+            href: user/add-repository.md
+          - name: Bitbucket
+            href: user/bitbucket.md
+          - name: Github
+            href: user/github.md
+          - name: GitLab
+            href: user/gitlab.md
       - name: Setting up links to external applications
         items:
           - name: Overview
@@ -385,8 +423,6 @@ items:
         href: user/API.md
       - name: Python client
         href: user/python.md
-      - name: Connecting repositories
-        href: manager/add-repository.md
   - name: Yandex Tracker mobile app
     items:
       - name: Overview of features

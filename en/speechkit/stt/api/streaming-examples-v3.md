@@ -52,7 +52,7 @@ To implement an example from this section:
           yandex/cloud/ai/stt/v3/stt.proto
       ```
 
-      As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
+      As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
    1. In the root of the `output` directory, create a file, e.g. `test.py`, and add to it the following code:
 
@@ -142,7 +142,7 @@ To implement an example from this section:
       * `audio_channel_count`: Number of audio channels.
       * `profanity_filter`: [Profanity filter](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
       * `literature_text`: [Flag to generate the recognized text in a literary style](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
-      * `language_code`: [Language](../index.md#langs) that recognition is performed for.
+      * `language_code`: [Recognition language](../index.md#langs).
 
    1. Use the [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account:
 

@@ -65,7 +65,7 @@ Authentication is performed under a service account using an [API key](../../../
            yandex/cloud/ai/stt/v3/stt.proto
       ```
 
-      As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
+      As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
    1. Create a `test.py` file in the `output` directory and add the following code to it:
 
@@ -184,7 +184,7 @@ Authentication is performed under a service account using an [API key](../../../
       * `WAVE_OUTPUT_FILENAME`: Name of the audio file with the recorded speech. The file is created by a script.
       * `profanity_filter`: Profanity filter.
       * `literature_text`: [Flag to generate the recognized text in a literary style](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
-      * `language_code`: Language the recognition is performed for.
+      * `language_code`: Recognition language.
 
    1. Set the service account's API key as an environment variable:
 
@@ -202,7 +202,7 @@ Authentication is performed under a service account using an [API key](../../../
 
    1. Speak using a microphone.
 
-      The recorded speech is output to the terminal. Example:
+      The recorded speech is output to the terminal. For example:
 
       ```text
       type=status_code, alternatives=None

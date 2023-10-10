@@ -1,36 +1,58 @@
 # Практические руководства {{ managed-k8s-name }}
 
+C помощью {{ managed-k8s-name }} вы можете работать с [контейнеризованными приложениями](../../glossary/containerization.md) в инфраструктуре {{ yandex-cloud }}: разворачивать, масштабировать и управлять приложениями в контейнерах.
+
+## Создание проекта {#creating-project}
+
 * [{#T}](new-kubernetes-project.md)
+* [{#T}](running-pod-gpu.md)
+* [{#T}](driverless-gpu.md)
+* [{#T}](time-slicing-gpu.md)
+
+## Настройка и тестирование масштабирования {#scaling}
+
+* [{#T}](autoscaling.md)
+* [{#T}](vpa-autoscaling.md)
+
+
+* [{#T}](metrics-server.md)
+* [{#T}](load-testing-grpc-autoscaling.md)
+
+
+## Установка NGINX {#nginx}
+
+* [{#T}](ingress-cert-manager.md)
+* [{#T}](nginx-ingress-certificate-manager.md)
+
+## Использование {{ container-registry-full-name }} {#container-registry}
+
 * [{#T}](container-registry.md)
 * [{#T}](sign-cr-with-cosign.md)
+
+## Непрерывная интеграция с {{ GL }} {#gitlab}
+
+* [{#T}](gitlab-containers.md)
 
 
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)
 
 
-* [{#T}](running-pod-gpu.md)
-* [{#T}](ingress-cert-manager.md)
-* [{#T}](nginx-ingress-certificate-manager.md)
-* [{#T}](backup.md)
-* [{#T}](autoscaling.md)
-* [{#T}](vpa-autoscaling.md)
+## Работа с DNS {#dns}
 
-
-* [{#T}](load-testing-grpc-autoscaling.md)
-
-
-* [{#T}](pvc-snapshot-restore.md)
 * [{#T}](custom-dns.md)
 * [{#T}](dns-autoscaler.md)
 * [{#T}](node-local-dns.md)
 * [{#T}](dnschallenge.md)
+
+## Резервное копирование {#backup}
+
+* [{#T}](backup.md)
+* [{#T}](pvc-snapshot-restore.md)
+
+## Мониторинг {#monitoring}
+
 * [{#T}](prometheus-grafana-monitoring.md)
-* [{#T}](gitlab-containers.md)
-* [{#T}](metrics-server.md)
-* [{#T}](driverless-gpu.md)
 
-
-* [{#T}](ci-cd-serverless.md)
 
 ## Использование продуктов {{ marketplace-full-name }} {#marketplace-tutorials}
 

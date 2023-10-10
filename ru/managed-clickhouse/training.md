@@ -10,5 +10,6 @@ description: "Получить больше знаний о сервисах {{ 
 Подробнее узнать об использовании сервиса {{ mch-full-name }} можно в следующих курсах:
 * {% include [training-ycloud](../_includes/training/training-csi.md) %}
 * {% include [training-corpplatform](../_includes/training/training-cdp.md) %}
+* {% include [training-managed-clickhouse](../_includes/training/training-mch.md) %}
 
 {% include [training-courses](../_includes/training/training-courses.md) %}

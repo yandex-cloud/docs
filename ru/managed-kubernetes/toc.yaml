@@ -29,6 +29,8 @@ items:
             href: operations/applications/marketplace.md
           - name: Установка Argo CD
             href: operations/applications/argo-cd.md
+          - name: Установка cert-manager c плагином {{ dns-name }} ACME webhook
+            href: operations/applications/cert-manager-cloud-dns.md
           - name: Установка Container Storage Interface для S3
             href: operations/applications/csi-s3.md
           - name: Установка Crossplane
@@ -132,58 +134,70 @@ items:
         href: tutorials/index.md
       - name: Создание нового {{ k8s }}-проекта в {{ yandex-cloud }}
         href: tutorials/new-kubernetes-project.md
-      - name: Интеграция с {{ container-registry-name }}
-        href: tutorials/container-registry.md
-      - name: Подпись и проверка Docker-образов {{ container-registry-name }}
-        href: tutorials/sign-cr-with-cosign.md
-      - name: >-
-          Сканирование уязвимостей {{ container-registry-name }} при непрерывном
-          развертывании приложений с помощью {{ GL }}
-        href: tutorials/cr-scanner-with-k8s-and-gitlab.md
       - name: Запуск рабочих нагрузок с GPU
         href: tutorials/running-pod-gpu.md
-      - name: Установка Ingress-контроллера NGINX с Let's Encrypt®
-        href: tutorials/ingress-cert-manager.md
-      - name: >-
-          Установка Ingress-контроллера NGINX с сертификатом из {{
-          certificate-manager-name }}
-        href: tutorials/nginx-ingress-certificate-manager.md
-      - name: Резервное копирование в {{ objstorage-name }}
-        href: tutorials/backup.md
-      - name: Горизонтальное масштабирование приложения в кластере
-        href: tutorials/autoscaling.md
-      - name: Вертикальное масштабирование приложения в кластере
-        href: tutorials/vpa-autoscaling.md
-      - name: >-
-          Развертывание и нагрузочное тестирование gRPC-сервиса с
-          масштабированием
-        href: tutorials/load-testing-grpc-autoscaling.md
-      - name: Работа со снапшотами
-        href: tutorials/pvc-snapshot-restore.md
-      - name: Интеграция с корпоративной зоной DNS
-        href: tutorials/custom-dns.md
-      - name: Автоматическое масштабирование DNS по размеру кластера
-        href: tutorials/dns-autoscaler.md
-      - name: Настройка локального кеширования DNS
-        href: tutorials/node-local-dns.md
-      - name: Проверка DNS Challenge для сертификатов Let's Encrypt®
-        href: tutorials/dnschallenge.md
-      - name: >-
-          Мониторинг кластера с помощью {{ prometheus-name }} и {{ grafana-name
-          }}
-        href: tutorials/prometheus-grafana-monitoring.md
-      - name: >-
-          Непрерывное развертывание контейнеризованных приложений с помощью {{
-          GL }}
-        href: tutorials/gitlab-containers.md
-      - name: Изменение параметров сервера метрик (Metrics Server)
-        href: tutorials/metrics-server.md
       - name: Использование групп узлов c GPU без предустановленных драйверов
         href: tutorials/driverless-gpu.md
-      - name: >-
-          Построение пайплайна CI/CD в {{ GL }} с использованием
-          serverless-продуктов
-        href: tutorials/ci-cd-serverless.md
+      - name: Установка Time-Slicing GPUs
+        href: tutorials/time-slicing-gpu.md
+      - name: Настройка и тестирование масштабирования
+        items:
+          - name: Горизонтальное масштабирование приложения в кластере
+            href: tutorials/autoscaling.md
+          - name: Вертикальное масштабирование приложения в кластере
+            href: tutorials/vpa-autoscaling.md
+          - name: Изменение параметров сервера метрик (Metrics Server)
+            href: tutorials/metrics-server.md
+          - name: >-
+              Развертывание и нагрузочное тестирование gRPC-сервиса с
+              масштабированием
+            href: tutorials/load-testing-grpc-autoscaling.md
+      - name: Установка NGINX
+        items:
+          - name: Установка Ingress-контроллера NGINX с Let's Encrypt®
+            href: tutorials/ingress-cert-manager.md
+          - name: >-
+              Установка Ingress-контроллера NGINX с сертификатом из {{
+              certificate-manager-name }}
+            href: tutorials/nginx-ingress-certificate-manager.md
+      - name: Использование {{ container-registry-name }}
+        items:
+          - name: Интеграция с {{ container-registry-name }}
+            href: tutorials/container-registry.md
+          - name: Подпись и проверка Docker-образов {{ container-registry-name }}
+            href: tutorials/sign-cr-with-cosign.md
+      - name: Непрерывная интеграция с {{ GL }}
+        items:
+          - name: >-
+              Непрерывное развертывание контейнеризованных приложений с помощью
+              {{ GL }}
+            href: tutorials/gitlab-containers.md
+          - name: >-
+              Сканирование уязвимостей {{ container-registry-name }} при
+              непрерывном развертывании приложений с помощью {{ GL }}
+            href: tutorials/cr-scanner-with-k8s-and-gitlab.md
+      - name: Работа с DNS
+        items:
+          - name: Интеграция с корпоративной зоной DNS
+            href: tutorials/custom-dns.md
+          - name: Автоматическое масштабирование DNS по размеру кластера
+            href: tutorials/dns-autoscaler.md
+          - name: Настройка NodeLocal DNS Cache
+            href: tutorials/node-local-dns.md
+          - name: Проверка DNS Challenge для сертификатов Let's Encrypt®
+            href: tutorials/dnschallenge.md
+      - name: Резервное копирование
+        items:
+          - name: Резервное копирование в {{ objstorage-name }}
+            href: tutorials/backup.md
+          - name: Работа со снапшотами
+            href: tutorials/pvc-snapshot-restore.md
+      - name: Мониторинг
+        items:
+          - name: >-
+              Мониторинг кластера с помощью {{ prometheus-name }} и {{
+              grafana-name }}
+            href: tutorials/prometheus-grafana-monitoring.md
       - name: Использование продуктов {{ marketplace-name }}
         items:
           - name: Интеграция с Argo CD

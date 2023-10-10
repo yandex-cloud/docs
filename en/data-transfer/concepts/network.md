@@ -1,4 +1,4 @@
-# Network in {{ data-transfer-full-name }}
+# Networking in {{ data-transfer-full-name }}
 
 
 When creating endpoints of certain types, you can select a [cloud subnet](../../vpc/concepts/network.md). The transfer will use the above subnet to access source or target endpoint hosts.

@@ -11,6 +11,7 @@
     * [{{ metrika }}](../../data-transfer/operations/endpoint/source/metrika.md)
     * [{{ MG }}](../../data-transfer/operations/endpoint/source/mongodb.md)
     * [{{ MY }}](../../data-transfer/operations/endpoint/source/mysql.md)
+    * [{{ objstorage-name }}](../../data-transfer/operations/endpoint/source/object-storage.md)
     * [Oracle](../../data-transfer/operations/endpoint/source/oracle.md)
     * [{{ PG }}](../../data-transfer/operations/endpoint/source/postgresql.md)
     * [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md)

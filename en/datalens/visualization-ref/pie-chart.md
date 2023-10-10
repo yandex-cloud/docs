@@ -18,9 +18,9 @@ This chart shows a proportional relationship of different categories to a total 
 
 | Section<br/> in the wizard | Description |
 ----- | ----
-| Color | Dimension. Only one field can be specified. |
-| Measures | Measure. Only one field can be specified. |
-| Sorting | A measure or dimension from the **Color** section. Affects area sorting. The sorting direction is marked with an icon next to the field: ascending ![image](../../_assets/datalens/sort_asc.svg) or descending ![image](../../_assets/datalens/sort_desc.svg). To change the sorting direction, click the icon. |
+| Color | Dimension. You can only specify one field here. |
+| Measures | Measure. You can only specify one field here. |
+| Sorting | A measure or dimension from the **Color** section. Affects area sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/datalens/sort_asc.svg) ascending or ![image](../../_assets/datalens/sort_desc.svg) descending. To change the sorting direction, click the icon. |
 | Signatures | Measure. Displays measure values on the chart. To add callouts with category names to the chart, drag the [Measure Names](../concepts/chart/measure-values.md) dimension to this section. |
 | Filters | Dimension or measure. Used as a filter. |
 
@@ -37,5 +37,5 @@ To create a pie chart:
 ## Recommendations {#recommendations}
 
 * If there are more than 4-6 segments per chart, group the smallest of them as **Other**. A larger number of segments overloads a chart and makes it difficult to understand the data.
-* You can't display negative and null values on this type of chart.
-* Don't use pie charts to show changes to proportions over time or for precisely comparing data by category.
+* You cannot display negative and null values on this type of chart.
+* Do not use pie charts to show changes to proportions over time or for precisely comparing data by category.

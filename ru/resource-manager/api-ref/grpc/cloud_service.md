@@ -233,6 +233,8 @@ Field | Description
 --- | ---
 cloud_id | **string**<br>ID of the cloud that is being deleted. 
 delete_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The timestamp after which the process of deleting the cloud should begin. 
+cancelled_by | **string**<br>Information about operation cancellation 
+cancelled_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
 ## ListOperations {#ListOperations}

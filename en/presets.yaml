@@ -165,6 +165,7 @@ default:
   backup-name: Cloud Backup
   search-api-name: Search API
   yagpt-name: YandexGPT
+  websql-name: WebSQL
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -3925,8 +3926,6 @@ default:
         subscribe: Subscribe
       blocks-desktop_b-page-issues:
         page-title: Filters
-      blocks-desktop_b-page-projects:
-        create: Create project
       blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor:
         action_add-action: Add new action
         action_add-condition: Add condition
@@ -4821,6 +4820,9 @@ default:
       ui_components_page-queue-admin_AliasesStateList:
         action-add-mail: Add an email
         action-domain: Connect a domain
+      ui_components_page-queue-admin_queue-admin-tab-integrations-forms_components_FormsMenu:
+        add-form: Add form
+        create-new: Create new
       ui_components_page-queue-admin_QueueActionsMenu:
         remove-queue-action: Delete queue
       ui_components_page-queue-admin_QueueAdminPageContent:
@@ -4866,6 +4868,7 @@ default:
         subscribe-new-tickets: Subscribe to new issues
       ui_components_portfolios_Header:
         description-tab: About the portfolio
+        projects-tab: Projects
       ui_components_portfolios_PortfolioMenu:
         remove-portfolio: Delete portfolio
       ui_components_Project_Header_IssuesImportButton:
@@ -4916,6 +4919,9 @@ default:
         filter-macro-empty_: No value
       ui_components_promo_Page:
         login-button-label: Log in to Tracker
+      ui_components_queue-admin-tab-integrations_IntegrationForms:
+        settings-button-text: Setting up forms
+        title: Forms
       ui_components_queue-admin-tab-main_QueueAdminTabMain:
         save: Save
       ui_components_queue-admin-tab-timetracking_TimetackingForm:
@@ -4926,6 +4932,8 @@ default:
         field-use-summary-time: Display the Overall task estimation field
         field-working-calendar: Work schedule
         save: Save
+      ui_components_queue-admin-tab-workflows_CopyWorkflowDialog:
+        action-copy: Copy
       ui_components_queue-admin-tab-workflows_IssueTypesListCell:
         remove-issue-type: Remove issue type from the queue
       ui_components_queue-admin-tab-workflows_OrgAdminEntityForm:

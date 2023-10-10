@@ -59,8 +59,11 @@ Method | Description
 [enable](enable.md) | Enables the specified snapshot schedule.
 [get](get.md) | Returns the specified snapshot schedule.
 [list](list.md) | Retrieves the list of snapshot schedules in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the snapshot schedule.
 [listDisks](listDisks.md) | Retrieves the list of disks attached to the specified snapshot schedule.
 [listOperations](listOperations.md) | Lists operations for the specified snapshot schedule.
 [listSnapshots](listSnapshots.md) | Retrieves the list of snapshots created by the specified snapshot schedule.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the snapshot schedule.
 [update](update.md) | Updates the specified snapshot schedule.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the snapshot schedule.
 [updateDisks](updateDisks.md) | Updates the list of disks attached to the specified schedule.

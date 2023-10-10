@@ -15,6 +15,7 @@ Sections:
 * [Charts](charts.md)
 * [Calculated fields](calculation-fields.md)
 * [Dashboards](dashboards.md)
+* [Workbooks and collections](workbooks-collections.md)
 * [Other](other.md)
 
 ## How to report a problem {#how-to-resolve-problem}

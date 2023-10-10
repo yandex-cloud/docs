@@ -53,5 +53,8 @@ Method | Description
 [get](get.md) | Returns the specified Image resource.
 [getLatestByFamily](getLatestByFamily.md) | Returns the latest image that is part of an image family.
 [list](list.md) | Retrieves the list of Image resources in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the image.
 [listOperations](listOperations.md) | Lists operations for the specified image.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the image.
 [update](update.md) | Updates the specified image.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the image.

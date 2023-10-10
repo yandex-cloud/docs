@@ -43,5 +43,8 @@ Method | Description
 [delete](delete.md) | Deletes the specified filesystem.
 [get](get.md) | Returns the specified filesystem.
 [list](list.md) | Lists filesystems in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the filesystem.
 [listOperations](listOperations.md) | Lists operations for the specified filesystem.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the filesystem.
 [update](update.md) | Updates the specified filesystem.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the filesystem.

@@ -1,6 +1,6 @@
 # Tree chart ![](../../_assets/datalens/treemap.svg)
 
-A tree chart displays hierarchy data as a set of nested rectangles. Each hierarchy level corresponds to a dimension and is represented as a colored rectangle with nested rectangles. The size of each rectangle depends on the measure value: the higher the value, the larger the size. A chart doesn't take up much space on a dashboard even if there is a large amount of data.
+A tree chart displays hierarchy data as a set of nested rectangles. Each hierarchy level corresponds to a dimension and is represented as a colored rectangle with nested rectangles. The size of each rectangle depends on the measure value: the higher the value, the larger the size. A chart does not take up much space on a dashboard even if there is a large amount of data.
 
 For example, you can use a tree chart to visually represent sales by product category and subcategory.
 
@@ -44,4 +44,4 @@ To create a tree chart:
 
 * Use this type of chart to show the relationship between a part and a whole.
 * If there are few categories (up to 6), use a pie or donut chart.
-* You can't display negative values on a tree chart.
+* You cannot display negative values on a tree chart.

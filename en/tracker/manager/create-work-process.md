@@ -20,7 +20,7 @@ When you select this template, the following items are created automatically:
 * [Issue board](agile-new.md) with a [backlog](backlog.md) and a [planning poker](planning-poker.md).
 * [Queue](create-queue.md) with a basic set of issue [types and statuses](workflow.md).
 
-If you are using cloud-based services, such as GitHub, GitLab, or Bitbucket, you can [connect](add-repository.md) any number of repositories and [link](../user/ticket-links.md#section_commit) commits to issues.
+If you are using cloud-based services, such as GitHub, GitLab, or Bitbucket, you can [connect](../user/add-repository.md) any number of repositories and [link](../user/ticket-links.md#section_commit) commits to issues.
 
 ## {{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.process-type-support }} {#for-support-template}
 
@@ -47,7 +47,7 @@ When you select this template, the following items are created automatically:
    * Issue queue name
    * [Queue key](create-queue.md#key)
    * Permissions
-1. Tap **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**. Depending on the selected template, one of the following items will open:
+1. Click **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**. Depending on the selected template, one of the following items will open:
    * [{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.process-type-project }}](create-work-process.md#manage-process-template): New project page.
    * [{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.process-type-development }}](create-work-process.md#for-developers-template): Board with a backlog.
    * [{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.process-type-support }}](create-work-process.md#for-support-template): Issue queue.

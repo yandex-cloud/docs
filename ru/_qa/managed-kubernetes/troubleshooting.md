@@ -17,3 +17,196 @@ Permission denied
 * [{{ roles-vpc-user }}](../../iam/concepts/access-control/roles.md#vpc-user)
 
 Для использования [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) дополнительно [назначьте](../../iam/operations/sa/assign-role-for-sa.md) роль [{{ roles-vpc-public-admin }}](../../iam/concepts/access-control/roles.md#vpc-public-admin).
+
+#### Пространство имен удалено, но все еще находится в статусе Terminating и не удаляется {#namespace-terminating}
+
+Такое случается, когда в [пространстве имен](../../managed-kubernetes/concepts/index.md#namespace) остаются зависшие ресурсы, которые контроллер пространства не может удалить.
+
+Чтобы устранить проблему, вручную удалите зависшие ресурсы.
+
+{% list tabs %}
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. [Подключитесь к кластеру {{ managed-k8s-name }}](../../managed-kubernetes/operations/connect/index.md).
+  1. Узнайте, какие ресурсы остались в пространстве имен:
+
+     ```bash
+     kubectl api-resources --verbs=list --namespaced --output=name \
+       | xargs --max-args=1 kubectl get --show-kind \
+       --ignore-not-found --namespace=<пространство_имен>
+     ```
+
+  1. Удалите найденные ресурсы:
+
+     ```bash
+     kubectl delete <тип_ресурса> <имя_ресурса> --namespace=<пространство_имен>
+     ```
+
+  Если после этого пространство имен все равно находится в статусе `Terminating` и не удаляется, удалите его принудительно, использовав `finalizer`:
+  1. Включите проксирование API {{ k8s }} на ваш локальный компьютер:
+
+     ```bash
+     kubectl proxy
+     ```
+
+  1. Удалите пространство имен:
+
+     ```bash
+     kubectl get namespace <пространство_имен> --output=json \
+       | jq '.spec = {"finalizers":[]}' > temp.json && \
+     curl --insecure --header "Content-Type: application/json" \
+       --request PUT --data-binary @temp.json \
+       127.0.0.1:8001/api/v1/namespaces/<пространство_имен>/finalize
+     ```
+
+    Не рекомендуется сразу удалять пространство имен в статусе `Terminating` с помощью `finalizer`, так как при этом зависшие ресурсы могут остаться в кластере {{ managed-k8s-name }}.
+
+{% endlist %}
+
+#### Использую {{ network-load-balancer-full-name }} вместе с Ingress-контроллером, почему некоторые узлы моего кластера находятся в состоянии UNHEALTHY? {#nlb-ingress}
+
+Это нормальное поведение [балансировщика нагрузки](../../network-load-balancer/concepts/index.md) при политике `External Traffic Policy: Local`. Статус `HEALTHY` получают только те [узлы {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group), [поды](../../managed-kubernetes/concepts/index.md#pod) которых готовы принимать пользовательский трафик. Оставшиеся узлы помечаются как `UNHEALTHY`.
+
+Чтобы узнать тип политики балансировщика, созданного с помощью сервиса типа `LoadBalancer`, выполните команду:
+
+```bash
+kubectl describe svc <имя_сервиса_типа_LoadBalancer> \
+| grep 'External Traffic Policy'
+```
+
+Подробнее в разделе [Параметры сервиса типа LoadBalancer](../../managed-kubernetes/operations/create-load-balancer.md#advanced).
+
+#### Почему созданный PersistentVolumeClaim остается в статусе Pending? {#pvc-pending}
+
+Это нормальное поведение [PersistentVolumeClaim](../../managed-kubernetes/concepts/volume.md#persistent-volume). Созданный PVC находится в статусе **Pending**, пока не будет создан под, который должен его использовать.
+
+Чтобы перевести PVC в статус **Running**:
+1. Просмотрите информацию о PVC:
+
+   ```bash
+   kubectl describe pvc <имя_PVC> \
+     --namespace=<пространство_имен,_в_котором_находится_PVC>
+   ```
+
+   Сообщение `waiting for first consumer to be created before binding` означает, что PVC ожидает создания пода.
+1. [Создайте под](../../managed-kubernetes/operations/volumes/dynamic-create-pv.md#create-pod) для этого PVC.
+
+#### Почему кластер {{ managed-k8s-name }} не запускается после изменения конфигурации его узлов? {#not-starting}
+
+Проверьте, что новая конфигурация узлов {{ managed-k8s-name }} не превышает [квоты](../../managed-kubernetes/concepts/limits.md):
+
+{% list tabs %}
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы провести диагностику узлов кластера {{ managed-k8s-name }}:
+  1. [Подключитесь к кластеру {{ managed-k8s-name }}](../../managed-kubernetes/operations/connect/index.md).
+  1. Проверьте состояние узлов {{ managed-k8s-name }}:
+
+     ```bash
+     yc managed-kubernetes cluster list-nodes <идентификатор_кластера>
+     ```
+
+     Сообщение о том, что ресурсы кластера {{ managed-k8s-name }} исчерпаны, отображается в первом столбце вывода команды. Пример:
+
+     ```text
+     +--------------------------------+-----------------+------------------+-------------+--------------+
+     |         CLOUD INSTANCE         | KUBERNETES NODE |     RESOURCES    |     DISK    |    STATUS    |
+     +--------------------------------+-----------------+------------------+-------------+--------------+
+     | fhmil14sdienhr5uh89no          |                 | 2 100% core(s),  | 64.0 GB hdd | PROVISIONING |
+     | CREATING_INSTANCE              |                 | 4.0 GB of memory |             |              |
+     | [RESOURCE_EXHAUSTED] The limit |                 |                  |             |              |
+     | on total size of network-hdd   |                 |                  |             |              |
+     | disks has exceeded.,           |                 |                  |             |              |
+     | [RESOURCE_EXHAUSTED] The limit |                 |                  |             |              |
+     | on total size of network-hdd   |                 |                  |             |              |
+     | disks has exceeded.            |                 |                  |             |              |
+     +--------------------------------+-----------------+------------------+-------------+--------------+
+     ```
+
+{% endlist %}
+
+Чтобы кластер {{ managed-k8s-name }} запустился, [увеличьте квоты](../../managed-kubernetes/concepts/limits.md).
+
+#### Ошибка при обновлении сертификата Ingress-контроллера {#ingress-certificate}
+
+Текст ошибки:
+
+```text
+ERROR controller-runtime.manager.controller.ingressgroup Reconciler error
+{"name": "some-prod", "namespace": , "error": "rpc error: code = InvalidArgument
+desc = Validation error:\nlistener_specs[1].tls.sni_handlers[2].handler.certificate_ids:
+Number of elements must be less than or equal to 1"}
+```
+
+Ошибка возникает, если для одного обработчика Ingress-контроллера указаны разные сертификаты.
+
+**Решение:** исправьте и примените спецификации Ingress-контроллера таким образом, чтобы в описании каждого обработчика был указан только один сертификат.
+
+#### Почему в кластере не работает разрешение имен DNS? {#not-resolve-dns}
+
+Кластер {{ managed-k8s-name }} может не выполнять разрешение имен внутренних и внешних DNS-запросов по нескольким причинам. Чтобы устранить проблему:
+1. [Проверьте версию кластера {{ managed-k8s-name }} и групп узлов](#check-version).
+1. [Убедитесь, что CoreDNS работает](#check-coredns).
+1. [Убедитесь, что кластеру {{ managed-k8s-name }} достаточно ресурсов CPU](#check-cpu).
+1. [Настройте автоматическое масштабирование](#dns-autoscaler).
+1. [Настройте локальное кеширование DNS](#node-local-dns).
+
+##### Проверьте версию кластера и групп узлов {#check-version}
+
+1. Получите список актуальных версий {{ k8s }}:
+
+   ```bash
+   yc managed-kubernetes list-versions
+   ```
+
+1. Узнайте версию кластера {{ managed-k8s-name }}:
+
+   ```bash
+   yc managed-kubernetes cluster get <идентификатор_или_имя_кластера> | grep version:
+   ```
+
+   Идентификатор и имя кластера {{ managed-k8s-name }} можно получить со [списком кластеров в каталоге](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md#list).
+1. Узнайте версию группы узлов {{ managed-k8s-name }}:
+
+   ```bash
+   yc managed-kubernetes node-group get <идентификатор_или_имя_группы_узлов> | grep version:
+   ```
+
+   Идентификатор и имя группы узлов {{ managed-k8s-name }} можно получить со [списком групп узлов в кластере](../../managed-kubernetes/operations/node-group/node-group-list.md#list).
+1. Если версии кластера {{ managed-k8s-name }} или групп узлов не входят в список актуальных версий {{ k8s }}, [обновите их](../../managed-kubernetes/operations/update-kubernetes.md).
+
+##### Убедитесь, что CoreDNS работает {#check-coredns}
+
+Получите список подов CoreDNS и их состояние:
+
+```bash
+kubectl get pods -n kube-system -l k8s-app=kube-dns -o wide
+```
+
+Все поды должны находится в состоянии `Running`.
+
+##### Убедитесь, что кластеру достаточно ресурсов CPU {#check-cpu}
+
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
+1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку **Управление узлами**.
+1. Перейдите во вкладку **Узлы** и нажмите на имя любого узла {{ managed-k8s-name }}.
+1. Перейдите во вкладку **Мониторинг**.
+1. Убедитесь, что на графике **CPU, [cores]** значения используемой мощности CPU `used` не достигают значений доступной мощности CPU `total`. Проверьте это для всех узлов кластера {{ managed-k8s-name }}.
+
+##### Настройте автоматическое масштабирование {#dns-autoscaler}
+
+Настройте [автоматическое масштабирование DNS по размеру кластера {{ managed-k8s-name }}](../../managed-kubernetes/tutorials/dns-autoscaler.md).
+
+##### Настройте локальное кеширование DNS {#node-local-dns}
+
+[Настройте NodeLocal DNS Cache](../../managed-kubernetes/tutorials/node-local-dns.md). Чтобы применить оптимальные настройки, [установите NodeLocal DNS Cache из {{ marketplace-full-name }}](../../managed-kubernetes/operations/applications/node-local-dns.md#marketplace-install).

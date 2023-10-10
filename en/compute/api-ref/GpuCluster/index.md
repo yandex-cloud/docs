@@ -39,6 +39,9 @@ Method | Description
 [delete](delete.md) | Deletes the specified GPU cluster.
 [get](get.md) | Returns the specified GPU cluster.
 [list](list.md) | Retrieves the list of GPU clusters in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the GPU cluster.
 [listInstances](listInstances.md) | List instances created in this GPU cluster.
 [listOperations](listOperations.md) | Lists operations for the specified GPU cluster.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the GPU cluster.
 [update](update.md) | Updates the specified GPU cluster.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the GPU cluster.

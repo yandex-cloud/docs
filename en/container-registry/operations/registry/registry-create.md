@@ -8,7 +8,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
 
   1. In the [management console]({{ link-console-main }}), select the folder to create a registry in.
   1. In the list of services, select **{{ container-registry-name }}**.
-  1. Specify a name for the registry.
+  1. Specify a name for the registry. The naming requirements are as follows:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -53,25 +53,26 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
      created_at: "2019-01-09T14:34:06.601Z"
      ```
 
-     {% include [name-format](../../../_includes/name-format.md) %}
+      The registry naming requirements are as follows:
 
-     * The `--name` flag is optional. You can create a registry without a name and access it by its ID.
-     * The `name` field is user-defined: it is used for listing in the YC CLI and is **not used** in the Docker CLI.
-  1. Make sure the registry was created:
+      {% include [name-format](../../../_includes/name-format.md) %}
 
-     ```bash
-     yc container registry list
-     ```
+      The `--name` flag is optional: you can create a registry without any name and access it using the ID. The `name` field is user-defined: it is used for listing in the YC CLI and is **not used** in the Docker CLI.
+   1. Make sure the registry was created:
 
-     Command result:
+      ```bash
+      yc container registry list
+      ```
 
-     ```text
-     +----------------------+--------+----------------------+
-     |          ID          |  NAME  |      FOLDER ID       |
-     +----------------------+--------+----------------------+
-     | crpd50616s9a2t7gr8mi | my-reg | b1g88tflru0ek1omtsu0 |
-     +----------------------+--------+----------------------+
-     ```
+      Command result:
+
+      ```text
+      +----------------------+--------+----------------------+
+      |          ID          |  NAME  |      FOLDER ID       |
+      +----------------------+--------+----------------------+
+      | crpd50616s9a2t7gr8mi | my-reg | b1g88tflru0ek1omtsu0 |
+      +----------------------+--------+----------------------+
+      ```
 
 - API
 

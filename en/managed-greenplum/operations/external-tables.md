@@ -44,7 +44,7 @@ SQL query syntax to create an external table:
 ```sql
 CREATE [WRITABLE] EXTERNAL TABLE <table name>
        (<column name> <data type> [, ...])
-       LOCATION('pxf://<data path or table name>?PROFILE=<profile name>&JDBC_DRIVER=<JDBC driver name>&DB_URL=<connection string>&USER=<username>&PASS=<user password>')
+       LOCATION('pxf://<data path or table name>?PROFILE=<profile name>&JDBC_DRIVER=<JDBC driver name>&DB_URL=<connection string>&USER=<username>')
        FORMAT '[TEXT|CSV|CUSTOM]';
 ```
 
@@ -58,7 +58,6 @@ Where:
 * (optional) `JDBC driver name`: JDBC driver to be used to connect to an external DBMS.
 * (optional) `connection string`: External DBMS connection URL.
 * (optional) `username`: Username to connect to the external DBMS.
-* (optional) `user password`: User password to connect to an external DBMS.
 
 The `WRITABLE` option enables you to write data to an external object. To be able to read data from an external object, create a table with the `READABLE` option.
 
@@ -73,7 +72,6 @@ This SQL query does not contain an exhaustive list of available parameters. For 
    1. [Create a {{ mch-full-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the following settings:
 
       * User name: `chuser`.
-      * Password: `chpassword`.
 
    1. [Connect to a {{ CH }} database](../../managed-clickhouse/operations/connect#connection-string) using `clickhouse-client`.
    1. Create a test table and populate it with data:
@@ -91,7 +89,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
       ```sql
       CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
-      LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:http://c-<cluster ID>.rw.{{ dns-zone }}:8123/db1&USER=chuser&PASS=chpassword')
+      LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:http://c-<cluster ID>.rw.{{ dns-zone }}:8123/db1&USER=chuser')
       FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
       ```
 
@@ -99,7 +97,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
       ```sql
       CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
-      LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:https://c-<cluster ID>.rw.mdb.yandexcloud.net:{{ port-mch-http }}/db1&USER=chuser&PASS=chpassword&ssl=true&sslmode=strict&sslrootcert=/etc/greenplum/ssl/allCAs.pem')
+      LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:https://c-<cluster ID>.rw.mdb.yandexcloud.net:{{ port-mch-http }}/db1&USER=chuser&ssl=true&sslmode=strict&sslrootcert=/etc/greenplum/ssl/allCAs.pem')
       FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
       ```
 
@@ -126,7 +124,6 @@ This SQL query does not contain an exhaustive list of available parameters. For 
    1. [Create a {{ mmy-full-name }} cluster](../../managed-mysql/operations/cluster-create.md) with the following settings:
 
       * User name: `mysqluser`.
-      * Password: `mysqlpassword`.
       * In the host settings, select the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option.
 
    1. [Connect to a {{ MY }} database](../../managed-mysql/operations/connect#connection-string) using `mysql`.
@@ -145,7 +142,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
       ```sql
       CREATE READABLE EXTERNAL TABLE pxf_mysql(a int, b int)
-      LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.mysql.jdbc.Driver&DB_URL=jdbc:mysql://c-<cluster ID>.rw.{{ dns-zone }}:3306/db1&USER=mysqluser&PASS=mysqlpassword')
+      LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.mysql.jdbc.Driver&DB_URL=jdbc:mysql://c-<cluster ID>.rw.{{ dns-zone }}:3306/db1&USER=mysqluser')
       FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
       ```
 
@@ -173,7 +170,6 @@ This SQL query does not contain an exhaustive list of available parameters. For 
    1. [Create a {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-create.md) with the following settings:
 
       * User name: `pguser`.
-      * Password: `pgpassword`.
       * In the host settings, select the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option.
 
    1. [Connect to a {{ PG }} database](../../managed-postgresql/operations/connect.md#bash) using `psql`.
@@ -192,7 +188,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
       ```sql
       CREATE READABLE EXTERNAL TABLE pxf_pg(a int, b int)
-      LOCATION ('pxf://public.test?PROFILE=JDBC&JDBC_DRIVER=org.postgresql.Driver&DB_URL=jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:6432/db1&USER=pguser&PASS=pgpassword')
+      LOCATION ('pxf://public.test?PROFILE=JDBC&JDBC_DRIVER=org.postgresql.Driver&DB_URL=jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:6432/db1&USER=pguser')
       FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
       ```
 

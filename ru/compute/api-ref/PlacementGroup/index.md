@@ -44,6 +44,9 @@ Method | Description
 [delete](delete.md) | Deletes the specified placement group.
 [get](get.md) | Returns the specified placement group.
 [list](list.md) | Retrieves the list of placement groups in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the placement group.
 [listInstances](listInstances.md) | Lists instances for the specified placement group.
 [listOperations](listOperations.md) | Lists operations for the specified placement group.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the placement group.
 [update](update.md) | Updates the specified placement group.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the placement group.

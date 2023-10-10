@@ -9,7 +9,8 @@ You can grant permissions to individual users or groups of [authenticated](../..
 
 {% note info %}
 
-Permissions are inherited by all nested objects. You can update the inherited permissions only at the parent object level.
+* You can assign permissions for workbooks and collections to users even if they have yet to accept their [invitation to {{ datalens-short-name }}](../security/add-new-user.md).
+* Permissions are inherited by all nested objects. You can update the inherited permissions only at the parent object level.
 
 {% endnote %}
 

@@ -44,7 +44,7 @@
 ```sql
 CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
        (<имя столбца> <тип данных> [, ...])
-       LOCATION('pxf://<путь к данным или имя таблицы>?PROFILE=<имя профиля>&JDBC_DRIVER=<имя JDBC-драйвера>&DB_URL=<строка подключения>&USER=<имя пользователя>&PASS=<пароль пользователя>')
+       LOCATION('pxf://<путь к данным или имя таблицы>?PROFILE=<имя профиля>&JDBC_DRIVER=<имя JDBC-драйвера>&DB_URL=<строка подключения>&USER=<имя пользователя>')
        FORMAT '[TEXT|CSV|CUSTOM]';
 ```
 
@@ -58,9 +58,14 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 * (опционально) `имя JDBC-драйвера` — JDBC-драйвер, который будет использоваться для подключения к внешней СУБД.
 * (опционально) `строка подключения` — URL для подключения к внешней СУБД.
 * (опционально) `имя пользователя` — имя пользователя для подключения к внешней СУБД.
-* (опционально) `пароль пользователя`— пароль пользователя для подключения к внешней СУБД.
 
 Опция `WRITABLE` позволяет записывать данные во внешний объект. Чтобы считать данные из внешнего объекта, создайте внешнюю таблицу с опцией `READABLE`.
+
+{% note warning %}
+
+При создании внешних таблиц не рекомендуется задавать пароль пользователя явным образом. Используйте для этого другие методы.
+
+{% endnote %}
 
 В этом SQL-запросе приведены не все доступные параметры. Подробнее см. в [документации {{ GP }}]({{ gp.docs.pivotal }}/6-4/pxf/intro_pxf.html) и примерах создания внешних таблиц.
 
@@ -73,7 +78,6 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
     1. [Создайте кластер {{ mch-full-name }}](../../managed-clickhouse/operations/cluster-create.md) с настройками:
 
         * Имя пользователя — `chuser`.
-        * Пароль — `chpassword`.
 
     1. [Подключитесь к БД {{ CH }}](../../managed-clickhouse/operations/connect#connection-string) с помощью утилиты `clickhouse-client`.
     1. Создайте тестовую таблицу и наполните ее данными:
@@ -91,7 +95,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
         ```sql
         CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
-        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:http://c-<идентификатор кластера>.rw.{{ dns-zone }}:8123/db1&USER=chuser&PASS=chpassword')
+        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:http://c-<идентификатор кластера>.rw.{{ dns-zone }}:8123/db1&USER=chuser')
         FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
         ```
 
@@ -99,7 +103,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
         ```sql
         CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
-        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:https://c-<идентификатор кластера>.rw.mdb.yandexcloud.net:{{ port-mch-http }}/db1&USER=chuser&PASS=chpassword&ssl=true&sslmode=strict&sslrootcert=/etc/greenplum/ssl/allCAs.pem')
+        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:https://c-<идентификатор кластера>.rw.mdb.yandexcloud.net:{{ port-mch-http }}/db1&USER=chuser&ssl=true&sslmode=strict&sslrootcert=/etc/greenplum/ssl/allCAs.pem')
         FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
         ```
 
@@ -126,7 +130,6 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
     1. [Создайте кластер {{ mmy-full-name }}](../../managed-mysql/operations/cluster-create.md) с настройками:
 
         * Имя пользователя — `mysqluser`.
-        * Пароль — `mysqlpassword`.
         * В настройках хостов выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
     1. [Подключитесь к БД {{ MY }}](../../managed-mysql/operations/connect#connection-string) с помощью утилиты `mysql`.
@@ -145,7 +148,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
         ```sql
         CREATE READABLE EXTERNAL TABLE pxf_mysql(a int, b int)
-        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.mysql.jdbc.Driver&DB_URL=jdbc:mysql://c-<идентификатор кластера>.rw.{{ dns-zone }}:3306/db1&USER=mysqluser&PASS=mysqlpassword')
+        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.mysql.jdbc.Driver&DB_URL=jdbc:mysql://c-<идентификатор кластера>.rw.{{ dns-zone }}:3306/db1&USER=mysqluser')
         FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
         ```
 
@@ -173,7 +176,6 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
     1. [Создайте кластер {{ mpg-full-name }}](../../managed-postgresql/operations/cluster-create.md) с настройками:
 
         * Имя пользователя — `pguser`;
-        * Пароль — `pgpassword`;
         * В настройках хостов выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
     1. [Подключитесь к БД {{ PG }}](../../managed-postgresql/operations/connect.md#bash) с помощью утилиты `psql`.
@@ -192,7 +194,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
         ```sql
         CREATE READABLE EXTERNAL TABLE pxf_pg(a int, b int)
-        LOCATION ('pxf://public.test?PROFILE=JDBC&JDBC_DRIVER=org.postgresql.Driver&DB_URL=jdbc:postgresql://c-<идентификатор кластера>.rw.{{ dns-zone }}:6432/db1&USER=pguser&PASS=pgpassword')
+        LOCATION ('pxf://public.test?PROFILE=JDBC&JDBC_DRIVER=org.postgresql.Driver&DB_URL=jdbc:postgresql://c-<идентификатор кластера>.rw.{{ dns-zone }}:6432/db1&USER=pguser')
         FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
         ```
 

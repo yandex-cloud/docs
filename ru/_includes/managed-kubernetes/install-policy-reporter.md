@@ -1,0 +1,1 @@
+(Опционально) [Установите Policy Reporter](../../managed-kubernetes/operations/applications/policy-reporter.md) в кластер {{ managed-k8s-name }}, чтобы получить возможность сохранять и обрабатывать результаты срабатывания политики.

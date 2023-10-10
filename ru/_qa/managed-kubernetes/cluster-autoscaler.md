@@ -62,4 +62,8 @@ kubectl annotate pod <имя пода> cluster-autoscaler.kubernetes.io/safe-to-
 
 Установленные лимиты не будут нарушены при масштабировании, но {{ managed-k8s-name }} не следит за соблюдением границ намеренно. Масштабирование в сторону увеличения сработает только в случае появления подов в статусе `unschedulable`.
 
+#### Почему в моем кластере остаются поды со статусом Terminated? {#terminated-pod}
+
+Это происходит из-за того, что во время автоматического масштабирования контроллер [Pod garbage collector (PodGC)](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-garbage-collection) не успевает удалять поды. Подробнее в разделе [Удаление подов в статусе Terminated](../../managed-kubernetes/operations/autoscale.md#delete-terminated).
+
 Ответы на другие вопросы об автоматическом масштабировании смотрите в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#table-of-contents).
