@@ -43,7 +43,7 @@ You can use a gradient in a chart by adding a measure to the **Colors** section.
 To create a scatter chart:
 
 1. On the {{ datalens-full-name }} [home page]({{link-datalens-main}}), click **Create chart**.
-1. Under **Dataset**, select a dataset for visualization. If you don't have a dataset, [create one](../operations/dataset/create.md).
+1. Under **Dataset**, select a dataset for visualization. If you do not have a dataset, [create one](../operations/dataset/create.md).
 1. Select **Scatter chart** as the chart type.
 1. Drag a dimension from the dataset to the **X** section.
 1. Drag one or more measures from the dataset to the **Y** section. The values will be represented as points at the intersection of the X and Y coordinates.

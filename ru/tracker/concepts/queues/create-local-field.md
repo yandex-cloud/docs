@@ -131,8 +131,8 @@ values | Значения для выпадающего списка. | Масс
         "readonly": true,
         "options": false,
         "suggest": false,
-       "queryProvider": {
-         "type": "StringOptionalQueryProvider"
+        "queryProvider": {
+            "type": "StringOptionalQueryProvider"
         },
         "order": 100, 
         "category": {
@@ -172,7 +172,7 @@ values | Значения для выпадающего списка. | Масс
     items | Тип значений. Присутствует у полей с несколькими значениями. | Строка
     required | Обязательность заполнения поля:<ul><li>`true` — поле обязательно для заполнения;</li><li>`false` — поле не обязательно для заполнения.</li></ul> | Логический
 
-     **Поля объекта** `optionsProvider` {#optionsProvider}
+    **Поля объекта** `optionsProvider` {#optionsProvider}
     
     Параметр | Описание | Тип данных
     -------- | -------- | ----------

@@ -25,7 +25,7 @@ You can set up the size and color of an indicator.
 | Section<br/> in the wizard | Description |
 ----- | ----
 | Measure | Measure. One measure that determines the indicator value. |
-| Chart filters | Dimension or measure. Used as a filter. |
+| Filters | Dimension or measure. Used as a filter. |
 
 ## Creating an indicator {#create-diagram}
 
@@ -39,7 +39,7 @@ To create an indicator:
 You can also change the size and color of the indicator:
 
 1. In the **Measure** section, click ![](../../_assets/datalens/gear.svg).
-1. In the **Metric settings** window, select the size and color and click **Apply**.
+1. In the **Indicator settings** window, select the size and color and click **Apply**.
 
 ## Recommendations {#recommendations}
 

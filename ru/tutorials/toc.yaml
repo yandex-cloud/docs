@@ -349,6 +349,8 @@ items:
           Использование скриптов инициализации для настройки GeeseFS в {{
           dataproc-name }}
         href: dataplatform/data-proc-init-actions-geesefs.md
+      - name: Автоматизация работы с {{ dataproc-name }} с помощью {{ maf-name }}
+        href: dataplatform/data-proc-and-airflow.md
       - name: >-
           Миграция данных из стороннего кластера {{ ES }} в {{ mes-name }} с
           помощью Reindex API

@@ -778,6 +778,8 @@ items:
             href: qa/calculation-fields.md
           - name: Dashboards
             href: qa/dashboards.md
+          - name: Workbooks and collections
+            href: qa/workbooks-collections.md
           - name: Other
             href: qa/other.md
       - name: Backups

@@ -45,5 +45,8 @@ Method | Description
 [delete](delete.md) | Deletes the specified snapshot.
 [get](get.md) | Returns the specified Snapshot resource.
 [list](list.md) | Retrieves the list of Snapshot resources in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the snapshot.
 [listOperations](listOperations.md) | Lists operations for the specified snapshot.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the snapshot.
 [update](update.md) | Updates the specified snapshot.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the snapshot.

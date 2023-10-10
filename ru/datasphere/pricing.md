@@ -22,6 +22,10 @@ editable: false
 
 Также отдельно оплачивается [хранение данных](#storage) в датасетах и расширение хранилища проекта.
 
+### Запуск заданий {{ ml-platform-name }} Jobs {#jobs}
+
+При удаленном запуске вычислений с помощью [{{ ml-platform-name }} Jobs](concepts/jobs.md) вы платите за время вычислений на выбранной конфигурации вычислительных ресурсов. Дополнительно оплачивается [хранение данных](#jobs-pricing), необходимых для запуска заданий: кеш, логи, входные данные и результаты выполнения задания.
+
 ### Эксплуатация моделей {#node}
 
 {% include [pricing nodes](../_includes/datasphere/nodes-pricing-warn.md) %}
@@ -97,6 +101,14 @@ editable: false
 
 
 {% include [rub-model.md](../_pricing/datasphere/rub-model.md) %}
+
+
+
+
+#### {{ ml-platform-name }} Jobs {#prices-jobs}
+
+
+{% include [rub-jobs.md](../_pricing/datasphere/rub-jobs.md) %}
 
 
 

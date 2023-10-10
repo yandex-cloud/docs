@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/logging/v1/api-ref/Export/run.md
 ---
 
 # Cloud Logging Service, REST: Export.run
-
+Run new logs export from log group to sink
  
 
  

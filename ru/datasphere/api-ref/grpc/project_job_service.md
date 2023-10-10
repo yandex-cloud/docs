@@ -14,7 +14,7 @@ A set of methods for managing Project Jobs.
 | [Cancel](#Cancel) | Cancels running job. |
 | [Finalize](#Finalize) | Triggers cleanup after downloading job results. |
 | [ReadStdLogs](#ReadStdLogs) | Returns stream of job logs. |
-| [DownloadStdLogs](#DownloadStdLogs) | Returns URL for downloading job logs. |
+| [ReadLogs](#ReadLogs) | Returns stream of job logs. |
 | [List](#List) | Lists jobs. |
 | [Get](#Get) | Returns job by id. |
 | [Delete](#Delete) | Deletes specified job. |
@@ -360,25 +360,37 @@ content | **bytes**<br>Log contents.
 type | enum **Type**<br>Log type. <ul><li>`OUT`: stdout.</li><li>`ERR`: stderr.</li></ul>
 
 
-## DownloadStdLogs {#DownloadStdLogs}
+## ReadLogs {#ReadLogs}
 
-Returns URL for downloading job logs.
+Returns stream of job logs.
 
-**rpc DownloadStdLogs ([DownloadProjectJobStdLogsRequest](#DownloadProjectJobStdLogsRequest)) returns ([DownloadProjectJobStdLogsResponse](#DownloadProjectJobStdLogsResponse))**
+**rpc ReadLogs ([ReadProjectJobLogsRequest](#ReadProjectJobLogsRequest)) returns (stream [ReadProjectJobLogsResponse](#ReadProjectJobLogsResponse))**
 
-### DownloadProjectJobStdLogsRequest {#DownloadProjectJobStdLogsRequest}
+### ReadProjectJobLogsRequest {#ReadProjectJobLogsRequest}
 
 Field | Description
 --- | ---
 job_id | **string**<br>ID of the job. 
+offset | **int64**<br>Log offset. 
 
 
-### DownloadProjectJobStdLogsResponse {#DownloadProjectJobStdLogsResponse}
+### ReadProjectJobLogsResponse {#ReadProjectJobLogsResponse}
 
 Field | Description
 --- | ---
-stdout_url | **string**<br>URL to download stdout log. 
-stderr_url | **string**<br>URL to download stderr log. 
+logs[] | **[LogMessage](#LogMessage)**<br> 
+offset | **int64**<br>Log offset. 
+
+
+### LogMessage {#LogMessage}
+
+Field | Description
+--- | ---
+content | **bytes**<br>Log message contents. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log message creation timestamp. 
+source | **oneof:** `standard_stream` or `file_path`<br>
+&nbsp;&nbsp;standard_stream | enum **StandardStream**<br>Program standard streams. <ul><li>`OUT`: Stdout.</li><li>`ERR`: Stderr.</li></ul>
+&nbsp;&nbsp;file_path | **string**<br>System debug log files. 
 
 
 ## List {#List}

@@ -2,21 +2,23 @@
 
 The project is any kind of activity that has some established goals and timeframes.
 
-In {{ tracker-name }}, projects are sets of issues that have a common goal. Projects aren't linked to issue queues. That's why projects are helpful when you need to group issues from different teams focused on the same goal.
+In {{ tracker-name }}, projects are sets of issues that have a common goal. Projects are not linked to issue queues. That is why you can use projects to group issues from different teams focused on the same goal.
+
+You can combine multiple projects into a [project portfolio](portfolio.md).
 
 ## Getting started {#quick-start}
 
 To start working on a project in {{ tracker-name }}, [create](create-project.md) a new project and add issues. Projects may include issues from different queues.
 
-Plan your work and manage your timeframes using a [Gantt chart](../gantt/project.md).
+Plan your work and manage your timeframes using a [Gantt chart](../gantt/project.md). Use [milestones](milestones.md) to track a project's progress and monitor its deadlines.
 
-## The project page {#page}
+## Project page {#page}
 
-In the new {{ tracker-name }} interface, you can open any project available to you from the navigation panel on the left: click ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** or follow the [direct link]({{ link-tracker }}pages/projects) and select a project from the list.
+In the new {{ tracker-name }} interface, you can open any project available to you from the navigation panel on the left: click ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** or follow the [direct link]({{ link-tracker }}pages/projects/list) and select a project from the list.
 
 The project page shows the details of the team, goals, and issues of the project:
 
-* **{{ ui-key.startrek.ui_components_projects_HeaderTabs.description-tab }}** tab. It includes the project description, status, timeframes, names of the author and employee responsible for the project, the list of its team members, comments, customers, and tags.
+* **{{ ui-key.startrek.ui_components_projects_HeaderTabs.description-tab }}** tab. It includes the project description, status, timeframes, names of the author and employee responsible for the project, the list of its team members, comments, customers, [milestones](milestones.md), and tags.
 
 * **{{ ui-key.startrek.ui_components_projects_HeaderTabs.issues-tab }}** tab. The list shows both open issues and closed issues. You can filter the issue list. For more information, see [{#T}](project-list.md).
 
@@ -30,6 +32,6 @@ The project page shows the details of the team, goals, and issues of the project
 
    {% endnote %}
 
-You can track your project indicator in the upper-right corner of the project page. The indicator is filled depending on the number of closed issues.
+You can track your project indicator in the top-right corner of the project page. The indicator is filled depending on the number of closed issues.
 
-To restrict access to the project, in the top-right corner of the page, click the lock icon and select **{{ ui-key.startrek.ui_components_ProjectAccessButton.private-access }}**. Doing so will make the project only available to the users listed in the **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--teamUsers }}**, **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--createdBy }}**, **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--clients }}**, and **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--lead }}** fields.
+To restrict access to the project, click the lock icon in the top-right corner and select **{{ ui-key.startrek.ui_components_ProjectAccessButton.private-access }}**. Doing so will make the project only available to the users listed in the **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--teamUsers }}**, **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--createdBy }}**, **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--clients }}**, and **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--lead }}** fields.

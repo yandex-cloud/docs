@@ -10,4 +10,5 @@ Resource | Description
 --- | ---
 [Backup](Backup/index.md) | A set of methods for managing backups.
 [Cluster](Cluster/index.md) | A set of methods for managing Greenplum® clusters.
+[PXFDatasource](PXFDatasource/index.md) | 
 [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing resource presets.

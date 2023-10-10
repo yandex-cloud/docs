@@ -10,9 +10,9 @@
 
 {% endnote %}
 
-Из этой статьи вы узнаете, как создать резервную копию группы узлов одного кластера {{ k8s }} с помощью Velero, сохранить ее в {{ objstorage-name }}, а затем восстановить в группе узлов другого кластера:
-1. [Создайте резервную копию группы узлов](#backup).
-1. [Восстановите группу узлов другого кластера из резервной копии](#restore).
+Из этой статьи вы узнаете, как создать резервную копию группы узлов одного кластера {{ managed-k8s-name }} с помощью Velero, сохранить ее в {{ objstorage-name }}, а затем восстановить в группе узлов другого кластера:
+1. [Создайте резервную копию группы узлов {{ managed-k8s-name }}](#backup).
+1. [Восстановите группу узлов другого кластера {{ managed-k8s-name }} из резервной копии](#restore).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -47,10 +47,10 @@
        * Правила для служебного трафика.
        * Правило для подключения к сервисам из интернета.
      * Два кластера {{ managed-k8s-name }} и их группы узлов.
-     * Сервисный аккаунт, необходимый для работы кластеров и групп узлов {{ managed-k8s-name }}.
-     * Сервисный аккаунт с ролью `compute.admin` для работы с Velero.
+     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластеров {{ managed-k8s-name }} и групп узлов.
+     * Сервисный аккаунт с [ролью](../../iam/concepts/access-control/roles.md) `compute.admin` для работы с Velero.
      * Статический ключ доступа для сервисного аккаунта, предназначенного для работы с Velero.
-     * Бакет в {{ objstorage-name }}.
+     * [Бакет](../../storage/concepts/bucket.md) в {{ objstorage-name }}.
   1. Укажите в файле `velero-backup.tf`:
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
      * `k8s_version` — [версию {{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) 1.22 или выше.
@@ -106,14 +106,14 @@
 
    ```ini
    [default]
-     aws_access_key_id=<идентификатор ключа>
-     aws_secret_access_key=<значение ключа>
+     aws_access_key_id=<идентификатор_ключа>
+     aws_secret_access_key=<значение_ключа>
    ```
 
 ## Резервное копирование {#backup}
 
 Чтобы выполнить резервное копирование данных группы узлов {{ managed-k8s-name }}:
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с первым кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с первым кластером {{ managed-k8s-name }}](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
 
@@ -146,11 +146,11 @@
 ## Восстановление данных их резервной копии {#restore}
 
 Чтобы восстановить данные группы узлов кластера {{ managed-k8s-name }}:
-1. [Настройте kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) на работу со вторым кластером.
+1. [Настройте kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) на работу со вторым кластером {{ managed-k8s-name }}.
 
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
 
-1. Проверьте, что в новом кластере отображается резервная копия данных:
+1. Проверьте, что в новом кластере {{ managed-k8s-name }} отображается резервная копия данных:
 
    ```bash
    velero backup get
@@ -204,7 +204,7 @@
 - Вручную
 
   * [Удалите кластеры {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-  * Если вы зарезервировали для кластеров [публичные статические IP-адреса](../../vpc/concepts/address.md#public-addresses), [удалите их](../../vpc/operations/address-delete.md).
+  * Если вы зарезервировали для кластеров {{ managed-k8s-name }} [публичные статические IP-адреса](../../vpc/concepts/address.md#public-addresses), [удалите их](../../vpc/operations/address-delete.md).
   * [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
   * [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md) для работы с Velero.
 

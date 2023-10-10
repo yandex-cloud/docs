@@ -107,6 +107,8 @@ items:
           Импорт данных из {{ objstorage-full-name }}, обработка и экспорт в {{
           mch-full-name }}
         href: tutorials/s3-dataproc-ch.md
+      - name: Автоматизация работы с помощью {{ maf-name }}
+        href: tutorials/airflow-automation.md
       - name: Совместная работа с таблицами с использованием {{ metastore-name }}
         href: tutorials/dataproc-to-dataproc.md
   - name: Концепции

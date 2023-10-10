@@ -8,6 +8,6 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
-[Export](Export/index.md) | 
+[Export](Export/index.md) | A set of methods for managing log exports.
 [LogGroup](LogGroup/index.md) | A set of methods for managing log groups.
 [Sink](Sink/index.md) | A set of methods for managing log sinks.

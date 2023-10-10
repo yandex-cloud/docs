@@ -29,3 +29,5 @@
 1. Чтобы сотрудники могли работать с задачами, [разрешите им полный доступ в {{ tracker-name }}](access.md). 
 
 1. [Настройте {{ tracker-name }} для вашей команды](quick-start.md).
+
+Подробнее узнать об использовании сервиса {{ tracker-full-name }} можно в курсе: [Основы работы с {{ tracker-full-name }}](https://cloud.yandex.ru/training/tracker?utm_source=product&utm_medium=documentation).

@@ -128,6 +128,8 @@ items:
     href: vision/index.yaml
   - name: Virtual Private Cloud
     href: vpc/index.yaml
+  - name: WebSQL
+    href: websql/index.yaml
   - name: Wiki
     href: wiki/index.yaml
   - name: '{{ ydb-name }}'

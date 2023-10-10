@@ -1,0 +1,28 @@
+title: WebSQL
+description:
+  - >-
+    <em>WebSQL is at the <a href="/docs/overview/concepts/launch-stages">Preview
+    stage</a>. Access to the service is available on request</em>.
+  - >-
+    WebSQL is a Yandex Cloud service that will allow you to connect to managed
+    database clusters, work with databases, tables and schemas, and execute SQL
+    queries. The service works in the browser, does not require additional
+    authorization and offers convenient hints for working with SQL commands.
+meta:
+  title: WebSQL
+links:
+  - title: Getting started
+    description: Connect to the database
+    href: quickstart
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Learn about basic concepts and how the service works
+    href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

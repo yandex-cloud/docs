@@ -93,5 +93,5 @@ logOptions.<br>logGroupId | **string** <br>`logOptions` includes only one of the
 logOptions.<br>folderId | **string** <br>`logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to default log group for specified folder.</p> 
 variables | **object**<br><p>Values of variables defined in the specification.</p> 
 canary | **object**<br><p>Canary release of the gateway.</p> 
-canary.<br>weight | **string** (int64)<br><p>It describes percentage of requests, which will be processed by canary.</p> <p>Acceptable values are 1 to 99, inclusive.</p> 
+canary.<br>weight | **string** (int64)<br><p>It describes percentage of requests, which will be processed by canary.</p> <p>Acceptable values are 0 to 99, inclusive.</p> 
 canary.<br>variables | **object**<br><p>Required. Values specification variables, associated with canary.</p> <p>At least one per resource.</p> 

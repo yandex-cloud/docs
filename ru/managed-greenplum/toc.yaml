@@ -129,6 +129,8 @@ items:
             href: api-ref/grpc/backup_service.md
           - name: ClusterService
             href: api-ref/grpc/cluster_service.md
+          - name: PXFDatasourceService
+            href: api-ref/grpc/pxf_service.md
           - name: ResourcePresetService
             href: api-ref/grpc/resource_preset_service.md
           - name: OperationService
@@ -179,6 +181,18 @@ items:
                 href: api-ref/Cluster/streamLogs.md
               - name: update
                 href: api-ref/Cluster/update.md
+          - name: PXFDatasource
+            items:
+              - name: Overview
+                href: api-ref/PXFDatasource/index.md
+              - name: create
+                href: api-ref/PXFDatasource/create.md
+              - name: delete
+                href: api-ref/PXFDatasource/delete.md
+              - name: list
+                href: api-ref/PXFDatasource/list.md
+              - name: update
+                href: api-ref/PXFDatasource/update.md
           - name: ResourcePreset
             items:
               - name: Overview

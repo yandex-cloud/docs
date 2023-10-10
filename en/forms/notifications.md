@@ -12,6 +12,10 @@ Integrate your form with other services to use their features related to process
 
    - [Send HTTP requests to an API](send-request.md).
 
+
+    - [Invoke {{ sf-name }} function](call-function.md).
+
+
 - [Connect a Yandex&#160;Metrica](metrica.md) tag and gather statistics on form traffic.
 
 You can set up multiple automated actions for each form and [set conditions for performing those actions](#section_xlw_rjc_tbb) depending on user responses to the prompts.

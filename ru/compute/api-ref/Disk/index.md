@@ -66,7 +66,10 @@ Method | Description
 [delete](delete.md) | Deletes the specified disk.
 [get](get.md) | Returns the specified Disk resource.
 [list](list.md) | Retrieves the list of Disk resources in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the disk.
 [listOperations](listOperations.md) | Lists operations for the specified disk.
 [move](move.md) | Moves the specified disk to another folder of the same cloud.
 [relocate](relocate.md) | Moves the specified disk to another availability zone
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the disk.
 [update](update.md) | Updates the specified disk.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the disk.

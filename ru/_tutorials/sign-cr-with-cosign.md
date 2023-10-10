@@ -248,6 +248,8 @@
       clusterpolicy.kyverno.io/check-image configured
       ```
 
+1. {% include [install policy reporter](../_includes/managed-kubernetes/install-policy-reporter.md) %}
+
 ## Проверьте результат {#check-result}
 
 * Создайте [под](../managed-kubernetes/concepts/index.md#pod) из подписанного Docker-образа:

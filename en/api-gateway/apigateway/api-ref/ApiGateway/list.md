@@ -101,6 +101,6 @@ apiGateways[].<br>logOptions.<br>logGroupId | **string** <br>`apiGateways[].logO
 apiGateways[].<br>logOptions.<br>folderId | **string** <br>`apiGateways[].logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to default log group for specified folder.</p> 
 apiGateways[].<br>variables | **object**<br><p>Values of variables defined in the specification.</p> 
 apiGateways[].<br>canary | **object**<br><p>Canary release of the gateway.</p> 
-apiGateways[].<br>canary.<br>weight | **string** (int64)<br><p>It describes percentage of requests, which will be processed by canary.</p> <p>Acceptable values are 1 to 99, inclusive.</p> 
+apiGateways[].<br>canary.<br>weight | **string** (int64)<br><p>It describes percentage of requests, which will be processed by canary.</p> <p>Acceptable values are 0 to 99, inclusive.</p> 
 apiGateways[].<br>canary.<br>variables | **object**<br><p>Required. Values specification variables, associated with canary.</p> <p>At least one per resource.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

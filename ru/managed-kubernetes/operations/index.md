@@ -20,6 +20,7 @@ description: "Из статьи вы узнаете, как работать с 
 
 * [{#T}](applications/marketplace.md)
 * [{#T}](applications/argo-cd.md)
+* [{#T}](applications/cert-manager-cloud-dns.md)
 * [{#T}](applications/csi-s3.md)
 * [{#T}](applications/crossplane.md)
 * [{#T}](applications/external-secrets-operator.md)

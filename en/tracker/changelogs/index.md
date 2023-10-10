@@ -32,7 +32,7 @@ The new interface now has the [connect repositories page]({{ link-tracker }}admi
 
 ### Adding a repository on your own server {#repository-personal-server}
 
-You can now [connect a repository](../manager/add-repository.md) hosted on your own server without contacting support. To do this, make sure your server is associated with GitHub, GitLab, or Bitbucket.
+You can now [connect a repository](../user/add-repository.md) hosted on your own server without contacting support. To do this, make sure your server is associated with GitHub, GitLab, or Bitbucket.
 
 To connect a custom repository:
 1. Go to the [connect repositories page]({{ link-tracker }}admin/repositories).
