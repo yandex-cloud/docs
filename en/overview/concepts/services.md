@@ -16,7 +16,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ at-full-name }}](../../audit-trails/index.yaml) | {{ preview-stage }} Service for collecting and exporting audit logs |
 | [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml) | Service for managing TLS certificates |
 | [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | {{ preview-stage }} Service for deploying serverless stack-based applications |
-| [{{ backup-full-name }}](../../backup/index.yaml) | {{ preview-stage }} Service for backing up {{ yandex-cloud }} resources |
+| [{{ backup-full-name }}](../../backup/index.yaml) | Service for backing up {{ yandex-cloud }} resources |
 | [{{ cdn-full-name }}](../../cdn/index.yaml) | Service for setting up a content delivery network (CDN) |
 | [{{ cloud-desktop-full-name }}](../../cloud-desktop/index.yaml) | {{ preview-stage }} Service for creating remote desktops in a cloud |
 | [{{ dns-full-name }}](../../dns/index.yaml) | Administering DNS resource records and handling DNS requests |

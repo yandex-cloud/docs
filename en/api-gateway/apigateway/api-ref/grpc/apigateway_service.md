@@ -90,7 +90,7 @@ min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry le
 
 Field | Description
 --- | ---
-weight | **int64**<br>It describes percentage of requests, which will be processed by canary. Acceptable values are 1 to 99, inclusive.
+weight | **int64**<br>It describes percentage of requests, which will be processed by canary. Acceptable values are 0 to 99, inclusive.
 variables | **map<string,VariableInput>**<br>Values specification variables, associated with canary. More than 0 per resource.
 
 
@@ -171,7 +171,7 @@ min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry le
 
 Field | Description
 --- | ---
-weight | **int64**<br>It describes percentage of requests, which will be processed by canary. Acceptable values are 1 to 99, inclusive.
+weight | **int64**<br>It describes percentage of requests, which will be processed by canary. Acceptable values are 0 to 99, inclusive.
 variables | **map<string,VariableInput>**<br>Values specification variables, associated with canary. More than 0 per resource.
 
 
@@ -224,7 +224,7 @@ min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry le
 
 Field | Description
 --- | ---
-weight | **int64**<br>It describes percentage of requests, which will be processed by canary. Acceptable values are 1 to 99, inclusive.
+weight | **int64**<br>It describes percentage of requests, which will be processed by canary. Acceptable values are 0 to 99, inclusive.
 variables | **map<string,VariableInput>**<br>Values specification variables, associated with canary. More than 0 per resource.
 
 
@@ -331,7 +331,7 @@ min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry le
 
 Field | Description
 --- | ---
-weight | **int64**<br>It describes percentage of requests, which will be processed by canary. Acceptable values are 1 to 99, inclusive.
+weight | **int64**<br>It describes percentage of requests, which will be processed by canary. Acceptable values are 0 to 99, inclusive.
 variables | **map<string,VariableInput>**<br>Values specification variables, associated with canary. More than 0 per resource.
 
 

@@ -1,6 +1,6 @@
 # Notifications from {{ yandex-cloud }}
 
-{{ yandex-cloud }} technical support notifies you of events that affect all {{ yandex-cloud }} users or your account specifically. To additionally receive notifications about your resources, subscribe to **Service notifications** in your [cloud](../../resource-manager/operations/cloud/notify.md) or [folder](../../resource-manager/operations/folder/notify.md).
+{{ yandex-cloud }} technical support notifies you of events that affect all {{ yandex-cloud }} users or your account specifically. To additionally receive notifications about your resources, subscribe to **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}** in your [cloud](../../resource-manager/operations/cloud/notify.md) or [folder](../../resource-manager/operations/folder/notify.md).
 
 You can receive notifications for the entire cloud or individual folders. By default, notifications about upcoming maintenance and notifications from services in the cloud are sent to all cloud owners (users with the `resource-manager.clouds.owner` role). You can add cloud notification recipients in [Service notifications]({{ link-cloud-notifications }}).
 
@@ -8,7 +8,7 @@ By default, folder owners do not receive any notifications. However, users relat
 
 {% note info %}
 
-You can add users with a [Yandex account](../../iam/concepts/index.md#passport) and [federated users](../../iam/concepts/index.md#saml-federation). Federated users should specify their email address in their account settings.
+You can add users with a [Yandex account](../../iam/concepts/index.md#passport) as well as [federated users](../../iam/concepts/index.md#saml-federation). Federated users should specify their email address in their account settings.
 
 {% endnote %}
 

@@ -49,7 +49,10 @@ Method | Description
 [delete](delete.md) | Deletes the specified host group.
 [get](get.md) | Returns the specified host group.
 [list](list.md) | Retrieves the list of host groups in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the host group.
 [listHosts](listHosts.md) | Lists hosts that belongs to the specified host group.
 [listInstances](listInstances.md) | Lists instances that belongs to the specified host group.
 [listOperations](listOperations.md) | Lists operations for the specified host group.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the host group.
 [update](update.md) | Updates the specified host group.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the host group.

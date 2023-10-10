@@ -41,6 +41,7 @@ filter | <p>A filter expression that filters resources listed in the response.</
           "seconds": "integer",
           "nanos": "integer"
         },
+        "backupRetainPeriodDays": "integer",
         "access": {
           "dataLens": true,
           "webSql": true,
@@ -381,6 +382,7 @@ clusters[].<br>config.<br>backupWindowStart.<br>hours | **integer** (int32)<br><
 clusters[].<br>config.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p> 
 clusters[].<br>config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
 clusters[].<br>config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
+clusters[].<br>config.<br>backupRetainPeriodDays | **integer** (int64)<br><p>Retention policy of automated backups.</p> <p>Acceptable values are 1 to 7, inclusive.</p> 
 clusters[].<br>config.<br>access | **object**<br><p>Access policy for external services.</p> 
 clusters[].<br>config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allows data export from the cluster to DataLens.</p> 
 clusters[].<br>config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from the management console.</p> 

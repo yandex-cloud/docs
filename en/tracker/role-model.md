@@ -55,7 +55,7 @@ To assign other employees as administrators, use [{{ yandex-360 }}](https://yand
 Actions available to the administrator:
 
 * Adding [users](add-users.md) to {{ tracker-name }} and setting up the [access level](access.md) for them.
-* Managing {{ tracker-name }} settings: creating new [statuses](manager/workflow-status-edit.md#create-status), [resolutions](manager/create-resolution.md#create-resolution), and [issue types](manager/add-ticket-type.md#create-ticket-type), setting up [global fields](user/create-param.md#section_global_field) in issues, adding [repositories](manager/add-repository.md).
+* Managing {{ tracker-name }} settings: creating new [statuses](manager/workflow-status-edit.md#create-status), [resolutions](manager/create-resolution.md#create-resolution), and [issue types](manager/add-ticket-type.md#create-ticket-type), setting up [global fields](user/create-param.md#section_global_field) in issues, adding [repositories](user/add-repository.md).
 * Managing [queue settings](manager/edit-queue-general.md).
 * Linking to {{ tracker-name }} a [billing account](billing-account.md) to pay for the services.
 
@@ -74,7 +74,7 @@ The employees with full access can enjoy all the features of {{ tracker-full-nam
 
 {% note info %}
 
-If you have six or more users with full access in your organization, you will need to [pay](pricing.md) for the service monthly. Small teams can use {{ tracker-name }} free of charge, if no more than five employees create or edit issues.
+If you have six or more users with full access in your organization, you will need to [pay](pricing.md) for the service monthly. Small teams can use {{ tracker-name }} free of charge, if no more than five employees will create or edit issues.
 
 {% endnote %}
 

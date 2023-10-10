@@ -34,12 +34,12 @@
 1. Включите опцию **{{ ui-key.startrek.blocks-desktop_issue-reply-form.from-robot-checkbox }}**.
 1. Сохраните триггер, нажав кнопку **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
 
-### Дайте доступ роботу сервиса {{forms-name}}
+### Дайте доступ роботу сервиса {{ forms-name }}
 
-Для корректной вставки формы дайте доступ к очереди роботу сервиса {{forms-name}} `yndx-forms-cnt-robot@`:
+Для корректной вставки формы дайте доступ к очереди роботу сервиса {{ forms-name }} `yndx-forms-cnt-robot@`:
 
 1. В настройках очереди `General Questions` выберите **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--permissions }}**.
-1. В блоке **{{ ui-key.startrek.blocks-desktop_issues-filter-update-modal.access-rights }}** в поле поиска введите `Робот` и выберите из списка опцию **Робот сервиса {{forms-name}} Робот**. 
+1. В блоке **{{ ui-key.startrek.blocks-desktop_issues-filter-update-modal.access-rights }}** в поле поиска введите `Робот` и выберите из списка опцию **Робот сервиса {{ forms-name }} Робот**. 
 1. Нажмите **{{ ui-key.startrek.blocks-desktop_issues-filter-update-modal.action_submit }}**.
 
 ## Проверьте работу триггера

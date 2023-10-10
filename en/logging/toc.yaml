@@ -81,8 +81,26 @@ items:
             items:
               - name: Overview
                 href: api-ref/Export/index.md
+              - name: create
+                href: api-ref/Export/create.md
+              - name: delete
+                href: api-ref/Export/delete.md
+              - name: get
+                href: api-ref/Export/get.md
+              - name: list
+                href: api-ref/Export/list.md
+              - name: listAccessBindings
+                href: api-ref/Export/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/Export/listOperations.md
               - name: run
                 href: api-ref/Export/run.md
+              - name: setAccessBindings
+                href: api-ref/Export/setAccessBindings.md
+              - name: update
+                href: api-ref/Export/update.md
+              - name: updateAccessBindings
+                href: api-ref/Export/updateAccessBindings.md
           - name: LogGroup
             items:
               - name: Overview

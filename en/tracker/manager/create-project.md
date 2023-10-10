@@ -1,6 +1,6 @@
-# Creating project
+# How to create a project
 
-## Creating a project {#create}
+## Creating a project {#create-project}
 
 You can create a project from scratch or based on an issue.
 
@@ -8,7 +8,10 @@ You can create a project from scratch or based on an issue.
 
 To create a project:
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** and click **{{ ui-key.startrek.blocks-desktop_b-page-projects.create }}**.
+1. Go to any page that a portfolio can be created from:
+
+   * In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** and click **Create** → **Project**.
+   * In the [list of portfolios and projects](my-projects.md) of the **List** tab, click **Create project** under the list.
 
 1. Enter a name for the project. Try to make it short and clear to give a clue to the project.
 
@@ -28,8 +31,8 @@ To create a project:
 
    {% note info %}
 
-   * You can't add the same issue to multiple projects.
-   * You can add no more than 2000 issues to a project.
+   * You cannot add the same issue to multiple projects.
+   * You can add no more than 2,000 issues to a project.
 
    {% endnote %}
 
@@ -106,6 +109,6 @@ Both the project's reporter and the user specified in the **{{ ui-key.startrek.u
 
 To delete a project:
 
-1. In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** or follow the [direct link]({{ link-tracker }}pages/projects) and open the project page.
+1. In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** or follow the [direct link]({{ link-tracker }}pages/projects/list) and open the project page.
 
 1. In the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_ProjectMenu.remove-project }}**.

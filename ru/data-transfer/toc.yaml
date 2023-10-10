@@ -261,6 +261,12 @@ items:
                 href: api-ref/Transfer/list.md
               - name: update
                 href: api-ref/Transfer/update.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: get
+                href: api-ref/Operation/get.md
   - name: Обучающие курсы
     href: training.md
 base: ru/data-transfer

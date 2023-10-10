@@ -11,5 +11,6 @@
 * {% include [training-production](../_includes/training/training-dlf.md) %}
 * {% include [training-infrastructure-protection](../_includes/training/training-pce.md) %}
 * {% include [training-devsecops](../_includes/training/training-dso.md) %}
+* {% include [training-managed-clickhouse](../_includes/training/training-mch.md) %}
 
 {% include [training-courses](../_includes/training/training-courses.md) %}

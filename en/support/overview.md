@@ -10,7 +10,7 @@
 
 
 
-Depending on your pricing plan, you can [contact technical support]({{ link-console-support }}) using one of the methods below:
+Depending on your service plan, you can [contact technical support]({{ link-console-support }}) using one of the methods below:
 
 {% include [support-channels](../_includes/support/channels.md) %}
 

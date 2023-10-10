@@ -188,11 +188,11 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 ## Recommendations {#recomendations}
 
 * Use a pivot table to represent aggregate data in table format.
-* Place dimensions on the left and measures on the right. This facilitates information perception.
+* Place dimensions on the left and measures on the right. This makes the data easier to comprehend.
 * Make sure column names you use are short and easy to read.
-* Limit the size of a table, or use filters or sorting. It's hard to read tables with a large number of rows or columns.
-* You can color table cells depending on the values of a measure. This will emphasize them.
-* Use tables for their intended purpose only. Don't try to replace all visual data representation forms with them.
+* Limit the size of your tables or use filters/sorting. Tables with too many rows or columns are hard to read.
+* You can color table cells depending on the values of a measure. This will help you to highlight the values.
+* Use tables for their intended purpose only. Do not replace all data visualization types with them.
 * When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space.
 
   {% cut "Setting up auto height" %}

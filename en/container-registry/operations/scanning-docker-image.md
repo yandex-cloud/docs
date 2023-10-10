@@ -1,29 +1,33 @@
 # Scanning Docker images for vulnerabilities
 
-These instructions describe how to [scan](../concepts/vulnerability-scanner.md) a [Docker image](../concepts/docker-image.md) for vulnerabilities.
+You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts/docker-image.md) uploaded to a [registry](../concepts/registry.md) for vulnerabilities. You can do this:
+* [{#T}](#manual).
+* [{#T}](#automatically).
+* [{#T}](#scheduled).
 
 {% note warning %}
 
 * The vulnerability database is constantly updated with sources containing information on vulnerabilities.
 * For some vulnerabilities, there is no information regarding which package versions they will be fixed in. This is because such information is unavailable from current sources.
-* At the moment, you can manually initiate a scan of a Docker image, but we plan to add automatic scanning functionality.
-* The number of image scans you can start per cloud is [limited](../concepts/limits.md#container-registry-quotas).
+* The number of Docker image scans you can run per [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) is [limited](../concepts/limits.md#container-registry-quotas).
 
 {% endnote %}
+
+## Manually {#manual}
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the parent folder for the registry containing the Docker image.
-   1. Select **{{ container-registry-name }}**.
+   1. In the [management console]({{ link-console-main }}), select the parent [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for the [registry](../concepts/registry.md) containing the Docker image.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
    1. Select the registry containing the Docker image or [create](registry/registry-create.md) a new one and [upload](docker-image/docker-image-push.md) an image to it.
-   1. Open the repository with the Docker image.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the desired Docker image and select **Scan**.
-   1. Wait for the scan to complete. While the scan is running, the Docker image scan status will be `Running`, and once complete, the status will change to `Ready`.
-   1. Review the scan results. To do this, in the row for the selected Docker image, click on the value in the column named **Last scan date**.
+   1. Open the [repository](../concepts/repository.md) with the Docker image.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the Docker image and select **{{ ui-key.yacloud.cr.image.label_start-scan }}**.
+   1. Wait for the scan to complete. During the scan, the Docker image scan status will be `{{ ui-key.yacloud.cr.image.label_scan-status-RUNNING }}` and, once completed, it will change to `{{ ui-key.yacloud.cr.image.label_scan-status-READY }}`.
+   1. Review the scan results. To do this, in the row of the relevant Docker image, click the value in the **{{ ui-key.yacloud.cr.image.label_last-scan-time }}** column.
 
-   To view Docker image scans, select the image you want and go to the **Scan history** tab.
+   To view Docker image scans, select the relevant image and go to the **{{ ui-key.yacloud.cr.image.label_scan-history }}** tab.
 
 - CLI
 
@@ -39,7 +43,7 @@ These instructions describe how to [scan](../concepts/vulnerability-scanner.md) 
 
       Result:
 
-      ```bash
+      ```text
       +----------------------+---------------------+-----------------------------+---------+-----------------+
       |          ID          |       CREATED       |            NAME             |  TAGS   | COMPRESSED SIZE |
       +----------------------+---------------------+-----------------------------+---------+-----------------+
@@ -50,18 +54,16 @@ These instructions describe how to [scan](../concepts/vulnerability-scanner.md) 
    1. Start a Docker image scan:
 
       ```bash
-      yc container image scan <image ID>
+      yc container image scan <Docker image ID>
       ```
 
       Result:
 
-      ```bash
+      ```text
       done (24s)
       id: che1el9t4t95elduhuq5
       image_id: crpqmsqp5mtbh627i7qs
-      scanned_at: "2021-03-16T14:34:02.740521Z"
-      status: READY
-      vulnerabilities:
+      ...
         medium: "6"
         low: "13"
         negligible: "3"
@@ -75,33 +77,15 @@ These instructions describe how to [scan](../concepts/vulnerability-scanner.md) 
 
       Result:
 
-      ```bash
-      +------------+----------------+----------+------------------------+----------------------------+---------------------------------------------------------------+
-      |  SEVERITY  |      NAME      | PACKAGE  |        VERSION         |          FIXED BY          |                             LINK                              |
-      +------------+----------------+----------+------------------------+----------------------------+---------------------------------------------------------------+
-      | MEDIUM     | CVE-2020-27350 | apt      | 2.0.2ubuntu0.1         | 2.0.2ubuntu0.2             | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27350 |
-      | MEDIUM     | CVE-2021-24031 | libzstd  | 1.4.4+dfsg-3           | 1.4.4+dfsg-3ubuntu0.1      | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24031 |
-      | MEDIUM     | CVE-2021-24032 | libzstd  | 1.4.4+dfsg-3           | 1.4.4+dfsg-3ubuntu0.1      | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24032 |
-      | MEDIUM     | CVE-2020-29361 | p11-kit  | 0.23.20-1build1        | 0.23.20-1ubuntu0.1         | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29361 |
-      | MEDIUM     | CVE-2020-29362 | p11-kit  | 0.23.20-1build1        | 0.23.20-1ubuntu0.1         | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29362 |
-      | MEDIUM     | CVE-2020-29363 | p11-kit  | 0.23.20-1build1        | 0.23.20-1ubuntu0.1         | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29363 |
-      | LOW        | CVE-2019-18276 | bash     | 5.0-6ubuntu1.1         |                            | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276 |
-      | LOW        | CVE-2019-25013 | glibc    | 2.31-0ubuntu9.1        |                            | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-25013 |
-      | LOW        | CVE-2020-27618 | glibc    | 2.31-0ubuntu9.1        |                            | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27618 |
-      | LOW        | CVE-2020-29562 | glibc    | 2.31-0ubuntu9.1        |                            | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29562 |
-      | LOW        | CVE-2020-6096  | glibc    | 2.31-0ubuntu9.1        |                            | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-6096  |
-      | LOW        | CVE-2021-20231 | gnutls28 | 3.6.13-2ubuntu1.3      |                            | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-20231 |
-      | LOW        | CVE-2021-20232 | gnutls28 | 3.6.13-2ubuntu1.3      |                            | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-20232 |
-      | LOW        | CVE-2019-20838 | pcre3    | 2:8.39-12build1        |                            | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-20838 |
-      | LOW        | CVE-2020-10543 | perl     | 5.30.0-9build1         | 5.30.0-9ubuntu0.2          | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10543 |
-      | LOW        | CVE-2020-10878 | perl     | 5.30.0-9build1         | 5.30.0-9ubuntu0.2          | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10878 |
-      | LOW        | CVE-2020-12723 | perl     | 5.30.0-9build1         | 5.30.0-9ubuntu0.2          | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-12723 |
-      | LOW        | CVE-2013-4235  | shadow   | 1:4.8.1-1ubuntu5.20.04 |                            | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4235  |
-      | LOW        | CVE-2019-9923  | tar      | 1.30+dfsg-7            | 1.30+dfsg-7ubuntu0.20.04.1 | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9923  |
-      | NEGLIGIBLE | CVE-2016-10228 | glibc    | 2.31-0ubuntu9.1        |                            | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10228 |
-      | NEGLIGIBLE | CVE-2017-11164 | pcre3    | 2:8.39-12build1        |                            | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11164 |
-      | NEGLIGIBLE | CVE-2020-14155 | pcre3    | 2:8.39-12build1        |                            | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14155 |
-      +------------+----------------+----------+------------------------+----------------------------+---------------------------------------------------------------+
+      ```text
+      +------------+----------------+---------+-----------------+----------+---------------------------------------------------------------+
+      |  SEVERITY  |      NAME      | PACKAGE |     VERSION     | FIXED BY |                             LINK                              |
+      +------------+----------------+---------+-----------------+----------+---------------------------------------------------------------+
+      ...
+      | NEGLIGIBLE | CVE-2016-10228 | glibc   | 2.31-0ubuntu9.1 |          | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10228 |
+      | NEGLIGIBLE | CVE-2017-11164 | pcre3   | 2:8.39-12build1 |          | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11164 |
+      | NEGLIGIBLE | CVE-2020-14155 | pcre3   | 2:8.39-12build1 |          | https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-14155 |
+      +------------+----------------+---------+-----------------+----------+---------------------------------------------------------------+
       ```
 
       To view scans by Docker image, run the command:
@@ -112,12 +96,74 @@ These instructions describe how to [scan](../concepts/vulnerability-scanner.md) 
 
       Result:
 
-      ```bash
+      ```text
       +----------------------+----------------------+---------------------+--------+--------------------------------+
       |          ID          |        IMAGE         |     SCANNED AT      | STATUS |        VULNERABILITIES         |
       +----------------------+----------------------+---------------------+--------+--------------------------------+
       | che1el9t4t95elduhuq5 | crpqmsqp5mtbh627i7qs | 2021-03-16 14:34:02 | READY  | medium:6, low:13, negligible:3 |
       +----------------------+----------------------+---------------------+--------+--------------------------------+
       ```
+
+- API
+
+   To scan a Docker image, use the [scan](../api-ref/Scanner/scan.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/Scan](../api-ref/grpc/scanner_service.md#Scan) gRPC API call.
+
+   To get detailed information about the scan results, use the [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/ListVulnerabilities](../api-ref/grpc/scanner_service.md#ListVulnerabilities) gRPC API call.
+
+{% endlist %}
+
+## On push {#automatically}
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder that the registry with Docker images belongs to.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+   1. Choose a registry or [create](registry/registry-create.md) a new one.
+   1. Go to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab.
+   1. Click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
+   1. Under **Scan Docker images on push**, select `Scan` and one of the scanning options:
+      * **{{ ui-key.yacloud.cr.registry.label_all-repositories }}** to scan all registry repositories.
+      * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** to scan only selected repositories:
+         1. Click **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
+         1. Select the appropriate repositories from the list.
+         1. Click **Save**.
+   1. Click **Save changes**.
+
+- API
+
+   To automatically scan Docker images on push to a registry, use the [create](../api-ref/ScanPolicy/create.md) REST API method for the [ScanPolicy](../api-ref/ScanPolicy/) resource or the [ScanPolicyService/Create](../api-ref/grpc/scan_policy_service.md#Create) gRPC API call.
+
+   To get detailed information about the scan results, use the [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/ListVulnerabilitiesListVulnerabilities](../api-ref/grpc/scanner_service.md#ListVulnerabilities) gRPC API call.
+
+{% endlist %}
+
+## On schedule {#scheduled}
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder that the registry with Docker images belongs to.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+   1. Choose a registry or [create](registry/registry-create.md) a new one.
+   1. Go to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab.
+   1. Click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
+   1. Under **Scheduled Docker image scans**, click **Add scan rule**.
+   1. Select `Scan` and one of the scanning options:
+      * **{{ ui-key.yacloud.cr.registry.label_all-repositories }}** to scan all registry repositories.
+      * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** to scan only selected repositories:
+         1. Click **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
+         1. Select the appropriate repositories from the list.
+         1. Click **Save**.
+   1. Specify the frequency of Docker image scans.
+   1. Click **Save changes**.
+
+- API
+
+   To run scheduled Docker image scans, use the [create](../api-ref/ScanPolicy/create.md) REST API method for the [ScanPolicy](../api-ref/ScanPolicy/) resource or the [ScanPolicyService/Create](../api-ref/grpc/scan_policy_service.md#Create) gRPC API call.
+
+   To get detailed information about the scan results, use the [listVulnerabilities](../api-ref/Scanner/listVulnerabilities.md) REST API method for the [Scanner](../api-ref/Scanner/) resource or the [ScannerService/ListVulnerabilitiesListVulnerabilities](../api-ref/grpc/scanner_service.md#ListVulnerabilities) gRPC API call.
 
 {% endlist %}

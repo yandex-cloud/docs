@@ -32,6 +32,8 @@ Copy or replicate data from a source to a target by creating [endpoints](concept
               --name new-folder
             ```
 
+            The folder naming requirements are as follows:
+
             {% include [name-format](../_includes/name-format.md) %}
 
          * with a name and description:

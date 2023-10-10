@@ -37,6 +37,8 @@ items:
                 href: operations/endpoint/source/mongodb.md
               - name: MySQL
                 href: operations/endpoint/source/mysql.md
+              - name: Object Storage
+                href: operations/endpoint/source/object-storage.md
               - name: Oracle
                 href: operations/endpoint/source/oracle.md
               - name: PostgreSQL
@@ -253,4 +255,10 @@ items:
                 href: api-ref/Transfer/list.md
               - name: update
                 href: api-ref/Transfer/update.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: get
+                href: api-ref/Operation/get.md
 base: en/data-transfer

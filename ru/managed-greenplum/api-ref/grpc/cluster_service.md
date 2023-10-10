@@ -77,6 +77,7 @@ Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 1 to 7, inclusive.
 access | **[Access](#Access)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster1)). The maximum string length in characters is 50.
@@ -431,6 +432,7 @@ Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 1 to 7, inclusive.
 access | **[Access](#Access1)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster2)). The maximum string length in characters is 50.
@@ -766,6 +768,7 @@ Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 1 to 7, inclusive.
 access | **[Access](#Access2)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster2)). The maximum string length in characters is 50.
@@ -1178,6 +1181,7 @@ Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 1 to 7, inclusive.
 access | **[Access](#Access3)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster3)). The maximum string length in characters is 50.
@@ -1634,6 +1638,7 @@ Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 1 to 7, inclusive.
 access | **[Access](#Access4)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster5)). The maximum string length in characters is 50.
@@ -2044,6 +2049,7 @@ Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 1 to 7, inclusive.
 access | **[Access](#Access5)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster6)). The maximum string length in characters is 50.
@@ -2414,6 +2420,7 @@ Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 1 to 7, inclusive.
 access | **[Access](#Access6)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster7)). The maximum string length in characters is 50.
@@ -3090,6 +3097,7 @@ Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum® server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 1 to 7, inclusive.
 access | **[Access](#Access8)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone the cluster belongs to. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#Cluster7)). The maximum string length in characters is 50.

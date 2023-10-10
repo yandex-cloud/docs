@@ -517,7 +517,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
          ```sql
          SELECT slot_name, pg_size_pretty(pg_current_wal_lsn() - restart_lsn), active_pid, catalog_xmin, restart_lsn, confirmed_flush_lsn
-         FROM pg_replication_slots WHERE slot_name = '<идентификатор_трансфера>'
+         FROM pg_replication_slots WHERE slot_name = '<transfer_ID>'
          ```
 
 - {{ PG }}
@@ -675,7 +675,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
          ```sql
          SELECT slot_name, pg_size_pretty(pg_current_wal_lsn() - restart_lsn), active_pid, catalog_xmin, restart_lsn, confirmed_flush_lsn
-         FROM pg_replication_slots WHERE slot_name = '<идентификатор_трансфера>'
+         FROM pg_replication_slots WHERE slot_name = '<transfer_ID>'
          ```
 
 {% endlist %}

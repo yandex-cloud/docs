@@ -1,6 +1,6 @@
 # Speech recognition
 
-_Speech recognition (speech-to-text, STT)_ is the process of converting speech to text.
+_Speech recognition_ is speech-to-text (STT) conversion.
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 

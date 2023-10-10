@@ -29,7 +29,7 @@ Restrictions:
 | Signatures | Measure. Displayed as text on a point. When used, point size control is blocked. |
 | Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. |
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
-| Chart filters | Dimension or measure. Used as a filter for the entire chart. |
+| Filters | Dimension or measure. Used as a filter for the entire chart. |
 
 ## Creating a point map with clusters {#create-diagram}
 

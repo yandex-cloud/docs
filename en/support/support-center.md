@@ -9,9 +9,10 @@ The support center will help you troubleshoot {{ yandex-cloud }} issues and crea
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
 1. Open the support center [home page]({{ link-console-support }}).
-1. Select the [organization](../organization/quickstart.md) to work with the support center in or [create a new one](../organization/enable-org).
+1. Select the [organization](../organization/quickstart.md) to work with the support center in or [create a new one](../organization/operations/enable-org).
+
 
 If you are using the support center from your own organization, open the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page and make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status.
 

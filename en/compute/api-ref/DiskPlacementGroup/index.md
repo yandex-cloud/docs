@@ -48,6 +48,9 @@ Method | Description
 [delete](delete.md) | Deletes the specified placement group.
 [get](get.md) | Returns the specified placement group.
 [list](list.md) | Retrieves the list of placement groups in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the disk placement group.
 [listDisks](listDisks.md) | Lists disks for the specified placement group.
 [listOperations](listOperations.md) | Lists operations for the specified placement group.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the disk placement group.
 [update](update.md) | Updates the specified placement group.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the disk placement group.

@@ -28,6 +28,9 @@ links:
   - title: Концепции
     description: Узнайте про концепции и общее устройство сервиса
     href: concepts/
+  - title: Практические руководства
+    description: Решайте типовые задачи по работе с Managed Service for Apache Airflow™
+    href: tutorials/data-proc-automation
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

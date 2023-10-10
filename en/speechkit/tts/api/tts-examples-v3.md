@@ -63,7 +63,7 @@ To implement an example:
            yandex/cloud/ai/tts/v3/tts.proto
          ```
 
-         As a result, the `tts_pb2.py`, `tts_pb2_grpc.py`, `tts_service_pb2.py`, `tts_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
+         As a result, the `tts_pb2.py`, `tts_pb2_grpc.py`, `tts_service_pb2.py`, and `tts_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
       1. In the root of the `output` directory, create a file, e.g. `test.py`, and add to it the following code:
 

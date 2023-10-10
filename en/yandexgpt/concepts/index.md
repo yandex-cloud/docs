@@ -10,7 +10,7 @@ The service is dynamically evolving with constant enhancements and refinements t
 
 {{ yagpt-name }} has two user interaction modes:
 
-* In **Prompt** mode, you send a ready-made _prompt_ (an instruction and a request) to models and get a response. A model treats each new question as a stand-alone task without saving the context of previous requests.
+* In **Prompt** mode, you send a ready-made _prompt_ (an instruction and a request) to a model and get a response. A model treats each new question as a stand-alone task without saving the context of previous requests.
 
 * In **Chat** mode, you chat with a model, specifying tasks and supplementing your previous remarks. The communication context is transmitted in every message and maintained during the current session until you explicitly start a new one.
 

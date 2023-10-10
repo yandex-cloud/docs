@@ -20,7 +20,21 @@ Workbooks make it much easier to work with objects:
 * They allow you to consistently [set up permissions](./security.md) to linked objects: connections, datasets, charts, and dashboards.
 * With them, you can set up permissions for [user groups](../../iam/operations/groups/create.md).
 * You can copy workbooks maintaining the integrity of internal links and making their copies independent of the original.
+
+   {% note info %}
+
+   Copying workbooks with [file](../operations/connection/create-file.md) connections is not supported.
+
+   {% endnote %}
+
 * You can group workbooks into collections.
+
+Object storage in workbooks and in folders of the old object model does not overlap:
+
+* A workbook cannot be placed inside a folder.
+* An object from a workbook cannot be added to a dashboard placed inside a folder.
+* Folders do not support customization of user group access.
+* An object from a workbook cannot be moved to a folder.
 
 ## How to enable workbooks and collections {#enable-workbooks}
 

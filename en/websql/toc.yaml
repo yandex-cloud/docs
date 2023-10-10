@@ -1,0 +1,27 @@
+title: WebSQL
+href: index.yaml
+stage: preview
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Connecting to a database
+        href: operations/connect.md
+      - name: Executing SQL queries
+        href: operations/query-executor.md
+      - name: Working with query templates
+        href: operations/templates.md
+      - name: Viewing query history
+        href: operations/history.md
+  - name: Concepts
+    items:
+      - name: About {{ websql-name }}
+        href: concepts/index.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Pricing policy
+    href: pricing.md
+base: en/websql

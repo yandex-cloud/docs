@@ -9,16 +9,24 @@
 * Применится новая конфигурация кластера {{ managed-k8s-name }}, в которой будет указано приложение для развертывания.
 
 Чтобы настроить необходимую инфраструктуру для хранения исходного кода, сборки Docker-образа и развертывания приложения:
+1. [Подготовьте облако к работе](#before-you-begin).
+
+   
+   1. [Изучите список необходимых платных ресурсов](#paid-resources).
+
+
+   1. [Установите дополнительные зависимости](#prepare).
+1. [Создайте ресурсы {{ managed-k8s-name }} и {{ container-registry-full-name }}](#k8s-cr-create).
 1. [Создайте инстанс {{ GL }}](#create-gitlab).
 1. [Настройте {{ GL }}](#configure-gitlab).
 1. [Создайте тестовое приложение](#app-create).
-1. [Создайте {{ GLR }}](#runner).
-1. [Настройте сценарий CI](#ci).
-1. [Проверьте результат](#check-result).
+1. [Создайте {{ GLR }}](#runners).
+1. [Создайте {{ GLA }}](#agent).
+1. [Настройте сборку и развертывание Docker-образа из CI](#ci).
 
 Если созданные ресурсы больше не нужны, [удалите их](#clear-out).
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -32,111 +40,192 @@
 * Использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
 
 
-{% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
+### Установите дополнительные зависимости {#prepare}
 
-{% include [prepare](../../_includes/managed-gitlab/prepare.md) %}
+Для выполнения сценария установите в локальном окружении:
+* [Интерфейс командной строки {{ yandex-cloud }} (YC CLI)](../../cli/operations/install-cli.md).
+* [Утилиту потоковой обработки JSON-файлов `jq`](https://stedolan.github.io/jq/).
+* [Менеджер пакетов Helm]({{ links.helm.install }}).
 
-{% include [k8s-get-token](../../_includes/managed-gitlab/k8s-get-token.md) %}
+## Создайте ресурсы {{ managed-k8s-name }} и {{ container-registry-name }} {#k8s-cr-create}
 
-{% include [create-gitlab](../../_includes/managed-gitlab/create-gitlab.md) %}
+1. Создайте кластер {{ managed-k8s-name }} и реестр {{ container-registry-name }}.
+
+   Для выполнения сценария создайте ресурсы {{ managed-k8s-name }}: [кластер](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [группу узлов](../../managed-kubernetes/concepts/index.md#node-group).
+
+   Для хранения Docker-образов вам понадобится [реестр](../../container-registry/concepts/registry.md) {{ container-registry-name }}.
+
+   {% list tabs %}
+
+   - Вручную
+
+     1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
+     1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и группа узлов.
+     1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
+        * С ролью [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) на каталог, в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+        * С ролями [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) и [{{ roles-cr-pusher }}](../../iam/concepts/access-control/roles.md#cr-images-pusher). От его имени узлы будут загружать в реестр собранные в {{ GL }} Docker-образы, а также скачивать их для запуска подов.
+
+        {% note tip %}
+
+        Вы можете использовать один и тот же [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для управления кластером {{ managed-k8s-name }} и его группами узлов.
+
+        {% endnote %}
+
+     1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) со следующими настройками:
+        * **Сервисный аккаунт для ресурсов** — созданный ранее сервисный аккаунт с ролью `{{ roles-editor }}`.
+        * **Сервисный аккаунт для узлов** — созданный ранее сервисный аккаунт с ролями `{{ roles-cr-puller }}` и `{{ roles-cr-pusher }}`.
+        * **Версия {{ k8s }}** — не ниже **1.21**.
+        * **Публичный адрес** — `Автоматически`.
+
+        Сохраните идентификатор кластера — он понадобится для следующих шагов.
+     1. [Создайте реестр](../../container-registry/operations/registry/registry-create.md).
+
+   - С помощью {{ TF }}
+
+     1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+     1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-argocd.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-argocd.tf). В файле описаны:
+        * [Сеть](../../vpc/concepts/network.md#network).
+        * [Подсеть](../../vpc/concepts/network.md#subnet).
+        * [Группа безопасности](../../vpc/concepts/security-groups.md) и [правила](../../managed-kubernetes/operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}:
+          * Правила для служебного трафика.
+          * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
+          * Правила для подключения к Git-репозиторию по протоколу SSH через порт 22.
+          * Правила, разрешающие HTTP- и HTTPS-трафик через порты 80 и 443.
+          * Правила для подключения к {{ container-registry-name }} через порт 5050.
+        * Кластер {{ managed-k8s-name }}.
+        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
+        * [Реестр {{ container-registry-name }}](../../container-registry/concepts/registry.md).
+     1. Укажите в файле конфигурации:
+        * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+        * Версию {{ k8s }} для кластера и групп узлов {{ managed-k8s-name }}.
+        * CIDR кластера {{ managed-k8s-name }}.
+        * Имя сервисного аккаунта кластера.
+        * Имя реестра {{ container-registry-name }}.
+     1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+     1. Создайте необходимую инфраструктуру:
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+   {% endlist %}
+
+   {% note warning %}
+
+   Для приложений в продакшен-среде доступ сервисных аккаунтов кластера {{ k8s }} к загрузке образов в реестр должен быть ограничен по соображениям безопасности. В этом случае создайте отдельный сервисный аккаунт с ролью `{{ roles-cr-pusher }}` и используйте его для сборки контейнеров.
+
+   {% endnote %}
+
+1. [Создайте статический ключ](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта с ролью `{{ roles-cr-pusher }}` и сохраните в файл `key.json`:
+
+      ```bash
+      yc iam key create \
+        --service-account-name <имя_сервисного_аккаунта> \
+        --output key.json
+      ```
+
+     Ключ необходим для доступа к реестру из {{ GL }}.
+
+1. [Сохраните идентификатор созданного реестра](../../container-registry/operations/registry/registry-list.md#registry-get) — он понадобится для следующих шагов.
+
+1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+## Создайте инстанс {{ GL }} {#create-gitlab}
+
+{% list tabs %}
+
+
+- Инстанс {{ mgl-full-name }}
+
+  Создайте [инстанс {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance) [согласно инструкции](../../managed-gitlab/quickstart.md#instance-create).
+
+
+- ВМ с образом {{ GL }}
+
+  Запустите {{ GL }} на ВМ с публичным IP-адресом.
+
+  {% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
+
+{% endlist %}
+
+## Настройте {{ GL }} {#configure-gitlab}
 
 {% include [Create a project](../../_includes/managed-gitlab/initialize.md) %}
 
-{% include [app-create](../../_includes/managed-gitlab/app-create.md) %}
+## Создайте тестовое приложение {#app-create}
 
-{% include [create glr](../../_includes/managed-gitlab/k8s-runner.md) %}
+Создайте тестовое приложение, которое можно будет развернуть в кластере {{ managed-k8s-name }}:
+1. Добавьте в проект `Dockerfile`:
+   1. Авторизуйтесь в {{ GL }}.
+   1. На главной странице выберите репозиторий.
+   1. Выберите раздел **Repository** → **Files**.
+   1. Нажмите кнопку **+** и в выпадающем меню выберите пункт **New file**.
+   1. Назовите файл `Dockerfile` и добавьте в него код:
 
-## Настройте сценарий CI {#ci}
-
-1. Создайте [переменные окружения {{ GL }}](https://docs.gitlab.com/ee/ci/variables/README.html):
-   1. На панели слева в {{ GL }} перейдите в раздел **Settings** и во всплывающем списке выберите пункт **CI/CD**.
-   1. Нажмите кнопку **Expand** напротив пункта **Variables**.
-   1. Добавьте две переменные окружения:
-      * `KUBE_URL` — адрес [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master). Узнайте его с помощью команды:
-
-        ```bash
-        yc managed-kubernetes cluster get <идентификатор или имя кластера {{ k8s }}> --format=json \
-           | jq -r .master.endpoints.external_v4_endpoint
-        ```
-
-      * `KUBE_TOKEN` — токен, который будет использовать {{ GL }} для применения конфигурации. Используйте токен, полученный ранее.
-
-      Для добавления переменной:
-      * Нажмите кнопку **Add variable**.
-      * В появившемся окне в поле **Key** укажите имя переменной, в поле **Value** — значение переменной.
-      * Нажмите кнопку **Add variable**.
-1. Создайте файл конфигурации сценария CI:
-   1. На панели слева в {{ GL }} перейдите в раздел **Repository** и выберите вкладку **Files**.
-   1. Справа от имени проекта нажмите кнопку ![image](../../_assets/plus.svg) и в выпадающем меню выберите пункт **New file**.
-   1. Назовите файл `.gitlab-ci.yml`. Добавьте в него шаги сборки и загрузки [Docker-образа](../../container-registry/concepts/docker-image.md) и обновления конфигурации приложения в кластере {{ managed-k8s-name }}:
-
-      {% cut ".gitlab-ci.yml" %}
-
-      ```yaml
-      stages:
-        - build
-        - deploy
-
-      build:
-        stage: build
-        image:
-          name: gcr.io/kaniko-project/executor:debug
-          entrypoint: [""]
-        script:
-          - mkdir -p /kaniko/.docker
-          # Install jq.
-          - wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && chmod +x ./jq && cp jq /kaniko
-          # Get a service account token from metadata.
-          - wget --header Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token && cp token /kaniko
-          - echo "{\"auths\":{\"cr.yandex\":{\"auth\":\"$(printf "%s:%s" "iam" "$(cat /kaniko/token | ./jq -r '.access_token')" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
-          - >-
-            /kaniko/executor
-            --context "${CI_PROJECT_DIR}"
-            --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
-            --destination "cr.yandex/<идентификатор реестра>/hello:gitlab-$CI_COMMIT_SHORT_SHA"
-          # Delete the metadata file.
-          - rm /kaniko/token
-
-      deploy:
-        image: gcr.io/cloud-builders/kubectl:latest
-        stage: deploy
-        script:
-          - kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true
-          - kubectl config set-credentials admin --token="$KUBE_TOKEN"
-          - kubectl config set-context default --cluster=k8s --user=admin
-          - kubectl config use-context default
-          - sed -i "s/__VERSION__/gitlab-$CI_COMMIT_SHORT_SHA/" k8s.yaml
-          - kubectl apply -f k8s.yaml
+      ```Dockerfile
+      FROM alpine:3.10
+      CMD echo "Hello"
       ```
 
-      {% endcut %}
+   1. Напишите комментарий к коммиту в поле **Commit message**: `Dockerfile for test application`.
+   1. Нажмите кнопку **Commit changes**.
+1. Добавьте в проект манифест ресурсов кластера {{ managed-k8s-name }}:
+   1. Выберите раздел **Repository** → **Files**.
+   1. Нажмите кнопку **+** и в выпадающем меню выберите пункт **New file**.
+   1. Назовите файл `k8s.yaml`:
 
-   1. Вместо `<идентификатор реестра>` укажите идентификатор созданного ранее реестра {{ container-registry-name }}.
-   1. Напишите комментарий к коммиту в поле **Commit message**: `CI scripts`.
+      ```yaml
+      apiVersion: v1
+      kind: Namespace
+      metadata:
+        name: hello-world
+      ---
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: hello-world-deployment
+        namespace: hello-world
+      spec:
+        replicas: 1
+        selector:
+          matchLabels:
+            app: hello
+        template:
+          metadata:
+            namespace: hello-world
+            labels:
+              app: hello
+          spec:
+            containers:
+              - name: hello-world
+                image: {{ registry }}/<идентификатор_реестра>/hello:__VERSION__
+                imagePullPolicy: Always
+      ```
+
+   1. В поле `<идентификатор_реестра>` укажите идентификатор созданного ранее реестра.
+   1. Напишите комментарий к коммиту в поле **Commit message**: `Docker image deployment config`.
    1. Нажмите кнопку **Commit changes**.
 
-   В файле `.gitlab-ci.yml` описаны два шага сборки проекта:
-   * Сборка Docker-образа с использованием `Dockerfile` и загрузка образа в {{ container-registry-name }}.
-   * Настройка окружения для работы с {{ k8s }} и применение конфигурации `k8s.yaml` к кластеру {{ managed-k8s-name }}. Таким образом приложение развертывается на созданном ранее кластере.
+## Создайте {{ GLR }} {#runners}
 
-## Проверьте результат {#check-result}
+{% include notitle [create glr](../../_includes/managed-gitlab/k8s-runner.md) %}
 
-1. После сохранения файла конфигурации `.gitlab-ci.yml` запустится сценарий сборки. Чтобы проверить результаты его выполнения, на панели слева в {{ GL }} выберите в выпадающем меню пункт **CI/CD** → **Pipelines** и дождитесь успешного завершения обоих этапов сборки.
-1. Чтобы проверить работу созданного приложения в кластере {{ managed-k8s-name }}, посмотрите логи контейнера в кластере {{ k8s }}:
+## Настройте сборку и развертывание Docker-образа из CI {#ci}
 
-   ```bash
-   kubectl logs deployment/hello-world-deployment -n hello-world
-   ```
-
-   Результат:
-
-   ```text
-   Hello
-   ```
+{% include [Setup CI/CD](../../_includes/managed-gitlab/configure-ci.md) %}
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 1. [Удалите созданные Docker-образы](../../container-registry/operations/docker-image/docker-image-delete.md).
 1. Удалите кластер {{ managed-k8s-name }} и реестр {{ container-registry-name }}:
 
@@ -152,7 +241,7 @@
    - С помощью {{ TF }}
 
      1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-     1. Удалите конфигурационный файл `k8s-and-registry-for-gitlab.tf`.
+     1. Удалите конфигурационный файл `k8s-gl.tf`.
      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
@@ -164,7 +253,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        Все ресурсы, которые были описаны в конфигурационном файле `k8s-and-registry-for-gitlab.tf`, будут удалены.
+        Все ресурсы, которые были описаны в конфигурационном файле `k8s-gl.tf`, будут удалены.
 
    {% endlist %}
 

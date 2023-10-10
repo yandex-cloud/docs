@@ -62,3 +62,6 @@ links:
   - title: Справочник API
     description: Описание методов HTTP API
     href: about-api
+  - title: Обучающие курсы
+    description: Информация о доступных программах обучения
+    href: training

@@ -457,6 +457,7 @@ default:
   ES: Elasticsearch
   GL: GitLab
   GLR: GitLab Runner
+  GLA: GitLab Agent
   GP: Greenplum®
   KF: Apache Kafka®
   AF: Apache Airflow™
@@ -3953,8 +3954,6 @@ default:
         subscribe: Подписаться
       blocks-desktop_b-page-issues:
         page-title: Фильтры
-      blocks-desktop_b-page-projects:
-        create: Создать проект
       blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor:
         action_add-action: Добавить действие
         action_add-condition: Добавить условие
@@ -4849,6 +4848,9 @@ default:
       ui_components_page-queue-admin_AliasesStateList:
         action-add-mail: Добавить адрес
         action-domain: Подключить домен
+      ui_components_page-queue-admin_queue-admin-tab-integrations-forms_components_FormsMenu:
+        add-form: Добавить форму
+        create-new: Создать новую
       ui_components_page-queue-admin_QueueActionsMenu:
         remove-queue-action: Удалить очередь
       ui_components_page-queue-admin_QueueAdminPageContent:
@@ -4896,6 +4898,7 @@ default:
         subscribe-new-tickets: Подписаться на создание задач
       ui_components_portfolios_Header:
         description-tab: О портфеле
+        projects-tab: Проекты
       ui_components_portfolios_PortfolioMenu:
         remove-portfolio: Удалить портфель проектов
       ui_components_Project_Header_IssuesImportButton:
@@ -4946,6 +4949,9 @@ default:
         filter-macro-empty_: Без значения
       ui_components_promo_Page:
         login-button-label: Войти в Tracker
+      ui_components_queue-admin-tab-integrations_IntegrationForms:
+        settings-button-text: Настроить формы
+        title: Формы
       ui_components_queue-admin-tab-main_QueueAdminTabMain:
         save: Сохранить
       ui_components_queue-admin-tab-timetracking_TimetackingForm:
@@ -4956,6 +4962,8 @@ default:
         field-use-summary-time: Отображать поле “Общая оценка задачи”
         field-working-calendar: График работы
         save: Сохранить
+      ui_components_queue-admin-tab-workflows_CopyWorkflowDialog:
+        action-copy: Скопировать
       ui_components_queue-admin-tab-workflows_IssueTypesListCell:
         remove-issue-type: Удалить тип задачи из очереди
       ui_components_queue-admin-tab-workflows_OrgAdminEntityForm:

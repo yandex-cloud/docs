@@ -51,6 +51,8 @@ items:
         href: send-request.md
       - name: Save files from responses to the storage
         href: storage-for-attached-files.md
+      - name: Invoking a {{ sf-name }} function
+        href: call-function.md
       - name: Variables in integration settings
         href: vars.md
   - name: Publishing a form

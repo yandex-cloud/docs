@@ -159,7 +159,7 @@
            }
            reload
            loop
-           bind 169.254.20.10 <IP-адрес сервиса kube-dns>
+           bind 169.254.20.10 <IP-адрес_сервиса_kube-dns>
            forward . __PILLAR__CLUSTER__DNS__ {
              prefer_udp
            }
@@ -171,7 +171,7 @@
            cache 30
            reload
            loop
-           bind 169.254.20.10 <IP-адрес сервиса kube-dns>
+           bind 169.254.20.10 <IP-адрес_сервиса_kube-dns>
            forward . __PILLAR__CLUSTER__DNS__ {
              prefer_udp
            }
@@ -182,7 +182,7 @@
            cache 30
            reload
            loop
-           bind 169.254.20.10 <IP-адрес сервиса kube-dns>
+           bind 169.254.20.10 <IP-адрес_сервиса_kube-dns>
            forward . __PILLAR__CLUSTER__DNS__ {
              prefer_udp
            }
@@ -193,7 +193,7 @@
            cache 30
            reload
            loop
-           bind 169.254.20.10 <IP-адрес сервиса kube-dns>
+           bind 169.254.20.10 <IP-адрес_сервиса_kube-dns>
            forward . __PILLAR__UPSTREAM__SERVERS__ {
              prefer_udp
            }
@@ -240,7 +240,7 @@
                requests:
                  cpu: 25m
                  memory: 5Mi
-             args: [ "-localip", "169.254.20.10,<IP-адрес сервиса kube-dns>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream" ]
+             args: [ "-localip", "169.254.20.10,<IP-адрес_сервиса_kube-dns>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream" ]
              securityContext:
                privileged: true
              ports:
@@ -418,8 +418,8 @@
    Результат:
 
    ```text
-   Server:         <IP-адрес kube-dns>
-   Address:        <IP-адрес kube-dns>#53
+   Server:         <IP-адрес_kube-dns>
+   Address:        <IP-адрес_kube-dns>#53
 
    Name:   kubernetes.default.svc.cluster.local
    Address: 10.96.128.1
@@ -429,7 +429,7 @@
 
    ```bash
    dig +short @169.254.20.10 www.com
-   dig +short @<IP-адрес сервиса kube-dns> example.com
+   dig +short @<IP-адрес_сервиса_kube-dns> example.com
    ```
 
    Результат:
@@ -437,11 +437,11 @@
    ```text
    # dig +short @169.254.20.10 www.com
    52.128.23.153
-   # dig +short @<IP-адрес kube-dns> example.com
+   # dig +short @<IP-адрес_kube-dns> example.com
    93.184.216.34
    ```
 
-   После запуска `node-local-dns` правила iptables настраиваются так, что по обоим адресам (`<IP-адрес сервиса kube-dns>:53` и `169.254.20.10:53`) отвечает [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack).
+   После запуска `node-local-dns` правила iptables настраиваются так, что по обоим адресам (`<IP-адрес_сервиса_kube-dns>:53` и `169.254.20.10:53`) отвечает [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack).
 
    К `kube-dns` можно обращаться по новому адресу, `ClusterIp` сервиса `kube-dns-upstream`. Этот адрес может понадобиться, чтобы настроить перенаправление (forwarding) запросов.
 
