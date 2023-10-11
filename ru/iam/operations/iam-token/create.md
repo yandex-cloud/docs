@@ -37,4 +37,4 @@ description: "Следуя данной инструкции, вы сможет�
 
 ### Использование IAM-токена, полученного с помощью CLI {#use-cli}
 
-{% include [include](../../../_includes/iam/iam-token-usage-examples.md) %}
+{% include [token-examples](../../../_includes/iam/iam-token-usage-examples.md) %}
