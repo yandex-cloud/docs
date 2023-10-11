@@ -55,6 +55,8 @@ items:
             href: operations/projects/delete.md
           - name: Removing a user from a project
             href: operations/projects/delete-user.md
+          - name: Connecting to JupyterLab from a local IDE
+            href: operations/projects/remote-connect.md
       - name: Working in a notebook
         items:
           - name: Selecting computing resources
@@ -179,6 +181,8 @@ items:
             href: concepts/s3-connector.md
       - name: Deploying models
         href: concepts/deploy/index.md
+      - name: Foundation models
+        href: concepts/models/foundation-models.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Special terms for educational institutions

@@ -1,17 +1,17 @@
-title: WebSQL
+title: Yandex WebSQL
 description:
   - >-
-    <em>Сервис WebSQL находится на <a
+    <em>Сервис Yandex WebSQL находится на <a
     href="/docs/overview/concepts/launch-stages">стадии Preview</a>. Доступ к
     сервису предоставляется по запросу</em>.
   - >-
-    WebSQL — это сервис Yandex Cloud, который позволит вам подключаться к
+    Yandex WebSQL — это сервис Yandex Cloud, который позволит вам подключаться к
     кластерам управляемых баз данных, работать с базами данных, таблицами и
     схемами и выполнять SQL-запросы. Сервис работает в браузере, не требует
     дополнительной авторизации и предлагает удобные подсказки для работы с
     SQL-командами.
 meta:
-  title: WebSQL
+  title: Yandex WebSQL
 links:
   - title: Начало работы
     description: Подключитесь к базе данных

@@ -17,7 +17,9 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml) | Service for managing TLS certificates |
 | [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | {{ preview-stage }} Service for deploying serverless stack-based applications |
 | [{{ backup-full-name }}](../../backup/index.yaml) | Service for backing up {{ yandex-cloud }} resources |
+| [{{ billing-name }}](../../billing/index.yaml) | Service for payments and viewing expense details. |
 | [{{ cdn-full-name }}](../../cdn/index.yaml) | Service for setting up a content delivery network (CDN) |
+| [{{ console-full-name }}](../../console/index.yaml) | {{ yandex-cloud }} resource management console. |
 | [{{ cloud-desktop-full-name }}](../../cloud-desktop/index.yaml) | {{ preview-stage }} Service for creating remote desktops in a cloud |
 | [{{ dns-full-name }}](../../dns/index.yaml) | Administering DNS resource records and handling DNS requests |
 | [{{ sf-full-name }}](../../functions/index.yaml) | Serverless computing |
@@ -34,7 +36,6 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/index.md) | Protection from DDoS attacks |
 | [{{ forms-full-name }}](../../forms/index.yaml) | Service for creating and integrating forms |
 | [{{ iam-full-name }}](../../iam/index.yaml) | Cloud resource access management |
-| [{{ ig-full-name }}](../../compute/concepts/instance-groups/index.md) | Service for creating and managing instance groups |
 | [{{ iot-full-name }}](../../iot-core/index.yaml) | IoT service that provides two-way messaging between registries and devices over the MQTT protocol |
 | [{{ kms-full-name }}](../../kms/index.yaml) | Encryption key management |
 | [{{ load-testing-full-name }}](../../load-testing/index.yaml) | {{ preview-stage }} Service for load testing and performance analysis |
@@ -57,15 +58,16 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ objstorage-full-name }}](../../storage/index.yaml) | All-purpose scalable cloud object storage |
 | [{{ yq-full-name }}](../../query/index.yaml) | {{ preview-stage }} Service for running queries using a common SQL dialect |
 | [{{ resmgr-full-name }}](../../resource-manager/index.yaml) | Cloud resource management |
+| [{{ search-api-full-name }}](../../search-api/index.yaml) | {{ preview-stage }} Service for making search queries. |
 | [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications |
 | [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | System user identification |
-| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | {{ preview-stage }} Service for protection against DDoS attacks at the OSI model L7 application level |
 | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/index.yaml) | Speech recognition and synthesis technologies |
 | [{{ tracker-full-name }}](../../tracker/index.yaml) | Service for business collaboration and workflows |
 | [{{ translate-full-name }}](../../translate/index.yaml) | Machine translation service |
 | [{{ vpc-full-name }}](../../vpc/index.yaml) | Cloud network management |
 | [{{ vision-full-name }}](../../vision/index.yaml) | Computer vision service for image analysis |
 | [{{ wiki-full-name }}](../../wiki/index.yaml) | Service for creating corporate databases |
+| [{{ yagpt-full-name }}](../../yandexgpt/index.yaml) | {{ preview-stage }} Generative language model for business. |
 
 
 

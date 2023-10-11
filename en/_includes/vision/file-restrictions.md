@@ -1,8 +1,3 @@
-* Supported file formats: JPEG, PNG, PDF.
-
-  [You specify the MIME type](https://en.wikipedia.org/wiki/Media_type) of the file in the `mime_type` property. The default is `image`.
-
-* Maximum file size: 1 MB.
-
-* Image size should not exceed 20 MP (length x width).
-
+* The supported file formats are JPEG, PNG, and PDF. Specify the [MIME type](https://en.wikipedia.org/wiki/Media_type) of the file in the `mime_type` property. The default is `image`.
+* The maximum file size is 1 MB.
+* The image size should not exceed 20 MP (height × width).

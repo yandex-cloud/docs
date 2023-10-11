@@ -22,7 +22,11 @@
     1. [Создайте кластер](../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }}:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — {{ mch-ck-version }} или выше.
-                * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}** — стандартные (`network-hdd`), быстрые (`network-ssd`) или нереплицируемые (`network-ssd-nonreplicated`) сетевые диски.
+
+        
+        * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}** — стандартные (`network-hdd`), быстрые (`network-ssd`) или нереплицируемые (`network-ssd-nonreplicated`) сетевые диски.
+
+
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `tutorial`.
         * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** — `{{ ui-key.yacloud.mdb.cluster.overview.label_storage-enabled }}`.
 
@@ -112,7 +116,7 @@ SETTINGS index_granularity = 8192
    * если количество дней от текущей даты до `EventDate` меньше значения TTL (то есть время жизни еще не истекло), то эти данные остаются в хранилище на сетевых дисках;
    * если количество дней от текущей даты до `EventDate` больше или равно значению TTL (то есть время жизни уже истекло), то эти данные помещаются в объектное хранилище согласно политике `TO DISK 'object_storage'`;
 
-Указывать TTL для использования гибридного хранилища необязательно, однако это позволяет явно контролировать, какие данные будут находиться в {{ objstorage-name }}. Если не указывать TTL, то данные будут помещаться в объектное хранилище только когда в хранилище на сетевых дисках закончится место. Подробнее см. в разделе [{#T}](../../managed-clickhouse/concepts/storage.md).
+Указывать TTL для использования гибридного хранилища необязательно, однако это позволяет явно контролировать, какие данные будут находиться в {{ objstorage-name }}. Если не указывать TTL, то данные будут помещаться в объектное хранилище, только когда в хранилище на сетевых дисках закончится место. Подробнее см. в разделе [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 {% note info %}
 
@@ -241,6 +245,18 @@ LIMIT 10
 ```
 
 Как видно из результата выполнения SQL-запроса, с точки зрения пользователя таблица выступает единой сущностью: {{ CH }} успешно выполняет запросы к такой таблице вне зависимости от фактического места расположения данных в ней.
+
+## Отслеживайте объем, занимаемый данными в {{ objstorage-name }} (необязательный шаг) {#metrics}
+
+Чтобы узнать, какой объем занимают куски таблиц [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) в {{ objstorage-name }}, воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе {{ monitoring-full-name }}:
+
+1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Перейдите в раздел **Обзор метрик**.
+1. Выполните запрос:
+
+    ```text
+    "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<ID_кластера>", subcluster_name="clickhouse_subcluster"}
+    ```
 
 ## Удалите созданные ресурсы {#clear-out}
 

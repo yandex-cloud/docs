@@ -1,6 +1,6 @@
-# Working with JSON {#JSON}
+# Working with JSON
 
-The [JSON](https://ru.wikipedia.org/wiki/JSON) data format is used for storing and processing data.
+The [JSON](https://en.wikipedia.org/wiki/JSON) data format is used for storing and processing data.
 
 Below are basic operations with data in this format:
 
@@ -30,6 +30,22 @@ SELECT
 
 Take a look at the block on the right and click ![run](../../_assets/query/run.svg) **Run**.
 Query execution results are available in the **Result** tab as a table or schema.
+
+## Escaping quotes in JSON {#escaping-json}
+
+Let's look at the two ways to add a JSON string to a table:
+
+```sql
+UPSERT INTO test_json(id, json_string)
+VALUES
+    (1, Json(@@[{"name":"Peter \"strong cat\" Kourbatov"}]@@)),
+    (2, Json('[{"name":"Peter \\\"strong cat\\\" Kourbatov"}]'))
+;
+```
+
+To insert the first string value, a `raw string` and the escape method with `\"` are used. To insert the second string, escaping with `\\\"` is used.
+
+We recommend using a `raw string` and `\"` as the escape method, since it is more visual.
 
 ## See also {#see-also}
 

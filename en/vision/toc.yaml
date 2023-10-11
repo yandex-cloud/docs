@@ -64,7 +64,7 @@ items:
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-      - name: APIv1
+      - name: Vision API
         items:
           - name: gRPC
             items:
@@ -74,20 +74,44 @@ items:
                 href: vision/api-ref/grpc/vision_service.md
           - name: REST
             items:
-              - name: Handling errors
-                href: api-ref/errors-handling.md
-              - name: Troubleshooting
-                href: api-ref/support-headers.md
-              - name: API reference
+              - name: Overview
+                href: vision/api-ref/index.md
+              - name: Vision
                 items:
                   - name: Overview
-                    href: vision/api-ref/index.md
-                  - name: Vision
-                    items:
-                      - name: Overview
-                        href: vision/api-ref/Vision/index.md
-                      - name: batchAnalyze
-                        href: vision/api-ref/Vision/batchAnalyze.md
+                    href: vision/api-ref/Vision/index.md
+                  - name: batchAnalyze
+                    href: vision/api-ref/Vision/batchAnalyze.md
+      - name: OCR API
+        items:
+          - name: gRPC
+            items:
+              - name: Overview
+                href: ocr/api-ref/grpc/index.md
+              - name: TextRecognitionService
+                href: ocr/api-ref/grpc/ocr_service.md
+              - name: TextRecognitionAsyncService
+                href: ocr/api-ref/grpc/TextRecognitionAsyncService.md
+              - name: OperationService
+                href: ocr/api-ref/grpc/operation_service.md
+          - name: REST
+            items:
+              - name: Overview
+                href: ocr/api-ref/index.md
+              - name: TextRecognition
+                items:
+                  - name: Overview
+                    href: ocr/api-ref/TextRecognition/index.md
+                  - name: recognize
+                    href: ocr/api-ref/TextRecognition/recognize.md
+              - name: TextRecognitionAsync
+                items:
+                  - name: Overview
+                    href: ocr/api-ref/TextRecognitionAsync/index.md
+                  - name: getRecognition
+                    href: ocr/api-ref/TextRecognitionAsync/getRecognition.md
+                  - name: recognize
+                    href: ocr/api-ref/TextRecognitionAsync/recognize.md
       - name: Classifier API
         items:
           - name: gRPC
@@ -96,6 +120,12 @@ items:
                 href: classifier/api-ref/grpc/index.md
               - name: ImageClassifierService
                 href: classifier/api-ref/grpc/image_classifier_service.md
+  - name: Troubleshooting
+    items:
+      - name: Handling errors
+        href: api-ref/errors-handling.md
+      - name: Troubleshooting
+        href: api-ref/support-headers.md
   - name: Releases
     href: release-notes.md
   - name: Questions and answers

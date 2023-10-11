@@ -253,6 +253,23 @@ items:
                 href: api-ref/StorageType/get.md
               - name: list
                 href: api-ref/StorageType/list.md
+  - name: Working with YDB via Terraform
+    href: ./terraform/intro.md
+    items:
+      - name: Getting authentication credentials
+        href: ./terraform/credentials.md
+      - name: Installing and configuring Terraform and the YDB provider
+        href: ./terraform/install.md
+      - name: Creating configuration files and connecting to YDB
+        href: ./terraform/configure.md
+      - name: Creating and editing parameters of a serverless database
+        href: ./terraform/serverless-database.md
+      - name: Creating and editing parameters of a dedicated database
+        href: ./terraform/dedicated-database.md
+      - name: Creating row-based tables in a database
+        href: ./terraform/row-tables.md
+      - name: Creating a changefeed for a table
+        href: ./terraform/cdc.md
   - name: FAQ
     href: faq.md
 base: en/ydb

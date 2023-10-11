@@ -42,6 +42,8 @@
 
 Пример см. в практическом руководстве [Использование гибридного хранилища](../tutorials/hybrid-storage.md).
 
+Чтобы отслеживать, какой объем занимают куски таблиц [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) в {{ objstorage-full-name }}, [воспользуйтесь метрикой](../tutorials/hybrid-storage.md#metrics) `ch_s3_disk_parts_size` в сервисе {{ monitoring-full-name }}. Она доступна только для кластеров {{ mch-name }} с настроенным гибридным хранилищем.
+
 ### Доступные политики хранения {#storage-policies}
 
 {% note info %}

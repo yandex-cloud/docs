@@ -59,6 +59,11 @@
      * `--disk-type` — [тип диска](../../../compute/concepts/disk.md#disks_types) узла {{ managed-k8s-name }}.
      * `--fixed-size` — количество узлов в группе узлов {{ managed-k8s-name }}.
      * `--location` — [зона доступности](../../../overview/concepts/geo-scope.md), [сеть](../../../vpc/concepts/network.md#network) и [подсеть](../../../vpc/concepts/network.md#subnet), в которых будут расположены узлы {{ managed-k8s-name }}. Можно указать несколько вариантов.
+
+       Если в одной команде передать параметры `--location`, `--network-interface` и `--public-ip`, [возникнет ошибка](../../qa/troubleshooting.md#conflicting-flags). Расположение группы узлов {{ managed-k8s-name }} достаточно указать в `--location` или `--network-interface`.
+
+       {% include [assign-public-ip-addresses](../../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
+
      * `--memory` — количество памяти для узлов {{ managed-k8s-name }}.
      * `--name` — имя группы узлов {{ managed-k8s-name }}.
      * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):

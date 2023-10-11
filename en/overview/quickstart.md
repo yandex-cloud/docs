@@ -41,12 +41,12 @@ When you create the first billing account linked to your user account, you are a
 
 - Legal entities, individual entrepreneurs, or non-residents of Russia and Kazakhstan
 
-   * Select a payment method: **Bank card** or **Bank transfer**. You can [change your payment method](../billing/operations/change-payment-method.md) any time after creating a billing account.
+   * Select a payment method: **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}** or **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}**. You can [change your payment method](../billing/operations/change-payment-method.md) any time after creating a billing account.
    * Enter the legal information of your organization and your contact details.
 
       {% include [contacts-note](../_includes/billing/contacts-note.md) %}
 
-   * If you select the **Bank card** payment method, link your corporate bank card. Specify your card details: 16-digit number, expiration date, and CVV (you can find it on the back side of your card). Confirm the card is a corporate one and you are authorized to use it.
+   * If you select the **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_card }}** payment method, link your corporate bank card. Specify your card details: 16-digit number, expiration date, and CVV (you can find it on the back side of your card). Confirm the card is a corporate one and you are authorized to use it.
 
       {% include [payment-card-types](../_includes/billing/payment-card-types.md) %}
 
@@ -61,13 +61,13 @@ When you create the first billing account linked to your user account, you are a
       {% endnote %}
 
       * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../billing/operations/activate-commercial.md).
-      * If you do not activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../getting-started/usage-grant.md), you will not have to upgrade to the paid version.
+      * If you do not activate the trial period at this stage, your account will be created as a paid account. In this case, [after using up the initial grant](../getting-started/usage-grant.md), you will not have to upgrade to the paid version.
 
-   * Click **Create**.
+   * Click **{{ ui-key.yacloud.common.create }}**.
 
-   If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your user account. In this case, it may take up to three business days to activate your billing account.
+   If you select the **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your user account. In this case, it may take up to three business days to activate your billing account.
 
-   If this is your first payment account in {{ yandex-cloud }}, and you've selected **Bank transfer** as a payment method, the account will be created in the trial period. To continue using the resources after your trial period ends, make sure to switch to the [paid version](../billing/operations/activate-commercial.md).
+   If this is your first payment account in {{ yandex-cloud }}, and you have selected **{{ ui-key.yacloud.billing.account.create-new.payment-type_label_invoice }}** as a payment method, the account will be created in the trial period. To continue using the resources after your trial period ends, make sure to switch to the [paid version](../billing/operations/activate-commercial.md).
 
 {% endlist %}
 
@@ -93,9 +93,9 @@ However, if your [grant](../getting-started/usage-grant.md) has expired, access 
 
 #### I accidentally switched to a paid account. Did I lose my initial grant? Can I get it back?
 
-No, you can't switch back to the trial version, but the grant will not be lost. The initial grant will be spent first. For more information about the order in which funds are spent, see [Billing cycle for individuals](../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../billing/payment/billing-cycle-business.md).
+No, you cannot switch back to the trial version, but the grant will not be lost. The initial grant will be spent first. For more information about the order in which funds are spent, see [Billing cycle for individuals](../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../billing/payment/billing-cycle-business.md).
 
-#### I haven't used up the entire initial grant, but my cloud is blocked. What should I do?
+#### I have not used up the initial grant fully, but my cloud is blocked. What should I do?
 
 The cloud may be blocked for a few reasons:
 

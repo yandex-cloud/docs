@@ -28,6 +28,8 @@ The owner can create new folders and resources in this cloud, and manage access 
              --name new-folder
          ```
 
+         The folder naming requirements are as follows:
+
          {% include [name-format](../../_includes/name-format.md) %}
 
       * with a name and description:
@@ -64,7 +66,7 @@ The management console only allows you to change the name of a folder. To change
       ```
       $ yc resource-manager folder update --help
       ```
-   2. If you know the folder ID or name, proceed to the next step. If not, use one of these methods to get them:
+   2. If you know the folder ID or name, proceed to the next step. Otherwise, use one of these methods to get them:
 
       * Get a list of folders:
 
@@ -97,7 +99,7 @@ The management console only allows you to change the name of a folder. To change
          folder_id: b1gpvjd9ia42nsng55ck
          ...
          ```
-   3. Change the folder parameters, such as name and description. You can specify the folder to update by its name or ID.
+   3. Change the folder parameters, e.g., name and description. You can specify the folder to update by its name or ID.
 
       ```
       $ yc resource-manager folder update default \
@@ -106,6 +108,8 @@ The management console only allows you to change the name of a folder. To change
       ```
 
       The command will rename the `default` folder to `myfolder` and update its description.
+
+      The folder naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 

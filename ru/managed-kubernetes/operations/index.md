@@ -24,6 +24,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](applications/csi-s3.md)
 * [{#T}](applications/crossplane.md)
 * [{#T}](applications/external-secrets-operator.md)
+* [{#T}](applications/externaldns.md)
 * [{#T}](applications/falco.md)
 * [{#T}](applications/filebeat.md)
 * [{#T}](applications/fluentbit.md)

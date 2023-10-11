@@ -210,3 +210,23 @@ kubectl get pods -n kube-system -l k8s-app=kube-dns -o wide
 ##### Настройте локальное кеширование DNS {#node-local-dns}
 
 [Настройте NodeLocal DNS Cache](../../managed-kubernetes/tutorials/node-local-dns.md). Чтобы применить оптимальные настройки, [установите NodeLocal DNS Cache из {{ marketplace-full-name }}](../../managed-kubernetes/operations/applications/node-local-dns.md#marketplace-install).
+
+#### При создании группы узлов через CLI возникает конфликт параметров. Как его решить? {#conflicting-flags}
+
+Проверьте, указаны ли параметры `--location`, `--network-interface` и `--public-ip` в одной команде. Если передать эти параметры вместе, возникают ошибки:
+* Для пар `--location` и `--public-ip` или `--location` и `--network-interface`:
+
+  ```text
+  ERROR: rpc error: code = InvalidArgument desc = Validation error:
+  allocation_policy.locations[0].subnet_id: can't use "allocation_policy.locations[0].subnet_id" together with "node_template.network_interface_specs"
+  ```
+
+* Для пары `--network-interface` и `--public-ip`:
+
+  ```text
+  ERROR: flag --public-ip cannot be used together with --network-interface. Use '--network-interface' option 'nat' to get public address
+  ```
+
+Передавайте в команде только один из трех параметров. Расположение группы узлов {{ managed-k8s-name }} достаточно указать в `--location` либо `--network-interface`.
+
+{% include [assign-public-ip-addresses](../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}

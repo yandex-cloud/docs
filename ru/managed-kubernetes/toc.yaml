@@ -37,6 +37,8 @@ items:
             href: operations/applications/crossplane.md
           - name: Установка External Secrets Operator
             href: operations/applications/external-secrets-operator.md
+          - name: Установка ExternalDNS c плагином для {{ dns-name }}
+            href: operations/applications/externaldns.md
           - name: Установка Falco
             href: operations/applications/falco.md
           - name: Установка Filebeat

@@ -1,13 +1,17 @@
-{% include [support-headers](../../_includes/ai-common/support-headers.md) %}
+# Troubleshooting in {{ translate-full-name }}
 
-## Examples {#examples}
+{% include [support-with-headers](../../_includes/ai-common/support-with-headers.md) %}
 
-Example of adding a header using [cURL](https://curl.haxx.se):
+## Request headers {#request-headers}
 
-```bash
-curl -X POST \
-    -H "X-Client-Request-ID: fa18fa9b-176d-4ae0-92b8-bd7897f7c00c" \
-    -H "Authorization: Bearer ${IAM_TOKEN}" \
-    -d "{\"folder_id\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
-    "https://translate.{{ api-host }}/translate/v2/detect"
-```
+{% include [request-headers](../../_includes/ai-common/request-headers.md) %}
+
+### Examples {#examples}
+
+For example, you can use these headers to let us know that your text was poorly translated and help us refine our translation model.
+
+{% include [example-headers-translate](../../_includes/ai-common/example-headers-translate.md) %}
+
+## Response headers {#response-headers}
+
+{% include [response-headers](../../_includes/ai-common/response-headers.md) %}

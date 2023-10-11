@@ -79,7 +79,7 @@ To change the HTTP router parameters:
       ...
       ```
 
-      For more information about the `yandex_alb_http_router` resource in {{ TF }}, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router).
+      For more information about the `yandex_alb_http_router` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_http_router).
 
    1. To add, update, or delete an HTTP router's virtual hosts, use the `yandex_alb_virtual_host` resource indicating the router in the `http_router_id` field:
 
@@ -99,7 +99,7 @@ To change the HTTP router parameters:
       }
       ```
 
-      For more information about the `yandex_alb_virtual_host` resource in {{ TF }}, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+      For more information about the `yandex_alb_virtual_host` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_virtual_host).
 
    1. Check the configuration using this command:
 
@@ -551,7 +551,7 @@ To add a new route to an HTTP router's virtual host:
       }
       ```
 
-      For more information about the `yandex_alb_virtual_host` resource in {{ TF }}, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+      For more information about the `yandex_alb_virtual_host` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_virtual_host).
 
       The sequence of routes inside a virtual host description matters. For more information, see the [concept](../../application-load-balancer/concepts/http-router.md#virtual-host).
 
