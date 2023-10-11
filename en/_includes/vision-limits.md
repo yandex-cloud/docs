@@ -12,6 +12,8 @@
 
 | Type of limit | Value |
 ----- | -----
-| Maximum file size | 1 MB |
+| Maximum file size for the [Vision API](../vision/vision/api-ref/index.md) | 1 MB |
+| Maximum file size for the [OCR API](../vision/ocr/api-ref/index.md) | {{ ocr-max-filesize }} |
 | Maximum image size | 20 MP (length × width) |
-| Maximum number of pages in a PDF file | 8 |
+| Maximum number of pages in a PDF file when using the [Vision API](../vision/vision/api-ref/index.md) | 8 |
+| Maximum number of pages in a PDF file when using the [OCR API](../vision/ocr/api-ref/index.md) in asynchronous mode | 200 |

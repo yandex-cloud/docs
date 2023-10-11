@@ -32,5 +32,5 @@ You can save any SQL query as a template and use it whenever you need. To save a
     1. Verify or edit the SQL query.
     1. Click **Save**.
 
-After you save the query, it will appear in the list of saved queries (![image](../../_assets/websql/template.svg)), and if you have added a suggestion, it will appear as a template along with the [ready-made {{ websql-name }} templates](#available-templates).
+After you save the query, it will appear in the list of saved queries (![image](../../_assets/websql/template.svg)), and if you have added a suggestion, it will appear as a template along with the [ready-made {{ websql-full-name }} templates](#available-templates).
 

@@ -2,6 +2,6 @@
 editable: false
 ---
 
-# Правила тарификации для {{ websql-name }}
+# Правила тарификации для {{ websql-full-name }}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ websql-name }} не тарифицируется.
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ websql-full-name }} не тарифицируется.

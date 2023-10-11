@@ -172,6 +172,7 @@ default:
   video-name: Cloud Video
   postbox-name: Cloud Postbox
   websql-name: WebSQL
+  websql-full-name: Yandex WebSQL
   websql-link: http://webbsql.cloud.ru/
   iam-short-name: IAM
   resmgr-short-name: Resource Manager

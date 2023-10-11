@@ -1,14 +1,14 @@
-# Getting started with {{ websql-name }}
+# Getting started with {{ websql-full-name }}
 
 {% include notitle [preview](../_includes/note-preview-by-request.md) %}
 
-In this section, you will learn how to connect to clusters of managed databases using {{ websql-name }}.
+In this section, you will learn how to connect to clusters of managed databases using {{ websql-full-name }}.
 
 ## Getting started {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../billing/quickstart/index.md).
-1. Select the organization to work with {{ websql-name }} in or [create a new one](../organization/operations/enable-org).
+1. Select the organization to work with {{ websql-full-name }} in or [create a new one](../organization/operations/enable-org).
 
 ## Connecting to a database {#connect-to-db}
 

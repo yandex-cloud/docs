@@ -166,6 +166,7 @@ default:
   search-api-name: Search API
   yagpt-name: YandexGPT
   websql-name: WebSQL
+  websql-full-name: Yandex WebSQL
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -225,6 +226,7 @@ default:
   datalens-public: DataLens Public
   search-api: Search API
   speechkit-slug: speechkit
+  ocr-max-filesize: 20 MB
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   roles-alb-viewer: alb.viewer
   roles-alb-editor: alb.editor

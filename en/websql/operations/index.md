@@ -1,4 +1,4 @@
-# Step-by-step guides for {{ websql-name }}
+# Step-by-step guides for {{ websql-full-name }}
 
 {% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 

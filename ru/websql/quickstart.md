@@ -1,14 +1,14 @@
-# Как начать работать с {{ websql-name }}
+# Как начать работать с {{ websql-full-name }}
 
 {% include notitle [preview](../_includes/note-preview-by-request.md) %}
 
-В этом разделе вы научитесь подключаться к кластерам управляемых баз данных с помощью {{ websql-name }}.
+В этом разделе вы научитесь подключаться к кластерам управляемых баз данных с помощью {{ websql-full-name }}.
 
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
-1. Выберите организацию, в которой вы будете работать с {{ websql-name }}, или [создайте новую](../organization/operations/enable-org).
+1. Выберите организацию, в которой вы будете работать с {{ websql-full-name }}, или [создайте новую](../organization/operations/enable-org).
 
 ## Подключение к базе данных {#connect-to-db}
 

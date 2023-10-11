@@ -15,12 +15,11 @@ In your request, you specify a list of [analysis features](../index.md#features)
 In the configuration, you can specify:
 * The list of languages to be used to [detect the language model](#detect-model) for recognition.
 
-  If you don't know the text language, enter `"*"` so that the service can automatically select the most appropriate model.
+ If you do not know the text language, enter `"*"` for the service to automatically select the most appropriate model.
 * The model to be used to detect text in the image. Available models:
-  * `page` (default): Good for images with any number of lines of text.
-  * `line`: Good for recognizing a single line of text. For example, if you don't want to send an entire image, you can cut out a single line and send it for recognition.
-
-    {% include [include](../../../_includes/vision/text-detection-line-note.md) %}
+   * `page` (default): Good for images with any number of lines of text.
+   * `papers`: Good for recognizing multi-column text (only available in the {{ vision-short-name }} [OCR API](../../ocr/api-ref/index.md))
+      {% include [include](../../../_includes/vision/text-detection-line-note.md) %}
 
 ### Language model detection {#detect-model}
 
@@ -38,7 +37,17 @@ If your text is in Russian and English, the [English-Russian model](supported-la
 
 An image in a request must meet the following requirements:
 
-{% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
+{% list tabs %}
+
+- {{ vision-short-name }} API
+
+   {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
+
+- OCR API
+
+   {% include [file-restrictions](../../../_includes/vision/ocr-file-restrictions.md) %}
+
+{% endlist %}
 
 ## Response with recognition results {#response}
 

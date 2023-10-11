@@ -26,7 +26,7 @@ To use the AWS tools, follow these steps:
 
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-      1. See the description of the command for creating a service account:
+      1. Check the description of the command for creating a service account:
 
          ```bash
          yc iam service-account create --help
@@ -37,6 +37,8 @@ To use the AWS tools, follow these steps:
          ```bash
          yc iam service-account create --name my-robot
          ```
+
+         Naming requirements for service accounts:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 

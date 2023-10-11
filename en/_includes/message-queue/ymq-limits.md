@@ -11,7 +11,7 @@
 | Number of `CreateQueue` calls per cloud | 2 calls per second |
 | Number of `DeleteQueue` calls per cloud | 5 calls per second |
 | Number of other request calls per cloud | 100 calls per second |
-| Number of queues per cloud | 1000 |
+| Number of queues per cloud | 1,000 |
 
 #### Limits {#ymq-limits}
 

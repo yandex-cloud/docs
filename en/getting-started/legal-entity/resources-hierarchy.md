@@ -6,6 +6,7 @@ The owner can create new folders and resources in this cloud, and manage access 
 
 ## Create a folder
 
+
 {% list tabs %}
 
 - Management console
@@ -28,6 +29,8 @@ The owner can create new folders and resources in this cloud, and manage access 
          yc resource-manager folder create \
              --name new-folder
          ```
+
+         The folder naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -107,6 +110,8 @@ The management console only allows you to change the name of a folder. To change
       ```
 
       The command will rename the `default` folder to `myfolder` and update its description.
+
+      The folder naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
