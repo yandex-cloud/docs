@@ -9,7 +9,7 @@
 1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.data-proc.create-template }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.data-proc.template-name }}** field, enter a name for the template.
+1. In the **{{ ui-key.yc-ui-datasphere.data-proc.template-name }}** field, enter a name for the template. The requirements are as follows:
 
    {% include [name-format](../../_includes/name-format.md) %}
 
@@ -28,7 +28,7 @@ A cluster based on the activated {{ dataproc-name }} template is created when yo
 1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
 1. Select the appropriate template from the list.
-1. Click the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
+1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the template in.
 
 ## Editing a template {#edit}

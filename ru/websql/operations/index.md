@@ -1,4 +1,4 @@
-# Пошаговые инструкции для {{ websql-name }}
+# Пошаговые инструкции для {{ websql-full-name }}
 
 {% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 

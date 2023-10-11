@@ -2,6 +2,6 @@
 editable: false
 ---
 
-# {{ websql-name }} pricing
+# {{ websql-full-name }} pricing
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, using {{ websql-name }} is free of charge.
+At the [Preview](../overview/concepts/launch-stages.md) stage, using {{ websql-full-name }} is free of charge.

@@ -11,7 +11,7 @@ You can configure the environment to run your code using [Docker images](../conc
 1. Fill out the fields below:
    * **{{ ui-key.yc-ui-datasphere.docker.build-path }}**: Path inside the project where the created Docker image will be stored. `.` is the root directory.
    * **{{ ui-key.yc-ui-datasphere.docker.repository }}**: Image name, e.g., `tensorflow`.
-   * **{{ ui-key.yc-ui-datasphere.docker.tag }}**: Image tag, such as `1.0.0`.
+   * **{{ ui-key.yc-ui-datasphere.docker.tag }}**: Image tag, e.g., `1.0.0`.
    * **{{ ui-key.yc-ui-datasphere.docker.docker-template }}**: Template of the script used to install Python (`python_3_7` or `python_3_8`).
    * **{{ ui-key.yc-ui-datasphere.docker.dockerfile }}**: A set of instructions for creating a Docker image.
 
@@ -78,13 +78,13 @@ To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../..
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![docker](../../_assets/datasphere/docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. Select the desired image from the list.
-1. Click the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
+1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community to share the Docker image in.
 
 ## Deleting a Docker image {#delete}
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![docker](../../_assets/datasphere/docker.svg).**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![docker](../../_assets/datasphere/docker.svg)**{{ ui-key.yc-ui-datasphere.resources.docker }}**.
 1. In the list of Docker images, select the one you want to delete.
 1. Click ![options](../../_assets/options.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.

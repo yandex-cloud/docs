@@ -2,34 +2,56 @@ Get the authorization data for your account:
 
 {% list tabs %}
 
-- User's Yandex account
+- User account
 
-   1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
-   1. [Get an IAM token](../../iam/operations/iam-token/create.md), which is required for authentication.
-   1. [Get the ID of any folder](../../resource-manager/operations/folder/get-id.md) that your account is granted the `{{ roles-vision-user }}` role or higher for.
+   1. Get an IAM token for your [Yandex account](../../iam/operations/iam-token/create.md) or [federated account](../../iam/operations/iam-token/create-for-federation.md).
+   1. [Get the ID of the folder](../../resource-manager/operations/folder/get-id.md) that your account has the `{{ roles-vision-user }}` role or higher for.
+   1. When accessing {{ vision-name }} via the API, provide the received parameters in each request:
+
+      * For the [Vision API](../../vision/vision/api-ref/index.md) and [Classifier API](../../vision/classifier/api-ref/grpc/index.md):
+
+         Specify the IAM token in the `Authorization` header in the following format:
+
+         ```
+         Authorization: Bearer <IAM token>
+         ```
+
+         Specify the folder ID in the request body in the `folderId` parameter.
+
+      * For the [OCR API](../../vision/ocr/api-ref/index.md):
+
+         * Specify the IAM token in the `Authorization` header.
+         * Specify the folder ID in the `x-folder-id` header.
+
+         ```
+         Authorization: Bearer <IAM_token>
+         x-folder-id <folder_ID>
+         ```
 
 - Service account
 
-   1. Select the authentication method:
-      * Get an [IAM token](../../iam/operations/iam-token/create-for-sa.md) used in the examples.
-      * [Create an API key.](../../iam/operations/api-key/create.md) Pass the API key in the `Authorization` header in the following format:
+   {{ vision-name }} supports two authentication methods based on service accounts:
+
+   * Using an [IAM token](../../iam/concepts/authorization/iam-token.md):
+
+      1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md).
+      1. Specify the obtained IAM token in the `Authorization` header in the following format:
+
+         ```
+         Authorization: Bearer <IAM token>
+         ```
+
+   * With [API keys](../../iam/concepts/authorization/api-key).
+
+      {% include [api-keys-disclaimer](../iam/api-keys-disclaimer.md) %}
+
+      1. [Get an API key](../../iam/operations/api-key/create.md).
+      1. Specify the obtained API key in the `Authorization` header in the following format:
 
          ```
          Authorization: Api-Key <API key>
          ```
-   1. [Assign the service account](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-vision-user }}` role or a higher role for the folder where it was created.
 
-      Do not specify the folder ID in your requests, as the service uses the folder where the service account was created.
-
-- Federated account
-
-   1. [Authenticate with the CLI as a federated user](../../cli/operations/authentication/federated-user.md).
-   1. Use the CLI to get an [IAM token](../../iam/concepts/authorization/iam-token.md) required for authentication:
-
-      ```bash
-      yc iam create-token
-      ```
-   1. [Get the ID of any folder](../../resource-manager/operations/folder/get-id.md) that your account is granted the `{{ roles-vision-user }}` role or higher for.
+   Do not specify the folder ID in your requests, as {{ yagpt-name }} uses the folder where the service account was created.
 
 {% endlist %}
-

@@ -1,4 +1,4 @@
-# {{ ml-platform-full-name }} releases
+# Revision history for {{ ml-platform-full-name }}
 
 Information about changes to the {{ ml-platform-full-name }} service will be published here.
 
@@ -8,6 +8,13 @@ Information about changes to the {{ ml-platform-full-name }} service will be pub
 To keep up to date with the latest changes and updates, subscribe to our [{{ ml-platform-full-name }} Community](https://t.me/yandex_datasphere) Telegram news channel.
 
 {% endnote %}
+
+## Release on 18/09/2023 {#180923}
+
+1. A new DS Default (Python 3.10) system image is used by default.
+1. Community administrators can now manage permissions to use the functionality.
+1. Improved working with community and project lists.
+1. Fixed bugs and added minor improvements in platform performance.
 
 ## Release on 21/07/2023 {#210723}
 

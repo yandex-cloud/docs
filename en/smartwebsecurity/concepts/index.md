@@ -8,6 +8,8 @@
 
 In a nutshell, the service checks whether HTTP requests sent to the L7 load balancer's virtual host match the [rules](rules.md) set in the [security profile](profiles.md). Depending on the check results, the requests are routed to the virtual host, denied, or sent to [{{ captcha-full-name }}](../../smartcaptcha/) for additional verification.
 
+![schema](../../_assets/smartwebsecurity/schema.svg)
+
 {{ sws-name }} logs are sent to [{{ cloud-logging-full-name }}](../../logging/).
 
 {{ sws-name }} metrics are sent to [{{ monitoring-full-name }}](../../monitoring/).

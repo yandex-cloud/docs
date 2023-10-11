@@ -34,6 +34,7 @@ To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) me
 1. Encode the PDF file as Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
+
 1. Create a file with the request body (for example, `body.json`).
 
     **body.json:**
@@ -75,6 +76,7 @@ To recognize a line of text:
 1. Encode the file as Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
+
 1. Create a file with the request body, e.g., `body.json`:
 
     **body.json:**
@@ -108,6 +110,7 @@ If you know the language of the text, specify it in the request to improve the q
 1. Encode the file as Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
+
 1. Create a file with the request body, e.g., `body.json`:
 
     **body.json:**
@@ -168,6 +171,7 @@ If you know the language of the text, specify it in the request to improve the q
 ### Ready-to-use function for sending requests in bash {#oneliner}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
+
 1. Copy the function to the terminal:
 
     ```bash
@@ -202,7 +206,7 @@ If you know the language of the text, specify it in the request to improve the q
     vision_text_detection path/to/image.jpg
     ```
 
-    With the second argument, you can pass the MIME type. For example, to recognize a PDF file, call:
+   With the second argument, you can pass the MIME type. For example, to recognize a PDF file, call:
 
     ```bash
     vision_text_detection path/to/document.pdf application/pdf

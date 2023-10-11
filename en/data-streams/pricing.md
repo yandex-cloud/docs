@@ -25,25 +25,25 @@ Calculation of the monthly cost of processing data (provided that there are 31 d
 > &lceil; 50 / 40 &rceil; = 2
 
 Where:
-* 50 is the size of one message in KB.
-* 40 is the [size of units](#event) of written data in KB.
-* 2 is the number of data units written per message.
+* 50: Size of one message in KB.
+* 40: [Size of units](#event) of written data in KB.
+* 2: Number of data units written per message.
 
 While calculating the cost, the number of units of written data is rounded up to an integer. In this example, the number is rounded to 2.
 
 > 2 × 2 = 4
 
 Where:
-* 2 is the number of messages per second.
-* 2 is the number of data units written per message.
-* 4 is the number of data units written per second.
+* 2: Number of messages per second.
+* 2: Number of data units written per message.
+* 4: Number of data units written per second.
 
-> 4 × 60 × 60 × 24 × 31 = 10713600
+> 4 × 60 × 60 × 24 × 31 = 10,713,600
 
 Where:
-* 4 is the number of data units written per second.
-* 60 × 60 × 24 × 31 is the number of seconds in the month.
-* 10713600 is the units of data written per month.
+* 4: Number of data units written per second.
+* 60 × 60 × 24 × 31: Number of seconds in the month.
+* 10,713,600: Number of data units written per month.
 
 
 
@@ -53,9 +53,9 @@ Where:
 
 ### Pricing {#prices}
 
-#### Cost of a unit of written data {#event}
+#### Cost per unit of written data {#event}
 
-The first 2000000 units of written data per month are free of charge.
+The first 2,000,000 units of written data per month are free of charge.
 
 
 
@@ -85,6 +85,9 @@ Data is stored for up to 7 days.
 {% include [usd.md](../_pricing/data-streams/usd-resources-storage-limit.md) %}
 
 
-## On-demand pricing {#on-demand}
+## Pricing based on actual usage {#on-demand}
 
-With on-demand pricing, data streams are billed at the level of {{ ydb-short-name }} Serverless database topics where their data is stored. Go to the [Pricing policy for {{ ydb-short-name }} Serverless mode](../ydb/pricing/serverless.md) page to learn more about pricing and cost calculation.
+If pricing based on the actual usage is used:
+* Data streams stored in [{{ ydb-short-name }} serverless databases](https://cloud.yandex.ru/docs/ydb/concepts/serverless-and-dedicated#serverless) are charged for based on the [pricing policy for {{ ydb-short-name }} serverless mode](../ydb/pricing/serverless.md).
+
+* Data streams stored in [{{ ydb-short-name }} dedicated databases](https://cloud.yandex.ru/docs/ydb/concepts/serverless-and-dedicated#dedicated) are not charged for separately (you only pay for a dedicated database, see the [pricing policy for dedicated databases](https://cloud.yandex.ru/docs/ydb/pricing/dedicated)).
