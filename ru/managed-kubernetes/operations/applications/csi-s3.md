@@ -1,6 +1,6 @@
 # Установка Container Storage Interface для S3
 
-[Container Storage Interface для S3](/marketplace/products/yc/csi-s3) (_CSI_) позволяет динамически резервировать [бакеты](../../../storage/concepts/bucket.md) S3-совместимых хранилищ и монтировать их к [подам](../../concepts/index.md#pod) [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) в виде [постоянных томов](../../concepts/volume.md#persistent-volume) (_PersistentVolume_). Подключение выполняется при помощи [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра))-реализации файловой системы [GeeseFS](https://github.com/yandex-cloud/geesefs).
+[Container Storage Interface для S3](/marketplace/products/yc/csi-s3) (_CSI_) позволяет динамически резервировать [бакеты](../../../storage/concepts/bucket.md) S3-совместимых хранилищ и монтировать их к [подам](../../concepts/index.md#pod) [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в виде [постоянных томов](../../concepts/volume.md#persistent-volume) (_PersistentVolume_). Подключение выполняется при помощи [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра))-реализации файловой системы [GeeseFS](https://github.com/yandex-cloud/geesefs).
 
 ## Создание сервисного аккаунта {#create-sa-key}
 
@@ -9,13 +9,13 @@
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `storage.editor`.
-1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке приложения.
-1. (Опционально) Чтобы новые тома помещались в один бакет с разными префиксами, [создайте бакет](../../../storage/operations/buckets/create.md) {{ objstorage-full-name }}. Сохраните имя бакета — оно понадобится при установке приложения. Пропустите этот шаг, если для каждого тома требуется создавать отдельный бакет.
+1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Сохраните идентификатор [ключа](../../../iam/concepts/authorization/key.md) и секретный ключ — они понадобятся при установке приложения.
+1. (Опционально) Чтобы новые тома помещались в один бакет с разными префиксами, [создайте бакет](../../../storage/operations/buckets/create.md) [{{ objstorage-full-name }}](../../../storage/). Сохраните имя бакета — оно понадобится при установке приложения. Пропустите этот шаг, если для каждого тома требуется создавать отдельный бакет.
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
+1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку **{{ marketplace-short-name }}**.
 1. В разделе **Доступные для установки приложения** выберите [Container Storage Interface для S3](/marketplace/products/yc/csi-s3) и нажмите кнопку **Использовать**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) `kube-system`.
@@ -32,13 +32,13 @@
      * **Delete** — удалять том.
    * **Название класса хранения** — если вы ранее выбрали опцию **Создать класс хранения**, укажите имя нового класса хранилища.
    * **Название секрета** — если вы ранее выбрали опцию **Создать секрет**, укажите имя нового секрета, который будет создан для класса хранилища. В ином случае укажите имя существующего секрета, который будет использован для класса хранилища.
-   * **Игнорировать все политики taint** — выберите эту опцию, чтобы драйвер CSI, который монтирует файловую систему на узлах, игнорировал все политики taint для узлов кластера.
+   * **Игнорировать все политики taint** — выберите эту опцию, чтобы драйвер CSI, который монтирует файловую систему на узлах, игнорировал все политики taint для узлов кластера {{ managed-k8s-name }}.
 1. Нажмите кнопку **Установить**.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
-
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с CSI выполните команду:
 
    ```bash
@@ -53,7 +53,7 @@
      --set secret.secretKey=<секретный_ключ> \
      csi-s3 .
    ```
-   
+
 При установке приложения CSI обязательными являются параметры `secret.accessKey` и `secret.secretKey`. Вы можете не указывать остальные параметры, либо переопределить их в команде установки с помощью ключа `--set <имя_параметра>=<новое_значение>`.
 
 Список доступных для переопределения параметров и их значения по умолчанию приведены в таблице:

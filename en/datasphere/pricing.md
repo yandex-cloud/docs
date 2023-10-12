@@ -51,28 +51,12 @@ The monthly usage rate is based on 720 hours a month.
 
 ## Pricing {#prices}
 
-Prices for using configurations apply to [{{ ml-platform-name }} {{ ds }}](concepts/project.md#serverless) and [{{ ml-platform-name }} {{ dd }}](concepts/project.md#dedicated) and when you [use models](../datasphere/concepts/deploy/index.md#node).
+Prices for using configurations apply to [{{ ml-platform-name }} {{ ds }}](concepts/project.md#serverless), [background operations](../datasphere/concepts/async.md), [{{ ml-platform-name }} {{ dd }}](concepts/project.md#dedicated) and when you [deploy models](../datasphere/concepts/deploy/index.md#node).
 
 
 
 
 {% include [usd-unit-and-resource.md](../_pricing/datasphere/usd-unit-and-resource.md) %}
-
-
-### Performing background operations {#async}
-
-Learn more about [background operations](../datasphere/concepts/async.md).
-
-{% note alert %}
-
-Starting July 10, 2023, background operations will be charged according to the rules for [using computing resources](#paug).
-
-{% endnote %}
-
-
-
-
-{% include [usd-async.md](../_pricing/datasphere/usd-async-new.md) %}
 
 
 ### Storing data inside {{ ml-platform-name }} {#prices-storage}

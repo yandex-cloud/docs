@@ -13,6 +13,11 @@
 {% include [non-resident-countries](../../billing/_includes/non-resident-countries.md) %}
 
 
+#### Что делать, если я не нашел свою страну в списке? {#more-countries}
+
+Если вы не нашли свою страну в [списке стран](#countries), с которыми сотрудничает {{ yandex-cloud }}, оставьте заявку в [форме](/#contact-form). Менеджер {{ yandex-cloud }} свяжется с вами.
+
+
 #### Будет ли предоставлен договор на оказание и оплату услуг? {#contract}
 
 {% include [contract-qa](../../billing/_includes/contract-qa.md) %}

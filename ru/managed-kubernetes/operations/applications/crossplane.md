@@ -8,9 +8,7 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролью `admin`. Он необходим для работы Crossplane.
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `admin`. Он необходим для работы Crossplane.
 1. Создайте [ключ сервисного аккаунта](../../../iam/concepts/authorization/access-key.md) и сохраните его в файл:
 
    ```bash
@@ -20,7 +18,7 @@
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
-1. Нажмите на имя нужного [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
+1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
 1. В разделе **Доступные для установки приложения** выберите [Crossplane с поддержкой {{ yandex-cloud }}](/marketplace/products/yc/crossplane) и нажмите кнопку **Использовать**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Crossplane или создайте новое.
@@ -32,7 +30,7 @@
 ## Установка с помощью Helm-чарта {#helm-install}
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
-
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Crossplane выполните команду:
 
    ```bash
@@ -91,3 +89,7 @@
    ```
 
    Актуальная версия провайдера доступна в [GitHub-репозитории](https://github.com/yandex-cloud/provider-jet-yc).
+
+## См. также {#see-also}
+
+* [Документация Crossplane](https://docs.crossplane.io/).

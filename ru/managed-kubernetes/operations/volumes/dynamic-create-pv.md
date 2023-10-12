@@ -4,9 +4,11 @@
 1. [Создайте объект PersistentVolumeClaim](#create-pvc).
 1. [Создайте под](#create-pod).
 
+{% include [Перед началом установите kubectl](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
+
 {% note tip %}
 
-Вы можете использовать [бакет](../../../storage/concepts/bucket.md) {{ objstorage-full-name }} в качестве хранилища для пода. Подробнее см. в разделе [{#T}](s3-csi-integration.md).
+Вы можете использовать [бакет](../../../storage/concepts/bucket.md) [{{ objstorage-full-name }}](../../../storage/) в качестве хранилища для пода. Подробнее см. в разделе [{#T}](s3-csi-integration.md).
 
 {% endnote %}
 
@@ -162,4 +164,4 @@
 kubectl delete pvc <идентификатор объекта PersistentVolumeClaim>
 ```
 
-Диск в {{ compute-name }} удалится автоматически.
+Диск в [{{ compute-full-name }}](../../../compute/) удалится автоматически.

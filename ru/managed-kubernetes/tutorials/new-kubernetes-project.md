@@ -44,7 +44,7 @@
 ### Зарегистрируйте доменную зону и добавьте сертификат {#register-domain}
 
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
-1. Если у вас уже есть [сертификат](../../certificate-manager/concepts/index.md#types) для [доменной зоны](../../dns/concepts/dns-zone.md), [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис {{ certificate-manager-full-name }}.
+1. Если у вас уже есть [сертификат](../../certificate-manager/concepts/index.md#types) для [доменной зоны](../../dns/concepts/dns-zone.md), [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
    Если у вас нет сертификата, выпустите новый сертификат от Let's Encrypt® и [добавьте](../../certificate-manager/operations/managed/cert-create.md) его в {{ certificate-manager-name }}.
 1. Получите идентификатор сертификата:
@@ -59,20 +59,20 @@
    +-----------------+-------+----------------+---------------------+----------+--------+
    |       ID        | NAME  |    DOMAINS     |      NOT AFTER      |   TYPE   | STATUS |
    +-----------------+-------+----------------+---------------------+----------+--------+
-   | <идентификатор> | <имя> | <доменное имя> | 2022-04-06 17:19:37 | IMPORTED | ISSUED |
+   | <идентификатор> | <имя> | <доменное_имя> | 2022-04-06 17:19:37 | IMPORTED | ISSUED |
    +-----------------+-------+----------------+---------------------+----------+--------+
    ```
 
 ## Создайте сервисные аккаунты {#create-sa}
 
-Для работы кластера {{ k8s }} и [балансировщика нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) нужны [сервисные аккаунты](../../iam/concepts/users/service-accounts.md):
-* С ролью [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ k8s }}. От имени этого сервисного аккаунта будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
+Для работы кластера {{ managed-k8s-name }} и [балансировщика нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) нужны [сервисные аккаунты](../../iam/concepts/users/service-accounts.md):
+* С ролью [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}. От имени этого сервисного аккаунта будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
 * С ролью [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) [Docker-образов](../../container-registry/concepts/docker-image.md). От имени этого сервисного аккаунта [узлы](../../managed-kubernetes/concepts/index.md#node-group) будут скачивать из реестра необходимые Docker-образы.
 * Для работы Ingress-контроллера {{ alb-name }}, с ролями:
   * [alb.editor](../../iam/concepts/access-control/roles.md#alb-editor) — для создания необходимых ресурсов.
   * [vpc.publicAdmin](../../iam/concepts/access-control/roles.md#vpc-public-admin) — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
   * [certificate-manager.certificates.downloader](../../iam/concepts/access-control/roles.md#certificate-manager-certificates-downloader) — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-name }}](../../certificate-manager/).
-  * [compute.viewer](../../iam/concepts/access-control/roles.md#compute-viewer) — для использования узлов кластера {{ k8s }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика нагрузки.
+  * [compute.viewer](../../iam/concepts/access-control/roles.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика нагрузки.
 
 ### Сервисный аккаунт для ресурсов {#res-sa}
 
@@ -288,12 +288,10 @@
 
 {% include [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
 
-1. [Настройте группы безопасности кластера {{ k8s }} и группы узлов](../operations/connect/security-groups.md). Группа безопасности группы узлов должна разрешать входящие TCP-соединения к портам 10501 и 10502 из подсетей балансировщика нагрузки или из его группы безопасности (позже подсети и группу нужно будет указать для [создания балансировщика](#create-ingress-and-apps)).
-1. Убедитесь, что вы можете подключиться к кластеру с помощью `kubectl`:
+## Подключитесь к кластеру {{ managed-k8s-name }} {#cluster-connect}
 
-   ```bash
-   kubectl cluster-info
-   ```
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. [Настройте группы безопасности кластера {{ managed-k8s-name }} и группы узлов](../operations/connect/security-groups.md). Группа безопасности группы узлов должна разрешать входящие TCP-соединения к портам 10501 и 10502 из подсетей балансировщика нагрузки или из его группы безопасности (позже подсети и группу нужно будет указать для создания балансировщика).
 
 ## Подготовьте ресурсы {{ container-registry-name }} {#create-cr-res}
 
@@ -427,17 +425,17 @@ yc container registry configure-docker
       metadata:
         name: alb-demo-tls
         annotations:
-          ingress.alb.yc.io/subnets: <список идентификаторов подсетей>
-          ingress.alb.yc.io/security-groups: <список идентификаторов групп безопасности>
-          ingress.alb.yc.io/external-ipv4-address: <auto или статический IP-адрес>
-          ingress.alb.yc.io/group-name: <имя Ingress-группы>
+          ingress.alb.yc.io/subnets: <список_идентификаторов_подсетей>
+          ingress.alb.yc.io/security-groups: <список_идентификаторов_групп_безопасности>
+          ingress.alb.yc.io/external-ipv4-address: <auto_или_статический IP-адрес>
+          ingress.alb.yc.io/group-name: <имя_Ingress-группы>
       spec:
         tls:
           - hosts:
-              - <доменное имя>
-            secretName: yc-certmgr-cert-id-<идентификатор TLS-сертификата>
+              - <доменное_имя>
+            secretName: yc-certmgr-cert-id-<идентификатор_TLS-сертификата>
         rules:
-          - host: <доменное имя>
+          - host: <доменное_имя>
             http:
               paths:
                 - pathType: Prefix
@@ -487,17 +485,17 @@ yc container registry configure-docker
 
       ```bash
       NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
-      alb-demo-tls  <none>  <доменное имя>  <IP-адрес>  80, 443  15h
+      alb-demo-tls  <none>  <доменное_имя>  <IP-адрес>  80, 443  15h
       ```
 
       По конфигурации балансировщика нагрузки будет автоматически развернут [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md).
-1. Перейдите по ссылке `https://<доменное имя>` и убедитесь, что ваше приложение успешно опубликовано.
+1. Перейдите по ссылке `https://<доменное_имя>` и убедитесь, что ваше приложение успешно опубликовано.
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-1. [Удалите кластер {{ k8s }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md):
+1. [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md):
 
    ```bash
    yc managed-kubernetes cluster delete --name k8s-demo

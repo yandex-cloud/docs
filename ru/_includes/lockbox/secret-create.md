@@ -39,15 +39,15 @@
       yc lockbox secret create --help
       ```
 
-  1. Выполните команду, указав в параметрах имя каталога и [идентификатор облака](../../resource-manager/operations/cloud/get-id.md). Вы можете передать один или несколько ключей `key`. Если секрет будет содержать несколько значений, перечисляйте их через запятую. В примере указаны два ключа:
-
+  1. Выполните команду:
+  
      ```bash
      yc lockbox secret create \
        --name <имя_секрета> \
        --description <описание_секрета> \
-       --payload "[{'key': '<ключ>', 'text_value': '<текстовое_значение>'},{'key': '<ключ>', 'text_value': '<текстовое_значение>'}]" \
+       --payload "<массив_с_содержимым_секрета>" \
        --cloud-id <идентификатор_облака> \
-       --folder-name <название_каталога> \
+       --folder-id <идентификатор_каталога> \
        --deletion-protection
      ```
 
@@ -55,27 +55,48 @@
 
      * `--name` — имя секрета. Обязательный параметр.
      * `--description` — описание секрета. Необязательный параметр.
-     * `--payload` — содержимое секрета в виде массива YAML или JSON. Например, для сохранения ключей `username` со значением `myusername` и `password` со значением `p@$$w0rd` можно задать такой массив: `[{'key': '<username>', 'text_value': '<myusername>'},{'key': '<password>', 'text_value': '<p@$$w0rd>'}]`.
-     * `--cloud-id` — идентификатор облака, в котором будет создан секрет.
-     * `--folder-name` — название каталога, в котором будет создан секрет.
+     * `--payload` — содержимое секрета в виде массива YAML или JSON. 
+        
+         Вы можете одновременно передать один или несколько ключей `key`. Если секрет будет содержать несколько значений, перечислите их через запятую. Если ключи будут содержать значения в бинарном формате, передавайте их в кодировке `base64`. 
+        
+         Например, для сохранения ключа `username` с текстовым значением `myusername` и ключа `avatar` с загруженным из файла `avatar.jpg` значением в бинарном формате можно указать:
+         `[{'key': 'username', 'text_value': 'myusername'},{'key': 'avatar', 'binary_value': $(base64 -w 0 ./avatar.jpg)}]`.
+     * `--cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), в котором будет создан секрет.
+     * `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет создан секрет.
      * `--deletion-protection` — защита от удаления секрета. Пока опция включена, удалить секрет невозможно. Не защищает содержимое секрета. Необязательный параметр.
+
+     Пример команды для создания секрета:
+
+     ```bash
+     yc lockbox secret create \
+       --name sample-secret \
+       --description sample_secret \
+       --payload "[{'key': 'username', 'text_value': 'myusername'},{'key': 'avatar', 'binary_value': $(base64 -w 0 ./avatar.jpg)}]" \
+       --cloud-id b1gwa87mbaom******** \
+       --folder-id b1qt6g8ht345******** \
+       --deletion-protection
+     ``` 
+
+     В этом примере создается секрет с двумя ключами: один ключ с текстовым значением, другой — со значением в бинарном формате.
 
      Результат:
      
      ```
-     id: f1sa31gi4v3s********
-     folder_id: d3sad80hs4od********
-     created_at: "2021-11-08T19:23:00.383Z"
-     name: <имя секрета>
-     description: <описание секрета>
+     id: e6q6nbjfu9m2********
+     folder_id: b1qt6g8ht345********
+     created_at: "2023-10-09T16:29:11.402Z"
+     name: sample-secret
+     description: sample_secret
      status: ACTIVE
      current_version:
-       id: hfdf68j9fdjk********
-       secret_id: f1s2tu3uqg12********
-       created_at: "2021-11-08T19:23:00.383Z"
+       id: e6q0s9airqca********
+       secret_id: e6q6nbjfu9m2********
+       created_at: "2023-10-09T16:29:11.402Z"
        status: ACTIVE
        payload_entry_keys:
-       - <ключ>
+         - username
+         - avatar
+     deletion_protection: true
      ```
 
 - {{ TF }}

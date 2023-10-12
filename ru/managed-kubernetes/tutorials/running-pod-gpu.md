@@ -1,23 +1,22 @@
 # Запуск рабочих нагрузок с GPU
 
-Кластер {{ managed-k8s-name }} позволяет запускать рабочие нагрузки на видеопроцессорах (GPU), что может быть полезно для задач с особыми вычислительными требованиями.
+[Кластер {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) позволяет запускать рабочие нагрузки на видеопроцессорах ([GPU](../../compute/concepts/gpus.md)), что может быть полезно для задач с особыми вычислительными требованиями.
 
 Чтобы запустить рабочие нагрузки с GPU на [подах](../concepts/index.md#pod) кластера {{ managed-k8s-name }}:
-1. [{#T}](#create-pod-gpu)
-1. [{#T}](#check-pod)
+1. [{#T}](#create-pod-gpu).
+1. [{#T}](#check-pod).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#delete-resources).
 
 ## Перед началом работы {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
-
 1. {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
 1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
-1. [Создайте группу узлов](../operations/node-group/node-group-create.md) с настройками:
-   * **Платформа** — выберите `Intel Broadwell with Nvidia Tesla v100`.
+1. [Создайте группу узлов {{ managed-k8s-name }}](../operations/node-group/node-group-create.md) с настройками:
+   * **Платформа** — выберите `Intel Broadwell with NVIDIA® Tesla v100`.
    * **GPU** — укажите нужное количество GPU.
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Создайте под с GPU {#create-pod-gpu}
 
@@ -40,7 +39,6 @@
    ```
 
    Подробнее о спецификации для создания пода читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#pod-v1-core).
-
 1. Создайте под с GPU:
 
    ```bash
@@ -87,6 +85,5 @@
 ## Удалите созданные ресурсы {#clear-out}
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
-
 1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+1. Если вы зарезервировали для кластера {{ managed-k8s-name }} публичный статический [IP-адрес](../../vpc/concepts/address.md), [удалите его](../../vpc/operations/address-delete.md).

@@ -41,7 +41,7 @@
 
     
     1. Если у вас еще нет {{ TF }}, установите и настройте его согласно [инструкции](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
 
 
     1. Создайте в рабочей директории файл `example.csv`, содержащий тестовую таблицу:

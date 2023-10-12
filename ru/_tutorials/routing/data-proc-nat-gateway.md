@@ -62,7 +62,7 @@
 - С помощью {{ TF }}
 
     1. Если у вас еще нет {{ TF }}, [установите и настройте](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) его.
-    1. [Скачайте файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. [Скачайте файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
     1. [Скачайте файл конфигурации кластера](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/data-proc-nat-gateway.tf) в ту же рабочую директорию.
 
         В файле описаны:

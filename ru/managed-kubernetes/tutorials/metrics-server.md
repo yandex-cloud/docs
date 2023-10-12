@@ -1,6 +1,6 @@
 # Изменение параметров сервера метрик
 
-[Сервер метрик (Metrics Server)](https://github.com/kubernetes-sigs/metrics-server) — это сервис в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster), устанавливаемый по умолчанию. С помощью компонента `kubelet` он собирает метрики с каждого [узла](../concepts/index.md#node-group) в кластере и предоставляет их через [Metrics API](https://github.com/kubernetes/metrics). На основании данных из этих метрик работают [горизонтальное и вертикальное автомасштабирования подов](../concepts/autoscale.md). Данные метрик можно получить с помощью команд `kubectl top node` или `kubectl top pod`. Подробнее см. в [документации Metrics Server](https://github.com/kubernetes-sigs/metrics-server#kubernetes-metrics-server).
+[Сервер метрик (Metrics Server)](https://github.com/kubernetes-sigs/metrics-server) — это сервис в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster), устанавливаемый по умолчанию. С помощью компонента `kubelet` он собирает метрики с каждого [узла](../concepts/index.md#node-group) в кластере {{ managed-k8s-name }} и предоставляет их через [Metrics API](https://github.com/kubernetes/metrics). На основании данных из этих метрик работают [горизонтальное и вертикальное автомасштабирования подов](../concepts/autoscale.md). Данные метрик можно получить с помощью команд `kubectl top node` или `kubectl top pod`. Подробнее см. в [документации Metrics Server](https://github.com/kubernetes-sigs/metrics-server#kubernetes-metrics-server).
 
 [Под](../concepts/index.md#pod) сервера метрик содержит два контейнера: `metrics-server` и `metrics-server-nanny`, который является [addon-resizer](https://github.com/kubernetes/autoscaler/tree/master/addon-resizer#addon-resizer) для `metrics-server`. Контейнер `metrics-server-nanny` отвечает за автоматическое выделение ресурсов контейнеру `metrics-server` в зависимости от количества узлов в кластере {{ managed-k8s-name }}.
 
@@ -15,28 +15,29 @@
 
 ## Посмотрите количество ресурсов, выделенных для пода сервера метрик {#get-resources}
 
-Выполните команду:
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. Выполните команду:
 
-```bash
-kubectl get pod <имя пода сервера метрик> \
-  --namespace=kube-system \
-  --output=json | \
-  jq '.spec.containers[] | select(.name == "metrics-server") | .resources'
-```
+   ```bash
+   kubectl get pod <имя_пода_сервера_метрик> \
+     --namespace=kube-system \
+     --output=json | \
+     jq '.spec.containers[] | select(.name == "metrics-server") | .resources'
+   ```
 
-Ресурсы вычисляются по следующим формулам:
+   Ресурсы вычисляются по следующим формулам:
 
-```text
-cpu = baseCPU + cpuPerNode * nodesCount
-memory = baseMemory + memoryPerNode * nodesCount
-```
+   ```text
+   cpu = baseCPU + cpuPerNode * nodesCount
+   memory = baseMemory + memoryPerNode * nodesCount
+   ```
 
-Где:
-* `baseCPU` — базовое количество CPU.
-* `cpuPerNode` — количество CPU на каждый узел.
-* `nodesCount` — количество узлов.
-* `baseMemory` — базовое количество оперативной памяти.
-* `memoryPerNode` — количество оперативной памяти на каждый узел.
+   Где:
+   * `baseCPU` — базовое [количество CPU](../../compute/concepts/vm-platforms.md).
+   * `cpuPerNode` — количество CPU на каждый узел.
+   * `nodesCount` — количество узлов {{ managed-k8s-name }}.
+   * `baseMemory` — базовое количество оперативной памяти.
+   * `memoryPerNode` — количество оперативной памяти на каждый узел.
 
 ## Измените параметры сервера метрик {#update-parameters}
 
@@ -56,10 +57,10 @@ memory = baseMemory + memoryPerNode * nodesCount
      NannyConfiguration: |-
        apiVersion: nannyconfig/v1alpha1
        kind: NannyConfiguration
-       baseCPU: <базовое количество CPU>m
-       cpuPerNode: <количество CPU за каждый узел>m
-       baseMemory: <базовое количество оперативной памяти>Mi
-       memoryPerNode: <количество оперативной памяти за каждый узел>Mi
+       baseCPU: <базовое_количество_CPU>m
+       cpuPerNode: <количество_CPU_за_каждый_узел>m
+       baseMemory: <базовое_количество_оперативной_памяти>Mi
+       memoryPerNode: <количество_оперативной_памяти_за_каждый_узел>Mi
    ...
    ```
 
