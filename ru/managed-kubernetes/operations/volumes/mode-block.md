@@ -1,6 +1,10 @@
 # Подключение тома в блочном режиме
 
-Чтобы подключить [том в режиме](../../concepts/volume.md#block) `volumeMode: Block`, выполните следующие действия.
+Чтобы подключить [том в режиме](../../concepts/volume.md#block) `volumeMode: Block`:
+1. [{#T}](#create-pvc).
+1. [{#T}](#create-pod).
+
+{% include [Перед началом установите kubectl](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
 ## Создайте объект PersistentVolumeClaim {#create-pvc}
 

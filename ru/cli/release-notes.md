@@ -1,6 +1,13 @@
 # Релизы YC CLI
 
 ## Текущая версия {#latest-release}
+## Версия 0.112.0 (12.10.23) {#version0.112.0}
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ compute-name }} {#compute}
+
+* Поддержано подключение к CentOS 7 с помощью команды `yc compute ssh`.
+* Добавлены команды `yc compute instance relocate` и `yc compute disk relocate` для перемещения ВМ и дисков между зонами доступности.
 
 ## Версия 0.111.0 (21.09.23) {#version0.111.0}
 

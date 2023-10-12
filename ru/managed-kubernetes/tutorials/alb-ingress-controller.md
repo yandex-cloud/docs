@@ -1,8 +1,8 @@
 # Настройка Ingress-контроллера {{ alb-name }}
 
-Сервис [{{ alb-full-name }}](../../application-load-balancer/) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в кластере {{ managed-k8s-name }}, необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
+Сервис [{{ alb-full-name }}](../../application-load-balancer/) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster), необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
-Чтобы настроить доступ к запущенным в кластере приложениям через {{ alb-name }}:
+Чтобы настроить доступ к запущенным в кластере {{ managed-k8s-name }} приложениям через {{ alb-name }}:
 1. [{#T}](#create-ingress-and-apps).
 1. [{#T}](#configure-group).
 1. [{#T}](#verify-setup).
@@ -10,15 +10,13 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
-1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис {{ certificate-manager-full-name }}. Или [добавьте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
-
+1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис [{{ certificate-manager-full-name }}](../../certificate-manager/). Или [добавьте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
-
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
-
-1. [Настройте группы безопасности кластера и группы узлов](../operations/connect/security-groups.md). Группа безопасности группы узлов должна разрешать входящие TCP-соединения к портам 10501 и 10502 из подсетей балансировщика или из его группы безопасности (позже подсети и группу нужно будет указать для [создания Ingress-контроллера](#create-ingress-and-apps)).
+1. [Настройте группы безопасности кластера {{ managed-k8s-name }} и группы узлов](../operations/connect/security-groups.md). [Группа безопасности](../../vpc/concepts/security-groups.md) [группы узлов {{ managed-k8s-name }}](../concepts/index.md#node-group) должна разрешать входящие TCP-соединения к портам 10501 и 10502 из [подсетей](../../vpc/concepts/network.md#subnet) балансировщика или из его группы безопасности (позже подсети и группу нужно будет указать для [создания Ingress-контроллера](#create-ingress-and-apps)).
 1. [Установите Ingress-контроллер {{ alb-name }}](../operations/applications/alb-ingress-controller.md).
-1. Убедитесь, что вы можете подключиться к кластеру с помощью `kubectl`:
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. Убедитесь, что вы можете подключиться к кластеру {{ managed-k8s-name }} с помощью `kubectl`:
 
    ```bash
    kubectl cluster-info
@@ -26,7 +24,7 @@
 
 ## Настройте Ingress-контроллер и тестовые приложения {#create-ingress-and-apps}
 
-В качестве рабочей нагрузки Ingress-контроллера могут выступать [сервисы {{ k8s }}](../concepts/index.md#service), [целевые группы](../../application-load-balancer/concepts/target-group.md) {{ alb-name }} или [бакеты](../../storage/concepts/bucket.md) {{ objstorage-full-name }}.
+В качестве рабочей нагрузки Ingress-контроллера могут выступать [сервисы {{ k8s }}](../concepts/index.md#service), [целевые группы](../../application-load-balancer/concepts/target-group.md) {{ alb-name }} или [бакеты](../../storage/concepts/bucket.md) [{{ objstorage-full-name }}](../../storage/).
 
 Перед началом работы получите идентификатор [добавленного ранее](#before-you-begin) TLS-сертификата:
 
@@ -40,7 +38,7 @@ yc certificate-manager certificate list
 +-----------------+-------+----------------+---------------------+----------+--------+
 |       ID        | NAME  |    DOMAINS     |      NOT AFTER      |   TYPE   | STATUS |
 +-----------------+-------+----------------+---------------------+----------+--------+
-| <идентификатор> | <имя> | <доменное имя> | 2022-01-06 17:19:37 | IMPORTED | ISSUED |
+| <идентификатор> | <имя> | <доменное_имя> | 2022-01-06 17:19:37 | IMPORTED | ISSUED |
 +-----------------+-------+----------------+---------------------+----------+--------+
 ```
 
@@ -260,17 +258,17 @@ yc certificate-manager certificate list
      metadata:
        name: alb-demo-tls
        annotations:
-         ingress.alb.yc.io/subnets: <список идентификаторов подсетей>
-         ingress.alb.yc.io/security-groups: <список идентификаторов групп безопасности>
-         ingress.alb.yc.io/external-ipv4-address: <auto или статический IP-адрес>
-         ingress.alb.yc.io/group-name: <имя Ingress-группы>
+         ingress.alb.yc.io/subnets: <список_идентификаторов_подсетей>
+         ingress.alb.yc.io/security-groups: <список_идентификаторов_групп_безопасности>
+         ingress.alb.yc.io/external-ipv4-address: <auto_или_статический_IP-адрес>
+         ingress.alb.yc.io/group-name: <имя_Ingress-группы>
      spec:
        tls:
          - hosts:
-             - <доменное имя>
-           secretName: yc-certmgr-cert-id-<идентификатор TLS-сертификата>
+             - <доменное_имя>
+           secretName: yc-certmgr-cert-id-<идентификатор_TLS-сертификата>
        rules:
-         - host: <доменное имя>
+         - host: <доменное_имя>
            http:
              paths:
                - path: /app1
@@ -297,18 +295,15 @@ yc certificate-manager certificate list
      ```
 
      Где:
-
-     * `ingress.alb.yc.io/subnets` — одна или несколько [подсетей](../../vpc/concepts/network.md#subnet), с которыми будет работать {{ alb-name }}.
-     * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящие TCP-соединения к портам 10501 и 10502 в подсети группы узлов или в ее группу безопасности.
+     * `ingress.alb.yc.io/subnets` — одна или несколько подсетей, с которыми будет работать {{ alb-name }}.
+     * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящие TCP-соединения к портам 10501 и 10502 в подсети группы узлов {{ managed-k8s-name }} или в ее группу безопасности.
      * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md), либо установите значение `auto`, чтобы получить новый.
 
-       Если вы указали значение `auto`, то при удалении Ingress-контроллера IP-адрес также будет удален из облака. Чтобы избежать этого, используйте имеющийся зарезервированный адрес.
+       Если вы указали значение `auto`, то при удалении Ingress-контроллера IP-адрес также будет удален из [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud). Чтобы избежать этого, используйте имеющийся зарезервированный адрес.
      * `ingress.alb.yc.io/group-name` — объединение ресурсов {{ k8s }} Ingress в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}. Укажите имя группы.
 
      (Опционально) Укажите дополнительные настройки контроллера:
-
      * `ingress.alb.yc.io/group-settings-name` — имя для настроек Ingress-группы, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте Ingress-группу](#configure-group).
-
      * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
 
        {% note info %}
@@ -346,7 +341,6 @@ yc certificate-manager certificate list
      {% endnote %}
 
      Подробное описание настроек ресурса Ingress см. в статье [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
-
   1. Создайте Ingress-контроллер и приложения:
 
      ```bash
@@ -363,14 +357,14 @@ yc certificate-manager certificate list
 
      ```bash
      NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
-     alb-demo-tls  <none>  <доменное имя>  <IP-адрес>  80, 443  15h
+     alb-demo-tls  <none>  <доменное_имя>  <IP-адрес>  80, 443  15h
      ```
 
      По конфигурации Ingress-контроллера будет автоматически развернут [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md).
 
 - Ingress-контроллер для группы бэкендов
 
-  Для настройки [группы бэкендов](../../application-load-balancer/concepts/backend-group.md) используйте [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) `HttpBackendGroup`. В качестве бэкенда может выступать [целевая группа](../../application-load-balancer/concepts/target-group.md) {{ alb-name }} или [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}.
+  Для настройки [группы бэкендов](../../application-load-balancer/concepts/backend-group.md) используйте [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) `HttpBackendGroup`. В качестве бэкенда может выступать целевая группа {{ alb-name }} или бакет {{ objstorage-name }}.
 
   Чтобы настроить {{ alb-name }} на работу с группой бэкендов:
   1. Создайте [группу бэкендов с бакетом](../../application-load-balancer/operations/backend-group-create.md#with-s3-bucket):
@@ -497,7 +491,7 @@ yc certificate-manager certificate list
          - name: bucket-backend
            weight: 30
            storageBucket:
-             name: <имя бакета>
+             name: <имя_бакета>
      ```
 
      (Опционально) Укажите дополнительные настройки контроллера:
@@ -513,17 +507,17 @@ yc certificate-manager certificate list
      metadata:
        name: alb-demo-tls
        annotations:
-         ingress.alb.yc.io/subnets: <список идентификаторов подсетей> # Одна или несколько подсетей, с которыми будет работать {{ alb-name }}.
-         ingress.alb.yc.io/security-groups: <список идентификаторов групп безопасности> # Одна или несколько групп безопасности для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию.
-         ingress.alb.yc.io/external-ipv4-address: <auto или статический IP-адрес> # Предоставление публичного доступа к {{ alb-name }} из интернета. Укажите заранее полученный IP-адрес, либо установите значение `auto`, чтобы получить новый.
-         ingress.alb.yc.io/group-name: <имя Ingress-группы> # Объединение ресурсов {{ k8s }} Ingress в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}.
+         ingress.alb.yc.io/subnets: <список_идентификаторов_подсетей> # Одна или несколько подсетей, с которыми будет работать {{ alb-name }}.
+         ingress.alb.yc.io/security-groups: <список_идентификаторов_групп_безопасности> # Одна или несколько групп безопасности для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию.
+         ingress.alb.yc.io/external-ipv4-address: <auto_или_статический_IP-адрес> # Предоставление публичного доступа к {{ alb-name }} из интернета. Укажите заранее полученный IP-адрес, либо установите значение `auto`, чтобы получить новый.
+         ingress.alb.yc.io/group-name: <имя_Ingress-группы> # Объединение ресурсов {{ k8s }} Ingress в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}.
      spec:
        tls:
          - hosts:
-           - <доменное имя>
-           secretName: yc-certmgr-cert-id-<идентификатор TLS-сертификата>
+           - <доменное_имя>
+           secretName: yc-certmgr-cert-id-<идентификатор_TLS-сертификата>
        rules:
-         - host: <доменное имя>
+         - host: <доменное_имя>
            http:
              paths:
                - path: /app1
@@ -536,7 +530,6 @@ yc certificate-manager certificate list
      ```
 
      (Опционально) Укажите дополнительные настройки контроллера:
-
      * `ingress.alb.yc.io/group-settings-name` — имя для настроек Ingress-группы, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`. Подробнее см. в разделе [Настройте Ingress-группу](#configure-group).
      * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
 
@@ -571,7 +564,6 @@ yc certificate-manager certificate list
      {% endnote %}
 
      Подробное описание настроек ресурса Ingress см. в статье [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
-
   1. Создайте Ingress-контроллер, объект `HttpBackendGroup` и приложение {{ k8s }}:
 
      ```bash
@@ -588,7 +580,7 @@ yc certificate-manager certificate list
 
      ```bash
      NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
-     alb-demo-tls  <none>  <доменное имя>  <IP-адрес>  80, 443  15h
+     alb-demo-tls  <none>  <доменное_имя>  <IP-адрес>  80, 443  15h
      ```
 
      По конфигурации Ingress-контроллера будет автоматически развернут L7-балансировщик.
@@ -598,16 +590,15 @@ yc certificate-manager certificate list
 ## (Опционально) Настройте Ingress-группу {#configure-group}
 
 Если при установке Ingress-контроллера вы указали имя для настроек Ingress-группы в аннотации `ingress.alb.yc.io/group-settings-name`, можете задать настройки логирования для L7-балансировщика. Для этого [создайте пользовательскую лог-группу](../../logging/operations/create-group.md) и укажите настройки Ingress-группы в дополнительном ресурсе `IngressGroupSettings`.
-
 1. Создайте файл `settings.yaml` и укажите в нем настройки логирования и идентификатор пользовательской лог-группы, например:
 
     ```yaml
     apiVersion: alb.yc.io/v1alpha1
     kind: IngressGroupSettings
     metadata:
-      name: <имя для настроек Ingress-группы в аннотации ingress.alb.yc.io/group-settings-name>
+      name: <имя_для_настроек_Ingress-группы_в_аннотации_ingress.alb.yc.io/group-settings-name>
     logOptions:
-      logGroupID: <идентификатор пользовательской лог-группы>
+      logGroupID: <идентификатор_пользовательской_лог-группы>
       discardRules:
         - discardPercent: 50
           grpcCodes:
@@ -629,7 +620,7 @@ yc certificate-manager certificate list
     kubectl apply -f settings.yaml
     ```
 
-## Убедитесь в доступности приложений кластера {{ k8s }} через {{ alb-name }} {#verify-setup}
+## Убедитесь в доступности приложений кластера {{ managed-k8s-name }} через {{ alb-name }} {#verify-setup}
 
 1. [Добавьте A-запись в зону](../../dns/operations/resource-record-create.md) вашего домена. В поле **Значение** укажите публичный IP-адрес Ingress-контроллера.
 1. [Настройте группы безопасности балансировщика](../../application-load-balancer/concepts/application-load-balancer.md#security-groups).
@@ -642,8 +633,8 @@ yc certificate-manager certificate list
      Откройте в браузере URI приложений:
 
      ```http
-     https://<ваш домен>/app1
-     https://<ваш домен>/app2
+     https://<ваш_домен>/app1
+     https://<ваш_домен>/app2
      ```
 
      Убедитесь, что приложения доступны через {{ alb-name }} и возвращают страницы с текстом `This is APP#1` и `This is APP#2` соответственно.
@@ -653,7 +644,7 @@ yc certificate-manager certificate list
      Откройте в браузере URI приложения:
 
      ```http
-     https://<ваш домен>/app1
+     https://<ваш_домен>/app1
      ```
 
      Убедитесь, что целевые ресурсы доступны через {{ alb-name }}.
@@ -663,7 +654,6 @@ yc certificate-manager certificate list
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-
-1. [Удалите кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }}.
+1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }}.
 1. [Удалите целевые группы](../../application-load-balancer/operations/target-group-delete.md) {{ alb-name }}.
 1. [Удалите бакет](../../storage/operations/buckets/delete.md) {{ objstorage-name }}.

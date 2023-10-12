@@ -8439,6 +8439,9 @@ default:
                         title: Cron expression
                       interval:
                         title: Period
+                    RegularSnapshotSettings:
+                      increment_delay_seconds:
+                        title: Wait for transaction completion time, in seconds
                     Runtime:
                       multi_yt:
                         title: Multi YT
@@ -8828,6 +8831,9 @@ default:
         per-time: Total unit limit per hour
         period-of-inactivity: Period of inactivity
         security-group: Security group
+      invite-link:
+        reset-invitation-link: Recreate invite link
+        reset-link: Recreate link
       main-page:
         recent-projects: Recent projects
       new-alias:

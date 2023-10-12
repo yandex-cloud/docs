@@ -29,6 +29,8 @@
 
 {% include [long-time](../../_includes/data-transfer/troubles/long-time.md) %}
 
+{% include [increment-copy](../../_includes/data-transfer/troubles/increment-copy.md) %}
+
 {% include [duplicates](../../_includes/data-transfer/troubles/duplicates.md) %}
 
 {% include [insufficiency-resources](../../_includes/data-transfer/troubles/insufficiency-resources.md) %}

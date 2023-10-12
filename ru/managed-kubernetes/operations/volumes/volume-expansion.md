@@ -1,6 +1,14 @@
 # Увеличение размера тома для подов
 
-Чтобы увеличить размер [тома](../../concepts/volume.md) для [подов](../../concepts/index.md#pod), выполните следующие действия.
+Чтобы увеличить размер [тома](../../concepts/volume.md):
+1. [{#T}](#enabling-expansion).
+1. [{#T}](#create-pvc).
+1. [{#T}](#create-pod).
+1. [{#T}](#restart-pod).
+1. [{#T}](#volume-expansion).
+1. [{#T}](#restart-pod1).
+
+{% include [Перед началом установите kubectl](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
 ## Включите механизм увеличения размера тома {#enabling-expansion}
 
@@ -60,7 +68,7 @@ reclaimPolicy: Delete
 
 ## Создайте под с динамически подготовленным томом {#create-pod}
 
-1. Сохраните следующую спецификацию для создания пода в YAML-файл с названием `pod.yaml`.
+1. Сохраните следующую спецификацию для создания [пода](../../concepts/index.md#pod) в YAML-файл с названием `pod.yaml`.
 
    Подробнее о спецификации для создания пода читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
 
@@ -99,7 +107,6 @@ reclaimPolicy: Delete
 ## Удалите под с томом {#restart-pod}
 
 Чтобы запросить увеличение размера тома, необходимо удалить под.
-
 1. Удалите под:
 
    ```bash
@@ -115,7 +122,6 @@ reclaimPolicy: Delete
 ## Запросите увеличение размера тома {#volume-expansion}
 
 Внесите изменения в поле `spec.resources.requests.storage` объекта `PersistentVolumeClaim`.
-
 1. Откройте YAML-файл с названием `pvc-expansion.yaml`:
 
    ```bash

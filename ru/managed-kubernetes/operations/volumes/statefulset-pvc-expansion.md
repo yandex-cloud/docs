@@ -4,6 +4,8 @@
 1. [{#T}](#create-sts).
 1. [{#T}](#upgrade-sts).
 
+{% include [Перед началом установите kubectl](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
+
 ## Создайте контроллер StatefulSet {#create-sts}
 
 1. Создайте файл `sts.yaml` с конфигурацией контроллера:
@@ -57,7 +59,7 @@
    kubectl apply -f sts.yaml
    ```
 
-   В результате выполнения команды будет создан контроллер StatefulSet с именем `ubuntu-test`, состоящий из трех подов. Размер PersistentVolumeClaim для каждого пода — 1 ГБ.
+   В результате выполнения команды будет создан контроллер StatefulSet с именем `ubuntu-test`, состоящий из трех [подов](../../concepts/index.md#pod). Размер PersistentVolumeClaim для каждого пода — 1 ГБ.
 1. Убедитесь, что поды контроллера перешли в статус `Running`, а PersistentVolumeClaim — в статус `Bound`:
 
    ```bash
@@ -81,7 +83,7 @@
 
 
 
-1. Убедитесь, что диски для объектов с префиксами `k8s-csi` перешли в статус `READY`:
+1. Убедитесь, что [диски](../../../compute/concepts/disk.md) для объектов с префиксами `k8s-csi` перешли в статус `READY`:
 
    ```bash
    yc compute disk list

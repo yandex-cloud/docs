@@ -4,7 +4,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 {% note alert %}
 
-Стоимость использования хранилища зависит от типа его диска. Ознакомьтесь с [ценами на диски {{ compute-full-name }}](../../../compute/concepts/disk.md#disks_types) перед созданием хранилища.
+Стоимость использования хранилища зависит от типа его [диска](../../../compute/concepts/disk.md). Ознакомьтесь с [ценами на диски {{ compute-full-name }}](../../../compute/concepts/disk.md#disks_types) перед созданием хранилища.
 
 {% endnote %}
 
@@ -27,6 +27,8 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 * Для `yc-network-ssd` используется быстрый сетевой диск (`network-ssd`).
 
 Вы можете [создать свой класс хранилищ](#sc-create), а также [изменить класс хранилищ по умолчанию](#sc-default).
+
+{% include [Перед началом установите kubectl](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
 {% note info %}
 
@@ -105,14 +107,14 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: <имя класса хранилищ> # Используется для обращения к классу хранилищ.
-provisioner: <имя поставщика>
+  name: <имя_класса_хранилищ> # Используется для обращения к классу хранилищ.
+provisioner: <имя_поставщика>
 volumeBindingMode: WaitForFirstConsumer
 parameters: # Параметры класса хранилищ.
-  type: <тип диска>
-  csi.storage.k8s.io/fstype: <тип файловой системы>
-allowVolumeExpansion: <включение механизма увеличения размера тома>
-reclaimPolicy: <политика переиспользования>
+  type: <тип_диска>
+  csi.storage.k8s.io/fstype: <тип_файловой_системы>
+allowVolumeExpansion: <включение_механизма_увеличения_размера_тома>
+reclaimPolicy: <политика_переиспользования>
 ```
 
 Допустимые значения параметров:

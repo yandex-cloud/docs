@@ -69,6 +69,9 @@
      * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
        * `standard` — без ускорения.
        * `software-accelerated` — программно-ускоренная сеть.
+
+       {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
+
      * `--network-interface` — настройки сети:
 
        {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
@@ -130,6 +133,7 @@
        instance_template {
          name       = "<шаблон_имени_узлов>"
          platform_id = "<платформа_для_узлов>"
+         network_acceleration_type = "<тип_ускорения_сети>"
          container_runtime {
           type = "<среда_запуска_контейнеров>"
          }
@@ -154,6 +158,12 @@
          {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
        * `platform_id` – [платформа](../../../compute/concepts/vm-platforms.md) для узлов {{ managed-k8s-name }}.
+       * `network_acceleration_type` — тип [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
+         * `standard` — без ускорения.
+         * `software-accelerated` — программно-ускоренная сеть.
+
+         {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
+
        * `container_runtime`:
          * `type` — [среда запуска контейнеров](../../concepts/index.md#config): `docker` или `containerd`.
        * `labels` — [ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) для ВМ, представляющих узлы группы {{ managed-k8s-name }}. Можно указать несколько меток через запятую.
@@ -211,6 +221,10 @@
   Воспользуйтесь методом API [create](../../api-ref/NodeGroup/create.md) и передайте в запросе:
   * Идентификатор [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в параметре `clusterId`. Его можно получить со [списком кластеров {{ managed-k8s-name }} в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Конфигурацию группы узлов {{ managed-k8s-name }}](../../concepts/index.md#config) в параметре `nodeTemplate`.
+  * Тип [ускорения сети](../../../compute/concepts/software-accelerated-network.md) в параметре `nodeTemplate.networkSettings.type`.
+
+    {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
+
   * [Среду запуска контейнеров](../../concepts/index.md#config) в параметре `nodeTemplate.containerRuntimeSettings.type`.
   * [Ресурсные метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md) для ВМ, представляющих узлы группы {{ managed-k8s-name }}, в параметре `nodeTemplate.labels`.
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.

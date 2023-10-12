@@ -230,3 +230,26 @@ kubectl get pods -n kube-system -l k8s-app=kube-dns -o wide
 Передавайте в команде только один из трех параметров. Расположение группы узлов {{ managed-k8s-name }} достаточно указать в `--location` либо `--network-interface`.
 
 {% include [assign-public-ip-addresses](../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
+
+#### Ошибки при подключении к узлу по SSH {#node-connect}
+
+Тексты ошибок:
+
+```text
+Permission denied (publickey,password)
+```
+
+```text
+Too many authentication failures
+```
+
+Ошибки возникают [при подключении к узлу {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-connect-ssh.md) в следующих ситуациях:
+* Публичный [SSH-ключ](../../glossary/ssh-keygen.md) не добавлен в метаданные группы узлов {{ managed-k8s-name }}.
+
+  **Решение:** [обновите ключи группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
+* Публичный SSH-ключ добавлен в метаданные группы узлов {{ managed-k8s-name }}, но неправильно.
+
+  **Решение:** [приведите файл с публичными ключами к необходимому формату](../../managed-kubernetes/operations/node-connect-ssh.md#key-format) и [обновите ключи группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
+* Приватный SSH-ключ не добавлен в аутентификационный агент (ssh-agent).
+
+  **Решение:** добавьте приватный ключ с помощью команды `ssh-add <путь_к_файлу_приватного_ключа>`.

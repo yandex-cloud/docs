@@ -1,6 +1,6 @@
 # Настройка контроллера сетевых политик Calico
 
-[Calico](https://www.projectcalico.org/) — это плагин для {{ k8s }} с открытым исходным кодом, с помощью которого можно управлять сетевыми политиками {{ k8s }}. Calico расширяет стандартные возможности сетевых политик {{ k8s }}, что позволяет:
+[Calico](https://www.projectcalico.org/) — это плагин для {{ k8s }} с открытым исходным кодом, с помощью которого можно управлять сетевыми политиками {{ k8s }}. Calico расширяет стандартные возможности [сетевых политик](../concepts/network-policy.md) {{ k8s }}, что позволяет:
 * Применять политики к любому объекту: [поду](../concepts/index.md#pod), контейнеру, [виртуальной машине](../../compute/concepts/vm.md) или интерфейсу.
 * Указывать в правилах политики конкретное действие: запретить, разрешить, логировать.
 * Указывать в качестве цели или источника: порт, диапазон портов, протоколы, HTTP- и ICMP-атрибуты, [IP-адрес](../../vpc/concepts/address.md) или [подсеть](../../vpc/concepts/network.md#subnet) и другие объекты.
@@ -21,8 +21,8 @@
 
    - Вручную
 
-     1. Создайте [облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
-     1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) любой подходящей конфигурации. При создании кластера {{ managed-k8s-name }} задействуйте контроллер сетевых политик Calico:
+     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
+     1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) любой подходящей конфигурации. При создании [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) задействуйте контроллер сетевых политик Calico:
         * В консоли управления, выбрав опцию **Включить сетевые политики**.
         * С помощью CLI, указав флаг `--enable-network-policy`.
         * С помощью метода [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster).
@@ -30,7 +30,7 @@
    - С помощью {{ TF }}
 
      1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
      1. Скачайте в ту же рабочую директорию файл конфигурации [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) [k8s-calico.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-calico.tf). В файле описаны:
         * [Сеть](../../vpc/operations/network-create.md).
         * Подсеть.
@@ -38,10 +38,10 @@
           * Правила для служебного трафика.
           * Правила для доступа к API {{ k8s }} и управления кластером {{ managed-k8s-name }} с помощью `kubectl` через порты 443 и 6443.
         * Кластер {{ managed-k8s-name }}.
-        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и [группы узлов {{ managed-k8s-name }}](../concepts/index.md#node-group).
+        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера {{ managed-k8s-name }} и [группы узлов](../concepts/index.md#node-group).
      1. Укажите в файле конфигурации:
         * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-        * [Версию {{ k8s }}](../concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
+        * [Версию {{ k8s }}](../concepts/release-channels-and-updates.md) для кластера {{ managed-k8s-name }} и групп узлов.
         * CIDR кластера {{ managed-k8s-name }}.
         * Имя сервисного аккаунта кластера {{ managed-k8s-name }}.
      1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
@@ -60,6 +60,7 @@
 
    {% endlist %}
 
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Создайте пространство имен](kubernetes-cluster/kubernetes-cluster-namespace-create.md) `policy-test` в кластере {{ managed-k8s-name }}.
 
 ## Создайте сервис nginx {#create-pod}
