@@ -24,7 +24,7 @@ editable: false
 
 ### Запуск заданий {{ ml-platform-name }} Jobs {#jobs}
 
-При удаленном запуске вычислений с помощью [{{ ml-platform-name }} Jobs](concepts/jobs.md) вы платите за время вычислений на выбранной конфигурации вычислительных ресурсов. Дополнительно оплачивается [хранение данных](#jobs-pricing), необходимых для запуска заданий: кеш, логи, входные данные и результаты выполнения задания.
+При удаленном запуске вычислений с помощью [{{ ml-platform-name }} Jobs](concepts/jobs.md) вы платите за время вычислений на выбранной конфигурации вычислительных ресурсов. Дополнительно оплачивается [хранение данных](#prices-jobs), необходимых для запуска заданий: кеш, логи, входные данные и результаты выполнения задания.
 
 ### Эксплуатация моделей {#node}
 
@@ -55,26 +55,10 @@ editable: false
 
 ## Цены {#prices}
 
-Цены использования конфигураций действуют для [{{ ml-platform-name }} {{ ds }}](concepts/project.md#serverless), [{{ ml-platform-name }} {{ dd }}](concepts/project.md#dedicated) и при [эксплуатации моделей](../datasphere/concepts/deploy/index.md#node).
+Цены использования конфигураций действуют для [{{ ml-platform-name }} {{ ds }}](concepts/project.md#serverless), [фоновых операций](../datasphere/concepts/async.md), [{{ ml-platform-name }} {{ dd }}](concepts/project.md#dedicated) и при [эксплуатации моделей](../datasphere/concepts/deploy/index.md#node).
 
 
 {% include [rub-unit-and-resource.md](../_pricing/datasphere/rub-unit-and-resource.md) %}
-
-
-
-
-### Выполнение фоновых операций {#async}
-
-Подробнее про [фоновые операции](../datasphere/concepts/async.md).
-
-{% note alert %}
-
-С 10 июля 2023 года выполнение фоновых операций будет тарифицироваться по правилам [использования вычислительных ресурсов](#paug).
-
-{% endnote %}
-
-
-{% include [rub-async.md](../_pricing/datasphere/rub-async-new.md) %}
 
 
 

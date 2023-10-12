@@ -9,12 +9,18 @@
 
 {% endnote %}
 
+## Релиз 10.10.2023 {#101023}
+
+1. Дообученные модели {{ yagpt-name }} можно опробовать прямо в {{ ml-platform-name }}. {{ yagpt-name }} Playground {{ ml-platform-name }} доступен после дообучения тем, у кого есть доступ к сервису [{{ yagpt-name }}](../yandexgpt/).
+1. Появилась возможность [подключения](operations/projects/remote-connect.md) к {{ jlab }}Lab проекта {{ ml-platform-name }} из локальной IDE.
+1. Исправлены ошибки и добавлены небольшие улучшения в работе платформы.
+
 ## Релиз 25.09.2023 {#250923}
 
-1. С помощью [DataSphere Jobs](concepts/jobs.md) стало возможным использовать облачные вычислительные ресурсы в рамках {{ ml-platform-name }} из локальной среды пользователя.
+1. С помощью [{{ ml-platform-name }} Jobs](concepts/jobs.md) стало возможным использовать облачные вычислительные ресурсы в рамках {{ ml-platform-name }} из локальной среды пользователя.
 1. У проектов {{ ml-platform-name }} появился новый тип ресурсов — [Модели](concepts/models/index.md).
 1. В JupyterLab 3 (доступен в режиме [Dedicated](concepts/project.md#dedicated)) добавлены расширения, повышающие удобство работы.
-1. На стадии [Preview](../overview/concepts/launch-stages.md) доступно [дообучение модели YandexGPT](concepts/models/foundation-models.md#yagpt-tuning).
+1. На стадии [Preview](../overview/concepts/launch-stages.md) доступно [дообучение модели {{ yagpt-name }}](concepts/models/foundation-models.md#yagpt-tuning).
 1. Исправлены ошибки и добавлены небольшие улучшения в работе платформы.
 
 ## Релиз 18.09.2023 {#180923}

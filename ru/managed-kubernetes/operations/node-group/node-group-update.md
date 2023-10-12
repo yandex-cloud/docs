@@ -65,15 +65,11 @@ description: "Следуя данной инструкции, вы сможет�
 
     {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
-  * `--network-acceleration-type` — выбор типа [ускорения сети](../../../vpc/concepts/software-accelerated-network.md):
+  * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
     * `standard` — без ускорения.
     * `software-accelerated` — программно-ускоренная сеть.
 
-      {% note warning %}
-
-      Перед включением программно-ускоренной сети убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md) для создания одного дополнительного узла {{ managed-k8s-name }}.
-
-      {% endnote %}
+      {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
   * `--container-runtime` — изменить [среду запуска контейнеров](../../concepts/index.md#config), `docker` или `containerd`.
   * `--node-name` — изменить шаблон имени узлов {{ managed-k8s-name }}. Для уникальности имени шаблон должен содержать хотя бы одну переменную:

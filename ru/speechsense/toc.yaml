@@ -2,6 +2,24 @@ title: Yandex SpeechSense
 href: index.yaml
 stage: preview
 items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Загрузить данные
+        href: operations/data/upload-data.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: TalkService
+            href: api-ref/grpc/talk_service.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/speechsense

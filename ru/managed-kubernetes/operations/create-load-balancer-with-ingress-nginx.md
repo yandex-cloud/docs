@@ -4,9 +4,9 @@
 
 ## Перед началом работы {#before-you-begin}
 
+1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md).
 1. {% include [Установка Helm](../../_includes/managed-kubernetes/helm-install.md) %}
-
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с кластером {{ managed-k8s-name }}](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Добавьте в Helm репозиторий для NGINX:
 
    ```bash
@@ -68,7 +68,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
          enabled: true
          annotations:
            yandex.cloud/load-balancer-type: internal
-           yandex.cloud/subnet-id: <идентификатор подсети>
+           yandex.cloud/subnet-id: <идентификатор_подсети>
    ```
 
 1. Установите Ingress-контроллер NGINX, используя конфигурационный файл `values.yaml`:

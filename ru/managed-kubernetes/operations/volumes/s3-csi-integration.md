@@ -15,6 +15,7 @@
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `storage.editor`.
 1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/index.md#sa). Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке {{ CSI }}.
 1. [Создайте бакет](../../../storage/operations/buckets/create.md) {{ objstorage-name }}, который будет смонтирован к `PersistentVolume`. Сохраните имя бакета — оно понадобится при установке {{ CSI }}.
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Настройка {{ CSI }} {#configure-csi}
 
@@ -41,8 +42,8 @@
        namespace: kube-system
        name: csi-s3-secret
      stringData:
-       accessKeyID: <идентификатор ключа доступа>
-       secretAccessKey: <секретный ключ>
+       accessKeyID: <идентификатор_ключа_доступа>
+       secretAccessKey: <секретный_ключ>
        endpoint: https://{{ s3-storage-host }}
      ```
 
@@ -59,7 +60,7 @@
      parameters:
        mounter: geesefs
        options: "--memory-limit=1000 --dir-mode=0777 --file-mode=0666"
-       bucket: <опционально: имя существующего бакета>
+       bucket: <опционально:_имя_существующего_бакета>
        csi.storage.k8s.io/provisioner-secret-name: csi-s3-secret
        csi.storage.k8s.io/provisioner-secret-namespace: kube-system
        csi.storage.k8s.io/controller-publish-secret-name: csi-s3-secret
@@ -176,7 +177,7 @@
 
       ```text
       NAME                STATUS  VOLUME                    CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-      csi-s3-pvc-dynamic  Bound   pvc-<имя dynamic-бакета>  5Gi       RWX           csi-s3        73m
+      csi-s3-pvc-dynamic  Bound   pvc-<имя_dynamic-бакета>  5Gi       RWX           csi-s3        73m
       ```
 
 1. Создайте под для проверки динамического `PersistentVolume`.
@@ -223,7 +224,7 @@
    В процессе работы под несколько раз выполнит команду `date` и запишет результат в файл `/data/s3-dynamic/dynamic-date.txt`. Этот файл будет размещен в бакете.
 1. Убедитесь, что файл попал в бакет:
    1. Перейдите на страницу каталога и выберите сервис **{{ objstorage-name }}**.
-   1. Нажмите на бакет `pvc-<имя dynamic-бакета>`.
+   1. Нажмите на бакет `pvc-<имя_dynamic-бакета>`.
 
 ### Статический PersistentVolume {#create-static-pvc}
 
@@ -274,7 +275,7 @@
           name: csi-s3-pvc-static
         csi:
           driver: ru.yandex.s3.csi
-          volumeHandle: "<имя бакета>/<опционально: путь к каталогу в бакете>"
+          volumeHandle: "<имя_бакета>/<опционально:_путь_к_каталогу_в_бакете>"
           controllerPublishSecretRef:
             name: csi-s3-secret
             namespace: kube-system
@@ -316,7 +317,7 @@
 
       ```text
       NAME               STATUS  VOLUME                  CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-      csi-s3-pvc-static  Bound   <имя PersistentVolume>  10Gi      RWX           csi-s3        73m
+      csi-s3-pvc-static  Bound   <имя_PersistentVolume>  10Gi      RWX           csi-s3        73m
       ```
 
 1. Создайте под для проверки статического `PersistentVolume`.
@@ -364,4 +365,4 @@
    В процессе работы под несколько раз выполнит команду `date` и запишет результат в файл `/data/s3-static/static-date.txt`. Этот файл будет размещен в бакете.
 1. Убедитесь, что файл попал в бакет:
    1. Перейдите на страницу каталога и выберите сервис **{{ objstorage-name }}**.
-   1. Нажмите на бакет `<имя бакета>`.
+   1. Нажмите на бакет `<имя_бакета>`.

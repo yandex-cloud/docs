@@ -699,7 +699,7 @@ default:
   link-datalens-main: https://datalens.yandex.ru
   link-datalens-settings: https://datalens.yandex.ru/settings
   link-datasphere-main: https://datasphere.yandex.ru/
-  link-speechsense: https://speechsense.cloud.yandex.ru/
+  link-speechsense-main: https://speechsense.cloud.yandex.ru/
   link-docs: https://cloud.yandex.ru/docs
   link-org-main: https://org.cloud.yandex.ru/
   link-org-acl: https://org.cloud.yandex.ru/acl
@@ -828,6 +828,7 @@ default:
   api-host-sk-tts: tts.api.cloud.yandex.net
   speechkit-stt-alias: speechkit.stt.stable
   speechkit-tts-alias: speechkit.tts.stable
+  speechsense-endpoint: api.talk-analytics.yandexcloud.net:443
   mp-test-product-id: f2e4tmlj4qqciunhr7e6
   mp-test-sku-id: dn272e8979uvek5cnuhk
   dt-status-copy: '**Копируется**'
@@ -8468,6 +8469,9 @@ default:
                         title: Cron выражение
                       interval:
                         title: Период
+                    RegularSnapshotSettings:
+                      increment_delay_seconds:
+                        title: Время ожидания завершения транзакций в секундах
                     Runtime:
                       multi_yt:
                         title: Multi YT
@@ -8857,6 +8861,9 @@ default:
         per-time: На юниты в час
         period-of-inactivity: Прерывать ячейки с низкой нагрузкой через
         security-group: Группа безопасности
+      invite-link:
+        reset-invitation-link: Пересоздать ссылку для приглашения
+        reset-link: Пересоздать ссылку
       main-page:
         recent-projects: Недавние проекты
       new-alias:

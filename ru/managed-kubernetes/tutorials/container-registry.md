@@ -1,17 +1,19 @@
 # Интеграция с {{ container-registry-name }}
 
-Для интеграции {{ k8s }} и {{ container-registry-full-name }} создайте следующие ресурсы: [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) для управления ресурсами и доступами к ним, [кластер {{ k8s }}](../concepts/index.md#kubernetes-cluster), [группу узлов](../concepts/index.md#node-group), а также реестр и [Docker-образ](../../container-registry/concepts/docker-image.md). Для упрощения аутентификации настройте Docker Credential helper и убедитесь, что [под](../concepts/index.md#pod) с приложением из {{ container-registry-name }} запускается без дополнительной аутентификации, используя сервисный аккаунт.
+[{{ container-registry-full-name }}](../../container-registry/) — сервис для хранения и распространения [Docker-образов](../../container-registry/concepts/docker-image.md). Интеграция с ним позволяет {{ managed-k8s-name }} запускать [поды](../concepts/index.md#pod) с приложениями из Docker-образов, которые хранятся в [реестре](../../container-registry/concepts/registry.md) {{ container-registry-name }}. Для взаимодействия с {{ container-registry-name }} [настраивается](#config-ch) Docker Credential helper. Он позволяет работать с приватными реестрами с помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
+
+Чтобы интегрировать {{ managed-k8s-name }} с {{ container-registry-name }}:
 1. [Создайте сервисные аккаунты](#create-sa).
    1. [Создайте сервисный аккаунт для ресурсов](#res-sa).
-   1. [Создайте сервисный аккаунт для узлов](#node-sa).
+   1. [Создайте сервисный аккаунт для узлов {{ managed-k8s-name }}](#node-sa).
 1. [Подготовьте необходимые ресурсы {{ k8s }}](#create-k8s-res).
-   1. [Создайте кластер {{ k8s }}](#create-cluster).
-   1. [Создайте группу узлов](#create-node-groups).
+   1. [Создайте кластер {{ managed-k8s-name }}](#create-cluster).
+   1. [Создайте группу узлов {{ managed-k8s-name }}](#create-node-groups).
 1. [Подготовьте необходимые ресурсы {{ container-registry-name }}](#create-cr-res).
    1. [Создайте реестр](#registry-create).
    1. [Сконфигурируйте Credential helper](#config-ch).
    1. [Подготовьте Docker-образ](#docker-image).
-1. [Подключитесь к кластеру {{ k8s }}](#cluster-connect).
+1. [Подключитесь к кластеру {{ managed-k8s-name }}](#cluster-connect).
 1. [Запустите тестовое приложение](#test-app).
 1. [Удалите созданные ресурсы](#delete-resources).
 
@@ -22,12 +24,12 @@
 ## Создайте сервисные аккаунты {#create-sa}
 
 Создайте [сервисные аккаунты](../../iam/operations/sa/create.md):
-* Сервисный аккаунт для ресурсов с ролью [{{ roles-editor }}](../../resource-manager/security/#roles-list) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ k8s }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
-* Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на каталог с реестром Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+* Сервисный аккаунт для ресурсов с [ролью](../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../resource-manager/security/#roles-list) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+* Сервисный аккаунт для [узлов {{ managed-k8s-name }}](../concepts/index.md#node-group) с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на каталог с реестром Docker-образов. От его имени узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
 
 ### Создайте сервисный аккаунт для ресурсов {#res-sa}
 
-Чтобы создать сервисный аккаунт, от имени которого будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
+Чтобы создать сервисный аккаунт, от имени которого будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
 1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля CLI:
 
    {% list tabs %}
@@ -91,9 +93,9 @@
      --subject serviceAccount:$RES_SA_ID
    ```
 
-### Создайте сервисный аккаунт для узлов {#node-sa}
+### Создайте сервисный аккаунт для узлов групп безопасности {#node-sa}
 
-Чтобы создать сервисный аккаунт, от имени которого узлы будут скачивать из реестра необходимые Docker-образы.
+Чтобы создать сервисный аккаунт, от имени которого узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
 1. Запишите в переменную идентификатор каталога из конфигурации вашего профиля CLI:
 
    {% list tabs %}
@@ -239,7 +241,16 @@ yc container registry configure-docker
    +----------------------+---------------------+-----------------------------+-------+-----------------+
    ```
 
-{% include [kubectl-connect](../../_includes/managed-kubernetes/kubectl-connect.md) %}
+## Подключитесь к кластеру {{ managed-k8s-name }} {#cluster-connect}
+
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. [Настройте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md#rules-master) кластера {{ managed-k8s-name }}.
+
+   {% note warning %}
+
+   Настройки [групп безопасности](../../vpc/concepts/security-groups.md) могут препятствовать подключению к кластеру {{ managed-k8s-name }}.
+
+   {% endnote %}
 
 ## Запустите тестовое приложение {#test-app}
 
@@ -280,8 +291,7 @@ yc container registry configure-docker
 ## Удалите созданные ресурсы {#delete-resources}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-
-1. Удалите кластер {{ k8s }}:
+1. Удалите кластер {{ managed-k8s-name }}:
 
    ```bash
    yc managed-kubernetes cluster delete --name k8s-demo
@@ -291,7 +301,7 @@ yc container registry configure-docker
 
    {% note warning %}
 
-   Не удаляйте сервисный аккаунт до удаления кластера {{ k8s }}.
+   Не удаляйте сервисный аккаунт до удаления кластера {{ managed-k8s-name }}.
 
    {% endnote %}
 
@@ -301,7 +311,7 @@ yc container registry configure-docker
      yc iam service-account delete --id $RES_SA_ID
      ```
 
-   - Удалите сервисный аккаунт для узлов:
+   - Удалите сервисный аккаунт для узлов {{ managed-k8s-name }}:
 
      ```bash
      yc iam service-account delete --id $NODE_SA_ID
