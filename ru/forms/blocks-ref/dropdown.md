@@ -12,7 +12,15 @@
 
 {% include [question](../../_includes/forms/question.md) %}
 
-{% include [param-answer](../../_includes/forms/param-answer.md) %}
+### Ответы {#param-answers}
+
+Задайте варианты, которые сможет выбрать пользователь:
+
+- Чтобы добавить вариант ответа, выберите поле **Добавить вариант** и введите текст ответа.
+
+- Чтобы форматировать текст ответа, используйте [разметку Markdown](../appearance.md#section_pzm_m1j_j3b).
+
+- Чтобы изменить положение варианта в списке, перетащите его за значок ![](../../_assets/forms/drag-answer.png). 
 
 {% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
 

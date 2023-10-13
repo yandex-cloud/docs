@@ -2,7 +2,7 @@
 
 {{ iam-short-name }} lets you create [_service accounts_](concepts/users/service-accounts.md). These are auxiliary accounts that your programs can use to perform operations in {{ yandex-cloud }}. Service accounts are free-of-charge and let you flexibly manage access for your programs. For more information, see [{#T}](concepts/users/service-accounts.md).
 
-These instructions are intended for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and users with the [administrator](concepts/access-control/roles.md#admin) role for a cloud or folder. Users with the [`editor`](concepts/access-control/roles.md#editor) role can also create service accounts, but they can't assign roles, so they can't allow a service account to perform operations in {{ yandex-cloud }}.
+These instructions are intended for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and users with the [administrator](concepts/access-control/roles.md#admin) role for a cloud or folder. Users with the [`editor`](concepts/access-control/roles.md#editor) role can also create service accounts, but they cannot assign roles, so they cannot allow a service account to perform operations in {{ yandex-cloud }}.
 
 You will learn how to:
 
@@ -12,8 +12,8 @@ You will learn how to:
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
-1. On the [**Billing page**]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. Log in to the [management console]({{ link-console-main }}). If you do not have an account yet, go to the management console and follow the guide.
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}** page]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 
 ## Create a service account {#create-sa}
 
@@ -29,7 +29,7 @@ Other users can also use the service account you created. To allow them to do th
 
 ## Configure the CLI to work on behalf of a service account {#run-operation-from-sa}
 
-You can perform operations on behalf of a service account via the API, CLI, and other tools that support service account based authentication. You can't log in to the management console using a service account.
+You can perform operations on behalf of a service account via the API, CLI, and other tools that support service account based authentication. You cannot log in to the management console using a service account.
 
 {% include [cli-set-sa-profile](../_includes/cli-set-sa-profile.md) %}
 

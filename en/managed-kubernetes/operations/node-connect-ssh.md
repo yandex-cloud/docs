@@ -11,11 +11,7 @@ To connect to a [{{ k8s }} cluster](../concepts/index.md#kubernetes-cluster) [no
 
 * [Configure cluster security groups](connect/security-groups.md).
 
-  Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they are not available on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
-
-  To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
-
-  {% note warning %}
+  % note warning %}
 
   Security group settings may prevent connection to the cluster.
 
@@ -60,7 +56,7 @@ Prepare the keys for use with your {{ k8s }} cluster node. To do this:
   To create keys for Windows, use the PuTTY application.
   1. [Download](https://www.putty.org) and install PuTTY.
   1. Make sure that the directory where you installed PuTTY is included in `PATH`:
-     1. Right-click on **My computer**. Click **Properties**.
+     1. Right-click **My computer**. Click **Properties**.
      1. In the window that opens, select **Additional system parameters**, then **Environment variables** (located in the lower part of the window).
      1. Under **System variables**, find `PATH` and click **Edit**.
      1. In the **Variable value** field, append the path to the directory where you installed PuTTY.
@@ -82,20 +78,20 @@ You can manage users and SSH keys via metadata, which is why you must transmit k
 The file with the public key is created in the format:
 
 ```text
-ssh-ed25519 AAAAB3NzaC*********** ed25519-key-20190412
+ssh-ed25519 AAAAB3NzaC***********lP1ww ed25519-key-20190412
 ```
 
 You need to convert the key to `<username>:ssh-ed25519 <key body> <username>` format so that it looks like this:
 
 ```text
-username:ssh-ed25519 AAAAB3NzaC***********zo/lP1ww== username
+username:ssh-ed25519 AAAAB3NzaC***********lP1ww username
 ```
 
 You can pass multiple public keys in the same file to grant access to different users:
 
 ```text
-username:ssh-ed25519 AAAAB3NzaC***********zo/lP1ww== username
-username2:ssh-ed25519 ONEMOREkey***********88OavEHw== username2
+username:ssh-ed25519 AAAAB3NzaC***********lP1ww username
+username2:ssh-ed25519 ONEMOREkey***********avEHw username2
 ```
 
 ## Create a node group and add the public key {#node-create}
@@ -104,11 +100,11 @@ To create a node group with the necessary parameters, use the following command:
 
 ```bash
 yc managed-kubernetes node-group create \
-  --name <node group name> \
-  --cluster-name <{{ k8s }} cluster name> \
-  --fixed-size <number of nodes in the group> \
-  --network-interface security-group-ids=[<list of security groups>],subnets=<subnet name>,ipv4-address=nat \
-  --metadata-from-file ssh-keys=<name of the file with public keys>
+  --name <node_group_name> \
+  --cluster-name <{{ k8s }}_cluster_name> \
+  --fixed-size <number_of_nodes_in_the_group> \
+  --network-interface security-group-ids=[<list_of_security_groups>],subnets=<subnet_name>,ipv4-address=nat \
+  --metadata-from-file ssh-keys=<public_key_file_name>
 ```
 
 {% include [user-data](../../_includes/managed-kubernetes/user-data.md) %}
@@ -119,8 +115,8 @@ To update the SSH keys of a node group, use the following command:
 
 ```bash
 yc managed-kubernetes node-group add-metadata \
-  --name <node group name> \
-  --metadata-from-file ssh-keys=<name of the file with public keys>
+  --name <node_group_name> \
+  --metadata-from-file ssh-keys=<public_key_file_name>
 ```
 
 ## Get the public IP address of the node {#node-public-ip}

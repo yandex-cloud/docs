@@ -6,9 +6,9 @@ If you are not a federated user, you can leave an organization on your own. To d
 
 1. If you belong to multiple organizations, click the user profile image in the bottom left corner and select the appropriate organization.
 
-1. In the left-hand panel, select [Users]({{link-org-users}}) ![icon-users](../../_assets/organization/icon-users.svg).
+1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../../_assets/organization/icon-users.svg).
 
-1. In the employee row, click ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) and select **Remove from organization**.
+1. In the line with the employee name, click ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.remove }}**.
 
 Please note: You will lose access to all clouds and other resources of the organization.
 

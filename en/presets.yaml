@@ -372,6 +372,7 @@ default:
   roles-organization-admin: organization-manager.admin
   roles-organization-owner: organization-manager.organizations.owner
   roles-organization-viewer: organization-manager.viewer
+  roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor
@@ -653,6 +654,7 @@ default:
   link-console-access-management: https://console.cloud.yandex.com/iam
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
   link-console-support: https://support.yandex.cloud/
+  link-console-settings: https://console.cloud.yandex.com/settings
   link-cloud-calculator: /prices#calculator
   link-cloud-services: /services
   link-cloud-services-infrastructure: /services#infrastructure-network
@@ -5444,7 +5446,6 @@ default:
         label_dataStream: Data Streams
         label_destination: Destination
         label_event-filter-section: Collecting events from the service level (Data plane)
-        label_filter: Filter
         label_object-prefix: Object prefix
         label_objectStorage: Object Storage
         label_organization-manager:
@@ -6265,6 +6266,8 @@ default:
           button_lifecycle-dry-run: Dry run
           button_select-repositories: Select repositories
           button_update-ip-permissions: Set
+          field_scan-on-upload: Scan images on upload
+          label_add-scan-rule: Add scan rule
           label_all-repositories: All repositories
           label_expire-period-days: Expire period, in days
           label_ip-permissions: Access for IP address
@@ -6272,7 +6275,9 @@ default:
           label_lifecycle-dry-runs: Lifecycle dru runs
           label_lifecycle-rules: Lifecycle policy rules
           label_only-selected: Only selected
+          label_repositories: Repositories
           label_retained-top: Retained top
+          label_selected: Selected
           label_tag-regexp: Tag regexp
           label_untagged: Untagged
           label_vulnerabilities-scanner: Vulnerability scanner
@@ -6281,6 +6286,8 @@ default:
             button_repository-acl: Configure ACL
             section_images: Docker images
             section_repositories: Repositories
+          title_scan-on-push: Scan Docker images when uploading
+          title_scheduled-scan: Scheduled Docker image scans
         switch_registry: Registries
       data-streams:
         button_connect: Connect
@@ -6418,6 +6425,8 @@ default:
             section_folders: Folders
           incident-notifications:
             button_open-dialog: Add
+            label_inherited-subscribers: Default subscribers
+            label_subscribers-dialog-header: Adding users
             label_users: Users
           overview:
             label_id: ID
@@ -6487,6 +6496,7 @@ default:
             label_serverless-functions: Cloud Functions
             label_smartcaptcha: SmartCaptcha
             label_smartcaptcha_ru: Yandex SmartCaptcha
+            label_smartwebsecurity: Smart Web Security
             label_storage: Object Storage
             label_vdi: Cloud Desktop
             label_vpc: Virtual Private Cloud
@@ -6535,6 +6545,8 @@ default:
         users:
           button_tune-role: Configure roles
           label_folders-roles: Roles for folders
+          label_user-listing-allowed-admins-title: Administrators
+          label_user-listing-allowed-everybody-title: All users
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
@@ -6722,7 +6734,7 @@ default:
         section_agent: Agent
         test-data-section: Test data
       lockbox:
-        button_action-open-version-add-dialog: Create a new version based on this one
+        button_action-open-version-add-dialog: Create a new version from this one
         button_action-schedule-for-destruction: Schedule destruction
         button_action-use-as-basis: Roll back to this version
         button_activate-secret: Activate secret
@@ -7151,6 +7163,10 @@ default:
             field_description: Description
             field_name: Name
             field_spec: Specification
+            label_canary-release: Canary release
+            label_canary-share: Share of requests in canary release
+            label_canary-variables: Variables for canary release
+            label_section-variables: Variable settings
           item:
             switch_domains: Domains
             switch_logs: Logs
@@ -7180,11 +7196,25 @@ default:
             field_resources-memory: Memory
             field_runtime: Runtime environment
             field_timeout: Timeout, sec
+            label_add-folder: Add bucket
+            label_async: Asynchronous call
+            label_bucket: Bucket
+            label_bucket-prefix: Folder
+            label_failed-sa: Destination for unsuccessful result
             label_lockbox-secret: Yandex Lockbox secrets
+            label_mount-point-name: Mount point
+            label_mount-point-path: Mount path
+            label_mq: Message Queue
+            label_success-sa: Destination for successful result
             label_title: Editor
             label_title-params: Parameters
             label_title-source: Function code
+            label_tries-count: Number of attempts
+            label_turn-on-button: Enable
             label_with-template: Add files with code examples
+            option_queues-mq: Message queue
+            option_queues-unset: Not specified
+            title_mount-files: Mounted buckets
             value_method-editor: Code editor
             value_method-zip-file: ZIP archive
           overview:
@@ -7297,6 +7327,47 @@ default:
         switch_appearance: Appearance
         switch_experiments: Experiments
         switch_lang: Language and region
+      smart-web-security:
+        action_empty: Create
+        attach-dialog:
+          action_add-balancer: Add load balancer
+          action_connect: Connect
+          label_balancer: Load balancer
+          label_http-router: HTTP router
+          label_virtual-host: Virtual host
+        form:
+          button_add-rule: Add rule
+          label_action-allow: Allow
+          label_action-deny: Deny
+          label_default-action: Action for the default base rule
+          section_security-rules: Security rules
+        overview:
+          action_attach-to-host: Connect to host
+          action_disconnect-host: Disconnect from profile
+          action_edit-profile: Edit
+          cell_mode-api: API protection
+          cell_mode-full: Full protection
+          cell_sec-action-allow: Allow
+          cell_sec-action-deny: Deny
+          column_action-type: Action
+          column_dry-run-rule: Only logging
+          column_priority: Priority
+          column_rule-conditions: Conditions
+          column_type: Type
+          condition_and: and
+          condition_full-trafic: All traffic
+          condition_name-authority: Host
+          condition_name-header: HTTP header
+          condition_name-httpMethod: HTTP method
+          condition_name-ip-range: IP
+          condition_name-requestUri: Request URI
+          condition_or: or
+          label_base-rule: Base
+          label_smart-protection-rule: Smart Protection
+          title_connected-to-the-hosts: Connected hosts
+          title_security-rules: Security rules
+        title_default-template: From a preset template
+        title_no-template: From scratch
       smartcaptcha:
         button_captcha-settings-create: Create captcha
         label_additional-challenge: Additional challenge
@@ -8750,7 +8821,7 @@ default:
         access: Access
         activate: Activate
         add: Add
-        add-chanel: Add channel
+        add-link: Add link
         add-member: Add member
         add-new: Add
         alias: Alias
@@ -8762,7 +8833,7 @@ default:
         cell: Cell
         checkpoint: Checkpoint
         clone: Clone
-        communication: Communication
+        communication: Communications
         copy-link: Copy link
         create: Create
         create-community: Create community
@@ -8960,6 +9031,11 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
         tag: 5.4.3-7
+    yc_cert-manager-webhook-yandex:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/helm/cert-manager-webhook-yandex
+        tag: 1.0.6
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/crossplane/crossplane/crossplane
@@ -8973,6 +9049,10 @@ default:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets
         tag: 0.5.5
+    yc_externaldns:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/helm/externaldns
+        tag: 0.5.0
     yc_falco:
       helmChart:
         name: cr.yandex/yc-marketplace/falco
@@ -9010,8 +9090,9 @@ default:
         tag: 1.0.4
     yc_metric-provider:
       helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/metric-provider/chart
-        tag: 0.1.10
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/metric-provider/chart/metric-provider
+        tag: 0.1.11
     yc_node-local-dns:
       helmChart:
         name: cr.yandex/yc-marketplace/k8s.gcr.io/node-local-dns/chart

@@ -31,6 +31,10 @@ items:
             href: operations/leave-organization.md
       - name: Managing user groups
         href: operations/manage-groups.md
+      - name: Enabling access via OS Login
+        href: operations/os-login-access.md
+      - name: Creating an OS Login profile
+        href: operations/os-login-profile-create.md
   - name: Tutorials
     items:
       - name: Managing identity federations
@@ -53,10 +57,10 @@ items:
         href: concepts/manage-services.md
       - name: Identity federations
         href: concepts/add-federation.md
+      - name: OS Login
+        href: concepts/os-login.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: OS login
-        href: concepts/oslogin.md
   - name: Troubleshooting
     items:
       - name: Common federation errors

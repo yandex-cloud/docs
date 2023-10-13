@@ -10,9 +10,6 @@ description:
 meta:
   title: Yandex SpeechSense
 links:
-  - title: Концепции
-    description: Узнайте про концепции и возможности сервиса
-    href: concepts/
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

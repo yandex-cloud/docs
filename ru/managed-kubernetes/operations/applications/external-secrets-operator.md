@@ -2,7 +2,7 @@
 
 [External Secrets Operator](/marketplace/products/yc/external-secrets) — оператор {{ k8s }}, который интегрирует внешние системы управления секретами, такие как [{{ lockbox-name }}](../../../lockbox/), AWS Secrets Manager, Azure Key Vault, HashiCorp Vault, Google Secrets Manager и другие. Оператор считывает информацию из внешних API и автоматически вводит значения в {{ k8s }} Secret.
 
-External Secrets Operator с поддержкой {{ lockbox-name }} позволяет настроить синхронизацию [секретов {{ lockbox-name }}](../../../lockbox/concepts/secret.md) с секретами [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
+External Secrets Operator с поддержкой {{ lockbox-name }} позволяет настроить синхронизацию [секретов {{ lockbox-name }}](../../../lockbox/concepts/secret.md) с [секретами](../../concepts/encryption.md) [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
 
 ## Создание сервисного аккаунта {#create-sa-key}
 
@@ -11,6 +11,9 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), необходимый для работы External Secrets Operator.
+1. Назначьте [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md) необходимую [роль](../../../lockbox/security/index.md#service-roles):
+   * [Для ранее созданного секрета](../../../lockbox/operations/secret-access.md).
+   * [Для всех секретов](../../../iam/operations/sa/assign-role-for-sa.md) [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) или [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud).
 1. Создайте для него [авторизованный ключ](../../../iam/concepts/authorization/key.md) и сохраните его в файл `sa-key.json`:
 
    ```bash

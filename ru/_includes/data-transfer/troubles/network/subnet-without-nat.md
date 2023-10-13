@@ -6,7 +6,7 @@
 
 ```text
 Can't connect to server: Can't ping server:
-dial tcp <адрес хоста одного из эндпоинтов>:<порт>: connect: connection timed out
+dial tcp <адрес_хоста_одного_из_эндпоинтов>:<порт>: connect: connection timed out
 ```
 
 Трансфер, у которого один из эндпоинтов `on_premise`, а у второго указана подсеть, в которой не настроен NAT-шлюз, прерывается.

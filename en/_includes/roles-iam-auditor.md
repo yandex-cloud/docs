@@ -1,4 +1,4 @@
-### iam.auditor {#auditor}
+#### iam.auditor {#iam-auditor}
 
 The `iam.auditor` role includes permissions to retrieve metadata about objects, operations, and resources:
 

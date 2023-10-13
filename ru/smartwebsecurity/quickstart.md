@@ -30,18 +30,18 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль.
-  1. В списке сервисов выберите **{{ sws-name }}**.
-  1. Нажмите кнопку **Создать профиль безопасности** и выберите **По преднастроенному шаблону**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
       Преднастроенный профиль содержит:
-      * [базовое правило](./concepts/rules.md#base-rules) по умолчанию, включенное для всего трафика с [типом действия](./concepts/rules.md#rule-action) — **Запретить**;
-      * [правило Smart Protection](./concepts/rules.md#smart-protection-rules), включенное для всего трафика, с типом действия — **Полная защита**.
+      * [базовое правило](concepts/rules.md#base-rules) по умолчанию, включенное для всего трафика с [типом действия](concepts/rules.md#rule-action) — `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}`;
+      * [правило Smart Protection](concepts/rules.md#smart-protection-rules), включенное для всего трафика, с типом действия — `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.
 
       {% include [smart-protection-tip](../_includes/smartwebsecurity/smart-protection-tip.md) %}
 
   1. Введите имя профиля, например `test-sp1`.
-  1. В поле **Действие базового правила по умолчанию** выберите **Запретить**.
-  1. Нажмите кнопку **Создать**.
+  1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -52,10 +52,10 @@
 - Консоль управления
 
   1. Выберите профиль `test-sp1`, созданный ранее.
-  1. Убедитесь, что на вкладке **Правила безопасности** есть правило со следующими параметрами:
-      * **Тип** — `Smart Protection`.
-      * **Действие** — `Полная защита`.
-      * **Условие** — `Весь трафик`.
+  1. Убедитесь, что на вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** есть правило со следующими параметрами:
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}** — `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`.
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** — `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.smart-web-security.overview.condition_full-trafic }}`.
 
       Это правило отправляет весь трафик, приходящий к защищаемому ресурсу, на автоматическую оценку с помощью алгоритмов машинного обучения и поведенческого анализа. По результатам автоматической оценки:
       * Легитимные запросы направляются к защищаемому ресурсу.
@@ -70,16 +70,16 @@
 
 - Консоль управления
 
-  1. Справа сверху нажмите кнопку ![plug](../_assets/smartwebsecurity/plug.svg) **Подключить к хосту**.
+  1. Справа сверху нажмите кнопку ![plug](../_assets/smartwebsecurity/plug.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
   1. В открывшемся окне выберите:
-      * [**Балансировщик**](../application-load-balancer/concepts/application-load-balancer.md).
-      * [**HTTP-роутер**](../application-load-balancer/concepts/http-router.md).
-      * [**Виртуальный хост**](../application-load-balancer/concepts/http-router.md#virtual-host). Вы можете подключить профиль безопасности сразу к нескольким хостам.
+      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../application-load-balancer/concepts/application-load-balancer.md).
+      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../application-load-balancer/concepts/http-router.md).
+      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../application-load-balancer/concepts/http-router.md#virtual-host). Вы можете подключить профиль безопасности сразу к нескольким хостам.
 
-        Чтобы подключить профиль к еще одному L7-балансировщику, нажмите кнопку **Добавить балансировщик**.
-  1. Нажмите кнопку **Подключить**.
+        Чтобы подключить профиль к еще одному L7-балансировщику, нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-      На вкладке **Подключенные хосты** появится подключенный виртуальный хост.
+      На вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** появится подключенный виртуальный хост.
 
 {% endlist %}
 

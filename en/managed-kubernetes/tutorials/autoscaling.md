@@ -1,16 +1,16 @@
 # Horizontal application scaling in a cluster
 
 {{ managed-k8s-name }} supports several types of [autoscaling](../concepts/autoscale.md). In this article, you will learn to configure [cluster](../concepts/index.md#kubernetes-cluster) autoscaling using a combination of {{ k8s-ca }} and {{ k8s-hpa }}.
-* [{#T}](#cpu-autoscaling).
-* [{#T}](#rps-autoscaling).
+* [{#T}](#cpu-autoscaling)
+* [{#T}](#rps-autoscaling)
 
 {% note warning %}
 
-While running, the total number of [group nodes](../concepts/index.md#node-group) may increase to 6. Make sure you have sufficient [folder resources](../concepts/limits.md) to perform the instructions in this tutorial.
+While running, the total number of [group nodes](../concepts/index.md#node-group) may increase to 6. Make sure you have sufficient [folder resources](../concepts/limits.md) to follow the steps provided in this tutorial.
 
 {% endnote %}
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -84,7 +84,7 @@ In this section, you will learn to configure cluster autoscaling based on CPU lo
        spec:
          containers:
            - name: nginx
-             image: k8s.gcr.io/hpa-example
+             image: registry.k8s.io/hpa-example
              resources:
                requests:
                  memory: "256Mi"

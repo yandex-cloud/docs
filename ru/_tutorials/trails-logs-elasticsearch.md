@@ -35,7 +35,7 @@
 
 {% include [cli-install](../_includes/cli-install.md) %}
 
-Часть шагов выполняется в [{{ TF }}](https://www.terraform.io/intro). Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+Часть шагов выполняется в [{{ TF }}](https://www.terraform.io/intro). {% include [terraform-install](../_includes/terraform-install.md) %}
 
 Часть функций {{ yandex-cloud }} из руководства находится на стадии [Preview](../overview/concepts/launch-stages.md). [Запросите в технической поддержке]({{ link-console-support }}/create-ticket) доступ к этим функциям:
 

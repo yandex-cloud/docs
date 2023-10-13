@@ -36,14 +36,14 @@ The cost of infrastructure support includes a fee for a bucket (see [Pricing for
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a [bucket](../../storage/concepts/bucket.md), for example, `example-folder`.
-   1. Select **{{ objstorage-name }}**.
-   1. Click **Create bucket**.
+   1. In the [management console]({{ link-console-main }}), select the folder to create a [bucket](../../storage/concepts/bucket.md) in, e.g., `example-folder`.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
    1. On the bucket creation page:
-      * Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
-      * In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
+      * Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
+      * In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
       * For the other parameters, leave the default settings.
-   1. Click **Create bucket**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -57,10 +57,10 @@ Create a service account named `trail-sa`:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Click **Create service account**.
-   1. Enter the **Name**: `trail-sa`.
-   1. Click **Create**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. Enter the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}**: `trail-sa`.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -140,16 +140,21 @@ Assign the `bucket-yq-sa` service account the `storage.viewer` role to `example-
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. Select **{{ at-name }}**.
-   1. Click **Create trail** and specify:
-      * **Name**: `logsyq`.
-      * **Resource**: Select `Organization`.
-      * **Organization**: An automatically populated field containing the name of the current organization.
-      * **Destination**: `{{ objstorage-name }}`.
-      * **Bucket**: Select the [previously created bucket](#create-backet).
-      * **Service account**: `trail-sa`.
-      * For the other parameters, leave the default settings.
-   1. Click **Create**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `logsyq`.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the [previously created](#create-backet) bucket.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `trail-sa`.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+
+      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Automatically populated field containing the name of the current organization.
+
+   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **Status** field.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -163,14 +168,14 @@ A connection must be created only the first time a trail is connected to {{ yq-s
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. Select **{{ at-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
    1. Select the `logsyq` trail.
-   1. Click **Process in {{ yq-short-name }}**.
+   1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
    1. Create a connection.
-      * Select the **service account** `bucket-yq-sa`.
+      * Select the **{{ ui-key.yacloud.common.resource-acl.label_service-account }}**: `bucket-yq-sa`.
       * For the other parameters, leave the default settings.
-   1. Click **Create**.
-   1. In the window with data binding options, click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
+   1. In the window with data binding options, click **{{ ui-key.yacloud.common.create }}**.
 
    You will go to the page for creating a query to trail logs.
 
@@ -186,9 +191,9 @@ Open the page to create an analytical query to {{ at-name }} logs:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select a folder with a trail.
-   1. In the list of services, select **{{ at-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
    1. Select the trail for which a [connection to {{ yq-short-name }}](#trail-yq) is configured.
-   1. Click **Process in {{ yq-short-name }}** to go to the analytical query execution page.
+   1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}** to go to the analytical query execution page.
 
 {% endlist %}
 

@@ -45,7 +45,7 @@
 
    - {{ TF }}
 
-      Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
       Если вы не указали для ВМ параметр `allow_stopping_for_update` в значении `true`, сделайте это.
 

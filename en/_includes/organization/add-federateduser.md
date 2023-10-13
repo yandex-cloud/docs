@@ -2,13 +2,13 @@
 
 - Cloud Organization
 
-   1. [Log in]({{ link-passport-login }}) to the organization's administrator account.
+   1. [Log in]({{ link-passport-login }}) to the organization administrator account.
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-   1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../_assets/organization/icon-users.svg).
-   1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/organization/icon-users.svg).
+   1. In the top-right corner, click ![icon-users](../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
    1. Select the identity federation to add users from.
    1. List the Name IDs of users, separating them with line breaks.
-   1. Click **Add**. This will give the users access to the organization.
+   1. Click **{{ ui-key.yacloud_org.actions.add }}**. This will give the users access to the organization.
 
 - CLI
 
@@ -34,7 +34,7 @@
 
    To add identity federation users to the cloud:
 
-   1. Create a file with the request body (for example, `body.json`). In the request body, specify the array of Name IDs of users you want to add:
+   1. Create a file with the request body, e.g., `body.json`. In the request body, specify the array of Name IDs of users you want to add:
 
       ```json
       {

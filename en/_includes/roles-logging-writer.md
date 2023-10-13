@@ -1,4 +1,4 @@
-### logging.writer
+#### logging.writer {#logging-writer}
 
 The `logging.writer` role grants permission to add records to a log group.
 

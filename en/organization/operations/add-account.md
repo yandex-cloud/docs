@@ -16,9 +16,9 @@ To invite a user to an organization:
 
 ## Add federated users {#add-user-sso}
 
-If you did not enable the **Automatically create users** option when [setting up a federation](../concepts/add-federation.md#federation-usage), you will have to add federated users to your organization manually.
+If you did not enable the **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** option when [setting up a federation](../concepts/add-federation.md#federation-usage), you will have to add federated users to your organization manually.
 
-To do this, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you do not know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
+To do this, you need to know the name IDs of the users that the Identity Provider Server (IdP) returns along with the successful authentication confirmation. This is usually the user's primary email address. If you do not know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.
 
 To add federation users to an organization:
 

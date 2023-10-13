@@ -10,16 +10,16 @@ Thumbor features:
 * Face and object recognition (glasses, facial features) based on [computer vision technology](https://github.com/opencv/opencv).
 * Integrating with various programming languages.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
-1. [Create a bucket in {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
+1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-name }}.
 1. [Upload images to the bucket](../../../storage/operations/objects/upload.md#simple).
 1. [Create a service account](../../../iam/operations/sa/create.md) for Thumbor to run.
 1. Create a [static key](../../../iam/operations/sa/create-access-key.md) and save it to a file named `sa-key.json`:
 
    ```bash
    yc iam access-key create \
-     --service-account-name <Thumbor service account name> \
+     --service-account-name <Thumbor_service_account_name> \
      --format json > sa-key.json
    ```
 
@@ -55,15 +55,15 @@ Thumbor features:
 
      ```bash
      export HELM_EXPERIMENTAL_OCI=1 && \
-     helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor \
-       --version <Helm chart version> \
+     helm pull oci://{{ mkt-k8s-key.yc_thumbor.helmChart.name }} \
+       --version {{ mkt-k8s-key.yc_thumbor.helmChart.tag }} \
        --untar && \
      helm install \
-       --namespace <namespace for Thumbor> \
+       --namespace <Thumbor_namespace> \
        --create-namespace \
-       --set bucket_name='<{{ objstorage-name }} bucket name>' \
+       --set bucket_name='<Object_Storage_bucket_name>' \
        --set allow_unsafe_url='true' \
-       --set root_path='<bucket subfolder name>' \
+       --set root_path='<bucket_subfolder_name>' \
        --set-file saAccessKeyFile='sa-key.json' \
       thumbor ./thumbor
      ```
@@ -72,23 +72,21 @@ Thumbor features:
 
      ```bash
      export HELM_EXPERIMENTAL_OCI=1 && \
-     helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor \
-       --version <Helm chart version> \
+     helm pull oci://{{ mkt-k8s-key.yc_thumbor.helmChart.name }} \
+       --version {{ mkt-k8s-key.yc_thumbor.helmChart.tag }} \
        --untar && \
      helm install \
-       --namespace <namespace for Thumbor> \
+       --namespace <Thumbor_namespace> \
        --create-namespace \
-       --set bucket_name='<{{ objstorage-name }} bucket name>' \
+       --set bucket_name='<Object_Storage_bucket_name>' \
        --set allow_unsafe_url='false' \
-       --set security_key='<security key for URL signing>' \
-       --set root_path='<bucket subfolder name>' \
+       --set security_key='<security_key_for_URL_signing>' \
+       --set root_path='<bucket_subfolder_name>' \
        --set-file saAccessKeyFile='sa-key.json' \
       thumbor ./thumbor/
      ```
 
    {% endlist %}
-
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/thumbor#docker-images).
 
 ## Accessing the application {#app-access}
 
@@ -105,8 +103,8 @@ Before using the application, make sure that the proper [rules for connecting to
 - Management console
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ network-load-balancer-short-name }}**.
-  1. Find out the load balancer's IP address with a description such as `cluster <your cluster name>, service <namespace>/thumbor`.
-  1. Open `http://<load balancer IP>/unsafe/<bucket image name>` in the browser address bar.
+  1. Find out the load balancer's IP address with the following description: `cluster <your_cluster_name>, service <namespace>/thumbor`.
+  1. Open `http://<load_balancer_IP>/unsafe/<bucket_image_name>` in the browser address bar.
 
 - CLI
 
@@ -118,7 +116,7 @@ Before using the application, make sure that the proper [rules for connecting to
        --output jsonpath='{.status.loadBalancer.ingress[0].ip}' thumbor
      ```
 
-  1. Open `http://<load balancer IP>/unsafe/<bucket image name>` in the browser address bar.
+  1. Open `http://<load_balancer_IP>/unsafe/<bucket_image_name>` in the browser address bar.
 
 {% endlist %}
 

@@ -1,0 +1,1 @@
+For a DNS domain rights check based on a `CNAME` record to be successful, make sure this domain name has no [resource records](../../dns/concepts/resource-record.md) created, except `CNAME`.

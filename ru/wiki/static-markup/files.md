@@ -1,5 +1,7 @@
 # Изображения и файлы
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 ## Вставить изображение {#add-image}
 
 Чтобы добавить на страницу изображение, используйте разметку:

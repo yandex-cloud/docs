@@ -6,13 +6,18 @@ To view the permissions granted to an account for a resource, retrieve the list 
 1. For the cloud that the folder belongs to.
 1. For the organization that the cloud belongs to.
 
-You can view a list of inherited roles for the folder or the cloud in the management console, in the **Access bindings** section of the corresponding folder or cloud.
+You can view a list of inherited roles for the folder or the cloud in the management console, in the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section of the corresponding folder or cloud.
 
 {% list tabs %}
 
 - Management console
 
    In the management console, you can view roles only for the folder, cloud, or organization. To view roles for other resources, use the CLI or API.
+
+   You can view a list of users if:
+
+   * The **Available:** setting is set to **{{ ui-key.yacloud.iam.users.label_user-listing-allowed-everybody-title }}**.
+   * The **Available:** setting is set to **{{ ui-key.yacloud.iam.users.label_user-listing-allowed-admins-title }}** and you have the administrator role.
 
    To view the roles of a [user with a Yandex account](../../concepts/index.md#passport), [federated user](../../concepts/index.md#saml-federation), or [service account](../../concepts/users/service-accounts.md):
 
@@ -21,16 +26,16 @@ You can view a list of inherited roles for the folder or the cloud in the manage
    For the [service account](../../concepts/users/service-accounts.md), in the management console you can only view the roles for the folder where the service account was created (to view roles for other resources, use the CLI or API):
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. The service account's roles for the current folder are listed in the column **Roles in folder**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. The service account's roles for the current folder are listed in the column **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}**.
 
 - CLI
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
    1. Get your account ID:
-      1. [Instructions](../sa/get-id.md) for service accounts.
-      1. [Instructions](../users/get.md) for users with a Yandex account and federated users.
+      1. [Guide](../sa/get-id.md) for service accounts.
+      1. [Guide](../users/get.md) for users with a Yandex account and federated users.
    1. Get the resource ID or name.
    1. {% include [include](../../../_includes/iam/list-access-bindings-via-cli.md) %}
 
@@ -40,8 +45,8 @@ You can view a list of inherited roles for the folder or the cloud in the manage
 - API
 
    1. Get your account ID:
-      1. [Instructions](../sa/get-id.md) for service accounts.
-      1. [Instructions](../users/get.md) for users with a Yandex account and federated users.
+      1. [Guide](../sa/get-id.md) for service accounts.
+      1. [Guide](../users/get.md) for users with a Yandex account and federated users.
    1. Get the resource ID or name.
    1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
 

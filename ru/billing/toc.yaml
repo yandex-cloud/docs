@@ -22,6 +22,8 @@ items:
             href: operations/create-new-account.md
           - name: Изменить данные платежного аккаунта
             href: operations/change-data.md
+          - name: Скачать персональные данные, связанные с платежным аккаунтом
+            href: operations/get-data.md
           - name: Привязать облако к платежному аккаунту
             href: operations/pin-cloud.md
           - name: Удалить платежный аккаунт

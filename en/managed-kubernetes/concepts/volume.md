@@ -1,8 +1,8 @@
 # Volumes
 
-You can store app data in the containers where the apps are running, but this may cause some problems:
+You can store application data in the containers where the applications are running, but this may cause issues:
 * When a container crashes, `kubelet` restarts it, but files are lost because the container starts clean.
-* Other containers running in the same pod can't access data in the container.
+* Other containers running in the same pod cannot access data in the container.
 
 We can solve these problems using {{ k8s }} _volumes_.
 
@@ -14,7 +14,7 @@ Volumes are classified by their life cycle:
 * Temporary (`Volume`) volumes have the same lifetime as the pods that contain them. These volumes are created along with the pod and saved when the container is restarted. When the pod is stopped or deleted, its volumes are destroyed.
 * Persistent volumes (`PersistentVolume`) have their own life cycle. The data in these volumes is preserved when the pod is deleted. The volume can be unmounted to move the data to another pod or node, for example.
 
-There are different kinds of temporary and persistent volumes, depending on the storage. Read about the [volume types](https://kubernetes.io/docs/concepts/storage/volumes/#types-of-volumes) that {{ k8s }} supports.
+There are different kinds of temporary and persistent volumes, depending on the storage. Review the [volume types](https://kubernetes.io/docs/concepts/storage/volumes/#types-of-volumes) that {{ k8s }} supports.
 
 ## Working with persistent volumes {#persistent-volume}
 

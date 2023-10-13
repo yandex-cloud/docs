@@ -19,7 +19,7 @@ rollback err: sql: transaction has already been committed or rolled back
 Увеличьте время хранения бинарного лога с помощью команды:
 
 ```sql
-call mysql.rds_set_configuration('binlog retention hours', <кол-во часов>);
+call mysql.rds_set_configuration('binlog retention hours', <кол-во_часов>);
 ```
 
 Максимальное значение времени хранения — 168 ч (7 дней). Значение по умолчанию — `NULL` (файлы бинарного лога не сохраняются). Подробнее см. в [документации Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html).

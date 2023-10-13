@@ -9,11 +9,11 @@ After creating a domain, you can update its description. To update the descripti
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the domain was created.
-   1. In the list of services, select **{{ certificate-manager-name }}**.
-   1. Go to the **Domains** tab.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+   1. Go to the **{{ ui-key.yacloud.certificate-manager.label_domains }}** tab.
    1. In the list, select the domain you want to update the description for.
-   1. In the window that opens, click **Change**.
+   1. In the window that opens, click **{{ ui-key.yacloud.certificate-manager.domain.action_edit }}**.
    1. Update the domain description.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

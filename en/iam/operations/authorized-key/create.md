@@ -7,10 +7,10 @@ To create [authorized keys](../../concepts/authorization/key.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. At the top of the screen, go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose a service account and click the line with its name.
-   1. Click **Create new key** in the top panel.
-   1. Click **Create authorized key**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
+   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
    1. Select the encryption algorithm.
    1. Enter a description of the key so that you can easily find it in the management console.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**. In the window that opens:
@@ -87,10 +87,10 @@ To create [authorized keys](../../concepts/authorization/key.md):
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `service_account_id` = service account [ID](../sa/get-id.md). This parameter is required.
-      * `description`: Key description. This is an optional parameter.
-      * `key_algorithm`: Key generation algorithm. This is an optional parameter. The default algorithm is `RSA_2048`. For more information about the acceptable parameter values, see the [API documentation](../../api-ref/Key/index.md).
-      * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in base64 encoding or in the `keybase:keybaseusername` format.
+      * `service_account_id`: Service account [ID](../sa/get-id.md). Required parameter.
+      * `description`: Key description. Optional parameter.
+      * `key_algorithm`: Key generation algorithm. Optional parameter. The default algorithm is `RSA_2048`. For more information about the acceptable parameter values, see the [API documentation](../../api-ref/Key/index.md).
+      * `pgp_key`: Additional PGP key for encrypting a private key. Optional parameter. Specify the public part of the key in base64 encoding or in the `keybase:keybaseusername` format.
 
       Example of the configuration file structure:
 
@@ -99,7 +99,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
         service_account_id = "<service_account_ID>"
         description        = "<key_description>"
         key_algorithm      = "<key_generation_algorithm>"
-        pgp_key            = "<pgp key>"
+        pgp_key            = "<pgp_key>"
       }
       ```
 
@@ -108,7 +108,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -124,9 +124,9 @@ To create [authorized keys](../../concepts/authorization/key.md):
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following CLI command:
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) and this CLI command:
 
       ```
       yc iam key list --service-account-id <service account ID>

@@ -40,7 +40,7 @@ resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-
 
 resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-functions" {
   folder_id = "<идентификатор_каталога>"
-  role      = "serverless.functions.invoker"
+  role      = "{{ roles-functions-invoker }}"
   member    = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
 

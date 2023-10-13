@@ -79,7 +79,7 @@ description: "Из статьи вы узнаете, как получить с�
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Чтобы добавить сертификат брокеру, созданному с помощью {{ TF }}:
 
@@ -191,7 +191,7 @@ description: "Из статьи вы узнаете, как получить с�
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Чтобы удалить сертификат брокера, созданного с помощью {{ TF }}:
 

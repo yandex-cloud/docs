@@ -7,9 +7,9 @@ The management console only allows you to change the name of a folder. To change
 - Management console
 
    1. Select the folder on the management console [home page]({{ link-console-cloud }}). This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
-   1. Click ![image](../../../_assets/options.svg) next to the folder and select **Edit**.
+   1. Click ![image](../../../_assets/options.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
    1. Enter a new name for the folder.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
 - CLI
 
@@ -20,7 +20,7 @@ The management console only allows you to change the name of a folder. To change
       ```bash
       yc resource-manager folder update --help
       ```
-   1. If you know the folder ID or name, proceed to the next step. If not, use one of these methods to get them:
+   1. If you know the folder ID or name, proceed to the next step. Otherwise, use one of these methods to get them:
 
       * Get a list of folders:
 
@@ -34,8 +34,8 @@ The management console only allows you to change the name of a folder. To change
          +----------------------+--------------------+--------+--------+-------------+
          |          ID          |        NAME        | LABELS | STATUS | DESCRIPTION |
          +----------------------+--------------------+--------+--------+-------------+
-         | b1gppulhhm2aaufq9eug | yet-another-folder |        | ACTIVE |             |
-         | b1gvmob95yysaplct532 | default            |        | ACTIVE |             |
+         | b1gppulhhm2a******** | yet-another-folder |        | ACTIVE |             |
+         | b1gvmob95yys******** | default            |        | ACTIVE |             |
          +----------------------+--------------------+--------+--------+-------------+
          ```
 
@@ -46,11 +46,11 @@ The management console only allows you to change the name of a folder. To change
          ```
 
          Where:
-         * `<service-name>`: The service name, such as `compute`.
-         * `<resource>`: The resource type, such as `instance`.
-         * `<resource-id>`: The resource ID.
+         * `<service-name>`: Service name, e.g., `compute`
+         * `<resource>`: Resource category, e.g., `instance`
+         * `<resource-id>`: Resource ID
 
-         For example, the `fhmp74bfis2aim728p2a` VM belongs to the `b1gpvjd9ir42nsng55ck` folder:
+         For example, the `fhmp74bfis2a********` VM belongs to the `b1gpvjd9ir42********` folder:
 
          ```bash
          yc compute instance get fhmp74bfis2ais728p2a
@@ -59,12 +59,12 @@ The management console only allows you to change the name of a folder. To change
          Result:
 
          ```
-         id: fhmp74bfis2ais728p2a
-         folder_id: b1gpvjd9ia42nsng55ck
+         id: fhmp74bfis2a********
+         folder_id: b1gpvjd9ia42********
          ...
          ```
 
-   1. Change the folder parameters, such as name and description. You can specify the folder to update by its name or ID.
+   1. Change the folder parameters, e.g., name and description. You can specify the folder to update by its name or ID.
 
       ```bash
       yc resource-manager folder update default \
@@ -72,7 +72,7 @@ The management console only allows you to change the name of a folder. To change
         --description "this is my default-folder"
       ```
 
-      The command will rename the `default` folder to `myfolder` and update its description.
+      The command will rename the `default` folder to `myfolder` and update its description. The folder naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -120,7 +120,7 @@ The management console only allows you to change the name of a folder. To change
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -129,7 +129,7 @@ The management console only allows you to change the name of a folder. To change
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+      You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc resource-manager folder list-operations <folder name>|<folder ID>

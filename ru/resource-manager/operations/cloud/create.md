@@ -23,7 +23,7 @@
 
 - {{ TF }}
 
-  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Обязательно привяжите облако к платежному аккаунту, чтобы сделать облако активным. Для этого используйте ресурс `yandex_billing_cloud_binding` с указанием на облако в поле `cloud_id`.
 

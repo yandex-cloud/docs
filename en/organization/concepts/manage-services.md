@@ -22,7 +22,7 @@ To go to cloud and service management:
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-1. In the panel on the left, select [Clouds and services]({{link-org-services}}) ![icon-services](../../_assets/organization/icon-services.svg).
+1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.raw_services }}]({{link-org-services}}) ![icon-services](../../_assets/organization/icon-services.svg).
 
    The page displays a list of clouds connected to the organization and the following services: {{ tracker-full-name }}, {{ wiki-full-name }}, {{ forms-full-name }}, {{ datalens-full-name }}, and {{ ml-platform-full-name }}.
 
@@ -34,7 +34,7 @@ To go to cloud and service management:
 
 ## Cloud {#cloud}
 
-A cloud is your organization's workspace. All the clouds connected to your organization are displayed in the **Clouds and services** section.
+A cloud is your organization's workspace. All the clouds connected to your organization are displayed in the **{{ ui-key.yacloud_org.pages.raw_services }}** section.
 
 A corporate administrator can create new directories and resources in the cloud, connect {{ yandex-cloud }} services, and manage relevant access. Learn more about using {{ yandex-cloud }} resources in the [{{ resmgr-full-name }} documentation](../../resource-manager/concepts/resources-hierarchy.md).
 

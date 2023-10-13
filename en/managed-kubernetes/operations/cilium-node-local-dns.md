@@ -2,22 +2,22 @@
 
 This article will show you how to configure a local DNS for the [Cilium network policy controller](../concepts/network-policy.md#cilium) using the [Local Redirect Policy](https://docs.cilium.io/en/v1.9/gettingstarted/local-redirect-policy/).
 
-To set up a local DNS in a {{ k8s }} cluster:
+To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster):
 1. [Create specifications for NodeLocal DNS and Local Redirect Policy](#create-manifests).
 1. [Create a test environment](#create-test-environment).
 1. [Check NodeLocal DNS functionality](#test-nodelocaldns).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a service account](../../iam/operations/sa/create.md) and [grant it the roles](../../iam/operations/sa/assign-role-for-sa.md) of `k8s.tunnelClusters.agent` and `vpc.publicAdmin`.
-1. [Create a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
+1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
 
    Under **Cluster network settings**, select **Enable tunnel mode**.
 1. [Create a node group](node-group/node-group-create.md) of any suitable configuration.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Retrieve the service IP address for `kube-dns`:
+1. Retrieve the service [IP address](../../vpc/concepts/address.md) for `kube-dns`:
 
    ```bash
    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
@@ -150,7 +150,7 @@ To set up a local DNS in a {{ k8s }} cluster:
            operator: "Exists"
          containers:
          - name: node-cache
-           image: k8s.gcr.io/dns/k8s-dns-node-cache:1.17.0
+           image: registry.k8s.io/dns/k8s-dns-node-cache:1.17.0
            resources:
              requests:
                cpu: 25m
@@ -259,7 +259,7 @@ To set up a local DNS in a {{ k8s }} cluster:
 
 ## Create a test environment {#create-test-environment}
 
-To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launched in your cluster containing the `dnsutils` network utility suite.
+To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launched in your {{ managed-k8s-name }} cluster containing the `dnsutils` network utility suite.
 1. Launch the `nettool` pod:
 
    
@@ -275,7 +275,7 @@ To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launc
    kubectl get pods
    ```
 
-1. Find out which {{ k8s }} cluster node is hosting the `nettool` pod:
+1. Find out which {{ managed-k8s-name }} cluster [node](../concepts/index.md#node-group) is hosting the `nettool` pod:
 
    ```bash
    kubectl get pod nettool -o wide
@@ -371,6 +371,5 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
 ## Delete the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
-
-1. [Delete the {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+1. [Delete the {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
+1. If static public IP addresses were used for {{ managed-k8s-name }} cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.

@@ -8,16 +8,16 @@ The owner can create new folders and resources in this cloud, and manage access 
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-2. Grant a user access to the created folder:
+1. Grant a user access to the created folder:
 
    1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
-   1. Go to **Access rights**.
-   1. Click **Assign bindings**.
-   1. In the **Configure access bindings** window, click **Select user**.
-   1. Select a user from the list or search for a user.
-   1. Click **Add role**.
+   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. In the **{{ ui-key.yacloud.component.acl.update-dialog.label_title }}** window, click **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
+   1. Select a user from the list or search by user.
+   1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}**.
    1. Select the `resource-manager.editor` role. This role enables you to read folder information, including the access rights list, as well as edit and delete the folder.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% note info %}
 

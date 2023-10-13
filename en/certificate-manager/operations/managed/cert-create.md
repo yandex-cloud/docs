@@ -9,14 +9,14 @@ To add a new Let's Encrypt [certificate](../../concepts/managed-certificate.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to add a certificate to.
-   1. In the list of services, select **{{ certificate-manager-name }}**.
-   1. Click **Add certificate**.
-   1. In the menu that opens, select **Let's Encrypt certificate**.
-   1. In the window that opens, enter a name for the certificate in the **Name** field.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+   1. Click **{{ ui-key.yacloud.certificate-manager.button_add }}**.
+   1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
+   1. In the window that opens, enter a name for your certificate in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
    1. (Optional) In the **Description** field, enter a description for the certificate.
-   1. In the **Domains** field, list the domains to issue a certificate for.
-   1. Select the [type of check for domain rights](../../concepts/challenges.md): `DNS` or `HTTP`.
-   1. Click **Create**.
+   1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, list the domains to issue a certificate for.
+   1. Select the [type of check for domain rights](../../concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` or `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`.
+   1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
 - CLI
 
@@ -39,8 +39,8 @@ To add a new Let's Encrypt [certificate](../../concepts/managed-certificate.md):
       ```
 
       Where:
-      * `--name`: Certificate name.
-      * `--domains`: Certificate domains.
+      * `--name`: Certificate name
+      * `--domains`: Certificate domains
 
       Command result:
 
@@ -101,3 +101,9 @@ To add a new Let's Encrypt [certificate](../../concepts/managed-certificate.md):
 {% endlist %}
 
 A new certificate appears in the certificate list with the `Validating` status. This status means that a Let's Encrypt certificate was requested and you need to pass the [domain rights check](cert-validate.md) to process it.
+
+{% note info %}
+
+{% include [checking-domain-rights-cname](../../../_includes/certificate-manager/checking-domain-rights-cname.md) %}
+
+{% endnote %}

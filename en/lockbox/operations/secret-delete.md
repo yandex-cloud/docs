@@ -7,11 +7,11 @@ To delete a secret:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-   1. In the list of services, select **{{ lockbox-short-name }}**.
-   1. In the menu on the left, select **Secrets**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. In the left menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the required secret.
-   1. In the menu that opens, select **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. In the menu that opens, select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -106,7 +106,7 @@ To delete a secret:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can check if the secret has been deleted either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+   You can check the secret's deletion using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
    ```bash
    yc lockbox secret list

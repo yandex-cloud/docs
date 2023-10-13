@@ -57,7 +57,7 @@ resource "yandex_resourcemanager_folder_iam_member" "sa-role-scanner" {
 
 resource "yandex_resourcemanager_folder_iam_member" "sa-role-invoker" {
   folder_id   = var.folder_id
-  role        = "serverless.functions.invoker"
+  role        = "{{ roles-functions-invoker }}"
   member      = "serviceAccount:${yandex_iam_service_account.invoker.id}"
 }
 

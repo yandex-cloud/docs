@@ -2,11 +2,11 @@
 
 ## Error when creating a new user {#automatic-user-creation}
 
-An attempt to add a new user to a federation has failed because the auto user creation option is disabled. [Add a user manually](operations/add-account.md#add-user-sso) or enable the **Automatically create users** option in the federation settings.
+An attempt to add a new user to a federation has failed because the auto user creation option is disabled. [Add a user manually](operations/add-account.md#add-user-sso) or enable the **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** option in the federation settings.
 
 ## SAMLResponse assertions not encrypted {#response-not-encrypted}
 
-The **Sign authentication requests** option is enabled in the federation. When it is enabled, `SAMLResponse` assertions must be encrypted.
+The **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option is enabled in the federation. When it is enabled, `SAMLResponse` assertions must be encrypted.
 
 ## Resulting XML is not a SAMLResponse {#not-saml2-response}
 
@@ -72,7 +72,7 @@ This type of identity federations is no longer supported. Contact [support]({{ l
 
 - Management console
 
-   Invalid URL protocol in the **Link to the IdP login page** field. You can only use HTTP and HTTPS.
+   Invalid URL protocol in the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field. You can only use HTTP and HTTPS.
 
 - CLI
 
@@ -96,7 +96,7 @@ This type of identity federations is no longer supported. Contact [support]({{ l
 
 - Management console
 
-   Invalid URL in the **Link to the IdP login page** field. Please check the URL.
+   Invalid URL in the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field. Please check the URL.
 
 - CLI
 

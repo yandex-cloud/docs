@@ -38,7 +38,7 @@ description: "Управление доступом в сервисе идент
 
 {% include [roles-sa-tokenCreator](../../_includes/roles-sa-tokenCreator.md) %}
 
-####  {{ roles-cloud-owner }} {#cloud-owner}
+#### {{ roles-cloud-owner }} {#cloud-owner}
 
 {% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 

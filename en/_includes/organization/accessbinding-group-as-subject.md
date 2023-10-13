@@ -2,27 +2,27 @@
 
 - Management console
 
-   1. Select the desired cloud or folder.
+   1. Select the cloud or folder.
 
-   1. Click the **Access bindings** tab.
+   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
 
-   1. Click **Assign roles**.
+   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
 
-   1. In the **Configure access bindings** window, click **Select user**.
+   1. In the **{{ ui-key.yacloud.component.acl.update-dialog.label_title }}** window, click **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
 
-   1. Go to the **Groups** tab and select the desired group or perform a search by group name.
+   1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the required group or search by group name.
 
-   1. Click **Add role**.
+   1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}**.
 
    1. Select a role in the cloud or folder.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
    {% include [cli-install](../cli-install.md) %}
 
-   1. Choose a role from the list in [Roles](../../iam/concepts/access-control/roles.md).
+   1. Select a role from the list in [Roles](../../iam/concepts/access-control/roles.md).
 
    1. Assign the role using the command:
 
@@ -46,14 +46,14 @@
       ```bash
       yc resource-manager cloud add-access-binding mycloud \
         --role resource-manager.viewer \
-        --subject group:aje6o61dvog2h6g9a33s
+        --subject group:aje6o61dvog2********
       ```
 
 - API
 
    Use the `updateAccessBindings` REST API method for the respective resource.
 
-   1. Choose a role from the list in [Roles](../../iam/concepts/access-control/roles.md).
+   1. Select a role from the list in [Roles](../../iam/concepts/access-control/roles.md).
 
    1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the `group` type and group ID in the `subject` property:
 
@@ -97,9 +97,9 @@
 
       Where:
 
-      * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id`instead of `cloud_id` and the required folder ID in the resource parameters.
-      * `role`: [Role](../../iam/concepts/access-control/roles.md) being assigned. This parameter is required.
-      * `member`: Group the role is assigned to. Specified in `group:<group_ ID>` format. This parameter is required.
+      * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
+      * `role`: [Role](../../iam/concepts/access-control/roles.md) being assigned. Required parameter.
+      * `member`: Group the role is assigned to. It should be specified in `group:<group_ ID>` format. Required parameter.
 
       For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
@@ -122,9 +122,9 @@
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can check if the resource is there either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
       yc resource-manager folder list-access-bindings <folder-name>|<folder-id>

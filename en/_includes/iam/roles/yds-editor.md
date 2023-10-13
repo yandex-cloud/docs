@@ -1,3 +1,3 @@
-### yds.editor {#yds-editor}
+#### yds.editor {#yds-editor}
 
-The `yds.editor` role enables you to write data to and read data from {{ yds-name }} streams, as well as view their settings. The `yds.editor` role also includes all permissions of the `ydb.editor` role.
+The `yds.editor` role allows creating, editing, and deleting a stream, as well as reading data from and writing data to the {{ yds-name }} stream.

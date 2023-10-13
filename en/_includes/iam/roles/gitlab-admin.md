@@ -1,4 +1,4 @@
-### gitlab.admin {#gitlab-admin}
+#### gitlab.admin {#gitlab-admin}
 
 The `{{ roles.gitlab.admin }}` role enables you to create, edit, and delete instances, as well as grant permissions to other users.
 

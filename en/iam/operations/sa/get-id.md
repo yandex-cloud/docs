@@ -7,9 +7,9 @@ If you do not have a service account, [create one](create.md).
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. At the top of the screen, go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose a service account and click the line with its name.
-   1. The **Overview** page will show the service account **ID** as a string in the `aje9sb6ffd2u********` format.
+   1. The **{{ ui-key.yacloud.iam.folder.service-account.overview.label_title }}** page will show the service account **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}** as a string in the `aje9sb6ffd2u********` format.
 
 - CLI
 

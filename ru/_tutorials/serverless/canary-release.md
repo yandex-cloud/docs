@@ -278,9 +278,9 @@
                 tag: "${var.function.tag}"
                 service_account_id: <идентификатор_сервисного_аккаунта>
         ```
-    1. В разделе **Управление переменными** активируйте переключатель **Канареечный релиз**.
-    1. В поле **Доля запросов в канареечном релизе** укажите `50`.
-    1. В поле **Переменные для канареечного релиза** укажите `function.tag`=`canary`.
+    1. В разделе **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}** активируйте переключатель **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-release }}**.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-share }}** укажите `50`.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-variables }}** укажите `function.tag`=`canary`.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
     
 - CLI

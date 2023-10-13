@@ -3,7 +3,7 @@ title: "Instructions for operations with {{ managed-k8s-full-name }}"
 description: "In this article, you'll learn how to work with the managed service for {{ k8s }} in {{ yandex-cloud }}. Find out how to use persistent volumes and manage {{ k8s }} clusters and node groups."
 ---
 
-# Step-by-step instructions for {{ managed-k8s-name }}
+# Step-by-step guides for {{ managed-k8s-name }}
 
 * [{#T}](node-connect-ssh.md)
 * [{#T}](update-kubernetes.md)
@@ -46,6 +46,7 @@ description: "In this article, you'll learn how to work with the managed service
 * [{#T}](calico.md)
 * [{#T}](cilium.md)
 * [{#T}](cilium-node-local-dns.md)
+* [{#T}](create-load-balancer-with-ingress-nginx.md)
 
 ## Working with persistent volumes {#persistent-volumes}
 
@@ -57,7 +58,7 @@ description: "In this article, you'll learn how to work with the managed service
 * [{#T}](volumes/mode-block.md)
 * [{#T}](volumes/s3-csi-integration.md)
 
-## Managing a {{ k8s }} cluster {#kubernetes-cluster}
+## Managing a {{ managed-k8s-name }} cluster {#kubernetes-cluster}
 
 * [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)

@@ -25,14 +25,6 @@ These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the 
 
 1. Specify the source the provider will be installed from.
 
-   
-   {% note alert %}
-
-   The {{ yandex-cloud }} mirror is temporarily unavailable.
-
-   {% endnote %}
-
-
    {% list tabs %}
 
    - Linux and macOS

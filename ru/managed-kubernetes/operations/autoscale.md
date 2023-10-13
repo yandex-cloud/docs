@@ -55,7 +55,7 @@
 
   1. {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-     Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     {% include [terraform-install](../../_includes/terraform-install.md) %}
   1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов.
 
      О том, как создать такой файл, см. в разделе [{#T}](../operations/node-group/node-group-create.md).

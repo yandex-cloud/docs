@@ -112,7 +112,7 @@ Where:
 
       For instance, names like `example`, `example.com`, or `foo.example.com` are suitable, while `example.com/bar` and `-example.` are not.
 
-      The name may not be longer than 63 characters.
+      The name may be up to 63 characters long.
 
    * `hostname` (`string`)
 

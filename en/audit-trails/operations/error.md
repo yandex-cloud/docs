@@ -37,7 +37,7 @@ Contact [support]({{ link-console-support }}) to have the {{ objstorage-name }} 
 Check the bucket specified in the [trail settings](../concepts/trail.md#trail-settings). If the bucket was deleted:
 1. [Create](../../storage/operations/buckets/create.md) a new bucket with the same name as that specified in the trail settings.
 
-   You can also change the trail settings by specifying a different bucket under **Destination**.
+   You can also change the trail settings by specifying a different bucket under **{{ ui-key.yacloud.audit-trails.label_destination }}**.
 1. If the bucket is [encrypted](../../storage/tutorials/server-side-encryption.md) with the {{ kms-full-name }} key, grant the `kms.keys.decrypter` [role](../../iam/concepts/access-control/roles.md#kms-keys-decrypter) for the key to the service account used by the trail to upload audit logs to the bucket.
 
 
@@ -61,13 +61,13 @@ Make sure the service account used by the trail to upload audit logs to the stre
 
 Check the stream specified in the [trail settings](../concepts/trail.md#trail-settings). If the stream or its {{ ydb-short-name }} database was deleted:
 1. [Create](../../data-streams/operations/manage-streams.md#create-data-stream) a new stream.
-1. Change the trail settings by specifying the new stream under **Destination**.
+1. Change the trail settings by specifying the new stream under **{{ ui-key.yacloud.audit-trails.label_destination }}**.
 
 ### DATABASE_INACTIVE {#database-inactive}
 
 [Make sure](../../ydb/operations/manage-databases.md#list-db) the {{ ydb-short-name }} database status is `Running`. Start the database, if required. You can do this via the [management console]({{ link-console-main }}):
-1. In the list of services, select **{{ ydb-short-name }}**.
-1. Click ![image](../../_assets/options.svg) to the right of the database name and select **Start**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+1. Click ![image](../../_assets/options.svg) to the right of the database name and select **{{ ui-key.yacloud.common.start }}**.
 
 ### DATABASE_NOT_FOUND {#database-not-found}
 
@@ -87,7 +87,7 @@ Make sure the service account used by the trail to upload audit logs to the log 
 
 Check the log group specified in the [trail settings](../concepts/trail.md#trail-settings). If the log group was deleted:
 1. [Create](../../logging/operations/create-group.md) a new log group.
-1. Change the trail settings by specifying the new log group under **Destination**.
+1. Change the trail settings by specifying the new log group under **{{ ui-key.yacloud.audit-trails.label_destination }}**.
 
 ### UNKNOWN or INTERNAL_ERROR {#logging-internal-error}
 

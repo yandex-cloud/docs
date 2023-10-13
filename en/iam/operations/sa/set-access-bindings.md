@@ -9,15 +9,15 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. At the top of the screen, go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose a service account and click the line with its name.
-   1. Go to **Access rights**.
-   1. Click **Assign roles**.
-   1. In the **Configure access bindings** window, click **Select user**.
+   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window, click **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
    1. Select a user from the list or search by user.
-   1. Click **Add role**.
+   1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
    1. Choose the role.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI
 
@@ -67,7 +67,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
       +--------------------------------+-------------+
       ```
 
-    1. Find out the user's ID from the login or email address. To assign a role to a service account or group of users rather than one user, see the [examples](#examples) below.
+    1. Find out the user ID from the login or email address. To assign a role to a service account or a user group rather than to a single user, see the [examples](#examples) below.
 
         ```bash
         yc iam user-account get test-user
@@ -162,8 +162,8 @@ This section describes how to assign [roles](../../concepts/access-control/roles
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
       * `service_account_id`: ID of the service account that access must be configured for.
-      * `role`: Role being assigned. This is a required parameter.
-      * `members`: List of users or service account the role is being assigned to. Specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
+      * `role`: Role being assigned. Required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
 
       Example of the configuration file structure:
 
@@ -182,7 +182,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -231,7 +231,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
    {% endnote %}
 
-   1. Make sure the resource doesn't have any roles that you don't want to lose:
+   1. Make sure the resource does not have any roles that you do not want to lose:
 
       ```bash
       yc iam service-account list-access-bindings my-robot
@@ -300,14 +300,14 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To assign several roles to a service account created with {{ TF }}:
 
     1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
        * `service_account_id`: ID of the service account that access must be configured for.
-       * `role`: Role being assigned. This is a required parameter.
+       * `role`: Role being assigned. Required parameter.
 
        {% note info %}
 
@@ -315,7 +315,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
        {% endnote %}
 
-       * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
+       * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
 
      {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
 
@@ -339,7 +339,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
      ...
      ```
 
-  
+
      {% endcut %}
 
        For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
@@ -379,7 +379,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
 ### Set up impersonation {#impersonation}
 
-[Impersonation](../../concepts/access-control/index.md#impersonation) enables a user to perform actions on behalf of a service account using the `--impersonate-service-account-id` flag. For this, the service account needs the relevant permissions, and the user needs the `iam.serviceAccounts.tokenCreator` role.
+[Impersonation](../../concepts/access-control/index.md#impersonation) enables a user to perform actions on behalf of a service account using the `--impersonate-service-account-id` flag. To do this, the service account needs the relevant permissions, and the user needs the `iam.serviceAccounts.tokenCreator` role.
 
 {% list tabs %}
 
@@ -542,15 +542,15 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To allow the `test-sa` service account to manage the `my-robot` service account created using {{ TF }}:
 
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
       * `service_account_id`: ID of the service account that access must be configured for.
-      * `role`: Role being assigned. This is a required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
+      * `role`: Role being assigned. Required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
 
    {% cut "Example of allowing the `test-sa` service account to manage the `my-robot` service account using {{ TF }}" %}
 
@@ -646,15 +646,15 @@ For example, allow any authenticated user to view information about the `my-robo
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To allow any authenticated user to view information about the `my-robot` service account:
 
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
       * `service_account_id`: ID of the service account that access must be configured for.
-      * `role`: Role being assigned. This is a required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the format `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
+      * `role`: Role being assigned. Required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the format `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
 
    {% cut "Example of allowing any authenticated user to view information about the `my-robot` service account" %}
 

@@ -5,15 +5,10 @@
 {{ backup-name }} supports backing up [{{ compute-name }} VMs](../compute/concepts/vm.md) running Ubuntu, CentOS, and Windows Server. For more information, see [{#T}](concepts/vm-connection.md#os).
 
 To get started with {{ backup-name }}:
-1. [Request access to the service](#write-to-support).
 1. [Activate the service](#activate-provider).
 1. [Set up a service account](#prepare-service-account).
 1. [Create a VM](#vm-create).
 1. [Link your VM to a backup policy](#add-policy).
-
-## Request access to the service {#write-to-support}
-
-{% include [ask-for-turning-on](../_includes/backup/ask-for-turning-on.md) %}
 
 ## Activate the service {#activate-provider}
 
@@ -30,8 +25,8 @@ To activate the service:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to activate the service.
-   1. In the list of services, select **{{ backup-name }}**.
-   1. Click **Activate**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+   1. Click **{{ ui-key.yacloud.backup.button_action-activate }}**.
 
 {% endlist %}
 
@@ -42,14 +37,14 @@ To activate the service:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Click **Create service account**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the [service account](../iam/concepts/users/service-accounts.md). The name format requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
-   1. Click ![plus-sign](../_assets/plus-sign.svg) **Add role** and select the `backup.editor` [role](security/index.md#backup-editor).
-   1. Click **Create**.
+   1. Click ![plus-sign](../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `backup.editor` [role](security/index.md#backup-editor).
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -60,28 +55,28 @@ To activate the service:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
-   1. In the list of services, select **{{ compute-name }}**.
-   1. Click **Create VM**.
-   1. Under **Basic parameters**:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       1. Enter a name and description for the VM.
       1. Select an [availability zone](../overview/concepts/geo-scope.md) to place your VM in.
-   1. Under **Image/boot disk selection**, select [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
-   1. Under **Network settings**:
-      1. Select the [cloud network](../vpc/concepts/network.md#network) and [subnet](../vpc/concepts/network.md#subnet) to connect the VM to. If you do not have a network, click ![plus-sign](../_assets/plus-sign.svg) **Create network**:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      1. Select the [cloud network](../vpc/concepts/network.md#network) and [subnet](../vpc/concepts/network.md#subnet) to connect the VM to. If you do not have a network, click ![plus-sign](../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}**:
          1. In the window that opens, enter the network name and specify the folder to host the network.
-         1. Click **Create**.
+         1. Click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
 
-              Each network must have at least one subnet. If there is no subnet, create one by selecting ![plus-sign](../_assets/plus-sign.svg) **Add subnet**.
-      1. In the **Public address** field, select **Auto**.
+            Each network must have at least one subnet. If there is no subnet, create one by selecting ![plus-sign](../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+      1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Select [appropriate security groups](concepts/vm-connection.md#security-groups) (if there is no corresponding field, the VM will be enabled for all incoming and outgoing traffic).
-   1. Under **Backup**, select the {{ backup-name }} connection option for your VM.
-   1. Under **Access**, specify the information required to access the instance:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.label_backup }}**, select the {{ backup-name }} connection option for your VM.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       1. Select the service account with the `backup.editor` role.
-      1. Enter the username in the **Login** field.
-      1. In the **SSH key** field, paste the contents of the public key file.
+        1. Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      1. In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
          You will need to create a key pair for the SSH connection yourself, see [{#T}](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-   1. Click **Create VM**.
+   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
 
@@ -98,9 +93,9 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
     - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
-      1. In the list of services, select **{{ compute-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Select the appropriate VM.
-      1. Check that the value of the **{{ backup-name }}** field in the **Backup** section is `Connected`.
+      1. Check that the value of the **{{ ui-key.yacloud.backup.field_vm-instances }}** field in the **{{ ui-key.yacloud.backup.title_backup }}** section is `{{ ui-key.yacloud.backup.label_create }}`.
 
    {% endlist %}
 
@@ -115,11 +110,11 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
-      1. In the list of services, select **{{ backup-name }}**.
-      1. Go to the ![policies](../_assets/backup/policies.svg) **Backup policies** tab.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+      1. Go to the ![policies](../_assets/backup/policies.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
       1. Select one of the policies created by default.
-      1. Under **Virtual machines**, click ![plus-sign](../_assets/plus-sign.svg) **Attach VM**.
-      1. Select the appropriate VM and click **Attach**.
+      1. Under **{{ ui-key.yacloud.backup.label_linked-instances }}**, click ![plus-sign](../_assets/plus-sign.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**.
+      1. Select the appropriate VM and click **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
 
    {% endlist %}
 
@@ -130,14 +125,14 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
-      1. In the list of services, select **{{ compute-name }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Select the appropriate VM.
-      1. Under **Backup**, click **Select** in the **Backup policies** field.
-      1. Select one of the policies created by default and click **Save**.
+      1. Under **{{ ui-key.yacloud.backup.title_backup }}**, in the **{{ ui-key.yacloud.backup.label_policies }}** field, click **{{ ui-key.yacloud.common.select }}**.
+      1. Select one of the policies created by default and click **{{ ui-key.yacloud.common.save }}**.
 
    {% endlist %}
 
 #### What's next {#what-is-next}
 
 * [Learn about service features](concepts/index.md).
-* [See other service guides](operations/index.md).
+* [See other instructions on how to use the service](operations/index.md).

@@ -13,7 +13,7 @@ To encrypt data:
    Where:
 
    * `key_id`: {{ kms-short-name }} key ID.
-   * `aad_context`: ([AAD context](../../kms/concepts/encryption.md#add-context)).
+   * `aad_context`: ([AAD context](../../kms/concepts/symmetric-encryption.md#add-context)).
    * `plaintext`: String to be encrypted.
 
    {% note warning %}

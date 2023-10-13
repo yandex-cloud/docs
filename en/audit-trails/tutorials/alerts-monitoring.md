@@ -19,16 +19,16 @@ If you no longer need the alerts, [delete them](#clear-out).
 To get notifications about a triggered alert:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a notification channel.
-1. Select **{{ monitoring-name }}**.
-1. In the left-hand panel, select **Channels**.
-1. In the top-right corner, click **Create channel**.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
+1. In the top-right corner, click **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Specify the channel parameters:
-   * In the **Name** field, specify `alerts-channel`.
-   * In the **Method** field, specify the notification method.
-   * In the **Recipients** field, list notification recipients.
-1. Click **Create**.
+   * In the **{{ ui-key.yacloud_monitoring.channel.field_name }}** field, specify `alerts-channel`.
+   * In the **{{ ui-key.yacloud_monitoring.channel.field_method }}** field, specify the notification method.
+   * In the **{{ ui-key.yacloud_monitoring.channel.field_recipients }}** field, list notification recipients.
+1. Click **{{ ui-key.yacloud_monitoring.channel.button_create }}**.
 
-The channel appears in the list.
+The channel will appear in the list.
 
 ## Set up alerts {#setup-alerts}
 
@@ -41,20 +41,20 @@ For more information about how to [create alerts](../../monitoring/operations/al
 The alert will send a notification that the trail is being deactivated.
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create an alert.
-1. Select **{{ monitoring-name }}**.
-1. In the left-hand panel, select **Alerts**.
-1. In the top-right corner, click **Create alert**.
-1. In the **Name** field, specify `deactivating-trail-alert`.
-1. In the **Metrics** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
-   1. `service = Audit Trails`.
-   1. `name = trail.status`.
-   1. `status != ACTIVE`.
-   1. `trail = <trail_name>`.
-1. Under **Alert parameters**, specify:
-   1. **Trigger condition**: `Not equal`.
-   1. **Alarm**: `0`.
-1. Under **Notification channels**, click **Add channel** and select the [previously created](#create-channel) notification channel.
-1. Click **Create alert**.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. In the top-right corner, click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `deactivating-trail-alert`.
+1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
+   1. `service = Audit Trails`
+   1. `name = trail.status`
+   1. `status != ACTIVE`
+   1. `trail = <trail_name>`
+1. Under **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}**, specify:
+   1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**: `{{ ui-key.yacloud_monitoring.alert.title_comparison-ne }}`
+   1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}**: `0`
+1. Under **{{ ui-key.yacloud_monitoring.alert.section_notifications }}**, click **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** and select the [previously created](#create-channel) notification channel.
+1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 The alert is created.
 
@@ -62,23 +62,23 @@ The alert is created.
 
 The alert will send notification that the trail has stopped uploading audit logs to its destination object, for example, due to a lack of free space in the bucket.
 
-The **Evaluation window** parameter depends on the specific trail. The type and number of resources within the audit trail logging section will define the frequency for uploading audit logs to the destination object.
+The **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** parameter depends on the specific trail. The type and number of resources within the audit trail logging section will define the frequency for uploading audit logs to the destination object.
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create an alert.
-1. Select **{{ monitoring-name }}**.
-1. In the left-hand panel, select **Alerts**.
-1. In the top-right corner, click **Create alert**.
-1. In the **Name** field, specify `stopping-logs-alert`.
-1. In the **Metrics** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
-   1. `service = Audit Trails`.
-   1. `name = trail.delivered_events_count`.
-   1. `trail = <trail_name>`.
-1. Under **Alert parameters**, specify:
-   1. **Trigger condition**: `Equal`.
-   1. **Alarm**: `0`.
-   1. **Evaluation window**: `<value_for_trail>`.
-1. Under **Notification channels**, click **Add channel** and select the [previously created](#create-channel) notification channel.
-1. Click **Create alert**.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. In the top-right corner, click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `stopping-logs-alert`.
+1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
+   1. `service = Audit Trails`
+   1. `name = trail.delivered_events_count`
+   1. `trail = <trail_name>`
+1. Under **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}**, specify:
+   1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**: `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`
+   1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}**: `0`
+   1. **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: `<trail_value>`
+1. Under **{{ ui-key.yacloud_monitoring.alert.section_notifications }}**, click **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** and select the [previously created](#create-channel) notification channel.
+1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 The alert is created.
 
@@ -87,18 +87,18 @@ The alert is created.
 The alert will send a notification that the number of trails in a cloud has changed.
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create an alert.
-1. Select **{{ monitoring-name }}**.
-1. In the left-hand panel, select **Alerts**.
-1. In the top-right corner, click **Create alert**.
-1. In the **Name** field, specify `number-trails-alert`.
-1. In the **Metrics** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
-   1. `service = Audit Trails`.
-   1. `name = quota.trails_count.usage`.
-1. Under **Alert parameters**, specify:
-   1. **Trigger condition**: `Not equal`.
-   1. **Alarm**: `<number_of_trails>`.
-1. Under **Notification channels**, click **Add channel** and select the [previously created](#create-channel) notification channel.
-1. Click **Create alert**.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. In the top-right corner, click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `number-trails-alert`.
+1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
+   1. `service = Audit Trails`
+   1. `name = quota.trails_count.usage`
+1. Under **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}**, specify:
+   1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**: `{{ ui-key.yacloud_monitoring.alert.title_comparison-ne }}`
+   1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}**: `<number_of_trails>`
+1. Under **{{ ui-key.yacloud_monitoring.alert.section_notifications }}**, click **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** and select the [previously created](#create-channel) notification channel.
+1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 The alert is created.
 
@@ -107,18 +107,18 @@ The alert is created.
 The alert will send a notification that the number of trails used per cloud consumed over 80% of the quota.
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create an alert.
-1. Select **{{ monitoring-name }}**.
-1. In the left-hand panel, select **Alerts**.
-1. In the top-right corner, click **Create alert**.
-1. In the **Name** field, specify `trail-quota-alert`.
-1. In the **Metrics** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
-   1. `service = Audit Trails`.
-   1. `name = quota.trails_count.usage`.
-1. Under **Alert parameters**, specify:
-   1. **Trigger condition**: `Greater than`.
-   1. **Alarm**: `<number_amounting_to_80%_of_quota>`.
-1. Under **Notification channels**, click **Add channel** and select the [previously created](#create-channel) notification channel.
-1. Click **Create alert**.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. In the top-right corner, click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `trail-quota-alert`.
+1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
+   1. `service = Audit Trails`
+   1. `name = quota.trails_count.usage`
+1. Under **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}**, specify:
+   1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**: `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`
+   1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}**: `<number_amounting_to_80%_of_quota>`
+1. Under **{{ ui-key.yacloud_monitoring.alert.section_notifications }}**, click **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** and select the [previously created](#create-channel) notification channel.
+1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 The alert is created.
 
@@ -127,18 +127,18 @@ The alert is created.
 The alert will send a notification that an unauthorized request has been sent to one of the trail resources.
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create an alert.
-1. Select **{{ monitoring-name }}**.
-1. In the left-hand panel, select **Alerts**.
-1. In the top-right corner, click **Create alert**.
-1. In the **Name** field, specify `unauthorized-access-alert`.
-1. In the **Metrics** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
-   1. `service = Audit Trails`.
-   1. `name = trail.unauthorized_events_count`.
-1. Under **Alert parameters**, specify:
-   1. **Trigger condition**: `Greater than`.
-   1. **Alarm**: `0`.
-1. Under **Notification channels**, click **Add channel** and select the [previously created](#create-channel) notification channel.
-1. Click **Create alert**.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+1. In the top-right corner, click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+1. In the **{{ ui-key.yacloud_monitoring.alert.title_name }}** field, specify `unauthorized-access-alert`.
+1. In the **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** section to the right of the folder name, click ![image](../../_assets/plus-sign.svg) and specify:
+   1. `service = Audit Trails`
+   1. `name = trail.unauthorized_events_count`
+1. Under **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}**, specify:
+   1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**: `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`
+   1. **{{ ui-key.yacloud_monitoring.alert.label_alarm }}**: `0`
+1. Under **{{ ui-key.yacloud_monitoring.alert.section_notifications }}**, click **{{ ui-key.yacloud_monitoring.alert.button_add-channel }}** and select the [previously created](#create-channel) notification channel.
+1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 The alert is created.
 

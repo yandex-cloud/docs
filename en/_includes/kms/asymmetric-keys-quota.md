@@ -1,0 +1,1 @@
+Each key pair counts towards {{ kms-short-name }} [quotas](../../kms/concepts/limits.md#kms-quotas) as a single key.

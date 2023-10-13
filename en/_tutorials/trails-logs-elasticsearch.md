@@ -1,6 +1,6 @@
 # Exporting audit logs to {{ mes-full-name }}
 
-Create a trail to upload audit logs for a single cloud's resources to a {{ objstorage-full-name }} bucket. Then configure continuous log delivery to a {{ mes-full-name }} cluster.
+Create a trail to upload configuration-level (Control Plane) audit logs for an individual cloud's resources to a {{ objstorage-full-name }} bucket. Then configure continuous log delivery to a {{ mes-full-name }} cluster.
 
 The solution described in the tutorial follows the procedure below:
 
@@ -80,7 +80,7 @@ The infrastructure support cost includes:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter the name of the service account.
+   1. Enter a name for the service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
@@ -169,10 +169,10 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the service acc
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. At the top right, select **{{ ui-key.yacloud_org.common.resource-acl.label_inherited-bindings }}** to display the roles inherited from the organization.
    1. Make sure that you have the following roles:
-      * `iam.serviceAccounts.user` for the service account.
-      * `audit-trails.editor` for the folder to host the trail.
-      * `audit-trails.viewer` for the cloud whose audit logs will be collected.
-      * `storage.viewer` for the bucket or the folder.
+      * `iam.serviceAccounts.user` for the service account
+      * `audit-trails.editor` for the folder to host the trail
+      * `audit-trails.viewer` for the cloud whose audit logs will be collected
+      * `storage.viewer` for the bucket or the folder
 
 {% endlist %}
 
@@ -215,11 +215,11 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
    1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
    1. Name the subnet, such as `trails-subnet-1`.
    1. Select an availability zone, such as `{{ region-id }}-a`.
-   1. Enter the subnet CIDR: its IP address and mask (for example, `10.128.0.0/24`).
+   1. Enter the subnet CIDR: its IP address and mask, e.g., `10.128.0.0/24`.
    1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
    1. Create two more subnets:
-      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR.
-      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR.
+      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR
+      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR
 
 - CLI
 
@@ -256,20 +256,20 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
       * `name`: Name of the subnet, such as `trails-subnet-1`.
       * `folder-id`: ID of the folder where the cloud network is located.
       * `network-name`: Name of the cloud network, such as `trails-network`.
-      * `zone`: Availability zone, for example `{{ region-id }}-a`.
-      * `range`: Subnet CIDR, like `10.128.0.0/24`.
+      * `zone`: Availability zone, e.g., `{{ region-id }}-a`
+      * `range`: Subnet CIDR, e.g., `10.128.0.0/24`
    1. Create two more subnets:
-      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR.
-      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR.
+      * `trails-subnet-2` in the `{{ region-id }}-b` availability zone with the `10.129.0.0/24` subnet CIDR
+      * `trails-subnet-3` in the `{{ region-id }}-c` availability zone with the `10.130.0.0/24` subnet CIDR
 
 {% endlist %}
 
 ### Configure the subnet {#configure-subnet}
 
-1. [Enable](../vpc/operations/create-nat-gateway.md) an NAT gateway for the subnet where the intermediate VM will be deployed.
-1. Configure network traffic permissions in the [default security group](../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing traffic will be allowed for the {{ ES }} cluster.
+1. [Enable](../vpc/operations/create-nat-gateway.md) a NAT gateway for the subnet where the intermediate VM will be deployed.
+1. Configure network traffic permissions in the [default security group](../vpc/concepts/security-groups.md#default-security-group).
 
-   If a security group is available, [add](../vpc/operations/security-group-update.md#add-rule) to it the following rules:
+   [Add](../vpc/operations/security-group-update.md#add-rule) the following rules to it:
 
    | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
    | --- | --- | --- | --- | --- | --- |
@@ -292,15 +292,17 @@ You can also deploy the required environment using {{ TF }}. See a [sample confi
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
    1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_filter }}**, set up the audit log scope:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket to upload audit logs to.
+      * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../audit-trails/concepts/format.md#log-file-name) of the audit log file.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket, such as `trails-sa`.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Automatically populated field showing the name of the cloud to host the trail.
-      * **Folders**: Keep the default value, `All folders`.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket where you want to upload audit logs.
-      * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: An optional parameter used in the [full name](../audit-trails/concepts/format.md#log-file-name) of the audit log file.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket, such as `trails-sa`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Keep the default value, `{{ ui-key.yacloud.common.all }}`.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **Status** field.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -390,18 +392,18 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
       ```
 
       Where:
-      * `token`: [OAuth token](../iam/concepts/authorization/oauth-token.md).
-      * `cloud_id`: Cloud ID.
-      * `folder_id`: Folder ID.
-      * `source` in the `yc-managed-elk` module section: Path to the `yc-managed-elk` directory.
-      * `source` in the `yc-elastic-trail` module section: Path to the `yc-elastic-trail` directory.
-      * `subnet_ids`: IDs of the subnets that will host the {{ ES }} cluster, such as `trails-subnet-1`, `trails-subnet-2`, and `trails-subnet-3`.
-      * `network_id`: ID of the cloud network that will host the {{ ES }} cluster, such as `trails-network`.
+      * `token`: [OAuth token](../iam/concepts/authorization/oauth-token.md)
+      * `cloud_id`: Cloud ID
+      * `folder_id`: Folder ID
+      * `source` in the `yc-managed-elk` module section: Path to the `yc-managed-elk` directory
+      * `source` in the `yc-elastic-trail` module section: Path to the `yc-elastic-trail` directory
+      * `subnet_ids`: IDs of the subnets that will host the {{ ES }} cluster, such as `trails-subnet-1`, `trails-subnet-2`, and `trails-subnet-3`
+      * `network_id`: ID of the cloud network that will host the {{ ES }} cluster, such as `trails-network`
       * `elk_public_ip`: Set `true` if public access to the {{ ES }} cluster is required, or else, set `false`.
-      * `bucket_name`: Name of the bucket to send audit logs to.
+      * `bucket_name`: Name of the bucket to send audit logs to
       * `bucket_folder`: Prefix of audit logs in the bucket. Leave it empty if logs are written to the bucket root directory.
-      * `sa_id`: ID of the service account on whose behalf audit logs are transferred, such as `trails-sa`.
-      * `coi_subnet_id`: ID of the subnet that will host the intermediate VM, such as `trails-subnet-1`.
+      * `sa_id`: ID of the service account on whose behalf audit logs are transferred, such as `trails-sa`
+      * `coi_subnet_id`: ID of the subnet that will host the intermediate VM, such as `trails-subnet-1`
 
    1. Initiate {{ TF }}. In the terminal, go to the directory where you created the configuration file and run the command:
 

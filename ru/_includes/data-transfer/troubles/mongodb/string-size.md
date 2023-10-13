@@ -3,9 +3,9 @@
 Текст ошибки:
 
 ```text
-Warn(replication): Usage of bulk objects in 'database <имя БД>'
+Warn(replication): Usage of bulk objects in 'database <имя_БД>'
 breaks change event log, transfer is stopping.
-Reason: (Location<номер позиции>) Tried to create string longer than 16MB.
+Reason: (Location<номер_позиции>) Tried to create string longer than 16MB.
 ```
 
 Если размер ключа коллекции превышает 5 МБ, трансферы типа _{{ dt-type-repl }}_ прерываются из-за [внутренних ограничений](https://docs.mongodb.com/manual/reference/limits/) {{ MG }} на размер пользовательских объектов.

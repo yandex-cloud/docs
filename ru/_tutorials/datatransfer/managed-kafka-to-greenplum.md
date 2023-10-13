@@ -28,8 +28,8 @@
 
     * С помощью {{ TF }}
 
-        1. Если у вас еще нет {{ TF }}, [установите и настройте его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-        1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
+        1. {% include [terraform-install](../../_includes/terraform-install.md) %}
+        1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
         1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-greenplum.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-greenplum.tf).
 
             В этом файле описаны:
@@ -83,7 +83,7 @@
 
 ```json
 {
-    "device_id": "iv9a94th6rztooxh5ur2",
+    "device_id": "iv9a94th6rzt********",
     "datetime": "2020-06-05 17:27:00",
     "latitude": 55.70329032,
     "longitude": 37.65472196,
@@ -192,13 +192,13 @@
 
     ```bash
     jq -rc . sample.json | kafkacat -P \
-        -b <FQDN хоста-брокера>:9091 \
+        -b <FQDN_хоста-брокера>:9091 \
         -t sensors \
         -k key \
         -X security.protocol=SASL_SSL \
         -X sasl.mechanisms=SCRAM-SHA-512 \
-        -X sasl.username="<имя пользователя в кластере-источнике>" \
-        -X sasl.password="<пароль пользователя в кластере-источнике>" \
+        -X sasl.username="<имя_пользователя_в_кластере-источнике>" \
+        -X sasl.password="<пароль_пользователя_в_кластере-источнике>" \
         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 

@@ -10,7 +10,7 @@
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.editor` [role](../../../iam/concepts/access-control/roles.md).
 1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md). Save the key ID and secret key, you will need them when installing the application.
-1. (optional) To make new volumes fit into a single bucket with different prefixes, [create a {{ objstorage-full-name }} bucket](../../../storage/operations/buckets/create.md). Save the bucket name, you will need it when installing the application. Skip this step if you need to create a separate bucket for each volume.
+1. (Optional) To make new volumes fit into a single bucket with different prefixes, [create a {{ objstorage-full-name }} bucket](../../../storage/operations/buckets/create.md). Save the bucket name, you will need it when installing the application. Skip this step if you need to create a separate bucket for each volume.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
@@ -32,6 +32,7 @@
      * **Delete**: Delete a volume.
    * **Storage class name**: If you previously selected the **Create storage class** option, specify the name of the new storage class.
    * **Secret name**: If you previously selected the **Create secret** option, specify the name of the new secret to be created for the storage class. Otherwise, specify the name of the existing secret to be used for the storage class.
+   * **Ignore all taints**: Select this option for the CSI driver that mounts a file system on nodes to ignore any taint policies set for the cluster nodes.
 1. Click **Install**.
 
 ## Installation using a Helm chart {#helm-install}
@@ -42,24 +43,22 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/csi-s3/csi-s3 \
-     --version <Helm chart version> \
+   helm pull oci://{{ mkt-k8s-key.yc_csi-s3.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_csi-s3.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     --set secret.accessKey=<key ID> \
-     --set secret.secretKey=<secret key> \
+     --set secret.accessKey=<key_ID> \
+     --set secret.secretKey=<secret_key> \
      csi-s3 .
    ```
 
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/csi-s3#docker-images).
-
-When installing a CSI application, the mandatory parameters are `secret.accessKey` and `secret.secretKey`. You can skip the other parameters or redefine them in the install command using the `--set <parameter name>=<new value>` key.
+When installing a CSI application, the only required parameters are `secret.accessKey` and `secret.secretKey`. You can skip other parameters or redefine them in the install command using the `--set <parameter_name>=<new_value>` key.
 
 The list of parameters available for redefining and their default values are shown in the table below:
 
-Parameter name | Description | Default value
+| Parameter name | Description | Default value |
 --- | --- | ---
 `storageClass.create` | Whether a new storage class needs to be created | `true`
 `storageClass.name` | Storage class name | `csi-s3`
@@ -70,7 +69,7 @@ Parameter name | Description | Default value
 `secret.create` | Whether a new secret needs to be created | `true`
 `secret.name` | Secret name | `csi-s3-secret`
 `secret.accessKey` | Key ID
-`secret.secretKey` | Private key
+`secret.secretKey` | Secret key
 `secret.endpoint` | S3 service address | `https://{{ s3-storage-host }}`
 
 ## See also {#see-also}

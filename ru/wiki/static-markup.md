@@ -4,7 +4,9 @@
 
 {{ wiki-name }} поддерживает работу с дополнительными элементами форматирования, которых нет в стандартном синтаксисе Markdown.
 
-Разметку Markdown можно использовать на [страницах и в динамических таблицах](pages-types.md):
+{% include [static-markdown-alert](../_includes/wiki/static-markdown-alert.md) %}
+
+С помощью разметки Markdown вы можете:
 
 * [Задать структуру страницы](static-markup/document-structure.md)
 

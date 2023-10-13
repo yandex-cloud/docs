@@ -1,6 +1,6 @@
 1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
-1. Go to **Access rights**.
+1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
 1. Select a user from the list and click ![image](../../_assets/options.svg) next to the username.
-1. Click **Edit roles**.
+1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
 1. Click ![image](../../_assets/cross.svg) next to the role you wish to revoke.
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.

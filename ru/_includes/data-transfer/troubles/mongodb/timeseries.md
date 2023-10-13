@@ -9,7 +9,7 @@ Unable to find any tables
 ```text
 Cannot execute mongo activate hook: 
 Failed in accordance with configuration: 
-some tables from include list are missing in the source database: [<имя коллекции>]
+some tables from include list are missing in the source database: [<имя_коллекции>]
 ```
 
 Сервис не поддерживает перенос [коллекций Time Series]({{ mg.docs.comd }}/core/timeseries-collections/).

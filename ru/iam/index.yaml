@@ -3,9 +3,9 @@ description:
   - >-
     Сервис Yandex Identity and Access Management (IAM) — это сервис
     идентификации и контроля доступа, который помогает централизованно управлять
-    правами доступа пользователей к вашим ресурсам Yandex Cloud. IAM
-    контролирует, чтобы все операции над ресурсами выполнялись только
-    пользователями с необходимыми правами.
+    правами доступа пользователей к вашим ресурсам Yandex Cloud. Благодаря IAM
+    все операции над ресурсами выполняются только пользователями с необходимыми
+    правами.
   - >-
     Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
@@ -20,7 +20,7 @@ meta:
 links:
   - title: Начало работы
     description: Добавьте пользователя и назначьте ему роль
-    href: quickstart
+    href: quickstart-overview
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/

@@ -6,9 +6,9 @@
 
     ```bash
     curl \
-    --user <имя пользователя {{ OS }}>:<пароль> \
+    --user <имя_пользователя_{{ OS }}>:<пароль> \
     --header 'Content-Type: application/json' \
-    --request PUT "https://<адрес хоста {{ OS }} с ролью DATA>:9200/_template/index_defaults" \
+    --request PUT "https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_template/index_defaults" \
     --data '
         {
             "index_patterns": "cdc*",
@@ -34,9 +34,9 @@
 
     ```bash
     curl \
-        --user <имя пользователя {{ OS }}>:<пароль> \
+        --user <имя_пользователя_{{ OS }}>:<пароль> \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес хоста {{ OS }} с ролью DATA>:9200/<название индекса>/_settings/*total_fields.limit?include_defaults=true'
+        --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/<название_индекса>/_settings/*total_fields.limit?include_defaults=true'
     ```
 
 * По умолчанию при трансфере данных в единичный индекс задействуется только один хост. Чтобы распределить нагрузку между хостами при передаче больших объемов данных, [настройте шаблон](https://opensearch.org/docs/latest/im-plugin/index-templates/), по которому создаваемые индексы будут заранее разбиты на шарды.
@@ -45,9 +45,9 @@
 
     ```bash
     curl \
-    --user <имя пользователя {{ OS }}>:<пароль> \
+    --user <имя_пользователя_{{ OS }}>:<пароль> \
     --header 'Content-Type: application/json' \
-    --request PUT 'https://<адрес хоста {{ OS }} с ролью DATA>:9200/_template/index_defaults' \
+    --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_template/index_defaults' \
     --data '
         {
             "index_patterns": "cdc*",

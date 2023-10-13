@@ -61,18 +61,18 @@ To make sure that all authentication requests from {{ yandex-cloud }} contain a 
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
-* [Instructions for setting up SAML-based identity federations](../../../organization/concepts/add-federation.md#federation-usage).
-* [Instructions for setting up SAML-based federations with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
+* [Guide on setting up SAML-based identity federations](../../../organization/concepts/add-federation.md#federation-usage).
+* [Guide on setting up SAML-based federations with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
 
 #### 1.2 Yandex ID accounts are only used in exceptional cases {#yandex-id-accounts}
 
 The best approach to account management, in terms of security, is using identity federations (for more information, see recommendation 1.1). Therefore, you should do your best to ensure that your organization's list of users only contains federated users (those with the <q>FEDERATION ID</q> attribute) and there are as few Yandex ID accounts on the list as possible. Exceptions allowed:
 
-* An account with the `billing.accounts.owner` permissions (technically, this role can now be granted to a Yandex ID account only).
-* An account with the `organization-manager.organizations.owner` and `{{ roles-cloud-owner }}` permissions only if you use it in case of emergency, such as when a federation's setup failed. If necessary, you can [delete](../../../security/operations/account-deletion.md) a privileged passport account with the `organization-manager.organizations.owner` role from an organization.
-* External accounts, such as those of your contract partners or contractors, which, for some reason, you can't register in your IdP.
+* Account with the `billing.accounts.owner` permissions (technically, this role can now be granted to a Yandex ID account only).
+* Account with the `organization-manager.organizations.owner` and `{{ roles-cloud-owner }}` permissions, only if you use it in case of emergency, such as when a federation's setup failed. If necessary, you can [delete](../../../security/operations/account-deletion.md) a privileged passport account with the `organization-manager.organizations.owner` role from an organization.
+* External accounts, such as those of your contract partners or contractors, which, for some reason, you cannot register in your IdP.
 
 {% list tabs %}
 
@@ -101,9 +101,9 @@ The best approach to account management, in terms of security, is using identity
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
-Remove all the accounts that have a Yandex ID from your organization, but for those on the list of allowed exceptions.
+Remove all the accounts that have a Yandex ID from your organization, except those on the list of allowed exceptions.
 
 #### 1.3 Only appropriate administrators can manage {{ iam-short-name }} group membership {#iam-admins}
 
@@ -125,14 +125,15 @@ It's convenient to control access to resources via [user groups](../../../iam/op
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
-Remove the group access rights from the accounts that don't require them.
+Remove the group access rights from the accounts that do not require them.
 
-#### 1.4 Service roles are used instead of primitive roles: {{ roles-admin }}, {{ roles-editor }}, and {{ roles-viewer }} {#min-privileges}
+#### 1.4 Service roles are used instead of primitive roles: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, and {{ roles-auditor }} {#min-privileges}
 
-The [principle of minimum privileges](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning users the minimum required roles.
- We don't recommend using primitive roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}` that are valid in all services, because this contradicts the principle of minimum privileges. To ensure more selective access control and implementation of the principle of minimum privileges, use service roles that only contain permissions for a certain type of resources in the specified service. For the list of all service roles, go to the [{#T}](../../../iam/concepts/access-control/roles.md) page of {{ iam-short-name }}.
+The [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning users the minimum required roles. We do not recommend using primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` that are valid in all services, because this contradicts the principle of least privilege. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in the specified service. For the list of all service roles, go to the [{#T}](../../../iam/concepts/access-control/roles.md) page of {{ iam-short-name }}.
+
+Use the [{{ roles-auditor }}](../../../iam/concepts/access-control/roles.md#auditor) role without data access wherever possible.
 
 {% list tabs %}
 
@@ -189,7 +190,7 @@ The [principle of minimum privileges](../../../iam/best-practices/using-iam-secu
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 Analyze the accounts found with the `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}` primitive roles assigned and replace them with [service granular roles](../../../iam/concepts/access-control/roles.md) based on your role matrix.
 
@@ -250,9 +251,9 @@ The cloud entities with service accounts assigned must be registered and limited
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
-Remove the service accounts from the cloud entities that don't require them.
+Remove the service accounts from the cloud entities that do not require them.
 
 #### 1.6 There are no cloud keys represented as plaintext in the VM metadata service {#cloud-keys}
 
@@ -312,7 +313,7 @@ See the list of all regular expressions used to search for cloud accounts' crede
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 Remove the keys from the metadata of the VMs with deviations found.
 
@@ -359,7 +360,7 @@ You can disable getting a service account token via Amazon EC2 using the [aws_v1
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 Under metadata_options, set the [aws_v1_http_token](../../../compute/api-ref/grpc/instance_service.md#MetadataOptions) parameter to `DISABLED` for the VMs found:
 
@@ -438,14 +439,15 @@ Follow the principle of minimum privileges and [assign to the service account](.
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 [Remove](../../../iam/operations/roles/revoke.md) the unnecessary rights from the service account using {{ iam-short-name }}.
 
 #### 1.9 Only trusted administrators have access to service accounts {#sa-admins}
 
 You can grant permissions to use a service account under another user or service account.
-Follow the principle of minimum privileges when granting access to a service account as a resource: if the user has service account permissions, they also have access to all of its permissions. [Assign](../../../iam/operations/sa/set-access-bindings.md) roles that allow using and managing service accounts to a minimum number of users.
+Follow the principle of least privilege when granting access to a service account as a resource: if the user has service account permissions, they also have access to all of its permissions. [Assign](../../../iam/operations/sa/set-access-bindings.md) roles that allow using and managing service accounts to a minimum number of users.
+Each service account with extended rights should be placed as a resource in a separate folder. It prevents accidental granting of rights to this account along with the rights to the folder with the respective service component.
 
 {% list tabs %}
 
@@ -486,7 +488,7 @@ Follow the principle of minimum privileges when granting access to a service acc
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 [Remove](../../../iam/operations/roles/revoke.md) the unnecessary service account rights using {{ iam-short-name }}.
 
@@ -563,9 +565,9 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
-Follow the [instructions](../../../iam/operations/compromised-credentials.md#key-reissue) for rotating keys depending on their type.
+Follow the [guide](../../../iam/operations/compromised-credentials.md#key-reissue) for rotating keys depending on their type.
 
 #### 1.11 Two-factor authentication is set up for privileged accounts {#twofa}
 
@@ -587,7 +589,7 @@ For a Yandex ID account, set up 2FA using these [instructions](https://yandex.c
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 * [Two-factor authentication: Yandex ID](https://yandex.com/support/id/authorization/twofa.html).
 * [KeyCloak: Creating other credentials](https://www.keycloak.org/docs/12.0/server_admin/#creating-other-credentials).
@@ -599,19 +601,18 @@ For a Yandex ID account, set up 2FA using these [instructions](https://yandex.c
 
 * `billing.accounts.owner`.
 * `{{ roles-admin }}` assigned for a billing account.
-* `organization-manager.organizations.owner`.
-* `organization-manager.admin`.
-* `{{ roles-cloud-owner }}`.
-* `{{ roles-admin }}` assigned for an organization.
-* `{{ roles-admin }}` assigned for a cloud.
-* `{{ roles-admin }}` assigned for a folder.
+* `organization-manager.organizations.owner`
+* `organization-manager.admin`
+* `{{ roles-cloud-owner }}`
+* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for an organization
+* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a cloud
+* `{{ roles-admin }}` and `{{ roles-editor }}` assigned for a folder
 
 The `billing.accounts.owner` role is granted automatically when creating a billing account and cannot be reassigned to another user. The role allows you to perform any action with the billing account.
 
 The `billing.accounts.owner` role can only be assigned to a Yandex ID account. An account with the `billing.accounts.owner` role is used when setting up payment methods and adding clouds.
 
-Make sure to properly secure this account, since it has significant privileges and can't be federated with a corporate account.
-
+Make sure to properly secure this account, since it has significant privileges and cannot be federated with a corporate account.
 
 The most appropriate approach would be to not use this account on a regular basis:
 
@@ -626,14 +627,13 @@ To manage a billing account, assign the `{{ roles-admin }}` or `{{ roles-editor 
 
 To view billing data, assign the `{{ roles-viewer }}` role for the billing account to a dedicated employee with a federated account.
 
-By default, the `organization-manager.organizations.owner` role is granted to the user who creates an organization: the organization owner. The role lets you to appoint organization owners as well as use all the administrator privileges.
+By default, the `organization-manager.organizations.owner` role is granted to the user who creates an organization: the organization owner. The role allows you to appoint organization owners as well as use all the administrator privileges.
 
 The `{{ roles-cloud-owner }}` role is assigned automatically when you create your first cloud in the organization. A user with this role can perform any operation with the cloud or its resources and grant cloud access to other users: assign roles and revoke them.
 
 Assign the `{{ roles-cloud-owner }}` and `organization-manager.organizations.owner` roles to one or more employees with a federated account. Set a strong password for the Yandex ID account that was used to create the cloud, and use it only when absolutely necessary (for example, if the federated access fails).
 
-
-Be sure to fully protect your federated account that is granted one of the privileged roles listed above:
+Make sure to fully protect your federated account that is granted one of the privileged roles listed above:
 
 * Enable two-factor authentication.
 * Disable authentication from devices beyond the company's control.
@@ -660,10 +660,10 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
    Checking roles for a cloud:
 
    1. Open the {{ yandex-cloud }} management console in your browser.
-   1. Go to the global cloud menu: click on the cloud in the initial cloud menu. Select the **Access rights** tab.
-   1. Check who is granted the roles: `{{ roles-admin }}` and `{{ roles-cloud-owner }}`.
+   1. Go to the global cloud menu: click the cloud in the initial cloud menu. Select the **Access rights** tab.
+   1. Check who is granted the `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-cloud-owner }}` roles.
 
-   Checking roles for a folder:
+   To check roles for a folder:
 
    1. Open the {{ yandex-cloud }} management console in your browser.
    1. Next, go to each folder of each cloud and, similarly, select the **Access rights** tab.
@@ -684,7 +684,7 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
       export ORG_ID=<organization ID>
       yc organization-manager organization list-access-bindings
         --id=${ORG_ID} \
-        --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="organization-manager.organizations.owner" or .role_id=="organization-manager.admin" or .role_id=="resource-manager.clouds.owner")'
+        --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="organization-manager.organizations.owner" or .role_id=="organization-manager.admin" or .role_id=="resource-manager.clouds.owner" or role_id=="resource-manager.clouds.editor")'
       ```
 
    1. Find cloud-level privileged rights:
@@ -692,7 +692,7 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="resource-manager.clouds.owner")' && echo $CLOUD_ID
+      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="resource-manager.clouds.owner" or role_id=="resource-manager.clouds.editor")' && echo $CLOUD_ID
       done
       ```
 
@@ -711,7 +711,7 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 If any roles granted to untrusted administrators are found, investigate why and remove the respective rights.
 
@@ -726,7 +726,7 @@ To use a database at the application level, in addition to {{ iam-short-name }} 
 
 - Manual check
 
-   Make sure the password is regularly rotated in manual mode and meets your company's password policies. The password is stored on the client side and can't be viewed in the management console, CLI, and API.
+   Make sure the password is regularly rotated in manual mode and meets your company password policies. The password is stored on the client side and cannot be viewed in the management console, CLI, and API.
 
 {% endlist %}
 
@@ -735,9 +735,10 @@ To use a database at the application level, in addition to {{ iam-short-name }} 
 If you grant third-party contractors access to your clouds, make sure to follow these security measures:
 
 * Assign permissions to contractor employees based on the principle of minimum privileges.
-* If possible, create a separate account for third-party employees in your corporate IdP and assign the necessary policies to this account.
+* If possible, create a separate account for third-party employees in your corporate IdP and assign the required policies to this account.
 * Make sure they handle their account secrets carefully.
 * Review the expedience of granting external users access to your cloud infrastructure.
+* Use the [{{ roles-auditor }}](../../../iam/concepts/access-control/roles.md#auditor) role without data access wherever possible.
 
 {% list tabs %}
 
@@ -891,9 +892,9 @@ Make sure that these groups have no public access to your resources: clouds, fol
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
-If you detect that `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` have the access rights that they shouldn't, remove these rights.
+If you detect that `{{ subjects-allUsers }}` and `{{ subjects-allAuthenticatedUsers }}` have the access rights that they should not have, remove these rights.
 
 #### 1.17 Contact information of the person in charge of an organization is valid {#org-contacts}
 
@@ -916,9 +917,9 @@ Make sure the contact information is valid and messages are sent to multiple per
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
-Specify up-to-date contact information using the [instructions](../../../billing/operations/change-data.md#change-address).
+Specify up-to-date contact information using the [guide](../../../billing/operations/change-data.md#change-address).
 
 #### 1.18 The cookie lifetime in a federation is less than 6 hours {#cookie-timeout}
 
@@ -955,7 +956,7 @@ In the [identity federation](../../../organization/concepts/add-federation.md) s
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 Set the **Cookie lifetime** to 6 hours (21600 seconds) or less.
 
@@ -970,3 +971,140 @@ To get an IAM token when executing a function, [assign](../../../functions/opera
    Analyze all of your VMs and cloud functions in terms of manually created service account tokens. Tokens are used properly if you assign a service account to an entity and use the account's token from within via the metadata service.
 
 {% endlist %}
+
+#### 1.20 Impersonation is used wherever possible {#impersonation}
+
+[Impersonation](../../../iam/operations/sa/set-access-bindings.md#impersonation) allows a user to perform actions under a service account and to temporarily extend user permissions without generating static credentials for the user. It may be useful for use cases such as duty, local development, or permission verification.
+
+{% list tabs %}
+
+- Performing a check in the management console
+
+   1. In the [management console]({{ link-console-main }}), click the name of the cloud you need in the left-hand panel.
+   1. Go to the **Access bindings** tab and check if the `{{ roles-iam-sa-tokencreator }}` role is there.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+If the `{{ roles-iam-sa-tokencreator }}` role is missing, set up impersonation for service accounts to provide temporary access to critical data by following this [guide](../../../iam/operations/sa/set-access-bindings.md#impersonation).
+
+#### 1.21 Resource labels are used {#labels}
+
+[Labels](../../../resource-manager/concepts/labels.md) are required to monitor data streams and tag critical resources for privilege management.
+For example, for tagging resources that handle personal data under Russian Federal Law No. FZ-152, On Personal Data, select the `152-fz:true` label for:
+
+* Folders
+* {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md)
+* {{ lockbox-full-name }} [secrets](../../../lockbox/concepts/secret.md)
+* Managed DB clusters
+
+{% list tabs %}
+
+- Performing a check in the management console
+
+   The example below shows how to check if there is a label to a [{{ vpc-full-name }}](../../../vpc/) cloud network. You can perform similar checks for other resource labels.
+
+   1. In the [management console]({{ link-console-main }}), select the folder.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Check it for labels.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+[Guide on managing labels](../../../resource-manager/operations/manage-labels.md)
+
+#### 1.22 {{ yandex-cloud }} security notifications are enabled {#security-notifications}
+
+To get notifications of security-related events, such as vulnerability detection and elimination, we recommend selecting security notifications in the management console.
+
+{% list tabs %}
+
+- Performing a check in the management console
+
+   1. In the [management console]({{ link-console-main }}), click [**Settings**]({{ link-console-settings }}).
+   1. Go to the **Notifications** section.
+   1. In the notification settings, enable the **Security** option.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+1. [Make sure](../../../resource-manager/concepts/notify.md) that notifications are set up.
+1. Enable the **Security** option in the notification settings in the management console.
+
+#### 1.23 The {{ roles-auditor }} role is used to prevent access to user data
+
+Assign the `{{ roles-auditor }}` role to users that do not require data access, such as external contractors or auditors.
+`{{ roles-auditor }}` is a role with least privilege without access to service data. It grants permission to read service configurations and metadata.
+The `{{ roles-auditor }}` role allows you to perform the following operations:
+
+* View information about a resource.
+* View resource metadata.
+* View a list of operations with a resource.
+
+To control access more selectively and implement the principle of least privilege, use the `{{ roles-auditor }}` role by default.
+
+{% list tabs %}
+
+- Performing a check in the management console
+
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
+   1. Go to the **Access bindings** tab.
+   1. Click **Assign roles**.
+   1. In the **Configure access bindings** window, click **Select user**.
+   1. Select a user from the list or search by user.
+   1. Click **Add role**.
+   1. Select the `{{ roles-auditor }}` role in the folder.
+   1. Click **Save**.
+
+- Performing a check via the CLI
+
+   1. See what organizations are available to you and write down the ID you need:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+   1. Run the command below to search for accounts with the `{{ roles-auditor }}` role assigned at the organization level:
+
+      ```bash
+      export ORG_ID=<organization_ID>
+      yc organization-manager organization list-access-bindings \
+      --id=${ORG_ID} \
+      --format=json | jq -r '.[] | select(.role_id=="auditor")'
+      ```
+
+      If the list of accounts is empty, go to the <q>Guides and solutions to use</q>.
+
+   1. Run the command below to search for accounts with the `{{ roles-auditor }}` role assigned at the cloud level:
+
+      ```bash
+      export ORG_ID=<organization_ID>
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.role_id=="auditor")'
+      done
+      ```
+
+      If the list of accounts is empty, go to the <q>Guides and solutions to use</q>.
+
+   1. Run the command below to search for accounts with the `{{ roles-auditor }}` role assigned at the level of all folders in your clouds:
+
+      ```bash
+      export ORG_ID=<organization_ID>
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
+      do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.role_id=="auditor")'
+      done;
+      done
+      ```
+
+      If the list of accounts is empty, go to the <q>Guides and solutions to use</q>.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+1. [Assign](../../../iam/operations/roles/grant.md) the `{{ roles-auditor }}` role to users requiring no data access.
+1. Remove the unnecessary account rights using {{ iam-short-name }}.

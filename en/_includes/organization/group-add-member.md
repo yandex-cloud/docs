@@ -4,15 +4,15 @@
 
    1. Go to [{{ org-full-name }}]({{link-org-main}}).
 
-   1. In the left panel, select **Groups** ![icon-services](../../_assets/organization/icon-groups.svg) and click the line with the group name.
+   1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/organization/icon-groups.svg) and click the line with the group name.
 
-   1. Go to the **Members** tab.
+   1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
 
-   1. Click **Add member**.
+   1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
 
-   1. In the **Add members** window, select users from the list or perform a search by user. You can also add [service accounts](../../iam/concepts/users/service-accounts.md) to a group.
+   1. In the **{{ ui-key.yacloud_org.component.subject-select-dialog.title_dialog }}** window, select users from the list or search by user. You can also add [service accounts](../../iam/concepts/users/service-accounts.md) to a group.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 
 - {{ TF }}
 
@@ -41,7 +41,7 @@
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc organization-manager group --name=<group_name> list-members --organization-id=<organization_ID>

@@ -2,9 +2,9 @@
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-1. In the left-hand panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg). The page will display:
+1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg). The page will display:
 
-   * **User**: User login and email address.
-   * **ID**: User ID.
-   * **Federation**: [Federation](../organization/concepts/add-federation.md) ID.
-   * **Access rights**: User [roles](../iam/concepts/access-control/roles.md) and the ![image](../_assets/horizontal-ellipsis.svg) button to configure access rights.
+   * **{{ ui-key.yacloud_org.entity.user.caption.user }}**: User login and email address.
+   * **{{ ui-key.yacloud_org.entity.user.caption.userId }}**: User ID.
+   * **{{ ui-key.yacloud_org.entity.user.caption.federation }}**: [Federation](../organization/concepts/add-federation.md) ID.
+   * The ![image](../_assets/horizontal-ellipsis.svg) button to configure access rights.

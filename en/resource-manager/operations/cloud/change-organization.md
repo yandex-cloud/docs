@@ -1,6 +1,6 @@
 ---
 title: "Tutorial on changing\_the organization for the cloud in {{ resmgr-full-name }}"
-description: "In this tutorial, you'll learn how to change the organization for the cloud in {{ resmgr-full-name }}."
+description: "In this tutorial, you will learn how to change the organization for the cloud in {{ resmgr-full-name }}."
 ---
 
 # Changing an organization for a cloud
@@ -23,11 +23,8 @@ To move a cloud to another organization, you must have the `{{ roles-organizatio
 
 
   1. In the [management console]({{ link-console-main }}), select the appropriate cloud.
-  1. In the upper-right corner, click ![***](../../../_assets/options.svg)and select **Change organization**.
-
-   ![image](../../../_assets/iam/change-organization-n-n.png)
-
-  1. Select a new organization from the list and click **Change**.
+  1. In the top-right corner, click ![***](../../../_assets/options.svg) and select **{{ ui-key.yacloud.component.console-dashboard.button_action-change-org }}**.
+  1. Select a new organization from the list and click **{{ ui-key.yacloud.iam.cloud.change-org.button_change }}**.
 
 - API
 

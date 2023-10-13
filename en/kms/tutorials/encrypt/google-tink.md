@@ -24,7 +24,7 @@ Before you start, you need to add dependencies.
 
 - Go
 
-   Run the command:
+   Run this command:
 
    ```go
    go get github.com/yandex-cloud/kms-clients-go/yckmstink
@@ -36,12 +36,12 @@ Before you start, you need to add dependencies.
 
 The code uses the following variables:
 
-* `endpoint` – `{{ api-host }}:443`.
+* `endpoint`: `{{ api-host }}:443`
 * `credentialProvider` or `credentials`: Determines the authentication method (for more information, see [Authentication in the {{ yandex-cloud }} SDK](sdk.md#auth)).
-* `keyId`: ID of the [key in {{ kms-short-name }}](../../concepts/key.md).
-* `plaintext`: Unencrypted text.
-* `ciphertext`: Encrypted text.
-* `aad`: [AAD context](../../concepts/encryption.md#add-context).
+* `keyId`: ID of the [key in {{ kms-short-name }}](../../concepts/key.md)
+* `plaintext`: Unencrypted text
+* `ciphertext`: Encrypted text
+* `aad`: [AAD context](../../concepts/symmetric-encryption.md#add-context)
 
 {% list tabs %}
 
@@ -95,8 +95,8 @@ The code uses the following variables:
 
 #### See also {#see-also}
 
-* [Google Tink](https://github.com/google/tink).
-* [Java client for Tink](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink).
-   * [Examples of using the Java client for Tink](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink/src/main/java/com/yandex/cloud/kms/providers/examples).
-* [Go client for Tink](https://github.com/yandex-cloud/kms-clients-go).
-   * [Examples of using the Go client for Tink](https://github.com/yandex-cloud/kms-clients-go/tree/master/yckmstink/examples).
+* [Google Tink](https://github.com/google/tink)
+* [Java client for Tink](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink)
+* [Examples of using the Java client for Tink](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink/src/main/java/com/yandex/cloud/kms/providers/examples)
+* [Go client for Tink](https://github.com/yandex-cloud/kms-clients-go)
+* [Examples of using the Go client for Tink](https://github.com/yandex-cloud/kms-clients-go/tree/master/yckmstink/examples)

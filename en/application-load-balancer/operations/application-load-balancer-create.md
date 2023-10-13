@@ -37,10 +37,10 @@ To create an L7 load balancer:
 
    1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Set the listener settings:
       1. Enter the listener name.
-      1. (Optional) Enable **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Set the **{{ ui-key.yacloud.alb.label_port }}** to `80` and the **{{ ui-key.yacloud.common.type }}** to:
+      1. (optional) Enable **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Set the **{{ ui-key.yacloud.alb.label_port }}** to `80` and the **{{ ui-key.yacloud.common.type }}** to:
          * `{{ ui-key.yacloud.alb.label_address-auto }}`.
          * `{{ ui-key.yacloud.alb.label_address-list }}`: Select an address from the drop-down list of the field that appears on the right.
-      1. (Optional) Enable **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Specify **{{ ui-key.yacloud.alb.label_port }}** and select **{{ ui-key.yacloud.common.label_subnet }}** from the drop-down list.
+      1. (optional) Enable **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Specify **{{ ui-key.yacloud.alb.label_port }}** and select **{{ ui-key.yacloud.common.label_subnet }}** from the drop-down list.
       1. Under **{{ ui-key.yacloud.alb.section_common-address-specs }}**, select the listener type: `{{ ui-key.yacloud.alb.label_listener-type-http }}` or `{{ ui-key.yacloud.alb.label_listener-type-stream }}`.
 
          For `{{ ui-key.yacloud.alb.label_listener-type-http }}`, select:
@@ -324,7 +324,7 @@ To create an L7 load balancer:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan

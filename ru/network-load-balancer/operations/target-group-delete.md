@@ -47,7 +47,7 @@ description: "Перед удалением целевой группы ее н�
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы удалить целевую группу, созданную с помощью {{ TF }}:
   1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием целевой группы.

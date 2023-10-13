@@ -1,4 +1,4 @@
-### backup.viewer {#backup-editor}
+#### backup.viewer {#backup-viewer}
 
 The `backup.viewer` role is intended for viewing {{ backup-name }} resources. Users with this role can view:
 

@@ -2,21 +2,27 @@
 
 В {{ ml-platform-short-name }} уже предустановлены пакеты для [анализа данных](../../glossary/data-analytics.md) и машинного обучения. Если какого-то пакета вам не хватает, вы можете [установить его](../operations/projects/install-dependencies.md) прямо из ячейки ноутбука.
 
-{% include [packs](../../_includes/datasphere/migration/preinstalled-packs.md) %}
+Вы можете выбрать один из стандартных образов DS Default или [создать собственное окружение](../operations/user-images.md) для работы в {{ ml-platform-name }}. Стандартные образы отличаются версиями Python и набором библиотек.
 
-## Версии пакетов {#versions}
+По умолчанию в проектах {{ ml-platform-short-name }} используется образ с Python 3.10. Если вам нужен Python 3.7 или Python 3.8, воспользуйтесь инструкцией [{#T}](../operations/projects/python-version.md). 
 
-Чтобы посмотреть версию установленного пакета, выполните в ячейке ноутбука команду: 
-```js
-%pip show <Имя пакета>
-```
+## Список предустановленных пакетов {#preinstalled-packages}
 
-Чтобы посмотреть список установленных пакетов и их версии, выполните в ячейке ноутбука команду:
+Все образы содержат предустановленный NVIDIA-SMI 525.125.06, драйвер версии 525.125.06 и CUDA версии 12.0.
+
+Чтобы посмотреть список установленных пакетов и их версии, также можно выполнить в ячейке ноутбука команду:
+
 ```js
 %pip list
 ```
 
-По умолчанию в проектах {{ ml-platform-short-name }} используется образ с Python 3.10. Если вам нужен Python 3.7 или Python 3.8, воспользуйтесь инструкцией [{#T}](../operations/projects/python-version.md). 
+{% include [packs](../../_includes/datasphere/migration/preinstalled-packs.md) %}
+
+{% note warning %}
+
+Системный образ DS Default (Python 3.7) не работает с [конфигурациями](configurations.md) g2.x (GPU A100).
+
+{% endnote %}
 
 ## Обновление {#update}
 
@@ -24,28 +30,30 @@
 Обновленные версии будут сохраняться при смене окружений и перезапусках проекта [в режиме {{ ds }}](project.md#serverless).
 
 Чтобы обновить библиотеку до последней версии, выполните в ячейке ноутбука команду:
+
 ```js
 %pip install <название библиотеки> -U
 ```
 
 Например, для обновления TensorFlow до последней версии нужно выполнить команду:
+
 ```js
 %pip install tensorflow -U
 ```
 
 Чтобы обновить библиотеку до конкретной версии, выполните в ячейке ноутбука команду:
+
 ```js
 %pip install <название библиотеки>==<версия>
 ```
 
 Например:
+
 ```js
 %pip install tensorflow==2.3.1
 ```
 
-Подробнее о работе с системой управления пакетами pip читайте в [официальной документации Python](https://docs.python.org/3/installing/index.html).
-
-Обратите внимание, что версия TensorFlow, установленная по умолчанию, зависит от [выбранной версии Python](../operations/projects/python-version.md). В проектах с Python 3.7 устанавливается TensorFlow 1.15, с Python 3.8 — TensorFlow 2.6.
+Подробнее о работе с системой управления пакетами `pip` читайте в [официальной документации Python](https://docs.python.org/3/installing/index.html).
 
 {% note warning %}
 

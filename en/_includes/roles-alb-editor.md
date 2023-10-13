@@ -1,6 +1,6 @@
-### alb.editor {#alb-editor}
+#### alb.editor {#alb-editor}
 
-The `{{ roles-alb-editor }}` role lets you create, update, and delete resource model objects:
+The `{{ roles-alb-editor }}` role allows you to create, update, and delete resource model objects:
 * [L7 load balancers](../application-load-balancer/concepts/application-load-balancer.md).
 * [HTTP routers](../application-load-balancer/concepts/http-router.md).
 * [Backend groups](../application-load-balancer/concepts/backend-group.md).

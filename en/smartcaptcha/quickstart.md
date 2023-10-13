@@ -11,7 +11,7 @@ To get started with the service:
 ## Getting started {#before-begin}
 
 1. Go to the [management console]({{ link-console-main }}). Log in to {{ yandex-cloud }} or register if you don't have an account yet.
-1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../billing/quickstart/index.md).
+1. On the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../billing/quickstart/index.md).
 
 
 ## Create a CAPTCHA {#creat-captcha}
@@ -21,13 +21,13 @@ To get started with the service:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-   1. Select **{{ captcha-full-name }}**.
-   1. Click **Create captcha**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+   1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
    1. Enter a CAPTCHA name.
-   1. Select the `Medium` complexity.
+   1. Select the complexity `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
    1. Specify a list of sites where the CAPTCHA will be placed.
-   1. Leave the standard **configuration type**.
-   1. Click **Create**.
+   1. Leave the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** as is.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -39,9 +39,9 @@ To get started with the service:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-   1. Select **{{ captcha-full-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
    1. Click the name of the CAPTCHA or [create](#creat-captcha) a new one.
-   1. On the **Overview** tab, copy `client_key` and `server_key`.
+   1. In the **{{ ui-key.yacloud.common.overview }}** tab, copy the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** and **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** field values.
 
 {% endlist %}
 
@@ -152,7 +152,7 @@ Example of the token validation function:
        $args = http_build_query([
            "secret" => SMARTCAPTCHA_SERVER_KEY,
            "token" => $token,
-           "ip" => $_SERVER['REMOTE_ADDR'], // You need to pass the user IP.
+           "ip" => $_SERVER['REMOTE_ADDR'], // You need to provide the user IP.
                                             // Method for retrieving the user IP depends on your proxy.
        ]);
        curl_setopt($ch, CURLOPT_URL, "https://smartcaptcha.yandexcloud.net/validate?$args");

@@ -51,7 +51,7 @@
 
 - In Cloud Functions
 
-   For details, see the example in the [video conversion guide](../../functions/tutorials/video-converting-queue.md).
+   See the example in the [video conversion guide](../../functions/tutorials/video-converting-queue.md).
 
 {% endlist %}
 

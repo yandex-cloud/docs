@@ -1,7 +1,5 @@
 # Connecting {{ compute-name }} VMs to {{ backup-name }}
 
-{% include [ask-for-turning-on](../../_includes/backup/ask-for-turning-on.md) %}
-
 To back up your [{{ compute-full-name }}](../../compute/) [VM](../../compute/concepts/vm.md) using {{ backup-name }}, you need to connect it to this service and set it up properly.
 
 To connect your VM to {{ backup-name }}, make sure it has one of the [supported operating systems](#os) installed: Linux (CentOS, Ubuntu) or Windows Server. You can connect existing Linux and Windows Server VMs or create a Linux VM with a connection to {{ backup-name }}. For more information on connecting VMs, see [this guide](../operations/index.md#connect-vm).
@@ -39,18 +37,22 @@ Using a public IP address is a paid service. For more information, see [{#T}](..
 
 Security groups allow you to manage VM access to resources in {{ yandex-cloud }} or on the web.
 
-For your VM instance to be able to exchange data with the backup provider servers, when creating it and connecting to {{ backup-name }}, you need to select a security group that allows outgoing TCP traffic to the `193.32.199.0/24` IP range on ports `443`, `7770-7800`, `43234`, and `45284`. For this, you need to create the following (or broader) rules in the group:
+For your VM instance to be able to exchange data with the backup provider servers, when creating it and connecting to {{ backup-name }}, select a security group with the following (or broader) rules:
 
 {% list tabs %}
 
 - Outgoing traffic
 
-  | Port range | Protocol | Destination type | Purpose |
-  | --- | --- | --- | --- |
-  | 443 | TCP | CIDR | 193.32.199.0/24 |
-  | 7770-7800 | TCP | CIDR | 193.32.199.0/24 |
-  | 43234 | TCP | CIDR | 193.32.199.0/24 |
-  | 45284 | TCP | CIDR | 193.32.199.0/24 |
+   | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+   --- | --- | --- | ---
+   | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.204.0/24` |
+   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24` |
+   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.201.181.0/24` |
+   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.193.0/24` |
+   | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `213.180.204.0/24` |
+   | `7770-7800` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24` |
+   | `8443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `84.47.172.0/24` |
+   | `44445` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `51.250.1.0/24` |
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
 ---
 title: "Deleting a user account in {{ org-full-name }}"
-description: "In this tutorial, you'll learn how to delete user accounts in {{ org-name }}."
+description: "In this tutorial, you will learn how to delete user accounts in {{ org-name }}."
 ---
 
 # Deleting a user account
@@ -15,8 +15,8 @@ An account can be deleted by users with the `organization-manager.admin` or `org
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-1. In the left-hand panel, select [Users]({{link-org-users}}) ![icon-users](../../_assets/organization/icon-users.svg).
+1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../../_assets/organization/icon-users.svg).
 
 1. Select an employee from the list or use the search bar at the top of the page.
 
-1. In the employee row, click ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) and select **Remove from organization**.
+1. In the line with the employee name, click ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.remove }}**.

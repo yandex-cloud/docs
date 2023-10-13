@@ -3,7 +3,7 @@
 Текст ошибки:
 
 ```text
-ERROR: cannot drop table <имя таблицы> because other objects depend on it (SQLSTATE 2BP01)
+ERROR: cannot drop table <имя_таблицы> because other objects depend on it (SQLSTATE 2BP01)
 ```
 
 При политике очистки `Drop` трансфер удаляет таблицы в несколько итераций:

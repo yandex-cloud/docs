@@ -26,6 +26,8 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
            --name new-folder
          ```
 
+         The naming requirements are as follows:
+
          {% include [name-format](../../../_includes/name-format.md) %}
 
       * with a name and description:
@@ -47,7 +49,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       * `cloud_id`: [ID of the cloud](../cloud/get-id.md) where the folder will be created. This is an optional parameter. By default, the value specified in the provider settings is used.
-      * `name`: Name of the folder to be created. This parameter is required. The naming requirements are as follows:
+      * `name`: Name of the folder being created. This is a required parameter. The naming requirements are as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -97,9 +99,9 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      The folder will be created in the specified cloud. You can use the [management console]({{ link-console-main }}) or a [CLI](../../../cli/quickstart.md) command to verify that the folder is there:
+      The folder will be created in the specified cloud. You can check the new folder and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc resource-manager cloud list

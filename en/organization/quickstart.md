@@ -10,13 +10,13 @@ _Organization_ is a workspace that combines different types of {{ yandex-cloud }
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-1. Read the {{yandex-cloud}} terms of use and click **Log in**.
+1. Read the {{yandex-cloud}} terms of use and click **{{ ui-key.yacloud_org.form.organization.select.action.enter }}**.
 
 1. Enter your company name and description.
 
-1. Click **Create organization**.
+1. Click **{{ ui-key.yacloud_org.pages.create }}**.
 
-After registering, you become the organization owner. You'll be able to manage employee accounts, as well as connect and disable services.
+After registering, you become the organization owner. You will be able to manage employee accounts, as well as connect and disable services.
 
 ## Add employees {#add-users}
 
@@ -28,7 +28,7 @@ If your employees have Yandex accounts (for example, `{{login-example}}`), they 
 
 To connect employees with Yandex accounts:
 
-1. In the left-hand panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
+1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
 1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
 
@@ -45,15 +45,15 @@ Identity federation is a technology with which you can implement a single sign-o
 
 To configure your identity federation, follow these steps:
 
-1. In the left-hand panel, select [Federations]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.svg).
+1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.svg).
 
-1. Click **Create federation**.
+1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
 1. Enter the federation name and description.
 
-1. In the **Cookie lifetime** field, specify the period of time that must elapse before the browser asks the user to re-authenticate.
+1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
 
-1. In the **IdP Issuer** field, specify the IdP server ID to be used for authentication. The IdP server must send the same ID in its response to {{org-name}} during user authentication.
+1. In the **IdP Issuer** field, specify the IdP server ID to be used for authentication. The IdP server must send the same ID in its response to {{ org-name }} during user authentication.
 
    {% note info %}
 
@@ -61,13 +61,13 @@ To configure your identity federation, follow these steps:
 
    {% endnote %}
 
-1. In the **SSO method** field, choose **POST**.
+1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoBinding }}** field, choose **POST**.
 
-1. In the **Link to the IdP login page** field, specify the address of the page that the browser redirects the user to for authentication.
+1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, specify the address of the page that the browser redirects the user to for authentication.
 
 1. Add an [identity provider certificate](#add-cert) to the created federation.
 
-1. Enable **Automatically create users** to add authenticated users to your organization automatically.
+1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to add authenticated users to your organization automatically.
 
    If you do not enable this option, you will need to [manually add](operations/add-account.md#add-user-sso) your federated users.
 

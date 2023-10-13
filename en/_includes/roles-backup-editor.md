@@ -1,4 +1,4 @@
-### backup.editor {#backup-editor}
+#### backup.editor {#backup-editor}
 
 The `backup.editor` role is intended for managing {{ backup-name }} resources. Users with this role can:
 

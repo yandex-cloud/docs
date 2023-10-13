@@ -1,5 +1,7 @@
 # Ссылки
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 Для оформления ссылок используйте разметку:
 
 ```

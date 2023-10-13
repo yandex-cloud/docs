@@ -98,8 +98,8 @@ This section describes how to assign a role to a user with a Yandex account. The
    1. Add the resource parameters to the configuration file, specify the required role and a list of cloud users:
 
       * `cloud_id`: [Cloud ID](../../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
-      * `role`: Role being assigned. This is a required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
+      * `role`: Role being assigned. Required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
 
       Example of the configuration file structure:
 
@@ -169,7 +169,7 @@ This section describes how to assign a role to a user with a Yandex account. The
 
    For example, to assign multiple roles for a folder:
 
-   1. Make sure the resource doesn't have any roles that you don't want to lose:
+   1. Make sure the resource does not have any roles that you do not want to lose:
 
       ```bash
       yc resource-manager folder list-access-binding my-folder
@@ -352,15 +352,15 @@ In the management console, you can assign a [federated user](../../../organizati
    Assign the group of users a role in the cloud:
 
    1. In the [management console]({{ link-console-main }}), [select](../../../resource-manager/operations/cloud/switch-cloud.md) a cloud.
-   1. Click the **Access bindings** tab.
-   1. Click **Assign roles**.
-   1. In the **Configuring access bindings** window, click **Select subject**.
-      1. Go to **Groups** or search for a group by name.
-      1. Click **Add role**.
+   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window, click **{{ ui-key.yacloud_components.acl.action.select-subject }}**:
+      1. Go to **{{ ui-key.yacloud.common.resource-acl.label_groups }}** or search for a group by name.
+      1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
       1. Select a role in the cloud.
-      1. Click **Save**.
+      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-   The group name will be displayed in **Access bindings** in the cloud along with the other users with roles in this cloud.
+   The group name will be displayed in **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** in the cloud along with the other users with roles in this cloud.
 
 - CLI
 

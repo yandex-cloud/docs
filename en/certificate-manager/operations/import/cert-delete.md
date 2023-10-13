@@ -7,11 +7,11 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
-   1. In the list of services, select **{{ certificate-manager-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
    1. Find the certificate to be deleted in the list.
    1. Click ![image](../../../_assets/options.svg).
-   1. In the menu that opens, click **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -37,7 +37,7 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
       +----------------------+---------------+-------------+---------------------+----------+--------+
       |          ID          |     NAME      |   DOMAINS   |      NOT AFTER      |   TYPE   | STATUS |
       +----------------------+---------------+-------------+---------------------+----------+--------+
-      | fpqmg47avvimp7rvmp30 | myupdatedcert | example.com | 2021-09-15 08:12:57 | IMPORTED | ISSUED |
+      | fpqmg47avvim******** | myupdatedcert | example.com | 2021-09-15 08:12:57 | IMPORTED | ISSUED |
       +----------------------+---------------+-------------+---------------------+----------+--------+
       ```
 
@@ -45,7 +45,7 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
 
       ```bash
       yc certificate-manager certificates delete \
-        --id fpqmg47avvimp7rvmp30
+        --id fpqmg47avvim********
       ```
 
       Where `--id`: Certificate ID.
@@ -53,8 +53,8 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
       Command result:
 
       ```bash
-      id: fpqmg47avvimp7rvmp30
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: fpqmg47avvim********
+      folder_id: b1g7gvsi89m3********
       created_at: "2020-09-15T06:54:44.916Z"
       ...
       issued_at: "2020-09-15T08:23:50.147Z"

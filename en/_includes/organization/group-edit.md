@@ -4,17 +4,17 @@ To change the name or description of a group:
 
 - Cloud Organization
 
-   1. [Log in]({{ link-passport-login }}) to the organization's administrator account.
+   1. [Log in]({{ link-passport-login }}) to the organization administrator account.
 
    1. Go to [{{org-full-name}}]({{ link-org-main }}).
 
-   1. In the left panel, select **Groups** ![icon-services](../../_assets/organization/icon-groups.svg).
+   1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/organization/icon-groups.svg).
 
    1. Select a group from the list and click ![image](../../_assets/options.svg) next to the group name.
 
-   1. Click **Edit** and enter a new group name or description.
+   1. Click **{{ ui-key.yacloud_org.entity.group.action_edit }}** and enter a new group name or description.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
 - {{ TF }}
 
@@ -45,7 +45,7 @@ To change the name or description of a group:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc organization-manager group get --name=<group_name> --organization-id=<organization_ID>

@@ -6,9 +6,9 @@ To run workloads with GPUs on {{ managed-k8s-name }} cluster [pods](../concepts/
 1. [{#T}](#create-pod-gpu)
 1. [{#T}](#check-pod)
 
-If you no longer need these resources, [delete them](#delete-resources).
+If you no longer need the resources you created, [delete them](#delete-resources).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -33,7 +33,7 @@ If you no longer need these resources, [delete them](#delete-resources).
      containers:
        - name: cuda-vector-add
          # https://github.com/kubernetes/kubernetes/blob/v1.7.11/test/images/nvidia-cuda/Dockerfile
-         image: "k8s.gcr.io/cuda-vector-add:v0.1"
+         image: "registry.k8s.io/cuda-vector-add:v0.1"
          resources:
            limits:
              nvidia.com/gpu: 1 # Request for 1 GPU.
@@ -61,7 +61,7 @@ If you no longer need these resources, [delete them](#delete-resources).
    Namespace:    default
    Priority:     0
    ...
-     Normal  Pulling    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Successfully pulled image "k8s.gcr.io/cuda-vector-add:v0.1"
+     Normal  Pulling    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Successfully pulled image "registry.k8s.io/cuda-vector-add:v0.1"
      Normal  Created    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Created container cuda-vector-add
      Normal  Started    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Created container
    ```

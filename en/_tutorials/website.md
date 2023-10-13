@@ -1,6 +1,8 @@
-# {{ captcha-full-name }} in mobile apps
+# Adding HTML code to work with {{ captcha-full-name }}
 
 To embed the {{ captcha-name }} service in an Android or iOS app through **WebView**, place this HTML page on one of your domains' hosts:
+
+{% cut "HTML page with a CAPTCHA code" %}
 
 ```html
 <!DOCTYPE html>
@@ -120,9 +122,12 @@ To embed the {{ captcha-name }} service in an Android or iOS app through **WebVi
 </html>
 ```
 
+{% endcut %}
+
 If you want to place this page on a host yourself, you can use a ready-made `{{ captcha-mobile-site }}` HTML page from our server.
 
-## What's next {#whats-next}
+After placing the CAPTCHA code, you can use {{ captcha-full-name }} in the following cases:
 
-* [How to embed {{ captcha-name }} in your Android app](../smartcaptcha/tutorials/mobile-app/android/quickstart-android.md).
-* [How to embed {{ captcha-name }} in your iOS app](../smartcaptcha/tutorials/mobile-app/ios/quickstart-ios.md).
+* [{#T}](../smartcaptcha/tutorials/mobile-app/android/quickstart-android.md)
+* [{#T}](../smartcaptcha/tutorials/mobile-app/android/invisible-captcha-android.md)
+* [{#T}](../smartcaptcha/tutorials/mobile-app/ios/quickstart-ios.md)

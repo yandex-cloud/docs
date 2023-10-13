@@ -32,7 +32,6 @@ Syntax:
 	- [yc compute instance start](instance/start.md) — Start the specified virtual machine instance
 	- [yc compute instance restart](instance/restart.md) — Restart the specified virtual machine instance
 	- [yc compute instance attach-disk](instance/attach-disk.md) — Attach existing disk to the specified virtual machine instance
-	- [yc compute instance attach-new-disk](instance/attach-new-disk.md) — Attach new disk to the specified virtual machine instance
 	- [yc compute instance detach-disk](instance/detach-disk.md) — Detach disk from the specified virtual machine instance
 	- [yc compute instance attach-filesystem](instance/attach-filesystem.md) — Attach existing filesystem to the specified virtual machine instance
 	- [yc compute instance detach-filesystem](instance/detach-filesystem.md) — Detach filesystem from the specified virtual machine instance
@@ -40,6 +39,7 @@ Syntax:
 	- [yc compute instance add-one-to-one-nat](instance/add-one-to-one-nat.md) — Add one-to-one NAT to the specified network interface of virtual machine instance
 	- [yc compute instance remove-one-to-one-nat](instance/remove-one-to-one-nat.md) — Remove one-to-one NAT to the specified network interface of virtual machine instance
 	- [yc compute instance move](instance/move.md) — Move the specified virtual machine instance into the folder
+	- [yc compute instance relocate](instance/relocate.md) — Relocate the specified virtual machine instance to the zone
 	- [yc compute instance list-operations](instance/list-operations.md) — List operations for the specified instance
 - [yc compute disk](disk/index.md) — Manage disks
 	- [yc compute disk get](disk/get.md) — Show information about the specified disk
@@ -51,6 +51,7 @@ Syntax:
 	- [yc compute disk resize](disk/resize.md) — Resize the specified disk
 	- [yc compute disk delete](disk/delete.md) — Delete the specified disk
 	- [yc compute disk move](disk/move.md) — Move the specified disk into the folder
+	- [yc compute disk relocate](disk/relocate.md) — Relocate the specified disk to the zone
 	- [yc compute disk list-operations](disk/list-operations.md) — List operations for the specified disk
 - [yc compute disk-type](disk-type/index.md) — Show available disk types
 	- [yc compute disk-type get](disk-type/get.md) — Show information about the specified disk type

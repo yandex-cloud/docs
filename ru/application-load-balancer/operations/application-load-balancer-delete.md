@@ -39,7 +39,7 @@
 
 - {{ TF }}
 
-  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы удалить L7-балансировщик, созданный с помощью {{ TF }}:
   1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием L7-балансировщика.

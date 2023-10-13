@@ -1,26 +1,26 @@
 # Setting up NodeLocal DNS Cache
 
-To reduce the number of DNS queries to a [{{ k8s }} cluster](../concepts/index.md#kubernetes-cluster), enable NodeLocal DNS Cache. 
+To reduce the number of DNS queries on a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster), enable NodeLocal DNS Cache. 
 
 {% note tip %}
 
-If a cluster is made up of over 50 nodes, use [automatic DNS scaling](dns-autoscaler.md).
+If a {{ managed-k8s-name }} cluster is made up of over 50 [nodes](../concepts/index.md#node-group), use [automatic DNS scaling](dns-autoscaler.md).
 
 {% endnote %}
 
 By default, [pods](../concepts/index.md#pod) send queries to the `kube-dns` [service](../concepts/service.md). The `nameserver` field in the `/etc/resolv.conf` file is set to the `ClusterIp` value of `kube-dns`. A connection to the `ClusterIP` is established using [iptables](https://en.wikipedia.org/wiki/Iptables) or [IP Virtual Server](https://en.wikipedia.org/wiki/IP_Virtual_Server).
 
-When NodeLocal DNS Cache is enabled, a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) is deployed in a cluster. The caching agent is run on each node (under `node-local-dns`). User pods now send queries to the agent running on their nodes.
+When NodeLocal DNS Cache is enabled, a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) is deployed in a {{ managed-k8s-name }} cluster. The caching agent is run on each {{ managed-k8s-name }} node (under `node-local-dns`). User pods now send queries to the agent running on their {{ managed-k8s-name }} nodes.
 
-If a query is in the agent cache, it returns a direct response. Otherwise, a TCP connection to the `ClusterIP` `kube-dns` is created. By default, the caching agent makes cache-miss requests to `kube-dns` for the `cluster.local` cluster zone.
+If a query is in the agent cache, it returns a direct response. Otherwise, a TCP connection to the `ClusterIP` `kube-dns` is created. By default, the caching agent makes cache-miss requests to `kube-dns` for the `cluster.local` [DNS zone](../../dns/concepts/dns-zone.md) of the {{ managed-k8s-name }} cluster.
 
 This helps avoid the DNAT rules, [connection tracking](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#motivation), and restrictions on the [number of connections](../../vpc/concepts/limits.md#vpc-limits). For more information about NodeLocal DNS Cache, see the [documentation](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md).
 
 To set up DNS query caching:
-1. [{#T}](#install).
-1. [{#T}](#configure).
-1. [{#T}](#dns-queries).
-1. [{#T}](#check-logs).
+1. [{#T}](#install)
+1. [{#T}](#configure)
+1. [{#T}](#dns-queries)
+1. [{#T}](#check-logs)
 
 ## Getting started {#before-you-begin}
 
@@ -31,29 +31,29 @@ To set up DNS query caching:
 - Manually
 
   1. Create a [cloud network](../../vpc/operations/network-create.md) and [subnet](../../vpc/operations/subnet-create.md).
-  1. Create a [service account](../../iam/operations/sa/create.md) with the `editor` role.
-  1. [Create a {{ k8s }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) with the parameters.
-     * {{ k8s }} version: 1.20 or higher.
-     * Public access to the internet.
+  1. Create a [service account](../../iam/operations/sa/create.md) with the `editor` [role](../../iam/concepts/access-control/roles.md).
+  1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) with the following parameters:
+     * [{{ k8s }} version](../concepts/release-channels-and-updates.md): 1.20 or higher.
+     * Public access to the internet: Enabled.
 
 - Using {{ TF }}
 
   1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-  1. Download the [k8s-node-local-dns.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-node-local-dns.tf) cluster configuration file to the same working directory. The file describes:
+  1. Download the [k8s-node-local-dns.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-node-local-dns.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
      * [Network](../../vpc/concepts/network.md#network).
      * [Subnet](../../vpc/concepts/network.md#subnet).
      * [Security group](../../vpc/concepts/security-groups.md) and [rules](../operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
        * Rules for service traffic.
-       * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
+       * Rules for accessing the {{ k8s }} API and managing the {{ managed-k8s-name }} cluster with `kubectl` through ports 443 and 6443.
      * {{ managed-k8s-name }} cluster.
      * [Service account](../../iam/concepts/users/service-accounts.md) required to use the cluster and [{{ managed-k8s-name }} node group](../concepts/index.md#node-group).
   1. Specify the following in the configuration file:
      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
      * [{{ k8s }} versions](../concepts/release-channels-and-updates.md) for the cluster and {{ managed-k8s-name }} node groups.
      * {{ managed-k8s-name }} cluster CIDR.
-     * Name of the cluster service account.
-  1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+     * Name of the {{ managed-k8s-name }} cluster service account.
+  1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
   1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
@@ -77,7 +77,7 @@ To set up DNS query caching:
 
 1. {% include [Install kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Retrieve the service IP address for `kube-dns`:
+1. Retrieve the service [IP address](../../vpc/concepts/address.md) for `kube-dns`:
 
    ```bash
    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
@@ -512,4 +512,4 @@ Delete the resources you no longer need to avoid paying for them:
 
    {% endlist %}
 
-1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+1. If static [public IP addresses](../../vpc/concepts/address.md#public-addresses) were used for {{ managed-k8s-name }} cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.

@@ -4,6 +4,8 @@
 
 Эта инструкция для [владельцев облака](../resource-manager/concepts/resources-hierarchy.md#owner) и пользователей с ролью [администратора](concepts/access-control/roles.md#admin) на облако или каталог. Пользователи с ролью [`editor`](concepts/access-control/roles.md#editor) тоже могут создавать сервисные аккаунты, но не могут назначать роли, поэтому не смогут разрешить сервисному аккаунту выполнение операций в {{ yandex-cloud }}.
 
+Проверка наличия необходимых ролей описана в разделе [{#T}](#before-you-begin).
+
 Вы научитесь:
 
 * [Создавать сервисные аккаунты и назначать им роли](#create-sa).
@@ -13,7 +15,22 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. Убедитесь, что у вас есть нужные [роли](./concepts/access-control/roles.md):
+
+    1. В консоли управления в списке слева выберите нужное облако. Пример:
+
+        ![image](../_assets/resource-manager/switch-cloud-n-n.png)
+
+    1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+    1. В строке поиска введите свою учетную запись.
+    1. Проверьте, что для вашей учетной записи указаны роли:
+
+        * владельца (`organization-manager.organizations.owner`) или администратора (`organization-manager.admin`) организации;
+        * владельца (`resource-manager.clouds.owner`) или администратора (`admin`) облака.
+
+
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+
 
 ## Создайте сервисный аккаунт {#create-sa}
 

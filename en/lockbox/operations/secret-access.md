@@ -5,13 +5,13 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-   1. In the list of services, select **{{ lockbox-short-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click the name of the secret you need.
-   1. On the left-hand panel, select ![image](../../_assets/organization/icon-groups.svg) **Access rights** and click **Assign roles**.
-   1. In the window that opens, click ![image](../../_assets/plus-sign.svg) **Select user**.
+   1. On the left-hand panel, select ![image](../../_assets/organization/icon-groups.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. In the window that opens, click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
    1. Select the group, user, or [service account](../../iam/concepts/users/service-accounts.md) to be granted access to the secret.
-   1. Click ![image](../../_assets/plus-sign.svg) **Add role** and select the required [roles](../security/index.md#roles-list).
-   1. Click **Save**.
+   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../security/index.md#roles-list).
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -49,7 +49,7 @@
          Where:
          * `id`: Secret ID.
          * `user-account-id`: [User ID](../../iam/operations/users/get.md).
-         * `role`: Assigned [role](../security/index.md#roles-list).
+         * `role`: [Role](../security/index.md#roles-list) being assigned.
 
       * To a [service account](../../iam/concepts/users/service-accounts.md):
 
@@ -95,7 +95,7 @@
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc lockbox secret list-access-binding <secret_ID>

@@ -77,7 +77,7 @@
 
 - {{ TF }}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
   1. Опишите в конфигурационном файле:
      * Параметры ресурса `yandex_container_registry_iam_binding`, чтобы назначить роль на реестр:
        * `registry_id` — идентификатор реестра, на который назначается роль. Вы можете получить идентификатор реестра из [списка реестров в каталоге](../registry/registry-list.md#registry-list).
