@@ -40,7 +40,7 @@ Less strong isolation models are also possible, for example:
 
 ## Network security {{ managed-k8s-name }} {#network-security}
 
-We don't recommend that you grant access to the {{ k8s }} API and node groups from non-trusted networks (for example, from the internet).
+We do not recommend granting access to the {{ k8s }} API and node groups from non-trusted networks, e.g., from the internet.
 Use firewall protection when needed (for example, [security groups](../../vpc/concepts/security-groups.md)). In the section below, you can find links to instructions on how to set up firewall protection in security groups.
 
 ### Segmentation {#segmentation}
@@ -99,10 +99,10 @@ For all pods, create a network policy to block network traffic to port 169.254.1
 
 The access of {{ iam-short-name }} accounts to {{ managed-k8s-name }} resources is managed at the following levels:
 
-* [{{ managed-k8s-name }}service roles](../../managed-kubernetes/security/#yc-api) (access to the {{ yandex-cloud }} API): They enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
-* Service roles to access the {{ k8s }} API: They let you control cluster resources via the {{ k8s }} API (for example, perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles at the cluster level are available: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, and `k8s.cluster-api.viewer`.
+* [{{ managed-k8s-name }}service roles](../../managed-kubernetes/security/#yc-api) (access to the {{ yandex-cloud }} API): These enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
+* Service roles to access the {{ k8s }} API: These let you control cluster resources via the {{ k8s }} API (for example, perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles at the cluster level are available: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, and `k8s.cluster-api.viewer`.
 * Primitive roles: These are global primitive {{ iam-short-name }} roles that include service roles (for example, the primitive role admin includes both the service administration role and the administrative role to access the {{ k8s }} API).
-* Standard {{ k8s }} roles: Inside the {{ k8s }} cluster, you can use {{ k8s }} tools to create both regular roles and cluster roles. This way, you can control {{ iam-short-name }} accounts access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace, specifying the {{ iam-short-name }} ID of the cloud user in the "subjects name" field. Example:
+* Standard {{ k8s }} roles: Inside the {{ k8s }} cluster, you can use {{ k8s }} tools to create both regular roles and cluster roles. This way, you can control {{ iam-short-name }} accounts access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace, specifying the {{ iam-short-name }} ID of the cloud user in the "subjects name" field. For example:
 
    ```
    apiVersion: rbac.authorization.k8s.io/v1

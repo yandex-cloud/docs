@@ -28,6 +28,8 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
             --max-items 1000)"
       ```
 
+      You can also use `--max-keys` instead of `--max-items`.
+
       Result:
 
       ```json
@@ -61,6 +63,8 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
             --query '{Objects: DeleteMarkers[].{Key: Key, VersionId: VersionId}}' \
             --max-items 1000)"
       ```
+
+      You can also use `--max-keys` instead of `--max-items`.
 
       Result:
 

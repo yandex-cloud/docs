@@ -1,6 +1,6 @@
 # Uploading audit logs to {{ mch-name }} and data visualization in {{ datalens-name }}
 
-Upload [audit logs](../audit-trails/concepts/format.md) from a folder to [{{ mch-full-name }}](../managed-clickhouse/) and analyze resource use in [{{ datalens-full-name }}]({{ link-datalens-main }}).
+Upload configuration-level (Control Plane) [audit logs](../audit-trails/concepts/format.md) from a folder to [{{ mch-full-name }}](../managed-clickhouse/) and analyze the resource use in [{{ datalens-full-name }}]({{ link-datalens-main }}).
 1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#environment-preparing).
 1. [Create a trail](#create-trail).
@@ -30,11 +30,11 @@ The infrastructure support cost includes:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [service account](../iam/concepts/users/service-accounts.md).
-  1. At the top of the screen, go to the **Service accounts** tab.
-  1. Click **Create service account**.
+  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter the service account name: `sa-trail-logs`.
-  1. Click ![](../_assets/plus-sign.svg) **Add role** and select the `audit-trails.viewer` and `yds.editor` [roles](../iam/concepts/access-control/roles.md).
-  1. Click **Create**.
+  1. Click ![](../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `audit-trails.viewer` and `yds.editor` [roles](../iam/concepts/access-control/roles.md).
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
 
@@ -101,7 +101,7 @@ The infrastructure support cost includes:
      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
   1. Make sure the configuration files are valid.
      1. In the command line, go to the directory where you created the configuration file.
-     1. Run the check using this command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
@@ -115,7 +115,7 @@ The infrastructure support cost includes:
         terraform apply
         ```
 
-     1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API
 
@@ -195,17 +195,17 @@ The infrastructure support cost includes:
 
 - Management console
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **{{ CH }} cluster**.
+  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-clickhouse }}**.
   1. Specify the settings for a {{ CH }} cluster:
-     1. Under **General parameters**, enter the cluster name `trail-logs`.
-     1. Under **Host class**, select the **burstable** [VM](../compute/concepts/vm.md) type and **b2.medium** [host type](../managed-clickhouse/concepts/instance-types.md).
-     1. Under **Database**, enter `trail_data` for DB name, `user` for username, and the password. Remember the database name.
-     1. Under **Hosts**, click ![pencil](../_assets/pencil.svg). Enable **Public access** and click **Save**.
-     1. Under **Additional settings**, enable the following options:
-        * Access from {{ datalens-name }}.
-        * Access from management console.
-        * Access from [{{ data-transfer-full-name }}](../data-transfer/).
-  1. After configuring all settings, click **Create cluster**.
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter the cluster name: `trail-logs`.
+     1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**, select the `burstable` [VM](../compute/concepts/vm.md) type and the `b2.medium` [host type](../managed-clickhouse/concepts/instance-types.md).
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, enter `trail_data` for DB name, `user` for username, and the password. Remember the database name.
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![pencil](../_assets/pencil.svg). Enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option and click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable the following options:
+        * Access from {{ datalens-name }}
+        * Access from management console
+        * Access from [{{ data-transfer-full-name }}](../data-transfer/)
+  1. After configuring all settings, click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 - CLI
 
@@ -279,10 +279,10 @@ The infrastructure support cost includes:
      }
      ```
 
-     For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
   1. Make sure the configuration files are valid.
      1. In the command line, go to the directory where you created the configuration file.
-     1. Run the check using this command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
@@ -296,7 +296,7 @@ The infrastructure support cost includes:
         terraform apply
         ```
 
-     1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API
 
@@ -312,14 +312,14 @@ A data stream is used to upload audit logs.
 
 - Management console
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **{{ yds-name }}**.
-  1. In the **Database** field, click **Create new**. A new {{ ydb-name }} database creation page will open.
-  1. Enter the database **Name**: `stream-db`.
-  1. Under **Database type**, select `Serverless`.
-  1. Click **Create database**.
-  1. Return to the stream creation page. Click **Update** and select the created DB from the list.
+  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-streams }}**.
+  1. In the **{{ ui-key.yacloud.data-streams.label_database }}** field, click **{{ ui-key.yacloud.common.label_create-new_female }}**. A new {{ ydb-name }} database creation page will open.
+  1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**: `stream-db`.
+  1. In the **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** field, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
+  1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
+  1. Return to the stream creation page. Click ![image](../_assets/data-streams/update-db.svg) and select the created DB from the list.
   1. Enter the data stream name: `trail-logs-stream`.
-  1. Click **Create**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
   Wait for the stream to start. Once the stream is ready for use, its status will change from `Creating` to `Active`.
 
@@ -327,22 +327,24 @@ A data stream is used to upload audit logs.
 
 ## Create a trail {#create-trail}
 
-A [trail](../audit-trails/concepts/trail.md) will be uploading [audit logs](../audit-trails/concepts/format.md) of all resources in your folder to a {{ yds-name }} stream.
+A [trail](../audit-trails/concepts/trail.md) will be uploading configuration-level [audit logs](../audit-trails/concepts/format.md) for all the resources in your folder to a {{ yds-name }} stream.
 
 {% list tabs %}
 
 - Management console
 
-  1. On the [management console]({{ link-console-main }}) folder page, click **Create resource** and select **Audit trail**.
+  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_audit-trails }}**.
   1. Enter the name of the created trail: `folder-trail`.
-  1. Under **Filter**, set up the audit log scope:
-     * **Resource**: Select `Folder`.
-     * **Folder**: An automatically populated field (shows the name of the folder that will host the trail).
-  1. Under **Destination**, set up the destination object:
-     * **Destination**: `{{ yds-name }}`.
-     * **Data stream**: Select the data stream `trail-logs-stream`.
-  1. Under **Service account**, select the service account `sa-trail-logs`.
-  1. Click **Create**.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+     * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Select the data stream `trail-logs-stream`.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the `sa-trail-logs` service account.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field showing the name of the folder to host the trail.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **Status** field.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -354,19 +356,19 @@ To create a [transfer](../data-transfer/concepts/index.md#transfer), you need to
 
 - Management console
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-name }}**.
-  1. On the left-hand panel, select ![image](../_assets/data-transfer/endpoint.svg) **Endpoints**.
-  1. Click **Create endpoint**.
-  1. In the **Direction** field, select `Source`.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. In the left-hand panel, select ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. In the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field, select `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
   1. Enter the endpoint name: `source-logs-stream`.
-  1. Under **Database type**, select `{{ yds-full-name }}`.
+  1. In the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** field, select `{{ yds-full-name }}`.
   1. Configure the endpoint parameters:
-     * **Database**: Select the DB registered for the `trail-logs-stream`.
-     * **Stream**: `trail-logs-stream`.
-     * **Service account**: `sa-trail-logs`.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the DB registered for the `trail-logs-stream`.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: `trail-logs-stream`
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: `sa-trail-logs`
   1. Set up conversion rules:
-     * **Data format**: `JSON`.
-     * **Data schema**: `List of fields`.
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`
+     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`
 
        Specify the list of fields from the table below:
 
@@ -388,8 +390,8 @@ To create a [transfer](../data-transfer/concepts/index.md#transfer), you need to
        event_status | STRING | - | - | event_status
        details | ANY | - | - | details
 
-     * Enable **Add columns with no markup**.
-  1. Click **Create**.
+     * Enable **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.add_rest_column.title }}**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -401,18 +403,18 @@ To create transfer, you need to specify the target endpoint with {{ CH }} databa
 
 - Management console
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-name }}**.
-  1. On the left-hand panel, select ![image](../_assets/data-transfer/endpoint.svg) **Endpoints**.
-  1. Click **Create endpoint**.
-  1. In the **Direction** field, select `Target`.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. In the left-hand panel, select ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Click **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. In the **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** field, select `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
   1. Enter the endpoint name: `target-logs-ch`.
-  1. Under **Database type**, select `{{ CH }}`.
-  1. Under **Endpoint parameters**, specify:
-     1. **Connection settings**: **MDB cluster**. Select the cluster `trail-logs`.
-     1. **User**: `user`.
-     1. **Password**: Enter the DB user's password.
-     1. **Database**: `trail_data`.
-  1. Click **Create**.
+  1. In the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** field, select `{{ CH }}`.
+  1. Under **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}**, specify:
+     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}** Select the `trail-logs` cluster.
+     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.user.title }}**: `user`
+     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.password.title }}**: Enter the DB user's password.
+     1. **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: `trail_data`
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -424,15 +426,15 @@ Using transfer, data is migrated between the source service (a stream) and the t
 
 - Management console
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-name }}**.
-  1. On the left-hand panel, select ![image](../_assets/data-transfer/transfer.svg) **Transfers**.
-  1. Click **Create transfer**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. In the left-hand panel, select ![image](../_assets/data-transfer/transfer.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. Click **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
   1. Enter the transfer name: `logs-transfer`.
   1. Select the endpoint for the source: `source-logs-stream`.
   1. Select the endpoint for the target: `target-logs-ch`.
-  1. Click **Create**.
-  1. Click ![ellipsis](../_assets/horizontal-ellipsis.svg) next to the name of the transfer and select **Activate**.
-  1. Wait until the transfer status changes to **Replicated**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. Click ![ellipsis](../_assets/horizontal-ellipsis.svg) next to the name of the transfer and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+  1. Wait until the transfer status changes to `{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}`.
 
 - CLI
 
@@ -461,10 +463,10 @@ Using transfer, data is migrated between the source service (a stream) and the t
      }
      ```
 
-     For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-dt-transfer }}).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-dt-transfer }}).
   1. Make sure the configuration files are valid.
      1. In the command line, go to the directory where you created the configuration file.
-     1. Run the check using this command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
@@ -478,7 +480,7 @@ Using transfer, data is migrated between the source service (a stream) and the t
         terraform apply
         ```
 
-     1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 {% endlist %}
 
@@ -519,16 +521,16 @@ To visualize data, you need to [connect](../datalens/concepts/connection.md) to 
 
 ### Create a connection {#create-connection}
 
-1. Go to the **{{ datalens-name }}** [homepage]({{ link-datalens-main }}).
+1. Go to the **{{ datalens-name }}** [home page]({{ link-datalens-main }}).
 1. In the window that opens, click **Create connection**.
 1. Select a **{{ CH }}** connection.
 1. Select the **Select in folder** connection type and enter the connection settings:
    1. In the **Cluster** field, select `trail-logs`.
    1. In the **Host name** field, select the {{ CH }} host from the drop-down list.
-   1. Enter the DB user's name and password.
+   1. Enter the DB user name and password.
 1. Click **Check connection**.
 1. After checking the connection, click **Create connection**.
-1. Enter the connection name `trail-logs-con` and click **Create**.
+1. Enter `trail-logs-con` for the connection name, and click **Create**.
 1. After saving the connection, in the upper-right corner, click **Create dataset**.
 
 ### Create a dataset {#create-dataset}
@@ -562,7 +564,7 @@ To show numerical proportion by event status, create a pie chart:
 ### Create a dashboard and add charts there {#create-dashboard}
 
 Create a [dashboard](../datalens/concepts/dashboard.md) to add charts to:
-1. Go to the **{{ datalens-name }}** [homepage]({{ link-datalens-main }}).
+1. Go to the **{{ datalens-name }}** [home page]({{ link-datalens-main }}).
 1. Click **Create dashboard**.
 1. Enter the name `Trail logs dashboard` for the dashboard and click **Create**.
 1. In the top-right corner, click **Add** and choose **Chart**.

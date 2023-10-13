@@ -48,7 +48,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Чтобы изменить имя брокера, созданного с помощью {{ TF }}:
 
@@ -146,7 +146,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Чтобы изменить описание брокера, созданного с помощью {{ TF }}:
 
@@ -251,7 +251,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Чтобы добавить метку брокеру, созданному с помощью {{ TF }}:
 
@@ -361,7 +361,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Чтобы изменить метку брокера, созданного с помощью {{ TF }}:
 
@@ -458,7 +458,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Чтобы удалить метку брокера, созданного с помощью {{ TF }}:
 

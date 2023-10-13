@@ -1,4 +1,4 @@
-### backup.admin {#backup-admin}
+#### backup.admin {#backup-admin}
 
 The `backup.admin` role is intended for managing {{ backup-name }}. Users with this role can:
 

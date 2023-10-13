@@ -123,13 +123,13 @@
   1. Выберите реестр или [создайте](registry/registry-create.md) новый.
   1. Перейдите на вкладку **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
-  1. В блоке **Сканирование Docker-образов при загрузке** выберите `Сканировать` и один из вариантов сканирования:
-     * **{{ ui-key.yacloud.cr.registry.label_all-repositories }}** — сканировать все репозитории реестра.
-     * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** — сканировать только выбранные репозитории:
+  1. В блоке **{{ ui-key.yacloud.cr.registry.title_scan-on-push }}** выберите **{{ ui-key.yacloud.cr.image.label_start-scan }}** и один из вариантов сканирования:
+     * `{{ ui-key.yacloud.cr.registry.label_all-repositories }}` — сканировать все репозитории реестра.
+     * `{{ ui-key.yacloud.cr.registry.label_selected }}` — сканировать только выбранные репозитории:
        1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
        1. Выберите репозитории из списка.
        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - API
 
@@ -150,15 +150,15 @@
   1. Выберите реестр или [создайте](registry/registry-create.md) новый.
   1. Перейдите на вкладку **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
-  1. В блоке **Сканирование Docker-образов при расписанию** нажмите **Добавить правило сканирования**.
-  1. Выберите `Сканировать` и один из вариантов сканирования:
-     * **{{ ui-key.yacloud.cr.registry.label_all-repositories }}** — сканировать все репозитории реестра.
-     * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** — сканировать только выбранные репозитории:
+  1. В блоке **{{ ui-key.yacloud.cr.registry.title_scheduled-scan }}** нажмите **{{ ui-key.yacloud.cr.registry.label_add-scan-rule }}**.
+  1. Выберите **{{ ui-key.yacloud.cr.image.label_start-scan }}** и один из вариантов сканирования:
+     * `{{ ui-key.yacloud.cr.registry.label_all-repositories }}` — сканировать все репозитории реестра.
+     * `{{ ui-key.yacloud.cr.registry.label_selected }}` — сканировать только выбранные репозитории:
        1. Нажмите кнопку **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
        1. Выберите репозитории из списка.
-       1. Нажмите кнопку **Сохранить**.
+       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. Укажите, как часто хотите сканировать Docker-образы.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - API
 

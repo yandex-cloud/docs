@@ -99,170 +99,170 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
 
 - {{ TF }}
 
-  For example, you need to create rules for an existing {{ k8s }} cluster:
-  * With the zonal master located in the `{{ region-id }}-a` availability zone.
-  * With the `worker-nodes-c` node group.
-  * With the address range for pods and services: `10.96.0.0/16` and `10.112.0.0/16`.
-  * With access to services:
-    * From the load balancer's address range `198.18.235.0/24` and `198.18.248.0/24`.
-    * From the internal subnets`172.16.0.0/12`, `10.0.0.0/8`, and `192.168.0.0/16` for the ICMP protocol.
-    * From the internet from any address (`0.0.0.0/0`) to a range of NodePorts (`30000-32767`).
-  * With access to nodes from the internet from the address `85.32.32.22/32` to port `{{ port-ssh }}`.
-  * With access to the {{ k8s }} API from an external subnet from an address range `203.0.113.0/24` via ports `{{ port-https }}` and `{{ port-k8s }}`.
+    For example, you need to create rules for an existing {{ k8s }} cluster:
+    * With the zonal master located in the `{{ region-id }}-a` availability zone.
+    * With the `worker-nodes-c` node group.
+    * With the address range for pods and services: `10.96.0.0/16` and `10.112.0.0/16`.
+    * With access to services:
+       * From the load balancer's address range `198.18.235.0/24` and `198.18.248.0/24`.
+       * From the internal subnets`172.16.0.0/12`, `10.0.0.0/8`, and `192.168.0.0/16` for the ICMP protocol.
+       * From the internet from any address (`0.0.0.0/0`) to a range of NodePorts (`30000-32767`).
+    * With access to nodes from the internet from the address `85.32.32.22/32` to port `{{ port-ssh }}`.
+    * With access to the {{ k8s }} API from an external subnet from an address range `203.0.113.0/24` via ports `{{ port-https }}` and `{{ port-k8s }}`.
 
-  Four security groups are created:
-  * `k8s-main-sg`: Rules for service traffic.
-  * `k8s-public-services`: Rules for connecting to nodes from the internet.
-  * `k8s-nodes-ssh-access`: Rules for connecting to nodes over SSH.
-  * `k8s-master-whitelist`: Rules for accessing the cluster API.
+    Four security groups are created:
+    * `k8s-main-sg`: Rules for service traffic.
+    * `k8s-public-services`: Rules for connecting to nodes from the internet.
+    * `k8s-nodes-ssh-access`: Rules for connecting to nodes over SSH.
+    * `k8s-master-whitelist`: Rules for accessing the cluster API.
 
-  {% cut "Configuration file for this cluster:" %}
+    {% cut "Configuration file for this cluster:" %}
 
-  
-  ```hcl
-  terraform {
-    required_providers {
-      yandex = {
-        source = "yandex-cloud/yandex"
+    
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
       }
     }
-  }
 
-  provider "yandex" {
-    token     = "<service account OAuth or static key>"
-    cloud_id  = "<cloud ID>"
-    folder_id = "<folder ID>"
-    zone      = "<availability zone>"
-  }
-
-  resource "yandex_vpc_security_group" "k8s-main-sg" {
-    name        = "k8s-main-sg"
-    description = "Group rules support basic cluster functionality. Apply it to the cluster and node groups."
-    network_id  = "<cloud network ID>"
-    ingress {
-      protocol          = "TCP"
-      description       = "The rule allows availability checks from the load balancer address range. It is required for the operation of a fault-tolerant cluster and load balancer services."
-      predefined_target = "loadbalancer_healthchecks"
-      from_port         = 0
-      to_port           = 65535
-    }
-    ingress {
-      protocol          = "ANY"
-      description       = "The rule allows master to node and node to node communication inside a security group."
-      predefined_target = "self_security_group"
-      from_port         = 0
-      to_port           = 65535
-    }
-    ingress {
-      protocol       = "ANY"
-      description    = "Rule allows pod-pod and service-service communication. Specify the subnets of your cluster and services."
-      v4_cidr_blocks = ["10.96.0.0/16", "10.112.0.0/16"]
-      from_port      = 0
-      to_port        = 65535
-    }
-    ingress {
-      protocol       = "ICMP"
-      description    = "Rule allows debugging ICMP packets from internal subnets."
-      v4_cidr_blocks = ["172.16.0.0/12", "10.0.0.0/8", "192.168.0.0/16"]
-    }
-    egress {
-      protocol       = "ANY"
-      description    = "Rule allows all outgoing traffic. Nodes can connect to {{ container-registry-full-name }}, {{ objstorage-name }}, Docker Hub, and so on."
-      v4_cidr_blocks = ["0.0.0.0/0"]
-      from_port      = 0
-      to_port        = 65535
-    }
-  }
-
-  resource "yandex_vpc_security_group" "k8s-public-services" {
-    name        = "k8s-public-services"
-    description = "Group rules allow connections to services from the internet. Apply the rules only for node groups."
-    network_id  = "<cloud network ID>"
-
-    ingress {
-      protocol       = "TCP"
-      description    = "Rule allows incoming traffic from the internet to the NodePort port range. Add ports or change existing ones to the required ports."
-      v4_cidr_blocks = ["0.0.0.0/0"]
-      from_port      = 30000
-      to_port        = 32767
-    }
-  }
-
-  resource "yandex_vpc_security_group" "k8s-nodes-ssh-access" {
-    name        = "k8s-nodes-ssh-access"
-    description = "Group rules allow connections to cluster nodes over SSH. Apply the rules only for node groups."
-    network_id  = "<cloud network ID>"
-
-    ingress {
-      protocol       = "TCP"
-      description    = "Rule allows connections to nodes over SSH from specified IPs."
-      v4_cidr_blocks = ["85.32.32.22/32"]
-      port           = 22
-    }
-  }
-
-  resource "yandex_vpc_security_group" "k8s-master-whitelist" {
-    name        = "k8s-master-whitelist"
-    description = "Group rules allow access to the {{ k8s }} API from the internet. Apply the rules to the cluster only."
-    network_id  = "<cloud network ID>"
-
-    ingress {
-      protocol       = "TCP"
-      description    = "Rule allows connections to the {{ k8s }} API via port {{ port-k8s }} from a specified network."
-      v4_cidr_blocks = ["203.0.113.0/24"]
-      port           = 6443
+    provider "yandex" {
+      token     = "<service account OAuth or static key>"
+      cloud_id  = "<cloud ID>"
+      folder_id = "<folder ID>"
+      zone      = "<availability zone>"
     }
 
-    ingress {
-      protocol       = "TCP"
-      description    = "Rule allows connections to the {{ k8s }} API via port {{ port-https }} from a specified network."
-      v4_cidr_blocks = ["203.0.113.0/24"]
-      port           = 443
-    }
-  }
+    resource "yandex_vpc_security_group" "k8s-main-sg" {
+      name        = "k8s-main-sg"
+      description = "Group rules support basic cluster functionality. Apply it   to the cluster and node groups."
+      network_id  = "<cloud network ID>"
+      ingress {
+        protocol          = "TCP"
+        description       = "The rule allows availability checks from the load balancer address range. It is required for the operation of a fault-tolerant cluster and load balancer services."
+        predefined_target = "loadbalancer_healthchecks"
+        from_port         = 0
+        to_port           = 65535
+      }
+      ingress {
+        protocol          = "ANY"
+        description       = "The rule allows master to node and node to node communication inside a security group."
+        predefined_target = "self_security_group"
+        from_port         = 0
+        to_port           = 65535
+      }
+      ingress {
+        protocol       = "ANY"
+        description    = "Rule allows pod-pod and service-service communication. Specify the subnets of your cluster and services."
+        v4_cidr_blocks = ["10.96.0.0/16", "10.112.0.0/16"]
+        from_port      = 0
+        to_port        = 65535
+      }
+      ingress {
+        protocol       = "ICMP"
+        description    = "Rule allows debugging ICMP packets from internal subnets."
+        v4_cidr_blocks = ["172.16.0.0/12", "10.0.0.0/8", "192.168.0.0/16"]
+      }
+      egress {
+        protocol       = "ANY"
+        description    = "Rule allows all outgoing traffic. Nodes can connect to {{ container-registry-full-name }}, {{ objstorage-name }}, Docker Hub, and so on."
+        v4_cidr_blocks = ["0.0.0.0/0"]
+        from_port      = 0
+        to_port        = 65535
+      }
+     }
 
-  resource "yandex_kubernetes_cluster" "k8s-cluster" {
-    name = "k8s-cluster"
-    cluster_ipv4_range = "10.96.0.0/16"
-    service_ipv4_range = "10.112.0.0/16"
-    ...
-    master {
-      version = "1.20"
-      zonal {
-        zone      = "{{ region-id }}-a"
-        subnet_id = <cloud network ID>
+     resource "yandex_vpc_security_group" "k8s-public-services" {
+       name        = "k8s-public-services"
+       description = "Group rules allow connections to services from the internet. Apply the rules only for node groups."
+       network_id  = "<cloud network ID>"
+
+       ingress {
+         protocol       = "TCP"
+         description    = "Rule allows incoming traffic from the internet to the NodePort port range. Add ports or change existing ones to the required ports."
+         v4_cidr_blocks = ["0.0.0.0/0"]
+         from_port      = 30000
+         to_port        = 32767
+       }
+    }
+
+    resource "yandex_vpc_security_group" "k8s-nodes-ssh-access" {
+      name        = "k8s-nodes-ssh-access"
+      description = "Group rules allow connections to cluster nodes over SSH. Apply the rules only for node groups."
+      network_id  = "<cloud network ID>"
+
+      ingress {
+        protocol       = "TCP"
+        description    = "Rule allows connections to nodes over SSH from specified IPs."
+        v4_cidr_blocks = ["85.32.32.22/32"]
+        port           = 22
+      }
+    }
+
+    resource "yandex_vpc_security_group" "k8s-master-whitelist" {
+      name        = "k8s-master-whitelist"
+      description = "Group rules allow access to the {{ k8s }} API from the internet. Apply the rules to the cluster only."
+      network_id  = "<cloud network ID>"
+
+      ingress {
+        protocol       = "TCP"
+        description    = "Rule allows connections to the {{ k8s }} API via port {{ port-k8s }} from a specified network."
+        v4_cidr_blocks = ["203.0.113.0/24"]
+        port           = 6443
       }
 
-      security_group_ids = [
-        yandex_vpc_security_group.k8s-main-sg.id,
-        yandex_vpc_security_group.k8s-master-whitelist.id
-      ]
+      ingress {
+        protocol       = "TCP"
+        description    = "Rule allows connections to the {{ k8s }} API via port {{ port-https }} from a specified network."
+        v4_cidr_blocks = ["203.0.113.0/24"]
+        port           = 443
+      }
+    }
+
+    resource "yandex_kubernetes_cluster" "k8s-cluster" {
+      name = "k8s-cluster"
+      cluster_ipv4_range = "10.96.0.0/16"
+      service_ipv4_range = "10.112.0.0/16"
       ...
-    }
-    ...
-  }
+      master {
+        version = "1.20"
+        zonal {
+          zone      = "{{ region-id }}-a"
+          subnet_id = <cloud network ID>
+        }
 
-  resource "yandex_kubernetes_node_group" "worker-nodes-c" {
-    cluster_id = yandex_kubernetes_cluster.k8s-cluster.id
-    name       = "worker-nodes-c"
-    version    = "1.20"
-    ...
-    instance_template {
-      platform_id = "standard-v3"
-      network_interface {
-        nat                = true
-        subnet_ids         = [<cloud subnet ID>]
         security_group_ids = [
           yandex_vpc_security_group.k8s-main-sg.id,
-          yandex_vpc_security_group.k8s-nodes-ssh-access.id,
-          yandex_vpc_security_group.k8s-public-services.id
+          yandex_vpc_security_group.k8s-master-whitelist.id
         ]
         ...
       }
       ...
     }
-  }
-  ```
+
+    resource "yandex_kubernetes_node_group" "worker-nodes-c" {
+      cluster_id = yandex_kubernetes_cluster.k8s-cluster.id
+      name       = "worker-nodes-c"
+      version    = "1.20"
+      ...
+      instance_template {
+        platform_id = "standard-v3"
+        network_interface {
+          nat                = true
+          subnet_ids         = [<cloud network ID>]
+          security_group_ids = [
+            yandex_vpc_security_group.k8s-main-sg.id,
+            yandex_vpc_security_group.k8s-nodes-ssh-access.id,
+            yandex_vpc_security_group.k8s-public-services.id
+          ]
+          ...
+        }
+        ...
+      }
+    }
+    ```
 
 
 

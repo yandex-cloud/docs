@@ -5,8 +5,8 @@
 ```text
 YC: unable to resolve instance group:
 unable to resolve net topology: subnet address space collision detected:
-subnet <идентификатор подсети 1> [<диапазон IP-адресов подсети 1>]
-collides with subnet <идентификатор подсети 2> [<диапазон IP-адресов подсети 2>]
+subnet <идентификатор_подсети_1> [<диапазон_IP-адресов_подсети_1>]
+collides with subnet <идентификатор_подсети_2> [<диапазон_IP-адресов_подсети_2>]
 ```
 
 Ошибка возникает, если хосты источника и приемника находятся внутри {{ yandex-cloud }} в разных подсетях, но имеют пересекающиеся диапазоны IP-адресов.

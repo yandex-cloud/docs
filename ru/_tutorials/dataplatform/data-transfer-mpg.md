@@ -62,14 +62,14 @@
 
     ```sql
     INSERT INTO public.measurements VALUES
-        ('iv9a94th6rztooxh5ur2', '2020-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
-        ('rhibbh3y08qmz3sdbrbu', '2020-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
-        ('iv9a94th678tooxh5ur2', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
+        ('iv9a94th6rzt********', '2020-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+        ('rhibbh3y08qm********', '2020-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
+        ('iv9a94th678t********', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
     ```
 
 ## Подготовьте кластер-приемник {#prepare-target}
 
-Настройки различаются в зависимости от используемого [способа управления топиками](../../managed-kafka/concepts/topics.md#management). При этом имена топиков для данных конструируются по тому же принципу, что и в [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names) — `<префикс топика>.<имя схемы>.<имя таблицы>`. В этом руководстве в качестве примера будет использоваться префикс `cdc`.
+Настройки различаются в зависимости от используемого [способа управления топиками](../../managed-kafka/concepts/topics.md#management). При этом имена топиков для данных конструируются по тому же принципу, что и в [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names) — `<префикс_топика>.<имя_схемы>.<имя_таблицы>`. В этом руководстве в качестве примера будет использоваться префикс `cdc`.
 
 {% list tabs %}
 
@@ -143,7 +143,7 @@
     ```bash
     kafkacat \
         -C \
-        -b <FQDN хоста-брокера-1>:9091,...,<FQDN хоста-брокера N>:9091 \
+        -b <FQDN_хоста-брокера-1>:9091,...,<FQDN_хоста-брокера N>:9091 \
         -t cdc.public.measurements \
         -X security.protocol=SASL_SSL \
         -X sasl.mechanisms=SCRAM-SHA-512 \
@@ -163,7 +163,7 @@
     ```json
     {
       "payload": {
-        "consumer":"dttuhfpp97l30jaka3ql"
+        "consumer":"dttuhfpp97l3********"
       },
       "schema": {
         "fields": [
@@ -180,8 +180,8 @@
     }:{
       "payload": {
         "after": {
-          "consumer":"dttuhfpp97l30jaka3ql",
-          "locked_by":"dttuhfpp97l30jaka3ql-1",
+          "consumer":"dttuhfpp97l3********l",
+          "locked_by":"dttuhfpp97l3********-1",
           "locked_till":"2022-05-15T09:55:18Z"
         },
       "before": null,
@@ -207,7 +207,7 @@
 1. Подключитесь к кластеру-источнику и добавьте данные в таблицу `measurements`:
 
     ```sql
-    INSERT INTO public.measurements VALUES ('iv7b74th678tooxh5ur2', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
+    INSERT INTO public.measurements VALUES ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
     ```
 
 1. Убедитесь, что в терминале с запущенной утилитой `kafkacat` отобразились сведения о добавленной строке.

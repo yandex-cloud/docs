@@ -1,4 +1,4 @@
-### compute.images.user {#compute-images-user}
+#### compute.images.user {#compute-images-user}
 
 The `compute.images.user` role includes the following permissions:
 
@@ -10,4 +10,3 @@ The `compute.images.user` role includes the following permissions:
 {% include [roles-editor-includes-permissions](iam/roles-editor-includes-permissions.md) %}
 
 {% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}
-

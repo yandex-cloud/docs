@@ -163,6 +163,9 @@
   1. Введите имя балансировщика: `test-load-balancer`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, в подсетях которой будет размещаться узлы балансировщика.
   1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите подсети для узлов балансировщика в каждой зоне доступности и включите передачу трафика.
+
+      {% include [subnets-required](../_includes/application-load-balancer/subnets-required.md) %}
+
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
       1. Введите имя обработчика: `test-listener`.
       1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}** включите передачу трафика.

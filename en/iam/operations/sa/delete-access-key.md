@@ -10,10 +10,10 @@ description: "In this tutorial, you will learn how to delete static access keys 
 - Management console
 
    1. Go to the folder that the service account belongs to.
-   1. At the top of the screen, go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose a service account and click the line with its name.
-   1. Under **Access keys**, click ![image](../../../_assets/options.svg) next to the key to be deleted and select **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_service-account-keys }}**, click ![image](../../../_assets/options.svg) next to the key to be deleted and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete-api-key }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
 
 - CLI
 

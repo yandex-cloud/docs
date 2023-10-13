@@ -8,13 +8,13 @@ If your company has a user and access management system (for example, Active Dir
 
 ## Configuring up federations in {{ org-full-name }} {#federation-usage}
 
-Using identity federations, you can configure a Single Sign-On system (Single Sign-On, SSO) and use corporate accounts to authorize in {{org-name}}. In this case, your corporate account management system acts as an identity provider (IdP).
+Using identity federations, you can configure a single sign-on (SSO) system and use corporate accounts to authorize in {{ org-name }}. In this case, your corporate account management system acts as an identity provider (IdP).
 
 In {{ org-name }}, you can create an identity federation with any credential management service (identity provider) that supports the [SAML]({{ link-saml }}) protocol.
 
-Information about user logins and passwords is stored by the identity provider. When a user logs in to {{org-name}}, they're directed to the identity provider (IdP) server for authentication. If authentication is successful, the user gets access to {{ yandex-cloud }} services.
+Information about user logins and passwords is stored by the identity provider. When a user logs in to {{ org-name }}, they are directed to the identity provider (IdP) server for authentication. If authentication is successful, the user gets access to {{ yandex-cloud }} services.
 
-Since authentication takes place on the IdP server's side, you can configure a more secure user data verification, such as two-factor authentication or USB tokens.
+Since authentication takes place on the IdP server side, you can configure a more secure user data verification, such as two-factor authentication or USB tokens.
 
 You can set up identity federations for different identity providers:
 
@@ -23,6 +23,14 @@ You can set up identity federations for different identity providers:
 * [Azure Active Directory](../tutorials/federations/integration-azure.md).
 * [Keycloak](../tutorials/federations/integration-keycloak.md).
 * [Other SAML-compatible identity providers](../tutorials/federations/integration-common.md).
+
+### Mapping user groups {#group-mapping}
+
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
+
+For organizations with a lot of employees, multiple users may need to be granted the same access rights to {{ yandex-cloud }} resources. In this case, it is more convenient to grant roles and permissions to a group rather than individually.
+
+If you use user groups in your identity provider or intend to do so, [configure user group mapping](../operations/manage-groups.md#group-mapping) between the identity provider and {{ org-name }}. Users in the identity provider's groups will be granted the same access rights to {{ yandex-cloud }} resources as the corresponding groups in {{ org-name }}.
 
 ## Authenticating in a federation {#saml-authentication}
 

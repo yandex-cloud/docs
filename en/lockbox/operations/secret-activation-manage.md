@@ -7,9 +7,8 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-   1. In the list of services, select **{{ lockbox-short-name }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the required secret.
-   1. Click **Deactivate**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the secret and select **{{ ui-key.yacloud.lockbox.button_deactivate-secret }}**.
    1. Confirm the deactivation.
 
 - API
@@ -25,9 +24,8 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-   1. In the list of services, select **{{ lockbox-short-name }}**.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the required secret.
-   1. Confirm the activation.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the secret and select **{{ ui-key.yacloud.lockbox.button_activate-secret }}**.
 
 - API
 

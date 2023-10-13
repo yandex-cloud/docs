@@ -6,24 +6,24 @@ For example, allow a user to view group information and manage its members.
 
 - Cloud Organization
 
-   1. [Log in]({{ link-passport-login }}) to the organization's administrator account.
+   1. [Log in]({{ link-passport-login }}) to the organization administrator account.
 
    1. Go to [{{org-full-name}}]({{ link-org-main }}).
 
-   1. In the left panel, select **Groups** ![icon-services](../../_assets/organization/icon-groups.svg) and click the line with the group name.
+   1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/organization/icon-groups.svg) and click the line with the group name.
 
-   1. Go to the **Group access bindings** tab.
+   1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
 
-   1. Click **Assign roles**.
+   1. Click **{{ ui-key.yacloud_org.entity.group.action_add-acl }}**.
 
-   1. Click **Select user**.
+   1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
 
-   1. Select the appropriate user or group from the list or perform a search.
+   1. Select the appropriate user or group from the list or use the search.
 
-   1. Click **Add role** and choose `organization-manager.groups.memberAdmin`.
+   1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select `organization-manager.groups.memberAdmin`.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
-   The user appears in the list of group access bindings.
+   The user will appear in the list of group access bindings.
 
 {% endlist %}

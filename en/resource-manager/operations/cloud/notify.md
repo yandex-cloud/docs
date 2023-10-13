@@ -9,8 +9,8 @@ If you want users to get notifications from services, add them to the list of su
 - Management console
 
    1. Open the [Service notifications]({{ link-cloud-notifications }}) page for the selected cloud. If necessary, [switch to another cloud](switch-cloud.md).
-   1. Click **Add**.
-   1. Select the user you want to subscribe to notifications and click **Add**.
+   1. Click **{{ ui-key.yacloud.iam.cloud.incident-notifications.button_open-dialog }}**.
+   1. Select the user you want to subscribe to notifications and click **{{ ui-key.yacloud.common.add }}**.
 
       {% note info %}
 

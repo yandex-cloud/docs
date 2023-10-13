@@ -1,3 +1,8 @@
+---
+title: "Смонтировать бакеты в функцию"
+description: "Следуя данной инструкции, вы сможете смонтировать бакеты в функцию."
+---
+
 # Смонтировать бакеты в функцию
 
 {% include [read-note](../../../_includes/functions/read-note.md) %}
@@ -10,11 +15,11 @@
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
-    1. В блоке **Смонтированные бакеты** нажмите **Добавить бакет**.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}** нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}**.
     1. Укажите в поле:
-        * **Точка монтирования** — имя точки монтирования. Директория, к которой смонтируется бакет, будет доступна по пути `/function/storage/<точка_монтирования>`.
-        * **Бакет** — имя бакета, который хотите смонтировать, или создайте новый.
-        * **Папка** — [папку](../../../storage/concepts/object.md#folder) в бакете. Если поле пустое, смонтируется весь бакет.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-name }}** — имя точки монтирования. Директория, к которой смонтируется бакет, будет доступна по пути `/function/storage/<точка_монтирования>`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket }}** — имя бакета, который хотите смонтировать, или создайте новый.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket-prefix }}** — [папку](../../../storage/concepts/object.md#folder) в бакете. Если поле пустое, смонтируется весь бакет.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - API

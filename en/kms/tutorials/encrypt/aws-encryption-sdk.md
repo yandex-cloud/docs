@@ -56,11 +56,11 @@ Create a {{ yandex-cloud }} provider for the AWS Encryption SDK and use the meth
    * `keyId`: ID of the [key in {{ kms-short-name }}](../../concepts/key.md).
    * `plaintext`: Unencrypted text.
    * `ciphertext`: Encrypted text.
-   * `aad`: [AAD context](../../concepts/encryption.md#add-context).
+   * `aad`: [AAD context](../../concepts/symmetric-encryption.md#add-context).
 
 {% endlist %}
 
 #### See also {#see-also}
 * [AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html).
 * [The {{ yandex-cloud }} provider for the AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto).
-   * [Examples of using {{ yandex-cloud }} KMS Providers for the AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto/src/main/java/com/yandex/cloud/kms/providers/examples).
+* [Examples of using {{ yandex-cloud }} KMS Providers for the AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto/src/main/java/com/yandex/cloud/kms/providers/examples).

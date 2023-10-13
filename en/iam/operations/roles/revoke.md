@@ -22,9 +22,9 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
    * To revoke all the folder or cloud roles at once:
 
       1. On the management console [start page]({{ link-console-main }}), select a folder or a cloud.
-      1. Go to the **Access bindings** tab.
+      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Select a user from the list and click ![image](../../../_assets/options.svg) next to the username.
-      1. If you want to revoke all of the user's roles in the cloud, click **Revoke roles** and confirm the revocation.
+      1. If you want to revoke all of the user's roles in the cloud, click **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}** and confirm the revocation.
 
 - CLI
 
@@ -116,7 +116,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
            terraform apply
            ```
 
-        1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+        1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
         All the resources you need will then be created in the specified folder. You can check if the resource is there either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 

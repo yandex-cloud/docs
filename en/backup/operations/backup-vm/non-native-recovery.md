@@ -15,19 +15,19 @@ To restore a VM from a backup of another VM:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
-   1. Select **{{ backup-name }}**.
-   1. Go to the ![backups](../../../_assets/backup/backups.svg) **Backups** tab.
-   1. Next to the backup to restore the VM from, click ![image](../../../_assets/options.svg) and select **Restore VM**.
-   1. In the **Target VM** field, select the VM to restore the backup to or [create](../#connect-vm) a new VM with a connection to {{ backup-name }}. To create a new VM for recovery, click **Create**:
-      1. On the page that opens, set the parameters of the new VM and click **Create VM**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+   1. Go to the ![backups](../../../_assets/backup/backups.svg) **{{ ui-key.yacloud.backup.label_backups }}** tab.
+   1. Next to the backup to restore the VM from, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.backup.action_recovery }}**.
+   1. In the **{{ ui-key.yacloud.backup.field_recover-to-vm }}** field, select the VM to restore the backup to or [create](../#connect-vm) a new VM with a connection to {{ backup-name }}. To create a new VM for recovery, click **{{ ui-key.yacloud.common.create }}**:
+      1. On the page that opens, set the parameters of the new VM and click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
          Wait until the VM [connects](../../concepts/vm-connection.md) to {{ backup-name }}.
       1. Return to the VM recovery page.
       1. To update the list of VMs, click ![refresh](../../../_assets/backup/refresh.svg).
       1. Select the previously created VM.
-   1. To avoid a conflict between the restored and source VMs, select **Delete outdated VM**.
+   1. To avoid a conflict between the restored and source VMs, select **{{ ui-key.yacloud.backup.field_delete-old-vm }}**.
 
       If you do not select this option, once the source VM you created the backup from is restored, it will become outdated. To continue creating backups of this VM, [refresh](../refresh-connection.md) its connection to {{ backup-name }}.
-   1. Click **Restore**.
+   1. Click **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
 - CLI
 

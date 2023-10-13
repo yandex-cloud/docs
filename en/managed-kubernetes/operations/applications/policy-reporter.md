@@ -23,11 +23,11 @@ To export policy results, set up external storage:
 
       ```bash
       yc iam access-key create \
-        --service-account-name=<service account name> \
+        --service-account-name=<service_account_name> \
         --format=json > sa-key.json
       ```
 
-   1. [Create a bucket in {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
+   1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-name }}.
 
 * {{ yds-name }}:
 
@@ -62,24 +62,22 @@ To export policy results, set up external storage:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/policy-reporter \
-     --version <Helm chart version> \
+   helm pull oci://{{ mkt-k8s-key.yc_policy-reporter.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_policy-reporter.helmChart.tag }} \
      --untar && \
    helm upgrade --install \
      --namespace <namespace> \
      --create-namespace \
-     --set clusterId=<cluster ID> \
-     --set ui.enabled=<enable Policy Reporter UI: true or false> \
-     --set target.s3.enabled=<export to {{ objstorage-name }}: true or false> \
-     --set target.s3.bucket=<{{ objstorage-name }} bucket name> \
-     --set-file serviceaccountawskeyvalue=<path to service account static key file> \
-     --set target.kinesis.enabled=<export to {{ yds-name }}: true or false> \
-     --set target.kinesis.endpoint=<{{ yds-name }} stream endpoint> \
-     --set target.kinesis.streamName=<{{ yds-name }} stream name> \
+     --set clusterId=<cluster_ID> \
+     --set ui.enabled=<enable_Policy_Reporter_UI_(true_or_false)> \
+     --set target.s3.enabled=<export_to_Object_Storage_(true_or_false)> \
+     --set target.s3.bucket=<Object_Storage_bucket_name> \
+     --set-file serviceaccountawskeyvalue=<path_to_service_account_static_key_file> \
+     --set target.kinesis.enabled=<export_to_Data_Streams_(true_or_false)> \
+     --set target.kinesis.endpoint=<Data_Streams_stream_endpoint> \
+     --set target.kinesis.streamName=<Data_Streams_stream_name> \
      policy-reporter ./policy-reporter/
    ```
-
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/policy-reporter#docker-images).
 
    The `target.s3.bucket` and `serviceaccountawskeyvalue` parameters are only required if export to {{ objstorage-name }} is enabled (`target.s3.enabled=true`), and the `target.kinesis.endpoint` and `target.kinesis.streamName` parameters are required if export to {{ yds-name }} is enabled (`target.kinesis.enabled=true`).
 

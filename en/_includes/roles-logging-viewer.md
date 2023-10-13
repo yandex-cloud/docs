@@ -1,4 +1,4 @@
-### logging.viewer
+#### logging.viewer {#logging-viewer}
 
 The `logging.viewer` role grants permission to view a list of log groups and information about them.
 

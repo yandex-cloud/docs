@@ -1,4 +1,4 @@
-### logging.reader
+#### logging.reader {#logging-reader}
 
 The `logging.reader` role grants permission to view records in a log group.
 

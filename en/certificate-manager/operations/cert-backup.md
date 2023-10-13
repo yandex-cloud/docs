@@ -15,8 +15,8 @@ To save a certificate:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the certificate is located.
-      1. In the list of services, select **{{ certificate-manager-name }}**.
-      1. Copy the contents of the **ID** field for the certificate you want to save.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. Copy the contents of the **{{ ui-key.yacloud.common.id }}** field for the certificate you want to save.
 
    - CLI
 
@@ -95,20 +95,20 @@ To restore a user certificate from the certificate chain and key files:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where the certificate will be restored.
-      1. In the list of services, select **{{ certificate-manager-name }}**.
-      1. Click **Add certificate**.
-      1. In the menu that opens, select **User certificate**.
-      1. In the window that opens, enter a name for the certificate in the **Name** field.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. Click **{{ ui-key.yacloud.certificate-manager.button_add }}**.
+      1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_import }}**.
+      1. In the window that opens, enter a name for your certificate in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
       1. (Optional) In the **Description** field, enter a description for the certificate.
-      1. In the **Intermediate certificate chain** field, click **Add chain**.
-         1. Select **File** as the adding method.
-         1. Click **Select file** and specify the certificate chain file.
-         1. Click **Add**.
-      1. In the **Private key** field, click **Add private key**.
-         1. Select how to add your certificate: **File** or **Text**.
-         1. Click **Select file** and specify the private key file.
-         1. Click **Add**.
-      1. Click **Create**.
+      1. In the **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}**.
+         1. Choose how to add a certificate: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
+         1. Click **Attach file** and specify the certificate chain file.
+         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+      1. In the **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**.
+         1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` or `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
+         1. Click **Attach file** and specify the private key file.
+         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
    - CLI
 
@@ -145,4 +145,4 @@ The saved [Let's Encrypt certificate](../concepts/managed-certificate.md) become
 
 #### See also {#see-also}
 
-* [{#T}](import/cert-create.md).
+* [{#T}](import/cert-create.md)

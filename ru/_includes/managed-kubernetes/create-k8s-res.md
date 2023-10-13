@@ -12,8 +12,10 @@
 
   ```bash
   yc managed-kubernetes cluster create \
-    --name k8s-demo --network-name yc-auto-network \
-    --zone {{ region-id }}-a --subnet-name yc-auto-subnet-0 \
+    --name k8s-demo \
+    --network-name yc-auto-network \
+    --zone {{ region-id }}-a \
+    --subnet-name yc-auto-subnet-0 \
     --public-ip \
     --service-account-id $RES_SA_ID \
     --node-service-account-id $NODE_SA_ID
@@ -25,8 +27,10 @@
 
   ```shell script
   > yc managed-kubernetes cluster create `
-    --name k8s-demo --network-name yc-auto-network `
-    --zone {{ region-id }}-a --subnet-name yc-auto-subnet-0 `
+    --name k8s-demo `
+    --network-name yc-auto-network `
+    --zone {{ region-id }}-a `
+    --subnet-name yc-auto-subnet-0 `
     --public-ip `
     --service-account-id $RES_SA_ID `
     --node-service-account-id $NODE_SA_ID
@@ -34,7 +38,7 @@
 
 {% endlist %}
 
-### Создайте группу узлов {#create-node-groups}
+### Создайте группу узлов {{ managed-k8s-name }} {#create-node-groups}
 
 1. Проверьте, что создание кластера {{ managed-k8s-name }} успешно завершено.
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был создан кластер {{ managed-k8s-name }}.
@@ -42,7 +46,7 @@
    1. Проверьте, что кластер {{ managed-k8s-name }} успешно создан:
       * В столбце **Статус** должно быть указано `Running`.
       * В столбце **Состояние** должно быть указано `Healthy`.
-1. Создайте группу узлов {{ managed-k8s-name }}:
+1. Создайте [группу узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group):
 
    {% list tabs %}
 
@@ -58,7 +62,7 @@
        --core-fraction 50 \
        --disk-type network-ssd \
        --fixed-size 2 \
-       --network-interface security-group-ids={{ security-group }},subnets=yc-auto-subnet-0,ipv4-address=nat \
+       --network-interface subnets=yc-auto-subnet-0,ipv4-address=nat \
        --async
      ```
 
@@ -74,7 +78,7 @@
        --core-fraction 50 `
        --disk-type network-ssd `
        --fixed-size 2 `
-       --network-interface security-group-ids={{ security-group }},subnets=yc-auto-subnet-0,ipv4-address=nat `
+       --network-interface subnets=yc-auto-subnet-0,ipv4-address=nat `
        --async
      ```
 

@@ -5,20 +5,22 @@ description: "{{ at-full-name }} lets you collect audit logs about {{ yandex-clo
 
 # {{ at-full-name }} overview
 
-{{ at-full-name }} lets you collect audit logs of {{ yandex-cloud }} resources and upload them to a {{ objstorage-name }} bucket or {{ cloud-logging-name }} log group:
+{{ at-full-name }} allows you to collect audit logs at the configuration and service level for {{ yandex-cloud }} resources and upload them to {{ objstorage-name }} buckets, {{ yds-name }} streams, or {{ cloud-logging-name }} log groups:
 
 * [Uploading audit logs to a bucket](../operations/index.md#bucket).
 * [Uploading audit logs to Cloud Logging](../operations/index.md#logging).
 * [Uploading audit logs to a data stream](../operations/index.md#data-streams).
 
-Collecting audit logs lets you use analytical tools and rapidly respond to events that occur to {{ yandex-cloud }} services:
+Collecting audit logs enables you to use analytical tools and promptly respond to {{ yandex-cloud }} events:
 
 * [Searching audit logs in a bucket](../tutorials/search-bucket.md).
 * [Searching audit logs in a log group](../tutorials/search-cloud-logging.md).
 * [Exporting audit logs to SIEM systems](./export-siem.md).
 * [Alert settings in {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md).
 
-{{ yandex-cloud }} services whose audit logs are collected by {{ at-name }}:
+## Configuration-level audit logs {#control-plane-logs}
+
+{{ at-name }} collects [configuration-level (Control Plane)](./control-plane-vs-data-plane.md#control-plane-events) audit logs for the following {{ yandex-cloud }} services:
 
 * {{ alb-full-name }}
 * {{ at-full-name }}
@@ -44,22 +46,48 @@ Collecting audit logs lets you use analytical tools and rapidly respond to event
 * {{ ydb-full-name }}
 * {{ yq-full-name }}
 
-The following events are logged:
+The following [configuration-level events](./events.md) are logged:
 
-* Logins by federated users.
-* Creating/deleting service accounts.
-* Creating/deleting keys of service accounts.
-* Editing user roles and service accounts.
-* Creating/deleting resources.
-* Editing resource settings.
-* Stopping/restarting a resource.
-* Changing access policies.
-* Creating/editing security groups.
-* Actions with encryption keys and secrets.
+* Logins by federated users
+* Creating/deleting service accounts
+* Creating/deleting keys of service accounts
+* Editing user roles and service accounts
+* Creating/deleting resources
+* Editing resource settings
+* Stopping/restarting a resource
+* Changing access policies
+* Creating/editing security groups
+* Actions with encryption keys and secrets
+
+## Service-level audit logs {#data-plane-logs}
+
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
+
+{{ at-name }} collects [service-level (Data Plane)](./control-plane-vs-data-plane.md#data-plane-events) audit logs for the following {{ yandex-cloud }} services:
+
+* {{ dns-full-name }}
+* {{ lockbox-full-name }}
+* {{ kms-full-name }}
+* {{ objstorage-full-name }}
+
+The following [service-level events](events-data-plane.md) are logged:
+
+* Execution result of a DNS query from a Cloud DNS client
+* Accessing the contents of a secret
+* Decrypting ciphertext with a key
+* Encrypting a text string with a key
+* Generating a high-entropy key for Envelope Encryption
+* Decrypting ciphertext with a previous-version key and re-encrypting the decrypted text with a new version of the same key
+* Updating an object's ACL in a bucket
+* Creating an object in a bucket
+* Deleting an object from a bucket
+* Deleting bucket object tags
+* Updating bucket object tags
+* Updating an object in a bucket
 
 ## Current service limits {#known-restrictions}
 
-The audit log doesn't capture authentication errors. For example, if a user makes an API call without an IAM token, this information will not be included in the audit logs.
+The audit log does not capture authentication errors. For example, if a user makes an API call without an IAM token, this information will not be included in the audit logs.
 
 The log captures authorization errors. For example, if a user attempts to create a resource without sufficient privileges, the log will include an error message.
 

@@ -281,7 +281,7 @@
 
 - {{ TF }}
 
-  Подробнее о {{ TF }} в [документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Если вы применили политику доступа к бакету при помощи {{ TF }}, вы можете удалить её:
   1. Найдите в конфигурационном файле параметры созданной ранее политики доступа, которую необходимо удалить:

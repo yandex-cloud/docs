@@ -35,9 +35,9 @@ Before you start, you need to add dependencies.
 ## Authentication {#auth}
 
 You can authenticate using:
-* [The service account linked to the {{ yandex-cloud }} VM](#vm).
+* [Service account linked to the {{ yandex-cloud }} VM](#vm).
 * [Any service account](#sa).
-* [A Yandex account](#yandex-acc).
+* [Yandex account](#yandex-acc).
 
 ### Authentication using the service account linked to the {{ yandex-cloud }} VM {#vm}
 
@@ -117,14 +117,14 @@ The `token` variable is your [OAuth token](../../../iam/concepts/authorization/o
 
 
 
-## Encrypting and decrypting data {#enc-dec}
+## Data encryption and decryption {#enc-dec}
 
 Use the `encrypt` and `decrypt` methods to encrypt and decrypt data. The code uses the following variables:
-* `endpoint` – `{{ api-host }}:443`.
-* `keyId`: ID of the [KMS key](../../concepts/key.md).
-* `plaintext`: Unencrypted text (no more than 32 KB).
-* `ciphertext`: Encrypted text.
-* `aad`: [AAD context](../../concepts/encryption.md#add-context).
+* `endpoint`: `{{ api-host }}:443`
+* `keyId`: ID of the [KMS key](../../concepts/key.md)
+* `plaintext`: Unencrypted text (no more than 32 KB)
+* `ciphertext`: Encrypted text
+* `aad`: [AAD context](../../concepts/symmetric-encryption.md#add-context)
 
 {% list tabs %}
 

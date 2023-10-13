@@ -8,11 +8,11 @@ To create an organization, follow these steps:
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-1. Read the {{yandex-cloud}} terms of use and click **Log in**.
+1. Read the {{yandex-cloud}} terms of use and click **{{ ui-key.yacloud_org.form.organization.select.action.enter }}**.
 
 1. Enter your company name and description.
 
-1. Click **Create organization**.
+1. Click **{{ ui-key.yacloud_org.pages.create }}**.
 
 After registering, you become the organization owner and can manage its settings.
 

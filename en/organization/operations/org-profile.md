@@ -15,12 +15,12 @@ To edit your organization data:
 
 1. Log in to [{{org-full-name}}]({{link-org-main}}) using the organization's administrator or owner account.
 
-1. In the left panel, select [Organization information]({{link-org-settings}}) ![icon-settings](../../_assets/organization/icon-settings.svg).
+1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.settings }}]({{link-org-settings}}) ![icon-settings](../../_assets/organization/icon-settings.svg).
 
-1. To change the organization name and description, click **Edit data** in the upper-right corner.
+1. To change the organization name and description, click **{{ ui-key.yacloud_org.page.settings.action.edit }}** in the upper-right corner.
 
 1. Change the organization name, technical name, or description.
 
-1. Click **Save**.
+1. Click **{{ ui-key.yacloud_org.forms.action.save }}**.
 
 You cannot delete an organization on your own. If an organization is not in use, [remove](./edit-account.md) all users from it, [create]({{ link-console-support }}) a delete organization request, and submit it to the support team.

@@ -268,7 +268,7 @@
 
 - {{ TF }}
 
-  1. Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. {% include [terraform-install](../../_includes/terraform-install.md) %}
   1. Склонируйте [репозиторий Yandex Cloud Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
   
      ```

@@ -104,7 +104,7 @@
  
    - Terraform
 
-     1. Если у вас еще нет {{ TF }}, [установите и настройте](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) его.
+     1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
      1. Задайте параметры для Terraform-провайдера {{ yandex-cloud }}:

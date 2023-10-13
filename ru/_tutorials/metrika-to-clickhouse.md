@@ -64,7 +64,7 @@ noIndex: true
 
         ```sql
         SELECT table FROM system.tables
-        WHERE database = '<имя базы данных {{ CH }}>'
+        WHERE database = '<имя_базы_данных_{{ CH }}>'
         ```
 
         Результат:
@@ -79,7 +79,7 @@ noIndex: true
     1. Проверьте, что таблицы хитов и визитов содержат данные из счетчика:
 
         ```sql
-        SELECT * FROM <имя таблицы хитов или визитов>
+        SELECT * FROM <имя_таблицы_хитов_или_визитов>
         ```
 
 ## Удалите созданные ресурсы {#clear-out}

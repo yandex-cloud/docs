@@ -1,5 +1,7 @@
 # Задачи из {{ tracker-full-name }}
 
+{% include [actions-alert](../../_includes/wiki/actions-alert.md) %}
+
 [{{ tracker-full-name }}]({{ link-tracker }}) — это сервис для управления проектами и процессами. Подробнее о возможностях сервиса читайте в [документации {{ tracker-full-name }}](../../tracker/).
 
 Пользователи {{ tracker-full-name }} могут размещать на страницах {{ wiki-name }} ссылки на отдельные задачи или списки задач.

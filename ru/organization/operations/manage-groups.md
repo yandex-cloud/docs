@@ -71,7 +71,7 @@
 
 Чтобы настроить права доступа пользователей к ресурсам {{ yandex-cloud }} с помощью [сопоставления групп](../concepts/add-federation.md#group-mapping):
 
-1. [Создайте группы пользователей](#create-group) в {{org-name}}.
+1. [Создайте группы пользователей](#create-group) в {{ org-name }}.
 1. [Настройте права доступа](#access) этих групп к ресурсам {{ yandex-cloud }}.
 1. Создайте группы пользователей в вашем [поставщике удостоверений](../concepts/add-federation.md#federation-usage) и добавьте в них пользователей.
 
@@ -96,5 +96,5 @@
     1. Включите опцию **{{ ui-key.yacloud_org.form.group-mapping.field.idp }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.create.add }}** и задайте сопоставление:
         * **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}** — укажите имя группы поставщика удостоверений.
-        * **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** — выберите группу {{org-name}} из списка.
+        * **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}** — выберите группу {{ org-name }} из списка.
     1. Повторите предыдущий шаг для всех сопоставляемых групп.

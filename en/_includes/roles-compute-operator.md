@@ -1,4 +1,4 @@
-### compute.operator {#compute-operator}
+#### compute.operator {#compute-operator}
 
 The `compute.operator` role includes the following permissions:
 

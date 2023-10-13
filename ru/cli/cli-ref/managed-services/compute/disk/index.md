@@ -28,6 +28,7 @@ Aliases:
 - [yc compute disk resize](resize.md) — Resize the specified disk
 - [yc compute disk delete](delete.md) — Delete the specified disk
 - [yc compute disk move](move.md) — Move the specified disk into the folder
+- [yc compute disk relocate](relocate.md) — Relocate the specified disk to the zone
 - [yc compute disk list-operations](list-operations.md) — List operations for the specified disk
 
 #### Global Flags

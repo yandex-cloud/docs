@@ -1,9 +1,9 @@
 # Exporting audit logs to SIEM Splunk systems
 
-Create a trail to upload the audit logs of resources in a single folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to SIEM Splunk.
+Create a trail to upload configuration-level (Control Plane) audit logs of resources in an individual folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to SIEM Splunk.
 
 The solution described in the tutorial follows the procedure below:
-1. A [trail](../concepts/trail.md) uploads logs to a {{ objstorage-name }} bucket.
+1. A [trail](../concepts/trail.md) uploads logs to an {{ objstorage-name }} bucket.
 1. The bucket is mounted as part of an intermediate VM's [filesystem](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
 1. The intermediate VM runs a script that pulls logs from the bucket on a schedule and pushes them to Splunk.
 
@@ -50,10 +50,10 @@ The infrastructure support cost includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
-   1. Select **{{ objstorage-name }}**.
-   1. Click **Create bucket**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
    1. On the bucket creation page:
-      1. Enter the bucket name, following the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
 
          By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
 
@@ -61,9 +61,9 @@ The infrastructure support cost includes:
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
-      1. In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
+      1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
-      1. Click **Create bucket** to complete the operation.
+      1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
 {% endlist %}
 
@@ -74,13 +74,13 @@ The infrastructure support cost includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
-   1. Select **{{ kms-name }}**.
-   1. Click **Create** and set the key attributes:
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
 
       * Any name and optional description.
       * Encryption algorithm, such as AES-256.
       * [Rotation](../../kms/concepts/index.md#rotation) period (how often to change key versions).
-      * Click **Create**.
+      * Click **{{ ui-key.yacloud.common.create }}**.
 
    The key is created along with its first version: click the key in the list to open the page with its attributes.
 
@@ -93,12 +93,12 @@ The infrastructure support cost includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the bucket for which you want to configure encryption.
-   1. In the left panel, select **Encryption**.
-   1. In the **{{ kms-short-name }} key** field, select an existing key or create a new one:
+   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select an existing key or create a new one:
 
       {% include [storage-create-kms](../../storage/_includes_service/storage-create-kms.md) %}
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 {% endlist %}
 
@@ -109,13 +109,13 @@ The infrastructure support cost includes:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Click **Create service account**.
-   1. Enter the name of the service account:
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. Enter a name for the service account. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -136,9 +136,9 @@ The infrastructure support cost includes:
 
       Where:
 
-      * `role`: Role being assigned.
-      * `id`: ID of the folder from which audit logs will be collected.
-      * `service-account-id`: ID of your service account.
+      * `role`: Role being assigned
+      * `id`: ID of the folder from which audit logs will be collected
+      * `service-account-id`: ID of your service account
 
    1. Assign the [storage.uploader](../../storage/security/#storage-uploader) role to the folder that will host the trail:
 
@@ -151,9 +151,9 @@ The infrastructure support cost includes:
 
       Where:
 
-      * `role`: Role being assigned.
-      * `id`: The ID of the folder to host the trail:
-      * `service-account-id`: ID of your service account.
+      * `role`: Role being assigned
+      * `id`: ID of the folder to host the trail
+      * `service-account-id`: ID of your service account
 
    1. Assign the [kms.keys.encrypterDecrypter](../../kms/security/#service) role to the encryption key:
 
@@ -186,22 +186,17 @@ To create the trail, make sure you have the following roles:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create the trail.
-   1. Select **{{ at-name }}**.
-   1. Click **Create trail** and specify:
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
-      * **Name**: Name of the trail being created.
-      * **Description**: Description of the trail (optional).
+      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created
+      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional)
 
-   1. Under **Filter**, set up the audit log scope:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
 
-      * **Resource**: Select `Folder`.
-      * **Folder**: An automatically populated field containing the name of the current folder.
-
-   1. Under **Destination**, set up the destination object:
-
-      * **Destination**: `{{ objstorage-name }}`.
-      * **Bucket**: The name of the [bucket](../../storage/operations/buckets/create.md) where you want to upload audit logs.
-      * **Object prefix**: An optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Name of the [bucket](../../storage/operations/buckets/create.md) to which you want to upload audit logs.
+      * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
       {% note info %}
 
@@ -209,8 +204,17 @@ To create the trail, make sure you have the following roles:
 
       {% endnote %}
 
-   1. Under **Service account**, select the service account that the trail will use to upload audit log files to the bucket.
-   1. Click **Create**.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket.
+
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+
+      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
+
+   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **Status** field.
+
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
    {% note warning %}
 
@@ -232,29 +236,29 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following the 
 
    1. Create an NAT gateway:
       1. In the [management console]({{ link-console-main }}), select the folder containing the subnet for the intermediate VM.
-      1. In the list of services, select **{{ vpc-name }}**.
-      1. On the left-hand panel, select **Gateways**.
-      1. Click **Create**.
-      1. Enter a name for the gateway:
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
+      1. Enter a name for the gateway. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      1. The default gateway type is **Egress NAT**.
-      1. Click **Save**.
+      1. The default gateway type is `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}`.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
    1. Create a route table:
-      1. On the left-hand panel, select **Route tables**.
-      1. Click **Create** to [create](../../vpc/operations/static-route-create.md) a new table, or select an existing one.
-      1. Click **Add route**.
-      1. In the window that opens, select **Gateway** in the **Next hop** field.
-      1. In the **Gateway** field, select the NAT gateway you created. The destination prefix will be propagated automatically.
-      1. Click **Add**.
-      1. Click **Create route table**.
+      1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+      1. Click **{{ ui-key.yacloud.common.create }}** to [add](../../vpc/operations/static-route-create.md) a new table, or select an existing one.
+      1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
+      1. In the window that opens, select `{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}` in the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** field.
+      1. In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will be propagated automatically.
+      1. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+      1. Click **{{ ui-key.yacloud.vpc.route-table.edit.button_edit }}**.
    1. Link the route table to the subnet where you want to deploy the intermediate VM, to forward its traffic via the NAT gateway:
-      1. On the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **Subnets**.
-      1. In the line with the desired subnet, click ![image](../../_assets/options.svg).
-      1. In the menu that opens, select **Link route table**.
+      1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+      1. In the required subnet row, click ![image](../../_assets/options.svg).
+      1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
       1. In the window that opens, select the created table from the list.
-      1. Click **Link**.
+      1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 {% endlist %}
 
@@ -288,7 +292,7 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following the 
       ```
       Where:
 
-      * `folder_id`: ID of the folder.
+      * `folder_id`: Folder ID
       * `splunk_token`: Event Collector token retrieved from Splunk.
       * `splunk_server`: Address of your Splunk server as https://<host_name_or_address>.
       * `bucket_name`: Bucket name.

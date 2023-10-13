@@ -1,6 +1,6 @@
-### iam.serviceAccounts.keyAdmin {#sa-keyAdmin}
+#### iam.serviceAccounts.keyAdmin {#sa-keyAdmin}
 
-The `iam.serviceAccounts.keyAdmin` role lets you create, update, and delete:
+The `iam.serviceAccounts.keyAdmin` role allows you to create, update, and delete:
 
 * [Static keys](../iam/concepts/authorization/access-key.md).
 * [API keys](../iam/concepts/authorization/api-key.md).

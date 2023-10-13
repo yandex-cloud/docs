@@ -1,4 +1,4 @@
-### {{ roles.mms.editor }} {#mms-editor}
+#### {{ roles.mms.editor }} {#mms-editor}
 
 The `{{ roles.mms.editor }}` role enables you to edit and delete clusters, as well as view information about clusters, runtime logs, and quotas.
 

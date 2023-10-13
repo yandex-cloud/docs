@@ -66,7 +66,7 @@ description: "В этой инструкции вы создадите и про
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
 

@@ -9,6 +9,6 @@
 
 {% note warning %}
 
-Системный образ Python 3.7 не работает с [конфигурациями](../../concepts/configurations.md) g2.x (GPU A100).
+Системный образ DS Default (Python 3.7) не работает с [конфигурациями](../../concepts/configurations.md) g2.x (GPU A100).
 
 {% endnote %}

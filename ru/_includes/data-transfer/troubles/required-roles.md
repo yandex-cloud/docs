@@ -3,7 +3,7 @@
 Текст ошибки:
 
 ```text
-Can't authorize usage of managed <тип БД>, you need permission <get-разрешение MDB> to folder <идентификатор папки с кластером>
+Can't authorize usage of managed <тип_БД>, you need permission <get-разрешение_MDB> to folder <идентификатор_папки_с_кластером>
 ```
 
 Для создания или редактирования эндпоинта управляемой базы данных необходима сервисная или примитивная [роль `viewer`](../../../iam/concepts/access-control/roles.md), выданная на каталог кластера этой управляемой базы данных.

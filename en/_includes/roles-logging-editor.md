@@ -1,4 +1,4 @@
-### logging.editor
+#### logging.editor {#logging-editor}
 
 The `logging.editor` role grants permission to update all settings of a log group, except its access rights.
 

@@ -1,6 +1,6 @@
 # Как начать работать с {{ iam-short-name }}
 
-Сервис {{ iam-short-name }} позволяет управлять доступом к ресурсам {{ yandex-cloud }}. Чтобы начать работу с сервисом, добавьте пользователя в организацию и выдайте ему доступ к ресурсу в одном из ваших облаков. [Подробнее об организациях, ресурсах и пользователях](../overview/roles-and-resources.md).
+Чтобы начать работу с сервисом {{ iam-short-name }}, добавьте пользователя в организацию и выдайте ему доступ к ресурсу в одном из ваших облаков. [Подробнее об организациях, ресурсах и пользователях](../overview/roles-and-resources.md).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -16,8 +16,8 @@
     1. В строке поиска введите свою учетную запись.
     1. Проверьте, что для вашей учетной записи указаны роли:
 
-        * владельца (`organization-manager.organizations.owner`) или администратора (`organization-manager.admin`) организации;
-        * владельца (`resource-manager.clouds.owner`) или администратора (`admin`) облака.
+        * владельца организации (`organization-manager.organizations.owner`) или администратора организации (`organization-manager.admin`);
+        * владельца облака (`resource-manager.clouds.owner`) или администратора облака (`admin`).
 
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если пока нет пользователей, которых можно добавить в облако, [создайте новый аккаунт](https://passport.yandex.ru/registration) на Яндексе и предоставьте доступ в облако для этого аккаунта.

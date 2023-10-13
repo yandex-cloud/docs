@@ -11,84 +11,61 @@ To create an additional cloud:
 
 - Management console
 
-      1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
-   1. On the [management console]({{ link-console-main }}) homepage, click ![image](../../../_assets/options.svg) next to your billing account.
-   1. Select **Create cloud**.
+      1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
+   1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, select a billing account.
+   1. Under **{{ ui-key.yacloud.billing.account.dashboard-resources.section_resources }}**, click **{{ ui-key.yacloud.common.create }}**.
    1. Enter the name of the cloud. The naming requirements are as follows:
 
       {% include [name-format.md](../../../_includes/name-format.md) %}
 
-   1. Enter the organization you are going to link the cloud to. If you don't have an organization yet, one will be created automatically.
-   1. Click **Create**. The `default` folder page in the new cloud opens.
-
-- API
-
-   To create a cloud, use the [create](../../api-ref/Cloud/create.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/Create](../../api-ref/grpc/cloud_service.md#Create) gRPC API call.
+   1. Enter the organization you are going to link the cloud to.
+   1. Click **{{ ui-key.yacloud.common.create }}**. The `default` folder page in the new cloud opens.
 
 - {{ TF }}
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of the cloud to create:
+   To activate the cloud, make sure to link it to your billing account. To do this, use the `yandex_billing_cloud_binding` resource and specify the cloud in the `cloud_id` field.
+
+   1. In the configuration file, describe the parameters of the resources you want to create:
+
+      ```hcl
+      resource "yandex_resourcemanager_cloud" "cloud1" {
+        name            = "<cloud_name>"
+        organization_id = "<organization_ID>"
+      }
+
+      resource "yandex_billing_cloud_binding" "mycloud" {
+        billing_account_id = "<billing_account_ID>"
+        cloud_id           = yandex_resourcemanager_cloud.cloud1.id
+      }
+      ```
+
+      Where:
+
       * `name`: Cloud name. The naming requirements are as follows:
 
          {% include [name-format.md](../../../_includes/name-format.md) %}
 
-      * `organization_id`: Organization ID. {{ TF }} only lets you create a cloud for an existing organization. You can get a list of organization IDs using the [CLI](../../../cli/quickstart.md) command: `yc organization-manager organization list`.
+      * `organization_id`: Organization ID. {{ TF }} allows you to create a cloud only for an existing organization. You can get a list of organization IDs using the [CLI](../../../cli/quickstart.md) command: `yc organization-manager organization list`.
+      * `billing_account_id`: Billing account ID.
+      * `cloud_id`: ID of the cloud to link to the billing account.
 
-      Example of the configuration file structure:
+      For more information about the `yandex_resourcemanager_cloud` and `yandex_billing_cloud_binding` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-docs-link }}).
 
-      
-      ```hcl
-      provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<ID of default cloud>"
-        folder_id = "<ID of default cloud>"
-        zone      = "<default availability zone>"
-      }
+   1. Create resources:
 
-      resource "yandex_resourcemanager_cloud" "cloud1" {
-        name            = "<cloud name>"
-        organization_id = "<organization ID>"
-      }
-      ```
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-
-
-      For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud).
-   1. In the command line, go to the directory where you created the configuration file.
-   1. Make sure the configuration file is correct using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      If the configuration is correct, you will get this message:
-
-      ```bash
-      Success! The configuration is valid.
-      ```
-
-   1. Run this command:
-
-      ```bash
-      terraform plan
-      ```
-
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-   1. Apply the configuration changes:
-
-      ```bash
-      terraform apply
-      ```
-
-   1. Confirm the changes: type `yes` in the terminal and press **Enter**.
-
-      You can verify the created cloud and its parameters in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+   This will create a cloud linked to your billing account in the organization. You can verify the created cloud and its parameters in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc resource-manager cloud list
       ```
+
+- API
+
+   To create a cloud, use the [create](../../api-ref/Cloud/create.md) REST API method for the [Cloud](../../api-ref/Cloud/index.md) resource or the [CloudService/Create](../../api-ref/grpc/cloud_service.md#Create) gRPC API call.
 
 {% endlist %}
 
@@ -104,3 +81,4 @@ When you create a cloud, you are automatically given the [owner](../../concepts/
 * [{#T}](set-access-bindings.md)
 * [{#T}](switch-cloud.md)
 * [{#T}](../folder/create.md)
+* [{#T}](../../../billing/concepts/billing-account.md)

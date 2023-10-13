@@ -20,9 +20,9 @@ This hardware implements a set of solutions to protect a cryptographic asset thr
 
 ### HSM operating procedure
 
-In {{ kms-name }}, you can create a key whose every cryptographic operation will be handled inside the HSM only. The HSM will also generate the key itself. In this situation, the user's key resides in the {{ kms-name }} service database only in encrypted form. The HSM uses its master key, which never leaves the HSM, to encrypt the user key.
+In {{ kms-name }}, you can create a symmetric encryption key whose every cryptographic operation will be handled only inside the HSM. The HSM will also generate the key itself. In this situation, the user's key resides in the {{ kms-name }} service database only in encrypted form. The HSM uses its master key, which never leaves the HSM, to encrypt the user key.
 
-For all cryptographic operations, the key will be transmitted to the HSM. The HSM handles all cryptographic operations with the user key only internally and only returns the results of such operations to {{ kms-name }}.
+For all cryptographic operations, the symmetric key will be transmitted to the HSM. The HSM handles all cryptographic operations with the user key only internally and only returns the results of such operations to {{ kms-name }}.
 
 A cryptographic operation using the HSM includes the following steps:
 
@@ -35,4 +35,4 @@ A cryptographic operation using the HSM includes the following steps:
 
 ### Enabling the HSM for a key
 
-To use the HSM, when creating a key, select `AES-256 HSM` as the algorithm type. The HSM will handle all operations with this key internally, and no additional actions are required.
+To use the HSM, select `AES-256 HSM` as the algorithm type when creating a symmetric key. The HSM will handle all operations with this key internally, and no additional actions are required.

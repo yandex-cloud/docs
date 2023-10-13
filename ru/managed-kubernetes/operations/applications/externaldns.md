@@ -42,8 +42,8 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/externaldns/helm/externaldns \
-     --version <версия_Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_externaldns.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_externaldns.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <пространство_имен> \

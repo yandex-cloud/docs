@@ -7,30 +7,67 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Key
-        href: operations/key.md
-      - name: Key version
-        href: operations/version.md
-      - name: Data encryption
-        href: operations/encryption.md
-      - name: Encryption key access rights
-        href: operations/key-access.md
+      - name: Symmetric encryption
+        items:
+          - name: Key
+            href: operations/key.md
+          - name: Key version
+            href: operations/version.md
+          - name: Data encryption
+            href: operations/symmetric-encryption.md
+          - name: Encryption key access rights
+            href: operations/key-access.md
+      - name: Asymmetric encryption
+        stage: preview
+        items:
+          - name: Encryption key pair
+            stage: preview
+            href: operations/asymmetric-encryption-key.md
+          - name: Data encryption
+            stage: preview
+            href: operations/asymmetric-encryption.md
+      - name: E-signature
+        stage: preview
+        items:
+          - name: E-signature key pair
+            stage: preview
+            href: operations/asymmetric-signature-key.md
+          - name: Digital signature and its verification
+            stage: preview
+            href: operations/signature-verification.md
   - name: Concepts
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Key
-        href: concepts/key.md
-      - name: Key version
-        href: concepts/version.md
-      - name: Encryption
-        href: concepts/encryption.md
+      - name: Symmetric encryption
+        items:
+          - name: Symmetric key
+            href: concepts/key.md
+          - name: Key version
+            href: concepts/version.md
+          - name: Symmetric encryption
+            href: concepts/symmetric-encryption.md
+          - name: Hardware Security Module (HSM)
+            href: concepts/hsm.md
+      - name: Asymmetric encryption
+        items:
+          - name: Encryption key pair
+            href: concepts/asymmetric-encryption-key.md
+          - name: Asymmetric encryption
+            href: concepts/asymmetric-encryption.md
+      - name: Digital signature
+        stage: preview
+        items:
+          - name: Digital signature key pair
+            stage: preview
+            href: concepts/asymmetric-signature-key.md
+          - name: Digital signature
+            stage: preview
+            href: concepts/digital-signature.md
       - name: Envelope encryption
         href: concepts/envelope.md
       - name: Key consistency
         href: concepts/consistency.md
-      - name: Hardware Security Module (HSM)
-        href: concepts/hsm.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Tutorials

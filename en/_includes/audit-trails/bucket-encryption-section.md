@@ -14,6 +14,6 @@ To store logs in encrypted form:
    ```
 
    Where:
-   * `role`: The role assigned.
-   * `id`: The ID of the encryption key.
-   * `service-account-id`: The ID of your service account.
+   * `role`: Role being assigned.
+   * `id`: ID of the encryption key.
+   * `service-account-id`: ID of your service account.

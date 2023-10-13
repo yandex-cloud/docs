@@ -6,16 +6,13 @@ To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the cloud from the list on the left.
-   1. Click ![***](../../../_assets/pencil.svg) **Edit** in the top-right corner.
-
-      ![image](../../../_assets/iam/cloud-actions-n-n.png)
-
+   1. In the [management console]({{ link-console-main }}), select the appropriate cloud in the list on the left.
+   1. Click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) in the top-right corner and select **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, enter a new cloud name. The naming requirements are as follows:
 
       {% include [name-format.md](../../../_includes/name-format.md) %}
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.iam.cloud.edit.popup-edit-cloud_button_save }}**.
 
 - API
 
@@ -23,7 +20,7 @@ To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To rename a cloud created using {{ TF }}:
 
@@ -35,7 +32,7 @@ To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts
       ...
       resource "yandex_resourcemanager_cloud" "cloud1" {
         name            = "cloud-main"
-        organization_id = "bpf7nhb9hkphksfevi77"
+        organization_id = "bpf7nhb9hkph********"
       }
       ...
       ```
@@ -62,7 +59,7 @@ To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

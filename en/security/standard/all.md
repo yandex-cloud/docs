@@ -31,3 +31,7 @@
 ## 8. Physical security {#physical-security}
 
 {% include notitle [physical-security](../../_includes/security/standard/physical-security.md) %}
+
+## 9. Application security {#app-security}
+
+{% include notitle [app-security](../../_includes/security/standard/app-security.md) %}

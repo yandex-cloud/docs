@@ -1,4 +1,4 @@
-### dns.admin {#dns-admin}
+#### dns.admin {#dns-admin}
 
 The `dns.admin` role includes the following privileges:
 

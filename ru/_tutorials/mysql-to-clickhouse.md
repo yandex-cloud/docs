@@ -36,8 +36,8 @@
 
 * С помощью {{ TF }}
 
-    1. Если у вас еще нет {{ TF }}, [установите и настройте его](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
+    1. {% include [terraform-install](../_includes/terraform-install.md) %}
+    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
     1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-mmy-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-mch.tf).
 
         В этом файле описаны:
@@ -164,7 +164,7 @@
     1. Выполните запрос:
 
         ```sql
-        SELECT * FROM <имя базы данных {{ CH }}>.x_tab
+        SELECT * FROM <имя_базы_данных_{{ CH }}>.x_tab
         ```
 
         Результат:
@@ -195,7 +195,7 @@
 1. Убедитесь, что в таблице `x_tab` на приемнике {{ CH }} отобразились изменения:
 
     ```sql
-    SELECT * FROM <имя базы данных {{ CH }}>.x_tab WHERE id in (41,42);
+    SELECT * FROM <имя_базы_данных_{{ CH }}>.x_tab WHERE id in (41,42);
     ```
 
     Результат:
@@ -225,14 +225,14 @@
 В статусе трансфера **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}** данные в источнике могут добавляться или удаляться. Чтобы обеспечить стандартное поведение команд SQL, когда первичный ключ указывает на единственную запись, дополните запросы к перенесенным таблицам в {{ CH }} конструкцией с фильтром по столбцу `__data_transfer_delete_time`. Например, для таблицы `x_tab`:
 
 ```sql
-SELECT * FROM <имя базы данных {{ CH }}>.x_tab FINAL
+SELECT * FROM <имя_базы_данных_{{ CH }}>.x_tab FINAL
 WHERE __data_transfer_delete_time = 0;
 ```
 
 Для упрощения запросов `SELECT` создайте представление с фильтром по столбцу `__data_transfer_delete_time` и обращайтесь к нему. Например, для таблицы `x_tab`:
 
 ```sql
-CREATE VIEW x_tab_view AS SELECT * FROM <имя базы данных {{ CH }}>.x_tab FINAL
+CREATE VIEW x_tab_view AS SELECT * FROM <имя_базы_данных_{{ CH }}>.x_tab FINAL
 WHERE __data_transfer_delete_time == 0;
 ```
 

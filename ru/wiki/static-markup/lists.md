@@ -1,5 +1,7 @@
 # Списки
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 ## Нумерованный список {#section_numbered}
 
 ### Список с цифрами {#section_numbered_numbers}

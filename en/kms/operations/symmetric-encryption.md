@@ -1,6 +1,6 @@
-# Data encryption
+# Symmetric data encryption
 
-In this section, you will learn how to use {{ kms-short-name }} to encrypt and decrypt small-sized data (of up to 32 KB) using the CLI and API. For more information about available encryption methods, see [{#T}](../tutorials/encrypt/index.md)
+In this section, you will learn how to use {{ kms-short-name }} to encrypt and decrypt small-sized data (up to 32 KB) in [symmetric encryption](../concepts/symmetric-encryption.md) mode using the CLI and API. For more information about available encryption methods, see [{#T}](../tutorials/encrypt/index.md)
 
 ## Getting started {#before-you-begin}
 
@@ -18,9 +18,8 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
    * `--name`: Name of the KMS key, make sure you set either the `--id` or `--name` flag.
    * `--version-id` (optional): [Version](../concepts/version.md) of the KMS key to use for encryption. The primary version is used by default.
    * `--plaintext-file`: Input file with plaintext.
-   * `--aad-context-file` (optional): Input file with [AAD context](../concepts/encryption.md#add-context).
+   * `--aad-context-file` (optional): Input file with [AAD context](../concepts/symmetric-encryption.md#add-context).
    * `--ciphertext-file`: Output file with ciphertext.
-
 
    ```
    yc kms symmetric-crypto encrypt \
@@ -67,7 +66,7 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
    * `--id`: ID of the [KMS key](../concepts/key.md), make sure you set either the `--id` or `--name` flag.
    * `--name`: Name of the KMS key, make sure you set either the `--id` or `--name` flag.
    * `--ciphertext-file`: Input file with plaintext.
-   * `--aad-context-file` (optional): Input file with [AAD context](../concepts/encryption.md#add-context).
+   * `--aad-context-file` (optional): Input file with [AAD context](../concepts/symmetric-encryption.md#add-context).
    * `--plaintext-file`: Output file with ciphertext.
 
    ```
@@ -99,7 +98,8 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 
 #### See also {#see-also}
 
-* [Command line interface (YC CLI)](../../cli).
-* [Encryption in Key Management Service](../concepts/encryption.md).
-* [Managing keys in KMS](./index.md).
-* [Encrypting secrets in Hashicorp Terraform](../../kms/tutorials/terraform-secret.md).
+* [Command line interface (YC CLI)](../../cli)
+* [Symmetric encryption in {{ kms-full-name }}](../concepts/symmetric-encryption.md)
+* [Asymmetric encryption in {{ kms-full-name }}](../concepts/asymmetric-encryption.md)
+* [Managing keys in KMS](./index.md)
+* [Encrypting secrets in Hashicorp Terraform](../../kms/tutorials/terraform-secret.md)

@@ -1,5 +1,7 @@
 # Списки страниц
 
+{% include [actions-alert](../../_includes/wiki/actions-alert.md) %}
+
 Вы можете вставить на [страницу](../pages-types.md#page) списки:
 
 * [{#T}](#tree)

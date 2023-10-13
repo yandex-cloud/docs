@@ -105,6 +105,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 - API
 
    1. Create a service account named `vm-scale-scheduled-sa`. To do this, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API call.
+
    1. Assign the service account the following roles for the current folder:
 
       * `compute.admin` to manage the instance group.
@@ -207,7 +208,7 @@ Your instance group will be hosted in the [cloud network](../../vpc/concepts/net
    1. Create a `vm-scale-scheduled-network` using the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call.
 
    1. Create a subnet named `vm-scale-scheduled-subnet-a` in the `{{ region-id }}-a` availability zone and `vm-scale-scheduled-subnet-b` in the `{{ region-id }}-b` availability zone using the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call.
- 
+
 
 - {{ TF }}
 
@@ -252,7 +253,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
       * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
          * In the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field, select `vm-scale-scheduled-sa`.
-         * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user to be created on the VM. Come up with a name.
+         * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user to be created on the VM. Make up a name.
          * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public SSH key. You can create a key pair by following the [instructions](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
       * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.

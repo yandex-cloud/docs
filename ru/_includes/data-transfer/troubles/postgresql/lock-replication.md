@@ -10,7 +10,7 @@
    /* поиск PID трансфера */
    SELECT active_pid
      FROM pg_replication_slots
-     WHERE slot_name = '<ID трансфера>';
+     WHERE slot_name = '<ID_трансфера>';
 
    /* поиск PID блокирующего процесса */
    SELECT pid, pg_blocking_pids(pid) as blocked_by
@@ -21,7 +21,7 @@
    ```text
            pid      | blocked_by
    -----------------+-------------------
-    <PID трансфера> | {<PID блокирующей транзакции>}
+    <PID_трансфера> | {<PID_блокирующей_транзакции>}
    (1 row)
    ```
 
@@ -30,13 +30,13 @@
    ```sql
    SELECT query, usename
      FROM pg_stat_activity
-     WHERE pid = <PID блокирующей транзакции>;
+     WHERE pid = <PID_блокирующей_транзакции>;
    ```
 
 1. (Опционально) Остановите транзакцию командой:
 
    ```sql
-   SELECT pg_terminate_backend(<PID блокирующей транзакции>);
+   SELECT pg_terminate_backend(<PID_блокирующей_транзакции>);
    ```
 
 1. [Активируйте трансфер](../../../../data-transfer/operations/transfer.md#activate) повторно.

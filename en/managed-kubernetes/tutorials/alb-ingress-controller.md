@@ -1,15 +1,15 @@
 # Setting up the {{ alb-name }} Ingress controller
 
-[{{ alb-full-name }}](../../application-load-balancer/) is designed for load balancing and traffic distribution across applications. To use it for managing incoming traffic of applications running in a {{ managed-k8s-name }} cluster, you need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
+The [{{ alb-full-name }}](../../application-load-balancer/) service is designed for load balancing and traffic distribution across applications. To use it for managing incoming traffic of applications running in a {{ managed-k8s-name }} cluster, you need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
 To set up access to the applications running in your cluster via {{ alb-name }}:
 1. [{#T}](#create-ingress-and-apps).
 1. [{#T}](#verify-setup).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
-1. If you already have a certificate for the domain zone, [add information about it](../../certificate-manager/operations/import/cert-create.md) to the {{ certificate-manager-full-name }} service. Or [create a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md).
+1. If you already have a certificate for the domain zone, [add information about it](../../certificate-manager/operations/import/cert-create.md) to the {{ certificate-manager-full-name }} service. Alternatively, you can [create a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md).
 
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 
@@ -298,8 +298,10 @@ Command result:
       Where:
 
       * `ingress.alb.yc.io/subnets`: One or more [subnets](../../vpc/concepts/network.md#subnet) that {{ alb-name }} is going to work with.
-      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If the parameter is omitted, the default security group is used. At least one of the security groups must allow outgoing TCP connections to ports 10501 and 10502 in the node group subnet or security group.
-      * `ingress.alb.yc.io/external-ipv4-address`: Provide public online access to {{ alb-name }}. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or use `auto` to obtain a new IP address automatically.
+      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group is used. At least one of the security groups must allow outgoing TCP connections to ports 10501 and 10502 in the node group subnet or security group.
+      * `ingress.alb.yc.io/external-ipv4-address`: Providing public online access to {{ alb-name }}. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or use `auto` to obtain a new IP address automatically.
+
+         If you set `auto`, deleting the Ingress controller will also delete the IP address from the cloud. To avoid this, use an existing reserved IP address.
       * `ingress.alb.yc.io/group-name`: Grouping of {{ k8s }} Ingress resources, with each group served by a separate {{ alb-name }} instance. Enter the name of the group.
 
       (Optional) Enter the advanced settings for the controller:
@@ -333,11 +335,13 @@ Command result:
          * `m`: Minutes.
          * `h`: Hours.
 
-         {% note info %}
+      {% note info %}
 
-         The settings only apply to the hosts of the given controller rather than the entire Ingress group.
+      The settings only apply to the hosts of the given controller rather than the entire Ingress group.
 
-         {% endnote %}
+      {% endnote %}
+
+      For more information about the Ingress resource settings, see [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
 
    1. Create an Ingress controller and applications:
 
@@ -506,7 +510,7 @@ Command result:
         name: alb-demo-tls
         annotations:
           ingress.alb.yc.io/subnets: <list of subnet IDs> # One or more subnets that {{ alb-name }} is going to work with.
-          ingress.alb.yc.io/security-groups: <list of security group IDs> # One or more security groups for {{ alb-name }}. If the parameter is omitted, the default security group is used.
+          ingress.alb.yc.io/security-groups: <list of security group IDs> # One or more security groups for {{ alb-name }}. If you skip this parameter, the default security group is used.
           ingress.alb.yc.io/external-ipv4-address: <auto or static IP address> # Provide public online access to {{ alb-name }}. Enter the previously obtained IP address or use `auto` to obtain a new IP address automatically.
           ingress.alb.yc.io/group-name: <Ingress group name> # Grouping of {{ k8s }} Ingress resources, with each group served by a separate {{ alb-name }} instance.
       spec:
@@ -559,6 +563,8 @@ Command result:
       The settings only apply to the hosts of the given controller rather than the entire Ingress group.
 
       {% endnote %}
+
+      For more information about the Ingress resource settings, see [{#T}](../../application-load-balancer/k8s-ref/ingress.md).
 
    1. Create an Ingress controller, an `HttpBackendGroup` object, and a {{ k8s }} app:
 
@@ -616,7 +622,7 @@ Command result:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Delete the {{ alb-name }} target groups](../../application-load-balancer/operations/target-group-delete.md).

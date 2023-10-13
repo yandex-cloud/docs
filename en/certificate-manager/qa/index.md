@@ -6,3 +6,5 @@ description: "How do I get the logs of my activity in {{ certificate-manager-ful
 # General questions about {{ certificate-manager-name }}
 
 {% include [logs](../../_qa/logs.md) %}
+
+{% include [checking-cname](../../_qa/checking-cname.md) %}

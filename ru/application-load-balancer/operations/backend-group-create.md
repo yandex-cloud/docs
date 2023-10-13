@@ -240,7 +240,7 @@
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
   
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурса, который необходимо создать:
 

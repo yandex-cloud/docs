@@ -1,19 +1,17 @@
-С помощью инструмента [External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) вы можете настроить синхронизацию [секретов](../lockbox/concepts/secret.md) {{ lockbox-name }} с [секретами кластера](../managed-kubernetes/concepts/encryption.md) {{ managed-k8s-name }}.
+С помощью инструмента [External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) вы можете настроить синхронизацию [секретов](../lockbox/concepts/secret.md) [{{ lockbox-name }}](../lockbox/) с [секретами](../managed-kubernetes/concepts/encryption.md) [кластера {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 Существует [несколько схем интеграции](https://external-secrets.io/latest/guides/multi-tenancy/) {{ lockbox-name }} с сервисом {{ managed-k8s-name }}. Далее для примера рассматривается схема [ESO as a Service](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service):
 
 ![image](../_assets/managed-kubernetes/mks-lockbox-eso.svg)
 
 Чтобы настроить синхронизацию секретов:
-1. [Перед началом работы](#before-you-begin).
-1. [Установите External Secrets Operator](#install-eso).
-1. [Настройте {{ lockbox-name }}](#configure-lockbox).
-1. [Настройте кластер {{ k8s }}](#configure-k8s).
+1. [Установите External Secrets Operator и настройте {{ lockbox-name }}](#install-eso-lockbox).
+1. [Настройте кластер {{ managed-k8s-name }}](#configure-k8s).
 1. [Создайте External Secret](#create-es).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-Также инфраструктуру для синхронизации секретов {{ lockbox-short-name }} с секретами кластера {{ managed-k8s-name }} можно развернуть через {{ TF }} с помощью [готового файла конфигурации](#terraform).
+Также инфраструктуру для синхронизации секретов {{ lockbox-name }} с секретами кластера {{ managed-k8s-name }} можно развернуть через {{ TF }} с помощью [готового файла конфигурации](#terraform).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -22,85 +20,74 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов для синхронизации секретов входит:
-* Плата за использование мастера {{ managed-k8s-name }} (см. [тарифы {{ managed-k8s-full-name }}](../managed-kubernetes/pricing.md)).
-* Плата за вычислительные ресурсы и диски группы узлов (см. [тарифы {{ compute-full-name }}](../compute/pricing.md)).
-* Плата за хранение и операции с секретом (см. [тарифы {{ lockbox-full-name }}](../lockbox/pricing.md)).
+* Плата за использование [мастера {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../managed-kubernetes/pricing.md)).
+* Плата за [вычислительные ресурсы](../compute/concepts/vm-platforms.md) и [диски](../compute/concepts/disk.md) [группы узлов {{ managed-k8s-name }}](../managed-kubernetes/concepts/index.md#node-group) (см. [тарифы {{ compute-full-name }}](../compute/pricing.md)).
+* Плата за хранение и операции с секретом (см. [тарифы {{ lockbox-name }}](../lockbox/pricing.md)).
 
-### Создайте инфраструктуру {#create-infrastructure}
+### Создайте инфраструктуру {#deploy-infrastructure}
 
+{% list tabs %}
 
-1. [Создайте облачную сеть](../vpc/operations/network-create.md) и [подсеть](../vpc/operations/subnet-create.md).
+- Вручную
 
-1. Создайте сервисный аккаунт:
+  1. Если у вас еще нет [сети](../vpc/concepts/network.md#network), [создайте ее](../vpc/operations/network-create.md).
+  1. Если у вас еще нет [подсетей](../vpc/concepts/network.md#subnet), [создайте их](../vpc/operations/subnet-create.md) в [зонах доступности](../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и группа узлов.
+  1. [Создайте сервисные аккаунты](../iam/operations/sa/create.md):
+     * [Сервисный аккаунт](../iam/concepts/users/service-accounts.md) для ресурсов {{ k8s }} с [ролью](../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../iam/concepts/access-control/roles.md#editor) на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}.
+     * Сервисный аккаунт для узлов {{ managed-k8s-name }} с ролью [{{ roles-cr-puller }}](../iam/concepts/access-control/roles.md#cr-images-puller) на каталог с [реестром](../container-registry/concepts/registry.md) [Docker-образов](../container-registry/concepts/docker-image.md). От его имени узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
 
-    {% list tabs %}
-    
-    - Консоль управления
+     {% note tip %}
 
-      1. В [консоли управления]({{link-console-main}}) выберите каталог, в котором вы хотите создать сервисный аккаунт.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Введите имя сервисного аккаунта, например `eso-service-account`.
+     Вы можете использовать один и тот же сервисный аккаунт для всех операций.
 
-          Требования к формату имени:
+     {% endnote %}
 
-          {% include [name-format](../_includes/name-format.md) %}
+  1. [Создайте кластер {{ managed-k8s-name }} ](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md#node-group-create). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
+  1. [Настройте группы безопасности](../managed-kubernetes/operations/connect/security-groups.md) для работы кластера {{ managed-k8s-name }}.
+  1. [Создайте секрет](../lockbox/operations/secret-create.md) {{ lockbox-name }} со следующими параметрами:
+     * **{{ ui-key.yacloud.common.name }}**  – `lockbox-secret`.
+     * **{{ ui-key.yacloud.lockbox.forms.label_key }}** — введите неконфиденциальный идентификатор `password`.
+     * **{{ ui-key.yacloud.lockbox.forms.label_value }}** — введите конфиденциальные данные для хранения `p@$$w0rd`.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+     Сохраните идентификатор секрета, он понадобится в дальнейшем.
 
-    - CLI
+- С помощью {{ TF }}
 
-      Чтобы создать сервисный аккаунт, выполните команду:
+  1. Если у вас еще нет {{ TF }}, [установите его](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+  1. Скачайте в ту же рабочую директорию файл конфигурации кластера {{ managed-k8s-name }} [k8s-cluster-and-lockbox.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster-and-lockbox.tf).
 
-      ```bash
-      yc iam service-account create --name <имя_сервисного_аккаунта>
-      ```
+     В этом файле описаны:
+     * [Сеть](../vpc/concepts/network.md#network).
+     * [Подсеть](../vpc/concepts/network.md#subnet).
+     * [Группа безопасности](../managed-kubernetes/operations/connect/security-groups.md) и правила, необходимые для работы кластера {{ managed-k8s-name }} и группы узлов:
+       * Правила для служебного трафика.
+       * Правила для доступа к API {{ k8s }} и управления кластером {{ managed-k8s-name }} с помощью `kubectl` через порты 443 и 6443.
+       * Правила для доступа к сервисам из интернета.
+     * Кластер {{ managed-k8s-name }}.
+     * [Сервисный аккаунт](../iam/concepts/users/service-accounts.md) для ресурсов и узлов {{ managed-k8s-name }}.
+     * Секрет {{ lockbox-name }}.
+  1. Укажите в файле конфигурации:
+     * [Идентификатор каталога](../resource-manager/operations/folder/get-id.md).
+     * [Версию {{ k8s }}](../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера {{ managed-k8s-name }} и групп узлов.
+     * Имя сервисного аккаунта для ресурсов и узлов {{ managed-k8s-name }}.
+  1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-      Где `--name` — имя сервисного аккаунта, например `eso-service-account`. Требования к формату имени:
+     ```bash
+     terraform validate
+     ```
 
-      {% include [name-format](../_includes/name-format.md) %}
+     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+  1. Создайте необходимую инфраструктуру:
 
-    {% endlist %}
+     {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
-1. Создайте [авторизованный ключ](../iam/concepts/authorization/access-key.md) для сервисного аккаунта и сохраните его в файл `authorized-key.json`:
+     {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
 
-    {% list tabs %}
-    
-    - Консоль управления
+  1. Сохраните выведенный в терминале идентификатор созданного секрета, он понадобится в дальнейшем.
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервисный аккаунт.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
-      1. Выберите сервисный аккаунт, например `eso-service-account`, и нажмите на строку с его именем.
-      1. На верхней панели нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
-      1. Выберите алгоритм шифрования.
-      1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
-      1. Сохраните открытый и закрытый ключи: закрытый ключ не сохраняется в {{ yandex-cloud }}, открытый ключ нельзя будет посмотреть в консоли управления.
-
-    - CLI
-
-      Чтобы создать авторизованный ключ, выполните команду:
-
-      ```bash
-      yc iam key create \
-        --service-account-name <имя_сервисного_аккаунта> \
-        --output authorized-key.json
-      ```
-
-      Где:
-      * `--service-account-name` — имя сервисного аккаунта, например `eso-service-account`.
-      * `--output` — имя файла, в который сохраняется содержимое авторизованного ключа.
-
-    {% endlist %}
-
-1. [Создайте](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) кластер {{ managed-k8s-name }} любой подходящей конфигурации.
-
-    {% note info %}
-
-    Для работы External Secrets Operator требуется, чтобы в узле кластера было как минимум 10 подов.
-
-    {% endnote %}
-
-1. [Создайте](../managed-kubernetes/operations/node-group/node-group-create.md) группу узлов.
+{% endlist %}
 
 ### Настройте окружение {#environment-set-up}
 
@@ -116,217 +103,101 @@
 
 1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Установите External Secrets Operator {#install-eso}
+## Установите External Secrets Operator и настройте {{ lockbox-name }} {#install-eso-lockbox}
 
-{% list tabs %}
-
-- С помощью {{ marketplace-full-name }}
-
-  Чтобы установить [External Secrets Operator](/marketplace/products/yc/external-secrets) с помощью {{ marketplace-name }}, [воспользуйтесь инструкцией](../managed-kubernetes/operations/applications/external-secrets-operator.md#install-eso-marketplace).
-
-- С помощью Helm
-
-  1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/).
-
-  1. Добавьте Helm-репозиторий `external-secrets`:
-
-      ```bash
-      helm repo add external-secrets https://charts.external-secrets.io
-      ```
-
-  1. Установите External Secrets Operator в кластер {{ k8s }}:
-
-      ```bash
-      helm install external-secrets \
-        external-secrets/external-secrets \
-        --namespace external-secrets \
-        --create-namespace
-      ```
-
-      {% note info %}
-
-      Эта команда создаст новое пространство имен `external-secrets`, необходимое для работы External Secrets Operator.
-
-      {% endnote %}
-
-      Результат:
-
-      ```text
-      NAME: external-secrets
-      LAST DEPLOYED: Sun Sep 19 11:20:58 2021
-      NAMESPACE: external-secrets
-      STATUS: deployed
-      REVISION: 1
-      TEST SUITE: None
-      NOTES:
-      external-secrets has been deployed successfully!
-      ...
-      ```
-
-{% endlist %}
-
-## Настройте {{ lockbox-name }} {#configure-lockbox}
-
-{% list tabs %}
-
-- Консоль управления
-
-  1. Создайте секрет:
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан секрет.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** и нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
-      1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета – `lockbox-secret`.
-      1. В блоке **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
-          * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите неконфиденциальный идентификатор – `password`.
-          * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите конфиденциальные данные для хранения – `p@$$w0rd`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. Сохраните идентификатор созданного секрета, он понадобится в дальнейшем.
-  1. Назначьте сервисному аккаунту `eso-service-account` роль `lockbox.payloadViewer` на созданный секрет:
-      1. Нажмите на имя секрета `lockbox-secret`.
-      1. На панели слева выберите раздел ![image](../_assets/organization/icon-groups.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-      1. В открывшемся окне нажмите кнопку ![image](../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
-      1. Выберите сервисный аккаунт `eso-service-account`.
-      1. Нажмите кнопку ![image](../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите `lockbox.payloadViewer`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-
-- CLI
-
-  1. Создайте секрет с именем `lockbox-secret`:
-
-      ```bash
-      yc lockbox secret create \
-        --name lockbox-secret \
-        --payload '[{"key": "password","textValue": "p@$$w0rd"}]'
-      ```
-
-      Где:
-      * `--name` — имя секрета.
-      * `--payload` — содержимое секрета.
-
-  1. Получите идентификатор секрета:
-
-      ```bash
-      yc lockbox secret list
-      ```
-
-      Результат:
-
-      ```text
-      +----------------------+----------------+------------+---------------------+----------------------+--------+
-      |          ID          |      NAME      | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
-      +----------------------+----------------+------------+---------------------+----------------------+--------+
-      | e6qoffd33mf0osc2lpum | lockbox-secret |            | 2021-09-19 04:33:44 | e6qlkguf0hs4q3i6jpen | ACTIVE |
-      +----------------------+----------------+------------+---------------------+----------------------+--------+
-      ```
-
-      Сохраните идентификатор секрета (столбец `ID`), он понадобится в дальнейшем. 
-
-  1. Назначьте сервисному аккаунту `eso-service-account` роль `lockbox.payloadViewer` на созданный секрет:
-
-      ```bash
-      yc lockbox secret add-access-binding \
-        --name lockbox-secret \
-        --service-account-name eso-service-account \
-        --role lockbox.payloadViewer
-      ```
-
-      Где:
-      * `--name` — имя секрета.
-      * `--service-account-name` — имя сервисного аккаунта.
-      * `--role` — назначаемая роль.
-
-{% endlist %}
+1. Установите [External Secrets Operator](/marketplace/products/yc/external-secrets) согласно [инструкции](../managed-kubernetes/operations/applications/external-secrets-operator.md).
+1. [Назначьте сервисному аккаунту](../lockbox/operations/secret-access.md), который вы создали при [установке](#install-eso) External Secrets Operator, роль `lockbox.payloadViewer` на [созданный ранее](#deploy-infrastructure) секрет `lockbox-secret`.
 
 ## Настройте кластер {{ managed-k8s-name }} {#configure-k8s}
 
 1. Создайте [пространство имен](../managed-kubernetes/concepts/index.md#namespace) `ns`, в котором будут размещены объекты External Secrets Operator:
 
-    ```bash
-    kubectl create namespace ns
-    ```
+   ```bash
+   kubectl create namespace ns
+   ```
 
-1. Создайте секрет `yc-auth` с ключом сервисного аккаунта `eso-service-account`:
+1. Создайте секрет `yc-auth` с ключом `sa-key.json`, который вы создали при [установке](#install-eso) External Secrets Operator:
 
-    ```bash
-    kubectl --namespace ns create secret generic yc-auth \
-      --from-file=authorized-key=authorized-key.json
-    ```
+   ```bash
+   kubectl --namespace ns create secret generic yc-auth \
+     --from-file=authorized-key=sa-key.json
+   ```
 
 1. Создайте хранилище секретов [SecretStore](https://external-secrets.io/latest/api/secretstore/), содержащее секрет `yc-auth`:
 
-    ```bash
-    kubectl --namespace ns apply -f - <<< '
-    apiVersion: external-secrets.io/v1alpha1
-    kind: SecretStore
-    metadata:
-      name: secret-store
-    spec:
-      provider:
-        yandexlockbox:
-          auth:
-            authorizedKeySecretRef:
-              name: yc-auth
-              key: authorized-key'
-    ```
+   ```bash
+   kubectl --namespace ns apply -f - <<< '
+   apiVersion: external-secrets.io/v1alpha1
+   kind: SecretStore
+   metadata:
+     name: secret-store
+   spec:
+     provider:
+       yandexlockbox:
+         auth:
+           authorizedKeySecretRef:
+             name: yc-auth
+             key: authorized-key'
+   ```
 
 ## Создайте External Secret {#create-es}
 
 1. Создайте объект [ExternalSecret](https://external-secrets.io/latest/api/externalsecret/), указывающий на секрет `lockbox-secret` в хранилище `secret-store`:
 
-    ```bash
-    kubectl --namespace ns apply -f - <<< '
-    apiVersion: external-secrets.io/v1alpha1
-    kind: ExternalSecret
-    metadata:
-      name: external-secret
-    spec:
-      refreshInterval: 1h
-      secretStoreRef:
-        name: secret-store
-        kind: SecretStore
-      target:
-        name: k8s-secret
-      data:
-      - secretKey: password
-        remoteRef:
-          key: e6qoffd33mf0osc2lpum
-          property: password'
-    ```
+   ```bash
+   kubectl --namespace ns apply -f - <<< '
+   apiVersion: external-secrets.io/v1alpha1
+   kind: ExternalSecret
+   metadata:
+     name: external-secret
+   spec:
+     refreshInterval: 1h
+     secretStoreRef:
+       name: secret-store
+       kind: SecretStore
+     target:
+       name: k8s-secret
+     data:
+     - secretKey: password
+       remoteRef:
+         key: <идентификатор_секрета>
+         property: password'
+   ```
 
-    Где:
-    * `key` — идентификатор секрета {{ lockbox-name }}.
-    * `spec.target.name` — имя нового ключа: `k8s-secret`. External Secret Operator создаст этот ключ и поместит в него параметры секрета `lockbox-secret`.
-
+   Где:
+   * `key` — идентификатор [созданного ранее](#deploy-infrastructure) секрета {{ lockbox-name }} `lockbox-secret`.
+   * `spec.target.name` — имя нового ключа: `k8s-secret`. External Secret Operator создаст этот ключ и поместит в него параметры секрета `lockbox-secret`.
 1. Убедитесь, что новый ключ `k8s-secret` содержит значение секрета `lockbox-secret`:
 
-    ```bash
-    kubectl --namespace ns get secret k8s-secret \
-      --output=json | \
-      jq --raw-output ."data"."password" | \
-      base64 --decode
-    ```
+   ```bash
+   kubectl --namespace ns get secret k8s-secret \
+     --output=json | \
+     jq --raw-output ."data"."password" | \
+     base64 --decode
+   ```
 
-    В выводе команды будет содержаться значение ключа `password` секрета `lockbox-secret`:
+   В выводе команды будет содержаться значение ключа `password` секрета `lockbox-secret`:
 
-    ```text
-    p@$$w0rd
-    ```
+   ```text
+   p@$$w0rd
+   ```
 
-## Как удалить созданные ресурсы {#clear-out}
+## Удалите созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы:
+Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
 {% list tabs %}
 
 - Вручную
 
   1. [Удалите кластер {{ managed-k8s-name }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../vpc/operations/address-delete.md).
+  1. Если вы зарезервировали для кластера {{ managed-k8s-name }} [публичный статический IP-адрес](../vpc/concepts/address.md#public-addresses), [удалите его](../vpc/operations/address-delete.md).
   1. [Удалите секрет](../lockbox/operations/secret-delete.md) `lockbox-secret`.
 
 - С помощью {{ TF }}
 
   1. В терминале перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  1. Удалите конфигурационный файл `k8s-cluster.tf`.
+  1. Удалите конфигурационный файл `k8s-cluster-and-lockbox.tf`.
   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
      ```bash
@@ -338,37 +209,6 @@
 
      {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
-     Все ресурсы, которые были описаны в конфигурационном файле `k8s-cluster.tf`, будут удалены.
+     Все ресурсы, которые были описаны в конфигурационном файле `k8s-cluster-and-lockbox.tf`, будут удалены.
 
 {% endlist %}
-
-## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
-
-1. Если у вас еще нет {{ TF }}, [установите его](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
-1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf). В файле описаны:
-   * [Сеть](../vpc/concepts/network.md#network).
-   * [Подсеть](../vpc/concepts/network.md#network).
-   * [Группа безопасности](../vpc/concepts/security-groups.md) и [правила](../managed-kubernetes/operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}:
-     * Правила для служебного трафика.
-     * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
-   * Кластер {{ managed-k8s-name }}.
-   * [Сервисный аккаунт](../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
-1. Укажите в файле конфигурации:
-   * [Идентификатор каталога](../resource-manager/operations/folder/get-id.md).
-   * Версии {{ k8s }} для кластера и групп узлов {{ managed-k8s-name }}.
-   * CIDR кластера {{ managed-k8s-name }}.
-   * Имя сервисного аккаунта кластера.
-1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
-1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-   ```bash
-   terraform validate
-   ```
-
-   Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-1. Создайте необходимую инфраструктуру:
-
-   {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
-
-   {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}

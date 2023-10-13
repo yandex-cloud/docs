@@ -3,7 +3,7 @@
 Тексты ошибок:
 
 ```text
-object field starting or ending with a [.] makes object resolution ambiguous <описание поля>
+object field starting or ending with a [.] makes object resolution ambiguous <описание_поля>
 
 Index -1 out of bounds for length 0
 ```

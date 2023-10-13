@@ -1,6 +1,6 @@
 # Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt®
 
-Чтобы с помощью [{{ k8s }}](https://kubernetes.io/ru/) создать [Ingress-контроллер NGINX](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом [Let's Encrypt®](https://letsencrypt.org/ru/):
+Чтобы с помощью [{{ k8s }}](https://kubernetes.io/ru/) создать [Ingress-контроллер NGINX](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом:
 1. [{#T}](#install-controller).
 1. [{#T}](#install-certs-manager).
 1. [{#T}](#install-objects).
@@ -13,12 +13,11 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `editor` и `container-registry.images.puller` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
 1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации.
-1. [Настройте группы безопасности кластера и группы узлов](../operations/connect/security-groups.md).
-
+1. [Настройте группы безопасности кластера {{ managed-k8s-name }} и группы узлов](../operations/connect/security-groups.md).
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
 1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис [{{ certificate-manager-full-name }}](../../certificate-manager/). Или [добавьте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
+1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 
 ## Установите Ingress-контроллер NGINX с помощью Helm-чарта {#install-controller}
 
@@ -37,50 +36,66 @@
 
 ## Установите менеджер сертификатов {#install-certs-manager}
 
-1. Установите [актуальную версию](https://github.com/jetstack/cert-manager/releases/) менеджера сертификатов, настроенного для выпуска сертификатов от Let's Encrypt®. Например, для версии 1.9.1 выполните команду:
+{% list tabs %}
 
-   ```bash
-   kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.9.1/cert-manager.yaml
-   ```
+- С помощью {{ marketplace-full-name }}
 
-1. Убедитесь, что в пространстве имен `cert-manager` создано три [пода](../concepts/index.md#pod) с готовностью `1/1` и статусом `Running`:
+  Установите приложение cert-manager c плагином {{ dns-full-name }} ACME webhook [по инструкции](../operations/applications/cert-manager-cloud-dns.md).
 
-   ```bash
-   kubectl get pods -n cert-manager --watch
-   ```
+- Вручную
 
-   Результат:
+  1. Установите [актуальную версию](https://github.com/cert-manager/cert-manager/releases) менеджера сертификатов, настроенного для выпуска сертификатов от Let's Encrypt®. Например, для версии 1.21.1 выполните команду:
 
-   ```bash
-   NAME                                      READY  STATUS   RESTARTS  AGE
-   cert-manager-69cf79df7f-ghw6s             1/1    Running  0         54s
-   cert-manager-cainjector-7648dc6696-gnrzz  1/1    Running  0         55s
-   cert-manager-webhook-7746f64877-wz9bh     1/1    Running  0         54s
-   ```
+     ```bash
+     kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.1/cert-manager.yaml
+     ```
+
+  1. Убедитесь, что в [пространстве имен](../concepts/index.md#имен-namespace) `cert-manager` создано три [пода](../concepts/index.md#pod) с готовностью `1/1` и статусом `Running`:
+
+     ```bash
+     kubectl get pods -n cert-manager --watch
+     ```
+
+     Результат:
+
+     ```text
+     NAME                                      READY  STATUS   RESTARTS  AGE
+     cert-manager-69cf79df7f-ghw6s             1/1    Running  0         54s
+     cert-manager-cainjector-7648dc6696-gnrzz  1/1    Running  0         55s
+     cert-manager-webhook-7746f64877-wz9bh     1/1    Running  0         54s
+     ```
+
+  1. Создайте YAML-файл `acme-issuer.yaml` с манифестом объекта `ClusterIssuer`:
+
+     ```yaml
+     apiVersion: cert-manager.io/v1
+     kind: ClusterIssuer
+     metadata:
+       name: yc-clusterissuer
+       namespace: cert-manager
+     spec:
+       acme:
+         server: https://acme-v02.api.letsencrypt.org/directory
+         email: <ваш_email>
+         privateKeySecretRef:
+           name: domain-name-secret
+         solvers:
+         - http01:
+             ingress:
+               class: nginx
+     ```
+
+  1. Создайте объект в кластере {{ managed-k8s-name }}:
+
+     ```bash
+     kubectl apply -f acme-issuer.yaml
+     ```
+
+{% endlist %}
 
 ## Создайте объекты {#install-objects}
 
-Чтобы протестировать работу менеджера сертификатов, необходимо создать объекты `ClusterIssuer`, `Ingress`, `Service` и `Deployment`.
-1. Создайте YAML-файл `acme-issuer.yaml` с манифестом объекта `ClusterIssuer`:
-
-   ```yaml
-   apiVersion: cert-manager.io/v1
-   kind: ClusterIssuer
-   metadata:
-     name: letsencrypt
-     namespace: cert-manager
-   spec:
-     acme:
-       server: https://acme-v02.api.letsencrypt.org/directory
-       email: <ваш email>
-       privateKeySecretRef:
-         name: letsencrypt
-       solvers:
-       - http01:
-           ingress:
-             class: nginx
-   ```
-
+Чтобы протестировать работу менеджера сертификатов, создайте объекты `Ingress`, `Service` и `Deployment`.
 1. Создайте YAML-файл `app.yaml` с манифестами объектов `Ingress`, `Service` и `Deployment`:
 
    ```yaml
@@ -90,14 +105,14 @@
      name: minimal-ingress
      annotations:
        kubernetes.io/ingress.class: "nginx"
-       cert-manager.io/cluster-issuer: "letsencrypt"
+       cert-manager.io/cluster-issuer: "yc-clusterissuer"
    spec:
      tls:
        - hosts:
-         - <URL адрес вашего домена>
-         secretName: letsencrypt
+         - <URL_адрес_вашего_домена>
+         secretName: domain-name-secret
      rules:
-       - host: <URL адрес вашего домена>
+       - host: <URL_адрес_вашего_домена>
          http:
            paths:
            - path: /
@@ -143,15 +158,15 @@
            - containerPort: 80
    ```
 
-1. Создайте объекты в кластере {{ k8s }}:
+1. Создайте объекты в кластере {{ managed-k8s-name }}:
 
    ```bash
-   kubectl apply -f acme-issuer.yaml && \
    kubectl apply -f app.yaml
    ```
 
 ## Настройте DNS-запись для Ingress-контроллера {#connecting-certs-manager}
 
+Если вы используете [ExternalDNS c плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), настраивать DNS-запись не нужно — она создается автоматически. В противном случае:
 1. Узнайте [IP-адрес](../../vpc/concepts/address.md) Ingress-контроллера (значение в колонке `EXTERNAL-IP`):
 
    ```bash
@@ -160,35 +175,66 @@
 
    Результат:
 
-   ```bash
+   ```text
    NAME                      TYPE          CLUSTER-IP     EXTERNAL-IP     PORT(S)                     AGE
    ...
    ingress-nginx-controller  LoadBalancer  10.96.164.252  84.201.153.122  80:31248/TCP,443:31151/TCP  2m19s
    ...
    ```
 
-1. Разместите у своего DNS-провайдера или на собственном DNS-сервере A-запись, указывающую на публичный IP-адрес Ingress-контроллера:
+1. Разместите у своего DNS-провайдера или на собственном DNS-сервере [A-запись](../../dns/concepts/resource-record.md#a-a), указывающую на публичный IP-адрес Ingress-контроллера:
 
    ```text
-   <ваш домен> IN A <IP-адрес Ingress-контроллера>
+   <ваш_домен> IN A <IP-адрес_Ingress-контроллера>
    ```
-
-{% note info %}
-
-Регистрация сертификата Let's Encrypt® и A-записи может занять несколько минут.
-
-{% endnote %}
 
 ## Проверьте работоспособность TLS {#test-controller}
 
-```bash
-curl https://<ваш домен>
-```
+1. Если вы использовали сертификат от Let's Encrypt®, убедитесь, что [проверка прав на домен](../../certificate-manager/operations/managed/cert-validate.md) завершилась успешно и сертификат перешел в статус `Issued`.
+
+   {% note info %}
+
+   Проверка прав на домен сертификата Let's Encrypt® может занять несколько часов.
+
+   {% endnote %}
+
+1. Выполните команду:
+
+   ```bash
+   curl https://<ваш_домен>
+   ```
+
+   Результат:
+
+   ```text
+   <!DOCTYPE html>
+   <html>
+   <head>
+   <title>Welcome to nginx!</title>
+   <style>
+   html { color-scheme: light dark; }
+   body { width: 35em; margin: 0 auto;
+   font-family: Tahoma, Verdana, Arial, sans-serif; }
+   </style>
+   </head>
+   <body>
+   <h1>Welcome to nginx!</h1>
+   <p>If you see this page, the nginx web server is successfully installed and
+   working. Further configuration is required.</p>
+
+   <p>For online documentation and support please refer to
+   <a href="http://nginx.org/">nginx.org</a>.<br/>
+   Commercial support is available at
+   <a href="http://nginx.com/">nginx.com</a>.</p>
+
+   <p><em>Thank you for using nginx.</em></p>
+   </body>
+   </html>
+   ```
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-
 1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Удалите публичную доменную зону](../../dns/operations/zone-delete.md).
 1. [Удалите сертификат](../../certificate-manager/operations/managed/cert-delete.md).

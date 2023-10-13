@@ -1,10 +1,10 @@
 # Vertical application scaling in a cluster
 
 {{ managed-k8s-name }} supports several types of autoscaling. In this article you will learn how to configure the automatic management of [pod](../concepts/index.md#pod) resources with [{{ k8s-vpa }}](../concepts/autoscale.md#vpa):
-* [{#T}](#create-vpa-workload).
-* [{#T}](#test-vpa).
+* [{#T}](#create-vpa-workload)
+* [{#T}](#test-vpa)
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -48,7 +48,7 @@
        spec:
          containers:
            - name: nginx
-             image: k8s.gcr.io/hpa-example
+             image: registry.k8s.io/hpa-example
              resources:
                requests:
                  memory: "256Mi"
@@ -253,5 +253,6 @@ To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
 ## Delete the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
+
 1. [Delete the {{ k8s }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.

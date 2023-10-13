@@ -11,7 +11,7 @@ items:
         href: operations/create-captcha.md
       - name: Deleting a CAPTCHA
         href: operations/delete-captcha.md
-      - name: Get keys
+      - name: Getting keys
         href: operations/get-keys.md
       - name: Adding a widget using the advanced method
         href: operations/advanced-method.md
@@ -21,7 +21,7 @@ items:
         href: tutorials/index.md
       - name: CAPTCHA in mobile apps
         items:
-          - name: Overview
+          - name: Adding HTML code to enable {{ captcha-full-name }}
             href: tutorials/mobile-app/website.md
           - name: CAPTCHA in Android apps
             items:
@@ -45,6 +45,8 @@ items:
         href: concepts/js-interface.md
       - name: Restricted mode
         href: concepts/restricted-mode.md
+      - name: Public IP addresses
+        href: concepts/ips.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

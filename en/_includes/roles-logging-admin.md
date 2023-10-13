@@ -1,4 +1,4 @@
-### logging.admin
+#### logging.admin {#logging-admin}
 
 The `logging.admin` role grants all permissions to manage a log group, including assigning roles for a log group to other users.
 

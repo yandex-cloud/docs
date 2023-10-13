@@ -2,4 +2,4 @@
 
 | Type of limit | Value |
 ----- | -----
-| Maximum number of trails per cloud | 5 |
+| Maximum number of trails per cloud | 3     |

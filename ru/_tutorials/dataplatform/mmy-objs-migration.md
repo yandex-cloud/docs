@@ -23,8 +23,8 @@
 
 * С помощью {{ TF }}
 
-    1. Если у вас еще нет {{ TF }}, [установите и настройте его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
+    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
+    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
     1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-mmy-objs.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-objs.tf).
 
         В этом файле описаны:
@@ -96,8 +96,8 @@
 
     ```sql
     INSERT INTO measurements VALUES
-        ('iv9a94th6rztooxh5ur2', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
-        ('rhibbh3y08qmz3sdbrbu', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
+        ('iv9a94th6rzt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+        ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
@@ -168,7 +168,7 @@
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите бакет из списка.
     1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-    1. Проверьте, что бакет {{ objstorage-name }} содержит папку `measurements` с объектом `<имя базы данных кластера-источника>_measurements` с тестовыми данными.
+    1. Проверьте, что бакет {{ objstorage-name }} содержит папку `measurements` с объектом `<имя_базы_данных_кластера-источника>_measurements` с тестовыми данными.
 
 ## Удалите созданные ресурсы {#clear-out}
 
