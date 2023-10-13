@@ -1,5 +1,7 @@
 # Цитирование
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 ## Цитирование абзаца {#paragraph}
 
 * Чтобы процитировать абзац текста, в начале абзаца вставьте символ `>`.

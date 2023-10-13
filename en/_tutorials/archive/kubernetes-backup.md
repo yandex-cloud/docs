@@ -18,106 +18,104 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
+### Prepare the infrastructure {#deploy-infrastructure}
+
+{% list tabs %}
+
+- Manually
+
+   1. [Create two {{ managed-k8s-name }} clusters](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in each of them with the following settings:
+   * **{{ k8s }} version**: **1.22** or higher.
+   * **Public address**: `Auto`.
+
+   One {{ managed-k8s-name }} cluster will be used for creating a node group backup and another one for recovery.
+   1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).
+   1. [Create a service account](../../iam/operations/sa/create.md) with the `compute.admin` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to work with Velero.
+   1. Grant the [service account](../../iam/concepts/users/service-accounts.md) **READ and WRITE** permissions to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}. To do this, [configure the bucket ACL](../../storage/operations/buckets/edit-acl.md).
+   1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account and save its ID and value. You will not be able to get the key value again.
+
+- Using {{ TF }}
+
+   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [velero-backup.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/velero-backup.tf) configuration file to the same working directory.
+
+      This file describes:
+      * [Network](../../vpc/concepts/network.md#network).
+      * [Subnet](../../vpc/concepts/network.md#subnet).
+      * [Security groups](../../vpc/concepts/security-groups.md) and rules required for running {{ managed-k8s-name }} clusters:
+         * Rules for service traffic.
+         * Rule for connecting to services from the internet.
+      * Two {{ managed-k8s-name }} clusters and their node groups.
+      * Service account required to use the {{ managed-k8s-name }} clusters and node groups.
+      * Service account with the `compute.admin` role to work with Velero.
+      * Static access key for the service account used to work with Velero.
+      * Bucket in {{ objstorage-name }}.
+   1. In `velero-backup.tf`, specify:
+      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create resources in.
+      * `k8s_version`: [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) 1.22 or higher.
+      * `zone_a_v4_cidr_blocks`: CIDR of the subnet hosting the {{ managed-k8s-name }} clusters.
+      * `sa_name_k8s`: Name of the {{ managed-k8s-name }} clusters' service account.
+      * `sa_name_velero`: Name of the service account to work with Velero.
+      * `storage_sa_id`: ID of the service account with the `storage.admin` role. It will be used to create a bucket in {{ objstorage-name }} with `READ and WRITE` permissions in the [ACL](../../storage/concepts/acl.md) for the `sa_name_velero` service account.
+      * `bucket_name`: {{ objstorage-name }} bucket name.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are any errors in the configuration files, {{ TF }} will point to them.
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+   1. Get and save the ID and value of the static access key for the service account used to work with Velero.
+      * Key ID:
+
+         ```bash
+         terraform output -raw access_key
+         ```
+
+      * Key value:
+
+         ```bash
+         terraform output -raw secret_key
+         ```
+
+{% endlist %}
+
+### Configure additional settings {#additional-settings}
+
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-
-1. Select [Velero client](https://github.com/vmware-tanzu/velero/releases) version `1.10.3` or higher for your platform based on the [compatibility table](https://github.com/vmware-tanzu/velero#velero-compatibility-matrix).
-1. Download the Velero client, extract the contents of the archive, and install it. For more information about installation, see the [Velero documentation](https://velero.io/docs/v1.10/basic-install/#install-the-cli).
+1. Select the [Velero client](https://github.com/vmware-tanzu/velero/releases) of version `1.8.1` or lower.
+1. Download the Velero client, extract the contents of the archive, and install it. For more information about installation, see the [Velero documentation](https://velero.io/docs/v1.5/basic-install/#install-the-cli).
 1. View a description of any Velero command:
 
    ```bash
    velero --help
    ```
 
-1. [Create a bucket](../../storage/operations/buckets/create.md) {{ objstorage-name }}:
-   * **Name**: `velero-backup`.
-   * **Storage class**: `Standard`.
-   * In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
-1. [Create a service account](../../iam/operations/sa/create.md):
-   * **Name**: `velero-sa`.
-   * **Folder roles**: `compute.admin`.
-1. Grant the `velero-sa` service account **READ and WRITE** privileges for the `velero-backup` bucket. To do this, [configure the bucket ACL](../../storage/operations/buckets/edit-acl.md).
-1. Create a [static access key](../../iam/concepts/authorization/access-key.md) for the `velero-sa` service account:
-
-   ```bash
-   yc iam access-key create --service-account-name velero-sa
-   ```
-
-   Result:
-
-   ```text
-   access_key:
-     id: abcdo12h3j04********
-     service_account_id: ajego12h3j03********
-     created_at: "2020-10-19T13:22:29Z"
-     key_id: <key ID>
-   secret: <secret key value>
-   ```
-
-   {% note info %}
-
-   Save the secret key ID and value. You will not be able to get the key value again.
-
-   {% endnote %}
-
 1. Create a file named `credentials` with the previously received static key data:
 
    ```ini
    [default]
      aws_access_key_id=<key ID>
-     aws_secret_access_key=<secret key value>
+     aws_secret_access_key=<key value>
    ```
 
 ## Backups {#backup}
 
-To back up cluster group data:
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating the node group, select automatic IP assignment.
+To back up the {{ managed-k8s-name }} node group data:
+1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the first cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
-1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-
-1. Install the Velero server in the {{ managed-k8s-name }} cluster:
-
-   ```bash
-   kubectl label volumesnapshotclasses.snapshot.storage.k8s.io yc-csi-snapclass \
-   velero.io/csi-volumesnapshot-class="true" && \
-   velero install \
-     --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
-     --bucket velero-backup \
-     --plugins velero/velero-plugin-for-aws:v1.3.0,velero/velero-plugin-for-csi:v0.2.0 \
-     --provider aws \
-     --secret-file ./credentials \
-     --features=EnableCSI \
-     --use-volume-snapshots=true \
-     --snapshot-location-config region={{ region-id }}
-   ```
-
-   Where:
-   * `--backup-location-config`: Backup storage parameters. URL of {{ objstorage-name }} storage and region.
-   * `--bucket`: Name of the backup storage bucket.
-   * `--plugins`: Plugin images for AWS API compatibility.
-   * `--provider`: Name of the object storage provider.
-   * `--secret-file`: Full path to static access key data.
-   * `--features`: List of active functionalities.
-   * `--snapshot-location-config`: Availability zone where disk snapshots will be located.
-
-   Result:
-
-   ```text
-   CustomResourceDefinition/backups.velero.io: attempting to create resource
-   CustomResourceDefinition/backups.velero.io: already exists, proceeding
-   CustomResourceDefinition/backups.velero.io: created
-   ...
-   Velero is installed! ⛵ Use 'kubectl logs deployment/velero -n velero' to view the status.
-   ```
-
-1. Make sure the Velero pod status has changed to `Running`:
-
-   ```bash
-   kubectl get pods -n velero
-   ```
+1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
 
 1. Back up data from the {{ managed-k8s-name }} cluster node group:
 
@@ -148,48 +146,9 @@ To back up cluster group data:
 ## Restoring data from backups {#restore}
 
 To restore data from the {{ managed-k8s-name }} cluster node group:
-1. [Create a new {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating the node group, select automatic IP assignment.
-1. [Configure kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) to work with the new cluster.
-1. Install the Velero server in the {{ managed-k8s-name }} cluster:
+1. [Configure kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) to work with the second cluster.
 
-   ```bash
-   kubectl label volumesnapshotclasses.snapshot.storage.k8s.io yc-csi-snapclass \
-   velero.io/csi-volumesnapshot-class="true" && \
-   velero install \
-     --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
-     --bucket velero-backup \
-     --plugins velero/velero-plugin-for-aws:v1.3.0,velero/velero-plugin-for-csi:v0.2.0 \
-     --provider aws \
-     --secret-file ./credentials \
-     --features=EnableCSI \
-     --use-volume-snapshots=true \
-     --snapshot-location-config region={{ region-id }}
-   ```
-
-   Where:
-   * `--backup-location-config`: Backup storage parameters. URL of {{ objstorage-name }} storage and region.
-   * `--bucket`: Name of the backup storage bucket.
-   * `--plugins`: Plugin images for AWS API compatibility.
-   * `--provider`: Name of the object storage provider.
-   * `--secret-file`: Full path to static access key data.
-   * `--features`: List of active functionalities.
-   * `--snapshot-location-config`: Select the availability zone to host disk snapshots.
-
-   Result:
-
-   ```text
-   CustomResourceDefinition/backups.velero.io: attempting to create resource
-   CustomResourceDefinition/backups.velero.io: already exists, proceeding
-   CustomResourceDefinition/backups.velero.io: created
-   ...
-   Velero is installed! ⛵ Use 'kubectl logs deployment/velero -n velero' to view the status.
-   ```
-
-1. Make sure the Velero pod status has changed to `Running`:
-
-   ```bash
-   kubectl get pods -n velero
-   ```
+1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
 
 1. Make sure the data backup is displayed in the new cluster:
 
@@ -207,12 +166,14 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
 1. Restore data from the backup:
 
    ```bash
-   velero restore create my-restore --exclude-namespaces velero --from-backup my-backup
+   velero restore create my-restore \
+     --exclude-namespaces velero \
+     --from-backup my-backup
    ```
 
    Where:
    * `--exclude-namespaces`: Parameter that allows users not to restore objects from the `velero` namespace.
-   * `--from-backup`: Name of the bucket where the backup is stored.
+   * `--from-backup`: Backup name.
 
    Result:
 
@@ -236,9 +197,32 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+If you no longer need the resources you created, delete them:
 
-1. [Delete the clusters {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you reserved public static IP addresses for the clusters, [delete them](../../vpc/operations/address-delete.md).
-1. [Delete the bucket {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-1. [Delete the service account](../../iam/operations/sa/delete.md) `velero-sa`.
+{% list tabs %}
+
+- Manually
+
+   * [Delete the clusters {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+   * If you reserved[ public static IP addresses](../../vpc/concepts/address.md#public-addresses) for the clusters, [delete them](../../vpc/operations/address-delete.md).
+   * [Delete the bucket {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+   * [Delete the service account](../../iam/operations/sa/delete.md) used to work with Velero.
+
+- Using {{ TF }}
+
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. Delete the `velero-backup.tf` configuration file.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are any errors in the configuration files, {{ TF }} will point to them.
+   1. Confirm the resources have been updated:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      This will delete all the resources described in the `velero-backup.tf` configuration file.
+
+{% endlist %}

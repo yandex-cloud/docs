@@ -40,6 +40,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](applications/node-local-dns.md)
 * [{#T}](applications/policy-reporter.md)
 * [{#T}](applications/thumbor.md)
+* [{#T}](applications/velero-yc-csi.md)
 
 
 ## Сетевые сценарии {#network-scenarios}

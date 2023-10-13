@@ -7,14 +7,14 @@ For instance, allow any authenticated user to view information about the cloud `
 - Management console
 
    1. In the [management console]({{ link-console-main }}), [select](../../resource-manager/operations/cloud/switch-cloud.md) a cloud.
-   1. Click the **Access bindings** tab.
-   1. Click **Assign bindings**.
-   1. In the **Configure access bindings** window, click **Select user**.
-   1. Select the **Groups** section.
-   1. Select the **All authenticated users** group.
-   1. Click **Add role**.
+   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. In the **{{ ui-key.yacloud.component.acl.update-dialog.label_title }}** window, click **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}**.
+   1. Go to the `{{ ui-key.yacloud.common.resource-acl.label_groups }}` section.
+   1. Select the `All authenticated users` group.
+   1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}**.
    1. Select the `resource-manager.viewer` role.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -81,7 +81,7 @@ For instance, allow any authenticated user to view information about the cloud `
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

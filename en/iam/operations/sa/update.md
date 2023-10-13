@@ -5,8 +5,8 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Click ![image](../../../_assets/options.svg) next to the service account and select **Edit**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Click ![image](../../../_assets/options.svg) next to the service account and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-edit }}**.
    1. Change the name of your service account.
 
       The name format requirements are as follows:
@@ -14,7 +14,7 @@
       {% include [name-format](../../../_includes/name-format.md) %}
 
    1. Change the description of your service account.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_save }}**.
 
 - CLI
 
@@ -92,7 +92,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```bash

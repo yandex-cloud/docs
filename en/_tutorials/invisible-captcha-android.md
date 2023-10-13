@@ -9,9 +9,9 @@ To embed [invisible {{ captcha-name }}](../smartcaptcha/concepts/invisible-captc
 
 ## Getting started {#before-begin}
 
-1. [Create a website](../smartcaptcha/tutorials/mobile-app/website.md) to add {{ captcha-name }} to or use a ready-made `{{ captcha-mobile-site }}`.
+1. [Add HTML code](../smartcaptcha/tutorials/mobile-app/website.md) to work with {{ captcha-name }} (or use a ready-made `{{ captcha-mobile-site }}`).
 1. Create a CAPTCHA following [this guide](../smartcaptcha/operations/create-captcha.md).
-1. [Retrieve the CAPTCHA keys](../smartcaptcha/operations/get-keys.md). Copy the **client key** and the **server key** from the **Overview** tab of the CAPTCHA you created. You will need the **client key** to load web pages using CAPTCHA and the **server key**, to get the CAPTCHA test results.
+1. [Retrieve the CAPTCHA keys](../smartcaptcha/operations/get-keys.md). Copy the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** and **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** field values from the **{{ ui-key.yacloud.common.overview }}** tab of the CAPTCHA you created. You will need the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** to load web pages using CAPTCHA and the **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**, to get the CAPTCHA test results.
 
 ## Create a JavaScript Interface {#create-js-interface}
 

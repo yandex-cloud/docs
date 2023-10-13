@@ -9,7 +9,7 @@ All operations in {{ yandex-cloud }} are first sent for verification to {{ iam-s
 1. A user requests {{ compute-name }} to create a new disk in the <q>default</q> folder.
 1. The service sends a request to {{ iam-short-name }} to check whether this user is allowed to create disks in this folder.
 1. {{ iam-short-name }} checks if the user is a member of the cloud with the <q>default</q> folder and has the necessary permissions to create a disk in this folder.
-1. If the user doesn't have any of the permissions, the operation isn't performed and {{ yandex-cloud }} returns an error.
+1. If any of the permissions are missing, the operation is not allowed and {{ yandex-cloud }} returns an error.
    If all the required permissions were granted, {{ iam-short-name }} reports this to the service.
 1. The service creates a new disk.
 
@@ -25,7 +25,7 @@ You can also assign a role to a parent resource that [access rights are inherite
 
 {% note warning %}
 
-It usually takes 5 seconds or less to update access rights. If the role was assigned to you, but still you don't have access, try repeating the operation.
+It usually takes 5 seconds or less to update access rights. If the role was assigned to you, but you do not have access yet, repeat the operation.
 
 For example, you were given the right to create folders in the cloud and you were able to create one folder, but couldn't create another one. This is because the access rights have not yet been updated on the server where the second create folder operation was performed. Try creating the folder again.
 
@@ -83,15 +83,12 @@ The administrator can revoke the role whenever needed.
 
 ### Access control restrictions in the management console {#console-restrictions}
 
-Some restrictions apply to assigning roles in the management console:
+Some restrictions apply to [assigning roles](../../operations/roles/grant.md) in the management console:
 
-* You can't assign roles to a system group.
 * You can only assign cloud and folder roles to users with a Yandex account and federated account.
 * You can't assign roles to multiple subjects at once, unlike in the API or CLI. In the management console, you should first select the subject (user or service account), and then assign roles to it.
 
 #### See also {#see-also}
-
-For more information about managing access to a specific {{ yandex-cloud }} service, see the <q>Access management</q> section in the documentation for that service.
 
 Step-by-step instructions and examples:
 

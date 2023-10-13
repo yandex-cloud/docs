@@ -13,11 +13,11 @@
 
    ```bash
    yc iam access-key create \
-     --service-account-name=<service account name> \
+     --service-account-name=<service_account_name> \
      --format=json > sa-key.json
    ```
 
-1. [Create a bucket in {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
+1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-name }}.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
@@ -25,10 +25,13 @@
 1. Click the name of the desired [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
 1. Under **Applications available for installation**, select [Loki](/marketplace/products/yc/loki) and click **Use**.
 1. Configure the application:
+
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Loki.
    * **Application name**: Enter an application name.
    * **Bucket name**: Specify the name of the [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }}.
-   * **Static access key**: Copy the contents of the `sa-key.json` file or create a new access key for the service account. The service account must have the `storage.uploader` and `storage.viewer` roles.
+   * **Static access key**: Paste the contents of the `sa-key.json` file.
+   * **Install Promtail**: Leave the option enabled to deliver local logs to the Grafana Loki instance using the [Promtail agent](https://grafana.com/docs/loki/latest/clients/promtail/). This agent is usually used for applications that require regular monitoring.
+
 1. Click **Install**.
 1. Wait for the application to change its status to `Deployed`.
 1. Once deployed, Loki is available within the {{ managed-k8s-name }} cluster at `http://loki-gateway.<namespace>.svc.cluster.local`.
@@ -43,18 +46,16 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/grafana/loki/chart/loki \
-     --version <Helm chart version> \
+   helm pull oci://{{ mkt-k8s-key.yc_loki.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_loki.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     --set storageConfig.aws.bucketnames=<{{ objstorage-name }} bucket name> \
-     --set-file serviceaccountawskeyvalue=<path to service account static key file> \
+     --set storageConfig.aws.bucketnames=<Object_Storage_bucket_name> \
+     --set-file serviceaccountawskeyvalue=<path_to_service_account_static_key_file> \
      loki ./loki/
    ```
-
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/loki#docker-images).
 
 ## See also {#see-also}
 

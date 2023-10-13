@@ -5,12 +5,12 @@
 In this article, you will learn how to set up transfers of external metrics to {{ k8s-hpa }} using {{ MP }}.
 
 To set up the transfer of metrics:
-1. [{#T}](#create-files).
-1. [{#T}](#install).
-1. [{#T}](#validate).
-1. [{#T}](#clear-out).
+1. [{#T}](#create-files)
+1. [{#T}](#install)
+1. [{#T}](#validate)
+1. [{#T}](#clear-out)
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -50,7 +50,7 @@ To test {{ MP }}, an `nginx` test app and [{{ k8s-hpa }}](../../concepts/autosca
        spec:
          containers:
            - name: nginx
-             image: k8s.gcr.io/hpa-example
+             image: registry.k8s.io/hpa-example
              resources:
                requests:
                  memory: "256Mi"
@@ -172,5 +172,5 @@ It will take {{ MP }} some time to receive metrics from the {{ managed-k8s-name 
 
 Delete the resources you no longer need to avoid paying for them:
 
-1. [Delete a {{ managed-k8s-name }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Delete the {{ managed-k8s-name }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If you reserved a [public static IP address](../../../vpc/concepts/address.md#public-addresses) for the cluster, [delete it](../../../vpc/operations/address-delete.md).

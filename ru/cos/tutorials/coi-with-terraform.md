@@ -4,7 +4,7 @@
 
 ## Перед началом работы {#before-begin}
 
-Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). В сценарии используется конфигурационный файл с названием `example.tf` в директории `~/cloud-terraform`.
+{% include [terraform-install](../../_includes/terraform-install.md) %} В сценарии используется конфигурационный файл с названием `example.tf` в директории `~/cloud-terraform`.
 
 ## Создание и запуск виртуальной машины с образом {{ coi }} {#creating-vm}
 

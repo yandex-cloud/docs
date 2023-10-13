@@ -38,10 +38,10 @@ Create a service account in the same folder as the trail, such as `example-folde
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Click **Create service account**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter `maxpatrol-sa` as your service account name.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
 
@@ -119,11 +119,11 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Select the `maxpatrol-sa` service account and click the line containing its name.
-   1. Click **Create new key** on the top panel.
-   1. Select **Create static access key**.
-   1. Enter a description for the key and click **Create**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Select the `maxpatrol-sa` service account and click the row with its name.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** on the top panel.
+   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+   1. Enter a description for the key and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
 
    {% note alert %}
 
@@ -170,12 +170,11 @@ The database is required for the `{{ yds-name }}` data stream.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. Click **Create resource** and select **{{ ydb-name }}**.
-   1. Click **Create database**.
-   1. Enter `maxpatrol-db` as the **Name**.
-   1. Under **Database type**, select `Serverless`.
+   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_ydb }}**.
+   1. Enter `maxpatrol-db` as the **{{ ui-key.yacloud.ydb.forms.label_field_name }}**.
+   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
    1. Leave the other parameters at their default settings.
-   1. Click **Create database**.
+   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
    Wait for the database status to change to `Running`.
 
@@ -226,11 +225,11 @@ This is the data stream the trail will upload organization resource logs to.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. Click **Create resource** and select **{{ yds-name }}**.
-   1. In the **Database** field, select `maxpatrol-db`.
-   1. Enter `maxpatrol-stream` as the **Name**.
+   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-streams }}**.
+   1. In the **{{ ui-key.yacloud.data-streams.label_database }}** field, select `maxpatrol-db`.
+   1. Enter `maxpatrol-stream` as the **{{ ui-key.yacloud.common.name }}**.
    1. Leave the other parameters at their default settings.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
    Wait for the data stream status to change to `Running`.
 
@@ -239,23 +238,25 @@ This is the data stream the trail will upload organization resource logs to.
 
 ## Create a trail {#create-trail}
 
-The trail will gather the audit log of all your organization's resources and [upload](../../audit-trails/operations/export-organization-data-streams.md) them to the `maxpatrol-stream` data stream.
+The trail will collect the configuration-level (Control Plane) audit logs for all of your organization's resources and [upload](../../audit-trails/operations/export-organization-data-streams.md) them to the `maxpatrol-stream` data stream.
 
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
-   1. Click **Create resource** and select the **Audit trail** option.
-   1. Enter the **Name** of the trail being created as `maxpatrol-trail`.
-   1. Under **Filter**, set up the audit log scope:
-      * **Resource**: Select `Organization`.
-      * **Organization**: Automatically populated field (shows the name of the organization with the trail).
-   1. Under **Destination**, set up the destination object:
-      * **Destination**: `{{ yds-name }}`.
-      * **Data stream**: Select the `maxpatrol-stream` data stream.
-   1. Under **Service account**, select the `maxpatrol-sa` service account.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select the **{{ ui-key.yacloud.iam.folder.dashboard.value_audit-trails }}** option.
+   1. Enter the **{{ ui-key.yacloud.common.name }}** of the trail being created as `maxpatrol-trail`.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Select the `maxpatrol-stream` data stream.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the `maxpatrol-sa` service account.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Automatically populated field (shows the name of the organization with the trail).
+   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **Status** field.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

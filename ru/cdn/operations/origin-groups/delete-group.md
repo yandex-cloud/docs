@@ -54,7 +54,7 @@
 
 - {{ TF }}
 
-  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Если вы создавали группу источников с помощью {{ TF }}, вы можете удалить ее:
   1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.

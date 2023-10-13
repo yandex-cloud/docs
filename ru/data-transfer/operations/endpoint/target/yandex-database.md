@@ -58,6 +58,6 @@
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}** — укажите [поддиректорию](https://ydb.tech/ru/docs/concepts/datamodel/dir) для размещения таблиц.
 
-        Итоговый путь размещения таблицы: `<путь в Yandex Database>/<поддиректория>/<таблица>`.
+        Итоговый путь размещения таблицы: `<путь_в_Yandex_Database>/<поддиректория>/<таблица>`.
 
 {% endlist %}

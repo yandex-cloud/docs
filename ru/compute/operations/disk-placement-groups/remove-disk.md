@@ -19,7 +19,7 @@
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Чтобы удалить нереплицируемый диск из группы размещения, созданный с помощью {{ TF }}:
 

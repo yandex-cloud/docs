@@ -13,7 +13,7 @@ To get started with {{ managed-k8s-name }}:
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
 
 
-1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 
 
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md).
@@ -111,7 +111,7 @@ To create a node group:
 1. Under **Computing resources**:
    * Choose a [platform](../compute/concepts/vm-platforms.md).
    * Specify the requisite number of vCPUs and [guaranteed vCPU performance](../compute/concepts/performance-levels.md) as well as the amount of RAM.
-   * (optional) Specify that the VM must be [preemptible](../compute/concepts/preemptible-vm.md).
+   * (Optional) Specify that you want the VM to be [preemptible](../compute/concepts/preemptible-vm.md).
 1. Under **Storage**:
    * Specify the **Disk type** for the group's nodes:
      * **HDD**: Standard network drive. Network block storage on an HDD.

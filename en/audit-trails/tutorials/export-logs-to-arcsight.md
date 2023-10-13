@@ -1,8 +1,8 @@
 # Uploading audit logs to ArcSight SIEM
 
-Create a trail to upload the audit logs of resources in a single folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to ArcSight SIEM.
+Create a trail to upload configuration-level (Control Plane) audit logs of resources in an individual folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to ArcSight SIEM.
 
-To complete the tutorial successfully, you must have an instance of ArcSight installed.
+To complete the tutorial successfully, you must have an ArcSight instance installed.
 
 The solution described in the tutorial follows the procedure below:
 1. A [trail](../concepts/trail.md) uploads logs to a {{ objstorage-name }} bucket.
@@ -56,18 +56,18 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a bucket, for example, `example-folder`.
-   1. Select **{{ objstorage-name }}**.
-   1. Click **Create bucket**.
+   1. In the [management console]({{ link-console-main }}), select the folder to create a bucket in, e.g., `example-folder`.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
    1. On the bucket creation page:
-      1. Enter bucket name according to the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
-      1. Select the `Limited` [access](../../storage/concepts/bucket.md#bucket-access) type.
+      1. Select the `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}` [access](../../storage/concepts/bucket.md#bucket-access) type.
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
-      1. Click **Create bucket**.
+      1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -78,12 +78,12 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   1. Select **{{ kms-name }}**.
-   1. Click **Create** and specify:
-      * **Name**: `arcsight-kms`.
-      * **Encryption algorithm**: `AES-256`.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify:
+      * **{{ ui-key.yacloud.common.name }}**: `arcsight-kms`
+      * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`
       * Leave the other parameters at their default settings.
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -94,9 +94,9 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the previously created bucket.
-   1. On the left-hand panel, select **Encryption**.
-   1. In the **{{ kms-short-name }} key** field, select the `arcsight-kms` key.
-   1. Click **Save**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select the `arcsight-kms` key.
+   1. Click **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 {% endlist %}
 
@@ -111,15 +111,15 @@ Create the `sa-arcsight` service account:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Click **Create service account**.
-   1. Enter the service account name, following the naming requirements:
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. Enter a name for the service account according to the naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
       For example, `sa-arcsight`.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -134,11 +134,11 @@ You will need the key ID and secret key when mounting the bucket.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   1. At the top of the screen, go to the **Service accounts** tab.
-   1. Choose `sa-arcsight-bucket` and click the line with its name.
-   1. Click **Create new key** on the top panel.
-   1. Select **Create static access key**.
-   1. Enter a description for the key and click **Create**.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+   1. Choose `sa-arcsight-bucket` and click the row with its name.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** on the top panel.
+   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+   1. Enter a description for the key and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
    1. Save the ID and private key.
 
       {% note alert %}
@@ -272,22 +272,17 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
-   2. Select **{{ at-name }}**.
-   3. Click **Create trail** and specify:
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
-      * **Name**: The name of the trail to create. For example: `arcsight-trail`.
-      * **Description**: Description of the trail (optional).
+      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created, e.g., `arcsight-trail`
+      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional)
 
-   4. Under **Filter**, set up the audit log scope:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
 
-      * **Resource**: Select `Folder`.
-      * **Folder**: An automatically populated field containing the name of the current folder.
-
-   5. Under **Destination**, set up the destination object:
-
-      * **Destination**: `{{ objstorage-name }}`.
-      * **Bucket**: The name of the bucket.
-      * **Object prefix**: An optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket name
+      * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
       {% note info %}
 
@@ -295,8 +290,16 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
 
       {% endnote %}
 
-   6. Under **Service account**, select `sa-arcsight`.
-   7. Click **Create**.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `sa-arcsight`.
+
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+
+      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
+
+   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **Status** field.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
    {% note warning %}
 

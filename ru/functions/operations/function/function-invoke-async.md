@@ -1,3 +1,8 @@
+---
+title: "Вызвать функцию асинхронно"
+description: "Следуя данной инструкции, вы сможете настроить и выполнить асинхронный вызов функции."
+---
+
 # Вызвать функцию асинхронно
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
@@ -12,14 +17,14 @@
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
-    1. В блоке **Асинхронный вызов** активируйте переключатель **Включить**.
-    1. В поле **Количество попыток** укажите количество повторных вызовов функции, которые будут сделаны, прежде чем вызов будет считаться неуспешным.
-    1. В поле **Сервисный аккаунт** укажите сервисный аккаунт, у которого есть права на вызов функции.
-    1. Укажите в полях **Назначение для успешного результата** и **Назначение для неуспешного результата**, куда отправлять сообщения об успешном и неуспешном вызовах функции соответственно:
-        * **Не задано** — не отправлять сообщения.
-        * **Message Queue** — отправлять сообщения в очередь {{ message-queue-name }}:
-            * **Очередь сообщений** — очередь {{ message-queue-name }}, в которую нужно отправлять сообщения.
-            * **Сервисный аккаунт** — сервисный аккаунт, у которого есть права на запись в очередь.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}** активируйте переключатель **{{ ui-key.yacloud.serverless-functions.item.editor.label_turn-on-button }}**.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_tries-count }}** укажите количество повторных вызовов функции, которые будут сделаны, прежде чем вызов будет считаться неуспешным.
+    1. В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** укажите сервисный аккаунт, у которого есть права на вызов функции.
+    1. Укажите в полях **{{ ui-key.yacloud.serverless-functions.item.editor.label_success-sa }}** и **{{ ui-key.yacloud.serverless-functions.item.editor.label_failed-sa }}**, куда отправлять сообщения об успешном и неуспешном вызовах функции соответственно:
+        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}` — не отправлять сообщения.
+        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-mq }}` — отправлять сообщения в очередь {{ message-queue-name }}:
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mq }}** — очередь {{ message-queue-name }}, в которую нужно отправлять сообщения.
+            * **{{ ui-key.yacloud.forms.label_service-account-select }}** — сервисный аккаунт, у которого есть права на запись в очередь.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI

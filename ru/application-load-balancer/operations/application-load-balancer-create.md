@@ -35,6 +35,8 @@
 
   1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите три подсети для узлов балансировщика и включите передачу трафика в эти подсети.
 
+      {% include [subnets-required](../../_includes/application-load-balancer/subnets-required.md) %}
+
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
      1. Введите имя обработчика.
      1. (опционально) Включите опцию **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Укажите **{{ ui-key.yacloud.alb.label_port }}**: `80` и выберите **{{ ui-key.yacloud.common.type }}**:
@@ -249,7 +251,7 @@
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 

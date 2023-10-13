@@ -7,12 +7,12 @@ To update a secret:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-   1. In the list of services, select **{{ lockbox-short-name }}**.
-   1. In the menu on the left, select **Secrets**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. In the left menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the required secret.
-   1. In the menu that opens, select **Edit**.
-   1. Update the name and description of the secret. If necessary, select **Don't destroy secret**.
-   1. Click **Save**.
+   1. In the menu that opens, select **{{ ui-key.yacloud.common.edit }}**.
+   1. Update the name and description of the secret. If necessary, select **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

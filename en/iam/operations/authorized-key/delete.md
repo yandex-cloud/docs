@@ -10,10 +10,10 @@ description: "In this tutorial, you will learn how to delete authorized keys in 
 - Management console
 
    1. Go to the folder that the service account belongs to.
-   1. At the top of the screen, go to the **Service accounts** tab.
+   1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Choose a service account and click the line with its name.
-   1. Under **Authorized keys**, click ![image](../../../_assets/options.svg) next to the key to be deleted and select **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_keys }}**, click ![image](../../../_assets/options.svg) next to the key to be deleted and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_action-delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
 
 - CLI
 

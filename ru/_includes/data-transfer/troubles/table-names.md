@@ -4,7 +4,7 @@
 
 ```text
 
-Syntax error: failed at position 25 ('-'): <детали ошибки>. Expected one of: token, Dot, UUID, alias, AS, identifier, FINAL, SAMPLE, INTO OUTFILE, FORMAT, SETTINGS, end of query
+Syntax error: failed at position 25 ('-'): <детали_ошибки>. Expected one of: token, Dot, UUID, alias, AS, identifier, FINAL, SAMPLE, INTO OUTFILE, FORMAT, SETTINGS, end of query
 
 ```
 

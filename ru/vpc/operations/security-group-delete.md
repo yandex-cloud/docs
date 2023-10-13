@@ -66,7 +66,7 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы удалить группу безопасности, созданную с помощью {{ TF }}:
 

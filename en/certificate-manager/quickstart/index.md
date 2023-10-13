@@ -25,12 +25,12 @@ To get started with {{ certificate-manager-name }}, you need:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
-      1. Select **{{ objstorage-name }}**.
-      1. Click **Create bucket**.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. Enter exactly the same name for the bucket as the domain name.
-      1. Select the **Public** [access](../../storage/concepts/bucket.md#bucket-access) type.
+      1. Select the `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}` [access](../../storage/concepts/bucket.md#bucket-access) type.
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
-      1. Click **Create bucket** to complete the operation.
+      1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
    {% endlist %}
 
@@ -40,11 +40,11 @@ To get started with {{ certificate-manager-name }}, you need:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select **{{ objstorage-name }}**.
-      1. On the **Buckets** tab, click on the bucket named as the domain.
-      1. In the left panel, select **Website**.
-      1. Select **Hosting** and enter your website home page.
-      1. Click **Save** to complete the operation.
+      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. In the **{{ ui-key.yacloud.storage.switch_buckets }}** tab, click the bucket with the same name as the domain.
+      1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+      1. Select **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** and specify your website home page.
+      1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}** to complete the operation.
 
    {% endlist %}
 
@@ -64,14 +64,14 @@ To get started with {{ certificate-manager-name }}, you need:
 - Management console
 
    1. Go to the [management console]({{ link-console-main }}).
-   1. Select **{{ certificate-manager-name }}**.
-   1. Click **Add certificate**.
-   1. In the menu that opens, select **Let's Encrypt certificate**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+   1. Click **{{ ui-key.yacloud.certificate-manager.button_add }}**.
+   1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
    1. In the window that opens, enter a name for the certificate.
    1. (Optional) Add a description for the certificate.
-   1. In the **Domains** field, specify the domains you want to issue the certificate for.
-   1. Select the [type of check](../concepts/challenges.md) for domain rights: `HTTP`.
-   1. Click **Create**.
+   1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify the domains you want to issue the certificate for.
+   1. Select the [rights check type](../concepts/challenges.md) for the `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}` domain.
+   1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
 {% endlist %}
 
@@ -79,14 +79,14 @@ To get started with {{ certificate-manager-name }}, you need:
 
 1. Create a file for the check:
    1. Go to the [management console]({{ link-console-main }}).
-   1. Select **{{ certificate-manager-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
    1. Select a certificate with the `Validating` status in the list and click it.
-   1. Under **Check rights for domains**:
-      1. Copy the link from the **Link for hosting file field**:
+   1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**:
+      1. Copy the URL from the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field:
          * The part of the link like `http://example.com/.well-known/acme-challenge/` is the path to host your file at.
          * The second part of the link, `rG1Mm1bJ...`, is the file name that you should use.
-      1. Copy the contents of the file from the **Contents** field.
-1. Upload the created file to the bucket so that it's hosted in the directory `.well-known/acme-challenge`:
+      1. Copy the contents of the file from the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field.
+1. Upload the created file to the bucket so that it resides in the `.well-known/acme-challenge` directory:
 
    {% list tabs %}
 
@@ -127,13 +127,13 @@ To renew a certificate, you have to perform certain actions. Keep track of the l
 - Management console
 
    1. Log in to the [management console]({{ link-console-main }}).
-   1. Select **{{ objstorage-name }}**.
-   1. On the **Buckets** tab, click on the bucket named as the domain.
-   1. Go to the **HTTPS** tab.
-   1. In the panel that opens on the right, click **Configure**.
-   1. Under **Source**, select **{{ certificate-manager-name }}**.
-   1. In the **Certificate** field, select the certificate from the list that opens.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. In the **{{ ui-key.yacloud.storage.switch_buckets }}** tab, click the bucket with the same name as the domain.
+   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
+   1. In the right-hand panel that opens, click **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select `{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}`.
+   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate-manager }}** field, select the certificate from the list that opens.
+   1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 {% endlist %}
 

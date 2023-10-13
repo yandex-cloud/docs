@@ -7,11 +7,11 @@ After adding a [custom certificate](../../concepts/imported-certificate.md) to {
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
-   1. In the list of services, select **{{ certificate-manager-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
    1. Select the certificate you need to change from the list.
-   1. In the window that opens, click **Change**.
+   1. In the window that opens, click **{{ ui-key.yacloud.certificate-manager.overview.action_edit-meta }}**.
    1. Change the name or description of the certificate.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -37,7 +37,7 @@ After adding a [custom certificate](../../concepts/imported-certificate.md) to {
       +----------------------+--------+-------------+---------------------+----------+--------+
       |          ID          |  NAME  |   DOMAINS   |      NOT AFTER      |   TYPE   | STATUS |
       +----------------------+--------+-------------+---------------------+----------+--------+
-      | fpqmg47avvimp7rvmp30 | mycert | example.com | 2021-09-15 08:12:57 | IMPORTED | ISSUED |
+      | fpqmg47avvim******** | mycert | example.com | 2021-09-15 08:12:57 | IMPORTED | ISSUED |
       +----------------------+--------+-------------+---------------------+----------+--------+
       ```
 
@@ -45,7 +45,7 @@ After adding a [custom certificate](../../concepts/imported-certificate.md) to {
 
       ```bash
       yc certificate-manager certificates update \
-        --id fpqmg47avvimp7rvmp30 \
+        --id fpqmg47avvim******** \
         --new-name myupdatedcert \
         --description "description of myupdatedcert"
       ```
@@ -58,8 +58,8 @@ After adding a [custom certificate](../../concepts/imported-certificate.md) to {
       Command result:
 
       ```bash
-      id: fpqmg47avvimp7rvmp30
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: fpqmg47avvim********
+      folder_id: b1g7gvsi89m3********
       created_at: "2020-09-15T06:54:44.916Z"
       ...
       issued_at: "2020-09-15T08:23:50.147Z"
@@ -103,7 +103,7 @@ After adding a [custom certificate](../../concepts/imported-certificate.md) to {
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can check the certificate's update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   You can check the certificate update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
    yc certificate-manager certificate get <certificate_name>

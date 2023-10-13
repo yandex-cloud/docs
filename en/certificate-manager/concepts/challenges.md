@@ -1,10 +1,10 @@
-# Checking rights for domain
+# Checking rights for a domain
 
 To get and renew a Let's Encrypt certificate, check the rights for each domain specified in the certificate. You can use two types of checks in {{ certificate-manager-name }}: `HTTP` and `DNS`. When you create a certificate, you can choose any type of check. Checking rights for domains may take a long time.
 
 {% note info %}
 
-You only need to check rights for domains for Let's Encrypt certificates. {{ certificate-manager-name }} doesn't check domain rights for imported user certificates.
+You only need to check domains rights for Let's Encrypt certificates. {{ certificate-manager-name }} does not check domain rights for imported user certificates.
 
 {% endnote %}
 
@@ -31,18 +31,18 @@ You cannot use the `HTTP` challenge type for [Wildcard certificates](https://en.
 To check the rights for the `example.com` domain:
 
 1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
-1. In the list of services, select **{{ certificate-manager-name }}** and click on the name of the desired certificate.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and click on the name of the desired certificate.
 1. Create an `.html` file:
 
-   1. Copy text from the **Context** field under **Check rights for domains** on the certificate page and paste it into the file:
+   1. Copy text from the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-content }}** field under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** on the certificate page and paste it into the file:
 
       > 6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8.sifhsdf778s98asAsa897da98sda
 
-   1. Save the file using the name from the link part specified in the **Link for hosting file** field:
+   1. Save the file using the name from the link part specified in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** field:
       * `http://example.com/.well-known/acme-challenge/`: File hosting path.
       * `6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8`: File name.
 
-   The resulting file is `6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8.html` containing `6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8.sifhsdf778s98asAsa897da98sda`.
+   You will create the `6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8.html` file containing `6Z4R7LftFH8qGa6JiRzSGDNdrSQKvj0Ag_edlHjLXF8.sifhsdf778s98asAsa897da98sda`.
 
 1. Host the file on your web server in the `.well-known/acme-challenge/` directory:
 
@@ -52,7 +52,7 @@ To check the rights for the `example.com` domain:
 
 ## DNS {#dns}
 
-If you don't have access to the web server or you need to get a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate) with masks for subdomains like `*.example.com`, use `DNS` as the challenge type.
+If you do not have access to the web server or you need to get a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate) with masks for subdomains like `*.example.com`, use `DNS` as the challenge type.
 
 To pass the check, you need to add a special DNS record of one of the following two types: `TXT` or `CNAME`.
 
@@ -70,9 +70,9 @@ Using a CNAME record enables you to undergo a check only once. To do this, you n
 
 To check the rights for the domain `example.com` automatically:
 1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
-1. In the list of services, select **{{ certificate-manager-name }}**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. In the certificate list, please select the certificate that is involved in the check.
-1. Under **Check rights for domains**, in the section with the `CNAME` record type, check out the record value for the domain in the **Value** field.
+1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the section with the `CNAME` record type, check out the record value for the domain in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_value }}** field.
 1. Host a `CNAME` record with your DNS provider or on your own DNS server to delegate management privileges to the DNS zone used for the check:
 
    ```
@@ -80,9 +80,11 @@ To check the rights for the domain `example.com` automatically:
    ```
    The `<Value>` string is created using the following template: `<Certificate ID>.cm.yandexcloud.net.`
 
-1. Under **Check rights for domains**, in the section with the `CNAME` record type, click **Create record** in the **Cloud DNS** field. In the window that opens:
-   1. If the current folder contains a suitable DNS zone, it will be automatically inserted into the **Zone** field. If there is no appropriate DNS zone, click **Create zone** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
-   1. Click **Create**.
+   {% include [checking-domain-rights-cname](../../_includes/certificate-manager/checking-domain-rights-cname.md) %}
+
+1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the section with the `CNAME` record type, click **{{ ui-key.yacloud.dns.button_record-set-create }}** in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}** field. In the window that opens:
+   1. If the current folder contains a suitable DNS zone, it will be automatically inserted into the **{{ ui-key.yacloud.dns.label_zone }}** field. If there is no appropriate DNS zone, click **{{ ui-key.yacloud.dns.button_zone-create }}** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
    {% include [checking-domain-rights](../../_includes/certificate-manager/checking-domain-rights.md) %}
 
@@ -91,17 +93,17 @@ To check the rights for the domain `example.com` automatically:
 
 To check the rights for the domain `example.com` domain:
 1. In the [management console]({{ link-console-main }}), select the folder the certificate was added to.
-1. In the list of services, select **{{ certificate-manager-name }}**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. In the certificate list, please select the certificate that is involved in the check.
-1. Under **Check rights for domains**, in the section with the `TXT` record type, check out the record value for the domain in the **Value** field.
+1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the section with the `TXT` record type, check out the record value for the domain in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_value }}** field.
 1. With your DNS provider or on your own DNS server, host a `TXT` record:
 
    ```
    _acme-challenge.example.com. IN TXT <Value>
    ```
-1. Under **Check rights for domains**, in the section with the `TXT` record type, click **Create record** in the **Cloud DNS** field. In the window that opens:
-   1. If the current folder contains a suitable DNS zone, it will be automatically inserted into the **Zone** field. If there is no appropriate DNS zone, click **Create zone** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
-   1. Click **Create**.
+1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, in the section with the `TXT` record type, click **{{ ui-key.yacloud.dns.button_record-set-create }}** in the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-record-set }}** field. In the window that opens:
+   1. If the current folder contains a suitable DNS zone, it will be automatically inserted into the **{{ ui-key.yacloud.dns.label_zone }}** field. If there is no appropriate DNS zone, click **{{ ui-key.yacloud.dns.button_zone-create }}** and set its parameters to [create](../../dns/operations/zone-create-public.md) a new zone.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
    {% include [checking-domain-rights](../../_includes/certificate-manager/checking-domain-rights.md) %}
 

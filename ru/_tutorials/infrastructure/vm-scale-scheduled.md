@@ -91,12 +91,12 @@
          --folder-name example-folder
        ```
        
-     * `serverless.functions.invoker` — для запуска функции {{ sf-name }}:
+     * `{{ roles-functions-invoker }}` — для запуска функции {{ sf-name }}:
 
        ```bash
        yc resource-manager folder add-access-binding example-folder \
          --service-account-name vm-scale-scheduled-sa \
-         --role serverless.functions.invoker \
+         --role {{ roles-functions-invoker }} \
          --folder-name example-folder
        ```
 
@@ -110,7 +110,7 @@
 
      * `compute.admin` — для управления группой ВМ.
      * `iam.serviceAccounts.user` — для привязки сервисного аккаунта к ВМ, входящим в группу.
-     * `serverless.functions.invoker` — для запуска функции {{ sf-name }}.
+     * `{{ roles-functions-invoker }}` — для запуска функции {{ sf-name }}.
 
      Для этого воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings).
 

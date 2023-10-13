@@ -1,24 +1,33 @@
-# Editing {{ k8s }} clusters
+# Editing {{ managed-k8s-name }} clusters
 
 {% include [yc-cluster-list](../../../_includes/managed-kubernetes/cluster-list.md) %}
 
-## Changing {{ k8s }} clusters {#update-cluster}
+## Changing {{ managed-k8s-name }} clusters {#update-cluster}
 
-You can change the following parameters of a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster):
+You can change the following parameters of a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster):
 * Name.
 * Description.
 * [Service accounts](../../../iam/operations/sa/create.md).
-* {{ k8s }} version.
+* [{{ k8s }} version](../../concepts/release-channels-and-updates.md).
 * [Update](../../concepts/release-channels-and-updates.md#updates) policy.
 * List of [security groups](../connect/security-groups.md).
+* Settings for sending logs to [{{ cloud-logging-full-name }}](../../../logging/).
 
-  Security groups are at the [Preview stage](../../../overview/concepts/launch-stages.md). If they are unavailable on your network, all incoming and outgoing traffic will be allowed for the resources. No additional setup is required.
+  [Security groups](../../../vpc/concepts/security-groups.md) are at the [Preview stage](../../../overview/concepts/launch-stages.md). If they are not available on your [network](../../../vpc/concepts/network.md#network), all incoming and outgoing traffic for the resources will be allowed. No additional setup is required.
 
   To enable security groups, request access to this feature from the [support team]({{ link-console-support }}/create-ticket).
 
   {% note alert %}
 
-  Do not delete the security groups bound to a running cluster as this might result in disruptions in its operation and data loss.
+  Do not delete the security groups bound to a running {{ managed-k8s-name }} cluster as this might result in disruptions in its operation and data loss.
+
+  {% endnote %}
+
+* Mask of the [{{ managed-k8s-name }} node](../../concepts/index.md#node-group) [subnet](../../../vpc/concepts/network.md#subnet).
+
+  {% note warning %}
+
+  If you change the subnet mask of an active {{ managed-k8s-name }} cluster, it may run out of CIDR blocks. In this case, you will not be able to deploy [pods](../../concepts/index.md#pod) on new node groups.
 
   {% endnote %}
 
@@ -26,84 +35,105 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
 
 - Management console
 
-  To change a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
-  1. Open **{{ managed-k8s-name }}** in the folder where you want to change the {{ k8s }} cluster.
-  1. Click on the name of the {{ k8s }} cluster.
-  1. Click **Edit** in the upper-right corner.
-  1. Change the necessary parameters in the window that opens.
+  To update a {{ managed-k8s-name }} cluster:
+  1. Open **{{ managed-k8s-name }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
+  1. Click the name of the {{ managed-k8s-name }} cluster.
+  1. Click **Edit** in the top-right corner.
+  1. Change the required parameters in the window that opens.
   1. Click **Save changes**.
 
 - CLI
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To change a cluster:
-  1. View a description of the CLI's update cluster command:
+   To update a {{ managed-k8s-name }} cluster:
+   1. View a description of the update {{ managed-k8s-name }} cluster CLI command:
 
-     ```bash
-     {{ yc-k8s }} cluster update --help
-     ```
+      ```bash
+      {{ yc-k8s }} cluster update --help
+      ```
 
-  1. Execute the command by passing a list of the settings to be changed (only some of the settings are given in the example):
+   1. Run the following command and provide a list of settings you want to change (not all settings are listed in the example below):
 
-     ```bash
-     {{ yc-k8s }} cluster update <cluster name> \
-       --new-name <new cluster name> \
-       --description <cluster description> \
-       --service-account-id <ID of service account for resources> \
-       --service-account-name <name of service account for resources> \
-       --node-service-account-id <ID of service account for nodes> \
-       --security-group-ids <security group ID list>
-     ```
+      ```bash
+      {{ yc-k8s }} cluster update <{{ managed-k8s-name }}_cluster_name> \
+        --new-name <new_{{ managed-k8s-name }}_cluster_name> \
+        --description <{{ managed-k8s-name }}_cluster_description> \
+        --service-account-id <resource_service_account_ID> \
+        --service-account-name <resource_service_account_name> \
+        --node-service-account-id <{{ managed-k8s-name }}_node_service_account_ID> \
+        --security-group-ids <list_of_security_group_IDs> \
+        --master-logging enabled=<log_sending:_true_or_false>,`
+            `log-group-id=<log_group_ID>,`
+            `folder-id=<folder_ID>,`
+            `kube-apiserver-enabled=<kube-apiserver_log_sending:_true_or_false>,`
+            `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending:_true_or_false>,`
+            `events-enabled=<{{ k8s }}_event_sending:_true_or_false>
+      ```
 
-     Where:
-     * `--new-name`: Cluster name.
-     * `--description`: Cluster description.
-     * `--service-account-id`, `--service-account-name`: Service account for managing the cluster.
-     * `--node-service-account-id`, `--node-service-account-name`: Service account for managing nodes.
-     * `--security-group-ids`: Cluster security groups.
+      Where:
+      * `--new-name`: {{ managed-k8s-name }} cluster name.
+      * `--description`: {{ managed-k8s-name }} cluster description.
+      * `--service-account-id`, `--service-account-name`: Service account for managing the {{ managed-k8s-name }} cluster.
+      * `--node-service-account-id`, `--node-service-account-name`: Service account for managing the {{ managed-k8s-name }} nodes.
+      * `--security-group-ids`: {{ managed-k8s-name }} cluster security groups.
 
-       {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
+         {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
+
+      * `--master-logging`: Sending logs to {{ cloud-logging-name }}:
+
+       {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
 
      * `--version`: {{ k8s }} version.
-     * `--latest-revision`: Get all available updates for current version of master.
-     * `--auto-upgrade`: Manage automatic cluster updates.
+     * `--latest-revision`: Get all available updates for current [master {{ managed-k8s-name }}](../../concepts/index.md#master) version.
+     * `--auto-upgrade`: Manage automatic {{ managed-k8s-name }} cluster updates.
      * Managing the maintenance window:
        * `--anytime-maintenance-window`: Perform maintenance at any time.
        * `--daily-maintenance-window`: Update daily at the selected time.
-       * `--weekly-maintenance-window`: Update on specified days.
+       * `--weekly-maintenance-window`: Update on selected days.
 
 - {{ TF }}
 
-  To change a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
-  1. Open the current configuration file with the cluster description.
+  To update a {{ managed-k8s-name }} cluster:
+  1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
 
-     For more information about creating this file, see [{#T}](kubernetes-cluster-create.md).
-  1. Edit the required parameters in the {{ k8s }} cluster description.
-  1. Make sure the configuration files are valid.
+      For more information about creating this file, see [{#T}](kubernetes-cluster-create.md).
+   1. Edit the required parameters in the {{ managed-k8s-name }} cluster description.
 
-     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+      To edit the settings for submitting logs to {{ cloud-logging-name }}, configure the `master_logging` section parameters. If there is no such section, create one.
 
-  1. Confirm the resources have been updated.
+      {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
 
-     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+      Where:
 
-     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-cluster }}).
+      {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
+
+   1. Make sure the configuration files are valid.
+
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the resources have been updated.
+
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-cluster }}).
 
 - API
 
-  To edit {{ k8s }} cluster parameters, use the [update](../../api-ref/Cluster/update.md) method for the [Cluster](../../api-ref/Cluster/) resource.
+   To edit {{ managed-k8s-name }} cluster parameters, use the [update](../../api-ref/Cluster/update.md) method for the [Cluster](../../api-ref/Cluster/) resource.
+
+   To edit the settings for submitting logs to {{ cloud-logging-name }}, configure them in the `masterSpec.masterLogging` parameter.
 
 {% endlist %}
 
-## Managing cluster labels for {{ k8s }} {#manage-label}
+## Managing {{ managed-k8s-name }} cluster labels {#manage-label}
 
-You can perform the following actions with [{{ k8s }} cluster labels](../../concepts/index.md#node-labels):
-* [Add](#add-label)
-* [Edit](#update-label)
-* [Delete](#remove-label)
+You can perform the following actions with [{{ managed-k8s-name }} cluster labels](../../concepts/index.md#node-labels):
+* [Adding a label](#add-label)
+* [Editing a label](#update-label)
+* [Deleting a label](#remove-label)
 
 ### Adding a label {#add-label}
 
@@ -111,7 +141,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
 
 - CLI
 
-  Add a label to the {{ k8s }} cluster:
+  Add a {{ managed-k8s-name }} cluster label:
 
   ```bash
   yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
@@ -138,7 +168,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
 
 - CLI
 
-  Change the {{ k8s }} cluster label:
+  Edit a {{ managed-k8s-name }} cluster label:
 
   {% note warning %}
 
@@ -171,7 +201,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
 
 - CLI
 
-  Remove a label from a {{ k8s }} cluster:
+  Delete a {{ managed-k8s-name }} cluster label:
 
   ```bash
   yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label

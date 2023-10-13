@@ -10,9 +10,9 @@ description: "In this tutorial, you will learn how to delete a backup policy in 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the policy from.
-   1. In the list of services, select **{{ backup-name }}**.
-   1. Go to the ![policies](../../../_assets/backup/policies.svg) **Backup policies** tab.
-   1. Click ![image](../../../_assets/options.svg) next to the appropriate policy, and select **Delete**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+   1. Go to the ![policies](../../../_assets/backup/policies.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
+   1. Click ![image](../../../_assets/options.svg) next to the appropriate policy, and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the deletion.
 
 - CLI

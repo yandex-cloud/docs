@@ -4,9 +4,9 @@
 
 #|
 || **Тип** | **Виды сопоставления** | **Значения** | **Пример** | **Логический оператор** ||
-|| `IP` |
-* Совпадает или принадлежит промежутку
-* Не совпадает и не принадлежит промежутку
+|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-ip-range }}` |
+* Совпадает или принадлежит диапазону
+* Не совпадает и не принадлежит диапазону
 * IP принадлежит региону
 * IP не принадлежит региону
 |
@@ -22,7 +22,7 @@
 * `ru`
 * `kz`
 | _или_ ||
-|| `HTTP header` |
+|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-header }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с
@@ -37,7 +37,7 @@
 |
 * `User-Agent: curl/7.55.1`
 | _и_ ||
-|| `Request URI` |
+|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-requestUri }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с
@@ -66,7 +66,7 @@ PIRE
 * `a: 1`
 * `A: 2`
 | _и_ ||
-|| `Host` |
+|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-authority }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с
@@ -81,7 +81,7 @@ PIRE
 |
 * `example.com`
 | _или_ ||
-|| `HTTP method` |
+|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-httpMethod }}` |
 * Совпадает с
 * Не совпадает с
 * Начинается с

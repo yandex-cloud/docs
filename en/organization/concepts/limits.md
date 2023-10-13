@@ -11,6 +11,6 @@ editable: false
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-If you need more resources, contact [support]({{ link-console-support }}) and tell us which quotas you need to increase and by how much.
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
 {% include [org-limits.md](../../_includes/organization/org-limits.md) %}

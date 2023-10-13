@@ -89,7 +89,7 @@
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
   1. Откройте конфигурационный файл {{ TF }} и добавьте блок `target` с параметрами целевого ресурса во фрагмент с описанием целевой группы:
 
       ```hcl
@@ -235,7 +235,7 @@
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
   1. Откройте конфигурационный файл {{ TF }} и удалите блок `target` с IP-адресом ВМ, которую нужно удалить, во фрагменте с описанием целевой группы:
 
       Пример описания целевой группы в конфигурации {{ TF }}:

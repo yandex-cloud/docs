@@ -78,7 +78,7 @@
 
 - {{ TF }}
 
-  Если у вас еще нет {{ TF }},  [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Добавьте к описанию балансировщика в конфигурационном файле блок `log_options`:
 
@@ -193,7 +193,7 @@
 
 - {{ TF }}
 
-  Если у вас еще нет {{ TF }},  [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. В конфигурационном файле с описанием балансировщика измените блок `log_options` с новыми настройками логирования:
 
@@ -280,7 +280,7 @@
 
 - {{ TF }}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. В конфигурационном файле с описанием балансировщика удалите блок `log_options`:
 

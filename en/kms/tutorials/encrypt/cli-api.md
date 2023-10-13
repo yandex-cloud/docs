@@ -18,12 +18,12 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
    * `--name`: Name of the KMS key, make sure you set either the `--id` or `--name` flag.
    * `--version-id` (optional): [Version](../../concepts/version.md) of the KMS key to use for encryption. The primary version is used by default.
    * `--plaintext-file`: Input file with plaintext.
-   * `--aad-context-file` (optional): Input file with [AAD context](../../concepts/encryption.md#add-context).
+   * `--aad-context-file` (optional): Input file with [AAD context](../../concepts/symmetric-encryption.md#add-context).
    * `--ciphertext-file`: Output file with ciphertext.
 
    ```
    yc kms symmetric-crypto encrypt \
-     --id abj76v82ficsmn446ri7 \
+     --id abj76v82fics******** \
      --plaintext-file plaintext-file \
      --ciphertext-file ciphertext-file
    ```
@@ -45,7 +45,7 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
    * `--id`: ID of the [KMS key](../../concepts/key.md), make sure you set either the `--id` or `--name` flag.
    * `--name`: Name of the KMS key, make sure you set either the `--id` or `--name` flag.
    * `--ciphertext-file`: Input file with plaintext.
-   * `--aad-context-file` (optional): Input file with [AAD context](../../concepts/encryption.md#add-context).
+   * `--aad-context-file` (optional): Input file with [AAD context](../../concepts/symmetric-encryption.md#add-context).
    * `--plaintext-file`: Output file with ciphertext.
 
    ```
@@ -64,5 +64,6 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 #### See also {#see-also}
 
 * [Command line interface CLI](../../../cli).
-* [Encryption in {{ kms-name }}](../../concepts/encryption.md).
+* [Symmetric encryption in {{ kms-full-name }}](../../concepts/symmetric-encryption.md).
+* [Asymmetric encryption in {{ kms-full-name }}](../../concepts/asymmetric-encryption.md).
 * [Managing keys in {{ kms-name }}](../../operations/index.md).

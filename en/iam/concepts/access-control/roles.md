@@ -8,7 +8,7 @@ There are two types of roles:
 
    A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
 
-Currently, users aren't allowed to create new roles with a custom set of permissions.
+Currently, users are not allowed to create new roles with a custom set of permissions.
 
 ## Primitive roles {#primitive-roles}
 
@@ -120,90 +120,6 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [roles-dns-admin](../../../_includes/iam/roles/dns-admin.md) %}
 
-## {{ compute-full-name }} {#compute-roles}
-
-{% include [roles-compute-admin](../../../_includes/roles-compute-admin.md) %}
-
-{% include [roles-compute-viewer](../../../_includes/roles-compute-viewer.md) %}
-
-{% include [roles-disks-user](../../../_includes/roles-disks-user.md) %}
-
-{% include [roles-images-user](../../../_includes/roles-images-user.md) %}
-
-{% include [roles-compute-operator](../../../_includes/roles-compute-operator.md) %}
-
-{% include [roles-compute-snapshotSchedules-editor](../../../_includes/roles-compute-snapshotSchedules-editor.md) %}
-
-{% include [roles-compute-snapshotSchedules-viewer](../../../_includes/roles-compute-snapshotSchedules-viewer.md) %}
-
-## {{ container-registry-full-name }} {#cr-roles}
-
-{% include [container-registry-viewer](../../../_includes/iam/roles/container-registry-viewer.md) %}
-
-{% include [container-registry-editor](../../../_includes/iam/roles/container-registry-editor.md) %}
-
-{% include [container-registry-admin](../../../_includes/iam/roles/container-registry-admin.md) %}
-
-{% include [container-registry-pusher](../../../_includes/iam/roles/container-registry-pusher.md) %}
-
-{% include [container-registry-puller](../../../_includes/iam/roles/container-registry-puller.md) %}
-
-{% include [container-registry-images-scanner](../../../_includes/iam/roles/container-registry-images-scanner.md) %}
-
-## Managed databases {#mdb-roles}
-
-{% include [mdb.admin](../../../_includes/iam/roles/mdb.admin.md) %}
-
-{% include [mdb.viewer](../../../_includes/iam/roles/mdb.viewer.md) %}
-
-{% include [mdb.auditor](../../../_includes/iam/roles/mdb.auditor.md) %}
-
-
-## {{ dataproc-full-name }} {#dataproc-roles}
-
-{% include [mdb.dataproc.agent](../../../_includes/iam/roles/dataproc-agent.md) %}
-
-{% include [data-proc-roles](../../../_includes/iam/roles/data-proc-roles.md) %}
-
-{% include [managed-metastore-roles](../../../_includes/iam/roles/managed-metastore-roles.md) %}
-
-
-## {{ yds-full-name }} {#yds-roles}
-
-{% include [yds-viewer](../../../_includes/iam/roles/yds-viewer.md) %}
-
-{% include [yds-writer](../../../_includes/iam/roles/yds-writer.md) %}
-
-{% include [yds-editor](../../../_includes/iam/roles/yds-editor.md) %}
-
-{% include [yds-admin](../../../_includes/iam/roles/yds-admin.md) %}
-
-
-
-## {{ data-transfer-full-name }} {#data-transfer-roles}
-
-{% include [data-transfer-viewer](../../../_includes/iam/roles/data-transfer-viewer.md) %}
-
-{% include [data-transfer-privateadmin](../../../_includes/iam/roles/data-transfer-privateadmin.md) %}
-
-{% include [data-transfer-admin](../../../_includes/iam/roles/data-transfer-admin.md) %}
-
-
-
-## {{ datalens-full-name }} {#datalens-roles}
-
-{% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}
-
-{% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
-
-
-## {{ ml-platform-name }} {#datasphere-roles}
-
-{% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
-
-{% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
-
-
 
 ## {{ sf-full-name }} {#functions-roles}
 
@@ -220,6 +136,116 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 
 {% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
+
+
+## {{ cloud-logging-full-name }} {#logging-roles}
+
+{% include [logging-roles-viewer](../../../_includes/roles-logging-viewer.md) %}
+
+{% include [logging-roles-editor](../../../_includes/roles-logging-editor.md) %}
+
+{% include [logging-roles-reader](../../../_includes/roles-logging-reader.md) %}
+
+{% include [logging-roles-writer](../../../_includes/roles-logging-writer.md) %}
+
+{% include [logging-roles-admin](../../../_includes/roles-logging-admin.md) %}
+
+## {{ org-full-name }} {#organization-roles}
+
+{% include [organization-manager-viewer](../../../_includes/roles-organization-manager-viewer.md) %}
+
+{% include [organization-manager-admin](../../../_includes/roles-organization-manager-admin.md) %}
+
+{% include [organization-manager-organizations-owner](../../../_includes/roles-organization-manager-organizations-owner.md) %}
+
+{% include [organization-manager-groups-memberAdmin](../../../_includes/roles-organization-manager-groups-memberAdmin.md) %}
+
+{% include [organization-manager-oslogins-admin](../../../_includes/roles-organization-manager-oslogins-admin.md) %}
+
+{% include [organization-manager-oslogins-viewer](../../../_includes/roles-organization-manager-oslogins-viewer.md) %}
+
+## {{ compute-full-name }} {#compute-roles}
+
+{% include [roles-compute-viewer](../../../_includes/roles-compute-viewer.md) %}
+
+{% include [roles-compute-editor](../../../_includes/roles-compute-editor.md) %}
+
+{% include [roles-compute-admin](../../../_includes/roles-compute-admin.md) %}
+
+{% include [roles-disks-user](../../../_includes/roles-disks-user.md) %}
+
+{% include [roles-images-user](../../../_includes/roles-images-user.md) %}
+
+{% include [roles-compute-operator](../../../_includes/roles-compute-operator.md) %}
+
+{% include [roles-compute-snapshotSchedules-viewer](../../../_includes/roles-compute-snapshotSchedules-viewer.md) %}
+
+{% include [roles-compute-snapshotSchedules-editor](../../../_includes/roles-compute-snapshotSchedules-editor.md) %}
+
+{% include [roles-compute-osLogin](../../../_includes/roles-compute-osLogin.md) %}
+
+{% include [roles-compute-osAdminLogin](../../../_includes/roles-compute-osAdminLogin.md) %}
+
+## {{ container-registry-full-name }} {#cr-roles}
+
+{% include [container-registry-viewer](../../../_includes/iam/roles/container-registry-viewer.md) %}
+
+{% include [container-registry-editor](../../../_includes/iam/roles/container-registry-editor.md) %}
+
+{% include [container-registry-admin](../../../_includes/iam/roles/container-registry-admin.md) %}
+
+{% include [container-registry-pusher](../../../_includes/iam/roles/container-registry-pusher.md) %}
+
+{% include [container-registry-puller](../../../_includes/iam/roles/container-registry-puller.md) %}
+
+{% include [container-registry-images-scanner](../../../_includes/iam/roles/container-registry-images-scanner.md) %}
+
+
+## {{ dataproc-full-name }} {#dataproc-roles}
+
+{% include [mdb.dataproc.agent](../../../_includes/iam/roles/dataproc-agent.md) %}
+
+{% include [data-proc-roles](../../../_includes/iam/roles/data-proc-roles.md) %}
+
+{% include [managed-metastore-roles](../../../_includes/iam/roles/managed-metastore-roles.md) %}
+
+## {{ yds-full-name }} {#yds-roles}
+
+{% include [yds-viewer](../../../_includes/iam/roles/yds-viewer.md) %}
+
+{% include [yds-writer](../../../_includes/iam/roles/yds-writer.md) %}
+
+{% include [yds-editor](../../../_includes/iam/roles/yds-editor.md) %}
+
+{% include [yds-admin](../../../_includes/iam/roles/yds-admin.md) %}
+
+
+## {{ data-transfer-full-name }} {#data-transfer-roles}
+
+{% include [data-transfer-viewer](../../../_includes/iam/roles/data-transfer-viewer.md) %}
+
+{% include [data-transfer-privateadmin](../../../_includes/iam/roles/data-transfer-privateadmin.md) %}
+
+{% include [data-transfer-admin](../../../_includes/iam/roles/data-transfer-admin.md) %}
+
+
+## {{ datalens-full-name }} {#datalens-roles}
+
+{% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}
+
+{% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
+
+{% include [roles-datalens-visitor](../../../_includes/roles-datalens-visitor.md) %}
+
+{% include [roles-datalens-creator](../../../_includes/roles-datalens-creator.md) %}
+
+{% include [roles-datalens-admin-org](../../../_includes/roles-datalens-admin-org.md) %}
+
+## {{ ml-platform-name }} {#datasphere-roles}
+
+{% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
+
+{% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
 
 
 ## {{ iam-full-name }} {#iam-roles}
@@ -241,28 +267,24 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 ## {{ iot-full-name }} {#iot-roles}
 
+{% include [iot-admin](../../../_includes/roles-iot-admin.md) %}
+
+{% include [iot-editor](../../../_includes/roles-iot-editor.md) %}
+
+{% include [iot-viewer](../../../_includes/roles-iot-viewer.md) %}
+
+{% include [iot-auditor](../../../_includes/roles-iot-auditor.md) %}
+
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
 
 
-
-## {{ cloud-logging-full-name }} {#logging-roles}
-
-{% include [logging-roles-viewer](../../../_includes/roles-logging-viewer.md) %}
-
-{% include [logging-roles-editor](../../../_includes/roles-logging-editor.md) %}
-
-{% include [logging-roles-reader](../../../_includes/roles-logging-reader.md) %}
-
-{% include [logging-roles-writer](../../../_includes/roles-logging-writer.md) %}
-
-{% include [logging-roles-admin](../../../_includes/roles-logging-admin.md) %}
-
-
 ## {{ kms-full-name }} {#kms-roles}
 
 {% include [kms-admin](../../../_includes/roles-kms-admin.md) %}
+
+{% include [kms-editor](../../../_includes/roles-kms-editor.md) %}
 
 {% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md) %}
 
@@ -270,9 +292,29 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [kms-keys-decrypter](../../../_includes/roles-kms-keys-decrypter.md) %}
 
-{% include [kms-editor](../../../_includes/roles-kms-editor.md) %}
+{% include [kms-asymmetricEncryptionKeys-publicKeyViewer](../../../_includes/roles-kms-asymmetric-publicKeyViewer.md) %}
+
+{% include [kms-asymmetricSignatureKeys-publicKeyViewer](../../../_includes/roles-kms-asymmetricSignatureKeys-publicKeyViewer.md) %}
+
+{% include [kms-asymmetricSignatureKeys-signer](../../../_includes/roles-kms-asymmetricSignatureKeys-signer.md) %}
+
+{% include [kms-asymmetricEncryptionKeys-decrypter](../../../_includes/roles-kms-asymmetric-decrypter.md) %}
 
 {% include [kms-viewer](../../../_includes/roles-kms-viewer.md) %}
+
+{% include [kms-auditor](../../../_includes/roles-kms-auditor.md) %}
+
+## {{ load-testing-full-name }} {#load-testing-roles}
+
+{% include [load-testing-viewer](../../../_includes/roles-load-testing-viewer.md) %}
+
+{% include [load-testing-editor](../../../_includes/roles-load-testing-editor.md) %}
+
+{% include [load-testing-admin](../../../_includes/roles-load-testing-admin.md) %}
+
+{% include [load-testing-loadTester](../../../_includes/roles-load-testing-loadTester.md) %}
+
+{% include [load-testing-generatorClient](../../../_includes/roles-load-testing-generatorClient.md) %}
 
 ## {{ lockbox-full-name }} {#lockbox-roles}
 
@@ -283,6 +325,14 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 {% include [lockbox-viewer](../../../_includes/roles-lockbox-viewer.md) %}
 
 {% include [lockbox-payloadViewer](../../../_includes/roles-lockbox-payloadViewer.md) %}
+
+## Managed databases {#mdb-roles}
+
+{% include [mdb.admin](../../../_includes/iam/roles/mdb.admin.md) %}
+
+{% include [mdb.viewer](../../../_includes/iam/roles/mdb.viewer.md) %}
+
+{% include [mdb.auditor](../../../_includes/iam/roles/mdb.auditor.md) %}
 
 ## {{ mkf-full-name }} {#mkf-roles}
 
@@ -335,7 +385,6 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 {% include [mgp-admin](../../../_includes/iam/roles/mgp-admin.md) %}
 
 
-
 ## {{ managed-k8s-full-name }} {#kubernetes-roles}
 
 {% include [k8s-cluster-api-viewer](../../../_includes/iam/roles/k8s-cluster-api-viewer.md) %}
@@ -357,7 +406,6 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 
-
 ## {{ mmg-full-name }} {#mmg-roles}
 
 {% include [mmg-auditor](../../../_includes/iam/roles/mmg-auditor.md) %}
@@ -367,7 +415,6 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [mmg-editor](../../../_includes/iam/roles/mmg-editor.md) %}
 
 {% include [mmg-admin](../../../_includes/iam/roles/mmg-admin.md) %}
-
 
 
 ## {{ mmy-full-name }} {#mmy-roles}
@@ -469,6 +516,18 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% include [storage-admin](../../../_includes/iam/roles/storage-admin.md) %}
 
+
+## {{ yq-full-name }} {#yq-roles}
+
+{% include [yq-invoker](../../../_includes/iam/roles/yq-invoker.md) %}
+
+{% include [yq-viewer](../../../_includes/iam/roles/yq-viewer.md) %}
+
+{% include [yq-editor](../../../_includes/iam/roles/yq-editor.md) %}
+
+{% include [yq-admin](../../../_includes/iam/roles/yq-admin.md) %}
+
+
 ## {{ resmgr-full-name }} {#yrm-roles}
 
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
@@ -520,15 +579,9 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [roles-speechkit-tts-user](../../../_includes/roles-speechkit-tts-user.md) %}
 
 
-
 ## {{ translate-full-name }} {#translate-roles}
 
 {% include [roles-translate-user](../../../_includes/translate/roles-translate-user.md) %}
-
-## {{ vision-full-name }} {#vision-roles}
-
-{% include [roles-vision-user](../../../_includes/vision/roles-vision-user.md) %}
-
 
 
 ## {{ vpc-full-name }} {#vpc-roles}
@@ -550,21 +603,15 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
 
 
+## {{ vision-full-name }} {#vision-roles}
+
+{% include [roles-vision-user](../../../_includes/vision/roles-vision-user.md) %}
+
 ## {{ wiki-full-name }} {#wiki-roles}
 
 {% include [wiki-viewer](../../../_includes/iam/roles/wiki-viewer.md) %}
 
 {% include [wiki-admin](../../../_includes/iam/roles/wiki-admin.md) %}
-
-## {{ yq-full-name }} {#yq-roles}
-
-{% include [yq-invoker](../../../_includes/iam/roles/yq-invoker.md) %}
-
-{% include [yq-viewer](../../../_includes/iam/roles/yq-viewer.md) %}
-
-{% include [yq-editor](../../../_includes/iam/roles/yq-editor.md) %}
-
-{% include [yq-admin](../../../_includes/iam/roles/yq-admin.md) %}
 
 
 ## {{ yagpt-full-name }} {#yandexgpt-roles}

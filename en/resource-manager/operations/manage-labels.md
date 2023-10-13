@@ -10,16 +10,17 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
 
 - Management console
 
-   The example below shows how to a label to a {{ compute-name }} VM instance. You can add a label to another resource in the same way.
+   The example below shows how to add a label to a {{ compute-name }} VM instance. You can add a label to another resource in the same way.
 
    1. In the [management console]({{ link-console-main }}), select the folder where the VM is located.
-   1. In the list of services, select **{{ compute-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
    1. Select the VM you need from the list.
-   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Edit**.
-   1. In the **Labels** field, click **Add label**.
+   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
    1. Specify the key and value and press **Enter**.
 
-- YC CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -44,8 +45,8 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
    >
    > ```
    > done (5s)
-   > id: fhm1pr2bu3p45s6ildh7
-   > folder_id: b1g23ga45mev6cljderg
+   > id: fhm1pr2bu3p4********
+   > folder_id: b1g23ga45mev********
    > created_at: "2020-08-07T11:29:18Z"
    > name: cl123g4dridnn5cna6df-yduv
    > labels:
@@ -70,7 +71,7 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   After that, the label will be added to the resource. To check whether the label is there, use the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+   That will add the label to the resource. You can check the new label using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
    ```
    yc <service_name> <resource_type> get <resource_name_or_ID>
@@ -102,7 +103,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
 
 {% list tabs %}
 
-- YC CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -133,8 +134,8 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
    >
    > ```
    > done (1m36s)
-   > id: cat1hknor2345e6d7rr8
-   > folder_id: b1g23ga45mev6cljderg
+   > id: cat1hknor234********
+   > folder_id: b1g23ga45mev********
    > created_at: "2020-08-07T11:15:59Z"
    > name: cluster
    > labels:
@@ -160,7 +161,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   After that, the label for the resource will be updated. You can check whether the label was successfully updated using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+   After that, the label for the resource will be updated. You can check the label update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
    ```
    yc <service_name> <resource_type> get <resource_name_or_ID>
@@ -177,12 +178,13 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
    The example below shows how to delete a label from a {{ compute-name }} VM. You can delete a label from another resource in the same way.
 
    1. In the [management console]({{ link-console-main }}), select the folder where the VM is located.
-   1. In the list of services, select **{{ compute-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../_assets/compute/vm-pic.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
    1. Select the VM you need from the list.
-   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Edit**.
-   1. In the **Labels** field, select the label in question and click ![cross](../../_assets/cross.svg) next to its name.
+   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the label in question and click ![cross](../../_assets/cross.svg) next to its name.
 
-- YC CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -206,8 +208,8 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
    > Result:
    >
    > ```
-   > id: c1qmjaatlurm2bcoi34i
-   > folder_id: b1g23ga45mev6cljderg
+   > id: c1qmjaatlurm********
+   > folder_id: b1g23ga45mev********
    > created_at: "2020-08-20T11:53:20.015543Z"
    > name: mysql123
    > environment: PRODUCTION
@@ -231,7 +233,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   After that, the label will be removed from the resource. You can check whether the label was successfully deleted using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+   After that, the label will be removed from the resource. You can check the label's deletion using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
    ```
    yc <service_name> <resource_type> get <resource_name_or_ID>

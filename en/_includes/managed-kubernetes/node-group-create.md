@@ -28,21 +28,21 @@ To create a node group:
 1. Under **Computing resources**:
    * Choose a [platform](../../compute/concepts/vm-platforms.md).
    * Specify the requisite number of vCPUs and [guaranteed vCPU performance](../../compute/concepts/performance-levels.md) as well as the amount of RAM.
-   * (optional) Specify that the VM must be [preemptible](../../compute/concepts/preemptible-vm.md).
-1. (optional) Under **Placement**, enter a name for a [placement group](../../compute/concepts/placement-groups.md) for the nodes. This setting cannot be edited after the group is created.
+   * (Optional) Specify that you want the VM to be [preemptible](../../compute/concepts/preemptible-vm.md).
+1. (Optional) Under **Placement**, enter a name for the node [placement group](../../compute/concepts/placement-groups.md). This setting cannot be edited after the group is created.
 1. Under **Storage**:
-   * Specify the **Disk type**:
+   * Specify the node **Disk type**:
      * **HDD**: Standard network drive. Network block storage on an HDD.
      * **SSD**: Fast network drive. Network block storage on an SSD.
      * **Non-replicated SSD**: Improved-performance network drive. You can only change the size of this type of disk in 93 GB increments.
 
        {% include [nrd-no-backup-note](nrd-no-backup-note.md) %}
 
-   * Specify the disk size.
+   * Specify the node disk size.
 1. Under **Network settings**:
    * In the **Public IP** field, choose a method for assigning an IP address:
      * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-     * **No address**: Don't assign a public IP address.
+     * **No address**: Do not assign a public IP address.
    * Select security groups.
 
      {% include [security-groups-alert](security-groups-alert.md) %}

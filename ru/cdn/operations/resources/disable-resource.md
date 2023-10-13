@@ -87,7 +87,7 @@
 
 - {{ TF }}
 
-  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. Откройте файл конфигурации {{ TF }} и добавьте или измените блок ресурса `yandex_cdn_resource` на `active = false`.
 

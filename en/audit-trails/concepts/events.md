@@ -1,11 +1,11 @@
-# Event reference
+# Configuration-level event reference
 
-The value of the `event_type` field (_event type_) in the audit log is determined by a service that is the event source.
+The value of the `event_type` (_event type_) field in a configuration-level (Control Plane) audit log is determined by the event source service.
 
-General value format:
+The general value format is as follows:
 
 ```text
-{{ at-event-prefix }}.audit.<service name>.<event name>
+{{ at-event-prefix }}.audit.<service_name>.<event_name>
 ```
 
 Below are events for services:
@@ -135,8 +135,8 @@ Service name: `cdn`.
 | `gcore.OriginCreate` | Creating an origin |
 | `gcore.OriginDelete` | Deleting an origin |
 | `gcore.OriginGroupCreate` | Creating an origin group |
-| `gcore.OriginGroupDelete` | Deleting origin groups |
-| `gcore.OriginGroupUpdate` | Editing origin groups |
+| `gcore.OriginGroupDelete` | Deleting an origin group |
+| `gcore.OriginGroupUpdate` | Editing an origin group |
 | `gcore.OriginUpdate` | Changing an origin |
 | `gcore.ProviderActivate` | Activating a provider |
 | `gcore.ResourceCreate` | Creating a resource |
@@ -190,7 +190,7 @@ Service name: `compute`.
 | Event name | Description |
 --- | ---
 | `AddInstanceOneToOneNat` | Adding a public IP address for a VM instance |
-| `AttachInstanceDisk` | Attaching a disk to a VM instance |
+| `AttachInstanceDisk` | Connecting a disk to a VM |
 | `AttachInstanceFilesystem` | Connecting a file system to a VM |
 | `ChangeDiskStatus` | Changing a non-replicated disk status |
 | `CrashInstance` | Emergency VM shutdown |
@@ -346,7 +346,7 @@ Service name: `kms`.
 
 ## {{ lockbox-name }} {#lockbox}
 
-Service Name: `lockbox`.
+Service name: `lockbox`.
 
 | Event name | Description |
 --- | ---
@@ -362,8 +362,7 @@ Service Name: `lockbox`.
 | `UpdateSecret` | Updating a secret |
 | `UpdateSecretAccessBindings` | Updating access bindings for a secret |
 
-\* By default, this event is not included in the audit log. To have this event added to the audit log, please contact [technical support]({{ link-console-support }}). Message template:
-"Please include data plane Lockbox events in audit trail `<trail ID>`."
+\* By default, this event is not included in the audit log. To find out whether this event can be added to the audit log, contact [support]({{ link-console-support }}).
 
 ## {{ mch-short-name }} {#managed-service-for-clickhouse}
 
@@ -607,8 +606,7 @@ Service name: `storage`.
 | `ObjectTagsDelete` | Deleting object tags |
 | `ObjectTagsUpdate` | Updating object tags |
 
-\* The audit log does not include the above events by default. To have these events added to the audit log, please contact [technical support]({{ link-console-support }}). Message template:
-"Please enable the recording of data plane object storage events in audit trail `<trail id>`."
+\* The audit log does not include the above events by default. To find out whether these events can be added to the audit log, contact [support]({{ link-console-support }}).
 
 ## {{ serverless-containers-name }} {#serverless-containers}
 

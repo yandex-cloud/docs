@@ -1,7 +1,7 @@
 {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
 
-Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+{% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
 Чтобы удалить кластер, созданный с помощью {{ TF }}:

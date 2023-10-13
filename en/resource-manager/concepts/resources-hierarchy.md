@@ -19,7 +19,7 @@ Each folder belongs to a single [cloud](#cloud). There are no folders outside a 
 
 A [cloud](#cloud) belongs to an organization.
 
-Organizations do not interact with each other. The resources of an organization can't interact with the resources of another organization using {{ yandex-cloud }} tools. Organization management is performed by [{{ org-full-name }}](../../organization/).
+Organizations do not interact with each other. The resources of an organization cannot interact with the resources of another organization using {{ yandex-cloud }} tools. Organization management is performed by [{{ org-full-name }}](../../organization/).
 
 Within your organization, you can configure resource access rights at the following [levels](#access-rights-inheritance):
 * Organization.
@@ -35,7 +35,7 @@ A new user (organization member) is not granted access to resources within organ
 
 A _cloud_ is an isolated space where folders are created.
 
-By default, clouds are isolated from each other. For resources that support cross-cloud interaction, you can configure it separately.
+By default, clouds are isolated from each other. You cannot move resources from one cloud to another. For resources that support cross-cloud interaction, you can configure it separately.
 
 #### Cloud owner {#owner}
 
@@ -55,7 +55,7 @@ See a detailed description of the role in the [{{ iam-full-name }}](../../iam/co
 
 #### Public access to the cloud {#public-access}
 
-You can make your cloud (and any of its resources) public by [assigning a role to the system group](../../iam/operations/roles/grant.md#access-to-all). Then to access a resource, you don't have to be a cloud member. You just need to know the resource ID. Learn more about [system groups](../../iam/concepts/access-control/system-group.md).
+You can make your cloud (and any of its resources) public by [assigning a role to the system group](../../iam/operations/roles/grant.md#access-to-all). Then to access a resource, you do not have to be a cloud member. You just need to know the resource ID. Learn more about [system groups](../../iam/concepts/access-control/system-group.md).
 
 ### Folder {#folder}
 
@@ -81,13 +81,13 @@ Resource access rights are inherited:
 >       * `Alice` service account.
 >       * `Bob` service account.
 >
-> If you assign a user the `resource-manager.viewer` role for the organization, they can view a list of all clouds, folders, and resources in the organization, but can't manage them.
+> If you assign a user the `resource-manager.viewer` role for the organization, they can view a list of all clouds, folders, and resources in the organization, but cannot manage them.
 >
-> If you additionally assign them the `{{ roles-editor }}` role for the `mycloud` cloud, they can manage all the cloud's resources, including the `Alice` and `Bob` service accounts, but can't grant other users access to them.
+> If you additionally assign them the `{{ roles-editor }}` role for the `mycloud` cloud, they can manage all the cloud resources, including the `Alice` and `Bob` service accounts, but cannot grant other users access to them.
 >
 > The `{{ roles-admin }}` role for the `robots` folder allows the user to manage all the resources in the folder, including the `Alice` and `Bob` service accounts.
 
-You can't assign a role for some resources directly. In this case, a role is assigned for a folder, cloud, or organization. For example, you cannot currently assign a role for a VM. If a user makes an attempt to read information about a VM, {{ iam-name }} checks the user's access rights to the folder this VM belongs to. If the folder access rights are missing, {{ iam-name }} checks the cloud and organization access rights.
+For certain resources, you cannot assign a role directly. In this case, a role is assigned for a folder, cloud, or organization. For example, you cannot currently assign a role for a VM. If a user makes an attempt to read information about a VM, {{ iam-name }} checks the user's access rights to the folder this VM belongs to. If the folder access rights are missing, {{ iam-name }} checks the cloud and organization access rights.
 
 #### See also {#see-also}
 

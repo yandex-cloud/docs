@@ -21,9 +21,9 @@
    +------------------------------------------+--------------+----------------------+
    |                 ROLE ID                  | SUBJECT TYPE |      SUBJECT ID      |
    +------------------------------------------+--------------+----------------------+
-   | organization-manager.admin               | userAccount  | ajev1p2345lj67u89adi |
-   | organization-manager.organizations.owner | userAccount  | ajev1p2345lj67u89adi |
-   | editor                                   | group        | ajeq123cmuotesu4e567 |
-   | viewer                                   | group        | ajeq123cmuotesu4e567 |
+   | organization-manager.admin               | userAccount  | ajev1p2345lj******** |
+   | organization-manager.organizations.owner | userAccount  | ajev1p2345lj******** |
+   | editor                                   | group        | ajeq123cmuot******** |
+   | viewer                                   | group        | ajeq123cmuot******** |
    +------------------------------------------+--------------+----------------------+
    ```

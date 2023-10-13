@@ -98,7 +98,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
         Сохраните идентификатор сервисного аккаунта `service-account-for-budget`.
 
-    1. Назначьте сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `serverless.functions.invoker` на каталог:
+    1. Назначьте сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `{{ roles-functions-invoker }}` на каталог:
         ```bash
         yc resource-manager folder add-access-binding <идентификатор_каталога> \
            --role compute.admin \
@@ -109,7 +109,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
            --subject serviceAccount:<идентификатор_сервисного_аккаунта>
 
         yc resource-manager folder add-access-binding <идентификатор_каталога> \
-           --role serverless.functions.invoker \
+           --role {{ roles-functions-invoker }} \
            --subject serviceAccount:<идентификатор_сервисного_аккаунта>
         ```
 
@@ -122,7 +122,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
     Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
 
-    Чтобы назначить сервисному аккаунта роли `compute.admin`, `iam.serviceAccounts.user` и `serverless.functions.invoker` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
+    Чтобы назначить сервисному аккаунта роли `compute.admin`, `iam.serviceAccounts.user` и `{{ roles-functions-invoker }}` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
 
 {% endlist %}
 

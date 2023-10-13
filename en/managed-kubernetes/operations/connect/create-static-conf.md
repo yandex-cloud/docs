@@ -9,9 +9,9 @@ To create a configuration file:
 * [Create a ServiceAccount object](#create-sa).
 * [Prepare a ServiceAccount token](#prepare-token).
 * [Create and populate a configuration file](#create-conf-file).
-* [Check the results](#check-result).
+* [Check the result](#check-result).
 
-To run bash commands, you'll need a JSON parser: [jq](https://stedolan.github.io/jq/download/).
+To run bash commands, you will need a JSON parser: [jq](https://stedolan.github.io/jq/download/).
 
 ## Get a unique {{ k8s }} cluster ID {#k8s-id}
 
@@ -129,14 +129,11 @@ Create a `ServiceAccount` object to interact with the {{ k8s }} API inside the {
    ---
    apiVersion: v1
    kind: Secret
-   type: kubernetes.io/service-account-token
    metadata:
      name: admin-user-token
-     namespace: kube-system
      annotations:
-       kubernetes.io/service-account.name: "admin-user"
-
-
+       kubernetes.io/service-account.name: admin-user
+   type: kubernetes.io/service-account-token
    ```
 
 1. Create a `ServiceAccount` object.
@@ -240,7 +237,7 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
 
    - Bash
 
-     Run the command:
+     Run this command:
 
      ```bash
      kubectl config set-cluster sa-test2 \
@@ -266,7 +263,7 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
 
    - Bash
 
-     Run the command:
+     Run this command:
 
      ```bash
      kubectl config set-credentials admin-user \
@@ -276,7 +273,7 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
 
    - PowerShell
 
-     Run the command:
+     Run this command:
 
      ```shell script
      kubectl config set-credentials admin-user `
@@ -292,7 +289,7 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
 
    - Bash
 
-     Run the command:
+     Run this command:
 
      ```bash
      kubectl config set-context default \
@@ -303,7 +300,7 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
 
    - PowerShell
 
-     Run the command:
+     Run this command:
 
      ```shell script
      kubectl config set-context default `
@@ -320,7 +317,7 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
 
    - Bash
 
-     Run the command:
+     Run this command:
 
      ```bash
      kubectl config use-context default \
@@ -329,7 +326,7 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
 
    - PowerShell
 
-     Run the command:
+     Run this command:
 
      ```shell script
      kubectl config use-context default `
@@ -338,9 +335,9 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
 
    {% endlist %}
 
-## Check the results {#check-result}
+## Check the result {#check-result}
 
-Make sure that the configuration is correct by running the command:
+Make sure that the configuration is correct by running the following command:
 
 ```bash
 kubectl get namespace --kubeconfig=test.kubeconfig

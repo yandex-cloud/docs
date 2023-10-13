@@ -8,21 +8,27 @@ If a resource has child resources, all permissions from the parent resource will
 
 For more information about access control in {{ yandex-cloud }}, see the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/index.md).
 
-## Service roles {#service-roles}
+## Which roles exist in the service {#roles-list}
+
+### Service roles {#service-roles}
 
 * `organization-manager.admin`: Organization administrator role.
 
-   The role lets you edit organization settings, create identity federations, add and remove users, and appoint other administrators.
+   The role allows you to edit organization settings, create identity federations, add and remove users, and assign other administrators.
 
 * `organization-manager.organizations.owner`: The organization owner role.
 
-   The role lets you to appoint organization owners as well as use all the administrator privileges.
+   The role lets you appoint organization owners as well as use all the administrator privileges.
 
    By default, the user who creates an organization is the organization owner.
 
 * `organization-manager.viewer`: This role lets you view, but not edit, an organization's settings.
 
 * `organization-manager.groups.memberAdmin`: This role lets you view information about a group and add and remove group members.
+
+### Primitive roles {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ### Appointing a user the organization administrator {#admin}
 
@@ -45,17 +51,17 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [Access rights]({{ link-org-acl }}) ![icon-acl](../../_assets/organization/acl.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-acl](../../_assets/organization/acl.svg).
 
-   1. If the respective user has at least one role, select it from the list or use the search bar at the top of the page. In the line with the user name, click ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) and select **Assign roles**.
+   1. If the respective user has at least one role, select it from the list or use the search bar at the top of the page. In the line with the user name, click ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
-      If the user is not on the list, click **Assign roles** in the top-right corner. In the window that opens, click **Select user** and select the appropriate user from the list or use the search bar.
+      If the user is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, click **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** and select the appropriate user from the list or use the search bar.
 
-   1. Click **Add role** and enter the role name or select one from the list.
+   1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and enter the role name or select one from the list.
 
       You can find a description of the available roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md).
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -70,12 +76,12 @@ For information about roles available in {{ yandex-cloud }} and their associated
           --role <ROLE-ID> \
           --subject userAccount:<USER-ACCOUNT-ID>
       ```
-      * `<SERVICE-NAME>` is the name of the service whose resource the role, such as `organization-manager`, is assigned to.
-      * `<RESOURCE>` is the resource category. For an organization, `organization` is the category of importance.
-      * `<RESOURCE-NAME>` is the name of the resource. Refer to an organization by its [technical name](../operations/org-profile.md).
-      * `<RESOURCE-ID>` is the resource ID.
-      * `<ROLE-ID>` is the role ID, such as `organization-manager.admin`.
-      * `<USER-ACCOUNT-ID>` is the ID of the user account assigned the role.
+      * `<SERVICE-NAME>`: Name of the service to whose resource a role, e.g., `organization-manager`, is assigned.
+      * `<RESOURCE>`: Resource category. For an organization, `organization` is the category of importance.
+      * `<RESOURCE-NAME>`: Resource name. Refer to an organization by its [technical name](../operations/org-profile.md).
+      * `<RESOURCE-ID>`: Resource ID.
+      * `<ROLE-ID>`: Role ID, e.g., `organization-manager.admin`.
+      * `<USER-ACCOUNT-ID>`: ID of the user account to which the role is assigned.
 
       For example, assign the administrator role for the organization with the ID `bpf3crucp1v28b74p3rk`:
 
@@ -111,20 +117,21 @@ For information about roles available in {{ yandex-cloud }} and their associated
       }
       ```
 
-  1. Assign the role. For example, for an organization with the `bpf3crucp1v28b74p3rk` ID:
+1. Assign the role. For example, for an organization with the `bpf3crucp1v28b74p3rk` ID:
 
-      ```bash
-      export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
-      export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
-      ```
-     For detailed instructions on assigning a role to a resource, please see the {{ iam-full-name }} and {{ resmgr-full-name }} documentation:
-     * [{#T}](../../iam/operations/sa/set-access-bindings.md)
-     * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)
-     * [{#T}](../../resource-manager/operations/folder/set-access-bindings.md)
+   ```bash
+   export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
+   export IAM_TOKEN=CggaATEVAgA...
+   curl -X POST \
+       -H "Content-Type: application/json" \
+       -H "Authorization: Bearer ${IAM_TOKEN}" \
+       -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+   ```
+
+   For detailed instructions on assigning a role to a resource, please see the {{ iam-full-name }} and {{ resmgr-full-name }} documentation:
+   * [{#T}](../../iam/operations/sa/set-access-bindings.md)
+   * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)
+   * [{#T}](../../resource-manager/operations/folder/set-access-bindings.md)
 
 - {{ TF }}
 
@@ -135,7 +142,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       * `organization_id`: Organization ID.
       * `role`: Role to assign. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`.
       * `members`: An array of the IDs of users to assign the role to:
-                  * `userAccount:{user_id}`: User's  Yandex account ID.
+         * `userAccount:{user_id}`: User's Yandex account ID.
          * `serviceAccount:{service_account_id}`: Service account ID.
          * `federatedUser:{federated_user_id}`: Federated user ID.
 
@@ -153,24 +160,24 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
       For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   2. Make sure the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      2. Run the check using this command:
+      1. Run the check using this command:
 
-      ```
-      terraform plan
-      ```
+        ```
+        terraform plan
+        ```
 
       If the configuration is described correctly, the terminal displays a list of the roles assigned. If the configuration contains any errors, {{ TF }} will point them out.
 
-   3. Assign roles.
+   1. Assign roles.
 
       If the configuration does not contain any errors, run this command:
 
-      ```
-      terraform apply
-      ```
+        ```
+        terraform apply
+        ```
       This assigns the roles in the specified organization.
 
 {% endlist %}
@@ -191,15 +198,15 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}) ![icon-users](../../_assets/organization/icon-users.svg).
 
    1. Select a user from the list or use the search bar at the top of the page.
 
-   1. In the right-hand column, click ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) and select **Configure access**.
+   1. In the right-hand column, click ![icon-context-menu](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
    1. Click ![cross](../../_assets/cross.svg) next to a role to delete it.
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -211,10 +218,10 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       yc <SERVICE-NAME> <RESOURCE> list-access-bindings <RESOURCE-NAME>|<RESOURCE-ID>
       ```
 
-      * `<SERVICE-NAME>` is the name of the service that the resource belongs to, such as `organization-manager`.
-      * `<RESOURCE>` is the resource category. For an organization, `organization` is the category of importance.
-      * `<RESOURCE-NAME>` is the name of the resource. Refer to an organization by its [technical name](../operations/org-profile.md).
-      * `<RESOURCE-ID>` is the resource ID.
+      * `<SERVICE-NAME>`: Name of the service that the resource belongs to, e.g., `organization-manager`.
+      * `<RESOURCE>`: Resource category. For an organization, `organization` is the category of importance.
+      * `<RESOURCE-NAME>`: Name of the resource. Refer to an organization by its [technical name](../operations/org-profile.md).
+      * `<RESOURCE-ID>`: Resource ID.
 
       For example, see to whom and which roles the organization with the ID `bpf3crucp1v28b74p3rk` has been assigned:
 
@@ -234,25 +241,25 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       ```
 
 
-   1. To delete an access binding, run:
+1. To delete an access binding, run:
 
-      ```bash
-      yc <SERVICE-NAME> <RESOURCE> remove-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
-          --role <ROLE-ID> \
-          --subject <SUBJECT-TYPE>:<SUBJECT-ID>
-      ```
+   ```bash
+   yc <SERVICE-NAME> <RESOURCE> remove-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
+       --role <ROLE-ID> \
+       --subject <SUBJECT-TYPE>:<SUBJECT-ID>
+   ```
 
-      * `<ROLE-ID>` is the ID of the role to revoke, such as `organization-manager.admin`.
-      * `<SUBJECT-TYPE>` is the [subject](../../iam/concepts/access-control/index.md#subject) type to revoke a role from.
-      * `<SUBJECT-ID>` is the subject ID.
+   * `<ROLE-ID>` is the ID of the role to revoke, such as `organization-manager.admin`.
+   * `<SUBJECT-TYPE>` is the [subject](../../iam/concepts/access-control/index.md#subject) type to revoke a role from.
+   * `<SUBJECT-ID>` is the subject ID.
 
-      For example, to take a role away from a user with the ID `aje6o61dvog2h6g9a33s`:
+   For example, to take a role away from a user with the ID `aje6o61dvog2h6g9a33s`:
 
-      ```bash
-      yc organization-manager organization remove-access-binding bpf3crucp1v28b74p3rk \
-          --role organization-manager.admin \
-          --subject userAccount:aje6o61dvog2h6g9a33s
-      ```
+   ```bash
+   yc organization-manager organization remove-access-binding bpf3crucp1v28b74p3rk \
+       --role organization-manager.admin \
+       --subject userAccount:aje6o61dvog2h6g9a33s
+   ```
 
 - API
 
@@ -282,34 +289,54 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       }
       ```
 
-   1. Create a request body, for example, in a `body.json` file. In the request body, specify which access binding to delete. The example below shows how to revoke the `organization-manager.admin` role from user `aje6o61dvog2h6g9a33s`.
+  1. Create a request body, for example, in a `body.json` file. In the request body, specify which access binding to delete. The example below shows how to revoke the `organization-manager.admin` role from user `aje6o61dvog2h6g9a33s`.
 
-      Example of `body.json` file:
+   Example of `body.json` file:
 
-      ```json
-      {
-        "accessBindingDeltas": [{
-          "action": "REMOVE",
-          "accessBinding": {
-            "roleId": "organization-manager.admin",
-            "subject": {
-              "id": "aje6o61dvog2h6g9a33s",
-              "type": "userAccount"
-            }
-          }
-        }]
-      }
-      ```
+   ```json
+   {
+     "accessBindingDeltas": [{
+       "action": "REMOVE",
+       "accessBinding": {
+         "roleId": "organization-manager.admin",
+         "subject": {
+           "id": "aje6o61dvog2h6g9a33s",
+           "type": "userAccount"
+         }
+       }
+     }]
+   }
+   ```
 
-   1. Revoke the role by deleting the specified access binding:
+1. Revoke the role by deleting the specified access binding:
 
-      ```bash
-      export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
-      export IAM_TOKEN=CggaATEVAgA...
-      curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
-      ```
+   ```bash
+   export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
+   export IAM_TOKEN=CggaATEVAgA...
+   curl -X POST \
+       -H "Content-Type: application/json" \
+       -H "Authorization: Bearer ${IAM_TOKEN}" \
+       -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+   ```
+
+{% endlist %}
+
+### Assigning a role to a user group {#access-group-users}
+
+Assign a role to a [user group](../../organization/operations/manage-groups.md) to grant access to a resource. To grant group access permissions to a [subject](../../iam/operations/groups/access-binding-object.md), see [{#T}](../../iam/concepts/access-control/index.md#subject).
+
+In the management console, you can assign a group a role for a cloud, folder, or service account. In the {{ org-full-name }} service, a group can only be granted a role for another group. To assign a group a role for an organization, use the CLI.
+
+#### Assigning a role for a cloud or folder {#access-binding-cloud}
+
+{% include [accessbinding-group-as-object](../../_includes/organization/accessbinding-group-as-subject.md) %}
+
+#### Assigning a role for an organization {#access-binding-organization}
+
+{% list tabs %}
+
+- CLI
+
+   {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
 
 {% endlist %}

@@ -1,4 +1,4 @@
-# Editing Let's Encrypt certificate
+# Editing a Let's Encrypt certificate
 
 After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.md) and adding it to {{ certificate-manager-name }}, you can change its name or description. To edit a certificate:
 
@@ -7,11 +7,11 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
-   1. In the list of services, select **{{ certificate-manager-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
    1. Select the certificate you need to change from the list.
-   1. In the window that opens, click **Change**.
+   1. In the window that opens, click **{{ ui-key.yacloud.certificate-manager.overview.action_edit-meta }}**.
    1. Change the name or description of the certificate.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -105,6 +105,6 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
 - API
 
-   To update a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update) gRPC API call.
+   To edit a certificate, use the [update](../../api-ref/Certificate/update.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Update](../../api-ref/grpc/certificate_service.md#Update) gRPC API call.
 
 {% endlist %}

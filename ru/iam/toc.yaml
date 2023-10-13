@@ -3,6 +3,8 @@ href: index.yaml
 items:
   - name: Начало работы
     items:
+      - name: Обзор
+        href: quickstart-overview.md
       - name: Как управлять доступом к ресурсам
         href: quickstart.md
       - name: Как работать с сервисными аккаунтами

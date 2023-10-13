@@ -69,6 +69,8 @@ items:
             href: operations/applications/policy-reporter.md
           - name: Установка Thumbor
             href: operations/applications/thumbor.md
+          - name: Установка Velero
+            href: operations/applications/velero-yc-csi.md
       - name: Сетевые сценарии
         items:
           - name: Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}

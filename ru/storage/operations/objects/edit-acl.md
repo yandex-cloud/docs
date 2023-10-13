@@ -25,7 +25,7 @@ description: "Для управления доступом к объекту в 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
   
-  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
   Чтобы отредактировать ACL объекта:

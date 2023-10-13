@@ -2,9 +2,9 @@
 
 {{ managed-k8s-name }} позволяет выгружать метрики объектов кластера в системы мониторинга.
 
-Из этой статьи вы узнаете, как настроить систему сбора метрик [{{ prometheus-name }}](https://prometheus.io/) и систему визуализации [{{ grafana-name }}](https://grafana.com/) в [кластере](../concepts/index.md#kubernetes-cluster) {{ managed-k8s-name }}. Для ускорения передачи метрик будет установлен [кеширующий прокси trickster](https://github.com/trickstercache/trickster).
+Из этой статьи вы узнаете, как настроить систему сбора метрик [{{ prometheus-name }}](https://prometheus.io/) и систему визуализации [{{ grafana-name }}](https://grafana.com/) в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster). Для ускорения передачи метрик будет установлен [кеширующий прокси trickster](https://github.com/trickstercache/trickster).
 
-Чтобы настроить систему мониторинга кластера {{ k8s }}:
+Чтобы настроить систему мониторинга кластера {{ managed-k8s-name }}:
 * [{#T}](#install-prometheus).
 * [{#T}](#install-trickster).
 * [{#T}](#install-grafana).
@@ -13,14 +13,12 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации с доступом в интернет.
-
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-
 1. {% include [Install Helm](../../_includes/managed-kubernetes/helm-install.md) %}
 
 ## Установите {{ prometheus-name }} {#install-prometheus}
 
-Система мониторинга {{ prometheus-name }} сканирует объекты кластера {{ k8s }} и собирает их метрики в собственную базу данных. Собранные метрики доступны внутри кластера по протоколу HTTP.
+Система мониторинга {{ prometheus-name }} сканирует объекты кластера {{ managed-k8s-name }} и собирает их метрики в собственную базу данных. Собранные метрики доступны внутри кластера {{ managed-k8s-name }} по протоколу HTTP.
 1. Добавьте репозиторий, содержащий дистрибутив {{ prometheus-name }}:
 
    ```bash
@@ -34,13 +32,13 @@
    helm install my-prom prometheus-community/prometheus
    ```
 
-1. Убедитесь, что все поды перешли в состояние `Running`:
+1. Убедитесь, что все [поды](../concepts/index.md#pod) перешли в состояние `Running`:
 
    ```bash
-   kubectl get pods -l "app=prometheus"
+   kubectl get pods -l "app.kubernetes.io/instance=my-prom"
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    NAME                                              READY  STATUS   RESTARTS  AGE
@@ -52,7 +50,7 @@
 
 ## Установите кеширующий прокси trickster {#install-trickster}
 
-Кеширующий прокси trickster [ускоряет чтение](https://github.com/trickstercache/trickster#time-series-database-accelerator) из базы данных {{ prometheus-name }}, что позволяет отображать метрики {{ grafana-name }} практически в реальном времени, а также снизить нагрузку на {{ prometheus-name }}.
+Кеширующий прокси trickster [ускоряет чтение](https://github.com/trickstercache/trickster#time-series-database-accelerator) из БД {{ prometheus-name }}, что позволяет отображать метрики {{ grafana-name }} практически в реальном времени, а также снизить нагрузку на {{ prometheus-name }}.
 1. Добавьте репозиторий, содержащий дистрибутив trickster:
 
    ```bash
@@ -138,7 +136,7 @@
    kubectl get pods -l "app=trickster"
    ```
 
-Кеширующий прокси доступен внутри кластера по адресу `http://trickster:8480`. {{ grafana-name }} будет обращаться по этому URL для получения метрик.
+Кеширующий прокси доступен внутри кластера {{ managed-k8s-name }} по адресу `http://trickster:8480`. {{ grafana-name }} будет обращаться по этому URL для получения метрик.
 
 ## Установите {{ grafana-name }} {#install-grafana}
 
@@ -282,6 +280,5 @@
 ## Удалите созданные ресурсы {#clear-out}
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
-
 1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. Если вы зарезервировали для кластера [публичный статический IP-адрес](../../vpc/concepts/address.md#public-addresses), [удалите его](../../vpc/operations/address-delete.md).
+1. Если вы зарезервировали для кластера {{ managed-k8s-name }} [публичный статический IP-адрес](../../vpc/concepts/address.md#public-addresses), [удалите его](../../vpc/operations/address-delete.md).

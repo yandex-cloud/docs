@@ -11,12 +11,13 @@ To create a key:
 - Management console
 
    1. Log in to the [management console]({{ link-console-main }}).
-   1. Select **{{ kms-name }}**.
-   1. Click **Create** and set the key attributes:
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. In the left-hand panel, select ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
       * Any name and optional description.
-      * Encryption algorithm, such as AES-256.
+      * Encryption algorithm, such as `AES-256`.
       * [Rotation](../concepts/index.md#rotation) period (how often to change key versions).
-      * Click **Create**.
+      * Click **{{ ui-key.yacloud.common.create }}**.
 
    The key is created along with its first version: click the key in the list to open the page with its attributes.
 
@@ -61,9 +62,10 @@ To edit a key:
 - Management console
 
    1. Log in to the [management console]({{ link-console-main }}).
-   1. Select **{{ kms-name }}**.
-   1. In the row with the key in question, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Update** from the drop-down list.
-   1. Change the key attributes and click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. In the left-hand panel, select ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+   1. In the line with the appropriate key, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Change the key attributes and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -131,7 +133,7 @@ To edit a key:
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change to the key using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      You can check the key update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc kms symmetric-key get <key name>
@@ -150,8 +152,9 @@ To rotate a key:
 - Management console
 
    1. Log in to the [management console]({{ link-console-main }}).
-   1. Select **{{ kms-name }}**.
-   1. In the row with the key in question, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Rotate** from the drop-down list.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. In the left-hand panel, select ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+   1. In the line with the appropriate key, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-rotate }}**.
    1. Confirm the rotation (make sure that changing the default version will not affect your work).
 
 - CLI
@@ -185,9 +188,10 @@ To destroy a key:
 - Management console
 
    1. Log in to the [management console]({{ link-console-main }}).
-   1. Select **{{ kms-name }}**.
-   1. In the row with the key you need, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete** from the drop-down list.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. In the left-hand panel, select ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+   1. In the line with the appropriate key, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.kms.symmetric-key.overview.popup-confirm_button_delete }}**.
 
 - CLI
 

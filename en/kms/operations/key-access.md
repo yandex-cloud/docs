@@ -5,13 +5,14 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the key is stored.
-   1. In the list of services, select **{{ kms-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+   1. In the left-hand panel, select ![image](../../_assets/kms/symmetric-key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
    1. Click the name of the key you need.
-   1. On the left-hand panel, select ![image](../../_assets/organization/icon-groups.svg) **Access rights** and click **Assign roles**.
-   1. In the window that opens, click ![image](../../_assets/plus-sign.svg) **Select user**.
-   1. Select the group, user, or [service account](../../iam/concepts/users/service-accounts.md) to grant access to a secret to.
-   1. Click ![image](../../_assets/plus-sign.svg) **Add role** and select the required [roles](../security/index.md#roles-list).
-   1. Click **Save**.
+   1. Go to the ![image](../../_assets/organization/icon-groups.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** section and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. In the window that opens, click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
+   1. Select the group, user, or [service account](../../iam/concepts/users/service-accounts.md) to be granted access to the secret.
+   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../security/index.md#roles-list).
+   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI
 

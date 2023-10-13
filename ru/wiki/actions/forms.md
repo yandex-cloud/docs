@@ -1,5 +1,7 @@
 # Формы из {{ forms-full-name }}
 
+{% include [actions-alert](../../_includes/wiki/actions-alert.md) %}
+
 [{{ forms-full-name }}]({{ link-forms-b2b }}) — это сервис, где вы можете проводить опросы, тесты и квизы, собирать отзывы и принимать заявки. Подробнее о возможностях сервиса читайте в [документации {{ forms-full-name }}](../../forms/).
 
 ## Добавить ответ на страницу {{ wiki-name }} {#forms-wiki}

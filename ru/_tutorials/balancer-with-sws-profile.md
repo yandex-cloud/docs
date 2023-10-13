@@ -47,34 +47,34 @@ C помощью сервиса {{ sws-full-name }} вы можете защит
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль.
-  1. В списке сервисов выберите **{{ sws-name }}**.
-  1. Нажмите кнопку **Создать профиль безопасности** и выберите **По преднастроенному шаблону**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
       Преднастроенный профиль содержит:
-      * [базовое правило](../smartwebsecurity/concepts/rules.md#base-rules) по умолчанию, включенное для всего трафика с [типом действия](../smartwebsecurity/concepts/rules.md#rule-action) — **Запретить**;
-      * [правило Smart Protection](../smartwebsecurity/concepts/rules.md#smart-protection-rules), включенное для всего трафика, с типом действия — **Полная защита**.
+      * [базовое правило](../smartwebsecurity/concepts/rules.md#base-rules) по умолчанию, включенное для всего трафика с [типом действия](../smartwebsecurity/concepts/rules.md#rule-action) — `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}`;
+      * [правило Smart Protection](../smartwebsecurity/concepts/rules.md#smart-protection-rules), включенное для всего трафика, с типом действия — `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.
 
       {% include [smart-protection-tip](../_includes/smartwebsecurity/smart-protection-tip.md) %}
 
   1. Введите имя профиля, например `test-sp1`.
-  1. В поле **Действие базового правила по умолчанию** выберите **Запретить**. Таким образом, если не будет задано других правил, весь трафик к защищаемому ресурсу будет запрещен.
-  1. Нажмите кнопку ![plus-sign](../_assets/plus-sign.svg) **Добавить правило**.
+  1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`. Таким образом, если не будет задано других правил, весь трафик к защищаемому ресурсу будет запрещен.
+  1. Нажмите кнопку ![plus-sign](../_assets/plus-sign.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. В окне создания правила:
       1. Введите имя правила, например `test-rule1`.
       1. Задайте приоритет правила, например `999800`. Правило будет иметь больший приоритет, чем преднастроенные.
 
           {% include [preconfigured-rules-priority](../_includes/smartwebsecurity/preconfigured-rules-priority.md) %}
 
-      1. Выберите тип правила — **Базовое**.
-      1. Выберите действие — **Разрешить**.
+      1. Выберите тип правила — `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
+      1. Выберите действие — `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}`.
 
           В правиле будут описаны условия, при которых запросы будут направлены к бэкенду тестового приложения.
-      1. Раскройте поле **Условия**.
-      1. В поле **IP** выберите опцию **совпадает с** и задайте публичный IP-адрес устройства, с которого вы будете отправлять запросы L7-балансировщику, например `158.160.100.200`.
-      1. Нажмите кнопку **Сохранить правило**.
+      1. В поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** выберите {{ ui-key.yacloud.smart-web-security.overview.condition_name-ip-range }}.
+      1. В появившемся поле **Условия на IP** выберите опцию `Совпадает или принадлежит диапазону` и задайте публичный IP-адрес устройства, с которого вы будете отправлять запросы L7-балансировщику, например `158.160.100.200`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
         
-          На вкладке **Правила безопасности** в таблице появится созданное вами правило.
-  1. Нажмите кнопку **Создать**.
+          В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** в таблице появится созданное вами правило.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -85,17 +85,16 @@ C помощью сервиса {{ sws-full-name }} вы можете защит
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите подключить профиль безопасности к виртуальному хосту сервиса {{ alb-name }}.
-  1. В списке сервисов выберите **{{ sws-name }}**.
-  1. Напротив профиля `test-sp1` нажмите ![options](../_assets/options.svg) и выберите ![pencil](../_assets/pencil.svg) **Редактировать**.
-  1. Нажмите кнопку ![plug](../_assets/smartwebsecurity/plug.svg) **Подключить профиль к хосту**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Выберите профиль `test-sp1`.
+  1. Нажмите кнопку ![plug](../_assets/smartwebsecurity/plug.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
   1. В открывшемся окне выберите:
-      * **Балансировщик** `test-load-balancer`.
-      * **HTTP-роутер** `test-http-router`.
-      * **Виртуальный хост** `test-virtual-host`. 
-  1. Нажмите кнопку **Подключить**.
+      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}** `test-load-balancer`.
+      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}** `test-http-router`.
+      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}** `test-virtual-host`. 
+  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-      На вкладке **Подключенные хосты** появится подключенный виртуальный хост.
-  1. Нажмите кнопку **Сохранить**. 
+      На вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** появится подключенный виртуальный хост.
 
 {% endlist %}
 

@@ -1,5 +1,7 @@
 # Оформление текста
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 ## Выделение текста {#inline}
 
 {% note alert %}

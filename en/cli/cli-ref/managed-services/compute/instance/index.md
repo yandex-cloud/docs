@@ -35,7 +35,6 @@ Aliases:
 - [yc compute instance start](start.md) — Start the specified virtual machine instance
 - [yc compute instance restart](restart.md) — Restart the specified virtual machine instance
 - [yc compute instance attach-disk](attach-disk.md) — Attach existing disk to the specified virtual machine instance
-- [yc compute instance attach-new-disk](attach-new-disk.md) — Attach new disk to the specified virtual machine instance
 - [yc compute instance detach-disk](detach-disk.md) — Detach disk from the specified virtual machine instance
 - [yc compute instance attach-filesystem](attach-filesystem.md) — Attach existing filesystem to the specified virtual machine instance
 - [yc compute instance detach-filesystem](detach-filesystem.md) — Detach filesystem from the specified virtual machine instance
@@ -43,6 +42,7 @@ Aliases:
 - [yc compute instance add-one-to-one-nat](add-one-to-one-nat.md) — Add one-to-one NAT to the specified network interface of virtual machine instance
 - [yc compute instance remove-one-to-one-nat](remove-one-to-one-nat.md) — Remove one-to-one NAT to the specified network interface of virtual machine instance
 - [yc compute instance move](move.md) — Move the specified virtual machine instance into the folder
+- [yc compute instance relocate](relocate.md) — Relocate the specified virtual machine instance to the zone
 - [yc compute instance list-operations](list-operations.md) — List operations for the specified instance
 
 #### Global Flags

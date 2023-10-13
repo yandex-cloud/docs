@@ -3,7 +3,7 @@
 The key user role `kms.keys.decrypter` includes the following permissions:
 
 * Getting information on keys and versions.
-* [Decrypting](../kms/operations/encryption.md#decryption) data.
+* [Decrypting](../kms/operations/symmetric-encryption.md#decryption) data.
 
 {% include [roles-crypt-includes-permissions](iam/roles-crypt-includes-permissions.md) %}
 

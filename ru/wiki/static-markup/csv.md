@@ -1,5 +1,7 @@
 # Форматирование CSV-данных
 
+{% include [formatter-alert](../../_includes/wiki/formatter-alert.md) %}
+
 Чтобы отобразить в виде таблицы данные в формате CSV, используйте разметку:
 
 ```

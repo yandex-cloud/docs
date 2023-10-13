@@ -1,8 +1,8 @@
-# Добавить сертификат от Let's Encrypt
+# Добавить сертификат от Let's Encrypt®
 
-Сертификат из {{ certificate-manager-name }} можно использовать только в [указанных](../../concepts/services.md) сервисах {{ yandex-cloud }}.
+[Сертификат](../../concepts/managed-certificate.md) из {{ certificate-manager-name }} можно использовать только в [указанных](../../concepts/services.md) сервисах {{ yandex-cloud }}.
 
-Чтобы добавить новый [сертификат](../../concepts/managed-certificate.md) от Let's Encrypt:
+Чтобы добавить новый [сертификат](../../concepts/managed-certificate.md) от Let's Encrypt®:
 
 {% list tabs %}
 
@@ -15,6 +15,8 @@
   1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** введите имя сертификата.
   1. (Опционально) В поле **Описание** введите описание сертификата.
   1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** введите список доменов, для которых нужно выпустить сертификат.
+
+     Имена доменов могут содержать маску, например `*.example.com`. В этом случае при выборе типа проверки прав на домен необходимо будет выбрать `DNS`. Подробнее см. в разделе [Проверка прав на домен](../../concepts/challenges#dns).
   1. Выберите [тип проверки прав на домен](../../concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` или `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
@@ -42,7 +44,7 @@
      * `--name` — имя сертификата.
      * `--domains` — домены сертификатов.
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      id: fpq6gvvm6piu********
@@ -56,43 +58,38 @@
 
 - {{ TF }}
 
-  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-  
-  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-  
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурса, который необходимо создать:
 
-      ```hcl
-      resource "yandex_cm_certificate" "le-certificate" {
-        name    = "<имя_сертификата>"
-        domains = ["<домен>"]
+     ```hcl
+     resource "yandex_cm_certificate" "le-certificate" {
+       name    = "<имя_сертификата>"
+       domains = ["<домен>"]
 
-        managed {
-        challenge_type = "<тип_проверки_владельца_домена>"
-        }
-      }
-      ```
+       managed {
+       challenge_type = "<тип_проверки_владельца_домена>"
+       }
+     }
+     ```
 
       Где:
-
       * `domains` — список доменов, для которых нужно создать сертификат.
-      * `challenge_type` — [тип проверки прав на домен](../../concepts/challenges.md), которую нужно [пройти](cert-validate.md) владельцу домена. Возможные значения:
-
-        * `DNS_CNAME` — необходимо создать DNS-запись в формате CNAME с указанным значением. Рекомендуемый способ для автоматического продления сертификата.
+      * `challenge_type` — [тип проверки прав на домен](../../concepts/challenges.md), которую нужно [пройти](cert-validate.md) владельцу домена. Возможные значения:
+        * `DNS_CNAME` — необходимо создать [DNS-запись](../../../dns/concepts/resource-record.md) в формате [CNAME](../../../dns/concepts/resource-record.md#cname-cname) с указанным значением. Рекомендуемый способ для автоматического продления сертификата.
         * `DNS_TXT` — необходимо создать DNS-запись в формате TXT с указанным значением.
         * `HTTP` — необходимо поместить указанное значение в указанный URL.
 
       Подробную информацию о параметрах ресурса `yandex_cm_certificate` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/cm_certificate).
-
   1. Создайте ресурсы:
-  
-      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
   После этого в указанном каталоге будет создан сертификат. Проверить появление сертификата и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
-    ```bash
-    yc certificate-manager certificate get <имя_сертификата>
-    ```
+  ```bash
+  yc certificate-manager certificate get <имя_сертификата>
+  ```
 
 - API
 
@@ -100,7 +97,7 @@
 
 {% endlist %}
 
-В списке сертификатов появится новый сертификат со статусом `Validating`. Этот статус означает, что запрос на выпуск сертификата от Let's Encrypt создан, и для его успешной обработки вам необходимо пройти [процедуру проверки прав на домены](cert-validate.md).
+В списке сертификатов появится новый сертификат со статусом `Validating`. Этот статус означает, что запрос на выпуск сертификата от Let's Encrypt® создан, и для его успешной обработки вам необходимо пройти [процедуру проверки прав на домены](cert-validate.md).
 
 {% note info %}
 

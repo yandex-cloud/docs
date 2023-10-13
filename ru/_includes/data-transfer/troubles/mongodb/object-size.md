@@ -3,9 +3,9 @@
 Текст ошибки:
 
 ```text
-Warn(replication): Usage of bulk objects in 'collection '<имя БД>.<имя коллекции>''
+Warn(replication): Usage of bulk objects in 'collection '<имя_БД>.<имя_коллекции>''
 breaks change event log, transfer is stopping.
-Reason: (BSONObjectTooLarge) BSONObj size: <размер объекта> (<размер объекта в hex>) is invalid.
+Reason: (BSONObjectTooLarge) BSONObj size: <размер_объекта> (<размер_объекта_в_hex>) is invalid.
 Size muse be between 0 and 16793600(16MB).
 ```
 

@@ -3,7 +3,7 @@
 Текст ошибки:
 
 ```text
-Warn(Activate): failed to create a replication slot "<идентификатор трансфера>" at source:
+Warn(Activate): failed to create a replication slot "<идентификатор_трансфера>" at source:
 failed to create a replication slot:
 failed to create a replication slot:
 ERROR: all replication slots are in use

@@ -36,16 +36,16 @@ The cost of resources for syncing secrets includes:
 
     - Management console
 
-      1. In the [management console]({{link-console-main}}), select a folder where you wish to create a service account.
-      1. Go to the **Service accounts** tab.
-      1. Click **Create service account**.
-      1. Enter a name for the service account, such as `eso-service-account`.
+      1. In the [management console]({{link-console-main}}), select a folder where you want to create a service account.
+      1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. Enter a name for the service account, e.g., `eso-service-account`.
 
-          Name format requirements:
+         The name format requirements are as follows:
 
           {% include [name-format](../_includes/name-format.md) %}
 
-      1. Click **Create**.
+      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
     - CLI
 
@@ -68,16 +68,16 @@ The cost of resources for syncing secrets includes:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-      1. Go to the **Service accounts** tab.
+      1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
       1. Choose a service account, such as `eso-service-account`, and click the line with its name.
-      1. In the top panel, click **Create new key** and select **Create authorized key**.
+      1. In the top panel, click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
       1. Select the encryption algorithm.
       1. Enter a description of the key so that you can easily find it in the management console.
       1. Save both the public and private keys. The private key is not saved in {{ yandex-cloud }}, and you will not be able to view the public key in the management console.
 
    - CLI
 
-      To create an authorized key, run this command:
+      To create an authorized key, run the following command:
 
       ```bash
       yc iam key create \
@@ -121,7 +121,6 @@ The cost of resources for syncing secrets includes:
 
 
 - Using {{ marketplace-full-name }}
-
    To install [External Secrets Operator](/marketplace/products/yc/external-secrets) using {{ marketplace-name }}, follow [this guide](../managed-kubernetes/operations/applications/external-secrets-operator.md#install-eso-marketplace).
 
 
@@ -174,20 +173,20 @@ The cost of resources for syncing secrets includes:
 
    1. Create a secret:
       1. In the [management console]({{ link-console-main }}), select the folder where you will be creating your secret.
-      1. In the list of services, select **{{ lockbox-short-name }}** and click **Create secret**.
-      1. In the **Name** field, enter a name for the secret, such as `lockbox-secret`.
-      1. Under **Version**:
-         * In the **Key** field, enter a non-secret ID: `password`.
-         * In the **Value** field, enter the confidential data you want to store: `p@$$w0rd`.
-      1. Click **Create**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** and click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, such as `lockbox-secret`.
+      1. Under **{{ ui-key.yacloud.lockbox.forms.section_version }}**:
+         * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID: `password`.
+         * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the confidential data you want to store: `p@$$w0rd`.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Save the ID of the secret created. You will need it later.
    1. Assign the `lockbox.payloadViewer` role for the secret to the `eso-service-account`:
       1. Click the `lockbox-secret` name.
-      1. On the left-hand panel, select ![image](../_assets/organization/icon-groups.svg) **Access rights** and click **Assign roles**.
-      1. In the window that opens, click ![image](../_assets/plus-sign.svg) **Select user**.
+      1. On the left-hand panel, select ![image](../_assets/organization/icon-groups.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. In the window that opens, click ![image](../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
       1. Select `eso-service-account`.
-      1. Click ![image](../_assets/plus-sign.svg) **Add role** and select `lockbox.payloadViewer`.
-      1. Click **Save**.
+      1. Click ![image](../_assets/plus-sign.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select `lockbox.payloadViewer`.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -335,7 +334,7 @@ To stop paying for the resources you created:
       ```
 
       If there are any errors in the configuration files, {{ TF }} will point to them.
-   1. Confirm the resources have been updated:
+   1. Confirm that the resources have been updated.
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
@@ -346,7 +345,7 @@ To stop paying for the resources you created:
 ## How to create an infrastructure using {{ TF }} {#terraform}
 
 1. If you do not have {{ TF }} yet, [install it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
    * [Network](../vpc/concepts/network.md#network).
    * [Subnet](../vpc/concepts/network.md#network).
@@ -367,7 +366,7 @@ To stop paying for the resources you created:
    terraform validate
    ```
 
-   If there are any errors in the configuration files, {{ TF }} will point to them.
+   If there are any errors in the configuration files, {{ TF }} will point them out.
 1. Create the required infrastructure:
 
    {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}

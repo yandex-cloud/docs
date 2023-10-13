@@ -40,7 +40,7 @@ items:
         href: domains/physical-security.md
       - name: Kubernetes security
         href: domains/kubernetes.md
-  - name: Standard for securing Yandex Cloud infrastructure 1.0
+  - name: Standard for securing Yandex Cloud infrastructure 1.1
     items:
       - name: All sections on one page
         href: standard/all.md
@@ -62,6 +62,8 @@ items:
         href: standard/backup.md
       - name: Physical security
         href: standard/physical-security.md
+      - name: Application security
+        href: standard/app-security.md
   - name: Tutorials
     items:
       - name: ViPNet Coordinator in {{ yandex-cloud }}

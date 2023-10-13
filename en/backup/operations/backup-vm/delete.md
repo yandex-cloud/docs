@@ -10,9 +10,9 @@ description: "In this tutorial, you will learn how to delete a VM backup in **{{
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
-   1. Select **{{ backup-name }}**.
-   1. Go to the ![backups](../../../_assets/backup/backups.svg) **Backups** tab.
-   1. Click ![image](../../../_assets/options.svg) next to the appropriate backup, and select **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+   1. Go to the ![backups](../../../_assets/backup/backups.svg) **{{ ui-key.yacloud.backup.label_backups }}** tab.
+   1. Click ![image](../../../_assets/options.svg) next to the appropriate backup, and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the deletion.
 
 - CLI

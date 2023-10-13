@@ -4,7 +4,7 @@
 
 ```text
 Cannot set transaction snapshot:
-ERROR: invalid snapshot identifier: "<идентификатор снапшота>" (SQLSTATE 22023).
+ERROR: invalid snapshot identifier: "<идентификатор_снапшота>" (SQLSTATE 22023).
 ```
 
 Возможные причины:

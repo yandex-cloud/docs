@@ -141,7 +141,7 @@
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Чтобы создать кластер {{ managed-k8s-name }}:
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:

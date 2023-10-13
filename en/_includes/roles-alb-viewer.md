@@ -1,6 +1,6 @@
-### alb.viewer {#alb-viewer}
+#### alb.viewer {#alb-viewer}
 
-The `{{ roles-alb-viewer }}` role lets you view resource model objects:
+The `{{ roles-alb-viewer }}` role allows you to view resource model objects:
 * [L7 load balancers](../application-load-balancer/concepts/application-load-balancer.md).
 * [HTTP routers](../application-load-balancer/concepts/http-router.md).
 * [Backend groups](../application-load-balancer/concepts/backend-group.md).

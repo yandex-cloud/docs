@@ -1,8 +1,8 @@
 # Envelope encryption
 
-Encryption with the [encrypt](../api-ref/SymmetricCrypto/encrypt) method is limited to a maximum amount of data that can be encrypted (32 KB). Larger data volumes cause a number of problems:
+Encryption employing the [encrypt](../api-ref/SymmetricCrypto/encrypt) method is limited by the maximum size of encryption data (32 KB). Larger data volumes cause a number of problems:
 * Increased load on {{ kms-short-name }} caused by encryption and decryption operations.
-* Decreased efficiency of encryption and decryption using the encrypt and decrypt methods with larger amounts of data to encrypt.
+* Reduced encryption and decryption performance if using the encrypt and decrypt methods with larger encryption data volumes.
 
    The encrypt and decrypt operation time includes transferring data from the client to {{ kms-short-name }} and back. As the amount of encrypted data increases, its transmission time and the load on the network increase, too.
 
@@ -29,7 +29,7 @@ Encryption is preformed as follows:
 
 When using envelope encryption, a wider set of algorithms is available for local encryption. You can also encrypt data with multiple DEKs, for example, to enable random access to ciphertext.
 
-## Description of the decryption process {#decrypt}
+## Decryption process description {#decrypt}
 
 Decryption is performed as follows:
 1. The client reads the encrypted DEK stored along with the encrypted data.

@@ -8,13 +8,13 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
    1. Select the folder on the management console [home page]({{ link-console-cloud }}). This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
 
-   1. Click ![image](../../../_assets/options.svg) next to the folder and select **Delete**.
+   1. Click ![image](../../../_assets/options.svg) next to the folder and select **{{ ui-key.yacloud.common.delete }}**.
 
-   1. Specify the folder delete time: the delay, after which the folder will be deleted. Select one of the available delays or **Delete now**. The default folder delete delay is 7 days.
+   1. Specify a folder deletion time: the delay, after which the folder will be deleted. Select one of the available delays or `{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. The default folder deletion delay is 7 days.
 
-   1. Click **Delete**.
+   1. Click **{{ ui-key.yacloud.common.delete }}**.
 
-   The resources will be stopped, and the folder status will change to `PENDING_DELETION`. You can cancel the deletion of a folder that is `PENDING_DELETION`. To cancel, click ![***](../../../_assets/options.svg) to the right of the folder and select **Cancel deletion**.
+   The resources will be stopped, and the folder status will change to `PENDING_DELETION`. You can cancel the deletion of a folder that is `PENDING_DELETION`. To cancel, click ![***](../../../_assets/options.svg) to the right of the folder and select **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
 
 - API
 
@@ -62,7 +62,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -71,7 +71,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify that the folder has been deleted using the [management console]({{ link-console-main }}) or a [CLI](../../../cli/quickstart.md) command:
+      You can check the folder's deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc resource-manager folder list

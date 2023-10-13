@@ -6,6 +6,8 @@ You can use {{ certificate-manager-name }} certificates in the following {{ yand
 * [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
 
+You can also store a user certificate's public part as a [{{ lockbox-full-name }}](#lockbox) secret using {{ TF }}.
+
 
 
 ## {{ objstorage-full-name }} {#os}
@@ -30,6 +32,16 @@ If you use a bucket to host a static website, [use a {{ certificate-manager-name
 
 A certificate linked to the domain is used to provide a TLS connection.
 
+## {{ cdn-full-name }} {#cdn}
+
+{{ cdn-full-name }} allows you to set up content delivery to your end users via a content delivery network (CDN).
+
+To access [CDN resources](../../cdn/concepts/resource.md) over HTTPS, you can [use](../../storage/operations/hosting/certificate.md#cert-manager) certificates from {{ certificate-manager-name }}.
+
+
+## {{ lockbox-full-name }} {#lockbox}
+
+You can store a {{ certificate-manager-name }} user certificate's public part in {{ lockbox-name }} [using {{ TF }}](../operations/import/cert-create.md#create-lockbox).
 
 #### See also {#see-also}
 

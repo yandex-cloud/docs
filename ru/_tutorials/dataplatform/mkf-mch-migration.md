@@ -38,8 +38,8 @@
 
 * С помощью {{ TF }}
 
-    1. Если у вас еще нет {{ TF }}, [установите и настройте его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
+    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
+    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
     1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-mkf-mch.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mkf-mch.tf).
 
         В этом файле описаны:
@@ -129,7 +129,7 @@
 
 ```json
 {
-    "device_id":"iv9a94th6rztooxh5ur2",
+    "device_id":"iv9a94th6rzt********",
     "datetime":"2020-06-05 17:27:00",
     "latitude":"55.70329032",
     "longitude":"37.65472196",
@@ -149,7 +149,7 @@
 
     ```json
     {
-        "device_id": "iv9a94th6rztooxh5ur2",
+        "device_id": "iv9a94th6rzt********",
         "datetime": "2020-06-05 17:27:00",
         "latitude": 55.70329032,
         "longitude": 37.65472196,
@@ -161,7 +161,7 @@
     }
 
     {
-        "device_id": "rhibbh3y08qmz3sdbrbu",
+        "device_id": "rhibbh3y08qm********",
         "datetime": "2020-06-06 09:49:54",
         "latitude": 55.71294467,
         "longitude": 37.66542005,
@@ -173,7 +173,7 @@
     }
 
     {
-        "device_id": "iv9a94th6rztooxh5ur2",
+        "device_id": "iv9a94th6rzt********",
         "datetime": "2020-06-07 15:00:10",
         "latitude": 55.70985913,
         "longitude": 37.62141918,
@@ -191,13 +191,13 @@
 
     ```bash
     jq -rc . sample.json | kafkacat -P \
-       -b <FQDN хоста-брокера>:9091 \
-       -t <имя топика> \
+       -b <FQDN_хоста-брокера>:9091 \
+       -t <имя_топика> \
        -k key \
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
-       -X sasl.username="<имя пользователя для производителя>" \
-       -X sasl.password="<пароль пользователя для производителя>" \
+       -X sasl.username="<имя_пользователя_для_производителя>" \
+       -X sasl.password="<пароль_пользователя_для_производителя>" \
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
     ```
 
@@ -329,20 +329,20 @@
     1. Выполните запрос:
 
         ```sql
-        SELECT * FROM <имя базы данных {{ CH }}>.<имя топика {{ KF }}>
+        SELECT * FROM <имя_базы_данных_{{ CH }}>.<имя_топика_Apache_Kafka>
         ```
 
 1. Измените значения в файле `sample.json` и отправьте данные из него в топик {{ mkf-name }}:
 
     ```bash
     jq -rc . sample.json | kafkacat -P \
-       -b <FQDN хоста-брокера>:9091 \
-       -t <имя топика> \
+       -b <FQDN_хоста-брокера>:9091 \
+       -t <имя_топика> \
        -k key \
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
-       -X sasl.username="<имя пользователя для производителя>" \
-       -X sasl.password="<пароль пользователя для производителя>" \
+       -X sasl.username="<имя_пользователя_для_производителя>" \
+       -X sasl.password="<пароль_пользователя_для_производителя>" \
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
     ```
 
@@ -353,7 +353,7 @@
     1. Выполните запрос:
 
         ```sql
-        SELECT * FROM <имя базы данных {{ CH }}>.<имя топика {{ KF }}>
+        SELECT * FROM <имя_базы_данных_{{ CH }}>.<имя_топика_Apache_Kafka>
         ```
 
 ## Удалите созданные ресурсы {#clear-out}

@@ -1,6 +1,6 @@
 ```bash
-export FOLDER_ID=b1gvmob95yysaplct...
-export IAM_TOKEN=CggaATEVAgA...
+export FOLDER_ID=b1gvmob95yys********
+export IAM_TOKEN=CggaAT********
 curl -X POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ${IAM_TOKEN}" \

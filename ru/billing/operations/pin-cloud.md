@@ -39,7 +39,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 - {{ TF }}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы привязать облако, у сервисного аккаунта должна быть [назначена роль](../security/index.md#set-role) `billing.accounts.owner` или `editor` на платежный аккаунт.
   

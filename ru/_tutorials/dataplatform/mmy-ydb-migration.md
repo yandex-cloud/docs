@@ -26,8 +26,8 @@
 
 * С помощью {{ TF }}
 
-    1. Если у вас еще нет {{ TF }}, [установите и настройте его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и укажите значения параметров.
+    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
+    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
     1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-mmy-ydb.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-ydb.tf).
 
         В этом файле описаны:
@@ -96,8 +96,8 @@
 
     ```sql
     INSERT INTO measurements VALUES
-        ('iv9a94th6rztooxh5ur2', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
-        ('rhibbh3y08qmz3sdbrbu', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
+        ('iv9a94th6rzt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+        ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
@@ -163,16 +163,16 @@
         1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Выберите базу из списка.
         1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
-        1. Проверьте, что база данных {{ ydb-name }} содержит таблицу `<имя базы данных кластера-источника>_measurements` с тестовыми данными.
+        1. Проверьте, что база данных {{ ydb-name }} содержит таблицу `<имя_базы_данных_кластера-источника>_measurements` с тестовыми данными.
 
     * CLI
 
         1. [Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md).
-        1. Проверьте, что база данных содержит таблицу `<имя базы данных кластера-источника>_measurements` с тестовыми данными:
+        1. Проверьте, что база данных содержит таблицу `<имя_базы_данных_кластера-источника>_measurements` с тестовыми данными:
 
             ```sql
             SELECT *
-            FROM <имя базы данных кластера-источника>_measurements;
+            FROM <имя_базы_данных_кластера-источника>_measurements;
             ```
 
     {% endlist %}
@@ -181,7 +181,7 @@
 
     ```sql
     INSERT INTO measurements VALUES
-        ('iv7b74th678tooxh5ur2', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
+        ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
     ```
 
 1. Убедитесь, что в базе данных {{ ydb-name }} отобразились сведения о добавленной строке:
@@ -194,16 +194,16 @@
         1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Выберите базу из списка.
         1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
-        1. Проверьте, что в таблицу `<имя базы данных кластера-источника>_measurements` добавились новые данные.
+        1. Проверьте, что в таблицу `<имя_базы_данных_кластера-источника>_measurements` добавились новые данные.
 
     * CLI
 
         1. [Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md).
-        1. Проверьте, что в таблицу `<имя базы данных кластера-источника>_measurements` добавились новые данные:
+        1. Проверьте, что в таблицу `<имя_базы_данных_кластера-источника>_measurements` добавились новые данные:
 
             ```sql
             SELECT *
-            FROM <имя базы данных кластера-источника>_measurements;
+            FROM <имя_базы_данных_кластера-источника>_measurements;
             ```
 
     {% endlist %}

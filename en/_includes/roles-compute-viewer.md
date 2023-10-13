@@ -1,4 +1,4 @@
-### compute.viewer {#compute-viewer}
+#### compute.viewer {#compute-viewer}
 
 The `compute.viewer` role is able to retrieve information on the following resources:
 

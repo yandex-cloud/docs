@@ -1,5 +1,7 @@
 # Элементы HTML
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 ## Теги {#html-tags}
 Чтобы вставить на страницу элементы оформления, которые не предусмотрены разметкой Markdown, вы можете использовать в тексте теги HTML.
 

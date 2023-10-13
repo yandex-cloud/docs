@@ -218,7 +218,7 @@
 
 - {{ TF }}
 
-  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием L7-балансировщика:
 
@@ -347,7 +347,7 @@
 
 - {{ TF }}
 
-  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Откройте файл конфигурации {{ TF }} и удалите блок `listener` в описании L7-балансировщика:
 

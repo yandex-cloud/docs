@@ -49,7 +49,7 @@ description: "Из статьи вы узнаете, как удалить ло�
 
 - {{ TF }}
 
-  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы удалить лог-группу, созданную с помощью {{ TF }}:
 

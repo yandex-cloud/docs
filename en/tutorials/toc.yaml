@@ -109,6 +109,8 @@ items:
         href: infrastructure-management/terraform-state-storage.md
       - name: Locking {{ TF }} states using {{ ydb-name }}
         href: infrastructure-management/terraform-state-lock.md
+      - name: Using {{ yandex-cloud }} modules in {{ TF }}
+        href: infrastructure-management/terraform-modules.md
       - name: Getting started with Packer
         href: infrastructure-management/packer-quickstart.md
       - name: Building a VM image with a set of infrastructure tools using Packer

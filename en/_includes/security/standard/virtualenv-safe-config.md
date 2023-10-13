@@ -56,7 +56,7 @@ We recommend using access to the serial console only when absolutely necessary.
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 If the serial console should not be used on the VM, disable it.
 
@@ -106,7 +106,7 @@ When deploying virtual machines, we recommend:
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 1. Find out why these VM disks use an image different from the benchmark one.
 1. Recreate the VMs with the appropriate image.
@@ -144,14 +144,16 @@ Scan your Terraform manifests using [Checkov](https://github.com/bridgecrewio/ch
 
 {% endlist %}
 
-#### 3.4. Integrity control of files is performed {#file-integrity-control}
+#### 3.4. Integrity control is performed {#integrity-control}
+
+##### 3.4.1 File integrity control {#file-integrity-control}
 
 Numerous information security standards require integrity control of critical files. To do this, you can use free host-based solutions:
 
 * [Wazuh](https://documentation.wazuh.com/current/learning-wazuh/detect-fs-changes.html)
 * [Osquery](https://osquery.readthedocs.io/en/stable/deployment/file-integrity-monitoring/)
 
-Paid solutions are also available in the Yandex Cloud marketplace, such as Kaspersky Security.
+Paid solutions are also available in Yandex Cloud marketplace, such as [Kaspersky Security](/marketplace/products/kaspersky/kaspersky-linux-hybrid-cloud-security-byol).
 
 {% list tabs %}
 
@@ -161,12 +163,23 @@ Paid solutions are also available in the Yandex Cloud marketplace, such as Kaspe
 
 {% endlist %}
 
+##### 3.4.2 Integrity control of a VM runtime environment {#vm-integrity-control}
+
+To control a VM's runtime environment (e.g., to enable access from the VM to a secure repository only when running it in the YC CLI cloud), you can use the [identity document](../../../compute/concepts/vm-metadata.md#identity-document) mechanism. When creating a VM, an identity document that stores information about the VM is generated. It contains IDs of the VM, [{{ marketplace-full-name }}](/marketplace) product, disk image, etc. This document is signed with a {{ yandex-cloud }} certificate. The document and its [signature](../../../compute/concepts/vm-metadata.md#signed-identity-documents) are available to VM processes through the metadata service. Thus, the processes identify the VM runtime environment, disk image, etc., to restrict access to the resources under monitoring.
+
+{% list tabs %}
+
+- Manual check
+
+   Make sure that critical VMs have identity documents signed.
+
+{% endlist %}
+
 #### 3.5 Principles of protection against side-channel attacks are used {#side-chanel-protection}
 
 To ensure the best protection against CPU level side-channel attacks (such as Spectre or Meltdown):
 
 * Use full-core virtual machines (instances with a CPU share of 100%).
-* Use virtual machines with an even number of cores (2 cores, 4 cores, and so on).
 * Install updates for your operating system and kernel that ensure side-channel attack protection (for example, [Kernelpage-tableisolation for Linux](https://en.wikipedia.org/wiki/Kernel_page-table_isolation) or applications built using [Retpoline](https://en.wikipedia.org/wiki/Spectre_%28security_vulnerability%29)).
 
 We recommend that you use [dedicated hosts](../../../compute/concepts/dedicated-host.md) for the most security-critical resources.
@@ -225,7 +238,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 If public access is enabled, [remove](../../../iam/operations/roles/revoke.md) it or perform access control (grant permission to access public data consciously).
 
@@ -262,9 +275,9 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
-[Enable](../../../storage/concepts/policy.md#config-examples) the desired policy.
+[Enable](../../../storage/concepts/policy.md#config-examples) the required policy.
 
 #### 3.8 In {{ objstorage-name }}, the Object locks feature is enabled {#object-lock}
 
@@ -312,7 +325,7 @@ The storage period of critical data in a bucket is determined by the client's in
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 If public access is enabled, remove it or use access control (by only enabling it when necessary and if approved).
 
@@ -324,9 +337,9 @@ This makes sure that data-plane logs with the following objects are written: PUT
 
 In a similar way, you can request [writing](../../../audit-trails/concepts/events.md#objstorage) these logs to {{ at-short-name }}, except reads. In the future, all these logs will be written to {{ at-short-name }}.
 
-You can also analyze {{ objstorage-name }} logs in {{ datalens-short-name }}. Learn more in the article [Analyzing {{ objstorage-name }} logs using {{ datalens-short-name }}](../../../tutorials/datalens/storage-logs-analysis.md).
+You can also analyze {{ objstorage-name }} logs in {{ datalens-short-name }}. For more information, see [Analyzing {{ objstorage-name }} logs using {{ datalens-short-name }}](../../../tutorials/datalens/storage-logs-analysis.md).
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 You can only use {{ TF }}/API to check if logging is enabled by following the [instructions](../../../storage/operations/buckets/enable-logging.md).
 
@@ -345,7 +358,7 @@ If [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_s
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 [Set up](../../../storage/s3/api-ref/cors/xml-config.md) CORS.
 
@@ -398,7 +411,7 @@ We recommend prohibiting internet access to databases that contain critical data
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 If any databases without security groups are found, assign them or enable the **Default security group** [functionality](../../../vpc/concepts/security-groups.md#default-security-group.md).
 
@@ -438,7 +451,7 @@ Assigning a public IP to a managed database raises information security risks. W
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 Disable public access if it is not required.
 
@@ -479,7 +492,7 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. Del
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 1. In the management console, select the cloud or folder to enable deletion protection in.
 1. In the list of services, select a service or services with managed databases.
@@ -523,7 +536,7 @@ You shouldn't enable access to databases containing critical data from the manag
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 1. In the management console, select the cloud or folder to disable access from {{ datalens-short-name }} in.
 1. In the list of services, select a service or services with managed databases.
@@ -569,7 +582,7 @@ We recommend that you enable this type of access only if needed, because it rais
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 1. In the management console, select the cloud or folder to disable access from the management console in.
 1. In the list of services, select a service or services with managed databases.
@@ -611,7 +624,7 @@ In cases where the use of public functions is not explicitly required, we recomm
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 [Disable](../../../functions/operations/function/function-private.md) public access.
 
@@ -673,7 +686,7 @@ If necessary, you can specify a cloud network in function settings. In this case
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 1. Select the cloud or folder to check the functions in.
 1. Select **{{ sf-name }}** in the list of services.
@@ -731,7 +744,7 @@ When setting up database permissions, use the principle of least privilege.
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 Disable public access if it is not required.
 
@@ -780,7 +793,7 @@ We recommend that you limit access to your {{ container-registry-short-name }} t
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 Specify the IP addresses for registry access.
 
@@ -827,7 +840,7 @@ We do not recommend that you use privileged containers to run loads that process
 {% endlist %}
 
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 1. In the management console, select the cloud or folder to check the VMs in.
 1. In the list of services, select **{{ compute-short-name }}**.
@@ -880,7 +893,7 @@ We recommend that you update certificates in advance if they are not [updated au
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 Update the certificate or set up auto updates.
 
@@ -897,3 +910,24 @@ See the recommendations [here](../../../managed-gitlab/concepts/security.md#secu
    Run a manual check.
 
 {% endlist %}
+
+#### 3.28 Antivirus protection is used {#antivirus}
+
+Make sure to provide anti-malware protection within your scope of responsibility. You can use a variety of solutions from our partners in [{{ marketplace-full-name }}](/marketplace).
+[Antivirus solution images](/marketplace/products/kaspersky/kaspersky-linux-hybrid-cloud-security-byol) are available in {{ marketplace-full-name }}. License types and other required information are available in the product descriptions.
+
+{% list tabs %}
+
+- Manual check
+
+   Make sure that critical systems are protected with antivirus solutions.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+Follow the vendor guide to install the AV solution.
+
+#### 3.29 {{ managed-k8s-full-name }} security recommendations are used {#k8s-security}
+
+Check the recommendations in [{#T}](../../../security/domains/kubernetes.md).

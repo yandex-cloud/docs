@@ -1,6 +1,6 @@
 # Uploading folder audit logs to {{ cloud-logging-name }}
 
-Follow these instructions to create a new trail that will upload audit logs of a single folder's resources to a {{ cloud-logging-name }} log group.
+Follow this guide to create a new [trail](../concepts/trail.md) that will upload configuration-level (Control Plane) audit logs of all resources and, optionally, service-level (Data Plane) audit logs of selected services of an individual folder to a {{ cloud-logging-name }} log group.
 
 ## Prepare the environment {#before-you-begin}
 
@@ -23,28 +23,28 @@ To export folder audit logs:
          ```
          yc resource-manager folder add-access-binding \
            --role audit-trails.viewer \
-           --id <folder ID> \
-           --service-account-id <service account ID>
+           --id <folder_ID> \
+           --service-account-id <service_account_ID>
          ```
 
          Where:
-         * `role`: The role assigned.
-         * `id`: The ID of the folder from which audit logs will be collected.
-         * `service-account-id`: The ID of your service account.
+         * `role`: Role being assigned
+         * `id`: ID of the folder from which audit logs will be collected
+         * `service-account-id`: ID of your service account
 
       * [`logging.writer`](../../logging/security/index.md#roles-list) for the folder to host the trail:
 
          ```
          yc resource-manager folder add-access-binding \
            --role logging.writer \
-           --id <folder ID> \
-           --service-account-id <service account ID>
+           --id <folder_ID> \
+           --service-account-id <service_account_ID>
          ```
 
          Where:
-         * `role`: The role assigned.
-         * `id`: The ID of the folder to host the trail:
-         * `service-account-id`: The ID of your service account.
+         * `role`: Role being assigned
+         * `id`: ID of the folder to host the trail
+         * `service-account-id`: ID of your service account
 
    {% endlist %}
 
@@ -62,24 +62,37 @@ To create a trail that exports folder audit logs:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to host the trail.
-   1. Select **{{ at-name }}**.
-   1. Click **Create trail** and specify:
-      * **Name**: The name of the trail being created.
-      * **Description**: A description of the trail (optional).
-   1. Under **Filter**, set up the audit log scope:
-      * **Resource**: Select `Folder`.
-      * **Folder**: An automatically populated field containing the name of the current folder.
-   1. Under **Destination**, set up the destination object:
-      * **Destination**: `{{ cloud-logging-name }}`.
-      * **Log group**: Select a log group. You can also create a new log group. For this:
-         * Click **Create**, then specify the parameters of the log group:
-            * **Name**: The name of the group being created.
-            * **Description**: An optional description of the log group.
-            * **Log retention**.
-         * Click **Create group**.
-   1. Under **Service account**, select the service account that the trail will use to upload audit log files to the log group.
-   1. Click **Create**.
+   1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
+
+      * **{{ ui-key.yacloud.common.name }}**: Name of the trail being created
+      * **{{ ui-key.yacloud.common.description }}**: Description of the trail (optional)
+
+   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
+
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`
+      * **{{ ui-key.yacloud.logging.label_loggroup }}**: Select a log group. You can also create a new log group. For this:
+
+         * Click **{{ ui-key.yacloud.common.label_create-new_female }}**, then specify the parameters of the log group:
+
+            * **{{ ui-key.yacloud.common.name }}**: Name of the group being created
+            * **{{ ui-key.yacloud.common.description }}**: Description of the log group (optional)
+            * **{{ ui-key.yacloud.logging.label_retention-period }}**.
+
+         * Click **{{ ui-key.yacloud.logging.button_create-group }}**.
+
+   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the log group.
+
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+
+      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
+
+   1. {% include [data-plane-on-console](../../_includes/audit-trails/data-plane-on-console.md) %}
+
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

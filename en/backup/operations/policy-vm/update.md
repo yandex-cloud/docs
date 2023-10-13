@@ -12,14 +12,14 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to change the policy.
-   1. In the list of services, select **{{ backup-name }}**.
-   1. Go to the ![policies](../../../_assets/backup/policies.svg) **Backup policies** tab.
-   1. Next to the appropriate policy, click ![options](../../../_assets/options.svg) and select **Edit**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+   1. Go to the ![policies](../../../_assets/backup/policies.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
+   1. Next to the appropriate policy, click ![options](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the policy parameters:
 
       {% include [policy-options](../../../_includes/backup/policy-options.md) %}
 
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -132,13 +132,13 @@ description: "In this tutorial, you will learn how to update a backup policy in 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the policy is located.
-   1. In the list of services, select **{{ backup-name }}**.
-   1. Go to the ![policies](../../../_assets/backup/policies.svg) **Backup policies** tab.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+   1. Go to the ![policies](../../../_assets/backup/policies.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
    1. Select the policy for which to update the list of VMs.
    1. Update the list of VMs:
 
-      * To add a new VM, click ![image](../../../_assets/plus-sign.svg) **Attach VM** under **Virtual machines**. In the window that opens, select the VM to link to the policy and click **Save**.
-      * To remove a VM, under **virtual machines**, click ![options](../../../_assets/options.svg) next to the VM to be unlinked from the policy and select **Detach from policy**.
+      * To add a new VM, click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** under **{{ ui-key.yacloud.backup.label_linked-instances }}**. In the window that opens, select the VM to link to the policy and click **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
+      * To remove a VM, under **{{ ui-key.yacloud.backup.label_linked-instances }}**, click ![options](../../../_assets/options.svg) next to the VM to be unlinked from the policy and select **{{ ui-key.yacloud.backup.action_detach-instance }}**.
 
 - CLI
 
