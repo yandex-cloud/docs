@@ -17,9 +17,9 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml) | Service for managing TLS certificates |
 | [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | {{ preview-stage }} Service for deploying serverless stack-based applications |
 | [{{ backup-full-name }}](../../backup/index.yaml) | Service for backing up {{ yandex-cloud }} resources |
-| [{{ billing-name }}](../../billing/index.yaml) | Service for payments and viewing expense details. |
+| [{{ billing-name }}](../../billing/index.yaml) | Service for payments and viewing expense details |
 | [{{ cdn-full-name }}](../../cdn/index.yaml) | Service for setting up a content delivery network (CDN) |
-| [{{ console-full-name }}](../../console/index.yaml) | {{ yandex-cloud }} resource management console. |
+| [{{ console-full-name }}](../../console/index.yaml) | {{ yandex-cloud }} resource management console |
 | [{{ cloud-desktop-full-name }}](../../cloud-desktop/index.yaml) | {{ preview-stage }} Service for creating remote desktops in a cloud |
 | [{{ dns-full-name }}](../../dns/index.yaml) | Administering DNS resource records and handling DNS requests |
 | [{{ sf-full-name }}](../../functions/index.yaml) | Serverless computing |
@@ -47,10 +47,10 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ mgp-full-name }}](../../managed-greenplum/index.yaml) | Service for creating and managing {{ GP }} clusters |
 | [{{ managed-k8s-full-name }}®](../../managed-kubernetes/index.yaml) | Service for creating and managing Kubernetes clusters |
 | [{{ mmg-full-name }}](../../managed-mongodb/index.yaml) | Service for creating and managing {{ MG }} clusters |
-| [{{ mmy-full-name }}](../../managed-mysql/index.yaml) | Service for creating and managing {{ MY }} clusters |
+| [{{ mmy-full-name }}®](../../managed-mysql/index.yaml) | Service for creating and managing {{ MY }} clusters |
 | [{{ mos-full-name }}](../../managed-opensearch/index.yaml) | Service for creating and managing {{ OS }} clusters |
 | [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) | Service for creating and managing {{ PG }} clusters |
-| [{{ mrd-full-name }}](../../managed-redis/index.yaml) | Service for creating and managing {{ RD }} clusters |
+| [{{ mrd-full-name }}™](../../managed-redis/index.yaml) | Service for creating and managing {{ RD }} clusters |
 | [{{ ydb-full-name }}](../../ydb/index.yaml) | {{ ydb-full-name }} database management service |
 | [{{ message-queue-full-name }}](../../message-queue/index.yaml) | Queue service for messaging between components of distributed applications and microservices |
 | [{{ monitoring-full-name }}](../../monitoring/index.yaml) | Service for collecting and visualizing metrics |
@@ -58,7 +58,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ objstorage-full-name }}](../../storage/index.yaml) | All-purpose scalable cloud object storage |
 | [{{ yq-full-name }}](../../query/index.yaml) | {{ preview-stage }} Service for running queries using a common SQL dialect |
 | [{{ resmgr-full-name }}](../../resource-manager/index.yaml) | Cloud resource management |
-| [{{ search-api-full-name }}](../../search-api/index.yaml) | {{ preview-stage }} Service for making search queries. |
+| [{{ search-api-full-name }}](../../search-api/index.yaml) | {{ preview-stage }} Service for making search queries |
 | [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications |
 | [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | System user identification |
 | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/index.yaml) | Speech recognition and synthesis technologies |
@@ -67,7 +67,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ vpc-full-name }}](../../vpc/index.yaml) | Cloud network management |
 | [{{ vision-full-name }}](../../vision/index.yaml) | Computer vision service for image analysis |
 | [{{ wiki-full-name }}](../../wiki/index.yaml) | Service for creating corporate databases |
-| [{{ yagpt-full-name }}](../../yandexgpt/index.yaml) | {{ preview-stage }} Generative language model for business. |
+| [{{ yagpt-full-name }}](../../yandexgpt/index.yaml) | {{ preview-stage }} Generative language model for business |
 
 
 

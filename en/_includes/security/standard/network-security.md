@@ -80,7 +80,7 @@ Make sure you use security groups in your [clouds](../../../resource-manager/con
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 * Apply security groups to any objects that have no group.
 * To apply security groups through {{ TF }}, [set up security groups (dev/stage/prod) using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation).
 * To use the NGFW, [install](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM) the Check Point NGFW on your VM.
@@ -123,7 +123,7 @@ To apply security groups to your cloud objects in {{ vpc-name }}, make sure ther
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 Create a security group in each {{ vpc-name }} with restricted access rules, so that it can be assigned to cloud objects.
 
@@ -177,7 +177,7 @@ Make sure to only allow access through the ports that your application requires 
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 Delete the dangerous rule in each security group or edit it by specifying trusted IPs.
 
@@ -223,7 +223,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 [Delete](../../../cli/cli-ref/managed-services/vpc/security-group/index.md) the dangerous rule in each security group or specify trusted IPs.
 
@@ -272,7 +272,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 
 
 * All [materials](../../../vpc/ddos-protection/index.md) about DDoS protection in {{ yandex-cloud }}.
@@ -287,7 +287,7 @@ To enable administrators to establish remote connections to your cloud resources
    * [Creating a site-to-site VPN connection to {{ yandex-cloud }} using {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
    * Client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image]({{ link-cloud-marketplace }}?categories=network) from {{ marketplace-name }}.
 
-   See the details in the [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md) section. You can also use certified data cryptographic security tools.
+   For more information, see the details in the [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md) section. You can also use certified data cryptographic security tools.
 * A dedicated private connection between a remote site and {{ yandex-cloud }} using {{ interconnect-name }}.
 
 To access the infrastructure using control protocols (such as SSH or RDP), create a bastion VM. You can do this using a free [Teleport](https://goteleport.com/) solution. Access to the bastion VM or VPN gateway from the internet must be restricted.
@@ -306,11 +306,9 @@ To access web services deployed in the cloud, use TLS version 1.2 or higher.
    1. If routes to remote sites' private networks through VMs with a VPN gateway are found, the recommendation is fulfilled.
    1. Check the VMs in each cloud for VPN gateways. In addition, check if their security groups have open ports for the VPN.
 
-
 - Manual check
 
    Contact your account manager to find out if you have {{ interconnect-name }} activated. If yes, check if remote access is used.
-
 
 {% endlist %}
 
@@ -406,11 +404,11 @@ Regardless of which option you select for setting up outbound internet access, b
 
 {% endlist %}
 
-**Instructions and solutions to use:**
+**Guides and solutions to use:**
 * If any VM has public IPs, make sure they are required. Otherwise, delete an external IP address in the VM settings.
 * If any NAT-Gateway is found, make sure it is required. Otherwise, delete it.
 * If any NAT instance is found, make sure it is required. Otherwise, delete it.
 
 #### 2.8 DNS queries are not passed to third-party recursive resolvers {#recursive-resolvers}
 
-To increase fault tolerance, some traffic can be routed to third-party recursive resolvers. To avoid this, contact [support](../../../support/overview.md).
+To increase fault tolerance, some traffic may be routed to third-party recursive resolvers. To avoid this, contact [support](../../../support/overview.md).

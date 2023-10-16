@@ -1,23 +1,14 @@
 # Asynchronously recognizing audio files in LPCM format
 
-The example shows how the [API v2](transcribation-api.md) helps [asynchronously recognize](../transcribation.md) speech in LPCM audio file format.
+Below is an example of [asynchronous recognition of speech](../transcribation.md) from an audio file using the {{ speechkit-name }} [API v2](transcribation-api.md). This example uses the following parameters:
 
+* [Language](../models.md#languages): Russian
+* [Language model](../models.md#tags): `general:rc`
+* Format of the submitted audio: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz
+* [Number of audio channels](transcribation-api.md#sendfile-params): 1 (default)
+* Other parameters left by default.
 
-The example uses the following parameters:
-
-* [Language](../index.md#langs): Russian.
-* [Language model](../models.md): `general:rc`.
-* Format of the submitted audio: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
-* [Number of audio channels](transcribation-api.md#sendfile-params): 1 (default).
-* Other parameters were left with their default values.
-
-{% note info %}
-
-To use the default parameter value, don't pass this parameter in the request.
-
-{% endnote %}
-
-Use the [cURL](https://curl.haxx.se) utility to generate and send a request to the server for recognition.
+You can generate and send a speech recognition request using [cURL](https://curl.haxx.se).
 
 An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to authenticate the service account. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
 
@@ -25,13 +16,16 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
 
 {% include [transcribation-before-you-begin](../../../_includes/speechkit/transcribation-before-you-begin.md) %}
 
+If you do not have an LPCM audio file, you can download a [sample file](https://{{ s3-storage-host }}/speechkit/speech.pcm).
+
 ## Perform speech recognition via the API {#recognize-using-api}
 
 {% list tabs %}
 
 - cURL
 
-   1. Create a file (for example, `body.json`), and add the following code to it:
+   1. [Get a link to an audio file](../../../storage/operations/objects/link-for-download.md) in {{ objstorage-name }}.
+   1. Create a file, e.g., `body.json`, and paste the following code to it:
 
       ```json
       {
@@ -45,24 +39,26 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
               }
           },
           "audio": {
-              "uri": "https://{{ s3-storage-host }}/speechkit/speech.pcm"
+              "uri": "<link_to_audio_file>"
           }
       }
       ```
 
       Where:
 
-      * `languageCode`: [Language](../index.md#langs) that recognition is performed for.
-      * `model`: [Language model](../models.md).
-      * `audioEncoding`: [Format](../../formats.md) of the submitted audio.
-      * `sampleRateHertz`: Sampling rate of the audio file.
-      * `audioChannelCount`: Number of audio channels.
-      * `uri`: Link to audio file in {{ objstorage-name }}.
+      * `languageCode`: [Recognition language](../models.md#languages)
+      * `model`: [Language model](../models.md#tags)
+      * `audioEncoding`: [Format](../../formats.md) of the submitted audio
+      * `sampleRateHertz`: Audio file sampling rate in Hz
+      * `audioChannelCount`: Number of audio channels
+      * `uri`: Link to audio file in {{ objstorage-name }}. Sample link: `https://{{ s3-storage-host }}/speechkit/speech.pcm`.
+
+         The link contains additional query parameters (after `?`) for buckets with restricted access. You do not need to provide these parameters in {{ speechkit-name }} as they are ignored.
 
    1. Run the created file:
 
       ```bash
-      export IAM_TOKEN=<service_account_IAM_token>
+      export IAM_TOKEN=<service_account_IAM_token> && \
       curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d "@body.json"\
@@ -71,9 +67,9 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
 
       Where `IAM_TOKEN` is an [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
 
-      Result:
+      Result example:
 
-      ```bash
+      ```text
       {
           "done": false,
           "id": "e03sup6d5h1qr574ht99",
@@ -85,17 +81,17 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
 
       Save the recognition operation `id` that you receive in the response.
 
-   1. Wait a while for the recognition to complete. It takes about 10 seconds to recognize one minute of a single-channel audio file.
+   1. Wait a while for the recognition to complete. It takes about 10 seconds to recognize one minute of a single-channel audio file.
    1. Send a request to [get information about the operation](../../../api-design-guide/concepts/operation.md#monitoring):
 
       ```bash
       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-          https://operation.{{ api-host }}/operations/e03sup6d5h1qr574ht99
+          https://operation.{{ api-host }}/operations/<recognition_operation_ID>
       ```
 
-      Result:
+      Result example:
 
-      ```bash
+      ```text
       {
       "done": true, "response": {
        "@type": "type.googleapis.com/yandex.cloud.ai.stt.v2.LongRunningRecognitionResponse",

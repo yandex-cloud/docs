@@ -1,3 +1,8 @@
+---
+title: "About {{ yagpt-full-name }}"
+description: "{{ yagpt-name }} is a neural network that can solve different tasks related to creating text content. {{ yagpt-name }} can generate product descriptions, articles, news stories, newsletters, blog posts, and many other types of texts. The quality of the neural network's response directly depends on the accuracy of provided instructions. With a more specific request, you are more likely to get the expected result."
+---
+
 # About {{ yagpt-full-name }}
 
 {% include notitle [preview-stage](../../_includes/yandexgpt/preview.md) %}

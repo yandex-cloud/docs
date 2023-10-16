@@ -1,3 +1,8 @@
+---
+title: "Granting encryption key access rights"
+description: "Follow this guide to grant encryption key access rights."
+---
+
 # Granting encryption key access rights
 
 {% list tabs %}

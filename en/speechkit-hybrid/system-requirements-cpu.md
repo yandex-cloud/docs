@@ -1,3 +1,8 @@
+---
+title: "System requirements for CPU-based servers"
+description: "This article describes system and software requirements for CPU-based servers."
+---
+
 # System requirements for CPU-based servers
 
 {% include [system-requirements](../_includes/speechkit/system-requirements.md) %}

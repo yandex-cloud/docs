@@ -1,3 +1,8 @@
+---
+title: "System requirements"
+description: "This article describes system and software requirements for servers."
+---
+
 # System requirements
 
 {% include [system-requirements](../../_includes/speechkit/system-requirements.md) %}

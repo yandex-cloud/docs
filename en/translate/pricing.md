@@ -17,7 +17,7 @@ The cost for using Yandex Translate is calculated based on the total number of c
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
-## Prices {#prices}
+## Pricing {#prices}
 
 ### Text translation and language detection {#prices-translate-detect}
 

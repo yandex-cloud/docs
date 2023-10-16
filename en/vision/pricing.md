@@ -1,4 +1,6 @@
 ---
+title: "Pricing for {{ vision-name }}"
+description: "This article describes {{ vision-short-name }} pricing."
 editable: false
 ---
 
@@ -17,12 +19,6 @@ Each successful image analysis performed using any feature is charged as a singl
 * Only successful analysis attempts are chargeable. You will not be charged if the server returned an error or the request configuration was incorrect.
 
 [Face detection](concepts/face-detection/index.md) and [image classification](concepts/classification/index.md) are free of charge during the [Preview stage](../overview/concepts/launch-stages).
-
-{% note warning %}
-
-[Recognition of presets](concepts/ocr/template-recognition.md) is at the [Preview stage](../overview/concepts/launch-stages) and is not charged additionally. Its usage is charged [according to the text recognition](#prices) pricing policy.
-
-{% endnote %}
 
 ## Pricing {#prices}
 

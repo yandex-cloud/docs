@@ -35,6 +35,123 @@
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
 
   В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
+  
+  {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
+
+- AWS CLI
+
+  Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+
+  В терминале выполните команду `aws s3api delete-object`:
+
+  ```bash
+  aws s3api delete-object \
+    --endpoint-url https://{{ s3-storage-host }} \
+    --bucket <имя_бакета> \
+    --key <ключ_объекта>
+  ```
+
+  Где:
+  * `--bucket` — имя вашего бакета.
+  * `--key` — [ключ](../../concepts/object.md#key) объекта.
+
+  Чтобы одновременно удалить список объектов, укажите ключи этих объектов в параметре `--delete`:
+
+  * **Bash:**
+
+      ```bash
+      aws s3api delete-objects \
+        --endpoint-url=https://{{ s3-storage-host }} \
+        --bucket <имя_бакета> \
+        --delete '{"Objects":[{"Key":"<ключ_объекта_1>"},{"Key":"<ключ_объекта_2>"},...,{"Key":"<ключ_объекта_n>"}]}'
+      ```
+
+  * **PowerShell:**
+
+      ```powershell
+      aws s3api delete-objects `
+        --endpoint-url=https://{{ s3-storage-host }} `
+        --bucket <имя_бакета> `
+        --delete '{\"Objects\":[{\"Key\":\"<ключ_объекта_1>\"},{\"Key\":\"<ключ_объекта_2>\"},...,{\"Key\":\"<ключ_объекта_n>\"}]}'
+      ```
+
+  Где:
+  * `--bucket` — имя бакета.
+  * `<ключ_объекта_1>`, `<ключ_объекта_2>`, `<ключ_объекта_n>` — [ключи](../../concepts/object.md#key) объектов, которые нужно удалить.
+
+  Результат:
+
+  ```bash
+  {
+    "Deleted": [
+        {
+            "Key": "<ключ_объекта_1>",
+            "VersionId": "null"
+        },
+        {
+            "Key": "<ключ_объекта_2>",
+            "VersionId": "null"
+        }
+        ...
+        {
+            "Key": "<ключ_объекта_n>",
+            "VersionId": "null"
+        } 
+    ]
+  }
+  ```
+
+  Указать объекты для удаления можно с помощью шаблона запроса в формате JMESPath. Для удаления объектов по шаблону выполните команду:
+
+  * **Bash:**
+
+      ```bash
+      aws s3api list-objects \
+        --endpoint-url https://{{ s3-storage-host }} \
+        --bucket <имя_бакета> \
+        --query '<запрос_в_формате_JMESPath>' \
+        --output text | xargs -I {} aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket <имя_бакета> --key {}
+      ```
+
+      Где:
+      * `--bucket` — имя бакета.
+      * `--query` — запрос в формате [JMESPath](https://jmespath.org/).
+
+      Пример команды для удаления из бакета `sample-bucket` всех объектов, расположенных в папке `screenshots`, имена файлов которых начинаются с даты `20231002`:
+
+      ```bash
+      aws s3api list-objects \
+        --endpoint-url https://{{ s3-storage-host }} \
+        --bucket sample-bucket \
+        --query 'Contents[?starts_with(Key, `screenshots/20231002`) == `true`].[Key]' \
+        --output text | xargs -I {} aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key {}
+      ```
+
+  * **PowerShell:**
+
+      ```powershell
+      Foreach($x in (aws s3api list-objects `
+        --endpoint-url https://{{ s3-storage-host }} `
+        --bucket <имя_бакета> `
+        --query '<запрос_в_формате_JMESPath>' `
+        --output text)) `
+        {aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket <имя_бакета> --key $x}
+      ```
+
+      Где:
+      * `--bucket` — имя бакета.
+      * `--query` — запрос в формате [JMESPath](https://jmespath.org/).
+
+      Пример команды для удаления из бакета `sample-bucket` всех объектов, расположенных в папке `screenshots`, имена файлов которых начинаются с даты `20231002`:
+
+      ```powershell
+      Foreach($x in (aws s3api list-objects `
+        --endpoint-url https://{{ s3-storage-host }} `
+        --bucket sample-bucket `
+        --query 'Contents[?starts_with(Key, `screenshots/20231002`) == `true`].[Key]' `
+        --output text)) `
+        {aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key $x}
+      ```
 
 - {{ TF }}
 
@@ -97,8 +214,9 @@
 
   Воспользуйтесь методом S3 API [delete](../../s3/api-ref/object/delete.md).
 
-{% endlist %}
+  {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
 
+{% endlist %}
 
 ## Удалить версию объекта с блокировкой (object lock) {#w-object-lock}
 
@@ -115,7 +233,7 @@
   1. Получите информацию о блокировке версии объекта:
 
      ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }}/ \
+     aws --endpoint-url=https://{{ s3-storage-host }} \
        s3api head-object \
        --bucket <имя_бакета> \
        --key <ключ_объекта> \
@@ -123,9 +241,9 @@
      ```
 
      Где:
-     * `bucket` — имя вашего бакета.
-     * `key` — [ключ](../../concepts/object.md#key) объекта.
-     * `version-id` — идентификатор версии объекта.
+     * `--bucket` — имя вашего бакета.
+     * `--key` — [ключ](../../concepts/object.md#key) объекта.
+     * `--version-id` — идентификатор версии объекта.
 
      Если на версию установлена блокировка, информация о ней отобразится в результате выполнения команды:
 
@@ -155,7 +273,7 @@
   1. Если установлена временная управляемая блокировка (`"ObjectLockMode": "GOVERNANCE"`) и у вас есть роль `storage.admin`, удалите версию объекта:
 
      ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }}/ \
+     aws --endpoint-url=https://{{ s3-storage-host }} \
        s3api delete-object \
        --bucket <имя_бакета> \
        --key <ключ_объекта> \
@@ -164,10 +282,10 @@
      ```
 
      Где:
-     * `bucket` — имя вашего бакета.
-     * `key` — [ключ](../../concepts/object.md#key) объекта.
-     * `version-id` — идентификатор версии объекта.
-     * `bypass-governance-retention` — флаг, подтверждающий обход блокировки.
+     * `--bucket` — имя вашего бакета.
+     * `--key` — [ключ](../../concepts/object.md#key) объекта.
+     * `--version-id` — идентификатор версии объекта.
+     * `--bypass-governance-retention` — флаг, подтверждающий обход блокировки.
 
 - API
 

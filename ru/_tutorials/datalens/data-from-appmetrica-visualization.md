@@ -5,7 +5,7 @@
 * Прямой доступ.
   {{ datalens-name }} напрямую подключается к AppMetrica. Этот метод проще и быстрее всего, однако набор поддерживаемых функций [ограничен](../../datalens/function-ref/availability.md).
 * Экспорт в режиме реального времени из AppMetrica в {{ mch-name }}.
-  Доступны сырые данные и есть возможность предагрегации и постобработки данных на уровне БД. Для реализации этого варианта [настройте экспорт](https://appmetrica.yandex.ru/docs/common/cloud/about.html) и [создайте подключение](https://cloud.yandex.ru/docs/datalens/operations/connection/create-clickhouse) {{ datalens-name }} к БД {{ CH }}.
+  Доступны сырые данные и есть возможность предагрегации и постобработки данных на уровне БД. Для реализации этого варианта [настройте экспорт](https://appmetrica.yandex.ru/docs/common/cloud/about.html) и [создайте подключение](../../datalens/operations/connection/create-clickhouse.md) {{ datalens-name }} к БД {{ CH }}.
 
 В этом сценарии используется прямой доступ. В качестве источника данных будет использовано приложение, которое добавлено в сервис [AppMetrica](https://appmetrica.yandex.ru). Просмотреть список доступных вам приложений можно в разделе [Приложения](https://appmetrica.yandex.ru/application/list).
 

@@ -188,6 +188,8 @@ items:
             href: tutorials/marketplace/gateway-api.md
           - name: Configuring the {{ alb-name }} Ingress controller
             href: tutorials/alb-ingress-controller.md
+          - name: Logging settings for {{ alb-name }} Ingress controllers
+            href: tutorials/alb-ingress-controller-log-options.md
           - name: Using Jaeger to trace requests in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
           - name: Setting up Kyverno & Kyverno Policies

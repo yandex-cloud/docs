@@ -10,6 +10,8 @@
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
+
 ## Установка {#installation}
 
 {% include [install-aws-cli](../../_includes/aws-tools/install-aws-cli.md) %}
@@ -31,8 +33,8 @@
 
 ### Конфигурационные файлы {#config-files}
 
-В результате своей работы команда `aws configure` сохранит:
-* Статический ключ в `.aws/credentials` в формате:
+В результате работы команда `aws configure` сохранит статический ключ и регион.
+* Формат статического ключа в `.aws/credentials`:
 
   ```
   [default]
@@ -40,35 +42,45 @@
     aws_secret_access_key = secretKey
   ```
 
-* Регион по умолчанию в `.aws/config` в формате:
+* Формат региона по умолчанию в `.aws/config`:
 
   ```
   [default]
-    region={{ region-id }}
+    region = {{ region-id }}
   ```
 
 ## Особенности {#specifics}
 
-При использовании AWS CLI для работы с {{ objstorage-name }} учитывайте следующие особенности этого инструмента:
+Учитывайте особенности AWS CLI при работе с {{ objstorage-name }}:
+
 * AWS CLI работает с {{ objstorage-name }} как с иерархической файловой системой и ключи объектов имеют вид пути к файлу.
-* При запуске команды `aws` для работы с {{ objstorage-name }} обязателен параметр `--endpoint-url`, поскольку по умолчанию клиент настроен на работу с серверами Amazon. Чтобы не указывать параметр вручную при каждом запуске, создайте псевдоним (alias), например:
+* По умолчанию клиент настроен на работу с серверами Amazon. Поэтому при запуске команды `aws` для работы с {{ objstorage-name }} обязательно используйте параметр `--endpoint-url`. Чтобы при каждом запуске не указывать параметр вручную, вы можете использовать псевдоним или файл конфигурации.
+    * Создайте псевдоним (alias) с помощью команды:
+    
+      ```bash
+      alias {{ storage-aws-cli-alias }}='aws s3 --endpoint-url=https://{{ s3-storage-host }}'
+      ```
 
-  ```bash
-  alias {{ storage-aws-cli-alias }}='aws s3 --endpoint-url=https://{{ s3-storage-host }}'
-  ```
-  
-  С таким псевдонимом будут равносильны, например, две следующие команды:
+      Для создания псевдонима при каждом запуске терминала, добавьте команду `alias` в конфигурационный файл `~/.bashrc` или `~/.zshrc`, в зависимости от типа оболочки.
 
-  ```bash
-  aws s3 --endpoint-url=https://{{ s3-storage-host }} ls
-  ```
+      С таким псевдонимом будут равносильны команды:
 
-  ```bash
-  {{ storage-aws-cli-alias }} ls
-  ```
-  
-  Чтобы псевдоним создавался при каждом запуске терминала, добавьте команду `alias` в конфигурационный файл `~/.bashrc` или `~/.zshrc`, в зависимости от типа используемой оболочки.
-  
+      ```bash
+      aws s3 --endpoint-url=https://{{ s3-storage-host }} ls
+      ```
+
+      ```bash
+      {{ storage-aws-cli-alias }} ls
+      ```
+
+    * (поддерживается в AWS CLI версий 1.29.0, 2.13.0 и выше) В файле конфигурации `.aws/credentials` добавьте параметр `endpoint_url`:
+
+       ```text
+       endpoint_url = https://{{ s3-storage-host }}
+       ```
+
+       После этого вы сможете вызывать команды без явного указания эндпоинта. Например, вместо `aws --endpoint-url=https://{{ s3-storage-host }} s3 ls` можно указывать `aws s3 ls`. Подробнее смотрите в документации [AWS CLI](https://docs.aws.amazon.com/sdkref/latest/guide/feature-ss-endpoints.html).
+
 * При работе в macOS, в некоторых случаях требуется запуск вида:
 
   ```bash
@@ -86,7 +98,7 @@
 ### Создать бакет {#creating-bucket}
 
 ```bash
-aws --endpoint-url=https://{{ s3-storage-host }} s3 mb s3://bucket-name
+aws s3 mb s3://bucket-name
 ```
 
 Результат:
@@ -103,12 +115,11 @@ make_bucket: bucket-name
 
 ### Загрузить объекты {#uploading-objects}
 
-Загрузить объекты можно разными способами, например:
+Можно загрузить все объекты из директории, использовать фильтр или загрузить объекты по одному.
 * Загрузить все объекты из локальной директории:
 
   ```bash
-  aws --endpoint-url=https://{{ s3-storage-host }} \
-    s3 cp --recursive local_files/ s3://bucket-name/path_style_prefix/
+  aws s3 cp --recursive local_files/ s3://bucket-name/path_style_prefix/
   ```
 
   Результат:
@@ -122,8 +133,7 @@ make_bucket: bucket-name
 * Загрузить объекты, описанные в фильтре `--include`, и пропустить объекты, описанные в фильтре `--exclude`:
 
   ```bash
-  aws --endpoint-url=https://{{ s3-storage-host }} \
-    s3 cp --recursive --exclude "*" --include "*.log" \
+  aws s3 cp --recursive --exclude "*" --include "*.log" \
     local_files/ s3://bucket-name/path_style_prefix/
   ```
 
@@ -136,8 +146,7 @@ make_bucket: bucket-name
 * Загрузить объекты по одному, запуская для каждого объекта команду следующего вида:
 
   ```bash
-  aws --endpoint-url=https://{{ s3-storage-host }} \
-    s3 cp testfile.txt s3://bucket-name/path_style_prefix/textfile.txt
+  aws s3 cp testfile.txt s3://bucket-name/path_style_prefix/textfile.txt
   ```
   
   Результат:
@@ -149,8 +158,7 @@ make_bucket: bucket-name
 ### Получить список объектов {#getting-objects-list}
 
 ```bash
-aws --endpoint-url=https://{{ s3-storage-host }} \
-  s3 ls --recursive s3://bucket-name
+aws s3 ls --recursive s3://bucket-name
 ```
 
 Результат:
@@ -163,13 +171,12 @@ aws --endpoint-url=https://{{ s3-storage-host }} \
 
 ### Удалить объекты {#deleting-objects}
 
-Удалить объекты можно разными способами, например:
+Можно удалить объекты с заданным префиксом, использовать фильтр или удалить объекты по одному.
 
 * Удалить все объекты с заданным префиксом:
 
   ```bash
-  aws --endpoint-url=https://{{ s3-storage-host }} \
-    s3 rm s3://bucket-name/path_style_prefix/ --recursive
+  aws s3 rm s3://bucket-name/path_style_prefix/ --recursive
   ```
 
   Результат:
@@ -182,8 +189,7 @@ aws --endpoint-url=https://{{ s3-storage-host }} \
 * Удалить объекты, описанные в фильтре `--include`, и пропустить объекты, описанные в фильтре`--exclude`:
 
   ```bash
-  aws --endpoint-url=https://{{ s3-storage-host }} \
-    s3 rm s3://bucket-name/path_style_prefix/ --recursive \
+  aws s3 rm s3://bucket-name/path_style_prefix/ --recursive \
       --exclude "*" --include "*.log"
   ```
 
@@ -197,8 +203,7 @@ aws --endpoint-url=https://{{ s3-storage-host }} \
 * Удалить объекты по одному, запуская для каждого объекта команду следующего вида:
 
   ```bash
-  aws --endpoint-url=https://{{ s3-storage-host }} \
-    s3 rm s3://bucket-name/path_style_prefix/textfile.txt
+  aws s3 rm s3://bucket-name/path_style_prefix/textfile.txt
   ```
 
   Результат:
@@ -210,8 +215,7 @@ aws --endpoint-url=https://{{ s3-storage-host }} \
 ### Получить объект {#retrieving-objects}
 
 ```bash
-aws --endpoint-url=https://{{ s3-storage-host }} \
-  s3 cp s3://bucket-name/textfile.txt textfile.txt
+aws s3 cp s3://bucket-name/textfile.txt textfile.txt
 ```
 Результат:
 

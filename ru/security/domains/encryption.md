@@ -66,7 +66,7 @@
 
 ### {{ alb-name }} {#load-balancer}
 
-Сервис [{{ alb-name }}](../../application-load-balancer/) поддерживает HTTPS-обработчик с загрузкой [сертификата](../../certificate-manager/concepts/imported-certificate.md) из {{certificate-manager-name}}. См. [описание настройки обработчика](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) в документации Application Load Balancer.
+Сервис [{{ alb-name }}](../../application-load-balancer/) поддерживает HTTPS-обработчик с загрузкой [сертификата](../../certificate-manager/concepts/imported-certificate.md) из {{ certificate-manager-name }}. См. [описание настройки обработчика](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) в документации Application Load Balancer.
 
 ### {{ vpc-name }} (VPC) {#vpc}
 

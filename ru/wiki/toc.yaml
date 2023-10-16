@@ -39,14 +39,16 @@ items:
     items:
       - name: Обзор
         href: new-editor.md
-      - name: Форматирование текста
-        href: wysiwyg/text-format.md
-      - name: Блочное форматирование
-        href: wysiwyg/block-format.md
-      - name: Вставка таблиц и оглавлений
-        href: wysiwyg/tables-format.md
-      - name: Вставка стороннего контента
-        href: wysiwyg/embed-content.md
+      - name: Визуальный редактор
+        items:
+          - name: Форматирование текста
+            href: wysiwyg/text-format.md
+          - name: Блочное форматирование
+            href: wysiwyg/block-format.md
+          - name: Вставка таблиц и оглавлений
+            href: wysiwyg/tables-format.md
+          - name: Вставка стороннего контента
+            href: wysiwyg/embed-content.md
   - name: Старый редактор
     items:
       - name: Обзор

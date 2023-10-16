@@ -18,13 +18,17 @@ For more information about access control in {{ yandex-cloud }}, see the {{ iam-
 
 * `organization-manager.organizations.owner`: The organization owner role.
 
-   The role lets you appoint organization owners as well as use all the administrator privileges.
+   The role allows you to appoint organization owners as well as use all the administrator privileges.
 
    By default, the user who creates an organization is the organization owner.
 
 * `organization-manager.viewer`: This role lets you view, but not edit, an organization's settings.
 
 * `organization-manager.groups.memberAdmin`: This role lets you view information about a group and add and remove group members.
+
+* `organization-manager.osLogins.admin`: This role enables you to edit OS Login profiles, SSH keys, and create certificates for the organization users.
+
+* `organization-manager.osLogins.viewer`: This role enables you to view OS Login profiles and SSH keys of the organization users.
 
 ### Primitive roles {#primitive-roles}
 
@@ -117,21 +121,21 @@ For information about roles available in {{ yandex-cloud }} and their associated
       }
       ```
 
-1. Assign the role. For example, for an organization with the `bpf3crucp1v28b74p3rk` ID:
+  1. Assign the role. For example, for an organization with the `bpf3crucp1v28b74p3rk` ID:
 
-   ```bash
-   export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
-   export IAM_TOKEN=CggaATEVAgA...
-   curl -X POST \
-       -H "Content-Type: application/json" \
-       -H "Authorization: Bearer ${IAM_TOKEN}" \
-       -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
-   ```
+      ```bash
+      export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${IAM_TOKEN}" \
+          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      ```
 
-   For detailed instructions on assigning a role to a resource, please see the {{ iam-full-name }} and {{ resmgr-full-name }} documentation:
-   * [{#T}](../../iam/operations/sa/set-access-bindings.md)
-   * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)
-   * [{#T}](../../resource-manager/operations/folder/set-access-bindings.md)
+     For detailed instructions on assigning a role to a resource, please see the {{ iam-full-name }} and {{ resmgr-full-name }} documentation:
+     * [{#T}](../../iam/operations/sa/set-access-bindings.md)
+     * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)
+     * [{#T}](../../resource-manager/operations/folder/set-access-bindings.md)
 
 - {{ TF }}
 
@@ -158,12 +162,12 @@ For information about roles available in {{ yandex-cloud }} and their associated
       }
       ```
 
-      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      2. Run a check using this command:
 
         ```
         terraform plan
@@ -318,6 +322,26 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
        -H "Authorization: Bearer ${IAM_TOKEN}" \
        -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
    ```
+
+{% endlist %}
+
+### Assigning a role to a user group {#access-group-users}
+
+Assign a role to a [user group](../../organization/operations/manage-groups.md) to grant access to a resource. To grant group access permissions to a [subject](../../iam/operations/groups/access-binding-object.md), see [{#T}](../../iam/concepts/access-control/index.md#subject).
+
+In the management console, you can assign a group a role for a cloud, folder, or service account. In the {{ org-full-name }} service, a group can only be granted a role for another group. To assign a group a role for an organization, use the CLI.
+
+#### Assigning a role for a cloud or folder {#access-binding-cloud}
+
+{% include [accessbinding-group-as-object](../../_includes/organization/accessbinding-group-as-subject.md) %}
+
+#### Assigning a role for an organization {#access-binding-organization}
+
+{% list tabs %}
+
+- CLI
+
+   {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
 
 {% endlist %}
 

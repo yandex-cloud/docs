@@ -337,8 +337,6 @@ description: "Следуя данной инструкции, вы сможет�
 
   {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
-{% endlist %}
-
   Чтобы разрешить автоматическое увеличение размера хранилища, передайте в запросе:
 
   {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
@@ -348,6 +346,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 
   {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
+
+{% endlist %}
 
 
 {% note warning %}

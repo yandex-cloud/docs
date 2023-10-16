@@ -43,7 +43,7 @@ The cost of hosting a website in WordPress includes:
 
 * Fee for continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* A fee for public DNS queries and zones (see [{{ dns-full-name }} pricing](https://cloud.yandex.com/en/docs/dns/pricing)).
+* A fee for public DNS queries and zones (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
 
 
 ## Create a virtual machine for WordPress {#create-vm}

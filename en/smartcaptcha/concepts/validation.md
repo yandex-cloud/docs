@@ -1,6 +1,6 @@
 # User validation
 
-{{ captcha-name }} checks user requests with its ML algorithms and only shows tasks to those users whose requests it considers suspicious.
+{{ captcha-name }} checks user requests with its ML algorithms and only shows [tasks](./tasks.md) to those users whose requests it considers suspicious.
 
 You do not have to place the **"I’m not a robot"** button on the page.
 

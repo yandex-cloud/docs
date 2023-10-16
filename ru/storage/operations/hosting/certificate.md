@@ -23,7 +23,7 @@
     1. Нажмите на имя необходимого бакета.
     1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
     1. В отобразившейся панели справа нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
-    1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.button_create-certificate }}**.
+    1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
     1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** выберите сертификат в появившемся списке. 
     
         {% note info %}
@@ -49,11 +49,12 @@
   1. Выполните следующую команду:
 
      ```bash
-     yc storage bucket set-https <имя_бакета> --certificate-id 
+     yc storage bucket set-https --name <имя_бакета> --certificate-id <идентификатор_сертификата> 
      ```  
 
      Где:
-     * `--certificate-id` - идентификатор сертификата {{ certificate-manager-name }}.
+     * `--name` — имя бакета, для которого настраивается HTTPS;
+     * `--certificate-id` — идентификатор сертификата в {{ certificate-manager-name }}.
 
      Результат:
 

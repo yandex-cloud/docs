@@ -1,0 +1,1 @@
+The `billing.accounts.viewer` role is assigned for a billing account. This role enables you to view billing account data, get information about resource consumption, monitor expenses, and export reconciliation reports and reporting documents.

@@ -16,12 +16,12 @@ OS Login associates the VM user's account with the organization's account. To ma
 
 This way you can easily manage access to instances by assigning roles to users. If you revoke a user's roles, they will lose access to all VM instances within the organization where OS Login access is enabled.
 
-Benefits of OS Login:
+OS Login has the following benefits:
 
-* Instant assignment and revocation of access rights.
+* Instant update of access rights when revoking or granting roles.
 * Access using short-lived SSH certificates.
 * No need to manage SSH keys manually.
-* Restoring access to instances in case of key loss (if you opt to use regular keys instead of OS Login).
+* Restoring access to instances if you lose your SSH keys (if you opt to use regular SSH keys instead of OS Login keys).
 * Advanced mode for loading your own SSH keys (upcoming).
 
 #### What's next {#what-is-next}

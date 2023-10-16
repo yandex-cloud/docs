@@ -1,0 +1,1 @@
+The `billing.accounts.admin` role is assigned for a billing account. It allows to manage access permissions for the billing account (except for the `billing.accounts.owner` role). It includes the `billing.accounts.editor` role.

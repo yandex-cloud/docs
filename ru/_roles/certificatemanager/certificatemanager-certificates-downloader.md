@@ -1,0 +1,1 @@
+Роль `certificate-manager.certificates.downloader` позволяет получать содержимое сертификата.

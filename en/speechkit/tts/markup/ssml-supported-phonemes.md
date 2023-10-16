@@ -1,3 +1,8 @@
+---
+title: "List of SSML supported phonemes"
+description: "SSML phonemes are only supported for Russian."
+---
+
 # List of SSML supported phonemes
 
 {% include [note-not-silence](../../../_includes/speechkit/note-not-silence.md) %}

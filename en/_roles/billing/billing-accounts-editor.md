@@ -1,0 +1,1 @@
+The `billing.accounts.editor` role is assigned for a billing account. It grants permission to get payment invoices, activate promo codes, link clouds and services to the billing account, export details, create budgets, generate reconciliation reports, and reserve resources. This role includes the `billing.accounts.viewer role`.

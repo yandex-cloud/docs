@@ -1,3 +1,8 @@
+---
+title: "Detecting language"
+description: "Detects the language of the source text. The response is returned as the language code."
+---
+
 # Detecting language
 
 {% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}

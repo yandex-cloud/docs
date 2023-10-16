@@ -1,6 +1,6 @@
 # Создать HTTP-роутер для gRPC-трафика
 
-Чтобы создать HTTP-роутер и добавить в него маршрут:
+Чтобы создать [HTTP-роутер](../concepts/http-router.md) и добавить в него [маршрут](../concepts/http-router.md#routes):
 
 {% list tabs %}
 

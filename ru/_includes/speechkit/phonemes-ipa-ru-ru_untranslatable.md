@@ -24,11 +24,11 @@ r             | твердая "р" (alveolar trill)                            
 rʲ            | мягкая "р" (palatalized alveolar trill)                                                               | **р**яса, по**р**ебрик, ко**р**ь
 s             | твердая "с" (voiceless alveolar fricative)                                                            | **с**омнения, ко**с**ой, гру**з**
 sʲ            | мягкая "с" (palatalized voiceless alveolar fricative)                                                 | **с**ерьги, по**с**едеть, перепи**с**ь
-ɕ:            | шипящая "щ" (long voiceless alveolo-palatal fricative)                                                | **щ**енок, про**щ**ение, ово**щ**
+ɕː            | шипящая "щ" (long voiceless alveolo-palatal fricative)                                                | **щ**енок, про**щ**ение, ово**щ**
 ʂ             | шипящая "ш" (voiceless retroflex fricative)                                                           | **ш**орох, обо**ш**ли, лы**ж**
 t             | твердая "т" (voiceless alveolar plosive)                                                              | **т**ворчество, ус**т**алость, пле**д**
 tʲ            | мягкая "т" (palatalized voiceless alveolar plosive)                                                   | **т**епло, ус**т**ье, спа**т**ь
-t͡s            | звонкая "ц" (voiceless alveolar affricate)                                                            | **ц**апля, па**ц**иент, коне**ц**
+t͡s            | глухая "ц" (voiceless alveolar affricate)                                                             | **ц**апля, па**ц**иент, коне**ц**
 t͡ɕ            | глухая "ч" (voiceless alveolo-palatal affricate)                                                      | **ч**астота, по**ч**истить, обру**ч**
 v             | твердая "в" (voiced labiodental fricative)                                                            | **в**оротник, по**в**орот
 vʲ            | мягкая "в" (palatalized voiced labiodental fricative)                                                 | **в**ертел, об**в**ить
@@ -38,7 +38,7 @@ z             | твердая "з" (voiced alveolar fricative)                 
 zʲ            | мягкая "з" (palatalized voiced alveolar fricative)                                                    | **з**емля, по**з**еленеть
 ʐ             | короткая "ж" (voiced retroflex fricative)                                                             | **ж**ернова, по**ж**елтеть
 **Гласные**   |                                                                                                       |
-ə             | [Шва](https://en.wikipedia.org/wiki/Schwa) — безударные "а", "о" или "э" (mid central vowel)          | пат**о**ка, грустн**о**
+ə             | [Шва](https://en.wikipedia.org/wiki/Schwa) — любой безударный гласный (mid central vowel)             | пат**о**ка, грустн**о**
 a             | ударная "а" или "я" (open front unrounded vowel)                                                      | **а**лый, п**а**мять, ед**а**
 ʌ             | безударная "а" (near-open central vowel)                                                              | **о**рфография, к**а**ток, кошк**а**
 ɛ             | ударная "э" (open-mid front unrounded vowel)                                                          | **э**му, п**е**сня, кар**е**
