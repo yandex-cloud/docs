@@ -128,6 +128,8 @@ For a new cluster, you should set all the parameters that are required at creati
          --segment-resource-preset=<host class> \
          --segment-disk-size=<storage size, GB> \
          --segment-disk-type=<disk type> \
+         --segment-host-count=<number of segment hosts> \
+         --segment-in-host=<number of segments on host> \
          --zone-id=<availability zone> \
          --subnet-id=<subnet ID> \
          --assign-public-ip=<public access to the cluster: true or false>
@@ -150,6 +152,8 @@ For a new cluster, you should set all the parameters that are required at creati
       * `--segment-resource-preset`: [Segment host class](../concepts/instance-types.md#available-flavors).
       * `--segment-disk-size`: Segment host storage size in GB.
       * `--segment-disk-type`: [Disk type](../concepts/storage.md) on the segment hosts.
+      * `--segment-host-count`: Number of segment hosts.
+      * `--segment-in-host`: Number of segments on host.
       * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
       
