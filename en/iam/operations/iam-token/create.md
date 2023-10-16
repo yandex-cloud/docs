@@ -1,3 +1,8 @@
+---
+title: "How to get an IAM token for an account"
+description: "This guide describes how you can get an IAM token for an account."
+---
+
 # Getting an IAM token for a Yandex account
 
 {% note info %}
@@ -33,4 +38,3 @@
 ### Using an IAM token obtained via the CLI {#use-cli}
 
 {% include [include](../../../_includes/iam/iam-token-usage-examples.md) %}
-

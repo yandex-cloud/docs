@@ -24,7 +24,7 @@ This section covers the revision history for {{ mkf-name }}.
 * Improved the performance of transactions to modify user privileges for a large number of topics.
 * Added support for the `Message max bytes`, `Offsets retention minutes`, `Replica fetch max bytes`, and `Ssl cipher suites` [settings](concepts/settings-list.md#cluster-settings).
 * Added the ability to create a cluster on local disks on Intel Ice Lake.
-* Corrected the way to compute the `kafka_group_topic_partition_lag` metric.  For more information, see the [{{ monitoring-full-name }} metric reference](https://cloud.yandex.ru/docs/monitoring/metrics-ref/#managed-kafka). 
+* Corrected the way to compute the `kafka_group_topic_partition_lag` metric.  For more information, see the [{{ monitoring-full-name }} metric reference](../_includes/monitoring/metrics-ref/managed-kafka.md). 
 * New {{ KF }} version 3.2 available in `PRODUCTION` environment. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
 ## Q2 2022 {#q2-2022}

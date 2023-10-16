@@ -49,7 +49,7 @@ PUT /{bucket}/{key}?retention&versionId={versionId} HTTP/2
 ----- | -----
 `Retention` | <p>Корневой элемент с настройками блокировки.</p><p>Чтобы снять управляемую блокировку (если у вас есть роль `storage.admin`), оставьте элемент пустым.</p><p>Путь: `Retention`.</p>
 `Mode` | <p>[Тип](../../../concepts/object-lock.md#types) блокировки:</p><ul><li>`GOVERNANCE` — временная управляемая блокировка.</li><li>`COMPLIANCE` — временная строгая блокировка.</li></ul><p>Путь: `Retention\Mode`.</p>
-`RetainUntilDate` | <p>Дата и время окончания временной блокировки в любом из форматов, описанных в [стандарте HTTP](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). Например, `Mon, 12 Dec 2022 09:00:00 GMT`.</p><p>Путь: `Retention\RetainUntilDate`.</p>
+`RetainUntilDate` | <p>Дата и время окончания блокировки в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). Например, `2025-01-01T00:00:00`. Конец блокировки указывается в часовом поясе [UTC±00:00](https://ru.wikipedia.org/wiki/UTC±00:00). Чтобы указать другой часовой пояс, добавьте к концу записи `+` или `-` и смещение от UTC±00:00.</p><p>Путь: `Retention\RetainUntilDate`.</p>
 
 ## Ответ {#response}
 

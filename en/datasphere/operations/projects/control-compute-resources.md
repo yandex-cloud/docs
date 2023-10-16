@@ -1,3 +1,8 @@
+---
+title: "How to select computing resources"
+description: "Follow this guide to configure your computing resources."
+---
+
 # Selecting computing resources
 
 {% include [include](../../../_includes/datasphere/ui-control-compute-resources-intro.md) %}

@@ -173,6 +173,23 @@ To create a {{ managed-k8s-name }} cluster:
 
      {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
 
+  1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the logging settings in the `--master-logging` parameter of the {{ managed-k8s-name }} cluster create command:
+
+      ```bash
+      {{ yc-k8s }} cluster create \
+      ...
+        --master-logging enabled=<log_sending:_true_or_false>,`
+          `log-group-id=<log_group_ID>,`
+          `folder-id=<folder_ID>,`
+          `kube-apiserver-enabled=<kube-apiserver_log_sending:_true_or_false>,`
+          `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending:_true_or_false>,`
+          `events-enabled=<{{ k8s }}_event_sending:_true_or_false>
+      ```
+
+      Where:
+
+      {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
+
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}

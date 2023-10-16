@@ -16,6 +16,8 @@
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
+
 ## Установка {#installation}
 
 Для установки s3fs воспользуйтесь [инструкцией](https://github.com/s3fs-fuse/s3fs-fuse#installation) в репозитории проекта.

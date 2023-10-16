@@ -2,7 +2,6 @@
 
 После создания кластера {{ mkf-name }} вы можете:
 
-* [{#T}](#enable-api)
 * [{#T}](#change-brokers).
 * [{#T}](#change-zookeeper).
 * [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
@@ -10,77 +9,6 @@
 * [{#T}](#change-kafka-settings).
 * [{#T}](#move-cluster) из текущего каталога в другой каталог.
 * [{#T}](#change-sg-set).
-
-## Включить управление пользователями и топиками с помощью Admin API {#enable-api}
-
-{% note info %}
-
-Включенную настройку управления топиками через {{ KF }} Admin API невозможно выключить.
-
-{% endnote %}
-
-Чтобы [управлять топиками через Admin API {{ KF }}](../concepts/topics.md#management):
-
-{% list tabs %}
-
-- Консоль управления
-
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. В строке с нужным кластером нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
-  1. Включите настройку **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}**.
-  1. [Создайте пользователя-администратора](./cluster-accounts.md#create-user).
-
-- CLI
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы включить управление топиками через Admin API:
-
-    1. Выполните команду:
-
-        ```bash
-        {{ yc-mdb-kf }} cluster update <имя или идентификатор кластера> --unmanaged-topics=true
-        ```
-
-    1. [Создайте пользователя-администратора](./cluster-accounts.md#create-user).
-
-- {{ TF }}
-
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-
-    1. Измените в описании кластера {{ mkf-name }} значение параметра `unmanaged_topics`, чтобы включить управление топиками через Admin API:
-
-        ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-          config {
-            unmanaged_topics = true
-            ...
-          }
-          ...
-        }
-        ```
-
-    1. [Создайте пользователя-администратора](./cluster-accounts.md#create-user).
-
-- API
-
-  Чтобы включить управление топиками через Admin API:
-
-  1. Воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
-
-      * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-      * Новую конфигурацию кластера в параметре `configSpec`. В конфигурации укажите значение параметра `"unmanagedTopics": true`.
-      * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
-
-      {% include [Node API updateMask](../../_includes/note-api-updatemask.md) %}
-
-  1. [Создайте пользователя-администратора](./cluster-accounts.md#create-user).
-
-{% endlist %}
 
 ## Изменить класс и количество хостов-брокеров {#change-brokers}
 

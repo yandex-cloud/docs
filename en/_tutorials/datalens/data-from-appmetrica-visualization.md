@@ -5,7 +5,7 @@ You can visualize and explore AppMetrica data in {{ datalens-full-name }} using 
 * Direct access.
    {{ datalens-name }} connects directly to AppMetrica. This method is the easiest and fastest, but the set of supported functions is [limited](../../datalens/function-ref/availability.md).
 * Real-time export of data from AppMetrica to {{ mch-name }}.
-   Raw data is available and its pre-aggregation and post-processing at the DB level are supported. To implement this option, [set up data export](https://appmetrica.yandex.ru/docs/common/cloud/about.html?lang=en) and [create a connection](https://cloud.yandex.com/en/docs/datalens/operations/connection/create-clickhouse) from {{ datalens-name }} to the {{ CH }} database.
+   Raw data is available and its pre-aggregation and post-processing at the DB level are supported. To implement this option, [set up data export](https://appmetrica.yandex.ru/docs/common/cloud/about.html?lang=en) and [create a connection](../../datalens/operations/connection/create-clickhouse.md) from {{ datalens-name }} to the {{ CH }} database.
 
 In this scenario, direct access is used. An application added to [AppMetrica](https://appmetrica.yandex.com) will be used as the data source. You can view a list of applications available to you under [Applications](https://appmetrica.yandex.com/application/list).
 

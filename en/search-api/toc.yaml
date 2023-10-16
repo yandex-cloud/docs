@@ -13,6 +13,8 @@ items:
         href: operations/test-request.md
       - name: Authentication in the API
         href: operations/auth.md
+      - name: Requesting limits
+        href: operations/request-limits.md
   - name: Concepts
     items:
       - name: About {{ search-api-name }}

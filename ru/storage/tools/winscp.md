@@ -21,6 +21,8 @@ keywords:
 
 {% include [aws-tools-prepare-with-bucket](../../_includes/aws-tools/aws-tools-prepare-with-bucket.md) %}
 
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
+
 ## Установка {#installation}
 
 [Скачайте](https://winscp.net/eng/download.php) дистрибутив WinSCP и запустите его.

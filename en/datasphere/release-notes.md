@@ -9,6 +9,14 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release on 25/09/2023 {#250923}
+
+1. With [DataSphere Jobs](concepts/jobs.md), cloud computing resources in {{ ml-platform-name }} can now be used from a user's local environment.
+1. {{ ml-platform-name }} projects now have a new type of resources: [Models](concepts/models/index.md).
+1. Optimized JupyterLab 3 (available in [Dedicated](concepts/project.md#dedicated) mode) by adding new extensions.
+1. [YandexGPT model retraining](../overview/concepts/launch-stages.md) is now available at the [Preview](concepts/models/foundation-models.md#yagpt-tuning) stage.
+1. Fixed bugs and added minor improvements in platform performance.
+
 ## Release on 18/09/2023 {#180923}
 
 1. A new DS Default (Python 3.10) system image is used by default.

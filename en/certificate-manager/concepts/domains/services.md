@@ -1,9 +1,14 @@
+---
+title: "Integration of the domain management system with {{ yandex-cloud }} services"
+description: "You can use verified {{ certificate-manager-name }} domains in {{ api-gw-full-name }}."
+---
+
 # Integration of the domain management system with {{ yandex-cloud }} services
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
 
 You can use verified {{ certificate-manager-name }} domains in the following {{ yandex-cloud }} services:
-* [{#T}](#api-gw).
+* [{#T}](#api-gw)
 
 ## {{ api-gw-full-name }} {#api-gw}
 

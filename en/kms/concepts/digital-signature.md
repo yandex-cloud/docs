@@ -1,3 +1,8 @@
+---
+title: "Digital signature in {{ kms-short-name }}"
+description: "This article describes the features of digital signatures in {{ kms-short-name }}."
+---
+
 # Digital signature in {{ kms-short-name }}
 
 {% note info %}
@@ -6,7 +11,7 @@
 
 {% endnote %}
 
-_Digital signature_ is a product of a cryptographic operation that provides additional data protection. Digital signature serves these main purposes:
+_Digital signature_ is a product of a cryptographic operation that provides additional data protection. Digital signatures serve these main purposes:
 
 * Validating data
 * Checking data integrity
@@ -49,13 +54,26 @@ The digital signature process actors are the owner of a key pair's private key a
 * `ECDSA_NIST_P521_SHA_512`
 * `ECDSA_NIST_SECP256_K1_SHA_256`
 
-### Verifying digital signatures {#signature-verification}
+## Verifying digital signatures {#signature-verification}
 
 Digital signature verification is performed by the side that has no access to the digital signature's private key. The signature is verified using the public key.
 
-You can use the [OpenSSL](https://www.openssl.org/) utility for digital signature verification.
+### ECDSA signature {#ecdsa-verification}
+
+To verify a digital signature:
 
 1. Get the public key of the digital signature.
-1. Verify the digital signature using OpenSSL. Specify a suitable hashing algorithm as a separate command parameter:
 
-   {% include [signature-verification](../../_includes/kms/signature-verification.md) %}
+1. Perform verification:
+
+    {% include [signature-verification-ecdsa](../../_includes/kms/signature-verification-ecdsa.md) %}
+
+### RSA signature {#rca-verification}
+
+To verify a digital signature:
+
+1. Get the public key of the digital signature.
+
+1. Perform verification:
+
+    {% include [signature-verification-rsa](../../_includes/kms/signature-verification-rsa.md) %}

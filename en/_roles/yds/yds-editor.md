@@ -1,0 +1,1 @@
+The `yds.editor` role enables you to write data to and read data from Data Streams streams, as well as view their settings. The `yds.editor` role also includes all permissions of the `ydb.editor` role.

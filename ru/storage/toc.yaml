@@ -35,6 +35,8 @@ items:
             href: operations/buckets/configure-object-lock.md
           - name: Управление метками бакета
             href: operations/buckets/tagging.md
+          - name: Получение информации и статистики о бакете
+            href: operations/buckets/get-info.md
       - name: Объекты
         items:
           - name: Загрузка объекта

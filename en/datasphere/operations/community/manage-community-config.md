@@ -1,3 +1,8 @@
+---
+title: "How to manage community limits"
+description: "Follow this guide to limit resources available across your community projects and {{ ml-platform-name }} features."
+---
+
 # Managing community limits
 
 {% note info %}

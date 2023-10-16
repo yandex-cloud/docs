@@ -1,3 +1,8 @@
+---
+title: "How to create a domain"
+description: "This guide describes how you can create a domain."
+---
+
 # Creating a domain
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

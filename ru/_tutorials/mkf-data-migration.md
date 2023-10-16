@@ -20,7 +20,6 @@
 * Вручную
 
     1. Подготовьте кластер-приемник:
-        * Включите [управление топиками](../managed-kafka/concepts/topics.md#management) через Admin API.
         * Создайте [пользователя-администратора](../managed-kafka/operations/cluster-accounts.md#create-account) с именем `admin-cloud`.
         * Включите настройку [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
         * Настройте [группы безопасности](../managed-kafka/operations/connect.md#configuring-security-groups), если это требуется для подключения к кластеру-приемнику.
@@ -57,7 +56,7 @@
         * сеть;
         * подсеть;
         * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру из интернета;
-        * кластер {{ mkf-name }} с [управлением топиками](../managed-kafka/concepts/topics#management) через Admin API, с [пользователем-администратором](../managed-kafka/operations/cluster-accounts.md#create-account) `admin-cloud` и с включенной настройкой [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics);
+        * кластер {{ mkf-name }} с [пользователем-администратором](../managed-kafka/operations/cluster-accounts.md#create-account) `admin-cloud` и с включенной настройкой [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics);
         * MirrorMaker-коннектор.
 
     1. Укажите в файле `kafka-mirrormaker-connector.tf`:
@@ -109,7 +108,6 @@
 
     1. [Создайте кластер-приемник {{ mkf-name }}](../managed-kafka/operations/cluster-create.md):
 
-        * С включенным [управлением топиками](../managed-kafka/concepts/topics#management) через Admin API.
         * С [пользователем-администратором](../managed-kafka/operations/cluster-accounts.md#create-account) `admin-cloud`.
         * С включенной настройкой [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
 
@@ -126,7 +124,7 @@
         * сеть;
         * подсеть;
         * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
-        * кластер {{ mkf-name }} с включенным [управлением топиками](../managed-kafka/concepts/topics#management) через Admin API, с [пользователем-администратором](../managed-kafka/operations/cluster-accounts.md#create-account) `admin-cloud` и с включенной настройкой [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics);
+        * кластер {{ mkf-name }} с [пользователем-администратором](../managed-kafka/operations/cluster-accounts.md#create-account) `admin-cloud` и с включенной настройкой [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics);
         * виртуальная машина с публичным доступом из интернета.
 
     1. Укажите в файле `kafka-mirror-maker.tf`:

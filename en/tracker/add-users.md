@@ -9,6 +9,7 @@ To collaborate on issues with your colleagues, add them to {{ tracker-name }}. T
 - [Configuring an identity federation](#federation). With an identity federation, your employees can log in to {{ tracker-name }} using their corporate accounts in Active Directory, Google Workspace, or other user account management systems.
 
 
+
 {% note warning %}
 
 If [full access for new users](access.md#access-new-users) is enabled automatically in the {{ tracker-name }} settings, the [cost of using the service](https://cloud.yandex.ru/docs/tracker/pricing#sec_price) may increase when adding new users to your organization.

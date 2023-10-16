@@ -69,7 +69,7 @@
 
    ![image](../../_assets/datalens/solution-07/08-dataset.png)
 
-   Здесь есть возможность добавить [поля данных](https://cloud.yandex.ru/docs/datalens/concepts/dataset/data-model#field) и [вычисляемые поля](https://cloud.yandex.ru/docs/datalens/concepts/calculations), изменить тип данных поля, правила агрегации, переименовать поле.
+   Здесь есть возможность добавить [поля данных](../../datalens/concepts/dataset/data-model.md#field) и [вычисляемые поля](../../datalens/concepts/calculations/index.md), изменить тип данных поля, правила агрегации, переименовать поле.
 
    ![image](../../_assets/datalens/solution-07/09-rename.png)
 
@@ -218,7 +218,7 @@
 
 ## Шаг 3. Создайте первый чарт — Тепловую карту {#step3}
 
-Приступайте к созданию первого [чарта](https://cloud.yandex.ru/docs/datalens/concepts/chart).
+Приступайте к созданию первого [чарта](../../datalens/concepts/chart/index.md).
 
 1. Нажмите **Создать чарт**.
 
@@ -390,7 +390,7 @@
 
 ## Шаг 8. Добавьте селекторы и сформируйте дашборд {#step8}
 
-[Селекторы](https://cloud.yandex.ru/docs/datalens/concepts/dashboard#selector) позволяют фильтровать данные по значениям.
+[Селекторы](../../datalens/concepts/dashboard.md#selector) позволяют фильтровать данные по значениям.
 
 1. Добавьте селектор для отбора по названию региона.
 

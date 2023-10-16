@@ -1,3 +1,8 @@
+---
+title: "{{ captcha-name }} public IP addresses"
+description: "For proper interaction with {{ captcha-name }}, allow access to specific IPs."
+---
+
 # {{ captcha-name }} public IP addresses
 
 {% include [ips.md](../../_includes/smartcaptcha-ips.md) %}

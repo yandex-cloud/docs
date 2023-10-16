@@ -7,7 +7,6 @@
 ## Управление топиками и разделами через Admin API {{ KF }} {#admin-api}
 
 Чтобы управлять топиками через [Admin API {{ KF }}](https://kafka.apache.org/documentation/#adminapi):
-1. Включите настройку **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** при [создании кластера](cluster-create.md) или [изменении его настроек](cluster-update.md).
 1. [Создайте](cluster-accounts.md#create-user) в кластере пользователя-администратора.
 1. Управляйте топиками от имени этого пользователя с помощью запросов к [Admin API {{ KF }}](https://kafka.apache.org/documentation/#adminapi). О работе с Admin API читайте в документации выбранного языка программирования.
 

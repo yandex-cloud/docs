@@ -1,0 +1,1 @@
+The `billing.accounts.owner` role is granted automatically when you create a billing account. The role granted when creating an account cannot be revoked, but it can be assigned to other users and revoked from them.

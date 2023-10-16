@@ -24,6 +24,8 @@ To get started with the service:
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
    1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
    1. Enter a CAPTCHA name.
+   1. Select the type of the [main task](./concepts/tasks.md#main-task) to be solved by the user.
+   1. Select the type of the [additional task](./concepts/tasks.md#additional-task) to be solved by the user.
    1. Select the complexity `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
    1. Specify a list of sites where the CAPTCHA will be placed.
    1. Leave the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** as is.

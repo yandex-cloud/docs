@@ -1,3 +1,8 @@
+---
+title: "Public materials about {{ ml-platform-name }}"
+description: "Videos of conferences and webinars on {{ ml-platform-name }}."
+---
+
 # Public materials about {{ ml-platform-name }}
 
 ## Conferences and webinars {#conf-and-webinars}
@@ -6,7 +11,7 @@
 
 * Remote code execution in ML: tools and approaches.
 
-   * [Click here to view the recording](https://www.youtube.com/watch?v=qa9c0f6D4Jw&t=24656s).
+   * [Click here to view the recording](https://youtu.be/iWnh2Da1RG4?si=R26ZdYqwqqQrv8rR).
 
 ### 2023: Webinar {#webinar-2023}
 

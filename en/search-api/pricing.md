@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ search-api-name }}
+# {{ search-api-name }} pricing
 
 ## What goes into the cost of using {{ search-api-name }} {#rules}
 

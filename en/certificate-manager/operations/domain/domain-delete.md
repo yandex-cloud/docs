@@ -1,3 +1,8 @@
+---
+title: "How to delete a domain"
+description: "This guide describes how you can delete a domain."
+---
+
 # Deleting a domain
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

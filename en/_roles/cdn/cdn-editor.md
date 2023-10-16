@@ -1,0 +1,1 @@
+The `cdn.editor` role enables you to view, create, modify and delete CDN resources and origin groups, as well as activate origin shielding and log export for CDN resources.

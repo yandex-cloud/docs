@@ -83,91 +83,91 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Миграция данных
+      - name: Миграция
         items:
-          - name: Миграция кластера {{ PG }}
+          - name: Кластер {{ PG }}
             href: tutorials/managed-postgresql.md
-          - name: Миграция данных в {{ MY }}
+          - name: Данные в {{ MY }}
             href: tutorials/managed-mysql.md
-          - name: Миграция на сторонний кластер {{ MY }}
+          - name: Сторонний кластер {{ MY }}
             href: tutorials/managed-mysql-to-mysql.md
-          - name: Миграция кластера {{ MG }}
+          - name: Кластер {{ MG }}
             href: tutorials/managed-mongodb.md
-          - name: Миграция кластера {{ CH }}
+          - name: Кластер {{ CH }}
             href: tutorials/managed-clickhouse.md
-          - name: Миграция кластера {{ GP }}
+          - name: Кластер {{ GP }}
             href: tutorials/managed-greenplum.md
       - name: Зеркалирование данных
         items:
-          - name: Зеркалирование {{ KF }}
+          - name: '{{ KF }}'
             href: tutorials/mkf-to-mkf.md
       - name: Миграция со сменой типа хранения данных
         items:
-          - name: Миграция {{ MY }} в {{ ydb-short-name }}
+          - name: '{{ MY }} в {{ ydb-short-name }}'
             href: tutorials/managed-mysql-to-ydb.md
-          - name: Миграция {{ PG }} в {{ ydb-short-name }}
+          - name: '{{ PG }} в {{ ydb-short-name }}'
             href: tutorials/mpg-to-ydb.md
-          - name: Миграция {{ MY }} в {{ PG }}
+          - name: '{{ MY }} в {{ PG }}'
             href: tutorials/mmy-to-mpg.md
-          - name: Миграция {{ PG }} в {{ MY }}
+          - name: '{{ PG }} в {{ MY }}'
             href: tutorials/mpg-to-mmy.md
-      - name: Захват изменений данных
+      - name: Захват изменений данных и поставка в очередь
         items:
-          - name: Захват изменений {{ MY }} и поставка в {{ KF }}
+          - name: '{{ MY }} в {{ KF }}'
             href: tutorials/cdc-mmy.md
-          - name: Захват изменений {{ MY }} и поставка в {{ DS }}
+          - name: '{{ MY }} в {{ DS }}'
             href: tutorials/mmy-to-yds.md
-          - name: Захват изменений {{ PG }} и поставка в {{ KF }}
+          - name: '{{ PG }} в {{ KF }}'
             href: tutorials/cdc-mpg.md
-          - name: Захват изменений {{ PG }} и поставка в {{ DS }}
+          - name: '{{ PG }} в {{ DS }}'
             href: tutorials/mpg-to-yds.md
-          - name: Захват изменений {{ ydb-short-name }} и поставка в {{ KF }}
+          - name: '{{ ydb-short-name }} в {{ KF }}'
             href: tutorials/cdc-ydb.md
-          - name: Захват изменений {{ ydb-short-name }} и поставка в {{ DS }}
+          - name: '{{ ydb-short-name }} и поставка в {{ DS }}'
             href: tutorials/ydb-to-yds.md
       - name: Поставка данных из очередей
         items:
-          - name: Поставка из {{ KF }} в {{ CH }}
+          - name: '{{ KF }} в {{ CH }}'
             href: tutorials/mkf-to-mch.md
-          - name: Поставка из {{ KF }} в {{ PG }}
+          - name: '{{ KF }} в {{ PG }}'
             href: tutorials/mkf-to-mpg.md
-          - name: Поставка из {{ KF }} в {{ GP }}
+          - name: '{{ KF }} в {{ GP }}'
             href: tutorials/managed-kafka-to-greenplum.md
-          - name: Поставка из {{ KF }} в {{ ES }}
+          - name: '{{ KF }} в {{ ES }}'
             href: tutorials/mkf-to-mes.md
-          - name: Поставка из {{ KF }} в {{ MG }}
+          - name: '{{ KF }} в {{ MG }}'
             href: tutorials/mkf-to-mmg.md
-          - name: Поставка из {{ KF }} в {{ MY }}
+          - name: '{{ KF }}  в {{ MY }}'
             href: tutorials/mkf-to-mmy.md
-          - name: Поставка из {{ KF }} в {{ OS }}
+          - name: '{{ KF }}  в {{ OS }}'
             href: tutorials/mkf-to-mos.md
-          - name: Поставка из {{ KF }} в {{ ydb-short-name }}
+          - name: '{{ KF }}  в {{ ydb-short-name }}'
             href: tutorials/mkf-to-ydb.md
-          - name: Поставка из {{ KF }} в {{ DS }}
+          - name: '{{ KF }}  в {{ DS }}'
             href: tutorials/mkf-to-yds.md
-          - name: Поставка из {{ DS }} в {{ CH }}
+          - name: '{{ DS }}  в {{ CH }}'
             href: tutorials/yds-to-clickhouse.md
-          - name: Поставка из {{ DS }} в {{ objstorage-name }}
+          - name: '{{ DS }} в {{ objstorage-name }}'
             href: tutorials/yds-to-objstorage.md
-          - name: Поставка логов {{ at-name }} из {{ DS }} в {{ OS }}
+          - name: '{{ DS }} в {{ OS }}'
             href: tutorials/trails-to-os.md
       - name: Загрузка данных в витрины
         items:
-          - name: Загрузка {{ GP }} в {{ CH }}
+          - name: '{{ GP }} в {{ CH }}'
             href: tutorials/greenplum-to-clickhouse.md
-          - name: Загрузка {{ MY }} в {{ CH }}
+          - name: '{{ MY }} в {{ CH }}'
             href: tutorials/mysql-to-clickhouse.md
-          - name: Загрузка {{ metrika }} в {{ CH }}
+          - name: '{{ metrika }} в {{ CH }}'
             href: tutorials/metrika-to-clickhouse.md
-          - name: Загрузка {{ PG }} в {{ CH }}
+          - name: '{{ PG }} в {{ CH }}'
             href: tutorials/rdbms-to-clickhouse.md
-          - name: Загрузка {{ GP }} в {{ PG }}
+          - name: '{{ GP }} в {{ PG }}'
             href: tutorials/greenplum-to-postgresql.md
       - name: Загрузка данных в {{ objstorage-name }}
         items:
-          - name: Загрузка {{ MY }} в {{ objstorage-name }}
+          - name: '{{ MY }} в {{ objstorage-name }}'
             href: tutorials/mmy-objs-migration.md
-          - name: Загрузка {{ PG }} в {{ objstorage-name }}
+          - name: '{{ PG }} в {{ objstorage-name }}'
             href: tutorials/mpg-to-objstorage.md
   - name: Концепции
     items:

@@ -35,6 +35,8 @@ items:
     items:
       - name: User validation
         href: concepts/validation.md
+      - name: Task types
+        href: concepts/tasks.md
       - name: Widget connection methods
         href: concepts/widget-methods.md
       - name: Invisible CAPTCHA

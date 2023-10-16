@@ -1,6 +1,6 @@
 # Подключение к {{ objstorage-name }} из {{ vpc-name }}
 
-Подключиться к [{{ objstorage-full-name }}](../../storage/) в {{ yandex-cloud }} можно через соответствующий [API Endpoint](../../api-design-guide/concepts/endpoints.md), FQDN которого потом преобразуется в публичный IP-адрес с помощью службы DNS. 
+Подключиться к [{{ objstorage-full-name }}](../../storage/) в {{ yandex-cloud }} можно через соответствующий [API Endpoint](../../api-design-guide/concepts/endpoints.md), FQDN которого потом преобразуется в публичный IP-адрес с помощью службы DNS.
 
 В статье описано, как развернуть в {{ yandex-cloud }} облачную инфраструктуру для организации доступа к {{ objstorage-name }} для ресурсов, которые размещены в [облачной сети](../../vpc/concepts/network.md#network) {{ vpc-short-name }} и не имеют публичных IP-адресов или выхода в интернет через [NAT-шлюз](../../vpc/concepts/gateways.md).
 
@@ -13,15 +13,15 @@
 | `s3-vpc` | Облачная сеть с ресурсами, для которых организуется доступ к {{ objstorage-name }}. При развертывании можно также указать уже существующую облачную сеть. |
 | `s3-nlb` | [Внутренний сетевой балансировщик](../../network-load-balancer/concepts/nlb-types.md), который обеспечивает прием трафика к {{ objstorage-name}}. Балансировщик принимает TCP-трафик с портом назначения 443 и распределяет его по ресурсам (ВМ) в целевой группе. |
 | `s3-nat-group` | [Целевая группа](../../network-load-balancer/concepts/target-resources.md) балансировщика с ВМ, на которых включена функция NAT. |
-| `nat-a1-vm`, `nat-a2-vm`, `nat-b1-vm`, `nat-b2-vm` | ВМ с NAT в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a` и `{{ region-id }}-b` для передачи трафика к {{ objstorage-name }} и обратно с трансляцией IP-адресов источников и получателей трафика. | 
-| `pub-ip-a1`, `pub-ip-a2`, `pub-ip-b1`, `pub-ip-b2` | Публичные IP-адреса ВМ, в которые облачная сеть {{ vpc-short-name }} транслирует их внутренние IP-адреса. | 
-| `DNS зона и A-запись` | Внутренняя [DNS-зона](../../dns/concepts/dns-zone.md) `{{ s3-storage-host }}.` в сети `s3-vpc` с [ресурсной записью](../../dns/concepts/resource-record.md) типа `A` , сопоставляющей доменное имя `{{ s3-storage-host }}` c IP-адресом внутреннего сетевого балансировщика. |
+| `nat-a1-vm`, `nat-a2-vm`, `nat-b1-vm`, `nat-b2-vm` | ВМ с NAT в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a` и `{{ region-id }}-b` для передачи трафика к {{ objstorage-name }} и обратно с трансляцией IP-адресов источников и получателей трафика. |
+| `pub-ip-a1`, `pub-ip-a2`, `pub-ip-b1`, `pub-ip-b2` | Публичные IP-адреса ВМ, в которые облачная сеть {{ vpc-short-name }} транслирует их внутренние IP-адреса. |
+| `DNS зона и A-запись` | Внутренняя [DNS-зона](../../dns/concepts/dns-zone.md) `{{ s3-storage-host }}.` в сети `s3-vpc` с [ресурсной записью](../../dns/concepts/resource-record.md) типа `A`, сопоставляющей доменное имя `{{ s3-storage-host }}` с IP-адресом внутреннего сетевого балансировщика. |
 | `s3-bucket-<...>` | [Бакет](../../storage/concepts/bucket.md) в {{ objstorage-name }}. |
 | `s3-subnet-a`, `s3-subnet-b` | Облачные [подсети](../../vpc/concepts/network.md#subnet) для размещения ВМ с NAT в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`. |
 | `test-s3-vm` | Тестовая ВМ для проверки доступа к {{ objstorage-name }}. |
 | `test-s3-subnet-a` | Облачная подсеть для размещения тестовой ВМ. |
 
-Для облачной сети с размещаемыми ресурсами в сервисе [{{ dns-name }}](../../dns/concepts/) создается внутренняя DNS-зона `{{ s3-storage-host }}.` и ресурсная запись типа `A`, сопоставляющая доменное имя `{{ s3-storage-host }}` сервиса {{ objstorage-name }} c IP-адресом [внутреннего сетевого балансировщика](../../network-load-balancer/concepts/nlb-types.md). Благодаря этой записи трафик от облачных ресурсов к {{ objstorage-name }} будет направляться на внутренний балансировщик, который будет распределять нагрузку по виртуальным машинам с NAT. 
+Для облачной сети с размещаемыми ресурсами в сервисе [{{ dns-name }}](../../dns/concepts/) создается внутренняя DNS-зона `{{ s3-storage-host }}.` и ресурсная запись типа `A`, сопоставляющая доменное имя `{{ s3-storage-host }}` сервиса {{ objstorage-name }} с IP-адресом [внутреннего сетевого балансировщика](../../network-load-balancer/concepts/nlb-types.md). Благодаря этой записи трафик от облачных ресурсов к {{ objstorage-name }} будет направляться на внутренний балансировщик, который будет распределять нагрузку по виртуальным машинам с NAT.
 
 Для развертывания ВМ с NAT используется образ [NAT-инстанс на основе Ubuntu 22.04 LTS](/marketplace/products/yc/nat-instance-ubuntu-22-04-lts) из {{ marketplace-name }}, который обеспечивает трансляции IP-адресов источника и назначения, чтобы обеспечить маршрутизацию трафика до публичного IP-адреса {{ objstorage-name }}.
 
@@ -32,6 +32,7 @@
 ### Результаты тестирования пропускной способности ВМ с NAT {#speed-test}
 
 Решение тестировалось на одной ВМ с NAT в следующей [конфигурации](../../compute/concepts/performance-levels.md):
+
 * Платформа — Intel Ice Lake (`standard-v3`).
 * Уровень производительности — 100%.
 * Количество vCPU — 2.
@@ -129,7 +130,7 @@ warp get \
 
     {% endcut %}
 
-## Разверните решение с помощью Terraform {#deploy}
+## Разверните решение с помощью {{ TF }} {#deploy}
 
 1. Склонируйте на вашу рабочую станцию [репозиторий](https://github.com/yandex-cloud/yc-architect-solution-library/) `yandex-cloud/yc-architect-solution-library` и перейдите в папку `yc-s3-private-endpoint`:
 
@@ -201,16 +202,19 @@ warp get \
 ## Проверьте работоспособность решения {#check}
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором ранее были созданы ресурсы.
-1. Выберите сервис **{{ compute-name }}** и в списке виртуальных машин выберите ВМ `test-s3-vm`. 
-1. Подключитесь к серийной консоли ВМ, введите логин `admin` и пароль из вывода команды `terraform output test_vm_password` (укажите значение без кавычек).
+1. Выберите сервис **{{ compute-name }}**.
+1. В списке виртуальных машин выберите ВМ `test-s3-vm`.
+1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_console }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
+1. Введите логин `admin` и пароль из вывода команды `terraform output test_vm_password` (укажите значение без кавычек).
 
 1. Выполните команду:
 
     ```bash
     dig {{ s3-storage-host }}
-    ``` 
+    ```
 
-1.  Убедитесь, что в ответе от DNS-сервера доменному имени сервиса {{ objstorage-name }} соответствует IP-адрес внутреннего балансировщика. Результат вывода ресурсной записи типа `A`:
+1. Убедитесь, что в ответе от DNS-сервера доменному имени сервиса {{ objstorage-name }} соответствует IP-адрес внутреннего балансировщика. Результат вывода ресурсной записи типа `A`:
 
     ```text
     ;; ANSWER SECTION:
@@ -231,14 +235,14 @@ warp get \
     ```
 
 1. Дополнительно можете выполнить несколько команд для проверки работы {{ objstorage-name }}. Имя бакета будет получено из переменной среды на тестовой ВМ.
-   
+
     Загрузите скачанный тестовый файл в бакет под другим именем:
 
     ```bash
     aws --endpoint-url=https://{{ s3-storage-host }} \
     s3 cp s3_test_file.txt s3://$BUCKET/textfile.txt
     ```
-    
+
     Результат:
 
     ```text

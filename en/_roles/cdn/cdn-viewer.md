@@ -1,0 +1,1 @@
+The `cdn.viewer` role enables the user to view CDN resources and origin groups.

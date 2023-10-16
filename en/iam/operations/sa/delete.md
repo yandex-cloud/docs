@@ -1,8 +1,13 @@
+---
+title: "How to delete a service account"
+description: "This guide describes how you can delete a service account."
+---
+
 # Deleting a service account
 
 {% note warning %}
 
-Deleting a [service account](../../concepts/users/service-accounts.md) is permanent. You can't restore a deleted service account; you can only [re-create it](create.md).
+Deleting a [service account](../../concepts/users/service-accounts.md) is permanent. You cannot restore a deleted service account; you can only [re-create it](create.md).
 
 {% endnote %}
 
@@ -86,7 +91,7 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```bash

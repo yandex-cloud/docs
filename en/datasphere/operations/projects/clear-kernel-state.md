@@ -1,3 +1,8 @@
+---
+title: "How to reset the interpreter state"
+description: "Follow this guide to reset the interpreter state."
+---
+
 # Resetting the interpreter state
 
 {% note alert %}

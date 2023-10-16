@@ -1,0 +1,1 @@
+The `yds.writer` role allows writing data to Data Streams streams.

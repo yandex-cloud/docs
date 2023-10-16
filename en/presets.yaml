@@ -35,6 +35,7 @@ default:
   speechkit-full-name: Yandex SpeechKit
   speechkit-pro-full-name: Yandex SpeechKit Pro
   brand-voice-full-name: Yandex SpeechKit Brand Voice
+  speechsense-full-name: Yandex SpeechSense
   network-load-balancer-full-name: Yandex Network Load Balancer
   message-queue-full-name: Yandex Message Queue
   cloud-apps-full-name: Yandex Cloud Apps
@@ -118,6 +119,7 @@ default:
   brand-voice-premium-name: SpeechKit Brand Voice Premium
   brand-voice-cc-name: SpeechKit Brand Voice Call Center
   sk-hybrid-name: SpeechKit Hybrid
+  speechsense-name: SpeechSense
   network-load-balancer-name: Network Load Balancer
   message-queue-name: Message Queue
   cloud-apps-name: Cloud Apps
@@ -833,6 +835,7 @@ default:
   tf-docs-link: https://terraform-provider.yandexcloud.net
   tf-provider-link: https://terraform-provider.yandexcloud.net/
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
+  tf-provider-datasources-link: https://terraform-provider.yandexcloud.net/DataSources
   tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/Resources/datatransfer_endpoint
   tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/Resources/datatransfer_transfer
   tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/Resources/kubernetes_cluster
@@ -6266,7 +6269,6 @@ default:
           button_lifecycle-dry-run: Dry run
           button_select-repositories: Select repositories
           button_update-ip-permissions: Set
-          field_scan-on-upload: Scan images on upload
           label_add-scan-rule: Add scan rule
           label_all-repositories: All repositories
           label_expire-period-days: Expire period, in days
@@ -6275,7 +6277,6 @@ default:
           label_lifecycle-dry-runs: Lifecycle dru runs
           label_lifecycle-rules: Lifecycle policy rules
           label_only-selected: Only selected
-          label_repositories: Repositories
           label_retained-top: Retained top
           label_selected: Selected
           label_tag-regexp: Tag regexp
@@ -7412,6 +7413,8 @@ default:
             field_date: Trigger date
             field_days: Trigger time
             field_description: Description
+            field_max-size: Maximum size in bytes
+            field_min-size: Minimum size in bytes
             field_no-prefix: All objects
             field_prefix: Prefix
             field_status: Status
@@ -7419,6 +7422,11 @@ default:
             value_expiration-date: Exact date
             value_expiration-days: Number of days
             value_expired-object-delete-marker: Deletion marker without noncurrent versions
+            value_type-abort-incomplete-multipart-upload: AbortIncompleteMultipartUpload
+            value_type-expiration: Expiration
+            value_type-transition: Transition
+            value_type-version-expiration: NoncurrentVersionExpiration
+            value_type-version-transition: NoncurrentVersionTransition
           policy:
             button_add-resource: Add resource
             button_add-value: Add value

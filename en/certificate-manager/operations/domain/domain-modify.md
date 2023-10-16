@@ -1,3 +1,8 @@
+---
+title: "How to update a domain description"
+description: "This guide describes how you can update a domain description."
+---
+
 # Updating a domain description
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

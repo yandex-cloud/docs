@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Правила тарификации для {{ translate-name }}
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}

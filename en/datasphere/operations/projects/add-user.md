@@ -1,4 +1,9 @@
-# Add a user to a project
+---
+title: "How to add users to a project"
+description: "Follow this guide to add users to a project."
+---
+
+# Adding a user to a project
 
 {% include [select-user](../../../_includes/datasphere/organization-users.md) %}
 

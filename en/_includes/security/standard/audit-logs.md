@@ -55,7 +55,7 @@ Solutions for exporting {{ yandex-cloud }} audit logs are available for the foll
 
 * Splunk: [Collecting, monitoring, and analyzing audit logs in Splunk SIEM](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
 
-* MaxPatrol SIEM: [Collecting, monitoring, and analyzing audit logs in MaxPatrol SIEM](https://cloud.yandex.ru/docs/audit-trails/tutorials/maxpatrol)
+* MaxPatrol SIEM: [Collecting, monitoring, and analyzing audit logs in MaxPatrol SIEM](../../../audit-trails/tutorials/maxpatrol.md)
 
 * Wazuh: [Collecting, monitoring, and analyzing audit logs in Wazuh](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-wazuh/README.md)
 

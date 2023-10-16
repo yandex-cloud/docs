@@ -1,6 +1,6 @@
-# Создание авторизованных ключей
+# Создание авторизованного ключа
 
-Чтобы создать [авторизованные ключи](../../concepts/authorization/key.md):
+Чтобы создать [авторизованный ключ](../../concepts/authorization/key.md):
 
 {% list tabs %}
 
@@ -23,7 +23,7 @@
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Создайте авторизованные ключи для сервисного аккаунта `my-robot`:
+  Создайте авторизованный ключ для сервисного аккаунта `my-robot`:
 
   ```bash
   yc iam key create --service-account-name my-robot -o my-robot-key.json
