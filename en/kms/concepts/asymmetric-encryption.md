@@ -1,3 +1,8 @@
+---
+title: "Asymmetric encryption in {{ kms-short-name }}"
+description: "This guide describes the features of asymmetric encryption in {{ kms-short-name }}."
+---
+
 # Asymmetric encryption in {{ kms-short-name }}
 
 {% note info %}

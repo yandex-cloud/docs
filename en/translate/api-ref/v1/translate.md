@@ -1,3 +1,8 @@
+---
+title: "How to translate text"
+description: "Translates the source text into the specified language."
+---
+
 # How to translate text
 
 {% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}
@@ -49,7 +54,7 @@ export TOKEN=<IAM-token>
 curl -X POST \
      -H "Authorization: Bearer ${TOKEN}" \
      -d "folderId=${FOLDER_ID}&target=en" \
-     --data-urlencode "text=Hello world" \
+     --data-urlencode "text=hello world" \
      --data-urlencode "text=good morning" \
      "https://translate.{{ api-host }}/translate/v1/translate"
 ```

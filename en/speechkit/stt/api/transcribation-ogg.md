@@ -1,13 +1,12 @@
 # Asynchronously recognizing audio files in OggOpus format
 
-The example shows how the [API v2](transcribation-api.md) helps [asynchronously recognize](../transcribation.md) speech in the [OggOpus](../../formats.md#OggOpus) audio file format.
+Here are examples of [asynchronous recognition of speech](../transcribation.md) from an audio file using the {{ speechkit-name }} [API v2](transcribation-api.md). These examples use the following parameters:
 
-The examples use the following parameters:
+* [Language](../models.md#languages): Russian
+* Audio stream format: [OggOpus](../../formats.md#OggOpus) with an OPUS file
+* Other parameters left by default.
 
-* [Language](../index.md#langs): Russian.
-* Other parameters were left with their default values.
-
-Use the [cURL](https://curl.haxx.se) utility to generate and send a request to the server for recognition.
+You can generate and send a speech recognition request using the [cURL](https://curl.haxx.se) utility or a Python script.
 
 An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to authenticate the service account. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
 
@@ -15,13 +14,16 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
 
 {% include [transcribation-before-you-begin](../../../_includes/speechkit/transcribation-before-you-begin.md) %}
 
+If you do not have an OggOpus audio file, you can download a [sample file](https://{{ s3-storage-host }}/doc-files/speech.ogg).
+
 ## Perform speech recognition via the API {#recognize-using-api}
 
 {% list tabs %}
 
 - cURL
 
-   1. Create a file (for example, `body.json`), and add the following code to it:
+   1. [Get a link to an audio file](../../../storage/operations/objects/link-for-download.md) in {{ objstorage-name }}.
+   1. Create a file, e.g., `body.json`, and paste the following code to it:
 
       ```json
       {
@@ -31,31 +33,35 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
               }
           },
           "audio": {
-              "uri": "https://{{ s3-storage-host }}/speechkit/speech.ogg"
+              "uri": "<link_to_audio_file>"
           }
       }
       ```
 
       Where:
 
-      * `languageCode`: [Language](../index.md#langs) the recognition is performed for.
-      * `uri`: Link to audio file in {{ objstorage-name }}.
+      * `languageCode`: [Recognition language](../models.md#languages)
+      * `uri`: Link to the audio file in {{ objstorage-name }}. Sample link: `https://{{ s3-storage-host }}/speechkit/speech.opus`.
+
+         The link contains additional query parameters (after `?`) for buckets with restricted access. You do not need to provide these parameters in {{ speechkit-name }} as they are ignored.
+
+      Since OggOpus is the default format, you do not need to specify the audio stream format.
 
    1. Run the created file:
 
       ```bash
-      export IAM_TOKEN=<service_account_IAM_token>
+      export IAM_TOKEN=<service_account_IAM_token> && \
       curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d "@body.json" \
           https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
       ```
 
-      Where `IAM_TOKEN` is an [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
+      Where `IAM_TOKEN` is the IAM token of the service account.
 
-      Result:
+      Result example:
 
-      ```bash
+      ```text
       {
           "done": false,
           "id": "e03sup6d5h1qr574ht99",
@@ -65,19 +71,19 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
       }
       ```
 
-      Save the recognition operation `id` that you receive in the response.
+      Save the recognition operation `id` that you received in the response.
 
-   1. Wait a while for the recognition to complete. It takes about 10 seconds to recognize one minute of an audio file.
+   1. Wait a while for the recognition to complete. It takes about 10 seconds to recognize one minute of an audio file.
    1. Send a request to [get information about the operation](../../../api-design-guide/concepts/operation.md#monitoring):
 
       ```bash
       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-          https://operation.{{ api-host }}/operations/e03sup6d5h1qr574ht99
+          https://operation.{{ api-host }}/operations/<recognition_operation_ID>
       ```
 
-      Result:
+      Result example:
 
-      ```bash
+      ```text
       {
        "done": true,
        "response": {
@@ -103,7 +109,13 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
 
 - Python 3
 
-   1. Create a file (for example, `test.py`), and add the following code to it:
+   1. Install the `requests` package using the [pip](https://pip.pypa.io/en/stable/) package manager:
+
+      ```bash
+      pip install requests
+      ```
+
+   1. Create a file, e.g.,`test.py`, and paste the following code to it:
 
       ```python
       # -*- coding: utf-8 -*-
@@ -112,9 +124,9 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
       import time
       import json
 
-      # Specify your IAM token and the link to the audio file in Object Storage.
+      # Specify your IAM token and the link to the audio file in {{ objstorage-name }}.
       key = '<service_account_IAM_token>'
-      filelink = 'https://{{ s3-storage-host }}/speechkit/speech.ogg'
+      filelink = '<link_to_audio_file>'
 
       POST ='https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize'
 
@@ -162,13 +174,13 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
 
       Where:
 
-      * `key`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
-      * `filelink`: Link to audio file in {{ objstorage-name }}.
+      * `key`: IAM token of the service account
+      * `filelink`: Link to the audio file in {{ objstorage-name }}
 
    1. Run the created file:
 
       ```bash
-      python test.py
+      python3 test.py
       ```
 
 {% endlist %}

@@ -1,3 +1,8 @@
+---
+title: "How to link a certificate to a domain"
+description: "Follow this guide to link a certificate to a domain."
+---
+
 # Link a certificate to a domain
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

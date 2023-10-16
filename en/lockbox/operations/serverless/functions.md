@@ -1,3 +1,8 @@
+---
+title: "How to transmit a secret to {{ sf-full-name }}"
+description: "This guide describes how you can transmit a secret to {{ sf-full-name }}."
+---
+
 # Transmitting a secret to {{ sf-full-name }}
 
 {% note info %}

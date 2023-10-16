@@ -1,0 +1,1 @@
+The `dns.viewer` role enables you to view DNS zones and resource records.

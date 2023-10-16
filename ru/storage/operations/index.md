@@ -20,6 +20,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](buckets/enable-logging.md)
 * [{#T}](buckets/configure-object-lock.md)
 * [{#T}](buckets/tagging.md)
+* [{#T}](buckets/get-info.md)
 
 ## Объекты {#objects}
 

@@ -1,0 +1,18 @@
+title: Yandex SpeechSense
+description:
+  - >-
+    Yandex SpeechSense is a service that will help your business organize
+    contact center analytics.
+  - >-
+    Yandex SpeechSense is based on Yandex Cloud ML technologies. Yandex
+    SpeechKit recognizes speech, collects dialog statistics and identifies
+    keywords, and YandexGPT helps you write a resume.
+meta:
+  title: Yandex SpeechSense
+links:
+  - title: Access management
+    description: Set up access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

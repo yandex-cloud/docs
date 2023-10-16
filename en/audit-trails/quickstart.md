@@ -74,18 +74,18 @@ To create the first trail in {{ at-name }} and start the process of configuratio
    1. In the **{{ ui-key.yacloud.common.description }}** field, enter the trail description (optional).
    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
 
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
-      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket where you want to upload audit logs.
+      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket to upload audit logs to.
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](./concepts/format.md#log-file-name) of the audit log file.
 
       {% include [note-bucket-prefix](../_includes/audit-trails/note-bucket-prefix.md) %}
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up collecting configuration-level audit logs:
 
       * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Automatically populated field containing the name of the current organization.
+      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: An automatically populated field containing the name of the current organization.
 
    1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -113,5 +113,5 @@ You can [export](./concepts/export-siem.md) audit log files to your SIEM solutio
 
 ## What's next {#whats-next}
 
-* Learn more about the [audit log format](./concepts/format.md).
-* Learn about [events](./concepts/events.md).
+* Learn more about the [service](./concepts/index.md).
+* Learn more about the [types of audit logs](./concepts/control-plane-vs-data-plane.md).

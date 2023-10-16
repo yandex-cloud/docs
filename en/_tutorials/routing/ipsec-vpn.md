@@ -42,7 +42,7 @@ Create a VM in {{ yandex-cloud }} to serve as a gateway for an IPSec tunnel.
 1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select an [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
 1. In the **Network settings** section, choose the required network and subnet and assign a public IP to the VM either by selecting it from the list or automatically.
 
-   Only use static public IP addresses [from the list](https://cloud.yandex.ru/docs/vpc/operations/get-static-ip) or [make](https://cloud.yandex.ru/docs/vpc/operations/set-static-ip) the IP address static. Dynamic IP addresses may change after the VM reboots and the tunnel will no longer work.
+   Only use static public IP addresses [from the list](../../vpc/operations/get-static-ip.md) or [make](../../vpc/operations/set-static-ip.md) the IP address static. Dynamic IP addresses may change after the VM reboots and the tunnel will no longer work.
 1. In the **Access** field, enter the login and SSH key to access the VM.
 1. Click **Create VM**.
 

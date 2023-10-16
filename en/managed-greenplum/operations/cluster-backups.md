@@ -157,7 +157,7 @@ For a new cluster, you should set all the parameters that are required at creati
       * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
       
-      * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
+      * `--subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
       * `--assign-public-ip`: Flag that is specified if the cluster needs to be accessed from the internet.
 
 

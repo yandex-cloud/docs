@@ -8,6 +8,8 @@
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
+
 ## Установка {#install}
 
 1. [Установите Docker](https://docs.docker.com/get-docker/).

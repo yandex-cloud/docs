@@ -7,7 +7,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-{{ mes-name }} поддерживает работу с {{ objstorage-full-name }} в качестве репозитория [снапшотов](https://cloud.yandex.ru/docs/glossary/snapshot) {{ ES }}. Это позволяет использовать {{ objstorage-name }}:
+{{ mes-name }} поддерживает работу с {{ objstorage-full-name }} в качестве репозитория [снапшотов](../../glossary/snapshot.md) {{ ES }}. Это позволяет использовать {{ objstorage-name }}:
 
 * для [переноса данных из стороннего кластера {{ ES }} в {{ mes-name }}](../tutorials/migration-via-snapshots.md);
 

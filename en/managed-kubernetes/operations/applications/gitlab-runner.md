@@ -53,11 +53,15 @@ Obtain a registration token:
    ```
 
    You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/gitlab-runner#docker-images).
-1. Go back to the Runners page of your {{ GL }} instance, reload the page, and make sure you see a new {{ GLR }}.
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/gitlab-containers.md)
+* [{#T}](../../tutorials/cr-scanner-with-k8s-and-gitlab.md)
 
 ## See also {#see-also}
 
-* [{{ mgl-full-name }} documentation](../../../managed-gitlab/).
+* [{{ mgl-name }} documentation](../../../managed-gitlab/).
 * [{{ GL }} documentation](https://docs.gitlab.com/).
 * [Documentation for {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/).
 * [Reference guide on .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html).

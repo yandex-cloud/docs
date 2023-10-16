@@ -1,0 +1,7 @@
+title: Yandex SpeechSense
+href: index.yaml
+stage: preview
+items:
+  - name: Pricing policy
+    href: pricing.md
+base: en/speechsense

@@ -1,4 +1,9 @@
-# Add a user to a community
+---
+title: "How to add users to a community"
+description: "Follow this guide to add users to a community."
+---
+
+# Adding a user to a community
 
 {% include [include](../../../_includes/datasphere/organization-users.md) %}
 

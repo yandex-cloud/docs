@@ -1,0 +1,1 @@
+The `cdn.admin` role enables you to view, create, modify, and delete CDN resources and origin groups, as well as activate origin shielding and log export for CDN resources. The role will acquire additional features at a later date.

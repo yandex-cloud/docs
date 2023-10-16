@@ -30,12 +30,6 @@
         * `PRODUCTION` — для стабильных версий приложений.
         * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
      1. Выберите версию {{ KF }}.
-     1. Чтобы [управлять топиками через Admin API {{ KF }}](../concepts/topics.md#management):
-        1. Включите настройку **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}**.
-        1. После создания кластера {{ mkf-name }} [создайте пользователя-администратора](cluster-accounts.md#create-user).
-
-        {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
-
      1. Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), включите настройку **{{ ui-key.yacloud.kafka.field_schema-registry }}**.
 
         {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
@@ -151,18 +145,6 @@
 
      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-  1. Чтобы [управлять топиками через Admin API {{ KF }}](../concepts/topics.md#management):
-     1. Задайте значение `true` для параметра `--unmanaged-topics` при создании кластера {{ mkf-name }}:
-
-        ```bash
-        {{ yc-mdb-kf }} cluster create \
-          ...
-          --unmanaged-topics true
-        ```
-
-        Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
-     1. После создания кластера {{ mkf-name }} [создайте пользователя-администратора](./cluster-accounts.md#create-user).
-
   
   1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
 
@@ -271,10 +253,6 @@
   * Настройки защиты от удаления кластера {{ mkf-name }} в параметре `deletionProtection`.
 
     {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
-
-  Чтобы [управлять топиками через Admin API {{ KF }}](../concepts/topics.md#management):
-  1. Передайте значение `true` для параметра `unmanagedTopics`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
-  1. После создания кластера {{ mkf-name }} [создайте пользователя-администратора](./cluster-accounts.md#create-user).
 
   Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
 

@@ -1,3 +1,8 @@
+---
+title: "List of supported languages"
+description: "Get a list of translation directions supported by the service."
+---
+
 # List of supported languages
 
 {% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}

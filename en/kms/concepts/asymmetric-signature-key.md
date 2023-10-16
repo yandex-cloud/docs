@@ -1,3 +1,8 @@
+---
+title: "Asymmetric signature key pair in {{ kms-short-name }}"
+description: "This article describes the features of asymmetric signature key pairs in {{ kms-short-name }}."
+---
+
 # Asymmetric signature key pair in {{ kms-short-name }}
 
 {% note info %}
@@ -17,26 +22,26 @@ A digital signature key pair in {{ kms-short-name }} may have the following para
 * Name: Non-unique key pair name. It can be used to work with key pairs in the CLI if the folder only contains a single key pair with this name.
 * Signature algorithm: Algorithm used to create and verify a digital signature. The following signature algorithms are supported:
 
-   * `rsa-2048-sign-pss-sha-256`
-   * `rsa-2048-sign-pss-sha-384`
-   * `rsa-2048-sign-pss-sha-512`
-   * `rsa-3072-sign-pss-sha-256`
-   * `rsa-3072-sign-pss-sha-384`
-   * `rsa-3072-sign-pss-sha-512`
-   * `rsa-4096-sign-pss-sha-256`
-   * `rsa-4096-sign-pss-sha-384`
-   * `rsa-4096-sign-pss-sha-512`
-   * `ecdsa-nist-p256-sha-256`
-   * `ecdsa-nist-p384-sha-384`
-   * `ecdsa-nist-p521-sha-512`
-   * `ecdsa-secp256-k1-sha-256`
+    * `rsa-2048-sign-pss-sha-256`
+    * `rsa-2048-sign-pss-sha-384`
+    * `rsa-2048-sign-pss-sha-512`
+    * `rsa-3072-sign-pss-sha-256`
+    * `rsa-3072-sign-pss-sha-384`
+    * `rsa-3072-sign-pss-sha-512`
+    * `rsa-4096-sign-pss-sha-256`
+    * `rsa-4096-sign-pss-sha-384`
+    * `rsa-4096-sign-pss-sha-512`
+    * `ecdsa-nist-p256-sha-256`
+    * `ecdsa-nist-p384-sha-384`
+    * `ecdsa-nist-p521-sha-512`
+    * `ecdsa-secp256-k1-sha-256`
 
-* Status: Current state of the key pair. The following statuses are possible:
-   * `Creating`: Key pair is being created.
-   * `Active`: Key pair can be used for signing data and verifying the signature.
-   * `Inactive`: Key pair cannot be used.
+* Status: Current state of the key pair. Possible statuses:
+    * `Creating`: Key pair is being created.
+    * `Active`: Key pair can be used for signing data and verifying the signature.
+    * `Inactive`: Key pair cannot be used.
 
-   You can change the key pair status from `Active` to `Inactive` and back using the [AsymmetricSignatureKeyService/Update](../api-ref/grpc/asymmetric_signature_key_service.md#Update) gRPC API call.
+    You can change the key pair status from `Active` to `Inactive` and back using the [AsymmetricSignatureKeyService/Update](../api-ref/grpc/asymmetric_signature_key_service.md#Update) gRPC API call.
 
 ## Using a digital signature key pair {#use}
 

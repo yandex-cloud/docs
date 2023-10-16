@@ -7,7 +7,7 @@ description: "Для создания целевой группы {{ alb-full-na
 
 Создайте виртуальные машины в рабочем каталоге по [инструкции](../../compute/operations/index.md#vm-create).
 
-Чтобы создать целевую группу:
+Чтобы создать [целевую группу](../concepts/target-group.md):
 
 {% list tabs %}
 

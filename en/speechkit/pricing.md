@@ -15,7 +15,7 @@ The cost of using {{ speechkit-name }} for speech synthesis depends on the versi
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
-The cost using [API v3](tts-v3/api-ref/grpc/index.md) depends on the number of synthesis requests sent. Speech synthesis requests have limitations — {{ tts-v3-count }} and {{ tts-v3-time }}.
+The cost of using [API v3](tts-v3/api-ref/grpc/index.md) depends on the number of synthesis requests sent. Speech synthesis requests have such limitations as {{ tts-v3-count }} and {{ tts-v3-time }}.
 
 
 
@@ -34,7 +34,7 @@ The cost of using {{ speechkit-name }} streaming recognition is calculated based
 
 These rules apply to [synchronous recognition](stt/request.md) and [streaming mode](stt/streaming.md) recognition when using API v2 and API v3.
 
-Billable unit — a 15-second segment of single-channel audio. Shorter segments are rounded up (1 second becomes 15 seconds).
+The billing unit is a 15-second segment of single-channel audio. Shorter segments are rounded up (1 second becomes 15 seconds).
 
 {% note warning %}
 
@@ -56,9 +56,9 @@ In [streaming mode](stt/streaming.md), billing begins when a [message with recog
 
 These rules apply when using [asynchronous recognition](stt/transcribation.md).
 
-Billable unit — 1 second of two-channel audio. Shorter segments are rounded up. The number of channels is rounded up to an even number.
+The billing unit is a one-second segment of two-channel audio. Shorter segments are rounded up. The number of channels is rounded up to an even number.
 
-The minimum billable amount is 15 seconds for every pair of channels. Audio that is shorter is billed as 15 seconds.
+The minimum billable amount is 15 seconds for every pair of channels. Shorter audio is billed as 15 seconds.
 
 **Examples of rounding audio length:**
 

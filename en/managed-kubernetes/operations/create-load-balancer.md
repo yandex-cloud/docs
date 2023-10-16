@@ -12,7 +12,7 @@ To publish an app, use a `LoadBalancer` service. The following options are suppo
 
   The application will be available:
   * From {{ vpc-full-name }} [subnets](../../vpc/concepts/network.md#subnet).
-    * From the company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/index.yaml).
+    * From the company's internal subnets connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../interconnect/index.yaml).
   * Via VPN.
 
 
@@ -276,7 +276,7 @@ In {{ managed-k8s-name }}, the following advanced settings are available for a s
 
 
 * Manage traffic using the [externalTrafficPolicy](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/#ServiceSpec) parameter:
-  * `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. In this case:
+  * `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. In which case:
     * If pods are missing from the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node.
   * `Local`: Traffic goes directly to the nodes where the application containers are running. In this case:
     * The originating IP address of the user query is saved.

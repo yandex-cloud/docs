@@ -24,7 +24,7 @@
 * Ускорены операции по изменению прав пользователей при большом количестве топиков.
 * Добавлена поддержка [настроек](concepts/settings-list.md#cluster-settings) `Message max bytes`, `Offsets retention minutes`, `Replica fetch max bytes` и `Ssl cipher suites`.
 * Добавлена возможность создания кластера на локальных дисках на платформе Intel Ice Lake.
-* Исправлен расчет метрики `kafka_group_topic_partition_lag`.  Подробнее см. в [справочнике метрик {{ monitoring-full-name }}](https://cloud.yandex.ru/docs/monitoring/metrics-ref/#managed-kafka). 
+* Исправлен расчет метрики `kafka_group_topic_partition_lag`.  Подробнее см. в [справочнике метрик {{ monitoring-full-name }}](../_includes/monitoring/metrics-ref/managed-kafka.md). 
 * Новая версия {{ KF }} 3.2 доступна в окружении `PRODUCTION`. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
 ## II квартал 2022 {#q2-2022}

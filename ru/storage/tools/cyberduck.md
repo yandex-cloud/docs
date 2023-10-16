@@ -6,6 +6,8 @@
 
 {% include [aws-tools-prepare-with-bucket](../../_includes/aws-tools/aws-tools-prepare-with-bucket.md) %}
 
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
+
 ## Установка {#installation}
 
 [Скачайте](https://cyberduck.io/download/) дистрибутив CyberDuck для вашей операционной системы и запустите его.

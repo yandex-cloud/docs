@@ -57,7 +57,7 @@ When working with (or connecting to) {{ yandex-cloud }} APIs, make sure to use T
 
 ### {{ objstorage-name }} {#storage-in-transit}
 
-[{{ objstorage-full-name }}](../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your Object Storage site requires HTTPS access. Additionally, you can use integration with [{{ certificate-manager-full-name }}](../../certificate-manager/). See the following guides in the {{ objstorage-name }} documentation:
+[{{ objstorage-name }}](../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your {{ objstorage-name }} site requires HTTPS access. Additionally, you can use integration with [{{ certificate-manager-full-name }}](../../certificate-manager/). See the instructions in the {{ objstorage-name }} documentation:
 
 - [{#T}](../../storage/operations/hosting/certificate.md)
 - [{#T}](../../storage/concepts/bucket.md#bucket-https)
@@ -66,7 +66,7 @@ When using Object Storage, be sure that support for TLS protocols below version 
 
 ### {{ alb-name }} {#load-balancer}
 
-[{{ alb-full-name }}](../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. See [how to set up the listener](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) in the {{ alb-name }} documentation.
+[{{ alb-name }}](../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. See [how to set up the listener](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) in the {{ alb-name }} documentation.
 
 ### {{ vpc-name }} (VPC) {#vpc}
 

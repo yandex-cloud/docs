@@ -2,9 +2,9 @@
 
 To use {{ TF }} to create configurations and run a [VM](../../compute/concepts/vm.md) or an [instance group](../../compute/concepts/instance-groups/index.md) from a [{{ coi }}](../concepts/index.md), follow the steps below.
 
-## Get started {#before-begin}
+## Getting started {#before-begin}
 
-If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). In this use case, a configuration file named `example.tf` and located in the `~/cloud-terraform` directory is used.
+If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). In our example, we use a configuration file named `example.tf`, which is located in the `~/cloud-terraform` directory.
 
 ## Creating and running a VM from a {{ coi }} {#creating-vm}
 
@@ -124,7 +124,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
   1. Deploy your resources in {{ yandex-cloud }}.
 
-     1. Run the following command:
+     1. Run this command:
 
         ```bash
         terraform apply
@@ -164,13 +164,13 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
         external_ip = <public IP address>
         ```
 
-        The necessary resources are created in the folder. When creating a VM, it's assigned a public IP address and [hostname](../../vpc/concepts/address.md#fqdn) (FQDN).
+        The required resources will be created in the folder. Once created, the VM is assigned an IP address and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
 
   1. Check the resources and their settings in the [management console]({{ link-console-main }}).
 
   1. Connect to the VM with the {{ coi }}.
 
-     1. Run the following command:
+     1. Run this command:
 
         ```bash
         ssh yc-user@<public IP address>
@@ -343,7 +343,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
 
   1. Deploy your resources in {{ yandex-cloud }}.
 
-     1. Run the following command:
+     1. Run this command:
 
         ```bash
         terraform apply
@@ -390,7 +390,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
 
   1. Connect to one of the VMs with the {{ coi }}.
 
-     1. Run the following command:
+     1. Run this command:
 
         ```bash
         ssh yc-user@<public IP address of VM1>

@@ -6,6 +6,8 @@
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
+
 ## Установка {#installation}
 
 Чтобы узнать как скачать и установить S3cmd, ознакомьтесь с разделом [Download](https://s3tools.org/download) на официальном сайте проекта.

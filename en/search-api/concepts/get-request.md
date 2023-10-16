@@ -1,3 +1,8 @@
+---
+title: "GET requests"
+description: "This article describes how to use GET requests."
+---
+
 # GET requests
 
 {% note warning %}

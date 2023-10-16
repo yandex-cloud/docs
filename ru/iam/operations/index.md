@@ -5,11 +5,23 @@ description: "Пошаговые инструкции по управлению 
 
 # Пошаговые инструкции для {{ iam-name }}
 
+
+## Секреты в открытом доступе {#credentials}
+
+- [Обработка секретов, попавших в открытый доступ](compromised-credentials.md)
+
+
 ## Пользователи {#users}
 
 - [{#T}](users/create.md)
 - [{#T}](users/get.md)
 - [{#T}](users/delete.md)
+
+## Группы пользователей {#users-groups}
+
+- [{#T}](groups/create.md)
+- [{#T}](groups/access-binding-object.md)
+- [{#T}](groups/access-binding-subject.md)
 
 ## Сервисные аккаунты {#sa}
 
@@ -18,6 +30,7 @@ description: "Пошаговые инструкции по управлению 
 - [{#T}](sa/assign-role-for-sa.md)
 - [{#T}](sa/set-access-bindings.md)
 - [{#T}](sa/create-access-key.md)
+- [{#T}](sa/delete-access-key.md)
 - [{#T}](sa/get-id.md)
 - [{#T}](sa/delete.md)
 
@@ -28,6 +41,7 @@ description: "Пошаговые инструкции по управлению 
 ## Роли {#roles}
 
 - [{#T}](roles/grant.md)
+- [{#T}](roles/get-assigned-roles.md)
 - [{#T}](roles/revoke.md)
 
 ## IAM-токены {#iam-tokens}
@@ -38,11 +52,9 @@ description: "Пошаговые инструкции по управлению 
 - [Перевыпуск IAM-токена](compromised-credentials.md#iam-reissue)
 
 
-## API-ключи {#api-keys}
+## Ключи {#keys}
 
 - [{#T}](api-key/create.md)
 - [{#T}](api-key/delete.md)
-
-## Авторизованные ключи {#authorized-keys}
-
 - [{#T}](authorized-key/create.md)
+- [{#T}](authorized-key/delete.md)

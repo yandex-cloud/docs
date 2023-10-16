@@ -9,11 +9,11 @@ To integrate {{ k8s }} with {{ container-registry-full-name }}, create the follo
    1. [Create a node group](#create-node-groups).
 1. [Prepare the necessary {{ container-registry-name }} resources](#create-cr-res).
    1. [Create a registry](#registry-create).
-   1. [Configure a Credential helper](#config-ch).
+   1. [Configure a credential helper](#config-ch).
    1. [Prepare a Docker image](#docker-image).
 1. [Connect to the {{ k8s }} cluster](#cluster-connect).
 1. [Run the test app](#test-app).
-1. [Delete the created resources](#delete-resources).
+1. [Delete the resources you created](#delete-resources).
 
 {% include [requirements](backup.md#requirements) %}
 
@@ -22,8 +22,8 @@ To integrate {{ k8s }} with {{ container-registry-full-name }}, create the follo
 ## Create service accounts {#create-sa}
 
 Create [service accounts](../../iam/operations/sa/create.md):
-* A service account for the resources with the [{{ roles-editor }}](../../resource-manager/security/#roles-list) role to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ k8s }} cluster is being created. The resources that the {{ k8s }} cluster needs will be created on behalf of this account.
-* A service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the folder with the Docker image registry. Nodes will download the Docker images they require from the registry on behalf of this account.
+* Service account for the resources with the [{{ roles-editor }}](../../resource-manager/security/#roles-list) role to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ k8s }} cluster is being created. The resources the {{ k8s }} cluster needs will be created on behalf of this account.
+* Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the folder with the Docker image registry. Nodes will download the Docker images they require from the registry on behalf of this account.
 
 ### Create a service account for resources {#res-sa}
 
@@ -159,7 +159,7 @@ To create a service account that lets nodes download the necessary Docker images
 
 {% include [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
 
-## Prepare {{ container-registry-name }} resources {#create-cr-res}
+## Create resources {{ container-registry-name }} {#create-cr-res}
 
 ### Create a registry {#registry-create}
 
@@ -169,11 +169,11 @@ Create a container registry:
 yc container registry create --name yc-auto-cr
 ```
 
-### Configure Docker Credential helper {#config-ch}
+### Configure Docker credential helper {#config-ch}
 
 To facilitate authentication in {{ container-registry-name }}, configure [Docker Credential helper](../../container-registry/operations/authentication.md#cred-helper). It lets you use private {{ yandex-cloud }} registries without running the `docker login` command.
 
-To configure the Credential helper, run the following command:
+To configure a credential helper, run the following command:
 
 
 ```bash
@@ -279,9 +279,9 @@ Start the pod with the app from the Docker image and make sure that no additiona
 
 ## Delete the resources you created {#delete-resources}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-1. Delete a {{ k8s }} cluster:
+1. Delete the {{ k8s }} cluster:
 
    ```bash
    yc managed-kubernetes cluster delete --name k8s-demo
@@ -291,7 +291,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    {% note warning %}
 
-   Make sure you don't delete any service accounts before deleting the {{ k8s }} cluster.
+   Make sure you do not delete any service accounts before deleting the {{ k8s }} cluster.
 
    {% endnote %}
 
@@ -338,8 +338,8 @@ Some resources are not free of charge. Delete the resources you no longer need t
       yc container registry delete --name yc-auto-cr
       ```
 
-#### See also {#see-also}
+#### For more information, see also {#see-also}
 
-* [{#T}](../../container-registry/concepts/docker-image.md).
-* [{#T}](../../container-registry/operations/authentication.md).
-* [{#T}](../../container-registry/operations/index.md).
+* [{#T}](../../container-registry/concepts/docker-image.md)
+* [{#T}](../../container-registry/operations/authentication.md)
+* [{#T}](../../container-registry/operations/index.md)

@@ -12,7 +12,9 @@
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
    1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}** and specify:
-      * **{{ ui-key.yacloud.common.name }}**: Name of the CAPTCHA being created
+      * **{{ ui-key.yacloud.common.name }}**: Name of the CAPTCHA being created.
+      * **{{ ui-key.yacloud.smartcaptcha.label_main-challenge }}**: Type of the [main task](../concepts/tasks.md#main-task) to be solved by the user.
+      * **{{ ui-key.yacloud.smartcaptcha.label_additional-challenge }}**: Type of the [additional task](../concepts/tasks.md#additional-task) to be solved by the user.
       * **{{ ui-key.yacloud.smartcaptcha.label_complexity }}**: Complexity of a task for the user:
          * `{{ ui-key.yacloud.smartcaptcha.value_complexity-easy }}`: Simple task.
          * `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`: Task of intermediate complexity.

@@ -17,6 +17,13 @@
       1. В [консоли управления]({{ link-console-main }}) перейдите в бакет, для которого хотите использовать собственный домен.
       1. Перейдите на вкладку ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
       1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** нажмите кнопку **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
+
+          {% note info %}
+
+          В блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** отображаются только те домены, которые были созданы непосредственно в этом интерфейсе. Если запись была создана в сервисе [{{ dns-name }}](../../../dns/quickstart.md), то в этом блоке она отображаться не будет.
+
+          {% endnote %}
+
       1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}** и выберите доменную зону, которая соответствует имени бакета, например `example.com.`. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
       1. Раскройте блок **{{ ui-key.yacloud.dns.label_additional-settings }}**.
       1. В поле **{{ ui-key.yacloud.dns.label_form-ttl }}** укажите время жизни ресурсной записи или выберите из предложенных.

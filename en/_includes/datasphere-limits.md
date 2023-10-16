@@ -33,3 +33,6 @@
 | Maximum non-pinned checkpoints per project | 10 |
 | Maximum project storage size | 4096 GB |
 | Maximum dataset size | 4096 GB |
+| Maximum data size per job | 10 GB |
+| Maximum log size per job | 100 MB |
+| Maximum result size per job | 1 GB |

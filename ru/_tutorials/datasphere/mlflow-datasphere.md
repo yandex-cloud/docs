@@ -202,13 +202,13 @@
 1. Активируйте окружение:
 
    ```bash
-   сonda activate mlflow
+   conda activate mlflow
    ```
 
 1. Установите необходимые пакеты, последовательно выполнив команды:
 
    ```bash
-   conda install -c "conda-forge/label/cf202003" mlflow
+   conda install -c conda-forge mlflow
    conda install -c anaconda boto3
    pip install psycopg2-binary
    pip install pandas
@@ -250,12 +250,6 @@
      aws_access_key_id=<id_статического_ключа>
      aws_secret_access_key=<секретный_ключ>
      ```
-   
-1. Добавьте аутентификацию при запуске сервера:
-
-   ```bash
-   mlflow server --app-name basic-auth
-   ```
 
 1. Запустите MLFlow Tracking Server, подставив данные вашего кластера:
 
@@ -282,7 +276,7 @@
    sudo nano /etc/systemd/system/mlflow-tracking.service
    ```
 
-1. Добавьте в него следующие строки, подставив данные вашего кластера:
+1. Добавьте в него следующие строки, подставив свои данные:
 
    ```bash
    [Unit]
@@ -293,14 +287,18 @@
    Environment=MLFLOW_S3_ENDPOINT_URL=https://storage.yandexcloud.net/
    Restart=on-failure
    RestartSec=30
-   StandardOutput=file:/home/ubuntu/mlflow_logs/stdout.log
-   StandardError=file:/home/ubuntu/mlflow_errors/stderr.log
-   User=ubuntu
-   ExecStart=/bin/bash -c 'PATH=/home/ubuntu/anaconda3/envs/mlflow_env/bin/:$PATH exec mlflow server --backend-store-uri postgresql://<имя_пользователя>:<пароль>@<хост>:6432/db1?sslmode=verify-full --default-artifact-root s3://mlflow-bucket/artifacts -h 0.0.0.0 -p 8000'
+   StandardOutput=file:/home/<имя_пользователя_ВМ>/mlflow_logs/stdout.log
+   StandardError=file:/home/<имя_пользователя_ВМ>/mlflow_errors/stderr.log
+   User=<имя_пользователя_ВМ>
+   ExecStart=/bin/bash -c 'PATH=/home/<имя_пользователя_ВМ>/anaconda3/envs/mlflow_env/bin/:$PATH exec mlflow server --backend-store-uri postgresql://<имя_пользователя_БД>:<пароль>@<хост>:6432/db1?sslmode=verify-full --default-artifact-root s3://mlflow-bucket/artifacts -h 0.0.0.0 -p 8000'
 
    [Install]
    WantedBy=multi-user.target
    ```
+   Где: 
+
+   * <имя_пользователя_ВМ> — имя учетной записи пользователя ВМ;
+   * <имя_пользователя_БД> — имя пользователя, указанное при создании кластера БД.
 
 1. Запустите сервис и активируйте автозагрузку при старте системы:
 

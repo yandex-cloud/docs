@@ -1,3 +1,8 @@
+---
+title: "Asymmetric encryption key pair in {{ kms-short-name }}"
+description: "This guide describes the features of asymmetric encryption key pairs in {{ kms-short-name }}."
+---
+
 # Asymmetric encryption key pair in {{ kms-short-name }}
 
 {% note info %}
@@ -22,7 +27,7 @@ A {{ kms-short-name }} encryption key pair may have the following parameters:
    * `rsa-3072-enc-oaep-sha-256`
    * `rsa-4096-enc-oaep-sha-256`
 
-* Status: Current state of the key pair. The following statuses are possible:
+* Status: Current state of the key pair. Possible statuses:
    * `Creating`: Key pair is being created.
    * `Active`: Key pair can be used for encryption and decryption.
    * `Inactive`: Key pair cannot be used.

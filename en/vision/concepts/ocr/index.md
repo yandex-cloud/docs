@@ -13,13 +13,12 @@ In your request, you specify a list of [analysis features](../index.md#features)
 ### Request configuration {#config}
 
 In the configuration, you can specify:
-* The list of languages to be used to [detect the language model](#detect-model) for recognition.
+* List of languages to be used to [detect the language model](#detect-model) for recognition.
 
  If you do not know the text language, enter `"*"` for the service to automatically select the most appropriate model.
-* The model to be used to detect text in the image. Available models:
-   * `page` (default): Good for images with any number of lines of text.
-   * `papers`: Good for recognizing multi-column text (only available in the {{ vision-short-name }} [OCR API](../../ocr/api-ref/index.md))
-      {% include [include](../../../_includes/vision/text-detection-line-note.md) %}
+* Model to be used to detect text in the image. Available models include:
+   * `page` (default): Suitable for images with any number of text lines.
+   * `papers`: Suitable for recognizing multi-column text (only available in the {{ vision-short-name }} [OCR API](../../ocr/api-ref/index.md))
 
 ### Language model detection {#detect-model}
 

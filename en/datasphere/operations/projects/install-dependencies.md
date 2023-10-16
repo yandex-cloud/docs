@@ -1,3 +1,8 @@
+---
+title: "How to install dependencies"
+description: "Follow this guide to install dependencies."
+---
+
 # Installing dependencies
 
 {% include [include](../../../_includes/datasphere/install-dependencies-intro.md) %}

@@ -3,8 +3,9 @@
 The [{{ alb-full-name }}](../../application-load-balancer/) service is designed for load balancing and traffic distribution across applications. To use it for managing incoming traffic of applications running in a {{ managed-k8s-name }} cluster, you need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
 To set up access to the applications running in your cluster via {{ alb-name }}:
-1. [{#T}](#create-ingress-and-apps).
-1. [{#T}](#verify-setup).
+1. [{#T}](#create-ingress-and-apps)
+1. [{#T}](#configure-group)
+1. [{#T}](#verify-setup)
 
 ## Getting started {#before-you-begin}
 
@@ -25,7 +26,7 @@ To set up access to the applications running in your cluster via {{ alb-name }}:
 
 ## Set up the Ingress controller and test applications {#create-ingress-and-apps}
 
-The Ingress controller's workload can include [{{ k8s }} services](../concepts/index.md#service), [{{ alb-name }} target groups](../../application-load-balancer/concepts/target-group.md) or {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md).
+The Ingress controller's workload can include [{{ k8s }} services](../concepts/index.md#service), [{{ alb-name }} target groups](../../application-load-balancer/concepts/target-group.md) or [{{ objstorage-full-name }} buckets](../../storage/concepts/bucket.md).
 
 Before getting started, get the ID of the [previously added](#before-you-begin) TLS certificate:
 
@@ -305,6 +306,9 @@ Command result:
       * `ingress.alb.yc.io/group-name`: Grouping of {{ k8s }} Ingress resources, with each group served by a separate {{ alb-name }} instance. Enter the name of the group.
 
       (Optional) Enter the advanced settings for the controller:
+
+      * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress group settings to be described in the optional `IngressGroupSettings` resource. For more information, see [Set up the Ingress group](#configure-group).
+
       * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to {{ alb-name }}. Enter the internal IP address or use `auto` to obtain the IP address automatically.
 
          {% note info %}
@@ -532,6 +536,8 @@ Command result:
       ```
 
       (Optional) Enter the advanced settings for the controller:
+
+      * `ingress.alb.yc.io/group-settings-name`: Name for the Ingress group settings to be described in the optional `IngressGroupSettings` resource. For more information, see [Set up the Ingress group](#configure-group).
       * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to {{ alb-name }}. Enter the internal IP address or use `auto` to obtain the IP address automatically.
 
          {% note info %}
@@ -542,21 +548,21 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: The subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: The connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1. Default value.
-         * `http2`: HTTP/2.
-         * `grpc`: gRPC.
+         * `http`: HTTP/1.1. Default value
+         * `http2`: HTTP/2
+         * `grpc`: gRPC
       * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
       * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, for example, `websocket`.
       * `ingress.alb.yc.io/request-timeout`: The maximum period for which the connection can be established.
       * `ingress.alb.yc.io/idle-timeout`: The maximum connection keep-alive time with no data to transmit.
 
          Values for `request-timeout` and `idle-timeout` must be specified with units of measurement, for example: `300ms`, `1.5h`. Acceptable units of measurement:
-         * `ns`: Nanoseconds.
-         * `us`: Microseconds.
-         * `ms`: Milliseconds.
-         * `s`: Seconds.
-         * `m`: Minutes.
-         * `h`: Hours.
+         * `ns`: Nanoseconds
+         * `us`: Microseconds
+         * `ms`: Milliseconds
+         * `s`: Seconds
+         * `m`: Minutes
+         * `h`: Hours
 
       {% note info %}
 
@@ -588,6 +594,40 @@ Command result:
       Based on the Ingress controller configuration, an L7 load balancer will be automatically deployed.
 
 {% endlist %}
+
+## (Optional) Set up the Ingress group {#configure-group}
+
+Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/group-settings-name` annotation during the installation of the Ingress controller enables you to set logging settings for the L7 balancer. To do this, [create a custom log group](../../logging/operations/create-group.md) and specify the Ingress group settings in the optional `IngressGroupSettings` resource.
+
+1. Create a `settings.yaml` file with your logging settings and the custom log group ID. For example:
+
+   ```yaml
+   apiVersion: alb.yc.io/v1alpha1
+   kind: IngressGroupSettings
+   metadata:
+     name: <name of the Ingress group settings in the ingress.alb.yc.io/group-settings-name annotation>
+   logOptions:
+     logGroupID: <custom log group ID>
+     discardRules:
+       - discardPercent: 50
+         grpcCodes:
+           - OK
+           - CANCELLED
+           - UNKNOWN
+       - discardPercent: 67
+         httpCodeIntervals:
+           - HTTP_1XX
+       - discardPercent: 20
+         httpCodes:
+           - 200
+           - 404
+   ```
+
+1. Apply the settings for the Ingress group:
+
+   ```bash
+   kubectl apply -f settings.yaml
+   ```
 
 ## Make sure the {{ k8s }} cluster applications are accessible through {{ alb-name }} {#verify-setup}
 
