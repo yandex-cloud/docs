@@ -1,0 +1,1 @@
+The `managed-metastore.viewer` role enables you to view information about clusters, their runtime logs, and quotas.

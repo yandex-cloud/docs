@@ -1,4 +1,9 @@
-# Purchase a committed volume of services (CVoS)
+---
+title: "How to purchase a committed volume of services (CVoS)"
+description: "Follow this guide to purchase a committed volume of services (CVoS)."
+---
+
+# Purchasing a committed volume of services (CVoS)
 
 {% include [cvos-term](../_includes/cvos-term.md) %}
 

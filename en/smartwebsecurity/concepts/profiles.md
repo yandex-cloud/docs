@@ -3,7 +3,7 @@
 _Security profile_ is the main component in {{ sws-name }}. The profile consists of a set of [rules](rules.md), each including [conditions](conditions.md) for [actions](rules.md#rule-action) applied to HTTP requests received by the resource being protected.
 
 You can create a profile:
-* _Based on a template with a preset profile_. Preconfigured profiles include:
+* _From a preset template_. Preset profiles include:
    * [Basic default rule](rules.md#base-rules) enabled for all traffic.
    * [Smart Protection rule](rules.md#smart-protection-rules) enabled for all traffic, with the _Full protection_ type.
 * _From scratch_. This profile includes only the basic default rule enabled for all traffic.

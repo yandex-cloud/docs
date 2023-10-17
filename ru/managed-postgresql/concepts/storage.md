@@ -29,72 +29,22 @@
 В этом режиме запросы на вставку (`INSERT`), удаление (`DELETE`) или обновление (`UPDATE`) данных завершаются ошибкой.
 
 
-### Отслеживание перехода в read-only {#read-only-monitor}
-
-Чтобы отслеживать степень заполнения хранилища на хостах кластера, настройте алерты в {{ monitoring-full-name }}:
-
-1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Выберите сервис **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**.
-1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
-1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
-
-    1. **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** — задайте параметры метрики:
-
-        * облако;
-        * каталог;
-        * сервис **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**;
-        * идентификатор кластера {{ mpg-name }};
-
-            Идентификатор кластера можно [получить со списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
-
-        * метка `disk.free_bytes`.
-
-    1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}** — задайте условие `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` для процента заполнения свободного дискового пространства, при котором сработает алерт:
-
-        * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (минимальное значение метрики за период).
-        * **{{ ui-key.yacloud_monitoring.alert.status_warn }}** — `90` (90% от размера хранилища).
-        * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `95` (95% от размера хранилища).
-        * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — желаемый период, с которым будет обновляться значение метрики.
-
-    1. Добавьте созданный ранее канал уведомлений.
+Вы можете отслеживать степень заполнения хранилища на хостах кластера, [настроив алерты в {{ monitoring-full-name }}](../operations/storage-space.md#set-alert).
 
 
 ### Вывод кластера из режима read-only {#read-only-solutions}
 
-Если кластер перешел в режим read-only:
+Воспользуйтесь одним из способов:
 
-* [Увеличьте размер хранилища](../operations/update.md#change-disk-size), чтобы выйти за пороговое значение. Тогда {{ yandex-cloud }} снимет режим read-only автоматически.
+* [Увеличьте размер хранилища](../operations/storage-space.md#change-disk-size), чтобы выйти за пороговое значение. Тогда {{ mpg-short-name }} снимет режим read-only автоматически.
 
-* Вручную отключите режим read-only и освободите место в хранилище, удалив часть данных.
+* [Вручную отключите режим read-only](../operations/storage-space.md#read-only-solutions) и освободите место в хранилище, удалив часть данных.
 
     {% note alert %}
 
     Не допускайте, чтобы в процессе этих действий свободное дисковое пространство уменьшилось до нуля. Поскольку предохранительный механизм отключен, {{ PG }} в этом случае аварийно завершит работу, а кластер станет неработоспособным.
 
     {% endnote %}
-
-Чтобы отключить режим read-only вручную, обратитесь в [техническую поддержку]({{ link-console-support }}) или следуйте инструкции:
-
-1. [Подключитесь к БД](../operations/connect.md) любым удобным способом.
-
-1. Откройте транзакцию и внутри нее выполните команду:
-
-   ```sql
-   SET LOCAL transaction_read_only TO off;
-   ```
-
-1. В рамках этой же транзакции удалите ненужные данные с помощью операторов `DROP` или `TRUNCATE`. Не используйте оператор `DELETE` — при его использовании строки отмечаются как удаленные, но не удаляются из базы физически.
-
-1. Зафиксируйте транзакцию и перезапустите все подключения к базе.
-
-> Например, если ваша база содержит ненужную таблицу `ExcessDataTable1`, удалите ее с помощью транзакции:
->
-> ```sql
-> BEGIN;
-> SET LOCAL transaction_read_only TO off;
-> DROP TABLE ExcessDataTable1;
-> COMMIT;
-> ```
 
 ### Автоматическое увеличение размера хранилища {#auto-rescale}
 
@@ -114,6 +64,6 @@
 Настроить автоматическое увеличение размера хранилища можно:
 
 * [при создании кластера](../operations/cluster-create.md);
-* [при изменении кластера](../operations/update.md#disk-size-autoscale).
+* [при изменении кластера](../operations/storage-space.md#disk-size-autoscale).
 
 {% include [storage-resize-maintenance](../../_includes/mdb/mpg/storage-resize-maintenance.md) %}

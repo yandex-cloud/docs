@@ -1,4 +1,4 @@
-# Delivering data from a {{ KF }} queue to {{ PG }} using {{ data-transfer-full-name }}
+# Delivering data from an {{ KF }} queue to {{ PG }} using {{ data-transfer-full-name }}
 
 You can set up data transfer from a {{ mkf-name }} topic to {{ mpg-name }} using {{ data-transfer-full-name }}. To do this:
 
@@ -16,13 +16,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * Manually
 
-      1. [Create a source {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md#create-cluster) in any [availability zone](../../overview/concepts/geo-scope.md), with any appropriate configuration and public access allowed.
+      1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md#create-cluster) in any [availability zone](../../overview/concepts/geo-scope.md), with any appropriate configuration, and allow public access to it.
 
       1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
       1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the created topic.
 
-      1. In the same availability zone, [create a target {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-create.md#create-cluster) with any appropriate configuration, `pg-user` as the admin username, and hosts located in the public domain.
+      1. In the same availability zone, [create a {{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md#create-cluster) with any appropriate configuration, `pg-user` as the admin username, and hosts located in the public domain.
 
       1. Make sure that the cluster's security groups have been set up correctly and allow connecting to them:
          * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
@@ -80,6 +80,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       ```bash
       sudo apt update && sudo apt-get install --yes jq
 
+      
 ## Prepare the test data {#prepare-data}
 
 Let's assume the {{ KF }} `sensors` topic in the source cluster receives data from car sensors in JSON format.
@@ -187,7 +188,7 @@ Create a local `sample.json` file with the following test data:
 
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it.
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<{{ PG }} target cluster name>` from the drop-down list.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: `db1`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `pg-user`.
@@ -281,7 +282,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
          If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      1. Confirm that the resources have been updated.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

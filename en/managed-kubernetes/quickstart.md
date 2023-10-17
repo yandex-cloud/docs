@@ -17,9 +17,9 @@ To get started with {{ managed-k8s-name }}:
 
 
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md).
-1. Install the [{{ k8s }} CLI (kubectl)]({{ k8s-docs }}/tasks/tools/install-kubectl/).
+1. Install the {{ k8s }} command line tool, [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/).
 1. Make sure you have enough [resources available in the cloud](concepts/limits.md).
-1. If you do not have a [network](../vpc/concepts/network.md#network), [create one](../vpc/operations/network-create.md).
+1. If you do not have a [network](../vpc/concepts/network.md#network) yet, [create one](../vpc/operations/network-create.md).
 1. If you do not have any [subnets](../vpc/concepts/network.md#subnet), [create them](../vpc/operations/subnet-create.md) in the [availability zones](../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
 1. Create [service accounts](../iam/operations/sa/create.md):
    * With the [{{ roles-editor }}](../iam/concepts/access-control/roles.md#editor) role to the folder where the cluster is being created. This service account will be used to create resources that the {{ managed-k8s-name }} cluster needs.

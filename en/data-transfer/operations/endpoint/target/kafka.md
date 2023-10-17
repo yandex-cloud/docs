@@ -1,6 +1,6 @@
 ---
-title: "How to configure a {{ KF }} target endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you will learn how to set up a {{ KF }} target endpoint in {{ data-transfer-full-name }}."
+title: "How to configure a target {{ KF }} endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you will learn how to set up a target {{ KF }} endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring {{ KF }} target endpoints

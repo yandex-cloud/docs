@@ -10,7 +10,15 @@ Transformers are set as a list. When activating a transfer, a transformation pla
 
 ## Transformer types {#transformers-types}
 
-In {{ data-transfer-name }}, you can use rename table and columns filter transformers. The list of transformers will be updated moving forward.
+Some transformers may have limitations and only apply to some source-target pairs. The list of transformers will be updated moving forward. Currently, the following types are available:
+
+* [{#T}](#rename-tables)
+* [{#T}](#columns-filter)
+* [{#T}](#data-mask)
+* [{#T}](#subtable-splitting)
+* [{#T}](#replace-primary-key)
+* [{#T}](#convert-to-string)
+* [{#T}](#shard)
 
 ### Renaming tables {#rename-tables}
 
@@ -20,5 +28,39 @@ You can set rules for renaming tables by specifying the current names of the tab
 
 You can set up a list of table columns to transfer:
 
-* List the tables to filter using lists of included and/or excluded tables.
-* List the columns to transfer to the target tables using lists of included and/or excluded columns.
+1. List the tables to filter using lists of included and excluded tables.
+1. List the columns to transfer to the target tables using lists of included and excluded columns.
+
+### Data masking {#data-mask}
+
+You can hash data as follows:
+
+1. List the tables to mask data in using lists of included and excluded tables.
+1. Specify the name of the column for data masking (a regular expression). For each column, set a salt value (a string of the password type). This string will be used in the `HMAC(sha256, salt)` function applied to the column data.
+
+### Splitting tables into subtables {#subtable-splitting}
+
+To partition tables:
+
+1. Use lists of included and excluded tables to list the required tables.
+1. Specify the columns in the tables to be partitioned.
+1. Specify the split string to be used for merging components in a new table name.
+
+### Replacing primary keys {#replace-primary-key}
+
+To override primary keys, specify a list of included and excluded tables and a list of columns to be used as primary keys.
+
+### Converting column values to strings {#convert-to-string}
+
+To convert column values to string values, specify a list of included and excluded tables and a list of columns. The values will be converted depending on the source type:
+
+| Source type | Format |
+|--------------|---------------------------------------------------|
+| Any | Serialized JSON format |
+| Date | String in `2006-01-02` format |
+| DateTime | String in `2006-01-02T15:04:05.999999999Z07:00` format |
+
+### Sharding {#shard}
+
+Set the number of shards for particular tables and a list of columns whose values will be used for calculating a hash to determine a shard.
+

@@ -6,11 +6,11 @@ After creating a cluster, you can:
 * [Change service account settings](#change-service-account).
 
 
-* [{#T}](#change-resource-preset)
+* [{#T}](#change-resource-preset).
 
-* [{#T}](#change-disk-size)
+* [{#T}](#change-disk-size).
 
-* [{#T}](#SQL-management)
+* [{#T}](#SQL-management).
 
 * [Configure the {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings).
 
@@ -131,7 +131,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -230,7 +230,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -318,7 +318,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -448,7 +448,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -606,7 +606,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -633,6 +633,8 @@ For more information, see [Memory management](../concepts/memory-management.md).
    
    
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
+   To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter.
 
    To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter.
 
@@ -737,7 +739,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

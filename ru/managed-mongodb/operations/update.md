@@ -63,12 +63,35 @@
 
 
 
-  1. Укажите нужный класс в команде изменения кластера:
+  1. Укажите нужный класс в команде изменения кластера. При смене класса учитывайте роль хоста, она зависит от [типа шардирования](../concepts/sharding.md#shard-management). В одной команде можно использовать параметры для хостов с разными ролями.
 
-      ```
-      {{ yc-mdb-mg }} cluster update <имя кластера>
-           --mongod-resource-preset <ID класса>
-      ```
+      * Для хостов `MONGOD`:
+
+          ```bash
+          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+             --mongod-resource-preset <ID_класса>
+          ```
+
+      * Для хостов `MONGOINFRA`:
+
+          ```bash
+          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+             --mongoinfra-resource-preset <ID_класса>
+          ```
+
+      * Для хостов `MONGOS`:
+
+          ```bash
+          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+             --mongos-resource-preset <ID_класса>
+          ```
+
+      * Для хостов `MONGOCFG`:
+
+          ```bash
+          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+             --mongocfg-resource-preset <ID_класса>
+          ```
 
       {{ mmg-short-name }} запустит операцию изменения класса хостов для кластера.
 
@@ -83,10 +106,10 @@
       Пример:
   
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+      resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
         ...
         resources_mongod {
-            resource_preset_id = "<класс хостов {{ MG }}>"
+            resource_preset_id = "<класс_хостов>"
             ...
         }
       }
@@ -150,10 +173,35 @@
 
   1. Укажите нужный размер хранилища в команде изменения кластера. Новый размер должен быть не меньше, чем текущее значение `disk_size` в свойствах кластера.
 
-      ```bash
-      {{ yc-mdb-mg }} cluster update <имя или идентификатор кластера> \
-        --mongod-disk-size <размер хранилища в гигабайтах>
-      ```
+      При увеличении размера хранилища учитывайте роль хоста, она зависит от [типа шардирования](../concepts/sharding.md#shard-management). В одной команде можно использовать параметры для хостов с разными ролями.
+
+      * Для хостов `MONGOD`:
+
+          ```bash
+          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+             --mongod-disk-size <размер_хранилища_в_ГБ>
+          ```
+
+      * Для хостов `MONGOINFRA`:
+
+          ```bash
+          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+             --mongoinfra-disk-size <размер_хранилища_в_ГБ>
+          ```
+
+      * Для хостов `MONGOS`:
+
+          ```bash
+          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+             --mongos-disk-size <размер_хранилища_в_ГБ>
+          ```
+
+      * Для хостов `MONGOCFG`:
+
+          ```bash
+          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+             --mongocfg-disk-size <размер_хранилища_в_ГБ>
+          ```
 
       Если все условия выполнены, {{ mmg-short-name }} запустит операцию по увеличению размера хранилища.
   
@@ -170,10 +218,10 @@
       Пример:
     
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+      resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
         ...
         resources_mongod {
-          disk_size = <размер хранилища в гигабайтах>
+          disk_size = <размер_хранилища_в_ГБ>
           ...
         }
       }
@@ -233,7 +281,7 @@
   Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) в `4096`, выполните следующую команду:
 
   ```
-  {{ yc-mdb-mg }} cluster update-config <имя кластера> \
+  {{ yc-mdb-mg }} cluster update-config <имя_кластера> \
      --set net.max_incoming_connections=4096
   ```
 
@@ -285,12 +333,12 @@
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
-        {{ yc-mdb-mg }} cluster update <идентификатор или имя кластера> \
-          --backup-retain-period-days=<срок хранения> \
-          --backup-window-start <время начала резервного копирования> \
-          --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                               `day=<день недели для типа weekly>,`
-                               `hour=<час дня для типа weekly>
+        {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+          --backup-retain-period-days=<срок_хранения> \
+          --backup-window-start <время_начала_резервного_копирования> \
+          --maintenance-window type=<тип_технического_обслуживания:_anytime_или_weekly>,`
+                               `day=<день_недели_для_типа_weekly>,`
+                               `hour=<час_дня_для_типа_weekly>
         ```
 
     Вы можете изменить следующие настройки:
@@ -325,12 +373,12 @@
     1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера {{ mmg-name }} блок `backup_window_start` в секции `cluster_config`:
   
         ```hcl
-        resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+        resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
           ...
           cluster_config {
             backup_window_start {
-              hours   = <Час начала резервного копирования>
-              minutes = <Минута начала резервного копирования>
+              hours   = <Час_начала_резервного_копирования>
+              minutes = <Минута_начала_резервного_копирования>
             }
             ...
           }
@@ -341,12 +389,12 @@
     1. Чтобы разрешить доступ [из сервиса {{ datalens-full-name }}](../../datalens/concepts/index.md), добавьте к описанию кластера {{ mmg-name }} блок `access` в секции `cluster_config`:
   
         ```hcl
-        resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+        resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
           ...
           cluster_config {
             ...
             access {
-              data_lens = <Доступ из DataLens: true или false>
+              data_lens = <Доступ_из_{{ datalens-name }}:_true_или_false>
             }
           ...
         }
@@ -357,9 +405,9 @@
     1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
         ```hcl
-        resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+        resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
           ...
-          deletion_protection = <защита от удаления кластера: true или false>
+          deletion_protection = <защита_от_удаления_кластера:_true_или_false>
         }
         ```
 
@@ -424,8 +472,8 @@
     1. Укажите каталог назначения в команде перемещения кластера:
 
         ```bash
-        {{ yc-mdb-mg }} cluster move <идентификатор кластера> \
-           --destination-folder-name=<имя каталога назначения>
+        {{ yc-mdb-mg }} cluster move <имя_или_ID_кластера> \
+           --destination-folder-name=<имя_каталога_назначения>
         ```
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -468,8 +516,8 @@
     1. Укажите нужные группы безопасности в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-mg }} cluster update <идентификатор или имя кластера> \
-          --security-group-ids <список групп безопасности>
+        {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+          --security-group-ids <список_групп_безопасности>
         ```
 
 - {{ TF }}
@@ -481,9 +529,9 @@
     1. Измените в описании кластера {{ mmg-name }} значение параметра `security_group_ids`:
   
         ```hcl
-        resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+        resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
           ...
-          security_group_ids = [ <Список идентификаторов групп безопасности> ]
+          security_group_ids = [ <Список_идентификаторов_групп_безопасности> ]
           ...
         }
         ```

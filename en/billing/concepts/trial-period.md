@@ -1,3 +1,8 @@
+---
+title: "Trial period for new customers"
+description: "The trial period is a one-time introductory offer for new clients. The trial period is available to you if you have not purchased {{ yandex-cloud }} services or activated the trial period before."
+---
+
 # Trial period for new customers
 
 {% include [free-trial-conditions](../../_includes/free-trial-conditions.md) %}

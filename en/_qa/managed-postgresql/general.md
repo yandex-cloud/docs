@@ -20,7 +20,7 @@ With {{ mpg-short-name }}, you can:
 * Provides fault tolerance through automatic failover to backup replicas.
 * Keeps database software updated.
 
-You interact with database clusters in {{ mpg-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
+You interact with database clusters in {{ mpg-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app requirements.
 
 #### What part of database management and maintenance is {{ mpg-short-name }} responsible for? {#services}
 
@@ -57,8 +57,9 @@ For detailed instructions, see [{#T}](../../managed-postgresql/quickstart.md).
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
 The minimum number of hosts depends on the selected type of [storage](../../managed-postgresql/concepts/storage.md):
-* If you use non-replicated SSD (`network-ssd-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3;
+* If you use non-replicated SSD (`network-ssd-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
 * If you use SSD network (`network-ssd`) or HDD network storage (`network-hdd`), you can create single-host clusters.
+
 
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
@@ -174,6 +175,10 @@ Cluster backups are stored and available in all three data centers.
 #### Can I get superuser privileges in {{ PG }}? {#superuser}
 
 No, you cannot. Superuser privileges are not available to {{ mpg-name }} users. The highest privileges for working with clusters are granted to users with the [`mdb_admin` role](../../managed-postgresql/concepts/roles#mdb-admin).
+
+#### Can I copy data from a {{ mpg-name }} table to a local file? Can I populate a table with data from a local file? {#copy-write-data}
+
+Yes, you can both copy data from a table to a local file and populate a table with data from a local file. For more information, see [{#T}](../../managed-postgresql/operations/copy-write-data.md).
 
 #### Are there any specifics of or restrictions for using the garbage collector in {{ mpg-name }} clusters? {#vacuum}
 

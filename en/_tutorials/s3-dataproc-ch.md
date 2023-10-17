@@ -23,42 +23,42 @@ Prepare the infrastructure:
 
       * One rule for inbound and another one for outbound service traffic:
 
-         * Port range: `{{ port-any }}`.
-         * Protocol: `Any`.
-         * Source: `Security group`.
-         * Security group: `Self`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` `Any`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** / **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` `Self`
 
       * Rule for outgoing HTTPS traffic:
 
-         * Port range: `{{ port-https }}`.
-         * Protocol: `TCP`.
-         * Destination type: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** : `{{ port-https }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
       * Rule for outgoing TCP traffic on port {{ port-mch-http }} to access {{ CH }}:
 
-         * Port range: `{{ port-mch-http }}`.
-         * Protocol: `TCP`.
-         * Destination type: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** : `{{ port-mch-http }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
    1. [Create a {{ dataproc-name }} cluster](../data-proc/operations/cluster-create.md) in any [suitable host configuration](../data-proc/concepts/instance-types.md) with the following settings:
 
-      * Components:
+      * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
          * `SPARK`
          * `YARN`
          * `HDFS`
-      * Service account: `dataproc-sa`.
-      * Bucket name: Bucket you created for output data.
-      * Network: `dataproc-network`.
-      * Security group: `dataproc-sg`.
-      * **UI Proxy** setting: Enabled.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`
+      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-sg`
+      * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** is enabled.
 
    1. [Create a {{ mch-name }} cluster](../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../managed-clickhouse/concepts/instance-types.md) with the following settings:
 
-      * With public access to cluster hosts.
-      * With a database called `db1`.
-      * With the `user1` user.
+      * With public access to cluster hosts
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`
 
 * Using {{ TF }}
 
@@ -86,14 +86,14 @@ Prepare the infrastructure:
       * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../data-proc/operations/connect.md#data-proc-ssh).
       * `ch_password`: {{ CH }} user password.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -173,9 +173,9 @@ Join the data from the two tables into one and upload it in Parquet format to th
 
    1. Create a `scripts` folder in the input bucket and [upload](../storage/operations/objects/upload.md#simple) the `join-tables.py` file to it.
 
-1. [Create a PySpark job](../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input bucket name>/scripts/join-tables.py`) in the **Main python file** field.
+1. [Create a PySpark job](../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input bucket name>/scripts/join-tables.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
 
-1. Wait for the job to complete and make sure the output bucket's `parquet` folder contains the `part-00000-...` Parquet file.
+1. Wait for the job to complete and make sure the output bucket's `parquet` folder contains the `part-00000-***` Parquet file.
 
 ## Export your data to {{ CH }} {#export-data}
 
@@ -221,7 +221,7 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
 
    1. [Upload](../storage/operations/objects/upload.md#simple) the `parquet-to-ch.py` file to the input bucket's `scripts` folder.
 
-1. [Create a PySpark job](../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input bucket name>/scripts/parquet-to-ch.py`) in the **Main python file** field.
+1. [Create a PySpark job](../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file (`s3a://<input bucket name>/scripts/parquet-to-ch.py`) in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field.
 1. Wait for the job to complete and make sure the joined table has been moved to the cluster:
 
    1. [Connect to the](../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-name }} cluster as `user1`.
@@ -258,9 +258,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 

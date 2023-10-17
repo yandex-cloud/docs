@@ -1,0 +1,1 @@
+The `container-registry.editor` role lets you create, update, and delete registries, Docker images, and repositories. Includes all permissions granted by the `container-registry.viewer` role.

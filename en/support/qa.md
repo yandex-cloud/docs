@@ -43,7 +43,7 @@ There is no limit to the number of times you can contact technical support.
 
 #### How can I get help with architecture-related tasks? {#help-with-arch-tasks}
 
-To get help with architecture-related tasks, use the feedback form on the management console support page.
+To get help with architecture-related tasks, use the feedback form on the technical support page in the [support center]({{ link-console-support }}).
 
 #### What third-party software is covered by {{ yandex-cloud }} technical support? {#supported-third-party-sw}
 
@@ -69,6 +69,6 @@ If the technical support team cannot resolve your third-party software issue, yo
 
 #### How do I change my technical support service plan? {#change-pricing-plan}
 
-Only the service account owner can change the technical support plan. You can check this in the {{ yandex-cloud }} management console under [Support]({{ link-console-support }}?section=plan).
+Only the organization owner or administrator can change the technical support service plan. See [Changing your service plan](support-center.md#change-pricing) for details.
 
-See [Requesting technical support](overview.md). Service plan upgrades are activated immediately, while downgrades are applied on the first day of the following month.
+See [Requesting technical support](overview.md). Service plan upgrades are effective immediately; downgrades take effect on the first day of the following month.

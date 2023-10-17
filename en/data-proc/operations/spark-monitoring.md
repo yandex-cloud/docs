@@ -18,17 +18,17 @@ Make sure the cluster has the [component web interfaces](../concepts/interfaces.
 
 ## Checking the application list {#list}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-1. Click the name of the cluster you need.
-1. In **UI Proxy**, go to the **YARN Resource Manager Web UI**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click the cluster name.
+1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
 
 It shows information about all running and completed applications.
 
 ## Checking application logs {#logs}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-1. Click the name of the cluster you need.
-1. In **UI Proxy**, select the **YARN Resource Manager Web UI**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click the cluster name.
+1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
 1. Find the application you need and click its ID in the **ID** column.
 
    This will open a window with information about the application's performance and a table with a list of application run attempts.
@@ -37,10 +37,10 @@ It shows information about all running and completed applications.
 
 ## Checking the application queue {#queue}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-1. Click the name of the cluster you need.
-1. In **UI Proxy**, select the **YARN Resource Manager Web UI**.
-1. In the menu on the left, go to **Scheduler**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click the cluster name.
+1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
+1. In the left-hand menu, go to **Scheduler**.
 
 The **Application Queues** section shows the queue of applications and resources used by them.
 
@@ -50,19 +50,19 @@ The **Application Queues** section shows the queue of applications and resources
 
 * YARN Resource Manager Web UI
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Click the name of the cluster you need.
-   1. In **UI Proxy**, select the **YARN Resource Manager Web UI**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Click the cluster name.
+   1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
    1. Find the application in question and follow the link in the **Tracking UI** column. The link name depends on the application status:
 
-      * **ApplicationMaster** for running applications.
-      * **History** for finished applications.
+      * **ApplicationMaster** for running applications
+      * **History** for finished applications
 
 * Spark History Server Web UI
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Click the name of the cluster you need.
-   1. In **UI Proxy**, select **Spark History Server Web UI**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Click the cluster name.
+   1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
 
       This will open the list of finished applications. To switch to the list of running applications, click **Show incomplete applications** at the bottom of the table.
 
@@ -85,9 +85,9 @@ For each job, the table specifies:
 
 ## Checking resources allocated to the application {#resources}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-1. Click the name of the cluster you need.
-1. In **UI Proxy**, select **Spark History Server Web UI**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click the cluster name.
+1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
 1. In the top menu, go to **Executors**.
 
 The UI will display two tables:
@@ -111,9 +111,9 @@ If garbage collection takes much time:
 
 ## Checking persisted RDDs {#tables}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-1. Click the name of the cluster you need.
-1. In **UI Proxy**, select **Spark History Server Web UI**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click the cluster name.
+1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
 1. In the top menu, go to **Storage**.
 
 The UI displays the list of cacheable tables ([RDDs](https://spark.apache.org/docs/latest/rdd-programming-guide.html#resilient-distributed-datasets-rdds)). For each RDD, it shows information about the used memory and disk space, as well as caching progress.
@@ -122,9 +122,9 @@ To view detailed statistics, click the RDD name.
 
 ## Checking the list of SQL queries and their execution plans {#sql}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-1. Click the name of the cluster you need.
-1. In **UI Proxy**, select **Spark History Server Web UI**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click the cluster name.
+1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
 1. In the top menu, go to **SQL**.
 
 The table lists executed SQL queries, including their start time and duration.

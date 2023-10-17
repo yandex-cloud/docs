@@ -22,13 +22,13 @@ To add your own geobase to a {{ CH }} cluster:
    * Population (UInt32): Optional.
 1. To add an alternative hierarchy of regions, create `regions_hierarchy_<suffix>.txt` files with the same structure. To use an alternative geobase, pass this suffix when invoking the function, e.g.:
 
-   * `regionToCountry(RegionID)` — Uses the default dictionary: `regions_hierarchy.txt`.
+   * `regionToCountry(RegionID)`: Uses the default dictionary: `regions_hierarchy.txt`.
    * `regionToCountry(RegionID, 'alt')`: Uses the dictionary with the `alt` suffix: `regions_hierarchy_alt.txt`.
 
-1. Create the file `regions_names.txt` with the region names. The file must be in [TSV tabular format](https://ru.wikipedia.org/wiki/TSV) without headers and with the following columns:
+1. Create the `regions_names.txt` file with the region names. The file must be in [TSV tabular format](https://ru.wikipedia.org/wiki/TSV) without headers and with the following columns:
 
    * Region ID (UInt32)
-   * Region name (String): Can't contain tab or newline characters, even escaped ones.
+   * Region name (String): Cannot contain tab or newline characters, even escaped ones.
 
 1. To add region names in other languages to your geobase, create `regions_names_<language code>.txt` files with the same structure. For example, you may create `regions_names_en.txt` for English and `regions_names_tr.txt` for Turkish.
 1. Create a `tar`, `tar.gz`, or `zip` archive from the geobase files.
@@ -109,7 +109,7 @@ To add your own geobase to a {{ CH }} cluster:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -123,7 +123,7 @@ To add your own geobase to a {{ CH }} cluster:
 
    {% note warning %}
 
-   This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, be sure to pass the names of the fields to be changed in the `updateMask` parameter.
+   This API method resets any cluster settings that are not provided explicitly in the request to their defaults. To avoid this, be sure to provide the names of the fields to be changed in the `updateMask` parameter.
 
    {% endnote %}
 

@@ -15,5 +15,4 @@
 ## Managing virtual host connections {#hosts}
 
 * [{#T}](host-connect.md)
-* [{#T}](host-update.md)
 * [{#T}](host-delete.md)

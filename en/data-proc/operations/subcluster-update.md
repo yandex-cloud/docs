@@ -16,14 +16,14 @@ You can change the number of hosts in data storage and processing subclusters:
 
 - Management console
 
-   1. Go to the folder page and select **{{ dataproc-name }}**.
-   1. Click the name of the desired cluster and open the **Subclusters** tab.
-   1. Click ![image](../../_assets/options.svg) for the desired subcluster and select **Edit**.
-   1. Enter or select the required number of hosts in the **Hosts** field.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
+   1. Click ![image](../../_assets/options.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-edit }}**.
+   1. Enter or select the required number of hosts in the **{{ ui-key.yacloud.mdb.forms.base_field_hosts-count }}** field.
    1. (Optional) Specify the [decommissioning](../concepts/decommission.md) timeout.
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-   {{ dataproc-name }} runs the add host operation.
+   {{ dataproc-name }} will run the add host operation.
 
 - CLI
 
@@ -86,12 +86,12 @@ You can change the computing power of hosts in a separate subcluster:
    To change the [host class](../concepts/instance-types.md) for a subcluster:
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
-   1. Select **{{ dataproc-name }}** and the desired cluster.
-   1. Go to **Subclusters**.
-   1. Click ![image](../../_assets/options.svg) for the desired subcluster and select **Edit**.
-   1. Select the required platform and configuration under **Host class**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and the required cluster.
+   1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
+   1. Click ![image](../../_assets/options.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-edit }}**.
+   1. Select the required platform and configuration under **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
    1. Specify an optional [decommissioning](../concepts/decommission.md) timeout.
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -163,7 +163,7 @@ You can change the computing power of hosts in a separate subcluster:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -177,13 +177,13 @@ You can change the computing power of hosts in a separate subcluster:
 
 You can configure the [autoscaling](../concepts/autoscaling.md) rule in data processing subclusters:
 
-Make sure the cloud's quota is sufficient to increase the VM resources. Open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **{{ compute-name }}** section still has space available in the following lines:
+Make sure the cloud quota is sufficient to increase the VM resources. Open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page for your cloud and check that the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section still has space available in the following lines:
 
-* **Total HDD capacity**.
-* **Total SSD capacity**.
-* **Number of disks**.
-* **Number of vCPUs for instances**.
-* **Number of instances**.
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.hddDisks.size }}**
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instanceCores.count }}**
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**
 
 {% list tabs %}
 
@@ -191,13 +191,13 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
    {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Select a cluster and open the **Subclusters** tab.
-   1. Click the ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) for the desired subcluster and select **Edit**.
-   1. Under **Scalability**, enable **Automatic scaling** if it's not activated.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Select a cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
+   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) for the appropriate subcluster and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-edit }}**.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_scaling }}**, enable **{{ ui-key.yacloud.mdb.forms.label_autoscaling-activated }}** if it is disabled.
    1. Set autoscaling parameters.
-   1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU usage, disable the **Default scaling** option and set the target CPU utilization level.
-   1. Click **Save changes**.
+   1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU usage, disable the **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}** setting and specify the target CPU utilization level.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -233,9 +233,9 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
       * `--hosts-count`: Minimum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `32`.
       * `--max-hosts-count`: Maximum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `100`.
       * `--enable-preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used.
-      * `--warmup-duration`: The time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s` and the maximum value is `600s` (10 minutes).
-      * `--stabilization-duration`: Interval in seconds, during which the required number of instances cannot be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
-      * `--measurement-duration`: The period, in seconds, for which utilization measurements should be averaged for each instance, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `600s` (10 minutes).
+      * `--warmup-duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s` and the maximum value is `600s` (10 minutes).
+      * `--stabilization-duration`: Period, in seconds, during which the required number of instances cannot be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
+      * `--measurement-duration`: Period, in seconds, for which utilization measurements are averaged for each instance, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `600s` (10 minutes).
       * `--cpu-utilization-target`: Target CPU utilization level, %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used as a metric (based on the number of pending resources). The minimum value is `10` and the maximum value is `100`.
       * `--autoscaling-decommission-timeout`: [Decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0` and the maximum value is `86400` (24 hours).
 
@@ -262,7 +262,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
               max_hosts_count        = <maximum number of VMs in group>
               measurement_duration   = <load measurement interval (seconds)>
               warmup_duration        = <VM initialization time (seconds)>
-              stabilization_duration = <stabilization interval (seconds)>
+              stabilization_duration = <stabilization period (seconds)>
               preemptible            = <use preemptible VM: true or false>
               cpu_utilization_target = <target vCPU workload, %>
               decommission_timeout   = <VM decommissioning timeout (seconds)>
@@ -276,7 +276,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -296,11 +296,11 @@ Currently, you cannot reduce storage size. If necessary, re-create the {{ datapr
 
 {% endnote %}
 
-Make sure the cloud's quota is sufficient to increase the VM resources. Open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **{{ compute-name }}** section still has space available in the following lines:
+Make sure the cloud quota is sufficient to increase the VM resources. Open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page for your cloud and check that the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section still has space available in the following lines:
 
-* **Total HDD capacity**.
-* **Total SSD capacity**.
-* **Number of disks**.
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.hddDisks.size }}**
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**
+* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**
 
 {% list tabs %}
 
@@ -309,13 +309,13 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
    To change the storage size for a subcluster:
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
-   1. Select **{{ dataproc-name }}** and the desired cluster.
-   1. Go to **Subclusters**.
-   1. Click ![image](../../_assets/options.svg) for the desired subcluster and select **Edit**.
-   1. Enter or select the required amount of storage under **Storage size**.
-   1. Click **Save changes**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** and the required cluster.
+   1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}**.
+   1. Click ![image](../../_assets/options.svg) for the subcluster you need and select **{{ ui-key.yacloud.mdb.cluster.subclusters.button_action-edit }}**.
+   1. Enter or select the required amount of storage under **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-   {{ dataproc-name }} runs the update subcluster operation.
+   {{ dataproc-name }} will run the update subcluster operation.
 
 - CLI
 
@@ -374,7 +374,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -388,12 +388,12 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Click the name of the cluster you need and select the **Hosts** tab.
-   1. Click on the name of the host you want.
-   1. Under **Network**, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Edit network interface**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
+   1. Click the host name.
+   1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
    1. Select the appropriate security groups.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }}
 
@@ -414,7 +414,7 @@ Make sure the cloud's quota is sufficient to increase the VM resources. Open the
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

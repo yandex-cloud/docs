@@ -16,8 +16,8 @@ You can create other resources manually or using {{ TF }}.
 
 1. [Create an {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) in any suitable [configuration](../../managed-mysql/concepts/instance-types.md) with the following settings:
 
-   * A database named `db1`.
-   * A user named `user1`.
+   * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
+   * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`
 
 1. To import the data to the {{ objstorage-name }} bucket:
 
@@ -67,14 +67,14 @@ You can create other resources manually or using {{ TF }}.
 
       For an SSH connection to the hosts of {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
-1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
 1. Make sure the {{ TF }} configuration files are correct using this command:
 
    ```bash
    terraform validate
    ```
 
-   If there are any errors in the configuration files, {{ TF }} will point to them.
+   If there are any errors in the configuration files, {{ TF }} will point them out.
 
 1. Create the required infrastructure:
 
@@ -197,7 +197,7 @@ Let:
 
 {% include [Check import](./check-import.md) %}
 
-## Deletе created resources {#clear-out}
+## Delete the resources you created {#clear-out}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
@@ -228,9 +228,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

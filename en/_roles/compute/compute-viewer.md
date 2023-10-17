@@ -1,0 +1,1 @@
+The `compute.viewer` role grants the right to view information on Compute Cloud resources.

@@ -33,6 +33,8 @@ items:
             href: operations/connect.md
           - name: SQL queries in the management console
             href: operations/web-sql-query.md
+          - name: Copying and populating a table
+            href: operations/copy-write-data.md
           - name: Managing databases
             href: operations/databases.md
       - name: '{{ PG }} users'

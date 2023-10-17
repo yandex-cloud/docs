@@ -86,7 +86,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 {% note info %}
 
-Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZED VIEW` data, create an ordinary `VIEW` that refers to the `MATERIALIZED VIEW` to be transferred.
+{% include [matview limits](../../_includes/data-transfer/pg-gp-matview.md) %}
 
 {% endnote %}
 
@@ -456,7 +456,9 @@ If you get an error like "`can only select from fixed tables/views`" when granti
 
 When performing a transfer from {{ PG }} to a target of any type, objects of the [large object](https://www.postgresql.org/docs/current/largeobjects.html) type will not get transferred.
 
-Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZED VIEW` data, create an ordinary `VIEW` that refers to the `MATERIALIZED VIEW` being transferred.
+{% include [matview limits](../../_includes/data-transfer/pg-gp-matview.md) %}
+
+If the definition of the `VIEW` to be transferred contains an invocation of the `VOLATILE` [function]({{ pg.docs.org }}/current/xfunc-volatility.html), the transfer reads data from this `VIEW` with the `READ UNCOMMITTED` isolation level. No consistency between the `VIEW` data and the data of other objects being transferred is guaranteed. Reading data from a `MATERIALIZED VIEW` in the `VIEW` definition are equivalent to invoking the `VOLATILE` function.
 
 Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/storage-toast.html) and those of the [bytea](https://www.postgresql.org/docs/12/datatype-binary.html) type get transferred without restrictions.
 
@@ -1219,7 +1221,9 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
 
 {% endlist %}
 
-Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZED VIEW` data, create an ordinary `VIEW` that refers to the `MATERIALIZED VIEW` to be transferred.
+{% include [matview limits](../../_includes/data-transfer/pg-gp-matview.md) %}
+
+If the definition of the `VIEW` to be transferred contains an invocation of the `VOLATILE` [function]({{ pg.docs.org }}/current/xfunc-volatility.html), the transfer reads data from this `VIEW` with the `READ UNCOMMITTED` isolation level. No consistency between the `VIEW` data and the data of other objects being transferred is guaranteed. Reading data from a `MATERIALIZED VIEW` in the `VIEW` definition are equivalent to invoking the `VOLATILE` function.
 
 
 ### {{ ydb-full-name }} target {#target-ydb}

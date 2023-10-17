@@ -243,6 +243,38 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ ml-platform-name }} {#datasphere-roles}
 
+{% include [projects-viewer](../../../_includes/roles-datasphere-project-viewer.md) %}
+
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-viewer }}` имеют роль `Viewer` на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** на странице проекта.
+
+{% include [projects-developer](../../../_includes/roles-datasphere-projects-developer.md) %}
+
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-developer }}` имеют роль `Developer` на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** на странице проекта.
+
+{% include [projects-editor](../../../_includes/roles-datasphere-projects-editor.md) %}
+
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-editor }}` имеют роль `Editor` на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** на странице проекта.
+
+{% include [projects-admin](../../../_includes/roles-datasphere-projects-admin.md) %}
+
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-project-admin }}` имеют роль `Admin` на вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** на странице проекта.
+
+{% include [communities-viewer](../../../_includes/roles-datasphere-communities-viewer.md) %}
+
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-viewer }}` имеют роль `Viewer` на вкладке **{{ ui-key.yc-ui-datasphere.common.members }}** на странице сообщества.
+
+{% include [communities-developer](../../../_includes/roles-datasphere-communities-developer.md) %}
+
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-developer }}` имеют роль `Developer` на вкладке **{{ ui-key.yc-ui-datasphere.common.members }}** на странице сообщества.
+
+{% include [communities-editor](../../../_includes/roles-datasphere-communities-editor.md) %}
+
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-editor }}` имеют роль `Editor` на вкладке **{{ ui-key.yc-ui-datasphere.common.members }}** на странице сообщества.
+
+{% include [communities-admin](../../../_includes/roles-datasphere-communities-admin.md) %}
+
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `{{ roles-datasphere-communities-admin }}` имеют роль `Admin` на вкладке **{{ ui-key.yc-ui-datasphere.common.members }}** на странице сообщества.
+
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
@@ -251,6 +283,8 @@ _Роль_ — это набор разрешений, который опред
 ## {{ iam-full-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
+
+{% include [roles-sa-admin](../../../_includes/roles-sa-admin.md) %}
 
 {% include [roles-sa-accessKeyAdmin](../../../_includes/roles-sa-accessKeyAdmin.md) %}
 
@@ -263,6 +297,12 @@ _Роль_ — это набор разрешений, который опред
 {% include [roles-sa-tokenCreator](../../../_includes/roles-sa-tokenCreator.md) %}
 
 {% include [roles-iam-auditor](../../../_includes/roles-iam-auditor.md) %}
+
+{% include [roles-iam-viewer](../../../_includes/roles-iam-viewer.md) %}
+
+{% include [roles-iam-editor](../../../_includes/roles-iam-editor.md) %}
+
+{% include [roles-iam-admin](../../../_includes/roles-iam-admin.md) %}
 
 
 ## {{ iot-full-name }} {#iot-roles}
@@ -580,6 +620,20 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-speechkit-tts-user](../../../_includes/roles-speechkit-tts-user.md) %}
 
+
+## {{ speechsense-full-name }} {#speechsense-roles}
+
+{% include [auditor](../../../_includes/roles-speech-sense-auditor.md) %}
+
+{% include [viewer](../../../_includes/roles-speech-sense-viewer.md) %}
+
+{% include [editor](../../../_includes/roles-speech-sense-editor.md) %}
+
+{% include [admin](../../../_includes/roles-speech-sense-admin.md) %}
+
+{% include [data-viewer](../../../_includes/roles-speech-sense-data-viewer.md) %}
+
+{% include [data-editor](../../../_includes/roles-speech-sense-data-editor.md) %}
 
 ## {{ translate-full-name }} {#translate-roles}
 

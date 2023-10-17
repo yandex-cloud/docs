@@ -21,7 +21,7 @@ To use the {{ metastore-name }} cluster, a {{ dataproc-name }} cluster must have
       spark:spark.hive.metastore.uris : thrift://<{{ metastore-name }} cluster IP address>:{{ port-metastore }}
       ```
 
-      To find out the {{ metastore-name }} cluster IP address, in the [management console]({{ link-console-main }}), select **{{ dataproc-name }}**, then in the left panel, select the ![image](../../../_assets/data-proc/metastore.svg) **Metastore server** page. You will see the cluster's IP address under **{{ ui-key.yacloud.common.section-base }}**.
+      To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../../_assets/data-proc/metastore.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
 
    1. If the {{ metastore-name }} cluster and {{ dataproc-name }} cluster are hosted in different cloud networks, set up routing between these cloud networks so that the {{ metastore-name }} subnet is accessible from the {{ dataproc-name }} subnet.
 
@@ -29,10 +29,10 @@ To use the {{ metastore-name }} cluster, a {{ dataproc-name }} cluster must have
 
    1. If the cloud network uses [security groups](../../../vpc/concepts/security-groups.md), [set up the security group](../../../vpc/operations/security-group-add-rule.md) of the {{ dataproc-name }} cluster to work with {{ metastore-name }}. To do this, add the following rule for outgoing traffic:
 
-      * Port range: `{{ port-metastore }}`.
-      * Protocol: `Any`.
-      * Source: `CIDR`.
-      * CIDR blocks: `0.0.0.0/0`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-metastore }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` `Any`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
 {% endlist %}
 

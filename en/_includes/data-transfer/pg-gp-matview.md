@@ -1,0 +1,1 @@
+Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZED VIEW` data, create an ordinary `VIEW` that refers to the `MATERIALIZED VIEW` to be transferred.

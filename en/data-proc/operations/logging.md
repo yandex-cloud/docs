@@ -12,8 +12,8 @@ For more information, see [{#T}](../concepts/logs.md).
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Click the cluster name and select the ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.mdb.cluster.switch_logs }}** tab.
    1. (Optional) Specify the output settings:
       * [Message filter](../concepts/logs.md):
          * Getting the job start output {{ dataproc-name }}:

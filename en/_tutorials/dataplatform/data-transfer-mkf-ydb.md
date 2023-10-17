@@ -1,4 +1,4 @@
-# Delivering data from a {{ KF }} queue to {{ ydb-short-name }}
+# Delivering data from an {{ KF }} queue to {{ ydb-short-name }}
 
 A {{ ydb-name }} cluster can get data from {{ KF }} topics in real time. This data is automatically added to {{ ydb-short-name }} tables with topic names.
 
@@ -30,13 +30,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          This file describes:
 
-         * [Network](../../vpc/concepts/network.md#network).
-         * [Subnet](../../vpc/concepts/network.md#subnet).
+         * [Network](../../vpc/concepts/network.md#network)
+         * [Subnet](../../vpc/concepts/network.md#subnet)
          * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
-         * {{ mkf-name }} source cluster.
-         * {{ KF }} topic.
-         * {{ ydb-name }} database.
-         * Transfer.
+         * {{ mkf-name }} source cluster
+         * {{ KF }} topic
+         * {{ ydb-name }} database
+         * Transfer
 
       1. In the `data-transfer-mkf-ydb.tf` file, specify the variables:
 
@@ -46,14 +46,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `target_db_name`: {{ ydb-name }} database name.
          * `transfer_enabled`: Set `0` to ensure that no transfer is created before [creating a target endpoint manually](#prepare-transfer).
 
-      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -99,7 +99,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDB }}`.
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
@@ -108,7 +108,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ KF }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
@@ -188,7 +188,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * Manually
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
@@ -205,7 +205,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -282,10 +282,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * Management console
 
-         1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
-         1. In the list of services, select **{{ ydb-name }}**.
+         1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
+         1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
          1. Select the database from the list.
-         1. Click the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+         1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
          1. Check that the {{ ydb-name }} database contains the `sensors` table with the test data from the topic.
 
       * {{ ydb-short-name }} CLI
@@ -334,9 +334,9 @@ Delete the other resources, depending on the method used to create them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

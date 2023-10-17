@@ -4,6 +4,8 @@
 
 * [{#T}](#change-name-and-description).
 
+* [{#T}](#change-public-access).
+
 * [{#T}](#change-additional-settings).
 
 * [{#T}](#change-gp-settings).
@@ -63,6 +65,59 @@
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+
+## Изменить настройку публичного доступа {#change-public-access}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** в верхней части страницы.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** установите или отключите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить настройку публичного доступа {{ GP }}:
+
+  1. Посмотрите описание команды CLI для изменения конфигурации кластера:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update --help
+      ```
+
+  1. Задайте настройку публичного доступа в параметре `--assign-public-ip`:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update <идентификатор или имя кластера> \
+         --assign-public-ip=<публичный доступ к кластеру: true или false>
+      ```
+
+- API
+
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Настройку публичного доступа в параметре `config.assignPublicIp`.
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `name`, `description`).
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+{% note tip %}
+
+Если вы включили публичный доступ к кластеру, но подключение через интернет не срабатывает:
+
+* Проверьте [настройки групп безопасности](./connect#configuring-security-groups).
+* Подождите некоторое время. Включение публичного доступа иногда вступает в силу не сразу.
+
+{% endnote %}
 
 ## Изменить дополнительные настройки кластера {#change-additional-settings}
 

@@ -1,0 +1,1 @@
+The `dataproc.provisioner` role grants access to the API to create, update, and delete Data Proc cluster objects.

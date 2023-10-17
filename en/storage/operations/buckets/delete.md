@@ -1,3 +1,8 @@
+---
+title: "How to delete a bucket"
+description: "This guide describes how you can delete a bucket."
+---
+
 # Deleting a bucket
 
 {% note warning %}
@@ -14,6 +19,8 @@ You can only delete empty buckets. In the management console, information about 
    1. Select **{{ objstorage-name }}**. This opens a page with a list of buckets.
    1. To delete a single bucket, click ![image](../../../_assets/horizontal-ellipsis.svg) to the left of the bucket name and select **{{ ui-key.yacloud.storage.bucket.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
+
+   {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 
 - {{ yandex-cloud }} CLI
 
@@ -51,6 +58,79 @@ You can only delete empty buckets. In the management console, information about 
       ```
 
       Where `--name` is the name of the bucket to delete.
+
+      {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
+
+- AWS CLI
+
+   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+
+   In the terminal, run the `aws s3api delete-bucket` command:
+
+   ```bash
+   aws s3api delete-bucket \
+     --endpoint-url=https://{{ s3-storage-host }} \
+     --bucket <bucket_name>
+   ```
+
+   Where:
+   * `--bucket`: Name of the bucket to be deleted.
+   * `--endpoint-url`: {{ objstorage-name }} endpoint.
+
+   You can also use the `aws s3 rb` command:
+
+   ```bash
+   aws --endpoint-url=https://{{ s3-storage-host }} \
+     s3 rb s3://<bucket_name>
+   ```
+
+   To simultaneously delete multiple buckets, run this command:
+
+   * **Bash:**
+
+      ```bash
+      aws s3api list-buckets \
+        --endpoint-url=https://{{ s3-storage-host }} \
+        --query '<query_in_JMESPath_format>' \
+        --output text | xargs -I {} aws s3api delete-bucket --endpoint-url=https://{{ s3-storage-host }} --bucket {}
+      ```
+
+      Where `--query` is the query in [JMESPath](https://jmespath.org/) format.
+
+      Sample command for deleting all buckets whose names start with `samplebucket`:
+
+      ```bash
+      aws s3api list-buckets \
+        --endpoint-url=https://{{ s3-storage-host }} \
+        --query 'Buckets[?starts_with(Name, `samplebucket`) == `true`].[Name]' \
+        --output text | xargs -I {} aws s3api delete-bucket --endpoint-url=https://{{ s3-storage-host }} --bucket {}
+      ```
+
+   * **PowerShell:**
+
+      ```powershell
+      Foreach($x in (aws s3api list-buckets `
+        --endpoint-url=https://{{ s3-storage-host }} `
+        --query '<query_in_JMESPath_format>' `
+        --output text)) `
+        {aws s3api delete-bucket `
+        --endpoint-url=https://{{ s3-storage-host }} `
+        --bucket $x}
+      ```
+
+      Where `--query` is the query in [JMESPath](https://jmespath.org/) format.
+
+      Sample command for deleting all buckets whose names start with `samplebucket`:
+
+      ```powershell
+      Foreach($x in (aws s3api list-buckets `
+        --endpoint-url=https://{{ s3-storage-host }} `
+        --query 'Buckets[?starts_with(Name, `samplebucket`) == `true`].[Name]' `
+        --output text)) `
+        {aws s3api delete-bucket `
+        --endpoint-url=https://{{ s3-storage-host }} `
+        --bucket $x}
+      ```
 
 - {{ TF }}
 
@@ -96,7 +176,7 @@ You can only delete empty buckets. In the management console, information about 
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -110,5 +190,7 @@ You can only delete empty buckets. In the management console, information about 
 - API
 
    To delete a bucket, use the [delete](../../api-ref/Bucket/delete.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Delete](../../api-ref/grpc/bucket_service.md#Delete) gRPC API call, or the [deleteBucket](../../s3/api-ref/bucket/delete.md) S3 API method.
+
+   {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 
 {% endlist %}

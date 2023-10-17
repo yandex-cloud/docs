@@ -1,1 +1,1 @@
-To activate {{ sws-name }}, [request access to the service from the support team]({{ link-console-support }}/create-ticket). You can also request access from the [management console]({{ link-console-main }}) by selecting **{{ sws-name }}** in the service list.
+To enable {{ sws-name }}, submit a request on the [service page]({{ link-cloud-services }}/smartwebsecurity) or in the [management console]({{ link-console-main }}) by selecting **{{ sws-name }}** in the service list.

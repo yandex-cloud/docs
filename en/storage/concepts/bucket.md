@@ -1,6 +1,6 @@
 ---
 title: "Bucket"
-description: "A bucket is a logical entity for storing objects. A bucket name is used as part of a URL to access data. Bucket names are unique throughout Object Storage; this means you cannot create two buckets with the same name, even in two different folders residing in different clouds. You should keep this in mind if you are going to create buckets automatically through the API."
+description: "A bucket is a logical entity for storing objects. A bucket name is used as part of a URL to access data. Bucket names are unique throughout Object Storage; this means you cannot create two buckets with the same name (even in two different folders residing in different clouds). You should keep this in mind if you are going to create buckets automatically through the API."
 keywords:
   - what is a bucket
   - bucket
@@ -38,7 +38,7 @@ You can use the following URL formats to access a bucket:
 
 ## Accessing a bucket via HTTPS {#bucket-https}
 
-{{ objstorage-name }} supports secure connections over [HTTPS](https://en.wikipedia.org/wiki/HTTPS). When accessing your buckets, use URLs in the `https://{{ s3-storage-host }}/<bucket>?<parameters>` format.
+{{ objstorage-name }} supports secure connections over HTTPS. When accessing your buckets, use URLs in the `https://{{ s3-storage-host }}/<bucket>?<parameters>` format.
 
 {% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 

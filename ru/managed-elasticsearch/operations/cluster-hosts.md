@@ -69,7 +69,7 @@ keywords:
 
         * Зону доступности.
         * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
-        * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+        * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}. Эту настройку нельзя изменить после создания хоста.
 
 - CLI
 
@@ -82,7 +82,10 @@ keywords:
     ```bash
     {{ yc-mdb-es }} host add \
        --cluster-name <имя кластера> \
-       --host zone-id=<зона доступности>,subnet-name=<имя подсети>,assign-public-ip=<true или false>,type=<роль хоста: datanode или masternode>
+       --host zone-id=<зона доступности>,`
+              `subnet-name=<имя подсети>,`
+              `assign-public-ip=<публичный доступ к хосту: true или false>,`
+              `type=<роль хоста: datanode или masternode>
     ```
 
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).

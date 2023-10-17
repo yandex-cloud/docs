@@ -1,0 +1,1 @@
+The `dataproc.user` role provides access to the Data Proc component web interfaces and enables you to create jobs. It includes the `dataproc.viewer` role.

@@ -1,4 +1,9 @@
-# Deleting an {{ k8s }} cluster
+---
+title: "How to delete a {{ k8s }} cluster"
+description: "This guide describes how you can delete a {{ k8s }} cluster."
+---
+
+# Deleting a {{ k8s }} cluster
 
 {% note alert %}
 
@@ -14,20 +19,20 @@
 
   1. Open **{{ managed-k8s-name }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to delete the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) from.
   1. Click ![image](../../../_assets/horizontal-ellipsis.svg) in the row of the {{ k8s }} cluster to delete.
-  1. In the resulting menu, click **Delete**.
+  1. In the menu that opens, click **Delete**.
   1. In the window that opens, click **Delete**.
 
 - CLI
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. Delete a {{ k8s }} cluster:
+  1. Delete the {{ k8s }} cluster:
 
      ```bash
      yc managed-kubernetes cluster delete test-k8s-cluster
      ```
 
-     Command result:
+     Result:
 
      ```bash
      done
@@ -39,7 +44,7 @@
      yc managed-kubernetes cluster list
      ```
 
-     Command result:
+     Result:
 
      ```bash
      +----+------+------------+--------+--------+-------------------+-------------------+

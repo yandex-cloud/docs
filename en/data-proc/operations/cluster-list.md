@@ -1,6 +1,6 @@
-# Information about existing clusters of {{ dataproc-name }}
+# Information about existing {{ dataproc-name }} clusters
 
-Detailed information about each {{ dataproc-name }} cluster created is available.
+You can get detailed information about each {{ dataproc-name }} cluster.
 
 ## Getting a list of clusters in a folder {#list}
 
@@ -8,7 +8,7 @@ Detailed information about each {{ dataproc-name }} cluster created is available
 
 - Management console
 
-   Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
+   Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 
 - CLI
 
@@ -34,8 +34,8 @@ Detailed information about each {{ dataproc-name }} cluster created is available
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Click on the name of the cluster you need.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Click the cluster name.
 
 - CLI
 
@@ -49,11 +49,11 @@ Detailed information about each {{ dataproc-name }} cluster created is available
    {{ yc-dp }} cluster get <cluster name or ID>
    ```
 
-   You can get the cluster ID and name with a [list of clusters in the folder](#list).
+   You can find out the cluster ID and name in a [list of clusters in the folder](#list).
 
 - API
 
-   Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [get](../api-ref/Cluster/get.md) API method and include the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](#list).
 
@@ -65,8 +65,8 @@ Detailed information about each {{ dataproc-name }} cluster created is available
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Click on the name of the cluster and open the **Operations** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.dataproc.switch_operations }}** tab.
 
 - CLI
 
@@ -74,17 +74,17 @@ Detailed information about each {{ dataproc-name }} cluster created is available
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of operations, run the command:
+   To get a list of operations, run the following command:
 
    ```bash
    {{ yc-dp }} cluster list-operations <cluster ID or name>
    ```
 
-   You can get the cluster ID and name with a [list of clusters in the folder](#list).
+   You can find out the cluster ID and name in a [list of clusters in the folder](#list).
 
 - API
 
-   Use the [listOperations](../api-ref/Cluster/listOperations.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [listOperations](../api-ref/Cluster/listOperations.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](#list).
 

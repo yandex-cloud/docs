@@ -1,0 +1,1 @@
+The `container-registry.admin` role lets you create, edit, and delete registries. Lets you configure access rights to service resources. Includes all permissions granted by the `container-registry.viewer` and `container-registry.editor` roles.
