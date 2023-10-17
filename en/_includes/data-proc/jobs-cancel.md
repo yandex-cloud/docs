@@ -8,11 +8,11 @@ You cannot cancel jobs with the status `ERROR`, `DONE`, or `CANCELLED`. To find 
 
 - Management console
 
-   1. Go to the folder page and select **{{ dataproc-name }}**.
-   1. Click on the name of the cluster and open the **Jobs** tab.
-   1. Click on the name of the job.
-   1. Click **Cancel** in the upper-right corner of the page.
-   1. In the window that opens, click **Cancel**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+   1. Click the job name.
+   1. Click **{{ ui-key.yacloud.common.cancel }}** in the top-right corner of the page.
+   1. In the window that opens, select **{{ ui-key.yacloud.mdb.dialogs.popup_button_cancel }}**.
 
 - CLI
 
@@ -31,10 +31,10 @@ You cannot cancel jobs with the status `ERROR`, `DONE`, or `CANCELLED`. To find 
 
 - API
 
-   Use the API [cancel](../../data-proc/api-ref/Job/cancel) method and pass in the call:
-   * The cluster ID in the `clusterId` parameter.
-   * The job ID in the `jobId` parameter.
+   Use the API [cancel](../../data-proc/api-ref/Job/cancel) method and include the following in the request:
+   * Cluster ID in the `clusterId` parameter
+   * Job ID in the `jobId` parameter
 
-   You can retrieve a cluster ID in the [list of folder clusters](../../data-proc/operations/cluster-list.md#list), and a job ID in the [list of cluster jobs](#list).
+   You can get a cluster ID with the [list of folder clusters](../../data-proc/operations/cluster-list.md#list), and a job ID, with the [list of cluster jobs](#list).
 
 {% endlist %}

@@ -75,10 +75,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       Each file describes:
 
-      * Network
-      * Subnet
+      * Network.
+      * Subnet.
       * Default security group and rules required to connect to the cluster from the internet.
-      * {{ mch-name }} cluster with relevant hosts and shards
+      * {{ mch-name }} cluster with relevant hosts and shards.
 
    1. In the configuration file, specify the username and password to access the {{ mch-name }} cluster.
    1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
@@ -141,7 +141,7 @@ To create the `hits_v1_distributed` distributed table in the cluster:
 
    In this case, instead of explicitly specifying the table structure, you can use the `AS tutorial.hits_v1` expression because the `hits_v1_distributed` and `hits_v1` tables run on the same hosts in the cluster.
 
-   When creating a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine, use `chcluster` as the cluster ID. You can retrieve it with a [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+   When creating a table on the [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) engine, use `chcluster` as the cluster ID. You can get it with a [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
    {% note tip %}
 
@@ -260,7 +260,7 @@ To check the health of the created distributed table named `tutorial.hits_v1_dis
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
@@ -283,7 +283,7 @@ Delete the resources you no longer need to avoid being charged for them:
 
       If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

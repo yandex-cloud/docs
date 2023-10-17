@@ -31,5 +31,5 @@ Actions for basic rules:
 * _Allow_ traffic whose parameters match the conditions.
 
 Actions for Smart Protection rules:
-* _Full Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are sent to {{ captcha-name }}.
-* _API Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are denied.
+* _Full Protection_: Traffic is checked by ML models and behavioral analysis tools. Suspicious requests are sent to {{ captcha-name }}.
+* _API Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are blocked.

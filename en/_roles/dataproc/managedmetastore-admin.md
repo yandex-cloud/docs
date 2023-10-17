@@ -1,0 +1,1 @@
+The `managed-metastore.admin` role enables you to edit and delete clusters, view information about clusters, their runtime logs, and quotas, as well as manage cluster access. This role includes the `managed-metastore.editor` role. To create clusters, you also need the `vpc.user` role.

@@ -1,3 +1,8 @@
+---
+title: "Deleting a resource"
+description: "Follow this guide to delete a resource."
+---
+
 # Deleting a resource
 
 {% list tabs %}
@@ -107,7 +112,7 @@
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the CDN resource's deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      You can check the deletion of the CDN resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc cdn resource list

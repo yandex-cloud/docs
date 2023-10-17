@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ objstorage-name }}
+# {{ objstorage-name }} pricing
 
 
 To calculate the cost of using {{ objstorage-name }}, use [our calculator]({{ link-cloud-calculator }}) or see the prices in this section.
@@ -18,9 +18,9 @@ To calculate the cost of using {{ objstorage-name }}, use [our calculator]({{ li
 The {{ objstorage-name }} usage cost is based on:
 
 * [Storage class](concepts/storage-class.md).
-* The amount of storage used by your data.
+* Amount of storage used by your data.
 * The number of operations on your data.
-* The amount of outgoing traffic.
+* Amount of outgoing traffic.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -30,21 +30,21 @@ The {{ objstorage-name }} usage cost is based on:
 
 ### Using storage {#rules-storage}
 
-Storage usage is measured in GB per month. The volume of data stored during a month is the average value over the month based on granulated per-second data. The minimum billable unit is 1 hour of storing 1 MB of data.
+Storage usage is measured in GB per month. The volume of the data stored during a month is the average value over the month based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
 
 ### Performing operations with data {#rules-operations}
 
 
 Data operations are charged according to the following policy:
 * The minimum pricing unit for PUT and POST operations is 10.
-* The minimum billable unit for GET, HEAD, OPTIONS operations is 100.
-* You aren't charged for deleting data (the DELETE operation).
+* The minimum billing unit for GET, HEAD, and OPTIONS operations is 100.
+* You are not charged for deleting data (DELETE operation).
 
 ## Pricing {#prices}
 
 ### Data storage {#prices-storage}
 
-The cost of 1 GB per month is fixed and doesn't depend on the number of days in the month.
+The cost of 1 GB per month is fixed and does not depend on the number of days in the month.
 
 
 
@@ -57,7 +57,7 @@ The cost of 1 GB per month is fixed and doesn't depend on the number of days in 
 
 ^1^ The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it's lower.
 
-Example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
+Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
 
 ```
 Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
@@ -75,7 +75,7 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 
 
 
-^3^ The minimum billable period of ice storage is 12 months (except storage until September 1, 2022). If you delete an object that was stored less than 12 months, the balance of the cost is charged after deletion.
+^3^ The minimum billable period of ice storage is 12 months (except storage until September 1, 2022). If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
 
 
 
@@ -113,20 +113,20 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 
 Data operations that result in an error are charged only in the following cases:
 
-* Error code 403 for a GET, HEAD, OPTIONS operation.
-* Error code 404 for a PUT, POST, GET, HEAD, OPTIONS operation.
+* Error code 403 for GET, HEAD, and OPTIONS operations.
+* Error code 404 for PUT, POST, GET, HEAD, and OPTIONS operations.
 
 Prices for standard storage are applied when calculating costs.
 
 {% endnote %}
 
-Each month, the first 10000 PUT and POST operations and the first 100000 GET, HEAD, OPTIONS operations in standard storage are free of charge.
+The first 10,000 PUT and POST operations and the first 100,000 GET, HEAD, and OPTIONS operations in standard storage per month are free of charge.
 
 
 
 
 
-> For example, if the monthly cost of 10000 GET operations in standard storage is $0.003129 and the amount of GET operations per month is 24500, the total monthly cost of data operations will be:
+> For example, if the monthly cost of 10,000 GET operations in standard storage is $0.003129 and the amount of GET operations per month is 24,500, the total monthly cost of data operations will be:
 > ((24500 − 10000) / 10000) × $0.003129 = (14500 / 10000) × $0.003129 = $0.00453705
 
 
@@ -135,7 +135,7 @@ Each month, the first 10000 PUT and POST operations and the first 100000 GET, HE
 
 When using the service, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
 
-The minimum billable unit is 1 MB. The billing period is a calendar month.
+The minimum billing unit is 1 MB. The billing period is a calendar month.
 
 
 

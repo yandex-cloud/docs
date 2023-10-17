@@ -71,7 +71,7 @@
      * Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
      * Выберите [зону доступности](../../overview/concepts/geo-scope.md).
      * Выберите [подсеть](../../vpc/concepts/network.md#subnet) в указанной зоне доступности. Если подсети нет, создайте ее.
-     * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+     * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Эту настройку нельзя изменить после создания хоста.
 
 
           
@@ -119,16 +119,18 @@
       
       ```bash
       {{ yc-mdb-mg }} cluster create \
-        --name <имя кластера> \
-        --environment=<окружение, prestable или production> \
-        --network-name <имя сети> \
-        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-        --mongod-resource-preset <класс хоста> \
-        --user name=<имя пользователя>,password=<пароль пользователя> \
-        --database name=<имя базы данных> \
-        --mongod-disk-type <тип диска> \
-        --mongod-disk-size <размер хранилища в гигабайтах> \
-        --deletion-protection=<защита от удаления кластера: true или false>
+        --name <имя_кластера> \
+        --environment=<окружение:_prestable_или_production> \
+        --network-name <имя_сети> \
+        --host zone-id=<зона_доступности>,`
+              `subnet-id=<идентификатор_подсети>,`
+              `assign-public-ip=<публичный_доступ_к_хосту:_true_или_false> \
+        --mongod-resource-preset <класс_хоста> \
+        --user name=<имя_пользователя>,password=<пароль_пользователя> \
+        --database name=<имя_базы_данных> \
+        --mongod-disk-type <тип_диска> \
+        --mongod-disk-size <размер_хранилища_в_ГБ> \
+        --deletion-protection=<защита_от_удаления_кластера:_true_или_false>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -165,48 +167,49 @@
      
      
      ```hcl
-     resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
-       name                = "<имя кластера>"
-       environment         = "<окружение: PRESTABLE или PRODUCTION>"
-       network_id          = "<идентификатор сети>"
-       security_group_ids  = [ "<список групп безопасности>" ]
-       deletion_protection = <защита от удаления кластера: true или false>
+     resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
+       name                = "<имя_кластера>"
+       environment         = "<окружение:_PRESTABLE_или_PRODUCTION>"
+       network_id          = "<идентификатор_сети>"
+       security_group_ids  = [ "<список_групп_безопасности>" ]
+       deletion_protection = <защита_от_удаления_кластера:_true_или_false>
 
        cluster_config {
-         version = "<версия {{ MG }}: {{ versions.tf.str }}>"
+         version = "<версия_{{ MG }}:_{{ versions.tf.str }}>"
        }
 
        database {
-         name = "<имя базы данных>"
+         name = "<имя_базы_данных>"
        }
 
        user {
-         name     = "<имя пользователя>"
-         password = "<пароль пользователя>"
+         name     = "<имя_пользователя>"
+         password = "<пароль_пользователя>"
          permission {
-           database_name = "<имя базы данных>"
-           roles         = [ "<список ролей пользователя>" ]
+           database_name = "<имя_базы_данных>"
+           roles         = [ "<список_ролей_пользователя>" ]
          }
        }
 
        resources_mongod {
-         resource_preset_id = "<класс хоста>"
-         disk_type_id       = "<тип диска>"
-         disk_size          = <размер хранилища, ГБ>
+         resource_preset_id = "<класс_хоста>"
+         disk_type_id       = "<тип_диска>"
+         disk_size          = <размер_хранилища_в_ГБ>
        }
 
        host {
-         zone_id   = "<зона доступности>"
-         subnet_id = "<идентификатор подсети>"
+         zone_id          = "<зона_доступности>"
+         subnet_id        = "<идентификатор_подсети>"
+         assign_public_ip = <публичный_доступ_к_хосту:_true_или_false>
        }
      }
 
-     resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+     resource "yandex_vpc_network" "<имя_сети>" { name = "<имя_сети>" }
 
-     resource "yandex_vpc_subnet" "<имя подсети>" {
-       name           = "<имя подсети>"
-       zone           = "<зона доступности>"
-       network_id     = "<идентификатор сети>"
+     resource "yandex_vpc_subnet" "<имя_подсети>" {
+       name           = "<имя_подсети>"
+       zone           = "<зона_доступности>"
+       network_id     = "<идентификатор_сети>"
        v4_cidr_blocks = ["<диапазон>"]
      }
      ```
@@ -432,17 +435,51 @@
 * Класс хостов `MONGOINFRA` — `c3-c2-m4`.
 * Хранилище на сетевых SSD-дисках — `{{ disk-type-example }}`.
 * Размер хранилища — 10 ГБ.
-* Количество блоков `host` — четыре. Для каждого из них задается тип хоста: `mongod` или `mongoinfra`.
 
 Сетевые характеристики:
 
 * Сеть — `mynet`.
-* Группа безопасности — `mymg-sg`. Правила группы разрешают TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
+* Группа безопасности — `mymg-sg` с идентификатором `{{ security-group }}`. В {{ TF }} группа создается с правилом, которое разрешает TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
+
 * Подсеть — `mysubnet`. 
 * Зона доступности — `{{ region-id }}-a`.
-* Диапазон — `10.5.0.0/24`.
+* Диапазон — `10.5.0.0/24` (только для {{ TF }}).
 
 {% list tabs %}
+
+- CLI
+
+  Выполните команду, чтобы создать кластер {{ mmg-name }} со стандартным шардированием:
+
+  ```bash
+  {{ yc-mdb-mg }} cluster create \
+     --name mymg \
+     --environment production \
+     --deletion-protection=true \
+     --mongodb-version {{ versions.cli.latest }} \
+     --database name=db1 \
+     --user name=user1,password=user1user1 \
+     --mongod-resource-preset {{ host-class }} \
+     --mongod-disk-type {{ disk-type-example }} \
+     --mongod-disk-size 10 \
+     --host type=mongod,`
+       `zone-id={{ region-id }}-a,`
+       `subnet-name=mysubnet \
+     --mongoinfra-resource-preset c3-c2-m4 \
+     --mongoinfra-disk-type {{ disk-type-example }} \
+     --mongoinfra-disk-size 10 \
+     --host type=mongoinfra,`
+       `zone-id={{ region-id }}-a,`
+       `subnet-name=mysubnet \
+     --host type=mongoinfra,`
+       `zone-id={{ region-id }}-a,`
+       `subnet-name=mysubnet \
+     --host type=mongoinfra,`
+       `zone-id={{ region-id }}-a,`
+       `subnet-name=mysubnet \
+     --network-name mynet \
+     --security-group-ids {{ security-group }}
+  ```
 
 - {{ TF }}
 
@@ -554,17 +591,59 @@
 * Класс хостов — `{{ host-class }}`.
 * Хранилище на сетевых SSD-дисках — `{{ disk-type-example }}`.
 * Размер хранилища — 10 ГБ.
-* Количество блоков `host` — шесть. Для каждого из них задается тип хоста: `mongod`, `mongos` или `mongocfg`.
 
 Сетевые характеристики:
 
 * Сеть — `mynet`.
-* Группа безопасности — `mymg-sg`. Правила группы разрешают TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
+* Группа безопасности — `mymg-sg` с идентификатором `{{ security-group }}`. В {{ TF }} группа создается с правилом, которое разрешает TCP-подключения к кластеру из интернета через порт `{{ port-mmg }}`.
 * Подсеть — `mysubnet`. 
 * Зона доступности — `{{ region-id }}-a`.
-* Диапазон — `10.5.0.0/24`.
+* Диапазон — `10.5.0.0/24` (только для {{ TF }}).
 
 {% list tabs %}
+
+- CLI
+
+  Выполните команду, чтобы создать кластер {{ mmg-name }} с расширенным шардированием:
+
+  ```bash
+  {{ yc-mdb-mg }} cluster create \
+    --name mymg \
+    --environment production \
+    --deletion-protection=true \
+    --mongodb-version {{ versions.cli.latest }} \
+    --database name=db1 \
+    --user name=user1,password=user1user1 \
+    --mongod-resource-preset {{ host-class }} \
+    --mongod-disk-type {{ disk-type-example }} \
+    --mongod-disk-size 10 \
+    --host type=mongod,`
+      `zone-id={{ region-id }}-a,`
+      `subnet-name=mysubnet \
+    --mongos-resource-preset {{ host-class }} \
+    --mongos-disk-type {{ disk-type-example }} \
+    --mongos-disk-size 10 \
+    --host type=mongos,`
+      `zone-id={{ region-id }}-a,`
+      `subnet-name=mysubnet \
+    --host type=mongos,`
+      `zone-id={{ region-id }}-a,`
+      `subnet-name=mysubnet \
+    --mongocfg-resource-preset {{ host-class }} \
+    --mongocfg-disk-type {{ disk-type-example }} \
+    --mongocfg-disk-size 10 \
+    --host type=mongocfg,`
+      `zone-id={{ region-id }}-a,`
+      `subnet-name=mysubnet \
+    --host type=mongocfg,`
+      `zone-id={{ region-id }}-a,`
+      `subnet-name=mysubnet \
+    --host type=mongocfg,`
+      `zone-id={{ region-id }}-a,`
+      `subnet-name=mysubnet \
+    --network-name mynet \
+    --security-group-ids {{ security-group }}
+  ```
 
 - {{ TF }}
 

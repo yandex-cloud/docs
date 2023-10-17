@@ -1,0 +1,1 @@
+The `container-registry.images.puller` role lets you download Docker images and view information about service resources (registries, Docker images, and repositories).

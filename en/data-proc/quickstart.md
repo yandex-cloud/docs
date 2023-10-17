@@ -38,10 +38,10 @@ To get started with the service:
 
 To create a cluster:
 
-1. In the management console, open the folder to create your cluster in and select **{{ dataproc-name }}**.
-1. Click **Create cluster**.
-1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. Wait until the cluster is ready for use: its status changes to **Alive**. This may take some time.
+1. In the management console, open the folder to create your cluster in and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click **{{ ui-key.yacloud.mdb.clusters.button_empty-create }}**.
+1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Wait until the cluster is ready for use: its status will change to **Alive**. This may take some time.
 
 ## Connect to the cluster {#connect}
 
@@ -64,7 +64,7 @@ For more information about connecting to {{ dataproc-name }} clusters, see [{#T}
 
 To connect to the {{ dataproc-name }} component interfaces using the web interface:
 
-1. [Enable the setting](operations/connect-interfaces.md#ui-proxy-enable) **UI Proxy** in the cluster.
+1. [Enable the **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** setting](operations/connect-interfaces.md#ui-proxy-enable) in the cluster.
 1. Get a list of interface URLs.
 
 To connect to the {{ dataproc-name }} component interfaces via SSH with port forwarding:

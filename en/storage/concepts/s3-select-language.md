@@ -1,3 +1,8 @@
+---
+title: "S3 Select query language syntax"
+description: "This article describes the syntax of the S3 Select query language."
+---
+
 # S3 Select query language syntax
 
 {% note info %}
@@ -158,7 +163,7 @@ To indicate that CSV file column headers or JSON file attributes are case-sensit
     If you enclose the header or attribute in double quotes, the request will successfully return the object data:
 
     ```sql
-    SELECT s."NAME" FROM S3Object s
+    SELECT s."name" FROM S3Object s
     ```
 
 
@@ -192,7 +197,7 @@ SELECT s.CAST FROM S3Object s
 
 * `column_reference`: Reference to a column, such as `column_name` or `alias.column_name`, used to access a column by means of the column header.
 
-   Example:
+   For example:
 
   ```sql
   SELECT city.name FROM S3Object city
@@ -200,7 +205,7 @@ SELECT s.CAST FROM S3Object s
 
 * `unary_op expression`: In this expression, `unary_op` is a unary SQL operator. Unary operators perform operations on a single operand. They include, for instance, the unary minus, which changes the sign of a number.
 
-  Example:
+   For example:
 
   ```sql
   SELECT -5 FROM S3Object
@@ -220,7 +225,7 @@ SELECT s.CAST FROM S3Object s
 
 * `func_name`: In this expression, `func_name` is the name of a callable scalar function.
 
-  Example:
+  For example:
 
   ```sql
   SELECT CAST(status AS INT) FROM S3Object
@@ -228,7 +233,7 @@ SELECT s.CAST FROM S3Object s
 
 * `expression [ NOT ] BETWEEN expression AND expression`: Checking whether a value belongs to a range.
 
-  Example:
+  For example:
 
   ```sql
   SELECT x FROM S3Object WHERE x BETWEEN -1 AND 1

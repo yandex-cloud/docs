@@ -1,0 +1,1 @@
+The `dataproc.editor` role enables you to create, edit, and delete clusters and jobs, view information about them, and provides access to the Data Proc component web interfaces. It includes the `dataproc.viewer` role.

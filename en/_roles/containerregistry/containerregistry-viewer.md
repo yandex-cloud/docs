@@ -1,0 +1,1 @@
+The `container-registry.viewer` role lets you view information about registries, Docker images, and repositories.

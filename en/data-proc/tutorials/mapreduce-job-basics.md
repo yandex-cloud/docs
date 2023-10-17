@@ -14,12 +14,12 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
 
 1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following settings:
 
-    * **Services**:
+    * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `MAPREDUCE`
         * `YARN`
-    * **Service account**: Select the service account with the `mdb.dataproc.agent` role you created earlier.
-    * **Bucket name**: Select a bucket to hold the processing results.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the previously created service account with the `mdb.dataproc.agent` role.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
 
 ## Create a MapReduce job {#create-job}
 
@@ -48,8 +48,8 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
 
 1. [Create a MapReduce job](../operations/jobs-mapreduce.md#create) with the following parameters:
 
-    * **Main class**: `org.apache.hadoop.streaming.HadoopStreaming`
-    * **Job arguments**:
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-class }}**: `org.apache.hadoop.streaming.HadoopStreaming`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
        * `-mapper`
        * `mapper.py`
        * `-reducer`
@@ -60,10 +60,10 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
        * `s3a://<input data bucket name>/cities500.txt`
        * `-output`
        * `s3a://<output processing bucket name>/<output folder>`
-    * **Files**:
+    * **{{ ui-key.yacloud.dataproc.jobs.field_files }}**:
        * `s3a://<input data bucket name>/mapper.py`
        * `s3a://<input data bucket name>/reducer.py`
-    * **Settings**:
+    * **{{ ui-key.yacloud.dataproc.jobs.field_properties }}**:
        * `mapreduce.job.maps: 6`
        * `yarn.app.mapreduce.am.resource.mb: 2048`
        * `yarn.app.mapreduce.am.command-opts: -Xmx2048m`

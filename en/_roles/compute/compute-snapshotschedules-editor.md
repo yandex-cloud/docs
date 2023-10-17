@@ -1,0 +1,1 @@
+The `compute.snapshotSchedules.editor` role grants the permission to create scheduled disk snapshots and update them.

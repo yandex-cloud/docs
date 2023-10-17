@@ -1,3 +1,8 @@
+---
+title: "How to update a node group"
+description: "This guide describes how you can update a node group."
+---
+
 # Changing a node group
 
 {% include [yc-node-group-list](../../../_includes/managed-kubernetes/node-group-list.md) %}
@@ -34,9 +39,9 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
   To change a [node group](../../concepts/index.md#node-group):
   1. Open **{{ managed-k8s-name }}** in the folder where you want to change the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
-  1. Click the name of the cluster you need.
+  1. Click the cluster name.
   1. Go to the **Node group** tab.
-  1. Click **Edit** in the upper-right corner.
+  1. Click **Edit** in the top-right corner.
   1. Change the required parameters in the window that opens.
   1. Click **Save changes**.
 
@@ -58,7 +63,7 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
     {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
-  * `--network-acceleration-type`: The type of [network acceleration](../../../vpc/concepts/software-accelerated-network.md):
+   * `--network-acceleration-type`: Type of [network acceleration](../../../vpc/concepts/software-accelerated-network.md):
     * `standard`: No acceleration.
     * `software-accelerated`: Software-accelerated network.
 
@@ -69,7 +74,7 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
       {% endnote %}
 
   * `--container-runtime`: Change the [container runtime environment](../../concepts/index.md#config), `docker` or `containerd`.
-  * `--node-name`: Update the node name template. The name is unique if the template contains at least one of the variables:
+  * `--node-name`: Update the node name template. The name is unique if the template contains at least one of the following variables:
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
@@ -136,7 +141,7 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the resources have been updated.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -146,15 +151,15 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
   To edit the properties of a [node group](../../concepts/index.md#node-group), use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
 
-  To change the [container runtime environment](../../concepts/index.md#config), pass the `docker` or the `containerd` value in the `nodeTemplate.containerRuntimeSettings.type` parameter.
+  To change the [container runtime environment](../../concepts/index.md#config), provide the `docker` or the `containerd` value in the `nodeTemplate.containerRuntimeSettings.type` parameter.
 
-  To update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the group nodes, pass their values in the `nodeTemplate.labels` parameter.
+  To update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the group nodes, provide their values in the `nodeTemplate.labels` parameter.
 
   To update the node name template, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
 
   {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-  To update [DNS records](../../../dns/concepts/resource-record.md), pass their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
+  To update [DNS records](../../../dns/concepts/resource-record.md), provide their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
 
 {% endlist %}
 
@@ -182,7 +187,7 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
      {{ yc-k8s }} node-group update --help
      ```
 
-  1. Run the command to change a node group by passing the `--network-interface` parameter:
+  1. Run the change node group command and provide the `--network-interface` parameter:
 
      ```bash
      {{ yc-k8s }} node-group update <node group ID or name> \
@@ -200,10 +205,10 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
 ## Managing node group labels {#manage-label}
 
-You can perform the following actions with node group [labels](../../../resource-manager/concepts/labels.md):
-* [Add](#add-label).
-* [Edit](#update-label).
-* [Delete](#remove-label).
+You can perform the following actions with the node group [labels](../../../resource-manager/concepts/labels.md):
+* [Add](#add-label)
+* [Edit](#update-label)
+* [Delete](#remove-label)
 
 ### Adding a label {#add-label}
 
@@ -250,7 +255,7 @@ You can perform the following actions with node group [labels](../../../resource
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the resources have been updated.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -308,7 +313,7 @@ You can perform the following actions with node group [labels](../../../resource
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the resources have been updated.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -347,7 +352,7 @@ You can perform the following actions with node group [labels](../../../resource
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the resources have been updated.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

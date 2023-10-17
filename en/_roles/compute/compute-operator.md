@@ -1,0 +1,1 @@
+The `compute.operator` role lets you stop, start, and restart virtual machines, but doesn't allow you to create or delete virtual machines.

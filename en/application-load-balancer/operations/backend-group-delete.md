@@ -1,4 +1,9 @@
-# Deleting backend group
+---
+title: "How to delete a backend group"
+description: "This guide describes how you can delete a backend group."
+---
+
+# Deleting a backend group
 
 {% note warning %}
 

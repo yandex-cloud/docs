@@ -11,27 +11,27 @@ description: "In this tutorial, you will learn how to manage Spark jobs in {{ da
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Click on the name of the cluster and open the **Jobs** tab.
-   1. Click **Submit job**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+   1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
    1. (Optional) Enter a name for the job.
-   1. In the **Job type** field, select `Spark`.
-   1. In the **Main jar**, specify the path to the main JAR application file in the following format:
+   1. In the **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** field, select `{{ ui-key.yacloud.dataproc.jobs.field_spark-job-type }}`.
+   1. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}** field, specify the path to the main JAR application file in the following format:
 
       {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
-   1. In the **Main class** field, specify the name of the main application class.
+   1. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-class }}** field, specify the name of the main application class.
    1. Specify job arguments.
 
       {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
-   1. (optional) Specify the paths to JAR files, if any.
-   1. (optional) Configure advanced settings:
+   1. (Optional) Specify the paths to the JAR files, if any.
+   1. (Optional) Configure advanced settings:
 
       * Specify paths to the necessary files and archives.
       * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key-value` pairs.
 
-   1. Click **Submit job**.
+   1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
 - CLI
 
@@ -47,7 +47,7 @@ description: "In this tutorial, you will learn how to manage Spark jobs in {{ da
       {{ yc-dp }} job create-spark --help
       ```
 
-   1. Create a job (the example doesn't show all the available parameters):
+   1. Create a job (the example does not show all the available parameters):
 
       ```bash
       {{ yc-dp }} job create-spark \

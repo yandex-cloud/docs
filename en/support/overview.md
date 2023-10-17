@@ -3,7 +3,7 @@
 
 
 
-{{ yandex-cloud }} provides technical support under different service plans. You can choose the plan that's best for you. The cost of paid technical support plans includes two components: fixed and supplemental. The fixed portion only depends on the selected plan, while the supplemental portion is calculated as a fraction of the cost of the resources used over the month. For more information about plans, see the [Pricing policy](pricing.md).
+{{ yandex-cloud }} provides technical support under different service plans. You can choose the plan that's best for you. The cost of paid technical support plans includes two components: fixed and supplemental. The supplemental part is calculated as a percentage of the cost of resources used during the month. For more information about plans, see the [Pricing policy](pricing.md).
 
 
 ## Contacting support {#response-time}

@@ -7,6 +7,8 @@ items:
     href: support-center.md
   - name: '{{ yandex-cloud }} notifications'
     href: notify.md
+  - name: Support Center
+    href: support-center.md
   - name: Data requests
     href: request.md
   - name: Copying errors from the browser console
@@ -14,7 +16,13 @@ items:
   - name: Saving browser and server interactions to a HAR file
     href: create-har.md
   - name: Pricing policy
-    href: pricing.md
+    items:
+      - name: Current pricing policy
+        href: pricing.md
+      - name: Archive
+        items:
+          - name: Before October 1, 2023
+            href: pricing-archive/pricing01102023.md
   - name: Questions and answers
     href: qa.md
 base: en/support

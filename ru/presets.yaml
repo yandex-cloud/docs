@@ -6002,8 +6002,13 @@ default:
             button_create: Создать
             field_advanced: Дополнительно
             field_is-default: Создать подсети
+            field_name: Имя
           create-subnetwork-dialog:
             button_create: Создать
+            field_cidr: CIDR
+            field_description: Описание
+            field_name: Имя
+            field_zone: Зона доступности
           network-select:
             button_create-network: Создать сеть
             button_create-subnetwork: Добавить подсеть
@@ -7022,6 +7027,7 @@ default:
           label_autoscaling-activated: Автоматическое масштабирование
           label_create-subcluster: Добавить подкластер
           label_deletion-protection: Защита от удаления
+          label_disk-size: Размер
           label_diskTypeId: Тип диска
           label_greenplum_pool_client-idle-timeout: Тайм-аут ожидания клиента
           label_greenplum_pool_mode: Режим
@@ -7662,26 +7668,50 @@ default:
         title_network-map-page: Карта облачной сети
       ydb:
         browse:
+          button_create: Создать
           button_sql-query: Новый SQL-запрос
           dialogs:
+            button_create-directory: Создать директорию
             tooltip_create_pk: Первичный ключ
           info:
             column_name: Имя
             column_type: Тип
+          menu_directory: Директорию
+          menu_table: Таблицу
+        constants:
+          menu_delete: Удалить
+          menu_edit: Изменить
         database:
           switch_browse: Навигация
+          switch_monitoring: Мониторинг
+          switch_overview: Обзор
         databases:
           button_create: Создать базу данных
           label_title: Базы данных
         forms:
           button_create-database: Создать базу данных
+          button_create-network-new: Создать новую
+          button_create-subnetwork-new: Создать новую
+          button_update-database: Изменить базу данных
+          field_network: Облачная сеть
+          field_public-ips: Публичные IP-адреса
+          field_subnetworks: Подсети
+          label_dedicated-type: Dedicated
           label_field_database-type: Тип базы данных
           label_field_name: Имя
+          label_section-compute: Вычислительные ресурсы
+          label_section-network: Сеть
+          label_section-storage: Группы хранения
           label_serverless-type: Serverless
+          label_text-public-ips: Присвоить
         overview:
+          button_action-delete: Удалить
+          button_action-edit: Изменить
           label_database: Размещение базы данных
           label_document-endpoint: Document API эндпоинт
           label_endpoint: Эндпоинт
+          label_serverless-billing: Тарификация
+          label_serverless-limits: Ограничения
           label_title: Обзор
           section_connection: Соединение
         sql:
@@ -7689,12 +7719,33 @@ default:
           label_query: Запрос
           label_status_running: Running
         table:
+          create:
+            button_create: Создать таблицу
+          edit:
+            button_update: Изменить таблицу
           form:
+            button_add-split-point: Добавить ключ-границу шарда
+            column_index-key: Ключ
+            column_name: Имя
+            column_primary-key: Первичный ключ
             column_shard: Ключ партицирования
+            column_sort: Ключ сортировки
+            column_type: Тип
+            field_autopartition-by-load: По нагрузке
+            field_autopartition-by-size: По размеру
+            field_autopartition-by-size-mb: Автопартицирование по размеру MB
+            field_autopartition-max: Максимальное количество партиций
+            field_autopartition-min: Минимальное количество партиций
+            field_key-bloom-filter: Фильтр Блума для первичного ключа
             field_name: Имя
             field_type: Тип таблицы
+            field_uniform-partitions: Количество
             label_columns: Колонки
             label_document-table: Документная таблица
+            label_row-table: Строковая таблица
+            value_partitions-explicit: Явно
+            value_partitions-none: Нет
+            value_partitions-uniform: Равномерно
       ymq:
         queue:
           overview:

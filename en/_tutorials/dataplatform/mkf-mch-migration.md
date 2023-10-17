@@ -1,4 +1,4 @@
-# Delivering data from a {{ KF }} queue to {{ CH }} using {{ data-transfer-full-name }}
+# Delivering data from an {{ KF }} queue to {{ CH }} using {{ data-transfer-full-name }}
 
 A {{ mch-name }} cluster can get data from {{ KF }} topics in real time. Managed Service for ClickHouse automatically inserts data sent to {{ CH }} tables on the [`Kafka` engine]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
 
@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * Manually
 
-   1. [Create a source {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
+   1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
    1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) in the {{ mkf-name }} cluster.
 
@@ -44,8 +44,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       This file describes:
 
-      * [Network](../../vpc/concepts/network.md#network).
-      * [Subnet](../../vpc/concepts/network.md#subnet).
+      * [Network](../../vpc/concepts/network.md#network)
+      * [Subnet](../../vpc/concepts/network.md#subnet)
       * [security group](../../vpc/concepts/security-groups.md) and rules required to connect to the clusters from the internet.
       * A source {{ mkf-name }} cluster with a description of a topic and two users on whose behalf the producer and consumer will connect to the topic.
       * {{ mch-name }} target cluster.
@@ -219,9 +219,9 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: Enter the name of the topic in the {{ mkf-name }} cluster
 
       * (Optional) : **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
-
+      
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
             Create and upload the `json_schema.json` file in JSON format:
 
@@ -277,7 +277,7 @@ The {{ mch-name }} cluster will use [JSONEachRow format]({{ ch.docs }}/interface
    * Manually
 
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
-
+      
          * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-CLICKHOUSE }}`
          * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
@@ -391,7 +391,7 @@ Delete the other resources, depending on the method used to create them:
 
       If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

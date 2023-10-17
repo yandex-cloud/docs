@@ -267,6 +267,7 @@ default:
   roles-datalens-workbooks-limitedViewer: datalens.workbooks.limitedViewer
   roles-datalens-workbooks-viewer: datalens.workbooks.viewer
   roles-functions-ivoker: serverless.functions.invoker
+  roles-functions-invoker: functions.functionInvoker
   roles-image-user: compute.images.user
   roles-monitoring-viewer: monitoring.viewer
   roles-monitoring-editor: monitoring.editor
@@ -5976,8 +5977,13 @@ default:
             button_create: Create
             field_advanced: Advanced
             field_is-default: Create subnets
+            field_name: Name
           create-subnetwork-dialog:
             button_create: Create
+            field_cidr: CIDR
+            field_description: Description
+            field_name: Name
+            field_zone: Availability zone
           network-select:
             button_create-network: Create network
             button_create-subnetwork: Add subnet
@@ -6995,6 +7001,7 @@ default:
           label_autoscaling-activated: Autoscaling
           label_create-subcluster: ' Add subcluster'
           label_deletion-protection: Deletion protection
+          label_disk-size: Size
           label_diskTypeId: Disk type
           label_greenplum_pool_client-idle-timeout: Client Idle Timeout
           label_greenplum_pool_mode: Mode
@@ -7635,26 +7642,50 @@ default:
         title_network-map-page: Cloud network map
       ydb:
         browse:
+          button_create: Create
           button_sql-query: New SQL query
           dialogs:
+            button_create-directory: Create directory
             tooltip_create_pk: Primary key
           info:
             column_name: Name
             column_type: Type
+          menu_directory: Directory
+          menu_table: Table
+        constants:
+          menu_delete: Delete
+          menu_edit: Edit
         database:
           switch_browse: Navigation
+          switch_monitoring: Monitoring
+          switch_overview: Overview
         databases:
           button_create: Create a database
           label_title: Databases
         forms:
           button_create-database: Create a database
+          button_create-network-new: Create new
+          button_create-subnetwork-new: Create new
+          button_update-database: Update database
+          field_network: Cloud network
+          field_public-ips: Public IP addresses
+          field_subnetworks: Subnets
+          label_dedicated-type: Dedicated
           label_field_database-type: Database type
           label_field_name: Name
+          label_section-compute: Computing resources
+          label_section-network: Network
+          label_section-storage: Storage groups
           label_serverless-type: Serverless
+          label_text-public-ips: Assign
         overview:
+          button_action-delete: Delete
+          button_action-edit: Edit
           label_database: Database
           label_document-endpoint: Document API endpoint
           label_endpoint: Endpoint
+          label_serverless-billing: Pricing
+          label_serverless-limits: Limits
           label_title: Overview
           section_connection: Connection
         sql:
@@ -7662,12 +7693,33 @@ default:
           label_query: Query
           label_status_running: Running
         table:
+          create:
+            button_create: Create table
+          edit:
+            button_update: Alter table
           form:
+            button_add-split-point: Add split point
+            column_index-key: Key
+            column_name: Name
+            column_primary-key: Primary key
             column_shard: Partition key
+            column_sort: Sort key
+            column_type: Type
+            field_autopartition-by-load: By load
+            field_autopartition-by-size: By size
+            field_autopartition-by-size-mb: Auto-partitioning by size in MB
+            field_autopartition-max: Maximum number of partitions
+            field_autopartition-min: Minimum number of partitions
+            field_key-bloom-filter: Bloom filter for primary key
             field_name: Name
             field_type: Table type
+            field_uniform-partitions: Count
             label_columns: Columns
             label_document-table: Document table
+            label_row-table: Row table
+            value_partitions-explicit: Explicitly
+            value_partitions-none: None
+            value_partitions-uniform: Evenly
       ymq:
         queue:
           overview:

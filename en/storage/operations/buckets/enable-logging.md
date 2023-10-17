@@ -16,6 +16,8 @@ To log requests to the bucket:
 
    {% endcut %}
 
+{% include [target-backet-note](../../../_includes/storage/target-bucket-note.md) %}
+
 1. Enable logging in the source bucket that you want to track.
 
    {% list tabs %}
@@ -98,7 +100,7 @@ To log requests to the bucket:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
    - API
 

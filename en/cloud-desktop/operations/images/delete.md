@@ -1,3 +1,8 @@
+---
+title: "How to delete a custom image"
+description: "This guide describes how you can delete a custom image."
+---
+
 # Deleting a custom image
 
 {% note info %}

@@ -56,7 +56,7 @@ Date and time operators let you create conditions for matching the key against t
 
 ### IP address operators {#ip-address}
 
-Date and time operators let you create conditions for matching the key against the host IP or a range of IP addresses in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
+IP statements allow you to create conditions for matching the key against the host IP or a range of IP addresses in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
 
 | Condition operator | Description |
 ----- | -----

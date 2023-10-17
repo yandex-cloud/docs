@@ -1,4 +1,4 @@
-There are two ways to migrate topics from a {{ KF }} _source cluster_ to a {{ mkf-name }} _target cluster_:
+There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ mkf-name }} _target cluster_:
 
 * [Using the built-in {{ mkf-full-name }} MirrorMaker connector](#kf-connnector).
 
@@ -54,8 +54,8 @@ There are two ways to migrate topics from a {{ KF }} _source cluster_ to a {{ mk
 
       This file describes:
 
-      * Network.
-      * Subnet.
+      * Network
+      * Subnet
       * Default security group and rules required to connect to the cluster from the internet.
       * {{ mkf-name }} cluster with [topic management](../managed-kafka/concepts/topics#management) via the Admin API, an [administrator user](../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`, and the [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) setting enabled.
       * MirrorMaker connector.
@@ -123,8 +123,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       This file describes:
 
-      * Network.
-      * Subnet.
+      * Network
+      * Subnet
       * Default security group and rules required to connect to the cluster and VM from the internet.
       * A {{ mkf-name }} cluster with [topic management](../managed-kafka/concepts/topics#management) enabled via the Admin API, the `admin-cloud` [admin user](../managed-kafka/operations/cluster-accounts.md#create-account), and [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
       * A virtual machine with public internet access.
@@ -277,7 +277,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * Topic names in the target cluster are the same as in the source.
    * `<R>` is the parameter that sets the [replication factor for MirrorMaker service topics](../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor). The value of this parameter should not exceed the smaller of the number of brokers in the source or the number of brokers in the target cluster.
    * `<M>` is the [default replication factor](../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor) defined for topics in the target cluster.
-   * `<T>` is the number of concurrent MirrorMaker processes. A value of at least `2` is recommended for even replication load distribution. For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#georeplication-config-syntax).
+   * `<T>` is the number of concurrent MirrorMaker processes. We recommend a value of at least `2` for even replication load distribution. For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#georeplication-config-syntax).
 
    You can request {{ mkf-name }} broker FQDNs with a [list of hosts in the cluster](../managed-kafka/operations/cluster-hosts.md#list-hosts).
 
@@ -297,7 +297,7 @@ To learn more about MirrorMaker 2.0, see the [{{ KF }} documentation](https://cw
 
 ### Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
@@ -319,9 +319,9 @@ Delete the resources you no longer need to avoid being charged for them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 

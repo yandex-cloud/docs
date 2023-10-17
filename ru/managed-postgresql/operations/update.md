@@ -4,8 +4,6 @@
 
 * [Изменить класс хостов](#change-resource-preset).
 
-* [{#T}](#change-disk-size).
-
 * [Настроить серверы {{ PG }}](#change-postgresql-config) согласно [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config.html).
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
@@ -21,6 +19,8 @@
 {% note info %}
 
 О том, как изменить версию {{ PG }} кластера, читайте в разделе [{#T}](cluster-version-update.md).
+
+О том, как увеличить размер хранилища, читайте в разделе [{#T}](storage-space.md).
 
 {% endnote %}
 
@@ -125,135 +125,6 @@
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
-
-## Увеличить размер хранилища {#change-disk-size}
-
-{% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
-
-{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
-
-
-{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
-
-
-{% list tabs %}
-
-- Консоль управления
-
-  Чтобы увеличить размер хранилища для кластера:
-
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите необходимое значение.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
-
-- CLI
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы увеличить размер хранилища для кластера:
-
-  1. Посмотрите описание команды CLI для изменения кластера:
-
-     ```bash
-     {{ yc-mdb-pg }} cluster update --help
-     ```
-
-  1. Укажите нужный размер хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
-
-      ```bash
-      {{ yc-mdb-pg }} cluster update <идентификатор или имя кластера> \
-           --disk-size <размер хранилища в гигабайтах>
-      ```
-
-- {{ TF }}
-
-  Чтобы увеличить размер хранилища для кластера:
-
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-
-      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-
-      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
-
-  1. Измените в описании кластера {{ mpg-name }} значение атрибута `disk_size` в блоке `config.resources`:
-
-      ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
-        ...
-        config {
-          resources {
-            disk_size = <размер хранилища в гигабайтах>
-            ...
-          }
-        }
-      }
-      ```
-
-  1. Проверьте корректность настроек.
-
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-  1. Подтвердите изменение ресурсов.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
-
-- API
-
-  Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
-
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-  * Новый размер хранилища в параметре `configSpec.resources.diskSize`.
-  * Список настроек, которые необходимо изменить (в данном случае — `configSpec.resources.diskSize`), в параметре `updateMask`.
-
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
-{% endlist %}
-
-## Настроить автоматическое увеличение размера хранилища {#disk-size-autoscale}
-
-{% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
-
-{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
-
-
-{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
-
-
-{% list tabs %}
-
-- Консоль управления
-
-  1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
-  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. В блоке **Автоматическое увеличение размера хранилища** укажите желаемые настройки:
-
-      * В поле **Увеличивать размер** задайте соответствующие условия, чтобы:
-
-          * Размер хранилища увеличился в следующее окно обслуживания, когда хранилище окажется заполнено более чем на указанную долю (%).
-          * Размер хранилища увеличился незамедлительно, когда хранилище окажется заполнено более чем на указанную долю (%).
-
-          Можно задать оба условия, но порог для незамедлительного увеличения должен быть выше порога для увеличения в окно обслуживания.
-
-      * В поле **Новый размер хранилища** укажите новый размер хранилища, который будет установлен при выполнении одного из заданных условий.
-
-  1. Нажмите кнопку **Сохранить изменения**.
-
-- API
-
-  Чтобы разрешить автоматическое увеличение размера хранилища, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
-
-  {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
-
-{% endlist %}
-
-{% include [storage-resize-maintenance](../../_includes/mdb/mpg/storage-resize-maintenance.md) %}
-
-{% include [storage-resize-reset](../../_includes/mdb/mpg/storage-resize-reset.md) %}
 
 ## Изменить настройки {{ PG }} {#change-postgresql-config}
 

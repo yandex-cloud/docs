@@ -1,6 +1,6 @@
 # Configuring HTTPS
 
-If you are using a bucket to [host a static website](../../concepts/hosting.md), then to access the website via [HTTPS](https://en.wikipedia.org/wiki/HTTPS), you will need to upload your own security certificate and a corresponding secret key.
+If you are using a bucket to [host a static website](../../concepts/hosting.md), then to access the website via HTTPS, you will need to upload your own security certificate and a corresponding secret key.
 
 {{ objstorage-name }} only supports [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificates.
 
@@ -21,7 +21,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
    1. Click the name of the bucket you need.
-   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
+   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
    1. In the right-hand panel that opens, click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
    1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.button_create-certificate }}**.
    1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** field, select the certificate from the list that opens.
@@ -109,7 +109,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

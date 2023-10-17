@@ -66,13 +66,13 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get information about a {{ KF }} cluster, run the following command:
+   To get information about an {{ KF }} cluster, run the following command:
 
    ```
    {{ yc-mdb-kf }} cluster get <cluster name or ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 
@@ -94,7 +94,7 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Click the cluster name.
-   1. Click the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
+   1. Go to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - CLI
 

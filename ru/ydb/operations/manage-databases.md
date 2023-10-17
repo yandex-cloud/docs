@@ -18,15 +18,15 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
-  1. В списке сервисов выберите **{{ ydb-name }}**.
-  1. Нажмите кнопку **Создать базу данных**.
-  1. Введите **Имя** БД. Требования к имени:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** БД. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. В блоке **Тип базы данных** выберите опцию **Serverless**.
+  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите опцию `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
   1. Вам будут предложены значения по умолчанию. Они подобраны таким образом, чтобы вы могли эффективно начать работу. Вы можете изменить их сейчас или в будущем, если потребуется. Подробнее о настройках БД [см. раздел Режимы работы Serverless и Dedicated](../concepts/serverless-and-dedicated.md).
-  1. Нажмите кнопку **Создать базу данных**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
    Дождитесь, когда статус БД изменится на `Running`.
 
@@ -145,13 +145,13 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить настройки БД.
-  1. В списке сервисов выберите **{{ ydb-name }}**.
-  1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Изменить**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
   1. Настройте параметры БД:
       1. При необходимости измените имя БД.
-      1. В блоке **Ограничения** задайте [пропускную способность](../pricing/serverless.md#prices-ru) и [объем данных](../pricing/serverless.md#rules-storage).
-      1. В блоке **Тарификация** задайте [выделенную пропускную способность](../pricing/serverless.md#prices-ru).
-  1. Нажмите кнопку **Изменить базу данных**.
+      1. В блоке **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}** задайте [пропускную способность](../pricing/serverless.md#prices-ru) и [объем данных](../pricing/serverless.md#rules-storage).
+      1. В блоке **{{ ui-key.yacloud.ydb.overview.label_serverless-billing }}** задайте [выделенную пропускную способность](../pricing/serverless.md#prices-ru).
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_update-database }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -251,14 +251,14 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
-  1. В списке сервисов выберите **{{ ydb-name }}**.
-  1. Нажмите кнопку **Создать базу данных**.
-  1. Введите **Имя** базы. Требования к имени:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** базы. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. В блоке **Тип базы данных** выберите опцию **Dedicated**.
-  1. В блоке **Вычислительные ресурсы** выберите тип и количество [вычислительных ресурсов](../concepts/resources.md#resource-presets).
+  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите опцию `{{ ui-key.yacloud.ydb.forms.label_dedicated-type }}`.
+  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-compute }}** выберите тип и количество [вычислительных ресурсов](../concepts/resources.md#resource-presets).
 
       {% note warning %}
 
@@ -266,25 +266,25 @@
 
       {% endnote %}
 
-  1. В блоке **Группы хранения** выберите тип диска и количество [групп хранения](../concepts/resources.md#storage-groups), определяющее суммарный объем хранилища.
-  1. В блоке **Сеть** настройте параметры сети:
-      1. (Опционально) В поле **Публичные IP-адреса** выберите опцию **Присвоить**, если вы планируете отправлять запросы к базе не только из сети {{ yandex-cloud }}, но и через интернет.
+  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-storage }}** выберите тип диска и количество [групп хранения](../concepts/resources.md#storage-groups), определяющее суммарный объем хранилища.
+  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-network }}** настройте параметры сети:
+      1. (Опционально) В поле **{{ ui-key.yacloud.ydb.forms.field_public-ips }}** выберите опцию **{{ ui-key.yacloud.ydb.forms.label_text-public-ips }}**, если вы планируете отправлять запросы к базе не только из сети {{ yandex-cloud }}, но и через интернет.
 
           {% include  [traffic_metering](../_includes/traffic_metering.md) %}
 
-      1. Выберите существующую сеть из списка **Облачная сеть** или создайте новую:
-          * Нажмите кнопку **Создать новую**.
-          * В открывшемся окне укажите **Имя** новой сети.
-          * (Опционально) Выберите опцию **Создать подсети**. Подсети в каждой зоне доступности будут созданы автоматически.
-          * Нажмите кнопку **Создать**.
-      1. В блоке **Подсети** для каждой зоны доступности выберите подсеть или создайте новую:
-          * Нажмите кнопку **Создать новую**.
-          * В открывшемся окне укажите **Имя** новой подсети.
-          * (Опционально) Введите **Описание** подсети.
-          * Выберите из списка **Зона доступности** нужную зону.
-          * Задайте адрес подсети в формате [**CIDR**](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
-          * Нажмите кнопку **Создать**.
-  1. Нажмите кнопку **Создать базу данных**.
+      1. Выберите существующую сеть из списка **{{ ui-key.yacloud.ydb.forms.field_network }}** или создайте новую:
+          * Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
+          * В открывшемся окне укажите **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_name }}** новой сети.
+          * (Опционально) Выберите опцию **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}**. Подсети в каждой зоне доступности будут созданы автоматически.
+          * Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+      1. В блоке **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}** для каждой зоны доступности выберите подсеть или создайте новую:
+          * Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
+          * В открывшемся окне укажите **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** новой подсети.
+          * (Опционально) Введите **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_description }}** подсети.
+          * Выберите из списка **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_zone }}** нужную зону.
+          * Задайте адрес подсети в формате [**{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_cidr }}**](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
+          * Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
     Дождитесь, когда статус БД изменится на `Running`.
 
@@ -432,13 +432,13 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить настройки БД.
-  1. В списке сервисов выберите **{{ ydb-name }}**.
-  1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Изменить**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
   1. Настройте параметры БД:
       1. При необходимости измените имя БД.
-      1. В блоке **Вычислительные ресурсы** выберите тип и количество [вычислительных ресурсов](../concepts/resources.md#resource-presets).
-      1. В блоке **Группы хранения** выберите тип диска и количество [групп хранения](../concepts/resources.md#storage-groups), определяющее суммарный объем хранилища.
-  1. Нажмите кнопку **Изменить базу данных**.
+      1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-compute }}** выберите тип и количество [вычислительных ресурсов](../concepts/resources.md#resource-presets).
+      1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-storage }}** выберите тип диска и количество [групп хранения](../concepts/resources.md#storage-groups), определяющее суммарный объем хранилища.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_update-database }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -509,7 +509,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, для которого нужно получить список БД.
-  1. В списке сервисов выберите **{{ ydb-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -532,8 +532,8 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно удалить БД.
-  1. В списке сервисов выберите **{{ ydb-name }}**.
-  1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.ydb.overview.button_action-delete }}**.
   1. Подтвердите удаление.
 
 - {{ yandex-cloud }} CLI

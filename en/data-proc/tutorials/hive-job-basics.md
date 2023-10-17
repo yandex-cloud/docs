@@ -4,7 +4,7 @@
 
 In this article, a simple example demonstrates how Hive is used in {{ dataproc-name }} for data analysis. In the example below, we use Hive to analyze the population of the largest cities in  Russia.  
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `mdb.dataproc.agent` role.
 
@@ -12,12 +12,12 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
 
 1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following settings:
 
-   * **Services**:
+   * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
       * `HDFS`
       * `SPARK`
       * `HIVE`
-   * **Service account**: Select the service account with the `mdb.dataproc.agent` role you created earlier.
-   * **Bucket name**: Select a bucket to hold the processing output.
+   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the previously created service account with the `mdb.dataproc.agent` role.
+   * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
 
 ## Create a Hive job {#create-job}
 
@@ -73,13 +73,13 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
 
 1. [Create a Hive job](../operations/jobs-hive#create) with the following parameters:
 
-   * **Driver**: `File`
-   * **Query file**: `s3a://<input data bucket name>/cities.sql`
+   * **{{ ui-key.yacloud.dataproc.jobs.field_driver }}**: `File`
+   * **{{ ui-key.yacloud.dataproc.jobs.field_query-file-uri }}**: `s3a://<input data bucket name>/cities.sql`
 
 1. Wait for the [job status](../operations/jobs-spark.md#get-info) to change to `Done`.
 
 
-1. [Open the job logs](../operations/jobs-hive#get-logs) and view the output:
+1. [Open the job logs](../operations/jobs-hive#get-logs) and view the processing results:
 
    {% cut "Logs" %}
 

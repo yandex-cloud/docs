@@ -1,11 +1,11 @@
-# Creating a {{ KF }} cluster
+# Creating an {{ KF }} cluster
 
 A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](../concepts/brokers.md) where [topics and their partitions](../concepts/topics.md) are located. [Producers and consumers](../concepts/producers-consumers.md) can work with these topics by connecting to cluster hosts.
 
 {% note info %}
 
 
-* The number of broker hosts you can create together with a {{ KF }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* The number of broker hosts you can create along with an {{ KF }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 
@@ -52,7 +52,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-         You cannot change the disk type for a {{ mkf-name }} cluster once you create it.
+         You cannot change the disk type for an {{ mkf-name }} cluster once you create it.
       * Select the storage size to use for data.
 
    
@@ -78,7 +78,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
          When choosing the number of hosts, keep in mind that:
 
          * Replication is possible if there are at least two hosts per {{ mkf-name }} cluster.
-                  * If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, you need to add at least three hosts to the {{ mkf-name }} cluster.
+                     * If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, you need to add at least three hosts to the {{ mkf-name }} cluster.
          * To make your {{ mkf-name }} cluster fault-tolerant, you will need to meet [certain conditions](../concepts/index.md#fault-tolerance).
          * Adding more than one host to the {{ mkf-name }} cluster automatically adds three {{ ZK }} hosts.
 
@@ -204,7 +204,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
         subnet_ids          = ["<list of subnet IDs>"]
         security_group_ids  = ["<list of cluster security group IDs>"]
         deletion_protection = <cluster deletion protection: true or false>
-
+      
         config {
           assign_public_ip = "<cluster public access: true or false>"
           brokers_count    = <number of brokers>
@@ -218,17 +218,17 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
             }
             kafka_config {}
           }
-
+      
           zones = [
             "<availability zones>"
           ]
         }
       }
-
+      
       resource "yandex_vpc_network" "<network name>" {
         name = "<network name>"
       }
-
+      
       resource "yandex_vpc_subnet" "<subnet name>" {
         name           = "<subnet name>"
         zone           = "<availability zone>"
@@ -305,20 +305,20 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
 
 - CLI
 
-   Create a {{ mkf-name }} cluster with test characteristics:
+   Create a {{ mkf-name }} cluster with the following test configuration:
 
    
-   * With the name `mykf`.
-   * In the `production` environment.
-   * With {{ KF }} version `{{ versions.cli.latest }}`.
-   * In the `{{ network-name }}` network.
-   * In the subnet with the `{{ subnet-id }}` ID.
-   * In the security group `{{ security-group }}`.
-   * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
-   * With one broker.
-   * With network SSD storage (`{{ disk-type-example }}`) of 10 GB.
-   * With public access.
-   * With protection against accidental cluster deletion.
+   * Name: `mykf`
+   * Environment: `Production`
+   * {{ KF }} version: `{{ versions.cli.latest }}`
+   * Network: `{{ network-name }}`
+   * Subnet ID: `{{ subnet-id }}`
+   * Security group: `{{ security-group }}`
+   * Number of `{{ host-class }}` hosts in the `{{ region-id }}-a` availability zone: 1
+   * Number of brokers: 1
+   * Network SSD storage (`{{ disk-type-example }}`): 10 GB
+   * Public access: Allowed
+   * Protection against accidental cluster deletion: Enabled
 
 
    Run the following command:
@@ -344,25 +344,25 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
 
 - {{ TF }}
 
-   Create a {{ mkf-name }} cluster with test characteristics:
-   * In the cloud with the `{{ tf-cloud-id }}` ID.
-   * In the folder with the `{{ tf-folder-id }}` ID.
-   * With the name `mykf`.
-   * In the `PRODUCTION` environment.
-   * With {{ KF }} version `{{ versions.tf.latest }}`.
-   * In the new `mynet` network with the subnet `mysubnet`.
+   Create an {{ mkf-name }} cluster with the following test configuration:
+   * Cloud ID: `{{ tf-cloud-id }}`
+   * Folder ID: `{{ tf-folder-id }}`
+   * Name: `mykf`
+   * Environment: `Production`
+   * {{ KF }} version: `{{ versions.tf.latest }}`
+   * Network and subnet: `mynet`, `mysubnet`
 
    
-   * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
+   * Security group: `mykf-sg` (allow connection to the cluster from the Internet through port `9091`)
 
 
-   * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
-   * With one broker.
-   * With network SSD storage (`{{ disk-type-example }}`) of 10 GB.
-   * With public access.
-   * With protection against accidental cluster deletion.
+   * Number of `{{ host-class }}` hosts in the `{{ region-id }}-a` availability zone: 1
+   * Number of brokers: 1
+   * Network SSD storage (`{{ disk-type-example }}`): 10 GB
+   * Public access: Allowed
+   * Protection against accidental cluster deletion: Enabled
 
-   The configuration file for the {{ mkf-name }} cluster looks like this:
+   Here is how a configuration file for a {{ mkf-name }} cluster may look like:
 
    
    
@@ -374,7 +374,7 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
      subnet_ids          = yandex_vpc_subnet.mysubnet.id
      security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
      deletion_protection = true
-
+   
      config {
        assign_public_ip = true
        brokers_count    = 1
@@ -387,28 +387,28 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
          }
          kafka_config {}
        }
-
+   
        zones = [
          "{{ region-id }}-a"
        ]
      }
    }
-
+   
    resource "yandex_vpc_network" "mynet" {
      name = "mynet"
    }
-
+   
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
      zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
-
+   
    resource "yandex_vpc_security_group" "mykf-sg" {
      name       = "mykf-sg"
      network_id = yandex_vpc_network.mynet.id
-
+   
      ingress {
        description    = "Kafka"
        port           = 9091

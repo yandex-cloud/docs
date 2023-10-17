@@ -1,3 +1,8 @@
+---
+title: "How to top up your personal account"
+description: "Follow this guide to top up your personal account."
+---
+
 # Top up your personal account
 
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}

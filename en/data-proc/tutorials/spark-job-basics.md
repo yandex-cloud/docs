@@ -4,20 +4,20 @@
 
 In this section, we provide a simple example that demonstrates how to use the Spark interface for Scala and Java in {{ dataproc-name }}. In the example, we use Spark to count the number of times each word is seen in a short text.
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `mdb.dataproc.agent` role.
 
 1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
 
-1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following configuration:
+1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following settings:
 
-    * **Services**:
+    * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `SPARK`
         * `YARN`
-    * **Service account**: Select the service account with the `mdb.dataproc.agent` role you created earlier.
-    * **Bucket name**: Select a bucket to hold the processing output.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the previously created service account with the `mdb.dataproc.agent` role.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
 
 ## Create a Spark job {#create-job}
 
@@ -71,15 +71,15 @@ In this section, we provide a simple example that demonstrates how to use the Sp
 
 1. [Create a Spark job](../operations/jobs-spark#create) with the following parameters:
 
-    * **Main JAR file**: `s3a://<input data bucket name>/spark-app_2.11-0.1.0-SNAPSHOT.jar`
-    * **Main class**: `com.yandex.cloud.dataproc.scala.Main`
-    * **Job arguments**:
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}**: `s3a://<input data bucket name>/spark-app_2.11-0.1.0-SNAPSHOT.jar`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-class }}**: `com.yandex.cloud.dataproc.scala.Main`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
         * `s3a://<input data bucket name>/text.txt`
         * `s3a://<output processing bucket name>/<output folder>`
 
 1. Wait for the [job status](../operations/jobs-spark.md#get-info) to change to `Done`.
 
-1. [Download](../../storage/operations/objects/download.md) and review the output files from the bucket:
+1. [Download from the bucket](../../storage/operations/objects/download.md) and review the files with the results from the bucket:
 
     {% cut "part-00000" %}
 
@@ -112,4 +112,3 @@ In this section, we provide a simple example that demonstrates how to use the Sp
 ## Delete the resources you created {#clear-out}
 
 {% include [basic-clear-out](../../_includes/data-proc/tutorials/basic-clear-out.md) %}
-

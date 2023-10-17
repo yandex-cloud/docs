@@ -1,5 +1,6 @@
 ---
-title: "How do I use the {{ objstorage-name }} S3 API?"
+title: "How do I use the S3 API? {{ objstorage-name }}"
+description: "In this article, you will learn how to get started with the API, what an {{ objstorage-name }} API request is, and how to use cross-domain requests."
 keywords:
   - s3
   - s3 storage
@@ -12,7 +13,7 @@ keywords:
 
 # How to use the S3 API
 
-## Before you start {#before-you-start}
+## Getting started {#before-you-start}
 
 To use the API:
 

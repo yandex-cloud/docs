@@ -22,16 +22,18 @@ items:
             href: operations/rule-add.md
           - name: Editing a rule
             href: operations/rule-update.md
-          - name: Delete a rule
+          - name: Deleting a rule
             href: operations/rule-delete.md
       - name: Managing host connections
         items:
           - name: Connecting a profile to a host
             href: operations/host-connect.md
-          - name: Editing connection settings
-            href: operations/host-update.md
           - name: Disconnecting a profile from a host
             href: operations/host-delete.md
+  - name: Tutorials
+    items:
+      - name: Creating an L7 load balancer with a security profile
+        href: tutorials/balancer-with-sws-profile.md
   - name: Concepts
     items:
       - name: Overview

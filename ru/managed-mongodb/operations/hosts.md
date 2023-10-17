@@ -73,7 +73,7 @@
   1. Укажите параметры хоста:
      * [Зону доступности](../../overview/concepts/geo-scope.md).
      * [Подсеть](../../vpc/concepts/network.md#subnet) (если нужной подсети в списке нет, создайте ее).
-     * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+     * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}. Эту настройку нельзя изменить после создания хоста.
      * Тип хоста и название шарда, если в кластере {{ mmg-name }} включено шардирование.
   1. Нажмите **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -115,7 +115,9 @@
       ```bash
       {{ yc-mdb-mg }} host add \
         --cluster-name <имя кластера> \
-        --host zone-id=<зона доступности>,subnet-id=<ID подсети>
+        --host zone-id=<зона доступности>,`
+              `subnet-id=<идентификатор подсети>,`
+              `assign-public-ip=<публичный доступ к хосту: true или false> \
       ```
 
      {{ mmg-name }} запустит операцию добавления хоста.
@@ -165,7 +167,7 @@
          role             = "<тип реплики: PRIMARY или SECONDARY>"
          zone_id          = "<зона доступности>"
          subnet_id        = "<подсеть в зоне доступности>"
-         assign_public_ip = true / false
+         assign_public_ip = <публичный доступ к хосту: true или false>
          shard_name       = "<имя шарда в шардированном кластере>"
          type             = "<тип хоста в шардированном кластере: MONGOD, MONGOINFRA, MONGOS или MONGOCFG>"
          ...

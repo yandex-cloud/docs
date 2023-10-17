@@ -187,4 +187,4 @@ SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
 
 ## Устранение проблем с недостатком места в хранилище {#solving-storage-issues}
 
-Рекомендации по устранению проблем приведены в разделах [{#T}](../../managed-postgresql/concepts/storage.md#read-only-solutions) и [{#T}](../../managed-postgresql/concepts/storage.md#read-only-monitor).
+Рекомендации по устранению проблем приведены в разделе [{#T}](../../managed-postgresql/concepts/storage.md#manage-storage-space).

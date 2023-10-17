@@ -1,0 +1,1 @@
+The `dataproc.admin` role enables you to create, edit, and delete clusters and jobs, view information about them, provides access to the Data Proc component web interfaces, and manages access to clusters. It includes the `dataproc.editor` role.

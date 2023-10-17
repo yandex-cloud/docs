@@ -1,0 +1,1 @@
+The `dataproc.viewer` role enables you to view information about clusters and quotas.

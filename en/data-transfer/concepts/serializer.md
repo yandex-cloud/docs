@@ -15,6 +15,12 @@ The output data format depends both on the **{{ ui-key.yc-data-transfer.data-tra
 
 See below how output data differs if no conversion rules are set for the source endpoint.
 
+{% note info %}
+
+There are no examples for `PARQUET` output data, since this format is binary.
+
+{% endnote %}
+
 ### {{ yds-full-name }} {#yds}
 
 Input data: Two messages:
@@ -111,7 +117,7 @@ Automatic selection of serialization settings depending on the source type.
 
 * **dt.unknown.types.policy**: Policy that determines the behavior for handling user-defined data types.
 
-   Possible values:
+   The possible values include:
 
    * `skip`: Do not abort the transfer and ignore user-defined data types.
    * `to_string`: Do not abort the transfer and convert user-defined data types to text.
@@ -121,7 +127,7 @@ Automatic selection of serialization settings depending on the source type.
 
 * **decimal.handling.mode**: Mode for handling real numbers.
 
-   Possible values:
+   The possible values include:
 
    * `precise`: Precise conversion using the `java.math.BigDecimal` method.
    * `double`: Conversion to the `double` data type. This may result in precision loss.
@@ -131,7 +137,7 @@ Automatic selection of serialization settings depending on the source type.
 
 * **interval.handling.mode**: Mode for handling time intervals.
 
-   Possible values:
+   The possible values include:
 
    * `numeric`: Approximate conversion to microseconds.
    * `string`: Precise conversion based on a string template like `P<years>Y<months>M<days>DT<hours>H<minutes>M<seconds>S`.
@@ -140,7 +146,7 @@ Automatic selection of serialization settings depending on the source type.
 
 * **key.converter** and **value.converter**: Key and value converters.
 
-   Possible values:
+   The possible values include:
 
    * `org.apache.kafka.connect.json.JsonConverter`: JSON, standard for [Debezium](https://debezium.io/documentation/reference/index.html).
    * `io.confluent.connect.json.JsonSchemaConverter`: [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html).
@@ -149,11 +155,11 @@ Automatic selection of serialization settings depending on the source type.
 
 * **key.converter.schemas.enable** and **value.converter.schemas.enable**: Determine whether to add a schema description to each message for keys and values when using `org.apache.kafka.connect.json.JsonConverter`.
 
-   The default value is `true`.
+   Default value: `true`.
 
 * **key.converter.schema.registry.url** and **value.converter.schema.registry.url**: Determine whether to add a schema description to each message for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 
-   The default value is `true`.
+   Default value: `true`.
 
 * **key.converter.basic.auth.user.info** and **value.converter.basic.auth.user.info**: Username and password for authorization in the Confluent Schema Registry for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 

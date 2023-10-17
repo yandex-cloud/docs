@@ -5,22 +5,22 @@ description: "Вы можете отслеживать состояние баз
 
 # Мониторинг состояния базы данных
 
-Данные о состоянии базы данных доступны в консоли управления. Их можно посмотреть на вкладке **Мониторинг** страницы управления БД или в сервисе {{ monitoring-full-name }}.
+Данные о состоянии базы данных доступны в консоли управления. Их можно посмотреть на вкладке **{{ ui-key.yacloud.ydb.database.switch_monitoring }}** страницы управления БД или в сервисе {{ monitoring-full-name }}.
 
 Диагностическая информация о состоянии БД представлена в виде графиков. Период обновления графиков - 1 минута.
 
 {% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
 
-Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе БД. В {{ monitoring-full-name }} используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
+Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе БД. В {{ monitoring-full-name }} используются два порога срабатывания алерта: `{{ ui-key.yacloud_monitoring.alert.status_warn }}` и `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
 
 
 ## Просмотр графиков мониторинга {#monitoring-database}
 
 Для просмотра детальной информации о состоянии базы данных {{ ydb-name }}:
 
-1. Перейдите на страницу каталога и выберите сервис **{{ ydb-name }}**.
-1. Нажмите на имя нужной базы данных и выберите вкладку **Мониторинг**.
+1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+1. Нажмите на имя нужной базы данных и выберите вкладку **{{ ui-key.yacloud.ydb.database.switch_monitoring }}**.
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 На открывшейся страницы вы увидите графики состояния БД.

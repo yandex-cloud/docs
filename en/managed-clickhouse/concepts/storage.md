@@ -67,8 +67,8 @@ A {{ mch-name }} cluster with enabled hybrid storage supports the following stor
 
 Storage policies do not affect [merge operations]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) for data chunks. For any storage policy you can:
 
-* Turn on or off the `prefer_not_to_merge` setting which disables merging data chunks in storage.
-* Set any value for the `max_data_part_size_bytes` setting which limits the size of a chunk merged from smaller chunks.
+* Enable and disable the `prefer_not_to_merge` setting that merges stored data chunks.
+* Set any value of the `max_data_part_size_bytes` setting that specifies the maximum size of the resulting data chunk that you will get after merging smaller chunks.
 
 However, you can configure the behavior of these operations using the [ClickHouse settings](./settings-list.md) available in the cluster.
 

@@ -1,3 +1,8 @@
+---
+title: "Grant terms of use"
+description: "At the beginning of the trial period, a grant is credited to your billing account that expires after 60 days. The amount and currency of the grant depend on your country of residence."
+---
+
 # Grant terms of use
 
 {% include [grant-amount](../_includes/grant-amount.md) %}
@@ -37,12 +42,12 @@ Grant terms of use depend on:
 
    | Payment method | Using the grant |
    --- | ---
-   | Bank card | The grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: $15 of the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_Part 2_: $35 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services |
-   | Bank transfer | The grant in the amount of $125 can be used to pay for any {{ yandex-cloud }} services |
+   | Bank card | Grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: $15 of the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_Part 2_: $35 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services. |
+   | Bank transfer | Grant in the amount of $125 can be used to pay for any {{ yandex-cloud }} services |
 
 {% endlist %}
 
-### Grant Terms of Use as of August 1, 2021 {#terms-august}
+### Grant Terms of Use since August 1, 2021 {#terms-august}
 
 {% list tabs %}
 
@@ -63,8 +68,8 @@ Grant terms of use depend on:
 
    | Payment method | Using the grant |
    --- | ---
-   | Bank card | The grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: $15 of the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_Part 2_: $35 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services |
-   | Bank transfer | The total grant in the amount of $50 can be used to pay for any {{ yandex-cloud }} services |
+   | Bank card | Grant is provisionally divided into two parts and distributed across the services as follows:<br>_Part 1_: $15 of the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_Part 2_: $35 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services. |
+   | Bank transfer | Total grant in the amount of $50 can be used to pay for any services {{ yandex-cloud }} |
 
 {% endlist %}
 

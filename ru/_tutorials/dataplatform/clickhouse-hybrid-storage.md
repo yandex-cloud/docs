@@ -27,8 +27,10 @@
         * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}** — стандартные (`network-hdd`), быстрые (`network-ssd`) или нереплицируемые (`network-ssd-nonreplicated`) сетевые диски.
 
 
+        * **{{ ui-key.yacloud.mdb.forms.label_disk-size }}** — не менее 15 ГБ.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** — выключено.
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `tutorial`.
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** — `{{ ui-key.yacloud.mdb.cluster.overview.label_storage-enabled }}`.
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** — включено.
 
     1. [Настройте права доступа](../../managed-clickhouse/operations/cluster-users.md#update-settings) так, чтобы вы могли выполнять в этой базе запросы на чтение и запись.
 
@@ -49,8 +51,13 @@
         В этом файле описаны:
 
         * сеть;
+
         * подсеть;
-                * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру из интернета;
+
+        
+        * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру из интернета;
+
+
         * кластер {{ mch-name }} с включенным гибридным хранилищем.
 
     1. Укажите в файле `clickhouse-hybrid-storage.tf` имя пользователя и пароль, которые будут использоваться для доступа к кластеру {{ mch-name }}.
@@ -73,9 +80,15 @@
 
 {% endlist %}
 
-### Настройте clickhouse-client {#deploy-clickhouse-client}
+### Настройте инструменты командной строки {#set-instruments}
 
-[Настройте clickhouse-client](../../managed-clickhouse/operations/connect.md), чтобы иметь возможность подключаться с его помощью к базе данных.
+1. Установите инструменты `curl` и `unxz`:
+
+    ```bash
+    apt-get update && apt-get install curl xz-utils
+    ```
+
+1. [Настройте clickhouse-client](../../managed-clickhouse/operations/connect.md#clickhouse-client) и подключитесь с его помощью к базе данных.
 
 ### Познакомьтесь с тестовым набором данных (необязательный шаг) {#explore-dataset}
 
@@ -130,6 +143,7 @@ SETTINGS index_granularity = 8192
 
 ## Наполните таблицу данными {#fill-table-with-data}
 
+1. Отключитесь от базы данных.
 1. Загрузите тестовый датасет:
 
    
@@ -138,13 +152,15 @@ SETTINGS index_granularity = 8192
    ```
 
 
+   Объем загруженного датасета — около 10 ГБ.
+
 1. Вставьте данные из этого датасета в {{ CH }} с помощью `clickhouse-client`:
 
    ```bash
    clickhouse-client \
-       --host <FQDN хоста {{ CH }}> \
+       --host <FQDN_хоста_{{ CH }}> \
        --secure \
-       --user <имя пользователя> \
+       --user <имя_пользователя> \
        --database tutorial \
        --port 9440 \
        --ask-password \
@@ -160,6 +176,7 @@ SETTINGS index_granularity = 8192
 
 ## Проверьте размещение данных в кластере {#check-table-tiering}
 
+1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect.md#clickhouse-client).
 1. Посмотрите, где размещены строки таблицы:
 
    ```sql

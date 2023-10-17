@@ -1,4 +1,6 @@
 ---
+title: "How to configure a {{ metrika-endpoint }} source endpoint"
+description: "Follow this guide to configure a {{ metrika-endpoint }} source endpoint."
 noIndex: true
 ---
 

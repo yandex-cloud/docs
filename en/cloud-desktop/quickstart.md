@@ -1,3 +1,8 @@
+---
+title: "How to get started with {{ cloud-desktop-name }}"
+description: "This guide describes how you can create and set up a desktop group."
+---
+
 # Getting started with {{ cloud-desktop-name }}
 
 {% note info %}
@@ -18,7 +23,7 @@ Create a {{ cloud-desktop-name }} desktop group in your cloud:
 
 1. Log in to or register in the [management console]({{ link-console-main }}). If you do not have an account yet, go to the management console and follow the guide.
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md).
+1. If you do not have any folders yet, [create one](../resource-manager/operations/folder/create.md).
 1. To make sure your desktops have access to the internet, [set up](../vpc/operations/create-nat-gateway.md) a NAT gateway for the [subnets](../vpc/concepts/network.md#subnet) that will host them.
 
 ## Create a desktop group {#create-desktop-group}

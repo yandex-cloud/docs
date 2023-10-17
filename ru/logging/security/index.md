@@ -1,4 +1,4 @@
-# Управление доступом {{ cloud-logging-name }}
+# Управление доступом в {{ cloud-logging-name }}
 
 Для управления правами доступа в {{ cloud-logging-name }} используются [роли](../../iam/concepts/access-control/roles.md).
 

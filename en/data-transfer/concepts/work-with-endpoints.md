@@ -24,7 +24,7 @@ Transfers _from {{ GP }} to {{ GP }}_ and _from {{ GP }} to {{ PG }}_ do not sup
 
 The source treats `FOREIGN TABLE` and `EXTERNAL TABLE` as a regular view and uses the general algorithm for `VIEW` objects when handling them.
 
-Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZED VIEW` data, create an ordinary `VIEW` that refers to the `MATERIALIZED VIEW` to be transferred.
+{% include [matview limits](../../_includes/data-transfer/pg-gp-matview.md) %}
 
 ## {{ MG }} {#mongodb}
 
@@ -40,7 +40,9 @@ For more information about the `createIndex()` function, see the [{{ MG }} docum
 
 ## {{ PG }} {#postgresql}
 
-Data stored in a `MATERIALIZED VIEW` is not transferred. To transfer `MATERIALIZED VIEW` data, create an ordinary `VIEW` that refers to the `MATERIALIZED VIEW` to be transferred.
+{% include [matview limits](../../_includes/data-transfer/pg-gp-matview.md) %}
+
+If the definition of the `VIEW` to be transferred contains an invocation of the `VOLATILE` [function]({{ pg.docs.org }}/current/xfunc-volatility.html), the transfer reads data from this `VIEW` with the `READ UNCOMMITTED` isolation level. No consistency between the `VIEW` data and the data of other objects being transferred is guaranteed. Reading data from a `MATERIALIZED VIEW` in the `VIEW` definition are equivalent to invoking the `VOLATILE` function.
 
 The source treats `FOREIGN TABLE` as a regular view and uses the general algorithm for views when handling them.
 

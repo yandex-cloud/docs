@@ -30,6 +30,8 @@ items:
         href: tutorials/loadtesting-https-phantom.md
       - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
         href: tutorials/loadtesting-https-pandora.md
+      - name: Нагрузочный тест с помощью JMeter
+        href: tutorials/loadtesting-jmeter.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: tutorials/loadtesting-multiply.md
       - name: Миграция результатов нагрузочного тестирования из OverLoad

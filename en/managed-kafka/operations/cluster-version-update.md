@@ -2,7 +2,8 @@
 
 You can upgrade a {{ mkf-name }} cluster to any supported version.
 
-We recommend upgrading to a version that immediately follows the current one, such as version 2.8 to 3.0. Upgrades to higher versions should be performed in steps. To upgrade {{ KF }} from 2.8 to 3.1, for instance, follow the steps: 2.8 → 3.0 → 3.1.
+We recommend upgrading to a version that immediately follows the current one, such as version 2.8 to 3.0.
+Upgrades to higher versions should be performed in steps. To upgrade {{ KF }} from 2.8 to 3.1, for instance, follow the steps: 2.8 → 3.0→ 3.1.
 
 To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
 
@@ -14,7 +15,7 @@ Make sure this does not affect your applications: review the {{ KF }} [change lo
 
 {% note alert %}
 
-Once upgraded, you cannot roll a {{ KF }} cluster back to the previous version.
+Once upgraded, you cannot roll an {{ KF }} cluster back to the previous version.
 
 {% endnote %}
 
@@ -60,7 +61,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. Add a `version` field to the `config` section of the desired {{ mkf-name }} cluster or edit the field value if the field already exists:
+   1. Add a `version` field to the `config` section of the appropriate {{ mkf-name }} cluster or edit the field value if the field already exists:
 
       ```hcl
       resource "yandex_mdb_kafka_cluster" "<cluster name>" {
@@ -75,7 +76,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -103,7 +104,7 @@ Let's assume you need to upgrade your cluster from version 2.8 to version 3.0.
 
 - CLI
 
-   1. To get a list of clusters and find out their IDs and names, run the command:
+   1. To get a list of clusters and find out their IDs and names, run this command:
 
       ```bash
       {{ yc-mdb-kf }} cluster list

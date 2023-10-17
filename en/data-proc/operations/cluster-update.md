@@ -14,8 +14,8 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
 
    
    1. To edit the [log group](../../logging/concepts/log-group.md) that cluster logs are sent to, select a new log group from the list. If necessary, [create a new log group](../../logging/operations/create-group.md).
@@ -23,15 +23,15 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
       To enable this functionality, assign the [cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 
 
-   1. To update your cluster's [component properties](../concepts/settings-list.md), enter the component key and its new value in the **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** field.
+   1. To update your cluster [component properties](../concepts/settings-list.md), enter the component key and its new value in the **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** field.
 
    1. Change additional cluster settings:
 
-      **Deletion protection**: Manages cluster protection from accidental deletion by a user.
+      **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Manages protection of the cluster from accidental deletion by a user.
 
       Enabled protection will not prevent a manual connection to a cluster to delete data.
 
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -101,10 +101,10 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/dataproc_cluster).
 
 {% endlist %}
