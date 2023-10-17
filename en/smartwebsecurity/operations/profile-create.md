@@ -10,9 +10,9 @@
    1. In the list of services, select **{{ sws-name }}**.
    1. Click **Create security profile**.
    1. Select one of the creation options:
-      * **Based on a template with a preset profile**. Preconfigured profiles include:
-         * [Basic default rule](../concepts/rules.md#base-rules) enabled for all traffic.
-         * [Smart Protection rule](../concepts/rules.md#smart-protection-rules) enabled for all traffic, with the **Full protection** type.
+      * **From a preset template**. Preset profiles include:
+         * [Basic default rule](../concepts/rules.md#base-rules) enabled for all traffic, with the **Deny** [action type](../concepts/rules.md#rule-action).
+         * [Smart Protection rule](../concepts/rules.md#smart-protection-rules) enabled for all the traffic, with the **Full protection** type.
       * **From scratch**. This profile includes only the basic default rule enabled for all traffic.
 
       {% include [smart-protection-tip](../../_includes/smartwebsecurity/smart-protection-tip.md) %}
@@ -29,10 +29,12 @@
    1. Add all relevant rules to the profile one by one.
 
       You will see the rules you created in the table on the **Security rules** tab.
-   1. (optional) Connect the profile to a [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host) in [{{ alb-full-name }}](../../application-load-balancer/):
-
-      {% include [host-connect](../../_includes/smartwebsecurity/host-connect.md) %}
-
    1. Click **Create**.
 
 {% endlist %}
+
+### See also {#see-also}
+
+* [{#T}](host-connect.md)
+* [{#T}](profile-update.md)
+* [{#T}](profile-delete.md)

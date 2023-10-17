@@ -1,6 +1,10 @@
 # Управление моделями машинного обучения в {{ mch-name }}
 
-{{ mch-short-name }} позволяет анализировать данные с помощью моделей машинного обучения [CatBoost](https://catboost.ai/) без использования дополнительных инструментов. Чтобы применить модель, подключите ее к кластеру и вызовите в SQL-запросе с помощью встроенной функции [`modelEvaluate()`]({{ ch.docs }}/sql-reference/functions/other-functions#function-modelevaluate). В результате выполнения такого запроса вы получите предсказания модели для каждой строки входных данных.
+{{ mch-short-name }} позволяет анализировать данные с помощью моделей машинного обучения [CatBoost](https://catboost.ai/) без использования дополнительных инструментов.
+
+Чтобы применить модель, подключите ее к кластеру и вызовите в SQL-запросе с помощью встроенной функции `catboostEvaluate()`. В результате выполнения такого запроса вы получите предсказания модели для каждой строки входных данных.
+
+Подробнее о функции `catboostEvaluate()` читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/functions/other-functions/#catboostevaluatepath_to_model-feature_1-feature_2--feature_n).
 
 ## Перед подключением модели {#prereq}
 
@@ -105,7 +109,7 @@
     1. Настройте параметры модели:
 
         * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-type }}** — `ML_MODEL_TYPE_CATBOOST`.
-        * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}** — имя модели. Имя модели — один из аргументов функции `modelEvaluate()`, которая нужна для вызова модели в {{ CH }}.
+        * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}** — имя модели. Имя модели — один из аргументов функции `catboostEvaluate()`, которая нужна для вызова модели в {{ CH }}.
         * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}** — адрес модели в {{ objstorage-full-name }}.
 
     1. Нажмите **{{ ui-key.yacloud.clickhouse.cluster.ml-models.label_add-ml-model }}** и дождитесь окончания добавления модели.
@@ -180,7 +184,7 @@
 
    ```
    SELECT 
-       modelEvaluate('<имя модели>', 
+       catboostEvaluate('<путь к файлу модели>', 
                      <имя столбца 1>,
                      <имя столбца 2>,
                      ...
@@ -188,7 +192,12 @@
    FROM <имя таблицы>
    ```
 
-В качестве аргументов функции `modelEvaluate()` укажите имя модели и имена столбцов, содержащих входные данные. В результате выполнения запроса вы получите столбец с предсказаниями модели для каждой строки исходной таблицы.
+В качестве аргументов функции `catboostEvaluate()` укажите:
+
+   * Путь к файлу модели в формате `/var/lib/clickhouse/models/<имя модели>.bin`.
+   * Имена столбцов, содержащих входные данные.
+
+Результатом выполнения запроса станет столбец с предсказаниями модели для каждой строки исходной таблицы.
 
 ## Изменить модель {#update}
 
@@ -346,86 +355,83 @@
 
 Чтобы загрузить данные в {{ CH }} и протестировать модель:
 
-1. Установите [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) и настройте подключение к кластеру как описано в [документации](../../managed-clickhouse/operations/connect.md#cli).
-
-
-1. Скачайте [файл с данными](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) для анализа:
-
-   ```bash
-   wget https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv
-   ```
-
-
-1. Создайте таблицу для данных:
-
-   ```bash
-   clickhouse-client --host <FQDN хоста> \
-                     --database <имя базы данных>
-                     --secure \
-                     --user <имя пользователя БД> \
-                     --password <пароль пользователя БД> \
-                     --port 9440 \
-                     -q 'CREATE TABLE ml_test_table (date Date MATERIALIZED today(), ACTION UInt8, RESOURCE UInt32, MGR_ID UInt32, ROLE_ROLLUP_1 UInt32, ROLE_ROLLUP_2 UInt32, ROLE_DEPTNAME UInt32, ROLE_TITLE UInt32, ROLE_FAMILY_DESC UInt32, ROLE_FAMILY UInt32, ROLE_CODE UInt32) ENGINE = MergeTree() PARTITION BY date ORDER BY date'
-   ```
-
-   О том, как получить FQDN хоста, см. [инструкцию](connect.md#fqdn).
-
-1. Загрузите данные в таблицу:
-
-   ```bash
-   clickhouse-client --host <FQDN хоста> \
-                     --database <имя базы данных>
-                     --secure \
-                     --user <имя пользователя БД> \
-                     --password <пароль пользователя БД> \
-                     --port 9440 \
-                     -q 'INSERT INTO ml_test_table FORMAT CSVWithNames' \
-                     < train.csv
-   ```
-
 1. В [консоли управления]({{ link-console-main }}) подключите тестовую модель:
+
     * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-type }}** — `ML_MODEL_TYPE_CATBOOST`.
     * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}** — `ml_test`.
     * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}** — `https://{{ s3-storage-host }}/managed-clickhouse/catboost_model.bin`.
-  
+
+1. Установите [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) и настройте подключение к кластеру как описано в [документации](../../managed-clickhouse/operations/connect.md#cli).
+
+
+1. [Скачайте файл с данными](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) для анализа.
+
+
+1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect.md#cli) через {{ CH }} CLI.
+
+1. Создайте тестовую таблицу:
+
+    ```sql
+    CREATE TABLE
+                ml_test_table (date Date MATERIALIZED today(), 
+                              ACTION UInt8, 
+                              RESOURCE UInt32, 
+                              MGR_ID UInt32, 
+                              ROLE_ROLLUP_1 UInt32, 
+                              ROLE_ROLLUP_2 UInt32, 
+                              ROLE_DEPTNAME UInt32, 
+                              ROLE_TITLE UInt32, 
+                              ROLE_FAMILY_DESC UInt32, 
+                              ROLE_FAMILY UInt32, 
+                              ROLE_CODE UInt32) 
+                ENGINE = MergeTree() 
+    PARTITION BY date 
+    ORDER BY date;
+    ```
+
+1. Загрузите данные в таблицу:
+
+    ```sql
+    INSERT INTO ml_test_table FROM INFILE '<путь_к_файлу>/train.csv' FORMAT CSVWithNames;
+    ```
+
 1. Протестируйте модель:
-    1. Подключитесь к кластеру [с помощью клиента](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI или перейдите на вкладку [SQL](../../managed-clickhouse/operations/web-sql-query.md) в консоли управления кластером.
-    1. Проверьте работу модели с помощью запросов:
-        * Предсказания значения столбца `ACTION` для первых 10 строк таблицы:
 
-            ```sql
-            SELECT
-                modelEvaluate('ml_test',
-                              RESOURCE,
-                              MGR_ID,
-                              ROLE_ROLLUP_1,
-                              ROLE_ROLLUP_2,
-                              ROLE_DEPTNAME,
-                              ROLE_TITLE,
-                              ROLE_FAMILY_DESC,
-                              ROLE_FAMILY,
-                              ROLE_CODE) > 0 AS prediction,
-                ACTION AS target
-            FROM ml_test_table
-            LIMIT 10
-            ```
+    * Получите предсказание значений столбца `ACTION` для первых 10 строк таблицы:
 
-        * Предсказанная вероятность для первых 10 строк таблицы:
+        ```sql
+        SELECT
+            catboostEvaluate('/var/lib/clickhouse/models/ml_test.bin',
+                            RESOURCE,
+                            MGR_ID,
+                            ROLE_ROLLUP_1,
+                            ROLE_ROLLUP_2,
+                            ROLE_DEPTNAME,
+                            ROLE_TITLE,
+                            ROLE_FAMILY_DESC,
+                            ROLE_FAMILY,
+                            ROLE_CODE) > 0 AS prediction,
+            ACTION AS target
+        FROM ml_test_table
+        LIMIT 10;
+        ```
 
-            ```sql
-            SELECT
-                modelEvaluate('ml_test',
-                              RESOURCE,
-                              MGR_ID,
-                              ROLE_ROLLUP_1,
-                              ROLE_ROLLUP_2,
-                              ROLE_DEPTNAME,
-                              ROLE_TITLE,
-                              ROLE_FAMILY_DESC,
-                              ROLE_FAMILY,
-                              ROLE_CODE) AS prediction,
-                1. / (1 + exp(-prediction)) AS probability,
-                ACTION AS target
-            FROM ml_test_table
-            LIMIT 10
-            ```
+    * Получите предсказанную вероятность для первых 10 строк таблицы:
+
+        ```sql
+        SELECT
+            catboostEvaluate('/var/lib/clickhouse/models/ml_test.bin',
+                            RESOURCE,
+                            MGR_ID,
+                            ROLE_ROLLUP_1,
+                            ROLE_ROLLUP_2,
+                            ROLE_DEPTNAME,
+                            ROLE_TITLE,
+                            ROLE_FAMILY_DESC,
+                            ROLE_FAMILY,
+                            ROLE_CODE) AS prediction,
+            1. / (1 + exp(-prediction)) AS probability,
+            ACTION AS target
+        FROM ml_test_table
+        LIMIT 10;
+        ```

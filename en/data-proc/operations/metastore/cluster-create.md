@@ -14,16 +14,16 @@ If the cloud network uses security groups, they can hinder the cluster's operati
 
 * For incoming client traffic:
 
-   * Port range: `30000-32767`
-   * Protocol: `Any`.
-   * Source: `CIDR`.
-   * CIDR blocks: `0.0.0.0/0`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `30000-32767`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` `Any`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
 * For incoming load balancer traffic:
 
-   * Port range: `10256`.
-   * Protocol: `Any`.
-   * Source: `Load balancer health checks`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `10256`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` `Any`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`
 
 If you plan to use multiple security groups for a cluster, enable all traffic between these groups.
 
@@ -40,8 +40,8 @@ You can set more detailed rules for security groups, such as allowing traffic in
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a server.
-   1. Select **{{ dataproc-name }}**.
-   1. In the left-hand panel, click ![image](../../../_assets/data-proc/metastore.svg) **Metastore server**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/data-proc/metastore.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Enter a name for the cluster. It must be unique within the folder.
    1. (Optional) Enter a cluster description.

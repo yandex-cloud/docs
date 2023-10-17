@@ -38,14 +38,14 @@ Prepare the infrastructure:
       * `source_db_name`: {{ ydb-name }} database name.
       * `bucket_name`: {{ objstorage-name }} bucket name.
 
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -59,12 +59,12 @@ Prepare the infrastructure:
 
 1. [Create a {{ yds-name }} data stream](../../data-streams/operations/aws-cli/create.md).
 
-1. [Send test data to the data stream](../../data-streams/operations/aws-cli/send.md). Use data from the vehicle's sensors in JSON format as a message:
+1. [Send test data to the data stream](../../data-streams/operations/aws-cli/send.md). Use data from the vehicle sensors in JSON format as a message:
 
 ```json
 {
     "device_id":"iv9a94th6rzt********",
-    "datetime":"2020-06-05 17:27:00",
+    "datetime":"2020-06-05T17:27:00",
     "latitude":"55.70329032",
     "longitude":"37.65472196",
     "altitude":"427.5",
@@ -158,7 +158,7 @@ Prepare the infrastructure:
 
    * Manually
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
@@ -178,7 +178,7 @@ Prepare the infrastructure:
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -195,7 +195,7 @@ Prepare the infrastructure:
 1. Make sure that the data from the {{ yds-name }} stream has been moved to the bucket {{ objstorage-name }}:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
-   1. In the list of services, select **{{ objstorage-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the bucket from the list.
    1. Check that the bucket includes the file `<stream name>_0.raw` (`.json` or `.csv`, depending on the selected output format) with the test data.
 
@@ -218,7 +218,7 @@ Prepare the infrastructure:
 1. Make sure that the following data has been added to the {{ objstorage-name }} bucket:
 
    1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
-   1. In the list of services, select **{{ objstorage-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the bucket from the list.
    1. Make sure that the file `<stream name>_0.raw` (`.json` or `.csv`, depending on the selected output format) has been added to the bucket and includes the new data.
 
@@ -256,9 +256,9 @@ Delete the other resources, depending on the method used to create them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

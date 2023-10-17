@@ -16,10 +16,10 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Select a cluster and click ![pencil](../../_assets/pencil.svg) **Edit cluster** on the top panel.
-   1. Under **Settings**, enable **UI Proxy**.
-   1. Click **Save changes**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Select a cluster and click ![pencil](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** on the top panel.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_configuration }}**, enable the **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** option.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -54,9 +54,9 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Click the name of the cluster you need.
-   1. Connection links for the component web interfaces can be found under **UI Proxy**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. Click the cluster name.
+   1. Connection links for the component web interfaces can be found under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 
 - CLI
 
@@ -98,7 +98,7 @@ To connect to the desired {{ dataproc-name }} host port, run the following comma
 ```bash
 ssh -A \
     -J <VM public IP> \
-    -L <port>:<Data Proc host FQDN>:<port> <username>@<Data Proc host FQDN>
+    -L <port number>:<Data Proc host FQDN>:<port number> <username>@<Data Proc host FQDN>
 ```
 
 
@@ -113,6 +113,6 @@ Where:
    To connect to cluster hosts with 1.x as the [image version](../concepts/environment.md), use `root` as your username, for version 2.x, use `ubuntu`.
 
 
-You can find the FQDN of the {{ dataproc-name }} host on the {{ dataproc-name }} cluster page, in the **Hosts** tab, under the **Hostname** column.
+You can find the FQDN of the {{ dataproc-name }} host on the {{ dataproc-name }} cluster page, in the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab, in the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 
 Port numbers for {{ dataproc-name }} components are shown under [Component interfaces and ports](../concepts/interfaces.md#port-numbers).

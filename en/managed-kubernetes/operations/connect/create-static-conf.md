@@ -1,6 +1,6 @@
 # Creating a static configuration file
 
-Static configuration files let you access a {{ k8s }} cluster without using the CLI (for example, from continuous integration systems).
+Static configuration files allow you to access a {{ k8s }} cluster without using the CLI, e.g., from continuous integration systems.
 
 You can also use a static configuration file to configure access to multiple {{ k8s }} clusters. You can quickly switch between {{ k8s }} clusters described in configuration files using the `kubectl config use-context` command. For more information about how to configure access to multiple {{ k8s }} clusters, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
 
@@ -23,7 +23,7 @@ To access a {{ k8s }} cluster, use its unique ID. Save it to a variable and use 
    - Management console
 
      1. Go to the folder page and select {{ managed-k8s-name }}.
-     1. Click on the name of the {{ k8s }} cluster.
+     1. Click the name of the {{ k8s }} cluster.
 
      You can see the unique ID of the {{ k8s }} cluster under **General information**.
 
@@ -132,8 +132,7 @@ Create a `ServiceAccount` object to interact with the {{ k8s }} API inside the {
    metadata:
      name: admin-user-token
      annotations:
-       kubernetes.io/service-account.name: admin-user
-   type: kubernetes.io/service-account-token
+       kubernetes.io/service-account.name: "admin-user"
    ```
 
 1. Create a `ServiceAccount` object.

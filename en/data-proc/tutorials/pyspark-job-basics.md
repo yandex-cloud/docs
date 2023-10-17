@@ -4,19 +4,20 @@
 
 In this section, we provide a simple example that demonstrates how to use [PySpark](https://spark.apache.org/docs/latest/api/python/), the Spark interface for Python, in {{ dataproc-name }}. In the example, we use PySpark to count the number of times each word is seen in a short text.
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `mdb.dataproc.agent` role.
 
 1. {% include [Create buckets and configure SA access to them](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
 
-1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following configuration:
-    * **Services**:
-        * `HDFS`
-        * `SPARK`
-        * `YARN`
-    * **Service account**: Select the service account with the `mdb.dataproc.agent` role you created earlier.
-    * **Bucket name**: Select a bucket to hold the processing output.
+1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following settings:
+
+   * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
+      * `HDFS`
+      * `SPARK`
+      * `YARN`
+   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the previously created service account with the `mdb.dataproc.agent` role.
+   * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
 
 ## Create a PySpark job {#create-job}
 
@@ -63,15 +64,15 @@ In this section, we provide a simple example that demonstrates how to use [PySpa
 
 1. [Create a PySpark job](../operations/jobs-pyspark#create) with the following parameters:
 
-    * **Main python file**: `s3a://<input data bucket name>/word_count.py`
+   * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}**: `s3a://<input data bucket name>/word_count.py`
+   * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
 
-    * **Job arguments**:
-        * `s3a://<input data bucket name>/text.txt`
-        * `s3a://<output processing bucket name>/<output folder>`
+      * `s3a://<input data bucket name>/text.txt`
+      * `s3a://<output processing bucket name>/<output folder>`
 
 1. Wait for the [job status](../operations/jobs-pyspark.md#get-info) to change to `Done`.
 
-1. [Download](../../storage/operations/objects/download.md) and review the output files from the bucket:
+1. [Download from the bucket](../../storage/operations/objects/download.md) and review the files with the results from the bucket:
 
     {% cut "part-00000" %}
 

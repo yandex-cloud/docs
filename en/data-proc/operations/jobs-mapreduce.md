@@ -13,11 +13,11 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
 
 - Management console
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-    1. Click on the name of the cluster and open the **Jobs** tab.
-    1. Click **Submit job**.
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
+    1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
     1. (Optional) Enter a name for the job.
-    1. In the **Job type** field, select `Mapreduce`.
+    1. In the **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** field, select `{{ ui-key.yacloud.dataproc.jobs.field_mapreduce-job-type }}`.
     1. Select one of the driver types and specify which to use to start the job:
         * Main class name.
         * Path to the main JAR file in the following format:
@@ -34,7 +34,7 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
         * Specify paths to the necessary files and archives.
         * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key-value` pairs.
 
-    1. Click **Submit job**.
+    1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
 
 - CLI
 
@@ -50,7 +50,7 @@ description: "In this tutorial, you will learn how to manage MapReduce jobs in {
         {{ yc-dp }} job create-mapreduce --help
         ```
 
-    1. Create a job (the example doesn't show all the available parameters):
+    1. Create a job (the example does not show all the available parameters):
 
         ```bash
         {{ yc-dp }} job create-mapreduce \

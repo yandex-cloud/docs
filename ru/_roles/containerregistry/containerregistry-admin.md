@@ -1,0 +1,1 @@
+Роль `container-registry.admin` позволяет управлять доступом к реестрам, Docker-образам и репозиториям. Включает все разрешения, которые дают роли `container-registry.viewer` и `container-registry.editor`.

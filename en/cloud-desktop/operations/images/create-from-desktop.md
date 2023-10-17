@@ -1,3 +1,8 @@
+---
+title: "How to create an image from a desktop"
+description: "This guide describes how you can create an image from a desktop."
+---
+
 # Creating an image from a desktop
 
 {% note info %}

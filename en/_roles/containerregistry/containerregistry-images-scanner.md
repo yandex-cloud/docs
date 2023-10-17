@@ -1,0 +1,1 @@
+The `container-registry.images.scanner` role lets you scan Docker images and view information about service resources (registries, Docker images, and repositories).

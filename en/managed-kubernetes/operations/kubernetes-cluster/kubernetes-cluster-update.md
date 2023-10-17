@@ -1,3 +1,8 @@
+---
+title: "How to update a {{ managed-k8s-name }} cluster"
+description: "This guide describes how you can update a {{ managed-k8s-name }} cluster."
+---
+
 # Editing {{ managed-k8s-name }} clusters
 
 {% include [yc-cluster-list](../../../_includes/managed-kubernetes/cluster-list.md) %}
@@ -84,7 +89,7 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
 
       * `--master-logging`: Sending logs to {{ cloud-logging-name }}:
 
-       {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
+         {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
 
      * `--version`: {{ k8s }} version.
      * `--latest-revision`: Get all available updates for current [master {{ managed-k8s-name }}](../../concepts/index.md#master) version.
@@ -114,7 +119,7 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -124,16 +129,16 @@ You can change the following parameters of a [{{ managed-k8s-name }} cluster](..
 
    To edit {{ managed-k8s-name }} cluster parameters, use the [update](../../api-ref/Cluster/update.md) method for the [Cluster](../../api-ref/Cluster/) resource.
 
-   To edit the settings for submitting logs to {{ cloud-logging-name }}, configure them in the `masterSpec.masterLogging` parameter.
+   To edit the settings for sending logs to {{ cloud-logging-name }}, configure their `masterSpec.masterLogging` parameter values.
 
 {% endlist %}
 
 ## Managing {{ managed-k8s-name }} cluster labels {#manage-label}
 
 You can perform the following actions with [{{ managed-k8s-name }} cluster labels](../../concepts/index.md#node-labels):
-* [Adding a label](#add-label)
-* [Editing a label](#update-label)
-* [Deleting a label](#remove-label)
+* [Add](#add-label)
+* [Edit](#update-label)
+* [Delete](#remove-label)
 
 ### Adding a label {#add-label}
 

@@ -1,0 +1,1 @@
+The `compute.snapshotSchedules.viewer` role grants the permission to view information about scheduled disk snapshots.

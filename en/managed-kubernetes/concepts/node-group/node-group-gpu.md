@@ -11,7 +11,7 @@ You can create [node groups](../index.md#node-group) with [graphics accelerators
 * A node group must reside in the `{{ region-id }}-a` or `{{ region-id }}-b` [availability zone](../../../overview/concepts/geo-scope.md), or in both. VMs with GPUs are only available in these zones.
 
   When requesting a GPU quota, keep in mind which zones you are going to run your {{ k8s }} clusters in.
-  
+
 
 ## Pricing {#pricing}
 

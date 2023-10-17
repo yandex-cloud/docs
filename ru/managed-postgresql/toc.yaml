@@ -23,6 +23,8 @@ items:
             href: operations/replication-slots.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
+          - name: Управление дисковым пространством
+            href: operations/storage-space.md
           - name: Обновление версии PostgreSQL
             href: operations/cluster-version-update.md
           - name: Удаление кластера

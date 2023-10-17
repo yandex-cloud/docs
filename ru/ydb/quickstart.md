@@ -33,16 +33,16 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
-  1. В списке сервисов выберите **{{ ydb-name }}**.
-  1. Нажмите кнопку **Создать базу данных**.
-  1. Введите **Имя** БД. Требования к имени:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** БД. Требования к имени:
 
      {% include [name-format](../_includes/name-format.md) %}
 
-  1. В блоке **Тип базы данных** выберите опцию **Serverless**.
+  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите опцию `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
   
       Вы можете оставить параметры по умолчанию для создаваемой БД и [изменить](operations/manage-databases.md#update-db-serverless) их позже. Подробнее о параметрах БД читайте в разделе [{#T}](operations/manage-databases.md#create-db-serverless).
-  1. Нажмите кнопку **Создать базу данных**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
   Дождитесь запуска БД. В процессе создания БД будет иметь статус `Provisioning`, а когда станет готова к использованию — статус сменится на `Running`.
 
@@ -103,35 +103,35 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
-  1. В списке сервисов выберите **{{ ydb-name }}**.
-  1. Нажмите кнопку **Создать базу данных**.
-  1. Введите **Имя** БД. Требования к имени:
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** БД. Требования к имени:
 
      {% include [name-format](../_includes/name-format.md) %}
 
-  1. В блоке **Тип базы данных** выберите опцию **Dedicated**.
-  1. В блоке **Вычислительные ресурсы** выберите тип и количество [вычислительных ресурсов](concepts/resources.md#resource-presets).
-  1. В блоке **Группы хранения** выберите тип диска и количество [групп хранения](concepts/resources.md#storage-groups), определяющее суммарный объем хранилища.
-  1. В блоке **Сеть** настройте параметры сети:
-     1. (Опционально) В поле **Публичные IP-адреса** выберите опцию **Присвоить**, если вы планируете отправлять запросы к БД не только из сети {{ yandex-cloud }}, но и через интернет.
+  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите опцию `{{ ui-key.yacloud.ydb.forms.label_dedicated-type }}`.
+  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-compute }}** выберите тип и количество [вычислительных ресурсов](concepts/resources.md#resource-presets).
+  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-storage }}** выберите тип диска и количество [групп хранения](concepts/resources.md#storage-groups), определяющее суммарный объем хранилища.
+  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-network }}** настройте параметры сети:
+     1. (Опционально) В поле **{{ ui-key.yacloud.ydb.forms.field_public-ips }}** выберите опцию **{{ ui-key.yacloud.ydb.forms.label_text-public-ips }}**, если вы планируете отправлять запросы к БД не только из сети {{ yandex-cloud }}, но и через интернет.
 
         {% include [traffic_metering](_includes/traffic_metering.md) %}
 
-     1. Выберите существующую сеть из списка **Облачная сеть** или создайте новую:
-        1. Нажмите кнопку **Создать новую**.
-        1. В открывшемся окне укажите **Имя** новой сети.
-        1. (Опционально) Выберите опцию **Создать подсети**. Подсети в каждой зоне доступности будут созданы автоматически.
-        1. Нажмите кнопку **Создать**.
-     1. В блоке **Подсети** для каждой [зоны доступности](../overview/concepts/geo-scope.md) выберите подсеть или создайте новую:
-        1. Нажмите кнопку **Создать новую**.
-        1. В открывшемся окне укажите **Имя** новой подсети.
-        1. (Опционально) Введите **Описание** подсети.
-        1. Выберите из списка **Зона доступности** нужную зону.
-        1. Задайте адрес подсети в формате [**CIDR**](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
-        1. Нажмите кнопку **Создать**.
+     1. Выберите существующую сеть из списка **{{ ui-key.yacloud.ydb.forms.field_network }}** или создайте новую:
+        1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
+        1. В открывшемся окне укажите **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_name }}** новой сети.
+        1. (Опционально) Выберите опцию **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}**. Подсети в каждой зоне доступности будут созданы автоматически.
+        1. Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+     1. В блоке **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}** для каждой [зоны доступности](../overview/concepts/geo-scope.md) выберите подсеть или создайте новую:
+        1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
+        1. В открывшемся окне укажите **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** новой подсети.
+        1. (Опционально) Введите **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_description }}** подсети.
+        1. Выберите из списка **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_zone }}** нужную зону.
+        1. Задайте адрес подсети в формате [**{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_cidr }}**](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
+        1. Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
 
-     Настойки блока **Сеть** нельзя изменить после создания БД.
-  1. Нажмите кнопку **Создать базу данных**.
+     Настойки блока **{{ ui-key.yacloud.ydb.forms.label_section-network }}** нельзя изменить после создания БД.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
      Дождитесь запуска БД. В процессе создания БД будет иметь статус `Provisioning`, а когда станет готова к использованию — статус сменится на `Running`.
 
@@ -235,16 +235,16 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная БД.
-  1. В списке сервисов выберите **{{ ydb-name }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите созданную ранее БД.
-  1. Перейдите на вкладку **Навигация**.
-  1. Нажмите кнопку **SQL-запрос** и введите текст запроса:
+  1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** и введите текст запроса:
 
      ```yql
      SELECT 1;
      ```
 
-  1. Нажмите кнопку **Выполнить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 
      Ниже будет отображен результат выполнения запроса:
 

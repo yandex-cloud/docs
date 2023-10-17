@@ -8,10 +8,10 @@
 
 Для подключения к БД в {{ dd }}-режиме нужно разрешить входящий и исходящий трафик по протоколу TCP на порте `{{ ydb.port-dedicated }}`. Убедитесь, что в назначенной [группе безопасности](../../vpc/concepts/security-groups.md) есть соответствующее правило, или добавьте его:
 
-* Диапазон портов — `{{ ydb.port-dedicated }}`.
-* Протокол — `TCP`.
-* Источник — `CIDR`.
-* CIDR блоки — `0.0.0.0/0`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ ydb.port-dedicated }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
 ## Получите реквизиты для подключения {#endpoint-and-path}
 
@@ -22,13 +22,13 @@
 - Консоль управления
 
   1. Перейдите в [консоль управления]({{ link-console-main }}).
-  1. Выберите каталог с вашей БД и перейдите в сервис **{{ ydb-full-name }}**.
+  1. Выберите каталог с вашей БД и перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите базу данных, для которой нужно получить эндпоинт и путь.
       
-      * Эндпоинт БД указан в блоке **Соединение** в строке **Эндпоинт**:
+      * Эндпоинт БД указан в блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** в первой части значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`):
 
           >Например, эндпоинт для БД в режиме Serverless — `{{ ydb.ep-serverless }}`, для БД в режиме Dedicated — `{{ ydb.ep-dedicated }}`.
-      * Путь БД указан блоке **Соединение** в строке **Размещение базы данных**.  
+      * Путь БД указан в блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** во второй части значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`).
       
           >Пример пути БД: `{{ ydb.path-serverless }}`.
 

@@ -1,3 +1,8 @@
+---
+title: "How to configure an {{ objstorage-name }} source endpoint"
+description: "Follow this guide to configure an {{ objstorage-name }} source endpoint."
+---
+
 # Configuring source endpoints {{ objstorage-name }}
 
 {% include [note-preview](../../../../_includes/preview-pp.md) %}

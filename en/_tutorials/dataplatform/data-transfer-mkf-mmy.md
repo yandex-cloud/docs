@@ -1,4 +1,4 @@
-# Delivering data from a {{ KF }} queue to {{ MY }} using {{ data-transfer-full-name }}
+# Delivering data from an {{ KF }} queue to {{ MY }} using {{ data-transfer-full-name }}
 
 A {{ mmy-name }} cluster can get data from {{ KF }} topics in real time.
 
@@ -48,11 +48,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          * [Network](../../vpc/concepts/network.md#network)
          * [Subnet](../../vpc/concepts/network.md#subnet)
-         * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mkf-name }} and {{ mmy-name }} clusters
+         * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mkf-name }} and {{ mmy-name }} clusters.
          * {{ mkf-name }} source cluster
          * {{ KF }} topic named `sensors`
-         * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the `sensors` topic
-         * {{ mmy-name }} target cluster with the `db1` database and the `mmy-user` user
+         * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the `sensors` topic.
+         * {{ mmy-name }} target cluster with the `db1` database and the `mmy-user` user.
          * Target endpoint
          * Transfer
 
@@ -71,7 +71,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -155,7 +155,7 @@ Create a local `sample.json` file with the following test data:
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}**.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}**
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: `mkf-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter the user password.
@@ -165,7 +165,7 @@ Create a local `sample.json` file with the following test data:
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `JSON`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`
 
             Insert the data schema in JSON format:
 
@@ -251,7 +251,7 @@ Create a local `sample.json` file with the following test data:
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -283,7 +283,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 1. Check that the `sensors` table in the {{ mmy-name }} cluster contains the sent data:
 
-   1. [Connect to the cluster {{ mmy-name }}](../../managed-mysql/operations/connect.md).
+   1. [Connect to the cluster {{ mmy-name }}](../../managed-mysql/operations/connect.md)
 
    1. Get the contents of the `sensors` table using the query below:
 
@@ -323,9 +323,9 @@ Delete the other resources, depending on the method used to create them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

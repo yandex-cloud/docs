@@ -25,7 +25,7 @@ To authenticate in {{ objstorage-name }}, you can use one of the following appro
 
 ### Accessing S3 with authentication via the IAM token of a cluster service account {#s3-access-using-iam}
 
-1. When creating a cluster, specify a [service account](../../iam/operations/sa/create.md#create-sa). If a cluster is already created, add a service account using the **Edit cluster** button in the management console.
+1. When creating a cluster, specify a [service account](../../iam/operations/sa/create.md#create-sa). If the cluster is already created, add a service account using the **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** button in the management console.
 
 1. The service account must have access to the appropriate bucket. To do this, grant the service account privileges in the [bucket ACL](../../storage/concepts/acl), or the `storage.viewer` or `storage.editor` roles.
 

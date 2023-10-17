@@ -56,6 +56,10 @@ metadata:
     ingress.alb.yc.io/upgrade-types: <string>
     ingress.alb.yc.io/request-timeout: <string>
     ingress.alb.yc.io/idle-timeout: <string>
+    ingress.alb.yc.io/modify-header-response-append: <string>
+    ingress.alb.yc.io/modify-header-response-replace: <string>
+    ingress.alb.yc.io/modify-header-response-rename: <string>
+    ingress.alb.yc.io/modify-header-response-remove: <string>
 ```
 
 Where:
@@ -134,7 +138,7 @@ Where:
    metadata:
      name: non-default-settings
    logOptions:
-     logGroupID: <log group ID>
+     logGroupID: <log_group_ID>
      discardRules:
        - discardPercent: 50
          grpcCodes:
@@ -150,7 +154,12 @@ Where:
            - 404
    ```
 
-   For more information, see the description of the `logOptions` parameter of the [create](../api-ref/LoadBalancer/create.md) REST API method for the [LoadBalancer](../api-ref/LoadBalancer/index.md) resource.
+   Specify the log group ID and parameters of the [rules for discarding logs](../concepts/application-load-balancer.md#discard-logs-rules):
+
+   * `httpCodes`: HTTP status codes.
+   * `httpCodeIntervals`: Classes of HTTP status codes.
+   * `grpcCodes`: gRPC codes.
+   * `discardPercent`: Percentage of logs to discard.
 
 * `ingress.alb.yc.io/transport-security` (`string`)
 
@@ -215,6 +224,55 @@ Where:
    Unless an annotation is specified, a connection can remain idle for any length of time until the overall timeout expires (`ingress.alb.yc.io/request-timeout` annotation).
 
    In {{ alb-name }}, the timeout will be configured on all HTTP routers created for the `Ingress` resource.
+
+* `ingress.alb.yc.io/modify-header-response-append` (`string`)
+
+   Adds a string to the response header value. The header and string should be specified in the following format:
+
+   ```yaml
+   ingress.alb.yc.io/modify-header-response-append: <key>=<value>
+   ```
+
+   Where:
+
+   * `<key>`: Name of the header to be modified.
+   * `value`: String to be added to the header value.
+
+* `ingress.alb.yc.io/modify-header-response-replace` (`string`)
+
+   It replaces the response header value. The header and its new value should be specified in the following format:
+
+   ```yaml
+   ingress.alb.yc.io/modify-header-response-replace: <key>=<value>
+   ```
+
+   Where:
+
+   * `<key>`: Name of the header to be modified.
+   * `<value>`: New header value.
+
+* `ingress.alb.yc.io/modify-header-response-rename` (`string`)
+
+   It renames the response header. The header and its new name should be specified in the following format:
+
+   ```yaml
+   ingress.alb.yc.io/modify-header-response-rename: <key>=<value>
+   ```
+
+   Where:
+
+   * `<key>`: Name of the header to be modified.
+   * `<value>`: New header name.
+
+* `ingress.alb.yc.io/modify-header-response-remove` (`string`)
+
+   It removes the response header. The header to remove should be specified in the following format:
+
+   ```yaml
+   ingress.alb.yc.io/modify-header-response-remove: <key>=true
+   ```
+
+   Where `<key>` is the name of the header to remove.
 
 ## IngressSpec {#spec}
 

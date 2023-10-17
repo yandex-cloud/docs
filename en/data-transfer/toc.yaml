@@ -205,6 +205,8 @@ items:
         href: changelogs/index.md
       - name: August 2023
         href: changelogs/2308.md
+      - name: September 2023
+        href: changelogs/2309.md
   - name: API reference
     items:
       - name: Authentication in the API

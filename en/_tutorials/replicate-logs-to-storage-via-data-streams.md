@@ -46,10 +46,10 @@ The cost of data storage support includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select **{{ cloud-logging-name }}**.
-   1. Next to the log group where the logs are sent, click ![options](../_assets/options.svg) and select **Edit**.
-   1. In the **Stream** field, select the `logs-stream` created before.
-   1. Click **Save**.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+   1. Next to the log group where the logs are sent, click ![options](../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+   1. In the **{{ ui-key.yacloud.data-streams.label_data-stream }}** field, select the `logs-stream` created before.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -57,7 +57,7 @@ The cost of data storage support includes:
 
 {% include [check-ingestion](_tutorials_includes/check-ingestion.md) %}
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
 

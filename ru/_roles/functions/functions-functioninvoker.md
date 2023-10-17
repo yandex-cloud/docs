@@ -1,0 +1,1 @@
+Роль `functions.functionInvoker` позволяет вызывать функцию.

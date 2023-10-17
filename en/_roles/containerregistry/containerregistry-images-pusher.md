@@ -1,0 +1,1 @@
+The `container-registry.images.pusher` role lets you manage Docker images and view information about service resources (registries, Docker images, and repositories).

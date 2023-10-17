@@ -1,0 +1,1 @@
+The `dataproc.auditor` role enables you to view information about clusters and jobs (with no access to job content).

@@ -1,9 +1,14 @@
+---
+title: "How to set up support of multiple domain names for a website"
+description: "Use this guide to set up support for multiple domain names for a website."
+---
+
 # Support for multiple website domain names
 
 {% note info %}
 
 This guide describes how to set up support for a website's primary domain name and its [subdomain](https://en.wikipedia.org/wiki/Subdomain), e.g., `example.com` and `www.example.com`.
-To set up an additional domain, such as `example2.com`, [create](../buckets/create.md) a bucket with its name. Next, [configure](setup.md#hosting) hosting for this bucket and [specify](setup.md#redirects) the parameters for a redirect from it to the primary domain.
+To set up an additional domain, e.g., `example2.com`, [create](../buckets/create.md) a bucket with its name. Next, [configure](setup.md#hosting) hosting for this bucket and [specify](setup.md#redirects) the parameters for a redirect from it to the primary domain.
 
 {% endnote %}
 

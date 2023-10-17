@@ -18,6 +18,8 @@ The source and target buckets must be in the same [cloud](../../resource-manager
 [Encryption](../operations/buckets/encrypt.md) must be disabled on the target bucket.
 
 
+{% include [target-backet-note](../../_includes/storage/target-bucket-note.md) %}
+
 ## Format of the key for the log object {#key-format}
 
 {{ objstorage-name }} uses the following format of the key for the log object:

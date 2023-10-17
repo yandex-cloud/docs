@@ -57,14 +57,15 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml) | Service for distributing network load across cloud resources |
 | [{{ objstorage-full-name }}](../../storage/index.yaml) | All-purpose scalable cloud object storage |
 | [{{ yq-full-name }}](../../query/index.yaml) | {{ preview-stage }} Service for running queries using a common SQL dialect |
-| [{{ resmgr-full-name }}](../../resource-manager/index.yaml) | Cloud resource management |
-| [{{ search-api-full-name }}](../../search-api/index.yaml) | {{ preview-stage }} Service for making search queries |
+| [{{ resmgr-full-name }}](../../resource-manager/index.yaml) | Cloud resource management service |
+| [{{ search-api-full-name }}](../../search-api/index.yaml) | Service for making search queries |
 | [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications |
 | [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | System user identification |
+| [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | {{ preview-stage }} Service for protection against DDoS attacks at the OSI model L7 application level |
 | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/index.yaml) | Speech recognition and synthesis technologies |
 | [{{ tracker-full-name }}](../../tracker/index.yaml) | Service for business collaboration and workflows |
 | [{{ translate-full-name }}](../../translate/index.yaml) | Machine translation service |
-| [{{ vpc-full-name }}](../../vpc/index.yaml) | Cloud network management |
+| [{{ vpc-full-name }}](../../vpc/index.yaml) | Cloud network management service |
 | [{{ vision-full-name }}](../../vision/index.yaml) | Computer vision service for image analysis |
 | [{{ wiki-full-name }}](../../wiki/index.yaml) | Service for creating corporate databases |
 | [{{ yagpt-full-name }}](../../yandexgpt/index.yaml) | {{ preview-stage }} Generative language model for business |

@@ -69,6 +69,23 @@ description: "В статье приведен полный справочник
 Подробнее см. [Управление доступом в {{ at-name }}](../audit-trails/security/index.md).
 
 
+## {{ backup-full-name }} {#backup-roles}
+
+#### backup.viewer {#backup-viewer}
+
+{% include [backup.viewer](../_roles/backup/backup-viewer.md) %}
+
+#### backup.editor {#backup-editor}
+
+{% include [backup.editor](../_roles/backup/backup-editor.md) %}
+
+#### backup.admin {#backup-admin}
+
+{% include [backup.admin](../_roles/backup/backup-admin.md) %}
+
+Подробнее см. [Управление доступом в {{ backup-name }}](../backup/security/index.md).
+
+
 ## {{ billing-name }} {#billing-roles}
 
 #### billing.accounts.member {#billing-accounts-member}
@@ -102,36 +119,6 @@ description: "В статье приведен полный справочник
 Подробнее см. [Управление доступом в сервисе {{ billing-name }}](../billing/security/index.md).
 
 
-## {{ certificate-manager-full-name }} {#certificate-manager-roles}
-
-#### certificate-manager.admin {#certificate-manager-admin}
-
-{% include [certificate-manager.admin](../_roles/certificatemanager/certificatemanager-admin.md) %}
-
-#### certificate-manager.certificates.downloader {#certificate-manager-certificates-downloader}
-
-{% include [certificate-manager.certificates.downloader](../_roles/certificatemanager/certificatemanager-certificates-downloader.md) %}
-
-Подробнее см. [Управление доступом в {{ certificate-manager-name }}](../certificate-manager/security/index.md).
-
-
-## {{ backup-full-name }} {#backup-roles}
-
-#### backup.viewer {#backup-viewer}
-
-{% include [backup.viewer](../_roles/backup/backup-viewer.md) %}
-
-#### backup.editor {#backup-editor}
-
-{% include [backup.editor](../_roles/backup/backup-editor.md) %}
-
-#### backup.admin {#backup-admin}
-
-{% include [backup.admin](../_roles/backup/backup-admin.md) %}
-
-Подробнее см. [Управление доступом в {{ backup-name }}](../backup/security/index.md).
-
-
 ## {{ cdn-full-name }} {#cdn-roles}
 
 #### cdn.viewer {#cdn-viewer}
@@ -149,25 +136,169 @@ description: "В статье приведен полный справочник
 Подробнее см. [Управление доступом в {{ cdn-name }}](../cdn/security/index.md).
 
 
-## {{ dns-full-name }} {#dns-roles}
+## {{ certificate-manager-full-name }} {#certificate-manager-roles}
 
-#### dns.auditor {#dns-auditor}
+#### certificate-manager.admin {#certificate-manager-admin}
 
-{% include [roles-dns-auditor](../_roles/dns/dns-auditor.md) %}
+{% include [certificate-manager.admin](../_roles/certificatemanager/certificatemanager-admin.md) %}
 
-#### dns.viewer {#dns-viewer}
+#### certificate-manager.certificates.downloader {#certificate-manager-certificates-downloader}
 
-{% include [roles-dns-viewer](../_roles/dns/dns-viewer.md) %}
+{% include [certificate-manager.certificates.downloader](../_roles/certificatemanager/certificatemanager-certificates-downloader.md) %}
 
-#### dns.editor {#dns-editor}
+Подробнее см. [Управление доступом в {{ certificate-manager-name }}](../certificate-manager/security/index.md).
 
-{% include [roles-dns-editor](../_roles/dns/dns-editor.md) %}
 
-#### dns.admin {#dns-admin}
+## {{ compute-full-name }} {#compute-roles}
 
-{% include [roles-dns-admin](../_roles/dns/dns-admin.md) %}
+#### compute.viewer {#compute-viewer}
 
-Подробнее см. [Управление доступом в {{ dns-name }}](../dns/security/index.md).
+{% include [compute.viewer](../_roles/compute/compute-viewer.md) %}
+
+#### compute.admin {#compute-admin}
+
+{% include [compute.admin](../_roles/compute/compute-admin.md) %}
+
+#### compute.disks.user {#compute-disks-user}
+
+{% include [compute.disks.user](../_roles/compute/compute-disks-user.md) %}
+
+#### compute.images.user {#compute-images-user}
+
+{% include [compute.images.user](../_roles/compute/compute-images-user.md) %}
+
+#### compute.operator {#compute-operator}
+
+{% include [compute.operator](../_roles/compute/compute-operator.md) %}
+
+#### compute.snapshotSchedules.viewer {#compute-snapshotSchedules-viewer}
+
+{% include [compute.snapshotSchedules.viewer](../_roles/compute/compute-snapshotschedules-viewer.md) %}
+
+#### compute.snapshotSchedules.editor {#compute-snapshotSchedules-editor}
+
+{% include [compute.snapshotSchedules.editor](../_roles/compute/compute-snapshotschedules-editor.md) %}
+
+Подробнее см. [Управление доступом в {{ compute-name }}](../compute/security/index.md).
+
+
+## {{ container-registry-full-name }} {#cr-roles}
+
+#### container-registry.viewer {#container-registry.viewer}
+
+{% include [container-registry.viewer](../_roles/containerregistry/containerregistry-viewer.md) %}
+
+#### container-registry.editor {#container-registry.editor}
+
+{% include [container-registry.editor](../_roles/containerregistry/containerregistry-editor.md) %}
+
+#### container-registry.admin {#container-registry.admin}
+
+{% include [container-registry.admin](../_roles/containerregistry/containerregistry-admin.md) %}
+
+#### container-registry.images.pusher {#container-registry-images-pusher}
+
+{% include [container-registry.images.pusher](../_roles/containerregistry/containerregistry-images-pusher.md) %}
+
+#### container-registry.images.puller {#container-registry-images-puller}
+
+{% include [container-registry.images.puller](../_roles/containerregistry/containerregistry-images-puller.md) %}
+
+#### container-registry.images.scanner {#container-registry-images-scanner}
+
+{% include [container-registry.images.scanner](../_roles/containerregistry/containerregistry-images-scanner.md) %}
+
+Подробнее см. [Управление доступом в {{ container-registry-name }}](../container-registry/security/index.md).
+
+
+## {{ dataproc-full-name }} {#dataproc-roles}
+
+#### dataproc.agent {#dataproc-agent}
+
+{% include [dataproc.agent](../_roles/dataproc/dataproc-agent.md) %}
+
+#### mdb.dataproc.agent {#mdb-dataproc-agent}
+
+{% include [mdb.dataproc.agent](../_roles/dataproc/mdb-dataproc-agent.md) %}
+
+#### dataproc.auditor {#dataproc-auditor}
+
+{% include [dataproc.auditor](../_roles/dataproc/dataproc-auditor.md) %}
+
+#### dataproc.viewer {#dataproc-viewer}
+
+{% include [dataproc.viewer](../_roles/dataproc/dataproc-viewer.md) %}
+
+#### dataproc.user {#dataproc-user}
+
+{% include [dataproc.user](../_roles/dataproc/dataproc-user.md) %}
+
+#### dataproc.provisioner {#dataproc-provisioner}
+
+{% include [dataproc.provisioner](../_roles/dataproc/dataproc-provisioner.md) %}
+
+#### dataproc.editor {#dataproc-editor}
+
+{% include [dataproc.editor](../_roles/dataproc/dataproc-editor.md) %}
+
+#### dataproc.admin {#dataproc-admin}
+
+{% include [dataproc.admin](../_roles/dataproc/dataproc-admin.md) %}
+
+#### managed-metastore.auditor {#managed-metastore-auditor}
+
+{% include [managed-metastore.auditor](../_roles/dataproc/managedmetastore-auditor.md) %}
+
+#### managed-metastore.viewer {#managed-metastore-viewer}
+
+{% include [managed-metastore.viewer](../_roles/dataproc/managedmetastore-viewer.md) %}
+
+#### managed-metastore.editor {#managed-metastore-editor}
+
+{% include [managed-metastore.editor](../_roles/dataproc/managedmetastore-editor.md) %}
+
+#### managed-metastore.admin {#managed-metastore-admin}
+
+{% include [managed-metastore.admin](../_roles/dataproc/managedmetastore-admin.md) %}
+
+Подробнее см. [Управление доступом в {{ dataproc-name }}](../data-proc/security/index.md).
+
+
+## {{ ml-platform-full-name }} {#datasphere-roles}
+
+#### datasphere.community-projects.viewer {#datasphere-communityprojects-viewer}
+
+{% include [datasphere.community-projects.viewer](../_roles/datasphere/datasphere-communityprojects-viewer.md) %}
+
+#### datasphere.community-projects.developer {#datasphere-communityprojects-developer}
+
+{% include [datasphere.community-projects.developer](../_roles/datasphere/datasphere-communityprojects-developer.md) %}
+
+#### datasphere.community-projects.editor {#datasphere-communityprojects-editor}
+
+{% include [datasphere.community-projects.editor](../_roles/datasphere/datasphere-communityprojects-editor.md) %}
+
+#### datasphere.community-projects.admin {#datasphere-communityprojects-admin}
+
+{% include [datasphere.community-projects.admin](../_roles/datasphere/datasphere-communityprojects-admin.md) %}
+
+#### datasphere.communities.viewer {#datasphere-communities-viewer}
+
+{% include [datasphere.communities.viewer](../_roles/datasphere/datasphere-communities-viewer.md) %}
+
+#### datasphere.communities.developer {#datasphere-communities-developer}
+
+{% include [datasphere.communities.developer](../_roles/datasphere/datasphere-communities-developer.md) %}
+
+#### datasphere.communities.editor {#datasphere-communities-editor}
+
+{% include [datasphere.communities.editor](../_roles/datasphere/datasphere-communities-editor.md) %}
+
+#### datasphere.communities.admin {#datasphere-communities-admin}
+
+{% include [datasphere.communities.admin](../_roles/datasphere/datasphere-communities-admin.md) %}
+
+Подробнее см. [Управление доступом в {{ ml-platform-name }}](../datasphere/security/index.md).
 
 
 ## {{ yds-full-name }} {#yds-roles}
@@ -212,38 +343,76 @@ description: "В статье приведен полный справочник
 Подробнее см. [Управление доступом в {{ data-transfer-name }}](../data-transfer/security/index.md).
 
 
-## {{ ml-platform-full-name }} {#datasphere-roles}
+## {{ dns-full-name }} {#dns-roles}
 
-#### datasphere.community-projects.viewer {#datasphere-communityprojects-viewer}
+#### dns.auditor {#dns-auditor}
 
-{% include [datasphere.community-projects.viewer](../_roles/datasphere/datasphere-communityprojects-viewer.md) %}
+{% include [roles-dns-auditor](../_roles/dns/dns-auditor.md) %}
 
-#### datasphere.community-projects.developer {#datasphere-communityprojects-developer}
+#### dns.viewer {#dns-viewer}
 
-{% include [datasphere.community-projects.developer](../_roles/datasphere/datasphere-communityprojects-developer.md) %}
+{% include [roles-dns-viewer](../_roles/dns/dns-viewer.md) %}
 
-#### datasphere.community-projects.editor {#datasphere-communityprojects-editor}
+#### dns.editor {#dns-editor}
 
-{% include [datasphere.community-projects.editor](../_roles/datasphere/datasphere-communityprojects-editor.md) %}
+{% include [roles-dns-editor](../_roles/dns/dns-editor.md) %}
 
-#### datasphere.community-projects.admin {#datasphere-communityprojects-admin}
+#### dns.admin {#dns-admin}
 
-{% include [datasphere.community-projects.admin](../_roles/datasphere/datasphere-communityprojects-admin.md) %}
+{% include [roles-dns-admin](../_roles/dns/dns-admin.md) %}
 
-#### datasphere.communities.viewer {#datasphere-communities-viewer}
+Подробнее см. [Управление доступом в {{ dns-name }}](../dns/security/index.md).
 
-{% include [datasphere.communities.viewer](../_roles/datasphere/datasphere-communities-viewer.md) %}
 
-#### datasphere.communities.developer {#datasphere-communities-developer}
+## {{ sf-full-name }} {#functions-roles}
 
-{% include [datasphere.communities.developer](../_roles/datasphere/datasphere-communities-developer.md) %}
+#### functions.auditor {#functions-auditor}
 
-#### datasphere.communities.editor {#datasphere-communities-editor}
+{% include [functions.auditor](../_roles/functions/functions-auditor.md) %}
 
-{% include [datasphere.communities.editor](../_roles/datasphere/datasphere-communities-editor.md) %}
+#### functions.viewer {#functions-viewer}
 
-#### datasphere.communities.admin {#datasphere-communities-admin}
+{% include [functions.viewer](../_roles/functions/functions-viewer.md) %}
 
-{% include [datasphere.communities.admin](../_roles/datasphere/datasphere-communities-admin.md) %}
+#### functions.functionInvoker {#functions-functionInvoker}
 
-Подробнее см. [Управление доступом в {{ ml-platform-name }}](../datasphere/security/index.md).
+{% include [functions.functionInvoker](../_roles/functions/functions-functioninvoker.md) %}
+
+#### functions.editor {#functions-editor}
+
+{% include [functions.editor](../_roles/functions/functions-editor.md) %}
+
+#### functions.mdbProxiesUser {#functions-mdbProxiesUser}
+
+{% include [functions.mdbProxiesUser](../_roles/functions/functions-mdbproxiesuser.md) %}
+
+#### functions.admin {#functions-admin}
+
+{% include [functions.admin](../_roles/functions/functions-admin.md) %}
+
+Подробнее см. [Управление доступом в {{ sf-name }}](../functions/security/index.md).
+
+
+## {{ cloud-logging-full-name }} {#logging-roles}
+
+#### logging.viewer {#logging-viewer}
+
+{% include [logging.viewer](../_roles/logging/logging-viewer.md) %}
+
+#### logging.editor {#logging-editor}
+
+{% include [logging.editor](../_roles/logging/logging-editor.md) %}
+
+#### logging.reader {#logging-reader}
+
+{% include [logging.reader](../_roles/logging/logging-reader.md) %}
+
+#### logging.writer {#logging-writer}
+
+{% include [logging.writer](../_roles/logging/logging-writer.md) %}
+
+#### logging.admin {#logging-admin}
+
+{% include [logging.admin](../_roles/logging/logging-admin.md) %}
+
+Подробнее см. [Управление доступом в {{ cloud-logging-name }}](../logging/security/index.md).

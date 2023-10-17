@@ -1,3 +1,8 @@
+---
+title: "How to connect external nodes to a cluster"
+description: "This guide describes how you can connect external nodes to a cluster."
+---
+
 # Connecting external nodes to the cluster
 
 {% note info %}
@@ -78,7 +83,7 @@ To create an external node group, make sure the {{ managed-k8s-name }} cluster i
   kubectl -n yandex-system edit nodegroup external-node-group
   ```
 
-  >Example:
+  >For example:
   >
   >```yaml
   >apiVersion: mks.yandex.cloud/v1alpha1
@@ -127,8 +132,8 @@ A node connection to a {{ managed-k8s-name }} cluster is complete when new nodes
 ### Installing system components on connecting servers {#node-setup}
 
 You can install system components and add nodes to a {{ managed-k8s-name }} cluster through:
-* [Automated installation](#automatic-setup).
-* [Semi-automated installation](#semi-automatic-setup).
+* [Automated installation](#automatic-setup)
+* [Semi-automated installation](#semi-automatic-setup)
 
 #### Automated install {#automatic-setup}
 

@@ -26,6 +26,8 @@ description: "Управление доступом в сервисе идент
 
 {% include [roles-sa-user](../../_includes/roles-sa-user.md) %}
 
+{% include [roles-sa-admin](../../_includes/roles-sa-admin.md) %}
+
 В некоторых сервисах для выполнения операций необходим сервисный аккаунт, например в [{{ ig-name }}](../../compute/concepts/instance-groups/index.md) или [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). Если вы указали сервисный аккаунт в запросе, то {{ iam-short-name }} проверит, что у вас есть права на использование этого аккаунта.
 
 {% include [roles-sa-accessKeyAdmin](../../_includes/roles-sa-accessKeyAdmin.md) %}
@@ -38,6 +40,14 @@ description: "Управление доступом в сервисе идент
 
 {% include [roles-sa-tokenCreator](../../_includes/roles-sa-tokenCreator.md) %}
 
+{% include [roles-iam-auditor](../../_includes/roles-iam-auditor.md) %}
+
+{% include [roles-iam-viewer](../../_includes/roles-iam-viewer.md) %}
+
+{% include [roles-iam-editor](../../_includes/roles-iam-editor.md) %}
+
+{% include [roles-iam-admin](../../_includes/roles-iam-admin.md) %}
+
 #### {{ roles-cloud-owner }} {#cloud-owner}
 
 {% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
@@ -45,8 +55,6 @@ description: "Управление доступом в сервисе идент
 #### {{ roles-cloud-member }} {#cloud-member}
 
 {% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-{% include [roles-iam-auditor](../../_includes/roles-iam-auditor.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

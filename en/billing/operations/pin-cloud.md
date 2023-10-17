@@ -1,3 +1,8 @@
+---
+title: "How to link a cloud to a billing account"
+description: "Follow this guide to link a cloud to a billing account."
+---
+
 # Link a cloud to a billing account
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}

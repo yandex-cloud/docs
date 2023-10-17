@@ -5,26 +5,21 @@ You can set the following rule [conditions](rules.md):
 #|
 || **Type** | **Match criteria** | **Values** | **Example** | **Logical Operator** ||
 || `IP` |
-* Matches
-* Mismatches
+* Matches or falls within the range
+* Mismatches or lies outside the range
+* IP belongs to region
+* IP does not belong to region
 |
 * IP address
 * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 * Address range
+* Two-letter country code as per [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 |
 * `1.2.33.44`
 * `2001:0db8:85a3:0000:0000:8a2e:0370:7334`
 * `10::1234:1abc:1/64`
 * `1.2.0.0-1.2.1.1`
-| _or_ ||
-|| `Geo` |
-* Matches
-* Mismatches
-|
-Two-letter country code as per [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-|
 * `ru`
-* `by`
 * `kz`
 | _or_ ||
 || `HTTP header` |
@@ -60,7 +55,7 @@ expression of PIRE library
 * Starts with
 * Does not start with
 * Matches regular expression
-* Mismatches a regular expression
+* Mismatches regular expression
 |
 Format `key: value`, where key is the request
 parameter, value is a specific parameter value,
@@ -73,19 +68,29 @@ PIRE library
 || `Host` |
 * Matches
 * Mismatches
+* Starts with
+* Does not start with
+* Matches regular expression
+* Mismatches regular expression
 |
 Values of the `Host` header for HTTP/1.1 or
-the `authority` pseudo-header for HTTP/2, by which the virtual
-host is selected
+the `authority` pseudoheader for HTTP/2 by which a virtual
+host, value prefix, or PIRE library
+regular expression is selected
 |
 * `example.com`
 | _or_ ||
 || `HTTP method` |
 * Matches
 * Mismatches
+* Starts with
+* Does not start with
+* Matches regular expression
+* Mismatches regular expression
 |
 [HTTP request method](https://en.wikipedia.org/wiki/HTTP#Request_methods) in the upper case,
-with an arbitrary value allowed.
+with an arbitrary value, value prefix, or PIRE library
+regular expression allowed
 |
 * `GET`
 * `POST`

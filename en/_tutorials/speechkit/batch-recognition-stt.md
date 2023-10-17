@@ -11,7 +11,7 @@ To set up automatic audio file recognition using {{ speechkit-short-name }}:
 ## Getting started {#before-you-begin}
 
 1. [Create](../../iam/operations/sa/create.md) a service account named `asr-batch-sa`.
-1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor`, `functions.functionInvoker`, and `{{ roles-speechkit-stt }}` roles to the service account for the folder where you created it.
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor`, `{{ roles-functions-invoker }}`, and `{{ roles-speechkit-stt }}` roles to the service account for the folder where you created it.
 1. [Create](../../iam/operations/sa/create-access-key.md) a static access key for the service account.
 1. [Create](../../iam/operations/api-key/create.md) an API key to access the service account.
 1. [Create](../../storage/operations/buckets/create.md) an {{ objstorage-name }} bucket named `asr-batch-bucket` in the service account folder.
@@ -36,7 +36,7 @@ To set up automatic audio file recognition using {{ speechkit-short-name }}:
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}** and specify `asr-batch-function` as the function name.
 1. Click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
-1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select Python `3.8` as the runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select `Python 3.8` as the runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
 1. Download a [script file](https://github.com/yandex-cloud/yc-architect-solution-library/blob/main/yc-ai/python-tools/asr-batch/python/main.py) from the {{ yandex-cloud }} repository.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, clear the contents of the `index.py` file and paste the downloaded script.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**, create a file named `requirements.txt` and add the following code to it:

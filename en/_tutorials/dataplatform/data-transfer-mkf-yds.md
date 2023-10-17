@@ -1,4 +1,4 @@
-# Delivering data from a {{ KF }} queue to {{ DS }}
+# Delivering data from an {{ KF }} queue to {{ DS }}
 
 A {{ yds-name }} stream can get data from {{ KF }} topics in real time.
 
@@ -34,10 +34,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * [Network](../../vpc/concepts/network.md#network)
          * [Subnet](../../vpc/concepts/network.md#subnet)
          * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
-         * {{ mkf-name }} source cluster.
-         * {{ KF }} topic.
-         * {{ ydb-name }} database.
-         * Transfer.
+         * {{ mkf-name }} source cluster
+         * {{ KF }} topic
+         * {{ ydb-name }} database
+         * Transfer
 
       1. In the `data-transfer-mkf-ydb.tf` file, specify the variables:
 
@@ -47,14 +47,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `target_db_name`: {{ ydb-name }} database name.
          * `transfer_enabled`: Set `0` to ensure that no transfer is created before you [manually create endpoints](#prepare-transfer).
 
-      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+      1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -195,7 +195,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * Manually
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
    * Using {{ TF }}
@@ -212,7 +212,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -318,9 +318,9 @@ Delete the other resources, depending on the method used to create them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

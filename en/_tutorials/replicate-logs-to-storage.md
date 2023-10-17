@@ -36,9 +36,9 @@ The cost of data storage support includes:
 
 ## Configure the environment {#setup}
 
-1. [Create a service account](../iam/operations/sa/create.md), such as `logs-sa`, assigned the `editor` role for the folder.
+1. [Create a service account](../iam/operations/sa/create.md), e.g., `logs-sa`, with the `editor` role assigned for the folder.
 1. [Create a static access key](../iam/operations/sa/create-access-key.md) for the service account. Save the ID and private key. You'll need them to log in to AWS.
-1. [Create a VM](../compute/operations/vm-create/create-linux-vm.md) from a public [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image. Under **Access**, specify the service account that you created in the previous step.
+1. [Create a VM](../compute/operations/vm-create/create-linux-vm.md) from a public [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the service account that you created in the previous step.
 1. [Connect to the VM](../compute/operations/vm-connect/ssh.md#vm-connect) via SSH.
 1. Install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) utility on the VM.
 1. Run this command:
@@ -48,9 +48,9 @@ The cost of data storage support includes:
    ```
 1. Enter the following one by one:
 
-   * `AWS Access Key ID [None]:`: [ID of the service account's access key](../iam/concepts/authorization/access-key.md).
-   * `AWS Secret Access Key [None]:` [Secret access key](../iam/concepts/authorization/access-key.md) of the service account.
-   * `Default region name [None]:` Region `{{ region-id }}`.
+   * `AWS Access Key ID [None]:`: Service account [key ID](../iam/concepts/authorization/access-key.md).
+   * `AWS Secret Access Key [None]:`: [Secret access key](../iam/concepts/authorization/access-key.md) of the service account.
+   * `Default region name [None]:` `{{ region-id }}` region.
 
 {% include [create-bucket](_tutorials_includes/create-bucket.md) %}
 

@@ -19,6 +19,7 @@
 | Amount of data on the host when using HDD or SSD network storage | 10 GB | 2048 GB |
 | Amount of data on the host when using non-replicated SSD storage | 93 GB | 2232 GB |
 | Amount of data on the host when using local SSD storage<sup>*</sup> | 100 GB | 1500 GB |
+| Number of databases per cluster | 1 | 1,000 |
 
 {% include [storage-limitations-mmg](./mmg/storage-limitations-note.md) %}
 

@@ -98,6 +98,8 @@ editable: false
 Все цены указаны с учетом НДС.
 
 
+{% include notitle [note-public-ip-traffic.md](../_includes/pricing/note-public-ip-traffic.md) %}
+
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}

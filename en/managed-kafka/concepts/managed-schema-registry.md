@@ -22,7 +22,7 @@ To automate handling of data format schemas, a _data format schema registry_ is 
    When a schema is placed in the registry:
 
    * It is assigned a unique version number.
-   * The schema and its version are saved in a {{ KF }} service topic.
+   * The schema and its version are saved in an {{ KF }} service topic.
 
 1. When sending a message, a producer specifies the version number of the desired schema.
 1. Upon receiving a message, a consumer extracts the version number of the data format schema in it.

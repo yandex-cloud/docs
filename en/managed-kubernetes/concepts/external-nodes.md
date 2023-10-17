@@ -1,14 +1,19 @@
+---
+title: "External cluster nodes"
+description: "This article describes the features of external cluster nodes."
+---
+
 # External cluster nodes
 
 {% note info %}
 
-Connecting external nodes is at the [Preview](../../overview/concepts/launch-stages.md) stage. Using this functionality is free of charge.
+Connecting external nodes is at the [Preview](../../overview/concepts/launch-stages.md) stage. You will not be charged for using them.
 
 {% endnote %}
 
 {{ managed-k8s-name }} enables you to connect servers from outside {{ yandex-cloud }} as [{{ k8s }} cluster](./index.md#kubernetes-cluster) nodes.
 
-## Requirements for connecting external resources to a cluster {#requirements}
+## Requirements for connecting external resources to a cluster {#requirements}
 
 To connect external nodes to a {{ managed-k8s-name }} cluster, the following requirements must be met:
 * L3 network connectivity between your servers' local network infrastructure and your {{ managed-k8s-name }} cluster's [cloud network](../../vpc/concepts/network.md#network). External nodes connect to a cluster [master](./index.md#master) via its {{ yandex-cloud }} cloud network internal IP address.
@@ -17,7 +22,6 @@ To connect external nodes to a {{ managed-k8s-name }} cluster, the following req
   You can use the following methods to establish a private dedicated connection between your local network infrastructure and {{ yandex-cloud }}:
   * Via [{{ interconnect-full-name }}](../../interconnect/index.yaml).
   * Manually, via a VPN.
-  
   
 * A {{ managed-k8s-name }} cluster uses network [tunneling](../concepts/network-policy.md#cilium).
 * Connecting servers must have internet access.
@@ -29,7 +33,7 @@ For information on connecting external nodes to a {{ managed-k8s-name }} cluster
 
 For external nodes to run predictably in a cluster, it is key that the elements below function without interruption:
 * Computing infrastructure, such as the servers used and their relevant operating system.
-  * We don't recommend using connecting servers in any capacity other than as nodes in a cluster.
+  * We do not recommend using connecting servers in any capacity other than as nodes in a cluster.
 * Local network infrastructure made up of the servers utilized.
 * Links between your local network infrastructure and {{ yandex-cloud }}.
 
