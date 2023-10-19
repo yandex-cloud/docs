@@ -53,7 +53,7 @@ Once created, the function will only contain information about itself, like its 
 1. In the [management console]({{ link-console-main }}), select the folder to create your function in.
 1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
-1. Enter a function name. The requirements are as follows:
+1. Enter a function name. The password requirements are as follows:
 
    {% include [name-format](../../_includes/name-format.md) %}
 
@@ -107,7 +107,7 @@ Select the programming language and create a [version of the function](../concep
 
    {% note warning %}
 
-   The list shows the functions that you are allowed to view. To attach a function to a skill, you need permission to launch the function. This permission is part of the roles [{{ roles-functions-ivoker }}](../security/index.md#serverless-functions-invoker), [{{ roles-editor }}](../security/index.md#functions-editor) and higher.
+   The list shows the functions that you are allowed to view. To attach a function to a skill, you need permission to launch the function. This permission is part of the roles [{{ roles-functions-invoker }}](../security/index.md#serverless-functions-invoker), [{{ roles-editor }}](../security/index.md#functions-editor) and higher.
 
    {% endnote %}
 1. Click **Save** at the bottom of the page to save changes.

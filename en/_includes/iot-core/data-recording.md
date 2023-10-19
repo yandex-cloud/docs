@@ -39,7 +39,7 @@ The infrastructure support costs include:
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter the service account name: `my-db-function-service-account`.
-   1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-functions-ivoker }}` and `{{ roles-editor }}` [roles](../../iam/concepts/access-control/roles.md).
+   1. Click ![](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-functions-invoker }}` and `{{ roles-editor }}` [roles](../../iam/concepts/access-control/roles.md).
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -69,7 +69,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 
         {% note warning %}
 
-        Save your password as you won't be able to read it from {{ iot-full-name }}.
+        Save your password as you will not be able to read it from {{ iot-full-name }}.
 
         {% endnote %}
 
@@ -90,12 +90,12 @@ This tutorial assumes [username and password-based authorization](../../iot-core
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter `my-device`.
    1. Enter the password.
 
-      * Minimum password length is 14 characters.
+      * The minimum password length is 14 characters.
       * The password must contain uppercase and lowercase letters and numbers.
 
       {% note warning %}
 
-      Save your password as you won't be able to read it from {{ iot-full-name }}.
+      Save your password as you will not be able to read it from {{ iot-full-name }}.
 
       {% endnote %}
 
@@ -134,7 +134,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
-      * Choose `network-ssd`.
+      * Select `network-ssd`.
       * Set the size to 10 GB.
 
       {% note info %}
@@ -145,11 +145,11 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
-      * Database name. It must be unique within the folder and contain only Latin letters, numbers, and underscores.
-      * The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
-      * User password. From 8 to 128 characters long.
+      * Database name. it must be unique within the folder and contain only Latin letters, numbers, and underscores.
+      * DB owner username. It may only contain Latin letters, numbers, and underscores.
+      * User password. It must be from 8 to 128 characters long.
 
-      For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
+      For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You cannot change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/edit.svg) and enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable the **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** option.
@@ -255,7 +255,7 @@ The function will receive messages from the MQTT broker and write data to the ta
 
 ### Create a function version {#func-version}
 
-After creating the function, you'll be automatically redirected to the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** page.
+After creating the function, you will be automatically redirected to the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** page.
 
 {% list tabs %}
 
@@ -264,7 +264,7 @@ After creating the function, you'll be automatically redirected to the **{{ ui-k
    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**:
 
       * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** field, choose `python37`.
-      * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, leave the default value: **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
+      * In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, keep the default value, **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
 
    1. Create a file named `myfunction.py`.
    1. In the file editing area, insert the function code from [Github](https://github.com/yandex-cloud/examples/blob/master/iot/Samples/PostgreSQL/myfunction.py).

@@ -1,7 +1,7 @@
 # Creating an issue from an email
 
 
-You can use {{ tracker-name }} to create issues from emails sent to the queue mailbox or [communicate with external users](../user/comments.md#send-comment) from the issue page. For example, this may be handy when [registering user support requests](../support-process-send-mail.md).
+You can use {{ tracker-name }} to create issues from emails sent to the queue mailbox or [communicate with external users](../user/comments.md#send-comment) from the issue page. For example, this may be useful when [registering user support requests](../support-process-send-mail.md).
 
 By default, [only the queue owner](queue-access.md) can configure a queue. To set up email integration, you will need a special email address. You can use multiple addresses to create issues of different types and with different [components](components.md).
 

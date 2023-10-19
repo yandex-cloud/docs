@@ -31,6 +31,28 @@ keywords:
 
 {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
 
+## FQDN хоста {{ OS }} {#fqdn}
+
+Для подключения к хосту потребуется его [FQDN](../concepts/network.md#hostname) — доменное имя. Его можно получить несколькими способами:
+
+* [Запросите список хостов в кластере](host-groups.md#list-hosts).
+* Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит заполненный FQDN хоста. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**.
+* Посмотрите FQDN в консоли управления:
+
+   1. Перейдите на страницу кластера.
+   1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
+
+Для хостов кластера также используются [особые FQDN](#special-fqdns).
+
+## Особые FQDN {#special-fqdns}
+
+Наравне с [обычными FQDN](#fqdn) {{ mos-name }} предоставляет особые FQDN, которые также можно использовать при подключении к кластеру.
+
+### Доступный хост Dashboards {#fqdn-dashboards}
+
+FQDN вида `c-<идентификатор кластера>.rw.{{ dns-zone }}` всегда указывает на доступный хост {{ OS }} с ролью `DASHBOARDS` в кластере. Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
 ## Подключение к {{ OS }} Dashboards {#dashboards}
 
 
@@ -163,11 +185,3 @@ keywords:
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 {% include [Code examples](../../_includes/mdb/mos/code-examples.md) %}
-
-## Особые FQDN {#special-fqdns}
-
-Наравне с обычными FQDN, которые можно запросить со [списком хостов в кластере](host-groups.md#list-hosts), {{ mos-name }} предоставляет особые FQDN, которые также можно использовать при подключении к кластеру.
-
-### Доступный хост Dashboards {#fqdn-dashboards}
-
-FQDN вида `c-<идентификатор кластера>.rw.{{ dns-zone }}` всегда указывает на доступный хост {{ OS }} с ролью `DASHBOARDS` в кластере. Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).

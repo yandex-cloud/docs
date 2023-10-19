@@ -68,28 +68,28 @@
       * Для хостов `MONGOD`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
              --mongod-resource-preset <ID_класса>
           ```
 
       * Для хостов `MONGOINFRA`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
              --mongoinfra-resource-preset <ID_класса>
           ```
 
       * Для хостов `MONGOS`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
              --mongos-resource-preset <ID_класса>
           ```
 
       * Для хостов `MONGOCFG`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
              --mongocfg-resource-preset <ID_класса>
           ```
 
@@ -178,28 +178,28 @@
       * Для хостов `MONGOD`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
              --mongod-disk-size <размер_хранилища_в_ГБ>
           ```
 
       * Для хостов `MONGOINFRA`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
              --mongoinfra-disk-size <размер_хранилища_в_ГБ>
           ```
 
       * Для хостов `MONGOS`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
              --mongos-disk-size <размер_хранилища_в_ГБ>
           ```
 
       * Для хостов `MONGOCFG`:
 
           ```bash
-          {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+          {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
              --mongocfg-disk-size <размер_хранилища_в_ГБ>
           ```
 
@@ -333,12 +333,14 @@
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
-        {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+        {{ yc-mdb-mg }} cluster update <идентификатор_или_имя_кластера> \
           --backup-retain-period-days=<срок_хранения> \
           --backup-window-start <время_начала_резервного_копирования> \
           --maintenance-window type=<тип_технического_обслуживания:_anytime_или_weekly>,`
                                `day=<день_недели_для_типа_weekly>,`
-                               `hour=<час_дня_для_типа_weekly>
+                               `hour=<час_дня_для_типа_weekly> \
+          --performance-diagnostics=<включить_диагностику_производительности_кластера:_true_или_false> \
+          --deletion-protection=<защита_от_удаления_кластера:_true_или_false>
         ```
 
     Вы можете изменить следующие настройки:
@@ -357,6 +359,8 @@
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+    * `--performance-diagnostics` — укажите параметр, чтобы воспользоваться инструментом [{#T}](performance-diagnostics.md) в кластере. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -433,6 +437,7 @@
     * Новое время начала резервного копирования в параметре `configSpec.backupWindowStart`.
     * Настройки доступа из других сервисов в параметре `configSpec.access`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
+    * Разрешение на сбор статистики для диагностики производительности кластера в параметре `performanceDiagnostics.profilingEnabled`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -472,7 +477,7 @@
     1. Укажите каталог назначения в команде перемещения кластера:
 
         ```bash
-        {{ yc-mdb-mg }} cluster move <имя_или_ID_кластера> \
+        {{ yc-mdb-mg }} cluster move <имя_или_идентификатор_кластера> \
            --destination-folder-name=<имя_каталога_назначения>
         ```
 
@@ -516,7 +521,7 @@
     1. Укажите нужные группы безопасности в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-mg }} cluster update <имя_или_ID_кластера> \
+        {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
           --security-group-ids <список_групп_безопасности>
         ```
 

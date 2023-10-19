@@ -1,3 +1,8 @@
+---
+title: "How to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface"
+description: "You can use this guide to set up a custom form for creating issues and embed it into the {{ tracker-name }} interface."
+---
+
 # Using a form as a template for creating issues
 
 {% note warning %}
@@ -36,5 +41,5 @@ You can use {{ forms-full-name }} to set up your form to act as a template for c
 
 1. Add a name and description for the form. Users will see them in the form selection window when creating an issue.
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_form-editor.create-btn }}**.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_form-editor.create-btn }}**.
 

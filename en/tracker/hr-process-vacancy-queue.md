@@ -57,8 +57,8 @@ You can use {{ forms-full-name }} to create standard issues in a queue more easi
 
 1. Click **Configure integrations** and wait for the page to load.
 1. In the **Issue type** field, select `Experts`.
-1. In the **Header** field, click ![](../_assets/tracker/svg/icon-add.svg) and select **Response option**. In the dialog box that opens, select **Name** in the **Question** field and click **Save**.
-1. In the **Description** field, click ![](../_assets/tracker/svg/icon-add.svg) and select **Response options**. In the dialog box that opens, click **Select all** and choose **Formatted** in the **Response formatting** field. Click **Save**.
+1. In the **Header** field, click ![](../_assets/tracker/svg/icon-add.svg) and select **Response**. In the dialog box that opens, select **Name** in the **Question** field and click **Save**.
+1. In the **Description** field, click ![](../_assets/tracker/svg/icon-add.svg) and select **Responses**. In the dialog box that opens, click **Select all** and choose **Formatted** in the **Response formatting** field. Click **Save**.
 1. On the page below, click **Save** and then click **Publish**.
 
 ### Set up access to the form
@@ -78,7 +78,7 @@ Open the issue creation page, click **{{ ui-key.startrek.ui_components_PageCreat
 
 ### Create test issues and group them by type
 
-1. On the issue creation page, select **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}** in the **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}** field at the top right.
+1. On the issue creation page, select **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.never }}** in the **{{ ui-key.startrek.ui_components_QueueAdminTemplateOptions.allow-empty-template }}** field at the top right.
 1. Click the widget with the name of the form you need, e.g., `Expert`.
 1. Fill out the form and click **Submit**.
 1. In the same way, create an issue of the `Nonexpert` type.

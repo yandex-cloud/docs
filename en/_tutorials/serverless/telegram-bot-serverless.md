@@ -33,7 +33,7 @@ The cost of Telegram bot support includes:
 ## Create resources {#create-resources}
 
 1. [Download](https://{{ s3-storage-host }}/doc-files/telegrambot.zip) the archive with the files required to create a bot.
-1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` and the `serverless.functions.invoker` roles for your folder.
+1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-editor }}` and `{{ roles-functions-invoker }}` roles for your folder.
 
 ## Register the Telegram bot {#create-bot}
 

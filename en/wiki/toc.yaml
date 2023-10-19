@@ -29,41 +29,35 @@ items:
         href: wysiwyg-create.md
       - name: Old editor
         href: create-page.md
-      - name: Table
+      - name: Dynamic table
         href: create-grid.md
       - name: Importing a page from a file
         href: import-page.md
       - name: Page copy
         href: create-copy.md
-  - name: Editing {{ wiki-full-name }} pages and dynamic tables
+  - name: New editor
     items:
-      - name: Editing a {{ wiki-full-name }} page
-        href: edit-page.md
-      - name: Editing a page in the new editor
-        href: edit-grid-wysiwyg.md
-      - name: Editing a dynamic table
-        href: edit-grid.md
-      - name: Basic features
-        items:
-          - name: Formatting text
-            href: basic-markup.md
-          - name: Inserting an image
-            href: add-image.md
-          - name: Inserting a table
-            href: add-grid.md
-          - name: Adding a video or audio
-            href: add-video.md
-      - name: Advanced features
-        items:
-          - name: Dynamic blocks
-            href: actions.md
-          - name: Dynamic tables
-            href: actions/grid-reference.md
-          - name: Objects from external sources
-            href: actions/iframe.md
-          - name: Formulas, diagrams, and flowcharts
-            href: add-diagram-formula.md
-      - name: Structuring content
+      - name: Overview
+        href: new-editor.md
+      - name: Formatting text
+        href: wysiwyg/text-format.md
+      - name: Block formatting
+        href: wysiwyg/block-format.md
+      - name: Adding tables and tables of contents
+        href: wysiwyg/tables-format.md
+      - name: Adding third-party content
+        href: wysiwyg/embed-content.md
+  - name: Old editor
+    items:
+      - name: Overview
+        href: old-editor.md
+      - name: Formatting text
+        href: basic-markup.md
+      - name: Inserting images
+        href: add-image.md
+      - name: Adding a table
+        href: add-grid.md
+      - name: Content structuring
         items:
           - name: Table of contents
             href: actions/toc.md
@@ -71,8 +65,8 @@ items:
             href: actions/anchor.md
           - name: Page lists
             href: actions/page-lists.md
-  - name: Working in a WYSIWYG visual editor
-    href: wysiwyg-edit.md
+  - name: Dynamic tables
+    href: edit-grid-wysiwyg.md
   - name: Managing pages
     items:
       - name: Overview
@@ -143,6 +137,16 @@ items:
             href: static-markup/html-code.md
           - name: Escaping characters
             href: static-markup/escaping.md
+      - name: Dynamic blocks
+        items:
+          - name: Overview
+            href: actions.md
+          - name: Dynamic tables
+            href: actions/grid-reference.md
+          - name: Objects from external sources
+            href: actions/iframe.md
+          - name: Formulas, diagrams, and flowcharts
+            href: add-diagram-formula.md
       - name: Blocks with special formatting
         items:
           - name: Overview
@@ -163,32 +167,36 @@ items:
     href: pricing.md
   - name: Releases
     items:
-      - name: August 2023
+      - name: September 2023
         href: changelogs/index.md
+      - name: August 2023
+        href: changelogs/2308.md
       - name: July 2023
         href: changelogs/2307.md
       - name: June 2023
         href: changelogs/2306.md
       - name: May 2023
         href: changelogs/2305.md
-      - name: April 2023
-        href: changelogs/2304.md
-      - name: March 2023
-        href: changelogs/2303.md
-      - name: February 2023
-        href: changelogs/2302.md
-      - name: January 2023
-        href: changelogs/2301.md
-      - name: December 2022
-        href: changelogs/2212.md
-      - name: November 2022
-        href: changelogs/2211.md
-      - name: October 2022
-        href: changelogs/2210.md
-      - name: September 2022
-        href: changelogs/2209.md
-      - name: August 2022
-        href: changelogs/2208.md
+      - name: Archive
+        items:
+          - name: April 2023
+            href: changelogs/2304.md
+          - name: March 2023
+            href: changelogs/2303.md
+          - name: February 2023
+            href: changelogs/2302.md
+          - name: January 2023
+            href: changelogs/2301.md
+          - name: December 2022
+            href: changelogs/2212.md
+          - name: November 2022
+            href: changelogs/2211.md
+          - name: October 2022
+            href: changelogs/2210.md
+          - name: September 2022
+            href: changelogs/2209.md
+          - name: August 2022
+            href: changelogs/2208.md
   - name: Support
     href: feedback.md
 base: en/wiki

@@ -103,17 +103,18 @@ description: "Вы можете создавать резервные копии
      
      ```bash
       {{ yc-mdb-mg }} cluster restore \
-         --backup-id <идентификатор резервной копии> \
-         --recovery-target-timestamp <момент времени> \
-         --mongodb-version <версия {{ MG }}> \
-         --name <имя нового кластера> \
-         --environment <окружение, PRESTABLE или PRODUCTION> \
-         --network-name <имя сети> \
-         --host zone-id=<зона доступности>,`
-               `subnet-id=<идентификатор подсети> \
-         --mongod-resource-preset <класс хоста> \
-         --mongod-disk-size <размер хранилища в гигабайтах> \
-         --mongod-disk-type <тип диска: network-hdd или network-ssd>
+         --backup-id <идентификатор_резервной_копии> \
+         --recovery-target-timestamp <момент_времени> \
+         --mongodb-version <версия_{{ MG }}> \
+         --name <имя_нового_кластера> \
+         --environment <окружение:_PRESTABLE_или_PRODUCTION> \
+         --network-name <имя_сети> \
+         --host zone-id=<зона_доступности>,`
+               `subnet-id=<идентификатор_подсети> \
+         --mongod-resource-preset <класс_хоста> \
+         --mongod-disk-size <размер_хранилища_в_ГБ> \
+         --mongod-disk-type <тип_диска:_network-hdd_или_network-ssd> \
+         --performance-diagnostics=<включить_диагностику_производительности_кластера:_true_или_false>
       ```
 
 
@@ -159,7 +160,7 @@ description: "Вы можете создавать резервные копии
   1. Запросите создание резервной копии, указав идентификатор или имя кластера:
 
       ```bash
-      {{ yc-mdb-mg }} cluster backup <идентификатор или имя кластера>
+      {{ yc-mdb-mg }} cluster backup <идентификатор_или_имя_кластера>
       ```
 
       Идентификатор и имя кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -263,7 +264,7 @@ description: "Вы можете создавать резервные копии
   Чтобы получить данные о резервной копии кластера {{ MG }}, выполните команду:
 
   ```bash
-  {{ yc-mdb-mg }} backup get <идентификатор резервной копии>
+  {{ yc-mdb-mg }} backup get <идентификатор_резервной_копии>
   ```
 
   Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).

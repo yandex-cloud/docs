@@ -96,7 +96,7 @@
 
    В команде укажите FQDN брокера, имя топика, логин и пароль пользователя {{ KF }}, которого вы создали на предыдущем шаге.
 
-   {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
+   {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
 
 1. Чтобы получить сообщения из топика, выполните команду:
 
@@ -104,7 +104,7 @@
 
    В команде укажите FQDN брокера, имя топика, логин и пароль пользователя {{ KF }}, которого вы создали на предыдущем шаге.
 
-   {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
+   {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
 
 Подробно процесс подключения к кластеру {{ mkf-name }} рассмотрен в разделе [{#T}](operations/connect.md).
 

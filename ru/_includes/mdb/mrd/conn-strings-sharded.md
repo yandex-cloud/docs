@@ -37,6 +37,8 @@
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 После подключения к кластеру выполните команды:
 
 ```bash
@@ -194,6 +196,8 @@ GET foo
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Connect to cluster](./connect/go/after-connect.md) %}
 
 ### Java {#java}
@@ -288,6 +292,8 @@ GET foo
     ```
 
 {% endlist %}
+
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
 
 {% include [Connect to cluster](./connect/java/after-connect.md) %}
 
@@ -396,6 +402,8 @@ GET foo
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Connect to cluster](./connect/nodejs/after-connect.md) %}
 
 ### PHP {#php}
@@ -470,6 +478,8 @@ GET foo
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Connect to cluster](./connect/php/after-connect.md) %}
 
 ### Python {#python}
@@ -541,6 +551,8 @@ pip install pyopenssl redis-py-cluster setuptools_rust
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Connect to cluster](./connect/python/after-connect.md) %}
 
 ### Ruby {#ruby}
@@ -607,5 +619,7 @@ pip install pyopenssl redis-py-cluster setuptools_rust
     ```
 
 {% endlist %}
+
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
 
 {% include [Connect to cluster](./connect/ruby/after-connect.md) %}

@@ -133,7 +133,7 @@ The infrastructure support costs include:
 
    {% endlist %}
 
-1. Assign the service account the `admin` [role](../../iam/concepts/access-control/roles.md) for the cloud:
+1. Assign the service account the `{{ roles-admin }}` [role](../../iam/concepts/access-control/roles.md) for the cloud:
 
    {% list tabs %}
 
@@ -143,7 +143,7 @@ The infrastructure support costs include:
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-live-debug` service account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click **{{ ui-key.yacloud_components.acl.action.add-role }}** in the window that opens and select the `admin` role.
+      1. Click **{{ ui-key.yacloud_components.acl.action.add-role }}** in the window that opens and select the `{{ roles-admin }}` role.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
    - CLI
@@ -152,7 +152,7 @@ The infrastructure support costs include:
 
       ```
       yc resource-manager cloud add-access-binding <cloud_ID> \
-         --role admin \
+         --role {{ roles-admin }} \
          --subject serviceAccount:<service_account_ID>
       ```
 
@@ -170,9 +170,9 @@ The infrastructure support costs include:
       1. In the configuration file, describe the parameters of the resources you want to create:
 
          ```
-         resource "yandex_resourcemanager_cloud_iam_member" "admin" {
+         resource "yandex_resourcemanager_cloud_iam_member" "{{ roles-admin }}" {
            cloud_id = "<cloud_ID>"
-           role     = "admin"
+           role     = "{{ roles-admin }}"
            member   = "serviceAccount:<service_account_ID>"
          }
          ```

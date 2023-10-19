@@ -38,7 +38,7 @@ To create a table and embed it in the text of a page:
 
 1. Click **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-settings.save }}**.
 
-1. [Fill in the table](edit-grid.md).
+1. [Fill in the table](edit-grid-wysiwyg.md).
 
 ### Embedding an existing table {#section-integrate-table}
 
@@ -56,7 +56,7 @@ To embed a dynamic table in a page:
 
 You can filter dynamic tables you embed in a page created in the old editor so that only specific rows and columns are displayed. To do this:
 
-1. Get the code for embedding a table and place it in the text of the page.
+1. Get the table embed code and insert it into the text of the page.
 
 1. To choose columns for display, add the `columns` parameter to your table's code. For more information about using this parameter, see [{#T}](actions/grid-reference.md#col-filter).
 
@@ -74,7 +74,7 @@ To open the original table embedded in the page:
 
 #### See also
 
-- [{#T}](edit-grid.md)
+- [{#T}](edit-grid-wysiwyg.md)
 
 - [{#T}](import-page.md)
 

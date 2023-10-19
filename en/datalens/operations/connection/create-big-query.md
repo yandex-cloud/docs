@@ -1,3 +1,8 @@
+---
+title: "How to create a BigQuery connection"
+description: "This guide describes how you can create a BigQuery connection."
+---
+
 # Creating a Google BigQuery connection
 
 {% note info %}

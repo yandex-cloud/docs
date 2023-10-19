@@ -1,3 +1,8 @@
+---
+title: "How to create a {{ CH }} connection"
+description: "This guide describes how you can create a {{ CH }} connection."
+---
+
 # Creating a {{ CH }} connection
 
 {% note info %}

@@ -1,3 +1,8 @@
+---
+title: "How to delete a template of an issue or comment"
+description: "Follow this guide to delete a template of an issue or comment."
+---
+
 # Deleting a template
 
 {% note alert %}
@@ -29,4 +34,6 @@ To disable a template:
 1. You can filter out the templates you don't need by clicking ![](../../_assets/tracker/queue-filter.png).
 
 1. Find the switch next to the desired template and set it to ![](../../_assets/tracker/disabled-switch-2.png).
+
+
 

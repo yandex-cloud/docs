@@ -8,7 +8,7 @@ Integration with {{ wiki-name }} can be configured by users of [{{ forms-full-na
 {% endnote %}
 
 
-You can integrate your form with [{{ wiki-name }}]({{ link-wiki }}) to save user responses on a wiki page. For example, if you're using a form to register participants for an event, you can automatically create a list of participants in {{ wiki-name }}. For more information about wiki pages, see the [{{ wiki-name }} documentation](../wiki/edit-page.md).
+You can integrate your form with [{{ wiki-name }}]({{ link-wiki }}) to save user responses on a wiki page. For example, if you're using a form to register participants for an event, you can automatically create a list of participants in {{ wiki-name }}. For more information about wiki pages, see the [{{ wiki-name }} documentation](../wiki/old-editor.md).
 
 {% note alert %}
 
@@ -61,13 +61,13 @@ To set up adding responses from forms to a {{ wiki-name }} dynamic table:
 
    1. Copy the **Unique ID** field value.
 
-1. In {{ forms-full-name }}, on the integration page, under **Column and value**, click **Add column** and paste the column ID you copied. In the field next to it, specify what data to add to the table. You can format the text using [wiki markup](../wiki/static-markup.md). To add to the text a response to a prompt or other data from the form:
+1. In {{ forms-full-name }}, on the integration page, under **Column and value**, click **Add column** and paste the column ID you copied. In the field next to it, specify what data to add to the table. You can format the text using [wiki markup](../wiki/static-markup.md). To add a response to a prompt or other form data to the text:
 
    1. Click ![](../_assets/forms/add-var.png) to the right of the field.
 
-   1. Select a [variable](vars.md) from the list to add to the field. For example, you can add a user's name and email address to the text.
+   1. Select a [variable](vars.md) from the list to add to the field. For instance, you can add a user's name and email address to the text.
 
-1. For the user to get a link to the Wiki page after filling out the form, enable the **Show messages about the results of actions** option under the action name.
+1. To get a link to the Wiki page after filling out the form, enable the **Show messages about the results of actions** option under the action name.
 
 1. Click **{{ ui-key.yacloud.common.save }}**.
 

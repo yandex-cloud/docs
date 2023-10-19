@@ -27,7 +27,7 @@ The cost of resources to support a web application includes:
 ## Prepare the environment {#prepare}
 
 1. [Download](https://{{ s3-storage-host }}/doc-files/servlet.zip) the archive with project files.
-1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#access-to-sa) it the `viewer` and `editor` roles for your folder.
+1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#access-to-sa) it the `{{ roles-viewer }}` and `{{ roles-editor }}` roles for your folder.
 
 ## Create a {{ objstorage-name }} bucket {#create-bucket}
 
@@ -41,7 +41,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. On the bucket creation page:
-      1. Enter bucket name according to the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter the bucket name according to the [naming requirements](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
       1. Select the default [storage class](../../storage/concepts/storage-class.md).

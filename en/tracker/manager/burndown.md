@@ -1,4 +1,9 @@
-# Burn down charts
+---
+title: "How to view the burndown chart"
+description: "Use this guide to view the burndown chart."
+---
+
+# Burndown charts
 
 {% note warning %}
 

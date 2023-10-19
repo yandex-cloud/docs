@@ -1,3 +1,8 @@
+---
+title: "How to create a {{ monitoring-name }} connection"
+description: "This guide describes how you can create a {{ monitoring-name }} connection."
+---
+
 # Creating a {{ monitoring-name }} connection
 
 {% note info %}

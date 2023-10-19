@@ -1,3 +1,8 @@
+---
+title: "How to configure the display of null values"
+description: "Follow this guide to configure the display of null values."
+---
+
 # Configuring the display of null values
 
 {% note info %}

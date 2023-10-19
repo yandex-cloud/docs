@@ -2,7 +2,7 @@
 
 You can upload a file to a page and add a download link to the text.
 
-To open a list of all files uploaded to a page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** in the upper-right corner and select ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
+To open a list of all files uploaded to a page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** in the top-right corner and select ![](../_assets/wiki/svg/attachments.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-sidebar.icon-files }}**.
 
 
 {% note warning %}
@@ -58,4 +58,4 @@ If you insert a link to an image this way, the image will be displayed on the pa
 
 - [{#T}](actions/iframe.md)
 
-- [{#T}](add-video.md)
+- [{#T}](actions/iframe.md#add-video-audio)

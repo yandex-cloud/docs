@@ -130,6 +130,7 @@
         --database name=<имя_базы_данных> \
         --mongod-disk-type <тип_диска> \
         --mongod-disk-size <размер_хранилища_в_ГБ> \
+        --performance-diagnostics=<включить_диагностику_производительности_кластера:_true_или_false> \
         --deletion-protection=<защита_от_удаления_кластера:_true_или_false>
       ```
 

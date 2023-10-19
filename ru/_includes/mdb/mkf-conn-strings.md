@@ -53,6 +53,8 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% endlist %}
 
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
 {% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
 
 ### C# {#csharp}
@@ -350,6 +352,8 @@ sudo apt update && sudo apt install -y kafkacat
         ```
 
 {% endlist %}
+
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
@@ -767,6 +771,8 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% endlist %}
 
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
 ### Java {#java}
@@ -1143,6 +1149,8 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% endlist %}
 
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
 ### Node.js {#nodejs}
@@ -1352,6 +1360,8 @@ npm install node-rdkafka
 
 {% endlist %}
 
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
 ### PowerShell {#powershell}
@@ -1451,6 +1461,8 @@ npm install node-rdkafka
       ```
 
 {% endlist %}
+
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
 {% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
 
@@ -1572,6 +1584,8 @@ pip3 install kafka-python lz4 python-snappy crc32c
       ```
 
 {% endlist %}
+
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
@@ -1722,5 +1736,7 @@ pip install confluent_kafka
       ```
 
 {% endlist %}
+
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}

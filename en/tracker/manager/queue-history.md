@@ -1,3 +1,8 @@
+---
+title: "How to view the history of queue changes "
+description: "Follow this guide to view history of queue changes."
+---
+
 # Viewing the history of queue changes
 
 {% note warning %}
@@ -14,7 +19,7 @@ The log includes records about the changes in queue settings. Each record includ
 
 1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--events }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--events }}** tab.
 
 ## Filtering entries {#filter-records}
 

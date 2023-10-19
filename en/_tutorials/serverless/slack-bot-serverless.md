@@ -6,8 +6,8 @@ In this use case, you'll learn how to use serverless technologies to create a Sl
 ## Prepare the environment {#start}
 
 1. [Download](https://{{ s3-storage-host }}/doc-files/slackbot.zip) the archive with the files required to create a bot.
-1. If you do not have any folders yet, [create](../../resource-manager/operations/folder/create.md) one.
-1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#access-to-sa) it the `editor` role for your folder.
+1. If you do not have a folder yet, [create](../../resource-manager/operations/folder/create.md) one.
+1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#access-to-sa) it the `{{ roles-editor }}` role for your folder.
 
 ## Create an app and connect it to {{ yandex-cloud }} {#app}
 
@@ -219,7 +219,7 @@ Using [commands](https://api.slack.com/interactivity/slash-commands), you can se
 
 {% note info %}
 
-A command won't work if the corresponding method is not configured for it in the [API gateway](#create-api-gw).
+A command will not work if the corresponding method is not configured for it in the [API gateway](#create-api-gw).
 
 {% endnote %}
 

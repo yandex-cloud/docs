@@ -209,10 +209,10 @@
     
     ```bash
     python3 upload_grpc.py \
-        --audio-path audio.wav \
-        --meta-path metadata-example.json \
-        --connection-id 2 \
-        --token-type iam-key \
+        --audio-path <аудиофайл> \
+        --meta-path <метаданные> \
+        --connection-id <идентификатор_подключения> \
+        --token-type iam-token \
         --token ${IAM_TOKEN}
     ```
 
@@ -220,3 +220,6 @@
     
     * `audio-path` — путь к файлу с аудио диалога.
     * `meta-path` — путь к файлу с метаданными диалога.
+    * `connection-id` — идентификатор подключения, в которое вы загружаете данные.
+    * `token-type` — способ аутентификации. Может принимать значения `iam-token` или `api-key` в зависимости от используемого типа авторизации.
+    * `token` — значение токена для авторизации.

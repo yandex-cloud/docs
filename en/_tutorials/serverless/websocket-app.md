@@ -265,7 +265,7 @@ Register your bot in Telegram and get a token.
    echo "export SERVICE_ACCOUNT_GAME_ID=<service_account_ID>" >> ~/.bashrc && . ~/.bashrc
    ```
 
-1. Assign the `editor` role to the service account:
+1. Assign the service account the `{{ roles-editor }}` role:
 
    ```bash
    echo "export YC_FOLDER_ID=$(yc config get folder-id)" >> ~/.bashrc && . ~/.bashrc
@@ -276,7 +276,7 @@ Register your bot in Telegram and get a token.
 
    yc resource-manager folder add-access-binding $YC_FOLDER_ID \
    --subject serviceAccount:$SERVICE_ACCOUNT_GAME_ID \
-   --role editor
+   --role {{ roles-editor }}
    ```
 
 1. Create an authorized key for the service account:
@@ -708,7 +708,7 @@ The following service accounts were created when deploying the project:
 
 The following service accounts were created when deploying the project:
 * `apigw-s3-viewer` with the `storage.viewer` role to read objects from the {{ objstorage-name }} bucket.
-* `apigw-fn-caller` with the `functions.functionInvoker` role to invoke {{ sf-name }} functions.
+* `apigw-fn-caller` with the `{{ roles-functions-invoker }}` role to invoke {{ sf-name }} functions.
 
 1. Save the IDs of the `apigw-s3-viewer` and `apigw-fn-caller` service accounts to the `APIGW_S3_VIEWER_ID` and `APIGW_FN_CALLER_ID` variables, respectively:
 

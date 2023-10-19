@@ -166,7 +166,7 @@ The cost of resources includes:
 
    {% endlist %}
 
-1. Follow the same steps to create an `s3-copy-trigger` service account with the `{{ roles-functions-ivoker }}` role. This service account will be used to invoke the function.
+1. Follow the same steps to create an `s3-copy-trigger` service account with the `{{ roles-functions-invoker }}` role. This service account will be used to invoke the function.
 
 ## Create a static key {#create-key}
 
