@@ -5,6 +5,7 @@
 | Maximum query result retention time | 24 hours |
 | Maximum streaming query runtime (preview stage) | 7 days |
 | Maximum analytical query duration | 24 hours |
+| Maximum number of rows in a table of a managed database | 1,000,000 |
 
 #### Quotas {#yq-quotas}
 

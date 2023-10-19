@@ -1,3 +1,8 @@
+---
+title: "Deleting a stream in the AWS CLI"
+description: "This guide describes how you can delete a stream in the AWS CLI."
+---
+
 # Deleting a stream in the AWS CLI
 
 {% list tabs %}

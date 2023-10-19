@@ -20,20 +20,29 @@ To create a node group:
 
    {% note warning %}
 
-   You can't change the scaling type after you create a node group.
+   You cannot change the scaling type after you create a node group.
 
    {% endnote %}
 
 1. Under **Allow when creating and updating**, specify the maximum number of instances that you can exceed and reduce the size of the group by.
 1. Under **Computing resources**:
    * Choose a [platform](../../compute/concepts/vm-platforms.md).
-   * Specify the requisite number of vCPUs and [guaranteed vCPU performance](../../compute/concepts/performance-levels.md) as well as the amount of RAM.
+   * Enter the required number of [GPUs](../../compute/concepts/gpus.md) and vCPUs, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and the amount of RAM.
    * (Optional) Specify that you want the VM to be [preemptible](../../compute/concepts/preemptible-vm.md).
+   * (Optional) Enable a [software-accelerated network](../../compute/concepts/software-accelerated-network.md).
+
+   {% note info %}
+
+   The set of parameters depends on the platform you select.
+
+   {% endnote %}
+
+1. (Optional) Under **{{ ui-key.yacloud.k8s.node-groups.create.section_gpu-settings }}**, specify if the node group should have no pre-installed NVIDIA drivers and CUDA libraries for [GPU acceleration](../../compute/concepts/gpus.md).
 1. (Optional) Under **Placement**, enter a name for the node [placement group](../../compute/concepts/placement-groups.md). This setting cannot be edited after the group is created.
 1. Under **Storage**:
    * Specify the node **Disk type**:
-     * **HDD**: Standard network drive. Network block storage on an HDD.
-     * **SSD**: Fast network drive. Network block storage on an SSD.
+     * **HDD**: Standard network drive; network block storage on an HDD.
+     * **SSD**: Fast network drive; network block storage on an SSD.
      * **Non-replicated SSD**: Improved-performance network drive. You can only change the size of this type of disk in 93 GB increments.
 
        {% include [nrd-no-backup-note](nrd-no-backup-note.md) %}
@@ -49,7 +58,7 @@ To create a node group:
 
    
    * Specify how nodes should be distributed across availability zones and networks.
-   * (optional) Click **Add location** and specify an additional availability zone and network to create nodes in different zones.
+   * (Optional) Click **Add location** and specify an additional availability zone and network to create nodes in different zones.
 
 
 1. Under **Access**, specify the information required to access the node:

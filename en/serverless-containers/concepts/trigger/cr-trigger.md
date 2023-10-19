@@ -1,12 +1,14 @@
 # Trigger for {{ container-registry-name }} that invokes a {{ serverless-containers-name }} container
 
-A {{ container-registry-name }} [trigger](../trigger/) invokes a {{ serverless-containers-name }} [container](../container.md) when certain events occur with a {{ container-registry-name }} [Docker image](../../../container-registry/concepts/docker-image.md). The trigger must be in the same cloud as the [registry](../../../container-registry/concepts/registry.md) whose events it's subscribed to.
+A [trigger](../trigger/) for {{ container-registry-name }} invokes a {{ serverless-containers-name }} [container](../container.md) when certain events occur with a {{ container-registry-name }} [Docker image](../../../container-registry/concepts/docker-image.md). The trigger must be in the same cloud as the [registry](../../../container-registry/concepts/registry.md) whose events it is subscribed to.
 
 A trigger for {{ container-registry-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke the container.
 
 For more information about creating a trigger for {{ container-registry-name }}, see [{#T}](../../operations/cr-trigger-create.md).
 
 {% include [cr-event](../../../_includes/functions/cr-event.md) %}
+
+{% include [batching-events](../../../_includes/serverless-containers/batching-events.md) %}
 
 ## Roles required for the proper operation of a trigger for {{ container-registry-name }} {#roles}
 

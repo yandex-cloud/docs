@@ -30,7 +30,7 @@
    - {{ yds-short-name }}
 
      * Выберите **Облако и каталог**, в котором находится источник данных.
-     * Выберите или создайте новую [serverless базу данных {{ydb-name}}](../../ydb/) с [потоком данных](../../data-streams/concepts/index.md) {{yds-full-name}}.
+     * Выберите или создайте новую [serverless базу данных {{ ydb-name }}](../../ydb/) с [потоком данных](../../data-streams/concepts/index.md) {{ yds-full-name }}.
      * Выберите или создайте новый [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться доступ к данным.
 
    - {{ mpg-name }}

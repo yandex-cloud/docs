@@ -1,3 +1,8 @@
+---
+title: "How to write metrics via the Remote API"
+description: "Use this guide to write metrics via the Remote API."
+---
+
 # Writing metrics via the Remote API
 
 {% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}

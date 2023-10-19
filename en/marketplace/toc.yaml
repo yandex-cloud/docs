@@ -23,6 +23,8 @@ items:
         href: concepts/version.md
       - name: Service plan
         href: concepts/tariff.md
+      - name: Subscription
+        href: concepts/subscription.md
       - name: Requirements for Marketplace products
         expanded: true
         items:
@@ -52,4 +54,42 @@ items:
             href: metering/api-ref/grpc/index.md
           - name: ImageProductUsageService
             href: metering/api-ref/grpc/image_product_usage_service.md
+  - name: License Manager API reference
+    items:
+      - name: gRPC
+        items:
+          - name: Overview
+            href: license-manager/api-ref/grpc/index.md
+          - name: InstanceService
+            href: license-manager/api-ref/grpc/instance_service.md
+          - name: LockService
+            href: license-manager/api-ref/grpc/lock_service.md
+          - name: OperationService
+            href: license-manager/api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: license-manager/api-ref/index.md
+          - name: Instance
+            items:
+              - name: Overview
+                href: license-manager/api-ref/Instance/index.md
+              - name: get
+                href: license-manager/api-ref/Instance/get.md
+              - name: list
+                href: license-manager/api-ref/Instance/list.md
+          - name: Lock
+            items:
+              - name: Overview
+                href: license-manager/api-ref/Lock/index.md
+              - name: create
+                href: license-manager/api-ref/Lock/create.md
+              - name: delete
+                href: license-manager/api-ref/Lock/delete.md
+              - name: ensure
+                href: license-manager/api-ref/Lock/ensure.md
+              - name: get
+                href: license-manager/api-ref/Lock/get.md
+              - name: getByInstanceAndResource
+                href: license-manager/api-ref/Lock/getByInstanceAndResource.md
 base: en/marketplace

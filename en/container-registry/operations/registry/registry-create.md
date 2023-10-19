@@ -7,12 +7,14 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder to create a registry in.
-  1. In the list of services, select **{{ container-registry-name }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. Specify a name for the registry. The naming requirements are as follows:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. Click **Create registry**.
+  1. (Optional) Add labels.
+  1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
 
 - CLI
 
@@ -80,7 +82,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
 
 - {{ TF }}
 
-  If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. To a configuration file, add the parameters of the registry that you want to create. Use `example.tf` in `~/cloud-terraform`:
 
      ```hcl
@@ -94,9 +96,9 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
      ```
 
      Where:
-     * `name`: Registry name.
-     * `folder_id`: ID of the folder.
-     * `labels`: Set of [labels](../../../resource-manager/concepts/labels.md).
+     * `name`: Registry name
+     * `folder_id`: Folder ID
+     * `labels`: Set of [labels](../../../resource-manager/concepts/labels.md)
 
      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
   1. Check that the configuration file is correct.
@@ -106,7 +108,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
         cd /Users/<username>/cloud-terraform
         ```
 
-     1. Run the check using this command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
@@ -119,8 +121,8 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
         The refreshed state will be used to calculate this plan, but will not be
         persisted to local or remote state storage.
         ...
-        Note: You didn't specify an "-out" parameter to save this plan, so Terraform
-        can't guarantee that exactly these actions will be performed if
+        Note: You did not specify an "-out" parameter to save this plan, so Terraform
+        cannot guarantee that exactly these actions will be performed if
         "terraform apply" is subsequently run.
         ```
 

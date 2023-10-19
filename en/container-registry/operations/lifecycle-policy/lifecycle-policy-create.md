@@ -7,23 +7,23 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
-  1. In the list of services, select **{{ container-registry-name }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Select the repository and click the row with its name.
-  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **Lifecycle**.
-  1. In the top-right corner, click **Create**.
+  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
+  1. In the top-right corner, click **{{ ui-key.yacloud.common.create }}**.
   1. Set the lifecycle policy parameters:
-     * (Optional) **Name**.
-     * (Optional) **Description**.
-     * **Status**: Lifecycle policy status after its creation. We do not recommend creating an `ACTIVE` policy right away.
-     * Under **Lifecycle policy rules**, add the following rules:
-       1. Click **Add**.
+     * (Optional) **{{ ui-key.yacloud.common.name }}**.
+     * (Optional) **{{ ui-key.yacloud.common.description }}**.
+     * **{{ ui-key.yacloud.common.label_status }}**: Lifecycle policy status after its creation. We do not recommend creating an `ACTIVE` policy right away.
+     * Under **{{ ui-key.yacloud.cr.registry.label_lifecycle-rules }}**, add rules:
+       1. Click **{{ ui-key.yacloud.common.add }}**.
        1. Set the rule parameters:
 
           {% include [lifecycle-rules-console](../../../_includes/container-registry/lifecycle-rules-console.md) %}
 
-          * (Optional) **Description**.
-  1. Click **Create**.
+          * (Optional) **{{ ui-key.yacloud.common.description }}**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -44,10 +44,10 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
      ```
 
      Where:
-     * `repository-name`: Repository name
-     * `rules`: Path to the file with the policy description
-     * `description`: Description of the lifecycle policy (optional)
-     * `name`: Policy name (optional). The requirements are as follows:
+     * `repository-name`: Repository name.
+     * `rules`: Path to the file with the policy description.
+     * `description`: Description of the lifecycle policy (optional).
+     * `name`: Policy name (optional). The naming requirements are as follows:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 

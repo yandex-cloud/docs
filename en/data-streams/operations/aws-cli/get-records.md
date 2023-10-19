@@ -1,3 +1,8 @@
+---
+title: "Reading data from a stream in the AWS CLI"
+description: "This guide describes how you can get data from a stream in the AWS CLI."
+---
+
 # Reading data from a stream in the AWS CLI
 
 {% list tabs %}

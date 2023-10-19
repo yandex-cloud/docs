@@ -3,9 +3,9 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the broker is located.
-   1. Select **{{ iot-short-name }}**.
-   1. On the left-hand panel, select **Brokers**.
-   1. Select the broker. Detailed information about the broker is displayed on the **Overview** page.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. Select the broker. Detailed information about the broker will be displayed on the **{{ ui-key.yacloud.common.overview }}** page.
 
 - CLI
 

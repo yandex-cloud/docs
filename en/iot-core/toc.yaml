@@ -17,10 +17,16 @@ items:
         href: operations/publish.md
       - name: Subscribing a device or registry to receive messages
         href: operations/subscribe.md
+      - name: Exporting messages to {{ yds-name}}
+        href: operations/yds-export.md
       - name: Viewing the connection log
         href: operations/logs.md
       - name: Creating a trigger for a topic
-        href: operations/trigger-create.md
+        items:
+          - name: Device registry
+            href: operations/trigger-create.md
+          - name: Broker
+            href: operations/trigger-broker-create.md
       - name: Managing registries
         items:
           - name: Getting information about registries

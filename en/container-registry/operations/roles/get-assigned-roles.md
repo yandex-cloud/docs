@@ -1,4 +1,4 @@
-# Viewing roles for a resource
+# View a role for a resource
 
 To view assigned [roles](../../../iam/concepts/access-control/roles.md):
 
@@ -6,15 +6,15 @@ To view assigned [roles](../../../iam/concepts/access-control/roles.md):
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you wish to view resource roles.
-  1. In the list of services, select **{{ container-registry-name }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to view resource roles.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. View the roles assigned for a resource:
      * Viewing roles for a [registry](../../concepts/registry.md):
-       1. To the right of the desired registry name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **Registry ACL**.
+       1. To the right of the registry name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_registry-acl }}**.
        1. In the window that opens, you can see a list of users and their permissions for the registry.
      * Viewing roles for a repository:
-       1. Select the desired registry.
-       1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **Configure ACL**.
+       1. Select the registry.
+       1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
        1. In the window that opens, you can see a list of users and their permissions for the repository.
 
 - CLI
@@ -23,7 +23,7 @@ To view assigned [roles](../../../iam/concepts/access-control/roles.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Run the command:
+  Run this command:
 
   ```bash
   yc <service name> <resource> list-access-bindings <resource name>|<resource ID>

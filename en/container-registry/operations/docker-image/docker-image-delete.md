@@ -16,13 +16,13 @@ Deleting a [Docker image](../../concepts/docker-image.md) is a deferred action o
 - Management console
 
   To delete a Docker image:
-  1. Go to the repository where you want to remove the image:
-     1. Go to the [folder page]({{ link-console-main }}) and select **{{ container-registry-name }}**.
+  1. Go to the repository to remove the image from:
+     1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. Open the appropriate registry.
      1. Open the repository.
   1. Click the ![image](../../../_assets/horizontal-ellipsis.svg) icon next to the Docker image to delete.
-  1. In the resulting menu, click **Delete**.
-  1. In the window that opens, click **Delete**.
+  1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.cr.image.popup-confirm_button_delete }}**.
 
 - CLI
 

@@ -1,3 +1,8 @@
+---
+title: "Creating a function"
+description: "Follow this guide to create a function."
+---
+
 # Creating a function
 
 {% list tabs %}
@@ -53,11 +58,11 @@
          * `description`: Text description of the function.
          * `labels`: Function labels in `key:value` format.
          * `user_hash`: Arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
-         * `runtime`: The function [runtime environment](../../concepts/runtime/index.md).
+         * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
          * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
-         * `memory`: The amount of memory allocated for function execution, in MB.
+         * `memory`: Amount of memory allocated for function execution, in MB.
          * `execution_timeout`: Function execution timeout.
-         * `service_account_id`: ID of the service account that should be used to invoke the function.
+         * `service_account_id`: ID of the service account to invoke the function under.
          * `environment`: Environment variables in `key:value` format.
          * `tags`: Function tags.
          * `version`: Function version.

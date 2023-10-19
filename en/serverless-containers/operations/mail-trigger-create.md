@@ -50,6 +50,10 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
    ```bash
    yc serverless trigger create mail \
      --name <trigger_name> \
+     --batch-size <batch_size> \
+     --batch-cutoff <maximum_wait_time> \
+     --attachements-bucket <bucket_name> \
+     --attachements-service-account-id <service_account_ID> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
      --retry-attempts 1 \
@@ -61,7 +65,11 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
 
    Where:
 
-   * `--name`: Trigger name.
+   * `--name`: Trigger name
+
+   {% include [batch-settings-messages](../../_includes/serverless-containers/batch-settings-messages.md) %}
+
+   {% include [attachments-params](../../_includes/functions/attachments-params.md) %}
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -76,6 +84,12 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
    rule:
      mail:
        email: a1s8h8avgl**********-cho1****@serverless.yandexcloud.net
+       batch_settings:
+         size: "3"
+         cutoff: 20s
+       attachments_bucket:
+         bucket_id: bucket-for-attachments
+         service_account_id: ajejeis235ma********
        invoke_container:
          container_id: d4eofc7n0m**********
          service_account_id: aje3932acd**********

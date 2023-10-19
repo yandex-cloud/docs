@@ -118,10 +118,38 @@ Filtering also takes general rules for subscribing to topics into account, such 
 
 _Triggers_ are conditions that automatically launch a specific function or container when met.
 
-The trigger for {{ iot-short-name }} is designed for managing messages exchanged between devices and registries. The trigger is created for topics: it picks up copies of messages from them and passes them to the [function](../../../functions/concepts/function.md) {{ sf-name }} or [container](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} for processing.
+A trigger for {{ iot-short-name }} is designed for managing messages exchanged between devices and registries. The trigger is created for topics: it picks up copies of messages from them and delivers them to the [function](../../../functions/concepts/function.md) {{ sf-name }} or [container](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} for processing.
 
 {% include [trigger](../../../_includes/iot-core/trigger.md) %}
 
 A trigger for {{ iot-short-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to call the function or container.
 
 Read more about triggers in the [{{ sf-name }}](../../../functions/concepts/trigger/index.md) and [{{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/index.md) documentation.
+
+## Exporting to {{ yds-name }} {#yds-export}
+
+You can set up [export of messages](../../operations/yds-export.md) from registry and device topics to a {{ yds-full-name }} [data stream](../../../data-streams/concepts/glossary.md#stream-concepts) to transfer the resulting data to other services and applications for further analysis and processing. You can only set up one export per registry.
+
+{% note info %}
+
+Exporting messages from broker topics is not supported.
+
+{% endnote %}
+
+The data is exported in the following format:
+
+```json
+{
+  "device_id": "<device_ID",
+  "mqtt_topic": "<topic>",
+  "payload": "<message_text>",
+  "is_base64": true|false
+}
+```
+
+Where:
+
+* `device_id`: ID of the device that transfers data to a topic. If the message is sent by a registry, this field is left empty.
+* `mqtt_topic`: Topic from which the message is exported.
+* `payload`: Message body.
+* `is_base64`: Set to `true` if the message is [Base64](https://ru.wikipedia.org/wiki/Base64) encoded, and `false` otherwise. A message is Base64-encoded if it has incorrect [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) encoding.

@@ -9,11 +9,11 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
    To delete a device:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the device from.
-   1. Select **{{ iot-short-name }}**.
-   1. Select the desired registry from the list.
-   1. In the left part of the window, select **Devices**.
-   1. To the right of the name of the device to delete, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Delete** from the drop-down list.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Select the required registry from the list.
+   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
+   1. To the right of the name of the device to delete, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -43,7 +43,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a device created using {{ TF }}:
 
@@ -80,7 +80,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -89,7 +89,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    1. Confirm the changes: type `yes` in the terminal and press **Enter**.
 
-      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../../cli/quickstart.md) command below:
+      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot device list --registry-id <registry ID>

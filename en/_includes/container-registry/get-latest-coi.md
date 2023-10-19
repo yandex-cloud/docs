@@ -1,6 +1,6 @@
 Find out the ID of the latest version of the [public](../../compute/operations/images-with-pre-installed-software/get-list.md) {{ coi }}.
 
-The {{ coi }} in the [{{ container-registry-full-name }}](../../container-registry/) can be updated and changed according to releases. This will not automatically update the VM image to the latest version. To create an instance group with the latest {{ coi }} version, you need to check whether it's available yourself:
+A {{ coi }} in a [{{ container-registry-name }}](../../container-registry/) registry may be updated and changed with new releases. This will not automatically update the [VM](../../compute/concepts/vm.md) image to the latest version. To create an [instance group](../../compute/concepts/instance-groups/index.md) with the latest {{ coi }} version, you need to check whether it is available yourself:
 
 {% list tabs %}
 
@@ -18,11 +18,11 @@ The {{ coi }} in the [{{ container-registry-full-name }}](../../container-regist
   ...
   ```
 
-- Marketplace
-  
-  1. Go to the page {{ marketplace-name }} and select the image with the desired configuration:
+- {{ marketplace-full-name }}
+
+  1. Go to the {{ marketplace-name }} page and select the image with the configuration you need:
      * [{{ coi }}](/marketplace/products/yc/container-optimized-image).
      * [{{ coi }} GPU](/marketplace/products/yc/container-optimized-image-gpu).
-  1. Under **Product IDs**, copy the value of `image_id`.
+  1. Under **{{ ui-key.yacloud_components.marketplace.label_product-ids }}**, copy the value of `image_id`.
 
 {% endlist %}

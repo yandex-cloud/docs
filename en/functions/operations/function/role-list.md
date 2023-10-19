@@ -1,3 +1,8 @@
+---
+title: "How to view roles assigned to a function"
+description: "This guide describes how you can view the roles assigned to a function."
+---
+
 # Viewing roles assigned to a function
 
 {% note info %}

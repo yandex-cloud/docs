@@ -1,4 +1,4 @@
-The trigger must be in the same cloud as the device or register as the topic it reads messages from.
+The trigger must be in the same cloud as the device, registry, or broker whose topic it reads messages from.
 
 You can create a trigger:
 * For a [standard topic](../../iot-core/concepts/topic/index.md) implemented by the service except for the `$monitoring/<device ID>/json` topic.

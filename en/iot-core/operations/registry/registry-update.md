@@ -13,10 +13,10 @@ To access a registry, use its unique ID or name. For information on retrieving t
    To update the name of a registry:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the registry name in.
-   1. Select **{{ iot-short-name }}**.
-   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
-   1. Edit the **Name** field.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Edit the **{{ ui-key.yacloud.common.name }}** field.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -30,8 +30,8 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
    Result:
    ```
-   id: b91ki3851hab9m0l68je
-   folder_id: aoek49ghmknnpj1ll45e
+   id: b91ki3851hab********
+   folder_id: aoek49ghmknn********
    created_at: "2019-05-28T11:29:42.420Z"
    name: test-registry
    ```
@@ -40,7 +40,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update the name of a registry created using {{ TF }}:
 
@@ -77,7 +77,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -107,10 +107,10 @@ To access a registry, use its unique ID or name. For information on retrieving t
    To update the description of a registry:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the registry description in.
-   1. Select **{{ iot-short-name }}**.
-   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
-   1. Edit the **Description** field.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Edit the **{{ ui-key.yacloud.common.description }}** field.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -124,8 +124,8 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
    Result:
    ```
-   id: b91ki3851hab9m0l68je
-   folder_id: aoek49ghmknnpj1ll45e
+   id: b91ki3851hab********
+   folder_id: aoek49ghmknn********
    created_at: "2019-05-28T11:29:42.420Z"
    name: my-registry
    description: My test registry.
@@ -137,7 +137,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update the description of a registry created using {{ TF }}:
 
@@ -174,7 +174,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -212,10 +212,10 @@ You can perform the following actions related to registry labels:
    To add a registry label:
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the registry label to.
-   1. Select **{{ iot-short-name }}**.
-   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
-   1. Fill in the **Key** and **Value** fields and click **Add label**.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.iot.button_add-label }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -229,8 +229,8 @@ You can perform the following actions related to registry labels:
 
    Result:
    ```
-   id: b91ki3851hab9m0l68je
-   folder_id: aoek49ghmknnpj1ll45e
+   id: b91ki3851hab********
+   folder_id: aoek49ghmknn********
    created_at: "2019-05-28T11:29:42.420Z"
    name: my-registry
    labels:
@@ -241,7 +241,7 @@ You can perform the following actions related to registry labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add a label to a registry created using {{ TF }}:
 
@@ -252,7 +252,7 @@ You can perform the following actions related to registry labels:
          * `description`: Registry description.
          * `labels`: Registry labels in `key:value` format.
 
-      Sample resource structure in the configuration file:
+      Here is an example of the resource structure in the configuration file:
 
       ```hcl
       resource "yandex_iot_core_registry" "my_registry" {
@@ -285,7 +285,7 @@ You can perform the following actions related to registry labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -315,10 +315,10 @@ You can perform the following actions related to registry labels:
    To update the label of a registry:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the registry label in.
-   1. Select **{{ iot-short-name }}**.
-   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
-   1. Edit the **Key** and **Value** fields.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Edit the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -338,8 +338,8 @@ You can perform the following actions related to registry labels:
 
    Result:
    ```
-   id: b91ki3851hab9m0l68je
-   folder_id: aoek49ghmknnpj1ll45e
+   id: b91ki3851hab********
+   folder_id: aoek49ghmknn********
    created_at: "2019-05-28T11:29:42.420Z"
    name: my-registry
    labels:
@@ -350,7 +350,7 @@ You can perform the following actions related to registry labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update the label of a registry created using {{ TF }}:
 
@@ -389,7 +389,7 @@ You can perform the following actions related to registry labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -419,10 +419,10 @@ You can perform the following actions related to registry labels:
    To delete a registry label:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the registry label from.
-   1. Select **{{ iot-short-name }}**.
-   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. To the right of the name of the registry you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. To the right of the label to delete, click ![image](../../../_assets/cross.svg).
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -436,8 +436,8 @@ You can perform the following actions related to registry labels:
 
    Result:
    ```
-   id: b91ki3851hab9m0l68je
-   folder_id: aoek49ghmknnpj1ll45e
+   id: b91ki3851hab********
+   folder_id: aoek49ghmknn********
    created_at: "2019-05-28T11:29:42.420Z"
    name: my-registry
    ```
@@ -446,7 +446,7 @@ You can perform the following actions related to registry labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete the label of a registry created using {{ TF }}:
 
@@ -485,7 +485,7 @@ You can perform the following actions related to registry labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

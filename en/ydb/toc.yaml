@@ -254,8 +254,9 @@ items:
               - name: list
                 href: api-ref/StorageType/list.md
   - name: Working with YDB via Terraform
-    href: ./terraform/intro.md
     items:
+      - name: Getting started to work with YDB via Terraform
+        href: ./terraform/intro.md
       - name: Getting authentication credentials
         href: ./terraform/credentials.md
       - name: Installing and configuring Terraform and the YDB provider

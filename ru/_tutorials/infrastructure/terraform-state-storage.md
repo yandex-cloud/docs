@@ -22,7 +22,7 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-{{ TF }} и его провайдеры распространяются под лицензией [Mozilla Public License](https://github.com/hashicorp/terraform/blob/main/LICENSE). 
+{{ TF }} и его провайдеры распространяются под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE). 
 
 ## Подготовьте облако к работе {#before-you-begin}
 

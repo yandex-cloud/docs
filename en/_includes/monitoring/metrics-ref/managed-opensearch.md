@@ -65,27 +65,27 @@ The load on processor cores.
 ### RAM metrics {#managed-opensearch-ram-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed memory. |
-| `mem.limit_bytes`<br/>`DGAUGE`, bytes | Memory limit. |
-| `mem.active_bytes`<br/>`DGAUGE`, bytes | RAM usage, `active` usage type. |
-| `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, `available` usage type. |
-| `mem.buffers_bytes`<br/>`DGAUGE`, bytes | RAM usage, `buffers` usage type. |
-| `mem.cached_bytes`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type. |
-| `mem.free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `free` usage type. |
-| `mem.shared_bytes`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type. |
-| `mem.total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type. |
-| `mem.used_bytes`<br/>`DGAUGE`, bytes | RAM usage, `used` usage type. |
+| `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed memory |
+| `mem.limit_bytes`<br/>`DGAUGE`, bytes | Memory limit |
+| `mem.active_bytes`<br/>`DGAUGE`, bytes | Amount of RAM used most often and only freed up when absolutely necessary |
+| `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, `available` usage type |
+| `mem.buffers_bytes`<br/>`DGAUGE`, bytes | RAM usage, `buffers` usage type |
+| `mem.cached_bytes`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type |
+| `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes` |
+| `mem.shared_bytes`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type |
+| `mem.total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type |
+| `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by the running processes |
 
 ### Network metrics {#managed-opensearch-net-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `net.bytes_recv`<br/>`DGAUGE`, bytes per second | Rate of receiving data over the network. |
-| `net.bytes_sent`<br/>`DGAUGE`, bytes per second. | Rate of sending data over the network. |
-| `net.dropin`<br/>`DGAUGE`, pcs | Packets dropped upon receipt.  |
-| `net.dropout`<br/>`DGAUGE`, pcs | Packets dropped when being sent.  |
-| `net.errin`<br/>`DGAUGE`, pcs | Number of errors upon receipt. |
-| `net.errout`<br/>`DGAUGE`, pcs | Number of errors at sending. |
-| `net.packets_recv`<br/>`DGAUGE`, packets per second. | Rate of receiving packets over the network. |
+| `net.bytes_recv`<br/>`DGAUGE`, bytes per second | Rate of receiving data over the network |
+| `net.bytes_sent`<br/>`DGAUGE`, bytes per second | Rate of sending data over the network |
+| `net.dropin`<br/>`DGAUGE`, pcs | Packets dropped upon receipt |
+| `net.dropout`<br/>`DGAUGE`, pcs | Packets dropped when being sent |
+| `net.errin`<br/>`DGAUGE`, pcs | Number of errors upon receipt |
+| `net.errout`<br/>`DGAUGE`, pcs | Number of errors at sending |
+| `net.packets_recv`<br/>`DGAUGE`, packets per second | Rate of receiving packets over the network |
 | `net.packets_sent`<br/>`DGAUGE`, packets per second | Rate of sending packets over the network. |
 
 ### Service metrics {#managed-opensearch-metrics}
@@ -374,23 +374,23 @@ The load on processor cores.
 ##### Other metrics {#managed-opensearch-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `opensearch_active_primary_shards`<br/>`DGAUGE`, pcs | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total number of active shards in the cluster. |
-| `opensearch_active_shards`<br/>`DGAUGE`, pcs | Number of active shards. |
-| `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, pcs | Percentage of active shards. |
-| `opensearch_delayed_unassigned_shards`<br/>`DGAUGE`, pcs | Number of delayed assignment shards. |
-| `opensearch_initializing_shards`<br/>`DGAUGE`, pcs | Number of shards being initialized. |
-| `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if not. |
-| `opensearch_relocating_shards`<br/>`DGAUGE`, pcs | Number of shards being relocated. |
-| `opensearch_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): Cluster is unhealthy or partially functional.  At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): Cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): Cluster is healthy. All cluster shards are available. |
-| `opensearch_unassigned_shards`<br/>`DGAUGE`, pcs | Number of inactive shards with no host assigned. |
-| `dashboards_active_primary_shards`<br/>`DGAUGE`, pcs | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total number of active shards in the cluster. |
-| `dashboards_active_shards`<br/>`DGAUGE`, pcs | Number of active shards. |
-| `dashboards_active_shards_percent_as_number`<br/>`DGAUGE`, pcs | Percentage of active shards. |
-| `dashboards_delayed_unassigned_shards`<br/>`DGAUGE`, pcs | Number of delayed assignment shards. |
-| `dashboards_initializing_shards`<br/>`DGAUGE`, pcs | Number of shards being initialized. |
-| `dashboards_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if not. |
-| `dashboards_relocating_shards`<br/>`DGAUGE`, pcs | Number of shards being relocated. |
-| `dashboards_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): Cluster is unhealthy or partially functional.  At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): Cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): Cluster is healthy. All cluster shards are available. |
-| `dashboards_unassigned_shards`<br/>`DGAUGE`, pcs | Number of inactive shards with no host assigned. |
+| `opensearch_active_primary_shards`<br/>`DGAUGE`, pcs | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total number of active shards in the cluster |
+| `opensearch_active_shards`<br/>`DGAUGE`, pcs | Number of active shards |
+| `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, pcs | Percentage of active shards |
+| `opensearch_delayed_unassigned_shards`<br/>`DGAUGE`, pcs | Number of delayed assignment shards |
+| `opensearch_initializing_shards`<br/>`DGAUGE`, pcs | Number of shards being initialized |
+| `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if it is not. |
+| `opensearch_relocating_shards`<br/>`DGAUGE`, pcs | Number of shards being relocated |
+| `opensearch_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): Cluster is unhealthy or partially functional. At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): Cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): Cluster is healthy. All cluster shards are available. |
+| `opensearch_unassigned_shards`<br/>`DGAUGE`, pcs | Number of inactive shards with no host assigned |
+| `dashboards_active_primary_shards`<br/>`DGAUGE`, pcs | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total number of active shards in the cluster |
+| `dashboards_active_shards`<br/>`DGAUGE`, pcs | Number of active shards |
+| `dashboards_active_shards_percent_as_number`<br/>`DGAUGE`, pcs | Percentage of active shards |
+| `dashboards_delayed_unassigned_shards`<br/>`DGAUGE`, pcs | Number of delayed assignment shards |
+| `dashboards_initializing_shards`<br/>`DGAUGE`, pcs | Number of shards being initialized |
+| `dashboards_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if it is not. |
+| `dashboards_relocating_shards`<br/>`DGAUGE`, pcs | Number of shards being relocated |
+| `dashboards_status`<br/>`DGAUGE`, 0/1/2 | Cluster health and technical condition: <br/>`0` (red): Cluster is unhealthy or partially functional. At least one of the primary shards is unavailable. If the cluster responds to queries, incomplete search results will be returned.<br/>`1` (yellow): Cluster is healthy. There is no access to at least one of the replica shards. The search results in the cluster responses are complete, but if there are more unavailable shards, the cluster's performance will be disrupted.<br/>`2` (green): Cluster is healthy. All cluster shards are available. |
+| `dashboards_unassigned_shards`<br/>`DGAUGE`, pcs | Number of inactive shards with no host assigned |
 
 Read more about the service in the [{{ mos-full-name }}](../../../managed-opensearch/) documentation.

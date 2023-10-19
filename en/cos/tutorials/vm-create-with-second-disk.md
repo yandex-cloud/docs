@@ -65,7 +65,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * `--ssh-key`: Path to the file with the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--docker-compose-file`: YAML file with the container specification.
 
-     Once created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
+     Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).
   1. Check the results.
      1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md).
      1. Get the ID of the running Docker container:

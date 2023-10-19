@@ -1,7 +1,7 @@
-The [Fluent Bit](https://fluentbit.io/) log processor lets you transfer the cluster logs from [VM instances](../compute/concepts/vm.md) created based on a {{ coi }} to [{{ cloud-logging-full-name }}](../logging/). The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
+The [Fluent Bit](https://fluentbit.io/) log processor allows you to transfer logs from [VM instances](../compute/concepts/vm.md) created from a {{ coi }} to [{{ cloud-logging-full-name }}](../logging/). The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
 
-To configure log transfer from a VM instance created from the {{ coi }} image:
-1. [Create application that generates logs](#generate-logs).
+To configure log transfer from a VM instance created from the {{ coi }}:
+1. [Create an application that generates logs](#generate-logs).
 1. [Create a Docker image and push it to the registry](#create-docker).
 1. [Configure Fluent Bit](#fluent-bit).
 1. [Create a VM from a {{ coi }}](#create-vm).
@@ -9,10 +9,10 @@ To configure log transfer from a VM instance created from the {{ coi }} image:
 ## Getting started {#before-you-begin}
 
 1. [Create a service account](../iam/operations/sa/create.md) with the `logging.writer` and `container-registry.images.puller` roles for the folder.
-1. [Create a registry](../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.
-1. [Create a cloud network](../vpc/operations/network-create.md). When creating, select the **Create subnets** option.
+1. [Create a registry](../container-registry/operations/registry/registry-create.md) in {{ container-registry-full-name }}.
+1. [Create a cloud network](../vpc/operations/network-create.md). Select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** when creating it.
 
-## Create application that generates logs {#generate-logs}
+## Create an application that generates logs {#generate-logs}
 
 Create a `logs.py` file:
 
@@ -122,10 +122,10 @@ if __name__ == '__main__':
 
 ## Configure Fluent Bit {#fluent-bit}
 
-1. Create a `spec.yaml` file: It describes the specification of two containers: with an application that generates logs, and with a Fluent Bit agent.
+1. Create a `spec.yaml` file. It describes the specification of two containers: with an application that generates logs, and with a Fluent Bit agent.
 
    Specify the following in the field:
-   * `image`: URL of a Docker image. To find it out, in the [management console]({{ link-console-main }}), go to the **Overview of Docker image** page and copy the value of the **Tags** field.
+   * `image`: URL of a Docker image. To find it out, in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.cr.image.section_overview }}** page and copy the value of the **{{ ui-key.yacloud.cr.image.label_tag }}** field.
    * `YC_GROUP_ID`: ID of the [default log group](../logging/concepts/log-group.md): `default`.
 
    In the `fluentbit` section, the `image` field shows the image of a container with the Fluent Bit agent, current at the time of this documentation. For a list of all available images, follow the [link](https://github.com/yandex-cloud/fluent-bit-plugin-yandex/releases).
@@ -220,17 +220,17 @@ if __name__ == '__main__':
    The `INPUT` section displays where and how to retrieve logs. To work with Fluentd and Fluent Bit logs, the `forward` protocol is used. Fluent Bit listens to logs on port 24224.
 
    The `PARSER` section describes the `regex` parser. It sets a regular expression that processes entries:
-   * `req_id`: Unique ID of the request.
-   * `severity`: Logging level.
-   * `code`: HTTP response code.
-   * `text`: All remaining text.
+   * `req_id`: Unique ID of the request
+   * `severity`: Logging level
+   * `code`: HTTP response code
+   * `text`: All remaining text
 
    The `FILTER` section shows that only entries tagged `app.logs` are searched for. The `log` field of each entry is processed by the `regex` parser, all other fields are saved in `Reserve_Data On`.
 
-## Create a VM from a {{ coi }} image {#create-vm}
+## Create a VM from a {{ coi }} {#create-vm}
 
 Specify the following in the field:
-* `zone`: [Availability zone](../overview/concepts/geo-scope.md), for example `{{ region-id }}-a`.
+* `zone`: [Availability zone](../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-a`.
 * `subnet-name`: Name of the [subnet](../vpc/concepts/network.md#subnet) in the indicated zone.
 * `service-account-name`: Service account name.
 
@@ -253,7 +253,7 @@ yc compute instance create \
 - Management console
 
   1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group, the ID of which you specified in `spec.yaml`.
-  1. Select **{{ cloud-logging-name }}**.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Select the `default` log group. The page that opens will show the log group records.
 
 - CLI

@@ -19,7 +19,7 @@ The {{ objstorage-name }} usage cost is based on:
 
 * [Storage class](concepts/storage-class.md).
 * Amount of storage used by your data.
-* The number of operations on your data.
+* Number of operations with your data.
 * Amount of outgoing traffic.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
@@ -33,7 +33,6 @@ The {{ objstorage-name }} usage cost is based on:
 Storage usage is measured in GB per month. The volume of the data stored during a month is the average value over the month based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
 
 ### Performing operations with data {#rules-operations}
-
 
 Data operations are charged according to the following policy:
 * The minimum pricing unit for PUT and POST operations is 10.
@@ -55,7 +54,7 @@ The cost of 1 GB per month is fixed and does not depend on the number of days in
 
 
 
-^1^ The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it's lower.
+^1^ The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it is lower.
 
 Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
 

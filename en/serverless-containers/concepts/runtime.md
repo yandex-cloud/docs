@@ -44,7 +44,7 @@ The file system is stored in RAM. Data written to the file system is not saved w
 
 ### CPU {#cpu}
 
-A CPU resource is allocated whenever a container instance is processing at least one request. Currently, no more than 1 vCPU is available.
+A CPU resource is allocated whenever a container instance is processing at least one request. Currently, no more than 2 vCPUs may be allocated.
 
 ### RAM {#ram}
 
@@ -53,8 +53,17 @@ Each container instance is allocated RAM. The default value is 128 MB.
 For example, RAM is consumed for:
 
 * File system writes.
-* Container process launches.
-* Request processing.
+* Container process launches
+* Request processing
+
+### Ratio between RAM and vCPU {#ratio}
+
+The number of available cores depends on the specified RAM size.
+
+| RAM | CPU |
+--- | ---
+| 128 MB to less than 4 GB | 1 vCPU with a guaranteed vCPU share up to 100% |
+| 4 GB | 2 vCPUs with a guaranteed vCPU share of 100% |
 
 ## Metadata service {#metadata}
 

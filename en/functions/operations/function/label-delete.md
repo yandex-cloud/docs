@@ -1,3 +1,8 @@
+---
+title: "Deleting a function label"
+description: "Follow this guide to delete a function label."
+---
+
 # Deleting a function label
 
 {% list tabs %}

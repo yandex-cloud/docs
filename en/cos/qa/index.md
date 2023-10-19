@@ -20,7 +20,7 @@ The [Docker Compose specification](../../cos/concepts/coi-specifications.md#comp
 {% endnote %}
 
 * Check that the Docker image name is correct.
-* Make sure the [service account](../../iam/concepts/users/service-accounts.md) linked to the VM has the `container-registry.images.puller` rights to the appropriate Docker image.
+* Make sure the [service account](../../iam/concepts/users/service-accounts.md) linked to the VM has the `{{ roles-cr-puller }}` rights to the appropriate Docker image.
 * Check that the VM has internet access.
 * You can also view logs by running the `sudo journalctl -u yc-container-daemon` command on the VM.
 

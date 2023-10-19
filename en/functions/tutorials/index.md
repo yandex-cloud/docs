@@ -18,3 +18,4 @@
 * [{#T}](serverless-live-debug.md)
 * [{#T}](ory-kratos-authorization.md)
 * [{#T}](batch-recognition-stt.md)
+* [{#T}](canary-release.md)

@@ -1,3 +1,8 @@
+---
+title: "Getting an invocation link"
+description: "This guide describes how you can get an invocation link."
+---
+
 # Getting an invocation link
 
 {% list tabs %}

@@ -1,0 +1,1 @@
+To save attachments to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md), a service account needs the [storage.uploader](../../storage/security/index.md#storage-uploader) role.

@@ -14,19 +14,19 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-  1. In the list of services, select **{{ compute-name }}**.
-  1. Click **Create VM**.
-  1. Under **Image/boot disk selection**, go to the **Container Solution** tab.
-  1. Click **Configure**.
-  1. In the **Docker container settings** window that opens, set the parameters using hints:
-     * Specify the **Docker image** to use when running the Docker container on the VM.
-     * Select the **Restart policy** field value for the Docker container:
-       * **Always**: Always restart the Docker container when it's stopped.
-       * **Never**: Do not restart the Docker container automatically.
-       * **On-Failure**: Restart the Docker container only if it shut down with a non-zero return code.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
+  1. In the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** window that opens, set the parameters using suggestions:
+     * Specify the **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}** to be used to run the Docker container on the VM.
+     * Select the **{{ ui-key.yacloud.compute.instances.create.field_coi-restart-policy }}** field value for the Docker container:
+       * **{{ ui-key.yacloud.compute.instances.create.value_coi-restart-always }}**: Always restart the Docker container when it stops.
+       * **{{ ui-key.yacloud.compute.instances.create.value_coi-restart-never }}**: Do not restart the Docker container automatically.
+       * **{{ ui-key.yacloud.compute.instances.create.value_coi-restart-on-failure }}**: Restart the Docker container only if it shuts down with a non-zero return code.
      * Fill out the remaining fields, if required.
 
-     Click **Apply**.
+     Click **{{ ui-key.yacloud.common.apply }}**.
   1. Set the remaining VM parameters by following [this guide](../compute/operations/vm-create/create-linux-vm.md).
 
 
@@ -86,7 +86,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
      ...
      ```
 
-     Once created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step guides](../compute/operations/index.md).
+     Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step guides](../compute/operations/index.md).
 
 {% endlist %}
 

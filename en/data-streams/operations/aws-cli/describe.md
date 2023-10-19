@@ -1,3 +1,8 @@
+---
+title: "Getting stream information"
+description: "This guide describes how you can get information about a stream."
+---
+
 # Getting stream information
 
 {% list tabs %}

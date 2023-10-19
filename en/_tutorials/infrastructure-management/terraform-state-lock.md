@@ -25,7 +25,7 @@ To set up storing {{ TF }} states in {{ objstorage-name }} and locking them by {
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-{{ TF }} and its providers are distributed under the [Mozilla Public License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{{ TF }} and its providers are distributed under the [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
 
 ## Prepare your cloud {#before-you-begin}
 

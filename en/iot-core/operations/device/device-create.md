@@ -1,3 +1,8 @@
+---
+title: "Creating a device"
+description: "Follow this guide to create a device."
+---
+
 # Creating a device
 
 {% list tabs %}
@@ -9,11 +14,11 @@
    1. Select the required registry from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
    1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
-   1. Under **General information**, add:
+   1. Under **{{ ui-key.yacloud.common.section-base }}**, add:
 
       * Device **{{ ui-key.yacloud.common.name }}**, e.g., `my-device`.
       * (Optional) **{{ ui-key.yacloud.common.description }}** with additional information about the device.
-      * (Optional) **Password** that you will use to access the device. To create a password, you can use the [password generator](https://passwordsgenerator.net/).
+      * (Optional) **{{ ui-key.yacloud.common.password }}** that you will use to access the device. To create a password, you can use the [password generator](https://passwordsgenerator.net/).
 
          {% note info %}
 
@@ -30,18 +35,18 @@
 
       * To add a file:
 
-         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}** method.
+         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
          1. Click **Attach file**.
          1. Select the file with the public key of the certificate and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
-         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** method.
-         1. Paste the public key of the certificate into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+         1. Paste the public key of the certificate to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -199,12 +204,12 @@
       }
       ```
 
-      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
          ```
          terraform plan
          ```

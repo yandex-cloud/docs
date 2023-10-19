@@ -33,11 +33,11 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}**, specify:
 
       * Log group.
-      * (Optional) Resource types: {{ yandex-cloud }} or your services, such as, `serverless.function`.
+      * (Optional) Resource types, such as `serverless.function` for {{ sf-name }} functions.
       * (Optional) IDs of {{ yandex-cloud }} or your resources, such as {{ sf-name }} functions.
-      * (Optional) Logging levels.
+      * (Optional) Logging levels
 
-      A trigger activates when records that match all the optional settings are added to the specified log group. If an optional setting is undefined, the trigger activates for any value of the setting.
+      A trigger fires when records that match all the optional settings are added to the specified log group. If an optional setting is not specified, the trigger fires for any value of the setting.
 
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
@@ -73,6 +73,10 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
      --log-group-name <log group name> \
      --batch-size 1 \
      --batch-cutoff 1s \
+     --resource-ids <resource_ID> \
+     --resource-types <resource_type> \
+     --stream-names <log_stream> \
+     --log-levels <log_level> \
      --invoke-function-id <function ID> \
      --invoke-function-service-account-id <service account ID> \
      --retry-attempts 1 \
@@ -85,9 +89,11 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
    Where:
 
    * `--name`: Trigger name.
-   * `--log-group-name`: Name of the log group that invokes a function when records are added.
-   * `--batch-size`: Message batch size. Optional parameter. The values may range from 1 to 100. The default value is 1.
-   * `--batch-cutoff`: Maximum waiting time. Optional parameter. The values may range from 0 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
+   * `--log-group-name`: Name of the log group that will invoke the function when records are added to it.
+
+   {% include [batch-settings-messages](../../../_includes/functions/batch-settings-messages.md) %}
+
+   {% include [logging-cli-param](../../../_includes/functions/logging-cli-param.md) %}
 
    {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
@@ -102,6 +108,14 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
    rule:
      logging:
        log-group-name: default
+       resource_type:
+         - serverless.functions
+       resource_id:
+         - d4e1gpsgam78********
+       stream_name:
+         - test
+       levels:
+         - INFO
        batch_settings:
          size: "1"
          cutoff: 1s
@@ -140,6 +154,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
            resource_types = [ "<resource type>" ]
            resource_ids   = [ "<resource ID>" ]
            levels         = [ "INFO", "ERROR" ]
+           stream_names   = [ "<log stream>" ]
            batch_cutoff   = 1
            batch_size     = 1
         function {
@@ -155,12 +170,14 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `description`: Trigger description.
+      * `description`: Trigger description
       * `logging`: Logging parameters, which will activate the trigger when added to the log group, and the batch message settings:
          * `group_id`: Log group ID.
-         * `resource_types`: Resource types: your services or {{ yandex-cloud }} services, for example, `resource_types = [ "serverless.function" ]`. You can specify more than one service at a time.
-         * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, for example, functions `resource_ids = [ "<function ID>" ]`. You can specify multiple IDs.
+         * `resource_types`: Resource types, e.g., `resource_types = [ "serverless.function" ]` for {{ sf-name }} functions. You can specify multiple types.
+         * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., functions `resource_ids = [ "<function ID>" ]`. You can specify multiple IDs.
          * `levels`: Logging levels. For example, `levels = [ "INFO", "ERROR"]`.
+         * `stream_names`: Log streams.
+            A trigger fires when the specified log group receives records that match all of the following parameters: `resource-ids`, `resource-types`, `stream-names`, and `levels`. If a parameter is not specified, the trigger fires for any value of the parameter.
          * `batch_cutoff`: Maximum wait time. Acceptable values are from 0 to 60 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function or container. At the same time, the number of messages does not exceed the specified `batch-size` group.
          * `batch_size`: Message batch size. Acceptable values are from 1 to 100.
       * `function`: Settings for the function, which will be activated by the trigger:
@@ -206,6 +223,6 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## For more information, see also {#see-also}
+## See also {#see-also}
 
 * [Trigger for {{ cloud-logging-name }} that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/cloud-logging-trigger-create.md).

@@ -38,19 +38,15 @@
 
 ## Установка с помощью Helm-чарта {#install-alb-helm}
 
-### Перед началом работы {#before-helm}
+1. {% include [helm-install](helm-install.md) %}
 
-1. {% include [Установка Helm](helm-install.md) %}
-
-1. {% include [Настройка kubectl](kubectl-install.md) %}
+1. {% include [kubectl-install](kubectl-install.md) %}
 
 1. Установите [утилиту `jq`](https://stedolan.github.io/jq/) для потоковой обработки JSON-файлов:
 
    ```bash
    sudo apt update && sudo apt install jq
    ```
-
-### Установка с помощью Helm-чарта {#helm-install}
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером выполните команды:
 

@@ -1,3 +1,8 @@
+---
+title: "Getting information about a container"
+description: "Follow this guide to get information about a container."
+---
+
 # Getting information about a container
 
 {% list tabs %}

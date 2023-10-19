@@ -17,4 +17,6 @@ The execution log uses [UTC time](https://en.wikipedia.org/wiki/Coordinated_Univ
 
 {% endlist %}
 
+Each log event contains the `release` parameter set to `canary` if a request was handled by the canary release and to `stable` if it was handled by the current release.
+
 Learn more about working with logs in the [{{ cloud-logging-full-name }} documentation](../../logging/).

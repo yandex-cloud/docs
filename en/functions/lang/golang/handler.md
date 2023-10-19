@@ -29,7 +29,7 @@ If the argument responsible for the request body is missing, any function input 
 The runtime environment returns the function execution result as a data set:
 1. The response body (the `response` value).
 
-   The body can be represented by an array of bytes, a string, a custom type, or a pointer to it, as well as an [empty interface](https://go.dev/tour/methods/14). In the first two cases, to get the correct response, you should run functions by specifying the `integration=raw` request string parameter. Learn more about invoking functions in the [relevant section](../../concepts/function-invoke.md#http). In other cases, the response value is converted to an object of the corresponding type using the `json.Unmarshal` method and returned as a JSON document.
+   The body can be represented by an array of bytes, a string, a custom type, or a pointer to it, as well as an [empty interface](https://go.dev/tour/methods/14). In the first two cases, to get the correct response, you should run functions by specifying the `?integration=raw` request string parameter. Learn more about invoking functions in the [relevant section](../../concepts/function-invoke.md#http). In the other cases, the response value is converted to an object of the corresponding type using the `json.Unmarshal` method and returned as a JSON document.
 
 1. An error (the `error` value).
 
@@ -72,7 +72,7 @@ The following function receives a request with two fields (a string and a number
 
 {% note warning %}
 
-To invoke the function, use the [{{ yandex-cloud }} CLI](../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+To invoke the function, use the [{{ yandex-cloud }} CLI](../../concepts/function-invoke.md) or an HTTP request with the `?integration=raw` parameter.
 
 {% endnote %}
 
@@ -158,7 +158,7 @@ import (
 )
 
 // The response body is a string, hence to correctly output the
-// response, run the function with the `integration=raw` parameter
+// response, run the function with the `?integration=raw` parameter
 func Handler() (string, error) {
   if (rand.Int31n(100) >= 50) {
     return "", fmt.Errorf("not so lucky")
@@ -191,7 +191,7 @@ The function is invoked using an HTTP request with the username, logs the reques
 
 {% note warning %}
 
-Don't use the `integration=raw` parameter to invoke this function. If you do, the function won't get any data about the original request's methods, headers, or parameters.
+Do not use the `?integration=raw` parameter to invoke this function. If you do, the function will not get any data about the original request's methods, headers, or parameters.
 
 {% endnote %}
 

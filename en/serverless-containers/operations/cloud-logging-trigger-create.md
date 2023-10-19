@@ -33,11 +33,11 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}**, specify:
 
       * Log group.
-      * (Optional) Resource types: {{ yandex-cloud }} or your services, such as `serverless.function`.
+      * (Optional) Resource types, such as `serverless.function` for {{ sf-name }} functions.
       * (Optional) IDs of {{ yandex-cloud }} or your resources, such as {{ serverless-containers-name }} containers.
       * (Optional) Logging levels.
 
-      A trigger activates when records that match all the optional settings are added to the specified log group. If an optional setting is undefined, the trigger activates for any value of the setting.
+      A trigger fires when records that match all the optional settings are added to the specified log group. If an optional setting is not specified, the trigger fires for any value of the setting.
 
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
@@ -71,6 +71,10 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
      --log-group-name <log_group_name> \
      --batch-size 1 \
      --batch-cutoff 1s \
+     --resource-ids <resource_ID> \
+     --resource-types <resource_type> \
+     --stream-names <logging_stream> \
+     --log-levels <logging_level> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
      --retry-attempts 1 \
@@ -84,8 +88,10 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    * `--name`: Trigger name.
    * `--log-group-name`: Name of the log group that invokes a container when records are added.
-   * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 100. The default value is 1.
-   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. The values may range from 0 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
+
+   {% include [batch-settings-messages](../../_includes/serverless-containers/batch-settings-messages.md) %}
+
+   {% include [logging-cli-param](../../_includes/functions/logging-cli-param.md) %}
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -100,6 +106,14 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
    rule:
      logging:
        log_group_id: e23bidnftl**********
+       resource_type:
+         - serverless.functions
+       resource_id:
+         - d4e1gpsgam78********
+       stream_name:
+         - test
+       levels:
+         - INFO
        batch_settings:
          size: "1"
          cutoff: 1s

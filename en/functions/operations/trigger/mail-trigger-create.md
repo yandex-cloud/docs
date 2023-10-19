@@ -51,19 +51,27 @@ Create a [mail trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-
    
    ```bash
    yc serverless trigger create mail \
-     --name <trigger name> \
-     --invoke-function-id <function ID> \
-     --invoke-function-service-account-id <service account ID> \
+     --name <trigger_name> \
+     --batch-size <batch_size> \
+     --batch-cutoff <maximum_wait_time> \
+     --attachements-bucket <bucket_name> \
+     --attachements-service-account-id <service_account_ID> \
+     --invoke-function-id <function_ID> \
+     --invoke-function-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead Letter Queue ID> \
-     --dlq-service-account-id <service account ID>
+     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-service-account-id <service_account_ID>
    ```
 
 
    Where:
 
-   * `--name`: Trigger name.
+   * `--name`: Trigger name
+
+   {% include [batch-settings-messages](../../../_includes/functions/batch-settings-messages.md) %}
+
+   {% include [attachments-params](../../../_includes/functions/attachments-params.md) %}
 
    {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
@@ -78,6 +86,12 @@ Create a [mail trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-
    rule:
      mail:
        email: a1s8h8avgl**********-cho1****@serverless.yandexcloud.net
+       batch_settings:
+         size: "3"
+         cutoff: 20s
+       attachments_bucket:
+         bucket_id: bucket-for-attachments
+         service_account_id: ajejeis235ma********
        invoke_function:
          function_id: d4eofc7n0m**********
          function_tag: $latest
@@ -104,6 +118,6 @@ Create a [mail trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## For more information, see also {#see-also}
+## See also {#see-also}
 
 * [Email trigger that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/mail-trigger-create.md).

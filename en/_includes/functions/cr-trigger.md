@@ -1,10 +1,12 @@
-A {{ sf-name }} [trigger](../../functions/concepts/trigger/index.md) launches a [function](../../functions/concepts/function.md) when certain events occur with a {{ container-registry-name }} [Docker image](../../container-registry/concepts/docker-image.md). The trigger must be in the same cloud as the [registry](../../container-registry/concepts/registry.md) whose events it's subscribed to.
+A [trigger](../../functions/concepts/trigger/index.md) for {{ sf-name }} launches a [function](../../functions/concepts/function.md) when certain events occur with a {{ container-registry-name }} [Docker image](../../container-registry/concepts/docker-image.md). The trigger must be in the same cloud as the [registry](../../container-registry/concepts/registry.md) to whose events it is subscribed.
 
 A trigger for {{ container-registry-name }} needs a [service account](../../iam/concepts/users/service-accounts.md) to call the function.
 
 For more information about creating a trigger for {{ container-registry-name }}, see [{#T}](../../functions/operations/trigger/cr-trigger-create.md).
 
 {% include [cr-event](cr-event.md) %}
+
+{% include [batching-events](batching-events.md) %}
 
 ## Roles required for the proper operation of a trigger for {{ container-registry-name }} {#roles}
 
