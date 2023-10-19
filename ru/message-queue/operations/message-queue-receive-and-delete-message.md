@@ -1,57 +1,82 @@
 # Прием и удаление сообщений
 
-После приема сообщений и их обработки их следует удалять из очереди:
+Отправленные в очередь {{ message-queue-name }} сообщения получают потребители — компоненты распределенных приложений. После приема и обработки сообщений их следует удалять из очереди.
 
 {% list tabs %}
 
 - AWS CLI
   
-  Выполните в терминале команду:
-  
-  ```bash
-  aws sqs receive-message \
-    --queue-url <URL_очереди_сообщений> \
-    --endpoint <эндпоинт>/
-  ```
-  
-  Где:
+  1. [Установите и настройте](configuring-aws-cli.md) AWS CLI.
+  1. [Создайте](message-queue-new-queue.md) очередь сообщений и [отправьте](message-queue-send-message.md) в нее тестовое сообщение.
+  1. Примите отправленное ранее сообщение:
 
-  * `queue-url` — URL очереди сообщений, например: `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`.
-  * `endpoint` — эндпоинт, например: `https://message-queue.{{ api-host }}/`.
-  
-  Результат:
+      ```bash
+      aws sqs receive-message \
+        --queue-url <URL_очереди> \
+        --endpoint <эндпоинт>
+      ```
+      
+      Где:
 
-  ```json
-  {
-      "Messages": [
-          {
-              "MessageId": "948de7-9ec8d787-cbf3465c-c",
-              "ReceiptHandle": "EAEggbjIg_8sKAM",
-              "MD5OfBody": "ed076287532e86365e841e92bfc50d8c",
-              "Body": "Hello World",
-              "Attributes": {
-                  "ApproximateFirstReceiveTimestamp": "1545927269377",
-                  "ApproximateReceiveCount": "1",
-                  "SentTimestamp": "1545922344034"
+      * `--queue-url` — URL очереди, из которой нужно получить сообщение.
+      * `--endpoint` — эндпоинт в значении `https://message-queue.{{ api-host }}/`.
+
+      Результат:
+
+      ```json
+      {
+          "Messages": [
+              {
+                  "MessageId": "948de7-9ec8d787-c*******-*",
+                  "ReceiptHandle": "EAEggbj********",
+                  "MD5OfBody": "ed076287532e86365e841e92********",
+                  "Body": "Hello World",
+                  "Attributes": {
+                      "ApproximateFirstReceiveTimestamp": "15459********",
+                      "ApproximateReceiveCount": "1",
+                      "SentTimestamp": "15459********",
+                      "SenderId": "abcdefkbh72is78********"
+                  }
               }
-          }
-      ]
-  }
-  ```
-  
-  Чтобы удалить сообщение, используйте значение параметра `receipt-handle` — [идентификатор получения](../concepts/message.md) для сообщения. Выполните в терминале команду:
-  
-  ```bash
-  aws sqs delete-message \
-    --queue-url <URL_очереди_сообщений> \
-    --endpoint <эндпоинт>/ \
-    --receipt-handle <идентификатор_получения>
-  ```
- 
-  Где:
+          ]
+      }
+      ```
 
-  * `queue-url` — URL очереди сообщений, например: `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`.
-  * `endpoint` — эндпоинт, например: `https://message-queue.{{ api-host }}/`.
-  * `receipt-handle` — идентификатор получения.
-  
+      Сохраните значение параметра `ReceiptHandle`, оно понадобится позднее.
+
+      {% note info %}
+
+      Если в очереди нет сообщений, команда `aws sqs receive-message` завершится без текстового вывода в терминал.
+
+      {% endnote %}
+
+  1. Для удаления сообщения из очереди используйте [идентификатор получения](../concepts/message.md) — значение параметра `ReceiptHandle`, полученного вместе с сообщением. 
+
+     Удалите полученное сообщение из очереди:
+
+      ```bash
+      aws sqs delete-message \
+        --queue-url <URL_очереди> \
+        --endpoint <эндпоинт> \
+        --receipt-handle <идентификатор_получения>
+      ```
+    
+      Где:
+
+      * `--queue-url` — URL очереди, из которой нужно удалить сообщение.
+      * `--endpoint` — эндпоинт в значении `https://message-queue.{{ api-host }}/`.
+      * `--receipt-handle` — сохраненный ранее идентификатор получения сообщения `ReceiptHandle`.
+
+{% endlist %}
+
+Успешное выполнение команды удаления не сопровождается текстовым выводом в терминал. Чтобы убедиться в удалении сообщения:
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана очередь сообщений.
+  1. В списке сервисов выберите **{{ message-queue-name }}**.
+  1. Текущее количество сообщений в очереди указано в поле **Сообщений в очереди**.
+
 {% endlist %}

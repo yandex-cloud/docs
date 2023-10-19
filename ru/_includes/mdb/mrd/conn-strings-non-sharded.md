@@ -44,6 +44,8 @@
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Подключение к кластеру](./connect/bash/after-connect.md) %}
 
 ### Go {#go}
@@ -186,6 +188,8 @@
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Подключение к кластеру](./connect/go/after-connect.md) %}
 
 ### Java {#java}
@@ -305,6 +309,8 @@
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Подключение к кластеру](./connect/java/after-connect.md) %}
 
 ### Node.js {#nodejs}
@@ -423,6 +429,8 @@
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Подключение к кластеру](./connect/nodejs/after-connect.md) %}
 
 ### PHP {#php}
@@ -522,6 +530,8 @@
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Подключение к кластеру](./connect/php/after-connect.md) %}
 
 ### Python {#python}
@@ -597,6 +607,8 @@ pip3 install redis
     ```
 
 {% endlist %}
+
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
 
 {% include [Подключение к кластеру](./connect/python/after-connect.md) %}
 
@@ -681,5 +693,7 @@ pip3 install redis
     ```
 
 {% endlist %}
+
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
 
 {% include [Подключение к кластеру](./connect/ruby/after-connect.md) %}

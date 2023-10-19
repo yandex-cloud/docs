@@ -5,7 +5,7 @@ Create a [timer](../../concepts/trigger/timer.md) that invokes a {{ sf-name }} [
 ## Getting started {#before-you-begin}
 
 1. [Create a function](../../operations/index.md#create-function) to be triggered by timer. For example, you can create any function from [this list](../../quickstart/create-function/index.md).
-1. [Create a service account](../../../iam/operations/sa/create.md) that will be used to invoke the function and assign it the `functions.functionInvoker` role.
+1. [Create a service account](../../../iam/operations/sa/create.md) that will be used to invoke the function and assign it the `{{ roles-functions-invoker }}` role.
 
 ## Create a timer {#timer-create}
 

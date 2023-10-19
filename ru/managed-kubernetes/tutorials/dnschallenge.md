@@ -1,9 +1,7 @@
 # Проверка DNS Challenge для сертификатов Let's Encrypt®
 
 Чтобы добавить возможность пройти проверку DNS Challenge при выписывании [сертификатов Let's Encrypt®](../../certificate-manager/concepts/managed-certificate.md):
-1. [{#T}](#install-certs-manager).
-1. [{#T}](#install-webhook).
-1. [{#T}](#install-objects).
+1. [{#T}](#create-cert).
 1. [{#T}](#check-result).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -26,6 +24,8 @@
      --output iamkey.json
    ```
 
+## Создайте сертификат {#create-cert}
+
 1. Создайте [пространство имен](../concepts/index.md#namespace) `cert-manager`:
 
    ```bash
@@ -40,74 +40,7 @@
      --namespace=cert-manager
    ```
 
-## Установите менеджер сертификатов {#install-certs-manager}
-
-1. Установите менеджер сертификатов:
-
-   ```bash
-   kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.yaml
-   ```
-
-1. Убедитесь, что в пространстве имен `cert-manager` созданы три [пода](../concepts/index.md#pod) с готовностью `1/1` и статусом `Running`:
-
-   ```bash
-   kubectl get pods -n cert-manager --watch
-   ```
-
-   Результат:
-
-   ```text
-   NAME                                      READY  STATUS   RESTARTS  AGE
-   cert-manager-69cf79df7f-ghw6s             1/1    Running  0         54s
-   cert-manager-cainjector-7648dc6696-gnrzz  1/1    Running  0         55s
-   cert-manager-webhook-7746f64877-wz9bh     1/1    Running  0         54s
-   ```
-
-## Установите Webhook {#install-webhook}
-
-1. {% include [Установка Helm](../../_includes/managed-kubernetes/helm-install.md) %}
-
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с NGINX Ingress Controller выполните команду:
-
-   ```bash
-   git clone https://github.com/yandex-cloud/cert-manager-webhook-yandex.git && \
-   helm install -n cert-manager yandex-webhook \
-     cert-manager-webhook-yandex/deploy/cert-manager-webhook-yandex
-   ```
-
-## Создайте тестовые объекты {#install-objects}
-
-1. Создайте файл `issuer.yaml` с манифестом объекта `ClusterIssuer`:
-
-   ```yaml
-   apiVersion: cert-manager.io/v1
-   kind: ClusterIssuer
-   metadata:
-     name: clusterissuer
-     namespace: default
-   spec:
-     acme:
-       # You must replace this email address with your own.
-       # Let's Encrypt will use this to contact you about expiring
-       # certificates, and issues related to your account.
-       email: <ваш email>
-       server: https://acme-staging-v02.api.letsencrypt.org/directory
-       privateKeySecretRef:
-         # Secret resource that will be used to store the account's private key.
-         name: secret-ref
-       solvers:
-         - dns01:
-             webhook:
-               config:
-                 # The ID of the folder where dns-zone located in
-                 folder: <идентификатор каталога>
-                 # This is the secret used to access the service account
-                 serviceAccountSecretRef:
-                   name: cert-manager-secret
-                   key: iamkey.json
-               groupName: acme.cloud.yandex.com
-               solverName: yandex-cloud-dns
-   ```
+1. Установите приложение Cert-manager c плагином CloudDNS ACME webhook [по инструкции](../../managed-kubernetes/operations/applications/cert-manager-cloud-dns.md).
 
 1. Создайте файл `certificate.yaml`:
 
@@ -127,10 +60,9 @@
        - <доменное имя>
    ```
 
-1. Создайте объекты в кластере {{ managed-k8s-name }}:
+1. Передайте сертификат в кластер {{ managed-k8s-name }}:
 
    ```bash
-   kubectl apply -f issuer.yaml && \
    kubectl apply -f certificate.yaml
    ```
 

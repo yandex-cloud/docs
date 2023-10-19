@@ -1,5 +1,7 @@
 # Создание новой очереди сообщений
 
+Очереди сообщений {{ message-queue-name }} позволяют передавать [сообщения](../concepts/message.md) между компонентами распределенных приложений. Передавать сообщения в очереди можно с помощью [API](../api-ref/index.md) или других поддерживаемых [инструментов](../instruments/index.md).
+
 Чтобы создать новую очередь сообщений:
 
 {% list tabs %}
@@ -27,27 +29,29 @@
   1.  Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - AWS CLI
-  
-  Выполните в терминале команду:
-  
-  ```bash
-  aws sqs create-queue \
-    --queue-name <имя_очереди> \
-    --endpoint <эндпоинт>/
-  ```
-    
-  Где:
 
-  * `sample-queue` — имя очереди.
-  * `endpoint` — эндпоинт, например: `https://message-queue.{{ api-host }}/`.
-  
-  Результат:
+  1. [Установите и настройте](configuring-aws-cli.md) AWS CLI.
 
-  ```json
-  {
-      "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
-  }
-  ```
+  1. Выполните в терминале команду:
+  
+     ```bash
+     aws sqs create-queue \
+       --queue-name <имя_очереди> \
+       --endpoint <эндпоинт>
+     ```
+        
+     Где:
+
+     * `--queue-name` — имя создаваемой очереди, например `sample-queue`.
+     * `--endpoint` — эндпоинт в значении `https://message-queue.{{ api-host }}/`.
+      
+     Результат:
+
+     ```json
+     {
+         "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd********/000000000000002n034r/sample-queue"
+     }
+     ```
 
 - {{ TF }}
 

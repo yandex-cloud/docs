@@ -1,8 +1,13 @@
+---
+title: "How to vote for an issue"
+description: "Follow this guide to vote for an issue."
+---
+
 # Voting for an issue
 
 {% note warning %}
 
-Voting for issues is available only if it's allowed by the queue settings.
+Voting for issues is available only if allowed by the queue settings.
 
 {% endnote %}
 
@@ -16,7 +21,7 @@ To find issues that you have voted for, use the [query language](query-filter.md
 
 1. In the left-hand panel, select ![](../../_assets/tracker/svg/tasks.svg) **{{ ui-key.startrek.blocks-desktop_b-head.filters }}**, then, at the bottom of the window, click **{{ ui-key.startrek.ui_components_page-issues_touch.all-issues-filter-title }}**.
 
-1. Click **{{ ui-key.startrek.ui_components_page-issues_touch.query-language }}** in the upper-right corner.
+1. Click **{{ ui-key.startrek.ui_components_page-issues_touch.query-language }}** in the top-right corner of the page.
 
 1. Enter your query in the bar:
 

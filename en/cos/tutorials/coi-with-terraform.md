@@ -245,7 +245,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
    resource "yandex_compute_instance_group" "ig-with-coi" {
      name = "ig-with-coi"
      folder_id = "<folder ID>"
-     service_account_id = "<ID of the service account>"
+     service_account_id = "<service account ID>"
      instance_template {
        platform_id = "standard-v3"
        resources {
@@ -384,7 +384,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
         ]
         ```
 
-        The necessary resources are created in the folder. When creating each VM, it's assigned a public IP address and [hostname](../../vpc/concepts/address.md#fqdn) (FQDN).
+        The required resources will be created in the folder. When creating each VM, it's assigned a public IP address and [hostname](../../vpc/concepts/address.md#fqdn) (FQDN).
 
   1. Check the resources and their settings in the [management console]({{ link-console-main }}).
 

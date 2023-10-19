@@ -1,3 +1,8 @@
+---
+title: "How to create a Google Sheets connection"
+description: "This guide describes how you can create a Google Sheets connection."
+---
+
 # Creating a Google Sheets connection
 
 {% note warning %}
@@ -76,7 +81,7 @@ To quickly populate empty cells in a Google Sheets spreadsheet:
 
 {% endcut %}
 
-## Limitations {#restrictions}
+## Constraints {#restrictions}
 
 When creating a connection to Google Sheets, keep in mind the following limitations:
 * Maximum number of Google Sheets sheets per connection: 10. All sheets will be loaded when you create a connection, but you can only select 10 of them for concurrent work.

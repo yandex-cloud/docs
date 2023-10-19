@@ -7,7 +7,7 @@
   1. Перед подключением установите [SSL-сертификат]({{ crt-web-path }}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
   1. В браузере перейдите по одному из адресов:
      - `https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}`, если публичный IP-адрес назначен всем хостам с этой ролью. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
-     - `https://<имя любого хоста с ролью Data node и публичным IP>.{{ dns-zone }}`
+     - `https://<FQDN любого хоста с ролью Data node и публичным IP>.{{ dns-zone }}`
   1. Введите имя пользователя и пароль.
 
   {% include [kibana-api](mes-kibana-api.md) %}
@@ -214,3 +214,5 @@
   ```
 
 {% endlist %}
+
+{% include [see-fqdn](../../_includes/mdb/mes/fqdn-host.md) %}

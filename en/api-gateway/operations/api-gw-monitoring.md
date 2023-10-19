@@ -21,27 +21,27 @@ The chart update period is 15 seconds.
    1. Go to the **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_monitoring }}** tab.
    1. The following charts will open on the page:
 
-   * **Requests**: Number of API gateway requests. Metrics contain the following labels:
-      * **stable**: Events handled by the current {{ api-gw-short-name }} release.
-      * **canary**: Events handled by the [canary release](../concepts/extensions/canary.md).
-      * **total**: Events handled by the canary or current release.
-   * **Errors**: Number of API gateway access errors. Metrics contain the following labels:
-      * **stable**: Events that are not handled by the current {{ api-gw-short-name }} release.
-      * **canary**: Events that are not handled by the canary release.
-      * **total**: Events that are not handled by the canary or current release.
-   * **Latency**: Amount of time it takes for an API gateway request to run.
+      * **Requests**: Number of API gateway requests. Metrics contain the following labels:
+         * **stable**: Events handled by the current {{ api-gw-short-name }} release.
+         * **canary**: Events handled by the [canary release](../concepts/extensions/canary.md).
+         * **total**: Events handled by the canary or current release.
+      * **Errors**: Number of API gateway access errors. Metrics contain the following labels:
+         * **stable**: Events that are not handled by the current {{ api-gw-short-name }} release.
+         * **canary**: Events that are not handled by the canary release.
+         * **total**: Events that are not handled by the canary or current release.
+      * **Latency**: Amount of time it takes for an API gateway request to run.
 
-   * **Connections**: Number of web sockets connected to an API gateway.
+      * **Connections**: Number of web sockets connected to an API gateway.
 
-   * **Disconnections**: Web socket disconnections per second.
+      * **Disconnections**: Web socket disconnections per second.
 
-   * **Incoming messages count**: Number of incoming web socket messages.
+      * **Incoming messages count**: Number of incoming web socket messages.
 
-   * **Incoming messages bytes**: Incoming web socket traffic in bytes.
+      * **Incoming messages bytes**: Incoming web socket traffic in bytes.
 
-   * **Outgoing messages count**: Number of outgoing web socket messages.
+      * **Outgoing messages count**: Number of outgoing web socket messages.
 
-   * **Outgoing messages bytes**: Outgoing web socket traffic in bytes.
+      * **Outgoing messages bytes**: Outgoing web socket traffic in bytes.
 
       You can select a time period to display information for on a graph, such as an hour, three hours, a day, a week, a month, or a custom interval.
 

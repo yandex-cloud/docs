@@ -1,3 +1,8 @@
+---
+title: "How to create a trigger in {{ tracker-name }}"
+description: "Follow this guide to create a trigger in {{ tracker-name }}."
+---
+
 # Creating a trigger in {{ tracker-name }}
 
 {% note warning %}
@@ -18,5 +23,7 @@ Only [queue owners](../manager/queue-access.md) can create, edit, and delete tri
 
 1. Add one or more [**Trigger actions**](set-action.md).
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.action_create }}**.
+
+
 

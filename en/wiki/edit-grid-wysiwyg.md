@@ -1,4 +1,4 @@
-# Editing a page in the new editor
+# Editing a dynamic table
 
 ## General settings {#general-settings}
 
@@ -157,6 +157,30 @@ To add multiple filters:
 
 To set the sorting order, click and drag ![](../_assets/wiki/svg/moving.svg) in the filter list. You cannot drag multiple filters at the same time.
 
+## Filtering a table {#filter}
+
+If a dynamic table was embedded into the page using the [old editor](old-editor.md), you can use the `grid` [dynamic block](actions/grid-reference.md) to set up conditions for displaying rows or columns.
+
+To filter a table:
+
+1. Get the code for the dynamic table:
+   1. In the top-right corner, click ![](../_assets/wiki/svg/grid-settings.svg) **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_sidebar.grid-settings-label }}**.
+
+   1. Select ![](../_assets/wiki/svg/link.svg) **Copy embed code**.
+
+   1. In the window that opens, select the options from among the following:
+      * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.read_only }}**
+      * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.show_line_nums }}**
+      * **{{ ui-key.beta-wiki.blocks_common_newgrid.blocks_b-grid-table-code-form.can_sort }}**
+      * **Wysiwyg markdown**
+
+   1. Click **Copy code**
+
+1. Specify the filtering conditions:
+
+   * To filter rows, use the [`filter` parameter](actions/grid-reference.md#row-filter).
+
+   * To set up the way columns are displayed, use the [`column` parameter](actions/grid-reference.md#col-filter).
 
 #### See also
 

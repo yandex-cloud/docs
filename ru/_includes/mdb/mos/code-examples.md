@@ -8,6 +8,8 @@
 
 {% endlist %}
 
+{% include [see-fqdn](fqdn-host.md) %}
+
 ### Go {#go}
 
 Перед подключением установите зависимости:
@@ -85,6 +87,8 @@ go get github.com/opensearch-project/opensearch-go
 
 {% endlist %}
 
+{% include [see-fqdn](fqdn-host.md) %}
+
 ### PowerShell {#powershell}
 
 {% list tabs %}
@@ -94,11 +98,13 @@ go get github.com/opensearch-project/opensearch-go
    ```powershell
    curl `
      -Certificate <абсолютный путь к файлу сертификата> `
-     -Uri https://<идентификатор хоста {{ OS }} с ролью DATA>.{{ dns-zone }}:{{ port-mos }} `
+     -Uri https://<FQDN хоста {{ OS }} с ролью DATA>:{{ port-mos }} `
      -Credential admin
    ```
 
 {% endlist %}
+
+{% include [see-fqdn](fqdn-host.md) %}
 
 ### Python {#python}
   
@@ -145,3 +151,5 @@ pip3 install opensearch-py
         ```
 
 {% endlist %}
+
+{% include [see-fqdn](fqdn-host.md) %}

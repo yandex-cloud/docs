@@ -135,7 +135,7 @@ items:
         href: local-fields.md
       - name: Adding a queue team
         href: manager/queue-team.md
-      - name: Setting access rights for queues
+      - name: Setting up access for a queue
         href: manager/queue-access.md
       - name: Setting up time tracking
         href: manager/queue-spent-time.md
@@ -225,7 +225,7 @@ items:
     items:
       - name: Overview
         href: manager/agile-new.md
-      - name: Creating a board
+      - name: How to create a board
         href: manager/agile-new-create.md
       - name: Configuring a board
         href: manager/agile-new-set-board.md
@@ -301,7 +301,7 @@ items:
         items:
           - name: Overview
             href: user/dashboard.md
-          - name: Creating a dashboard
+          - name: How to create a dashboard
             href: user/create-dashboard.md
           - name: Widgets
             href: user/widgets.md
@@ -475,131 +475,133 @@ items:
         href: common-format.md
       - name: Issues
         items:
-          - name: Get issue parameters
+          - name: Getting issue parameters
             href: concepts/issues/get-issue.md
-          - name: Edit an issue
+          - name: Editing an issue
             href: concepts/issues/patch-issue.md
-          - name: Create an issue
+          - name: Creating an issue
             href: concepts/issues/create-issue.md
-          - name: Move an issue to another queue
+          - name: Moving an issue to another queue
             href: concepts/issues/move-issue.md
-          - name: Find out the number of issues
+          - name: Finding out the number of issues
             href: concepts/issues/count-issues.md
-          - name: Find issues
+          - name: Finding issues
             href: concepts/issues/search-issues.md
-          - name: Release scroll view resources
+          - name: Releasing scroll view resources
             href: concepts/issues/search-release.md
-          - name: Get priorities
+          - name: Getting priorities
             href: concepts/issues/get-priorities.md
-          - name: Get transitions
+          - name: Getting transitions
             href: concepts/issues/get-transitions.md
-          - name: Make a status transition
+          - name: Making a status transition
             href: concepts/issues/new-transition.md
-          - name: Get the history of issue changes
+          - name: Getting the history of issue changes
             href: concepts/issues/get-changelog.md
           - name: Issue links
             items:
-              - name: Link issues
+              - name: Linking issues
                 href: concepts/issues/link-issue.md
-              - name: Get issue links
+              - name: Getting issue links
                 href: concepts/issues/get-links.md
               - name: Deleting a link with an issue
                 href: concepts/issues/delete-link-issue.md
       - name: Checklists
         items:
-          - name: Create a checklist or add items to it
+          - name: Creating a checklist or adding items to it
             href: concepts/issues/add-checklist-item.md
-          - name: Get checklist parameters
+          - name: Getting checklist parameters
             href: concepts/issues/get-checklist.md
-          - name: Edit a checklist
+          - name: Editing a checklist
             href: concepts/issues/edit-checklist.md
-          - name: Delete a checklist
+          - name: Deleting a checklist
             href: concepts/issues/delete-checklist.md
           - name: Deleting a checklist item
             href: concepts/issues/delete-checklist-item.md
       - name: Projects
         items:
-          - name: Create a project
+          - name: Creating a project
             href: concepts/projects/create-project.md
-          - name: Get project parameters
+          - name: Getting project parameters
             href: concepts/projects/get-project.md
-          - name: Get a list of all projects
+          - name: Getting a list of all projects
             href: concepts/projects/get-projects.md
-          - name: Get a list of project queues
+          - name: Getting a list of project queues
             href: concepts/projects/get-project-queues.md
-          - name: Edit a project
+          - name: Editing a project
             href: concepts/projects/update-project.md
-          - name: Delete a project
+          - name: Deleting a project
             href: concepts/projects/delete-project.md
       - name: Comments
         items:
-          - name: Add a comment
+          - name: Adding a comment
             href: concepts/issues/add-comment.md
-          - name: Get issue comments
+          - name: Getting issue comments
             href: concepts/issues/get-comments.md
-          - name: Edit a comment
+          - name: Editing a comment
             href: concepts/issues/edit-comment.md
-          - name: Delete a comment
+          - name: Deleting a comment
             href: concepts/issues/delete-comment.md
       - name: Macros
         items:
-          - name: Get queue macros
+          - name: Getting queue macros
             href: get-macroses.md
-          - name: Get a macro
+          - name: Getting a macro
             href: get-macros.md
-          - name: Create a macro
+          - name: Creating a macro
             href: post-macros.md
-          - name: Edit a macro
+          - name: Editing a macro
             href: patch-macros.md
-          - name: Delete a macro
+          - name: Deleting a macro
             href: delete-macros.md
       - name: External links
         items:
-          - name: Get a list of external applications
+          - name: Getting a list of external applications
             href: concepts/issues/get-applications.md
-          - name: Get a list of issue external links
+          - name: Getting a list of issue external links
             href: concepts/issues/get-external-links.md
-          - name: Add an external link
+          - name: Adding an external link
             href: concepts/issues/add-external-link.md
-          - name: Delete an external link
+          - name: Deleting an external link
             href: concepts/issues/delete-external-link.md
       - name: Attached files
         items:
-          - name: Get a list of attached files
+          - name: Getting a list of attached files
             href: concepts/issues/get-attachments-list.md
-          - name: Download a file
+          - name: Downloading a file
             href: concepts/issues/get-attachment.md
-          - name: Download a thumbnail
+          - name: Downloading a thumbnail
             href: concepts/issues/get-attachment-preview.md
           - name: Attaching files
             href: concepts/issues/post-attachment.md
-          - name: Upload a temporary file
+          - name: Uploading a temporary file
             href: concepts/issues/temp-attachment.md
-          - name: Delete a file
+          - name: Deleting a file
             href: concepts/issues/delete-attachment.md
       - name: Queues
         items:
-          - name: Create a queue
+          - name: Creating a queue
             href: concepts/queues/create-queue.md
-          - name: Get queue parameters
+          - name: Getting queue parameters
             href: concepts/queues/get-queue.md
-          - name: Get a list of queues
+          - name: Getting a list of queues
             href: concepts/queues/get-queues.md
-          - name: Get queue versions
+          - name: Getting queue versions
             href: concepts/queues/get-versions.md
-          - name: Get required queue fields
+          - name: Getting required queue fields
             href: concepts/queues/get-fields.md
-          - name: Delete a queue
+          - name: Deleting a queue
             href: concepts/queues/delete-queue.md
-          - name: Restore a queue
+          - name: Restoring a queue
             href: concepts/queues/restore-queue.md
-          - name: Remove a tag from a queue
+          - name: Removing a tag from a queue
             href: concepts/queues/delete-tag.md
+          - name: Granting queue access rights
+            href: concepts/queues/manage-access.md
           - name: Automation
             items:
               - name: Auto actions
                 items:
-                  - name: Create auto action
+                  - name: Creating an auto action
                     href: concepts/queues/create-autoaction.md
                   - name: Getting auto action parameters
                     href: concepts/queues/get-autoaction.md
@@ -607,39 +609,39 @@ items:
                 items:
                   - name: Creating triggers
                     href: concepts/queues/create-trigger.md
-                  - name: Get trigger parameters
+                  - name: Getting trigger parameters
                     href: concepts/queues/get-trigger.md
       - name: Issue boards
         items:
-          - name: Get parameters of all boards
+          - name: Getting parameters of all boards
             href: get-boards.md
-          - name: Get board parameters
+          - name: Getting board parameters
             href: get-board.md
-          - name: Create a board
+          - name: Creating a board
             href: post-board.md
-          - name: Edit a board
+          - name: Editing a board
             href: patch-board.md
-          - name: Delete a board
+          - name: Deleting a board
             href: delete-board.md
           - name: Columns
             items:
-              - name: Get parameters of all columns
+              - name: Getting parameters of all columns
                 href: get-columns.md
-              - name: Get column parameters
+              - name: Getting column parameters
                 href: get-column.md
-              - name: Create a column
+              - name: Creating a column
                 href: post-column.md
-              - name: Edit a column
+              - name: Editing a column
                 href: patch-column.md
-              - name: Delete a column
+              - name: Deleting a column
                 href: delete-column.md
           - name: Sprints
             items:
-              - name: Get all sprints of a board
+              - name: Getting all sprints of a board
                 href: get-sprints.md
-              - name: Get a sprint
+              - name: Getting a sprint
                 href: get-sprint.md
-              - name: Create a sprint
+              - name: Creating a sprint
                 href: post-sprint.md
       - name: Components
         items:
@@ -647,64 +649,68 @@ items:
             href: get-components.md
       - name: Import
         items:
-          - name: Import an issue
+          - name: Importing an issue
             href: concepts/import/import-ticket.md
-          - name: Import files
+          - name: Importing files
             href: concepts/import/import-attachments.md
-          - name: Import comments
+          - name: Importing comments
             href: concepts/import/import-comments.md
-          - name: Import links
+          - name: Importing links
             href: concepts/import/import-links.md
       - name: Bulk operations
         items:
-          - name: Perform a bulk move of issues to a different queue
+          - name: Bulk move of issues to a different queue
             href: concepts/bulkchange/bulk-move-issues.md
-          - name: Make bulk changes to issues
+          - name: Bulk changes to issues
             href: concepts/bulkchange/bulk-update-issues.md
-          - name: Make bulk changes to issue statuses
+          - name: Bulk changes to issue statuses
             href: concepts/bulkchange/bulk-transition.md
       - name: Time tracking
         items:
-          - name: Add a record of time spent
+          - name: Adding a record of time spent
             href: concepts/issues/new-worklog.md
-          - name: Edit a record of time spent
+          - name: Editing a record of time spent
             href: concepts/issues/patch-worklog.md
-          - name: Delete a record of time spent
+          - name: Deleting a record of time spent
             href: concepts/issues/delete-worklog.md
-          - name: Get records of time spent
+          - name: Getting records of time spent
             items:
-              - name: Get all records for an issue
+              - name: Getting all records for an issue
                 href: concepts/issues/issue-worklog.md
-              - name: Select records by parameters
+              - name: Selecting records by parameters
                 href: concepts/issues/get-worklog.md
       - name: Issue fields
         items:
           - name: Getting global fields
             href: concepts/issues/get-global-fields.md
-          - name: Create an issue field
+          - name: Creating an issue field
             href: concepts/issues/create-field.md
-          - name: Get issue field parameters
+          - name: Getting issue field parameters
             href: concepts/issues/get-issue-fields.md
-          - name: Edit issue field names
+          - name: Editing issue field names
             href: concepts/issues/patch-issue-field-name.md
-          - name: Edit possible values of issue fields
+          - name: Editing possible values of issue fields
             href: concepts/issues/patch-issue-field-value.md
-          - name: Create an issue field category
+          - name: Creating an issue field category
             href: concepts/issues/create-issue-field-category.md
           - name: Local fields
             items:
-              - name: Create a local queue field
+              - name: Creating a local queue field
                 href: concepts/queues/create-local-field.md
-              - name: Get local queue fields
+              - name: Getting local queue fields
                 href: concepts/queues/get-local-fields.md
-              - name: Get information about a local queue field
+              - name: Getting information about a local queue field
                 href: concepts/queues/get-info-local-field.md
-              - name: Edit a local queue field
+              - name: Editing a local queue field
                 href: concepts/queues/edit-local-field.md
       - name: Users
         items:
-          - name: Get information about the current user
+          - name: Getting information about the current user
             href: get-user-info.md
+          - name: Getting information about users
+            href: get-users.md
+          - name: Getting information about the user
+            href: get-user.md
       - name: Possible response codes
         href: error-codes.md
   - name: Questions and answers

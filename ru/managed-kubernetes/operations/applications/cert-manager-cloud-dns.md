@@ -1,6 +1,6 @@
 # Установка cert-manager c плагином {{ dns-full-name }} ACME webhook
 
-[cert-manager](https://cert-manager.io) — приложение, которое добавляет сертификаты и эмитентов сертификатов в качестве типов ресурсов в кластерах {{ k8s }} и упрощает процесс получения, обновления и использования этих сертификатов. Плагин
+[cert-manager](https://cert-manager.io) — приложение, которое добавляет сертификаты и эмитентов сертификатов в качестве типов ресурсов в [кластерах {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и упрощает процесс получения, обновления и использования этих сертификатов. Плагин
 {{ dns-full-name }} ACME webhooks для cert-manager позволяет пройти [проверку DNS-01](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01) с помощью [{{ dns-name }}](../../../dns/).
 
 ## Перед началом работы {#before-you-begin}
@@ -9,7 +9,7 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. Убедитесь, что [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) расположен в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), что и [зона {{ dns-name }}](../../../dns/concepts/dns-zone.md).
+1. Убедитесь, что кластер {{ managed-k8s-name }} расположен в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), что и [зона {{ dns-name }}](../../../dns/concepts/dns-zone.md).
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), необходимый для работы cert-manager.
 1. [Назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `dns.editor` в каталоге, где расположена [публичная зона DNS](../../../dns/concepts/dns-zone.md#public-zones).
@@ -23,10 +23,10 @@
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
    * **Название приложения** — укажите название приложения, например, `cert-manager`.
-   * **Ключ сервисной учетной записи** — вставьте содержимое файла `key.json` или создайте новый ключ.
+   * **Ключ сервисной учетной записи** — вставьте содержимое файла `key.json` или создайте новый [ключ](../../../iam/concepts/authorization/key.md).
    * **ID каталога** — укажите идентификатор каталога, в котором находится зона {{ dns-name }}, для подтверждения владением доменом при проверке DNS-01.
-   * **Адрес электронной почты для получения уведомлений от Let's Encrypt** — укажите адрес электронной почты для получения оповещений от Let's Encrypt.
-   * **Адрес сервера Let's Encrypt** — выберите из списка адрес сервера Let's Encrypt:
+   * **Адрес электронной почты для получения уведомлений от Let's Encrypt** — укажите адрес электронной почты для получения оповещений от Let's Encrypt®.
+   * **Адрес сервера Let's Encrypt** — выберите из списка адрес сервера Let's Encrypt®:
      * `https://acme-v02.api.letsencrypt.org/directory` — основной URL.
      * `https://acme-staging-v02.api.letsencrypt.org/directory` — тестовый URL.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
@@ -91,7 +91,7 @@
      cert-manager-webhook-yandex ./cert-manager-webhook-yandex/
    ```
 
-   В качестве URL сервера Let's Encrypt используйте:
+   В качестве URL сервера Let's Encrypt® используйте:
    * `https://acme-v02.api.letsencrypt.org/directory` — основной URL.
    * `https://acme-staging-v02.api.letsencrypt.org/directory` — тестовый URL.
 
@@ -102,7 +102,12 @@
    kubectl get pods --namespace=<пространство_имен> -l app=cert-manager-webhook-yandex -w
    ```
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/dnschallenge.md).
+* [{#T}](../../tutorials/ingress-cert-manager.md).
+
 ## См. также {#see-also}
 
-* [Документация Let's Encrypt](https://letsencrypt.org/docs/client-options/).
+* [Документация Let's Encrypt®](https://letsencrypt.org/docs/client-options/).
 * [Документация cert-manager](https://cert-manager.io/docs/configuration/).

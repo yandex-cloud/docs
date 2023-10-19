@@ -2,9 +2,9 @@
 
 Issue boards are a tool that helps you track and manage your issues in a streamlined manner. There are two types of boards in {{ tracker-name }}:
 
-- **Basic boards** can be used by any teams and allow arranging issues in columns based on their status. [Creating a basic board](agile-new-create.md#basic)
+- **Basic boards** can be used by any teams and allow arranging issues in columns based on their status. [Creating a basic board](agile-new-create.md#basic).
 
-- Boards with a **Backlog and sprints** are good for Agile teams and allow managing [sprints](create-agile-sprint.md), [estimating issue complexity](poker.md), and analyzing [burn down charts](burndown-diagram.md). [Creating a board with a backlog and sprints](agile-new-create.md#backlog-and-sprints)
+- Boards with a **Backlog and sprints** are good for Agile teams and allow managing [sprints](create-agile-sprint.md), [estimating issue complexity](poker.md), and analyzing [burn down charts](burndown-diagram.md). [Creating a board with a backlog and sprints](agile-new-create.md#backlog-and-sprints).
 
 ## How to work with boards {#tips}
 

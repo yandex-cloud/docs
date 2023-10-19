@@ -15,7 +15,17 @@
    1. Set up the mailbox for receiving messages:
 
       1. Under **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-settings-title }}**, in the **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-address }}** field, specify the email address you created in Step 1, including the domain, e.g., `{{ example-account }}`. The **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-login }}** field will be populated automatically.
-      1. In the **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-password }}** field, provide the password for your email address. If the selected email server allows you to control access to the mailbox by an application password, enter the application's password for email clients in this field. [Learn more about application passwords in the Yandex ID documentation]({{ link-yandex }}/support/id/authorization/app-passwords.html).
+      1. In the **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-password }}** field, provide the password for your email address. If the selected email server allows you to control access to the mailbox by an application password, enter the application's password for email clients in this field.
+
+         {% note info "If the setup failed with a 404 error" %}
+
+            Check if the POP3 or IMAP support is enabled for your mailbox in Yandex Mail: <https://mail.yandex.ru//#setup/client>.
+            Select the protocol you are going to use and save the changes.
+
+         {% endnote %}
+
+         [Learn more about application passwords in the Yandex ID documentation]({{ link-yandex }}/support/id/authorization/app-passwords.html).
+
       1. Enter the **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-imap }}** and the email server **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-port }}**: you need them to collect emails. You can find this data in your email account settings.
       1. To enable SSL encryption, select **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-ssl }}**.
       1. If you need to process emails not only from the organization's employees but from external users as well, enable the **{{ ui-key.startrek.ui_components_page-queue-admin_AliasesCreateForm.mail-allow-external }}** setting.

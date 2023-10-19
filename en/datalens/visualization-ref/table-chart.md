@@ -2,7 +2,7 @@
 
 A table is a standard form of data representation with as many details as possible. It stores data as a two-dimensional array that consists of columns and rows. Table column headers show dimension or measure names, while cells contain their values. Each row is a set of cells with each column's value. A table may also contain a row with results.
 
-Tables are a great tool for detailed analysis (a deep dive into figures) and problem detection. At the same time, it takes longer to read information from a table than from a graph or chart. That is why you should place it at the end of a dashboard.
+Tables are a great tool for detailed analysis (a deep dive into figures) and problem detection. At the same time, it takes longer to read information from a table than from a graph or chart. Therefore, it is a good idea to place it at the end of a dashboard.
 
 A table is a good choice for quantitative comparison, where you can see different values of multiple categories or dimensions. The table below shows three different measures by three categories.
 
@@ -101,7 +101,7 @@ To set the width of any column to `Auto`, click **Reset**.
 
 ### Adding a row with totals {#add-totals}
 
-1. In the left part of the screen above the chart, click ![image](../../_assets/datalens/gear.svg).
+1. On the left side of the screen above the chart, click ![image](../../_assets/datalens/gear.svg).
 1. Enable the **Totals** settings.
 
 The **Total** row is displayed in the table. Values in the row are calculated using the same formulas as [aggregation](../concepts/dataset/data-model.md#aggregation) in the measure.
@@ -243,7 +243,7 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
     {% endcut %}
 
-* Use sorting. This facilitates information perception.
+* Use sorting. This makes the data easier to comprehend.
 * Use the [URL](../function-ref/URL.md) function in table cells to enable users to follow a link.
 
 * If a table cell contains a long text, [set up](#additional-settings) the column width to enable a row break in cells.

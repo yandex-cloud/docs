@@ -1,10 +1,16 @@
 # Blocks with special formatting
 
-You can add formatted blocks to a page created in the [old editor](pages-types.md#page). For example, you can [highlight syntax](static-markup/highlight.md) in the source code, add bordered blocks, and set up the [width and position](static-markup/wrappers.md) of a block on your page.
+{% note alert %}
+
+Special formatting blocks work on pages created in the [old editor](pages-types.md#page) and in [dynamic tables](pages-types.md#grid).
+
+{% endnote %}
+
+You can use block formating to present text as a block with a specified formatting. For example, you can [highlight syntax](static-markup/highlight.md) in the source code, add a fragment of boxed text, or set up the [width and position](static-markup/wrappers.md) of a block on your page.
 
 {{ wiki-name }} also supports markup of [mathematical formulas](static-markup/formulas.md) and special languages for visualizing [diagrams](static-markup/diagram.md).
 
-To add a formatted block to a page created in the old editor, use the following markup:
+To add a special formatting block to a page created in the old editor, use the following markup:
 
 ```
 %%(<format> <parameters>)

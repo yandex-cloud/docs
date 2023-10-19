@@ -42,7 +42,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter the service account name: `service-account-for-budget`.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the service account the `compute.admin`, `iam.serviceAccounts.user`, and `serverless.functions.invoker` roles.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the service account the `compute.admin`, `iam.serviceAccounts.user`, and `{{ roles-functions-invoker }}` roles.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
@@ -198,7 +198,7 @@ zip src.zip index.go go.mod
       * `--runtime`: Runtime environment.
       * `--entrypoint`: Entry point.
       * `--service-account-id`: ID of the `service-account-for-budget`.
-      * `--environment`: Environment variables. `FOLDER_ID`: The ID of the folder to stop the VM instances in.
+      * `--environment`: Environment variables. `FOLDER_ID`: ID of the folder to stop the VM instances in.
       * `--source-path`: Path to the `src.zip` archive.
 
       Result:

@@ -13,17 +13,26 @@
   
 - AWS CLI
   
-  Выполните в терминале команду:
+  1. Получите URL очереди сообщений, которую нужно удалить:
   
-  ```
-  aws sqs delete-queue \
-    --queue-url <URL_очереди_сообщений> \
-    --endpoint <эндпоинт>/
-  ```
+     ```bash
+     aws sqs list-queues \
+       --endpoint <эндпойнт>
+     ```
 
-  Где:
-  * `queue-url` — URL очереди сообщений, например: `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`.
-  * `endpoint` — эндпоинт, например: `https://message-queue.{{ api-host }}/`.
+     Где `--endpoint` — эндпоинт в значении `https://message-queue.{{ api-host }}/`.
+
+  2. Удалите очередь сообщений:
+  
+     ```
+     aws sqs delete-queue \
+       --queue-url <URL_очереди> \
+       --endpoint <эндпоинт>
+     ```
+
+     Где:
+     * `--queue-url` — URL очереди, которую нужно удалить.
+     * `--endpoint` — эндпоинт в значении `https://message-queue.{{ api-host }}/`.
 
 - {{ TF }}
 

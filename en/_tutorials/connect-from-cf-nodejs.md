@@ -93,7 +93,7 @@ The infrastructure support cost for this scenario includes:
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter the service account name: `sa-function`.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and choose the `editor` role.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-editor }}`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI
@@ -185,7 +185,7 @@ The infrastructure support cost for this scenario includes:
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. Choose the `sa-function` service account and click the line with its name.
+   1. Select the `sa-function` service account and click the row with its name.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
    1. Select the encryption algorithm.
@@ -271,8 +271,8 @@ The infrastructure support cost for this scenario includes:
 
       Wait until the database starts. When a database is being created, it has the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
 
-   1. Click on the name of the created database.
-   1. Save the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** and **{{ ui-key.yacloud.ydb.overview.label_database }}** field values under **{{ ui-key.yacloud.ydb.overview.section_connection }}**. You will need them in the next step.
+   1. Click the name of the created database.
+   1. Save the value of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it at the next step.
 
 {% endlist %}
 
@@ -292,10 +292,10 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 
 1. Edit the `.env` file:
 
-   * `ENDPOINT`: String in <protocol>://<**{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value under **{{ ui-key.yacloud.ydb.overview.section_connection }}**> format. For example, if the protocol is `grpcs` and the endpoint is `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, enter `{{ ydb.ep-serverless }}`.
-   * `DATABASE`: Value of the **{{ ui-key.yacloud.ydb.overview.label_database }}** field under **{{ ui-key.yacloud.ydb.overview.section_connection }}**.
+   * `ENDPOINT`: First part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
+   * `DATABASE`: Second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
    * `FUNCTION_NAME`: `func-test-ydb`.
-   * `FOLDER_ID`: ID of the folder.
+   * `FOLDER_ID`: Folder ID.
    * `SERVICE_ACCOUNT_ID`: ID of the `sa-function` service account.
 
 1. Create a function:

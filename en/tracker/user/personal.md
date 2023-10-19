@@ -108,16 +108,10 @@ By default, issue comments are sorted from oldest to newest. You can change the 
 
 1. Click **{{ ui-key.yacloud.common.save }}**.
 
-## The beta version of the new interface {#sec_beta}
+## New interface {#sec_beta}
 
 To enable the new {{ tracker-name }} interface:
 
 1. Click the link [{{ link-settings }}]({{ link-settings }}).
 
-1. Enable the **Beta version of the new interface** option.
-
-To disable the new {{ tracker-name }} interface:
-
-1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
-
-1. Under **{{ ui-key.yacloud.settings.switch_experiments }}**, disable the **Beta version of the new interface** option.
+1. Under **{{ ui-key.startrek.ui_components_NavigationBar.appearance-title }}**, enable the **{{ ui-key.startrek.ui_components_NavigationBar.new-ui }}** option.

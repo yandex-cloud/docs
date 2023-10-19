@@ -1,3 +1,8 @@
+---
+title: "How to add parameters to a dataset"
+description: "Follow this guide to add parameters to a dataset."
+---
+
 # Adding parameters to a dataset
 
 {% note info %}
@@ -8,7 +13,7 @@ Parameters added at the dataset level are available in all charts created based 
 
 To add a [parameter](../../concepts/parameters.md):
 
-1. Open the dataset. If you don't have a dataset, [create one](create.md).
+1. Open the dataset. If you do not have a dataset, [create one](create.md).
 1. In the upper-left corner, select the **Parameters** tab.
 1. Click **Add**.
 1. In the **Add parameter** window, specify:

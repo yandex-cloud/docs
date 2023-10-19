@@ -10,8 +10,8 @@ For more information about creating an email trigger, see [{#T}](../../operation
 
 ## Roles required for email trigger to run properly {#roles}
 
-* To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user) and [editor](../../../iam/concepts/access-control/roles#editor) roles and higher.
-* For the trigger to fire, the service account requires the `serverless.functions.invoker` role for the function invoked by the trigger.
+* To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles#editor) roles and higher.
+* For the trigger to fire, the service account requires the `{{ roles-functions-invoker }}` role for the function invoked by the trigger.
 * {% include [attachments-requirements](../../../_includes/functions/attachments-requirements.md) %}
 
 ## Email trigger message format {#format}

@@ -42,3 +42,19 @@ To add a group of issues, such as all issues from a queue with a certain assigne
 You can also add a group of issues using [bulk edits](agile-new-issues.md#bulk):
 1. On the [search issues]({{ link-tracker }}issues) page, select the issues to add by selecting the checkboxes to the left of the issue names.
 1. In the panel with bulk issue actions that opens at the bottom of the screen, click ![](../../_assets/tracker/svg/actions.svg) → **Add to board**. Search for the appropriate board by name and click **Apply**.
+
+## How to remove issues from the backlog {#delete-task-from-backlog}
+
+1. Hover over the issue you want to delete.
+
+1. Click ![](../../_assets/tracker/svg/actions.svg) → **Remove from backlog**.
+
+## How to limit issues in the backlog {#limit-of-tasks-in-backlog}
+
+To set the maximum number of issues that can be assigned a given status:
+
+1. To the right of the status, click ![](../../_assets/tracker/svg/actions.svg) → **Maximum number of issues**.
+
+1. Set a limit for the number of issues.
+
+1. Click **Save**.

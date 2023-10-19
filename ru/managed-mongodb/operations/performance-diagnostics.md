@@ -12,7 +12,7 @@
 
 ## Активировать сбор статистики {#activate-stats-collector}
 
-Чтобы воспользоваться инструментом диагностики, включите опцию **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings) (по умолчанию опция отключена). По умолчанию, статистика собирается только для запросов длительностью более 300 мс. При необходимости [измените в настройках СУБД](update.md#change-mongod-config) временной порог для сбора статистики медленных запросов в [параметре `slowOpThreshold`](../concepts/settings-list.md#setting-slow-op-threshold).
+Чтобы воспользоваться инструментом диагностики, включите сбор статистики при [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings). По умолчанию статистика собирается только для запросов длительностью более 300 мс. При необходимости [измените в настройках СУБД](update.md#change-mongod-config) временной порог для сбора статистики медленных запросов в [параметре](../concepts/settings-list.md#setting-slow-op-threshold) `slowOpThreshold`.
 
 ## Получить данные профилирования {#get-profiling}
 

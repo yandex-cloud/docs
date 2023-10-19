@@ -24,7 +24,7 @@ default:
   adv-ddos-protection: Advanced Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
   unified-agent-full-name: Yandex Unified Agent
-  managed-prometheus-full-name: Yandex Managed Service for Prometheus
+  managed-prometheus-full-name: Yandex Managed Service for Prometheus®
   prometheus-name: Prometheus
   promql-name: PromQL
   grafana-name: Grafana
@@ -106,7 +106,7 @@ default:
   mgp-name: Managed Service for Greenplum®
   mgl-name: Managed Service for GitLab
   monitoring-name: Monitoring
-  managed-prometheus-name: Managed Service for Prometheus
+  managed-prometheus-name: Yandex Managed Service for Prometheus®
   vpc-name: Virtual Private Cloud
   ddos-protection-name: DDoS Protection
   dsvm-name: Data Science Virtual Machine
@@ -170,7 +170,7 @@ default:
   yagpt-name: YandexGPT
   console-name: Cloud Console
   video-name: Cloud Video
-  postbox-name: Cloud Postbox
+  postbox-name: Yandex Cloud Postbox
   websql-name: WebSQL
   websql-full-name: Yandex WebSQL
   websql-link: http://webbsql.cloud.ru/
@@ -4014,9 +4014,7 @@ default:
         column-title--read: Просмотр задач
         column-title--write: Редактирование задач
         issues-access: Права доступа
-        reset: Очистить
         save: Сохранить
-        tab--components: Задачи с компонентом
         tab--queue: Все задачи
         update-access-denied-msg-btn: Редактировать
       blocks-desktop_b-page-queue-admin-tab_type_sla:
@@ -4224,7 +4222,6 @@ default:
         access-rights--write: Редактирование
         action_submit: Сохранить
         filter-remove-confirm-submit: Удалить
-        permissions-group--groups: Группы
       blocks-desktop_issues-filter:
         action--add-field: Добавить условие
         action--apply-query: Применить
@@ -7363,7 +7360,6 @@ default:
       settings:
         label_settings: Настройки
         switch_appearance: Оформление
-        switch_experiments: Эксперименты
         switch_lang: Язык и регион
       smart-web-security:
         action_empty: Создать
@@ -7711,7 +7707,6 @@ default:
         overview:
           button_action-delete: Удалить
           button_action-edit: Изменить
-          label_database: Размещение базы данных
           label_document-endpoint: Document API эндпоинт
           label_endpoint: Эндпоинт
           label_serverless-billing: Тарификация
@@ -9138,6 +9133,10 @@ default:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/helm/cert-manager-webhook-yandex
         tag: 1.0.6
+    yc_chaos-mesh:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chaos-mesh
+        tag: 2.6.1-1b
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/crossplane/crossplane/crossplane
@@ -9182,6 +9181,10 @@ default:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner
         tag: 0.54.0-8
+    yc_istio:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
+        tag: 1.18.0-1a
     yc_kyverno:
       helmChart:
         name: cr.yandex/yc-marketplace/multi-kyverno

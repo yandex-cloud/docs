@@ -2,7 +2,7 @@
 
 There are two types of roles in {{ datalens-short-name }}:
 
-* For service access: These roles are assigned to an [organization](../concepts/organizations.md) and grant access to {{ datalens-short-name }}.
+* For service access: These roles are assigned for an [organization](../concepts/organizations.md) and grant access to {{ datalens-short-name }}.
 * For [workbooks and collections](../workbooks-collections/index.md): These roles define the access level to each workbook or collection. They apply to users who [switched to workbooks and collections](../workbooks-collections/index.md#enable-workbooks) to store their objects in {{ datalens-short-name }}.
 
 ## Roles required to access the service {#service-roles}

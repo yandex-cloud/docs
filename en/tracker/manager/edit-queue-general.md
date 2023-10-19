@@ -1,3 +1,8 @@
+---
+title: "How to set up the basic parameters of a queue"
+description: "Use this guide to set up the basic parameters of a queue."
+---
+
 # Changing basic queue settings
 
 {% note warning %}

@@ -1,3 +1,8 @@
+---
+title: "How to add a queue team"
+description: "Follow this guide to add a queue team."
+---
+
 # Adding a queue team
 
 {% note warning %}
@@ -23,7 +28,7 @@ Changing the queue owner:
 
 1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--team }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--team }}** tab.
 
 1. Click image ![](../../_assets/tracker/icon-edit.png) next to the owner name.
 
@@ -43,7 +48,7 @@ To change the list of team members:
 
 1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--team }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--team }}** tab.
 
 1. To add a new member, enter their username or name in the **{{ ui-key.startrek.blocks-desktop_b-queue-form.queue-team }}** field.
 

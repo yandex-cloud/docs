@@ -1,3 +1,8 @@
+---
+title: "How to create a {{ ydb-name }} connection"
+description: "This guide describes how you can create a {{ ydb-name }} connection."
+---
+
 # Creating a {{ ydb-name }} connection
 
 {% note info %}

@@ -6,9 +6,10 @@ Set up your workspace in {{ tracker-name }} and create your first issues.
 
 To get started with {{ tracker-name }}, create a queue: this is a shared space where all your issues are brought together. To conveniently manage issues, use boards, a visual method to track the status of issues belonging to several queues. Issues on the board are distributed across columns corresponding to different statuses. Managing issue boards in {{ tracker-name }} is similar to working with regular sticker boards: just drag your issues between columns to change their status.
 
-In {{ tracker-name }}, you can [create](manager/create-queue.md) and [set up](manager/edit-queue-general.md) a queue manually, or use [automation tools](automation.md). To create a queue preconfigured for a specific workflow, you can use [workflow templates](manager/create-work-process.md).
+In {{ tracker-name }}, you can [create](manager/create-queue.md) and [set up](manager/edit-queue-general.md) a queue manually, or use [automation tools](automation.md). To create a queue preconfigured for a specific workflow, we recommend using [workflow templates](manager/create-work-process.md).
 
-1. On the [**{{ ui-key.startrek.blocks-desktop_b-head.my-page }}**](https://tracker.yandex.ru/pages/my) home page, click **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}** in the **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}** widget.
+
+1. On the  [**{{ ui-key.startrek.blocks-desktop_b-head.my-page }}**](https://tracker.yandex.ru/pages/my) home page, click **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.choose-template-button }}** in the **{{ ui-key.startrek.ui_components_dashboard_InfoPresetsWidget.widget-title }}** widget.
 1. Select **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.process-type-standard }}** and click **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
 1. Specify the queue parameters:
    * Issue queue name
@@ -17,6 +18,7 @@ In {{ tracker-name }}, you can [create](manager/create-queue.md) and [set up](ma
 1. Click **{{ ui-key.startrek.ui_components_new-process_ProcessTypeStep.next-button }}**.
 
 This will create a queue with a basic set of issue [types and statuses](manager/workflow.md) and a [simple issue board](manager/agile.md#sec_boards).
+
 
 ## Step 2. Create your first issues {#create-tasks}
 
@@ -30,9 +32,9 @@ The fastest way to create an issue is to do it from the board. You only need to
 
 1. To create an issue, click **{{ ui-key.startrek.blocks-desktop_guide.ticket--main--action_new--title }}**.
 
-1. In the dialog that opens, enter the issue name in the **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.issue-name }}** field. Make sure that the name is informative, so it is easier to find in the list, for example: <q>Find the answer to the ultimate question of life, the Universe, and everything else</q>.
+1. In the dialog that opens, enter a name for the issue in the **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.issue-name }}** field. Make sure the name is informative to be easy to find in the list, for example: <q>Find the answer to the ultimate question of life, the Universe, and everything else</q>.
 
-1. Click **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.create }}** and press **Enter**.
+1. Click **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.create }}** or press **Enter**.
 
 The new issue will appear on the board, the queue page, and the [{{ tracker-name }} home page]({{ link-tracker }}) in your issue list.
 
@@ -52,7 +54,7 @@ Use the full form to set up all the issue attributes you need right from the sta
 
 1. You will be suggested to fill out a standard form with a pre-configured list of parameters.
 
-   1. In the **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.issue-name }}** field, enter an issue name. Make sure that the name is informative, so it is easier to find in the list, for example: <q>Find the answer to the ultimate question of life, the Universe, and everything else</q>.
+   1. Enter a name for the issue in the **{{ ui-key.startrek.ui_components_create-issue-popup_NewIssueForm.issue-name }}** field. Make sure that the name is informative to be easy to find in the list, for example: <q>Find the answer to the ultimate question of life, the Universe, and everything else</q>.
 
    1. Enter a description of the issue if needed. To do so, click the `{{ ui-key.startrek.ui_components_PageCreateIssue.description-placeholder }}` placeholder and describe the issue in the text editor that opens.
 

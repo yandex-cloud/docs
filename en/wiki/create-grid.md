@@ -1,6 +1,6 @@
 # Creating a dynamic table
 
-_Dynamic tables_ are tables where users can specify data types in columns, sort values, and make cells mandatory. You can use a table directly or [embed it in a {{ wiki-name }} page](add-grid.md#grid).
+_Dynamic tables_ are tables where you can specify column data type, sort values, or turn cells into required. You can use a table directly or [embed it in a {{ wiki-name }} page](add-grid.md#grid).
 
 There are multiple ways to create a table:
 
@@ -103,13 +103,13 @@ To create a table and embed it in the text of a page:
 
 1. Save the page.
 
-1. [Fill in the table](edit-grid.md).
+1. [Fill in the table](edit-grid-wysiwyg.md).
 
 #### See also
 
 - [Inserting a simple table](add-grid.md#simple-table)
 
-- [{#T}](edit-grid.md)
+- [{#T}](edit-grid-wysiwyg.md)
 
 - [{#T}](create-page.md)
 

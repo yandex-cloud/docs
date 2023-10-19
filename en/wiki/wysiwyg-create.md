@@ -20,4 +20,4 @@ To create a page in a WYSIWYG visual editor:
 
 1. Click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_b-head.create }}**.
 
-1. Add text to your page using the [visual editor](wysiwyg-edit.md).
+1. Add text to your page using the [visual editor](new-editor.md).
