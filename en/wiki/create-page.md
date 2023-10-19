@@ -66,7 +66,7 @@ You can create a page in the old editor in a specific cluster:
 
 - [{#T}](page-management/access-setup.md)
 
-- [{#T}](edit-page.md)
+- [{#T}](old-editor.md)
 
 - [{#T}](create-grid.md)
 

@@ -1,5 +1,5 @@
 To provide the function with access to the [secret](../../lockbox/concepts/secret.md), specify a [service account](../../iam/concepts/users/service-accounts.md) with the following roles in the function parameters:
-* `lockbox.payloadViewer` for the secret (see [how to grant access rights to secrets](../../lockbox/operations/secret-access.md)).
+* `{{ roles-lockbox-payloadviewer }}` for the secret (see [how to grant access rights to secrets](../../lockbox/operations/secret-access.md)).
 * `kms.keys.encrypterDecrypter` for the encryption key if the secret was created using a {{ kms-full-name }} key (see [how to grant access rights to encryption keys](../../kms/operations/key-access.md)).
 
 A new version of a function is created when secrets are transmitted. You cannot transmit secrets to an existing version.
@@ -13,7 +13,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
    1. Select a function where you want to transmit a {{ lockbox-name }} secret to.
    1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-      * In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, the service account with the `lockbox.payloadViewer` role.
+      * In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, the service account with the `{{ roles-lockbox-payloadviewer }}` role.
       * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field:
          * Name of the environment variable where the secret will be kept.
          * Secret ID.
@@ -56,7 +56,7 @@ A new version of a function is created when secrets are transmitted. You cannot 
    * `--memory`: Amount of RAM.
    * `--execution-timeout`: Maximum function execution time before the timeout is reached.
    * `--source-version-id`: ID of the function version to copy the code of.
-   * `--service-account-id`: ID of a service account with the `lockbox.payloadViewer` role.
+   * `--service-account-id`: ID of the service account with the `{{ roles-lockbox-payloadviewer }}` role.
    * `--secret`:
       * `environment-variable`: Name of the environment variable where the secret will be kept.
       * `id`: Secret ID.
@@ -102,10 +102,10 @@ A new version of a function is created when secrets are transmitted. You cannot 
       Where:
 
       * `secrets`: Section with secret settings. It contains the following parameters:
-         * `id`: Secret ID. Required parameter.
-         * `version_id`: Secret version ID. Required parameter.
-         * `key`: Non-secret key ID to be stored in an environment variable. Required parameter.
-         * `environment_variable`: Name of the environment variable where the secret will be kept. Required parameter.
+         * `id`: Secret ID. This is a required parameter.
+         * `version_id`: Secret version ID. This is a required parameter.
+         * `key`: Non-secret key ID to be stored in an environment variable. This is a required parameter.
+         * `environment_variable`: Name of the environment variable where the secret will be kept. This is a required parameter.
 
    1. Apply the changes:
 

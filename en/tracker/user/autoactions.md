@@ -1,3 +1,8 @@
+---
+title: "Auto actions"
+description: "An auto action is a set of actions on the queue's issues that is applied automatically at a given interval."
+---
+
 # Auto actions
 
 {% note warning %}
@@ -6,10 +11,13 @@ By default, only a [queue owner](../manager/queue-access.md) can create, edit, a
 
 {% endnote %}
 
-An auto action is a set of actions that run on a schedule and can automatically be applied to issues in a queue.
+An auto action is a set of actions on the queue's issues that is applied automatically at a given interval.
 
-You can use auto actions to:
+Use auto actions for:
 
 - [Change issue fields that match a filter](create-autoaction.md).
 - [Set up scheduled issue creation based on a template](ticket-schedule.md).
+
+
+
 

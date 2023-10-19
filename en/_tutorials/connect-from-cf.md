@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for this scenario includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
-* Fee for querying the database (see [{{ ydb-name }} pricing](../ydb/pricing/serverless.md)).
+* Fee for running queries to the database (see [{{ ydb-name }} pricing](../ydb/pricing/serverless.md)).
 
 
 ## Create a service account {#create-sa}
@@ -38,7 +38,7 @@ The infrastructure support cost for this scenario includes:
 
       {% include [name-format](../_includes/name-format.md) %}
 
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and choose the `editor` role.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-editor }}`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -59,9 +59,9 @@ The infrastructure support cost for this scenario includes:
    1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
    1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-      Wait until the database starts. When a database is being created, it has the `Provisioning` status. When it's ready for use, the status changes to `Running`.
-   1. Click on the name of the created database.
-   1. Under **{{ ui-key.yacloud.ydb.overview.section_connection }}**, find the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** and **{{ ui-key.yacloud.ydb.overview.label_database }}** fields and save their values. You will need them in the next step.
+      Wait until the database starts. When a database is being created, it has the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+   1. Click the name of the created database.
+   1. Under **{{ ui-key.yacloud.ydb.overview.section_connection }}**, find the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field and save its value. You will need it at the next step.
 
 {% endlist %}
 
@@ -71,7 +71,7 @@ The infrastructure support cost for this scenario includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create the function.
+   1. In the [management console]({{ link-console-main }}), select the folder to create the function in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
    1. Enter a name and description for the function. The naming requirements are as follows:

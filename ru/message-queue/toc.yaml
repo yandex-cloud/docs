@@ -29,6 +29,8 @@ items:
     items:
       - name: Обзор
         href: operations/index.md
+      - name: Настройка AWS CLI
+        href: operations/configuring-aws-cli.md
       - name: Создание новой очереди сообщений
         href: operations/message-queue-new-queue.md
       - name: Отправка сообщений
@@ -69,7 +71,7 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: API {{ message-queue-full-name }}
+  - name: API {{ message-queue-name }}
     items:
       - name: Обзор
         href: api-ref/index.md

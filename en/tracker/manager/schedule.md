@@ -1,3 +1,8 @@
+---
+title: "How to set up work schedules "
+description: "Follow this guide to set up work schedules."
+---
+
 # Work schedule
 
 {% note warning %}
@@ -23,9 +28,9 @@ In the **{{ ui-key.startrek.blocks-desktop_calendar-editor--working-time-select.
 
 1. Select **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-calendars }}**.
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendars.create-calendar }}**.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendars.create-calendar }}**.
 
-1. Click ![](../../_assets/tracker/icon-edit.png) and name the schedule. Click ![](../../_assets/tracker/approve-checkmark.png) to save the name.
+1. Click the ![](../../_assets/tracker/icon-edit.png) icon and name the schedule. Click ![](../../_assets/tracker/approve-checkmark.png) to save the name.
 
 1. Select the time zone.
 
@@ -37,9 +42,9 @@ In the **{{ ui-key.startrek.blocks-desktop_calendar-editor--working-time-select.
 
    - Add **SLA exceptions** if your work schedule differs from the official calendar.
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendar-editor.action-save }}**.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendar-editor.action-save }}**.
 
-You can view the schedule you created in the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendars.custom-calendars }}** section. Other users won't be able to view or use your schedule.
+You can view the schedule you created in the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_calendars.custom-calendars }}** section. Other users will not be able to view or use your schedule.
 
 ## Editing work schedules {#section_vkm_flh_x2b}
 

@@ -1,3 +1,8 @@
+---
+title: "How to create a multi-dataset chart"
+description: "This guide describes how you can create a multi-dataset chart."
+---
+
 # Creating a multi-dataset chart
 
 {% note info %}

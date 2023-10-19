@@ -29,6 +29,8 @@ items:
             href: operations/applications/marketplace.md
           - name: Установка Argo CD
             href: operations/applications/argo-cd.md
+          - name: Установка Chaos Mesh
+            href: operations/applications/chaos-mesh.md
           - name: Установка cert-manager c плагином {{ dns-name }} ACME webhook
             href: operations/applications/cert-manager-cloud-dns.md
           - name: Установка Container Storage Interface для S3
@@ -55,6 +57,8 @@ items:
             href: operations/applications/hashicorp-vault.md
           - name: Установка Ingress-контроллера {{ alb-name }}
             href: operations/applications/alb-ingress-controller.md
+          - name: Установка Istio
+            href: operations/applications/istio.md
           - name: Установка Jaeger
             href: operations/applications/jaeger.md
           - name: Установка Kyverno & Kyverno Policies
@@ -250,12 +254,14 @@ items:
             href: concepts/node-group/node-group-gpu.md
       - name: Сеть в {{ managed-k8s-name }}
         href: concepts/network.md
-      - name: Внешние узлы кластера
-        href: concepts/external-nodes.md
       - name: Сетевые настройки и политики кластера
         href: concepts/network-policy.md
       - name: Автоматическое масштабирование
         href: concepts/autoscale.md
+      - name: Политика аудита
+        href: concepts/audit-policy.md
+      - name: Внешние узлы кластера
+        href: concepts/external-nodes.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Рекомендации по использованию {{ managed-k8s-name }}

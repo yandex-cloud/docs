@@ -1,6 +1,6 @@
 ---
 title: "Revoking roles assigned to a function"
-description: "Follow this guide to revoke the roles assigned to a function."
+description: "Use this guide to revoke function roles."
 ---
 
 # Revoking roles assigned to a function
@@ -37,7 +37,7 @@ description: "Follow this guide to revoke the roles assigned to a function."
       ```
       done (1s)
       ```
-   * All authorized users (`allAuthenticatedUsers` system group):
+   * All authorized users (`{{ subjects-allAuthenticatedUsers }}` system group):
       ```
       yc serverless function remove-access-binding \
         --id <function ID> \

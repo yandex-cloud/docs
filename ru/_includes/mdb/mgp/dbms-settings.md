@@ -22,11 +22,15 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
 
-* **Gp workfile limit per segment**{#setting-gp-workfile-limit-per segment} {{ tag-con }} {{ tag-api }}
+* **Gp workfile limit per segment**{#setting-gp-workfile-limit-per-segment} {{ tag-con }} {{ tag-api }}
 
     Максимальный объем дискового пространства (в байтах), который могут занимать временные файлы всех активных запросов в каждом сегменте.
 
-    Максимальное значение — `1099511627776` (1 ТБ), минимальное — `0` (объем не ограничен), по умолчанию — `0`.
+    Максимальное значение — `1099511627776` (1 ТБ), минимальное — `0` (объем не ограничен). Значение по умолчанию [зависит от размера хранилища хостов-сегментов](#settings-instance-dependent) и рассчитывается по формуле:
+
+    ```text
+    0.1 × <размер хранилища хоста-сегмента> / <количество сегментов на хост>
+    ```
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
 
@@ -69,7 +73,11 @@
 
     Максимальный размер (в байтах) файлов лога [WAL](https://www.postgresql.org/docs/current/wal-intro.html) (Write-Ahead Log) при репликации.
 
-    Минимальное значение — `0` (лог не ведется), максимальное — `214748364800` (200 ГБ), по умолчанию — `0`.
+    Минимальное значение — `0` (лог не ведется), максимальное — `214748364800` (200 ГБ). Значение по умолчанию [зависит от размера хранилища хостов-сегментов](#settings-instance-dependent) и рассчитывается по формуле:
+
+    ```text
+    0.1 × <размер хранилища хоста-сегмента> / <количество сегментов на хост>
+    ```
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
 

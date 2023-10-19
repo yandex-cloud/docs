@@ -43,8 +43,8 @@ Pivot tables make it easier to work with large amounts of data and let you analy
 
 | Section<br/> in the wizard | Description |
 ----- | ----
-| Columns | Dimensions |
-| Stings | Dimensions |
+| Columns | Dimensions. |
+| Stings | Dimensions. |
 | Measures | Measures. If you add more than one measure to a section, the **Columns** section contains the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. [Measure Names](../concepts/chart/measure-values.md) can be moved to **Rows**. |
 | Colors | Measure. Affects shading of all cells containing indicators. It may only contain one measure. |
 | Sorting | Dimensions and measures specified in the **Columns** and **Rows** sections.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. The sorting direction is marked with an icon next to the field: ![image](../../_assets/datalens/sort_asc.svg) ascending or ![image](../../_assets/datalens/sort_desc.svg) descending. To change the sorting direction, click the icon. Sorting by measure only impacts a request to the source and does not affect the pivot table. |
@@ -234,6 +234,6 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
     {% endcut %}
 
-* Use sorting. This facilitates information perception.
+* Use sorting. This makes the data easier to comprehend.
 * Use the [URL](../function-ref/URL.md) function in table cells to enable users to follow a link.
 * When displaying numeric data, specify units and the number of decimal places. For example, if you select `Millions, M` in the drop-down list of the **Units** field, the `10.3 M` value is displayed instead of `10,345,234.23`. If you set the `Precision` field value to `2`, then `123.12` is displayed instead of `123.1234`.

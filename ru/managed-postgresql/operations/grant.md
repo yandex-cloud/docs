@@ -144,6 +144,8 @@ description: "Атомарные полномочия в PostgreSQL называ
         }
         ```
 
+        {% include [see-fqdn](../../_includes/mdb/mpg/fqdn-host.md) %}
+
         Полный список настроек см. в [документации провайдера](https://registry.terraform.io/providers/cyrilgdn/postgresql/latest/docs).
 
     1. Добавьте ресурс `postgresql_grant`:

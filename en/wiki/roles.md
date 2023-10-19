@@ -14,7 +14,7 @@ A page can have one or more authors:
 * Co-authors. All users [added](./page-management/edit-owner.md#add) to the list of page authors.
 
 All authors have the same rights to the {{ wiki-name }} page. Authors can perform the following actions:
-* [Edit](./edit-page.md) pages.
+* Edit pages.
 * Set up other users' [access rights](./page-management/access-setup.md) to the page.
 * [Change](./page-management/edit-owner.md) a list of authors and assign the page owner.
 

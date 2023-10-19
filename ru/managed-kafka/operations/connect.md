@@ -103,6 +103,18 @@
 
 Полученный SSL-сертификат также используется при работе с [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
 
+## FQDN хоста {{ KF }} {#fqdn}
+
+Для подключения к хосту потребуется его [FQDN](../concepts/network.md#hostname) — доменное имя. Его можно получить несколькими способами:
+
+* [Запросите список хостов в кластере](cluster-hosts.md#list-hosts).
+* Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит заполненный FQDN хоста-брокера. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**.
+* Посмотрите FQDN в консоли управления:
+
+   1. Перейдите на страницу кластера.
+   1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
+
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
 Чтобы подключаться к кластеру {{ mkf-name }} из Docker-контейнера, добавьте в Dockerfile строки:

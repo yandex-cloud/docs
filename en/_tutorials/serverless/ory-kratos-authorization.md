@@ -109,7 +109,7 @@ The infrastructure support costs include:
 
          ```bash
          yc resource-manager folder add-access-binding <folder_ID> \
-           --role admin \
+           --role {{ roles-admin }} \
            --subject serviceAccount:<service_account_ID>
          ```
 
@@ -133,16 +133,16 @@ The infrastructure support costs include:
            folder_id   = "<folder_ID>"
          }
 
-         resource "yandex_resourcemanager_folder_iam_member" "admin" {
+         resource "yandex_resourcemanager_folder_iam_member" "{{ roles-admin }}" {
            folder_id = "<folder_ID>"
-           role      = "admin"
+           role      = "{{ roles-admin }}"
            member    = "serviceAccount:${yandex_iam_service_account.sa-for-kratos id}"
          }
          ```
 
          Where:
 
-         * `name`: Service account name. Required parameter.
+         * `name`: Service account name. This is a required parameter.
          * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Optional parameter. By default, the value specified in the provider settings is used.
          * `role`: Role being assigned.
 
@@ -183,7 +183,7 @@ The infrastructure support costs include:
 
    {% endlist %}
 
-1. Follow the same steps to create an `sa-func-authorizer` service account with the `{{ roles-functions-ivoker }}` role. This service account will be used to invoke the function.
+1. Follow the same steps to create an `sa-func-authorizer` service account with the `{{ roles-functions-invoker }}` role. This service account will be used to invoke the function.
 
 ## Deploy Identity Server based on Ory Kratos {#deploy-kratos}
 

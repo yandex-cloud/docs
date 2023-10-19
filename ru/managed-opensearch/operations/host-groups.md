@@ -16,6 +16,8 @@ keywords:
 * [{#T}](#update-host-group).
 * [{#T}](#delete-host-group).
 
+Также вы можете [получить список хостов в кластере](#list-hosts).
+
 ## Получить список групп хостов в кластере {#list-groups}
 
 {% list tabs %}
@@ -142,5 +144,22 @@ keywords:
       {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
     * Имя группы хостов, которую вы хотите удалить из кластера, в параметре `name`.
+
+{% endlist %}
+
+## Получить список хостов в кластере {#list-hosts}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts](../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
+
+- API
+
+  Чтобы получить список хостов в кластере, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+
+  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md).
 
 {% endlist %}

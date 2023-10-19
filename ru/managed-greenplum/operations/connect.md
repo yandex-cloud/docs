@@ -63,6 +63,34 @@
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
+## FQDN хоста {{ GP }} {#fqdn}
+
+Для подключения к хосту-мастеру потребуется его [FQDN](../concepts/network.md#hostname) — доменное имя. Его можно получить несколькими способами:
+
+* [Запросите список хостов в кластере](hosts/cluster-hosts.md#list-hosts).
+* Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит список FQDN хостов-мастеров. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**.
+* Посмотрите FQDN в консоли управления:
+
+   1. Перейдите на страницу кластера.
+   1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
+
+Для первичного хоста-мастера также используется [особый FQDN](#fqdn-master).
+
+## Особый FQDN первичного мастера {#fqdn-master}
+
+Чтобы вручную не подключаться к другому хосту-мастеру, если текущий станет недоступен, можно использовать особый FQDN вида `c-<идентификатор кластера>.rw.{{ dns-zone }}`. Он всегда указывает на первичный хост-мастер. К этому FQDN разрешено подключаться и выполнять операции чтения и записи.
+
+Пример подключения к первичному хосту-мастеру в кластере с идентификатором `c9qash3nb1v9ulc8j9nm`:
+
+```bash
+psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
+      port={{ port-mgp }} \
+      sslmode=verify-full \
+      dbname=<имя БД> \
+      user=<имя пользователя>"
+```
+
 ## Подключение из графических IDE {#connection-ide}
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
@@ -189,26 +217,10 @@ column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait
 * `/home/<домашняя директория>/.postgresql/` для Ubuntu;
 * `$HOME\AppData\Roaming\postgresql` для Windows.
 
-Подключиться к кластеру можно как с использованием обычного FQDN первичного мастера, так и его [особого FQDN](#fqdn-master).
+Подключиться к кластеру можно как с использованием обычного FQDN хоста-мастера, так и [особого FQDN](#fqdn-master) первичного хоста-мастера. О том, как получить FQDN хоста, см. [инструкцию](#fqdn).
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 {% include [mgp-connection-strings](../../_includes/mdb/mgp/conn-strings.md) %}
-
-## Особый FQDN первичного мастера {#fqdn-master}
-
-Наравне с обычными FQDN, которые можно запросить со списком хостов в кластере, {{ mgp-name }} предоставляет особый FQDN, который также можно использовать для подключения к кластеру.
-
-FQDN вида `c-<идентификатор кластера>.rw.{{ dns-zone }}` всегда указывает на первичный хост-мастер. К этому FQDN разрешено подключаться и выполнять операции чтения и записи.
-
-Пример подключения к первичному хосту-мастеру в кластере с идентификатором `c9qash3nb1v9ulc8j9nm`:
-
-```bash
-psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
-      port={{ port-mgp }} \
-      sslmode=verify-full \
-      dbname=<имя БД> \
-      user=<имя пользователя>"
-```
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

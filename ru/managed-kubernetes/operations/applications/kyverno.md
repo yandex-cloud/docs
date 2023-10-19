@@ -6,6 +6,12 @@
 
 Отправлять оповещения из Kyverno в другие системы можно с помощью расширения [Policy reporter](/marketplace/products/yc/policy-reporter).
 
+{% note tip %}
+
+Чтобы выявить уязвимости в работе кластера {{ k8s }}, используйте приложение [Chaos Mesh](chaos-mesh.md). Нахождение уязвимостей поможет настроить политики безопасности.
+
+{% endnote %}
+
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.

@@ -1,3 +1,8 @@
+---
+title: "How to set up rules"
+description: "Follow this guide to set up rules."
+---
+
 # Configuring rules
 
 {% note warning %}
@@ -8,7 +13,7 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 ## Creating a rule {#create-rule}
 
-The rule will be applied to all the new issues in the queue. The SLA timer won't appear in the issues created earlier than the rule.
+The rule will be applied to all the new issues in the queue. The SLA timer will not appear in the issues created earlier than the rule.
 
 To create a new SLA rule:
 
@@ -16,14 +21,14 @@ To create a new SLA rule:
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}** tab.
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.create-sla }}**.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.create-sla }}**.
 
 1. Click the ![](../../_assets/tracker/icon-edit.png
    ) icon and name the rule.
 
-1. Select a [work schedule](schedule.md). The schedule sets the time when the rule is active. The timer won't count outside your working hours.
+1. Select a [work schedule](schedule.md). The schedule sets the time when the rule is active. The timer will not count outside your working hours.
 
 1. You cannot use filters to select the issues that the rule will be applied to. The <q>{{ ui-key.startrek-backend.defaults.sla.default.filter.name }}</q> filter is enabled by default.
 
@@ -82,7 +87,7 @@ To create a new SLA rule:
 
 1. In the **{{ ui-key.startrek.blocks-desktop_sla-editor.excesses--title }}** section, specify who should be notified of overdue issues and which way.
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_sla-editor.actions--save }}**.
+1. Click **{{ ui-key.startrek.blocks-desktop_sla-editor.actions--save }}**.
 
 ### Example {#example}
 
@@ -115,13 +120,13 @@ To view a list of SLA rules in the queue:
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}** tab.
 
 To view the parameters of the rule, click its name:
 
 * **{{ ui-key.startrek.blocks-desktop_sla-editor.calendar }}**
 
-   The schedule sets the time when the rule is active. The timer won't count outside your working hours.
+   The schedule sets the time when the rule is active. The timer will not count outside your working hours.
 
 * **{{ ui-key.startrek.blocks-desktop_sla-editor.thresholds--title }}**
 
@@ -159,10 +164,10 @@ To edit the SLA rule:
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. Click the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}** tab.
+1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--sla }}** tab.
 
 1. Select the rule.
 
-1. Tap **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.edit-sla }}**.
+1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_sla.edit-sla }}**.
 
 1. Make your changes and click **{{ ui-key.startrek.blocks-desktop_sla-editor.actions--save }}**.

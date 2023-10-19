@@ -52,22 +52,22 @@ spec:
 ```
 
 Where:
-* `command`: The command to run on Docker container launch.
-* `args`: Arguments passed to the command run in the Docker container.
+* `command`: Command to run on Docker container launch.
+* `args`: Arguments sent to the command run in the Docker container.
 * `env`: Environment variables available in the Docker container.
-* `image`: The Docker image to use to create and run a Docker container.
-* `name`: The Docker container to run.
+* `image`: Docker image used to create and run a Docker container.
+* `name`: Docker container to run.
 * `securityContext`: Security and access control settings inside the Docker container. You can only run a privileged Docker container.
-* `privileged`: Launch the Docker container in privileged mode. Processes in privileged Docker containers can access any system device and are the same as those with root permissions on a VM. The * default value is false.
-* `stdin`: The buffer for the input stream while running the Docker container. The input stream will be linked to the running Docker container. The default value is false.
+* `privileged`: Launching the Docker container in privileged mode. Processes in privileged Docker containers can access any system device and are the same as those with root permissions on a VM. The default value is false.
+* `stdin`: Buffer for the input stream while running the Docker container. The input stream will be linked to the running Docker container. The default value is false.
 * `tty`: TTY allocation for the Docker container. The default value is false.
-* `restartPolicy`: The Docker container [restart policy](restart-policy.md).
-* `volumeMounts`: A list of volumes to mount inside a Docker container.
-* `mountPath`: The path in the Docker container where the specified volume will be mounted.
+* `restartPolicy`: Docker container [restart policy](restart-policy.md).
+* `volumeMounts`: List of volumes to mount inside a Docker container.
+* `mountPath`: Path in the Docker container where the specified volume will be mounted.
 * `volumes`: Description of the volumes used in the specification file.
-* `emptyDir`: An empty directory in the `tmpfs` temporary file system that is created in the VM RAM. The contents of this directory are deleted when the Docker container it's mounted to is stopped and when the VM is restarted. To use the `tmpfs`, specify the parameter `medium:Memory`. Volume size cannot be greater than the amount of RAM allocated to the VM.
-* `hostPath`: The directory from the VM file system to mount in the Docker container.
-* `path`: The path to the `hostPath` directory.
+* `emptyDir`: Empty directory in the `tmpfs` temporary file system that is created in the VM RAM. The contents of this directory are deleted when the Docker container it's mounted to is stopped and when the VM is restarted. To use the `tmpfs`, specify the parameter `medium:Memory`. Volume size cannot be greater than the amount of RAM allocated to the VM.
+* `hostPath`: Directory from the VM file system to mount in the Docker container.
+* `path`: Path to the `hostPath` directory.
 
 ## Docker Compose specification {#compose-spec}
 
@@ -108,15 +108,15 @@ x-yc-disks:
 ```
 
 Where:
-* `version`: The specification version tag that the file should start with.
-* `services`: The section that describes the services.
-* `container_name`: The Docker container to run.
-* `image`: The Docker image to use to create and run a Docker container.
-* `ports`: Used for redirecting service ports. Specified in the format: `<PC port>:<container port>`.
+* `version`: Specification version tag the file should start with.
+* `services`: Section that describes the services.
+* `container_name`: Docker container to be run.
+* `image`: Docker image used to create and run a Docker container.
+* `ports`: Used for redirecting service ports. Specified in the `<PC port>:<container port>` format.
 * `restart`: Docker container restart policy settings.
 * `volumes`: Description of the volumes used in the Docker container.
-* `x-yc-disks`: Section that describes the [disks](../../compute/concepts/disk.md). It is an [extension of the Docker Compose specification](https://docs.docker.com/compose/compose-file/#extension-fields). Used when preparing to run Docker containers, before running the Docker Compose file. Docker Compose skips this section.
-* `device_name`: Name of the device.
+* `x-yc-disks`: Section that describes the [disks](../../compute/concepts/disk.md) to attach. It is an [extension of the Docker Compose specification](https://docs.docker.com/compose/compose-file/#extension-fields). Used when preparing to run Docker containers, before running the Docker Compose file. Docker Compose skips this section.
+* `device_name`: Device name.
 * `fs_type`: File system type. The supported file systems are ext4 and xfs.
 * `host_path`: Directory the disk is mounted to.
-* `partition`: The used disk partition.
+* `partition`: Disk partition being used.

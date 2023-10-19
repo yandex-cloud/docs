@@ -1,148 +1,116 @@
-# Setting access rights for queues
+---
+title: "How to set up access to a queue"
+description: "Follow this guide to set up access to a queue."
+---
+
+# Setting up access for a queue
+
+The queue owner can configure access to the queue. The owner can also delegate this right to other users, in the queue settings. By default, all users in the organization have full access to tasks in the queue.
+
+Access can be restricted in the queue settings. To open settings:
+
+1. In the left panel, click **{{ ui-key.startrek.blocks-desktop_m-head.menu-queues }}** and select the queue from the list.
+
+1. Click **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}** → **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-permissions }}**. If you do not see the **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}** button, it means you have no rights to configure the queue. If you need these rights, contact the queue owner.
+
+The queue access rights setup page will open. Here you can see which rights are active for the queue, but that in the context of the rights of the user viewing this page. For example, if your access to certain tasks is restricted, they will not be included in the task count.
 
 {% note warning %}
 
-By default, only the queue owner can configure a queue.
+Configure queue access rights cautiously to avoid unintentionally locking yourself out. If this happens, contact the [organization administrators](#implicit-access).
 
 {% endnote %}
-
-## Setting access rights for queues {#set-access}
-
-By default, users are not restricted from accessing queue issues.
-
-If you restrict access to your queue, only the users specified in the following fields will have access to its issues by default: **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--author }}**, **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--assignee }}**, **{{ ui-key.startrek.blocks-desktop_st-field-utils.field--followers }}**, and **Access**.
-
-
-{% note warning %}
-
-To create and edit issues, the user needs [full access](../access.md) to {{ tracker-name }} (except for accessing the queue). For more information, see [{#T}](../role-model.md).
-
-{% endnote %}
-
-
-You can change access settings for specific users, groups, or roles:
-
-1. Open the [queue page](../user/queue.md).
-
-1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
-
-1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--permissions }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.tab--queue }}** tab.
-
-1. Add users and groups to configure access for:
-   * **{{ ui-key.startrek.blocks-desktop_roles-table.users }}**: Individual settings for individual users. To add a user to this category, enter their login or name in the search bar located at the top of the table.
-   * **{{ ui-key.startrek.blocks-desktop_issues-filter-update-modal.permissions-group--groups }}**: Settings applying to all employees.
-
-
-   * **{{ ui-key.startrek.blocks-desktop_roles-table.roles }}**: Settings for users who have specific roles in queue issues:
-      * **{{ ui-key.startrek-backend.roles.role.name.access }}**: Users listed in the **{{ ui-key.startrek-backend.fields.issue.access }}** field of an issue.
-      * **{{ ui-key.startrek-backend.roles.role.name.follower-key-value }}**: Users subscribed to the issue.
-      * **{{ ui-key.startrek-backend.roles.role.name.author }}**: Person who created the issue.
-      * **{{ ui-key.startrek-backend.roles.role.name.assignee }}**: Person assigned to the issue.
-      * **{{ ui-key.startrek-backend.roles.role.name.queue-lead }}**.
-      * **{{ ui-key.startrek-backend.roles.role.name.team-member }}**: Users added to the [queue team](queue-team.md). This role is not on the list by default: you can add it using the search bar at the top of the table.
-
-1. Set permissions for queue actions:
-   * **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--create }}**: Users allowed to create new issues in this queue.
-   * **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--read }}**: Users allowed to add comments to an issue and change its status, but not to edit issue field values.
-
-        {% note info %}
-
-        To [bulk change multiple issues' statuses](bulk-change.md#change-status), view permissions are not sufficient. This requires permission to edit issues.
-
-        {% endnote %}
-
-   * **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--write }}**: Users allowed to add comments to an issue, change its status, and edit issue fields (change its deadline, add followers, etc.).
-   * **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**. : Users allowed to edit [queue settings](edit-queue-general.md).
-
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.save }}**.
-
-If the user is assigned multiple roles, they can perform all the actions allowed by the settings of these roles.
-
-> **Example**
->
-> ![](../../_assets/tracker/access-roles.png)
->
-> If a user is both the reporter and the assignee, they are allowed to **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--create }}**, **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--read }}**, and **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--write }}**.
 
 ## Users that always have access to the queue {#implicit-access}
 
-Some users always have access to the queue, and you cannot restrict their access rights. These users are:
+Some users always have access to the queue, and you cannot restrict their access. These users are:
 
 
 * [Organization administrators](../role-model.md#admin).
 * {{ tracker-name }} robot.
-* Queue owner.
 
 
 
-## Adding a message for users who cannot access issues {#deny-message}
+## What accesses are active in the queue {#acces-types}
 
-When a user is trying to open an issue from a queue that they do not have access to, a message saying <q>Contact the queue owner</q> pops out with the owner name specified.
+Queue access is configured using the following rights:
 
-This message can be changed. For example, you can specify another user with admin rights for the queue to request access from. You can also state the reason for closing access to the queue.
+* `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--grant }}`: View and edit queue settings. This right does not include access to queue tasks and, therefore, does not overlap with other rights.
+* `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--write }}`: View tasks, leave comments, edit the description and any task fields.
+* `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--create }}`: Create, view, and edit tasks.
+* `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--read }}`: View queue tasks and leave comments.
 
-To change the message shown to the users who do not have access to the queue:
+The set of rights changes depending on the [access rights setup tool](#set-access).
 
-1. Open the [queue page](../user/queue.md).
+## How to configure queue access {#set-access}
 
-1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+Queue access can be restricted using the following four tools:
 
-1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--permissions }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.tab--queue }}** tab.
+* [Main queue team members](#main): Use this tool to assign access to specific users, user groups, or robots.
+* [Roles in tasks](#task-role): This tools complements the first tool and allows for updating user permissions based on their role in a specific task: author, performer, follower, or an individual added to the **Access** field.
+* [Tasks with a component](#access-component): This tool allows you to completely reconfigure access to the tasks in which it is active.
+* [Denied access](#prohibit): Deny any access to queue tasks to a user or group of users.
 
-1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.access-denied-msg }}**, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.update-access-denied-msg-btn }}**.
+These tools can be combined and mixed.
 
-1. Write your message and click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.save }}**.
+{% note info %}
 
-
-## Setting access rights to issues with components {#access-components}
-
-You can set up access to different [components](components.md) of the queue. This way, you can set different settings for the queue issues without components or issues with components.
-
-{% note warning %}
-
-Rights of access to a component prevail over the rights of access to the queue.
+Changes to queue access rights settings are not applied instantly but synchronized within an hour.
 
 {% endnote %}
 
-To configure access to component issues:
+### Main queue participants {#main}
 
-1. Open the [queue page](../user/queue.md).
+Under **Main participants**, you can select users who should have specific accesses in the queue. All four [accesses](#access-types) are active.
 
-1. [Add components to your queue](components.md#create-component) so that you can differentiate access to issues.
+To select queue participants:
 
-1. In the top-right corner of the page, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. Click **Add** and use search to find a user or user group.
 
-1. Go to the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--permissions }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.tab--components }}** tab.
+1. Choose the accesses you are ready to grant to a user or user group. If a user already has group rights, you will see which groups they belong to in the same window.
 
-1. Add users and groups to configure access for:
-   * **{{ ui-key.startrek.blocks-desktop_roles-table.users }}**: Individual settings for individual users. To add a user to this category, enter their login or name in the search bar located at the top of the table.
+1. Click **Save**.
 
-   * **{{ ui-key.startrek.blocks-desktop_issues-filter-update-modal.permissions-group--groups }}**: Settings applying to all employees.
+### Roles in tasks {#task-role}
 
+Under **Roles in tasks**, you can modify the rights of task participants. These rights will be granted in addition to those configured under **Main queue participants** section. Two [accesses](#access-types) are valid for task participants: `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--read }}` and `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--write }}`.
 
-   * **{{ ui-key.startrek.blocks-desktop_roles-table.roles }}**: Settings for users who have specific roles in queue issues:
-      * **{{ ui-key.startrek-backend.roles.role.name.access }}**: Users listed in the **{{ ui-key.startrek-backend.fields.issue.access }}** field of an issue.
-      * **{{ ui-key.startrek-backend.roles.role.name.follower-key-value }}**: Users subscribed to the issue.
-      * **{{ ui-key.startrek-backend.roles.role.name.author }}**: Person who created the issue.
-      * **{{ ui-key.startrek-backend.roles.role.name.assignee }}**: Person assigned to the issue.
-      * **{{ ui-key.startrek-backend.roles.role.name.queue-lead }}**.
-      * **{{ ui-key.startrek-backend.roles.role.name.team-member }}**: Users added to the [queue team](queue-team.md). This role is not on the list by default: you can add it using the search bar at the top of the table.
+To modify accesses for a task role:
 
-1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.save }}**.
+1. Select from the list the role for which to update access.
 
-   {% note tip %}
+1. Click **Change access**.
 
-   To disable special access rights for a component, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.reset }}**.
+1. In the access editing window, you can select access from the list or revoke extended access for this role. In this case, only the rights from the **Main participants** section will apply for a task participant with this role.
 
-   {% endnote %}
+1. Click **Save**.
 
-1. To add access for a specific issue that is different from the settings of the entire queue, add a component to the issue.
+### Tasks with a component {#access-component}
+
+You can set up access to different [components](components.md) of the queue. This way, you can set different settings for the queue issues without components or issues with components. Access rules for a component prevail over queue-level access rules, but do not override [denied access](#prohibit).
+
+Three [accesses](#access-types) are valid: `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--write }}`, `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--create }}`, and `{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_permissions.column-title--read }}`. Components do not allow reconfiguring the rights to edit queue settings.
+
+To configure access to a component:
+
+1. Under **Tasks with a component**, you will see a list of all queue components. If there are no components in the queue yet, click **Create** and fill out the [component creation form](components.md#create-component).
+
+1. Click the arrow in the line with the component.
+
+1. In the window that opens, you can reconfigure accesses:
+
+* **Deny access**: In the list, select the user, user group, or user role to be denied access.
+* **Main participants**: Create a list of users who will get the selected [access](#access-types) to the queue tasks with a component.
+* **Roles in tasks**: Reconfigure accesses available to task participants.
+
+{% note info %}
 
 If an issue has multiple components, then all the users who have access to at least one of the components have access to the issue.
 
-> **Example**
->
-> ![](../../_assets/tracker/access-components.png)
->
-> If an issue has the **Hardware** and **Software** components, it can be accessed by users from both the <q>Product development</q> and <q>Application development</q> groups.
+{% endnote %}
+
+### Denied access {#prohibit}
+
+To deny any access to queue tasks, under **Access denied**, click **Add** and use the search to find a user or user group. Click **Deny access**.
+
 

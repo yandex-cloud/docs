@@ -1,0 +1,1 @@
+You can change any {{ wiki-name }} page you have [edit permissions](../../wiki/page-management/access-setup.md#read-only) for. To do this, click **{{ ui-key.beta-wiki.blocks_common_desktop.blocks_w-comment.edit }}** in the top-right corner.

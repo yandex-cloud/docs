@@ -168,6 +168,8 @@
                            `ssl-truststore-certificates=<сертификаты в формате PEM>
       ```
 
+      {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
       Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
       Параметр `--direction` принимает значение:
@@ -242,6 +244,8 @@
           }
         }
         ```
+
+        {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
     1. Чтобы создать коннектор S3 Sink, добавьте ресурс `yandex_mdb_kafka_connector` с блоком настроек `connector_config_s3_sink`:
 
@@ -576,7 +580,7 @@
     * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}** — выберите опцию для использования текущего кластера в качестве источника.
     * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}** — список FQDN хостов-брокеров кластера-источника с номерами портов для подключения, разделенный запятыми. Например: `broker1.example.com:9091,broker2.example.com`.
 
-       FQDN хостов-брокеров {{ mkf-name }} можно запросить со [списком хостов в кластере](cluster-hosts.md#list-hosts).
+       {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
     * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}** — имя пользователя для подключения коннектора к кластеру-источнику.
     * **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}** — пароль пользователя для подключения коннектора к кластеру-источнику.
@@ -591,7 +595,7 @@
     * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}** — выберите опцию для использования текущего кластера в качестве приемника.
     * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}** — список FQDN хостов-брокеров кластера-приемника с номерами портов для подключения, разделенный запятыми.
 
-       FQDN хостов-брокеров {{ mkf-name }} можно запросить со [списком хостов в кластере](cluster-hosts.md#list-hosts).
+       {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
     * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}** — имя пользователя для подключения коннектора к кластеру-приемнику.
     * **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}** — пароль пользователя для подключения коннектора к кластеру-приемнику.
@@ -631,6 +635,9 @@
 
         * `alias` — префикс для обозначения внешнего кластера в настройках коннектора.
         * `bootstrap-servers` — список FQDN хостов-брокеров внешнего кластера с номерами портов для подключения, разделенный запятыми.
+
+           {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
         * `security-protocol` — протокол подключения коннектора:
 
             * `plaintext`, `sasl_plaintext` – для подключений без SSL;
@@ -664,6 +671,9 @@
         * **this_cluster** — опция для использования текущего кластера в качестве источника или приемника.
         * **external_cluster** — параметры для подключения к внешнему кластеру:
             * **bootstrap_servers** — список FQDN хостов-брокеров кластера с номерами портов для подключения, разделенный запятыми.
+
+               {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
             * **sasl_username** — имя пользователя для подключения коннектора к кластеру.
             * **sasl_password** — пароль пользователя для подключения коннектора к кластеру.
             * **sasl_mechanism** — механизм шифрования имени и пароля.

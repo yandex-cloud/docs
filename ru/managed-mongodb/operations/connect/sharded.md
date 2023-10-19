@@ -23,6 +23,8 @@
                 mongodb://<FQDN хоста 1 MONGOINFRA или MONGOS>:{{ port-mmg-sharded }},...<FQDN хоста N MONGOINFRA или MONGOS>:{{ port-mmg-sharded }}/<имя БД>
                 ```
 
+                {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
         1. Нажмите ссылку **Download**, чтобы загрузить драйвер соединения.
      1. На вкладке **SSH/SSL**:
         1. Включите настройку **Use SSL**.
@@ -46,6 +48,8 @@
              ```http
              mongodb://<FQDN хоста 1 MONGOINFRA или MONGOS>:{{ port-mmg-sharded }},...<FQDN хоста N MONGOINFRA или MONGOS>:{{ port-mmg-sharded }}/<имя БД>
              ```
+
+             {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
 
         1. В списке **Устройство** выберите значение `SCRAM-SHA-256` (тип шифрования пароля при подключении).
         1. В блоке **Полномочия** укажите имя и пароль пользователя БД.

@@ -1,16 +1,23 @@
-# {{ wiki-full-name }} revision history for August 2023
+# {{ wiki-full-name }} revision history for September 2023
 
-* [Adapting embedded forms to the {{ wiki-name }} theme](#matching-themes)
-* [Find on page](#search-by-page)
+* [Comments on the contents of a page](#comments-on-content)
+* [Dynamic table header](#grid-header)
 
-## Adapting embedded forms to the {{ wiki-name }} theme {#matching-themes}
+## Comments on the contents of a page {#comments-on-content}
 
-Now, the theme of the [forms embedded](../actions/forms.md) in Wiki pages matches the theme of your {{ wiki-name }} interface.
+You can now comment on the contents of a {{ wiki-name }} page. To leave a comment:
 
-## Find on page {#search-by-page}
+1. Select a text fragment.
+1. In the panel that opens, click ![](../../_assets/wiki/svg/comment.svg).
+1. Enter the text of your comment.
+1. Click **Save**.
 
-The **Actions** menu now contains the **Find on page** option. To start searching, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** → **Find on page** in the top-right corner or use the keyboard shortcuts:
-* Windows and Linux: **Ctrl+Shift+F**
-* macOS: **⌘ + ⌥ + F**
+## Dynamic table header {#grid-header}
 
-The **Find on page** window will open on the right.
+A [dynamic table](../pages-types.md#grid) now has a header that contains:
+
+* Name (editable)
+* Search option
+* Sorting option
+* Settings
+* Additional information

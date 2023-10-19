@@ -1,3 +1,8 @@
+---
+title: "Workbooks and collections"
+description: "This section includes answers to frequently asked user questions about workbooks and collections."
+---
+
 # Workbooks and collections
 
 {% include [switch-to-workbooks](../../_qa/datalens/switch-to-workbooks.md) %}

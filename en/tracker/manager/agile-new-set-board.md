@@ -14,11 +14,11 @@ You can create a new issue directly on the board. You only need to specify its n
 
 1. Select the queue where the issue will be created in the drop-down list.
 
-1. Press **Enter**.
+1. Click **Create** or press **Enter**.
 
 ## Adding issues to a board {#add-task}
 
-The issues added to the board are shown in their status columns. If you can't find the added issues on the board, make sure that you [linked their statuses to columns](agile-new-columns.md). To view a list of statuses that aren't used on the board, click ![](../../_assets/tracker/svg/unused-status.svg) next to the rightmost column.
+The issues added to the board are shown in their status columns. If you cannot find the added issues on the board, make sure that you [linked their statuses to columns](agile-new-columns.md). To view a list of statuses that are not used on the board, click ![](../../_assets/tracker/svg/unused-status.svg) next to the rightmost column.
 
 {% note warning %}
 
@@ -91,7 +91,7 @@ To add a note to a column:
 
 1. Enter the text of your note. Use buttons on the panel to format the text if needed.
 
-1. Save your changes
+1. Save your changes.
 
 You can only add one note per column. It will be shown to all users at the top of the column.
 
@@ -101,12 +101,20 @@ To always have quick access to the board, add it to favorites. To do this, go to
 
 To find your favorite boards, select ![](../../_assets/tracker/svg/boards.svg)&nbsp;**{{ ui-key.startrek.ui_components_NavigationBar.boards }}** in the left-hand panel and filter the boards by the **{{ ui-key.startrek.ui_components_BoardsPanel.favourites }}** value.
 
+## Show the sprint issues {#sprint-tasks}
+
+1. Open your board.
+
+1. Click **All issues on board**.
+
+1. Select the sprint whose issues you want to display.
+
 ## Deleting a board {#delete-board}
 
 Board owners can delete boards that they no longer need. All the issues present on the board will be saved to {{ tracker-name }}. If you delete a project board, its issues will be saved to the [project's issue list](project-list.md).
 
 1. Open the board.
 
-1. In the upper-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardActionsMenu.delete-board-menu-item }}**.
+1. In the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardActionsMenu.delete-board-menu-item }}**.
 
 1. Confirm the deletion.

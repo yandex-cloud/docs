@@ -70,13 +70,35 @@
 Подробнее о группах безопасности см. в разделе [{#T}](../concepts/network.md#security-groups).
 
 
+## Получение SSL-сертификата {#get-ssl-cert}
+
+{{ PG }}-хосты с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
+
+{% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
+
+{% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
+
+## FQDN хоста {{ PG }} {#fqdn}
+
+Для подключения к хосту потребуется его [FQDN](../concepts/network.md#hostname) — доменное имя. Его можно получить несколькими способами:
+
+* [Запросите список хостов в кластере](../operations/hosts.md#list-hosts).
+* Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит заполненный FQDN хоста. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**.
+* Посмотрите FQDN в консоли управления:
+
+   1. Перейдите на страницу кластера.
+   1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
+
+Для хостов кластера также используются [особые FQDN](#special-fqdns).
+
 ## Особые FQDN {#special-fqdns}
 
-Наравне с обычными [FQDN](../concepts/network.md#hostname), которые можно запросить со [списком хостов в кластере](hosts.md#list), {{ mpg-name }} предоставляет несколько особых FQDN, которые также можно использовать при подключении к кластеру.
+Наравне с [обычными FQDN](#fqdn), {{ mpg-name }} предоставляет несколько особых FQDN, которые также можно использовать при подключении к кластеру.
 
 {% note warning %}
 
-Если при [автоматической смене мастера](../concepts/replication.md#replication-auto) новым мастером или наименее отстающей репликой станет хост без публичного доступа, подключиться к ним из интернета будет невозможно. Чтобы этого избежать, [включите публичный доступ](../operations/hosts.md#update) для всех хостов кластера.
+Если при [автоматической смене мастера](../concepts/replication.md#replication-auto) новым мастером или наименее отстающей репликой станет хост без публичного доступа, подключиться к ним из интернета будет невозможно. Чтобы этого избежать, [включите публичный доступ](hosts.md#update) для всех хостов кластера.
 
 {% endnote %}
 
@@ -130,7 +152,7 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 1. Укажите в аргументе `host` на выбор:
 
     * или [особый FQDN хоста-мастера](#fqdn-master), как сделано [в примерах ниже](#connection-string);
-    * или [FQDN](../concepts/network.md#hostname) всех хостов кластера.
+    * или [FQDN](#fqdn) всех хостов кластера.
 
 1. Передайте параметр `target_session_attrs=read-write`. Этот параметр поддерживается библиотекой `libpq` начиная с [версии 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
 
@@ -138,14 +160,6 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 
 * Для дистрибутивов Linux на основе Debian — установите пакет `postgresql-client-10` или новее (например, через [apt-репозиторий](https://www.postgresql.org/download/linux/ubuntu/)).
 * Для ОС, использующих RPM-пакеты — воспользуйтесь дистрибутивом {{ PG }}, доступным в [yum-репозитории](https://yum.postgresql.org/).
-
-## Получение SSL-сертификата {#get-ssl-cert}
-
-{{ PG }}-хосты с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
-
-{% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
-
-{% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
 ## Подключение из графических IDE {#connection-ide}
 
@@ -169,7 +183,7 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
           jdbc:postgresql://<особый FQDN>:{{ port-mpg }}>/<имя БД>
           ```
 
-          Также в строке подключения можно использовать список [FQDN](../concepts/network.md#hostname) всех хостов кластера:
+          Также в строке подключения можно использовать список [FQDN](#fqdn) всех хостов кластера:
 
           ```http
           jdbc:postgresql://<хост 1 {{ PG }}:{{ port-mpg }}>,...,<хост N {{ PG }}:{{ port-mpg }}>/<имя БД>
@@ -189,7 +203,7 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
      1. Выберите из списка БД **{{ PG }}**.
      1. Нажмите кнопку **Далее**.
      1. Укажите параметры подключения на вкладке **Главное**:
-        * **Хост** — [особый FQDN хоста-мастера](#fqdn-master) или обычный [FQDN](../concepts/network.md#hostname) хоста;
+        * **Хост** — [особый FQDN хоста-мастера](#fqdn-master) или [обычный FQDN хоста](#fqdn);
         * **Порт** — `{{ port-mpg }}`;
         * **База данных** — имя БД для подключения;
         * В блоке **Аутентификация** укажите имя и пароль пользователя БД.

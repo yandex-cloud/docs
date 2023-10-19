@@ -142,26 +142,30 @@ items:
     href: pricing.md
   - name: Releases
     items:
-      - name: August 2023
+      - name: September 2023
         href: changelogs/index.md
+      - name: August 2023
+        href: changelogs/2308.md
       - name: July 2023
         href: changelogs/2307.md
       - name: June 2023
         href: changelogs/2306.md
       - name: May 2023
         href: changelogs/2305.md
-      - name: March 2023
-        href: changelogs/2303.md
-      - name: February 2023
-        href: changelogs/2302.md
-      - name: December 2022
-        href: changelogs/2212.md
-      - name: November 2022
-        href: changelogs/2211.md
-      - name: October 2022
-        href: changelogs/2210.md
-      - name: August 2022
-        href: changelogs/2208.md
+      - name: Archive
+        items:
+          - name: March 2023
+            href: changelogs/2303.md
+          - name: February 2023
+            href: changelogs/2302.md
+          - name: December 2022
+            href: changelogs/2212.md
+          - name: November 2022
+            href: changelogs/2211.md
+          - name: October 2022
+            href: changelogs/2210.md
+          - name: August 2022
+            href: changelogs/2208.md
   - name: Support
     href: feedback.md
 base: en/forms

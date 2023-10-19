@@ -1,3 +1,8 @@
+---
+title: "How to send notifications to mailboxes in your domain"
+description: "Use this guide to send notifications to mailboxes in your domain"
+---
+
 # Sending notifications to mailboxes in your domain
 
 {% note warning %}
@@ -40,7 +45,7 @@ To set up email forwarding to mailboxes on your domain, add the domain to the or
 
     {% note alert %}
 
-    You pay for using {{ ya-360 }} according to the [pricing]({{ link-ya-360-tariffs }}).
+    You pay for using {{ ya-360 }} according to the [pricing policy]({{ link-ya-360-tariffs }}).
 
     {% endnote %}
 

@@ -40,6 +40,8 @@
 
 {% endlist %}
 
+{% include [see-fqdn-host](fqdn-host.md) %}
+
 После подключения выполните команду `db`.
 
 ### Go {#go}
@@ -139,6 +141,8 @@ go get go.mongodb.org/mongo-driver/mongo
     ```
 
 {% endlist %}
+
+{% include [see-fqdn-host](fqdn-host.md) %}
 
 **Подключение:**
 
@@ -345,6 +349,8 @@ go run connect.go
 
 {% endlist %}
 
+{% include [see-fqdn-host](fqdn-host.md) %}
+
 **Подключение:**
 
 ```bash
@@ -434,6 +440,8 @@ npm install mongodb
 
 {% endlist %}
 
+{% include [see-fqdn-host](fqdn-host.md) %}
+
 **Подключение:**
 
 ```bash
@@ -521,6 +529,8 @@ sudo apt update && sudo apt install --yes php php-mongodb
 
 {% endlist %}
 
+{% include [see-fqdn-host](fqdn-host.md) %}
+
 **Подключение:**
 
 ```bash
@@ -556,6 +566,8 @@ php connect.php
     ```
 
 {% endlist %}
+
+{% include [see-fqdn-host](fqdn-host.md) %}
 
 После подключения выполните команду `db`.
 
@@ -639,6 +651,8 @@ pip3 install pyMongo
     ```
 
 {% endlist %}
+
+{% include [see-fqdn-host](fqdn-host.md) %}
 
 **Подключение:**
 

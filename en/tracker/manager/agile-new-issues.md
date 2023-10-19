@@ -38,7 +38,7 @@ Managing issues on {{ tracker-name }} boards is like working with stickers on a 
 
 * To move a card within the column, hover over it, click ![](../../_assets/tracker/svg/actions.svg) in the top-right corner, and select **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardIssue.issue-actions--move-up }}** or **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardIssue.issue-actions--move-down }}**.
 
-* To delete an issue from the board, in the upper-right corner of the card, click ![](../../_assets/tracker/svg/actions.svg), then select **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardIssue.issue-actions--delete-from-board }}**.
+* To delete an issue from the board, in the top-right corner of the card, click ![](../../_assets/tracker/svg/actions.svg), then select **{{ ui-key.startrek.ui_components_agile_agile-board_AgileBoardIssue.issue-actions--delete-from-board }}**.
 
    {% note info %}
 
@@ -54,7 +54,7 @@ If there are too many issues on the board, you can always hide some of them usin
 
 To create a filter on the board:
 
-1. In the upper-right corner, click ![](../../_assets/tracker/svg/filter.svg)&nbsp;**{{ ui-key.startrek.ui_components_page-issues_touch_FilterSettingsMenu.item-filters }}**. The filter setup panel will be shown above the board's columns.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/filter.svg)&nbsp;**{{ ui-key.startrek.ui_components_page-issues_touch_FilterSettingsMenu.item-filters }}**. The filter setup panel will be shown above the board's columns.
 
 1. Click ![](../../_assets/tracker/svg/add-filter.svg). Select the parameter to filter your issues and set the value for it.
 
@@ -68,7 +68,7 @@ To create a filter on the board:
 
    1. Select for whom the filter will be fixed at the top of the board: only for yourself or for every user. Fixed filters are shown as buttons at the top of the board.
 
-   1. Tap **{{ ui-key.startrek.ui_components_agile_common_AgileFilters.action-title-save }}**.
+   1. Click **{{ ui-key.startrek.ui_components_agile_common_AgileFilters.action-title-save }}**.
 
    Saved filters are available for all users.
 
@@ -80,15 +80,25 @@ To create a filter on the board:
 
    {% endnote %}
 
-   1. Click ![](../../_assets/tracker/svg/settings.svg) in the filters panel or click ![](../../_assets/horizontal-ellipsis.svg) in the upper-right corner of the page and select **{{ ui-key.startrek.ui_components_agile_common_QuickFilterPopup.filters-manage }}**.
+   1. Click ![](../../_assets/tracker/svg/settings.svg) in the filters panel or click ![](../../_assets/horizontal-ellipsis.svg) in the top-right corner of the page and select **{{ ui-key.startrek.ui_components_agile_common_QuickFilterPopup.filters-manage }}**.
 
    1. Select the filters to be shown on the board and click **{{ ui-key.startrek.blocks-desktop_issues-filter.action--apply-query }}**.
 
-1. To edit or delete a saved filter, in the upper-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_agile_common_QuickFilterPopup.filters-manage }}**. After that, next to the filter name, click ![](../../_assets/tracker/svg/settings.svg).
+1. To edit or delete a saved filter, in the top-right corner, click ![](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.startrek.ui_components_agile_common_QuickFilterPopup.filters-manage }}**. After that, next to the filter name, click ![](../../_assets/tracker/svg/settings.svg).
 
 ## Grouping issues {#group}
 
 To group issues on a [board](agile-new.md) or in a [backlog](backlog.md) based on a parameter, click ![](../../_assets/tracker/svg/group.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_issues-table.group-by--null }}** at the top of the board and select the grouping parameter from the list. All issues that have the same value of the selected parameter will be combined into groups.
+
+To reorder issues in the group, click ![](../../_assets/tracker/svg/set-order.svg) **Change order** and reorder the parameters as needed.
+
+You can set the maximum number of issues per group:
+
+1. To the right of the group parameter value, click ![](../../_assets/tracker/svg/actions.svg) → **Maximum number of issues**.
+
+1. Set a limit for the number of issues.
+
+1. Click **Save**.
 
 You can also add issues with preset parameters to a group. To do this, click **{{ ui-key.startrek.blocks-desktop_b-agile-board.create-issue--title }}** under the list of issues in the group. This sets a value in a new or existing issue's field to group issues by. For example, <q>Assignee</q> or <q>Deadline</q>.
 
