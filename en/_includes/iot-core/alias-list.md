@@ -3,11 +3,11 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the device is located.
-   1. Select **{{ iot-short-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry where the device is located.
-   1. Go to the **Devices** tab.
+   1. Go to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
    1. Select the device.
-   1. On the **Overview** page, go to the **Aliases** section.
+   1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_aliases }}** section.
 
 - CLI
 
@@ -29,7 +29,7 @@
    +----------+----------------------------------------+----------------------+
    |  ALIAS   |              TOPIC PREFIX              |      DEVICE ID       |
    +----------+----------------------------------------+----------------------+
-   | commands | $devices/arenak5ciqss6pbas6js/commands | arenak5ciqss6pbas6js |
+   | commands | $devices/arenak5ciqss********/commands | arenak5ciqss******** |
    +----------+----------------------------------------+----------------------+
    ```
 

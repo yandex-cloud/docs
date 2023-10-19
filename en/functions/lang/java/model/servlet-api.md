@@ -43,7 +43,7 @@ When using this model, please note that certain [HttpServletRequest](https://doc
 
 {% note warning %}
 
-Do not use the `integration=raw` parameter to invoke this function. If you do, the function won't get any data about the original request's methods, headers, or parameters.
+Do not use the `?integration=raw` parameter to invoke this function. If you do, the function will not get any data about the original request's methods, headers, or parameters.
 
 {% endnote %}
 

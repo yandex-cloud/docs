@@ -89,10 +89,17 @@ paths:
           bar_param: [ "one", "two" ]
           single_param: three
         headers:
+          Host: example.com
           '*': '*'
           Foo-Header: ""
           Bar-Header: [ "one", "two" ]
           Single-header: three
         omitEmptyHeaders: true
         omitEmptyQueryParameters: true  
+      parameters:
+      - name: path
+        in: path
+        required: false
+        schema:
+          type: string
 ```

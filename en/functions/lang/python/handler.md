@@ -8,10 +8,10 @@ At any given time, a single function instance processes only one request. This a
 
 {% endnote %}
 
-When invoking the handler, the runtime passes the following arguments:
-1. Call body (`event` parameter):
-   * If the call body is a [JSON document](../../concepts/function-invoke.md#request), it's converted to `dict` using the `json.loads` method.
-   * If a function was invoked with the `integration=raw` request string parameter, the HTTP request body is passed to the function as-is (unprocessed).
+When invoking the handler, the runtime provides the following arguments:
+1. Request body (`event` parameter):
+   * If the request body is a [JSON document](../../concepts/function-invoke.md#request), it will be converted to `dict` using the `json.loads` method.
+   * If a function was invoked with the `?integration=raw` request string parameter, the HTTP request body is provided to the function as is (unprocessed).
 1. [Invocation context](context.md) (`context` parameter).
 
    The context contains the necessary information about the function version. The structure of this object is described in [{#T}](context.md).

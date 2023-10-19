@@ -16,8 +16,8 @@ The result returned by the function should also be a JSON document. It should co
 
 {% note info %}
 
-You can run functions by specifying the `integration=raw` request string parameter. When invoked this way, a function cannot parse or set HTTP headers:
-* The contents of the HTTPS request body are passed as the first argument (without converting to a JSON structure).
+You can run functions by specifying the `?integration=raw` request string parameter. When invoked this way, a function cannot parse or set HTTP headers:
+* The contents of the HTTPS request body are provided as the first argument (without converting to a JSON structure).
 * The contents of the HTTPS response body is identical to the function response (without converting or checking the structure) and the HTTP response status is 200.
 
 {% endnote %}
@@ -328,7 +328,7 @@ If a request contains the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forw
 
 ## Invoking a function using the {{ yandex-cloud }} CLI {#cli}
 
-Function calls from the CLI are HTTPS requests using the POST method and the `integration=raw` parameter (without converting the request to a JSON structure or checking the response).
+Function calls from the CLI are HTTPS requests using the POST method and the `?integration=raw` parameter (without converting the request to a JSON structure or checking the response).
 
 View the help for the function call command:
 

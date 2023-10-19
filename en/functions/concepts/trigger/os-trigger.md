@@ -19,7 +19,9 @@ Events are filtered using prefixes and suffixes for an object [key](../../../sto
 * The prefix is the part of the object key that contains the beginning of the object key.
 * The suffix is the part of the object key that contains the end of the object key.
 
-Prefixes and suffixes can be any length. When using a prefix and suffix at the same time, filtering is done based on the logical `AND`: for the trigger to work, the object key must match both the prefix and suffix.
+Prefixes and suffixes can be of any length. When using a prefix and suffix at the same time, filtering is based on the logical `AND`: for the trigger to work, the object key must match both the prefix and suffix.
+
+{% include [batching-events](../../../_includes/functions/batching-events.md) %}
 
 ## Roles required for the proper operation of a trigger for {{ objstorage-name }} {#roles}
 

@@ -1,3 +1,8 @@
+---
+title: "Creating a registry"
+description: "Follow this guide to create a registry."
+---
+
 # Creating a registry
 
 {% list tabs %}
@@ -8,11 +13,11 @@
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
    1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
-   1. Under **General information**, add:
+   1. Under **{{ ui-key.yacloud.common.section-base }}**, add:
 
       * Registry **{{ ui-key.yacloud.common.name }}**, e.g., `my-registry`.
       * (Optional) **{{ ui-key.yacloud.common.description }}** with additional information about the registry.
-      * **Password** that you will use to access the registry. To create a password, you can use the [password generator](https://passwordsgenerator.net/).
+      * **{{ ui-key.yacloud.common.password }}** that you will use to access the registry. To create a password, you can use the [password generator](https://passwordsgenerator.net/).
 
          {% note info %}
 
@@ -26,18 +31,18 @@
 
       * To add a file:
 
-         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}** method.
+         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
          1. Click **Attach file**.
          1. Select the file with the public key of the certificate and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
-         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** method.
-         1. Paste the public key of the certificate into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+         1. Paste the public key of the certificate to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -170,7 +175,7 @@
 
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan

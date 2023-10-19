@@ -31,6 +31,7 @@ description: "In this article, you will learn how to work with {{ sf-full-name }
 ## Invoking a function {#function-invoke}
 
 * [{#T}](function/function-invoke.md)
+* [{#T}](function/function-invoke-async.md)
 * [{#T}](function/auth.md)
 
 ## Managing functions {#function-manage}
@@ -43,6 +44,7 @@ description: "In this article, you will learn how to work with {{ sf-full-name }
 * [Adding environment variables](function/environment-variables-add.md)
 * [{#T}](function/network-add.md)
 * [{#T}](function/lockbox-secret-transmit.md)
+* [Mounting a bucket](function/mount-bucket.md)
 * [Adding a tag](function/tag-add.md)
 * [Removing a tag](function/tag-delete.md)
 * [Adding a label](function/label-add.md)
@@ -67,15 +69,15 @@ description: "In this article, you will learn how to work with {{ sf-full-name }
 * [Creating a trigger for {{ container-registry-name }}](trigger/cr-trigger-create.md)
 * [Creating a trigger for {{ cloud-logs-name }}](trigger/cloudlogs-trigger-create.md)
 * [Creating a trigger for {{ cloud-logging-name }}](trigger/cloud-logging-trigger-create.md)
-* [Creating a trigger for {{ iot-name }}](trigger/iot-core-trigger-create.md)
+* [Creating a trigger for {{ iot-name }} (device)](trigger/iot-core-trigger-create.md)
+* [Creating a trigger for {{ iot-name }} (broker)](trigger/iot-core-trigger-broker-create.md)
 * [Creating a trigger for budgets](trigger/budget-trigger-create.md)
 * [Creating a trigger for {{ yds-name }}](trigger/data-streams-trigger-create.md)
 * [Creating an email trigger](trigger/mail-trigger-create.md)
 
 ## Managing triggers {#trigger-manage}
 
-* [Updating a name](trigger/name-update.md)
-* [Updating a description](trigger/description-update.md)
+* [Updating a trigger](trigger/trigger-update.md)
 * [Adding a label](trigger/label-add.md)
 * [Updating a label](trigger/label-update.md)
 * [Removing a label](trigger/label-delete.md)

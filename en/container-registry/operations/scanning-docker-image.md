@@ -1,9 +1,9 @@
 # Scanning Docker images for vulnerabilities
 
 You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts/docker-image.md) uploaded to a [registry](../concepts/registry.md) for vulnerabilities. You can do this:
-* [{#T}](#manual).
-* [{#T}](#automatically).
-* [{#T}](#scheduled).
+* [{#T}](#manual)
+* [{#T}](#automatically)
+* [{#T}](#scheduled)
 
 {% note warning %}
 
@@ -128,8 +128,8 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
       * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** to scan only selected repositories:
          1. Click **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
          1. Select the appropriate repositories from the list.
-         1. Click **Save**.
-   1. Click **Save changes**.
+         1. Click **{{ ui-key.yacloud.common.save }}**.
+   1. Click **{{ ui-key.yacloud.common.save-changes }}**.
 
 - API
 

@@ -1,3 +1,8 @@
+---
+title: "Adding a function label"
+description: "Follow this guide to add a function label."
+---
+
 # Adding a function label
 
 {% list tabs %}

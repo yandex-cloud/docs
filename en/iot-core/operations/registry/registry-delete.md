@@ -1,3 +1,8 @@
+---
+title: "How to delete a registry"
+description: "This guide describes how you can delete a registry."
+---
+
 # Deleting a registry
 
 {% note warning %}
@@ -15,9 +20,9 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
    To delete a registry:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the registry from.
-   1. Select **{{ iot-short-name }}**.
-   1. To the right of the name of the registry to delete, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Delete** from the drop-down list.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. To the right of the name of the registry to delete, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -47,7 +52,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a registry created using {{ TF }}:
 
@@ -84,7 +89,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -93,7 +98,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    1. Confirm the changes: type `yes` in the terminal and press **Enter**.
 
-      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../../cli/quickstart.md) command below:
+      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc iot registry list

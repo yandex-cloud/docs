@@ -1,3 +1,8 @@
+---
+title: "Deleting a lifecycle policy"
+description: "Follow this guide to delete a lifecycle policy."
+---
+
 # Deleting a lifecycle policy
 
 {% list tabs %}
@@ -5,12 +10,12 @@
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
-  1. In the list of services, select **{{ container-registry-name }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Select the repository and click the row with its name.
-  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **Lifecycle**.
-  1. Click ![image](../../../_assets/options.svg) for the appropriate [policy](../../concepts/lifecycle-policy.md) and select **Delete**.
-  1. In the window that opens, click **Delete**.
+  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
+  1. Click ![image](../../../_assets/options.svg) for the appropriate [policy](../../concepts/lifecycle-policy.md) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -68,7 +73,7 @@
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   This will delete the lifecycle policy from the specified repository. You can check that the policy is deleted using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   This will delete the lifecycle policy from the specified repository. You can check the deletion of the policy using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
     yc container repository lifecycle-policy list --registry-id <registry_ID>

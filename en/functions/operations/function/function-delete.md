@@ -1,12 +1,17 @@
+---
+title: "Deleting a function"
+description: "Follow this guide to delete a function."
+---
+
 # Deleting a function
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder from which you wish to delete the function.
+   1. In the [management console]({{ link-console-main }}), select the folder to delete the function from.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-   1. In the line of the function, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
+   1. In the function row, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
 
 - CLI

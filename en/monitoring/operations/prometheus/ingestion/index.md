@@ -1,3 +1,8 @@
+---
+title: "How to write metrics"
+description: "Use this guide to write metrics."
+---
+
 # Writing metrics
 
 {% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}

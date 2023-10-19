@@ -46,6 +46,8 @@ items:
         href: operations/connection.md
       - name: Managing bindings
         href: operations/binding.md
+      - name: Uploading a data schema
+        href: operations/schema-uploading.md
       - name: Managing queries
         href: operations/query.md
   - name: Data sources and targets
@@ -68,6 +70,10 @@ items:
             href: sources-and-sinks/data-streams-binding.md
           - name: Writing data
             href: sources-and-sinks/data-streams-write.md
+      - name: Working with {{ mch-name }} databases
+        href: sources-and-sinks/clickhouse.md
+      - name: Working with {{ mpg-name }} databases
+        href: sources-and-sinks/postgresql.md
       - name: Writing metrics to {{ monitoring-full-name }}
         href: sources-and-sinks/monitoring.md
   - name: Use cases

@@ -60,17 +60,19 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
    
    ```bash
    yc serverless trigger create object-storage \
-     --name <trigger name> \
-     --bucket-id <bucket ID> \
-     --prefix '<object key prefix>' \
-     --suffix '<object key suffix>' \
+     --name <trigger_name> \
+     --bucket-id <bucket_ID> \
+     --prefix '<object_key_prefix>' \
+     --suffix '<object_key_suffix>' \
      --events 'create-object','delete-object','update-object' \
-     --invoke-function-id <function ID> \
-     --invoke-function-service-account-id <service account ID> \
+     --batch-size <batch_size> \
+     --batch-cutoff <maximum_wait_time> \
+     --invoke-function-id <function_ID> \
+     --invoke-function-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead Letter Queue ID> \
-     --dlq-service-account-id <service account ID>
+     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-service-account-id <service_account_ID>
    ```
 
 
@@ -78,9 +80,11 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
    * `--name`: Trigger name.
    * `--bucket-id`: Bucket ID.
-   * `--prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). Optional parameter. Used for filtering.
-   * `--suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). Optional parameter. Used for filtering.
+   * `--prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+   * `--suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
    * `--events`: [Events](../../concepts/trigger/os-trigger.md#event) activating the trigger.
+
+   {% include [batch-settings-events](../../../_includes/functions/batch-settings-events.md) %}
 
    {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
@@ -100,6 +104,9 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
        bucket_id: s3-for-trigger
        prefix: dev
        suffix: 12.jpg
+       batch_settings:
+         size: "3"
+         cutoff: 20s
        invoke_function:
          function_id: d4eofc7n0m03********
          function_tag: $latest
@@ -199,6 +206,6 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## For more information, see also {#see-also}
+## See also {#see-also}
 
 * [Trigger for {{ objstorage-name }} that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/os-trigger-create.md).

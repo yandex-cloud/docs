@@ -32,7 +32,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_container-registry }}** field, select the registry where you want to create a trigger for image events.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the [events](../../functions/concepts/trigger/cr-trigger.md#event) that will fire the trigger.
-      * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** field, enter an image name for [filtering](../../functions/concepts/trigger/cr-trigger.md#filter). To learn the Docker image name, [retrieve a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
+      * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** field, enter an image name for [filtering](../../functions/concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
       * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** field, enter the [image tag](../../functions/concepts/trigger/cr-trigger.md#filter) for filtering.
 
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
@@ -43,7 +43,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
       {% include [repeat-request.md](repeat-request.md) %}
 
-     
+   
    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the Dead Letter Queue and the service account with write privileges for this queue.
 
 
@@ -60,15 +60,17 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
    
    ```bash
    yc serverless trigger create container-registry \
-     --name <trigger name> \
-     --registry-id <registry ID> \
+     --name <trigger_name> \
+     --registry-id <registry_ID> \
      --events 'create-image', 'delete-image', 'create-image-tag', 'delete-image-tag' \
-     --invoke-function-id <function ID> \
-     --invoke-function-service-account-id <service account ID> \
+     --batch-size <batch_size> \
+     --batch-cutoff <maximum_wait_time> \
+     --invoke-function-id <function_ID> \
+     --invoke-function-service-account-id <service_account_ID> \
      --retry-attempts 1 \
      --retry-interval 10s \
-     --dlq-queue-id <Dead Letter Queue ID> \
-     --dlq-service-account-id <service account ID>
+     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-service-account-id <service_account_ID>
    ```
 
 
@@ -77,6 +79,8 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
    * `--name`: Trigger name.
    * `--registry-id`: [Registry ID](../../container-registry/operations/registry/registry-list.md).
    * `--events`: [Events](../../functions/concepts/trigger/cr-trigger.md#event) activating the trigger.
+
+   {% include [batch-settings-events](batch-settings-events.md) %}
 
    {% include [trigger-cli-param](trigger-cli-param.md) %}
 
@@ -95,6 +99,9 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
        - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
        - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
        registry_id: crtlds4tdfg12kil77**********
+       batch_settings:
+         size: "3"
+         cutoff: 20s
        invoke_function:
          function_id: d4eofc7n0m**********
          function_tag: $latest
@@ -118,6 +125,6 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
 {% include [check-result](check-result.md) %}
 
-## For more information, see also {#see-also}
+## See also {#see-also}
 
 * [Trigger for {{ container-registry-name }} that invokes a {{ serverless-containers-name }} container](../../serverless-containers/operations/cr-trigger-create.md).

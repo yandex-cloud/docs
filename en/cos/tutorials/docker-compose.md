@@ -62,7 +62,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * `--service-account-name`: Name of the service account.
      * `--docker-compose-file`: YAML file with the container specification.
 
-     Once created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
+     Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).
   1. Check the results.
      1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md).
      1. View a list of running Docker containers:

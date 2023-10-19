@@ -11,9 +11,9 @@ The registry connection log contains information about operations performed with
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the folder to view the registry connection log in.
-    1. Select **{{ iot-short-name }}**.
-    1. Select the registry with the desired device from the list.
-    1. In the left part of the window, select **Logs**.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Select the registry with the required device from the list.
+    1. On the left side of the window, select the **{{ ui-key.yacloud.common.logs }}** section.
 
 - CLI
 
@@ -54,11 +54,11 @@ The device connection log contains information about operations performed with t
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the folder to view the device connection log in.
-    1. Select **{{ iot-short-name }}**.
-    1. Select the registry with the desired device from the list.
-    1. In the left part of the window, select **Devices**.
-    1. Select the desired device from the list.
-    1. In the left part of the window, select **Logs**.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Select the registry with the required device from the list.
+    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
+    1. Select the device from the list.
+    1. On the left side of the window, select the **{{ ui-key.yacloud.common.logs }}** section.
 
 - CLI
 

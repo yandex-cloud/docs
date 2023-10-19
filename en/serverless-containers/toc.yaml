@@ -75,6 +75,8 @@ items:
             href: operations/network-add.md
           - name: Transmitting {{ lockbox-full-name }} secrets
             href: operations/lockbox-secret-transmit.md
+          - name: Mounting a bucket
+            href: operations/mount-bucket.md
           - name: Managing labels
             items:
               - name: Adding a label
@@ -101,7 +103,7 @@ items:
             href: operations/trigger-info.md
       - name: Creating a trigger
         items:
-          - name: Create a timer
+          - name: Creating a timer
             href: operations/timer-create.md
           - name: Creating a trigger for {{ message-queue-name }}
             href: operations/ymq-trigger-create.md
@@ -112,7 +114,11 @@ items:
           - name: Creating a trigger for {{ cloud-logging-name }}
             href: operations/cloud-logging-trigger-create.md
           - name: Creating a trigger for {{ iot-name }}
-            href: operations/iot-core-trigger-create.md
+            items:
+              - name: Device
+                href: operations/iot-core-trigger-create.md
+              - name: Broker
+                href: operations/iot-core-trigger-broker-create.md
           - name: Creating a trigger for budgets
             href: operations/budget-trigger-create.md
           - name: Creating a trigger for {{ yds-name }}
@@ -122,11 +128,7 @@ items:
       - name: Managing triggers
         items:
           - name: Updating a trigger
-            items:
-              - name: Updating a name
-                href: operations/trigger-name-update.md
-              - name: Updating a description
-                href: operations/trigger-description-update.md
+            href: operations/trigger-update.md
           - name: Viewing monitoring charts
             href: operations/trigger-monitoring.md
           - name: Deleting a trigger
@@ -143,6 +145,8 @@ items:
         href: concepts/networking.md
       - name: Runtime environment
         href: concepts/runtime.md
+      - name: Mounting a bucket
+        href: concepts/mounting.md
       - name: Trigger
         items:
           - name: Overview
@@ -155,7 +159,7 @@ items:
             href: concepts/trigger/os-trigger.md
           - name: Trigger for {{ container-registry-name }}
             href: concepts/trigger/cr-trigger.md
-          - name: Trigger for {{ cloud-logging-name }}
+          - name: Trigger for {{ cloud-logging-full-name }}
             href: concepts/trigger/cloud-logging-trigger.md
           - name: Trigger for {{ iot-full-name }}
             href: concepts/trigger/iot-core-trigger.md

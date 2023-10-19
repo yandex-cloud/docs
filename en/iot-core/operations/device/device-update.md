@@ -13,12 +13,12 @@ To access a device, use its unique ID or name. For information on retrieving the
    To update the name of a device:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the device name in.
-   1. Select **{{ iot-short-name }}**.
-   1. Select the desired registry from the list.
-   1. In the left part of the window, select **Devices**.
-   1. To the right of the name of the device you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
-   1. Edit the **Name** field.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Select the required registry from the list.
+   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
+   1. To the right of the name of the device you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Edit the **{{ ui-key.yacloud.common.name }}** field.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -32,8 +32,8 @@ To access a device, use its unique ID or name. For information on retrieving the
 
    Result:
    ```
-   id: b9135goeh1uc1s2i07nm
-   registry_id: b91ki3851hab9m0l68je
+   id: b9135goeh1uc********
+   registry_id: b91ki3851hab********
    created_at: "2019-05-28T16:08:30.938Z"
    name: test-device
    ```
@@ -42,7 +42,7 @@ To access a device, use its unique ID or name. For information on retrieving the
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update the name of a device created using {{ TF }}:
 
@@ -79,7 +79,7 @@ To access a device, use its unique ID or name. For information on retrieving the
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -109,12 +109,12 @@ To access a device, use its unique ID or name. For information on retrieving the
    To update the description of a device:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the device description in.
-   1. Select **{{ iot-short-name }}**.
-   1. Select the desired registry from the list.
-   1. In the left part of the window, select **Devices**.
-   1. To the right of the name of the device you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
-   1. Edit the **Description** field.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Select the required registry from the list.
+   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
+   1. To the right of the name of the device you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Edit the **{{ ui-key.yacloud.common.description }}** field.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -129,8 +129,8 @@ To access a device, use its unique ID or name. For information on retrieving the
    Result:
 
    ```
-   id: b9135goeh1uc1s2i07nm
-   registry_id: b91ki3851hab9m0l68je
+   id: b9135goeh1uc********
+   registry_id: b91ki3851hab********
    created_at: "2019-05-28T16:08:30.938Z"
    name: my-device
    description: My first device.
@@ -140,7 +140,7 @@ To access a device, use its unique ID or name. For information on retrieving the
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update the name of a device created using {{ TF }}:
 
@@ -177,7 +177,7 @@ To access a device, use its unique ID or name. For information on retrieving the
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

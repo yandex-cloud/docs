@@ -32,7 +32,7 @@ column {
     column {
     name = "d"
     type = "Timestamp"
-  }
+    }
 
     primary_key = ["a","b”]
   
@@ -41,8 +41,8 @@ column {
 
 Разберем значения параметров блока `"yandex_ydb_table"`:
 1. `path` – путь в базе данных, где будет создана таблица. Название таблицы указывается без закрывающего слеша `/`. Если директория, где следует создать таблицу отсутствует – она будет создана;
-2. `connection_string` – путь для подключения к базе данных. Используется совместно с параметром `ydb_full_endpoint`, который содержит полный путь до базы: `grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gv7kfcttiop2s874m6/etn66ecf1qbto40intpl`. Для краткости и простоты записи можно использовать ссылку на ресурс `"yandex_ydb_database_serverless"` с указанием идентификатора и параметра `ydb_full_endpoint`. Например, `yandex_ydb_database_serverless.database1.ydb_full_endpoint `; 
-3. `primary_key` – первичный ключ таблицы. Может быть составным.
+1. `connection_string` – путь для подключения к базе данных. Используется совместно с параметром `ydb_full_endpoint`, который содержит полный путь до базы: `grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gv7kfcttiop2s874m6/etn66ecf1qbto40intpl`. Для краткости и простоты записи можно использовать ссылку на ресурс `"yandex_ydb_database_serverless"` с указанием идентификатора и параметра `ydb_full_endpoint`. Например, `yandex_ydb_database_serverless.database1.ydb_full_endpoint `; 
+1. `primary_key` – первичный ключ таблицы. Может быть составным.
 
 Полный перечень полей ресурса `yandex_ydb_table`:
 | **Название поля** | **Тип** | **Значение** | **Описание** |
@@ -111,7 +111,7 @@ resource "yandex_ydb_table" "test_table" {
         type = "Uint16"
         family = "test_family_group"
         not_null = true
-        }
+    }
     column {
         name = "b"
         type = "Uint32"

@@ -1,3 +1,8 @@
+---
+title: "How to read metrics via the Remote API"
+description: "Use this guide to read metrics via the Remote API."
+---
+
 # Reading metrics via the Remote API
 
 {% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}
@@ -25,7 +30,7 @@
        # required_matchers:
        # [ <labelname>: <labelvalue> ... ]
    ```
-5. Restart {{ prometheus-name }} or reload the configuration.
+1. Restart {{ prometheus-name }} or reload the configuration.
 
 ## Error examples {#errors}
 

@@ -1,3 +1,8 @@
+---
+title: "How to get information about a broker"
+description: "This guide describes how you can get information about a broker."
+---
+
 # Getting information about a broker
 
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}

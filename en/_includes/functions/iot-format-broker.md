@@ -1,0 +1,30 @@
+```json
+{
+   "messages":[
+      {
+         "event_metadata":{
+            "event_id":"2153b5d2-c6af-4c69-a28d-74ce********",
+            "event_type":"yandex.cloud.events.iot.IoTMessage",
+            "created_at":"2019-09-25T15:51:17.872320525Z"
+         },
+         "details":{
+            "broker_id":"arenou2oj4ct********",
+            "mqtt_topic":"broker/topic",
+            "payload":"VGVzdCA0"
+         }
+      },
+      {
+         "event_metadata":{
+            "event_id":"2153b5d2-c6af-4c69-a28d-74ce********",
+            "event_type":"yandex.cloud.events.iot.IoTMessage",
+            "created_at":"2019-09-25T15:51:17.872320525Z"
+         },
+         "details":{
+            "broker_id":"arenou2oj4ct********",
+            "mqtt_topic":"broker/topic",
+            "payload":"VGVzdCA0"
+         }
+      }
+   ]
+}
+```

@@ -1,10 +1,10 @@
 # {{ yq-full-name }} overview
 
-{{ yq-full-name }} is a data processing service that can execute queries to [{{ objstorage-full-name }}](../../storage/concepts/index.md) and real-time streams in [{{ yds-full-name }}](../../data-streams/concepts/index.md) using a common SQL dialect called YQL, and aggregate query execution results across these systems.
+{{ yq-full-name }} is a data service that can run federated queries against the [{{ objstorage-full-name }}](../../storage/concepts/index.md) object storage, managed [{{ mpg-name }}](https://cloud.yandex.ru/services/managed-postgresql) and [{{ mch-name }}](https://cloud.yandex.ru/services/managed-clickhouse) databases, and [{{ yds-full-name }}](../../data-streams/concepts/index.md) real-time streams. {{ yq-full-name }} uses YQL, a unified SQL dialect, to aggregate query execution results between these systems.
 
-{{ yq-full-name }} is a fully managed cloud service, meaning that you don't need to have running servers where software is deployed. Any resources that are necessary for making queries are allocated once you run them and released after they are executed. The queries themselves start executing instantly.
+{{ yq-full-name }} is a fully managed cloud service, meaning that you do not need to have running servers where software is deployed. Any resources that are required for making queries are allocated once you run them and released after they are complete. The queries themselves start running instantly.
 
-{{ yq-full-name }} lets you:
+{{ yq-full-name }} allows you to:
 
 * Use the same written query in scenarios for analyzing data stored in {{ objstorage-full-name }} and analyzing data in real time.
 * Aggregate query execution results across different systems.
@@ -40,9 +40,11 @@ Streaming processing results are exported to:
 
 ### Batch processing {#analytic}
 
-Analytical queries in {{ yq-full-name }} can get data from {{ objstorage-full-name }} in [JSON, CSV/TSV, and Parquet formats compressed using different algorithms](../sources-and-sinks/formats.md). You can save query execution results to {{ objstorage-full-name }}.
+Analytical queries in {{ yq-full-name }} can get data from {{ objstorage-full-name }} in [JSON, CSV/TSV, and Parquet formats compressed using different algorithms](../sources-and-sinks/formats.md). You can also run analytical queries against the [{{ mpg-name }}](https://cloud.yandex.ru/services/managed-postgresql) and [{{ mch-name }}](https://cloud.yandex.ru/services/managed-clickhouse) managed databases.
 
-You can also download query execution results from the {{ yq-full-name }} user interface.
+You can use {{ yq-full-name }} for cross-service data analytics, accessing all supported data sources in a single query.
+
+You can download the query execution results from the {{ yq-full-name }} user interface. If required, you can also save them to {{ objstorage-full-name }}.
 
 ### {{ datalens-full-name }}
 With {{ yq-full-name }}, you can visualize data stored in {{ objstorage-full-name }}.

@@ -7,21 +7,21 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [registry](../../concepts/registry.md) was created.
-  1. In the list of services, select **{{ container-registry-name }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Select the repository and click the row with its name.
-  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **Lifecycle**.
-  1. In the row with the lifecycle policy you need, click ![image](../../../_assets/options.svg) and select **Edit**.
+  1. In the left-hand panel, click ![lifecycle](../../../_assets/container-registry/lifecycle.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
+  1. In the row with the lifecycle policy you need, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the lifecycle policy parameters:
-     * **Name**.
-     * **Description**.
-     * **Status**.
-     * Under **Lifecycle policy rules**, update the rule parameters:
+     * **{{ ui-key.yacloud.common.name }}**.
+     * **{{ ui-key.yacloud.common.description }}**.
+     * **{{ ui-key.yacloud.common.label_status }}**.
+     * Under **{{ ui-key.yacloud.cr.registry.label_lifecycle-rules }}**, update the rule parameters:
 
        {% include [lifecycle-rules-console](../../../_includes/container-registry/lifecycle-rules-console.md) %}
 
-     * **Description**.
-   1. Click **Create**.
+     * **{{ ui-key.yacloud.common.description }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

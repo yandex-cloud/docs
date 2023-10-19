@@ -1,0 +1,23 @@
+title: Yandex Cloud Postbox
+description:
+  - >-
+    <em>Yandex Cloud Postbox is currently at the <a
+    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+  - Yandex Cloud Postbox is a transactional email service.
+nav:
+  title: Yandex Cloud Postbox
+meta:
+  title: Yandex Cloud Postbox
+  description: >-
+    Yandex Cloud Postbox enables sending transactional messages, such as those
+    about password recovery or order placement.
+links:
+  - title: Getting started
+    description: Learn how to get started with Yandex Cloud Postbox
+    href: quickstart
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

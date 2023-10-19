@@ -106,16 +106,16 @@ The infrastructure support costs include:
 
          Where:
 
-         * `name`: Service account name. Required parameter.
-         * `description`: Service account description. Optional parameter.
-         * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Optional parameter. By default, the value specified in the provider settings is used.
+         * `name`: Service account name. This is a required parameter.
+         * `description`: Service account description. This is an optional parameter.
+         * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
 
          For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
 
       1. Make sure the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using this command:
+         1. Run a check using this command:
 
             ```bash
             terraform plan
@@ -179,22 +179,22 @@ The infrastructure support costs include:
 
          Where:
 
-         * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). Required parameter.
-         * `role`: Role being assigned. Required parameter.
-         * `member`: User or service account the role is being assigned to. Presented in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
+         * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). This is a required parameter.
+         * `role`: Role being assigned. This is a required parameter.
+         * `member`: User or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
 
          For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
       1. Make sure the configuration files are valid.
 
          1. In the command line, go to the directory where you created the configuration file.
-         1. Run the check using this command:
+         1. Run a check using this command:
 
             ```
-            terraform plan
+             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+            If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -218,9 +218,9 @@ The infrastructure support costs include:
 
          ```
          yc iam key create \
-         --service-account-id <service_account_ID> \
-         --folder-id <folder_ID> \
-         --output key.json
+           --service-account-id <service_account_ID> \
+           --folder-id <folder_ID> \
+           --output key.json
          ```
 
          Where:
@@ -257,7 +257,7 @@ The infrastructure support costs include:
          ```
 
          Where:
-         * `service-account-key`: A file including the service account's authorized key.
+         * `service-account-key`: File with the service account authorized key.
          * `cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md).
 
       1. Add the credentials to the environment variables:

@@ -36,13 +36,13 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
    Where:
 
-   * `-x509`: Certificate type, X.509
-   * `-newkey`: Encryption algorithm
-   * `-keyout`: File with the private key of the certificate
-   * `-out`: File with the public key of the certificate
+   * `-x509`: Certificate type, X.509.
+   * `-newkey`: Encryption algorithm.
+   * `-keyout`: File with the private key of the certificate.
+   * `-out`: File with the public key of the certificate.
    * `-nodes`: This flag is set when no public key encryption is required.
-   * `-days`: Certificate validity period in days
-   * `-subj`: Request object
+   * `-days`: Certificate validity period in days.
+   * `-subj`: Request object.
 
    For each of the MQTT clients, specify different names for files with private and public keys.
 
@@ -52,27 +52,27 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your registry.
+   1. In the [management console]({{ link-console-main }}), select the folder to create your registry in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_registries }}**.
    1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
-   1. Under **General information**, add `my-registry` as the registry name.
+   1. Under **{{ ui-key.yacloud.common.section-base }}**, add `my-registry` as the registry name.
    1. Add a certificate:
 
       * To add a file:
 
-         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}** method.
+         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
          1. Click **Attach file**.
          1. Select the file with the public key of the certificate and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
-         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** method.
-         1. Paste the public key of the certificate into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+         1. Paste the public key of the certificate to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -107,8 +107,8 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
       Where:
 
-           * `--registry-name`: Registry name
-           * `--certificate-file`: Path to the public key of the certificate
+      * `--registry-name`: Registry name.
+      * `--certificate-file`: Path to the public key of the certificate.
 
       Result:
 
@@ -130,28 +130,28 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you wish to create a device.
+   1. In the [management console]({{ link-console-main }}), select a folder to create a device in.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select `my-registry` from the list.
    1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
    1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
-   1. Under **General information**, add `my-device` as the device name.
+   1. Under **{{ ui-key.yacloud.common.section-base }}**, add `my-device` as the device name.
    1. Add a certificate:
 
       * To add a file:
 
-         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}** method.
+         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
          1. Click **Attach file**.
          1. Select the file with the public key of the certificate and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
-         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** method.
-         1. Paste the public key of the certificate into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+         1. Paste the public key of the certificate to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -187,8 +187,8 @@ X.509 certificates enable interaction between MQTT clients: the [registry](conce
 
       Where:
 
-      * `--device-name`: Device name
-      * `--certificate-file`: Path to the public key of the certificate
+      * `--device-name`: Device name.
+      * `--certificate-file`: Path to the public key of the certificate.
 
       Result:
 

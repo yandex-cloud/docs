@@ -9,12 +9,12 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
    To delete an alias:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the alias from.
-   1. Select **{{ iot-short-name }}**.
-   1. Select the desired registry from the list.
-   1. In the left part of the window, select **Devices**.
-   1. To the right of the name of the device you need, click ![image](../../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Select the required registry from the list.
+   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
+   1. To the right of the name of the device you need, click ![image](../../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. To the right of the alias to delete, click ![image](../../../../_assets/cross.svg).
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -25,13 +25,13 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
    Delete an alias:
 
    ```
-   yc iot device remove-topic-aliases arenak5ciqss6pbas6js --topic-aliases commands
+   yc iot device remove-topic-aliases arenak5ciqss******** --topic-aliases commands
    ```
 
    Result:
    ```
-   	id: arenak5ciqss6pbas6js
-   registry_id: arenou2oj4ct42eq8g3n
+   id: arenak5ciqss********
+   registry_id: arenou2oj4ct********
    created_at: "2019-09-16T12:32:48.911Z"
    name: second
    ```
@@ -82,7 +82,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

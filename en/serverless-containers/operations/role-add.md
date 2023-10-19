@@ -1,3 +1,8 @@
+---
+title: "Assigning roles to a container"
+description: "Follow this guide to assign roles to a container."
+---
+
 # Assigning roles to a container
 
 {% list tabs %}

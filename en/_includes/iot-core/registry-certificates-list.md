@@ -3,9 +3,9 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the registry is located.
-   1. Select **{{ iot-short-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry.
-   1. On the **Overview** page, go to the **Certificates** section.
+   1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
 
 - CLI
 

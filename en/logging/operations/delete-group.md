@@ -7,7 +7,7 @@ description: "In this tutorial, you will learn how to delete a log group in {{ c
 
 {% note info %}
 
-Name of the [default log group](../concepts/log-group.md): `default`. The group can be deleted. However, if a service or application writes logs and the folder ID is indicated as the destination, it will be automatically re-created.
+The name of the [default log group](../concepts/log-group.md) is `default`. The group can be deleted. However, if a service or application writes logs and the folder ID is indicated as the destination, it will be automatically re-created.
 
 {% endnote %}
 
@@ -16,9 +16,9 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a [log group](../concepts/log-group.md).
-   1. Select **{{ cloud-logging-name }}**.
-   1. In the log group's line, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+   1. In the log group's line, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -88,7 +88,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -98,7 +98,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
       yc logging group list

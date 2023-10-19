@@ -1,3 +1,8 @@
+---
+title: "How to read metrics"
+description: "Use this guide to read metrics."
+---
+
 # Reading metrics
 
 {% include [note-preview](../../../../_includes/monitoring/prometheus-preview.md) %}

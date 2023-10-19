@@ -1,3 +1,8 @@
+---
+title: "Deleting a container"
+description: "Follow this guide to delete a container."
+---
+
 # Deleting a container
 
 {% list tabs %}
@@ -76,7 +81,7 @@
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-   You can check that the container has been deleted using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+   You can check the deletion of the container using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
    ```
    yc serverless container list

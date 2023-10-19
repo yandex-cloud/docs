@@ -1,10 +1,15 @@
+---
+title: "Getting a list of log groups"
+description: "Follow this guide to get a list of log groups."
+---
+
 # Getting a list of log groups
 
 {% list tabs %}
 
 - Management console
 
-   In the [management console]({{ link-console-main }}), change to the folder containing your log group and select **{{ cloud-logging-name }}**.
+   In the [management console]({{ link-console-main }}), go to the folder containing your log group and select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
 
 - CLI
 

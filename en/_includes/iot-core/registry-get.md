@@ -3,9 +3,9 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the registry is located.
-   1. Select **{{ iot-short-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Select the registry.
-   1. The **Overview** page shows the registry details.
+   1. The **{{ ui-key.yacloud.common.overview }}** page will show the registry details.
 
 - CLI
 
@@ -22,8 +22,8 @@
   Result:
 
   ```
-  id: b91ki3851hab9m0l68je
-  folder_id: aoek49ghmknnpj1ll45e
+  id: b91ki3851hab********
+  folder_id: aoek49ghmknn********
   created_at: "2019-05-28T11:29:42.420Z"
   name: my-registry
   ```

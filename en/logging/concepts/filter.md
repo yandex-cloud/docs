@@ -11,10 +11,10 @@ You can filter log group records using the language of filter expressions. With 
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
-    1. Select **{{ cloud-logging-name }}**.
-    1. Click the **Groups** tab.
-    1. Click on the line with the log group you want to filter.
-    1. Click the **Logs** tab.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. Go to the **{{ ui-key.yacloud.logging.label_groups }}** tab.
+    1. Click the row with the log group you want to filter.
+    1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
     1. Set a filter and press **Enter**.
 
 - CLI
@@ -72,10 +72,10 @@ You can filter log group records using the language of filter expressions. With 
 | Parameter | Filter format | Description | Sample filter |
 | --- | --- | --- | --- |
 | `message` | ```parameter: "value"``` | Search for records whose messages have values specified. The `message` is the default parameter, so you can omit it in the request. | ```"Hello world!" Error Exception``` |
-| `resource_type` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records sent by the specified service. | ```resource_type = "serverless.function"``` |
-| `resource_id` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records sent by the specified resource, such as a function. | ```resource_id: "d4e155orh3nu********"``` |
-| `json_payload` | ```parameter: "value"``` | Search for records with `json_payload` set to certain values. Based on text. | ```json_payload: "error"``` |
-| `json_payload.<element>` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records by `json_payload` elements. If the filter uses a comparison operator, the element can be a string, a number, or a Boolean value. Otherwise, only a string. You can omit the `json_payload` prefix if the tree root element doesn't match any of the parameters. Check if `json_payload` contains a certain element using the `EXISTS` operator. For example: ```json_payload.result EXISTS```. This filter outputs records whose `json_payload` contains the `result` element. | ```json_payload.flag = FALSE``` |
+| `resource_type` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records sent by resources of the specified type, such as functions. | ```resource_type = "serverless.function"``` |
+| `resource_id` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records sent by a service with the specified ID. | ```resource_id: "d4e155orh3nu********"``` |
+| `json_payload` | ```parameter: "value"``` | Search for records with `json_payload` set to certain values. The search is done by text. | ```json_payload: "error"``` |
+| `json_payload.<element>` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records by `json_payload` elements. If the filter uses a comparison operator, the element can be a string, a number, or a Boolean value; otherwise, it can only be a string. You can omit the `json_payload` prefix if the tree root element does not match any of the parameters. Check if `json_payload` contains a certain element using the `EXISTS` operator, e.g., ```json_payload.result EXISTS```. This filter outputs records whose `json_payload` contains the `result` element. | ```json_payload.flag = FALSE``` |
 | `timestamp` | ```parameter <comparison operator> "value"``` | Search for records sent within the specified interval. | ```timestamp >= "2023-06-08T00:00:00Z"``` |
 | `ingested_at` | ```parameter <comparison operator> "value"``` | Search for records delivered to the {{ cloud-logging-name }} system within the specified interval. | ```ingested_at = "2023-06-22T05:15:03Z"``` |
 | `saved_at` | ```parameter <comparison operator> "value"``` | Search for records saved to the {{ cloud-logging-name }} database within the specified interval. | ```saved_at >= 1622198048``` |
@@ -119,7 +119,7 @@ Apart from checking for an exact match, the filter expression language supports 
 * **Not equal to**
 
     ```
-	parameter <> "value"
+    parameter <> "value"
     ```
 
 * **Greater than**, **Less than**, **Less than or equal to**, and **Greater than or equal to**
@@ -139,15 +139,15 @@ You can combine multiple conditions in a single filter using logical operators:
 
 * `AND`: Conditions combined with the logical operator **AND** must be fulfilled simultaneously.
 
-   Example:
+   For example:
    ```
    parameter1: "value1" AND parameter2: "value2"
    ```
    This request returns records with `parameter1` set to `value1` and `parameter2` set to `value2`.
 
-* `OR`: If you use the logical operator **OR**. at least one of the conditions must be fulfilled.
+* `OR`: If you use the logical operator **OR**, at least one of the conditions must be fulfilled.
 
-   Example:
+   For example:
    ```
    parameter1: "value1" OR parameter2 > "value2"
    ```
@@ -155,11 +155,11 @@ You can combine multiple conditions in a single filter using logical operators:
 
 * `NOT`: With the logical operator **NOT**, a condition that is inverse of the specified one must be fulfilled.
 
-    Example:
-    ```
-	NOT parameter1: "value1"
-    ```
-    This request returns records with `parameter1` not equal to `value1`.
+   For example:
+   ```
+   NOT parameter1: "value1"
+   ```
+   This request returns records with `parameter1` not equal to `value1`.
 
 You can create complex filters by combining multiple operators in a single request:
 

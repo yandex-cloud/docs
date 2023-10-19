@@ -1,3 +1,8 @@
+---
+title: "Updating a container label"
+description: "Follow this guide to update a container label."
+---
+
 # Updating a container label
 
 {% list tabs %}

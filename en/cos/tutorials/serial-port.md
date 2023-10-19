@@ -116,11 +116,11 @@ The infrastructure support cost includes:
         * `--metadata-from-file`: YAML [metadata](../../compute/concepts/vm-metadata.md) files to create the VM.
         * `--create-boot-disk`: ID of the image to create a boot disk from.
 
-        Once created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
+        Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).
      1. Check the results.
-        1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ compute-name }}**.
-        1. Click on the name of the `coi-vm-with-sp` VM.
-        1. Under **Serial port**, select `COM2`. In a few minutes, the screen displays `Hello world!`.
+        1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+        1. Click the name of the `coi-vm-with-sp` VM.
+        1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select `COM2`. In a few minutes, the screen displays `Hello world!`.
 
 {% endlist %}
 
@@ -174,14 +174,14 @@ To get the ID of the latest image used for VM creation, run:
 
 {% endlist %}
 
-Once created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
+Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).
 
 ## Check the result {#check-result}
 
 To check the result of configuring data output from the Docker container to the serial port:
-1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ compute-name }}**.
-1. Click on the name of the `coi-vm-with-sp` VM.
-1. Under **Serial port**, select `COM2`. In a few minutes, the screen displays `Hello world!`.
+1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Click the name of the `coi-vm-with-sp` VM.
+1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select `COM2`. In a few minutes, the screen displays `Hello world!`.
 
 For more information about working with VMs, see our [step-by-step guides](../../compute/operations/index.md).
 

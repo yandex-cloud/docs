@@ -1,3 +1,8 @@
+---
+title: "Updating the description of a container"
+description: "Follow this guide to update a container description."
+---
+
 # Updating the description of a container
 
 {% list tabs %}

@@ -1,3 +1,8 @@
+---
+title: "Creating API gateways"
+description: "Follow this guide to create an API gateway."
+---
+
 # Creating API gateways
 
 {% list tabs %}
@@ -92,9 +97,9 @@
 
       Where:
 
-      - `name`: API gateway name.
-      - `spec`: Specification file.
-      - `description`: API gateway description.
+      * `name`: API gateway name
+      * `spec`: Specification file
+      * `description`: API gateway description
 
       Result:
 

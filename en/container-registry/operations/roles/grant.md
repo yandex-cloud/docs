@@ -6,20 +6,20 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you wish to assign a role for a resource.
-  1. In the list of services, select **{{ container-registry-name }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to assign a role for a resource.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Assign a role for the resource.
      * Assigning roles for a [registry](../../concepts/registry.md):
-       1. To the right of the desired registry name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **Registry ACL**.
-       1. In the resulting window, select a group, a user, or a [service account](../../../iam/concepts/users/service-accounts.md) and click **Add**.
-       1. In the **Permissions** drop-down list, select the desired roles.
-       1. Click **Save**.
+       1. To the right of the registry name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_registry-acl }}**.
+       1. In the window that opens, select a group, a user, or a [service account](../../../iam/concepts/users/service-accounts.md) and click **{{ ui-key.yacloud.common.add }}**.
+       1. In the **{{ ui-key.yacloud.component.acl-dialog.column_permissions }}** drop-down list, select the required roles.
+       1. Click **{{ ui-key.yacloud.common.save }}**.
      * Assigning roles for a [repository](../../concepts/repository.md):
-       1. Select the desired repository.
-       1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **Configure ACL**.
-       1. In the resulting window, select a group a user, or a service account and click **Add**.
-       1. In the **Permissions** drop-down list, select the desired roles.
-       1. Click **Save**.
+       1. Select the repository.
+       1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
+       1. In the window that opens, select a group, a user, or a service account and click **{{ ui-key.yacloud.common.add }}**.
+       1. In the **{{ ui-key.yacloud.component.acl-dialog.column_permissions }}** drop-down list, select the required roles.
+       1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -73,23 +73,22 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
 - API
 
-  Use the method `updateAccessBindings` for the resources `registry` and `repository`.
+  Use the `updateAccessBindings` method for the `registry` and `repository` resources.
 
 - {{ TF }}
 
-  If you don't have {{ TF }}, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-  1. Describe in a configuration file:
-     * The parameters of the `yandex_container_registry_iam_binding` resource to assign a role to the registry:
-       * `registry_id`: ID of the registry to which a role is being assigned. You can retrieve the registry ID from the [folder registry list](../registry/registry-list.md#registry-list).
+  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Describe the following in a configuration file:
+     * Parameters of the `yandex_container_registry_iam_binding` resource to assign a role for a registry:
+       * `registry_id`: ID of the registry for which a role is assigned. You can retrieve registry ID from the [folder registry list](../registry/registry-list.md#registry-list).
        * `role`: Role ID.
        * `members`: ID of the user, group, or service account the role is being assigned to.
 
-       > Example configuration file structure:
+       > Here is an example of the configuration file structure:
        >
 
        
-       > ```yaml
+       > ```
        > resource "yandex_container_registry_iam_binding" "puller" {
        >   registry_id = "<registry id>"
        >   role        = "<role id>"
@@ -103,12 +102,12 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
 
        For more information about the `yandex_container_registry_iam_binding` resource, see the [provider documentation]({{ tf-provider-resources-link }}/container_registry_iam_binding).
-     * `yandex_container_repository_iam_binding` resource parameters to assign a role to a repository:
-       * `repository_id`: ID of the repository to which a role is being assigned.
+      * Parameters of the `yandex_container_repository_iam_binding` resource to assign a role for a repository:
+       * `repository_id`: ID of the repository for which a role is assigned.
        * `role`: Role ID.
        * `members`: ID of the user, group, or service account the role is being assigned to.
 
-       > Example configuration file structure:
+       > Here is an example of the configuration file structure:
        >
 
        
@@ -126,13 +125,13 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
 
        For more information about the `yandex_container_repository_iam_binding` resource, see the [provider documentation]({{ tf-provider-resources-link }}/container_repository_iam_binding).
-  1. Run the check using the command:
+  1. Run a check using this command:
 
      ```bash
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. This is a test step. No resources are created. If the configuration contain errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
 
      {% note alert %}
 
@@ -142,13 +141,13 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
   1. Apply the configuration changes:
 
-     ```bash
+     ```
      terraform apply
      ```
 
-  1. Confirm the resource change: enter `yes` in the terminal window and press **Enter**.
+  1. Confirm changing the resources: enter `yes` in the terminal window and press **Enter**.
 
-     You can check that the role has been assigned using the [management console]({{ link-console-main }}) or the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md) command:
+     You can check that the role has been assigned using the [management console]({{ link-console-main }}) or the [CLI](../../../cli/quickstart.md) command:
      * Registry:
 
        ```bash
@@ -163,4 +162,4 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
 {% endlist %}
 
-Read more about role management in the {{ iam-full-name }} [documentation](../../../iam/).
+Read more about role management in the {{ iam-full-name }} [documentation](../../../iam/concepts/index.md).

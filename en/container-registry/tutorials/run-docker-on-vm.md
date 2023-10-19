@@ -42,17 +42,17 @@ The infrastructure support costs include:
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you wish to create a service account.
-     1. At the top of the screen, go to the **Service accounts** tab.
-     1. Click **Create service account**.
-     1. Enter the service account name and click **Create**.
-     1. In the list of services, select **{{ container-registry-name }}**.
+     1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create a service account in.
+     1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+     1. Enter the service account name and click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. Select the registry and click the row with its name.
-     1. Click the **Access bindings** tab.
-     1. In the top-right corner, click **Assign roles**.
-     1. Click **+ Select subject** and add the service account by supplying its ID.
-     1. Click **Add role** and select `container-registry.images.puller`.
-     1. Click **Save**.
+     1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+     1. In the top-right corner, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+     1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** and add the service account by providing its ID.
+     1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select `container-registry.images.puller`.
+     1. Click **{{ ui-key.yacloud.common.save }}**.
 
    - CLI
 
@@ -116,41 +116,41 @@ The infrastructure support costs include:
    - Management console
 
      1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-     1. In the list of services, select **{{ compute-name }}**.
-     1. Click **Create VM**.
-     1. Under **Basic parameters**:
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. Click **{{ ui-key.yacloud.compute.landing.action_create-resource }}** and select **{{ ui-key.yacloud.compute.instance.label_vm }}**.
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
         * Enter a name and description for the VM. The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
           {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-        * Select the recently created [service account](../../iam/concepts/users/service-accounts.md).
+        * Select the [service account](../../iam/concepts/users/service-accounts.md) you created at the previous step.
         * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-     1. Under **Images from {{ marketplace-name }}**, select an [image](../../compute/operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
-     1. (Optional) Configure a boot disk under **Disks**:
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../compute/operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
+     1. (Optional) Configure the boot disk under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
         * Specify the required [disk](../../compute/concepts/disk.md) size.
         * Select the [disk type](../../compute/concepts/disk.md#disks_types).
 
-          If you want to create a VM from an existing disk, under **Disks**, [add a disk](../../compute/operations/vm-create/create-from-disks.md).
-     1. Under **Computing resources**:
+          If you want to create a VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, [add a disk](../../compute/operations/vm-create/create-from-disks.md).
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
         * Choose a [platform](../../compute/concepts/vm-platforms.md).
         * Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
         * If required, make your VM [preemptible](../../compute/concepts/preemptible-vm.md).
-     1. Under **Network settings**:
-        * Enter a subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list. If you do not have a network, click **Create a new network** to create one:
-          * In the window that opens, enter a name for the new network and choose a subnet to connect the VM to. Each network should have at least one [subnet](../../vpc/concepts/network.md#subnet) (if there are no subnets, create one). Then click **Create**.
-        * In the **Public IP** field, choose a method for assigning an IP address:
-          * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-          * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
-          * **No address**: Do not assign a public IP address.
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+        * Enter a subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list. If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+          * In the window that opens, enter a name for the new network and choose a subnet to connect the VM to. Each network should have at least one [subnet](../../vpc/concepts/network.md#subnet) (if there are no subnets, create one). Then click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+        * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, choose a method for assigning an IP address:
+          * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
+          * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
+          * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
 
           
           * (Optional) Enable [DDoS protection](../../vpc/ddos-protection/).
 
 
-     1. Under **Access**, specify the information required to access the instance:
-        * Enter the username in the **Login** field.
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
+        * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
           {% note alert %}
 
@@ -158,8 +158,8 @@ The infrastructure support costs include:
 
           {% endnote %}
 
-        * In the **SSH key** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
-     1. Click **Create VM**.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
+     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    - CLI
 

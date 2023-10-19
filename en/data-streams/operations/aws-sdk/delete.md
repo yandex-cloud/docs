@@ -1,3 +1,8 @@
+---
+title: "Deleting a stream in the AWS SDK"
+description: "This guide describes how you can delete a stream in the AWS SDK."
+---
+
 # Deleting a stream in the AWS SDK
 
 {% list tabs %}
