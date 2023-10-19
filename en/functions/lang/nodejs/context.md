@@ -11,7 +11,7 @@ The invocation context provides additional information about a Node.js function 
 
 The context also contains the following helper methods:
 * `getRemainingTimeInMillis()`: Returns the time, in ms, remaining to complete the current request.
-* `getPayload()`: Returns the request body if [HTTP integration](../../concepts/function-invoke.md#http) is used. By default, HTTP integration is used for all functions invoked if no `integration=raw` parameter is specified.
+* `getPayload()`: Returns the request body if [HTTP integration](../../concepts/function-invoke.md#http). By default, HTTP integration is used for all functions invoked if no `?integration=raw` parameter is specified.
 
 ## Using the invocation context {#use}
 

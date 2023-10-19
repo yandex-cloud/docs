@@ -1,3 +1,8 @@
+---
+title: "Reading data from a stream in the AWS SDK"
+description: "This guide describes how you can get data from a stream in the AWS SDK."
+---
+
 # Reading data from a stream in the AWS SDK
 
 {% list tabs %}

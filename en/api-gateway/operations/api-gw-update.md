@@ -1,3 +1,8 @@
+---
+title: "Updating API gateways"
+description: "Follow this guide to update an API gateway."
+---
+
 # Updating API gateways
 
 {% list tabs %}
@@ -5,7 +10,7 @@
 - Management console
 
    To update an API gateway specification:
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to edit an API gateway.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to edit an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. In the API gateway row, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
    1. Edit the name, description, or specification of the API gateway.

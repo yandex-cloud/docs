@@ -1,3 +1,8 @@
+---
+title: "Creating a table in the AWS CLI"
+description: "Follow this guide to create a table in the AWS CLI."
+---
+
 # Creating a table in the AWS CLI
 
 {% list tabs %}
@@ -10,7 +15,7 @@
 
    {% endnote %}
 
-   If you don't have the AWS CLI yet, [install and configure it](../../../../storage/tools/aws-cli.md).
+   If you do not have the AWS CLI yet, [install and configure it](../../../../storage/tools/aws-cli.md).
 
    To create a table with a partitioning key and sort key:
 

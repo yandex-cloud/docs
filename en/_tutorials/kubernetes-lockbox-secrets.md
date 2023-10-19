@@ -119,8 +119,8 @@ The cost of resources for syncing secrets includes:
 
 {% list tabs %}
 
-
 - Using {{ marketplace-full-name }}
+
    To install [External Secrets Operator](/marketplace/products/yc/external-secrets) using {{ marketplace-name }}, follow [this guide](../managed-kubernetes/operations/applications/external-secrets-operator.md#install-eso-marketplace).
 
 

@@ -61,7 +61,7 @@ The following function receives a number as an input, outputs the function data 
 
 {% note warning %}
 
-To invoke the function, use the [{{ yandex-cloud }} CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+To invoke the function, use the [{{ yandex-cloud }} CLI](../../../concepts/function-invoke.md) or an HTTP request with the `?integration=raw` parameter.
 
 {% endnote %}
 

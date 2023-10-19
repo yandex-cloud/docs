@@ -27,6 +27,7 @@
 * [{#T}](prometheus-grafana-monitoring.md)
 * [{#T}](gitlab-containers.md)
 * [{#T}](metrics-server.md)
+* [{#T}](driverless-gpu.md)
 
 
 * [{#T}](ci-cd-serverless.md)

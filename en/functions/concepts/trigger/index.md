@@ -26,8 +26,8 @@ The following types of triggers are available in {{ sf-name }}:
 Triggers call functions based on preset [quotas and limits](../../../functions/concepts/limits.md).
 
 When a function is called by a trigger, the following specifics apply:
-- Functions are always called by triggers with the `integration=raw` query string parameter. More about [function calls](../function-invoke.md).
-- Before the trigger passes messages to a function, it changes their format. Each trigger has a specific message format. Read more about this in the trigger description.
+- Functions are always called by triggers with the `?integration=raw` query string parameter. More about [function calls](../function-invoke.md).
+- Before the trigger delivers messages to a function, it changes their format. Each trigger has a specific message format. Read more about this in the trigger description.
 
 ## See also {#see-also}
 

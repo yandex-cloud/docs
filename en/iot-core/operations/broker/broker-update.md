@@ -1,3 +1,8 @@
+---
+title: "How to update a broker"
+description: "This guide describes how you can update a broker."
+---
+
 # Updating a broker
 
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
@@ -13,10 +18,11 @@ To access a broker, use its unique ID or name. For information on retrieving the
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the broker name in.
-   1. Select **{{ iot-short-name }}**.
-   1. To the right of the name of the broker you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
-   1. Edit the **Name** field.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. To the right of the name of the broker you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Edit the **{{ ui-key.yacloud.common.name }}** field.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -42,7 +48,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update the name of a broker created using {{ TF }}:
 
@@ -79,7 +85,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -109,10 +115,11 @@ To access a broker, use its unique ID or name. For information on retrieving the
    To update the broker description:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the broker description in.
-   1. Select **{{ iot-short-name }}**.
-   1. To the right of the name of the broker you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
-   1. Edit the **Description** field.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. To the right of the name of the broker you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Edit the **{{ ui-key.yacloud.common.description }}** field.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -139,7 +146,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update the description of a broker created using {{ TF }}:
 
@@ -176,7 +183,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -212,10 +219,11 @@ You can perform the following actions with broker labels:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the broker label to.
-   1. Select **{{ iot-short-name }}**.
-   1. To the right of the name of the broker you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
-   1. Fill in the **Key** and **Value** fields and click **Add label**.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. To the right of the name of the broker you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.iot.button_add-label }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -243,7 +251,7 @@ You can perform the following actions with broker labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add a label to a broker created using {{ TF }}:
 
@@ -254,7 +262,7 @@ You can perform the following actions with broker labels:
          * `description`: Broker description.
          * `labels`: Broker labels in `key:value` format.
 
-      Sample resource structure in the configuration file:
+      Here is an example of the resource structure in the configuration file:
 
       ```hcl
       resource "yandex_iot_core_broker" "my_broker" {
@@ -287,7 +295,7 @@ You can perform the following actions with broker labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -315,10 +323,11 @@ You can perform the following actions with broker labels:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the broker label in.
-   1. Select **{{ iot-short-name }}**.
-   1. To the right of the name of the broker you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
-   1. Change the **Key** and **Value** fields.
-   1. Click **Save**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. To the right of the name of the broker you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
+   1. Edit the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -352,7 +361,7 @@ You can perform the following actions with broker labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update the label of a broker created using {{ TF }}:
 
@@ -391,7 +400,7 @@ You can perform the following actions with broker labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -419,10 +428,11 @@ You can perform the following actions with broker labels:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the broker label from.
-   1. Select **{{ iot-short-name }}**.
-   1. To the right of the name of the broker you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Edit** from the drop-down list.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. To the right of the name of the broker you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. To the right of the label to delete, click ![image](../../../_assets/cross.svg).
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -448,7 +458,7 @@ You can perform the following actions with broker labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete the label of a broker created using {{ TF }}:
 
@@ -487,7 +497,7 @@ You can perform the following actions with broker labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

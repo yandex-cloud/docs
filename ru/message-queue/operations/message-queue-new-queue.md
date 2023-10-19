@@ -7,23 +7,24 @@
 - Консоль управления
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана очередь.
-  1. Откройте раздел **Message Queue**.
-  1. Нажмите кнопку **Создать очередь**.
-  1. Укажите имя очереди.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ymq.queues.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.ymq.queue.form.section_base }}** заполните поля:
+      * **{{ ui-key.yacloud.common.name }}** — укажите имя очереди.
   
-     {% include [name](../../_includes/message-queue/ymq-name.md) %}
+        {% include [name](../../_includes/message-queue/ymq-name.md) %}
   
-  1. Выберите тип очереди **Стандартная** или **FIFO**.
-  1. Укажите стандартный таймаут видимости, который будет применяться к сообщениям в очереди после чтения получателем.
-  1. Укажите срок хранения сообщений.
-  1. Укажите максимальный размер сообщения.
-  1. Укажите задержку доставки: время, в течение которого новое сообщение нельзя получить из очереди.
-  1. Укажите время ожидания при получении сообщения.
-  1. Чтобы перенаправлять недоставленные сообщения в [очередь недоставленных сообщений (DLQ)](../concepts/dlq.md):
-      * Включите опцию **Перенаправлять недоставленные сообщения**.
-      * Укажите **Очередь недоставленных сообщений**.
-      * Задайте **Максимальное количество попыток чтения**.
-  1. Нажмите кнопку **Создать**.
+      * **{{ ui-key.yacloud.ymq.queue.form.switch_fifo-queue }}** — выберите тип очереди `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}` или `{{ ui-key.yacloud.ymq.queue.form.type_switch_fifo }}`.
+      * **{{ ui-key.yacloud.ymq.queue.form.field_visibility-timeout }}** — укажите стандартный таймаут видимости, который будет применяться к сообщениям в очереди после чтения получателем.
+      * **{{ ui-key.yacloud.ymq.queue.form.field_keeping-time }}** — укажите максимальный срок хранения сообщений в очереди.
+      * **{{ ui-key.yacloud.ymq.queue.form.field_max-size }}** — укажите максимальный размер сообщения.
+      * **{{ ui-key.yacloud.ymq.queue.form.field_sending-delay }}** — укажите время, в течение которого новое сообщение нельзя получить из очереди.
+      * **{{ ui-key.yacloud.ymq.queue.form.field_receiving-delay }}** — укажите время ожидания при получении сообщения.
+  1. Чтобы перенаправлять недоставленные сообщения в [очередь недоставленных сообщений (DLQ)](../concepts/dlq.md), в блоке **{{ ui-key.yacloud.ymq.queue.form.section_message-settings }}**:
+      * Включите опцию **{{ ui-key.yacloud.ymq.queue.form.switch_redirect-messages }}**.
+      * Укажите **{{ ui-key.yacloud.ymq.queue.form.field_messages-queue }}**.
+      * Задайте **{{ ui-key.yacloud.ymq.queue.form.field_max-read-tries }}**.
+  1.  Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - AWS CLI
   

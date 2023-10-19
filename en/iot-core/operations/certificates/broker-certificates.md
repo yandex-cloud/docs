@@ -28,22 +28,23 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the broker certificate to.
-   1. Select **{{ iot-short-name }}**.
-   1. Select the broker.
-   1. On the **Overview** page, go to the **Certificates** section and click **Add certificate**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. Select the appropriate broker from the list.
+   1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section and click **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
 
       - To add a file:
 
-         1. Choose the **File** method.
-         1. Click **Select file**.
+         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
+         1. Click **Attach file**.
          1. Select the certificate file on your computer and click **Open**.
-         1. Click **Add**.
+         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       - To add text:
 
-         1. Choose the **Text** method.
-         1. Insert the certificate body in the **Contents** field.
-         1. Click **Add**.
+         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
+         1. Insert the certificate body in the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
 - CLI
 
@@ -78,7 +79,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add a certificate to a broker created using {{ TF }}:
 
@@ -124,7 +125,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -152,11 +153,12 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the broker certificate from.
-   1. Select **{{ iot-short-name }}**.
-   1. Select the broker.
-   1. On the **Overview** page, go to the **Certificates** section.
-   1. In the row with the certificate you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Delete** from the drop-down list.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
+   1. Select the appropriate broker from the list.
+   1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_certificates }}** section.
+   1. In the row with the certificate you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -189,7 +191,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a broker certificate created using {{ TF }}:
 
@@ -230,7 +232,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

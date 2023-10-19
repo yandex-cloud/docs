@@ -54,6 +54,8 @@ items:
         href: tutorials/jwt-authorizer-firebase.md
       - name: Authorization using {{ sf-name }} functions in Ory Kratos
         href: tutorials/ory-kratos-authorization.md
+      - name: Canary release of a {{ sf-name }} function
+        href: tutorials/canary-release.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -98,6 +100,12 @@ items:
             href: concepts/extensions/validator.md
           - name: CORS
             href: concepts/extensions/cors.md
+          - name: Specification parameterization
+            href: concepts/extensions/parametrization.md
+          - name: Canary release
+            href: concepts/extensions/canary.md
+          - name: Request rate limit
+            href: concepts/extensions/rate-limit.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

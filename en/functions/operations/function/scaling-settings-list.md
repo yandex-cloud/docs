@@ -1,3 +1,8 @@
+---
+title: "Viewing function scaling settings"
+description: "Follow this guide to view function scaling settings."
+---
+
 # Viewing function scaling settings
 
 {% list tabs %}

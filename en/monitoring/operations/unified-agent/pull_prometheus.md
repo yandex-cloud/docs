@@ -1,14 +1,20 @@
 # Delivering custom application metrics
 
-{{unified-agent-full-name}} collects metrics in {{ prometheus-name }} format and converts them to {{ monitoring-full-name }} format. Using {{unified-agent-short-name}} lets you pull metrics from applications that deliver them in the {{ prometheus-name }} format.
+{{ unified-agent-full-name }} collects metrics in the {{ prometheus-name }} format and converts them to the {{ monitoring-full-name }} format. {{ unified-agent-short-name }} enables you to pull metrics from applications that deliver them in the {{ prometheus-name }} format.
 
 To deliver custom application metrics to {{ monitoring-full-name }}, use the [metrics_pull input](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input) that regularly polls an application over HTTP expecting to receive metrics in {{ prometheus-name }} format.
 
-As an example, let's discuss delivery of metrics from a test application written in Python.
+As an example, let's discuss delivery of metrics from a test application written in Python. You can run your test application and {{ unified-agent-short-name }} both on different VMs and on a single VM. If run on different VMs, make sure their [security groups](../../../vpc/concepts/security-groups.md) allow incoming and outgoing traffic on port `8000` via `TCP`.
 
 ## Example of delivering custom application metrics {#example}
 
 You can also use this method to deliver metrics from any custom applications that use [Prometheus client libraries](https://prometheus.io/docs/instrumenting/clientlibs/).
+
+1. Set up a service account under which metrics will be written to {{ monitoring-full-name }}.
+
+   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
+
+   1. [Link your service account](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to the VM to install {{unified-agent-short-name}} on.
 
 1. Run a test Python application that provides metrics in {{ prometheus-name }} format.
 
@@ -50,10 +56,17 @@ You can also use this method to deliver metrics from any custom applications tha
       python3 example.py
       ```
 
-   1. Check that the application provides metrics by running the `curl http://localhost:8000` command. Sample command output:
+      For successful metric delivery to {{ unified-agent-short-name }}, make sure your test application keeps running: do not stop it.
+
+   1. Check that the application delivers metrics. To do this, execute the following command by specifying the public IP of your VM with the running application:
 
       ```bash
-      curl http://localhost:8000
+      curl http://<VM_public_IP>:8000
+      ```
+
+      Result:
+
+      ```text
       # HELP python_gc_objects_collected_total Objects collected during gc
       # TYPE python_gc_objects_collected_total counter
       python_gc_objects_collected_total{generation="0"} 362.0
@@ -61,16 +74,15 @@ You can also use this method to deliver metrics from any custom applications tha
       python_gc_objects_collected_total{generation="2"} 0.0
       # HELP python_gc_objects_uncollectable_total Uncollectable object found during GC
       # TYPE python_gc_objects_uncollectable_total counter
-      ...
       ```
 
-1. Set up a service account from which metrics will be written to {{ monitoring-full-name }}.
+1. Install and configure {{ unified-agent-full-name }}:
 
-   1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}`.
+   1. Install Docker if needed:
 
-   1. [Link your service account](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to a virtual machine with {{unified-agent-short-name}} installed.
-
-1. Install and configure {{unified-agent-full-name}}:
+      ```bash
+      sudo apt-get install docker.io
+      ```
 
    1. Create a file named **config.yml** in your home folder.
 
@@ -96,7 +108,7 @@ You can also use this method to deliver metrics from any custom applications tha
              output:
                plugin: yc_metrics
                config:
-                 folder_id: "$FOLDER_ID"
+                 folder_id: "<folder_ID>"
                  iam:
                    cloud_meta: {}
 
@@ -104,7 +116,7 @@ You can also use this method to deliver metrics from any custom applications tha
          - input:
              plugin: metrics_pull
              config:
-               url: http://localhost:8000
+               url: http://<VM_public_IP>:8000/metrics
                format:
                  prometheus: {}
                namespace: app
@@ -129,9 +141,12 @@ You can also use this method to deliver metrics from any custom applications tha
          - /etc/yandex/unified_agent/conf.d/*.yml
       ```
 
-      Where `$FOLDER_ID` is the ID of the folder to write metrics to.
+      Where:
 
-   1. Install {{unified-agent-short-name}} on your VM by running the following command in the home folder:
+      * `folder_id`: ID of the folder you want to write metrics to.
+      * `url`: Public address of the VM hosting the test application that delivers metrics.
+
+   1. Install {{ unified-agent-short-name }} by running the following command in your home directory:
 
       ```bash
       docker run \
@@ -140,20 +155,22 @@ You can also use this method to deliver metrics from any custom applications tha
       -v /proc:/ua_proc \
       -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs... \
+      -e FOLDER_ID=<folder_id> \
       {{ registry }}/yc/unified-agent
       ```
+
+      Where `FOLDER_ID` is the ID of the folder to write metrics to.
 
       You can find more ways to install the agent in [{#T}](../../concepts/data-collection/unified-agent/installation.md).
 
 1. Make sure the metrics are delivered to {{ monitoring-full-name }}:
 
-   1. On the {{ monitoring-full-name }} [homepage]({{ link-monitoring }}), go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+   1. On the {{ monitoring-full-name }} [home page]({{ link-monitoring }}), go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
 
    1. In the query block, select:
-   - The folder where metrics are collected.
-   - The label value `service=custom`.
-   - The metric name starting with the `app` prefix.
+   - Folder where metrics are collected.
+   - `Custom Metrics` label value.
+   - Metric name starting with the `app` prefix.
 
 #### What's next {#what-is-next}
 

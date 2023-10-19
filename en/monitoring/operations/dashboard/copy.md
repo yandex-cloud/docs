@@ -1,3 +1,8 @@
+---
+title: "How to copy a dashboard"
+description: "Use this guide to copy a dashboard."
+---
+
 # Copying dashboards
 
 {% note info %}

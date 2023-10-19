@@ -1,3 +1,8 @@
+---
+title: "Adding a container label"
+description: "Follow this guide to add a container label."
+---
+
 # Adding a container label
 
 {% list tabs %}

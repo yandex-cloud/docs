@@ -1,3 +1,8 @@
+---
+title: "How to create a broker"
+description: "This guide describes how you can create a broker."
+---
+
 # Creating a broker
 
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
@@ -10,11 +15,11 @@
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Click **{{ ui-key.yacloud.iot.button_create-broker }}**.
-   1. Under **General information**, specify:
+   1. Under **{{ ui-key.yacloud.common.section-base }}**, specify:
 
       * Broker **{{ ui-key.yacloud.common.name }}**, e.g., `my-broker`.
       * (Optional) **{{ ui-key.yacloud.common.description }}**: Additional information about the broker.
-      * (Optional) **Password** if you are going to use it instead of a certificate to access the broker. To create a password, you can use the [password generator](https://passwordsgenerator.net/).
+      * (Optional) **{{ ui-key.yacloud.common.password }}** if you are going to use it instead of a certificate to access the broker. To create a password, you can use the [password generator](https://passwordsgenerator.net/).
 
          {% note info %}
 
@@ -28,18 +33,18 @@
 
       * To add a file:
 
-         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}** method.
+         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` method.
          1. Click **Attach file**.
          1. Select the file with the public key of the certificate and click **Open**.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
       * To add text:
 
-         1. Choose the **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** method.
+         1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
          1. Paste the public key of the certificate into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
-   1. Click **Create**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
 
@@ -158,7 +163,7 @@
 
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan

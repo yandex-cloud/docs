@@ -61,6 +61,8 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
      --name <trigger_name> \
      --registry-id <registry_ID> \
      --events 'create-image','delete-image','create-image-tag','delete-image-tag' \
+     --batch-size <batch_size> \
+     --batch-cutoff <maximum_wait_time> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
      --retry-attempts 1 \
@@ -72,9 +74,13 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
    Where:
 
-   * `--name`: Trigger name.
-   * `--registry-id`: [Registry ID](../../container-registry/operations/registry/registry-list.md).
-   * `--events`: [Events](../concepts/trigger/cr-trigger.md#event) activating the trigger.
+   * `--name`: Trigger name
+   * `--registry-id`: [Registry ID](../../container-registry/operations/registry/registry-list.md)
+   * `--events`: [Events](../concepts/trigger/cr-trigger.md#event) activating the trigger
+
+   {% include [batch-settings-events](../../_includes/functions/batch-settings-events.md) %}
+
+   {% include [batch-settings-events](../../_includes/serverless-containers/batch-settings-events.md) %}
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -94,6 +100,9 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
        - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
        - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
        registry_id: crtlds4tdfg12kil77**********
+       batch_settings:
+         size: "3"
+         cutoff: 20s
        invoke_container:
          container_id: bba5jb38o8**********
          service_account_id: aje3932acd**********

@@ -6,24 +6,24 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you wish to revoke a role for a resource.
-  1. In the list of services, select **{{ container-registry-name }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to revoke a role for a resource.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Revoke a role for the resource.
      * Revoking a role for a registry:
-       1. To the right of the desired registry name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **Configure ACL**.
+       1. To the right of the registry name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_registry-acl }}**.
        1. In the window that opens, expand the drop-down list in the row with the name of the user whose permissions you want to revoke.
        1. Deselect the role that you want to revoke.
 
-          To revoke all the user's permissions, click **Revoke**.
-       1. Click **Save**.
+          To revoke all the user's permissions, click **{{ ui-key.yacloud.component.acl-dialog.button_revoke }}**.
+       1. Click **{{ ui-key.yacloud.common.save }}**.
      * Revoking a role for a repository:
-       1. Select the desired registry.
-       1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **Configure ACL**.
+       1. Select the registry.
+       1. To the right of the repository name, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.cr.registry.overview.button_repository-acl }}**.
        1. In the window that opens, expand the drop-down list in the row with the name of the user whose permissions you want to revoke.
        1. Deselect the role that you want to revoke.
 
-          To revoke all the user's permissions, click **Revoke**.
-       1. Click **Save**.
+          To revoke all the user's permissions, click **{{ ui-key.yacloud.component.acl-dialog.button_revoke }}**.
+       1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 

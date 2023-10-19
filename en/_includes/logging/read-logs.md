@@ -7,8 +7,8 @@ The log uses [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) tim
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your log group.
-   1. Select **{{ cloud-logging-name }}**.
-   1. Click on the line with the log group you want to view.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+   1. Click the row with the log group you want to view.
    1. The page that opens will show the log group records.
 
 - CLI

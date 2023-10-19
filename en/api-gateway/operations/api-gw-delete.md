@@ -1,3 +1,8 @@
+---
+title: "Deleting API gateways"
+description: "Follow this guide to delete an API gateway."
+---
+
 # Deleting API gateways
 
 {% list tabs %}

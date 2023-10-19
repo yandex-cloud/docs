@@ -1,12 +1,14 @@
 # Trigger for {{ iot-short-name }} that sends messages to the {{ sf-name }} function
 
-The [trigger](../trigger/) for {{ iot-short-name }} is designed for managing messages exchanged between devices and registries. The trigger is created for topics: it receives copies of messages from them and passes those copies to the {{ sf-name }} function for processing.
+A [trigger](../trigger/) for {{ iot-short-name }} is designed for managing messages exchanged between devices, registries, and brokers. The trigger is created for topics: it receives copies of messages from them and delivers those copies to the {{ sf-name }} function for processing.
 
 {% include [trigger](../../../_includes/iot-core/trigger.md) %}
 
 A trigger for {{ iot-short-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to call the function.
 
-For more information about creating a trigger for {{ iot-short-name }}, see [{#T}](../../operations/trigger/iot-core-trigger-create.md).
+For more information about creating a trigger for {{ iot-short-name }}, see [{#T}](../../operations/trigger/iot-core-trigger-create.md) and [{#T}](../../operations/trigger/iot-core-trigger-broker-create.md).
+
+{% include [batching-messages](../../../_includes/functions/batching-messages.md) %}
 
 ## Roles required for the proper operation of a trigger for {{ iot-short-name }} {#roles}
 
@@ -17,9 +19,15 @@ Read more about [access management](../../security/index.md).
 
 ## Trigger for {{ iot-short-name }} message format {#format}
 
-Before the message is copied to a function, the trigger converts it to the following format:
+Before the message is copied to a function, the trigger converts it to the format below.
+
+### Device {#device}
 
 {% include [iot-format](../../../_includes/functions/iot-format.md) %}
+
+### Broker {#broker}
+
+{% include [iot-format](../../../_includes/functions/iot-format-broker.md) %}
 
 ## See also {#see-also}
 

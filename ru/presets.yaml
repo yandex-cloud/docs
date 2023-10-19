@@ -6439,7 +6439,7 @@ default:
         field_expand-add-segments-per-host-count: Добавить сегментов на хост
         field_expand-duration: Таймаут редистрибуции
         field_expand-segment-host-count: Количество новых хостов-сегментов
-        section_cloud-storage: Cloud Storage
+        section_cloud-storage: Гибридное хранилище
         section_resource-master: Master
         section_resource-segment: Segment
         wizard:
@@ -6510,17 +6510,17 @@ default:
             label_lockbox: Lockbox
             label_logging: Cloud Logging
             label_managed-airflow: Managed Service for&nbsp;Apache&nbsp;Airflow™
-            label_managed-clickhouse: Managed Service for ClickHouse
-            label_managed-elasticsearch: Managed Service for Elasticsearch
-            label_managed-gitlab: Managed Service for GitLab
-            label_managed-greenplum: Managed Service for Greenplum
-            label_managed-kafka: Managed Service for Kafka
-            label_managed-kubernetes: Managed Service for Kubernetes
-            label_managed-mongodb: Managed Service for MongoDB
-            label_managed-mysql: Managed Service for MySQL
-            label_managed-opensearch: Managed Service for OpenSearch
-            label_managed-postgresql: Managed Service for PostgreSQL
-            label_managed-redis: Managed Service for Redis
+            label_managed-clickhouse: Managed Service for&nbsp;ClickHouse
+            label_managed-elasticsearch: Managed Service for&nbsp;Elasticsearch
+            label_managed-gitlab: Managed Service for&nbsp;GitLab
+            label_managed-greenplum: Managed Service for&nbsp;Greenplum
+            label_managed-kafka: Managed Service for&nbsp;Kafka
+            label_managed-kubernetes: Managed Service for&nbsp;Kubernetes
+            label_managed-mongodb: Managed Service for&nbsp;MongoDB
+            label_managed-mysql: Managed Service for&nbsp;MySQL
+            label_managed-opensearch: Managed Service for&nbsp;OpenSearch
+            label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
+            label_managed-redis: Managed Service for&nbsp;Redis
             label_mdb: Managed Databases
             label_message-queue: Message Queue
             label_monitoring: Monitoring
@@ -6534,7 +6534,7 @@ default:
             label_storage: Object Storage
             label_vdi: Cloud Desktop
             label_vpc: Virtual Private Cloud
-            label_ydb: Managed Service for YDB
+            label_ydb: Managed Service for&nbsp;YDB
             label_ymq: Message Queue
             value_audit-trails: Audit trail
             value_compute: Виртуальная машина
@@ -6639,6 +6639,7 @@ default:
         field_connector-security-protocol: Протокол безопасности
         field_connector-ssl-truststore-certificates: Сертификат в формате PEM
         field_schema-registry: Реестр схем данных
+        field_unmanaged-topics: Управление топиками через API
         label_brokers-per-az: Количество брокеров в зоне
         label_connector-this-cluster: Использовать этот кластер
         label_connectors: Коннекторы
@@ -7223,10 +7224,12 @@ default:
             button_add-environment-variable: Добавить
             button_deploy-version: Сохранить изменения
             create-file: Создать файл
+            field_bucket: Бакет
             field_entry: Точка входа
             field_environment-variables: Переменные окружения
             field_file: Файл
             field_method: Способ
+            field_object: Объект
             field_resources-memory: Память
             field_runtime: Среда выполнения
             field_timeout: Таймаут, c
@@ -7250,6 +7253,7 @@ default:
             option_queues-unset: Не задано
             title_mount-files: Смонтированные бакеты
             value_method-editor: Редактор кода
+            value_method-storage: Object Storage
             value_method-zip-file: ZIP-архив
           overview:
             button_edit-tag: Изменить
@@ -7748,6 +7752,20 @@ default:
             value_partitions-uniform: Равномерно
       ymq:
         queue:
+          form:
+            field_keeping-time: Срок хранения  сообщений
+            field_max-read-tries: Максимальное количество  попыток чтения
+            field_max-size: Максимальный размер сообщения
+            field_messages-queue: Очередь недоставленных  сообщений
+            field_receiving-delay: Время ожидания  при получении сообщения
+            field_sending-delay: Задержка доставки
+            field_visibility-timeout: Стандартный таймаут видимости
+            section_base: Базовые параметры
+            section_message-settings: Настройки очередей недоставленных сообщений
+            switch_fifo-queue: Тип
+            switch_redirect-messages: Перенаправлять  недоставленные сообщения
+            type_switch_fifo: FIFO
+            type_switch_standard: Стандартная
           overview:
             label_msg-count: Сообщений в очереди
             label_queue-arn: ARN
@@ -9193,3 +9211,7 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault
         tag: 0.25.0-1
+    yc_velero-yc-csi:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/velero-yc-csi/helm/velero
+        tag: 2.30.3

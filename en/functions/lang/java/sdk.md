@@ -2,8 +2,8 @@
 
 The runtime environment does not have a pre-installed library for working with the [{{ yandex-cloud }} API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your Java application. The library source code is available on [GitHub](https://github.com/yandex-cloud/java-sdk). The availability of library modules depends on the language version:
 
-* `java-sdk-functions`: Only for Java 11
-* `java-sdk-serverless`: Java 17 or higher
+* `java-sdk-functions`: Only for Java 11.
+* `java-sdk-serverless`: Java 17 or higher.
 
 Other modules are available for any version of Java.
 
@@ -15,7 +15,7 @@ The following function receives the `folderId` as an input, authorizes in the SD
 
 {% note warning %}
 
-To invoke the function, use the [{{ yandex-cloud }} CLI](../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+To invoke the function, use the [{{ yandex-cloud }} CLI](../../concepts/function-invoke.md) or an HTTP request with the `?integration=raw` parameter.
 
 {% endnote %}
 

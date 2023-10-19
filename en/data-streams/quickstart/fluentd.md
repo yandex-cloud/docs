@@ -15,9 +15,9 @@ description: "In this tutorial, you'll learn how to collect and deliver data to 
    ```
 
 1. In the [management console]({{ link-console-main }}), select the folder with the stream.
-1. Select **{{ yds-full-name }}**.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Select the data stream.
-1. Click **Connect** and go to the **Fluentd** tab.
+1. Click **{{ ui-key.yacloud.data-streams.button_connect }}** and go to the **Fluentd** tab.
 1. Copy a sample configuration file and paste it into the `/etc/td-agent/td-agent.conf` file.
 
    {% include [aws-sdk-attr](../../_includes/data-streams/aws-sdk-attr.md) %}

@@ -82,6 +82,8 @@ default:
   yagpt-full-name: YandexGPT
   billing-name: Yandex Cloud Billing
   console-full-name: Yandex Cloud Console
+  video-full-name: Yandex Cloud Video
+  postbox-full-name: Yandex Cloud Postbox
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver
@@ -167,8 +169,10 @@ default:
   backup-name: Cloud Backup
   search-api-name: Search API
   yagpt-name: YandexGPT
+  postbox-name: Cloud Postbox
   websql-name: WebSQL
   websql-full-name: Yandex WebSQL
+  video-name: Cloud Video
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -689,6 +693,7 @@ default:
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.com
   link-support-mail: cloud@support.yandex.ru
+  link-video-main: https://video.cloud.yandex.ru/
   link-cloud-desktop-showcase: https://console.cloud.yandex.com/showcase/cloud-desktop
   link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-yandex: https://yandex.com
@@ -6412,7 +6417,7 @@ default:
         field_expand-add-segments-per-host-count: Add segments to host
         field_expand-duration: Redistribution timeout
         field_expand-segment-host-count: Number of new segment hosts
-        section_cloud-storage: Cloud Storage
+        section_cloud-storage: Hybrid storage
         section_resource-master: Master
         section_resource-segment: Segment
         wizard:
@@ -6483,17 +6488,17 @@ default:
             label_lockbox: Lockbox
             label_logging: Cloud Logging
             label_managed-airflow: Managed Service for&nbsp;Apache&nbsp;Airflow™
-            label_managed-clickhouse: Managed Service for ClickHouse
-            label_managed-elasticsearch: Managed Service for Elasticsearch
-            label_managed-gitlab: Managed Service for GitLab
-            label_managed-greenplum: Managed Service for Greenplum
-            label_managed-kafka: Managed Service for Kafka
-            label_managed-kubernetes: Managed Service for Kubernetes
-            label_managed-mongodb: Managed Service for MongoDB
-            label_managed-mysql: Managed Service for MySQL
-            label_managed-opensearch: Managed Service for OpenSearch
-            label_managed-postgresql: Managed Service for PostgreSQL
-            label_managed-redis: Managed Service for Redis
+            label_managed-clickhouse: Managed Service for&nbsp;ClickHouse
+            label_managed-elasticsearch: Managed Service for&nbsp;Elasticsearch
+            label_managed-gitlab: Managed Service for&nbsp;GitLab
+            label_managed-greenplum: Managed Service for&nbsp;Greenplum
+            label_managed-kafka: Managed Service for&nbsp;Kafka
+            label_managed-kubernetes: Managed Service for&nbsp;Kubernetes
+            label_managed-mongodb: Managed Service for&nbsp;MongoDB
+            label_managed-mysql: Managed Service for&nbsp;MySQL
+            label_managed-opensearch: Managed Service for&nbsp;OpenSearch
+            label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
+            label_managed-redis: Managed Service for&nbsp;Redis
             label_mdb: Managed Databases
             label_message-queue: Message Queue
             label_monitoring: Monitoring
@@ -6507,7 +6512,7 @@ default:
             label_storage: Object Storage
             label_vdi: Cloud Desktop
             label_vpc: Virtual Private Cloud
-            label_ydb: Managed Service for YDB
+            label_ydb: Managed Service for&nbsp;YDB
             label_ymq: Message Queue
             value_audit-trails: Audit trail
             value_compute: Virtual machine instance
@@ -7197,10 +7202,12 @@ default:
             button_add-environment-variable: Add
             button_deploy-version: Save changes
             create-file: Create file
+            field_bucket: Bucket
             field_entry: Entrypoint
             field_environment-variables: Environment variables
             field_file: File
             field_method: Method
+            field_object: Object
             field_resources-memory: Memory
             field_runtime: Runtime environment
             field_timeout: Timeout, sec
@@ -7224,6 +7231,7 @@ default:
             option_queues-unset: Not specified
             title_mount-files: Mounted buckets
             value_method-editor: Code editor
+            value_method-storage: Object Storage
             value_method-zip-file: ZIP archive
           overview:
             button_edit-tag: Edit
@@ -7722,6 +7730,20 @@ default:
             value_partitions-uniform: Evenly
       ymq:
         queue:
+          form:
+            field_keeping-time: Message retention
+            field_max-read-tries: Maximum number of read attempts
+            field_max-size: Maximum message size
+            field_messages-queue: Undelivered messages queue
+            field_receiving-delay: Timeout for receiving messages
+            field_sending-delay: Delivery delay
+            field_visibility-timeout: Standard visibility timeout
+            section_base: Basic parameters
+            section_message-settings: Configure undelivered message queues
+            switch_fifo-queue: Type
+            switch_redirect-messages: Redirect undelivered messages
+            type_switch_fifo: FIFO
+            type_switch_standard: Standard
           overview:
             label_msg-count: Messages in the queue
             label_queue-arn: ARN
@@ -9169,3 +9191,7 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/vault/chart/vault
         tag: 0.25.0-1
+    yc_velero-yc-csi:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/velero-yc-csi/helm/velero
+        tag: 2.30.3

@@ -1,3 +1,8 @@
+---
+title: "Updating the record retention period"
+description: "Follow this guide to update the record retention period."
+---
+
 # Updating the record retention period
 
 {% list tabs %}
@@ -5,11 +10,11 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your [log group](../concepts/log-group.md).
-   1. Select **{{ cloud-logging-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
    1. In the line with the log group, click ![image](../../_assets/horizontal-ellipsis.svg).
-   1. In the menu that opens, click **Edit**.
+   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
    1. Update the log group record retention period.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -67,7 +72,7 @@
       Where:
 
       * `name`: Name of the log group. This is an optional parameter.
-      * `folder_id`: ID of the folder. This is an optional parameter. By default, the value specified in the provider settings is used.
+      * `folder_id`: Folder ID. This is an optional parameter. By default, the value specified in the provider settings is used.
       * `retention_period`: New log group record retention period.
 
          {% include [retention-period](../../_includes/logging/retention-period.md) %}
@@ -94,7 +99,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

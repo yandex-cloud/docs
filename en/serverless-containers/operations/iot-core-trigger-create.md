@@ -1,6 +1,11 @@
-# Creating a trigger for {{ iot-name }} that sends messages to a {{ serverless-containers-name }} container
+---
+title: "Creating a trigger that transmits messages to a {{ serverless-containers-name }} container from an {{ iot-full-name }} registry or device topic"
+description: "Create a trigger for an {{ iot-name }} device or registry topic to process message copies in a {{ serverless-containers-name }} container."
+---
 
-Create a [trigger](../concepts/trigger/iot-core-trigger.md) for a device topic or the {{ iot-name }} service registry and process copies of messages using a {{ serverless-containers-name }} [container](../concepts/container.md).
+# Creating a trigger that will send messages to a {{ serverless-containers-name }} container from a {{ iot-full-name }} registry or device topic
+
+Create a [trigger](../concepts/trigger/iot-core-trigger.md) for an {{ iot-name }} device or registry topic and process copies of messages using a {{ serverless-containers-name }} [container](../concepts/container.md).
 
 {% note warning %}
 
@@ -39,7 +44,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}`.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic. If no MQTT topic is set, the trigger fires for all registry or device topics.
 
    1. {% include [container-settings](../../_includes/serverless-containers/container-settings.md) %}
 
@@ -65,6 +70,8 @@ The trigger must be in the same cloud with the registry or device it reads messa
      --registry-id <registry_ID> \
      --device-id <device_ID> \
      --mqtt-topic '$devices/<device_ID>/events' \
+     --batch-size <message_batch_size> \
+     --batch-cutoff <maximum_wait_time> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
      --retry-attempts 1 \
@@ -72,12 +79,15 @@ The trigger must be in the same cloud with the registry or device it reads messa
      --dlq-queue-id <Dead_Letter_Queue_ID> \
      --dlq-service-account-id <service_account_ID>
    ```
+
    Where:
 
    * `--name`: Trigger name.
    * `--registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
-   * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you're creating a trigger for a registry topic, you can omit this parameter.
-   * `--mqtt-topic`: The topic you want to create a trigger for.
+   * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
+   * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger fires for all registry or device topics.
+
+   {% include [trigger-param](../../_includes/iot-core/trigger-param-sc.md) %}
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -93,6 +103,9 @@ The trigger must be in the same cloud with the registry or device it reads messa
        registry_id: arenou2oj4**********
        device_id: areqjd6un3**********
        mqtt_topic: $devices/areqjd6un**********/events
+       batch_settings:
+         size: "1"
+         cutoff: 0s
        invoke_container:
          container_id: bba5jb38o8**********
          service_account_id: aje3932acd**********
@@ -114,4 +127,4 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 ## See also {#see-also}
 
-* [Trigger for {{ iot-name }} that sends messages to the {{ sf-name }} function](../../functions/operations/trigger/iot-core-trigger-create.md).
+* [Trigger for {{ iot-name }} that sends messages from registry or device topics to a {{ sf-name }} function](../../functions/operations/trigger/iot-core-trigger-create.md).

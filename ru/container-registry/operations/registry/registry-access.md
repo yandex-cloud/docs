@@ -102,8 +102,8 @@
 
       {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
-     ```bash
-     yc container registry list-ip-permissions <имя_реестра>
-     ```
+      ```bash
+      yc container registry list-ip-permissions <имя_реестра>
+      ```
 
 {% endlist %}

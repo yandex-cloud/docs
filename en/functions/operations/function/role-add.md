@@ -1,3 +1,8 @@
+---
+title: "Assigning roles to a function"
+description: "Follow this guide to assign roles to a function."
+---
+
 # Assigning roles to a function
 
 {% list tabs %}

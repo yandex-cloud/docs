@@ -33,6 +33,22 @@ To create a connection:
       * Select or create a [serverless {{ ydb-name }} database](../../ydb/) with a {{ yds-full-name }} [stream](../../data-streams/concepts/index.md).
       * Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be used to access the data.
 
+   - {{ mpg-name }}
+
+      * **Cluster**: Select an existing {{ mpg-name }} cluster or create a new one.
+      * **Service account**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) in {{ mpg-name }}, or create a new service account with the [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer) role, and use it to connect to `{{ mpg-name }}` clusters.
+      * **Login**: Username to be used to connect to {{ PG }} databases.
+      * **Password**: User password that will be used to connect to {{ PG }} databases.
+
+
+   - {{ mch-name }}
+
+      * **Cluster**: Select an existing {{ mch-name }} cluster or create a new one.
+      * **Service account**: Select an existing [service account](../../iam/concepts/users/service-accounts.md) in {{ mch-name }}, or create a new service account with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security/index.md#mch-viewer) role, and use it to connect to `{{ mch-name }}` clusters.
+      * **Login**: Username that will be used to connect to ClickHouse databases.
+      * **Password**: User password that will be used to connect to ClickHouse databases.
+
+
    - {{ monitoring-short-name }}
 
       * Select the **Cloud and folder** where the data source is located.

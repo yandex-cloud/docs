@@ -63,6 +63,8 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
      --prefix '<object_key_prefix>' \
      --suffix '<object_key_suffix>' \
      --events 'create-object','delete-object','update-object' \
+     --batch-size <batch_size> \
+     --batch-cutoff <maximum_wait_time> \
      --invoke-container-id <container_ID> \
      --invoke-container-service-account-id <service_account_ID> \
      --retry-attempts 1 \
@@ -76,9 +78,11 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
    * `--name`: Trigger name.
    * `--bucket-id`: Bucket ID.
-   * `--prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). Optional parameter. Used for filtering.
-   * `--suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). Optional parameter. Used for filtering.
+   * `--prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+   * `--suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
    * `--events`: [Events](../concepts/trigger/os-trigger.md#event) activating the trigger.
+
+   {% include [batch-settings-events](../../_includes/serverless-containers/batch-settings-events.md) %}
 
    {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
@@ -99,6 +103,9 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
        bucket_id: s3-for-trigger
        prefix: dev
        suffix: 12.jpg
+       batch_settings:
+         size: "3"
+         cutoff: 20s
        invoke_container:
          container_id: bba5jb38o8**********
          service_account_id: aje3932acd**********

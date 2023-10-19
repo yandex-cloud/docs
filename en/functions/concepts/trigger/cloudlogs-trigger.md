@@ -1,3 +1,8 @@
+---
+title: "Trigger for {{ cloud-logs-name }}"
+description: "This article describes the features of triggers for {{ cloud-logs-name }}."
+---
+
 # Trigger for {{ cloud-logs-name }}
 
 {% note alert %}
@@ -10,7 +15,7 @@ A trigger for {{ cloud-logs-name }} runs a function when messages are received i
 
 {% note alert %}
 
-Triggers for {{ cloud-logs-name }} may skip messages under increased load. To make sure you don't lose them, in the trigger settings for {{ cloud-logs-name }}, specify [DLQ](../dlq.md) and process messages from there with a [trigger for {{ message-queue-short-name }}](ymq-trigger.md).
+Triggers for {{ cloud-logs-name }} may skip messages under increased load. To make sure you do not lose them, in the trigger settings for {{ cloud-logs-name }}, specify [DLQ](../dlq.md) and process messages from there with a [trigger for {{ message-queue-short-name }}](ymq-trigger.md).
 
 {% endnote %}
 
@@ -20,7 +25,7 @@ For more information about creating a trigger for {{ cloud-logs-name }}, see [{#
 
 ## Batching {#batching}
 
-Batching settings let you simultaneously send multiple messages to a function. They set a top limit on the size of a message group and its accumulation time. For example, if the size of a message group is 3, the function can receive groups that contain from 1 to 3 messages.
+Batching settings allow you to send multiple messages to a function at the same time. They set a top limit on the size of a message group and its accumulation time. For example, if the size of a message group is 3, the function can receive groups that contain from 1 to 3 messages.
 
 ## Roles required for the proper operation of a trigger for {{ cloud-logs-name }} {#roles}
 
@@ -31,7 +36,7 @@ Read more about [access management](../../security/index.md).
 
 ## Trigger for {{ cloud-logs-name }} message format {#ymq-format}
 
-After the trigger is activated, it sends the following message to the function:
+After the trigger is fired, it sends the following message to the function:
 
 ```json
 

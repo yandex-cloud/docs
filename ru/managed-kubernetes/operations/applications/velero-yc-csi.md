@@ -39,7 +39,7 @@
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **Доступные для установки приложения** выберите [Velero](/marketplace/products/yc/velero-yc-csi) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Задайте настройки приложения:
@@ -65,8 +65,8 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/velero-yc-csi/helm/velero \
-        --version <версия_Helm-чарта> \
+   helm pull oci://{{ mkt-k8s-key.yc_velero-yc-csi.helmChart.name }} \
+        --version {{ mkt-k8s-key.yc_velero-yc-csi.helmChart.tag }} \
         --untar && \
    helm install \
         --namespace velero \
@@ -75,8 +75,6 @@
         --set-file serviceaccountawskeyvalue=<путь_к_файлу_sa-key.json> \
         velero ./velero/
    ```
-
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/velero-yc-csi#docker-images).
 
 ## См. также {#see-also}
 

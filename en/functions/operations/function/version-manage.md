@@ -1,3 +1,8 @@
+---
+title: "How to create a function version"
+description: "This guide describes how you can create a function version."
+---
+
 # Creating a function version
 
 {% include [create-version](../../../_includes/functions/create-version.md) %}
@@ -11,8 +16,8 @@
 When creating a version, set the following parameters:
 
 * _{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}_: Provides additional libraries and environment variables that can be accessed from the function code. It corresponds to the programming language that your function is written in. For more information, see [Runtime environment](../../concepts/runtime/index.md).
-* _{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}_: The function to be invoked as a handler. To read more about the handler, see [Programming model](../../concepts/function.md#programming-model).
-* _{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}_: The maximum function execution time, after which the service will terminate its execution without waiting for a response. It includes the time of the first initialization when the function is first run.
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}_: Function to be invoked as a handler. To read more about the handler, see [Programming model](../../concepts/function.md#programming-model).
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}_: Maximum function execution time, after which the service will terminate its execution without waiting for a response. It includes the time of the first initialization when the function is first run.
 
 {% list tabs %}
 
@@ -100,12 +105,12 @@ When creating a version, set the following parameters:
          * `name`: Function name.
          * `description`: Text description of the function.
          * `user_hash`: Arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
-         * `runtime`: The function [runtime environment](../../concepts/runtime/index.md).
+         * `runtime`: Function [runtime environment](../../concepts/runtime/index.md)
          * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
-         * `memory`: The amount of memory allocated for function execution, in MB.
-         * `execution_timeout`: Function execution timeout.
+         * `memory`: Amount of memory allocated for function execution, in MB.
+         * `execution_timeout`: Function execution timeout
          * `service_account_id`: ID of the service account that should be used to invoke the function.
-         * `content`: Function source code.
+         * `content`: Function source code
             * `content.0.zip_filename`: Name of the ZIP archive that contains the function source code.
 
       Example of the configuration file structure:
@@ -181,6 +186,6 @@ When creating a version, set the following parameters:
 
 {% note info %}
 
-To ensure the integrity of version links, you can't update or delete function versions. For more information about relationships between resources, see [{#T}](../../concepts/function.md).
+To ensure the integrity of version links, you cannot update or delete function versions. For more information about relationships between resources, see [{#T}](../../concepts/function.md).
 
 {% endnote %}

@@ -11,15 +11,15 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
    To create an alias:
 
    1. In the [management console]({{ link-console-main }}), select a folder where you wish to create an alias.
-   1. Select **{{ iot-short-name }}**.
-   1. Select the desired registry from the list.
-   1. In the left part of the window, select **Devices**.
-   1. Click ![image](../../../../_assets/horizontal-ellipsis.svg) to the right of the name of the device you need and select **Edit** from the drop-down list.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Select the required registry from the list.
+   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
+   1. Click ![image](../../../../_assets/horizontal-ellipsis.svg) to the right of the name of the device you need and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Add an alias:
-      1. Click **Add alias**.
-      1. Complete the fields: enter an alias (such as, `events`) and topic type after `$devices/<deviceID>` (such as, `events`).<br/>You can use the `events` alias to replace `$devices/<deviceID>/events`.
+      1. Click **{{ ui-key.yacloud.iot.button_add-alias }}**.
+      1. Complete the fields: enter an alias (e.g., `events`) and topic type after `$devices/<deviceID>` (e.g., `events`).<br/>You can use the `events` alias to replace `$devices/<deviceID>/events`.
       1. Repeat the steps for each alias you add.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -30,19 +30,19 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
    Create an alias:
 
    ```
-   yc iot device add-topic-aliases arenak5ciqss6pbas6js
-     --topic-aliases commands='$devices/arenak5ciqss6pbas6js/commands'
+   yc iot device add-topic-aliases arenak5ciqss********
+     --topic-aliases commands='$devices/arenak5ciqss********/commands'
    ```
 
    Result:
 
    ```
-   id: arenak5ciqss6pbas6js
-   registry_id: arenou2oj4ct42eq8g3n
+   id: arenak5ciqss********
+   registry_id: arenou2oj4ct********
    created_at: "2019-09-16T12:32:48.911Z"
    name: second
    topic_aliases:
-     commands: $devices/arenak5ciqss6pbas6js/commands
+     commands: $devices/arenak5ciqss********/commands
    ```
 
    You can also add an alias when [creating a device](../device-create.md). To do this, instead of a unique ID, specify the `{id}` in the device topic, since the unique ID is not yet known:
@@ -70,7 +70,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
          * `description`: Device description.
          * `aliases`: Topic aliases.
 
-      Sample resource structure in the configuration file:
+      Here is an example of the resource structure in the configuration file:
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
@@ -106,7 +106,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

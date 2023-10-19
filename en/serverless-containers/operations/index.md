@@ -37,6 +37,7 @@
 * [Adding environment variables](./environment-variables-add.md)
 * [{#T}](./network-add.md)
 * [{#T}](./lockbox-secret-transmit.md)
+* [Mounting a bucket](./mount-bucket.md)
 * [Adding a label](./label-add.md)
 * [Updating a label](./label-update.md)
 * [Removing a label](./label-delete.md)
@@ -56,14 +57,14 @@
 * [Creating a trigger for {{ objstorage-name }}](./os-trigger-create.md)
 * [Creating a trigger for {{ container-registry-name }}](./cr-trigger-create.md)
 * [Creating a trigger for {{ cloud-logging-name }}](./cloud-logging-trigger-create.md)
-* [Creating a trigger for {{ iot-name }}](./iot-core-trigger-create.md)
+* [Creating a trigger for {{ iot-name }} (device)](./iot-core-trigger-create.md)
+* [Creating a trigger for {{ iot-name }} (broker)](./iot-core-trigger-broker-create.md)
 * [Creating a trigger for budgets](./budget-trigger-create.md)
 * [Creating a trigger for {{ yds-name }}](./data-streams-trigger-create.md)
 * [Creating an email trigger](./mail-trigger-create.md)
 
 ## Managing triggers {#manage-trigger}
 
-* [Updating a name](./trigger-name-update.md)
-* [Updating a description](./trigger-description-update.md)
+* [Updating a trigger](./trigger-update.md)
 * [Viewing monitoring charts](./trigger-monitoring.md)
 * [Deleting a trigger](./trigger-delete.md)

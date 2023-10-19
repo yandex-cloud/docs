@@ -22,12 +22,12 @@ You can add a password to an existing registry or set it when creating a registr
 
    To add a password to an existing registry:
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to set a password for a previously created registry.
-   1. Select **{{ iot-short-name }}**.
-   1. Select the desired registry from the list.
-   1. Under **Passwords**, click **Add password**.
-   1. In the **Password** field, enter the password you will be using to access your registry.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create a password.<br/>Make sure you save the password - you will need it later.
-   1. Click **Add**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to set a password for a previously created registry.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Select the required registry from the list.
+   1. Under **{{ ui-key.yacloud.iot.label_passwords }}**, click **{{ ui-key.yacloud.iot.button_add-password }}**.
+   1. In the **{{ ui-key.yacloud.common.password }}** field, enter the password you will be using to access your registry.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create a password.<br/>Make sure you save the password, as you will need it later.
+   1. Click **{{ ui-key.yacloud.common.add }}**.
 
 - CLI
 
@@ -45,7 +45,7 @@ You can add a password to an existing registry or set it when creating a registr
       +----------------------+-------------------+
       |          ID          |       NAME        |
       +----------------------+-------------------+
-      | arenou2oj4ct42eq82er | my-registry       |
+      | arenou2oj4ct******** | my-registry       |
       +----------------------+-------------------+
       ```
    1. Add a password to the registry:
@@ -56,8 +56,8 @@ You can add a password to an existing registry or set it when creating a registr
 
       Result:
       ```
-      registry_id: arenou2oj4ct42eq8g3n
-      id: areuu2hgsv6klgbd4e6d
+      registry_id: arenou2oj4ct********
+      id: areuu2hgsv6k********
       created_at: "2019-12-16T15:32:46.655139Z"
       ```
 
@@ -65,7 +65,7 @@ You can add a password to an existing registry or set it when creating a registr
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add a password to a registry created using {{ TF }}:
 
@@ -76,7 +76,7 @@ You can add a password to an existing registry or set it when creating a registr
          * `description`: Registry description.
          * `passwords`: List of registry passwords for authorization using a [username and password](../../concepts/authorization.md#log-pass).
 
-      Sample resource structure in the configuration file:
+      Here is an example of the resource structure in the configuration file:
 
       ```hcl
       resource "yandex_iot_core_registry" "my_registry" {
@@ -111,7 +111,7 @@ You can add a password to an existing registry or set it when creating a registr
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -155,12 +155,12 @@ You can add a password to an existing registry or set it when creating a registr
    Result:
    ```
    done (1s)
-   id: areg96c8loruvvudj54t
-   folder_id: b1g88tflru0ek1omtfd3
+   id: areg96c8loru********
+   folder_id: b1g88tflru0e********
    created_at: "2019-12-16T15:34:25.563Z"
    name: registry-with-pass
    status: ACTIVE
-   log_group_id: ckghhil3b5o9t4pf1nvg
+   log_group_id: ckghhil3b5o9********
    ```
 
 - {{ TF }}
@@ -182,9 +182,9 @@ You can add a password to an existing registry or set it when creating a registr
    To view the list of registry passwords:
 
    1. In the [management console]({{ link-console-main }}), select the folder to get the list of registry passwords for.
-   1. Select **{{ iot-short-name }}**.
-   1. Select the desired registry from the list.
-   1. On the **Overview** page, go to the **Passwords** section.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Select the required registry from the list.
+   1. On the **{{ ui-key.yacloud.common.overview }}** page, go to the **{{ ui-key.yacloud.iot.label_passwords }}** section.
 
 - CLI
 
@@ -204,8 +204,8 @@ You can add a password to an existing registry or set it when creating a registr
       +----------------------+--------------------+
       |          ID          |        NAME        |
       +----------------------+--------------------+
-      | areg96c8loruvvudj54t | registry-with-pass |
-      | arenou2oj4ct42eq82er | my-registry        |
+      | areg96c8loru******** | registry-with-pass |
+      | arenou2oj4ct******** | my-registry        |
       +----------------------+--------------------+
       ```
    1. Get a list of registry passwords:
@@ -219,7 +219,7 @@ You can add a password to an existing registry or set it when creating a registr
       +----------------------+---------------------+
       |          ID          |     CREATED AT      |
       +----------------------+---------------------+
-      | are0gffs957egmoksgf4 | 2019-12-16 15:34:25 |
+      | are0gffs957e******** | 2019-12-16 15:34:25 |
       +----------------------+---------------------+
       ```
 
@@ -238,10 +238,10 @@ You can add a password to an existing registry or set it when creating a registr
    To delete a registry password:
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the registry password from.
-   1. Select **{{ iot-short-name }}**.
-   1. Select the desired registry from the list.
-   1. In the row with the password you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Delete** from the drop-down list.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Select the required registry from the list.
+   1. In the row with the password you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI
 
@@ -261,7 +261,7 @@ You can add a password to an existing registry or set it when creating a registr
       +----------------------+---------------------+
       |          ID          |     CREATED AT      |
       +----------------------+---------------------+
-      | are0gffs957egmoksgf4 | 2019-12-16 15:34:25 |
+      | are0gffs957e******** | 2019-12-16 15:34:25 |
       +----------------------+---------------------+
       ```
    1. Delete the password:
@@ -287,7 +287,7 @@ You can add a password to an existing registry or set it when creating a registr
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete the password of a registry created using {{ TF }}:
 
@@ -328,7 +328,7 @@ You can add a password to an existing registry or set it when creating a registr
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

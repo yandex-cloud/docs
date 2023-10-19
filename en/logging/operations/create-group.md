@@ -7,7 +7,7 @@ description: "In this tutorial, you will learn how to create a log group in {{ c
 
 {% note info %}
 
-Name of the [default log group](../concepts/log-group.md): `default`. The group is automatically created when a service or application writes logs and the folder ID is indicated as the destination. You can manually create a log group with the name `default`. It will then be the default log group for the folder where it was created.
+The name of the [default log group](../concepts/log-group.md) is `default`. The group is automatically created when a service or application writes logs and the folder ID is indicated as the destination. You can manually create a log group with the name `default`. It will then be the default log group for the folder where it was created.
 
 {% endnote %}
 
@@ -16,14 +16,15 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your [log group](../concepts/log-group.md).
-   1. Select **{{ cloud-logging-name }}**.
-   1. Click **Create group**.
-   1. (Optional) Enter a name and description for the log group The name format is as follows:
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+   1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
+   1. (Optional) Enter a name and description for the log group. The name format is as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
    1. Set the log group record retention period.
-   1. Click **Create group**.
+   1. (Optional) Select a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) or create a new one.
+   1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
 
 - CLI
 
@@ -55,10 +56,10 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    * `data-stream`: {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID. This is an optional parameter. Records added to the log group will be automatically redirected to the specified stream. A stream ID consists of an availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
       > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
-      > * `aws_stream`: Stream name.
-      > * `{{ region-id }}`: Availability zone.
-      > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
-      > * `cc8029jgtuabequtgtbv`: {{ ydb-full-name }} database ID.
+      > * `aws_stream`: Stream name
+      > * `{{ region-id }}`: Availability zone
+      > * `aoeu1kuk2dhtaupdb1es`: Folder ID
+      > * `cc8029jgtuabequtgtbv`: {{ ydb-full-name }} database ID
 
 
    Result:
@@ -89,7 +90,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
+      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
 
       * `retention_period`: Record retention period in the log group. This is an optional parameter.
 
@@ -122,7 +123,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -138,9 +139,9 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
       yc logging group list

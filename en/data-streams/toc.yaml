@@ -21,7 +21,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Managing streams
+      - name: Managing data streams
         href: operations/manage-streams.md
       - name: Working with the AWS CLI
         items:
@@ -119,6 +119,8 @@ items:
         href: kinesisapi/common-errors.md
       - name: Examples
         href: kinesisapi/examples.md
+  - name: Kafka API
+    href: kafkaapi/index.md
   - name: Questions and answers
     href: qa/index.md
 base: en/data-streams

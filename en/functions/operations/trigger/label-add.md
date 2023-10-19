@@ -1,3 +1,8 @@
+---
+title: "Adding a trigger label in {{ sf-name }}"
+description: "Follow this guide to add a trigger label in {{ sf-name }}."
+---
+
 # Adding a trigger label in {{ sf-name }}
 
 {% list tabs %}

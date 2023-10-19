@@ -172,11 +172,13 @@ items:
         href: tutorials/gitlab-containers.md
       - name: Updating the Metrics Server parameters
         href: tutorials/metrics-server.md
+      - name: Using node groups with GPUs and no pre-installed drivers
+        href: tutorials/driverless-gpu.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
       - name: Using {{ marketplace-name }} products
         items:
-          - name: Integrating with Argo CD
+          - name: Integration with Argo CD
             href: tutorials/marketplace/argo-cd.md
           - name: Integration with Crossplane
             href: tutorials/marketplace/crossplane.md
@@ -198,7 +200,7 @@ items:
             href: tutorials/marketplace/metrics-provider.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md

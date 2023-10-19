@@ -1,3 +1,8 @@
+---
+title: "Revoking roles assigned to a function"
+description: "Follow this guide to revoke the roles assigned to a function."
+---
+
 # Revoking roles assigned to a function
 
 {% list tabs %}

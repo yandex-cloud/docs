@@ -8,13 +8,13 @@ Aliases are linked to specific devices. To update an alias, you [need the device
 
    To update an alias:
 
-   1. In the [management console]({{ link-console-main }}), select a folder where you wish to update an alias.
-   1. Select **{{ iot-short-name }}**.
-   1. Select the desired registry from the list.
-   1. In the left part of the window, select **Devices**.
-   1. Click ![image](../../../../_assets/horizontal-ellipsis.svg) to the right of the name of the device you need and select **Edit** from the drop-down list.
+   1. In the [management console]({{ link-console-main }}), select a folder to update an alias in.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Select the required registry from the list.
+   1. On the left side of the window, select the **{{ ui-key.yacloud.iot.label_devices }}** section.
+   1. Click ![image](../../../../_assets/horizontal-ellipsis.svg) to the right of the name of the device you need and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Update the values of the alias fields.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -31,18 +31,18 @@ Aliases are linked to specific devices. To update an alias, you [need the device
    {% endnote %}
 
    ```
-   yc iot device update first --topic-aliases 'events=$devices/areqjd6un3afc3cefcvm/events,commands=$devices/areqjd6un3afc3cefcvm/commands'
+   yc iot device update first --topic-aliases 'events=$devices/areqjd6un3af********/events,commands=$devices/areqjd6un3af********/commands'
    ```
 
    Result:
    ```
-   id: areqjd6un3afc3cefcvm
-   registry_id: arenou2oj4ct42eq8g3n
+   id: areqjd6un3af********
+   registry_id: arenou2oj4ct********
    created_at: "2019-09-16T10:41:06.489Z"
    name: first
    topic_aliases:
-     commands: $devices/areqjd6un3afc3cefcvm/commands
-     events: $devices/areqjd6un3afc3cefcvm/events
+     commands: $devices/areqjd6un3af********/commands
+     events: $devices/areqjd6un3af********/events
    ```
 
 - {{ TF }}
@@ -91,7 +91,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

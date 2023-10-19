@@ -34,7 +34,10 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [ydb-admin](../../_includes/iam/roles/ydb-admin.md) %}
 
+{% include [kafka-api](../../_includes/iam/roles/ydb-kafka-api-client.md) %}
+
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
+
 
 ### Primitive roles {#primitive-roles}
 
