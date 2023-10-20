@@ -11,7 +11,7 @@ To create a [placement group](../../concepts/disk-placement-group.md) for non-re
    1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
    1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
    1. In the top-right corner, click **{{ ui-key.yacloud.compute.placement-groups.button_create }}** → **{{ ui-key.yacloud.compute.placement-groups.button_create-disk-pg }}**.
-   1. Enter a name for the group.
+   1. Enter a name for the group. The requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -41,7 +41,7 @@ To create a [placement group](../../concepts/disk-placement-group.md) for non-re
       ```
 
    1. Create a group in the default folder using one of the placement strategies:
-      * [Spread](../../concepts/disk-placement-group.md#spread) placement:
+      * [Spread placement]:
 
          ```bash
          yc compute disk-placement-group create \
@@ -54,7 +54,7 @@ To create a [placement group](../../concepts/disk-placement-group.md) for non-re
          * `--name`: Placement group name
          * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md)
          * `--strategy`: Placement strategy
-      * [Partition](../../concepts/disk-placement-group.md#partition) placement:
+      * [Partition placement]:
 
          ```bash
          yc compute disk-placement-group create \

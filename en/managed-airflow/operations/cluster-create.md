@@ -2,9 +2,9 @@
 title: "Creating an {{ AF }} cluster"
 description: "Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of which can be represented in multiple instances. The instances may reside in different availability zones."
 keywords:
-  - Creating an {{ AF }} cluster
-  - {{ AF }} cluster
-  - {{ AF}}
+  - "{{ AF }} cluster creation"
+  - "{{ AF }} cluster"
+  - "{{ AF}}"
   - Airflow
 ---
 
@@ -24,19 +24,25 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
 - Management console
 
+
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
    1. Click **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter:
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-      * Cluster name. The name must be unique within the folder.
-      * (Optional) Cluster description.
-      * Admin user password. The password must be not less than 8 characters long and contain at least:
+      1. Enter a name for the cluster. The name must be unique within the folder.
+      1. (Optional) Enter a cluster description.
+      1. (Optional) Create [labels](../../resource-manager/concepts/labels.md):
+         1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+         1. Enter a label in `key: value` format.
+         1. Click **Enter**.
 
-         * One uppercase letter
-         * One lowercase letter
-         * One digit
-         * One special character
+   1. Under **{{ ui-key.yacloud.airflow.section_admin-password }}**, set a password for the admin user. The password must be not less than 8 characters long and contain at least:
+
+      * One uppercase letter
+      * One lowercase letter
+      * One digit
+      * One special character
 
       {% note info %}
 
@@ -49,6 +55,7 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
       * [Availability zones](../../overview/concepts/geo-scope) for the cluster
       * Cloud network
       * Subnet in each of the selected availability zones
+      * [Security group](../../vpc/concepts/security-groups.md) for the cluster network traffic
 
    1. Set the number of instances and resources for the {{ maf-name }} [components](../concepts/index.md#components):
 
@@ -62,16 +69,48 @@ Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of w
 
          {% endnote %}
 
-      * (Optional) Triggerer services
+      * (Optional) Triggerer services.
+
+   1. (Optional) Under **{{ ui-key.yacloud.airflow.section_dependencies }}**, specify pip and deb package names to install additional libraries and applications for running DAG files in the cluster.
+
+      To specify multiples packages, click **{{ ui-key.yacloud.common.add }}**.
+
+      If required, you can set version restrictions for the installed packages, for example:
+
+      ```text
+      scikit-learn>1.0.0
+      kafkacat=1.2.0-2
+      ```
+
+      The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
+
+   1. (Optional) Under **{{ ui-key.yacloud.airflow.section_dependencies }}**, specify the names of pip packages to install additional libraries and applications for running DAG files in the cluster.
+
+      To specify multiples packages, click **{{ ui-key.yacloud.common.add }}**.
+
+      If required, you can set version restrictions for the installed packages, for example:
+
+      ```text
+      scikit-learn>1.0.0
+      kafkacat=1.2.0-2
+      ```
+
+      The package name format and version are defined by the install command: `pip install` for pip packages.
+
+      {% note warning %}
+
+      To install pip packages from public repositories, specify a network with configured [egress NAT](../../vpc/operations/create-nat-gateway.md) under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**.
+
+      {% endnote %}
 
    1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, specify:
 
-      * Name of the previously created bucket that will store DAG files
-      * Parameters of a static access key for the service account
-
-   1. (Optional) Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**, specify [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) in `key:value` format, such as `api.maximum_page_limit` **:** `150`.
+      * Name of the previously created bucket that will store DAG files.
+      * Parameters of a static access key for the service account.
 
    1. (Optional) Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable cluster deletion protection.
+
+   1. (Optional) Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**, specify [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) in `key:value` format, such as `api.maximum_page_limit` **:** `150`.
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
 

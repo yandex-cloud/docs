@@ -1,3 +1,8 @@
+---
+title: "How to move a VM to a different availability zone"
+description: "This guide describes how you can move a VM to a different availability zone."
+---
+
 # Moving a VM to a different availability zone
 
 {% include [instance-az](../../_includes_service/instance-az.md) %}

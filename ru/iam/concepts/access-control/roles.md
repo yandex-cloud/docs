@@ -631,6 +631,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [admin](../../../_includes/roles-speech-sense-admin.md) %}
 
+{% include [spaces-creator](../../../_includes/roles-speech-sense-spaces-creator.md) %}
+
 {% include [data-viewer](../../../_includes/roles-speech-sense-data-viewer.md) %}
 
 {% include [data-editor](../../../_includes/roles-speech-sense-data-editor.md) %}

@@ -47,7 +47,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the size of storage for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the storage size for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
@@ -69,7 +69,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       
       * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
-      * Select an [availability zone](../../overview/concepts/geo-scope.md).
+      * Select the [availability zone](../../overview/concepts/geo-scope.md).
       * Select the [subnet](../../vpc/concepts/network.md#subnet) in the specified availability zone. If there is no subnet, create one.
       * If the host must be available outside {{ yandex-cloud }}, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
@@ -283,15 +283,15 @@ If you specified security group IDs when creating a cluster, you may also need t
    Create a {{ mmg-name }} cluster with test characteristics:
 
    
-   * Named `mymg`.
-   * In the `production` environment.
-   * In the `{{ network-name }}` network.
-   * In the security group with the ID `{{ security-group }}`.
-   * With one `{{ host-class }}` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone.
-   * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
-   * With one user, `user1`, with the password `user1user1`.
-   * With one database, `db1`.
-   * With protection against accidental cluster deletion.
+   * Name: `mymg`
+   * Environment: `Production`
+   * Network: `{{ network-name }}`
+   * Security group ID: `{{ security-group }}`
+   * `{{ host-class }}` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone: 1
+   * Network SSD storage (`{{ disk-type-example }}`): 20 GB
+   * User: `user1`, with the `user1user1` password
+   * Database: `db1`
+   * Protection against accidental cluster deletion: Enabled
 
 
    Run the following command:

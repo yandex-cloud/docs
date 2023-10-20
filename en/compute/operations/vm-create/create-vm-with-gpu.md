@@ -1,6 +1,11 @@
+---
+title: "How to create a VM with a GPU"
+description: "Use this guide to create a VM with a GPU."
+---
+
 # Creating a VM with a GPU
 
-This section provides guidelines for creating a [VM](../../concepts/vm.md) with a GPU. For more information about VM configurations, see [{#T}](../../concepts/gpus.md).
+This section explains how to create a [VM](../../concepts/vm.md) with a GPU. For more information about VM configurations, see [{#T}](../../concepts/gpus.md).
 
 By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has a zero [quota](../../concepts/limits.md#quotas) for creating VMs with GPUs. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
 
@@ -67,8 +72,8 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
       * `platform`: ID of the [platform](../../concepts/vm-platforms.md):
 
         {% include [gpu-platforms-api](../../../_includes/compute/gpu-platforms-api.md) %}
-        
-      * `cores`: [The number of vCPUs](../../concepts/gpus.md).
+
+      * `cores`: [Number of vCPUs](../../concepts/gpus.md)
       * `memory`: Amount of RAM
       * `gpus`: Number of GPUs
       * `preemptible`: If you need to make the VM [preemptible](../../concepts/preemptible-vm.md).
@@ -107,7 +112,7 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
@@ -183,13 +188,13 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
       {% endnote %}
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

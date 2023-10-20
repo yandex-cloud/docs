@@ -9,7 +9,7 @@ You can add and remove cluster hosts and manage their settings.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Click the name of the cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
 - CLI
 
@@ -163,7 +163,7 @@ Public access to hosts can only be configured for clusters created with enabled 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -182,7 +182,7 @@ Public access to hosts can only be configured for clusters created with enabled 
 
 {% note warning %}
 
-If you can't [connect](connect/index.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect/index.md) to the added host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
 
@@ -197,8 +197,8 @@ If you can't [connect](connect/index.md) to the added host, check that the clust
 
    To change the parameters of the cluster host:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **{{ ui-key.yacloud.common.edit }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+   1. Click ![image](../../_assets/options.svg) in the required host row and select **{{ ui-key.yacloud.common.edit }}**.
    1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if a host must be accessible from outside {{ yandex-cloud }}.
    1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -244,7 +244,7 @@ If you can't [connect](connect/index.md) to the added host, check that the clust
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -266,7 +266,7 @@ If you can't [connect](connect/index.md) to the added host, check that the clust
 
 {% note warning %}
 
-If you can't [connect](connect/index.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect/index.md) to the added host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
 
@@ -283,9 +283,9 @@ If the host is the master when deleted, {{ mrd-name }} automatically assigns ano
 
    To remove a host from a cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. In the row next to the appropriate cluster, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
-   1. In the window that opens, check **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+   1. In the appropriate cluster row, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, enable **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
 - CLI
 

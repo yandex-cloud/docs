@@ -10,7 +10,7 @@ In addition to the cloud network in the default folder, you can create cloud net
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a cloud network.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network:
+   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter a name for the network. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -39,9 +39,11 @@ In addition to the cloud network in the default folder, you can create cloud net
         --description "My test network"
       ```
 
-      {% include [name-format](../../_includes/name-format.md) %}
-
       The `--name` and `--description` flags are optional: you can create a network without any name or description and access it by ID.
+
+      The network naming requirements are as follows:
+
+      {% include [name-format](../../_includes/name-format.md) %}
 
    1. Get a list of all cloud networks in the default folder:
 
@@ -91,7 +93,7 @@ In addition to the cloud network in the default folder, you can create cloud net
 
    1. In the configuration file, describe the parameters of your cloud network:
 
-      * `name`: Name of the cloud network. Use this name format:
+      * `name`: Name of the cloud network. The requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -116,7 +118,7 @@ In addition to the cloud network in the default folder, you can create cloud net
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -132,9 +134,9 @@ In addition to the cloud network in the default folder, you can create cloud net
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc network list
@@ -172,7 +174,7 @@ Create a cloud network with a name and description in the selected folder:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -188,9 +190,9 @@ Create a cloud network with a name and description in the selected folder:
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can verify that the resources are there and their configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
          ```
          yc vpc network list

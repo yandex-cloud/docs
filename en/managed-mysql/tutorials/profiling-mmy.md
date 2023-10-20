@@ -1,3 +1,3 @@
-# Performance analysis and tuning of {{ mmy-name }}
+# {{ mmy-name }} performance analysis and tuning
 
-{% include notitle [profiling](../../_tutorials/dataplatform/profiling-mmy.md) %}
+{% include notitle [mysql-profiling](../../_tutorials/dataplatform/profiling-mmy.md) %}

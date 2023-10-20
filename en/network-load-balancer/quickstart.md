@@ -53,7 +53,7 @@ To create a network load balancer:
 1. Select a target group or [create a new one](operations/target-group-create.md):
 
    * Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
-   * Enter the name of the target group.
+   * Enter the name of the target group. The requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
@@ -62,7 +62,7 @@ To create a network load balancer:
 
 1. (Optional) Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}** and in the window that opens:
 
-   * Enter the health check name.
+   * Enter the health check name. The naming requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 

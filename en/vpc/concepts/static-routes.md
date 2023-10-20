@@ -2,46 +2,87 @@
 description: "With static routing, you can route traffic from a subnet to the specified IP address ranges through the VMs specified as the next hop. Routing is based on route tables. Route tables are linked to a subnet and cannot contain duplicate prefixes."
 keywords:
   - static routing
+  - route table
   - routing
 ---
 
-# Static routing
+# Static routes and route tables
 
-With static routing, you can route traffic from a [subnet](network.md#subnet) to the specified [IP address](address.md) ranges through the [VMs](../../compute/concepts/vm.md) specified as the [next hop](https://en.wikipedia.org/wiki/Hop_(networking)#Next_hop) or through [NAT gateways](gateways.md#nat-gateway).
+When you create a virtual machine (VM) in {{ yandex-cloud }}, it receives a [set of parameters](../../compute/concepts/network.md) for configuring its network environment from the virtual network. The virtual network transmits the values of these parameters to the VM using DHCP. The required network environment parameters for VMs include:
 
-Routing is based on route tables. The tables contain static routes consisting of the target subnet's prefix in CIDR notation and the [internal IP address](address.md#internal-addresses) of the next hop.
+* [Internal IP addresses](../../compute/concepts/network.md#internal-ip) for each network interface of the VM.
+* Subnet mask: Defines the size of the [subnet](./network.md#subnet) the VM's network interface connects to.
+* [Host name and FQDN of the VM](../../compute/concepts/network.md#hostname).
+* Default gateway: The first IP address on the subnet to which the VM's network interface is connected. It will receive all outbound traffic from the VM to the outside world.
 
-Route tables are linked to a subnet and cannot contain duplicate prefixes. Traffic from the subnet with the linked table is routed to the prefixes specified in the routes through the appropriate next hop IPs.
+## VM route table {#rt-vm}
 
-You can also use the `0.0.0.0/0` prefix in routes. This means that all traffic, if it is not sent via other routes, will be routed through the next hop specified for the `0.0.0.0/0` prefix.
+In {{ yandex-cloud }}, VM instances are typically created with a single network interface. At the time of creation, the VM's route table includes only one route: the one to the default gateway with the prefix `0.0.0.0/0`. For this route (prefix), the gateway is always the **first IP address** on the subnet to which the VM's network interface is connected.
 
-For example, a subnet with the `10.1.0.0/24` CIDR has a linked route table with the following routes:
+Let's assume a VM's network interface is connected to a subnet with the prefix `192.168.10.0/24`. When the VM was created, its network interface was assigned the IP address `192.168.10.5` on the subnet. The route table for the VM will appear as follows:
 
-| Name | Prefix | Next hop |
---- | --- | ---
-| `another-network` | `192.168.0.0/16` | `10.1.0.5` |
-| `internet` | `0.0.0.0/0` | `10.1.0.10` |
+```bash
+ip route
+default via 192.168.10.1 dev eth0 proto dhcp src 192.168.10.5 metric 100
+```
 
-In this case, all traffic to the `192.168.0.0/16` subnet in a different [virtual network](network.md#network) will be routed through the VM with the `10.1.0.5` IP address, in case this VM has an interface in that virtual network. All other traffic will be routed through the VM with the `10.1.0.10` address. Note that overriding the route for the `0.0.0.0/0` prefix may [affect](#internet-routes) the external availability of the VM from the subnet with the table that contains this route.
+This means that all traffic bound for the virtual network must go through the gateway `192.168.10.1` (`eth0` interface).
 
 {% note alert %}
 
-Static routes can be used for routing between networks only if the next-hop interface is a VM that is simultaneously connected to subnets in two cloud networks and has two interfaces, each in its own network. Alternatively, it can also work when a VM has a VPN connection to a VM in another network.
+Changing the IP address for the default gateway in the VM's route table may lead to a complete loss of connectivity with the VM.
 
 {% endnote %}
 
-Currently, you cannot use prefixes from IP address ranges that are allocated to subnets within a virtual network. Only destination prefixes outside the virtual network are supported, such as subnet prefixes from another {{ yandex-cloud }} network or your local network. In route tables, you cannot use prefixes of link-local IP addresses, such as `169.254.0.0/16`, and narrower ones, such as `169.254.0.0/19`.
+If using a VM with multiple network interfaces, keep in mind that the virtual network will configure a different default gateway for each network interface. To prevent routing conflicts, leave only one default gateway by using the `ip route del` command to delete the route table entries associated with the other gateways.
 
-When creating a route, you can set an unused internal IP that is not linked to any VM as the next hop. In this case, the route is only used after you run a VM with the appropriate IP address.
+If you create a VM with multiple network interfaces, the route table within the VM will only allow you to select the network interface for outgoing traffic based on specific destination IP prefixes.
 
-The two main uses of static routes in {{ yandex-cloud }} are:
-1. Building a network route to the appropriate prefix through a single VM. The internal IP address is used as the VM ID. For more information about building network routes in {{ yandex-cloud }} and other virtual or local networks, see the [Routing through a NAT instance](../../tutorials/routing/nat-instance.md) and [Creating an IPSec VPN tunnel](../../tutorials/routing/ipsec-vpn.md) tutorials.
-1. Fail-safe routing scheme with routes in multiple [availability zones](../../overview/concepts/geo-scope.md). You can create VMs in different availability zones and route them to the same destination subnet. Please note that different route tables should be linked to subnets in different availability zones, since you cannot place routes to the same prefixes in the same table. If a VM in one of the availability zones fails, VMs from the other zones will remain linked to the destination subnet.
+## {{ vpc-short-name }} route tables {#rt-vpc}
 
-## Rerouting traffic to the internet {#internet-routes}
+VM route tables do not support forwarding traffic directly from one VM within a subnet to another. In all cases, traffic is directed to the virtual network's default gateway.
 
-If the destination prefix of a route from the route table is specified as an IP address prefix from the internet, access to and from such addresses will be disabled via the VM's [public IP addresses](address.md#public-addresses) from the subnets this table is linked to.
+If you need granular routing at the virtual network level, use {{ vpc-short-name }} route tables. This {{ yandex-cloud }} tool can be useful when processing network traffic on specialized VM instances, such as firewalls, NGFWs, secure gateways, and VPNs.
 
-> For example, let's assume there is a VM named `vm-1` with a public IP address connected to the `my-subnet` subnet. If you link a table named `my-route-table` to a route for the `0.0.0.0/0` prefix (all IPs) via the `10.0.0.5` next hop to the `my-subnet` subnet, access via the `vm-1` public address is disabled. This happens because all traffic to and from `my-subnet` is now routed via the next hop IP address.
+{{ vpc-short-name }} route tables enable you to control the routing of IPv4 traffic for VM instances. {{ vpc-name }} does not currently support IPv6 protocol.
 
-To preserve ingress connectivity with cloud resources via a public IP address, you can move the resources with public IPs to a separate subnet.
+{{ vpc-short-name }} route tables are created within [cloud networks](https://cloud.yandex.ru/docs/vpc/concepts/network#network) and can be applied to any [subnet](https://cloud.yandex.ru/docs/vpc/concepts/network#subnet) on the same network. You cannot apply a route table to subnets belonging to a different cloud network.
+
+A {{ vpc-short-name }} route table can include one or multiple entries. Each entry defines a static route within the virtual network.
+
+### Static routes {#static}
+
+Each {{ vpc-short-name }} route table entry must include:
+
+* `Destination prefix`: Prefix of the destination IPv4 route in CIDR notation, such as `10.20.30.0/24`.
+* `Next hop`: Type of gateway that will handle outgoing traffic for the specified destination prefix. Allowed values include:
+   * `IP address`: IP address of the destination gateway, such as the [internal IP of a VM](../../compute/concepts/network.md#internal-ip) within one of the subnets.
+   * `Gateway`: Used to send traffic through a [NAT gateway](./gateways.md#nat-gateway). For this type of gateway, specify the name of an already existing NAT gateway on the cloud network.
+
+If you create multiple entries with overlapping prefixes, the prefix with the larger subnet mask will have higher priority. For example, between two entries with destination prefixes `172.16.0.0/20` and `172.16.0.0/24`, the entry with the prefix `172.16.0.0/24` will be used for sending traffic, as it has higher priority.
+
+When creating a static route with an `IP address` as the `next hop`, you can specify an unused internal IP address on the cloud network. In this case, the virtual network will discard all traffic to the destination prefix of the route until you run a VM with that IP address.
+
+Static routes can use the default route prefix, `0.0.0.0/0`.This means that all traffic not directed through more specific routes will be sent through the gateway IP address specified for this prefix.
+
+When creating a static route with a `Gateway` as the `next hop`, you can only specify the default route prefix `0.0.0.0/0` in the `Destination prefix`. This `next hop` type does not support other prefixes.
+
+
+## Limitations {#restrictions}
+
+1. A {{ vpc-short-name }} route table can only have one entry per destination prefix. Duplicating destination prefixes within the same {{ vpc-short-name }} route table is not allowed. This also applies to the default route prefix `0.0.0.0/0`.
+1. {{ vpc-short-name }} route tables cannot use link-local IP address prefixes, including `169.254.0.0/16` and more specific prefixes, as they are reserved for internal use by {{ vpc-name }}.
+1. You cannot use the IP address of a load balancer's [traffic listener](../../network-load-balancer/concepts/listener.md) as the `next hop`.
+1. When using {{ vpc-short-name }} route tables to route reverse traffic from internal load balancer [targets](../../network-load-balancer/concepts/target-resources.md), consider the [specifics of traffic routing](../../network-load-balancer/concepts/specifics.md#nlb-int-routing).
+1. You cannot use IP addresses of an application-level load balancer's [traffic listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) as the `next hop`.
+1. A {{ yandex-cloud }} virtual network does not allow transmitting traffic through itself. In other words, only [private IP address ranges in {{ vpc-name }}](../../vpc/concepts/network.md#subnet) can be used as destination prefixes and gateways for static routes in {{ vpc-short-name }} route tables. Traffic to public destination prefixes or gateways with public IP addresses in the {{ vpc-short-name }} route table will be discarded.
+1. To learn more about the quantitative restrictions on the use of route tables and static routes, see [Quotas and limits](./limits.md#vpc-quotas) in the {{ vpc-name }} documentation.
+
+
+## Static route use cases {#refs}
+
+1. [Creating and setting up a NAT gateway](../operations/create-nat-gateway.md).
+1. [Routing through a NAT instance](../../tutorials/routing/nat-instance.md).
+1. [Creating an IPSec VPN tunnel](../../tutorials/routing/ipsec-vpn.md).
+1. [Creating and configuring a UserGate gateway in firewall mode](../../tutorials/routing/usergate-firewall.md).
+1. [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the Next-Generation Firewall](../../tutorials/routing/high-accessible-dmz.md).

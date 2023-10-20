@@ -1,3 +1,8 @@
+---
+title: "How to create a VM from a set of disks"
+description: "Use this tutorial to create a VM from a set of existing disks."
+---
+
 # Creating a VM from a set of disks
 
 You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts/disk.md). Make sure the disks reside in one of the [availability zones](../../../overview/concepts/geo-scope.md) and are not added to other VMs.
@@ -30,8 +35,8 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
       * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
-      * Specify the desired block size.
-      * Specify the desired disk size.
+      * Specify the required block size.
+      * Specify the required disk size.
 
       
       * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
@@ -44,7 +49,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
   
   1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
-      * In the window that opens, select a file store.
+      * In the window that opens, select the file storage.
       * Enter the device name.
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
 
@@ -143,42 +148,42 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
   To create a VM from a set of disks:
   1. In the configuration file, describe the parameters of the resources you want to create:
 
-     ```hcl
-     resource "yandex_compute_instance" "vm-1" {
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
 
         name                      = "vm-from-disks"
         allow_stopping_for_update = true
         platform_id               = "standard-v3"
         zone                      = "<availability_zone>"
 
-       resources {
-         cores  = <number_of_vCPU_cores>
-         memory = <amount_of_RAM_in_GB>
-       }
+        resources {
+          cores  = <number_of_vCPU_cores>
+          memory = <amount_of_RAM_in_GB>
+        }
 
-       boot_disk {
-         initialize_params {
-           disk_id = "<boot_disk_ID>"
-         }
-       }
+        boot_disk {
+          initialize_params {
+            disk_id = "<boot_disk_ID>"
+          }
+        }
 
-       secondary_disk {
-         disk_id = "<secondary_disk_ID>"
-       }
+        secondary_disk {
+          disk_id = "<secondary_disk_ID>"
+        }
 
-       network_interface {
-         subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
-         nat       = true
-       }
+        network_interface {
+          subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+          nat       = true
+        }
 
-       metadata = {
-         ssh-keys = "<username>:<SSH_key_contents>"
-       }
-     }
+        metadata = {
+          ssh-keys = "<username>:<SSH_key_contents>"
+        }
+      }
 
-     resource "yandex_vpc_network" "network-1" {
-       name = "network1"
-     }
+      resource "yandex_vpc_network" "network-1" {
+        name = "network1"
+      }
 
       resource "yandex_vpc_subnet" "subnet-1" {
         name       = "subnet1"
@@ -210,12 +215,12 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
       {% endnote %}
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 {% endlist %}

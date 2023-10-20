@@ -12,13 +12,7 @@
 
 Некоторые трансформеры могут иметь ограничения и применимы не для всех типов пар источник-приемник. Список трансформеров будет пополняться. В настоящий момент доступны следующие типы:
 
-* [{#T}](#rename-tables)
-* [{#T}](#columns-filter)
-* [{#T}](#data-mask)
-* [{#T}](#subtable-splitting)
-* [{#T}](#replace-primary-key)
-* [{#T}](#convert-to-string)
-* [{#T}](#shard)
+{% include [list-of-transformers](../../_includes/data-transfer/list-of-transformers.md) %}
 
 ### Переименование таблиц {#rename-tables}
 

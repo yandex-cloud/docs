@@ -122,7 +122,7 @@ To create a disk from an [image](../../concepts/image.md):
 
 {% endlist %}
 
-After creation, the disk will have the `Creating` status. Wait until the disk status changes to `Ready` before using it.
+After creation, the disk will have the `CREATING` status. Wait until the disk status changes to `READY` before using it.
 
 #### See also {#see-also}
 

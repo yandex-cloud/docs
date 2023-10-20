@@ -1,3 +1,8 @@
+---
+title: "How to view detailed information about the {{ mes-name }} cluster state"
+description: "This guide describes how you can view detailed information about the state of a {{ mes-name }} cluster."
+---
+
 # Monitoring the state of {{ ES }} clusters and hosts
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
@@ -10,9 +15,9 @@ New data for charts is received every {{ graph-update }}.
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Monitoring cluster status {#monitoring-cluster}
+## Monitoring cluster state {#monitoring-cluster}
 
-To view detailed information about the {{ mes-name }} cluster status:
+To view detailed information about the {{ mes-name }} cluster state:
 
 {% list tabs %}
 
@@ -26,9 +31,9 @@ To view detailed information about the {{ mes-name }} cluster status:
    The page displays the following charts:
 
    * **Active shards**: Number of active [primary shards](../concepts/scalability-and-resilience.md) and the total number of active shards in the cluster.
-   * **Deletion rate**: The number of delete operations per second, per host.
-   * **Disk space usage percent**: Shows how much disk space is used on each host (%).
-   * **Flushes**: The number of transaction log flush operations per host.
+   * **Deletion rate**: Number of delete operations per second, per host.
+   * **Disk space usage percent**: Shows how much disk space is used on each host (in %).
+   * **Flushes**: Number of transaction log flush operations per host.
 
    * **Health status**: Shows the cluster's health and technical condition:
 
@@ -79,7 +84,7 @@ To view detailed information about the status of individual {{ mes-name }} hosts
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
    1. Select the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
    1. Select the host from the drop-down list.
 
@@ -101,7 +106,7 @@ To view detailed information about the status of individual {{ mes-name }} hosts
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
 
@@ -109,8 +114,8 @@ To view detailed information about the status of individual {{ mes-name }} hosts
       * **{{ ui-key.yacloud_monitoring.services.label_managed-elasticsearch }} — Host Overview** to configure host alerts.
 
    1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-   1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` threshold values to trigger the alert.
+   1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds to trigger an alert.
    1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
@@ -129,9 +134,9 @@ The recommended thresholds are as follows:
 | JVM heap memory used | `elasticsearch_jvm_mem_heap_used_percent` | `top_last(1)` | Over 90% of host RAM |                                   |
 | Storage space used | `elasticsearch_fs_total_used_percent` | `top_last(1)` | Over 90% of the storage size | Over 85% of the storage size |
 | Using the JVM long-lived object pool | `elasticsearch_jvm_mem_heap_pressure` | `top_last(1)` | Over 90% of host RAM | Over 75% of host RAM |
-| Storage space used | `disk.used_bytes` | N/A | 90% of storage size | 80% of storage size |
+| Storage space used | `disk.used_bytes` | N/A | 90% of the storage size | 80% of the storage size |
 
-For the `disk.used_bytes` metric, the values of the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds are only set in bytes. For example, here are the recommended values for a disk of 100 GB:
+For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds are only set in bytes. For example, here are the recommended values for a 100 GB disk:
 
 * `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`: `96636764160` bytes (90%).
 * `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`: `85899345920` bytes (80%).
@@ -149,8 +154,8 @@ To view a cluster's state and status:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the row of the cluster you need.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
+   1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.
 
 - API
 

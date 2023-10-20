@@ -18,10 +18,10 @@ Select your [host class](../../managed-postgresql/concepts/instance-types.md) ba
 
    [Create](../../managed-postgresql/operations/cluster-create.md#create-cluster) a {{ mpg-name }} cluster of any suitable configuration with the following settings:
 
-   * **Environment**: `PRODUCTION`.
-   * **Version**: {{ PG }} version used for working with <q>1C:Enterprise</q>. The names of these versions end in `-1c`.
-   * **Host class**: At least `s2.small`.
-   * **Hosts**: Add at least two more hosts in different availability zones. This provides the fault tolerance of the cluster. The database is automatically replicated. For more information, see [{#T}](../../managed-postgresql/concepts/replication.md).
+   * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
+   * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: {{ PG }} version used for working with <q>1C:Enterprise</q>. The names of these versions end with `-1c`.
+   * **{{ ui-key.yacloud.mdb.forms.section_resource }}**: At least `s2.small`
+   * **{{ ui-key.yacloud.mdb.forms.section_host }}**: Add at least two more hosts in different availability zones. This provides the fault tolerance of the cluster. The database is automatically replicated. For more information, see [{#T}](../../managed-postgresql/concepts/replication.md).
 
 - Using {{ TF }}
 
@@ -90,7 +90,7 @@ List of extensions installed in PostgreSQL {{ pg.versions.console.str-1c }} clus
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
@@ -112,7 +112,7 @@ Delete the resources you no longer need to avoid being charged for them:
 
       If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

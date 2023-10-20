@@ -1,4 +1,9 @@
-# Updating secondary disks in instance template
+---
+title: "Updating secondary disks in an instance template"
+description: "This guide tells you how to update secondary disks in an instance template."
+---
+
+# Updating secondary disks in an instance template
 
 {% note info %}
 
@@ -8,7 +13,7 @@ Changing disk parameters leads to instance re-creation.
 
 The following parameters can be updated without re-creating a disk:
 
-* `description`: Edit the disk description.
+* `description`: Edit disk description.
 * `size`: Increase disk size.
 * `preserve_after_instance_delete`: Set or remove a flag.
 

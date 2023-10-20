@@ -10,7 +10,7 @@ When creating a cluster, you can:
 
 ## Host name and FQDN {#hostname}
 
-{{ mrd-short-name }} generates a name for each cluster host when it is being created. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, the FQDN cannot be changed.
+{{ mrd-short-name }} generates a name for each cluster host when it is created. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
 
 
 You can use the FQDN to access the host within a single cloud network.

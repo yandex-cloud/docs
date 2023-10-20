@@ -5,6 +5,7 @@
 - [{#T}](network-create.md)
 - [{#T}](network-delete.md)
 - [{#T}](network-update.md)
+- [{#T}](network-map.md)
 - [{#T}](network-move.md)
 
 ## Subnet {#subnet}

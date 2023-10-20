@@ -1,1 +1,1 @@
-{% include [connect-migration](../../_tutorials/infrastructure-management/connect-migration.md) %}
+{% include [connect-migration](../../_tutorials/infrastructure/connect-migration.md) %}

@@ -1,4 +1,6 @@
 ---
+title: "Pricing policy for Managed Service for Elasticsearch"
+description: "In this section, you can find {{ mes-name }} pricing rules and effective prices for the service's resources."
 editable: false
 ---
 
@@ -46,7 +48,7 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 
 ### Disk space usage {#rules-storage}
 
-The following is charged:
+You are charged for the following:
 
 * Storage allocated for clusters.
 

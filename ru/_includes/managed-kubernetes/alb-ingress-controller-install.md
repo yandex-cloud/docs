@@ -34,6 +34,7 @@
    * **Идентификатор кластера** — укажите [идентификатор кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
    * **Ключ сервисного аккаунта** — вставьте содержимое файла `sa-key.json`.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Дождитесь перехода приложения в статус `Deployed`.
 
 
 ## Установка с помощью Helm-чарта {#install-alb-helm}

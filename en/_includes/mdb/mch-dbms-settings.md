@@ -1,3 +1,43 @@
+* **Asynchronous insert log enabled**{#setting-asynchronous-insert-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Determines whether information about asynchronous inserts will be logged. These logs are saved to the `system.asynchronous_insert_log` table.
+
+   The default value is `false`.
+
+   For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/system-tables/asynchronous_insert_log).
+
+* **Asynchronous insert log retention size**{#setting-asynchronous-insert-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   The size of the `system.asynchronous_insert_log` table (in bytes), which, when exceeded, will cause old records to be deleted from this table.
+
+   The default value is `0` (old records will not be deleted as the table grows in size).
+
+* **Asynchronous insert log retention time**{#setting-asynchronous-insert-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Time (in milliseconds) between making an entry in the `system.asynchronous_insert_log` table and its deletion. The value must be a multiple of 1000.
+
+   The default value is `2592000000` (30 days). When the value is `0`, the records will be stored for an unlimited period of time.
+
+* **Asynchronous metric log enabled**{#setting-asynchronous-metric-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Determines whether historical metric values from the `system.asynchronous_metrics` table will be logged to the `system.asynchronous_metric_log` table.
+
+   The default value is `false`.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/asynchronous_metric_log).
+
+* **Asynchronous metric log retention size**{#setting-asynchronous-metric-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   The size of the `system.asynchronous_metric_log` table (in bytes), which, when exceeded, will cause old records to be deleted from this table.
+
+   The default value is `0` (old records will not be deleted as the table grows in size).
+
+* **Asynchronous metric log retention time**{#setting-asynchronous-metric-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Time (in milliseconds) between making an entry in the `system.asynchronous_metric_log` table and its deletion. The value must be a multiple of 1000.
+
+   The default value is `2592000000` (30 days). When the value is `0`, the records will be stored for an unlimited period of time.
+
 * **Background buffer flush schedule pool size**{#setting-background-buffer-flush-schedule-pool-size} {{ tag-con }}
 
    The number of threads for background data flushing in [Buffer]({{ ch.docs }}/engines/table-engines/special/buffer) tables.
@@ -6,6 +46,13 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_buffer_flush_schedule_pool_size).
 
+* **Background common pool size**{#setting-background-common-pool-size} {{ tag-con }} {{ tag-api }}
+
+   The number of threads for executing common background operations, such as cleaning up the file system, in [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables.
+
+   The minimum value is `1`, while the default one is `8`.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_common_pool_size).
 
 * **Background distributed schedule pool size**{#setting-background-distributed-schedule-pool-size} {{ tag-con }}
 
@@ -17,11 +64,19 @@
 
 * **Background fetches pool size**{#setting-background-fetches-pool-size} {{ tag-con }} {{ tag-api }}
 
-   The number of threads for executing background fetches in [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) tables.
+   The number of threads for executing background operations to copy data from a replica in [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) tables.
 
-   The default value is `8`.
+   The minimum value is `1`, while the default one is `8`.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
+
+* **Background merges mutations concurrency ratio**{#setting-background-merges-mutations-concurrency-ratio} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   The number of background merges and mutations that can be concurrently executed by each thread.
+
+   The default value is `2`.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio).
 
 * **Background message broker schedule pool size**{#setting-background-message-broker-schedule-pool-size} {{ tag-con }}
 
@@ -31,30 +86,33 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_message_broker_schedule_pool_size).
 
-* **Background pool size**{#setting-background-pool-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
-
-   The number of threads for executing background merges and [mutations]({{ ch.docs }}/sql-reference/statements/alter/#mutations) in [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables.
-
-   The default value is `16`.
-
 * **Background move pool size**{#setting-background-move-pool-size} {{ tag-con }}
 
    The number of threads for background moves of data parts in [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables.
 
-   The default value is `8`.
+   The minimum value is `1`, while the default one is `8`.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings/#background_move_pool_size).
+
+* **Background pool size**{#setting-background-pool-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+
+   The number of threads for executing background merges and [mutations]({{ ch.docs }}/sql-reference/statements/alter/#mutations) in [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables.
+
+   The minimum value is `1`, while the default one is `16`.
+
+   For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#background_pool_size).
 
 * **Background schedule pool size**{#setting-background-schedule-pool-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
    The number of threads for background jobs. Used for replicated tables, streams in {{ KF }}, and updating a record's IP address in the internal DNS cache.
 
-   The default value is `128`.
+   The minimum value is `1`, while the default one is `128`.
 
 * **Compression**{#setting-compression} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
    Rules for compressing data in the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. For each rule, specify:
 
+   * **Level**: Compression level. Only available for the [zstd]({{ ch.docs }}/sql-reference/statements/create/table#zstd) compression method. The minimum value is `1`, while the maximum one is `12`. The default value is `9`.
    * **Method**: Compression method. There are two methods available: [LZ4](https://lz4.github.io/lz4/) and [zstd](https://facebook.github.io/zstd/).
    * **Min part size**: Minimum size (in bytes) of a [data part]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/).
    * **Min part size ratio**: Ratio of the smallest table chunk to the overall table size. {{ CH }} will only apply the rule to those tables where this ratio does not exceed **Min part size ratio**.
@@ -66,6 +124,12 @@
 * **Default database**{#setting-default-database} {{ tag-con }} {{ tag-api }}
 
    Default database. To learn how to get a list of cluster databases, see [Managing databases](../../managed-clickhouse/operations/databases#list-db).
+
+* **Geobase enabled**{#setting-geobase-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Enables/disables the [built-in geobase dictionary](../../managed-clickhouse/concepts/dictionaries.md#internal-dicts).
+
+   The default value is `false`.
 
 * **Geobase uri**{#setting-geobase-uri} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
@@ -90,6 +154,7 @@
 
    Global authentication settings for [integration with {{ KF }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/):
    * **Enable ssl certificate verification**: Determines whether to perform SSL certificate verification. The default value is `false`.
+   * **Max poll interval ms**: Maximum interval (in milliseconds) between polls to get messages for high-level consumers. If exceeded, the user is removed from the group and rebalancing starts. The default value is `300000` (5 minutes).
    * **Sasl mechanism**: SASL authentication mechanism:
       * `GSSAPI`: Authentication [using Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
       * `PLAIN`: Authentication [using a username-password pair as plain text](https://kafka.apache.org/documentation/#security_sasl_plain).
@@ -101,6 +166,7 @@
       * `SSL`: Authentication credentials are sent with SSL encryption.
       * `SASL_PLAINTEXT`: Authentication credentials are sent as plain text with SASL transport.
       * `SASL_SSL`: Authentication credentials are sent with SSL encryption and SASL as transport.
+   * **Session timeout ms**: Timeout (in milliseconds) for a periodic signal from a user to maintain a client group session. If exceeded, the broker removes the user from the group and runs rebalancing. The default value is `45000` (45 seconds).
 
 * **Kafka topics**{#setting-kafka-topics} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -190,6 +256,10 @@
 
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#inactive-parts-to-throw-insert).
 
+   * **Max avg part size for too many parts**: Maximum average size of active data parts in a table (in bytes) that triggers **Parts to delay insert** and **Parts to throw insert** checks. If exceeded, data inserts into the table will neither slow down nor get rejected.
+
+      The minimum value is `0`. The default value is `1073741824` (1 GB).
+
    * **Max bytes to merge at max space in pool**: Maximum total size of data parts (in bytes) to merge when the background pool has available resources.
 
       The default value is `161061273600` (150 GB).
@@ -202,15 +272,25 @@
 
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool).
 
-   * **Max replicated merges in queue**: Maximum number of merge tasks that can be in the `ReplicatedMergeTree` queue at the same time.
+   * **Max number of merges with ttl in pool**: Maximum number of TTL-based merges in the background pool.
 
-      The default value is `16`.
+      The default value is `2`.
 
    * **Max parts in total**: Number of active data parts in all table partitions. When exceeded, {{ CH }} throws the `Too many parts ...` exception.
 
       The default value is `100000`.
 
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-parts-in-total).
+
+   * **Max replicated merges in queue**: Maximum number of merge tasks that can be in the `ReplicatedMergeTree` queue at the same time.
+
+      The default value is `16`.
+
+   * **Merge selecting sleep ms**: Timeout (in milliseconds) before merging a selection if no data part is selected.
+
+      The default value is `5000` (5 seconds).
+
+      For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#merge_selecting_sleep_ms).
 
    * **Merge with recompression TTL timeout**: Minimum timeout (in seconds) before merges with recompression of data with expired TTL.
 
@@ -223,6 +303,18 @@
       The default value is `14400` (four hours).
 
       For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/guides/developer/ttl/#triggering-ttl-events).
+
+   * **Min age to force merge on partition only**: Determines whether to only merge [partitions]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key) based on the **Min age to force merge seconds** setting value.
+
+      Forcing merges on partitions only is disabled by default.
+
+      For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_on_partition_only).
+
+   * **Min age to force merge seconds**: Minimum age (in seconds) for a data part to be merged.
+
+      The default value is `0` (merges are disabled).
+
+      For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds).
 
    * **Min bytes for wide part**: Minimum number of bytes in a data part that can be stored in `Wide` format. You can set it along with the **Min rows for wide part** parameter.
 
@@ -299,11 +391,23 @@
 
 * **Opentelemetry span log enabled**{#setting-opentelemetry-span-log-enabled} {{ tag-con }}
 
-   Determines whether to log trace and metric values from a distributed application.
+   Determines whether to log trace and metric values from a distributed application. These logs are saved to the `system.opentelemetry_span_log` table.
 
    The default value is `false`.
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/opentelemetry).
+
+* **Opentelemetry span log retention size**{#setting-opentelemetry-span-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   The size of the `system.opentelemetry_span_log` table (in bytes), which, when exceeded, will cause old records to be deleted from this table.
+
+   The default value is `0` (old records will not be deleted as the table grows in size).
+
+* **Opentelemetry span log retention time**{#setting-opentelemetry-span-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Time (in milliseconds) between the making of an entry in the `system.opentelemetry_span_log` table and its deletion. The value must be a multiple of 1000.
+
+   The default value is `2592000000` (30 days). When the value is `0`, the records will be stored for an unlimited period of time.
 
 * **Part log retention size**{#setting-part-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -349,6 +453,26 @@
 
    The default value is `2592000000` (30 days). When the value is `0`, the records will be stored for an unlimited period of time.
 
+* **Query views log enabled**{#setting-query-views-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Determines whether information about dependent views executed when running queries will be logged. These logs are saved to the `system.query_views_log` table.
+
+   The default value is `false`.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/query_views_log).
+
+* **Query views log retention size**{#setting-query-views-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   The size of the `system.query_views_log` table (in bytes), which, when exceede, will cause old records to be deleted from this table.
+
+   The default value is `0` (old records will not be deleted as the table grows in size).
+
+* **Query views log retention time**{#setting-query-views-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Time (in milliseconds) between making an entry in the `system.query_views_log` table and its deletion. The value must be a multiple of 1000.
+
+   The default value is `2592000000` (30 days). When the value is `0`, the records will be stored for an unlimited period of time.
+
 * **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
    Global authentication settings for [integration with {{ RMQ }}]({{ ch.docs }}/engines/table-engines/integrations/rabbitmq/):
@@ -356,6 +480,26 @@
    * **Password**: Password of an {{ RMQ }} account.
    * **Username**: Username of an {{ RMQ }} account.
    * **Vhost**: {{ RMQ }} virtual host address.
+
+* **Session log enabled**{#setting-session-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Determines whether information about successful and failed login/logout events will be logged. These logs are saved to the `system.session_log` table.
+
+   The default value is `false`.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/session_log).
+
+* **Session log retention size**{#setting-session-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   The size of the `system.session_log` table (in bytes), which, when exceeded, will cause old records to be deleted from this table.
+
+   The default value is `0` (old records will not be deleted as the table grows in size).
+
+* **Session log retention time**{#setting-session-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Time (in milliseconds) between making an entry in the `system.session_log` table and its deletion. The value must be a multiple of 1000.
+
+   The default value is `2592000000` (30 days). When the value is `0`, the records will be stored for an unlimited period of time.
 
 * **Text log enabled**{#setting-text-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -432,3 +576,23 @@
    Cache size (in bytes) for uncompressed data used by the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table engines.
 
    The default value is `8589934592` (8 GB).
+
+* **Zookeeper log enabled**{#setting-zookeeper-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Determines whether {{ ZK }} server request and response parameters will be logged. These logs are saved to the `system.zookeeper_log` table.
+
+   The default value is `false`.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/system-tables/zookeeper_log).
+
+* **Zookeeper log retention size**{#setting-zookeeper-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   The size of the `system.zookeeper_log` table (in bytes), which, when exceeded, will cause old records to be deleted from this table.
+
+   The default value is `0` (old records will not be deleted as the table grows in size).
+
+* **Zookeeper log retention time**{#setting-zookeeper-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Time (in milliseconds) between making an entry in the `system.zookeeper_log` table and its deletion. The value must be a multiple of 1000.
+
+   The default value is `2592000000` (30 days). When the value is `0`, the records will be stored for an unlimited period of time.

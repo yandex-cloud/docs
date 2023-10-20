@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ mgp-name }}
+# {{ mgp-name }} pricing
 
 In this section, you can find {{ mgp-name }} pricing [rules](#rules) and [effective prices](#prices) for the service's resources.
 
@@ -43,7 +43,7 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 
 ### Disk space usage {#rules-storage}
 
-The following is charged:
+You are charged for the following:
 
 * Storage allocated for clusters.
 
@@ -51,6 +51,8 @@ The following is charged:
       * For Intel Cascade Lake: In 100 GB increments.
       * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
    * You can only order storage on non-replicated SSDs (`network-ssd-nonreplicated`) in 93 GB increments for clusters with two master hosts.
+
+   To save money on storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in a compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
@@ -184,6 +186,8 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 
 
 {% endlist %}
+
+The cost of [cold storage in {{ objstorage-full-name }}](../tutorials/yezzey.md) is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
 Pricing for backup storage has the following specifics:
 

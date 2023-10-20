@@ -7,7 +7,7 @@ To change the payment method:
 1. Draw up a request to change the payment method.
 
 
-{% include [change-payment-docs](../_includes/change-payment-docs.md) %}
+   {% include [change-payment-docs](../_includes/change-payment-docs.md) %}
 
 
 1. Send your request to [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru). The request will be reviewed within three business days. Your {{ yandex-cloud }} account manager will notify you of the decision.

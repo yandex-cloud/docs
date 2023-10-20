@@ -1,9 +1,9 @@
 ---
 title: "Deleting a PostgreSQL cluster"
-description: "After you delete a PostgreSQL database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you'll need its ID, so please store the cluster ID safely before deleting the cluster."
+description: "After you delete a PostgreSQL database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you will need its ID; therefore, safely save the cluster ID before deleting the cluster."
 ---
 
-# Deleting a {{ PG }} cluster
+# Deleting {{ PG }} clusters
 
 ## Before deleting a cluster {#before-you-delete}
 
@@ -19,8 +19,8 @@ description: "After you delete a PostgreSQL database cluster, its backups are ke
 - Management console
 
    1. Open the folder page in the management console.
-   1. Select **{{ mpg-name }}**.
-   1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click ![image](../../_assets/options.svg) for the appropriate cluster, select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**, and confirm the deletion.
 
 - CLI
 

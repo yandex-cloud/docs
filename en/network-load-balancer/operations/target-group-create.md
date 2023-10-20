@@ -1,4 +1,9 @@
-# Create a {{ network-load-balancer-name }} target group
+---
+title: "Creating a {{ network-load-balancer-name }} target group"
+description: "Follow this guide to create a {{ network-load-balancer-name }} target group."
+---
+
+# Creating a {{ network-load-balancer-name }} target group
 
 {% list tabs %}
 
@@ -10,7 +15,7 @@
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
    1. Click **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
-   1. Enter the name of the target group.
+   1. Enter the name of the target group. The password requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 

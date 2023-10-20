@@ -1,3 +1,8 @@
+---
+title: "How to manage {{ ES }} extensions"
+description: "This guide describes how you can manage {{ ES }} extensions."
+---
+
 # Managing {{ ES }} extensions
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

@@ -53,7 +53,7 @@ To create a disk snapshot:
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. In the line of the disk, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
-   1. Enter a name for the snapshot:
+   1. Enter a name for the snapshot. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -87,6 +87,8 @@ To create a disk snapshot:
 
       As a result, a disk snapshot is created with the name `first-snapshot` and description `my first snapshot via CLI`.
 
+      The snapshot naming requirements are as follows:
+
       {% include [name-format](../../../_includes/name-format.md) %}
 
 - API
@@ -109,12 +111,12 @@ To create a disk snapshot:
       }
       ```
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -140,7 +142,7 @@ An HDD or SSD snapshot is created asynchronously. The snapshot is created with t
 
 While creating a snapshot of a high-performance or non-replicated SSD, any write operations will be suspended and the disk will be read-only. All suspended writes (if they are requested on the guest OS side) will be completed after the snapshot is created.
 
-Once a snapshot is created, the snapshot status will change to `Ready`. From this point on, you can use the snapshot to create images, populate disks, and so on.
+Once the snapshot has been created, its status will change to `Ready`. From this point on, you can use the snapshot to create images, populate disks, and so on.
 
 {% note alert %}
 

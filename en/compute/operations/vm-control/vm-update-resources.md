@@ -13,13 +13,13 @@ This section provides guidelines for changing the number and performance of vCPU
   To change vCPU and RAM of a VM:
   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Click the name of the desired VM.
-  1. Click **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}** in the upper-right corner.
+  1. Click the VM name.
+  1. Click **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}** in the top-right corner of the page.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
   1. Wait until the VM status changes to `Stopped`, then click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top-right corner of the page.
-  1. Change the [configuration](../../concepts/performance-levels.md) of the VM and do the following in the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section:
+  1. Change the [configuration](../../concepts/performance-levels.md) of the VM in the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section:
      * Choose a [platform](../../concepts/vm-platforms.md).
-     * Specify the necessary number of vCPUs.
+     * Specify the required number of vCPUs.
      * Choose a guaranteed vCPU performance.
      * Specify the RAM size.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
@@ -98,8 +98,8 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
    To change the number of GPUs on the VM:
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Click the name of the desired VM.
-   1. Click **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}** in the upper-right corner.
+   1. Click the VM name.
+   1. Click **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}** in the top-right corner of the page.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
    1. Wait until the VM status changes to `Stopped`, then click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top-right corner of the page.
    1. Change the [configuration](../../concepts/performance-levels.md) of the VM in the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section:
@@ -108,7 +108,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
       * Specify the required number of GPUs.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-   1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}** in the upper-right corner.
+   1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}** in the top-right corner of the page.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 - CLI
@@ -179,13 +179,13 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
    To change the number of [GPUs](../../concepts/gpus.md) on an existing VM:
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Click the name of the desired VM.
-   1. Click **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}** in the upper-right corner.
+   1. Click the VM name.
+   1. Click **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}** in the top-right corner of the page.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
    1. Wait until the VM status changes to `Stopped`, then click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top-right corner of the page.
    1. Change the VM [configuration](../../concepts/performance-levels.md) Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the required number of GPUs.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-   1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}** in the upper-right corner.
+   1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}** in the top-right corner of the page.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 - CLI
@@ -228,7 +228,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
       This command changes the number of GPUs to 2.
 
-      The values of `--cores` (number of vCPUs) and `--memory` (amount of RAM in GB) parameters depend on the platform and the number of GPUs. See also [List of available configurations](../../concepts/gpus.md#config).
+      The values of `--cores` (number of vCPUs) and `--memory` (amount of RAM in GB) parameters depend on the platform and the number of GPUs. See [List of available configurations](../../concepts/gpus.md#config).
 
    1. Run the VM:
 
@@ -257,13 +257,13 @@ This feature is only available upon agreement with your account manager.
    To enable a [software-accelerated network](../../concepts/software-accelerated-network.md) on an existing VM:
    1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Click the name of the desired VM.
-   1. Click **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}** in the upper-right corner.
+   1. Click the VM name.
+   1. Click **{{ ui-key.yacloud.compute.instance.overview.button_action-stop }}** in the top-right corner of the page.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
    1. Wait until the VM status changes to `Stopped`, then click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top-right corner of the page.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, enable the **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** option.
    1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-   1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}** in the upper-right corner.
+   1. Click **{{ ui-key.yacloud.compute.instances.button_action-start }}** in the top-right corner of the page.
    1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 {% endlist %}

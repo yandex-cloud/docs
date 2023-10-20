@@ -13,9 +13,9 @@
 | Type of limit | Minimum value | Maximum value |
 |:-------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------------|
 | Host class | s2.micro (2 vCPU Intel Cascade Lake, 8 GB RAM) | m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) |
-| Number of hosts in a cluster when using HDD or SSD network storage | 1 | 7 |
+| Number of hosts per cluster when using HDD or SSD network storage | 1 | 7 |
 | Number of hosts in a cluster when storing data on non-replicated or local SSDs | 3 | 7 |
 | Amount of data on the host when using HDD or SSD network storage | 10 GB | 4096 GB |
 | Amount of data on the host when using non-replicated SSD storage | 93 GB | 8184 GB |
-| Amount of data on the host when using local SSD storage (for the Intel Cascade Lake) | 100 GB | 1500 GB |
+| Amount of data on the host when using local SSD storage (for Intel Cascade Lake) | 100 GB | 1500 GB |
 | Amount of data on the host when using local SSD storage (for Intel Ice Lake) | {{ local-ssd-v3-step }} | {{ local-ssd-v3-max }} |

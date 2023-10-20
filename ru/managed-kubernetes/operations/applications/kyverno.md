@@ -14,11 +14,11 @@
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
-1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
-1. В разделе **Доступные для установки приложения** выберите [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) и нажмите кнопку **Использовать**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. В разделе **Доступные для установки приложения** выберите [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Kyverno или создайте новое.
+   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Kyverno или создайте новое. В нем не должны находиться какие-либо приложения или объекты, иначе Kyverno будет работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Включение Kyverno Policies** — выберите, чтобы установить расширение Kyverno Policies.
    * **Pod Security Standard profile** — выберите [профиль Pod Security Standard](https://kubernetes.io/docs/concepts/security/pod-security-standards/):
@@ -28,13 +28,15 @@
    * **Validation failure action** — выберите способ реагирования на срабатывания Kyverno:
      * `audit` — режим оповещения.
      * `enforce` — режим блокировки.
-1. Нажмите кнопку **Установить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
-1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Kyverno выполните команду:
 
    ```bash
@@ -47,6 +49,46 @@
      --create-namespace \
      kyverno ./kyverno/
    ```
+
+   Выберите пространство имен, в котором нет каких-либо приложений или объектов, иначе Kyverno будет работать некорректно.
+
+## Версии приложения {#versions}
+
+Для каждой версии Kubernetes поддерживается определенная версия Kyverno. Нужная версия Kyverno устанавливается по умолчанию в зависимости от вашей версии Kubernetes.
+
+|   Версия Kubernetes  | Версия Kyverno |       Документация       |
+| -------------------- | -------------- | ------------------------ |
+| До 1.21 включительно |       1.6      | [Документация Kyverno 1.6](https://release-1-6-0.kyverno.io/docs/) |
+|         1.22         |       1.7      | [Документация Kyverno 1.7](https://release-1-7-0.kyverno.io/docs/) |
+|         1.23         |       1.8      | [Документация Kyverno 1.8](https://release-1-8-0.kyverno.io/docs/) |
+|      1.24 и выше     |       1.9      | [Документация Kyverno 1.9](https://release-1-9-0.kyverno.io/docs/) |
+
+## Удаление приложения {#uninstall}
+
+Если приложение Kyverno вам больше не нужно, удалите его:
+
+{% list tabs %}
+
+- Через {{ marketplace-name }}
+
+   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Нажмите на имя нужного [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+   1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, в строке приложения [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno), сначала нажмите кнопку ![image](../../../_assets/marketplace/three_dots.png =22x13), затем — **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
+   1. [Подключитесь к кластеру](../connect/index.md#kubectl-connect) с помощью kubectl.
+   1. [Очистите конфигурации веб-хуков приложения](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), иначе кластер будет работать некорректно.
+
+- С помощью Helm
+
+   1. [Подключитесь к кластеру](../connect/index.md#kubectl-connect) с помощью kubectl.
+   1. Удалите приложение:
+
+      ```bash
+      helm uninstall --namespace <пространство_имен> kyverno ./kyverno/
+      ```
+
+   1. [Очистите конфигурации веб-хуков приложения](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), иначе кластер будет работать некорректно.
+
+{% endlist %}
 
 ## См. также {#see-also}
 

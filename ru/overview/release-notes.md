@@ -33,3 +33,7 @@
 ## Инструменты {{ yandex-cloud }} {#working-tools}
 
 * [CLI](../cli/release-notes.md)
+
+## Контейнерная разработка {#containerization}
+
+* [{{ managed-k8s-full-name }}](../managed-kubernetes/changelog.md)

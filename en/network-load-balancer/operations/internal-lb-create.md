@@ -1,8 +1,15 @@
+---
+title: "How to create an internal network load balancer"
+description: "Use this guide to create an internal network load balancer."
+---
+
 # Create an internal network load balancer
 
 {% note info %}
 
 To create an internal network load balancer, you need the `load-balancer.privateAdmin` role.
+
+{% include [type-update](../../_includes/network-load-balancer/type-update.md) %}
 
 {% endnote %}
 
@@ -17,10 +24,10 @@ The internal load balancer's listener is assigned a random IP address from the r
 - Management console
 
    To create an [internal network load balancer](../concepts/nlb-types.md):
-   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
+   1. In the [management console]({{ link-console-main }}), select the folder to create a load balancer in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
-   1. Enter a name.
+   1. Enter a name. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -160,7 +167,7 @@ The internal load balancer's listener is assigned a random IP address from the r
          * `target_group_id`: Target group ID.
          * `healthcheck`: Health check parameters. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
-      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Create a network load balancer:
 
@@ -230,23 +237,23 @@ Create an internal network load balancer named `internal-lb-test-1` without a li
 
 Create an internal network load balancer with a listener and attached target group with the following test specifications:
 
-* Name: `internal-lb-test-2`.
+* Name: `internal-lb-test-2`
 * Listener parameters:
-   * Name: `test-listener`.
-   * Port: `80`.
-   * Target port: `81`.
-   * Protocol: `TCP`.
-   * Subnet ID: `b0cp4drld130********`.
-   * IP version: `ipv4`.
-* Target group ID: `enpu2l7q9kth********`.
+   * Name: `test-listener`
+   * Port: `80`
+   * Target port: `81`
+   * Protocol: `TCP`
+   * Subnet ID: `b0cp4drld130********`
+   * IP version: `ipv4`
+* Target group ID: `enpu2l7q9kth********`
 * Target group health check parameters:
-   * Name: `HTTP`.
-   * Health check interval: `2` seconds.
-   * Response timeout: `1` second.
-   * Unhealthy threshold: `2`.
-   * Healthy threshold: `2`.
-   * Port for HTTP health checks: `80`.
-   * URL for health checks: `/`.
+   * Name: `HTTP`
+   * Health check interval: `2` seconds
+   * Response timeout: `1` second
+   * Unhealthy threshold: `2`
+   * Healthy threshold: `2`
+   * Port for HTTP health checks: `80`
+   * URL for health checks: `/`
 
 {% list tabs %}
 

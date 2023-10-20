@@ -1,1 +1,1 @@
-{% include [updating-under-load](../../_tutorials/infrastructure-management/updating-under-load.md) %}
+{% include [updating-under-load](../../_tutorials/infrastructure/updating-under-load.md) %}

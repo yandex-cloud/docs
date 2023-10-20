@@ -356,6 +356,7 @@ To prepare scripts:
 
    {% endlist %}
 
+   To learn how to get the FQDN of a host, see [this guide](../operations/connect.md#fqdn).
 
 ### Inserting data {#insert-data}
 

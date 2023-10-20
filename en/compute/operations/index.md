@@ -1,9 +1,9 @@
 ---
 title: "Working with VMs Step-by-step guides"
-description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud }}. In this article, you'll learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts."
+description: "Step-by-step guides on how to use and manage VMs in {{ yandex-cloud }}. In this article, you will learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts."
 ---
 
-# Step-by-step guides for {{ compute-name }}
+# Step-by-step guide for {{ compute-name }}
 
 ## Creating VMs {#vm-create}
 
@@ -63,6 +63,7 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-connect/ssh.md)
 * [{#T}](vm-connect/rdp.md)
 * [{#T}](vm-connect/powershell.md)
+* [{#T}](vm-connect/os-login.md)
 * [{#T}](vm-connect/auth-inside-vm.md)
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
@@ -86,6 +87,7 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](disk-control/update.md)
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
+* [{#T}](disk-control/disk-change-zone.md)
 * [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/delete.md)
 
@@ -119,6 +121,7 @@ description: "Step-by-step guide on how to use and manage VMs in {{ yandex-cloud
 
 * [{#T}](image-control/get-list.md)
 * [{#T}](image-control/delete.md)
+* [{#T}](image-control/import.md)
 
 
 ## File storage {#filesystem}

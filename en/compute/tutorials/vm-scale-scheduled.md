@@ -1,1 +1,1 @@
-{% include [vm-scale-scheduled](../../_tutorials/infrastructure-management/vm-scale-scheduled.md) %}
+{% include [vm-scale-scheduled](../../_tutorials/infrastructure/vm-scale-scheduled.md) %}

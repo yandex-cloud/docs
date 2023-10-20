@@ -1,8 +1,13 @@
+---
+title: "Dictionary support"
+description: "{{ mes-name }} has pre-installed Hunspell dictionaries for spell checking and word stemming. You can use them via the {{ ES }} API. The dictionaries are available for all supported editions and versions. For Hunspell dictionary use examples, see the {{ ES }} documentation."
+---
+
 # Dictionary support
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-{{ mes-name }} has pre-installed [Hunspell](https://github.com/hunspell/hunspell) dictionaries for spell checking and word stemming. You can use them via the {{ ES }} API. The dictionaries are available for all supported [editions](./es-editions.md) and versions. For Hunspell dictionary usage examples, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-hunspell-tokenfilter.html).
+{{ mes-name }} has pre-installed [Hunspell](https://github.com/hunspell/hunspell) dictionaries for spell checking and word stemming. You can use them via the {{ ES }} API. The dictionaries are available for all supported [editions](./es-editions.md) and versions. For Hunspell dictionary use examples, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-hunspell-tokenfilter.html).
 
 List of dictionaries:
 

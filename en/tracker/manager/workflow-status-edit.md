@@ -33,11 +33,11 @@ A workflow must have a status that starts the workflow. Statuses of any type can
 ### Status types {#status-types}
 
 You can define a status type within a workflow. All statuses of the same type are highlighted in a certain color:
-* ![](../../_assets/tracker/changelogs/status-1-open.svg): Issue has been created but is not in progress yet.
-* ![](../../_assets/tracker/changelogs/status-2-in-progress.svg): Issue is in progress.
-* ![](../../_assets/tracker/changelogs/status-3-needs-info.svg): Work on the issue is suspended.
-* ![](../../_assets/tracker/changelogs/status-4-solved.svg): Issue has been completed and closed.
-* ![](../../_assets/tracker/changelogs/status-5-closed.svg): Issue has not been not completed and is closed.
+* ![](../../_assets/tracker/svg/initial.svg): Issue has been created but is not in progress yet.
+* ![](../../_assets/tracker/svg/progress.svg): Issue is in progress.
+* ![](../../_assets/tracker/svg/pause.svg): Work on the issue is suspended.
+* ![](../../_assets/tracker/svg/end.svg): Issue has been completed and closed.
+* ![](../../_assets/tracker/svg/cancel.svg): Issue has not been not completed and is closed.
 
 Issues with the <q>Completed</q> and <q>Canceled</q> statuses are considered closed: they are displayed with a crossed out key in the queue.
 

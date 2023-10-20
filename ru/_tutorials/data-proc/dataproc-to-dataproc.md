@@ -14,7 +14,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `dataproc-s3-sa` и назначьте ему роль `dataproc.agent`.
     1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
@@ -37,7 +37,7 @@
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-* С помощью {{ TF }}
+- С помощью {{ TF }}
 
     1. {% include [terraform-install](../../_includes/terraform-install.md) %}
     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -195,14 +195,14 @@
 
     {% list tabs %}
 
-    * Вручную
+    - Вручную
 
         1. [Кластеры {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
         1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
         1. [Облачную сеть](../../vpc/operations/network-delete.md).
         1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-    * С помощью {{ TF }}
+    - С помощью {{ TF }}
 
         1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакетов.
         1. В терминале перейдите в директорию с планом инфраструктуры.

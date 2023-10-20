@@ -1,6 +1,6 @@
 # Creating an email trigger that invokes a {{ sf-name }} function
 
-Create a [mail trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-name }} [function](../../concepts/function.md) when an email arrives. The service automatically generates an email address when creating the trigger.
+Create an [email trigger](../../concepts/trigger/mail-trigger.md) to call a {{ sf-name }} [function](../../concepts/function.md) when an email arrives. The service automatically generates an email address when creating the trigger.
 
 ## Getting started {#before-you-begin}
 

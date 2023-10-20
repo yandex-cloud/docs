@@ -1,3 +1,8 @@
+---
+title: "How to create a VM with disks from snapshots"
+description: "Use this tutorial to create a VM with disks restored from snapshots that exist in a folder."
+---
+
 # Create a VM with disks restored from snapshots
 
 You can create a VM with disks restored from the snapshots that exist in the folder. For information on creating a disk snapshot, please see [{#T}](../disk-control/create-snapshot.md).
@@ -35,8 +40,8 @@ You can create a VM with disks restored from the snapshots that exist in the fol
       * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
-      * Specify the desired block size.
-      * Specify the desired disk size.
+      * Specify the required block size.
+      * Specify the required disk size.
 
       
       * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
@@ -47,7 +52,7 @@ You can create a VM with disks restored from the snapshots that exist in the fol
       * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
 
    
-  1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
+   1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
 
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
       * In the window that opens, select the file storage.
@@ -55,14 +60,14 @@ You can create a VM with disks restored from the snapshots that exist in the fol
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
 
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
       * Choose a [platform](../../concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and the required number of vCPUs, as well as the amount of RAM.
       * If required, make your VM [preemptible](../../concepts/preemptible-vm.md).
       * (Optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
@@ -75,11 +80,11 @@ You can create a VM with disks restored from the snapshots that exist in the fol
       * (Optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). With a service account, you can flexibly configure access rights for your resources.
       * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
-          {% note alert %}
+         {% note alert %}
 
-          Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
+         Do not use the `root` username or other names reserved by the operating system. To perform operations that require superuser permissions, use the `sudo` command.
 
-          {% endnote %}
+         {% endnote %}
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * If required, grant access to the [serial console](../../operations/serial-console/index.md).

@@ -8,10 +8,10 @@
 
       {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-   * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
+   * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../concepts/image.md) and a Linux-based OS version.
 1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab and configure a boot [disk](../concepts/disk.md):
-   * Select [disk type](../concepts/disk.md#disks_types).
+   * Select the [disk type](../concepts/disk.md#disks_types).
    * Specify the required disk size.
 
    
@@ -21,9 +21,9 @@
       If you want to create a VM from an existing disk, under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, [add a disk](../operations/vm-create/create-from-disks.md):
       * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Enter the disk name.
-      * Select [disk type](../concepts/disk.md#disks_types).
+      * Select the [disk type](../concepts/disk.md#disks_types).
       * Specify the desired block size.
-      * Specify the desired disk size.
+      * Specify the required disk size.
 
       
       * {% include [encryption-section-secondary](../../_includes/compute/encryption-section-secondary.md) %}

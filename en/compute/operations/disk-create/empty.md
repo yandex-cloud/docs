@@ -10,15 +10,15 @@ You can create an empty disk of the specified size.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-   1. Enter the disk name.
+   1. Enter the disk name. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
    1. Add a disk description, if required.
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
-   1. Select the desired disk type: `{{ ui-key.yacloud.compute.instances.create-disk.value_network-hdd }}`, `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`, `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-io-m3 }}`, or `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}`.
-   1. Select the desired block size (the minimum chunk used to store data on the disk). By default, the block size of all created disks is 4 KB; however, this is not enough for disks larger than 8 TB.
-   1. Specify the desired disk size. The maximum disk size depends on the specified block size.
+   1. Select the required disk type: `{{ ui-key.yacloud.compute.instances.create-disk.value_network-hdd }}`, `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`, `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-io-m3 }}`, or `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}`.
+   1. Select the required block size (the minimum chunk used to store data on the disk). By default, the block size of all created disks is 4 KB; however, this is not enough for disks larger than 8 TB.
+   1. Specify the required disk size. The maximum disk size depends on the specified block size.
 
    
    1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
@@ -51,7 +51,9 @@ You can create an empty disk of the specified size.
         --description "my first disk via yc"
       ```
 
-      This command creates a 10 GB disk with the name `first-disk` and description `my first disk via yc`.
+      This command creates a 10 GB disk named `first-disk` and described as `my first disk via yc`.
+
+      The disk naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 

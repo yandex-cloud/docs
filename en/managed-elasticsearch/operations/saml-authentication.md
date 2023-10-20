@@ -1,3 +1,8 @@
+---
+title: "How to set up SAML authentication"
+description: "This guide describes how you can set up SAML authentication."
+---
+
 # Configuring SAML authentication
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
@@ -66,7 +71,7 @@ Incorrect settings may cause the cluster to fail.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.elasticsearch.auth.auth-providers }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.auth.auth-providers }}** tab.
    1. Click **{{ ui-key.yacloud.common.create }}**.
    1. Create an authentication provider:
       * **{{ ui-key.yacloud.elasticsearch.auth.provider-type }}**: `SAML`.
@@ -112,13 +117,13 @@ Incorrect settings may cause the cluster to fail.
 
          {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
-      * `SAML` value, in the `type` parameter.
+      * The `SAML` value, in the `type` parameter.
       * Provider name, in the `name` parameter.
       * The `true` value, in the `enabled` parameter.
       * Provider description, in the `description` parameter.
       * ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp), in the `idpEntityId` parameter.
       * Path to the Base64 metadata file, in the `idpMetadataFile` parameter.
-      * URI of the SP Entity ID (Audience URI) application, in the `spEntityId` application. Use the URI you specified when [configuring the IdP](#configuration-idp).
+      * URI of the SP Entity ID (Audience URI) application, in the `spEntityId` parameter. Use the URI you specified when [configuring the IdP](#configuration-idp).
       * URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection), in the `kibanaUrl` parameter. Same as the `spEntityId`.
       * Format of `nameid` parameter, for example, `nameid:persistent`, in the `attributePrincipal` parameter. Same as the **Name ID Format** of the IdP.
 
@@ -211,7 +216,7 @@ To access the cluster via SSO, associate the cluster roles with the SSO users on
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.elasticsearch.label_kibana }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.label_kibana }}** tab.
    1. In the authorization window, specify the `admin` user and the password you set when configuring the cluster.
    1. Open **Management → Stack Management → Security → Role Mappings**.
 
@@ -259,7 +264,7 @@ To log in to the {{ mes-name }} cluster using the new user's credentials:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.elasticsearch.label_kibana }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.elasticsearch.label_kibana }}** tab.
    1. In the authorization window, select the option that you specified when [setting up SSO](#configuration-sso) in the **Provider description**.
    1. Specify **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
 

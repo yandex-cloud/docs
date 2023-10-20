@@ -5,7 +5,7 @@ A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](.
 {% note info %}
 
 
-* The number of broker hosts you can create along with an {{ KF }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* The number of broker hosts you can create along with a {{ KF }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 
@@ -344,11 +344,11 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
 
 - {{ TF }}
 
-   Create an {{ mkf-name }} cluster with the following test configuration:
+   Create a {{ mkf-name }} cluster with test characteristics:
    * Cloud ID: `{{ tf-cloud-id }}`
    * Folder ID: `{{ tf-folder-id }}`
    * Name: `mykf`
-   * Environment: `Production`
+   * Environment: `PRODUCTION`
    * {{ KF }} version: `{{ versions.tf.latest }}`
    * Network and subnet: `mynet`, `mysubnet`
 
@@ -362,7 +362,7 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
    * Public access: Allowed
    * Protection against accidental cluster deletion: Enabled
 
-   Here is how a configuration file for a {{ mkf-name }} cluster may look like:
+   Here is how a configuration file for an {{ mkf-name }} cluster may look like:
 
    
    

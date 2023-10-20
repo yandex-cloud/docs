@@ -1,3 +1,8 @@
+---
+title: "How to migrate data from a third-party source cluster to a target cluster"
+description: "This guide describes how you can migrate data from a third-party source cluster to a target cluster."
+---
+
 # Migrating databases from a third-party {{ PG }} cluster to {{ mpg-name }}
 
 {% note info %}

@@ -27,9 +27,10 @@ Sample request:
 
 ```bash
 curl -X GET \
-    'http://c-<cluster ID>.rw.mdb.yandexcloud.net/api/v1/dags' \
+    'https://c-<cluster ID>.airflow.yandexcloud.net/api/v1/dags' \
     --user 'admin:<admin user password>' \
-    --header 'Content-Type: application/json'
+    --header 'Content-Type: application/json' \
+    --header 'X-Cloud-Authorization: Bearer <IAM token of a subject with the managed-airflow.user role for an Airflow cluster>'
 ```
 
 The request returns a list of DAG files. For a sample response, refer to the [{{ AF }} API documentation](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html#operation/get_dags).

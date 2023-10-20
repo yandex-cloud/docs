@@ -19,6 +19,15 @@
 
 {% list tabs %}
 
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
+  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Нажмите на имя нужной ВМ.
+  1. В правом верхнем углу страницы нажмите ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите один из существующих сервисных аккаунтов или создайте новый.
+  1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
+
 - CLI
 
   {% include [cli-install](../../../_includes/cli-install.md) %}

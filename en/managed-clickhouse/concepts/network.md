@@ -19,18 +19,20 @@ You can create a cluster without specifying any subnets for the hosts if the ava
 
 ## Host name and FQDN {#hostname}
 
-{{ mch-short-name }} generates the name of each cluster host when creating it. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, the FQDN cannot be changed.
+{{ mch-short-name }} generates the name of each cluster host when creating it. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
+
+To learn how to get the FQDN of a host, see [this guide](../operations/connect.md#fqdn).
 
 
-You can use the FQDN to access the host within a single cloud network. For more information, see the [{{ vpc-full-name }} documentation](../../vpc/).
+To access a host within a single cloud network, use its FQDN. For more information, see the [{{ vpc-full-name }} documentation](../../vpc/).
 
 ## Public access to a host {#public-access-to-a-host}
 
-Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when creating the host. To connect to such a host, use its FQDN.
+Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when creating the host.
 
 You cannot request a public address after creating a host; however, you can replace one of the existing hosts with a new one that has a public address.
 
-When deleting a host with a public FQDN, the assigned IP address is revoked.
+When deleting a publicly accessible host, the assigned IP address is revoked.
 
 ## Security groups {#security-groups}
 

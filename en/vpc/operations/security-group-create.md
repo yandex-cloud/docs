@@ -1,3 +1,8 @@
+---
+title: "How to create a security group"
+description: "Follow this guide to create a security group."
+---
+
 # Create a security group
 
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
@@ -74,7 +79,7 @@ To create a new [security group](../concepts/security-groups.md):
       
       ```
       provider "yandex" {
-        token     = "<service account OAuth or static key>"
+        token     = "<OAuth or static key of service account>"
         folder_id = "<folder ID>"
         zone      = "{{ region-id }}-a"
       }
@@ -103,7 +108,7 @@ To create a new [security group](../concepts/security-groups.md):
 
 
 
-      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    2. Make sure the configuration files are valid.
 

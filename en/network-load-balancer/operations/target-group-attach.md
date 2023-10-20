@@ -1,4 +1,9 @@
-# Attach a target group to a network load balancer
+---
+title: "Attaching a target group to a network load balancer"
+description: "Follow this guide to attach a target group to a network load balancer."
+---
+
+# Attaching a target group to a network load balancer
 
 {% list tabs %}
 

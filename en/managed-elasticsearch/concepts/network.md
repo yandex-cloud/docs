@@ -1,4 +1,9 @@
-# Network in {{ mes-name }}
+---
+title: "Network in {{ mes-name }}"
+description: "When creating a new cluster, you can set a network for the cluster and subnets for each cluster host. You can also request public access to connect to the cluster hosts with the Data node role from outside {{ yandex-cloud }}."
+---
+
+# Networking in {{ mes-name }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
@@ -14,7 +19,7 @@ You can create a cluster without specifying any subnets for the hosts if the ava
 
 ## Host name and FQDN {#hostname}
 
-{{ mes-short-name }} generates a name for each cluster host when it is being created. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, the FQDN cannot be changed.
+{{ mes-short-name }} generates a name for each cluster host when it is created. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
 
 
 You can use the FQDN to access the host within a single cloud network. For more information, see the [{{ vpc-full-name }} documentation](../../vpc/).
@@ -23,7 +28,7 @@ You can use the FQDN to access the host within a single cloud network. For more 
 
 Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when creating the host. To connect to such a host, use its FQDN.
 
-You can't request public access after creating a host.
+You cannot request public access after creating a host.
 
 When deleting a host with a public FQDN, the assigned IP address is revoked.
 

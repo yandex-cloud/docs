@@ -1,3 +1,8 @@
+---
+title: "How to set up access to {{ objstorage-name }} from an {{ ES }} cluster"
+description: "This guide describes how you can set up access to {{ objstorage-name }} from an {{ ES }} cluster."
+---
+
 # Configuring access to {{ objstorage-name }} from an {{ ES }} cluster
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
@@ -55,7 +60,7 @@ To access {{ objstorage-name }} bucket data from a cluster:
 1. Register the bucket as a snapshot repository using the [public {{ ES }} API](https://www.elastic.co/guide/en/elasticsearch/reference/current/put-snapshot-repo-api.html):
 
    ```http
-   PUT --cacert ~/.elasticsearch/root.crt https://admin:<password>@<host FQDN>:9200/_snapshot/<repository>
+   PUT --cacert ~/.elasticsearch/root.crt https://admin:<password>@<host_FQDN>:9200/_snapshot/<repository>
    ```
 
    In the request parameters, specify the bucket associated with the cluster service account:

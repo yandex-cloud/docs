@@ -23,7 +23,7 @@ items:
             items:
               - name: Changing cluster settings
                 href: operations/cluster-update.md
-              - name: Updating the {{ ES }} version and edition
+              - name: Updating {{ ES }} version and edition
                 href: operations/cluster-version-update.md
               - name: Managing {{ ES }} plugins
                 href: operations/cluster-plugins.md
@@ -51,7 +51,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Migrating to {{ mes-name }} using snapshots
+      - name: Migration to {{ mes-name }} using snapshots
         href: tutorials/migration-via-snapshots.md
       - name: >-
           Migrating data from a third-party {{ ES }} cluster using the Reindex
@@ -65,7 +65,7 @@ items:
         href: tutorials/migration-from-kafka.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Host roles
         href: concepts/hosts-roles.md
@@ -73,11 +73,11 @@ items:
         href: concepts/es-editions.md
       - name: Indices
         href: concepts/indexing.md
-      - name: Search using Elasticsearch
+      - name: Searching with Elasticsearch
         href: concepts/searching.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: Managed Service for Elasticsearch network
+      - name: Networking in Managed Service for Elasticsearch
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
