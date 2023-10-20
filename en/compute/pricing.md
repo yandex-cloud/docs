@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ compute-name }}
+# {{ compute-name }} pricing
 
 
 To calculate the cost of using {{ compute-name }}, use [our calculator]({{ link-cloud-calculator }}) or see the prices in this section.
@@ -88,10 +88,10 @@ Where:
 
 Where:
 * 720: Number of hours in 30 days
-* 2 is the number of 100% vCPUs.
-* $0.008960 is the cost of using 100% vCPU per hour.
-* 2 is the amount of RAM (in GB).
-* $0.003120 is the cost of using 1 GB of RAM per hour.
+* 2: Number of 100% vCPUs.
+* $0.008960: Cost of using 100% vCPU per hour.
+* 2: Amount of RAM (in GB).
+* $0.003120: Cost of using 1 GB of RAM per hour.
 
 As you can see, the cost of the VM using 5% vCPU is half as much as that of the VM using 100% vCPU.
 

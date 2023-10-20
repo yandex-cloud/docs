@@ -20,7 +20,9 @@ Prepare the infrastructure:
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<password for the source>`.
 
    
-   1. If you are using [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups) in your cluster, make sure they have been set up correctly and allow connecting to the cluster:
+   1. If you are using [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups) in your cluster, make sure they are set up correctly and allow connecting to the cluster:
+
+      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 
    1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
@@ -30,7 +32,7 @@ Prepare the infrastructure:
 * Using {{ TF }}
 
    1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [postgresql-to-objstorage.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/postgresql-to-objstorage.tf) configuration file to the same working directory.
 
       This file describes:
@@ -55,7 +57,7 @@ Prepare the infrastructure:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -87,9 +89,9 @@ Prepare the infrastructure:
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket.title }}**: `<name of the created bucket>`
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `storage-sa`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `CSV`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `UNCOMPRESSED`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket_layout.title }}**: `from_PostgreSQL`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `UNCOMPRESSED`
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.bucket_layout.title }}**: `from_PostgreSQL`
 
 1. Create a source endpoint and a transfer.
 
@@ -120,7 +122,7 @@ Prepare the infrastructure:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -173,9 +175,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      1. Confirm the resources have been updated.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -85,6 +85,18 @@ After creating a cluster, you can:
 
          {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+      * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**: Activates the [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/) from {{ yandex-cloud }}. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+
+         You cannot disable this option after you save your cluster settings.
+
+         
+         {% note info %}
+
+         This functionality is at the [Preview](../../overview/concepts/launch-stages.md) stage and is free of charge.
+
+         {% endnote %}
+
+
       * **{{ ui-key.yacloud.mdb.forms.section_pooler }}**: Operation mode and parameters of the [connection pooler](../concepts/pooling.md):
 
          {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
@@ -127,11 +139,11 @@ After creating a cluster, you can:
 
    * `--datatransfer-access`: Enables [{{ data-transfer-full-name }}](../../data-transfer/) access. The default value is `false`.
 
-   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters):
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters), where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   * `--assign-public-ip`: Access to the cluster from the internet.
+   * `--assign-public-ip`: Cluster accessibility from the internet.
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 

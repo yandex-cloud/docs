@@ -473,6 +473,7 @@ default:
   ssms: SQL Server Management Studio
   pgadmin: "pgAdmin\_4"
   google-looker: Looker Studio
+  YZ: Yezzey
   tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
@@ -667,6 +668,7 @@ default:
   link-cloud-services-infrastructure: /services#infrastructure-network
   link-cloud-marketplace: /marketplace
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=en
+  link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
   link-sla-greenplum: https://yandex.com/legal/cloud_sla_greenplum/
@@ -1728,6 +1730,11 @@ default:
         12h|string: ₸2.0000
         24h|string: ₸3.0000
         4h|string: ₸1.3333
+    reserved_storage|month|string: ₸54.0000
+    reserved_throughput:
+      128k|month|string: ₸240.0000
+      1m|month|string: ₸1200.0000
+      512k|month|string: ₸720.0000
   sku|KZT|ymq:
     queue:
       fifo:
@@ -2555,6 +2562,11 @@ default:
         12h|string: ₽0.4000
         24h|string: ₽0.6000
         4h|string: ₽0.2667
+    reserved_storage|month|string: ₽10.8000
+    reserved_throughput:
+      128k|month|string: ₽48.0000
+      1m|month|string: ₽240.0000
+      512k|month|string: ₽144.0000
   sku|RUB|ymq:
     queue:
       fifo:
@@ -3351,6 +3363,11 @@ default:
         12h|string: $0.003200
         24h|string: $0.004800
         4h|string: $0.002133
+    reserved_storage|month|string: $0.086400
+    reserved_throughput:
+      128k|month|string: $0.384000
+      1m|month|string: $1.920000
+      512k|month|string: $1.152000
   sku|USD|ymq:
     queue:
       fifo:
@@ -4944,11 +4961,16 @@ default:
         save: Save
       ui_components_queue-admin-tab-workflows_CopyWorkflowDialog:
         action-copy: Copy
+        label-name: New workflow name
+        label-queue: Copy from queue
+        label-workflow: Copying workflow
       ui_components_queue-admin-tab-workflows_IssueTypesListCell:
         remove-issue-type: Remove issue type from the queue
       ui_components_queue-admin-tab-workflows_OrgAdminEntityForm:
         create: Create
       ui_components_queue-admin-tab-workflows_StatusEdit:
+        action-export-transitions: Copy transitions from this status to another
+        action-import-transitions: Paste transitions from another status
         action-remove: Remove from workflow
         add-transition: Add
         meta-status-title: Allow transitions from any status
@@ -4959,6 +4981,8 @@ default:
       ui_components_queue-admin-tab-workflows_StatusTypeSelector:
         status-canceled-name: Canceled
       ui_components_queue-admin-tab-workflows_TransitionEdit:
+        action-export-settings: Copy settings from this transition to another
+        action-import-settings: Paste settings from another transition
         field-from-status: Source status
         field-name-en-title: Name in English
         field-name-ru-title: Name
@@ -4971,6 +4995,7 @@ default:
         time-spent: Time spent
       ui_components_queue-admin-tab-workflows_WorkflowsStateList:
         action-new-process: Create workflow
+        default-type-title: Default issue type
       ui_components_QueueAdminTemplateOptions:
         allow-empty-template: Allow issues to be created without a form
         always: Always
@@ -6576,6 +6601,8 @@ default:
         cluster:
           marketplace:
             button_install: Install
+            button_release-uninstall: Uninstall
+            section_releases: Installed applications
           switch_marketplace: Marketplace
           switch_workloads: Workload
         clusters:

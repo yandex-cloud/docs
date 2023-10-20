@@ -15,7 +15,7 @@ Odyssey supports two modes of connection management:
 * Session mode (default):
 
 
-    In this mode, the client connection is established at the first query to the database and maintained until the client terminates the session. This connection can then be used by another or the same client. This approach allows you to efficiently process multiple repeat client connections to the DBMS (for example, when starting applications that access databases).
+    In this mode, the client connection is established at the first query to the database and maintained until the client terminates the session. This connection can then be used by that or any other client. This approach allows you to efficiently process multiple repeat client connections to the DBMS (for example, when starting applications that access databases).
 
     This mode is less productive than transaction mode.
 
@@ -26,7 +26,7 @@ Odyssey supports two modes of connection management:
 
    The transaction mode provides high performance and allows you to load the DBMS as efficiently as possible. However, this mode is not supported by certain {{ GP }} clients and does not allow using:
 
-   * [Temporary tables]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html), [cursors]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-DECLARE.html), and [advisory locks]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-system_catalogs-pg_locks.html) that exist beyond a single transaction.
+   * [Temporary tables]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html), [cursors]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-DECLARE.html), and [advisory locks]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-system_catalogs-pg_locks.html) that exist beyond a single transaction.
    * [Prepared statements]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-sql_commands-PREPARE.html).
 
    {% note info %}
@@ -39,7 +39,7 @@ You can [change](../operations/update.md#change-additional-settings) the pooler 
 
 When integrated with Odyssey, {{ mgp-name }} clusters:
 
-* Support numerous client connections without affecting DBMS performance.
+* Support numerous client connections without affecting the DBMS performance.
 * Require neither additional connection pooler configuration nor additional infrastructure for its operation.
 * Are less prone to running out of computing resources with multiple client connections. This is because of asynchronous multithreading built into the Odyssey architecture. This is especially important if most client connections to the DBMS use SSL/TLS.
 

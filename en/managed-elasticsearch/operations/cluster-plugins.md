@@ -1,3 +1,8 @@
+---
+title: "How to manage {{ ES }} plugins"
+description: "This guide describes how you can manage {{ ES }} plugins."
+---
+
 # Managing {{ ES }} plugins
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
@@ -77,7 +82,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -115,7 +120,7 @@ All supported plugins are listed here:
 
 * [analysis-phonetic](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-phonetic.html)
 
-   Provides lexeme filters which convert expressions to their phonetic representation using Soundex, Metaphone, and other algorithms.
+   Provides lexeme filters that convert expressions to their phonetic representation using Soundex, Metaphone, and other algorithms.
 
 * [analysis-smartcn](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-smartcn.html)
 

@@ -1,3 +1,8 @@
+---
+title: "{{ metastore-full-name }} clusters"
+description: "You can create {{ metastore-full-name }} clusters in {{ dataproc-name }}."
+---
+
 # {{ metastore-full-name }} clusters
 
 {% include [Доступ по запросу](../../_includes/note-preview-by-request.md) %}

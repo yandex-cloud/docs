@@ -26,7 +26,7 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the name of the cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
 - CLI
 
@@ -116,7 +116,7 @@ You cannot enable public access to a host once it is created.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -138,7 +138,7 @@ You cannot enable public access to a host once it is created.
 
 {% note warning %}
 
-If you can't [connect](cluster-connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](cluster-connect.md) to the added host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
 
@@ -147,8 +147,8 @@ If you can't [connect](cluster-connect.md) to the added host, check that the clu
 
 The following restrictions apply when deleting hosts:
 
-* You can't delete a single host with the _Data node_ role.
-* If a cluster consists of multiple hosts with the _Data node_ role, you can't delete the last two hosts.
+* You cannot delete a single host with the _Data node_ role.
+* If a cluster consists of multiple hosts with the _Data node_ role, you cannot delete the last two hosts.
 
 {% list tabs %}
 

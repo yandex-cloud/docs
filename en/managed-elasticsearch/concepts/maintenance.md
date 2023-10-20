@@ -1,3 +1,8 @@
+---
+title: "Maintenance in {{ mes-name }}"
+description: "Maintenance refers to automatic installation of {{ ES }} updates and fixes for your hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities."
+---
+
 # Maintenance in {{ mes-name }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

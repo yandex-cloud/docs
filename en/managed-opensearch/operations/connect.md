@@ -126,20 +126,33 @@ When using the {{ OS }} Dashboards API:
 
 {% endnote %}
 
-## Connecting from a Docker container {#connection-docker}
+## Before you connect from a Docker container {#connection-docker}
 
-You can only use Docker containers to connect to public cluster hosts [using SSL certificates](#ssl-certificate).
+To connect to a {{ mos-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
-To connect to a {{ mos-name }} cluster, add the following lines to the Dockerfile:
+{% list tabs %}
 
-```bash
-RUN apt-get update && \
-    apt-get install wget curl --yes && \
-    mkdir -p ~/.opensearch && \
-    wget "{{ crt-web-path }}" \
-         --output-document ~/.opensearch/root.crt && \
-    chmod 0600 ~/.opensearch/root.crt
-```
+
+- Connecting without using SSL
+
+   ```bash
+   RUN apt-get update && \
+       apt-get install curl --yes
+   ```
+
+
+- Connecting via SSL
+
+   ```bash
+   RUN apt-get update && \
+       apt-get install wget curl --yes && \
+       mkdir --parents ~/.opensearch && \
+       wget "{{ crt-web-path }}" \
+            --output-document ~/.opensearch/root.crt && \
+       chmod 0600 ~/.opensearch/root.crt
+   ```
+
+{% endlist %}
 
 ## Sample connection strings {#code-examples}
 

@@ -9,7 +9,7 @@ You can add and remove users, as well as manage their individual settings.
 
 {% note warning %}
 
-You can use SQL commands to assign privileges to users, but you can't use them to add or change users. For more information, see [{#T}](grant.md).
+You can use SQL commands to assign privileges to users, but you cannot use them to add or change users. For more information, see [{#T}](grant.md).
 
 {% endnote %}
 
@@ -19,8 +19,8 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the name of the cluster you need and then select the **Users** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
 
 - CLI
 
@@ -53,20 +53,20 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click **Add**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
    1. Enter the database username and password.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
    1. Select one or more databases that the user should have access to:
-      1. Select the database from the **Database** drop-down list.
-      1. Click **Add** to the right of the drop-down list.
+      1. In the **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** field, click ![image](../../_assets/plus-sign.svg) to the right of the drop-down list.
+      1. Select the database from the drop-down list.
       1. Repeat the previous two steps until all the required databases are selected.
-      1. To delete a database added by mistake, click ![image](../../_assets/cross.svg) to the right of the database name in the **Rights** list.
+      1. To delete a database added by mistake, click ![image](../../_assets/cross.svg) to the right of the database name.
    1. Configure the [DBMS settings](../concepts/settings-list.md#dbms-user-settings) for the user.
-   1. Click **Add**.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - CLI
 
@@ -125,7 +125,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -146,7 +146,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
 {% note info %}
 
-When created, the user only gets the `CONNECT` privilege for the selected databases and can't perform any operations with the databases. To give the user access to the database, [assign](grant.md) them the required privileges or roles.
+When created, the user only gets the `CONNECT` privilege for the selected databases and cannot perform any operations with the databases. To give the user access to the database, [assign](grant.md) them the required privileges or roles.
 
 {% endnote %}
 
@@ -156,10 +156,10 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon and select **Change password**.
-   1. Set a new password and click **Edit**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+   1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
    {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
@@ -207,7 +207,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -241,17 +241,17 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
    1. Set up user permissions to access certain databases:
       1. To grant access to the required databases:
-         1. Select the database from the **Database** drop-down list.
-         1. Click **Add** to the right of the drop-down list.
+         1. In the **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** field, click ![image](../../_assets/plus-sign.svg) to the right of the drop-down list.
+         1. Select the database from the drop-down list.
          1. Repeat the previous two steps until all the required databases are selected.
-      1. To revoke access to a specific database, delete it from the **Rights** list by clicking ![image](../../_assets/cross.svg) to the right of the database name.
-   1. Click **DBMS settings** to change the maximum allowed number of connections for the user (**Conn limit**), enable/disable the user to connect to a cluster (**Login**), or update other [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings).
-   1. Click **Save**.
+      1. To revoke access to a specific database, click ![image](../../_assets/cross.svg) to the right of the database name.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.button_advanced-settings }}** to change the maximum allowed number of connections for the user (**Conn limit**), enable/disable the user to connect to a cluster (**Login**), or update other [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings).
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - CLI
 
@@ -335,7 +335,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -358,9 +358,10 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-remove }}**.
+   1. Confirm the deletion.
 
 - CLI
 
@@ -391,7 +392,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

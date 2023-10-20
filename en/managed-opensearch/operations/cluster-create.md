@@ -35,7 +35,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ mos-full-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing, including {{ mos-full-name }} itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
       1. Select the {{ OS }} version.
       1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
@@ -44,7 +44,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
 
 
-   1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the[`{{ OS }}` host group](../concepts/host-groups.md):
+   1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the [`{{ OS }}` host group](../concepts/host-groups.md):
 
       1. Select the host group type: `{{ OS }}`
 

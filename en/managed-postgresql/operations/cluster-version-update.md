@@ -4,8 +4,8 @@ You can upgrade a {{ mpg-name }} cluster to any supported version.
 
 {% note info %}
 
-* Upgrades are unavailable for {{ mpg-name }} clusters optimized for <q>1C:Enterprise</q>. The names of these versions end in `-1c`.
-* You can't upgrade a regular cluster version to a version optimized for <q>1C:Enterprise</q> (such as from version 14 to version 14-1c).
+* Upgrades are unavailable for {{ mpg-name }} clusters optimized for <q>1C:Enterprise</q>. The names of these versions end with `-1c`.
+* You cannot upgrade a regular cluster version to a version optimized for <q>1C:Enterprise</q> (e.g., from version 14 to version 14-1c).
 
 {% endnote %}
 
@@ -30,7 +30,7 @@ Make sure this does not affect your applications:
 
 1. See the {{ PG }} [changelog](https://www.postgresql.org/docs/release/) to check how updates might affect your applications or installed [extensions](./extensions/cluster-extensions.md).
 1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster.
-1. [Make a backup](cluster-backups.md) of the main cluster before updating the version.
+1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
 
 ## Upgrading a cluster {#start-update}
 
@@ -45,10 +45,10 @@ Make sure this does not affect your applications:
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster from the list and click **Edit cluster**.
-   1. In the **Version** field, select a new version number.
-   1. Click **Save changes**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Select the appropriate cluster from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
    Once the upgrade is launched, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
@@ -106,7 +106,7 @@ Make sure this does not affect your applications:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

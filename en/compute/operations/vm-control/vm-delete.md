@@ -1,3 +1,8 @@
+---
+title: "How to delete a VM"
+description: "This guide describes how you can delete a VM."
+---
+
 # Deleting a VM
 
 {% note warning %}
@@ -39,7 +44,7 @@ If you have disks attached to your VM, the disks will be detached when you delet
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
    1. Select the VM `ID` or `NAME` (for example, `first-instance`).
-   1. Delete the VM:
+   1. Delete the VM instance:
 
       ```bash
       yc compute instance delete first-instance
@@ -51,7 +56,7 @@ If you have disks attached to your VM, the disks will be detached when you delet
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    If you created an instance using {{ TF }}, you can delete it:
    1. In the command line, go to the directory with the {{ TF }} configuration file.

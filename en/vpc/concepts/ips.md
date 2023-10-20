@@ -1,4 +1,9 @@
-# Public IP address ranges {{ yandex-cloud }}
+---
+title: "Public IP ranges for {{ yandex-cloud }}"
+description: "Resources hosted in {{ yandex-cloud }} networks use two types of public IP addresses: {{ yandex-cloud }} resources IPs and {{ yandex-cloud }} services IPs."
+---
+
+# Public IP address ranges for {{ yandex-cloud }}
 
 {% include [public-ip-list](../../_includes/vpc/public-ip-list.md) %}
 
@@ -10,4 +15,5 @@ These IP addresses cannot be assigned to user resources. They are only needed fo
 
 #### See also {#see-also}
 
+* [{#T}](../../smartcaptcha/concepts/ips.md)
 * [IP address ranges used by Yandex]({{ link-yandex }}/ips)

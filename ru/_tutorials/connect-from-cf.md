@@ -82,41 +82,41 @@
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `Python`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** создайте файл `index.py` и вставьте в него следующий код:
 
-     ```python
-     import os
-     import ydb
-     import ydb.iam
+       ```python
+       import os
+       import ydb
+       import ydb.iam
 
-     # Create driver in global space.
-     driver = ydb.Driver(
-       endpoint=os.getenv('YDB_ENDPOINT'),
-       database=os.getenv('YDB_DATABASE'),
-       credentials=ydb.iam.MetadataUrlCredentials(),
-     )
-
-     # Wait for the driver to become active for requests.
-
-     driver.wait(fail_fast=True, timeout=5)
-
-     # Create the session pool instance to manage YDB sessions.
-     pool = ydb.SessionPool(driver)
-
-     def execute_query(session):
-       # Create the transaction and execute query.
-       return session.transaction().execute(
-         'select 1 as cnt;',
-         commit_tx=True,
-         settings=ydb.BaseRequestSettings().with_timeout(3).with_operation_timeout(2)
+       # Create driver in global space.
+       driver = ydb.Driver(
+         endpoint=os.getenv('YDB_ENDPOINT'),
+         database=os.getenv('YDB_DATABASE'),
+         credentials=ydb.iam.MetadataUrlCredentials(),
        )
 
-     def handler(event, context):
-       # Execute query with the retry_operation helper.
-       result = pool.retry_operation_sync(execute_query)
-       return {
-         'statusCode': 200,
-         'body': str(result[0].rows[0].cnt == 1),
-       }
-     ```
+       # Wait for the driver to become active for requests.
+
+       driver.wait(fail_fast=True, timeout=5)
+
+       # Create the session pool instance to manage YDB sessions.
+       pool = ydb.SessionPool(driver)
+
+       def execute_query(session):
+         # Create the transaction and execute query.
+         return session.transaction().execute(
+           'select 1 as cnt;',
+           commit_tx=True,
+           settings=ydb.BaseRequestSettings().with_timeout(3).with_operation_timeout(2)
+         )
+
+       def handler(event, context):
+         # Execute query with the retry_operation helper.
+         result = pool.retry_operation_sync(execute_query)
+         return {
+           'statusCode': 200,
+           'body': str(result[0].rows[0].cnt == 1),
+         }
+       ```
 
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** создайте файл `requirements.txt` и вставьте в него следующий текст:
 
@@ -128,7 +128,7 @@
   1. Выберите сервисный аккаунт, например `sa-function`.
   1. Настройте переменные окружения:
      * `YDB_ENDPOINT` — введите первую часть сохраненного ранее поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
-     * `YDB_DATABASE` — введите вторую часть сохраненного ранее поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
+     * `YDB_DATABASE` — введите вторую часть сохраненного ранее поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}

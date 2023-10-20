@@ -1,3 +1,8 @@
+---
+title: "How to get started with {{ mes-name }}"
+description: "This guide describes how you can get started with {{ mes-name }}."
+---
+
 # Getting started with {{ mes-name }}
 
 {% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}

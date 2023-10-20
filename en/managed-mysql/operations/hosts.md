@@ -1,6 +1,6 @@
 ---
 title: "Managing {{ MY }} cluster hosts"
-description: "In this tutorial, you'll learn how to manage {{ MY }} cluster hosts and their settings."
+description: "In this tutorial, you will learn how to manage {{ MY }} cluster hosts and their settings."
 ---
 
 # Managing {{ MY }} cluster hosts
@@ -159,7 +159,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -262,7 +262,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

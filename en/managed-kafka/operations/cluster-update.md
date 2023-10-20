@@ -15,7 +15,7 @@ After creating a {{ mkf-name }} cluster, you can:
 
 {% note info %}
 
-It is impossible to disable the enabled topic management via the {{ KF }} Admin API.
+It is not possible to disable the enabled topic management via the {{ KF }} Admin API.
 
 {% endnote %}
 
@@ -167,7 +167,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -250,7 +250,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -356,7 +356,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -439,7 +439,7 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -543,7 +543,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -638,7 +638,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -749,7 +749,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

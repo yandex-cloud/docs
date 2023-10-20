@@ -11,7 +11,7 @@
 Here are some tips for diagnosing and fixing these issues.
 
 
-## Before you begin {#before-start}
+## Getting started {#before-start}
 
 1. Select databases to troubleshoot.
 
@@ -40,7 +40,7 @@ FROM pg_stat_activity
 WHERE state != 'idle' ORDER BY 1 DESC;
 ```
 
-A list of queries running on the server is returned. Check queries with a large `duration`.
+This will return a list of queries running on the server. Pay attention to queries with a high `duration` value.
 
 To learn more about the information in the output, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
@@ -57,7 +57,7 @@ There are several ways to optimize problematic queries:
    
    {% note tip %}
 
-   To visualize the execution plans of the available queries, use the **SQL** tab on the cluster management page.
+   To visualize the execution plans of the available queries, use the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab on the cluster management page.
 
    For more information, see [{#T}](../../managed-postgresql/operations/web-sql-query.md).
 
@@ -82,9 +82,9 @@ There are several ways to optimize problematic queries:
 
 * Analyze query execution plan statistics in {{ PG }} logs.
 
-   The {{ PG }} `auto_explain` module outputs query execution plan information to the {{ PG }} log. You can collect statistics by searching the lines in the log. For more information, see the [{{ PG }}documentation](https://www.postgresql.org/docs/current/auto-explain.html).
+   The {{ PG }} `auto_explain` module outputs query execution plan information to the {{ PG }} log. You can collect statistics by searching the lines in the log. For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/auto-explain.html).
 
-If you can't optimize the identified queries or manage without them, the only option is to [raise the host class](../../managed-postgresql/operations/update.md#change-resource-preset).
+If you cannot optimize the identified queries or manage without them, the only option is to [change the host class to a higher one](../../managed-postgresql/operations/update.md#change-resource-preset).
 
 ## Diagnosing resource shortages {#cpu-io-deficit}
 
@@ -104,12 +104,12 @@ Cluster performance may degrade because of locks obtained when there are multipl
 
 To detect locks using the [performance diagnostics tool](../../managed-postgresql/operations/performance-diagnostics.md):
 
-1. Go to the folder page and select **{{ mpg-name }}**.
-1. Click on the name of the cluster and select the **Performance diagnostics** tab.
-1. On the **Sessions** tab in **Slice by**, select the value _WAIT_EVENT_TYPE_.
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** tab.
+1. On the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** tab, in the **Slice** field, select _WAIT_EVENT_TYPE_.
 
-   * Examine the **Lock** chart. It shows the number of queries that were in the locked state during the selected period.
-   * To get detailed information about queries running during the selected period, go to the **Queries** tab.
+   * Check the **Lock** chart. It shows the number of queries that were in the locked state during the selected period.
+   * To get detailed information about queries running during the selected period, go to the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}** tab.
 
    For more information about what statistics you can get, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6).
 
@@ -147,17 +147,17 @@ If the number of open connections reaches the limit, errors appear in the cluste
 
 To get detailed information about the usage of available connections using [monitoring](../../managed-postgresql/operations/monitoring.md) tools:
 
-1. Go to the folder page and select **{{ mpg-name }}**.
-1. Click on the cluster name and select the **Monitoring** tab.
-1. Review the **Total pooler connections** chart.
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
+1. Check the **Total pooler connections** chart.
 
-   {{ mpg-name }} doesn't allow connections directly to the DBMS, instead, they are connected to the connection pooler.
+   {{ mpg-name }} does not allow connections directly to the DBMS; instead, they are connected to the connection pooler.
 
    * The **Clients** parameter means the number of client connections to the pooler.
 
-   * The **Servers** parameter means the number of connections between the DBMS and the pooler.
+   * The **Servers** parameter shows the number of connections between the DBMS and the pooler.
 
-      Note the number of connections: high values indicate that some queries keep connections open for too long.
+      Take note of the number of connections: if the values are high, this means some queries keep connections open for too long.
 
 ## Troubleshooting connection issues {#solving-connection-errors}
 
@@ -174,15 +174,15 @@ If the load is still high or there is nothing to optimize, the only option is to
 
 ## Diagnosing insufficient storage space {#storage-issues}
 
-If the cluster shows poor performance and the logs show `ERROR: cannot execute INSERT in a read-only transaction`, it's possible that cluster storage has run out of free space and it has switched to [read-only mode](../../managed-postgresql/concepts/storage.md).
+If the cluster shows poor performance and the logs show `ERROR: cannot execute INSERT in a read-only transaction`, the cluster storage might have run out of free space and switched to [read-only mode](../../managed-postgresql/concepts/storage.md).
 
 To check for free space in cluster storage:
 
-1. Go to the folder page and select **{{ mpg-name }}**.
-1. Click on the cluster name and select the **Monitoring** tab.
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
 1. Check the **Disk capacity in primary, [bytes]** chart.
 
-   Check the value of the **Used** parameter, showing the degree of cluster storage usage.
+   Check the value of the **Used** parameter that shows the degree of cluster storage usage.
 
 
 ## Troubleshooting problems with insufficient storage space {#solving-storage-issues}

@@ -1,3 +1,8 @@
+---
+title: "Adding a listener to a network load balancer"
+description: "Follow this guide to add a listener to a network load balancer."
+---
+
 # Adding a listener to a network load balancer
 
 {% list tabs %}

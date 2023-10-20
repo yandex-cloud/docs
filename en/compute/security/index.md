@@ -25,15 +25,18 @@ In this section, you will learn:
 
 | Role | Permissions |
 ----- | -----
-| `compute.admin` | Gives rights to manage virtual machines and [instance groups](../../compute/concepts/instance-groups/index.md). |
+| `compute.admin` | Grants the right to manage VMs and [instance groups](../../compute/concepts/instance-groups/index.md) and assign roles to other users. |
+| `compute.editor` | Gives rights to manage virtual machines and instance groups. |
 | `compute.viewer` | Grants the right to view information on [{{ compute-name }} resources](../concepts/index.md). |
-| `compute.disks.user` | Lets you use disks to create new resources, such as virtual machines. |
-| `compute.images.user` | Lets you use images to create new resources, such as virtual machines. |
-| `compute.operator` | Lets you [stop, start, and restart virtual machines](../../compute/operations/vm-control/vm-stop-and-start.md), but doesn't let you create or delete virtual machines. |
+| `compute.disks.user` | Allows you to use disks to create new resources, such as virtual machines. |
+| `compute.images.user` | Allows you to use images to create new resources, such as virtual machines. |
+| `compute.operator` | Allows you to [stop, start, and restart virtual machines](../../compute/operations/vm-control/vm-stop-and-start.md), but does not allow creating or deleting virtual machines. |
 | `compute.snapshotSchedules.editor` | Grants the permission to [create](../operations/snapshot-control/create-schedule.md) scheduled disk snapshots and [update](../operations/snapshot-control/update-schedule.md) them. |
 | `compute.snapshotSchedules.viewer` | Grants the permission to view information about [scheduled disk snapshots](../concepts/snapshot-schedule.md). |
-| `iam.serviceAccounts.user` | Verifies the right to use the service account.<br/>This role is required to perform operations with instance groups. If you enter a service account in the request, {{ iam-short-name }} checks that you have rights to use this account. |
-| `resource-manager.clouds.member` | A role everyone requires to access cloud resources, except for [cloud owners](../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../iam/concepts/users/service-accounts.md). |
+| `compute.osLogin` | Allows SSH access to VMs via OS Login. |
+| `compute.osAdminLogin` | Allows SSH access to VMs via OS Login and enables you to run commands as a superuser (`sudo`). |
+| `iam.serviceAccounts.user` | Verifies the right to use the service account.<br/>This role is required to perform operations with instance groups. If you specify a service account in the request, {{ iam-short-name }} will check whether you have permissions to use this account. |
+| `resource-manager.clouds.member` | Role everyone requires to access cloud resources, except for [cloud owners](../../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../../iam/concepts/users/service-accounts.md). |
 | `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. You can only assign this role for a cloud. |
 
 For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.

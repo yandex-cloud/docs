@@ -1,10 +1,11 @@
-# Step-by-step instructions for {{ mrd-name }}^®^
+# Step-by-step guides for {{ mrd-name }}^®^
 
 ## Clusters
 
 * [{#T}](cluster-list.md)
 * [{#T}](cluster-create.md)
 * [{#T}](update.md)
+* [{#T}](cluster-version-update.md)
 * [{#T}](cluster-stop.md)
 * [{#T}](hosts.md)
 * [{#T}](cluster-backups.md)

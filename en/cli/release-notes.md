@@ -2,9 +2,49 @@
 
 ## Current version {#latest-release}
 
+## Version 0.111.0 (21/09/23) {#version0.111.0}
+
+### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ compute-name }} {#compute}
+
+* Added support for the `--network-interface` parameter in the `yc compute instance relocate` command.
+* Added the `yc compute ssh` command group to connect to a VM using a certificate issued through OS Login and export the certificate. OS Login is used to provide users with SSH access to VMs through {{ iam-short-name }}.
+
+##### {{ mpg-name }}
+
+* Added the `16` value for the `--postgresql-version string` flag to the `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands. It enables you to create a {{ PG }} cluster version 16.
+
+
+##### {{ iot-name }} {#iot}
+
+* Added the `yc iot registry yds-export` command group to manage the export of messages from IoT to Data Streams.
+
+
+
+##### {{ cloud-logging-name }} {#cloud-logging}
+
+* Fixed the `yc logging read` output error for JSON and JSON-REST.
+
+
+
+##### {{ sf-name }} {#serverless-functions}
+
+Added the following asynchronous invocation parameters to the `yc serverless function version create` command:
+* `--async-max-retries` to set the maximum number of function invocation retries.
+* `--async-service-account-id` to specify the service account for function invocation.
+* `--async-success-ymq-arn` to set the queue to write a successful result to
+* `--async-success-sa-id` to specify the service account to write to the queue with successful results
+* `--async-failure-ymq-arn` to set the queue to write a failure result to.
+* `--async-failure-sa-id` to specify the service account to write to the queue with failure results.
+
+
+## Previous releases {#previous-releases}
+
 ### Version 0.110.0 (14/09/23) {#version0.110.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
+
 
 ##### {{ api-gw-name }} {#api-gw}
 
@@ -18,9 +58,10 @@
 * Added the `yc serverless api-gateway rollback-canary` command to disable the canary release by setting the `weight` parameter to `0`.
 
 
+
 ##### {{ iam-name }} {#iam}
 
-* Deleted the `yc iam federation` and `yc iam certificate` command groups that were used for managing SAML-compatible federations at the folder level. From now on, use the `yc organization-manager federation` command group to work with SAML-compatible federations.
+* Deleted the `yc iam federation` and `yc iam certificate` command groups that were used for managing SAML-compatible federations at the folder level. Now you should use the `yc organization-manager federation` command group to work with SAML-compatible federations.
 
 
 ##### {{ ig-name }} {#instance-groups}
@@ -31,9 +72,11 @@ Fixed the issue with the `yc compute instance-group update` command when the ins
 
 * Added the `--placement-group-partition` flag to the `yc compute instance create` and `yc compute instance update` commands to set the partition number in a placement group.
 
+
 ##### {{ cloud-logging-name }} {#cloud-logging}
 
 * Removed a limit for the `--limit` flag in the `yc logging read` command. You can now output more than 1,000 records.
+
 
 ##### Managed database services {#managed-db}
 
@@ -52,8 +95,6 @@ Fixed the issue with the `yc compute instance-group update` command when the ins
 **{{ mch-name }}**
 
 * Added the `--cloud-storage-prefer-not-to-merge` flag to the `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster update` commands to disable merging of data chunks in {{ objstorage-name }}.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.109.0 (10/08/23) {#version0.109.0}
 
@@ -870,11 +911,11 @@ Added commands for {{ mgp-name }} primary support:
 
 * Added the `--persistence-mode` parameter for selecting the persistence level of a {{ RD }} cluster to the following commands:
 
-   * `yc managed-redis cluster create`.
-   * `yc managed-redis cluster restore`.
-   * `yc managed-redis cluster update`.
+   * `yc managed-redis cluster create`
+   * `yc managed-redis cluster restore`
+   * `yc managed-redis cluster update`
 
-   The latter command is also added the `--force` flag that is mandatory when disabling cluster persistence.
+   The last command also got the `--force` flag, required when disabling cluster persistence.
 
 **{{ mch-name }}**
 
@@ -1760,7 +1801,7 @@ Added primary support for {{ mkf-name }}:
 
 **Fixed**
 
-* Fixed the issue of it being impossible to add a VM to an existing placement group.
+* Fixed the issue where it was not possible to add a VM to an existing placement group.
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -2799,8 +2840,8 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **Fixed**
 
-* An attempt to get a resource by specifying its unique ID would fail if the CLI configuration did not specify the `folder-id` parameter.
-* An attempt to get a folder by specifying its unique ID would fail if the user did not have the `viewer` role for the folder in {{ yandex-cloud }}.
+* Attempts to get resources by specifying their unique ID would fail if the CLI configuration did not specify a `folder-id` parameter.
+* Attempts to get folders by specifying their unique ID would fail if the user did not have the `viewer` role for the folder in {{ yandex-cloud }}.
 * The `yc init` command would fail if the user did not have the `viewer` role in {{ yandex-cloud }}.
 
 #### Changes to {{ yandex-cloud }} services {#services}

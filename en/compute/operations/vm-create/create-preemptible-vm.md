@@ -14,7 +14,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}** at the top right.
+   1. At the top right, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
 
       * Enter a name and description for the VM. The naming requirements are as follows:
@@ -39,8 +39,8 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
          * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
          * Enter the disk name.
          * Select the [disk type](../../concepts/disk.md#disks_types).
-         * Specify the desired block size.
-         * Specify the desired disk size.
+         * Specify the required block size.
+         * Specify the required disk size.
 
       
       * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
@@ -54,7 +54,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
    1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
 
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
-      * In the window that opens, select a file store.
+      * In the window that opens, select the file storage.
       * Enter the device name.
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
 
@@ -211,7 +211,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       {% endnote %}
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Create resources:
 
@@ -324,10 +324,10 @@ To change the type of a VM, for example, make it preemptible:
 
    1. Delete the `scheduling_policy` field set to `preemptible = true`:
 
-      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -343,7 +343,7 @@ To change the type of a VM, for example, make it preemptible:
 
       1. Confirm that you want to create the resources.
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

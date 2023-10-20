@@ -177,7 +177,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -289,7 +289,7 @@ During this operation:
    To forcibly resync a host:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
    1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the line of the necessary host and select **{{ ui-key.yacloud.mongodb.hosts.action_resetup-host }}**.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.mongodb.hosts.action_resetup-host }}**.
 
 - CLI
 

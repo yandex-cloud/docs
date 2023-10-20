@@ -1,16 +1,16 @@
-## Connecting from a Docker container {#connection-docker}
+## Before you connect from a Docker container {#connection-docker}
 
-You can only use Docker containers to connect to public cluster hosts [using SSL certificates](../../../managed-mongodb/operations/connect/index.md#get-ssl-cert).
-
-To connect to a {{ mmg-name }} cluster, add the following lines to the Dockerfile:
+To connect to a {{ mmg-name }} cluster from a Docker container using SSL, add the following lines to the Dockerfile:
 
 ```bash
 RUN apt-get update && \
     apt-get install wget --yes && \
-    mkdir -p ~/.mongodb && \
+    mkdir --parents ~/.mongodb && \
     wget "{{ crt-web-path }}" \
          --output-document ~/.mongodb/root.crt && \
     chmod 0644 ~/.mongodb/root.crt
 ```
+
+To connect without SSL, no additional Dockerfile settings are required.
 
 After running the Docker container, switch to it and [install](https://www.mongodb.com/docs/mongodb-shell/install/) the `mongosh` utility. You will need it to connect to the cluster.

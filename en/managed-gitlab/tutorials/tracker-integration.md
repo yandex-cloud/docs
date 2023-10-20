@@ -1,3 +1,5 @@
-# Integration with {{ GL }} in {{ tracker-full-name }}
+# Integration with {{ tracker-full-name }}
 
-{% include notitle [GitLab Tracker integration](../../_tutorials/dev/gitlab-tracker-integration.md) %}
+
+{% include notitle [External GitLab Tracker integration](../../_tutorials/dev/external-gitlab-tracker-integration.md) %}
+

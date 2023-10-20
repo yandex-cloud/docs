@@ -4,13 +4,13 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [{#T}](#change-disk-size).
+* [{#T}](#change-disk-size)
 
 * [Configure {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
 
 * [Changing additional cluster settings](#change-additional-settings).
 
-* [{#T}](#start-manual-failover).
+* [{#T}](#start-manual-failover)
 
 * [Move a cluster](#move-cluster) to another folder.
 
@@ -36,10 +36,10 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Under **Host class**, select the class for the {{ PG }} hosts.
-   1. Click **Save changes**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Select a cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class for the {{ PG }} hosts.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -108,7 +108,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -128,13 +128,13 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
 ## Increasing storage size {#change-disk-size}
 
-{% note info %}
-
-Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md#settings-instance-dependent).
-
-{% endnote %}
+{% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
+
+
+{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
 
 {% list tabs %}
 
@@ -142,10 +142,10 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
    To increase the cluster storage size:
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Under **Storage size**, specify the required value.
-   1. Click **Save changes**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Select a cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the required value.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -196,7 +196,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -214,6 +214,47 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 {% endlist %}
 
+## Setting up automatic increase of storage size {#disk-size-autoscale}
+
+{% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
+
+{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
+
+
+{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
+
+{% list tabs %}
+
+- Management console
+
+  1. Go to the folder page and select **{{ mpg-name }}**.
+  1. Select the cluster and click **Edit cluster** in the top panel.
+  1. Under **Automatic increase of storage size**, specify the desired settings:
+
+      * In the **Increase size** field, set the conditions to:
+
+          * Increase storage size during the next maintenance window when the storage is full by more than the specified percentage value (%).
+          * Increase storage size immediately when the storage is full by more than the specified percentage value (%).
+
+          You can set both conditions, but make sure that the threshold for increasing the size immediately is higher than that for increasing the size during a maintenance window.
+
+      * In the **New storage size** field, specify a new storage size to be set when one of the specified conditions is met.
+
+   1. Click **Save changes**.
+
+- API
+
+  To enable automatic increase of storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
+
+  {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
+
+{% endlist %}
+
+{% include [storage-resize-maintenance](../../_includes/mdb/mpg/storage-resize-maintenance.md) %}
+
+{% include [storage-resize-reset](../../_includes/mdb/mpg/storage-resize-reset.md) %}
+
 ## Changing {{ PG }} settings {#change-postgresql-config}
 
 You can change the DBMS settings of the hosts in your cluster.
@@ -229,11 +270,11 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Change the [{{ PG }} settings](../concepts/settings-list.md) by clicking **Configure** under **DBMS settings**.
-   1. Click **Save**.
-   1. Click **Save changes**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Select a cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Change the [{{ PG }} settings](../concepts/settings-list.md) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
+   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI
 
@@ -295,7 +336,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -319,8 +360,8 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Select a cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Change additional cluster settings:
 
       {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
@@ -353,6 +394,7 @@ You can change the DBMS settings of the hosts in your cluster.
           --deletion-protection=<cluster deletion protection: true or false> \
           --connection-pooling-mode=<connection manager mode> \
           --serverless-access=<true or false> \
+          --yandexquery-access=<access via {{ yq-full-name }}: true or false> \
           --performance-diagnostics enabled=<true or false>,`
                                    `sessions-sampling-interval=<session sampling interval, seconds>,`
                                    `statements-sampling-interval=<statement sampling interval, seconds>
@@ -371,10 +413,12 @@ You can change the DBMS settings of the hosts in your cluster.
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
   
-   * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
+   * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. The default value is `false`.
 
    
-   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+   * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
+   * `--yandexquery-access`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request.
 
 
 
@@ -469,7 +513,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -480,7 +524,7 @@ You can change the DBMS settings of the hosts in your cluster.
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Settings for access from other services  and access to SQL queries from the management console  in the `configSpec.access` parameter.
+   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
@@ -493,7 +537,9 @@ You can change the DBMS settings of the hosts in your cluster.
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
       
-   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
+   To allow cluster access from [{{ yq-full-name }}](../../query/index.yaml), set `true` for the `configSpec.access.yandexQuery` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request.
 
 
    To enable [statistics collection](./performance-diagnostics.md#activate-stats-collector):
@@ -510,8 +556,8 @@ In a fault-tolerant {{ mpg-name }} cluster with multiple hosts, you can switch t
 
 Specifics of switching master hosts in {{ mpg-name }}
 
-* You can't switch the master host to a replica for which the source of the replication stream is explicitly given.
-* If you don't specify the replica host name explicitly, the master host will switch to one of the quorum replicas.
+* You cannot switch the master host to a replica for which the source of the replication stream is explicitly given.
+* If you do not specify the replica host name explicitly, the master host will switch to one of the quorum replicas.
 
 For more information, see [{#T}](../concepts/replication.md).
 
@@ -521,12 +567,12 @@ To switch the master:
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the name of the cluster you want and select the ![icon-hosts.svg](../../_assets/mdb/hosts.svg) **Hosts** tab.
-   1. Click ![icon-autofailover.svg](../../_assets/mdb/autofailover.svg) **Switch master**.
-      * To switch the master to one of the quorum replicas, leave the **Choose master host automatically** option enabled.
-      * To switch the master to a specific replica, disable the **Choose master host automatically** option and then select the desired replica from the drop-down list.
-   1. Click **Switch**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and select the ![icon-hosts.svg](../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
+   1. Click ![icon-autofailover.svg](../../_assets/mdb/autofailover.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
+      * To switch the master to one of the quorum replicas, leave the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option enabled.
+      * To switch the master to a specific replica, disable the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option and then select the desired replica from the drop-down list.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
 
 - CLI
 
@@ -564,7 +610,7 @@ To switch the master:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -585,11 +631,11 @@ To switch the master:
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you wish to move.
-   1. Click **Move**.
-   1. Select the folder you want to move the cluster to.
-   1. Click **Move**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) to the right of the cluster you want to move.
+   1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
+   1. Select a folder you want to move the cluster to.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
 
 - CLI
 
@@ -636,9 +682,9 @@ After the cluster is moved, it will continue using the cloud network from the so
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Under **Network settings**, select security groups for cluster network traffic.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Select a cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
 - CLI
 
@@ -682,7 +728,7 @@ After the cluster is moved, it will continue using the cloud network from the so
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

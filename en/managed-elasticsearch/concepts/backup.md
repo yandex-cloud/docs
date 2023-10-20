@@ -1,3 +1,8 @@
+---
+title: "Backups in {{ mes-name }}"
+description: "{{ mes-short-name }} provides automatic and manual index backups."
+---
+
 # Backups in {{ mes-name }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
@@ -6,7 +11,7 @@
 
 A backup is automatically created every hour and stored for seven days. You cannot disable automatic backups or change the retention period.
 
-To restore a cluster from a backup, [follow this guide](../operations/cluster-backups.md#restore).
+To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore).
 
 ## Creating backups {#size}
 

@@ -14,7 +14,7 @@ The size of a disk must be a multiple of 93 GB.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-   1. Enter the disk name.
+   1. Enter the disk name. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -25,9 +25,9 @@ The size of a disk must be a multiple of 93 GB.
       {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
 
 
-   1. Select `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}` as disk type.
-   1. Select the desired block size.
-   1. Specify the desired disk size.
+   1. Select `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd-nonreplicated }}` as the disk type.
+   1. Select the required block size.
+   1. Specify the required disk size.
 
    
    1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
@@ -93,7 +93,7 @@ The size of a disk must be a multiple of 93 GB.
       ```
 
       Where:
-      * `name`: Non-replicated disk name. The name format is as follows:
+      * `name`: Non-replicated disk name. The naming requirements are as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -109,7 +109,7 @@ The size of a disk must be a multiple of 93 GB.
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -151,7 +151,7 @@ You can only create a disk in an existing disk placement group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-   1. Enter the disk name.
+   1. Enter the disk name. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -184,13 +184,13 @@ You can only create a disk in an existing disk placement group.
    1. In a placement group, create a non-replicated disk in the default folder using one of the strategies:
       * [Distributed placement](../../concepts/disk-placement-group.md#spread):
 
-      ```bash
-      yc compute disk create \
-        --name <disk_name> \
-        --type network-ssd-nonreplicated \
-        --size <disk_size> \
-        --disk-placement-group-name <placement_group_name>
-      ```
+         ```bash
+         yc compute disk create \
+           --name <disk_name> \
+           --type network-ssd-nonreplicated \
+           --size <disk_size> \
+           --disk-placement-group-name <placement_group_name>
+         ```
 
          Where:
          * `--name`: Disk name
@@ -215,7 +215,7 @@ You can only create a disk in an existing disk placement group.
            placement_group_id: epdn946ilslh********
          ```
 
-      * [Partition](../../concepts/disk-placement-group.md#partition) placement:
+      * [Partition placement](../../concepts/disk-placement-group.md#partition):
          ```bash
          yc compute disk create \
            --name <disk_name> \

@@ -59,7 +59,7 @@
    * (Optional) Select or create a [service account](../../../iam/concepts/index.md#sa). With a service account, you can flexibly configure access rights for your resources.
 
       For VMs with a Linux-based operating system:
-      * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
          {% note alert %}
 

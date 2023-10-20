@@ -24,7 +24,6 @@ To create a [VM](../../concepts/vm.md):
    1. (Optional) If you want to add more [file stores](../../concepts/filesystem.md) to the VM, add them under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** by clicking the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab. [Create](../filesystem/create.md) the storages first.
 
 
-
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
       * Choose a [platform](../../concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../concepts/performance-levels.md) and the required number of vCPUs as well as the amount of RAM.
@@ -53,8 +52,19 @@ To create a [VM](../../concepts/vm.md):
       * Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) in the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field (if there is no such field, the VM will be enabled for all incoming and outgoing traffic).
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * (Optional) Select or create a [service account](../../../iam/concepts/index.md#sa). With a service account, you can flexibly configure access rights for your resources.
-      * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * (Optional) [Enable VM access via OS Login](../vm-connect/os-login.md). The option is available for Linux images from [{{ marketplace-name }}](/marketplace) with `OS Login` in their names.
+
+         {% include notitle [preview](../../../_includes/note-preview-by-request.md) %}
+
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../vm-connect/ssh.md#creating-ssh-keys) file.
+
+         {% note info %}
+
+         You cannot specify custom SSH keys on VMs with access via OS Login enabled.
+
+         {% endnote %}
+
       * (Optional) Enable access to the [serial console](../index.md#serial-console) in the **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** field, if required.
 
       {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
@@ -131,7 +141,7 @@ To create a [VM](../../concepts/vm.md):
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl

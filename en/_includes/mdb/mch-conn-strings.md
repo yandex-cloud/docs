@@ -41,6 +41,8 @@
 
 {% endlist %}
 
+To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+
 After running the command, enter the user password to complete the connection procedure.
 
 Once connected to the DBMS, run `SELECT @@version;`.
@@ -69,6 +71,8 @@ Once connected to the DBMS, run `SELECT @@version;`.
    ```
 
 {% endlist %}
+
+To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 ### Go {#go}
 
@@ -189,6 +193,8 @@ sudo apt update && sudo apt install --yes golang git
    ```
 
 {% endlist %}
+
+To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Connection:**
 
@@ -351,7 +357,7 @@ go run connect.go
        String DB_USER    = "<DB user name>";
        String DB_PASS    = "<DB user password>";
 
-       String CACERT     = "{{ crt-local-dir }}{{ crt-local-file }}";
+       String CACERT     = "{{ crt-local-dir }}{{ crt-local-file-root }}";
 
        String DB_URL = String.format("jdbc:clickhouse://%s:8443/%s?ssl=1&sslmode=strict&sslrootcert=%s", DB_HOST, DB_NAME, CACERT);
 
@@ -369,6 +375,8 @@ go run connect.go
    ```
 
 {% endlist %}
+
+To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Connection:**
 
@@ -473,6 +481,8 @@ npm install querystring
 
 {% endlist %}
 
+To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+
 **Connection:**
 
 ```bash
@@ -573,6 +583,8 @@ Setup methods for [Linux](#odbc-linux) and [Windows](#odbc-windows) are differen
 
 {% endlist %}
 
+To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+
 **Connection:**
 
 ```bash
@@ -594,7 +606,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
    * Connecting without using SSL
 
       * **Name**: Name for the connection.
-      * **Host**: FQDN of any {{ CH }} host.
+      * **Host**: [FQDN of any {{ CH }} host](../../managed-clickhouse/operations/connect.md#fqdn).
       * **Port**: `{{ port-mch-http }}`.
       * **Database**: DB name.
       * **User**: DB user name.
@@ -603,7 +615,7 @@ Once connected to the DBMS, run `SELECT @@version;`.
    * Connecting via SSL
 
       * **Name**: Name for the connection.
-      * **Host**: FQDN of any {{ CH }} host.
+      * **Host**: [FQDN of any {{ CH }} host](../../managed-clickhouse/operations/connect.md#fqdn).
       * **Port**: `{{ port-mch-http }}`.
       * **Database**: DB name.
       * **SSLMode**: `Allow`.
@@ -710,6 +722,8 @@ Once connected to the DBMS, run `SELECT @@version;`.
 
 {% endlist %}
 
+To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
+
 **Connection:**
 
 ```bash
@@ -741,6 +755,8 @@ php connect.php
    ```
 
 {% endlist %}
+
+To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 ### Python (clickhouse-driver) {#python-clickhouse-driver}
 
@@ -789,6 +805,8 @@ pip3 install clickhouse-driver
    ```
 
 {% endlist %}
+
+To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Connection:**
 
@@ -853,6 +871,8 @@ pip3 install requests
    ```
 
 {% endlist %}
+
+To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Connection:**
 
@@ -935,6 +955,8 @@ sudo apt update && sudo apt install --yes ruby
    ```
 
 {% endlist %}
+
+To learn how to get the FQDN of a host, see [this guide](../../managed-clickhouse/operations/connect.md#fqdn).
 
 **Connection:**
 

@@ -7,20 +7,24 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Managing a {{ GL }} instance
-        items:
-          - name: Getting information about instances
-            href: operations/instance/instance-list.md
-          - name: Creating an instance
-            href: operations/instance/instance-create.md
-          - name: Stopping and starting an instance
-            href: operations/instance/instance-stop.md
-          - name: Editing instance settings
-            href: operations/instance/instance-update.md
-          - name: Deleting an instance
-            href: operations/instance/instance-delete.md
+      - name: Getting information about instances
+        href: operations/instance/instance-list.md
+      - name: Creating an instance
+        href: operations/instance/instance-create.md
       - name: Connecting to instances
         href: operations/connect.md
+      - name: Stopping and starting an instance
+        href: operations/instance/instance-stop.md
+      - name: Editing instance settings
+        href: operations/instance/instance-update.md
+      - name: Managing backups
+        href: operations/instance/instance-backups.md
+      - name: Deleting an instance
+        href: operations/instance/instance-delete.md
+      - name: Setting up code review rules
+        href: operations/approval-rules.md
+      - name: Setting up OmniAuth
+        href: operations/omniauth.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -35,12 +39,22 @@ items:
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
       - name: Building a CI/CD pipeline using serverless products
         href: tutorials/ci-cd-serverless.md
-      - name: Integration with {{ GL }} in {{ tracker-full-name }}
+      - name: Storing Docker images in {{ container-registry-full-name }}
+        href: tutorials/image-storage.md
+      - name: Testing applications with {{ GL }}
+        href: tutorials/application-testing-with-gitlab.md
+      - name: Creating test VMs via {{ GL }} CI
+        href: tutorials/test-vms-creation-via-gitlab-ci.md
+      - name: Integration with {{ tracker-full-name }}
         href: tutorials/tracker-integration.md
   - name: Concepts
     items:
       - name: Relationships between service resources
         href: concepts/index.md
+      - name: Code review rules
+        href: concepts/approval-rules.md
+      - name: Backups
+        href: concepts/backup.md
       - name: Security in {{ GL }}
         href: concepts/security.md
       - name: Quotas and limits
@@ -49,4 +63,6 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Questions and answers
+    href: qa/index.md
 base: en/managed-gitlab

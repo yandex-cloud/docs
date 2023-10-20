@@ -1,3 +1,8 @@
+---
+title: "How to create a VM from a custom image"
+description: "Use this tutorial to create a VM from a custom image."
+---
+
 # Creating a VM from a custom image
 
 ## Getting started {#before-you-begin}
@@ -41,8 +46,8 @@ Make sure the uploaded image is in the `READY` status.
       * Click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
-      * Specify the desired block size.
-      * Specify the desired disk size.
+      * Specify the required block size.
+      * Specify the required disk size.
 
       
       * {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
@@ -57,7 +62,7 @@ Make sure the uploaded image is in the `READY` status.
    1. (Optional) Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.nfs.label_filesystems }}** tab and attach the [file storage](../../concepts/filesystem.md):
 
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
-      * In the window that opens, select a file store.
+      * In the window that opens, select the file storage.
       * Enter the device name.
       * Click **{{ ui-key.yacloud.compute.nfs.button_attach-filesystem-to-the-instance }}**.
 
@@ -80,7 +85,15 @@ Make sure the uploaded image is in the `READY` status.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
 
       * (Optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). With a service account, you can flexibly configure access rights for your resources.
-      * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * (Optional) [Enable VM access via OS Login](../vm-connect/os-login.md). This option is only available for Linux images.
+
+         {% note info %}
+
+         {% include [preview](../../../_includes/preview-pp.md) %}
+
+         {% endnote %}
+
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
          {% note alert %}
 
@@ -216,12 +229,12 @@ Make sure the uploaded image is in the `READY` status.
 
       {% endnote %}
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 {% endlist %}

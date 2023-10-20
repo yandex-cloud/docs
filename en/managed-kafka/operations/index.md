@@ -14,11 +14,14 @@
 
 - [{#T}](connect.md)
 - [{#T}](cluster-topics.md)
-- [{#T}](cluster-connector.md)
 
 ## Users {{ KF }}
 
 - [{#T}](cluster-accounts.md)
+
+## Connectors {{ KF }}
+
+- [{#T}](cluster-connector.md)
 
 ## Logs and monitoring
 

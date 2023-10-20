@@ -1,6 +1,6 @@
 # Creating a {{ dataproc-name }} cluster
 
-To create a {{ dataproc-name }} cluster, the user must be assigned the `editor` and `dataproc.agent` roles. For more information, see the [role description](../security/index.md#roles-list).
+To create a {{ dataproc-name }} cluster, a user must be assigned the `editor` and `dataproc.agent` roles. For more information, see the [role description](../security/index.md#roles-list).
 
 
 ## Configure a network {#setup-network}
@@ -21,9 +21,9 @@ Security groups must be created and configured before creating a cluster. If the
    * One rule for inbound and another one for outbound service traffic:
 
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` `Any`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**— `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` `Self`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`)
 
    * A separate rule for outgoing HTTPS traffic. This will allow you to use [{{ objstorage-full-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and cluster [autoscaling](../concepts/autoscaling.md).
 
@@ -33,19 +33,19 @@ Security groups must be created and configured before creating a cluster. If the
 
       - To all addresses
 
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** : `{{ port-https }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
       - To the addresses used by {{ yandex-cloud }}
 
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** : `{{ port-https }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**:
             * `84.201.181.26/32`: Getting cluster status, running jobs, UI Proxy
-            * `158.160.59.216/32`: Monitoring cluster status, autoscaling.
+            * `158.160.59.216/32`: Monitoring cluster status, autoscaling
             * `213.180.193.243/32`: Access to {{ objstorage-name }}
 
       {% endlist %}
@@ -100,7 +100,7 @@ A cluster must include a subcluster with a master host and at least one subclust
    1. If necessary, specify the custom [initialization scripts](../concepts/init-action.md) of cluster hosts. For each script, specify:
 
       * **{{ ui-key.yacloud.mdb.forms.field_initialization-action-uri }}**: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
-      * (Optional) **{{ ui-key.yacloud.mdb.forms.field_initialization-action-timeout }}**: Script execution timeout, in seconds. If your initialization script runs longer than this time, it will be terminated.
+      * (Optional) **{{ ui-key.yacloud.mdb.forms.field_initialization-action-timeout }}**: Script execution timeout, in seconds. If your initialization script runs longer than this time period, it will be terminated.
       * (Optional) **{{ ui-key.yacloud.mdb.forms.field_initialization-action-args }}**: List of arguments of your initialization script, enclosed in square brackets `[]` and separated by commas, such as:
 
          ```text
@@ -233,7 +233,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       * `--bucket`: Name of the bucket in {{ objstorage-full-name }} to store job dependencies and results. The cluster service account must have `READ and WRITE` permissions for this bucket.
       * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) to host the cluster hosts.
-      * `--service-account-name`: Name of the [cluster service account](../../iam/concepts/users/service-accounts.md). Make sure to [assign](../security/index.md#grant-role) the cluster service account the `dataproc.agent` role.
+      * `--service-account-name`: Name of the [cluster service account](../../iam/concepts/users/service-accounts.md). Make sure to [assign](../security/index.md#grant-role) the `dataproc.agent` role to the cluster service account.
       * `--version`: [Image version](../concepts/environment.md).
 
          {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
@@ -248,11 +248,11 @@ A cluster must include a subcluster with a master host and at least one subclust
       * `--ssh-public-keys-file`: Full path to the file with the public part of the SSH key to be used to access the cluster hosts. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
       * `--subcluster`: Subcluster parameters:
          * `name`: Subcluster name
-         * `role`: Subcluster role (`masternode`, `datanode`, or `computenode`)
-         * `resource-preset`: [Host class](../concepts/instance-types.md).
-         * `disk-type`: [Storage type](../concepts/storage.md).
-         * `disk-size`: Storage size in GB.
-         * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
+         * `role`: Subcluster role (`masternode`, `datanode`, or `computenode`
+         * `resource-preset`: [Host class](../concepts/instance-types.md)
+         * `disk-type`: [Storage type](../concepts/storage.md)
+         * `disk-size`: Storage size in GB
+         * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet)
          * `hosts-count`: Number of hosts in data storage or processing subclusters. The minimum value is `1` and the maximum value is `32`.
          * `assign-public-ip`: Access to subcluster hosts from the internet. This way, you can only connect to the cluster over an SSL connection. For more information, see [{#T}](connect.md).
 
@@ -591,13 +591,13 @@ After your cluster's status changes to **Running**, you can [connect](connect.md
    * With the path to the public part of the SSH key: `/home/username/.ssh/id_rsa.pub`.
    * With the `master` subcluster for master hosts and a single `compute` subcluster for processing data:
 
-      * Of the `{{ host-class }}` class.
-      * With network SSD storage (`{{ disk-type-example }}`) of 20 GB.
-      * In the `{{ subnet-name }}` subnet.
-      * With public access.
+      * Class: `{{ host-class }}`
+      * Network SSD storage (`{{ disk-type-example }}`): 20 GB
+      * Subnet: `{{ subnet-name }}`
+      * Public access: Allowed
 
-   * In the security group `{{ security-group }}`.
-   * With protection against accidental cluster deletion.
+   * Security group: `{{ security-group }}`
+   * Protection against accidental cluster deletion: Enabled
 
    Run the following command:
 

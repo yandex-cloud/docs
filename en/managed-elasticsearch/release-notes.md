@@ -1,4 +1,9 @@
-# {{ mes-full-name }} releases
+---
+title: "Revision history for {{ mes-full-name }}"
+description: "This section covers the revision history for {{ mes-name }}."
+---
+
+# Revision history for {{ mes-full-name }}
 
 {% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
 

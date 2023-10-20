@@ -9,12 +9,12 @@ _Sharding_ is a horizontal data scaling strategy that distributes parts of {{ MG
 
 {{ mmg-name }} supports core data sharding strategies:
 
-* [Hashed sharding](https://docs.mongodb.com/manual/core/hashed-sharding/) (with a hash-based sharding key).
-* [Ranged sharding](https://docs.mongodb.com/manual/core/ranged-sharding/) (by a shard key value range).
+* [Hashed sharding](https://docs.mongodb.com/manual/core/hashed-sharding/) (with a hash-based sharding key)
+* [Ranged sharding](https://docs.mongodb.com/manual/core/ranged-sharding/) (by a shard key value range)
 
 You can read more about {{ MG }} database sharding in the [{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/#sharded-cluster).
 
-## Benefits of sharding {#advantages}
+## Advantages of sharding {#advantages}
 
 Sharding helps you distribute loads across database hosts. It is usually used in the following cases:
 - When you expect very frequent database queries and rapid data growth.
@@ -55,7 +55,7 @@ To split data into shards:
 1. [Add](../operations/shards.md#add-shard) the required number of shards.
 1. [Enable sharding](../tutorials/sharding.md#enable) for the applicable collections.
 
-For details, see [this example of sharding](../tutorials/sharding.md#example).
+See [this example of sharding](../tutorials/sharding.md#example).
 
 
 ## Sharding management in {{ mmg-name }} {#shard-management}

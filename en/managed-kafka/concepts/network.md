@@ -13,7 +13,7 @@ If there are {{ ZK }} hosts in the cluster, each of the three {{ ZK }} hosts wil
 
 ## Host name and FQDN {#hostname}
 
-{{ mkf-short-name }} generates the name of each cluster host when creating it. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, the FQDN cannot be changed.
+{{ mkf-short-name }} generates the name of each cluster host when creating it. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
 
 
 You can use the FQDN to access the host within a single cloud network. For more information, see the [{{ vpc-full-name }} documentation](../../vpc/).

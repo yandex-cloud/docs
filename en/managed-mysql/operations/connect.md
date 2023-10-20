@@ -27,37 +27,37 @@ Rule settings depend on the connection method you select:
 
    [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
 
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`.
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** : `{{ port-mmy }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
 - From a VM in {{ yandex-cloud }}
 
    1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to enable incoming traffic from the security group where your VM is located on the {{ port-mmy }} port. To do this, create the following rule for incoming traffic in these groups:
 
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
       * Security group: If a cluster and a VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`) as the value. Otherwise, specify the VM security group.
 
    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
 
-      Example of rules for a VM:
+      For example, you can set the following rules for a VM:
 
       * For incoming traffic:
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
          This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
       * For outgoing traffic:
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
          This rule allows all outgoing traffic, which enables you to both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
@@ -155,7 +155,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. On the **SSH/SSL** tab:
          1. Enable the **Use SSL** setting.
          1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-   1. To test the connection, click **Test Connection**. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. To test the connection, click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **OK** to save the data source.
 
 - DBeaver
@@ -174,26 +174,39 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
          1. Under **Advanced**:
             1. Enable **Require SSL**.
-            1. Disable **Verify server certificate**.
-   1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+            1. Enable **Verify server certificate**.
+   1. Click **Test connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
 
-## Connecting from a Docker container {#connection-docker}
+## Before you connect from a Docker container {#connection-docker}
 
-You can only use Docker containers to connect to public cluster hosts [using SSL certificates](#get-ssl-cert).
+To connect to a {{ mmy-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
-To connect to a {{ mmy-name }} cluster, add the following lines to the Dockerfile:
+{% list tabs %}
 
-```bash
-RUN apt-get update && \
-    apt-get install wget mysql-client --yes && \
-    mkdir -p ~/.mysql && \
-    wget "{{ crt-web-path }}" \
-         --output-document ~/.mysql/root.crt && \
-    chmod 0600 ~/.mysql/root.crt
-```
+
+- Connecting without using SSL
+
+   ```bash
+   RUN apt-get update && \
+       apt-get install mysql-client --yes
+   ```
+
+
+- Connecting via SSL
+
+   ```bash
+   RUN apt-get update && \
+       apt-get install wget mysql-client --yes && \
+       mkdir --parents ~/.mysql && \
+       wget "{{ crt-web-path }}" \
+            --output-document ~/.mysql/root.crt && \
+       chmod 0600 ~/.mysql/root.crt
+   ```
+
+{% endlist %}
 
 ## Sample connection strings {#connection-string}
 

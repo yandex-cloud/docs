@@ -8,7 +8,7 @@ To run data delivery:
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -24,8 +24,8 @@ Prepare the data transfer infrastructure:
 
 * Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [data-transfer-mpg-ydb.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mpg-ydb.tf) configuration file to the same working directory.
 
       This file describes:
@@ -56,7 +56,7 @@ Prepare the data transfer infrastructure:
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -102,12 +102,12 @@ Prepare the data transfer infrastructure:
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **Database type**: `YDB`.
-   * **Endpoint parameters**:
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDB }}`
+   * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
-      * **Connection settings**:
-         * **Database**: Select a {{ ydb-name }} database from the list.
-         * **Service account ID**: Select or create a service account with the `ydb.editor` role.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `ydb.editor` role.
 
 1. Create a source endpoint and transfer:
 
@@ -117,16 +117,16 @@ Prepare the data transfer infrastructure:
 
       1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [previously created](#before-you-begin) {{ PG }} source with the [following settings](../../data-transfer/operations/endpoint/source/postgresql.md):
 
-         * **DB type**: `PostgreSQL`.
-         * **Endpoint parameters**:
-            * **Connection settings**: `MDB cluster`.
-            * **MDB cluster**: {{ mpg-name }} cluster that you created.
-            * **Database name**: Name of the database created in the {{ mpg-name }} cluster.
-            * **Username**: Name of the user created in the {{ mpg-name }} cluster.
-            * **Password**: Password of the user.
-            * **List of included tables**: `<DB name>.sensors`.
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-POSTGRES }}`
+         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Created {{ mpg-name }} cluster
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: Name of the DB created in the cluster {{ mpg-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: Name of the user created in the {{ mpg-name }} cluster.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: User password
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: `<DB name>.sensors`
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the {{ dt-type-copy-repl }} type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}** type that will use the created endpoints.
       1. [Enable](../../data-transfer/operations/transfer.md#activate) the transfer.
 
    * Using {{ TF }}
@@ -136,35 +136,35 @@ Prepare the data transfer infrastructure:
          * `target_endpoint_id`: ID of the target endpoint.
          * `transfer_enabled`: For creating a source endpoint and a transfer, the value is `1`.
 
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
          ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         Once created, a transfer is activated automatically.
+         Once created, your transfer will be activated automatically.
 
    {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Make sure that the data from the source {{ mpg-name }} cluster has been moved to the {{ ydb-name }} database:
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Make sure the data from the source {{ mpg-name }} cluster has been moved to the {{ ydb-name }} database:
 
    {% list tabs %}
 
    * Management console
 
-      1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
-      1. In the list of services, select **{{ ydb-name }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
       1. Select the database from the list.
-      1. Go to the **Navigation** tab.
+      1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
       1. Check that the {{ ydb-name }} database contains the `public_sensors` table with the test data.
 
    * {{ ydb-short-name }} CLI
@@ -193,10 +193,10 @@ Prepare the data transfer infrastructure:
 
    * Management console
 
-      1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
-      1. In the list of services, select **{{ ydb-name }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
       1. Select the database from the list.
-      1. Go to the **Navigation** tab.
+      1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
       1. Check that new data has been added to the `public_sensors` table.
 
    * {{ ydb-short-name }} CLI
@@ -214,7 +214,7 @@ Prepare the data transfer infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs %}
 
@@ -228,8 +228,8 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 * Using {{ TF }}
 
-   1. In the terminal, go to the working directory that includes the `data-transfer-mpg-ydb.tf` configuration file.
-   1. Delete resources using this command:
+   1. In the terminal, go to the working directory that contains the `data-transfer-mpg-ydb.tf` configuration file.
+   1. Delete the resources using this command:
 
       ```bash
       terraform destroy

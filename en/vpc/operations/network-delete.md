@@ -1,3 +1,8 @@
+---
+title: "How to delete a cloud network"
+description: "Follow this guide to delete a cloud network."
+---
+
 # Deleting a cloud network
 
 {% note alert %}
@@ -104,7 +109,7 @@ You cannot restore a network after it is deleted.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

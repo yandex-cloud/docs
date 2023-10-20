@@ -1,4 +1,4 @@
-# Encrypting a snapshot
+# Encrypting an image
 
 1. {% include [encryption-preparations](../../../_includes/compute/encryption-preparations.md) %}
 1. [Create](../image-create/create-from-snapshot.md) an image from the snapshot.

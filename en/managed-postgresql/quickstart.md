@@ -1,6 +1,6 @@
 ---
 title: "Getting started with {{ mmy-full-name }}"
-description: "In this tutorial, you'll learn how to create a {{ PG }} cluster and connect to it."
+description: "In this tutorial, you will learn how to create a {{ PG }} cluster and connect to it."
 ---
 
 # Getting started with {{ mpg-name }}
@@ -22,7 +22,7 @@ To get started with the service:
 
    * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
 
-   * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
+   * To connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
    {% note info %}
 
@@ -32,7 +32,7 @@ To get started with the service:
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 
-1. Install the necessary dependencies and the {{ PG }} client:
+1. Install the required dependencies and the {{ PG }} client:
 
    ```bash
    sudo apt update && sudo apt install -y postgresql-client
@@ -42,15 +42,17 @@ To get started with the service:
 ## Create a cluster {#cluster-create}
 
 1. In the management console, select the folder where you want to create a DB cluster.
-1. Select **{{ mpg-name }}**.
-1. Click **Create cluster**.
-1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mpg-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Wait until the cluster is ready: its status on the {{ mpg-short-name }} dashboard will change to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
 
 
 1. If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
+
+   {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 
 1. To connect to the DB server, get an SSL certificate:

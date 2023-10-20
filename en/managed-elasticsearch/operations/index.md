@@ -1,3 +1,8 @@
+---
+title: "Step-by-step guides for {{ mes-name }}"
+description: "This section contains step-by-step guides for {{ mes-name }}."
+---
+
 # Step-by-step guides for {{ mes-name }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

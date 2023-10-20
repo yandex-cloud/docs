@@ -31,7 +31,7 @@ When running the `INSERT` query, {{ CH }} uses a _sharding key_ to determine whe
 - You can create a distributed table that uses [_all shards_](../operations/shards.md) in a cluster (see the example [here](../tutorials/sharding.md#shard-example)).
 - You can create a distributed table that uses a [_group of shards_](../operations/shard-groups.md) in a cluster (click [here](../tutorials/sharding.md#shard-groups-example) for a regular sharding example, and [here](../tutorials/sharding.md#shard-groups-advanced-example), for an example of advanced sharding). Such a group includes only some shards in a cluster.
 
-   In this case you can:
+   In this case, you can:
    - Place tables with data on the same cluster shards that are used by the distributed table.
    - Place tables with data in one shard group, and the distributed table that routes queries to these tables with data, in another shard group.
 
@@ -48,7 +48,7 @@ To learn more about working with distributed tables, see the [{{ CH }} documenta
 
 - You can [add](../operations/shards.md#add-shard) the appropriate number of shards to the created cluster.
 
-   To fully [benefit](#uses) from all [advantages of sharding](#advantages), your cluster should have at least two shards. Using a distributed table and a single shard is equivalent to using replication without sharding. It only protects against data loss when one or more shard replica hosts fail, however; it does not provide distributed data storage.
+   To fully [benefit](#uses) from all [advantages of sharding](#advantages), your cluster should have at least two shards. Using a distributed table and a single shard is equivalent to using replication without sharding. It only protects against data loss when one or more shard replica hosts fail; however, it does not provide distributed data storage.
 
 - You can [add hosts](../operations/hosts.md#add-host) to a shard.
 

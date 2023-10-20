@@ -1,11 +1,16 @@
-# Detach a target group from a network load balancer
+---
+title: "Detaching a target group from a network load balancer"
+description: "Follow this guide to detach a target group from a network load balancer."
+---
+
+# Detaching a target group from a network load balancer
 
 {% list tabs %}
 
 - Management console
 
    To detach a [target group](../concepts/target-resources.md) from a network load balancer:
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to detach a target group from a load balancer.
+   1. In the [management console]({{ link-console-main }}), select the folder in which to detach a target group from a load balancer.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. Select the load balancer that you wish to detach the target group from.
    1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_attached-target-groups }}**, click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the appropriate target group.

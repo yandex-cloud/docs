@@ -58,7 +58,7 @@ For detailed instructions, see [{#T}](../../managed-postgresql/quickstart.md).
 
 The minimum number of hosts depends on the selected type of [storage](../../managed-postgresql/concepts/storage.md):
 * If you use non-replicated SSD (`network-ssd-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
-* If you use SSD network (`network-ssd`) or HDD network storage (`network-hdd`), you can create single-host clusters.
+* If you use SSD network (`network-ssd`) or HDD network (`network-hdd`) storage, you can create single-host clusters.
 
 
 
@@ -120,6 +120,10 @@ In {{ mpg-short-name }}, the usage cost is calculated based on the following par
 You can change computing resources and storage size in the management console. All you need to do is choose a different host class for the required cluster.
 
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
+
+#### Can I set up auto increase of the cluster storage size? {#storage-autoscale}
+
+Yes, you can set up automatic increase of the storage size when [creating](../../managed-postgresql/operations/cluster-create.md) or [updating](../../managed-postgresql/operations/update.md) a cluster.
 
 #### Is DB host backup enabled by default? {#default-backup}
 

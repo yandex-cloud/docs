@@ -12,16 +12,17 @@
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
-1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
-1. В разделе **Доступные для установки приложения** выберите [Filebeat](/marketplace/products/yc/filebeat) и нажмите кнопку **Использовать**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. В разделе **Доступные для установки приложения** выберите [Filebeat](/marketplace/products/yc/filebeat) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
    * **Название приложения** — укажите название приложения, например `filebeat`.
    * **Имя пользователя {{ ES }}** — введите имя учетной записи, под которой Filebeat будет подключаться к кластеру {{ mes-name }}.
    * **Пароль для подключения к {{ ES }}** — введите пароль для учетной записи в кластере {{ mes-name }}.
    * **FQDN сервиса {{ ES }}** — укажите URL и порт для кластера {{ mes-name }}, например `https://c-c9q07rjo9c11q4e1p0om.rw.{{ dns-zone }}:9200`. Подробнее о подключении к кластеру {{ mes-name }} см. в [документации сервиса](../../../managed-elasticsearch/operations/cluster-connect.md).
-1. Нажмите кнопку **Установить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Дождитесь перехода приложения в статус `Deployed`.
 1. [Подключитесь к веб-интерфейсу Kibana](../../../managed-elasticsearch/quickstart.md#connect-kibana) и убедитесь, что события кластера {{ managed-k8s-name }} начали поступать.
 
 ## Установка с помощью Helm-чарта {#helm-install}

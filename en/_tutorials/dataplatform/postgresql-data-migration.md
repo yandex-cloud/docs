@@ -16,15 +16,15 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
 
 * [Migrating data using logical replication](#logical-replication).
 
-   [_Logical replication_](https://www.postgresql.org/docs/current/logical-replication.html) uses the [subscriptions](https://www.postgresql.org/docs/current/sql-createsubscription.html) mechanism. This lets you migrate data to the target cluster with minimal downtime.
+   [_Logical replication_](https://www.postgresql.org/docs/current/logical-replication.html) uses the [subscriptions](https://www.postgresql.org/docs/current/sql-createsubscription.html) mechanism. It allows you to migrate data to the target cluster with minimal downtime.
 
-   Use this method only if, for some reason, it's not possible to migrate data using {{ data-transfer-full-name }}.
+   Use this method only if, for some reason, it is not possible to migrate data using {{ data-transfer-full-name }}.
 
 * [Transferring data by creating and restoring a logical dump](#backup).
 
    A _logical dump_ is a file with a set of commands running which one by one you can restore the state of a database. It is created using the `pg_dump` utility. To ensure that a logical dump is complete, before creating it, switch the source cluster to <q>read-only</q> mode.
 
-   Use this method only if, for some reason, it's not possible to transfer data using any of the above methods.
+   Use this method only if, for some reason, it is not possible to transfer data using any of the above methods.
 
 ## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
 
@@ -89,7 +89,7 @@ Create the required resources:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -266,7 +266,7 @@ To complete synchronization of the source cluster and the target cluster:
 
 ### Delete the resources you created {#clear-out-logical}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
@@ -284,9 +284,9 @@ Delete the resources you no longer need to avoid being charged for them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -322,26 +322,28 @@ Create the required resources:
 
    1. Create a [{{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration. The following parameters must be the same as in the source cluster:
 
-      * Version {{ PG }}.
-      * Username.
+      * {{ PG }} version
+      * Username
 
          {% include [user-name-restore](../../_includes/mdb/mpg/note-user-name-restore.md) %}
 
-      * [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md).
+      * [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md)
 
    1. (Optional step) [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) based on [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
 
-      * **Disks and file storage** → **Size**: Sufficient to store both archived and unarchived dumps.
+      * **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** → **{{ ui-key.yacloud.compute.disk-form.field_size }}**: Sufficient to store both archived and unarchived dumps.
 
          The recommended size is two or more times the total dump and dump archive size.
 
-      * **Network settings**:
+      * **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-         * **Subnet**: Select a subnet on the cloud network hosting the target cluster.
-         * **Public address**: Select `Auto` or one address from a list of reserved IPs.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: Select a subnet on the cloud network hosting the target cluster.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: Select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or one address from a list of reserved IPs.
 
    
    1. If you use security groups for the intermediate VM and the {{ mpg-name }} cluster, [configure them](../../managed-postgresql/operations/connect.md#configure-security-groups).
+
+      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 
 * Using {{ TF }}
@@ -382,7 +384,7 @@ Create the required resources:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -418,7 +420,7 @@ The required amount of RAM and processor cores depends on the amount of data to 
 
 To prepare the virtual machine to restore the dump:
 
-1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image on **{{ marketplace-name }}**. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image on **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database up to 1 GB in size. The larger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
 
 
     The virtual machine must be in the same network and availability zone as the {{ PG }} cluster. Additionally, the VM must be assigned a public IP address so that you can load the dump from outside {{ yandex-cloud }}.
@@ -498,13 +500,13 @@ Make sure the errors only apply to the extensions and check the integrity of you
 
 ### Delete the resources you created {#clear-out-backup}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
 * Manually
 
-   * [Delete the {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
+   * [Delete a {{ mpg-full-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
    * If you created an intermediate virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
    * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
@@ -518,9 +520,9 @@ Delete the resources you no longer need to avoid being charged for them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

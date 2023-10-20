@@ -188,7 +188,7 @@ To partition and mount an empty disk yourself:
 
       Where:
       * Network disk links look like `virtio-<disk ID>`. For example, `virtio-fhm1dn62tm5dnaspeh8n -> ../../vdc` means that the unpartitioned disk with the `fhm1dn62tm5dnaspeh8n` ID is labeled as `/dev/vdc`.
-      * Local disks on [dedicated hosts](../../concepts/dedicated-host.md) have links like `virtio-nvme-disk-<disk_number>` (you will have local disks only in case you attached those to your VM while creating it). Disk numbering starts from zero. For example, `virtio-nvme-disk-0 -> ../../vda` means that the first local disk (numbered zero) is labeled as `/dev/vda`.
+      * Local disks on [dedicated hosts](../../concepts/dedicated-host.md) have links like `virtio-nvme-disk-<disk_number>` (you will only have local disks if you attached them to your VM while creating it). Disk numbering starts from zero. For example, `virtio-nvme-disk-0 -> ../../vda` means that the first local disk (numbered zero) is labeled as `/dev/vda`.
    1. Partition your disk. To do this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) using the `cfdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), the `fdisk` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html), or the `parted` [utility](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
 
       For example, here is how to create partitions using the `fdisk` command. Use the `sudo` command or run commands on behalf of the `root` user: to do this, run `sudo su -`.

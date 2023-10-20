@@ -13,7 +13,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
    1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
    1. In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab, click **{{ ui-key.yacloud.common.create }}**.
    1. Configure schedule parameters:
-      * Enter a name for the schedule:
+      * Enter a name for the schedule in the following format:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -160,13 +160,13 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
       Where:
 
-      * `name`: Schedule name. This parameter is required.
-      * `schedule_policy`: Section with schedule parameters. It contains the `expression` field with a [cron expression](../../concepts/snapshot-schedule.md#cron). This parameter is required.
+      * `name`: Schedule name. This is a required parameter.
+      * `schedule_policy`: Section with schedule parameters. It contains the `expression` field with a [cron expression](../../concepts/snapshot-schedule.md#cron). This is a required parameter.
       * `snapshot_count`: Maximum number of snapshots per disk. This is an optional parameter.
       * `snapshot_spec`: Section with additional snapshot parameters. This is an optional parameter. It may contain the following fields:
          * `description`: Snapshot description.
          * `labels`: Snapshot [label](../../../overview/concepts/services.md#labels) in `<key> = "<value>"` format.
-      * `disk_ids`: IDs of disks to create snapshots for. This parameter is required.
+      * `disk_ids`: IDs of disks to create snapshots for. This is a required parameter.
 
       For more information about the `yandex_compute_snapshot_schedule` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_snapshot_schedule).
 
@@ -174,7 +174,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   This will create a schedule in the specified folder. You can verify that the schedule is there and its configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+   This will create a schedule in the specified folder. You can check the new schedule and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
    yc compute snapshot-schedule get <schedule_name>
@@ -276,7 +276,7 @@ Snapshots are created and deleted automatically only while the schedule is on (`
       folder_id: e1ea8s8l71li5n96eakv
       created_at: "2022-10-03T13:28:01Z"
       name: sched-1
-      description: daily
+      description: Daily
       labels:
         machine: file-server
       status: ACTIVE

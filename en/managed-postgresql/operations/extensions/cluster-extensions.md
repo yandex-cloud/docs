@@ -4,7 +4,7 @@
 
 {% note warning %}
 
-In {{ mpg-short-name }} clusters, you can't manage {{ PG }} extensions using SQL commands.
+In {{ mpg-short-name }} clusters, you cannot manage {{ PG }} extensions using SQL commands.
 
 {% endnote %}
 
@@ -33,9 +33,9 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the **Databases** section.
-   1. In the **PostgreSQL extensions** column, you'll see a list of extensions enabled for each database.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** section.
+   1. In the **{{ ui-key.yacloud.mdb.cluster.databases.column_extensions }}** column, you will see a list of extensions enabled for each database.
 
 - CLI
 
@@ -67,10 +67,10 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the **Databases** tab.
-   1. In the row with the desired database, click ![options](../../../_assets/horizontal-ellipsis.svg) and select **Configure PostgreSQL extensions**.
-   1. Select the extensions you need and click **Edit**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
+   1. In the required database row, click ![options](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-manage-extensions }}**.
+   1. Select the extensions you need and click **{{ ui-key.yacloud.postgresql.databases.dialog.button_submit }}**.
 
 - CLI
 
@@ -117,7 +117,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

@@ -1,4 +1,15 @@
+---
+title: "Network load balancer types"
+description: "You can deploy the following types of network load balancers in {{ yandex-cloud }}: EXTERNAL to handle internet traffic, and INTERNAL to handle traffic inside {{ vpc-name }}."
+---
+
 # Network load balancer types
+
+{% note info %}
+
+{% include [type-update](../../_includes/network-load-balancer/type-update.md) %}
+
+{% endnote %}
 
 Here are the options for deploying a network load balancer in {{ yandex-cloud }}:
 
