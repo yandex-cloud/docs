@@ -1,3 +1,8 @@
+---
+title: "How to create an empty disk with a large block"
+description: "Use this guide to create an empty disk with a large block."
+---
+
 # Creating an empty disk with a large block
 
 {% include [default-catalogue](../../../_includes/compute/disk-blocksize.md) %}
@@ -29,6 +34,8 @@
       ```
 
       This command will create a 40 GB disk with an 8 KB block size, named `big-disk` and described as `my 8k blocksize disk via yc`.
+
+      The disk naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 

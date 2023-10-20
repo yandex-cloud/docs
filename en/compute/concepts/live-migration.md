@@ -14,13 +14,13 @@ Live migration does not change any VM settings. The live migration process moves
 ## Limitations {#limitations}
 
 The following types of VMs cannot be moved:
-* VMs with [GPUs](../concepts/gpus.md)[^1].
-* [Preemptible](../concepts/preemptible-vm.md)[^1] VMs.
-* [{{ sf-full-name }}](../../functions/) VMs.
-* Managed DBMS VMs with local SSDs.
-* VMs with disabled migration.
+* VMs with [GPUs](../concepts/gpus.md) ^1^
+* [Preemptible](../concepts/preemptible-vm.md) ^1^ VMs
+* [{{ sf-full-name }}](../../functions/) VMs
+* Managed DBMS VMs with local SSDs
+* VMs with disabled migration
 
-\* These VMs are dynamically moved after a [manual stop](../operations/vm-control/vm-stop-and-start.md#stop).
+^1^ These VMs are dynamically moved after a [manual stop](../operations/vm-control/vm-stop-and-start.md#stop).
 
 ## See also {#see-also}
 

@@ -8,9 +8,9 @@ New data for charts is received every {{ graph-update }}.
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Monitoring cluster status {#monitoring-cluster}
+## Monitoring cluster state {#monitoring-cluster}
 
-To view detailed information about the {{ mos-name }} cluster status:
+To view detailed information about the {{ mos-name }} cluster state:
 
 {% list tabs %}
 
@@ -54,7 +54,7 @@ To view detailed information about the {{ mos-name }} cluster status:
 To view detailed information about the status of individual {{ mos-name }} hosts:
 
 1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-1. Click the name of the desired cluster and select the ![image](../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+1. Click the cluster name and select the ![image](../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 1. Select the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
 1. Select the host from the drop-down list.
 
@@ -111,7 +111,7 @@ This page displays charts showing the load on an individual host in the cluster.
 To view detailed information about the state of a {{ mos-name }} host group:
 
 1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-1. Click the name of the desired cluster and select the ![image](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+1. Click the cluster name and select the ![image](../../_assets/mdb/host-groups.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
 1. Select the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
 1. Select the host group you need from the drop-down list.
 
@@ -124,7 +124,7 @@ This page displays charts showing the load on the cluster's host group. Which ch
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
@@ -134,15 +134,15 @@ This page displays charts showing the load on the cluster's host group. Which ch
       * **{{ mos-name }} — Manager** to configure alerts for hosts with the `MANAGER` role.
 
    1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` threshold values to trigger the alert.
+   1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds to trigger an alert.
    1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 {% endlist %}
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Recommended threshold values:
+The recommended thresholds are as follows:
 
 | Metric | Parameter | Formula | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
 |----------------------------------------------|:--------------------------------------:|:----------------------:|:---------------------------------:|:---------------------------------:|
@@ -154,12 +154,12 @@ Recommended threshold values:
 | JVM heap memory used | `opensearch_jvm_mem_heap_used_percent` | `top_last(1)` | Over 90% of host RAM |                                   |
 | Storage space used | `opensearch_fs_total_used_percent` | `top_last(1)` | Over 90% of the storage size | Over 85% of the storage size |
 | Using the JVM long-lived object pool | `opensearch_jvm_mem_heap_pressure` | `top_last(1)` | Over 90% of host RAM | Over 75% of host RAM |
-| Storage space used | `disk.used_bytes` | N/A | 90% of storage size | 80% of storage size |
+| Storage space used | `disk.used_bytes` | N/A | 90% of the storage size | 80% of the storage size |
 
-For the `disk.used_bytes` metric, the values of the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds are only set in bytes. For example, here are the recommended values for a 100 GB disk:
+For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds are only set in bytes. For example, here are the recommended values for a 100 GB disk:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%).
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%)
 
 You can view the host's current storage size and RAM amount in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-opensearch).
 
@@ -174,8 +174,8 @@ To view a cluster's state and status:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the row representing the cluster you need.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+   1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.
 
 - API
 

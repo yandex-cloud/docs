@@ -195,7 +195,9 @@ If you created your VM before June 9, 2023, and you cannot get its identity docu
 
 ### Signed identity documents {#signed-identity-documents}
 
-An identity document can be signed to then verify the obtained document.
+If you are going to use the contents of an identity document for critical tasks, check the contents and validate the document before using it.
+
+Apart from identity documents, the VM metadata service provides their cryptographic signatures. You can use these signatures to verify a document's origin, validity, and integrity.
 
 {% list tabs %}
 

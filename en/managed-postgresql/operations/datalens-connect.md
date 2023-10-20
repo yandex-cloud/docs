@@ -18,7 +18,7 @@ To use an existing cluster as a data source for {{ datalens-full-name }}:
 
 ## Allowing access to a cluster from {{ datalens-name }} {#allow-access}
 
-To enable {{ datalens-name }} to connect to your cluster and work with its data, activate the **Access from {{ datalens-name }}** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings).
+To enable {{ datalens-name }} to connect to your cluster and work with its data, activate the **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings).
 
 ## Creating a connection to a cluster {#create-connector}
 
@@ -26,19 +26,19 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
 
 - Management console
 
-   1. Make sure that {{ datalens-name }} is [activated](#activate-datalens) in the necessary folder and cluster access from it is [allowed](#allow-access).
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the name of the desired cluster and open the **{{ datalens-name }}** tab.
-   1. Click **Create connection**.
+   1. Make sure that {{ datalens-name }} is [activated](#activate-datalens) in the appropriate folder and you [can access](#allow-access) the cluster from it.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
+   1. Click **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
 
-      {% cut "I don't have a "Create connection" button" %}
+      {% cut "I have no "{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}" button" %}
 
-      If instead of the **Create connection** button you see a "{{ datalens-name }} not activated" message, it means that you either didn't activate {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [instructions](../../datalens/operations/connection/create-postgresql.md) in the {{ datalens-name }} documentation.
+      If you see a message saying "{{ ui-key.yacloud.mdb.datalens.label_activate-datalens-title }}" instead of the **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}** button, it means that you either did not activate {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [guide](../../datalens/operations/connection/create-postgresql.md) in the {{ datalens-name }} documentation.
 
       {% endcut %}
 
    1. Specify the [connection settings](#connector-settings).
-   1. In the upper-right corner, select the connection scope from the drop-down list:
+   1. In the top-right corner, select the connection scope from the drop-down list:
       * Available only to me.
       * Available to the company.
    1. Check that the settings are correct by clicking **Check connection**.
@@ -58,8 +58,8 @@ Once the connection is created, you can:
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the name of the desired cluster and open the **{{ datalens-name }}** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
 
 {% endlist %}
 
@@ -69,8 +69,8 @@ Once the connection is created, you can:
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the name of the desired cluster and open the **{{ datalens-name }}** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
    1. Select a connection from the list.
    1. Edit the connection [settings](#connector-settings) and scope.
    1. Check that the settings are correct by clicking **Check connection**.
@@ -84,8 +84,8 @@ Once the connection is created, you can:
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the name of the desired cluster and open the **{{ datalens-name }}** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_datalens }}** tab.
    1. Select a connection from the list.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) at the top of the page and select **Delete**.
    1. In the window that opens, click **Delete**.
@@ -106,8 +106,8 @@ Once the connection is created, you can:
       1. Select a **database name** from the drop-down list.
       1. Select a user from the drop-down list.
       1. Enter this user's password.
-      1. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
-      1. Configure a **SQL query access level**.
+      1. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+      1. Configure a **Raw SQL level**.
       1. To explicitly define a collation for DB queries, go to **Advanced connection settings**. Select a mode to configure **Setting collate in a query**:
          * **Auto**: The default setting is used, {{ datalens-name }} decides whether to enable the `en_US` locale.
          * **On**: The {{ datalens-name }} setting is used, the `en_US` locale is specified for individual expressions in a query. This makes the server use the appropriate sorting logic, regardless of the server settings and specific tables. Use the {{ datalens-name }} setting if the DB locale is incompatible with {{ datalens-name }} performance. For more information about the locale and `LC_COLLATE`, see [{#T}](../../managed-postgresql/operations/cluster-create.md#create-cluster).

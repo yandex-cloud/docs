@@ -35,6 +35,25 @@ To have a resource connected to a subnet, make sure it resides in the same avail
 
 You can [move](../operations/network-move.md) a network and subnet between folders within a single [cloud](../../resource-manager/concepts/resources-hierarchy.md). You cannot move subnets between networks and availability zones.
 
+## Cloud network map {#map}
+
+A cloud network map shows the connections between resources in a folder, as well as the networks and subnets that include these resources. Here is an example of such a map:
+
+![image](../../_assets/vpc/network-map.png)
+
+You can use the map to visualize networks. For example, with the map, you can identify the subnets with the highest loads or with configured route tables. The map shows the following resources:
+
+* [Instance groups](../../compute/concepts/instance-groups/index.md).
+* [Virtual machines](../../compute/concepts/vm.md).
+* [{{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) clusters.
+* [{{ managed-k8s-name }} node groups](../../managed-kubernetes/concepts/index.md#node-group).
+* {{ managed-k8s-name }} nodes.
+* [Cloud networks](#network).
+* [Subnets](#subnet).
+* [Route tables](static-routes.md).
+
+You have the option to only map network connections for specific resources. This can be useful if you have a large network with a vast number of resources. In addition, you can use the map to navigate to resource pages with just one click. To learn more about using the map, see [this guide](../operations/network-map.md).
+
 #### See also {#see-also}
 
 * [{#T}](software-accelerated-network.md)

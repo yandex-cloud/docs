@@ -24,7 +24,7 @@ You can also deploy an infrastructure for a load balancer with DDoS protection v
 
 ## Create a cloud network {#create-network}
 
-All resources you have created in the tutorial belong to the same [cloud network](../../vpc/concepts/network.md).
+All the resources created in the use case will belong to the same [cloud network](../../vpc/concepts/network.md).
 
 To create a network:
 
@@ -89,7 +89,7 @@ To create a network:
 
 ## Create security groups {#create-security-groups}
 
-[Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that allow the load balancer receive incoming traffic and redirect it to the VMs so they can receive the traffic. In this use case, we will create two security groups: one for the load balancer and another one for all VMs.
+[Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that allow the load balancer to receive incoming traffic and redirect it to the VMs so they can receive the traffic. In this use case, we will create two security groups: one for the load balancer and another one for all VMs.
 
 To create security groups:
 
@@ -340,7 +340,7 @@ To create an instance group:
 
 {% note info %}
 
-You can't do this using the [CLI](../../cli/).
+You cannot do this using the [CLI](../../cli/).
 
 {% endnote %}
 
@@ -486,7 +486,7 @@ To create an HTTP router and add a route to it:
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
   1. Enter a **{{ ui-key.yacloud.common.name }}**: `route-1`.
   1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select `{{ ui-key.yacloud.alb.label_match-prefix }}` and specify the path `/`.
-  1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, leave `{{ ui-key.yacloud.alb.label_route-action-route }}`.
+  1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, keep `{{ ui-key.yacloud.alb.label_route-action-route }}`.
   1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select the group you created earlier.
   1. Leave all other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
 

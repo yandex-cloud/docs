@@ -363,6 +363,10 @@ items:
         href: routing/usergate-proxy.md
       - name: Creating and configuring a UserGate gateway in firewall mode
         href: routing/usergate-firewall.md
+      - name: >-
+          Implementing a secure high-availability network infrastructure with a
+          dedicated DMZ based on the Next-Generation Firewall
+        href: routing/high-accessible-dmz.md
       - name: Configuring networks for {{ dataproc-name }}
         href: routing/dataproc-nat-instance.md
       - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}

@@ -1,3 +1,3 @@
-# Delivering data from {{ mkf-full-name }} to {{ mgp-full-name }}
+# Delivering data to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-{% include [article-body](../../_tutorials/datatransfer/managed-kafka-to-greenplum.md) %}
+{% include notitle [article-body](../../_tutorials/datatransfer/managed-kafka-to-greenplum.md) %}

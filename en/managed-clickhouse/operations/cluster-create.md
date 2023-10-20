@@ -1,3 +1,8 @@
+---
+title: "How to create a {{ CH }} cluster"
+description: "Use this tutorial to create a {{ CH }} cluster with a single or multiple DB hosts."
+---
+
 # Creating a {{ CH }} cluster
 
 A {{ CH }} cluster consists of one or more database hosts you can configure replication between.
@@ -197,9 +202,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          ```
 
       
-      1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+      1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
-      1. To allow access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), provide the `--yandexquery-access=true` parameter.
+      1. To allow access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), provide the `--yandexquery-access=true` parameter. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
       1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
@@ -394,16 +399,16 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-      To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+      To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
-   To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter.
+   To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage.
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    To configure [hybrid storage settings](../concepts/storage.md##hybrid-storage-settings):
 
    * Set `true` for the `configSpec.cloudStorage.enabled` parameter to enable hybrid storage.
-   * Pass the hybrid storage settings in the `configSpec.cloudStorage` parameters:
+   * Set the hybrid storage settings for the `configSpec.cloudStorage` parameters:
 
       {% include [Hybrid Storage settings API](../../_includes/mdb/mch/hybrid-storage-settings-api.md) %}
 

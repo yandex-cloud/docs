@@ -1,8 +1,15 @@
+---
+title: "How to create a network load balancer"
+description: "Use this guide to create a network load balancer."
+---
+
 # Creating a network load balancer
 
 {% note info %}
 
 Before creating a network load balancer, [create](target-group-create.md) a target group to attach to it.
+
+{% include [type-update](../../_includes/network-load-balancer/type-update.md) %}
 
 {% endnote %}
 
@@ -12,10 +19,10 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
    To create a [network load balancer](../concepts/index.md).
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
+   1. In the [management console]({{ link-console-main }}), select the folder to create a load balancer in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
-   1. Enter a name.
+   1. Enter a name. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -213,22 +220,22 @@ Create a network load balancer named `test-load-balancer-1` without a listener a
 
 Create a network load balancer with a listener and attached target group with the following test specifications:
 
-* Name: `test-load-balancer-2`.
+* Name: `test-load-balancer-2`
 * Listener parameters:
-   * Name: `test-listener`.
-   * Port: `80`.
-   * Target port: `81`.
-   * Protocol: `TCP`.
-   * IP version: `ipv4`.
-* Target group ID: `enpu2l7q9kth********`.
+   * Name: `test-listener`
+   * Port: `80`
+   * Target port: `81`
+   * Protocol: `TCP`
+   * IP version: `ipv4`
+* Target group ID: `enpu2l7q9kth********`
 * Target group resource health check parameters:
-   * Name: `HTTP`.
-   * Health check interval: `2` seconds.
-   * Response timeout: `1` second.
-   * Unhealthy threshold: `2`.
-   * Healthy threshold: `2`.
-   * Port for HTTP health checks: `80`.
-   * URL for health checks: `/`.
+   * Name: `HTTP`
+   * Health check interval: `2` seconds
+   * Response timeout: `1` second
+   * Unhealthy threshold: `2`
+   * Healthy threshold: `2`
+   * Port for HTTP health checks: `80`
+   * URL for health checks: `/`
 
 {% list tabs %}
 

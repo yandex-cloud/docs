@@ -7,7 +7,7 @@ description: "Atomic permissions in PostgreSQL are called privileges and permiss
 
 Atomic permissions in **{{ PG }}** are called _privileges_ and permission groups are called _roles_. For more information about access permissions, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/user-manag.html).
 
-The user created with a **{{ mpg-name }}** cluster is the owner of the first database in the cluster. You can [create other users](cluster-users.md#adduser) and configure their permissions as you wish:
+The user created with a **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** cluster is the owner of the first database in the cluster. You can [create other users](cluster-users.md#adduser) and configure their permissions as you wish:
 
 - [Updating the list of user roles](#grant-role).
 - [Granting a privilege to a user](#grant-privilege).
@@ -25,11 +25,11 @@ With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/d
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
-   1. In the line with the name of the desired user, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure**.
-   1. Expand the **DBMS settings** list and select the roles you want to assign to the user in the **Grants** field.
-   1. Click **Save**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
+   1. In the appropriate user row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+   1. Expand the **{{ ui-key.yacloud.mdb.dialogs.button_advanced-settings }}** list and select the roles you want to assign to the user in the **Grants** field.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - CLI
 
@@ -75,7 +75,7 @@ With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/d
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -1,4 +1,4 @@
-Над временной шкалой справа нажмите ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** и в блоке **{{ ui-key.startrek.ui_components_Gantt.task-bar }}** выберите настройку:
+Над временной шкалой справа нажмите ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**{{ ui-key.startrek.ui_components_Gantt.timeline-config }}** и в разделе **{{ ui-key.startrek.ui_components_Gantt.task-bar }}** выберите настройку:
 
 * Чтобы на полосе задачи отображалось ее название, отметьте пункт **{{ ui-key.startrek.ui_components_Gantt.show-issue-title }}**. 
 

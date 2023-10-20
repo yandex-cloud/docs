@@ -105,20 +105,33 @@ When connecting to an {{ ES }} cluster, you can:
 
    This approach is only suitable if public access is enabled for all of the hosts with the _Data node_ role or connections are only made from {{ yandex-cloud }} virtual machines. This is because the host for the connection, which this FQDN is pointing to, is selected randomly from all the hosts with the _Data node_ role.
 
-## Connecting from a Docker container {#connection-docker}
+## Before you connect from a Docker container {#connection-docker}
 
-You can only use Docker containers to connect to public cluster hosts [using SSL certificates](#get-ssl-cert).
+To connect to a {{ mes-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
-To connect to a {{ mes-name }} cluster, add the following lines to the Dockerfile:
+{% list tabs %}
 
-```bash
-RUN apt-get update && \
-    apt-get install wget curl --yes && \
-    mkdir -p ~/.elasticsearch && \
-    wget "{{ crt-web-path }}" \
-         --output-document ~/.elasticsearch/root.crt && \
-    chmod 0600 ~/.elasticsearch/root.crt
-```
+
+- Connecting without using SSL
+
+   ```bash
+   RUN apt-get update && \
+       apt-get install curl --yes
+   ```
+
+
+- Connecting via SSL
+
+   ```bash
+   RUN apt-get update && \
+       apt-get install wget curl --yes && \
+       mkdir --parents ~/.elasticsearch && \
+       wget "{{ crt-web-path }}" \
+            --output-document ~/.elasticsearch/root.crt && \
+       chmod 0600 ~/.elasticsearch/root.crt
+   ```
+
+{% endlist %}
 
 ## Sample connection strings {#connection-string}
 

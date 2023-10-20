@@ -6,11 +6,11 @@
 
 {% list tabs %}
 
-* Management console
+- Management console
 
-   Enable the **Collect statistics** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings) (the option is disabled by default).
+   Enable the **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings) (the option is disabled by default).
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -19,7 +19,7 @@
    To enable statistics collection, pass the `--performance-diagnostics` parameter in the update cluster command:
 
    ```bash
-   {{ yc-mdb-pg }} cluster update <cluster ID or name> \
+   {{ yc-mdb-pg }} cluster update <cluster name or ID> \
        ...
        --performance-diagnostics enabled=true,`
                                 `sessions-sampling-interval=<sessions sampling interval>,`
@@ -46,7 +46,7 @@
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -56,17 +56,18 @@
 
    To enable statistics collection, use the [create](../api-ref/Cluster/create.md) or [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) or [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter.
-   * The `true` value in the `config.performanceDiagnostics.enabled` parameter.
-   * A sessions sampling interval, in the `config.performanceDiagnostics.sessionsSamplingInterval` parameter. Acceptable values are between `1` and `86400` seconds.
-   * A statements sampling interval, in the `config.performanceDiagnostics.statementsSamplingInterval` parameter. Acceptable values are between `60` and `86400` seconds.
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * Cluster ID for the `clusterId` parameter.
 
-   You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+      You can get the ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+   * `True` value for the `config.performanceDiagnostics.enabled` parameter.
+   * Sessions sampling interval for the `config.performanceDiagnostics.sessionsSamplingInterval` parameter. Acceptable values are between `1` and `86400` seconds.
+   * Statements sampling interval for the `config.performanceDiagnostics.statementsSamplingInterval` parameter. Acceptable values are between `60` and `86400` seconds.
+   * List of cluster configuration fields to be changed for the `updateMask` parameter.
 
    {% note warning %}
 
-   This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, be sure to pass the names of the fields to be changed in the `updateMask` parameter.
+   This API method resets any cluster settings that are not passed explicitly in the request to their defaults. To avoid this, be sure to pass the names of the fields to be changed in the `updateMask` parameter.
 
    {% endnote %}
 
@@ -74,59 +75,87 @@
 
 ## Getting session statistics {#get-sessions}
 
-1. In the management console, go to the folder page and select **{{ mpg-name }}**.
-1. Click the cluster name and select **Performance diagnostics** → **Sessions**.
+{% list tabs %}
 
-   To view session statistics or the history of queries executed within a session, select the appropriate tab.
+- Management console
 
-   {% list tabs %}
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** tab.
 
-   * Statistics
+   To view session statistics:
 
-      To view session statistics:
+   1. Specify the required time interval.
+   1. (Optional) Set filters.
+   1. Select the required data segment.
 
-      1. Specify the desired time interval.
-      1. (Optional) Set filters.
-      1. Select the desired data segment.
+   To show or hide individual categories, click the category name in the chart legend.
 
-      To show or hide individual categories, click the category name in the chart legend.
+   To view the history of queries run during a session:
 
-   * History
+   1. Specify the required time interval.
+   1. (Optional) Set filters.
 
-      To view the history of queries run during a session:
+- API
 
-      1. Specify the desired time interval.
-      1. (Optional) Set filters.
+   To get statistics for sessions, use the [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/perf_diag_service#ListRawSessionStates) gRPC API call and deliver the following in your query:
 
-   {% endlist %}
+   * Cluster ID for the `cluster_id` parameter.
+
+      You can get the ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+   * Period your request data for:
+
+      * `from_time`: Period start
+      * `to_time`: Period end
+
+   * [Pagination](../../api-design-guide/concepts/pagination.md) parameters:
+
+      * `page_size`: Maximum number of results per page.
+      * `page_token`: Token of the previous results page used to get the next page.
+
+{% endlist %}
 
 For more information about what statistics you can get, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
 ## Getting query statistics {#get-queries}
 
-1. In the management console, go to the folder page and select **{{ mpg-name }}**.
-1. Click the cluster name and select **Performance diagnostics** → **Queries**.
+{% list tabs %}
 
-   To view query statistics or compare them in two time intervals, select the appropriate tab.
+- Management console
 
-   {% list tabs %}
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}** tab.
 
-   * Interval
+   To view query statistics for a specific time interval:
 
-      To view query statistics:
+   1. Select the time interval you need.
+   1. (Optional) Set filters.
 
-      1. Select the time interval you need.
-      1. (Optional) Set filters.
+   To get information about the relative change in the query statistics:
 
-   * Two intervals
+   1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-first }}** field, select the time interval to be used as a calculation basis for statistics.
+   1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** field, select the time interval to compare the statistics for interval 1 with.
+   1. (Optional) Set filters.
 
-      To get information about the relative change in the query statistics:
+   For example, 10 `SELECT * FROM cities` queries were executed in the first interval and 20 in the second. When comparing statistics, the difference by the <q>number of queries</q> metric (the `Calls` column in the table) will be `+100%`.
 
-      1. In the **Interval 1** field, select the time interval to be used as a calculation basis for statistics.
-      1. In the **Interval 2** field, select the time interval to compare the statistics for interval 1 with.
-      1. (Optional) Set filters.
+- API
 
-      For example, 10 `SELECT * FROM cities` queries were executed in the first interval and 20 in the second. When comparing statistics, the difference by the <q>number of queries</q> metric (the `Calls` column in the table) will be `+100%`.
+   To get statistics for queries, use the [PerformanceDiagnosticsService/ListRawStatements](../api-ref/grpc/perf_diag_service#ListRawStatements) gRPC API call and deliver the following in your query:
+
+   * Cluster ID for the `cluster_id` parameter.
+
+      You can get the ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+   * Period your request data for:
+
+      * `from_time`: Period start
+      * `to_time`: Period end
+
+   * [Pagination](../../api-design-guide/concepts/pagination.md) parameters:
+
+      * `page_size`: Maximum number of results per page.
+      * `page_token`: Token of the previous results page used to get the next page.
 
    {% endlist %}
 

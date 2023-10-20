@@ -78,9 +78,9 @@
 
 ### Установка Jaeger {#install-jaeger}
 
-1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
-1. В разделе **Доступные для установки приложения** выберите [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store) и нажмите кнопку **Использовать**.
+1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. В разделе **Доступные для установки приложения** выберите [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
    * **Название приложения** — укажите название приложения.
@@ -94,7 +94,8 @@
    * **Установить jaeger-agent** — выберите эту опцию, чтобы установить [jaeger-agent](https://hub.docker.com/r/jaegertracing/jaeger-agent/).
 
    Имя эндпоинта и БД были получены при [подготовке БД {{ ydb-name }}](#create-ydb), настройки для сервисного аккаунта — [в предыдущем подразделе](#create-sa-key).
-1. Нажмите кнопку **Установить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Дождитесь перехода приложения в статус `Deployed`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 

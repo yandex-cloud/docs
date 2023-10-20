@@ -21,8 +21,6 @@ items:
             href: operations/cluster-stop.md
           - name: Managing {{ KF }} hosts
             href: operations/cluster-hosts.md
-          - name: Managing connectors
-            href: operations/cluster-connector.md
           - name: Deleting clusters
             href: operations/cluster-delete.md
       - name: Topics
@@ -33,6 +31,8 @@ items:
             href: operations/cluster-topics.md
       - name: Managing {{ KF }} users
         href: operations/cluster-accounts.md
+      - name: Managing {{ KF }} connectors
+        href: operations/cluster-connector.md
       - name: Logs and monitoring
         items:
           - name: Viewing cluster logs
@@ -79,6 +79,12 @@ items:
             href: tutorials/mkf-to-mes-migration.md
           - name: Delivering data from {{ KF }} to {{ GP }}
             href: tutorials/managed-kafka-to-greenplum.md
+          - name: Delivering data from {{ KF }} to {{ MG }}
+            href: tutorials/mkf-to-mmg-migration.md
+          - name: Delivering data from {{ KF }} to {{ MY }}
+            href: tutorials/mkf-to-mmy-migration.md
+          - name: Delivering data from {{ KF }} to {{ OS }}
+            href: tutorials/mkf-to-mos-migration.md
       - name: Delivering data using other methods
         items:
           - name: Delivering data from {{ PG }} using Debezium

@@ -325,6 +325,8 @@ items:
         href: gantt/project.md
       - name: Диаграмма Ганта для списка проектов
         href: gantt/list-of-projects.md
+      - name: Диаграмма Ганта для портфеля проектов
+        href: gantt/portfolio.md
   - name: Автоматизация и шаблоны
     items:
       - name: Обзор

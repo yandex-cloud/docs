@@ -2,7 +2,7 @@
 
 In {{ yandex-cloud }}, a _disk snapshot_ is a copy of the disk file system made at a certain point in time.
 
-You can use disk snapshots for various purposes, such as:
+You can use disk snapshots for various purposes, e.g.:
 
 * Migrating data from one disk to another, for example, to a disk in a different availability zone.
 * Creating a disk backup before performing operations that may damage your data.

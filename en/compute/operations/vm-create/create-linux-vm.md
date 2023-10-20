@@ -80,7 +80,7 @@ description: "Use this tutorial to create a Linux VM."
    1. Get an [{{ iam-full-name }} token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
 
       
-      * [Instructions](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
+      * [Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
 
 
       * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a [service account](../../../iam/concepts/users/service-accounts.md).
@@ -260,7 +260,7 @@ description: "Use this tutorial to create a Linux VM."
 
       {% endnote %}
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Create resources:
 

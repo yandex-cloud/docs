@@ -2,13 +2,7 @@
 
 Создайте [триггер для очереди сообщений](../concepts/trigger/ymq-trigger.md) сервиса {{ message-queue-short-name }} и обрабатывайте их с помощью [контейнера](../concepts/container.md) {{ serverless-containers-name }}.
 
-{% note warning %}
-
-* Триггер можно создать только для стандартной очереди сообщений.
-* Триггер должен находиться в одном облаке с очередью, из которой он читает сообщения.
-* Для одной очереди сообщений можно создать только один триггер.
- 
-{% endnote %}
+{% include [ymq-trigger-note.md](../../_includes/functions/ymq-trigger-note.md) %}
 
 ## Перед началом работы {#before-begin}
 

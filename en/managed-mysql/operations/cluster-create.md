@@ -1,6 +1,11 @@
+---
+title: "How to create a {{ MY }} cluster"
+description: "Use this tutorial to create a {{ MY }} cluster with a single or multiple DB hosts."
+---
+
 # Creating {{ MY }} clusters
 
-A {{ MY }} cluster is one or more database hosts. In multi-host clusters, [semi-synchronous replication](../concepts/replication.md) is configured automatically.
+A {{ MY }} cluster consists of one or more database hosts. In multi-host clusters, [semi-synchronous replication](../concepts/replication.md) is configured automatically.
 
 For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md).
 
@@ -39,7 +44,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
          {% note info %}
 
-         If DB storage is 95% full, the {{ mmy-name }} cluster will switch to read-only mode. Increase the storage size in advance.
+         If the DB storage is 95% full, the {{ mmy-name }} cluster will switch to read-only mode. Increase the storage size in advance.
 
          {% endnote %}
 
@@ -110,7 +115,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       ```bash
       {{ yc-mdb-my }} cluster create \
         --name=<cluster name> \
-        --environment <environment, prestable or production> \
+        --environment <environment: prestable or production> \
         --network-name <network name> \
         --host zone-id=<availability zone>,`
           `subnet-id=<subnet ID>,`
@@ -120,7 +125,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --mysql-version <{{ MY }} version: {{ versions.cli.str }}> \
         --resource-preset <host class> \
         --user name=<username>,password=<user password> \
-        --database name=<database name> \
+        --database name=<DB name> \
         --disk-size <storage size in GB> \
         --disk-type <disk type> \
         --security-group-ids <list of security group IDs>
@@ -186,7 +191,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {
         name                = "<cluster name>"
-        environment         = "<environment, PRESTABLE or PRODUCTION>"
+        environment         = "<environment: PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
         version             = "<{{ MY }} version: {{ versions.tf.str }}>"
         security_group_ids  = [ "<list of security groups>" ]
@@ -207,9 +212,9 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         }
       }
 
-      resource "yandex_mdb_mysql_database" "<database name>" {
+      resource "yandex_mdb_mysql_database" "<DB name>" {
         cluster_id = "<cluster ID>"
-        name       = "<database name>"
+        name       = "<DB name>"
       }
 
       resource "yandex_mdb_mysql_user" "<username>" {
@@ -217,7 +222,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         name       = "<username>"
         password   = "<user password>"
         permission {
-          database_name = "<database name>"
+          database_name = "<DB name>"
           roles         = ["ALL"]
         }
       }
@@ -332,10 +337,10 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    * In the `default` network.
    * In the security group with the ID `{{ security-group }}`.
    * With a single `{{ host-class }}` class host in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
-   * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
-   * With one user, `user1`, with the password `user1user1`.
-   * With one `db1` database, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
-   * With protection against accidental cluster deletion.
+   * Network SSD storage (`{{ disk-type-example }}`): 20 GB
+   * User: `user1`, with the `user1user1` password
+   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
+   * Protection against accidental cluster deletion: Enabled
 
 
    1. Run this command to create a {{ mmy-name }} cluster:
@@ -371,13 +376,13 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
    Create a {{ mmy-name }} cluster and a network for it with test characteristics:
 
-   * Named `my-mysql`.
-   * Versions `{{ versions.tf.latest }}`.
-   * In the `PRESTABLE` environment.
-   * In the cloud with the `{{ tf-cloud-id }}` ID.
-   * In the folder with the `{{ tf-folder-id }}` ID.
-   * In the new `mynet` network.
-   * With one `{{ host-class }}` host in the new `mysubnet` subnet and the `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * Name: `my-mysql`
+   * Version: `{{ versions.tf.latest }}`
+   * Environment: `PRESTABLE`
+   * Cloud ID: `{{ tf-cloud-id }}`
+   * Folder ID: `{{ tf-folder-id }}`
+   * New network: `mynet`
+   * Number of `{{ host-class }}` hosts in the new `mysubnet` subnet in the `{{ region-id }}-a` availability zone: 1. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
 
    
    * In a new security group named `mysql-sg` allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
@@ -465,7 +470,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
    To create a multi-host {{ mmy-name }} cluster, provide as many `--host` parameters as there should be hosts in your cluster.
 
-   Create a {{ mmy-name }} cluster with test characteristics:
+   Create a {{ mmy-name }} cluster with the following test configuration:
 
    
    * Named `my-mysql-3`.
@@ -528,13 +533,13 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
    Create a {{ mmy-name }} cluster and a network for it with test characteristics:
 
-   * Named `my-mysql-3`.
-   * `{{ versions.tf.latest }}` version.
-   * In the `prestable` environment.
-   * In the cloud with the `{{ tf-cloud-id }}` ID.
-   * In the folder with the `{{ tf-folder-id }}` ID.
-   * In the new `mynet` network.
-   * With three public hosts of the `{{ host-class }}` class.
+   * Name: `my-mysql-3`
+   * Version: `{{ versions.tf.latest }}`
+   * Environment: `PRESTABLE`
+   * Cloud ID: `{{ tf-cloud-id }}`
+   * Folder ID: `{{ tf-folder-id }}`
+   * New network: `mynet`
+   * `{{ host-class }}` public hosts: 3.
 
       One host will be added to the new subnets:
       * `mysubnet-a`: `10.5.0.0/24`, the `{{ region-id }}-a` availability zone.

@@ -1,3 +1,8 @@
+---
+title: "Elasticsearch editions"
+description: "Features provided in {{ mes-name }} depend on the {{ ES }} edition."
+---
+
 # Elasticsearch editions
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
@@ -16,12 +21,12 @@ Features provided in {{ mes-name }} depend on the {{ ES }} edition:
 | Data and delivery management | Managing data delivery from Kibana and the [index lifecycle](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-lifecycle-management.html) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Security and encryption | Support for encryption-in-transit, intra-cluster encryption, and role-based access control (RBAC) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Audit | Retrospective tracking for actions with clusters and their data | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Additional visualization tools | Easier viewing and working with information. For example, thanks to data-dependent dynamic link generation and export to PDF | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| Additional visualization tools | Easier viewing and working with information, e.g., data-dependent dynamic link generation and export to PDF | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Advanced monitoring and notifications | Customized Jira, Slack, and email notification settings for monitoring | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Extended support for working with geodata | Aggregation by geo attributes | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Graph analytics | Analyzing relationships between index elements | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
-| Machine learning | ML features: anomaly detection, regression, and classification | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
-| Advanced access control | Integration with third-party authentication and authorization providers (SAML). Granular configuration of data access levels | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| Machine learning | ML features, such as anomaly detection, regression, and classification | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| Advanced access control | Integration with third-party authentication and authorization providers (SAML) and granular configuration of data access levels | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 
 
-You can [upgrade the {{ ES }} edition](../operations/cluster-version-update.md#start-edition-update) after you create a cluster. If you decide to downgrade the edition, please double-check that reduced functionality won't affect your applications.
+You can [upgrade the {{ ES }} edition](../operations/cluster-version-update.md#start-edition-update) after you create a cluster. If you opt to downgrade the edition, make sure to double-check that the reduced functionality will not affect your applications.

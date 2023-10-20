@@ -23,3 +23,7 @@ You can configure the load balancer parameters. For example, to change the maxim
 {% include [throttling](../../_qa/throttling.md) %}
 
 To increase the maximum IOPS and bandwidth values and make throttling less likely, consider switching to a different cluster with larger host storage or a faster disk type. You can transfer data to a new cluster, for example, using [{{ metastore-full-name }}](../concepts/metastore.md).
+
+#### I get the "^M: bad interpreter" error while running an initialization script. How do I fix this? {#syntax-error}
+
+Since the script runtime environment is Linux (Ubuntu), scripts created in Windows may end with an error saying `^M: bad interpreter` due to using the `CR/LF` newline character (in Linux, it is `LF`). To fix the error, save the script file in Linux format. For more information, see [{#T}](../concepts/init-action.md#syntax-errors).

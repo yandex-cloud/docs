@@ -1,6 +1,6 @@
 ---
 title: "Elasticsearch host classes"
-description: "The Elasticsearch host class determines the computing power allocated for each host with the specific role in the cluster. When you change the Elasticsearch host class for a role in the cluster, the characteristics change for all of the hosts with this role that were created earlier in the cluster."
+description: "The Elasticsearch host class determines the computing power allocated for each host with the specific role in the cluster. When you change the Elasticsearch host class for a role in the cluster, the configuration of all hosts with this role that were previously created in the cluster changes accordingly."
 keywords:
   - Elasticsearch host classes
   - Elasticsearch
@@ -10,23 +10,23 @@ keywords:
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-The host class determines the computing power allocated for each host with the specific role in the cluster. When you change the host class for a role in the cluster, the characteristics change for all of the hosts with this role that were created earlier in the cluster. For more information about roles, see [{#T}](./index.md).
+The host class determines the computing power allocated for each host with the specific role in the cluster. When you change the host class for a role in the cluster, the configuration of all hosts with this role that were previously created in the cluster changes accordingly. For more information about roles, see [{#T}](./index.md).
 
 The host class with the [Data node role](./hosts-roles.md) affects the list of available [disk types](./storage.md):
 
 * **s2**, **m2**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
 * **s3**, **m3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
 
-Only network SSD storage (`network-ssd`) is available for hosts with the Master node role.
+For hosts with the Master node role, the only available storage type is network SSD (`network-ssd`).
 
 
-The available storage does not depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage size does not depend on the host class. For storage limitations, see [{#T}](limits.md).
 
 
 ## Available host classes {#available-flavors}
 
 
-Hosts in {{ mes-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these virtual machines on any standard platform supported by {{ compute-name }}. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
+Hosts in {{ mes-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platform supported by {{ compute-name }}. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
 
 The full list of possible host configurations on each platform is provided below.
 

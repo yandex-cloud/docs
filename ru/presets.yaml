@@ -762,17 +762,17 @@ default:
       pro: https://postgrespro.ru/docs
     versions:
       tf:
-        latest: '15'
+        latest: '16'
         latest-1c: 15-1c
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15 или 15-1c
+        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15, 15-1c или 16
       cli:
-        latest: '15'
+        latest: '16'
         latest-1c: 15-1c
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15 или 15-1c
+        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15, 15-1c или 16
       console:
-        latest: '15'
+        latest: '16'
         latest-1c: 15-1c
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15 и 15-1c
+        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15, 15-1c и 16
         str-1c: 11-1c, 12-1c, 13-1c, 14-1c и 15-1c
   rd:
     docs: https://redis.io/docs
@@ -1746,6 +1746,11 @@ default:
         12h|string: "2,0000\_₸"
         24h|string: "3,0000\_₸"
         4h|string: "1,3333\_₸"
+    reserved_storage|month|string: "54,0000\_₸"
+    reserved_throughput:
+      128k|month|string: "240,0000\_₸"
+      1m|month|string: "1\_200,0000\_₸"
+      512k|month|string: "720,0000\_₸"
   sku|KZT|ymq:
     queue:
       fifo:
@@ -2573,6 +2578,11 @@ default:
         12h|string: "0,4000\_₽"
         24h|string: "0,6000\_₽"
         4h|string: "0,2667\_₽"
+    reserved_storage|month|string: "10,8000\_₽"
+    reserved_throughput:
+      128k|month|string: "48,0000\_₽"
+      1m|month|string: "240,0000\_₽"
+      512k|month|string: "144,0000\_₽"
   sku|RUB|ymq:
     queue:
       fifo:
@@ -3369,6 +3379,11 @@ default:
         12h|string: "0,003200\_$"
         24h|string: "0,004800\_$"
         4h|string: "0,002133\_$"
+    reserved_storage|month|string: "0,086400\_$"
+    reserved_throughput:
+      128k|month|string: "0,384000\_$"
+      1m|month|string: "1,920000\_$"
+      512k|month|string: "1,152000\_$"
   sku|USD|ymq:
     queue:
       fifo:
@@ -4964,11 +4979,16 @@ default:
         save: Сохранить
       ui_components_queue-admin-tab-workflows_CopyWorkflowDialog:
         action-copy: Скопировать
+        label-name: Название нового процесса
+        label-queue: Копировать из очереди
+        label-workflow: Копируемый процесс
       ui_components_queue-admin-tab-workflows_IssueTypesListCell:
         remove-issue-type: Удалить тип задачи из очереди
       ui_components_queue-admin-tab-workflows_OrgAdminEntityForm:
         create: Создать
       ui_components_queue-admin-tab-workflows_StatusEdit:
+        action-export-transitions: Скопировать переходы в другой статус
+        action-import-transitions: Вставить переходы из другого статуса
         action-remove: Убрать из процесса
         add-transition: Добавить
         meta-status-title: Разрешить переходы из любого статуса
@@ -4979,6 +4999,8 @@ default:
       ui_components_queue-admin-tab-workflows_StatusTypeSelector:
         status-canceled-name: Отменен
       ui_components_queue-admin-tab-workflows_TransitionEdit:
+        action-export-settings: Скопировать настройки в другой переход
+        action-import-settings: Вставить настройки из другого перехода
         field-from-status: Исходный статус
         field-name-en-title: Название на английском
         field-name-ru-title: Название
@@ -4991,6 +5013,7 @@ default:
         time-spent: Затраченное время
       ui_components_queue-admin-tab-workflows_WorkflowsStateList:
         action-new-process: Создать рабочий процесс
+        default-type-title: Тип задачи по умолчанию
       ui_components_QueueAdminTemplateOptions:
         allow-empty-template: Разрешить создание задач без формы
         always: всегда
@@ -6598,6 +6621,8 @@ default:
         cluster:
           marketplace:
             button_install: Установить
+            button_release-uninstall: Удалить
+            section_releases: Установленные приложения
           switch_marketplace: Marketplace
           switch_workloads: Рабочая нагрузка
         clusters:

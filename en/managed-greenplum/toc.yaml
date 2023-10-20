@@ -51,6 +51,12 @@ items:
             href: operations/extensions/pgcrypto.md
           - name: uuid-cb
             href: operations/extensions/uuid-cb.md
+      - name: Built-in functions
+        items:
+          - name: >-
+              Estimating the number of unique elements using the HyperLogLog
+              algorithm
+            href: operations/embedded-functions/hyperloglog.md
       - name: Logs and monitoring
         items:
           - name: Viewing cluster logs
@@ -71,8 +77,10 @@ items:
         href: tutorials/config-server-for-s3.md
       - name: Migrating databases from {{ GP }} to {{ PG }}
         href: tutorials/greenplum-to-postgresql.md
-      - name: Migrating databases from {{ GP }} to {{ CH }}
+      - name: Migrating a database from {{ GP }} to {{ CH }}
         href: tutorials/greenplum-to-clickhouse.md
+      - name: Exporting {{ GP }} data to cold storage in {{ objstorage-full-name }}
+        href: tutorials/yezzey.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -95,6 +103,8 @@ items:
         href: concepts/tables.md
       - name: Users and roles
         href: concepts/cluster-users.md
+      - name: Command center
+        href: concepts/command-center.md
       - name: Managing connections
         href: concepts/pooling.md
       - name: Maintenance

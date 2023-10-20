@@ -1,3 +1,8 @@
+---
+title: "Managing access to {{ mes-name }}"
+description: "This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+---
+
 # Managing access to {{ mes-name }}
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

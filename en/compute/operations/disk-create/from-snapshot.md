@@ -1,3 +1,8 @@
+---
+title: "Recovering a disk from a snapshot"
+description: "This guide describes how you can recover a disk from a snapshot."
+---
+
 # Recovering a disk from a snapshot
 
 {% note info %}
@@ -16,7 +21,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
    1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
-   1. Enter the disk name.
+   1. Enter the disk name. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 

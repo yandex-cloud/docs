@@ -13,8 +13,8 @@ You can add and remove cluster hosts and manage their settings.
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the name of the cluster you need and select the **Hosts** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
 
 - CLI
 
@@ -54,23 +54,23 @@ You can add and remove cluster hosts and manage their settings.
 
 ## Adding a host {#add}
 
-The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ mpg-full-name }}**.
+The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page and find the **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** section.
 
 {% list tabs %}
 
 - Management console
 
    To add a host to the cluster:
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and go to the **Hosts** tab.
-   1. Click **Add host**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and go to the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
+   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-host }}**.
 
    
    1. Specify the host parameters:
       * Availability zone.
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
       * Replication source (if you use [cascading replication](../concepts/replication.md#replication-manual)).
-      * Select **Public access** if the host must be accessible from outside {{ yandex-cloud }}.
+      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
 
 
 - CLI
@@ -159,7 +159,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -176,7 +176,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 {% note warning %}
 
-If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect.md) to the added host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently at the [Preview stage](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
@@ -190,13 +190,13 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 - Management console
 
    To change the parameters of the cluster host:
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the name of the cluster you need and select the **Hosts** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Edit**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.common.edit }}**.
    1. Set new settings for the host:
       1. Select the replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual).
-      1. Enable **Public access** if a host must be accessible from outside {{ yandex-cloud }}.
-   1. Click **Save**.
+      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if a host must be accessible from outside {{ yandex-cloud }}.
+   1. Click **{{ ui-key.yacloud.postgresql.hosts.dialog.button_choose }}**.
 
 - CLI
 
@@ -241,7 +241,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -264,7 +264,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
 {% note warning %}
 
-If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect.md) to the changed host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently at the [Preview stage](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
@@ -280,9 +280,9 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
 - Management console
 
    To remove a host from a cluster:
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the name of the cluster you need and select the **Hosts** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Delete**.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
 - CLI
 

@@ -41,15 +41,29 @@ For more information, see [{#T}](../concepts/index.md).
        * Select the availability zone and subnet for the cluster. To create a new subnet, click **{{ ui-key.yacloud.common.label_create-new_female }}** next to the availability zone.
        * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to allow accessing the cluster from the internet.
 
+   1. If you are not going to export {{ GP }} data to cold storage in {{ objstorage-full-name }}, disable the associated option under **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** (enabled by default).
+
+      This option activates the [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/) from {{ yandex-cloud }}. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+
+      You cannot disable this option after you save your cluster settings.
+
+      
+      {% note info %}
+
+      This functionality is at the [Preview](../../overview/concepts/launch-stages.md) stage and is free of charge.
+
+      {% endnote %}
+
+
    1. Specify the admin user settings. This special user is required for managing the cluster and cannot be deleted. For more information, see [{#T}](../concepts/cluster-users.md).
 
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** may contain Latin letters, numbers, hyphens, and underscores, and may not start with a hyphen. It must be from 1 to 32 characters long.
 
-            {% note info %}
+         {% note info %}
 
-            Such names as `admin`, `gpadmin`, `mdb_admin`, `mdb_replication`, `monitor`, `none`, `postgres`, `public`, `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
+         Such names as `admin`, `gpadmin`, `mdb_admin`, `mdb_replication`, `monitor`, `none`, `postgres`, `public`, `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
 
-            {% endnote %}
+         {% endnote %}
 
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be between 8 and 128 characters long.
 
@@ -74,10 +88,10 @@ For more information, see [{#T}](../concepts/index.md).
 
    1. Specify the master host parameters on the **{{ ui-key.yacloud.greenplum.section_resource-master }}** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#master).
 
-      * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster's master hosts will be deployed.
+      * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster master hosts will be deployed.
 
       * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
-         * Select [disk type](../concepts/storage.md).
+         * Select the [disk type](../concepts/storage.md).
 
             
             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
@@ -168,9 +182,9 @@ For more information, see [{#T}](../concepts/index.md).
             * `local-ssd`
             * `network-ssd-nonreplicated`
 
-      * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
+      * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md)
       * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It is required if the selected availability zone includes 2 or more subnets.
-      * `--assign-public-ip`: Flag to specify if the hosts require [public access](../concepts/network.md#public-access-to-a-host).
+      * `assign-public-ip`: Flag indicating that [public access](../concepts/network.md#public-access-to-a-host) to hosts is required.
       * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
       * `--deletion-protection`: Cluster deletion protection.
 
@@ -355,12 +369,12 @@ For more information, see [{#T}](../concepts/index.md).
    * With master and segment hosts:
 
       * `S2.medium` class.
-      * With 100 GB of local SSD storage (`local-ssd`).
+      * With a local SSD storage (`local-ssd`) of 100 GB.
 
-   * In the `{{ region-id }}-a` availability zone, in the `{{ subnet-id }}` subnet.
-   * With public access to hosts.
-   * In the security group `{{ security-group }}`.
-   * With protection against accidental cluster deletion.
+   * Availability zone: `{{ region-id }}-a`; subnet: `{{ subnet-id }}`
+   * Public access to hosts: Allowed
+   * Security group: `{{ security-group }}`
+   * Protection against accidental cluster deletion: Enabled
 
 
    Run the following command:

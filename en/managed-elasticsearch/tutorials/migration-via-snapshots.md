@@ -1,3 +1,8 @@
+---
+title: "Migrating to {{ mes-name }} using snapshots"
+description: "{{ mes-name }} clusters support taking snapshots. This allows you to migrate data from another {{ ES }} cluster to it. For more information about snapshots, see the {{ ES }} documentation."
+---
+
 # Migrating to {{ mes-name }} using snapshots
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
@@ -54,8 +59,8 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [mes-migration.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/mes-migration.tf) configuration file to the same working directory. The file describes:
 
-      * Network.
-      * Subnet.
+      * Network
+      * Subnet
       * Security group and rules required to access the {{ mes-name }} target cluster.
       * `sa-mes-cluster` service account required to create a {{ mes-name }} cluster.
       * `sa-bucket` service account to handle the {{ objstorage-name }} bucket.
@@ -75,7 +80,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -289,9 +294,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

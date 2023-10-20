@@ -80,6 +80,36 @@ To use an encrypted connection, get your SSL certificates:
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
+## {{ CH }} host FQDN {#fqdn}
+
+To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+
+* [Request a list of cluster hosts](../operations/hosts.md#list-hosts).
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**.
+* Look up the FQDN in the management console:
+
+   1. Go to the cluster page.
+   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+
+Cluster hosts also use [special FQDNs](#auto).
+
+### Selecting an available host automatically {#auto}
+
+If you do not want to manually connect to another host in case the current one becomes unavailable, use a special FQDN. It can be in one of the following formats:
+
+* `c-<cluster ID>.rw.{{ dns-zone }}` : To connect to an available cluster host.
+
+* `<shard name>.c-<cluster ID>.rw.{{ dns-zone }}` : To connect to an available [shard](../concepts/sharding.md) host.
+
+If the host an FQDN points to becomes unavailable, there may be a slight delay before the FQDN starts pointing to another available host.
+
+{% note warning %}
+
+If, under [cluster maintenance](../concepts/maintenance.md#maintenance-order), a special FQDN points to a host with no public access enabled, the cluster cannot be connected to from the internet. To avoid this, [enable public access](hosts.md#update) for all cluster hosts.
+
+{% endnote %}
+
 ## Connecting to cluster hosts from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
@@ -96,7 +126,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Select **File** → **New** → **Data Source** → **{{ CH }}**.
       1. On the **General** tab:
          1. Specify the connection parameters:
-            * **Host**: Any {{ CH }} host FQDN or a [special FQDN](#auto).
+            * **Host**: [Any {{ CH }} host FQDN](#fqdn) or a [special FQDN](#auto).
             * **Port**: `{{ port-mch-http }}`.
             * **User**, **Password**: DB user's name and password.
             * **Database**: Name of the DB to connect to.
@@ -104,7 +134,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. On the **SSH/SSL** tab:
          1. Enable the **Use SSL** setting.
          1. Specify the path to the directory that contains the file with the downloaded [SSL certificate for the connection](#get-ssl-cert).
-   1. Click **Test Connection** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **OK** to save the data source.
 
 - DBeaver
@@ -114,7 +144,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Select **{{ CH }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
-         * **Host**: FQDN of any {{ CH }} host or a [special FQDN](#auto).
+         * **Host**: [FQDN of any {{ CH }} host](#fqdn) or a [special FQDN](#auto).
          * **Port**: `{{ port-mch-http }}`.
          * **DB/Schema**: Name of the DB to connect to.
          * Under **Authentication**, specify the DB user's name and password.
@@ -123,44 +153,68 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          1. Specify the [SSL connection](#get-ssl-cert) parameters in the driver property list:
             * `ssl:true`.
             * `sslrootcert:<path to the saved SSL certificate file>`.
-   1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Test connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
 
-## Connecting from a Docker container {#connection-docker}
+## Before you connect from a Docker container {#connection-docker}
 
-You can only use Docker containers to connect to public cluster hosts [with your SSL certificates](#get-ssl-cert).
+To connect to a {{ mch-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
-To connect to a {{ mch-name }} cluster, add the following lines to the Dockerfile:
+{% list tabs %}
 
 
-```bash
-# Connect the DEB repository.
-RUN apt-get update && \
-    apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
-    echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
-    /etc/apt/sources.list.d/clickhouse.list && \
-    # Install dependencies.
-    apt-get update && \
-    apt-get install wget clickhouse-client --yes && \
-    # Upload a configuration file for clickhouse-client.
-    mkdir -p ~/.clickhouse-client && \
-    wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
-         --output-document ~/.clickhouse-client/config.xml && \
-    # Get SSL certificates.
-    mkdir --parents {{ crt-local-dir }} && \
-    wget "{{ crt-web-path-root }}" \
-         --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
-    wget "{{ crt-web-path-int }}" \
-         --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
-    chmod 655 \
-         {{ crt-local-dir }}{{ crt-local-file-root }} \
-         {{ crt-local-dir }}{{ crt-local-file-int }} && \
-    update-ca-certificates
-```
+- Connecting without using SSL
 
+   ```bash
+   # Connect the DEB repository.
+   RUN apt-get update && \
+       apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
+       apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
+       echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
+       /etc/apt/sources.list.d/clickhouse.list && \
+       # Install dependencies.
+       apt-get update && \
+       apt-get install wget clickhouse-client --yes && \
+       # Upload a configuration file for clickhouse-client.
+       mkdir --parents ~/.clickhouse-client && \
+       wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
+            --output-document ~/.clickhouse-client/config.xml
+   ```
+
+
+- Connecting via SSL
+
+
+   ```bash
+   # Connect the DEB repository.
+   RUN apt-get update && \
+       apt-get install wget --yes apt-transport-https ca-certificates dirmngr && \
+       apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8919F6BD2B48D754 && \
+       echo "deb https://packages.{{ ch-domain }}/deb stable main" | tee \
+       /etc/apt/sources.list.d/clickhouse.list && \
+       # Install dependencies.
+       apt-get update && \
+       apt-get install wget clickhouse-client --yes && \
+       # Upload a configuration file for clickhouse-client.
+       mkdir --parents ~/.clickhouse-client && \
+       wget "https://{{ s3-storage-host }}/doc-files/clickhouse-client.conf.example" \
+            --output-document ~/.clickhouse-client/config.xml && \
+       # Get SSL certificates.
+       mkdir --parents {{ crt-local-dir }} && \
+       wget "{{ crt-web-path-root }}" \
+            --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
+       wget "{{ crt-web-path-int }}" \
+            --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
+       chmod 655 \
+            {{ crt-local-dir }}{{ crt-local-file-root }} \
+            {{ crt-local-dir }}{{ crt-local-file-int }} && \
+       update-ca-certificates
+   ```
+
+
+{% endlist %}
 
 
 ## Connecting to a cluster from your browser {#browser-connection}
@@ -193,7 +247,7 @@ To connect to a cluster host from the built-in SQL editor, specify the following
 https://<FQDN of any {{ CH }} host>:8443/play
 ```
 
-You can only connect to publicly accessible cluster hosts.
+You can only connect to publicly accessible cluster hosts. To learn how to get the FQDN of a host, see [this guide](#fqdn).
 
 To connect to a cluster by [selecting an available host automatically](#auto), use the following URL:
 
@@ -220,19 +274,3 @@ Connecting without any SSL certificates is only supported for hosts that are not
 If the connection to the cluster and the test query are successful, the {{ CH }} version is output.
 
 {% include [mch-connection-strings](../../_includes/mdb/mch-conn-strings.md) %}
-
-## Selecting an available host automatically {#auto}
-
-If you don't want to manually connect to another host in case the current one becomes unavailable, use an address like this:
-
-* `c-<cluster ID>.rw.{{ dns-zone }}` to connect to an available host in a cluster.
-
-* `<shard name>.c-<cluster ID>.rw.{{ dns-zone }}` to connect to an available host in a [shard](../concepts/sharding.md).
-
-If the host that this address points to becomes unavailable, there may be a slight delay before the address starts pointing to another available host.
-
-{% note warning %}
-
-If, under [cluster maintenance](../concepts/maintenance.md#maintenance-order), a special FQDN points to a host with no public access enabled, the cluster can't be connected to from the internet. To avoid this, [enable public access](hosts.md#update) for all cluster hosts.
-
-{% endnote %}

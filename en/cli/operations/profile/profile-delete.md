@@ -1,8 +1,13 @@
+---
+title: "How to delete a profile"
+description: "This guide describes how you can delete a profile."
+---
+
 # Deleting a profile
 
 {% note warning %}
 
-You can't delete a profile if:
+You cannot delete a profile if:
 - It is an active profile.
 - It is the only profile.
 

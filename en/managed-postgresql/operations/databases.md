@@ -10,8 +10,8 @@ You can add and remove databases, as well as view information about them.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the **Databases** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
 
 
 - CLI
@@ -45,11 +45,12 @@ You can add and remove databases, as well as view information about them.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mpg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Click the cluster name.
    1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
-   1. Select the **Databases** tab.
-   1. Click ![image](../../_assets/plus-sign.svg) **Add**.
+   1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
+   1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
+
    1. Specify the database settings.
 
       * Name.
@@ -66,7 +67,7 @@ You can add and remove databases, as well as view information about them.
 
          {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
-   1. Click **Add**.
+   1. Click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
 
 - CLI
 
@@ -134,7 +135,7 @@ You can add and remove databases, as well as view information about them.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -149,7 +150,9 @@ You can add and remove databases, as well as view information about them.
    To create a database in a cluster, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/database_service.md#Create) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The new database settings in the `databaseSpec` parameter.
+   * New database settings in the `databaseSpec` parameter.
+
+      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
@@ -161,9 +164,9 @@ You can add and remove databases, as well as view information about them.
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mpg-name }}**.
-   1. Click on the name of the cluster you need and select the **Databases** tab.
-   1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired DB and select **Delete**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
+   1. Click ![image](../../_assets/options.svg) in the required DB row, select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**, and confirm the deletion.
 
 - CLI
 
@@ -194,7 +197,7 @@ You can add and remove databases, as well as view information about them.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

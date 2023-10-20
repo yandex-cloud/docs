@@ -1,3 +1,8 @@
+---
+title: "How to manage {{ ES }} users"
+description: "This guide describes how you can manage {{ ES }} users."
+---
+
 # Managing {{ ES }} users
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}

@@ -99,6 +99,8 @@ items:
             href: operations/vm-connect/rdp.md
           - name: Connecting to a VM via PowerShell
             href: operations/vm-connect/powershell.md
+          - name: Connecting to a VM through OS Login
+            href: operations/vm-connect/os-login.md
           - name: Working with {{ yandex-cloud }} from inside a VM
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
@@ -137,6 +139,8 @@ items:
             href: operations/disk-control/disk-change-folder.md
           - name: Encrypting a disk
             href: operations/disk-control/disk-encrypt.md
+          - name: Moving a disk to a different availability zone
+            href: operations/disk-control/disk-change-zone.md
           - name: Deleting a disk
             href: operations/disk-control/delete.md
       - name: Disk snapshots
@@ -181,6 +185,8 @@ items:
             href: operations/image-control/get-list.md
           - name: Deleting a disk image
             href: operations/image-control/delete.md
+          - name: Importing an image from another cloud or folder
+            href: operations/image-control/import.md
       - name: File storage
         items:
           - name: Creating file storage
@@ -381,7 +387,7 @@ items:
                 href: concepts/instance-groups/deploy/deploy.md
               - name: Rules for updating virtual machines
                 href: concepts/instance-groups/deploy/instance.md
-              - name: Updating secondary disks in instance template
+              - name: Updating secondary disks in an instance template
                 href: concepts/instance-groups/deploy/secondary-disk.md
           - name: Integration with network and L7 load balancers
             href: concepts/instance-groups/balancers.md

@@ -33,11 +33,11 @@
 ### Типы статусов {#status-types}
 
 В рамках рабочего процесса для статуса можно определить тип. Все статусы одного типа окрашиваются в определенный цвет:
-* ![](../../_assets/tracker/changelogs/status-1-open.svg) — задачу создали и еще не взяли в работу.
-* ![](../../_assets/tracker/changelogs/status-2-in-progress.svg) — задачу взяли в работу.
-* ![](../../_assets/tracker/changelogs/status-3-needs-info.svg) — работу над задачей приостановили.
-* ![](../../_assets/tracker/changelogs/status-4-solved.svg) — задачу выполнили и закрыли.
-* ![](../../_assets/tracker/changelogs/status-5-closed.svg) — задачу не выполнили и закрыли.
+* ![](../../_assets/tracker/svg/initial.svg) — задачу создали и еще не взяли в работу.
+* ![](../../_assets/tracker/svg/progress.svg) — задачу взяли в работу.
+* ![](../../_assets/tracker/svg/pause.svg) — работу над задачей приостановили.
+* ![](../../_assets/tracker/svg/end.svg) — задачу выполнили и закрыли.
+* ![](../../_assets/tracker/svg/cancel.svg) — задачу не выполнили и закрыли.
 
 Задачи со статусами типа <q>Завершен</q> и <q>Отменен</q> считаются закрытыми: у таких задач в очереди ключ отображается зачеркнутым.
 
@@ -80,6 +80,14 @@
    * [экран перехода](./workflow-action-edit.md#screen) — всплывающее окно, в котором пользователь обязательно должен будет заполнить поля, чтобы изменить параметры задачи.
 
 Для удобства работы есть специальный тип переходов — **{{  ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.meta-status-title }}**. Например, если требуется добавить в рабочий процесс статус, который достижим из любого другого статуса, вам не придется вручную настраивать эти переходы для каждого статуса на схеме. Достаточно включить опцию **{{  ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.meta-status-title }}** — на схеме для этого статуса будет изображен метапереход. 
+
+### Копирование переходов {#copy-transitions}
+
+Вы можете использовать переходы одного статуса для других статусов. Для этого:
+
+1. В настройках статуса нажмите ![](../../_assets/tracker/svg/actions.svg).
+1. Нажмите ![](../../_assets/tracker/svg/copy-transition.svg) **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.action-export-transitions }}** или ![](../../_assets/tracker/svg/paste-transition.svg) **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.action-import-transitions }}**.
+1. Выберите из списка статус для вставки или копирования переходов.
 
 ## Создать статус {#create-status}
 

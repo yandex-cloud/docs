@@ -51,3 +51,36 @@ If the initialization script execution errors occur on an existing cluster (such
    ```
 
 1. Check the initialization script execution results in the `/home/dataproc-agent/dataproc-init-acts/states.json` file on the master host.
+
+### Syntax errors {#syntax-errors}
+
+To check a script for syntax errors, download the script file manually and run it:
+
+1. Connect to the cluster host.
+1. Download the script file from the storage via the link used when creating the cluster, e.g.:
+
+   ```bash
+   wget <HTTP link to script file>
+   ```
+
+1. Run the script.
+
+If any error occurs during the script run, you will see an error message in the console.
+
+For instance, an error may occur because of incompatible formats. Since the script runtime environment is Linux (Ubuntu), scripts created in Windows may end with an error saying `^M: bad interpreter` due to using the `CR/LF` newline character (in Linux, it is `LF`). To fix the error, run the following command:
+
+{% list tabs %}
+
+- Bash
+
+   ```bash
+   sed -i -e 's/\r$//' <script_file_name>
+   ```
+
+- PowerShell
+
+   ```powershell
+   $file = "<script_file_name>>"; $text = [IO.File]::ReadAllText($file) -replace "`r`n", "`n"; [IO.File]::WriteAllText($file, $text)
+   ```
+
+{% endlist %}

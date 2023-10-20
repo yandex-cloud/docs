@@ -13,7 +13,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
 - Management console
 
-   Go to the folder page and select **{{ mpg-name }}**.
+   Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
 - CLI
 
@@ -48,8 +48,8 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the name of the cluster you need.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name.
 
 - CLI
 
@@ -63,7 +63,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
    {{ yc-mdb-pg }} cluster get <cluster name or ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 
@@ -81,9 +81,9 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Click the name of the cluster you need.
-   1. Go to the **Operations** tab.
+   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+   1. Click the cluster name.
+   1. Go to the **{{ ui-key.yacloud.postgresql.cluster.switch_operations }}** tab.
 
 - CLI
 
@@ -97,7 +97,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
    {{ yc-mdb-pg }} cluster list-operations <cluster name or ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 

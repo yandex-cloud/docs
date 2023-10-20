@@ -1,6 +1,6 @@
 ---
 title: "Microsoft licenses in {{ yandex-cloud }}"
-description: "In this tutorial, you'll learn how to manage Microsoft licenses in {{ yandex-cloud }}."
+description: "In this tutorial, you will learn how to manage Microsoft licenses in {{ yandex-cloud }}."
 ---
 
 # Microsoft licenses in {{ yandex-cloud }}
@@ -10,7 +10,7 @@ description: "In this tutorial, you'll learn how to manage Microsoft licenses in
 
 ## Using your own licenses in {{ yandex-cloud }} {#byol}
 
-If you already have corporate Microsoft licenses under Microsoft Software Assurance ([SA](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3)) or Microsoft Enterprise Agreement ([EA](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2)) subscription licenses, you can use them in {{ yandex-cloud }}.In this case, you'll be charged under the [BYOL](pricing.md) plan.
+If you already have corporate Microsoft licenses under Microsoft Software Assurance ([SA](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3)) or Microsoft Enterprise Agreement ([EA](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2)), you can use them in {{ yandex-cloud }}. In this case, you will be charged as per the [BYOL](pricing.md) plan.
 
 
 You can use your license in a shared infrastructure according to the [License Mobility](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) through Software Assurance program rules and on dedicated hardware under the Microsoft Product Terms.

@@ -9,7 +9,7 @@ When creating a cluster, you can:
 
 * Request public access to connect to the cluster from outside {{ yandex-cloud }}.
 
-You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
+You can create a cluster without specifying any subnets for the hosts if the availability zone selected for each host contains exactly one subnet of the cluster network.
 
 
 ## Host name and FQDN {#hostname}

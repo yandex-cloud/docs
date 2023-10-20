@@ -18,7 +18,7 @@
 
    Enables [introspection functions]({{ ch.docs }}/sql-reference/functions/introspection/) for profiling queries.
 
-   Possible values:
+   The possible values include:
 
    * `0`: Introspection functions are disabled.
    * `1`: Introspection functions are enabled.
@@ -31,7 +31,7 @@
 
    Allows using the [LowCardinality]({{ ch.docs }}/sql-reference/data-types/lowcardinality/) data type along with types of data with a fixed size of up to 8B.
 
-   Possible values:
+   The possible values include:
 
    * `0`: Limited use of `LowCardinality`.
    * `1`: Unlimited use of `LowCardinality`.
@@ -54,7 +54,7 @@
 
    If enabled, data is grouped into batches before inserting it in a table. This allows making small and frequent inserts in {{ CH }} (up to 15000 queries per second) without using intermediate tables.
 
-   Possible values:
+   The possible values include:
 
    * `0`: Synchronous inserts are made, one query after another.
    * `1`: Multiple asynchronous inserts are enabled.
@@ -103,16 +103,6 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#cancel-http-readonly-queries-on-client-close).
 
-* **Compile**{#setting-compile} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
-
-   This setting is deprecated.
-
-   It defines whether to compile queries when running them. With compilation enabled, structurally identical queries may run faster by using their compiled parts.
-
-   Use this setting in combination with the [Min count to compile](#setting-min-count-to-compile) setting.
-
-   Compilation is disabled by default.
-
 * **Compile expressions**{#setting-compile-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Defines whether to compile expressions when running queries. With compilation enabled, queries that use identical expressions may run faster by using compiled expressions.
@@ -137,16 +127,18 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#connect-timeout-with-failover-ms).
 
-* **Count distinct implementation**{#setting-count-distinct-implementation} {{ tag-all }}
+* **Count distinct implementation**{#setting-count-distinct-implementation} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
    Determines the `uniq*` function to be used when performing a `COUNT(DISTINCT …)`:
-   * [uniq]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq)
-   * [uniqCombined]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined)
-   * [uniqCombined64]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64)
-   * [uniqHLL12]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12)
-   * [uniqExact]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact)
+   * [uniq]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniq#agg_function-uniq)
+   * [uniqCombined]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqcombined#agg_function-uniqcombined)
+   * [uniqCombined64]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqcombined64#agg_function-uniqcombined64)
+   * [uniqHLL12]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqhll12#agg_function-uniqhll12)
+   * [uniqExact]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqexact#agg_function-uniqexact)
 
    By default, the `uniqExact` function is used.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#count_distinct_implementation).
 
 * **Date time input format**{#setting-date-time-input-format} {{ tag-con }} {{ tag-sql }}
 
@@ -197,7 +189,7 @@
 
 * **Distributed ddl task timeout**{#setting-distributed-ddl-task-timeout} {{ tag-all }}
 
-   Sets the waiting time for responses to DDL queries from all cluster hosts. If a DDL query is not run on all hosts, the response will contain the timeout error and the query will be run in asynchronous mode. Possible values:
+   Sets the waiting time for responses to DDL queries from all cluster hosts. If a DDL query is not run on all hosts, the response will contain the timeout error and the query will be run in asynchronous mode. The possible values include:
    * Positive integer: Timeout is equal to this integer (in seconds).
    * `0`: Asynchronous mode.
    * Negative number: Infinite timeout.
@@ -251,7 +243,7 @@
 
    Sets data format for [nested columns]({{ ch.docs }}/sql-reference/data-types/nested-data-structures/nested).
 
-   Possible values:
+   The possible values include:
 
    * `0`: Nested column is converted into an array of tuples.
    * `1`: Nested column is converted into individual arrays.
@@ -313,37 +305,37 @@
 
    Defines the number of keys at which two-level aggregation begins.
 
-   Minimum value is `0` (not set). Default is `100000`.
+   The minimum value is `0` (not set), while the default one is `100000`.
 
 * **Group by two level threshold bytes**{#setting-group-by-two-level-threshold-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Defines the number of bytes in the aggregated output at which two-level aggregation begins.
 
-   Minimum value is `0` (not set). Default is `50000000`.
+   The minimum value is `0` (not set)< while the default one is `50000000`.
 
 * **HTTP connection timeout**{#setting-http-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Sets the HTTP connection timeout in milliseconds.
 
-   Minimum value is `1`. Default is `1000` (one second).
+   The minimum value is `1`, while the default one is `1000` (one second).
 
 * **HTTP headers progress interval**{#setting-http-headers progress interval} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Sets the minimum interval between progress notifications with the `X-ClickHouse-Progress` HTTP header, in milliseconds.
 
-   Minimum value is `1`. Default is `100`.
+   The minimum value is `1`, while the default one is `100`.
 
 * **HTTP receive timeout**{#setting-http-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Sets the HTTP receive timeout (in milliseconds).
 
-   Minimum value is `1`. Default is `1800000` (30 minutes).
+   The minimum value is `1`, while the default one is `1800000` (30 minutes).
 
 * **HTTP send timeout**{#setting-http-send-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Sets the HTTP send timeout (in milliseconds).
 
-   Minimum value is `1`. Default is `1800000` (30 minutes).
+   The minimum value is `1`, while the default one is `1800000` (30 minutes).
 
 * **Input format defaults for omitted fields**{#setting-input-format-defaults-for-omitted-fields} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -353,6 +345,14 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
 
+* **Input format import nested json**{#setting-input-format-import-nested-json} {{ tag-con }}
+
+   Determines whether to insert JSON data with nested objects.
+
+   By default, such data inserts are disabled.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-input_format_import_nested_json).
+
 * **Input format null as default**{#setting-input-format-null-as-default} {{ tag-con }} {{ tag-sql }}
 
    Defines if `NULL` cells should be filled in with the default values if the cell data type does not allow storing `NULL`.
@@ -360,6 +360,14 @@
    Enabled by default (`NULL` cells are filled in with the defaults).
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-input-format-null-as-default).
+
+* **Input format parallel parsing**{#setting-input-format-parallel-parsing} {{ tag-con }}
+
+   Determines whether to split incoming data into parts and parse each of them concurrently while preserving the original sequence. Only supported for [TSV](https://clickhouse.com/docs/en/interfaces/formats#tabseparated), [TKSV](https://clickhouse.com/docs/en/interfaces/formats#tskv), [CSV](https://clickhouse.com/docs/en/interfaces/formats#csv), and [JSONEachRow](https://clickhouse.com/docs/en/interfaces/formats#jsoneachrow) formats.
+
+   By default, such splitting of incoming data is enabled.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#input-format-parallel-parsing).
 
 * **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -381,11 +389,19 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-input-format-with-names-use-header).
 
+* **Insert keeper max retries**{#setting-insert-keeper-max-retries} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   The maximum number of insert retries for {{ CK }} (or {{ ZK }}) queries in replicated [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables.
+
+   The minimum value is `0` (no retries). The default value is `20`.
+
+   For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/settings#insert_keeper_max_retries).
+
 * **Insert null as default**{#setting-insert-null-as-default} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
    Enables inserts of [default values]({{ ch.docs }}/sql-reference/statements/create/table/#create-default-values) instead of [NULL]({{ ch.docs }}/sql-reference/statements/create/table/#null-modifiers) in columns that do not allow `NULL`.
 
-   Possible values:
+   The possible values include:
 
    * `0`: Inserting `NULL` in a column that does not allow `NULL` will throw an exception.
    * `1`: The default column value is inserted instead of `NULL`.
@@ -418,22 +434,6 @@
 
    The minimum value is `1000` (1 second). The default is `60000` (1 minute).
 
-* **Input format import nested json**{#setting-input-format-import-nested-json} {{ tag-con }}
-
-   Determines whether to insert JSON data with nested objects.
-
-   By default, such data inserts are disabled.
-
-   For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/ru/operations/settings/settings/#settings-input_format_import_nested_json).
-
-* **Input format parallel parsing**{#setting-input-format-parallel-parsing} {{ tag-con }}
-
-   Determines whether to split incoming data into parts and parse each of them concurrently while preserving the original sequence. Only supported for [TSV](https://clickhouse.com/docs/en/interfaces/formats#tabseparated), [TKSV](https://clickhouse.com/docs/en/interfaces/formats#tskv), [CSV](https://clickhouse.com/docs/en/interfaces/formats#csv), and [JSONEachRow](https://clickhouse.com/docs/en/interfaces/formats#jsoneachrow) formats.
-
-   By default, such splitting of incoming data is enabled.
-
-   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#input-format-parallel-parsing).
-
 * **Join algorithm**{#setting-join-algorithm} {{ tag-con }} {{ tag-sql }}
 
    Defines the `JOIN` algorithm:
@@ -457,7 +457,7 @@
    * `max_bytes_in_join`
    * `max_rows_in_join`
 
-   Possible values:
+   The possible values include:
    * `throw`: {{ CH }} throws an exception and breaks the operation.
    * `break`: {{ CH }} breaks the operation without throwing an exception.
 
@@ -493,7 +493,7 @@
 
    Determines how to read data from the local file system.
 
-   Possible values:
+   The possible values include:
 
    * `nmap`
    * `pread`
@@ -540,7 +540,7 @@
 
    Data in {{ CH }} is processed by blocks (a block is a set of column parts). This parameter sets the recommended block size (number of rows) that will be loaded when processing tables. Processing each block entails overhead, so too small a setting can slow processing down.
 
-   Minimum value is `1`. Default is `65536`.
+   The minimum value is `1`, while the default one is `65536`.
 
 * **Max bytes before external group by**{#setting-max-bytes-before-external-group-by} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -682,6 +682,14 @@
 
    The minimum and default value is `0` (no limitation is set).
 
+* **Max parser depth**{#setting-max-parser-depth} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   The maximum recursion depth in the recursive descent parser. It allows you to control the stack size.
+
+   The minimum value is `0` (unlimited), while the default one is `1000`.
+
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings#max_parser_depth).
+
 * **Max partitions per insert block**{#setting-partitions-per-insert-block} {{ tag-con }} {{ tag-sql }}
 
    Limits the maximum number of partitions per insert block.
@@ -694,7 +702,7 @@
 
    Limits the size of the largest part of a query (in bytes) that can be transferred to RAM for parsing using the SQL parser.
 
-   Minimum value is `1`. Default is `262144`.
+   The minimum value is `1`, while the default one is `262144`.
 
 * **Max read buffer size**{#setting-max-read-buffer-size} {{ tag-con }}
 
@@ -706,7 +714,7 @@
 
    Maximum replica delay (in milliseconds). If replica delay is greater than this setting, the replica is no longer used.
 
-   Minimum value is `1000` (1 second). Default is `300000` (5 minutes).
+   The minimum value is `1000` (1 second), the default one is `300000` (5 minutes).
 
    See also the [Fallback to stale replicas for distributed queries](#setting-fallback-to-stale-replicas-for-distributed-queries) setting.
 
@@ -772,6 +780,22 @@
 
    The minimum and default value is `0` (no limitation is set).
 
+* **Max temporary data on disk size for query**{#setting-max-temporary-data-on-disk-size-for-query} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   The maximum amount of data (in bytes) consumed by temporary files on the disk for all concurrently running queries.
+
+   The minimum value is `0` (unlimited).
+
+   For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query).
+
+* **Max temporary data on disk size for user**{#setting-max-temporary-data-on-disk-size-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   The maximum amount of data (in bytes) consumed by temporary files on the disk for all concurrently running user queries.
+
+   The minimum value is `0` (unlimited).
+
+   For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user).
+
 * **Max temporary non const columns**{#setting-max-temporary-non-const-columns} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    The maximum number of temporary columns concurrently stored in RAM when executing a query (excluding permanent columns).
@@ -786,6 +810,22 @@
 
    For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-max_threads).
 
+* **Memory overcommit ratio denominator**{#setting-memory-overcommit-ratio-denominator} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   [Memory overcommit](https://clickhouse.com/docs/en/operations/settings/memory-overcommit) limit (in GB) when the hard memory usage limit is reached at the user level.
+
+   The minimum value is `0` (unlimited). The default value is `1`.
+
+   For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator).
+
+* **Memory overcommit ratio denominator for user**{#setting-memory-overcommit-ratio-denominator-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   [Memory overcommit](https://clickhouse.com/docs/en/operations/settings/memory-overcommit) limit (in GB) when the hard memory usage limit is reached globally.
+
+   The minimum value is `0` (unlimited). The default value is `1`.
+
+   For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator_for_user).
+
 * **Memory profiler sample probability**{#setting-memory-profiler-sample-probability} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
    The system will log information about specific memory allocation and deallocation to the `system.trace_log` file of the `MemorySample` tracing type with the specified probability. The logging probability does not depend on the size of the allocated or released memory.
@@ -797,6 +837,14 @@
    Memory profiler step in bytes. If, at the next query execution step, memory usage increases by the number of bytes specified in this setting, the profiler saves the allocated stack trace. A value less than several MB slows down query processing.
 
    The default value is `4194304` (4 MB). If `0`, the memory profiler is disabled.
+
+* **Memory usage overcommit max wait microseconds**{#setting-memory-usage-overcommit-max-wait-microseconds} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Timeout (in microseconds) before releasing memory in the event of user-level [memory overcommit](https://clickhouse.com/docs/en/operations/settings/memory-overcommit).
+
+   The default value is `5000000` (5 seconds).
+
+   For more information, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds).
 
 * **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -951,6 +999,17 @@
 
    The default value is `300000` (5 minutes).
 
+* **Remote filesystem read method**{#setting-remote-filesystem-read-method} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+   Determines how to read data from a remote file system.
+
+   The possible values include:
+
+   * `read`
+   * `threadpool`
+
+   The default value is `threadpool`.
+
 * **Replication alter partitions sync**{#setting-replication-alter-partitions-sync} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Sets wait mode for asynchronous actions in `ALTER ... ATTACH DETACH DROP` queries on replicated tables:
@@ -1056,7 +1115,7 @@
 
    Enables waiting for [asynchronous insert](#setting-async-insert) handling.
 
-   Possible values:
+   The possible values include:
 
    * `0`: The server returns `OK` even if a data insert is not completed yet.
    * `1`: The server returns `OK` only after data is inserted.

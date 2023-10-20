@@ -1,3 +1,8 @@
+---
+title: "How to update {{ ES }} versions and editions"
+description: "This guide describes how you can update {{ ES }} versions and editions."
+---
+
 # Updating the {{ ES }} version and edition
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
@@ -88,7 +93,7 @@ Make sure this does not affect your applications:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -176,7 +181,7 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

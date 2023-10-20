@@ -1,4 +1,4 @@
-# Network in {{ mos-name }}
+# Networking in {{ mos-name }}
 
 
 When creating a cluster, you can:

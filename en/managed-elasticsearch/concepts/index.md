@@ -1,5 +1,5 @@
 ---
-title: "Relationships between {{ mes-full-name }} resources"
+title: "Resource relationships in {{ mes-full-name }}"
 description: "{{ ES }} is a specialized distributed document storage system. When a document is added to {{ ES }}, it gets added to an index. Data from the indexed document becomes available for search and analysis. {{ mes-full-name }} helps you deploy and maintain {{ ES }} server clusters in the {{ yandex-cloud }} infrastructure."
 ---
 
@@ -19,7 +19,7 @@ When [creating a cluster](../operations/cluster-create.md), specify the followin
 
 - _Environment_ where the cluster will be deployed:
    - `PRODUCTION`: For stable versions of your apps.
-   - `PRESTABLE`: For testing, including the {{ mes-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+   - `PRESTABLE`: For testing, including {{ mes-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
 - `admin` _user password_.
 
@@ -33,6 +33,6 @@ An {{ ES }} cluster created in a folder can be accessed by all VMs connected to 
 
 A single-host cluster is not fault tolerant. A multi-host cluster automatically provides fault tolerance for the _Master node_ role. To ensure data safety in such a cluster, you need to configure index [sharding and replication](scalability-and-resilience.md).
 
-Cluster hosts may reside in different availability zones. For more information about the geo scope of {{ yandex-cloud }}, see [{#T}](../../overview/concepts/geo-scope.md).
+Cluster hosts may reside in different availability zones. For more information about {{ yandex-cloud }} availability zones, see [{#T}](../../overview/concepts/geo-scope.md).
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}

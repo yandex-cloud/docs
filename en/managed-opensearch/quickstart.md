@@ -1,10 +1,10 @@
 # Getting started with {{ mos-name }}
 
 To get started with the service:
-1. [{#T}](#create-cluster).
-1. [{#T}](#configure-security-groups).
-1. [{#T}](#connect).
-1. [{#T}](#dashboards-connect).
+1. [{#T}](#create-cluster)
+1. [{#T}](#configure-security-groups)
+1. [{#T}](#connect)
+1. [{#T}](#dashboards-connect)
 
 
 ## Getting started {#before-you-begin}

@@ -87,7 +87,7 @@
 
 1. Настройте переменные окружения:
     * `<эндпоинт>` — первая часть значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
-    * `<размещение_базы_данных>` — вторая часть значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
+    * `<размещение_базы_данных>` — вторая часть значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
     * `<имя_таблицы>` — название таблицы.
 
 1. Запустите ячейку.

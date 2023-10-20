@@ -8,7 +8,7 @@ description: "{{ AF }} is an open-source platform that enables you to create, sc
 {{ maf-name }} helps you deploy and maintain [{{ AF }}](https://airflow.apache.org/) server clusters in the {{ yandex-cloud }} infrastructure.
 
 
-The service is at the [Preview](../../overview/concepts/launch-stages.md) stage. Access to the service is granted on request.
+The service is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
 ## About {{ AF }} {#about-the-service}
@@ -21,19 +21,39 @@ The service is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 For more information, see the [{{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/#) documentation.
 
-## {{ maf-name }} cluster {#cluster}
+## {{ maf-name }} architecture {#architecture}
+
+The {{ maf-name }} architecture is as follows:
+
+![architecture](../../_assets/managed-airflow/architecture.svg)
+
+Each [{{ AF }} cluster](#cluster) runs in a separate {{ k8s }} node group with the required network infrastructure. This infrastructure includes a virtual network, a security group, and a service account. Node groups are isolated from each other, both through virtual networks and through {{ k8s }} itself. Node groups are managed by a common {{ k8s }} master, and {{ AF }} clusters use a common {{ PG }} cluster for data storage.
+
+To ensure isolated data storage, the service limits the use of the {{ PG }} cluster:
+
+* A separate database is created for each {{ AF }} cluster in the {{ PG }} cluster. Clusters can connect only to their own database.
+* {{ AF }} clusters can work only with tables created by {{ AF }}. You cannot create and modify schemas, tables, functions, procedures, and triggers yourself.
+* Read and write speed, as well as the available database storage space, are limited.
+
+   {% note warning %}
+
+   Any malicious attempt to bypass these restrictions will result in your cluster being locked under Clause 7 of the [Acceptable Use Policy]({{ link-cloud-aup }}).
+
+   {% endnote %}
+
+## {{ AF }} cluster {#cluster}
 
 The main entity operated by {{ maf-name }} is a _cluster_. Inside a cluster, [{{ AF }} components](#components) are deployed. Cluster resources may reside in different availability zones. You can learn more about {{ yandex-cloud }} availability zones [here](../../overview/concepts/geo-scope.md).
 
 A workflow running in a cluster may access any {{ yandex-cloud }} resource within the cloud network where the cluster is located. For example, a workflow can send requests to {{ yandex-cloud }} VMs or managed DB clusters. You can build a workflow using multiple resources. For example, a workflow that collects data from one DB and sends it to another DB or [{{ dataproc-full-name }}](../../data-proc/index.yaml).
 
-## {{ maf-name }} main components {#components}
+## {{ AF }} main components {#components}
 
-The service architecture and its main components are shown below:
+The main {{ AF }} components are as follows:
 
-![architecture](../../_assets/managed-airflow/architecture.svg)
+![components](../../_assets/managed-airflow/components.svg)
 
-{{ maf-name }} components:
+{{ AF }} components:
 
 * _Web server_: Server in {{ yandex-cloud }} hosting an {{ AF }} instance. The web server receives user commands sent through the {{ AF }} web interface and checks, runs, and debugs Python scripts in DAG files.
 
@@ -51,7 +71,7 @@ Interaction between the components is detailed in the [{{ AF }} architecture des
 
 To ensure fault tolerance and enhance performance, web servers, schedulers, and Triggerer may exist in multiple instances. Their number is set when creating a cluster.
 
-For workers, you can also set the minimum and maximum number of instances while creating a cluster. Their number will be scaled dynamically.
+For workers, you can also set the minimum and maximum number of instances while creating a cluster. Their number will be scaled dynamically. This feature is provided by the [KEDA](https://airflow.apache.org/docs/helm-chart/stable/keda.html) controller.
 
 ## Triggerer {#triggerer}
 

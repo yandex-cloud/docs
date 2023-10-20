@@ -17,13 +17,13 @@ description: "Using monitoring tools in the management console, you can track th
 
 To view detailed information about the {{ mpg-name }} cluster status:
 
-1. Go to the folder page and select **{{ mpg-name }}**.
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
-1. Click on the name of the cluster and open the **Monitoring** tab.
+1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
 
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-The following charts open on the page:
+The following charts will open on the page:
 
 * **Age of oldest transaction/statement**: Oldest transaction processing and operator execution time.
 * **Average transaction/statement time**: Average transaction processing and operator execution time.
@@ -59,8 +59,8 @@ The following charts open on the page:
 
 To view detailed information about the status of individual {{ mpg-name }} hosts:
 
-1. Go to the folder page and select **{{ mpg-name }}**.
-1. Click the name of the desired cluster and select **Hosts** → **Monitoring**.
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
 1. Select the host from the drop-down list.
 
 This page displays charts showing the load on an individual host in the cluster:
@@ -74,7 +74,7 @@ This page displays charts showing the load on an individual host in the cluster:
 
 The **Disk read/write bytes** and the **Disk IOPS** charts show that the **Read** property increases when active database reads are in progress, and that **Write** increases when database writes are in progress.
 
-For hosts with the **Replica** role, it's normal that **Received** is greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
+For hosts with the **Replica** role, **Received** is normally greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
 
 
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
@@ -83,35 +83,35 @@ For hosts with the **Replica** role, it's normal that **Received** is greater th
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
-   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
-   1. Under **Service dashboards**, select:
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
+   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+   1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
       * **{{ mpg-name }} Cluster Overview** to configure cluster alerts.
       * **{{ mpg-name }} Host Overview** to configure host alerts.
-   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-   1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
-   1. Click **Create alert**.
+   1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
+   1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud.common.continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds to trigger an alert.
+   1. Click **{{ ui-key.yacloud.monitoring.button_create-alert }}**.
 
 {% endlist %}
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Recommended threshold values:
+The recommended thresholds are as follows:
 
-| Metric | Parameter | `Alarm` | `Warning` |
+| Metric | Parameter | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` |
 |---------------------------------------|:--------------------------:|:-------------------------:|:-------------------------:|
 | Replication delay | `postgres-replication_lag` | `60` | `5`   |
 | Number of healthy hosts | `postgres-is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
 | Average query execution time | `pooler-avg_query_time` | N/A | `2000` |
-| Storage space used | `disk.used_bytes` | 90% of storage size | 80% of storage size |
+| Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of the storage size |
 
-For the `disk.used_bytes` metric, the `Alarm` and `Warning` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
+For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds are only set in bytes. For example, here are the recommended values for a 100 GB disk:
 
-* `Alarm`: `96,636,764,160` bytes (90%).
-* `Warning`: `85,899,345,920` bytes (80%).
+* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`: `96,636,764,160` bytes (90%)
+* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`: `85,899,345,920` bytes (80%)
 
-You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-postgresql).
+You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-postgresql).
 
 
 ## Cluster state and status {#cluster-health-and-status}
@@ -120,8 +120,8 @@ You can view the current storage size in [detailed information about the cluster
 
 To view a cluster's state and status:
 
-1. Go to the folder page and select **{{ mpg-name }}**.
-1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. Hover over the indicator in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column in the required cluster row.
 
 ### Cluster states {#cluster-health}
 

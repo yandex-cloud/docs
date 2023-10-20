@@ -1,4 +1,4 @@
-# Deploying the GlusterFS parallel file system
+# Deploying the GlusterFS parallel file system in high availability mode
 
 [GlusterFS](https://en.wikipedia.org/wiki/Gluster#GlusterFS) is a parallel distributed file system with linear scalability. With horizontal scaling, the system provides the cloud with an aggregate bandwidth of tens of GB/s and hundreds of thousands of [IOPS](https://en.wikipedia.org/wiki/IOPS).
 
@@ -7,11 +7,11 @@ Use this tutorial to create an infrastructure made up of three segments sharing 
 To configure a file system with high availability:
 
 1. [Prepare your cloud](#prepare-cloud).
-1. [Configure the CLI profile](setup-profile).
-1. [Prepare an environment for deploying the resources](setup-environment).
-1. [Deploy your resources](setup-environment).
-1. [Install and configure GlusterFS](install-glusterfs).
-1. [Test the availability and fault tolerance of the solution](test-glusterfs).
+1. [Configure the CLI profile](#setup-profile).
+1. [Prepare an environment for deploying the resources](#setup-environment).
+1. [Deploy your resources](#deploy-resources).
+1. [Install and configure GlusterFS](#install-glusterfs).
+1. [Test the availability and fault tolerance of the solution](#test-glusterfs).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of this infrastructure includes:
+The infrastructure support costs include:
 
 * Fee for continuously running VMs and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
@@ -64,7 +64,7 @@ The cost of this infrastructure includes:
 
    - API
 
-      To create a service account, use the method [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) from the gRPC API or the [create](../../iam/api-ref/ServiceAccount/create.md) method for the `ServiceAccount` resource from the REST API.
+      To create a service account, use the [ServiceAccountService/Create](../../iam/api-ref/grpc/service_account_service.md#Create) gRPC API method or the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the `ServiceAccount` resource.
 
    {% endlist %}
 
@@ -75,7 +75,7 @@ The cost of this infrastructure includes:
    - Management console
 
       1. On the [start page]({{ link-console-main }}) of the management console, select the folder.
-      1. Click the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-glusterfs` service account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. Click **Add role** in the dialog box that opens and select the `admin` role.
@@ -111,7 +111,7 @@ The cost of this infrastructure includes:
          Where:
          * `service-account-id`: ID of your service account.
          * `folder-id`: ID of the folder where the service account was created.
-         * `output`: The name of the file with the authorized key.
+         * `output`: Name of the file with the authorized key.
 
          Result:
          ```
@@ -139,9 +139,9 @@ The cost of this infrastructure includes:
          ```
 
          Where:
-         * `service-account-key`: A file including the service account's authorized key.
-         * `cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md).
-         * `folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
+         * `service-account-key`: File with the service account authorized key
+         * `cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md)
+         * `folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md)
 
       1. Add the credentials to the environment variables:
          ```
@@ -170,7 +170,7 @@ The cost of this infrastructure includes:
 
    {% note warning %}
 
-   The values set in the file are intended for deploying resource-intensive infrastructures.
+   The values set in the file result in deploying a resource-intensive infrastructure.
    To deploy the resources within your available quotas, use the values below or change the values according to your specific needs.
 
    {% endnote %}
@@ -180,7 +180,7 @@ The cost of this infrastructure includes:
    1. Under `storage_cpu_count`, change `default` to `2`.
    1. If you chose a non-default name when creating the SSH key pair, under `local_pubkey_path`, change `default` to `<path_to_the_public_SSH_key>`.
 
-## Deploy your resources {#setup-environment}
+## Deploy your resources {#deploy-resources}
 
 1. Initialize {{TF}}:
    ```bash
@@ -277,9 +277,9 @@ This will create three VMs for hosting client code (`client01`, `client02`, and 
    clush -w gluster01 gluster volume set regional-volume performance.parallel-readdir on
    clush -w gluster01 gluster volume set regional-volume performance.io-thread-count 32
    clush -w gluster01 gluster volume set regional-volume performance.cache-size 1GB
-   clush -w gluster01 gluster volume set regional-volume server.allow-insecure on   
+   clush -w gluster01 gluster volume set regional-volume server.allow-insecure on
    ```
-1. Mount the `regional-volume` shared folder to the client VMs:
+1. Mount the `regional-volume` shared folder on the client VMs:
    ```bash
    clush -w gluster01 gluster volume start regional-volume
    clush -w @clients mount -t glusterfs gluster01:/regional-volume /mnt/
@@ -391,7 +391,7 @@ This will create three VMs for hosting client code (`client01`, `client02`, and 
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created, delete them:
+To stop paying for the resources you created, delete them:
 ```bash
 terraform destroy -auto-approve
 ```

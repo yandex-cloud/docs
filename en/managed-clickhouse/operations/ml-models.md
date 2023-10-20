@@ -13,7 +13,7 @@
 
    1. [Connect a service account to a cluster](s3-access.md#connect-service-account).
    1. [Assign the account the role](s3-access.md#configure-acl) of `storage.viewer`.
-   1. In the bucket ACL, [grant the account](../../storage/operations/buckets/edit-acl.md) `READ` permission.
+   1. In the bucket ACL, [grant](../../storage/operations/buckets/edit-acl.md) the `READ` permission to the account.
 
 1. [Get a link](s3-access.md#get-link-to-object) to the model file.
 
@@ -150,7 +150,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -249,7 +249,7 @@ To update the contents of a model that is already connected to the cluster:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -315,7 +315,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -367,6 +367,8 @@ To upload data to {{ CH }} and test the model:
                      --port 9440 \
                      -q 'CREATE TABLE ml_test_table (date Date MATERIALIZED today(), ACTION UInt8, RESOURCE UInt32, MGR_ID UInt32, ROLE_ROLLUP_1 UInt32, ROLE_ROLLUP_2 UInt32, ROLE_DEPTNAME UInt32, ROLE_TITLE UInt32, ROLE_FAMILY_DESC UInt32, ROLE_FAMILY UInt32, ROLE_CODE UInt32) ENGINE = MergeTree() PARTITION BY date ORDER BY date'
    ```
+
+   To learn how to get the FQDN of a host, see [this guide](connect.md#fqdn).
 
 1. Upload the data to the table:
 

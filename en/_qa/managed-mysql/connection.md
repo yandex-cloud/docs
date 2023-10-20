@@ -12,7 +12,7 @@ There are also [{#T}](../../managed-mysql/operations/connect.md#special-fqdns) p
 
 Check whether there is public access to the host. To do this, in the [management console]({{ link-console-main }}):
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the name of the cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Look at the value in the specific host's **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** column.
 
 {{ MY }} hosts with public access only support connections with an [SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert).
@@ -42,7 +42,7 @@ If public access is only configured for certain hosts in your cluster, automatic
 
 Check whether there is public access to the host. To do this, in the [management console]({{ link-console-main }}):
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the name of the cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Look at the value in the specific host's **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_public-ip }}** column.
 
 Additional information:

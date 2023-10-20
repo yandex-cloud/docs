@@ -41,7 +41,7 @@ Security group settings for sharded and non-sharded clusters differ.
 
 {% list tabs %}
 
-* Clusters without sharding
+* Cluster without sharding
 
    [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-mrd }}` for direct connections to the master host or `{{ port-mrd-sentinel }}` for connections via Sentinel. If you created your cluster with SSL encryption support, specify port `{{ port-mrd-tls }}` for direct encrypted connections to the master or `{{ port-mrd-sentinel }}` for unencrypted connections using Sentinel.
 

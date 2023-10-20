@@ -22,6 +22,8 @@
 
 1. Чтобы добавить тип задачи в существующий процесс, в блоке с этим процессом нажмите **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_types.add-issue-type }}** и выберите тип задачи из списка системных типов задач. О том, как добавить тип задачи в новый рабочий процесс, читайте в [инструкции по созданию рабочего процесса](add-workflow.md#create).
 
+Чтобы определить для задачи очереди тип по умолчанию, в поле {{ ui-key.startrek.ui_components_queue-admin-tab-workflows_WorkflowsStateList.default-type-title }} выберите один из вариантов.
+
 ## Создать тип задачи {#create-ticket-type}
 
 {% note warning %}

@@ -89,6 +89,9 @@ Allows you to work with heterogeneous data sources.
 || uuid-cb
 Enables the generation and validation of unique IDs in compliance with the Russian Central Bank requirements. For more information, see [{#T}](./uuid-cb.md).
 | 1.0 ||
+|| [{{ YZ }}](../../tutorials/yezzey.md). {{ yandex-cloud }} extension
+Exports [AO and AOCO tables](../../concepts/tables.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form.
+| 1.8 ||
 |#
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

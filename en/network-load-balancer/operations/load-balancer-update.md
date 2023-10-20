@@ -1,16 +1,27 @@
+---
+title: "Changing network load balancer settings"
+description: "Follow this guide to change network load balancer settings."
+---
+
 # Changing network load balancer settings
+
+{% note info %}
+
+{% include [type-update](../../_includes/network-load-balancer/type-update.md) %}
+
+{% endnote %}
 
 After you create a network load balancer, you can:
 
-* [{#T}](#change-name-and-description).
+* [{#T}](#change-name-and-description)
 
-* [{#T}](#change-labels).
+* [{#T}](#change-labels)
 
-* [{#T}](#change-target-group).
+* [{#T}](#change-target-group)
 
-* [{#T}](#add-target-group).
+* [{#T}](#add-target-group)
 
-* [{#T}](#add-listener).
+* [{#T}](#add-listener)
 
 ## Changing a load balancer's name and description {#change-name-and-description}
 

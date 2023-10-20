@@ -47,6 +47,7 @@ Use these sets of recommendations to ensure security of your {{ GL }} instance:
 * For audit and analysis of security events, [configure export of audit logs](https://docs.gitlab.com/ee/administration/audit_event_streaming.html) to a third-party event analysis system, for example, [{{ mes-full-name }}](../../managed-elasticsearch/) or [Splunk](https://www.splunk.com/).
 * Sign commits using a [GPG key](https://docs.gitlab.com/ee/user/project/repository/gpg_signed_commits/).
 * Organize the [`approval` of changes to code](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/) by at least two people. This will help reduce the number of errors.
+* To prevent denial of service, use the [`User and IP rate limits`](https://docs.gitlab.com/ee/user/admin_area/settings/user_and_ip_rate_limits.html).
 
 ### Working with Docker from inside {{ GL }} {#using-docker}
 
@@ -74,11 +75,6 @@ Use these sets of recommendations to ensure security of your {{ GL }} instance:
 * Limit project connections only to specific IP addresses and enable two-factor authentication. To do this, go to **Settings** → **General** → **Permissions, LFS, 2FA** in the properties of the appropriate group.
 * To grant your company users access to projects, configure [SAML SSO](https://docs.gitlab.com/ee/user/group/saml_sso/).
 * If possible, disable `fork` usage.
-
-### Secure configuration of a {{ GL }} instance {#securing-instance}
-
-* If possible, for your instance, [limit network access](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/secure_ci_cd/secure_ci_cd_with_webinar/gitlab_instance_sec_checklist/gitlab_instance_isolate.md) to your cloud.
-* To prevent denial of service, use the [`User and IP rate limits`](https://docs.gitlab.com/ee/user/admin_area/settings/user_and_ip_rate_limits.html).
 
 ### Secure configuration for {{ GL }} Runner {#configuring-runners}
 

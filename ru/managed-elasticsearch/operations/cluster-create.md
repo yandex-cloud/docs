@@ -50,6 +50,10 @@ keywords:
      1. Выберите из списка версию {{ ES }}.
      1. Выберите из списка [редакцию {{ ES }}](../concepts/es-editions.md).
 
+     
+     1. Выберите сервисный аккаунт с ролью `storage.editor` из выпадающего списка или создайте новый, если вы планируете использовать данные из бакета {{ objstorage-name }} с [ограниченным доступом](../../storage/concepts/bucket#bucket-access). Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
+
+
   
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера {{ mes-name }} и [группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру {{ mes-name }}.
 

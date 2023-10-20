@@ -1,3 +1,8 @@
+---
+title: "How to create a {{ RD }} cluster"
+description: "Use this tutorial to create a {{ RD }} cluster with a single or multiple DB hosts."
+---
+
 # Creating {{ RD }} clusters
 
 A {{ RD }} cluster consists of one or more database hosts you can configure replication between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
@@ -19,7 +24,6 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
    1. In the [management console]({{ link-console-main }}), go to the folder to create a DB cluster in.
-
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
@@ -55,11 +59,12 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       
-      * Select [disk type](../concepts/storage.md):
+      * Select the [disk type](../concepts/storage.md):
          * Either more flexible storage on network SSDs (`network-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`).
          * Or faster local SSD storage (`local-ssd`).
 
          {% include [storages-step-settings-no-hdd](../../_includes/mdb/settings-storages-no-hdd.md) %}
+
 
 
 
@@ -118,7 +123,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       {{ yc-mdb-rd }} cluster create --help
       ```
 
-   1. When you create a cluster from the CLI, you can't explicitly specify the host type and amount of RAM. Choose the applicable [host class](../concepts/instance-types.md) instead. To see what host classes are available, run the command:
+   1. When you create a cluster from the CLI, you cannot explicitly specify the host type and amount of RAM. Choose the applicable [host class](../concepts/instance-types.md) instead. To see what host classes are available, run the command:
 
       ```bash
       {{ yc-mdb-rd }} resource-preset list
@@ -314,12 +319,12 @@ If you specified security group IDs when creating a cluster, you may also need t
    * New network `mynet`.
    * A single `{{ host-class }}`-class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the `10.5.0.0/24` range.
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
-   * With SSL support.
-   * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
-   * With the `user1user1` password.
-   * With protection against accidental cluster deletion.
+   * SSL support: Enabled
+   * Network SSD storage (`{{ disk-type-example }}`): 16 GB
+   * Password: `user1user1`
+   * Protection against accidental cluster deletion: Enabled
 
-   The configuration file for the cluster looks like this:
+   The configuration file for this cluster is as follows:
 
    
    
@@ -393,23 +398,23 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    Create a [sharded](../concepts/sharding.md) {{ mgp-name }} cluster with test characteristics:
 
-   * Named `myredis`.
-   * Version `{{ versions.tf.latest }}`.
-   * Environment `PRODUCTION`.
-   * Cloud with the `{{ tf-cloud-id }}` ID.
-   * Folder with the `{{ tf-folder-id }}` ID.
-   * New network `mynet`.
+   * Name: `myredis`
+   * Version: `{{ versions.tf.latest }}`
+   * Environment: `PRODUCTION`
+   * Cloud ID: `{{ tf-cloud-id }}`
+   * Folder ID: `{{ tf-folder-id }}`
+   * New network: `mynet`
    * With three subnets in the `mynet` network, one in each availability zone:
       * `subnet-a` with the `10.1.0.0/24` range.
       * `subnet-b` with the `10.2.0.0/24` range.
       * `subnet-c` with the `10.3.0.0/24` range.
    * With three hosts of the `{{ host-class }}` class, one in each subnet.
   * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
-   * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
-   * With the `user1user1` password.
-   * With protection against accidental cluster deletion.
+   * Network SSD storage (`{{ disk-type-example }}`): 16 GB
+   * Password: `user1user1`
+   * Protection against accidental cluster deletion: Enabled
 
-   The configuration file for the cluster looks like this:
+   The configuration file for this cluster is as follows:
 
    
    
