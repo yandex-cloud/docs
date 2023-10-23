@@ -2,6 +2,10 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [06.10.2023 — CVE-2023-35943 CORS filter segfault when origin header is removed](../../_includes/security/security-bulletins/cve-2023-35943-cors-filter-segfault-origin-header-removed.md) %}
+
+{% include [06.10.2023 — CVE-2023-35941 OAuth2 credentials exploit with permanent validity](../../_includes/security/security-bulletins/cve-2023-35941-oauth2-credentials-exploit-permanent-validity.md) %}
+
 {% include [29.06.2023 — CVE-2023-2478 GitLab Critical Security Release: 15.11.2, 15.10.6, and 15.9.7](../../_includes/security/security-bulletins/cve-2023-2478-gitlab-critical-security-release.md) %}
 
 {% include [29.06.2023 — CVE-2023-27561 Race-condition to bypass masked paths](../../_includes/security/security-bulletins/cve-2023-27561.md) %}
@@ -229,9 +233,9 @@ If your infrastructure uses this library or the products listed in the "General 
 
 #### Log4j 1.x
 
-Since Log4j 1.x doesn't use [Lookups](https://logging.apache.org/log4j/2.x/manual/lookups.html), the overall risk of exploiting the vulnerability for applications using Log4j 1.x is low.
+Since Log4j 1.x does not support [Lookups](https://logging.apache.org/log4j/2.x/manual/lookups.html), the overall risk of exploiting the vulnerability for applications using Log4j 1.x is low.
 
-Applications using Log4j 1.x are only vulnerable to this attack when they use [JNDI](https://logging.apache.org/log4j/2.x/manual/lookups.html#JndiLookup). If so, make sure your logging configuration has no `JMSAppender` configured.
+Applications using Log4j 1.x are only vulnerable to this attack when they use [JNDI](https://logging.apache.org/log4j/2.x/manual/lookups.html#JndiLookup). In that case, make sure your logging configuration has no `JMSAppender` configured.
 
 #### Log4j 2.x
 
@@ -271,7 +275,7 @@ To fix the issue on the {{ yandex-cloud }} side, the following measures were tak
 
 ### Compensatory measures
 
-If you're using a deprecated {{ GL }} image from {{ marketplace-full-name }} or a custom image, [update](https://about.gitlab.com/update) it to the latest version. If for some reason you can't update the {{ GL }} version, use a [hotpatch](https://forum.gitlab.com/t/cve-2021-22205-how-to-determine-if-a-self-managed-instance-has-been-impacted/60918#hotpatch-2).
+If you are using a deprecated {{ GL }} image from {{ marketplace-full-name }} or a custom image, [update](https://about.gitlab.com/update) it to the latest version. If for some reason you cannot update the {{ GL }} version, use a [hotpatch](https://forum.gitlab.com/t/cve-2021-22205-how-to-determine-if-a-self-managed-instance-has-been-impacted/60918#hotpatch-2).
 
 ### More information
 
@@ -295,7 +299,7 @@ To remove the attack vector from an internal attacker, update all existing servi
 We also recommend that you:
 
 * Automatically update your clusters and node groups to the latest versions or revisions.
-* Schedule manual updates at least once a month if you can't apply automatic updates.
+* Schedule manual updates at least once a month if you cannot apply automatic updates.
 * Disable running pods as root for untrusted uploads.
 
 To do this, you can use the following tools:
@@ -422,8 +426,8 @@ List of domains included in Public Suffix List:
 * website.yandexcloud.net
 
 Domains in the Public Suffix List get the properties of top-level domains, such as .ru or .com:
-* Browsers won't save the cookies set for the listed domains.
-* Browsers don't let you change the page's `Origin` request headers to root domains.
+* Browsers will not save the cookies set for the listed domains.
+* Browsers will not allow you to change the page's `Origin` request headers to root domains.
 
 ### Impact on {{ yandex-cloud }} services
 

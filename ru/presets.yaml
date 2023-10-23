@@ -6809,6 +6809,7 @@ default:
         label_secret-general-section: Информация о секрете
         label_secret-id: Идентификатор
         label_secret-versions-section: Версии
+        label_section-overview: Обзор
         label_section-secrets: Секреты
       logging:
         button_create-group: Создать группу

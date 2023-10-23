@@ -22,16 +22,15 @@ The General Data Protection Regulation (GDPR) regulates the collection and proce
 For more information, see the [Data Processing Addendum](https://yandex.com/legal/cloud_dpa/).
 
 
-
 ## ISO/IEC certification {#iso}
 
-The {{ yandex-cloud }} Information Security Management System (ISMS) satisfies the requirements of the International Organization for Standardization (ISO) and the International Electrotechnical Commission (IEC). This is evidenced by certificates of compliance for ISO/IEC 27001, ISO/IEC 27017, and ISO/IEC 27018.
+The {{ yandex-cloud }} Information Security Management System (ISMS) meets the requirements of the International Organization for Standardization (ISO) and the International Electrotechnical Commission (IEC). This is evidenced by ISO/IEC 27001, ISO/IEC 27017, and ISO/IEC 27018 certification.
 
-ISO/IEC 27001 defines the requirements for ISMS's, including their implementation, operation, maintenance, and regular improvement. The ISO/IEC 27001 guidelines help organizations guarantee a high level of security for their core information assets.
+ISO/IEC 27001 defines the requirements for establishing, implementing, maintaining and continually improving ISMS's. The ISO/IEC 27001 guidelines help organizations guarantee a high level of security for their core information assets.
 
-ISO/IEC 27017 includes a set of practical information security recommendations for cloud providers. These recommendations supplement the ISMS implementation requirements set out in ISO/IEC 27001 and are intended for cloud service providers.
+ISO/IEC 27017 includes a code of practice for information security control for cloud providers. These guidelines supplement the ISMS implementation requirements set out in ISO/IEC 27001 and are intended for cloud service providers.
 
-ISO/IEC 27018 addresses the requirements for the security of personal data processed by cloud service providers. The standard sets out information security guidelines for protecting the personal information of clients. They supplement the requirements of the basic standard, ISO/IEC 27001.
+ISO/IEC 27018 sets the requirements for the protection of personal data processed by cloud service providers. The standard sets out information security guidelines for protecting the personal information of clients. They supplement the requirements of the basic standard, ISO/IEC 27001.
 
 [ISO/IEC 27001/27017/27018 certificate](https://{{ s3-storage-host }}/yc-compliance/certificates/yandex_cloud_c_27001_27017_27018_22_eng_full.pdf).
 

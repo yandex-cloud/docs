@@ -27,6 +27,22 @@ description: "Управление доступом в сервисе речев
 
 {% include notitle [roles-speechkit-tts-user](../../_includes/roles-speechkit-tts-user.md) %}
 
+#### ai.auditor {#ai-auditor}
+
+{% include notitle [roles-ai-auditor](../../_includes/roles-ai-auditor.md) %}
+
+#### ai.viewer {#ai-viewer}
+
+{% include notitle [roles-ai-viewer](../../_includes/roles-ai-viewer.md) %}
+
+#### ai.editor {#ai-editor}
+
+{% include notitle [roles-ai-editor](../../_includes/roles-ai-editor.md) %}
+
+#### ai.admin {#ai-admin}
+
+{% include notitle [roles-ai-admin](../../_includes/roles-ai-admin.md) %}
+
 Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
 
 

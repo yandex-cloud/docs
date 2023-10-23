@@ -37,7 +37,7 @@ The minimum payment amount is $1.
 
 - Non-residents of Russia or Kazakhstan
 
-   You can pay for {{ yandex-cloud }} resources only in US dollars ($), whatever your country of residence.
+   You must pay for {{ yandex-cloud }} resources in US dollars ($), regardless of the country you live in.
 
 {% endlist %}
 
