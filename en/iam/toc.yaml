@@ -109,7 +109,7 @@ items:
         href: concepts/federations.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: How to use {{ yandex-cloud }} securely
+  - name: Using {{ yandex-cloud }} securely
     href: best-practices/using-iam-securely.md
   - name: Access management
     href: security/index.md

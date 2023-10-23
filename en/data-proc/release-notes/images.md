@@ -3,6 +3,10 @@
 For a complete listing of current and deprecated {{ dataproc-name }} images, please see [{#T}](../concepts/environment.md).
 
 
+## 2.0.69 {#2.0.69}
+
+* Added the `kafka-clients` and `commons-pool2` to ensure proper interaction between {{ SPRK }} и {{ KF }}.
+
 ## 2.0.66 {#2.0.66}
 
 * Fixed the issue when YARN NodeManager was run on a new host before the initialization scripts were executed.

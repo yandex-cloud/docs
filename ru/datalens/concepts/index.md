@@ -12,7 +12,7 @@ description: "{{ datalens-full-name }} — это сервис для бизне
 
 {% note warning %}
 
-Количество экземпляров {{ datalens-short-name }} в одном [облаке {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud) — 1.
+Максимальное количество экземпляров {{ datalens-short-name }} в одной [организации](../../organization/quickstart.md) или [облаке {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud) — 1.
 
 {% endnote %}
 

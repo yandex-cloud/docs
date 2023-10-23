@@ -10,7 +10,7 @@ To check rights for domains:
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
    1. Select the certificate to check from the list and click it.
    1. In the window that opens, you can find the details you need to pass the domain rights check under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**. For more information, see [{#T}](../../concepts/challenges.md).
-   1. When the domain rights check is passed, the domain check status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** changes to `Valid`.
+   1. When the domain rights check is passed, the domain check status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
    1. After the rights check status for all your domains changes to `Valid`, the certificate is issued and its status becomes `Issued`.
 
 - CLI
@@ -133,9 +133,9 @@ To check rights for domains:
       * The `yandex_cm_certificate` resource parameters are as follows:
 
          * `domains`: Domain to create a certificate for.
-         * `challenge_type`: Domain owner verification method. Possible values:
+         * `challenge_type`: Domain owner verification method. The possible values include:
 
-            * `DNS_CNAME`: Create a DNS record in CNAME format with the specified value. Method recommended for automatic certificate renewal.
+            * `DNS_CNAME`: Create a DNS record in CNAME format with the specified value. This method is recommended for automatic certificate renewal.
             * `DNS_TXT`: Create a DNS record in TXT format with the specified value.
 
       * The `yandex_dns_recordset` resource parameters are as follows:
@@ -157,7 +157,7 @@ To check rights for domains:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   This will create a certificate and DNS record in the specified folder. You can check if the certificate is there and properly configured either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+   This will create a certificate and DNS record in the specified folder. You can check the new certificate and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
    yc certificate-manager certificate get <certificate_name> --full
