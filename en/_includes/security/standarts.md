@@ -50,7 +50,7 @@ The Security Development Lifecycle (SDLC) is an integral part of designing new a
 
 * Architecture planning. As required by the classic SDLC, before developing any product and changing the architecture of an existing service, we hold meetings with security experts to discuss possible threats and ways to attack the service. As a result of these meetings, the service acquires an "immune system". This, along with other measures for Defense in Depth, provides reliable protection of the service and data being processed.
 * Static and dynamic analysis. We use static code analysis systems to regularly scan the repository during the development process. We check the quality of code and its coverage using tests. Our teams also use dynamic analysis tools for sanity and fuzzy testing.
-* Final security analysis. Despite the name, this procedure is carried out more than once. It's performed before each major stage of a project, such as before the Preview release of a service. The final security analysis is in fact white-box penetration testing. To think through the most effective attack possible, test engineers have access to the documentation and test bench. They also cooperate with the development team. They test both the service itself and the environment it's running in. As a result, they assess the risks and audit the service's compliance with external requirements.
+* Final security analysis. Despite the name, this procedure is carried out more than once. It is performed before each major stage of a project, such as before the Preview release of a service. The final security analysis is in fact white-box penetration testing. To think through the most effective attack possible, test engineers have access to the documentation and test bench. They also cooperate with the development team. They test both the service itself and the environment it is running in. As a result, they assess the risks and audit the service's compliance with external requirements.
 
 In addition to the SDLC, the team pays attention to protecting the development environment. In {{ yandex-cloud }}, the development, testing, and production environments are divided and a control system is implemented to prevent the replication of production data onto other environments.
 
@@ -87,11 +87,11 @@ When vulnerabilities are detected in the components of the production environmen
 
 ### Notifying customers {#custom-notice}
 
-Situations where the customer needs to be notified of incidents are specified in the agreement. If required, notification is sent within 24 hours as an email.
+Situations where the customer needs to be notified of incidents are specified in the agreement. If required, a notification is sent within 24 hours by email.
 
-It's written by the incident manager appointed when the incident is registered. The message describes the nature of the incident, its possible consequences, and measures taken (or planned) to address them. The incident manager agrees the message content with the employees in charge and sends it to the support service.
+It is written by the incident manager appointed when the incident is registered. The message describes the nature of the incident, its possible consequences, and measures taken (or planned) to address them. The incident manager approves the message content with the employees in charge and sends it to the support team.
 
-Emails are sent in Russian and English. If the customer can prevent the incident or reduce its consequences, the notification describes the measures they can take.
+Emails are sent in Russian and English. If the customer can prevent the incident or minimize its consequences, the notification will describe the measures they can take.
 
 ## {{ yandex-cloud }} HR measures {#employees}
 
@@ -105,7 +105,7 @@ Emails are sent in Russian and English. If the customer can prevent the incident
 * Employees who fail to pass training within the scheduled period aren't allowed to perform their duties.
 * Permissions are reviewed every six months.
 * When an employee quits or takes a different job within the company, permissions to access information resources are automatically revoked.
-* Passwords are checked for compliance with the password policy. We regularly evaluate password strength and make sure passwords aren't found in common dictionaries.
+* Passwords are checked for compliance with the password policy. We regularly evaluate the password strength and make sure passwords are not found in common dictionaries.
 
 ## Business continuity and fault tolerance {#continuity}
 
@@ -123,7 +123,7 @@ We regularly conduct tests to check the effectiveness of these plans. We analyze
 
 * Physical isolation using host groups. Services that are critical in terms of security are run on VMs using a separate group of physical hosts where no user VMs are run.
 * Logical isolation at the hypervisor and individual core level. Sometimes the administrative workload can be run on hosts where user VMs reside. In this case, isolation is implemented at the hypervisor and physical core level.
-* Logical isolation using {{ iam-name }} ({{ iam-short-name }}). All administrative operations are performed through {{ iam-short-name }}. This requires special permissions that aren't granted to {{ yandex-cloud }} users.
+* Logical isolation using {{ iam-name }} ({{ iam-short-name }}). All administrative operations are performed through {{ iam-short-name }}. This requires special permissions that are not granted to {{ yandex-cloud }} users.
 * Network-level isolation. All administrative VMs run in physically or logically isolated networks. A provider's corporate network is separated from the cloud platform network. Access control is carried out automatically using dynamic and host firewalls and access control lists (ACL) on routers.
 * In multi-tenant systems, isolation is implemented at the application level and by verifying cloud and folder access rights of the user performing operations with the resources.
 
@@ -159,7 +159,7 @@ Configurations of all production environment components are collected separately
 
 ## Protecting employee credentials {#sec-account}
 
-Authentication on corporate resources that aren't linked to the cloud infrastructure is based on the world's best practices:
+Authentication on corporate resources that are not linked to the cloud infrastructure is based on the global best practices:
 
 * All authentication events are collected and analyzed for possible identity theft.
 * {{ yandex-cloud }} uses anti-phishing techniques.
@@ -176,7 +176,7 @@ Authentication on corporate resources that are linked to the cloud infrastructur
 * The hardware token is additionally protected by the user's PIN or biometrics.
 * Access to the production environment is provided through the bastion host. All user sessions are logged and saved.
 
-Strict authentication measures using hardware tokens increase the security of user credentials. Even if an employee's machine is compromised, an attacker won't be able to steal and re-use their credentials. It's unlikely that an account will be compromised through phishing.
+Strict authentication measures using hardware tokens increase the security of user credentials. Even if an employee's machine is compromised, an attacker will not be able to steal and re-use their credentials. It is unlikely that an account will be compromised through phishing.
 
 ## Data protection {#sec-data}
 
@@ -217,17 +217,17 @@ The minimum used key length is 128 bits for symmetric encryption algorithms, and
 
 {% note info %}
 
-A resource that's marked for deletion can't be restored. The data is actually deleted within 72 hours.
+A resource marked for deletion cannot be restored. The data is actually deleted within 72 hours.
 
 {% endnote %}
 
-* Deleting logs of requests to resources Records of API requests to user resources are stored for one year. They are used for analyzing information security incidents and preventing fraud. Records are permanently deleted after one year.
+* Deleting logs of requests to resources. Records of API requests to user resources are stored for one year. They are used for analyzing information security incidents and preventing fraud. Records are permanently deleted after one year.
 
-* When a billing account is deleted. At the user's request, the billing account is marked for deletion and within 72 hours, the user loses access it. Billing account data may be used to generate financial statements. Therefore, this data is kept until the expiration of the term of the limitation of actions and the term set by the applicable finance laws. When these terms expire, the billing account is irrevocably deleted.
+* When a billing account is deleted. At the user's request, the billing account is marked for deletion, and the user loses access it within 72 hours. Billing account data may be used to generate financial statements. Therefore, this data is kept until the expiration of the term of the limitation of actions and the term set by the applicable finance laws. When these terms expire, the billing account is permanently deleted.
 
 ### Disclosing information to third parties {#data-disclosure}
 
-{{ yandex-cloud }} doesn't disclose information to third parties, except when required by applicable law or the provisions of the agreement. Whenever possible, {{ yandex-cloud }} redirects a third-party request to the customer.
+{{ yandex-cloud }} does not disclose information to third parties, except when required by applicable law or the provisions of the agreement. Whenever possible, {{ yandex-cloud }} redirects a third-party request to the customer.
 
 ## Protecting user information {#sec-user-info}
 

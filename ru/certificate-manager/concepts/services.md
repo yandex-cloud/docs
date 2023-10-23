@@ -5,6 +5,7 @@
 * [{{ objstorage-full-name }}](#os).
 * [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
+* [{{ cdn-full-name }}](#cdn).
 
 Также вы можете хранить публичную часть пользовательского сертификата в виде секрета [{{ lockbox-full-name }}](#lockbox) с помощью {{ TF }}.
 

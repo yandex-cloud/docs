@@ -1,6 +1,6 @@
 # Изменение каталога
 
-Через консоль управления можно изменить только имя каталога. Чтобы изменить его описание, используйте CLI или API.
+Чтобы изменить имя и описание каталога, используйте консоль управления, CLI, API или {{ TF }}.
 
 {% list tabs %}
 
@@ -8,7 +8,7 @@
 
   1. Выберите каталог на [стартовой странице]({{ link-console-cloud }}) консоли управления. На этой странице отображаются каталоги для выбранного облака. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
   1. Нажмите значок ![image](../../../_assets/options.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.edit }}**.
-  1. Введите новое имя каталога.
+  1. Введите новое имя каталога и описание.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
 - CLI
@@ -53,7 +53,7 @@
           Например, виртуальная машина `fhmp74bfis2a********` принадлежит каталогу `b1gpvjd9ir42********`:
 
           ```bash
-          yc compute instance get fhmp74bfis2ais728p2a
+          yc compute instance get fhmp74bfis2a********
           ```
           
           Результат:
@@ -93,7 +93,7 @@
      ```hcl
      ...
      resource "yandex_resourcemanager_folder" "folder1" {
-       cloud_id    = "b1gia12......fvsleds"
+       cloud_id    = "b1gia12lt1tp********"
        name        = "myfolder"
        description = "this is my default-folder"
      }
@@ -132,7 +132,7 @@
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
-     yc resource-manager folder list-operations <имя каталога>|<ID каталога>
+     yc resource-manager folder list-operations <имя_каталога>|<ID_каталога>
      ```
 
 {% endlist %}

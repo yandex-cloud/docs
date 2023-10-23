@@ -1,6 +1,6 @@
 ---
-title: "{{ yandex-cloud }} roles reference"
-description: "On this page you will find a complete list and descriptions of roles effective in {{ yandex-cloud }} services."
+title: "{{ yandex-cloud }} role reference"
+description: "The article provides a full reference and description of roles for {{ yandex-cloud }} services."
 ---
 
 # {{ yandex-cloud }} roles reference
@@ -24,8 +24,6 @@ description: "On this page you will find a complete list and descriptions of rol
 
 {% include [api-gateway.admin](../_roles/apigateway/apigateway-admin.md) %}
 
-For more information, see [Access management in {{ api-gw-name }}](../api-gateway/security/index.md).
-
 
 ## {{ alb-full-name }} {#alb-roles}
 
@@ -40,8 +38,6 @@ For more information, see [Access management in {{ api-gw-name }}](../api-gatewa
 #### alb.admin {#alb-admin}
 
 {% include [alb.admin](../_roles/apploadbalancer/apploadbalancer-admin.md) %}
-
-For more information, see [Access management in {{ alb-name }}](../application-load-balancer/security/index.md).
 
 
 ## {{ at-full-name }} {#at-roles}

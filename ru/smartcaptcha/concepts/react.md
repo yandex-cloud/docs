@@ -161,3 +161,31 @@ export const SubscriptionToCaptcha = () => {
   );
 };
 ```
+
+## Сброс состояния {{ captcha-name }} {#reset-status}
+
+Капча сохраняет свое состояние после прохождения [валидации](validation.md). Чтобы пользователь мог пройти проверку еще раз, настройте сброс состояния. Если этого не сделать, повторный запрос к серверу будет отправлен с тем же одноразовым токеном, что и в первый раз.
+
+Пример настройки сброса состояния:
+
+```ts
+import { SmartCaptcha } from "@yandex/smart-captcha";
+import { useState } from "react";
+
+export default function App() {
+
+  const [resetCaptcha, setResetCaptcha] = useState(0);
+
+  /* Update the state */
+  const handleReset = () => setResetCaptcha((prev) => prev + 1);
+
+  return (
+    <div className="App">
+      <SmartCaptcha
+        key={resetCaptcha}
+        sitekey="<ключ_клиента>"
+      \>
+    <div\>
+  );
+}
+```

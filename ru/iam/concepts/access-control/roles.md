@@ -675,3 +675,13 @@ _Роль_ — это набор разрешений, который опред
 ## {{ yagpt-full-name }} {#yandexgpt-roles}
 
 {% include [roles-yandexgpt-user](../../../_includes/roles-yandexgpt-user.md) %}
+
+## Сервисы искусственного интеллекта {#ai-roles}
+
+{% include [roles-ai-auditor](../../../_includes/roles-ai-auditor.md) %}
+
+{% include [roles-ai-viewer](../../../_includes/roles-ai-viewer.md) %}
+
+{% include [roles-ai-editor](../../../_includes/roles-ai-editor.md) %}
+
+{% include [roles-ai-admin](../../../_includes/roles-ai-admin.md) %}

@@ -6789,6 +6789,7 @@ default:
         label_secret-general-section: Information about secret
         label_secret-id: ID
         label_secret-versions-section: Versions
+        label_section-overview: Overview
         label_section-secrets: Secrets
       logging:
         button_create-group: Create group

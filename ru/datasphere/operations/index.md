@@ -40,7 +40,9 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/snippets.md)
 * [{#T}](projects/clear-outputs.md)
 * [{#T}](projects/work-with-git.md)
+* [{#T}](projects/work-with-jobs.md)
 * [{#T}](user-images-cell.md)
+* [{#T}](projects/templates.md)
 
 ## Работа с ресурсами {#resources}
 
