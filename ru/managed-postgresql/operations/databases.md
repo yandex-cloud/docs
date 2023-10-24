@@ -23,7 +23,7 @@
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-pg }} database list --cluster-name=<имя кластера>
+  {{ yc-mdb-pg }} database list --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -85,7 +85,7 @@
   1. Запросите список пользователей кластера, чтобы выбрать владельца новой базы данных:
 
      ```bash
-     {{ yc-mdb-pg }} user list --cluster-name=<имя кластера>
+     {{ yc-mdb-pg }} user list --cluster-name=<имя_кластера>
      ```
 
      Если нужного пользователя в списке нет, [создайте его](cluster-users.md#adduser).
@@ -93,12 +93,12 @@
   1. Выполните команду создания БД. При необходимости укажите нужные локали сортировки и набора символов (по умолчанию задаются `LC_COLLATE=C` и `LC_CTYPE=C`) и шаблон:
 
      ```bash
-     {{ yc-mdb-pg }} database create <имя базы данных> \
-        --cluster-name=<имя кластера> \
-        --owner=<имя пользователя-владельца> \
-        --lc-collate=<локаль сортировки> \
-        --lc-type=<локаль набора символов> \
-        --template-db=<имя базы данных, используемой в качестве шаблона>
+     {{ yc-mdb-pg }} database create <имя_БД> \
+        --cluster-name=<имя_кластера> \
+        --owner=<имя_пользователя-владельца> \
+        --lc-collate=<локаль_сортировки> \
+        --lc-type=<локаль_набора_символов> \
+        --template-db=<имя_БД-шаблона>
      ```
 
      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
@@ -118,16 +118,18 @@
     1. Добавьте ресурс `yandex_mdb_postgresql_database`. При необходимости укажите нужные локали сортировки и набора символов (по умолчанию задаются `LC_COLLATE=C` и `LC_CTYPE=C`) и шаблон:
   
         ```hcl
-        resource "yandex_mdb_postgresql_database" "<имя базы данных>" {
-          cluster_id  = "<идентификатор кластера>"
-          name        = "<имя базы данных>"
-          owner       = "<имя пользователя-владельца: должен быть задан в ресурсе yandex_mdb_postgresql_user>"
-          lc_collate  = "<локаль сортировки>"
-          lc_type     = "<локаль набора символов>"
-          template_db = "<имя базы данных, используемой в качестве шаблона>"
+        resource "yandex_mdb_postgresql_database" "<имя_БД>" {
+          cluster_id  = "<идентификатор_кластера>"
+          name        = "<имя_БД>"
+          owner       = "<имя_пользователя-владельца>"
+          lc_collate  = "<локаль_сортировки>"
+          lc_type     = "<локаль_набора_символов>"
+          template_db = "<имя_БД-шаблона>"
         }
         ```
-  
+
+        Где `owner` — имя пользователя-владельца, который должен быть задан в ресурсе `yandex_mdb_postgresql_user`.
+
         {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
     1. Проверьте корректность настроек.
@@ -174,8 +176,8 @@
   Чтобы удалить базу данных, выполните команду:
 
   ```bash
-  {{ yc-mdb-pg }} database delete <имя базы данных> \
-     --cluster-name <имя кластера>
+  {{ yc-mdb-pg }} database delete <имя_БД> \
+     --cluster-name <имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).

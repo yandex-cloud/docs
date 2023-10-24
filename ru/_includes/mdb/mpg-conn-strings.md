@@ -4,9 +4,9 @@
 
 * **Защищенное соединение** — отключено.
 * **Тип СУБД** — `PostgreSQL`.
-* **Сервер баз данных** — `с-<идентификатор кластера>.rw.{{ dns-zone }} port={{ port-mpg }}`.
-* **Имя базы данных** — `<имя БД>`.
-* **Пользователь базы данных** — `<имя пользователя>`.
+* **Сервер баз данных** — `с-<идентификатор_кластера>.rw.{{ dns-zone }} port={{ port-mpg }}`.
+* **Имя базы данных** — `<имя_БД>`.
+* **Пользователь базы данных** — `<имя_пользователя>`.
 * **Пароль пользователя** — `<пароль>`.
 * **Создать базу данных в случае ее отсутствия** — отключено.
 
@@ -25,11 +25,11 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. Подключитесь к базе данных:
 
       ```bash
-      psql "host=c-<идентификатор кластера>.rw.{{ dns-zone }} \
+      psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
             port=6432 \
             sslmode=disable \
-            dbname=<имя БД> \
-            user=<имя пользователя> \
+            dbname=<имя_БД> \
+            user=<имя_пользователя> \
             target_session_attrs=read-write"
       ```
 
@@ -74,11 +74,11 @@ sudo apt update && sudo apt install --yes postgresql-client
       {
           static async Task Main(string[] args)
           {
-              var host       = "c-<идентификатор кластера>.rw.{{ dns-zone }}";
+              var host       = "c-<идентификатор_кластера>.rw.{{ dns-zone }}";
               var port       = "{{ port-mpg }}";
-              var db         = "<имя БД>";
-              var username   = "<имя пользователя>";
-              var password   = "<пароль пользователя>";
+              var db         = "<имя_БД>";
+              var username   = "<имя_пользователя>";
+              var password   = "<пароль_пользователя>";
               var connString = $"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=VerifyFull;";
 
               await using var conn = new NpgsqlConnection(connString);
@@ -128,11 +128,11 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "c-<идентификатор кластера>.rw.{{ dns-zone }}"
+        host     = "c-<идентификатор_кластера>.rw.{{ dns-zone }}"
         port     = 6432
-        user     = "<имя пользователя>"
-        password = "<пароль пользователя>"
-        dbname   = "<имя БД>"
+        user     = "<имя_пользователя>"
+        password = "<пароль_пользователя>"
+        dbname   = "<имя_БД>"
       )
 
       func main() {
@@ -194,12 +194,12 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "c-<идентификатор кластера>.rw.{{ dns-zone }}"
+        host     = "c-<идентификатор_кластера>.rw.{{ dns-zone }}"
         port     = 6432
-        user     = "<имя пользователя>"
-        password = "<пароль пользователя>"
-        dbname   = "<имя БД>"
-        ca       = "/home/<домашняя директория>/.postgresql/root.crt"
+        user     = "<имя_пользователя>"
+        password = "<пароль_пользователя>"
+        dbname   = "<имя_БД>"
+        ca       = "/home/<домашняя_директория>/.postgresql/root.crt"
       )
 
       func main() {
@@ -369,9 +369,9 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<идентификатор кластера>.rw.{{ dns-zone }}:6432/<имя БД>?targetServerType=master&ssl=false&sslmode=disable";
-          String DB_USER    = "<имя пользователя>";
-          String DB_PASS    = "<пароль пользователя>";
+          String DB_URL     = "jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:6432/<имя_БД>?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_USER    = "<имя_пользователя>";
+          String DB_PASS    = "<пароль_пользователя>";
 
           try {
             Class.forName("org.postgresql.Driver");
@@ -407,9 +407,9 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<идентификатор кластера>.rw.{{ dns-zone }}:6432/<имя БД>?targetServerType=master&ssl=true&sslmode=verify-full";
-          String DB_USER    = "<имя пользователя>";
-          String DB_PASS    = "<пароль пользователя>";
+          String DB_URL     = "jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:6432/<имя_БД>?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_USER    = "<имя_пользователя>";
+          String DB_PASS    = "<пароль_пользователя>";
 
           try {
             Class.forName("org.postgresql.Driver");
@@ -455,7 +455,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.{{ dns-zone }}:6432/<имя БД>"
+            "postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:6432/<имя_БД>"
     };
 
     const conn = new pg.Client(config);
@@ -481,11 +481,11 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.{{ dns-zone }}:6432/<имя БД>",
+            "postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:6432/<имя_БД>",
         ssl: {
             rejectUnauthorized: true,
             ca: fs
-                .readFileSync("/home/<домашняя директория>/.postgresql/root.crt")
+                .readFileSync("/home/<домашняя_директория>/.postgresql/root.crt")
                 .toString(),
         },
     };
@@ -535,10 +535,10 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<идентификатор кластера>.rw.{{ dns-zone }}
-      Username=<имя пользователя>
-      Password=<пароль пользователя>
-      Database=<имя БД>
+      Servername=c-<идентификатор_кластера>.rw.{{ dns-zone }}
+      Username=<имя_пользователя>
+      Password=<пароль_пользователя>
+      Database=<имя_БД>
       Port=6432
       Pqopt=target_session_attrs=read-write
       ```
@@ -560,10 +560,10 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<идентификатор кластера>.rw.{{ dns-zone }}
-      Username=<имя пользователя>
-      Password=<пароль пользователя>
-      Database=<имя БД>
+      Servername=c-<идентификатор_кластера>.rw.{{ dns-zone }}
+      Username=<имя_пользователя>
+      Password=<пароль_пользователя>
+      Database=<имя_БД>
       Port=6432
       Pqopt=target_session_attrs=read-write
       Sslmode=verify-full
@@ -598,12 +598,12 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ```php
       <?php
         $conn = pg_connect("
-            host=c-<идентификатор кластера>.rw.{{ dns-zone }}
+            host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
             port=6432
             sslmode=disable
-            dbname=<имя БД>
-            user=<имя пользователя>
-            password=<пароль пользователя>
+            dbname=<имя_БД>
+            user=<имя_пользователя>
+            password=<пароль_пользователя>
             target_session_attrs=read-write
         ");
 
@@ -630,12 +630,12 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ``` php
       <?php
         $conn = pg_connect("
-            host=c-<идентификатор кластера>.rw.{{ dns-zone }}
+            host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
             port=6432
             sslmode=verify-full
-            dbname=<имя БД>
-            user=<имя пользователя>
-            password=<пароль пользователя>
+            dbname=<имя_БД>
+            user=<имя_пользователя>
+            password=<пароль_пользователя>
             target_session_attrs=read-write
         ");
 
@@ -673,10 +673,10 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
      ```powershell
      & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-           --host=c-<идентификатор кластера>.rw.{{ dns-zone }} `
+           --host=c-<идентификатор_кластера>.rw.{{ dns-zone }} `
            --port={{ port-mpg }} `
-           --username=<имя пользователя> `
-           <имя БД>
+           --username=<имя_пользователя> `
+           <имя_БД>
      ```
 
      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
@@ -699,10 +699,10 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
       ```powershell
       & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-        --host=c-<идентификатор кластера>.rw.{{ dns-zone }} `
+        --host=c-<идентификатор_кластера>.rw.{{ dns-zone }} `
         --port={{ port-mpg }} `
-        --username<имя пользователя> `
-        <имя БД>
+        --username<имя_пользователя> `
+        <имя_БД>
       ```
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
@@ -736,12 +736,12 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<идентификатор кластера>.rw.{{ dns-zone }}
+          host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
           port=6432
           sslmode=disable
-          dbname=<имя БД>
-          user=<имя пользователя>
-          password=<пароль пользователя>
+          dbname=<имя_БД>
+          user=<имя_пользователя>
+          password=<пароль_пользователя>
           target_session_attrs=read-write
       """)
 
@@ -769,12 +769,12 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<идентификатор кластера>.rw.{{ dns-zone }}
+          host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
           port=6432
           sslmode=verify-full
-          dbname=<имя БД>
-          user=<имя пользователя>
-          password=<пароль пользователя>
+          dbname=<имя_БД>
+          user=<имя_пользователя>
+          password=<пароль_пользователя>
           target_session_attrs=read-write
       """)
 
@@ -824,11 +824,11 @@ pip3 install psycopg2-binary
         library(DBI)
 
         conn <- dbConnect(RPostgres::Postgres(),
-            dbname="<имя БД>",
-            host="c-<идентификатор кластера>.rw.{{ dns-zone }}",
+            dbname="<имя_БД>",
+            host="c-<идентификатор_кластера>.rw.{{ dns-zone }}",
             port={{ port-mpg }},
-            user="<имя пользователя>",
-            password="<пароль пользователя>"
+            user="<имя_пользователя>",
+            password="<пароль_пользователя>"
         )
 
         res <- dbSendQuery(conn, "SELECT VERSION();")
@@ -854,12 +854,12 @@ pip3 install psycopg2-binary
         library(DBI)
 
         conn <- dbConnect(RPostgres::Postgres(),
-            dbname="<имя БД>",
-            host="c-<идентификатор кластера>.rw.{{ dns-zone }}",
+            dbname="<имя_БД>",
+            host="c-<идентификатор_кластера>.rw.{{ dns-zone }}",
             port={{ port-mpg }},
             sslmode="verify-full",
-            user="<имя пользователя>",
-            password="<пароль пользователя>"
+            user="<имя_пользователя>",
+            password="<пароль_пользователя>"
         )
 
         res <- dbSendQuery(conn, "SELECT VERSION();")
@@ -897,11 +897,11 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<идентификатор кластера>.rw.{{ dns-zone }}
+              host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
               port=6432
-              dbname=<имя БД>
-              user=<имя пользователя>
-              password=<пароль пользователя>
+              dbname=<имя_БД>
+              user=<имя_пользователя>
+              password=<пароль_пользователя>
               target_session_attrs=read-write
               sslmode=disable
       ")
@@ -928,11 +928,11 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<идентификатор кластера>.rw.{{ dns-zone }}
+              host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
               port=6432
-              dbname=<имя БД>
-              user=<имя пользователя>
-              password=<пароль пользователя>
+              dbname=<имя_БД>
+              user=<имя_пользователя>
+              password=<пароль_пользователя>
               target_session_attrs=read-write
               sslmode=verify-full
       ")

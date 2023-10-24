@@ -16,14 +16,14 @@
 Чтобы скопировать данные из таблицы в файл, выполните команду:
 
 ```bash
-psql "host=c-<идентификатор кластера>.rw.{{ dns-zone }} \
+psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
     port={{ port-mgp }} \
     sslmode=verify-full \
-    dbname=<имя БД> \
-    user=<имя пользователя> \
+    dbname=<имя_БД> \
+    user=<имя_пользователя> \
     target_session_attrs=read-write" \
-    -c "\copy (SELECT * FROM <имя таблицы>) to stdout (DELIMITER '<символ_разделителя>')" \
-    >> <имя локального файла>
+    -c "\copy (SELECT * FROM <имя_таблицы>) to stdout (DELIMITER '<символ_разделителя>')" \
+    >> <имя_локального_файла>
 ```
 
 ## Заполнить таблицу данными {#write}
@@ -37,12 +37,12 @@ psql "host=c-<идентификатор кластера>.rw.{{ dns-zone }} \
 Чтобы заполнить таблицу данными из локального файла, выполните команду:
 
 ```bash
-cat <имя локального файла> | \
-psql "host=c-<идентификатор кластера>.rw.{{ dns-zone }} \
+cat <имя_локального_файла> | \
+psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
     port={{ port-mgp }} \
     sslmode=verify-full \
-    dbname=<имя БД> \
-    user=<имя пользователя> \
+    dbname=<имя_БД> \
+    user=<имя_пользователя> \
     target_session_attrs=read-write" \
-    -c "COPY <имя таблицы> FROM stdin (DELIMITER '<символ_разделителя>')"
+    -c "COPY <имя_таблицы> FROM stdin (DELIMITER '<символ_разделителя>')"
 ```

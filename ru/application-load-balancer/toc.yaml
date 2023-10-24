@@ -49,6 +49,8 @@ items:
             href: operations/application-load-balancer-get-log-group-id.md
           - name: Остановить и запустить L7-балансировщик
             href: operations/application-load-balancer-stop-and-start.md
+          - name: Переместить ВМ в целевую группу в новой зоне доступности
+            href: operations/application-load-balancer-relocate.md
           - name: Удалить L7-балансировщик
             href: operations/application-load-balancer-delete.md
       - name: Инструменты для {{ managed-k8s-name }}

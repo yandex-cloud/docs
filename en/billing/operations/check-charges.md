@@ -5,7 +5,7 @@ You can view charts and tables with information about {{ yandex-cloud }} service
 1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-1. Click the name of the appropriate account and select ![image](../../_assets/billing/detalization.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}**.
+1. Click the name of the appropriate account and select ![image](../../_assets/billing/chart-area-stacked.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}**.
 1. Select the detail depth.
 
 Depending on the selected detail depth, you will be able to view different data:
