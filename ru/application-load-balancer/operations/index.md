@@ -33,6 +33,7 @@ description: "Пошаговые инструкции по работе с {{ al
 * [{#T}](application-load-balancer-manage-logs.md)
 * [{#T}](application-load-balancer-get-log-group-id.md)
 * [{#T}](application-load-balancer-stop-and-start.md)
+* [{#T}](application-load-balancer-relocate.md)
 * [{#T}](application-load-balancer-delete.md)
 
 ## Инструменты для {{ managed-k8s-name }} {#k8s-ingress-controller}

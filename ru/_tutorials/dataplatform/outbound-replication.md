@@ -40,7 +40,7 @@
 1. Сделайте дамп схемы базы данных кластера-источника с помощью утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html):
 
    ```bash
-   pg_dump "host=<FQDN хоста кластера-источника> port=6432 sslmode=verify-full dbname=<имя БД> user=<имя пользователя-владельца БД>" --schema-only --no-privileges --no-subscriptions --no-publications -Fd -f <директория для дампа>
+   pg_dump "host=<FQDN_хоста_кластера-источника> port=6432 sslmode=verify-full dbname=<имя_БД> user=<имя_пользователя-владельца_БД>" --schema-only --no-privileges --no-subscriptions --no-publications -Fd -f <директория_для_дампа>
    ```
    
    FQDN хоста можно получить со [списком хостов в кластере](../../managed-postgresql/operations/hosts.md#list).
@@ -50,7 +50,7 @@
 1. Восстановите схему базы данных из дампа на кластере-приемнике с помощью утилиты [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html):
 
    ```bash
-   pg_restore -Fd -v --single-transaction -s --no-privileges -h <FQDN хоста-мастера кластера-приемника> -U <имя пользователя-владельца БД> -p 5432 -d <имя БД> <директория с дампом>
+   pg_restore -Fd -v --single-transaction -s --no-privileges -h <FQDN_хоста-мастера_кластера-приемника> -U <имя_пользователя-владельца_БД> -p 5432 -d <имя_БД> <директория_с_дампом>
    ```
 
 ## Настройте пользователя для управления репликацией на кластере-источнике {#configure-user}
@@ -69,15 +69,15 @@
 1. Создайте публикацию, на которую будет подписываться кластер-приемник:
 
    ```sql
-   CREATE PUBLICATION <имя публикации>;
+   CREATE PUBLICATION <имя_публикации>;
    ```
    
 1.  Включите в созданную публикацию все таблицы базы данных:
 
     ```
-    ALTER PUBLICATION <имя публикации> ADD TABLE <имя таблицы 1>;
+    ALTER PUBLICATION <имя_публикации> ADD TABLE <имя_таблицы_1>;
     ...
-    ALTER PUBLICATION <имя публикации> ADD TABLE <имя таблицы N>;
+    ALTER PUBLICATION <имя_публикации> ADD TABLE <имя_таблицы_N>;
     ``` 
     
     {% note info %}
@@ -92,7 +92,7 @@
 1. Создайте подписку на публикацию кластера-источника:
 
    ```sql
-   CREATE SUBSCRIPTION <имя подписки> CONNECTION 'host=<FQDN хоста кластера-источника> port=6432 sslmode=verify-full dbname=<имя БД, которую нужно мигрировать> user=<имя пользователя для управления репликацией> password=<пароль пользователя>' PUBLICATION <имя публикации>;
+   CREATE SUBSCRIPTION <имя_подписки> CONNECTION 'host=<FQDN_хоста_кластера-источника> port=6432 sslmode=verify-full dbname=<имя_БД_которую_нужно_мигрировать> user=<имя_пользователя_для_управления_репликацией> password=<пароль_пользователя>' PUBLICATION <имя_публикации>;
    ```
    
 Начнется процесс миграции данных из базы кластера-источника в базу кластера-приемника.
@@ -121,23 +121,23 @@ SELECT * FROM pg_subscription_rel;
 1. Перенесите последовательности (sequences), если они есть, из кластера-источника на кластер-приемник с помощью утилит pg_dump и psql:
 
    ```bash
-   pg_dump "host=<FQDN хоста-мастера кластера-источника> port=6432 sslmode=verify-full dbname=<имя БД> user=<имя пользователя-владельца БД>" --data-only -t '*.*_seq' > <имя файла с sequences>
+   pg_dump "host=<FQDN_хоста-мастера_кластера-источника> port=6432 sslmode=verify-full dbname=<имя_БД> user=<имя_пользователя-владельца_БД>" --data-only -t '*.*_seq' > <имя_файла_с_sequences>
    ```
    
    ```bash
-   psql -h <FQDN хоста-мастера кластера-приемника> -U <имя пользователя-владельца БД> -p 5432 -d <имя БД> < <имя файла с sequences>
+   psql -h <FQDN_хоста-мастера_кластера-приемника> -U <имя_пользователя-владельца_БД> -p 5432 -d <имя_БД> < <имя_файла_с_sequences>
    ``` 
 
 1. Удалите подписку на кластере-приемнике:
 
    ```sql
-   DROP SUBSCRIPTION <имя подписки>;
+   DROP SUBSCRIPTION <имя_подписки>;
    ```
    
 1. Удалите публикацию на кластере-источнике:
 
    ```sql
-   DROP PUBLICATION <имя публикации>;
+   DROP PUBLICATION <имя_публикации>;
    ```
    
 1. [Удалите пользователя](../../managed-postgresql/operations/cluster-users.md#removeuser) для управления репликацией на кластере-источнике.

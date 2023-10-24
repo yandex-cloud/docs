@@ -80,6 +80,10 @@
 
 1. Откройте ваш инстанс {{ GL }} и перейдите на страницу **Infrastucture → {{ k8s }} clusters**. Убедитесь, что агент перешел в состояние `Connected`.
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/gitlab-containers.md).
+
 ## См. также {#see-also}
 
 * [Документация {{ GL }} Agent](https://docs.gitlab.com/ee/user/clusters/agent/).

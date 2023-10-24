@@ -253,3 +253,21 @@ Too many authentication failures
 * Приватный SSH-ключ не добавлен в аутентификационный агент (ssh-agent).
 
   **Решение:** добавьте приватный ключ с помощью команды `ssh-add <путь_к_файлу_приватного_ключа>`.
+
+#### Как выдать доступ в интернет узлам кластера {{ managed-k8s-name }}? {#internet}
+
+Если узлам кластера {{ managed-k8s-name }} не выдан доступ в интернет, при попытке подключения к интернету возникнет ошибка:
+
+```text
+Failed to pull image "{{ registry }}/***": rpc error: code = Unknown desc = Error response from daemon: Gethttps://{{ registry }}/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+```
+
+Есть несколько способов выдать доступ в интернет узлам кластера {{ managed-k8s-name }}:
+* Создайте и настройте [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance.md). В результате с помощью [статической маршрутизации](../../vpc/concepts/static-routes.md) трафик будет направлен через шлюз или отдельную [виртуальную машину](../../compute/concepts/vm.md) с функциями NAT.
+* [Назначьте публичный IP-адрес группе узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-group/node-group-update.md#update-settings).
+
+{% note info %}
+
+Если вы назначили публичные IP-адреса узлам кластера и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее см. в [документации сервиса {{ vpc-full-name }}](../../vpc/concepts/static-routes.md#internet-routes).
+
+{% endnote %}

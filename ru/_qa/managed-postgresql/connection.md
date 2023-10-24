@@ -51,7 +51,7 @@ curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
 Количество одновременных подключений задается на уровне кластера в [настройке **Max connections**](../../managed-postgresql/concepts/settings-list.md#setting-max-connections). По умолчанию установлено максимальное значение, которое задается формулой:
 
 ```text
-200 × <количество vCPU на одном хосте>
+200 × <количество_vCPU_на_одном_хосте>
 ```
 
 О том, как изменить настройки {{ PG }} на уровне кластера читайте в [документации](../../managed-postgresql/operations/update.md#change-postgresql-config).
@@ -63,7 +63,7 @@ curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
 Если лимит подключений для пользователя будет исчерпан, то попытка открыть новое подключение завершится ошибкой:
 
 ```text
-too many active clients for user (pool_size for user <имя пользователя> reached <значение лимита>)
+too many active clients for user (pool_size for user <имя_пользователя> reached <значение_лимита>)
 ```
 
 О том, как изменить настройки {{ PG }} на уровне пользователя читайте в [документации](../../managed-postgresql/operations/cluster-users.md#update-settings).

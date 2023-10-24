@@ -5395,6 +5395,7 @@ default:
         label_hc-type-grpc: gRPC
         label_hc-type-http: HTTP
         label_hc-type-stream: Stream
+        label_healthchecks: Health checks
         label_healthy: Healthy threshold
         label_host-rewrite: Host header rewrite
         label_http-methods: HTTP methods
@@ -9135,7 +9136,7 @@ default:
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
-        tag: 5.4.3-7
+        tag: 5.46.8-6
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-

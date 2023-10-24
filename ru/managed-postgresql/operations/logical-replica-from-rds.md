@@ -26,7 +26,7 @@
     В случае переключения на базу подписчика, необходимо обновить последовательность до последнего значения:
 
     ```sql
-    ALTER SEQUENCE serial RESTART WITH <new value>;
+    ALTER SEQUENCE serial RESTART WITH <новое_значение>;
     ```
 
 * По умолчанию при создании подписки происходит полное копирование данных из исходных таблиц.
@@ -36,14 +36,14 @@
 * Если в таблице отсутствует первичный ключ, во время репликации появятся ошибки:
 
     ```text
-    ERROR: 55000: cannot update table "<имя таблицы>" because it does not have a replica identity and publishes updates
+    ERROR: 55000: cannot update table "<имя_таблицы>" because it does not have a replica identity and publishes updates
     HINT: To enable updating the table, set REPLICA IDENTITY using ALTER TABLE.
     ```
 
     Для работы репликации `UPDATE` и `DELETE` в таблицах без первичного ключа необходимо изменить `REPLICA IDENTITY`:
 
     ```sql
-    ALTER TABLE <имя таблицы> REPLICA IDENTITY FULL;
+    ALTER TABLE <имя_таблицы> REPLICA IDENTITY FULL;
     ```
 
 * В {{ PG }} версии 10 команда `TRUNCATE` не реплицируется.
@@ -126,14 +126,14 @@
 1. Создайте отдельного пользователя с ролью `rds_replication`. Для этого выполните от имени пользователя с ролью `rds_superuser`:
 
     ```sql
-    CREATE ROLE <имя пользователя> WITH LOGIN PASSWORD <пароль>;
-    GRANT rds_replication TO <имя пользователя>;
+    CREATE ROLE <имя_пользователя> WITH LOGIN PASSWORD <пароль>;
+    GRANT rds_replication TO <имя_пользователя>;
     ```
 
 1. Предоставьте привилегию `SELECT` на все таблицы, участвующие в репликации:
 
     ```sql
-    GRANT SELECT ON <таблица_1>, <таблица_2>, ..., <таблица_n> TO <имя пользователя>;
+    GRANT SELECT ON <таблица_1>, <таблица_2>, ..., <таблица_n> TO <имя_пользователя>;
     ```
 
 1. Создайте публикацию:
@@ -165,7 +165,7 @@
 1. Создайте подписку со строкой подключения к кластеру-источнику:
 
     ```sql
-    CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<адрес кластера-источника> port=<порт> user=<имя пользователя> sslmode=prefer dbname=<имя базы данных>' PUBLICATION pub;
+    CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<адрес_кластера-источника> port=<порт> user=<имя_пользователя> sslmode=prefer dbname=<имя_БД>' PUBLICATION pub;
     ```
 
     Подробнее о создании подписок см. в [документации {{ PG }}]({{ pg-docs }}/sql-createsubscription.html).
@@ -186,10 +186,10 @@
 1. Создайте дамп с последовательностями:
 
     ```bash
-    pg_dump --host=<адрес кластера-источника> \
-            --username=<имя пользователя> \
+    pg_dump --host=<адрес_кластера-источника> \
+            --username=<имя_пользователя> \
             --port=<порт> \
-            --dbname=<имя базы данных> \
+            --dbname=<имя_БД> \
             --data-only \
             --table='*.*_seq' > /tmp/seq-data.sql
     ```
@@ -202,10 +202,10 @@
 
     ```bash
     psql \
-        --host=<FQDN хоста-мастера кластера-приемника> \
-        --username=<имя пользователя> \
+        --host=<FQDN_хоста-мастера_кластера-приемника> \
+        --username=<имя_пользователя> \
         --port={{ port-mpg }} \
-        --dbname=<имя базы данных> < /tmp/seq-data.sql
+        --dbname=<имя_БД> < /tmp/seq-data.sql
     ```
 
 ### Удалите подписку и переключите нагрузку на кластер-приемник {#transfer-load}

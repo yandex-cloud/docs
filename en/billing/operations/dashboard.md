@@ -11,7 +11,7 @@ You can view information on your {{ yandex-cloud }} service usage by building a 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
    1. Select the billing account you need from the list.
-   1. In the **{{ ui-key.yacloud.billing.account.switch_detail }}** tab, click **{{ ui-key.yacloud.billing.account.detail.button_move-to-datalens }}**.
+   1. In the ![image](../../_assets/billing/chart-area-stacked.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}** tab, click **{{ ui-key.yacloud.billing.account.detail.button_move-to-datalens }}**.
    1. Click **Create connection**.
    1. In the window that opens, specify the connection name and click **Create**.
    1. Select **{{ yandex-cloud }} Billing Dashboard** in the list.

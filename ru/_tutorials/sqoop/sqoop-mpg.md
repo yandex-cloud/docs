@@ -122,7 +122,7 @@
 Пусть:
 
 {% include [Shared settings](./shared-properties.md) %}
-* Идентификатор кластера {{ mpg-name }}: `c9qgcd6lplrsjt9jhtuu`.
+* Идентификатор кластера {{ mpg-name }}: `c9qgcd6lplrs********`.
 
 {% list tabs %}
 
@@ -133,7 +133,7 @@
 
         ```bash
         sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-            --connect "jdbc:postgresql://c-c9qgcd6lplrsjt9jhtuu.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
+            --connect "jdbc:postgresql://c-c9qgcd6lplrs********.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
             --username "user1" \
             --P \
             --table "persons" \
@@ -148,7 +148,7 @@
 
         ```bash
         sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-            --connect "jdbc:postgresql://c-c9qgcd6lplrsjt9jhtuu.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
+            --connect "jdbc:postgresql://c-c9qgcd6lplrs********.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
             --username "user1" \
             --table "persons" \
             --target-dir "import-directory" \
@@ -163,7 +163,7 @@
 
         ```bash
         sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-            --connect "jdbc:postgresql://c-c9qgcd6lplrsjt9jhtuu.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
+            --connect "jdbc:postgresql://c-c9qgcd6lplrs********.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
             --username "user1" \
             --P \
             --table "persons" \
@@ -181,7 +181,7 @@
 
         ```bash
         sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-            --connect "jdbc:postgresql://c-c9qgcd6lplrsjt9jhtuu.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
+            --connect "jdbc:postgresql://c-c9qgcd6lplrs********.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
             --username "user1" \
             --P \
             --table "persons" \
