@@ -19,11 +19,11 @@
     Чтобы включить сбор статистики, передайте параметр `--performance-diagnostics` в команде изменения кластера:
 
     ```bash
-    {{ yc-mdb-pg }} cluster update <идентификатор или имя кластера> \
+    {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
         ...
         --performance-diagnostics enabled=true,`
-                                 `sessions-sampling-interval=<интервал сбора сессий>,`
-                                 `statements-sampling-interval=<интервал сбора запросов> \
+                                 `sessions-sampling-interval=<интервал_сбора_сессий>,`
+                                 `statements-sampling-interval=<интервал_сбора_запросов> \
         ...
     ```
 

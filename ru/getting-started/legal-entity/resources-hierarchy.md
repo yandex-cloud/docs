@@ -6,13 +6,13 @@
 
 ## Создайте каталог
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [create-folder](../../_includes/create-folder.md) %}
 
-- CLI
+- CLI {#cli}
 
   1. Посмотрите описание команды создания каталога:
 
@@ -41,7 +41,7 @@
               --description "my first folder with description"
           ```
 
-- API
+- API {#api}
 
   Чтобы создать каталог, воспользуйтесь методом [create](../../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md).
 
@@ -51,16 +51,16 @@
 
 Через консоль управления можно изменить только имя каталога. Чтобы изменить его описание, используйте CLI или API.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. Выберите каталог на [стартовой странице]({{ link-console-main }}) консоли управления. На этой странице отображаются каталоги для выбранного облака. Если необходимо, [переключитесь на другое облако](../../resource-manager/operations/cloud/switch-cloud.md).
   1. Нажмите значок ![image](../../_assets/options.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Введите новое имя каталога.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
-- CLI
+- CLI {#cli}
 
   1. Посмотрите описание команды изменения каталога:
 
@@ -116,7 +116,7 @@
 
 
 
-- API
+- API {#api}
 
   Чтобы изменить каталог, воспользуйтесь методом [update](../../resource-manager/api-ref/Folder/update.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md).
   
@@ -124,16 +124,16 @@
 
 ## Назначьте роли на каталог {#access-to-user}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
   1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
   1. Выберите каталог в блоке **{{ ui-key.yacloud.iam.users.label_folders-roles }}** и нажмите значок ![image](../../_assets/plus-sign.svg).
   1. Выберите необходимую роль из списка.
 
-- CLI
+- CLI {#cli}
 
   1. Посмотрите описание команды для назначения роли на каталог:
 
@@ -182,7 +182,7 @@
           --subject userAccount:gfei8n54hmfhuk5nogse
       ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md). Вам понадобится ID каталога и ID пользователя, которому назначается роль на каталог.
 
@@ -241,15 +241,15 @@
 
 ## Назначьте несколько ролей {#multiple-roles}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   Воспользуйтесь инструкцией в [начале раздела](#access-to-user) и назначьте пользователю несколько ролей.
 
   Чтобы назначить роль другому пользователю, выберите пользователя на вкладке [Пользователи и роли]({{ link-console-access-management }}) и нажмите кнопку **{{ ui-key.yacloud.iam.users.button_tune-role }}**.
 
-- CLI
+- CLI {#cli}
 
   Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-binding`.
 
@@ -273,7 +273,7 @@
           --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
 
-- API
+- API {#api}
 
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
 
@@ -333,17 +333,17 @@
 
 Разрешите сервисному аккаунту управлять каталогом и ресурсами в нем:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   {% include [grant-role-console-sa](../../_includes/grant-role-console-sa.md) %}
 
-- CLI
+- CLI {#cli}
 
   {% include [grant-role-for-sa-to-folder-via-cli](../../_includes/iam/grant-role-for-sa-to-folder-via-cli.md) %}
 
-- API
+- API {#api}
 
   {% include [grant-role-for-sa-to-folder-via-api](../../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 

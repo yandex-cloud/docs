@@ -23,9 +23,9 @@
 
 Чтобы добавить пользователей федерации в организацию:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
@@ -35,7 +35,7 @@
   1. Перечислите Name ID пользователей, разделяя их переносами строк.
   1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**. Пользователи будут подключены к организации.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -54,7 +54,7 @@
     --name-ids=alice@example.com,bob@example.com,charlie@example.com
     ```
 
-- API
+- API {#api}
 
   Чтобы добавить пользователей федерации в облако:
 
@@ -83,16 +83,16 @@
 
 ## Назначьте роли пользователям {#add-role}
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
   В консоли управления можно назначить роль только на облако или каталог:
 
   {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
 
-- CLI
+- CLI {#cli}
 
   1. Выберите роль из списка в разделе [Роли](../../iam/concepts/access-control/roles.md).
   1. [Получите идентификатор пользователя](../../organization/operations/users-get.md).
@@ -121,7 +121,7 @@
       --subject userAccount:aje6o61dvog2h6g9a33s
     ```
 
-- API
+- API {#api}
 
   Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
 

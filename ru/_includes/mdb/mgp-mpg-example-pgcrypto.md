@@ -73,8 +73,8 @@
     1. Экспортируйте ключи в файлы:
 
         ```bash
-        gpg -a --export <Real name ключа> > public.key && \
-        gpg -a --export-secret-keys <Real name ключа> > private.key
+        gpg -a --export <Real_name_ключа> > public.key && \
+        gpg -a --export-secret-keys <Real_name_ключа> > private.key
         ```
 
 1. Создайте таблицу:
@@ -92,7 +92,7 @@
     FROM (
         VALUES ('Alice', '123-45-6788'), ('Bob', '123-45-6799'))
         AS tmp(username, ssn)
-    CROSS JOIN (SELECT  dearmor('<содержимое файла public.key>') AS pubkey) AS keys;
+    CROSS JOIN (SELECT  dearmor('<содержимое_файла_public.key>') AS pubkey) AS keys;
     ```
 
 1. Проверьте, что данные с столбце `ssn` зашифрованы:
@@ -104,7 +104,7 @@
 1. Расшифруйте данные в столбце `ssn` с помощью закрытого ключа:
 
     ```sql
-    SELECT username, pgp_pub_decrypt(ssn, keys.privkey, '<Passphrase ключа>')
+    SELECT username, pgp_pub_decrypt(ssn, keys.privkey, '<Passphrase_ключа>')
         AS decrypted_ssn FROM tbl_asym_crypt
-    CROSS JOIN (SELECT dearmor('<содержимое файла private.key>') AS privkey) AS keys;
+    CROSS JOIN (SELECT dearmor('<содержимое_файла_private.key>') AS privkey) AS keys;
     ```

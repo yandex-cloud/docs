@@ -1,6 +1,6 @@
 ## Создайте тестовое приложение {#app-create}
 
-Создайте тестовое приложение, которое можно будет развернуть в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster):
+Создайте тестовое приложение, которое можно будет развернуть в [кластере {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster):
 1. Добавьте в проект `Dockerfile`:
    1. Авторизуйтесь в {{ GL }}.
    1. На главной странице выберите репозиторий.
@@ -46,12 +46,11 @@
           spec:
             containers:
               - name: hello-world
-                image: {{ registry }}/<идентификатор реестра>/__VERSION__
+                image: __VERSION__
                 imagePullPolicy: Always
        ```
 
       {% endcut %}
 
-   1. Вместо `<идентификатор реестра>` укажите идентификатор созданного ранее [реестра](../../container-registry/concepts/registry.md) {{ container-registry-name }}.
    1. Напишите комментарий к коммиту в поле **Commit message**: `Docker image deployment config`.
    1. Нажмите кнопку **Commit changes**.

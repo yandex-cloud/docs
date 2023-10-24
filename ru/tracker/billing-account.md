@@ -95,7 +95,7 @@
 
 ## Заменить платежный аккаунт {#change}
 
-Чтобы заменить платежный аккаунт:
+Замена платежного аккаунта организации возможна только один раз в месяц. Чтобы заменить платежный аккаунт:
 1. Перейдите в раздел **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**. На странице отображается платежный аккаунт, привязанный к {{ tracker-name }}.
 2. Перейдите по ссылке **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.rebind-account }}** в верхнем правом углу. Выберите платежный аккаунт, на который хотите заменить текущий, или нажмите **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**. 
    Если вы решили создать новый аккаунт, воспользуйтесь [инструкцией](#create).

@@ -76,8 +76,8 @@
   1. Укажите нужный класс в команде изменения кластера:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update <идентификатор или имя кластера> \
-          --resource-preset <идентификатор класса хостов>
+      {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+          --resource-preset <идентификатор_класса_хостов>
       ```
 
       {{ mpg-short-name }} запустит операцию изменения класса хостов для кластера.
@@ -93,11 +93,11 @@
   1. Измените в описании кластера {{ mpg-name }} значение атрибута `resource_preset_id` в блоке `config.resources`:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+      resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
         ...
         config {
           resources {
-            resource_preset_id = "<класс хоста>"
+            resource_preset_id = "<класс_хоста>"
             ...
           }
         }
@@ -158,7 +158,7 @@
   1. Посмотрите полный список настроек, установленных для кластера:
 
      ```bash
-     {{ yc-mdb-pg }} cluster get <идентификатор или имя кластера> --full
+     {{ yc-mdb-pg }} cluster get <имя_или_идентификатор_кластера> --full
      ```
 
   1. Посмотрите описание команды CLI для изменения конфигурации кластера:
@@ -169,11 +169,11 @@
 
   1. Установите нужные значения параметров:
 
-      Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `postgresqlConfig_<версия {{ PG }}>`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `maxPreparedTransactions` из запроса к API преобразуется в `max_prepared_transactions` для команды CLI:
+      Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `postgresqlConfig_<версия_{{ PG }}>`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `maxPreparedTransactions` из запроса к API преобразуется в `max_prepared_transactions` для команды CLI:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update-config <идентификатор или имя кластера> \
-         --set <имя параметра1>=<значение1>,<имя параметра2>=<значение2>,...
+      {{ yc-mdb-pg }} cluster update-config <имя_или_идентификатор_кластера> \
+         --set <имя_параметра_1>=<значение_1>,<имя_параметра_2>=<значение_2>,...
       ```
 
       {{ mpg-short-name }} запустит операцию по изменению настроек кластера.
@@ -189,14 +189,14 @@
     1. Измените в описании кластера {{ mpg-short-name }} значения параметров в блоке `config.postgresql_config`. Если такого блока нет — создайте его.
 
         ```hcl
-        resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+        resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
           ...
           config {
             ...
             postgresql_config = {
-              max_connections                   = <макс.число соединений>
-              enable_parallel_hash              = <true или false>
-              vacuum_cleanup_index_scale_factor = <число от 0 до 1>
+              max_connections                   = <максимальное_количество_соединений>
+              enable_parallel_hash              = <true_или_false>
+              vacuum_cleanup_index_scale_factor = <число_от_0_до_1>
               ...
             }
           }
@@ -218,7 +218,7 @@
     Чтобы изменить настройки сервера {{ PG }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-    * Нужные значения настроек в параметре `configSpec.postgresqlConfig_<версия {{ PG }}>`.
+    * Нужные значения настроек в параметре `configSpec.postgresqlConfig_<версия_{{ PG }}>`.
     * Список настроек, которые необходимо изменить, в параметре `updateMask`.
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -255,20 +255,20 @@
 
         
         ```bash
-        {{ yc-mdb-pg }} cluster update <идентификатор или имя кластера> \
-            --backup-window-start <время начала резервного копирования> \
-            --datalens-access=<true или false> \
-            --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                                `day=<день недели для типа weekly>,`
-                                `hour=<час дня для типа weekly> \
-            --websql-access=<true или false> \
-            --deletion-protection=<защита от удаления кластера: true или false> \
-            --connection-pooling-mode=<режим работы менеджера соединений> \
-            --serverless-access=<true или false> \
-            --yandexquery-access=<доступ через {{ yq-full-name }}: true или false> \
-            --performance-diagnostics enabled=<true или false>,`
-                                     `sessions-sampling-interval=<интервал сбора сессий (в секундах)>,`
-                                     `statements-sampling-interval=<интервал сбора запросов (в секундах)>
+        {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+            --backup-window-start <время_начала_резервного_копирования> \
+            --datalens-access=<true_или_false> \
+            --maintenance-window type=<тип_технического_обслуживания>,`
+                                `day=<день_недели>,`
+                                `hour=<час_дня> \
+            --websql-access=<true_или_false> \
+            --deletion-protection=<защита_от_удаления> \
+            --connection-pooling-mode=<режим_работы_менеджера_соединений> \
+            --serverless-access=<true_или_false> \
+            --yandexquery-access=<доступ_через_{{ yq-name }}> \
+            --performance-diagnostics enabled=<true_или_false>,`
+                                     `sessions-sampling-interval=<интервал_сбора_сессий>,`
+                                     `statements-sampling-interval=<интервал_сбора_запросов>
         ```
 
 
@@ -320,12 +320,12 @@
   1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера {{ mpg-name }} блок `config.backup_window_start`.
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+      resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
         ...
         config {
           backup_window_start {
-            hours   = <час начала резервного копирования>
-            minutes = <минута начала резервного копирования>
+            hours   = <час_начала_резервного_копирования>
+            minutes = <минута_начала_резервного_копирования>
           }
           ...
         }
@@ -336,34 +336,44 @@
   1. Чтобы разрешить доступ из {{ datalens-full-name }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md), измените значения соответствующих полей в блоке `config.access`:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+      resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
         ...
         config {
           access {
-            data_lens = <доступ из DataLens: true или false>
-            web_sql   = <выполнение SQL-запросов из консоли управления: true или false>
+            data_lens = <доступ_из_{{ datalens-name }}>
+            web_sql   = <выполнение_SQL-запросов_из_консоли_управления>
             ...
         }
         ...
       }
       ```
 
+      Где:
+
+      * `data_lens` — доступ из {{ datalens-name }}: `true` или `false`.
+      * `web_sql` — выполнение SQL-запросов из консоли управления: `true` или `false`.
+
 
 
   1. Чтобы изменить [режим работы менеджера соединений](../concepts/pooling.md), добавьте к описанию кластера {{ mpg-name }} блок `config.pooler_config`:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+      resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
         ...
         config {
           pooler_config {
-            pool_discard = <параметр Odyssey pool_discard: true или false>
-            pooling_mode = "<режим работы: SESSION, TRANSACTION или STATEMENT>"
+            pool_discard = <параметр_Odyssey>
+            pooling_mode = "<режим_работы>"
           }
           ...
         }
       }
       ```
+
+      Где:
+
+      * `pool_discard`  — параметр Odyssey `pool_discard`: `true` или `false`.
+      * `pooling_mode` — режим работы: `SESSION`, `TRANSACTION` или `STATEMENT`.
 
   1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
@@ -372,11 +382,13 @@
   1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+      resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
         ...
-        deletion_protection = <защита от удаления кластера: true или false>
+        deletion_protection = <защита_от_удаления>
       }
       ```
+
+Где `deletion_protection` — защита от удаления кластера: `true` или `false`.
 
       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -454,8 +466,8 @@
   Выполните команду:
 
   ```bash
-  {{ yc-mdb-pg }} cluster start-failover <идентификатор или имя кластера> \
-      --host <имя хоста-реплики>
+  {{ yc-mdb-pg }} cluster start-failover <имя_или_идентификатор_кластера> \
+      --host <имя_хоста-реплики>
   ```
 
   Имя хоста-реплики можно запросить со [списком хостов в кластере](hosts.md#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -471,11 +483,13 @@
     1. Укажите имя хоста-реплики, на которую нужно переключиться, в параметре `host_master_name`.
 
         ```hcl
-        resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+        resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
           ...
-          host_master_name = "<имя хоста-реплики: атрибут name соответствующего блока host>"
+          host_master_name = "<имя_хоста-реплики>"
         }
         ```
+
+        Где `host_master_name` — имя хоста-реплики: атрибут `name` соответствующего блока `host`.
 
     1. Проверьте корректность настроек.
 
@@ -525,8 +539,8 @@
     1. Укажите каталог назначения в команде перемещения кластера:
 
         ```bash
-        {{ yc-mdb-pg }} cluster move <идентификатор кластера> \
-           --destination-folder-name=<имя каталога назначения>
+        {{ yc-mdb-pg }} cluster move <идентификатор_кластера> \
+           --destination-folder-name=<имя_каталога_назначения>
         ```
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -574,8 +588,8 @@
   1. Укажите нужные группы безопасности в команде изменения кластера:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update <идентификатор или имя кластера> \
-          --security-group-ids <список групп безопасности>
+      {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+          --security-group-ids <список_идентификаторов_групп_безопасности>
       ```
 
 - {{ TF }}
@@ -589,9 +603,9 @@
   1. Измените значение параметра `security_group_ids` в описании кластера:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+      resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
         ...
-        security_group_ids = [ <список групп безопасности кластера> ]
+        security_group_ids = [ <список_идентификаторов_групп_безопасности> ]
       }
       ```
 

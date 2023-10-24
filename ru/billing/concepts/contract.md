@@ -39,4 +39,4 @@
 
 ## Номер договора{#id}
 
-Номер договора отображается в консоли управления на странице **{{ ui-key.yacloud.billing.account.switch_overview }}**. 
+Номер договора отображается в консоли управления на странице ![image](../../_assets/billing/flag.svg) **{{ ui-key.yacloud.billing.account.switch_overview }}**. 
