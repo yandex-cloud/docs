@@ -3,6 +3,7 @@
 Если вы партнер {{ datalens-short-name }}, вы можете создать свой коннектор (тип подключения) и добавить его в [{{ datalens-short-name }} {{ marketplace-short-name }}](../../concepts/marketplace.md) или на страницу [подключений]({{ link-datalens-main }}/connections/new). С помощью коннектора пользователи смогут создавать датасеты, чарты и дашборды на основе ваших данных.
 
 Преимущества работы с коннектором для партнеров {{ datalens-short-name }}:
+
 * простой доступ пользователей к данным;
 * разграничение доступа к данным (каждый пользователь видит только те данные, которые вы ему предоставляете);
 * развертывание готового дашборда с вашими данными и возможность его изменять.
@@ -27,27 +28,30 @@
 
 Коннектор необходимо создать на базе кластера CH, в котором будут храниться данные ваших пользователей.
 
-1. Создайте [кластер {{ CH }}](../../../managed-clickhouse/operations/cluster-create.md) в облаке. 
+1. Создайте [кластер {{ CH }}](../../../managed-clickhouse/operations/cluster-create.md) в облаке.
+
    1. В кластере добавьте пользователя БД `datalens` с параметром [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
-   
+
       {% note info %}
-      
+
       Если кластер переведен под управление SQL, то создать пользователя можно командой:
+
       ```sql
       CREATE USER IF NOT EXISTS <имя_пользователя> ON CLUSTER <имя_кластера>
           IDENTIFIED WITH plaintext_password by '<пароль_пользователя>'
           SETTINGS readonly = 2;
       ```
-      
+
       {% endnote %}
 
    1. В настройках включите **Доступ из {{ datalens-short-name }}** и **Управление базами данных через SQL**.
+
 1. Передайте пароль и список хостов кластера в {{ datalens-short-name }}.
 1. Сгенерируйте пару RSA-2048 ключей. Передайте открытый ключ и версию ключа в {{ datalens-short-name }}.
    Требования для генерации ключа: `public_exponent=65537`, `key_size=2048`. Версия ключа — целое число, версия необходима для бесшовной ротации ключей в будущем.
 
    {% cut "Python-код для генерации пары ключей" %}
-    
+
     ```python
     from cryptography.hazmat.primitives.asymmetric import rsa
     from cryptography.hazmat.primitives import serialization
@@ -81,9 +85,9 @@
 1. Подготовьте токен доступа для пользователя:
 
    {% note warning %}
-   
+
    Для каждого пользователя должен быть отдельный токен доступа в формате строки.
-   
+
    {% endnote %}
 
     1. Сгенерируйте JSON с именем БД клиента, например `{"db_name":"client_1234383"}`.
@@ -93,9 +97,9 @@
         * `datalens_key_version` и `partner_key_version` — версии ключей.
         * `encrypted_data` — зашифрованный JSON (результат шага 2.2), закодированный в Base64.
         * `signature` — подпись зашифрованного сообщения (результат шага 2.3), закодированная в Base64.
-   
+
     {% cut "Python-код для генерации токена доступа" %}
-    
+
     ```python
      import json
      from base64 import b64encode, b64decode
@@ -124,11 +128,10 @@
          b64encode(signature).decode(encoding='utf-8'),
      ))
     ```
-    
+
     {% endcut %}
 
 1. Передайте токен доступа пользователю через ваш сайт или любым другим способом.
-
 
 ## Работа пользователя с коннектором {#work-with-connector}
 
@@ -145,7 +148,6 @@
 
 1. Сохраняет подключение. После этого в {{ datalens-short-name }} разворачивается стандартный дашборд на основе данных коннектора.
 
-
 #### См. также
 
-- [{#T}](../../concepts/marketplace.md)
+* [{#T}](../../concepts/marketplace.md)

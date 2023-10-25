@@ -7,7 +7,11 @@
 
 Чтобы настроить навигатор:
 
-1. На странице навигации найдите чарт и откройте его.
+
+{% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
+
+
+1. На панели слева нажмите ![image](../../../_assets/datalens/chart.svg) **Чарты** и выберите чарт, у которого необходимо настроить навигатор.
 1. В левой части экрана над чартом нажмите значок ![image](../../../_assets/datalens/gear.svg).
 1. В окне **Настройки чарта** включите опцию **Навигатор**.
 1. Выберите режим отображения навигатора:

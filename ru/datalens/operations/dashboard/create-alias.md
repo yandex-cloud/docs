@@ -2,7 +2,11 @@
 
 Чтобы добавить [алиас](../../concepts/dashboard.md#alias) для пары виджетов:
 
-1. Откройте дашборд. Если у вас нет дашборда, [создайте его](create.md).
+
+{% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
+
+
+1. На панели слева нажмите ![image](../../../_assets/datalens/dashboard-0523.svg) **Дашборды** и выберите нужный дашборд. Если у вас нет дашборда, [создайте его](create.md).
 1. В верхней части страницы нажмите кнопку **Редактировать**.
 1. Нажмите кнопку **Связи**.
 

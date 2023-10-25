@@ -34,3 +34,5 @@
 
 
 
+
+{% include [main-page-error](../../_qa/datalens/main-page-error.md) %}

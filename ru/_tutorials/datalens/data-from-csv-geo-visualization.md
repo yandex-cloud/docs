@@ -36,10 +36,8 @@
 
 1. Скачайте [файл с данными статистики ДТП](https://storage.yandexcloud.net/doc-files/dtp201804-1.csv) за апрель-декабрь 2018 года в формате CSV.
 
-1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}) и нажмите **Создать подключение**.
-
-   ![image](../../_assets/datalens/solution-07/02-create-connection.png)
-
+1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. На панели слева выберите ![image](../../_assets/datalens/connections.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите тип подключения **Файлы**.
 
    ![image](../../_assets/datalens/solution-07/select-file-connection.png)

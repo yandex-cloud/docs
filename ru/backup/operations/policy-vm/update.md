@@ -119,6 +119,91 @@ description: "Из статьи вы узнаете, как изменить п�
 
       Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/update.md).
 
+- {{ TF }}
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  Чтобы изменить основные параметры в политике резервного копирования:
+
+  1. Откройте файл конфигурации {{ TF }} и измените необходимые параметры во фрагменте с описанием ресурса `yandex_backup_policy`:
+
+     
+     {% cut "Пример описания ресурса `yandex_backup_policy` в конфигурации {{ TF }}" %}
+
+     ```
+     resource "yandex_backup_policy" "my_policy" {
+         archive_name                      = "[<имя_ВМ>]-[<идентификатор_плана>]-[<уникальный_идентификатор>]a"
+         cbt                               = "USE_IF_ENABLED"
+         compression                       = "NORMAL"
+         fast_backup_enabled               = true
+         format                            = "AUTO"
+         multi_volume_snapshotting_enabled = true
+         name                              = "<имя_политики>"
+         performance_window_enabled        = true
+         preserve_file_security_settings   = true
+         quiesce_snapshotting_enabled      = true
+         silent_mode_enabled               = true
+         splitting_bytes                   = "9223372036854775807"
+         vss_provider                      = "NATIVE"
+
+         reattempts {
+             enabled      = true
+             interval     = "1m"
+             max_attempts = 10
+         }
+
+         retention {
+             after_backup = false
+
+             rules {
+                 max_age       = "365d"
+                 repeat_period = []
+             }
+         }
+
+         scheduling {
+             enabled              = false
+             max_parallel_backups = 0
+             random_max_delay     = "30m"
+             scheme               = "ALWAYS_INCREMENTAL"
+             weekly_backup_day    = "MONDAY"
+
+             execute_by_time {
+                 include_last_day_of_month = true
+                 monthdays                 = []
+                 months                    = [1,2,3,4,5,6,7,8,9,10,11,12]
+                 repeat_at                 = ["04:10"]
+                 repeat_every              = "30m"
+                 type                      = "MONTHLY"
+                 weekdays                  = []
+             }
+         }
+
+         vm_snapshot_reattempts {
+             enabled      = true
+             interval     = "1m"
+             max_attempts = 10
+         }
+     } 
+     ```
+
+     {% endcut %}
+     
+
+     Более подробную информацию о параметрах ресурса `yandex_backup_policy` см. в [документации провайдера]({{ tf-provider-resources-link }}/backup_policy).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```bash
+     yc backup policy get <идентификатор_политики>
+     ```
+
 - API
 
   Чтобы изменить основные параметры [политики резервного копирования](../../concepts/policy.md), воспользуйтесь методом REST API [update](../../backup/api-ref/Policy/update.md) для ресурса [Policy](../../backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Update](../../backup/api-ref/grpc/policy_service.md#Update).

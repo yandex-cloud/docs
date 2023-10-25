@@ -1,7 +1,9 @@
 
+В {{ mkf-name }} вы можете использовать интегрированный реестр схем формата данных [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#msr). Подробнее см. в разделе [{#T}](../../managed-kafka/tutorials/managed-schema-registry.md). Если вам необходим реестр [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), используйте информацию из этого руководства.
+
 {% note info %}
 
-В {{ mkf-name }} вы можете использовать интегрированный реестр схем формата данных [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#msr). Подробнее см. в разделе [{#T}](../../managed-kafka/tutorials/managed-schema-registry.md). Если вам необходим реестр [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), используйте информацию из этого руководства.
+Руководство проверено на версии Confluent Schema Registry 6.2 и виртуальной машине с Ubuntu 20.04 LTS. Работоспособность при использовании новых версий не гарантируется.
 
 {% endnote %}
 

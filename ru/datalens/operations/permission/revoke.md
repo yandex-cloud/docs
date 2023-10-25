@@ -5,7 +5,8 @@
 ## Отозвать самостоятельно {#revoke}
 
 Чтобы отозвать права доступа к папке или объекту:
-1. На странице навигации найдите папку или объект доступа.
+
+1. На [странице навигации]({{ link-datalens-main }}/navigation) найдите папку или объект доступа.
 
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
@@ -16,7 +17,8 @@
 ## Отклонить запрос {#reject-request}
 
 Чтобы отклонить [запрос](request.md) прав доступа к папке или объекту:
-1. На странице навигации найдите папку или объект доступа.
+
+1. На [странице навигации]({{ link-datalens-main }}/navigation) найдите папку или объект доступа.
 
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 

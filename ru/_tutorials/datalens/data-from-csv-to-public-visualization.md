@@ -30,10 +30,7 @@
 Создайте датасет на основе [подключения](../../datalens/concepts/connection.md) типа **Файлы**.
 
 1. Перейдите в интерфейс [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. Нажмите кнопку **Создать подключение**.
-
-   ![image](../../_assets/datalens/solution-05/01-create-connection.png)
-
+1. На панели слева выберите ![image](../../_assets/datalens/connections.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите тип подключения **Файлы**.
 
    ![image](../../_assets/datalens/solution-05/select-file-connection.png)

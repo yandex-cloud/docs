@@ -7,7 +7,7 @@
 
 ## Роли для доступа к сервису {#service-roles}
 
-Чтобы предоставить пользователю доступ к {{ datalens-short-name }}, назначьте ему одну из ролей. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md) или [системной группе](../../iam/concepts/access-control/system-group.md).
+Чтобы предоставить пользователю доступ к {{ datalens-short-name }}, [назначьте](../../organization/security/index.md#add-role) ему одну из ролей. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md) или [системной группе](../../iam/concepts/access-control/system-group.md).
 
 
 {% list tabs %}
@@ -36,7 +36,7 @@
 
 ### Роли на воркбуки {#workbook-roles}
 
-Вы можете назначить пользователю роли на воркбуки.
+Вы можете [назначить](../workbooks-collections/security.md#wb-coll-grant) пользователю роли на воркбуки.
 
 #### Ограниченный просмотр {#workbooks-limitedViewer}
 
@@ -62,7 +62,7 @@
 
 ### Роли на коллекции {#collection-roles}
 
-Вы можете назначить пользователю роли на коллекцию.
+Вы можете [назначить](../workbooks-collections/security.md#wb-coll-grant) пользователю роли на коллекцию.
 
 #### Ограниченный просмотр {#collections-limitedViewer}
 

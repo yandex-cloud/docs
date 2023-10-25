@@ -27,10 +27,7 @@
 {% endnote %}
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-1. Нажмите кнопку **Создать подключение**.
-
-   ![image](../../_assets/datalens/solution-03/02-create-connection.png)
-
+1. На панели слева выберите ![image](../../_assets/datalens/connections.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите **Metrica**.
 
    ![image](../../_assets/datalens/solution-03/03-choose-metrica.png)
