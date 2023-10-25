@@ -97,6 +97,8 @@ items:
             href: tutorials/managed-clickhouse.md
           - name: Кластер {{ GP }}
             href: tutorials/managed-greenplum.md
+          - name: Миграция из AWS RDS for {{ PG }}
+            href: tutorials/rds-to-mpg.md
       - name: Зеркалирование данных
         items:
           - name: '{{ KF }}'

@@ -55,19 +55,22 @@ POST https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
 }
 ```
 
-Параметр | Описание
------ | -----
-config | **object**<br>Поле с настройками распознавания.
-config.<br>specification | **object**<br>Настройки распознавания.
-config.<br>specification.<br>languageCode | **string**<br>Язык, для которого будет выполнено распознавание.<br/>Список доступных языков см. в [описании модели](../models.md). Значение по умолчанию — `ru-RU`  — русский язык.
-config.<br>specification.<br>model | **string**<br>Языковая модель, которую следует использовать при распознавании.<br/>Чем точнее выбрана модель, тем лучше результат распознавания. В одном запросе можно указать только одну модель.<br/>[Допустимые значения](../models.md) зависят от выбранного языка. Значение параметра по умолчанию: `general`. В зависимости от выбранной модели может измениться [тарификация](../../pricing.md#rules-stt-long).
-config.<br>specification.<br>profanityFilter | **boolean**<br>Фильтр ненормативной лексики.<br/>Допустимые значения:<ul><li>`true` — исключать ненормативную лексику из результатов распознавания.</li><li>`false` (по умолчанию) — не исключать ненормативную лексику.</li></ul>
-config.<br>specification.<br>literature_text | **boolean**<br>Включает режим <q>нормализации</q> текста — в первую очередь, расстановку пунктуации.
-config.<br>specification.<br>audioEncoding | **string**<br>[Формат](../../formats.md) передаваемого аудио.<br/>Допустимые значения:<ul><li>`LINEAR16_PCM` — [LPCM без WAV-заголовка](../../formats.md#lpcm).</li><li>`OGG_OPUS` (по умолчанию) — формат [OggOpus](../../formats.md#oggopus).</li><li>`MP3` — формат [MP3](../../formats.md#MP3).</li></ul>
-config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>Частота дискретизации передаваемого аудио.<br/>Этот параметр обязателен, если значение `format` равно `LINEAR16_PCM`. Допустимые значения:<ul><li>`48000` (по умолчанию) — частота дискретизации 48 кГц;</li><li>`16000` — частота дискретизации 16 кГц;</li><li>`8000` — частота дискретизации 8 кГц.</li></ul>
-config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>Количество каналов для файлов в [формате LPCM](../../formats.md#lpcm). По умолчанию используется значение `1`.<br>Не используйте это поле для файлов в формате [OggOpus](../../formats.md#oggopus) и [MP3](../../formats.md#MP3).
-config.<br>specification.<br>rawResults | **boolean** <br>Флаг, указывающий, как писать числа. `true` — писать прописью, `false` (по умолчанию) — писать цифрами.
-audio.<br>uri | **string**<br>URI аудиофайла для распознавания. Поддерживаются только ссылки на файлы, которые хранятся в [Yandex Object Storage](../../../storage/).
+#|
+|| Параметр | Описание ||
+|| config | **object**<br>Поле с настройками распознавания. ||
+|| config.<br>specification | **object**<br>Настройки распознавания. ||
+|| config.<br>specification.<br>languageCode | **string**<br>Язык, для которого будет выполнено распознавание.<br/>Список доступных языков см. в [описании модели](../models.md). Значение по умолчанию — `ru-RU`  — русский язык. ||
+|| config.<br>specification.<br>model | **string**<br>Языковая модель, которую следует использовать при распознавании.<br/>Чем точнее выбрана модель, тем лучше результат распознавания. В одном запросе можно указать только одну модель.<br/>[Допустимые значения](../models.md) зависят от выбранного языка. Значение параметра по умолчанию: `general`. В зависимости от выбранной модели может измениться [тарификация](../../pricing.md#rules-stt-long). ||
+|| config.<br>specification.<br>profanityFilter | **boolean**<br>Фильтр ненормативной лексики.<br/>Допустимые значения:<ul><li>`true` — исключать ненормативную лексику из результатов распознавания.</li><li>`false` (по умолчанию) — не исключать ненормативную лексику.</li></ul> ||
+|| config.<br>specification.<br>literature_text | **boolean**<br>Включает режим <q>нормализации</q> текста — в первую очередь, расстановку пунктуации. ||
+|| config.<br>specification.<br>audioEncoding | **string**<br>[Формат](../../formats.md) передаваемого аудио.<br/>Допустимые значения:<ul><li>`LINEAR16_PCM` — [LPCM без WAV-заголовка](../../formats.md#lpcm).</li><li>`OGG_OPUS` (по умолчанию) — формат [OggOpus](../../formats.md#oggopus).</li><li>`MP3` — формат [MP3](../../formats.md#MP3).</li></ul> ||
+|| config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>Частота дискретизации передаваемого аудио.<br/>Этот параметр обязателен, если значение `format` равно `LINEAR16_PCM`. Допустимые значения:<ul><li>`48000` (по умолчанию) — частота дискретизации 48 кГц;</li><li>`16000` — частота дискретизации 16 кГц;</li><li>`8000` — частота дискретизации 8 кГц.</li></ul> ||
+|| config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>Количество каналов для файлов в [формате LPCM](../../formats.md#lpcm). По умолчанию используется значение `1`.<br>
+**Важно:** Не используйте это поле для файлов в формате [OggOpus](../../formats.md#oggopus) и [MP3](../../formats.md#MP3). 
+||
+|| config.<br>specification.<br>rawResults | **boolean** <br>Флаг, указывающий, как писать числа. `true` — писать прописью, `false` (по умолчанию) — писать цифрами. ||
+|| audio.<br>uri | **string**<br>URI аудиофайла для распознавания. Поддерживаются только ссылки на файлы, которые хранятся в [Yandex Object Storage](../../../storage/). ||
+|#
 
 #### Ответ {#sendfile-response}
 

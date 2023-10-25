@@ -260,6 +260,9 @@
 ### Установите Argo CD в кластер {{ k8s }} {#install}
 
 1. Установите Argo CD согласно [инструкции](../../operations/applications/argo-cd.md).
+
+   {% include [Install kubectl](../../../_includes/managed-kubernetes/note-node-group-internet-access.md) %}
+
 1. Настройте переадресацию порта сервиса `argocd-server` на локальный компьютер и подключитесь к кластеру {{ k8s }}:
 
    ```bash

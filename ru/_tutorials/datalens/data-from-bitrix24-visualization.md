@@ -14,14 +14,8 @@
 
 ## Шаг 1. Создайте подключение к Битрикс24 {#create-connection-bitrix24}
 
-1. Перейдите в [{{ datalens-short-name }}]({{ link-datalens-main }}) и нажмите кнопку **Создать подключение**.
-
-   {% cut "Создание подключения" %}   
-  
-   ![image](../../_assets/datalens/solution-bitrix24/create-connection.png)
-   
-   {% endcut %}
-
+1. Перейдите в [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. На панели слева выберите ![image](../../_assets/datalens/connections.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите тип подключения [**Битрикс24**]({{ link-datalens-main }}/connections/new/bitrix24).
 
    {% cut "Выбор типа подключения" %}

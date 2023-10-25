@@ -2,7 +2,12 @@
 
 Чтобы заменить подключение в датасете:
 
-1. Откройте датасет и перейдите на вкладку **Источники**.
+
+{% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
+
+
+1. На панели слева нажмите ![image](../../../_assets/datalens/datasets.svg) **Датасеты** и выберите нужный датасет.
+1. Перейдите на вкладку **Источники**.
 1. Удалите все таблицы из рабочей области.
 1. В левой части экрана нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg) у подключения и выберите **Заменить подключение**.
 1. Выберите другое подключение.

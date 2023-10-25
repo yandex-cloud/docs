@@ -11,6 +11,8 @@ items:
         items:
           - name: Создать и подключить ВМ Linux
             href: operations/create-vm.md
+          - name: Создать и подключить ВМ Windows
+            href: operations/create-vm-windows.md
           - name: Подключить ВМ Linux
             href: operations/connect-vm-linux.md
           - name: Подключить ВМ Windows Server

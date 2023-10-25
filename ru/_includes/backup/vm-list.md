@@ -1,1 +1,1 @@
-После установки агента ВМ будет добавлена в сервис **{{ backup-name }}** на вкладку ![machines](../../_assets/backup/machines.svg) **{{ ui-key.yacloud.backup.label_instances }}** и ее можно будет привязать к [политике резервного копирования](../../backup/concepts/policy.md).
+После установки агента ВМ будет добавлена в сервис **{{ backup-name }}** на вкладку ![machines](../../_assets/backup/machines.svg) **{{ ui-key.yacloud.backup.label_instances }}**, и ее можно будет привязать к [политике резервного копирования](../../backup/concepts/policy.md).

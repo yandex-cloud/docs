@@ -1,6 +1,6 @@
-# Создать виртуальную машину Linux с подключением к {{ backup-name }}
+# Создать виртуальную машину Windows Server с подключением к {{ backup-name }}
 
-Сервис {{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../../compute/concepts/vm.md) с операционными системами семейства Linux — Ubuntu 20.04 и ниже и CentOS 7. Подробнее см. в разделе [{#T}](../concepts/vm-connection.md#os).
+Сервис {{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../../compute/concepts/vm.md) с операционными системами Windows Server 2019 и 2022. Подробнее см. в разделе [{#T}](../concepts/vm-connection.md#os).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -25,17 +25,15 @@
 
       * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите операционную систему [Ubuntu версии 20.04](/marketplace/products/yc/ubuntu-20-04-lts) или ниже или [CentOS 7](/marketplace/products/yc/centos-7).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ с операционной системой Windows Server 2019 или 2022.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
       1. Выберите подсеть, соответствующую выбранной зоне доступности.
       1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Выберите группу безопасности, настроенную для работы с {{ backup-name }}.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.label_backup }}** включите опцию подключения ВМ к сервису {{ backup-name }}.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите сервисный аккаунт с ролью `backup.editor`.
-  1. Укажите другие необходимые параметры ВМ. Подробнее см. [Создать виртуальную машину из публичного образа Linux](../../compute/operations/vm-create/create-linux-vm).
+  1. Укажите другие необходимые параметры ВМ.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-  
-  {% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan.md) %}
 
 - CLI
 
@@ -74,7 +72,15 @@
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       ```
 
-  1. [Создайте](../../compute/operations/vm-create/create-linux-vm.md) ВМ:
+  1. Создайте файл `init.ps1` со сценарием для установки на ВМ агента {{ backup-name }}:
+
+      ```powershell
+      #ps1_sysnative
+      echo 'Starting to execute backup agent installation'
+      Invoke-WebRequest https://storage.yandexcloud.net/backup-distributions/agent_installer.ps1 -UseBasicParsing | Invoke-Expression
+      ```
+
+  1. Создайте ВМ:
 
       ```bash
       yc compute instance create \
@@ -87,12 +93,11 @@
         --core-fraction 100 \
         --memory 4 \
         --service-account-name <имя_сервисного_аккаунта> \
-        --ssh-key <путь_к_открытому_SSH-ключу>
+        --metadata-from-file user-data=<путь_к_файлу_со_сценарием>
       ```
 
       Где:
-      * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-      * `name` — имя создаваемой ВМ.
+      * `name` — имя ВМ.
 
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
@@ -105,22 +110,21 @@
       * `core-fraction` — гарантированная доля vCPU в %.
       * `memory` — [объем оперативной памяти](../../compute/concepts/vm.md) ВМ.
       * `service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `backup.editor`.
-      * `ssh-key` — путь к файлу с [открытым SSH-ключом](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
+      * `user-data` — путь к созданному ранее файлу со сценарием для установки на ВМ агента {{ backup-name }}.
 
-      В этом примере создается ВМ на базе ОС [Ubuntu 20.04](https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts):
+      В этом примере создается ВМ на базе Windows Server 2022:
 
       ```bash
       yc compute instance create \
-        --folder-id wasdcjs6be29******** \
         --name my-vm \
         --zone {{ region-id }}-b \
         --network-interface subnet-name=my-vpc-{{ region-id }}-b,nat-ip-version=ipv4,security-group-ids=abcd3570sbqg******** \
-        --create-boot-disk image-id=fd8ecgtorub9r4609man,size=25 \
+        --create-boot-disk image-id=fd890bh2sapn********,size=60 \
         --cores 2 \
         --core-fraction 100 \
         --memory 4 \
         --service-account-name backup-editor \
-        --ssh-key my-key.pub
+        --metadata-from-file user-data=init.ps1
       ```
 
       Результат:
@@ -132,49 +136,14 @@
       created_at: "2023-10-09T14:57:06Z"
       name: my-vm
       ...
-            one_to_one_nat:
-              address: 158.***.**.***
-      ...
       placement_policy: {}
-      ```
-
-  1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по SSH. Для подключения используйте имя пользователя `yc-user` и публичный IP-адрес ВМ, указанный в выводе результата создания ВМ в секции `one_to_one_nat`.
-  1. Установите агент {{ backup-name }}:
-
-      **Ubuntu**
-
-      ```bash
-      sudo apt update && \
-      sudo apt install -y jq && \
-      curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
-      ```
-
-      Результат:
-
-      ```text
-      ...
-      Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
-      ```
-
-      **CentOS**
-
-      ```bash
-      sudo yum install epel-release -y && \
-      sudo yum update -y && \
-      sudo yum install jq -y && \
-      curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
-      ```
-
-      Результат:
-
-      ```text
-      ...
-      Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
       ```
 
 {% endlist %}
 
-{% include [agent-installation-failure](../../_includes/backup/agent-installation-failure.md) %}
+{% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan-win.md) %}
+
+{% include [agent-installation-failure](../../_includes/backup/agent-installation-failure-win.md) %}
 
 {% include [vm-list](../../_includes/backup/vm-list.md) %}
 

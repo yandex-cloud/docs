@@ -18,6 +18,12 @@
 
 ## Выполните распознавание с помощью API {#recognize-using-api}
 
+{% note warning %}
+
+Для двухканальной OggOpus-записи не нужно указывать количество каналов с помощью параметра `audioChannelCount`.
+
+{% endnote %}
+
 {% list tabs %}
 
 - cURL

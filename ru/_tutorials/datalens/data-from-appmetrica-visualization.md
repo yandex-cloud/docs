@@ -31,10 +31,8 @@
 
 {% endnote %}
 
-1. Перейдите в [{{ datalens-short-name }}]({{ link-datalens-main }}) и нажмите кнопку **Создать подключение**.
-
-    ![image](../../_assets/datalens/solution-06/02-create-connection.png)
-
+1. Перейдите в [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. На панели слева выберите ![image](../../_assets/datalens/connections.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите подключение **AppMetrica**.
 
     ![image](../../_assets/datalens/solution-06/03-choose-appmetrica.png)

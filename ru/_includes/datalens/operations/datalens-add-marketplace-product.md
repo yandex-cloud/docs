@@ -2,7 +2,7 @@
 
 Вы можете добавить геослой, датасет, коннектор и темплейт:
 
-1. На главной странице сервиса {{ datalens-short-name }} в левом меню выберите **Marketplace**.
+1. На [главной странице]({{ link-datalens-main }}) {{ datalens-short-name }} в левом меню выберите **Marketplace**.
 1. В правом меню в разделе **Категория** выберите: **Геослои**, **Датасеты**, **Коннекторы** или **Темплейты**.
 1. Выберите продукт, который вы хотите добавить. Например, бесплатный геослой [Организации: спрос и предложение]({{ link-datalens-main }}/marketplace/f2e0alcha1ta8ocrn99f), бесплатный датасет [Sample Superstore]({{ link-datalens-main }}/marketplace/f2e0000r63qkp2ywqpco), бесплатный коннектор [ДашбордКоннектор]({{ link-datalens-main }}/marketplace/f2euv3r73pln2g18nckh) или бесплатный темплейт [Metrica Live Demo]({{ link-datalens-main }}/marketplace/f2e5hpq5mc7bscsjc6jr) соответственно.
 1. В открытом окне с описанием продукта нажмите кнопку **Развернуть**.
