@@ -28,7 +28,7 @@
 
 Для LPCM используйте параметр [config.specification.audioChannelCount](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params) равный 2.
 
-Указывать параметр для OggOpus не нужно, поскольку информация о количестве каналов содержится в файле. Файл автоматически распределится на две записи.
+Указывать параметр для MP3 и OggOpus не нужно, поскольку информация о количестве каналов содержится в файле. Файл автоматически распределится на две записи.
 
 Распознанный текст в ответе разделяется параметром [channelTag](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#get-result-response).
 

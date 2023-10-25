@@ -36,7 +36,7 @@ These roles apply to users who switched to a new approach to storing {{ datalens
 
 ### Roles for workbooks {#workbook-roles}
 
-You can assign a user roles for workbooks.
+You can [assign](../workbooks-collections/security.md#wb-coll-grant) a user roles for workbooks.
 
 #### Limited viewer {#workbooks-limitedViewer}
 
@@ -62,7 +62,7 @@ The author of a workbook is automatically assigned the `Admin` role for the work
 
 ### Roles for collections {#collection-roles}
 
-You can assign a user roles for collections.
+You can [assign](../workbooks-collections/security.md#wb-coll-grant) a user roles for collections.
 
 #### Limited viewer {#collections-limitedViewer}
 

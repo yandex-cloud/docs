@@ -192,6 +192,7 @@ default:
   mgp-short-name: Managed Service for Greenplum®
   monitoring-short-name: Monitoring
   mkf-msr: Managed Schema Registry
+  mkf-mkc: Managed Kafka Connect
   unified-agent-short-name: Unified Agent
   vpc-short-name: VPC
   ddos-protection-short-name: DDoS Protection

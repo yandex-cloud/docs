@@ -9,7 +9,7 @@
 
 
 
-1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
 1. Нажмите кнопку **Создать чарт**.
 
 

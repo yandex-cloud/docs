@@ -4,6 +4,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## IV квартал 2023 {#q4-2023}
+
+* Новая версия {{ KF }} 3.5.1 доступна в окружении `PRODUCTION`. Подробнее об изменениях см. в [документации {{ KF }} 3.5.0](https://archive.apache.org/dist/kafka/3.5.0/RELEASE_NOTES.html) и [документации {{ KF }} 3.5.1](https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html). {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+
 ## II квартал 2023 {#q2-2023}
 
 * Новая версия {{ KF }} 3.4 доступна в окружении `PRODUCTION`. Подробнее об изменениях см. в [документации {{ KF }}](https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html). {{ tag-con }} {{ tag-cli }} {{ tag-tf }}

@@ -2,7 +2,11 @@
 
 Чтобы установить параметр:
 
-1. Откройте дашборд. Если у вас нет дашборда, [создайте его](../dashboard/create.md).
+
+{% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
+
+
+1. На панели слева нажмите ![image](../../../_assets/datalens/dashboard-0523.svg) **Дашборды** и выберите нужный дашборд. Если у вас нет дашборда, [создайте его](../dashboard/create.md).
 1. В правом верхнем углу нажмите кнопку **Редактировать**.
 1. В правом верхнем углу окна редактирования нажмите ![image](../../../_assets/settings.svg).
 1. Рядом с полем **Параметры дашборда** нажмите **Настроить**.

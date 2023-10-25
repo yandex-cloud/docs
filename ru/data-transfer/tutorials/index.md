@@ -12,6 +12,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [Миграция кластера {{ CH }}](managed-clickhouse.md)
 * [Миграция кластера {{ GP }}](managed-greenplum.md)
 * [Миграция кластера {{ MG }}](managed-mongodb.md)
+* [Миграция из AWS RDS for {{ PG }}](rds-to-mpg.md)
 
 Отдельной задачей миграции является зеркалирование данных между очередями.
 

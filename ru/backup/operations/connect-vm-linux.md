@@ -18,7 +18,7 @@
       ```bash
       sudo apt update && \
       sudo apt install -y jq && \
-      curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash
+      curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
       ```
 
       Результат:
@@ -34,7 +34,7 @@
       sudo yum install epel-release -y && \
       sudo yum update -y && \
       sudo yum install jq -y && \
-      curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash
+      curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
       ```
 
       Результат:

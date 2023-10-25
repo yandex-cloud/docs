@@ -2,7 +2,11 @@
 
 Чтобы заменить датасет в чарте:
 
-1. Откройте чарт.
+
+{% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
+
+
+1. На панели слева нажмите ![image](../../../_assets/datalens/chart.svg) **Чарты** и выберите нужный чарт.
 1. В левой части экрана нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg) у датасета и выберите **Заменить датасет**.
 1. Выберите другой датасет.
 
