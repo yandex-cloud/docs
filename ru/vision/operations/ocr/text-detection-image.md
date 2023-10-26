@@ -1,18 +1,227 @@
-# Распознавание текста
+# Распознавание текста на изображении
 
-Чтобы распознать текст с изображения или из PDF-файла, воспользуйтесь возможностью [Распознавание текста](../../concepts/ocr/index.md).
+Чтобы [распознать текст](../../concepts/ocr/index.md) на изображении, вы можете использовать [OCR API](../../ocr/api-ref/index.md) или [Vision API](../../vision/api-ref/index.md). OCR API — это обновленный и переработанный интерфейс, который предоставляет больше [возможностей](../../concepts/limits.md#vision-limits), в т.ч. распознавание многоколоночного текста.
 
-Для этого в методе [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) в свойстве `type` укажите `TEXT_DETECTION`, а в свойстве `textDetectionConfig` задайте настройки распознавания.
-
-## Примеры {#examples}
-
-### Перед началом работы {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 {% include [curl](../../../_includes/curl.md) %}
 
 {% include [ai-before-beginning](../../../_includes/vision/ai-before-beginning.md) %}
 
-### Распознать текст с изображения {#basic}
+## Распознать текст на изображении с помощью OCR API {#ocr-api-recognition}
+
+Распознавание текста на изображении реализовано в методе [recognize](../../ocr/api-ref/TextRecognition/recognize.md) OCR API.
+
+1. Подготовьте файл изображения, соответствующий требованиям:
+
+    {% include [file-restrictions](../../../_includes/vision/ocr-file-restrictions.md) %}
+
+    {% note info %}
+
+    Нужен пример изображения? Скачайте изображение дорожного знака, [предупреждающего о пингвинах](https://{{ s3-storage-host }}/vision/penguins_sample.jpg).
+
+    {% endnote %}
+
+1. Кодируйте файл с изображением в формат Base64:
+
+    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
+
+1. Создайте файл с телом запроса, например `body.json`.
+
+    **body.json:**
+    ```json
+    {
+      "mimeType": "JPEG",
+      "languageCodes": ["*"],
+      "model": "page",
+      "content": "<изображение_в_кодировке_base64>"
+    }
+    ```
+
+    В свойстве `content` укажите содержимое файла, полученное при [переводе](../base64-encode.md) изображения в формат Base64.
+    
+    Чтобы сервис автоматически определил язык текста, укажите в конфигурации свойство `"languageCodes": ["*"]`.
+
+
+1. {% include [send-request](../../../_includes/vision/send-request_ocr.md) %}
+
+    Результат будет состоять из распознанных блоков текста, строк и слов с указанием их местоположения на изображении:
+
+    ``` json
+    {
+      "result": {
+        "text_annotation": {
+          "width": "1920",
+          "height": "1280",
+          "blocks": [{
+            "bounding_box": {
+              "vertices": [{
+                "x": "460",
+                "y": "777"
+              }, {
+                "x": "460",
+                "y": "906"
+              }, {
+                "x": "810",
+                "y": "906"
+              }, {
+                "x": "810",
+                "y": "777"
+              }]
+            },
+            "lines": [{
+              "bounding_box": {
+                "vertices": [{
+                  "x": "460",
+                  "y": "777"
+                }, {
+                  "x": "460",
+                  "y": "820"
+                }, {
+                  "x": "802",
+                  "y": "820"
+                }, {
+                  "x": "802",
+                  "y": "777"
+                }]
+              },
+              "alternatives": [{
+                "text": "PENGUINS",
+                "words": [{
+                  "bounding_box": {
+                    "vertices": [{
+                      "x": "460",
+                      "y": "768"
+                    }, {
+                      "x": "460",
+                      "y": "830"
+                    }, {
+                      "x": "802",
+                      "y": "830"
+                    }, {
+                      "x": "802",
+                      "y": "768"
+                    }]
+                  },
+                  "text": "PENGUINS",
+                  "entity_index": "-1"
+                }]
+              }]
+            }, {
+              "bounding_box": {
+                "vertices": [{
+                  "x": "489",
+                  "y": "861"
+                }, {
+                  "x": "489",
+                  "y": "906"
+                }, {
+                  "x": "810",
+                  "y": "906"
+                }, {
+                  "x": "810",
+                  "y": "861"
+                }]
+              },
+              "alternatives": [{
+                "text": "CROSSING",
+                "words": [{
+                  "bounding_box": {
+                    "vertices": [{
+                      "x": "489",
+                      "y": "852"
+                    }, {
+                      "x": "489",
+                      "y": "916"
+                    }, {
+                      "x": "810",
+                      "y": "916"
+                    }, {
+                      "x": "810",
+                      "y": "852"
+                    }]
+                  },
+                  "text": "CROSSING",
+                  "entity_index": "-1"
+                }]
+              }]
+            }],
+            "languages": [{
+              "language_code": "en"
+            }]
+          }, {
+            "bounding_box": {
+              "vertices": [{
+                "x": "547",
+                "y": "989"
+              }, {
+                "x": "547",
+                "y": "1046"
+              }, {
+                "x": "748",
+                "y": "1046"
+              }, {
+                "x": "748",
+                "y": "989"
+              }]
+            },
+            "lines": [{
+              "bounding_box": {
+                "vertices": [{
+                  "x": "547",
+                  "y": "989"
+                }, {
+                  "x": "547",
+                  "y": "1046"
+                }, {
+                  "x": "748",
+                  "y": "1046"
+                }, {
+                  "x": "748",
+                  "y": "989"
+                }]
+              },
+              "alternatives": [{
+                "text": "SLOW",
+                "words": [{
+                  "bounding_box": {
+                    "vertices": [{
+                      "x": "547",
+                      "y": "983"
+                    }, {
+                      "x": "547",
+                      "y": "1054"
+                    }, {
+                      "x": "748",
+                      "y": "1054"
+                    }, {
+                      "x": "748",
+                      "y": "983"
+                    }]
+                  },
+                  "text": "SLOW",
+                  "entity_index": "-1"
+                }]
+              }]
+            }],
+            "languages": [{
+              "language_code": "en"
+            }]
+          }],
+          "entities": []
+        },
+        "page": "0"
+      }
+    }
+    ```
+
+1. Чтобы получить все распознанные на изображении слова, найдите все значения со свойством `text`.
+
+{% include [coordinate-definition-issue-note](../../../_includes/vision/coordinate-definition-issue-note.md) %}
+
+## Распознать текст на изображении с помощью Vision API {#vision-api-recognition}
+
+Распознавание текста на изображении реализовано в методе [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) Vision API.
 
 1. Подготовьте файл изображения, соответствующий требованиям:
 
@@ -28,193 +237,10 @@
 
 {% include [coordinate-definition-issue-note](../../../_includes/vision/coordinate-definition-issue-note.md) %}
 
-### Распознайте текст из PDF-файла {#pdf}
-
-1. В PDF-файле должно быть не больше 8 страниц. Если страниц больше, разбейте его на файлы по 8 страниц.
-1. Кодируйте PDF-файл в формат Base64.
-
-    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command-pdf.md) %}
-
-1. Создайте файл с телом запроса, например `body.json`.
-
-    **body.json:**
-    ```json
-    {
-        "folderId": "b1gvmob95yys********",
-        "analyze_specs": [{
-            "content": "iVBORw0KGgo...",
-            "mime_type": "application/pdf",
-            "features": [{
-                "type": "TEXT_DETECTION",
-                "text_detection_config": {
-                    "language_codes": ["*"]
-                }
-            }]
-        }]
-    }
-    ```
-
-    Где:
-    * `folderId` – [идентификатор любого каталога](../../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
-    * `analyze_specs: content` – PDF-файл, кодированный в Base64.
-    * `analyze_specs: mime_type` – [MIME-тип](https://en.wikipedia.org/wiki/Media_type) `application/pdf`.
-
-1. {% include [send-request](../../../_includes/vision/send-request.md) %}
-
-### Распознайте строку текста {#string}
-
-Если вы не хотите передавать изображение целиком, вы можете вырезать строку и отправить на распознавание только ее. В конфигурации укажите модель `line`, которая лучше подходит для распознавания отдельных строк.
-
-{% note alert %}
-
-{% include [include](../../../_includes/vision/text-detection-line-note.md) %}
-
-{% endnote %}
-
-Чтобы распознать строку текста:
-
-1. Кодируйте файл изображения в формат Base64.
-
-    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-
-1. Создайте файл с телом запроса, например `body.json`:
-
-    **body.json:**
-    ```json
-    {
-        "folderId": "b1gvmob95yys********",
-        "analyze_specs": [{
-            "content": "iVBORw0KGgo...",
-            "features": [{
-                "type": "TEXT_DETECTION",
-                "text_detection_config": {
-                    "language_codes": ["*"],
-                    "model": "line"
-                }
-            }]
-        }]
-    }
-    ```
-
-    Где:
-    * `folderId` – [идентификатор любого каталога](../../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
-    * `analyze_specs: content` – изображение, кодированное в Base64.
-    * `analyze_specs: features: text_detection_config: model` – модель `line`.
-
-1. {% include [send-request](../../../_includes/vision/send-request.md) %}
-
-### Указать язык текста в запросе {#multiple-languages}
-
-Если вы знаете язык текста, укажите его в запросе, чтобы повысить качество распознавания:
-
-1. Кодируйте файл в формат Base64:
-
-    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-
-1. Создайте файл с телом запроса, например `body.json`:
-
-    **body.json:**
-    ```json
-    {
-        "folderId": "b1gvmob95yys********",
-        "analyze_specs": [{
-            "content": "iVBORw0KGgo...",
-            ...
-    ```
-
-    Где `analyze_specs: content` – изображение, кодированное в Base64.
-
-1. [Выберите языки](../../concepts/ocr/supported-languages.md) для распознавания текста и соответствующие им модели распознавания:
-
-   * Если все языки входят в одну модель, то укажите их в конфигурации запроса. Можно указать до 8 языков. Например, французский и немецкий:
-
-       **body.json:**
-       ```json
-       {
-           "folderId": "b1gvmob95yys********",
-           "analyze_specs": [{
-               "content": "iVBORw0KGgo...",
-               "features": [{
-                   "type": "TEXT_DETECTION",
-                   "text_detection_config": {
-                       "language_codes": ["fr", "de"]
-                   }
-               }]
-           }]
-       }
-       ```
-   * Если языки из разных моделей, задайте несколько конфигураций в свойстве `features`.
-       Например, распознайте изображение на иврите, арабском и английском языках:
-
-       **body.json:**
-       ```json
-       {
-           "folderId": "b1gvmob95yys********",
-           "analyze_specs": [{
-               "content": "iVBORw0KGgo...",
-               "features": [{
-                   "type": "TEXT_DETECTION",
-                   "text_detection_config": {
-                       "language_codes": ["he","en"]
-                   }
-               },{
-                   "type": "TEXT_DETECTION",
-                   "text_detection_config": {
-                       "language_codes": ["ar","en"]
-                   }
-               }]
-           }]
-       }
-       ```
-1. {% include [send-request](../../../_includes/vision/send-request.md) %}
-
-### Готовая функция для отправки запросов в bash {#oneliner}
-
-1. {% include [cli-install](../../../_includes/cli-install.md) %}
-
-1. Скопируйте в терминал функцию:
-
-    ```bash
-    vision_text_detection() {
-        if [[ $2 ]]; then MIME_TYPE=$2 ; else MIME_TYPE=image; fi
-        curl -H "Authorization: Bearer `yc iam create-token`" \
-        "https://vision.{{ api-host }}/vision/v1/batchAnalyze" \
-        -d @<(cat << EOF
-    {
-        "folderId": "`yc config get folder-id`",
-        "analyze_specs": [{
-            "content": "`base64 -i $1`",
-            "features": [{
-                "type": "TEXT_DETECTION",
-                "text_detection_config": {
-                    "language_codes": ["*"]
-                }
-            }],
-            "mime_type": "$MIME_TYPE"
-        }]
-    }
-    EOF
-    )
-    }
-    ```
-
-    {% include [oneline-function-hints](../../../_includes/vision/oneline-function-hints.md) %}
-
-1. Теперь вы можете вызывать эту функцию, передав путь к файлу в аргументах:
-
-    ```bash
-    vision_text_detection path/to/image.jpg
-    ```
-
-    Вторым аргументом вы можете передать MIME-тип. Например, чтобы распознать PDF-файл, вызовите:
-
-    ```bash
-    vision_text_detection path/to/document.pdf application/pdf
-    ```
 
 ### Примеры кода {#code-examples}
 
-В примерах ниже показан код скрипта для распознавания текста. Аутентификация реализована для аккаунта на Яндексе с помощью [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md) ([подробнее о способах аутентификации](../../api-ref/authentication.md)).
+В примерах ниже показан код скрипта для распознавания текста с использованием Vision API. Аутентификация реализована для аккаунта на Яндексе с помощью [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md) ([подробнее о способах аутентификации](../../api-ref/authentication.md)).
 
 {% list tabs %}
 

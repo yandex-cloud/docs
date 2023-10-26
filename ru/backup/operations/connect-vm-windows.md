@@ -1,4 +1,9 @@
-# Подключить виртуальную машину Windows Server к {{ backup-name }}
+---
+title: "Как подключить виртуальную машину на Windows Server к {{ backup-full-name }}"
+description: "Следуя данной инструкции, вы сможете подключить виртуальную машину на Windows Server к {{ backup-name }}."
+---
+
+# Подключить виртуальную машину на Windows Server к {{ backup-name }}
 
 Сервис {{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../../compute/concepts/vm.md) с операционными системами Windows Server 2019 и 2022. Подробнее см. в разделе [{#T}](../concepts/vm-connection.md#os).
 

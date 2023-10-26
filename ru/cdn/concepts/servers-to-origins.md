@@ -1,5 +1,7 @@
 # Настройки обмена данными между CDN-серверами и источниками
 
+{% include [ipv4-note](../../_includes/cdn/ipv4-note.md) %}
+
 Для коммуникаций между CDN-серверами и источниками можно выбрать протокол: всегда HTTP, всегда HTTPS или тот протокол, по которому [CDN обменивается данными с клиентом](clients-to-servers.md).
 
 Чтобы CDN-серверы могли устанавливать HTTPS-соединения с источниками, вам нужно самостоятельно настроить доменные имена источников, в том числе выпустить для них TLS-сертификаты. Например, вы можете использовать {{ certificate-manager-full-name}}: [выпустить сертификат от Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) и [получить его содержимое](../../certificate-manager/operations/managed/cert-get-content.md).

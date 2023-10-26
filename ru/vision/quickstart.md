@@ -11,7 +11,7 @@
 
 - Аккаунт пользователя на Яндексе
 
-  1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+  1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
   1. [Получите IAM-токен](../iam/operations/iam-token/create.md), необходимый для аутентификации.
   1. [Получите идентификатор любого каталога](../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
   1. Полученный идентификатор передавайте в заголовке `x-folder-id`.
@@ -48,9 +48,9 @@
     }
     ```
 
-    В свойстве `content` укажите изображение, [кодированное в Base64](./operations/base64-encode.md).
+    В свойстве `content` укажите содержимое файла, полученное при [переводе](./operations/base64-encode.md) изображения в формат Base64.
     
-    Чтобы сервис автоматически определил язык текста, укажите в конфигурации свойство `"language_codes": ["*"]`.
+    Чтобы сервис автоматически определил язык текста, укажите в конфигурации свойство `"languageCodes": ["*"]`.
 
 
 1. {% include [send-request](../_includes/vision/send-request_ocr.md) %}
@@ -225,7 +225,7 @@
     }
     ```
 
-1. Чтобы получить распознанные слова с изображения, найдите все значения со свойством `text`.
+1. Чтобы получить все распознанные на изображении слова, найдите все значения со свойством `text`.
 
 {% include [coordinate-definition-issue-note](../_includes/vision/coordinate-definition-issue-note.md) %}
 

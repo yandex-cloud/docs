@@ -1,20 +1,23 @@
 # Пошаговые инструкции для {{ backup-name }}
 
-## Подключение виртуальных машин к {{ backup-name }} {#connect-vm}
+## Управление виртуальными машинами в {{ backup-name }} {#connect-vm}
 
-* [Создать виртуальную машину Linux с подключением к {{ backup-name }}](create-vm.md)
-* [Подключить виртуальную машину Linux к {{ backup-name }}](connect-vm-linux.md)
-* [Подключить виртуальную машину Windows Server к {{ backup-name }}](connect-vm-windows.md)
+* [Создать виртуальную машину на Linux с подключением к {{ backup-name }}](create-vm.md)
+* [Подключить виртуальную машину на Linux к {{ backup-name }}](connect-vm-linux.md)
+* [Подключить виртуальную машину на Windows Server к {{ backup-name }}](connect-vm-windows.md)
 * [Обновить подключение виртуальной машины к {{ backup-name }}](refresh-connection.md)
+* [Удалить виртуальную машину из {{ backup-name }}](delete-vm.md)
 
 ## Управление политиками резервного копирования {#policy-vm}
 
-* [Создать политику](./policy-vm/create.md)
-* [Изменить политику](./policy-vm/update.md)
-* [Удалить политику](./policy-vm/delete.md)
+* [Создать политику резервного копирования](./policy-vm/create.md)
+* [Изменить политику резервного копирования](./policy-vm/update.md)
+* [Изменить список виртуальных машин в политике резервного копирования](./policy-vm/attach-and-detach-vm.md)
+* [Удалить политику резервного копирования](./policy-vm/delete.md)
 
 ## Управление резервными копиями {#backup-vm}
 
+* [Создать резервную копию виртуальной машины](./backup-vm/create.md)
 * [Восстановить виртуальную машину из резервной копии](./backup-vm/recover.md)
 * [Восстановить виртуальную машину из резервной копии другой виртуальной машины](./backup-vm/non-native-recovery.md)
 * [Восстановить на виртуальной машине отдельные директории и файлы](./backup-vm/recover-file-by-file.md)

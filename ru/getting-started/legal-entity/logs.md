@@ -4,9 +4,9 @@
 
 ## Создайте лог-группу {#log-group}
 
-{% list tabs group=instructions %}
+{% list tabs %}
 
-- Консоль управления {#console}
+- Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [лог-группу](../../logging/concepts/log-group.md).
     1. Откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
@@ -18,7 +18,7 @@
     1. Укажите срок хранения записей в лог-группе. Максимальный срок хранения записей — 3 дня, минимальный — 1 час.
     1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
 
-- CLI {#cli}
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -52,7 +52,7 @@
     retention_period: 3600s
     ```
 
-- API {#api}
+- API
 
     Создать пользовательскую лог-группу можно с помощью метода API [create](../../logging/api-ref/LogGroup/create.md).
 
@@ -60,9 +60,9 @@
 
 ## Назначьте роли на лог-группу {#add-access}
 
-{% list tabs group=instructions %}
+{% list tabs %}
 
-- CLI {#cli}
+- CLI
 
   Выполните команду, чтобы назначить [роль](../../resource-manager/security/index.md) на пользовательскую лог-группу:
 
@@ -100,7 +100,7 @@
         done (1s)
         ```
 
-- API {#api}
+- API
 
     Назначить [роли](../../resource-manager/security/index.md#roles-list) на [пользовательскую лог-группу](../../logging/concepts/log-group.md) можно с помощью метода API [setAccessBindings](../../logging/api-ref/LogGroup/setAccessBindings.md).
 

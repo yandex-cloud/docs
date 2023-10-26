@@ -2,6 +2,12 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [26.10.2023 — CVE-2023-3484 GitLab Security Release: 16.1.2, 16.0.7, and 15.11.11](../../_includes/security/security-bulletins/cve-2023-3484-gitlab-security-release.md) %}
+
+{% include [26.10.2023 — CVE-2023-3424 - CVE-2023-1936 GitLab Security Release: 16.1.1, 16.0.6, and 15.11.10](../../_includes/security/security-bulletins/cve-2023-3424-cve-2023-1936-gitlab-security-release.md) %}
+
+{% include [26.10.2023 — CVE-2023-2442 - CVE-2023-2013 GitLab Security Release: 16.10.2, 15.11.7, and 15.10.8](../../_includes/security/security-bulletins/cve-2023-2442-cve-2023-2013-gitlab-security-release.md) %}
+
 {% include [16.10.2023 — BDU-2023-05857](../../_includes/security/security-bulletins/bdu-2023-05857-bitrix.md) %}
 
 {% include [06.10.2023 — CVE-2023-35943 CORS filter segfault when origin header is removed](../../_includes/security/security-bulletins/cve-2023-35943-cors-filter-segfault-origin-header-removed.md) %}

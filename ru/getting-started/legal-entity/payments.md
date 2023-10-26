@@ -20,15 +20,15 @@
 1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.button_refill }}**.
 1. Выберите способ оплаты:
 
-  {% list tabs group=payments %}
+  {% list tabs %}
 
-  - Банковская карта {#card}
+  - Банковская карта
 
     Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_individual-action }}**. Затем введите данные карты и нажмите кнопку **Оплатить**. К оплате принимаются банковские карты Visa, MasterCard и МИР.
 
     Платеж происходит в режиме реального времени и зачисляется в течение 15 минут.
 
-  - Банковский перевод {#transfer}
+  - Банковский перевод
 
     Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
 
