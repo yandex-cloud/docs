@@ -8,7 +8,13 @@ items:
       - name: Все инструкции
         href: operations/index.md
       - name: Распознавание текста
-        href: operations/ocr/text-detection.md
+        items:
+          - name: Распознавание текста на изображении
+            href: operations/ocr/text-detection-image.md
+          - name: Распознавание текста из PDF-файла
+            href: operations/ocr/text-detection-pdf.md
+          - name: Распознавание строки текста
+            href: operations/ocr/text-detection-single-line.md
       - name: Определение качества изображения
         stage: preview
         href: operations/classification/quality.md

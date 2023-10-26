@@ -91,7 +91,7 @@ items:
             href: operations/connection/create-ydb.md
           - name: Создание подключения к {{ GP }}
             href: operations/connection/create-greenplum.md
-          - name: Создание подключения к CHYT
+          - name: Создание подключения к {{ ytsaurus-name }} CHYT
             items:
               - name: Подключение
                 href: operations/connection/chyt/create-chyt.md

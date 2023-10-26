@@ -11,7 +11,7 @@
 
 {% note warning %}
 
-Сейчас эта модель не может быть выбрана при [автоматическом определении языка](../../operations/ocr/text-detection.md#basic). Чтобы использовать эту модель, надо [явно указать](../../operations/ocr/text-detection.md#multiple-languages) один или оба языка.
+Сейчас эта модель не может быть выбрана при [автоматическом определении языка](../../operations/ocr/text-detection-image.md#ocr-api-recognition). Чтобы использовать эту модель, надо явно указать один или оба языка в свойстве `languageCodes` для [OCR API](../../ocr/api-ref/index.md) или в свойстве `language_codes` для [Vision API](../../vision/api-ref/index.md).
 
 {% endnote %}
 
@@ -75,4 +75,4 @@
 #### Что дальше {#what-is-next}
 
 * [Посмотрите известные ограничения в текущей версии](known-issues.md)
-* [Попробуйте распознать текст на картинке](../../operations/ocr/text-detection.md)
+* [Попробуйте распознать текст на изображении](../../operations/ocr/text-detection-image.md)

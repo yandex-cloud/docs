@@ -16,6 +16,6 @@
 
 | Type of limit | Value |
 | ----- | ----- |
-| Number of results returned | Up to 1,000 |
+| Number of results returned | Up to 250 |
 | Maximum request length | {{ search-api-request-ch }} |
 | Maximum number of words per request | {{ search-api-request-w }} |

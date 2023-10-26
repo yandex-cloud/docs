@@ -6625,6 +6625,7 @@ default:
             button_install: Установить
             button_release-uninstall: Удалить
             section_releases: Установленные приложения
+          switch_custom-resources: Пользовательские ресурсы
           switch_marketplace: Marketplace
           switch_workloads: Рабочая нагрузка
         clusters:
@@ -6633,11 +6634,15 @@ default:
             field_address-type: Публичный адрес
             field_kms-key: Ключ шифрования
             switch_auto: Автоматически
+        custom-resources:
+          label_tab-resources: Ресурсы
         node-groups:
           create:
             field_driverless-gpu: Не устанавливать драйверы GPU
             field_key: SSH-ключ
             section_gpu-settings: Настройки GPU
+        workloads:
+          label_tab-yaml: YAML
       kafka:
         button_add-topic: Добавить топик
         button_create-connector: Создать коннектор

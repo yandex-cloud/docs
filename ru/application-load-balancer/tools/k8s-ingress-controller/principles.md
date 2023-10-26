@@ -55,4 +55,29 @@
 | [Маршруты](../../concepts/http-router.md#routes) виртуального хоста | `Ingress.spec.rules[*].http.paths` |
 | [Группа бэкендов](../../concepts/backend-group.md) | `HttpBackendGroup` ([справочник](../../k8s-ref/http-backend-group.md)) или набор [сервисов](../../../managed-kubernetes/concepts/index.md#service) ([справочник](../../k8s-ref/service.md)) |
 | [Целевая группа](../../concepts/target-group.md) | [Группа узлов](../../../managed-kubernetes/concepts/index.md#node-group) кластера |
-  
+
+## Идентификаторы ресурсов балансировщика в кластере {{ k8s }} {#alb-ids}
+
+Идентификаторы ресурсов балансировщика {{ alb-name }}, развернутого по конфигурации `Ingress`, указываются в пользовательском ресурсе `IngressGroupStatus` кластера {{ managed-k8s-name }}. Чтобы просмотреть их:
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан нужный кластер {{ managed-k8s-name }}.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Выберите кластер {{ managed-k8s-name }}, по конфигурации `Ingress` которого был создан балансировщик.
+  1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку ![custom-resources.svg](../../../_assets/custom-resources.svg) **{{ ui-key.yacloud.k8s.cluster.switch_custom-resources }}**.
+  1. Выберите `ingressgroupstatuses.alb.yc.io` и перейдите на вкладку **{{ ui-key.yacloud.k8s.custom-resources.label_tab-resources }}**.
+  1. Выберите ресурс с именем группы ресурсов `Ingress`, указанным в аннотации `ingress.alb.yc.io/group-name`, и перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}**.
+
+- CLI
+
+  1. {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+  1. Выполните команду:
+
+      ```bash
+      kubectl describe IngressGroupStatus
+      ```
+
+{% endlist %}
