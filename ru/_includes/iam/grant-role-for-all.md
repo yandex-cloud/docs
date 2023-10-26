@@ -2,9 +2,9 @@
 
 Например, разрешите любому прошедшему аутентификацию пользователю просматривать информацию о каталоге:
 
-{% list tabs group=instructions %}
+{% list tabs %}
 
-- Консоль управления {#console}
+- Консоль управления
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -16,7 +16,7 @@
     1. Выберите роль `resource-manager.viewer`.
     1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-- CLI {#cli}
+- CLI
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -28,7 +28,7 @@
     --subject system:allAuthenticatedUsers
   ```
 
-- API {#api}
+- API
 
     1. Сформируйте тело запроса, например в файле `body.json`. В `roleId` назначьте роль `viewer`. В свойстве `subject` укажите тип `system` и идентификатор `allAuthenticatedUsers`:
 

@@ -23,9 +23,9 @@
 
 Чтобы добавить пользователей федерации в организацию:
 
-{% list tabs group=instructions %}
+{% list tabs %}
 
-- Консоль управления {#console}
+- Консоль управления
 
   1. [Войдите в аккаунт]({{ link-passport-login }}) администратора организации.
   1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-main }}).
@@ -35,7 +35,7 @@
   1. Перечислите Name ID пользователей, разделяя их переносами строк.
   1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.add }}**. Пользователи будут подключены к организации.
 
-- CLI {#cli}
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -43,56 +43,56 @@
 
   1. Посмотрите описание команды добавления пользователей:
 
-    ```
-    yc organization-manager federation saml add-user-accounts --help
-    ```
+      ```
+      yc organization-manager federation saml add-user-accounts --help
+      ```
 
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
-    ```
-    yc organization-manager federation saml add-user-accounts --name my-federation \
-    --name-ids=alice@example.com,bob@example.com,charlie@example.com
-    ```
+      ```
+      yc organization-manager federation saml add-user-accounts --name my-federation \
+      --name-ids=alice@example.com,bob@example.com,charlie@example.com
+      ```
 
-- API {#api}
+- API
 
   Чтобы добавить пользователей федерации в облако:
 
   1.  Сформируйте файл с телом запроса, например `body.json`. В теле запроса укажите массив Name ID пользователей, которых необходимо добавить:
 
-    ```json
-    {
-    "nameIds": [
-      "alice@example.com",
-      "bob@example.com",
-      "charlie@example.com"
-    ]
-    }
-    ```
+      ```json
+      {
+      "nameIds": [
+        "alice@example.com",
+        "bob@example.com",
+        "charlie@example.com"
+      ]
+      }
+      ```
   1.  Отправьте запрос, указав в параметрах идентификатор федерации:
 
-    ```bash
-    $ curl -X POST \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer <IAM-токен>" \
-    -d '@body.json' \
-    https://iam.api.cloud.yandex.net/iam/v1/saml/federations/<ID федерации>:addUserAccounts
-    ```
+      ```bash
+      $ curl -X POST \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer <IAM-токен>" \
+      -d '@body.json' \
+      https://iam.api.cloud.yandex.net/iam/v1/saml/federations/<ID федерации>:addUserAccounts
+      ```
 
 {% endlist %}
 
 ## Назначьте роли пользователям {#add-role}
 
-{% list tabs group=instructions %}
+{% list tabs %}
 
-- Консоль управления {#console}
+- Консоль управления
 
   В консоли управления можно назначить роль только на облако или каталог:
 
   {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
 
-- CLI {#cli}
+- CLI 
 
   1. Выберите роль из списка в разделе [Роли](../../iam/concepts/access-control/roles.md).
   1. [Получите идентификатор пользователя](../../organization/operations/users-get.md).
@@ -121,7 +121,7 @@
       --subject userAccount:aje6o61dvog2h6g9a33s
     ```
 
-- API {#api}
+- API
 
   Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
 

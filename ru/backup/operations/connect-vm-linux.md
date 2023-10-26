@@ -1,4 +1,9 @@
-# Подключить виртуальную машину Linux к {{ backup-name }}
+---
+title: "Как подключить виртуальную машину на Linux к {{ backup-full-name }}"
+description: "Следуя данной инструкции, вы сможете подключить виртуальную машину на Linux к {{ backup-name }}."
+---
+
+# Подключить виртуальную машину на Linux к {{ backup-name }}
 
 Сервис {{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../../compute/concepts/vm.md) с операционными системами семейства Linux — Ubuntu 20.04 и ниже и CentOS 7. Подробнее см. в разделе [{#T}](../concepts/vm-connection.md#os).
 

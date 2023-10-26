@@ -5,7 +5,9 @@ description: "Пошаговые инструкции по работе с се�
 
 # Пошаговые инструкции для {{ vision-name }}
 
-* [{#T}](ocr/text-detection.md)
+* [{#T}](ocr/text-detection-image.md)
+* [{#T}](ocr/text-detection-pdf.md)
+* [{#T}](ocr/text-detection-single-line.md)
 * [{#T}](classification/moderation.md)
 * [{#T}](classification/quality.md)
 * [{#T}](face-detection/index.md)
