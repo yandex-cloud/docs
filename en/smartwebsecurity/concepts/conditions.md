@@ -4,10 +4,10 @@ You can set the following rule [conditions](rules.md):
 
 #|
 || **Type** | **Match criteria** | **Values** | **Example** | **Logical Operator** ||
-|| `IP` |
+|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-ip-range }}` |
 * Matches or falls within the range
 * Mismatches or lies outside the range
-* IP belongs to region
+* IP belongs to the region
 * IP does not belong to region
 |
 * IP address
@@ -22,7 +22,7 @@ You can set the following rule [conditions](rules.md):
 * `ru`
 * `kz`
 | _or_ ||
-|| `HTTP header` |
+|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-header }}` |
 * Matches
 * Mismatches
 * Starts with
@@ -36,7 +36,7 @@ prefix or [regular expression](https://en.wikipedia.org/wiki/Regular_expression)
 |
 * `User-Agent: curl/7.55.1`
 | _and_ ||
-|| `Request URI` |
+|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-requestUri }}` |
 * Matches
 * Mismatches
 * Starts with
@@ -65,7 +65,7 @@ PIRE library
 * `a: 1`
 * `A: 2`
 | _and_ ||
-|| `Host` |
+|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-authority }}` |
 * Matches
 * Mismatches
 * Starts with
@@ -80,7 +80,7 @@ regular expression is selected
 |
 * `example.com`
 | _or_ ||
-|| `HTTP method` |
+|| `{{ ui-key.yacloud.smart-web-security.overview.condition_name-httpMethod }}` |
 * Matches
 * Mismatches
 * Starts with

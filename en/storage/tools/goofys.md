@@ -1,14 +1,16 @@
 # goofys
 
-[goofys](https://github.com/kahing/goofys) is a utility that lets Linux and macOS mount {{ objstorage-name }} buckets via [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
+[goofys](https://github.com/kahing/goofys) is a utility for Linux and macOS to mount {{ objstorage-name }} buckets via [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
-## Installation {#installation}
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-To install `goofys`, follow the [instructions](https://github.com/kahing/goofys#installation) in the project repository.
+## Installing {#installation}
+
+To install `goofys`, follow the [guide](https://github.com/kahing/goofys#installation) in the project repository.
 
 ## Setup {#setup}
 

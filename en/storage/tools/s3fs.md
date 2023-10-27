@@ -8,17 +8,19 @@ We recommend using s3fs version 1.84 or higher.
 
 {% endnote %}
 
-If you have any questions, see the [official documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki) of the project, in particular, the [FAQs](https://github.com/s3fs-fuse/s3fs-fuse/wiki/FAQ). From there, you can learn how to fix issues that occur when using s3fs.
+If you have any questions, see the [official documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki) of the project, in particular, the [FAQs](https://github.com/s3fs-fuse/s3fs-fuse/wiki/FAQ). There you can learn how to fix issues that occur when using s3fs.
 
 S3fs performance depends on the speed of your local disk. Use high-speed disks, especially if you store a lot of small files, such as a few hundred kilobytes each or smaller. To increase s3fs performance, you can enable caching through the `--use_cache <directory>` key. As the s3fs cache can increase in size without limits, make sure to clear it regularly. You can read more in the [s3fs documentation](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon#details).
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
-## Installation {#installation}
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-To install s3fs, follow the [instructions](https://github.com/s3fs-fuse/s3fs-fuse#installation) in the project repository.
+## Installing {#installation}
+
+To install s3fs, follow the [guide](https://github.com/s3fs-fuse/s3fs-fuse#installation) in the project repository.
 
 ## Setup {#setup}
 
@@ -34,10 +36,10 @@ chmod 600 ~/.passwd-s3fs
 1. Select the folder where you want to mount your bucket and make sure you have permissions to perform the mounting operation.
 1. Run this command:
 
-    ```bash
-    s3fs <bucket_name> /mount/<folder_path> -o passwd_file=$HOME/.passwd-s3fs \
+   ```bash
+   s3fs <bucket_name> /mount/<folder_path> -o passwd_file=$HOME/.passwd-s3fs \
        -o url=https://{{ s3-storage-host }} -o use_path_request_style
-    ```
+   ```
 
    To allow other PC users to access the folder, specify the `-o allow_other` option.
 

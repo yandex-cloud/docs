@@ -20,7 +20,7 @@ description: "Step-by-step guide for editing a backend group."
    1. In the [management console]({{ link-console-main }}), select the folder where the backend group was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
-   1. Click on the name of the group you need.
+   1. Click the name of the group you need.
    1. Click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. Edit the group parameters:
 
@@ -70,9 +70,9 @@ description: "Step-by-step guide for editing a backend group."
 
          {% include [name-format-2](../../_includes/name-format-2.md) %}
 
-      * `--description`: Description of the backend group. Optional parameter.
-      * `--labels key=value`: List of labels in `key=value` format. Optional parameter.
-      * `--connection-affinity source-ip=<true_or_false>`: Mode of [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) based on IP (`source-ip`). Optional parameter. The `--cookie-affinity` mode (by cookie) and `--header-affinity` mode (by HTTP header) are available. Only one of the modes can be specified. If the backend group has the [Stream](../concepts/backend-group#group-types) type, the affinity mode can only be `--connection-affinity`.
+      * `--description`: Description of the backend group. This is an optional parameter.
+      * `--labels key=value`: List of labels in `key=value` format. This is an optional parameter.
+      * `--connection-affinity source-ip=<true_or_false>`: Mode of [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) based on IP (`source-ip`). This is an optional parameter. The `--cookie-affinity` mode (by cookie) and `--header-affinity` mode (by HTTP header) are available. Only one of the modes can be specified. If the backend group has the [Stream](../concepts/backend-group#group-types) type, the affinity mode can only be `--connection-affinity`.
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
@@ -114,7 +114,7 @@ description: "Step-by-step guide for editing a backend group."
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the backend group description:
 
@@ -136,9 +136,9 @@ description: "Step-by-step guide for editing a backend group."
 
       `yandex_alb_backend_group` specifies the backend group parameters:
       * `name`: Backend group name.
-      * `description`: Backend group description. Optional parameter.
-      * `labels`: List of labels in `key=value` format. Optional parameter.
-      * `session_affinity`: Settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) (an optional parameter).
+      * `description`: Backend group description. This is an optional parameter.
+      * `labels`: List of labels in `key=value` format. This is an optional parameter.
+      * `session_affinity`: Settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity). This is an optional parameter.
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
@@ -315,29 +315,29 @@ description: "Step-by-step guide for editing a backend group."
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and add a section describing a backend (`http_backend`, `grpc_backend`, or `stream_backend`) to the fragment with the backend group description:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
-        name  = "<backend_group_name>"
+        name                     = "<backend_group_name>"
 
         http_backend {
-          name             = "<backend_name>"
-          weight           = 1
-          port             = 80
-          target_group_ids = ["<target_group_ID>"]
+          name                   = "<backend_name>"
+          weight                 = 1
+          port                   = 80
+          target_group_ids       = ["<target_group_ID>"]
           load_balancing_config {
-            panic_threshold = 90
+            panic_threshold      = 90
           }    
           healthcheck {
-            timeout             = "10s"
-            interval            = "2s"
-            healthy_threshold   = 10
-            unhealthy_threshold = 15
+            timeout              = "10s"
+            interval             = "2s"
+            healthy_threshold    = 10
+            unhealthy_threshold  = 15
             http_healthcheck {
-              path = "/"
+              path               = "/"
             }
           }
         }
@@ -389,7 +389,7 @@ description: "Step-by-step guide for editing a backend group."
    1. In the [management console]({{ link-console-main }}), select the folder where the backend was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
-   1. Click the name of the group you need.
+   1. Click the name of the group.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the backend name and select **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, set the backend settings. For more information about the settings, see [above](#add-backend).
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -537,7 +537,7 @@ description: "Step-by-step guide for editing a backend group."
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Open the {{ TF }} configuration file and update the section with the description of the backend (`http_backend`, `grpc_backend`, or `stream_backend`) in the fragment with the description of the backend group:
 
       ```hcl
@@ -612,7 +612,7 @@ To remove a backend from a group:
    1. In the [management console]({{ link-console-main }}), select the folder where the backend was created.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/backgrs.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
-   1. Click the name of the group you need.
+   1. Click the name of the group.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the backend name and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -667,7 +667,7 @@ To remove a backend from a group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Open the {{ TF }} configuration file and delete the section with the description of the backend (`http_backend`, `grpc_backend`, or `stream_backend`) from the fragment with the description of the backend group.
 
       Sample backend group description in the {{ TF }} configuration:

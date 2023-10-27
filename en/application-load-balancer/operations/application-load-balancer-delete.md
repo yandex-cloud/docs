@@ -39,7 +39,7 @@ To delete an L7 load balancer:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To delete an L7 load balancer created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the L7 load balancer description.

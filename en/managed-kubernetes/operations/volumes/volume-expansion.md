@@ -1,6 +1,14 @@
 # Expanding a pod volume
 
-To increase the size of a [volume](../../concepts/volume.md) for the [pods](../../concepts/index.md#pod), perform the following actions.
+To expand a [volume](../../concepts/volume.md):
+1. [{#T}](#enabling-expansion)
+1. [{#T}](#create-pvc)
+1. [{#T}](#create-pod)
+1. [{#T}](#restart-pod)
+1. [{#T}](#volume-expansion)
+1. [{#T}](#restart-pod1)
+
+{% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
 ## Enable volume expansion {#enabling-expansion}
 
@@ -60,7 +68,7 @@ reclaimPolicy: Delete
 
 ## Create a pod with a dynamically provisioned volume {#create-pod}
 
-1. Save the following pod creation specification to a YAML file named `pod.yaml`.
+1. Save the following [pod](../../concepts/index.md#pod) creation specification to a YAML file named `pod.yaml`.
 
    To learn more about the pod creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
 
@@ -99,7 +107,6 @@ reclaimPolicy: Delete
 ## Delete the pod with the volume {#restart-pod}
 
 To request volume expansion, you need to delete the pod.
-
 1. Delete the pod:
 
    ```bash
@@ -115,7 +122,6 @@ To request volume expansion, you need to delete the pod.
 ## Request volume expansion {#volume-expansion}
 
 Make changes to the `spec.resources.requests.storage` field of the `PersistentVolumeClaim`.
-
 1. Open the YAML file named `pvc-expansion.yaml`:
 
    ```bash

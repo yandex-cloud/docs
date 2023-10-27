@@ -1,35 +1,60 @@
 # Connecting to {{ objstorage-name }} from {{ vpc-name }}
 
-In {{ yandex-cloud }}, you can connect to [{{ objstorage-full-name }}](../../storage/) via the appropriate [API endpoint](../../api-design-guide/concepts/endpoints.md) whose FQDN is then translated to a public IP via the DNS service.
+In {{ yandex-cloud }}, you can connect to [{{ objstorage-full-name }}](../../storage/) via the appropriate [API endpoint](../../api-design-guide/concepts/endpoints.md) whose FQDN is then translated to a public IP using the DNS service.
 
-This article describes how to deploy a cloud infrastructure in {{ yandex-cloud }} to set up access to {{ objstorage-name }} for resources that are hosted in a [cloud network](../../vpc/concepts/network.md#network) in {{ vpc-short-name }} and have no public IPs or access to the internet through a [NAT gateway](../../vpc/concepts/gateways.md).
+This article describes how to deploy a cloud infrastructure in {{ yandex-cloud }} to set up access to {{ objstorage-name }} for resources that are hosted in a {{ vpc-short-name }} [cloud network](../../vpc/concepts/network.md#network) and have no public IPs or access to the internet through a [NAT gateway](../../vpc/concepts/gateways.md).
 
-After the solution is deployed in {{ yandex-cloud }}, the following resources are created:
+After the solution is deployed in {{ yandex-cloud }}, the following resources will be created:
 
 | Name | Description |
 | ---- | ---- |
-| `s3-vpc` | Cloud network with resources access to {{ objstorage-name }} is set up for. During deployment, you can also specify an existing cloud network |
-| `s3-nlb` | [Internal network load balancer](../../network-load-balancer/concepts/nlb-types.md) that accepts traffic to {{ objstorage-name}}. The load balancer accepts TCP traffic with destination port 443 and distributes it across resources (VMs) in a target group |
-| `s3-nat-group` | Load balancer [target group](../../network-load-balancer/concepts/target-resources.md) with VMs that have the NAT function enabled |
-| `nat-a1-vm`, `nat-a2-vm`, `nat-b1-vm`, and `nat-b2-vm` | NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` [availability zones](../../overview/concepts/geo-scope.md) used for routing traffic to {{ objstorage-name }} and back with translation of IP addresses for traffic sources and targets |
-| `pub-ip-a1`, `pub-ip-a2`, `pub-ip-b1`, and `pub-ip-b2` | VM public IPs to which the {{ vpc-short-name }} cloud network translates their internal IPs |
-| `DNS zone and an A record` | Internal [DNS zone](../../dns/concepts/dns-zone.md) `{{ s3-storage-host }}.` in the `s3-vpc` network with an `A` [resource record](../../dns/concepts/resource-record.md) that maps the `{{ s3-storage-host }}` domain name to the IP address of the internal network load balancer |
+| `s3-vpc` | Cloud network with the resources access to {{ objstorage-name }} is set up for. For deployment, you can specify an existing cloud network as well. |
+| `s3-nlb` | [Internal network load balancer](../../network-load-balancer/concepts/nlb-types.md) that is responsible for accepting traffic to {{ objstorage-name}}. The load balancer accepts TCP traffic with destination port 443 and distributes it across resources (VMs) in a target group. |
+| `s3-nat-group` | Load balancer [target group](../../network-load-balancer/concepts/target-resources.md) with VM instances that have the NAT function enabled. |
+| `nat-a1-vm`, `nat-a2-vm`, `nat-b1-vm`, and `nat-b2-vm` | NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` [availability zones](../../overview/concepts/geo-scope.md) used for routing traffic to {{ objstorage-name }} and back with translation of IP addresses for traffic sources and targets. |
+| `pub-ip-a1`, `pub-ip-a2`, `pub-ip-b1`, and `pub-ip-b2` | VM public IPs to which the {{ vpc-short-name }} cloud network translates their internal IPs. |
+| `DNS zone and A record` | Internal [DNS zone](../../dns/concepts/dns-zone.md) `{{ s3-storage-host }}.` in the `s3-vpc` network with an `A` [resource record](../../dns/concepts/resource-record.md) that maps the `{{ s3-storage-host }}` domain name to the IP address of the internal network load balancer. |
 | `s3-bucket-<...>` | [Bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }} |
-| `s3-subnet-a` and `s3-subnet-b` | Cloud [subnets](../../vpc/concepts/network.md#subnet) to host the NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones |
+| `s3-subnet-a` and `s3-subnet-b` | Cloud [subnets](../../vpc/concepts/network.md#subnet) to host the NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. |
 | `test-s3-vm` | Test VM to verify access to {{ objstorage-name }} |
 | `test-s3-subnet-a` | Cloud subnet to host the test VM |
 
-For the cloud network with the resources hosted in [{{ dns-name }}](../../dns/concepts/), an internal DNS zone `{{ s3-storage-host }}.` and an `A` resource record are created. The record maps the `{{ s3-storage-host }}` domain name of {{ objstorage-name }} to the IP address of the [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md). With this record, traffic from the cloud resources to {{ objstorage-name }} will be routed to the internal load balancer that will distribute the load across the NAT instances.
+For the cloud network with the resources hosted in [{{ dns-name }}](../../dns/concepts/), the `{{ s3-storage-host }}.` internal DNS zone and an `A` resource record are created. The A record maps the `{{ s3-storage-host }}` domain name of {{ objstorage-name }} to the IP address of the [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md). With this record, traffic from the cloud resources to {{ objstorage-name }} will be routed to the internal load balancer that will distribute the load across the NAT instances.
 
 To deploy the NAT instances, use a [NAT instance based on Ubuntu 22.04 LTS](/marketplace/products/yc/nat-instance-ubuntu-22-04-lts) image from {{ marketplace-name }}. It provides translation of source and target IPs to ensure traffic routing to the {{ objstorage-name }} public IP.
 
 By placing the NAT instances in multiple [availability zones](../../overview/concepts/geo-scope.md), you can ensure fault-tolerant access to {{ objstorage-name }}. By increasing the number of NAT instances, you can upscale the solution when the load grows. When calculating the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
 
-[{{ objstorage-name }} access policies](../../storage/concepts/policy.md) allow actions with buckets only from the public IPs of the NAT instances. Bucket access is only granted to the cloud resources using this solution. You cannot connect to a bucket in {{ objstorage-name }} via a public API endpoint. You can disable this limitation in the {{ TF }} configuration file, if required.
+[{{ objstorage-name }} access policies](../../storage/concepts/policy.md) allow actions with buckets only from the public IPs of NAT instances. Bucket access is only granted to the cloud resources using this solution. You cannot connect to a bucket in {{ objstorage-name }} via a public API endpoint. You can disable this limitation in the {{ TF }} configuration file, if required.
+
+### Test results for NAT instance throughput {#speed-test}
+
+The solution was tested on a single NAT instance with the following [configuration](../../compute/concepts/performance-levels.md):
+
+* Platform: Intel Ice Lake (`standard-v3`)
+* Performance level: 100%
+* vCPU cores: 2
+* RAM: 2 GB
+
+The average {{ objstorage-name }} traffic processing speed was 250 MB/s, both egress and ingress.
+
+The test was performed using the [warp](https://github.com/minio/warp) tool on VM instances that could access {{ objstorage-name }} through this solution. The `warp` command used for the test had the following parameters:
+
+```bash
+warp get \
+  --host {{ s3-storage-host }} \
+  --access-key <static_key_ID> \
+  --secret-key <secret_key> \
+  --tls \
+  --bucket <bucket_name> \
+  --obj.randsize \
+  --concurrent 20 \
+  --warp-client <IP_adresses_of_warp_clients>
+```
 
 ## Recommendations for solution deployment in the production environment {#recommendations}
 
-* When deploying your NAT instances in multiple availability zones, set an even number of instances to evenly distribute them across the availability zones.
+* When deploying your NAT instances in multiple availability zones, set an even number of VMs to evenly distribute them across the availability zones.
 * When selecting the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
 * Once the solution is deployed, reduce the number of NAT instances or update the list of availability zones in the `yc_availability_zones` parameter in the pre-scheduled period of time only. When the changes are being applied, traffic handling may be interrupted.
 * By default, buckets in {{ objstorage-name }} can be accessed via the {{ yandex-cloud }} [management console]({{ link-console-main }}). You can revoke this permission using the `bucket_console_access = false` parameter.
@@ -42,7 +67,7 @@ By placing the NAT instances in multiple [availability zones](../../overview/con
    | `<bucket_name>.{{ s3-storage-host }}` | `A` | `<internal_load_balancer_IP>` |
 
 * Save the `pt_key.pem` private SSH key used to connect to the NAT instances to a secure location or recreate it separately from {{ TF }}.
-* Once the solution is deployed, SSH access to the NAT instances will be disabled. To enable access to the NAT instances over SSH, add a rule for incoming SSH traffic (`TCP/22`) in the `s3-nat-sg` [security group](../../vpc/concepts/security-groups.md) to only allow access from certain IPs of admin workstations.
+* Once the solution is deployed, SSH access to the NAT instances will be disabled. To enable access to the NAT instances over SSH, add a rule for incoming SSH traffic (`TCP/22`) in the `s3-nat-sg` [security group](../../vpc/concepts/security-groups.md) to allow access only from certain IP addresses of admin workstations.
 
 ## Deployment plan {#deploy-plan}
 
@@ -103,9 +128,9 @@ The infrastructure support costs include:
 
    {% endcut %}
 
-## Deploy the solution using Terraform {#deploy}
+## Deploy the solution using {{ TF }} {#deploy}
 
-1. Clone the [yandex-cloud/yc-architect-solution-library](https://github.com/yandex-cloud/yc-architect-solution-library/) `repository` to your workstation and go to the `yc-s3-private-endpoint` folder:
+1. Clone the `yandex-cloud/yc-architect-solution-library` [repository](https://github.com/yandex-cloud/yc-architect-solution-library/) to your workstation and go to the `yc-s3-private-endpoint` folder:
 
    ```bash
    git clone https://github.com/yandex-cloud/yc-architect-solution-library.git
@@ -119,21 +144,21 @@ The infrastructure support costs include:
    export YC_TOKEN=$(yc iam create-token)
    ```
 
-1. Variable parameters of resources to create are defined in the `variables.tf` file. Insert your custom variable values in the `terraform.tfvars` file. Mandatory parameters to be updated are indicated in the table.
+1. Variable parameters of resources to create are defined in the `variables.tf` file. Insert your custom variable values in the `terraform.tfvars` file. Mandatory parameters to be updated are indicated in the table below.
 
    {% cut "Detailed information about values to set" %}
 
    | Parameter<br>name | To be replaced with a<br>user-defined<br>value | Description | Type | Example |
    | --- | --- | --- | --- | --- |
    | `folder_id` | Yes | ID of the folder to host the solution components | `string` | `"b1gentmqf1ve********"` |
-   | `vpc_id` | N/A | ID of the cloud network access to {{ objstorage-name }} is set up for. If omitted, a new network will be created | `string` | `"enp48c1ndilt********"` |
+   | `vpc_id` | N/A | ID of the cloud network access to {{ objstorage-name }} is set up for. If omitted, a new network will be created. | `string` | `"enp48c1ndilt********"` |
    | `yc_availability_zones` | N/A | [List of availability zones](../../overview/concepts/geo-scope.md) for deploying NAT instances | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
-   | `subnet_prefix_list` | N/A | List of prefixes of cloud subnets to host the NAT instances (one subnet in each availability zone from the `yc_availability_zones` list in the following order: {{ region-id }}-a, {{ region-id }}-b, and so on) | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
-   | `nat_instances_count` | N/A | Number of NAT instances to deploy. We recommend setting an even number to evenly distribute the instances across the availability zones | `number` | `4` |
-   | `bucket_private_access` | N/A | Only allow bucket access from the public IPs of NAT instances. If `true`, access is limited. To cancel the limitation, set `false` | `bool` | `true` |
-   | `bucket_console_access` | N/A | Allow bucket access via the {{ yandex-cloud }} management console. If `true`, access is allowed. To disable it, set `false`. This parameter is mandatory if the `bucket_private_access` parameter is set to `true` | `bool` | `true` |
-   | `mgmt_ip` | Yes | Public IP of your workstation where you are deploying the infrastructure using {{ TF }}. It is used to allow your workstation to perform actions with the bucket when deploying {{ TF }}. This parameter is mandatory if the `bucket_private_access` parameter is set to `true` | `string` | `"A.A.A.A"` |
-   | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets that {{ objstorage-name }} access is allowed for. It is used in the rule for incoming traffic of security groups for the NAT instances | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
+   | `subnet_prefix_list` | N/A | List of prefixes of cloud subnets to host the NAT instances (one subnet in each availability zone from the `yc_availability_zones` list. The prefixes should be listed as {{ region-id }}-a, {{ region-id }}-b, and so on). | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
+   | `nat_instances_count` | N/A | Number of NAT instances to deploy. We recommend setting an even number to evenly distribute the instances across the availability zones. | `number` | `4` |
+   | `bucket_private_access` | N/A | Only allow bucket access from the public IPs of NAT instances. If `true`, access is limited. To cancel the limit, set `false`. | `bool` | `true` |
+   | `bucket_console_access` | N/A | Allow bucket access via the {{ yandex-cloud }} management console. If `true`, access is allowed. To disable it, set `false`. This parameter is mandatory if the `bucket_private_access` parameter is set to `true`. | `bool` | `true` |
+   | `mgmt_ip` | Yes | Public IP of your workstation where you are deploying the infrastructure using {{ TF }}. It is used to allow your workstation to perform actions with the bucket when deploying {{ TF }}. This parameter is mandatory if the `bucket_private_access` parameter is set to `true`. | `string` | `"A.A.A.A"` |
+   | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets that {{ objstorage-name }} access is allowed for. It is used in the rule for incoming traffic of security groups for the NAT instances. | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
    | `vm_username` | N/A | NAT instance and test VM usernames | `string` | `"admin"` |
    | `s3_ip` | No | {{ objstorage-name }} public IP address | `string` | `213.180.193.243` |
    | `s3_fqdn` | No | {{ objstorage-name }} domain name | `string` | `{{ s3-storage-host }}` |
@@ -175,8 +200,11 @@ The infrastructure support costs include:
 ## Test the solution {#check}
 
 1. In the [management console]({{ link-console-main }}), go to the folder where the resources were created.
-1. Select **{{ compute-name }}** and then select `test-s3-vm` from the list of VMs.
-1. Connect to the VM serial console and enter the `admin` username and the password from the `terraform output test_vm_password` command output (without quotation marks).
+1. Select **{{ compute-name }}**.
+1. Select `test-s3-vm` from the list of VMs.
+1. Go to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
+1. Click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
+1. Enter the `admin` username and the password from the `terraform output test_vm_password` command output (without quotation marks).
 
 1. Run this command:
 

@@ -23,7 +23,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
    1. Click the name of the bucket you need.
    1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
    1. In the right-hand panel that opens, click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
-   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.button_create-certificate }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
    1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** field, select the certificate from the list that opens.
 
       {% note info %}
@@ -49,11 +49,12 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
   1. Run the following command:
 
      ```bash
-     yc storage bucket set-https <bucket_name> --certificate-id
+     yc storage bucket set-https --name <bucket_name> --certificate-id <certificate_ID>
      ```
 
      Where:
-     * `--certificate-id`: {{ certificate-manager-name }} certificate ID.
+     * `--name`: Name of the bucket to configure HTTPS for.
+     * `--certificate-id`: Certificate ID in {{ certificate-manager-name }}.
 
      Result:
 
@@ -67,7 +68,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
    To select a certificate from {{ certificate-manager-name }}:

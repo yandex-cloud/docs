@@ -2,11 +2,11 @@
 
 
 ```hcl
-resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
   ...
   access {
-    web_sql   = <true или false>
-    data_lens = <true или false>
+    web_sql   = <доступ_из_консоли_управления>
+    data_lens = <доступ_из_{{ datalens-name }}>
     ...
   }
   ...
@@ -14,3 +14,11 @@ resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
 ```
 
 
+
+Где:
+
+
+* `web_sql` — выполнение SQL-запросов из консоли управления: `true` или `false`.
+
+
+* `data_lens` — доступ из {{ datalens-name }}: `true` или `false`.

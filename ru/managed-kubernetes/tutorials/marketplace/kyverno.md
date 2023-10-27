@@ -33,7 +33,7 @@
           * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
           * Правила для доступа к сервисам из интернета.
         * Кластер {{ managed-k8s-name }}.
-        * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}}.
+        * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
      1. Укажите в файле конфигурации:
         * [Идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
         * [Версию {{ k8s }}](../../concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.

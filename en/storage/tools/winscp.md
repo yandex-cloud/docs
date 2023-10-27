@@ -21,6 +21,8 @@ To work with {{ objstorage-name }}, use version 5.14 or later.
 
 {% include [aws-tools-prepare-with-bucket](../../_includes/aws-tools/aws-tools-prepare-with-bucket.md) %}
 
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
+
 ## Installing {#installation}
 
 [Download](https://winscp.net/eng/download.php) the WinSCP distribution and run it.

@@ -8,6 +8,8 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
+
 ## Installing {#install}
 
 1. [Install Docker](https://docs.docker.com/get-docker/).
@@ -67,8 +69,8 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
    * `FTP_USER`: Username for establishing a server connection. By default, it is set to `s3`.
    * `FTP_PASS`: User password for establishing a server connection. By default, a random password is generated and displayed in Docker container logs.
    * `FTP_PASV_ENABLE`: Enables passive FTP connection mode. By default, it is set to `YES`.
-   * `FTP_PASV_MIN_PORT`: Start of the port range for passive mode. The default value is `21100`.
-   * `FTP_PASV_MAX_PORT`: End of the port range for passive mode. The default value is `21100`.
+   * `FTP_PASV_MIN_PORT`: Start of the port range for passive mode. By default, it is set to `21100`.
+   * `FTP_PASV_MAX_PORT`: End of the port range for passive mode. By default, it is set to `21100`.
    * `FTP_PASV_ADDRESS`: Server IP address or its domain name (if the `FTP_PASV_ADDR_RESOLVE` option is selected) for passive mode. By default, the IP address specified in the Docker container's route table (the `ip route show` command) is used as the default route target IP address (specified in a `default via <IP address> ...` string).
    * `FTP_PASV_ADDR_RESOLVE`: Allows specifying the server domain name instead of its IP address in the `FTP_PASV_ADDRESS` variable. By default, it is set to `YES`.
    * `FTP_PASV_PROMISCUOUS`: Disables client IP address mapping for passive mode: a managing connection may be opened from one client address, while a connection for data exchange, from another. By default, it is set to `NO`. We do not recommend disabling this check.
@@ -116,7 +118,7 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
         {{ objstorage-sftps-gateway-uri }}:{{ objstorage-sftps-gateway-version }}
       ```
 
-      The server will accept connections on port 1021. In addition, for passive mode (the `FTP_PASV_ENABLE` variable), port 21100 is open: if you don't use this mode, the `--expose 21100` and `-p 21100:21100` options aren't required.
+      The server will accept connections on port 1021. In addition, for passive mode (the `FTP_PASV_ENABLE` variable), port 21100 is open: if you do not use this mode, the `--expose 21100` and `-p 21100:21100` options are not required.
 
    {% endlist %}
 

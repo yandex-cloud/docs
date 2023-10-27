@@ -105,7 +105,7 @@ Every taint policy consists of three parts:
 ```
 
 A list of available taint effects:
-* `NO_SCHEDULE`: Prohibit running new pods on group nodes (doesn't affect running pods).
+* `NO_SCHEDULE`: Prohibit running new pods on group nodes (it does not affect running pods).
 * `PREFER_NO_SCHEDULE`: Avoid running pods on group nodes if there are available resources for this in other groups.
 * `NO_EXECUTE`: Evict pods from nodes in this group to other groups, and prohibit running new pods.
 
@@ -146,7 +146,7 @@ If a pod needs access to resources outside the cluster, its IP address will be r
 
 By default, IP masquerade is enabled for the entire range of pod IP addresses.
 
-To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading, for example, to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml), specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
+To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading, e.g., to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml), specify the IP ranges you need in the `data.config.nonMasqueradeCIDRs` parameter:
 
 ```yaml
 ...
@@ -183,13 +183,13 @@ A _namespace_ is an abstraction that logically isolates {{ k8s }} cluster resour
 
   A number of {{ k8s }} service accounts are automatically created in the `kube-system` namespace when deploying a {{ managed-k8s-name }} cluster.
 
-  {{ k8s }} creates a token for each of these accounts. This token is used for authentication within the {{ k8s }} cluster that the account belongs to.
+  For authentication within the {{ k8s }} cluster hosting the service account, create a token for this account manually.
 
-  For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/).
+  For more information, see [{#T}](../operations/connect/create-static-conf.md) and the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/).
 
 {% note warning %}
 
-Don't confuse [cloud service accounts](../security/index.md#sa-annotation) and {{ k8s }} service accounts.
+Do not confuse [cloud service accounts](../security/index.md#sa-annotation) with {{ k8s }} service accounts.
 
 In the service documentation, _service account_ refers to a regular cloud service account unless otherwise specified.
 

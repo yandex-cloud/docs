@@ -6,7 +6,7 @@
 
 В {{ mgp-name }} алгоритм HyperLogLog реализуется двумя функциями:
 
-* `gp_hyperloglog_accum(<имя столбца>)` — применяет алгоритм HyperLogLog к переданному столбцу. Возвращает HLL с типом данных `gp_hyperloglog_estimator`.
+* `gp_hyperloglog_accum(<имя_столбца>)` — применяет алгоритм HyperLogLog к переданному столбцу. Возвращает HLL с типом данных `gp_hyperloglog_estimator`.
 * `gp_hyperloglog_get_estimate(<HLL>)` — конвертирует переданный HLL в численную оценку.
 
 Также доступны вспомогательные функции:
@@ -22,7 +22,7 @@
 Выполните запрос:
 
 ```sql
-SELECT gp_hyperloglog_accum(<имя столбца>) FROM <имя таблицы>;
+SELECT gp_hyperloglog_accum(<имя_столбца>) FROM <имя_таблицы>;
 ```
 
 Ответ будет содержать строку.
@@ -32,7 +32,7 @@ SELECT gp_hyperloglog_accum(<имя столбца>) FROM <имя таблицы
 Выполните запрос:
 
 ```sql
-SELECT gp_hyperloglog_get_estimate(gp_hyperloglog_accum(<имя столбца>)) FROM <имя таблицы>;
+SELECT gp_hyperloglog_get_estimate(gp_hyperloglog_accum(<имя_столбца>)) FROM <имя_таблицы>;
 ```
 
 Ответ будет содержать вещественное число.
@@ -43,8 +43,8 @@ SELECT gp_hyperloglog_get_estimate(gp_hyperloglog_accum(<имя столбца>)
 
 ```sql
 SELECT gp_hyperloglog_get_estimate(
-    gp_hyperloglog_merge(gp_hyperloglog_accum(<столбец 1>), gp_hyperloglog_accum(<столбец 2>)))
-FROM <имена таблиц>;
+    gp_hyperloglog_merge(gp_hyperloglog_accum(<столбец_1>), gp_hyperloglog_accum(<столбец_2>)))
+FROM <имена_таблиц>;
 ```
 
 Ответ будет содержать вещественное число.
@@ -55,8 +55,8 @@ FROM <имена таблиц>;
 
 ```sql
 SELECT gp_hyperloglog_get_estimate(
-    gp_hyperloglog_add_item_agg_default(gp_hyperloglog_accum(<имя столбца>), <значение нового элемента>))
-FROM <имя таблицы>;
+    gp_hyperloglog_add_item_agg_default(gp_hyperloglog_accum(<имя_столбца>), <значение_нового_элемента>))
+FROM <имя_таблицы>;
 ```
 
 Если новый элемент не уникален для данного столбца или имеет значение `null`, то в ответе вернется такая же оценка, как при [запросе количества уникальных элементов в столбце](#get-estimation). Иначе оценка увеличится примерно на `1`.

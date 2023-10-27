@@ -163,7 +163,7 @@
        namespace: kube-system
      ```
 
-     {% endlist %}
+   {% endlist %}
 
 1. Создайте объект `ServiceAccount` и секрет для него:
 

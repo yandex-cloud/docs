@@ -64,8 +64,8 @@ yc kms symmetric-key add-access-binding \
 ```
 
 Where:
-* `--id`: {{ kms-short-name }} key ID.
-* `--service-account-id`: Service account ID.
+* `--id`: {{ kms-short-name }} key ID
+* `--service-account-id`: Service account ID
 
 
 
@@ -113,10 +113,10 @@ By default, the storage is accessed via HTTPS.
 
 The {{ objstorage-name }} response time depends on multiple factors:
 * Client-side performance (network speed, CPU load, or disk subsystem load).
-* The speed of trunk connections, connections between data centers, or client-server connections.
+* Speed of trunk connections, connections between data centers, or client-server connections.
 * Performance of {{ objstorage-name }} itself.
 
-This is why we can't specify a particular response time value. However, we do not consider a sharp increase in response time or a marked decrease in the speed of sending data to be the norm, and keep working to improve the technical characteristics of {{ objstorage-name }}.
+This is why we cannot specify a particular response time value. However, we do not consider a sharp increase in response time or a marked decrease in the speed of sending data to be the norm, and keep working to improve the technical characteristics of {{ objstorage-name }}.
 
 
 
@@ -143,3 +143,9 @@ To add your [domain](operations/hosting/own-domain.md) to a [bucket](concepts/bu
 
 {% include [objects-access.md](../_includes/storage/objects-access.md) %}
 
+
+#### Why did I lose access to the bucket after creating/updating an access policy? {#qa-lost-access}
+
+1. [Access policies](concepts/policy.md) treat objects within a bucket and the bucket itself as different resources. To apply an access policy rule to both the bucket and the objects within it, specify them separately, e.g., `samplebucket` and `samplebucket/*`.
+
+1. If a bucket policy with no rules is applied to the bucket, access is denied to all users. To disable request verification for a bucket policy, [delete](operations/buckets/policy.md#delete-policy) it.

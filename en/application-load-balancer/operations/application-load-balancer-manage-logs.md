@@ -78,7 +78,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Add the `log_options` section to the load balancer description in the configuration file:
 
@@ -193,7 +193,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file with the load balancer description, update the logging settings in the `log_options` section:
 
@@ -280,7 +280,7 @@ L7 load balancer [logs](../concepts/application-load-balancer.md#logging) can be
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Remove the `log_options` section from the configuration file with the load balancer description:
 

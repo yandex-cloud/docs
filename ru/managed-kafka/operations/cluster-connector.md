@@ -31,7 +31,7 @@
     Чтобы запросить список коннекторов кластера, выполните команду:
 
     ```bash
-    {{ yc-mdb-kf }} connector list --cluster-name=<имя кластера>
+    {{ yc-mdb-kf }} connector list --cluster-name=<имя_кластера>
     ```
 
     Результат:
@@ -75,8 +75,8 @@
     Чтобы получить детальную информацию о коннекторе, выполните команду:
 
     ```bash
-    {{ yc-mdb-kf }} connector get <имя коннектора>\
-       --cluster-name=<имя кластера>
+    {{ yc-mdb-kf }} connector get <имя_коннектора>\
+       --cluster-name=<имя_кластера>
     ```
 
     Результат:
@@ -84,7 +84,7 @@
     ```text
     name: connector785
     tasks_max: "1"
-    cluster_id: c9qbkmoiimslvj8ehkfi
+    cluster_id: c9qbkmoiimsl********
     ...
     ```
 
@@ -123,7 +123,7 @@
         При этом ключ может быть как простой строкой, так и содержать префикс, указывающий на принадлежность к источнику или приемнику (псевдоним кластера в конфигурации коннектора):
 
         ```text
-        <псевдоним кластера>.<тело ключа>:<значение>
+        <псевдоним_кластера>.<тело_ключа>:<значение>
         ```
 
     1. Выберите тип коннектора: [MirrorMaker](#settings-mm2) или [S3 Sink](#settings-s3).
@@ -151,21 +151,21 @@
   1. Создайте коннектор:
 
       ```bash
-      {{ yc-mdb-kf }} connector-mirrormaker create <имя коннектора> \
-         --cluster-name=<имя кластера> \
-         --direction=<направление коннектора: ingress или egress> \
-         --tasks-max=<лимит задач> \
-         --properties=<дополнительные свойства> \
-         --replication-factor=<фактор репликации> \
-         --topics=<шаблон для топиков> \
-         --this-cluster-alias=<префикс для обозначения этого кластера> \
-         --external-cluster alias=<префикс для обозначения внешнего кластера>,`
-                           `bootstrap-servers=<список FQDN хостов-брокеров>,`
-                           `security-protocol=<протокол безопасности>,`
-                           `sasl-mechanism=<механизм шифрования>,`
-                           `sasl-username=<имя пользователя>,`
-                           `sasl-password=<пароль пользователя>,`
-                           `ssl-truststore-certificates=<сертификаты в формате PEM>
+      {{ yc-mdb-kf }} connector-mirrormaker create <имя_коннектора> \
+         --cluster-name=<имя_кластера> \
+         --direction=<направление_коннектора> \
+         --tasks-max=<лимит_задач> \
+         --properties=<дополнительные_свойства> \
+         --replication-factor=<фактор_репликации> \
+         --topics=<шаблон_для_топиков> \
+         --this-cluster-alias=<префикс_для_обозначения_этого_кластера> \
+         --external-cluster alias=<префикс_для_обозначения_внешнего_кластера>,`
+                           `bootstrap-servers=<список_FQDN_хостов-брокеров>,`
+                           `security-protocol=<протокол_безопасности>,`
+                           `sasl-mechanism=<механизм_шифрования>,`
+                           `sasl-username=<имя_пользователя>,`
+                           `sasl-password=<пароль_пользователя>,`
+                           `ssl-truststore-certificates=<сертификаты_в_формате_PEM>
       ```
 
       {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
@@ -189,18 +189,18 @@
   1. Создайте коннектор:
 
       ```bash
-      {{ yc-mdb-kf }} connector-s3-sink create <имя коннектора> \
-         --cluster-name=<имя кластера> \
-         --tasks-max=<лимит задач> \
-         --properties=<дополнительные свойства> \
-         --topics=<шаблон для топиков> \
-         --file-compression-type=<кодек сжатия> \
-         --file-max-records=<максимальное количество сообщений в файле> \
-         --bucket-name=<имя бакета> \
-         --access-key-id=<идентификатор AWS-совместимого статического ключа> \
-         --secret-access-key=<содержимое AWS-совместимого статического ключа> \
-         --storage-endpoint=<эндпоинт S3-совместимого хранилища> \
-         --region=<регион S3-совместимого хранилища>
+      {{ yc-mdb-kf }} connector-s3-sink create <имя_коннектора> \
+         --cluster-name=<имя_кластера> \
+         --tasks-max=<лимит_задач> \
+         --properties=<дополнительные_свойства> \
+         --topics=<шаблон_для_топиков> \
+         --file-compression-type=<кодек_сжатия> \
+         --file-max-records=<максимальное_количество_сообщений_в_файле> \
+         --bucket-name=<имя_бакета> \
+         --access-key-id=<идентификатор_AWS-совместимого_статического_ключа> \
+         --secret-access-key=<содержимое_AWS-совместимого_статического_ключа> \
+         --storage-endpoint=<эндпоинт_S3-совместимого_хранилища> \
+         --region=<регион_S3-совместимого_хранилища>
       ```
 
      Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -216,29 +216,29 @@
     1. Чтобы создать коннектор Mirrormaker, добавьте ресурс `yandex_mdb_kafka_connector` с блоком настроек `connector_config_mirrormaker`:
 
         ```hcl
-        resource "yandex_mdb_kafka_connector" "<имя коннектора>" {
-          cluster_id = "<идентификатор кластера>"
-          name       = "<имя коннектора>"
-          tasks_max  = <лимит задач>
+        resource "yandex_mdb_kafka_connector" "<имя_коннектора>" {
+          cluster_id = "<идентификатор_кластера>"
+          name       = "<имя_коннектора>"
+          tasks_max  = <лимит_задач>
           properties = {
-            <дополнительные свойства>
+            <дополнительные_свойства>
           }
           connector_config_mirrormaker {
-            topics             = "<шаблон для топиков>"
-            replication_factor = <фактор репликации>
+            topics             = "<шаблон_для_топиков>"
+            replication_factor = <фактор_репликации>
             source_cluster {
-              alias = "<префикс для обозначения кластера>"
+              alias = "<префикс_для_обозначения_кластера>"
               external_cluster {
-                bootstrap_servers           = "<список FQDN хостов-брокеров>"
-                sasl_username               = "<имя пользователя>"
-                sasl_password               = "<пароль пользователя>"
-                sasl_mechanism              = "<механизм шифрования>"
-                security_protocol           = "<протокол безопасности>"
-                ssl-truststore-certificates = "<содержимое PEM-сертификата>"
+                bootstrap_servers           = "<список_FQDN_хостов-брокеров>"
+                sasl_username               = "<имя_пользователя>"
+                sasl_password               = "<пароль_пользователя>"
+                sasl_mechanism              = "<механизм_шифрования>"
+                security_protocol           = "<протокол_безопасности>"
+                ssl-truststore-certificates = "<содержимое_PEM-сертификата>"
               }
             }
             target_cluster {
-              alias = "<префикс для обозначения кластера>"
+              alias = "<префикс_для_обозначения_кластера>"
               this_cluster {}
             }
           }
@@ -250,23 +250,23 @@
     1. Чтобы создать коннектор S3 Sink, добавьте ресурс `yandex_mdb_kafka_connector` с блоком настроек `connector_config_s3_sink`:
 
         ```hcl
-        resource "yandex_mdb_kafka_connector" "<имя коннектора>" {
-          cluster_id = "<идентификатор кластера>"
-          name       = "<имя коннектора>"
-          tasks_max  = <лимит задач>
+        resource "yandex_mdb_kafka_connector" "<имя_коннектора>" {
+          cluster_id = "<идентификатор_кластера>"
+          name       = "<имя_коннектора>"
+          tasks_max  = <лимит_задач>
           properties = {
-            <дополнительные свойства>
+            <дополнительные_свойства>
           }
           connector_config_s3_sink {
-            topics                = "<шаблон для топиков>"
-            file_compression_type = "<кодек сжатия>"
-            file_max_records      = <максимальное количество сообщений в файле>
+            topics                = "<шаблон_для_топиков>"
+            file_compression_type = "<кодек_сжатия>"
+            file_max_records      = <максимальное_количество_сообщений_в_файле>
             s3_connection {
-              bucket_name = "<имя бакета>"
+              bucket_name = "<имя_бакета>"
               external_s3 {
-                endpoint          = "<эндпоинт S3-совместимого хранилища>"
-                access_key_id     = "<идентификатор AWS-совместимого статического ключа>"
-                secret_access_key = "<содержимое AWS-совместимого статического ключа>"
+                endpoint          = "<эндпоинт_S3-совместимого_хранилища>"
+                access_key_id     = "<идентификатор_AWS-совместимого_статического_ключа>"
+                secret_access_key = "<содержимое_AWS-совместимого_статического_ключа>"
               }
             }
           }
@@ -322,11 +322,13 @@
     1. Запустите операцию, например, изменения лимита задач:
 
         ```bash
-        {{ yc-mdb-kf }} connector-mirrormaker update <имя коннектора> \
-           --cluster-name=<имя кластера> \
-           --direction=<направление коннектора: ingress или egress> \
-           --tasks-max=<новый лимит задач>
+        {{ yc-mdb-kf }} connector-mirrormaker update <имя_коннектора> \
+           --cluster-name=<имя_кластера> \
+           --direction=<направление_коннектора> \
+           --tasks-max=<новый_лимит_задач>
         ```
+
+        Где `--direction` — направление коннектора: `ingress` или `egres`.
 
         Имя коннектора можно запросить со [списком коннекторов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -341,9 +343,9 @@
     1. Запустите операцию, например, изменения лимита задач:
 
         ```bash
-        {{ yc-mdb-kf }} connector-s3-sink update <имя коннектора> \
-           --cluster-name=<имя кластера> \
-           --tasks-max=<новый лимит задач>
+        {{ yc-mdb-kf }} connector-s3-sink update <имя_коннектора> \
+           --cluster-name=<имя_кластера> \
+           --tasks-max=<новый_лимит_задач>
         ```
 
         Имя коннектора можно запросить со [списком коннекторов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -361,29 +363,29 @@
         * Для коннектора Mirrormaker:
 
             ```hcl
-            resource "yandex_mdb_kafka_connector" "<имя коннектора>" {
-              cluster_id = "<идентификатор кластера>"
-              name       = "<имя коннектора>"
-              tasks_max  = <лимит задач>
+            resource "yandex_mdb_kafka_connector" "<имя_коннектора>" {
+              cluster_id = "<идентификатор_кластера>"
+              name       = "<имя_коннектора>"
+              tasks_max  = <лимит_задач>
               properties = {
-                <дополнительные свойства>
+                <дополнительные_свойства>
               }
               connector_config_mirrormaker {
-                topics             = "<шаблон для топиков>"
-                replication_factor = <фактор репликации>
+                topics             = "<шаблон_для_топиков>"
+                replication_factor = <фактор_репликации>
                 source_cluster {
-                  alias = "<префикс для обозначения кластера>"
+                  alias = "<префикс_для_обозначения_кластера>"
                   external_cluster {
-                    bootstrap_servers           = "<список FQDN хостов-брокеров>"
-                    sasl_username               = "<имя пользователя>"
-                    sasl_password               = "<пароль пользователя>"
-                    sasl_mechanism              = "<механизм шифрования>"
-                    security_protocol           = "<протокол безопасности>"
-                    ssl-truststore-certificates = "<содержимое PEM-сертификата>"
+                    bootstrap_servers           = "<список_FQDN_хостов-брокеров>"
+                    sasl_username               = "<имя_пользователя>"
+                    sasl_password               = "<пароль_пользователя>"
+                    sasl_mechanism              = "<механизм_шифрования>"
+                    security_protocol           = "<протокол_безопасности>"
+                    ssl-truststore-certificates = "<содержимое_PEM-сертификата>"
                   }
                 }
                 target_cluster {
-                  alias = "<префикс для обозначения кластера>"
+                  alias = "<префикс_для_обозначения_кластера>"
                   this_cluster {}
                 }
               }
@@ -393,22 +395,22 @@
         * Для коннектора S3 Sink:
 
             ```hcl
-            resource "yandex_mdb_kafka_connector" "<имя S3 Sink коннектора>" {
-              cluster_id = "<идентификатор кластера>"
-              name       = "<имя S3 Sink коннектора>"
-              tasks_max  = <лимит задач>
+            resource "yandex_mdb_kafka_connector" "<имя_S3_Sink_коннектора>" {
+              cluster_id = "<идентификатор_кластера>"
+              name       = "<имя_S3_Sink_коннектора>"
+              tasks_max  = <лимит_задач>
               properties = {
-                <дополнительные свойства>
+                <дополнительные_свойства>
              }
               connector_config_s3_sink {
-                topics                = "<шаблон для топиков>"
-                file_max_records      = <максимальное количество сообщений в файле>
+                topics                = "<шаблон_для_топиков>"
+                file_max_records      = <максимальное_количество_сообщений_в_файле>
                 s3_connection {
-                  bucket_name = "<имя бакета>"
+                  bucket_name = "<имя_бакета>"
                   external_s3 {
-                    endpoint          = "<эндпоинт S3-совместимого хранилища>"
-                    access_key_id     = "<идентификатор AWS-совместимого статического ключа>"
-                    secret_access_key = "<содержимое AWS-совместимого статического ключа>"
+                    endpoint          = "<эндпоинт_S3-совместимого_хранилища>"
+                    access_key_id     = "<идентификатор_AWS-совместимого_статического_ключа>"
+                    secret_access_key = "<содержимое_AWS-совместимого_статического_ключа>"
                   }
                 }
               }
@@ -461,8 +463,8 @@
     Чтобы приостановить работу коннектора, выполните команду:
 
     ```bash
-    {{ yc-mdb-kf }} connector pause <имя коннектора> \
-       --cluster-name=<имя кластера>
+    {{ yc-mdb-kf }} connector pause <имя_коннектора> \
+       --cluster-name=<имя_кластера>
     ```
 
 - API
@@ -494,8 +496,8 @@
     Чтобы возобновить работу коннектора, выполните команду:
 
     ```bash
-    {{ yc-mdb-kf }} connector resume <имя коннектора> \
-       --cluster-name=<имя кластера>
+    {{ yc-mdb-kf }} connector resume <имя_коннектора> \
+       --cluster-name=<имя_кластера>
     ```
 
 - API
@@ -528,8 +530,8 @@
     Чтобы удалить коннектор, выполните команду:
 
     ```bash
-    {{ yc-mdb-kf }} connector delete <имя коннектора> \
-       --cluster-name <имя кластера>
+    {{ yc-mdb-kf }} connector delete <имя_коннектора> \
+       --cluster-name <имя_кластера>
     ```
 
 - {{ TF }}

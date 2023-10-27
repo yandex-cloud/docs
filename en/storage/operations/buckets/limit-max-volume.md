@@ -11,7 +11,7 @@ For example, if you provide the users of your service with the ability to upload
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
    1. Click the name of the bucket you need.
-   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
+   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
    1. Set the value of the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field.
 
       {% include [storage-no-max-limit](../../_includes_service/storage-no-max-limit.md) %}
@@ -75,7 +75,7 @@ For example, if you provide the users of your service with the ability to upload
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
    To limit the maximum bucket size:
@@ -118,7 +118,7 @@ For example, if you provide the users of your service with the ability to upload
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

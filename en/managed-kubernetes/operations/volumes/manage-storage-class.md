@@ -4,7 +4,7 @@ _Storage class_ (`StorageClass`) allows administrators to divide the stores they
 
 {% note alert %}
 
-The cost of using a store depends on its disk type. Please review [{{ compute-full-name }} disk prices](../../../compute/concepts/disk.md#disks_types) prior to creating a store.
+The storage usage depends on its [disk](../../../compute/concepts/disk.md) type. See the [{{ compute-full-name }} disk prices](../../../compute/concepts/disk.md#disks_types) prior to creating a storage.
 
 {% endnote %}
 
@@ -27,6 +27,8 @@ Classes differ based on the [type of disk created](../../../compute/concepts/dis
 * `yc-network-ssd` uses a fast network drive (`network-ssd`).
 
 You can [create your own storage class](#sc-create) as well as [change the default storage class](#sc-default).
+
+{% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
 {% note info %}
 
@@ -59,7 +61,7 @@ You can [create your own storage class](#sc-create) as well as [change the defau
 
 
 
-1. Run the command:
+1. Run this command:
 
    
    ```bash
@@ -105,17 +107,17 @@ YAML file structure:
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: <storage class name> # Used for accessing the storage class.
-provisioner: <provisioner name>
+  name: <storage_class_name> # Used for accessing the storage class.
+provisioner: <provider_name>
 volumeBindingMode: WaitForFirstConsumer
 parameters: # Storage class parameters.
-  type: <disk type>
-  csi.storage.k8s.io/fstype: <file system type>
-allowVolumeExpansion: <activate volume expansion mechanism>
-reclaimPolicy: <reclaim policy>
+  type: <disk_type>
+  csi.storage.k8s.io/fstype: < file_system_type>
+allowVolumeExpansion: <enable_volume_expansion>
+reclaimPolicy: <reclaim_policy>
 ```
 
-Acceptable parameter values:
+Acceptable parameter values include:
 * `parameters`:
   * `type`: `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`.
   * `csi.storage.k8s.io/fstype`: `ext2`, `ext3` or `ext4`.

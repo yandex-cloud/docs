@@ -1,4 +1,4 @@
-In {{ dataproc-name }} clusters, your code is executed in [sessions](https://livy.incubator.apache.org/docs/latest/rest-api.html#session). A session stores the intermediate state until you delete the session or cluster. Each cluster has a default session. Its ID is the same as the project ID.
+In {{ dataproc-name }} clusters, your code is running in [sessions](https://livy.incubator.apache.org/docs/latest/rest-api.html#session). A session stores the intermediate state until you delete the session or cluster. Each cluster has a default session. Its ID is the same as the project ID.
 
 Use the following commands to manage sessions:
 * `%create_livy_session --cluster <cluster name> --id <session ID>` to create a session.

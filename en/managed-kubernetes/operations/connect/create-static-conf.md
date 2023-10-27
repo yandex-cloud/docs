@@ -1,11 +1,11 @@
 # Creating a static configuration file
 
-Static configuration files allow you to access a {{ k8s }} cluster without using the CLI, e.g., from continuous integration systems.
+Static configuration files allow you to access a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) without using the CLI, e.g., from continuous integration systems.
 
-You can also use a static configuration file to configure access to multiple {{ k8s }} clusters. You can quickly switch between {{ k8s }} clusters described in configuration files using the `kubectl config use-context` command. For more information about how to configure access to multiple {{ k8s }} clusters, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
+You can also use a static configuration file to configure access to multiple {{ managed-k8s-name }} clusters. You can quickly switch between {{ managed-k8s-name }} clusters described in configuration files using the `kubectl config use-context` command. For more information about how to configure access to multiple {{ managed-k8s-name }} clusters, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
 
 To create a configuration file:
-* [Prepare the cluster certificate {{ k8s }}](#prepare-cert).
+* [Prepare a {{ managed-k8s-name }} cluster certificate](#prepare-cert).
 * [Create a ServiceAccount object](#create-sa).
 * [Prepare a ServiceAccount token](#prepare-token).
 * [Create and populate a configuration file](#create-conf-file).
@@ -13,19 +13,19 @@ To create a configuration file:
 
 To run bash commands, you will need a JSON parser: [jq](https://stedolan.github.io/jq/download/).
 
-## Get a unique {{ k8s }} cluster ID {#k8s-id}
+## Get a unique cluster ID {#k8s-id}
 
-To access a {{ k8s }} cluster, use its unique ID. Save it to a variable and use it in other commands.
-1. Find the unique ID of the {{ k8s }} cluster:
+To access a {{ managed-k8s-name }} cluster, use its unique ID. Save it to a variable and use it in other commands.
+1. Find the unique ID of the {{ managed-k8s-name }} cluster:
 
    {% list tabs %}
 
    - Management console
 
-     1. Go to the folder page and select {{ managed-k8s-name }}.
-     1. Click the name of the {{ k8s }} cluster.
+     1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select {{ managed-k8s-name }}.
+     1. Click the name of the {{ managed-k8s-name }} cluster.
 
-     You can see the unique ID of the {{ k8s }} cluster under **General information**.
+     You can see the unique ID of the {{ managed-k8s-name }} cluster under **General information**.
 
    - CLI
 
@@ -45,7 +45,7 @@ To access a {{ k8s }} cluster, use its unique ID. Save it to a variable and use 
 
    {% endlist %}
 
-1. Save the unique ID of the {{ k8s }} cluster to a variable.
+1. Save the unique ID of the {{ managed-k8s-name }} cluster to a variable.
 
    {% list tabs %}
 
@@ -63,16 +63,16 @@ To access a {{ k8s }} cluster, use its unique ID. Save it to a variable and use 
 
    {% endlist %}
 
-## Prepare the cluster certificate {{ k8s }} {#prepare-cert}
+## Prepare the cluster certificate {#prepare-cert}
 
-Save the {{ k8s }} cluster certificate to a `ca.pem` file. This certificate confirms the authenticity of the {{ k8s }} cluster.
+Save the {{ managed-k8s-name }} cluster certificate to a file named `ca.pem`. This certificate confirms the authenticity of the {{ managed-k8s-name }} cluster.
 
 {% list tabs %}
 
 - Bash
 
   Run a command that:
-  * Retrieves cluster information in JSON format.
+  * Retrieves {{ managed-k8s-name }} cluster information in JSON format.
   * Leaves only certificate information and removes extra quotes from the certificate contents.
   * Removes unnecessary characters from the certificate contents.
   * Saves the certificate to the `ca.pem` file.
@@ -85,13 +85,13 @@ Save the {{ k8s }} cluster certificate to a `ca.pem` file. This certificate conf
 
 - PowerShell
 
-  1. Get detailed information about the {{ k8s }} cluster in JSON format and save it to the `$CLUSTER` variable:
+  1. Get detailed information about the {{ managed-k8s-name }} cluster in JSON format and save it to the `$CLUSTER` variable:
 
      ```shell script
      $CLUSTER = yc managed-kubernetes cluster get --id $CLUSTER_ID --format json | ConvertFrom-Json
      ```
 
-  1. Get the {{ k8s }} cluster certificate and save it to the `ca.pem` file:
+  1. Get the {{ managed-k8s-name }} cluster certificate and save it to the `ca.pem` file:
 
      ```shell script
      $CLUSTER.master.master_auth.cluster_ca_certificate | Set-Content ca.pem
@@ -101,41 +101,71 @@ Save the {{ k8s }} cluster certificate to a `ca.pem` file. This certificate conf
 
 ## Create a ServiceAccount object {#create-sa}
 
-Create a `ServiceAccount` object to interact with the {{ k8s }} API inside the {{ k8s}} cluster.
-
-1. Save the following specification for `ServiceAccount` creation in a YAML file named `sa.yaml`.
+Create a `ServiceAccount` object to interact with the {{ k8s }} API inside the {{ managed-k8s-name }} cluster.
+1. Save the following specification for creating a `ServiceAccount` object and its secret in a YAML file named `sa.yaml`.
 
    See the detailed specification of the `ServiceAccount` object in the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/service-account-v1/).
 
-   ```yaml
-   apiVersion: v1
-   kind: ServiceAccount
-   metadata:
-     name: admin-user
-     namespace: kube-system
-   ---
-   apiVersion: rbac.authorization.k8s.io/v1
-   kind: ClusterRoleBinding
-   metadata:
-     name: admin-user
-   roleRef:
-     apiGroup: rbac.authorization.k8s.io
-     kind: ClusterRole
-     name: cluster-admin
-   subjects:
-   - kind: ServiceAccount
-     name: admin-user
-     namespace: kube-system
-   ---
-   apiVersion: v1
-   kind: Secret
-   metadata:
-     name: admin-user-token
-     annotations:
-       kubernetes.io/service-account.name: "admin-user"
-   ```
+   {% list tabs %}
 
-1. Create a `ServiceAccount` object.
+   - {{ managed-k8s-name }} cluster version: 1.24 and higher
+
+      ```yaml
+      apiVersion: v1
+      kind: ServiceAccount
+      metadata:
+        name: admin-user
+        namespace: kube-system
+      ---
+      apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      metadata:
+        name: admin-user
+      roleRef:
+        apiGroup: rbac.authorization.k8s.io
+        kind: ClusterRole
+        name: cluster-admin
+      subjects:
+      - kind: ServiceAccount
+        name: admin-user
+        namespace: kube-system
+      ---
+      apiVersion: v1
+      kind: Secret
+      type: kubernetes.io/service-account-token
+      metadata:
+        name: admin-user-token
+        namespace: kube-system
+        annotations:
+          kubernetes.io/service-account.name: "admin-user"
+      ```
+
+   - {{ managed-k8s-name }} cluster version: 1.23 and lower
+
+      ```yaml
+      apiVersion: v1
+      kind: ServiceAccount
+      metadata:
+        name: admin-user
+        namespace: kube-system
+      ---
+      apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      metadata:
+        name: admin-user
+      roleRef:
+        apiGroup: rbac.authorization.k8s.io
+        kind: ClusterRole
+        name: cluster-admin
+      subjects:
+      - kind: ServiceAccount
+        name: admin-user
+        namespace: kube-system
+      ```
+
+      {% endlist %}
+
+1. Create a `ServiceAccount` object and a secret for it:
 
    ```bash
    kubectl create -f sa.yaml
@@ -143,15 +173,15 @@ Create a `ServiceAccount` object to interact with the {{ k8s }} API inside the {
 
 ## Prepare a ServiceAccount token {#prepare-token}
 
-The token is required for `ServiceAccount` authentication in the {{ k8s }} cluster.
+The token is required for `ServiceAccount` authentication in the {{ managed-k8s-name }} cluster.
 
 {% list tabs %}
 
 - Bash
 
   Run a command that:
-  * Retrieves information about the `admin-user` service account in JSON format.
-  * Leaves only certificate information and removes extra quotes from the token contents.
+  * Retrieves information about the previously created `admin-user` [service account](../../../iam/concepts/users/service-accounts.md) in JSON format.
+  * Leaves only token information and removes extra quotes from the token contents.
   * Decodes the token from Base64.
   * Saves the token contents to the `SA_TOKEN` variable.
 
@@ -182,21 +212,21 @@ The token is required for `ServiceAccount` authentication in the {{ k8s }} clust
 
 {% endlist %}
 
-## Get the cluster's IP address {{ k8s }} {#get-cluster-ip}
+## Get the cluster IP {#get-cluster-ip}
 
-Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for further use.
+Get the {{ managed-k8s-name }} cluster [IP](../../../vpc/concepts/address.md) and add it to the `MASTER_ENDPOINT` variable for further use.
 
 {% list tabs %}
 
 - Bash
 
   Run a command that:
-  * Retrieves information about the {{ k8s }} cluster with the unique ID `c497ipckbqppifcvrnrk` in JSON format.
-  * Leaves only the {{ k8s }} cluster IP address.
+  * Retrieves {{ managed-k8s-name }} cluster details in JSON format based on its unique ID.
+  * Leaves only the {{ managed-k8s-name }} cluster IP address.
   * Removes extra quotation marks from its contents.
   * Saves the IP address to the `MASTER_ENDPOINT` variable.
 
-  To connect to the {{ k8s }} cluster API from the internet (outside {{ yandex-cloud }}).
+  To connect to the {{ managed-k8s-name }} cluster API from the internet (outside {{ yandex-cloud }}).
 
   ```bash
   MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
@@ -204,7 +234,7 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
     jq -r .master.endpoints.external_v4_endpoint)
   ```
 
-  To connect to the {{ k8s }} cluster API for connections to the master from cloud networks.
+  To use the {{ managed-k8s-name }} cluster API for connecting to the [master](../../concepts/index.md#master) from [cloud networks](../../../vpc/concepts/network.md#network).
 
    ```bash
    MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
@@ -214,13 +244,13 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
 
 - PowerShell
 
-  Run the command below to connect to the {{ k8s }} cluster API from the internet (outside {{ yandex-cloud }}):
+  Run the command below to connect to the {{ managed-k8s-name }} cluster API from the internet (outside {{ yandex-cloud }}):
 
   ```shell script
   $MASTER_ENDPOINT = $CLUSTER.master.endpoints.external_v4_endpoint
   ```
 
-  Run the command below to connect to the {{ k8s }} cluster API from cloud networks:
+  Run the command below to connect to the {{ managed-k8s-name }} cluster API from cloud networks:
 
   ```shell script
   $MASTER_ENDPOINT = $CLUSTER.master.endpoints.internal_v4_endpoint
@@ -230,7 +260,7 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
 
 ## Create and populate a configuration file {#create-conf-file}
 
-1. Add information about the {{ k8s }} cluster to the configuration file.
+1. Add information about the {{ managed-k8s-name }} cluster to the configuration file.
 
    {% list tabs %}
 

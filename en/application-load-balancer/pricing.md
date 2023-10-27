@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ alb-full-name }}
+# {{ alb-full-name }} pricing
 
 ## What goes into the cost of using {{ alb-name }} {#rules}
 
@@ -14,7 +14,7 @@ The amount of resources used is defined as the number of [resource units](concep
 
 You can set a limit on the number of load balancer resource units in its [autoscaling settings](concepts/application-load-balancer.md#lcu-scaling-settings). The default minimum number of units per availability zone is 2, while the total number of units across all zones is not limited.
 
-The load balancer usage is charged on an hourly basis. You pay for the maximum number of resource units that were running for an hour.
+The load balancer usage is charged on an hourly basis. You pay for the maximum number of resource units that were running for an hour. When [creating](operations/application-load-balancer-create.md) an L7 load balancer, the estimated cost is displayed in the [management console]({{ link-console-main }}) on the right.
 
 ### Example of cost calculation {#example}
 
@@ -37,8 +37,8 @@ Calculating cost per hour:
 > Total: $0.142080 is the cost of using a load balancer per hour.
 
 Where:
-* 8 is the number of resource units.
-* $0.017760 is the cost per resource unit.
+* 8: Number of resource units.
+* $0.017760: Cost per resource unit.
 
 Calculating the cost per month (30 days) with the same hourly load:
 > 
@@ -48,8 +48,8 @@ Calculating the cost per month (30 days) with the same hourly load:
 > Total: $102.297600 is the cost of using the load balancer per month.
 
 Where:
-* $0.142080 is the cost of using a load balancer per hour.
-* 720 is the number of hours in a month.
+* $0.142080: Cost of using a load balancer per hour.
+* 720: Number of hours in a month.
 
 
 

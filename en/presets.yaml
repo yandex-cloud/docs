@@ -447,6 +447,7 @@ default:
   GL: GitLab
   GLR: GitLab Runner
   GP: Greenplum®
+  GLA: GitLab Agent
   KF: Apache Kafka®
   AF: Apache Airflow™
   KFC: Kafka Connect
@@ -686,6 +687,7 @@ default:
   link-cloud-notifications: https://console.cloud.yandex.com/cloud?section=notifications
   link-datalens-main: https://datalens.yandex.com
   link-datalens-settings: https://datalens.yandex.com/settings
+  link-speechsense-main: https://speechsense.cloud.yandex.ru/
   link-docs: https://cloud.yandex.com/docs
   link-org-main: https://org.cloud.yandex.com/
   link-org-acl: https://org.cloud.yandex.ru/acl
@@ -810,6 +812,7 @@ default:
   api-host-sk-tts: tts.api.cloud.yandex.net
   speechkit-stt-alias: speechkit.stt.stable
   speechkit-tts-alias: speechkit.tts.stable
+  speechsense-endpoint: api.talk-analytics.yandexcloud.net:443
   mp-test-product-id: f2e4tmlj4qqciunhr7e6
   mp-test-sku-id: dn272e8979uvek5cnuhk
   dt-status-copy: '**Copying**'
@@ -7445,7 +7448,6 @@ default:
             field_key: KMS Key
           https:
             button_action-configure: Configure
-            button_create-certificate: Go to Certificate Manager
             button_empty-action: Configure
             button_save: Save
             field_certificate: Certificate

@@ -1,6 +1,6 @@
 ---
 title: "How to update a {{ managed-k8s-name }} cluster"
-description: "This guide describes how you can update a {{ managed-k8s-name }} cluster."
+description: "Follow this guide to update a {{ managed-k8s-name }} cluster."
 ---
 
 # Editing {{ managed-k8s-name }} clusters

@@ -28,14 +28,14 @@
 
     ```bash
     {{ yc-mdb-gp }} hosts list master \
-       --cluster-name=<имя кластера>
+       --cluster-name=<имя_кластера>
     ```
 
     Чтобы получить список хостов-сегментов в кластере, выполните команду:
 
     ```bash
     {{ yc-mdb-gp }} hosts list segment \
-       --cluster-name=<имя кластера>
+       --cluster-name=<имя_кластера>
     ```
 
     Имя кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
