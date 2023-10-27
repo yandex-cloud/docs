@@ -4,7 +4,7 @@ You can create folders inside buckets and upload objects there. Keep in mind tha
 
 {% note info %}
 
-You cannot upload objects greater than 5 GB in size via the management console (see [{#T}](../../concepts/limits.md)). Also, when uploading via the console, you can't set `content-type` or other headers. To upload large objects or specify object headers, use other [tools](../../tools/index.md).
+You cannot upload objects larger than 5 GB via the management console (see [{#T}](../../concepts/limits.md)). When uploading via the console, you also cannot set `content-type` or other headers. To upload large objects or specify object headers, use other [tools](../../tools/index.md).
 
 {% endnote %}
 
@@ -42,9 +42,8 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
       Where:
 
-      * `<path_to_local_file>`: Path to the file to be uploaded to the bucket.
-      * `<bucket_name>`: Your bucket's name.
-      * `<object_key>`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
+      * `--endpoint-url`: {{ objstorage-name }} endpoint.
+      * `s3 cp`: Command to upload an object. To upload an object, specify the path to the local file to upload in the first part of the command and the name of the bucket and the [key](../../concepts/object.md#key) to associate with the object in the bucket in the second part.
 
       To load all objects from the local directory, use the following command:
 
@@ -55,9 +54,8 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
       Where:
 
-      * `<path_to_local_directory>`: Path to the folder from which you need to copy files to the bucket.
-      * `<bucket_name>`: Your bucket's name.
-      * `<prefix>`: ID of a folder in storage, described in [{#T}](../../concepts/object.md#folder).
+      * `--endpoint-url`: {{ objstorage-name }} endpoint.
+      * `s3 cp --recursive`: Command to upload all objects contained in a local directory, including nested ones. To upload objects, specify the path to the folder to copy the files from in the first part of the command and the name of the bucket to copy the files to and the [ID of the folder](../../concepts/object.md#folder) in storage in the second part.
 
    The `aws s3 cp` command is high-level, its functionality is limited. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). All upload features {{ objstorage-name }} supports can be used when running the [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) command (see sample operations with [object locks](../../concepts/object-lock.md) [below](#w-object-lock)).
 
@@ -65,7 +63,7 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
@@ -86,8 +84,8 @@ You cannot upload objects greater than 5 GB in size via the management console (
       Where:
       * `access_key`: ID of the static access key.
       * `secret_key`: Value of the secret access key.
-      * `bucket`: Name of the bucket to add the object to. This parameter is required.
-      * `key`: Name of the object in the bucket. This parameter is required. The name format is as follows:
+      * `bucket`: Name of the bucket to add the object to. This is a required parameter.
+      * `key`: Name of the object in the bucket. This is a required parameter. The name format is as follows:
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -98,7 +96,7 @@ You cannot upload objects greater than 5 GB in size via the management console (
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -114,9 +112,9 @@ You cannot upload objects greater than 5 GB in size via the management console (
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -149,20 +147,22 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
 
       Where:
 
-      * `body`: Path to the file to be uploaded to the bucket.
-      * `bucket`: Name of your bucket.
-      * `key`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
-      * `object-lock-mode`: [Type](../../concepts/object-lock.md#types) of object lock set for a certain period:
+      * `--endpoint-url`: {{ objstorage-name }} endpoint.
+      * `s3api put-object`: Command to upload an object version. To upload object versions with an object lock, specify the following parameters:
+         * `--body`: Path to the file to be uploaded to the bucket.
+         * `--bucket`: Name of your bucket.
+         * `--key`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
+         * `--object-lock-mode`: [Type](../../concepts/object-lock.md#types) of object lock set for a certain period:
 
-         * `GOVERNANCE`: Object lock with a predefined retention period that can be managed.
-         * `COMPLIANCE`: Object lock with a predefined retention period with strict compliance.
+            * `GOVERNANCE`: Object lock with a predefined retention period that can be managed.
+            * `COMPLIANCE`: Object lock with a predefined retention period with strict compliance.
 
-      * `object-lock-retain-until-date` Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`. Can only be set together with the `object-lock-mode` parameter.
+         * `--object-lock-retain-until-date` Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`. Can only be set together with the `--object-lock-mode` parameter.
 
-      * `object-lock-legal-hold-status`: [Legal hold](../../concepts/object-lock.md#types) status:
+         * `--object-lock-legal-hold-status`: [Legal hold](../../concepts/object-lock.md#types) status:
 
-         * `ON`: Enabled.
-         * `OFF`: Disabled.
+            * `ON`: Enabled.
+            * `OFF`: Disabled.
 
       You can place an object version only under an object lock with a retention period (the `object-lock-mode` and `object-lock-retain-until-date` parameters), only under a legal hold (`object-lock-legal-hold-status`), or under both. For more information about their combined use, see [{#T}](../../concepts/object-lock.md#types).
 
@@ -199,15 +199,17 @@ If a bucket already has the [default object locks set for a certain period](../.
 
       Where:
 
-      * `body`: Path to the file to be uploaded to the bucket.
-      * `bucket`: Name of your bucket.
-      * `key`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
-      * `content-md5`: Object's encoded MD5 hash.
+      * `--endpoint-url`: {{ objstorage-name }} endpoint.
+      * `s3api put-object`: Command to upload an object version. To upload object versions, specify the following parameters:
+         * `--body`: Path to the file to be uploaded to the bucket.
+         * `--bucket`: Name of your bucket.
+         * `--key`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
+         * `--content-md5`: Object's encoded MD5 hash.
 
       You can also add the following parameters to the command:
 
-      * `object-lock-mode` and `object-lock-retain-until-date` to place an object version under an object lock for a certain period with a configuration different from the bucket's object lock default settings.
-      * `object-lock-legal-hold-status` to place an object version under a legal hold.
+      * `--object-lock-mode` and `--object-lock-mode` to place an object version under an object lock for a certain period with a configuration different from the bucket's object lock default settings.
+      * `--object-lock-legal-hold-status` to place an object version under a legal hold.
 
       For more information about these parameters, see the instructions above.
 

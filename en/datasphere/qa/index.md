@@ -52,6 +52,7 @@ When opening a project in the IDE, {{ ml-platform-name }} redirects your request
 * **Chrome**: Allow using third-party cookies.
 * **Safari**: Uncheck **Website tracking: Prevent cross-site tracking** in **Preferences** ⟶ **Privacy**.
 * **Yandex Browser**: Allow using third-party cookies for {{ ml-platform-name }} in the browser settings under **Sites** ⟶ **Advanced site settings**.
+* **Firefox**: Click the shield icon in the address bar and disable **Enhanced Tracking Protection**.
 
 #### My browser asks me to grant access to a {{ jlab }}Lab host. How do I do that? {#access}
 

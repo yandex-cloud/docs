@@ -20,6 +20,7 @@ description: "In this article, you will learn how to work with {{ objstorage-ful
 * [{#T}](buckets/enable-logging.md)
 * [{#T}](buckets/configure-object-lock.md)
 * [{#T}](buckets/tagging.md)
+* [{#T}](buckets/get-info.md)
 
 ## Objects {#objects}
 

@@ -1,6 +1,6 @@
 # Deprecation of the {{ region-id }}-c availability zone
 
-{{ yandex-cloud }} plans to gradually deprecate the `{{ region-id }}-c` [availability zone](geo-scope.md) . Starting April 2022, its operation is limited:
+{{ yandex-cloud }} plans to gradually deprecate the `{{ region-id }}-c` [availability zone](geo-scope.md). Starting April 2022, its operation is limited:
 
 * _Zonal quota_, a new type of [quota](quotas-limits.md), has been introduced for the number of zonal resources in `{{ region-id }}-c`. You can increase such quotas only by contacting [support]({{ link-console-support }}). Zonal quotas apply to the following services:
 

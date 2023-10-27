@@ -1,0 +1,1 @@
+(Optional) [Install ExternalDNS with the plugin for {{ dns-name }}](../../managed-kubernetes/operations/applications/externaldns.md) to automatically create a [DNS record](../../dns/concepts/resource-record.md) in [{{ dns-full-name }}](../../../dns/) when creating an Ingress controller.

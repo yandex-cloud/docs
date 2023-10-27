@@ -1,0 +1,1 @@
+(Optional) [Install Policy Reporter](../../managed-kubernetes/operations/applications/policy-reporter.md) in your {{ managed-k8s-name }} cluster to be able to save and process policy results.

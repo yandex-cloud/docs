@@ -9,6 +9,6 @@ Python 3.10 is used in {{ ml-platform-short-name }} projects by default. To chan
 
 {% note warning %}
 
-The Python 3.7 system image won't work with the g2.x (GPU A100) [configurations](../../concepts/configurations.md).
+The DS Default (Python 3.7) system image is incompatible with the g2.x (GPU A100) [configurations](../../concepts/configurations.md).
 
 {% endnote %}

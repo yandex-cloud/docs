@@ -58,8 +58,8 @@ SHOW PROCESSLIST;
 
 ```bash
 {{ yc-mdb-my }} user update \
-    --global-permissions PROCESS <имя пользователя> \
-    --cluster-id <идентификатор кластера>
+    --global-permissions PROCESS <имя_пользователя> \
+    --cluster-id <идентификатор_кластера>
 ```
 
 

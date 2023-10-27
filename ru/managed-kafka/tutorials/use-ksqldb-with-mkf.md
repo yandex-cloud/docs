@@ -47,19 +47,19 @@ ksqlDB — это база данных, которая предназначен
    ```bash
    cd /etc/ksqldb && \
    sudo keytool -importcert -alias {{ crt-alias }} -file {{ crt-local-dir }}{{ crt-local-file }} \
-   -keystore ssl -storepass <пароль хранилища сертификатов> \
+   -keystore ssl -storepass <пароль_хранилища_сертификатов> \
    --noprompt
    ```
 
 1. Укажите в файле конфигурации ksqlDB `/etc/ksqldb/ksql-server.properties` данные для аутентификации в кластере {{ mkf-name }}:
 
    ```ini
-   bootstrap.servers=<FQDN брокера 1:9091, ..., FQDN брокера N:9091>
+   bootstrap.servers=<FQDN_брокера_1:9091,...,FQDN_брокера_N:9091>
    sasl.mechanism=SCRAM-SHA-512
    security.protocol=SASL_SSL
    ssl.truststore.location=/etc/ksqldb/ssl
-   ssl.truststore.password=<пароль хранилища сертификатов>
-   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<пароль пользователя ksql>";
+   ssl.truststore.password=<пароль_хранилища_сертификатов>
+   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<пароль_пользователя_ksql>";
    ```
 
    {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
@@ -113,7 +113,7 @@ ksqlDB — это база данных, которая предназначен
    (
      kafka_topic='locations', 
      value_format='json', 
-     partitions=<количество разделов топика "locations">
+     partitions=<количество_разделов_топика_"locations">
    );
    ``` 
 
@@ -160,12 +160,12 @@ ksqlDB — это база данных, которая предназначен
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <FQDN брокера 1:9091, ..., FQDN брокера N:9091> \
+      -b <FQDN_брокера_1:9091,...,FQDN_брокера_N:9091> \
       -t locations \
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username=ksql \
-      -X sasl.password="<пароль пользователя ksql>" \
+      -X sasl.password="<пароль_пользователя_ksql>" \
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
@@ -209,12 +209,12 @@ ksqlDB — это база данных, которая предназначен
 
    ```bash
    kafkacat -C \
-    -b <FQDN брокера 1:9091, ..., FQDN брокера N:9091> \
+    -b <FQDN_брокера_1,...,FQDN_брокера_N:9091> \
     -t locations \
     -X security.protocol=SASL_SSL \
     -X sasl.mechanisms=SCRAM-SHA-512 \
     -X sasl.username=ksql \
-    -X sasl.password="<пароль пользователя ksql>" \
+    -X sasl.password="<пароль_пользователя_ksql>" \
     -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
    ```
 

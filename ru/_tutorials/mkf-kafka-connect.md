@@ -120,9 +120,9 @@
 {% cut "sample.json" %}
 
 ```json
-{"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":55.70329032,"longitude":37.65472196,"altitude":427.5,"speed":0,"battery_voltage":23.5,"cabin_temperature":17,"fuel_level":null}
-{"device_id":"rhibbh3y08qmz3sdbrbu","datetime":"2020-06-06 09:49:54","latitude":55.71294467,"longitude":37.66542005,"altitude":429.13,"speed":55.5,"battery_voltage":null,"cabin_temperature":18,"fuel_level":32}
-{"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-07 15:00:10","latitude":55.70985913,"longitude":37.62141918,"altitude":417,"speed":15.7,"battery_voltage":10.3,"cabin_temperature":17,"fuel_level":null}
+{"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":55.70329032,"longitude":37.65472196,"altitude":427.5,"speed":0,"battery_voltage":23.5,"cabin_temperature":17,"fuel_level":null}
+{"device_id":"rhibbh3y08qm********","datetime":"2020-06-06 09:49:54","latitude":55.71294467,"longitude":37.66542005,"altitude":429.13,"speed":55.5,"battery_voltage":null,"cabin_temperature":18,"fuel_level":32}
+{"device_id":"iv9a94th6rzt********","datetime":"2020-06-07 15:00:10","latitude":55.70985913,"longitude":37.62141918,"altitude":417,"speed":15.7,"battery_voltage":10.3,"cabin_temperature":17,"fuel_level":null}
 ```
 
 {% endcut %}
@@ -133,19 +133,19 @@
 
     ```ini
     # AdminAPI connect properties
-    bootstrap.servers=<FQDN хоста-брокера>:9091
+    bootstrap.servers=<FQDN_хоста-брокера>:9091
     sasl.mechanism=SCRAM-SHA-512
     security.protocol=SASL_SSL
     ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
-    ssl.truststore.password=<пароль к хранилищу сертификата>
-    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<пароль пользователя user>";
+    ssl.truststore.password=<пароль_к_хранилищу_сертификата>
+    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<пароль_пользователя_user>";
 
     # Producer connect properties
     producer.sasl.mechanism=SCRAM-SHA-512
     producer.security.protocol=SASL_SSL
     producer.ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
-    producer.ssl.truststore.password=<пароль к хранилищу сертификата>
-    producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<пароль пользователя user>";
+    producer.ssl.truststore.password=<пароль_к_хранилищу_сертификата>
+    producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<пароль_пользователя_user>";
 
     # Worker properties
     plugin.path=/etc/kafka-connect-worker/plugins
@@ -190,12 +190,12 @@
 
     ```bash
     kafkacat -C \
-        -b <FQDN хоста-брокера>:9091 \
+        -b <FQDN_хоста-брокера>:9091 \
         -t messages \
         -X security.protocol=SASL_SSL \
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username=user \
-        -X sasl.password="<пароль учетной записи user>" \
+        -X sasl.password="<пароль_учетной_записи_user>" \
         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
     ```
 

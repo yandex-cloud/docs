@@ -7,6 +7,8 @@
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
+
 ## Installing {#installation}
 
 {% include [install-boto](../../_includes/aws-tools/install-boto.md)%}

@@ -37,7 +37,7 @@ items:
             href: operations/community/delete-user.md
       - name: Project management
         items:
-          - name: Create a project
+          - name: Creating a project
             href: operations/projects/create.md
           - name: Adding a user to a project
             href: operations/projects/add-user.md
@@ -71,7 +71,7 @@ items:
             href: operations/projects/clear-kernel-state.md
           - name: Notebook code snippets
             href: operations/projects/snippets.md
-          - name: Clearing a notebook's cell outputs
+          - name: Clearing notebook cell outputs
             href: operations/projects/clear-outputs.md
           - name: Working with Git
             href: operations/projects/work-with-git.md
@@ -139,7 +139,7 @@ items:
     items:
       - name: About Yandex DataSphere
         href: concepts/index.md
-      - name: Relationships between resources in DataSphere
+      - name: DataSphere resource relationships
         href: concepts/resource-model.md
       - name: Communities
         href: concepts/community.md
@@ -211,7 +211,7 @@ items:
           Web analytics with funnels and cohorts calculated based on Yandex
           Metrica data
         href: tutorials/data-from-metrica-yc-visualization.md
-      - name: Running computations on a schedule
+      - name: Running scheduled computations
         href: tutorials/regular-launch.md
       - name: Running computations using the API
         href: tutorials/batch-code-execution.md

@@ -1,6 +1,6 @@
 # Installing Kyverno & Kyverno Policies
 
-[Kyverno](https://kyverno.io) is an application to manage {{ k8s }} security policies. Security policies appear in Kyverno as {{ k8s }} resources. Kyverno supports such tools as `kubectl`, `git`, and `kustomize`. You can use the Kyverno command-line interface to test policies and validate resources as part of the CI/CD pipeline.
+[Kyverno](https://kyverno.io) is an application to manage {{ k8s }} security policies. Security policies appear in Kyverno as {{ k8s }} resources. Kyverno supports such tools as `kubectl`, `git`, and `kustomize`. You can use the Kyverno command line interface to test policies and validate resources as part of the CI/CD pipeline.
 
 [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) is a Kyverno extension. Kyverno policies includes an implementation of {{ k8s }} [Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). The original policies are stored in a separate [Kyverno-policies](https://github.com/kyverno/policies/tree/main/pod-security) repository.
 
@@ -9,7 +9,7 @@ You can send notifications from Kyverno to other systems using the [Policy repor
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
+1. Click the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) name and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
 1. Under **Applications available for installation**, select [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) and click **Use**.
 1. Configure the application:
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Kyverno.
@@ -28,21 +28,19 @@ You can send notifications from Kyverno to other systems using the [Policy repor
 ## Installation using a Helm chart {#helm-install}
 
 1. {% include [Helm installation](../../../_includes/managed-kubernetes/helm-install.md) %}
-
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Kyverno, run the following command:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/marketplace/charts/kyverno \
-     --version <Helm chart version> \
+   helm pull oci://{{ mkt-k8s-key.yc_kyverno.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_kyverno.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <namespace> \
      --create-namespace \
      kyverno ./kyverno/
    ```
-
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/kyverno#docker-images).
 
 ## See also {#see-also}
 

@@ -1,4 +1,4 @@
-To work with the {{ speechkit-name }} API, you need to authenticate using your:
+To work with the {{ speechkit-name }} API, you need to get authenticated using your:
 
 {% list tabs %}
 
@@ -22,7 +22,7 @@ To work with the {{ speechkit-name }} API, you need to authenticate using your:
    * Using an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
       1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md).
-      1. Pass the obtained IAM token in the `Authorization` header in the following format:
+      1. Specify the obtained IAM token in the `Authorization` header in the following format:
 
          ```
          Authorization: Bearer <IAM token>
@@ -33,12 +33,12 @@ To work with the {{ speechkit-name }} API, you need to authenticate using your:
       {% include [api-keys-disclaimer](../iam/api-keys-disclaimer.md) %}
 
       1. [Get an API key](../../iam/operations/api-key/create.md).
-      1. Pass the obtained API key in the `Authorization` header in the following format:
+      1. Specify the obtained API key in the `Authorization` header in the following format:
 
          ```
          Authorization: Api-Key <API key>
          ```
 
-   Don't specify the folder ID in your requests: the service uses the folder where the service account was created.
+   Do not specify the folder ID in your requests, as {{ speechkit-name }} uses the folder where the service account was created.
 
 {% endlist %}

@@ -4,9 +4,11 @@ Create a [pod](../../concepts/index.md#pod) with a dynamically provisioned [volu
 1. [Create a PersistentVolumeClaim](#create-pvc).
 1. [Create a pod](#create-pod).
 
+{% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
+
 {% note tip %}
 
-You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/bucket.md) as storage for the pod. For more information, see [{#T}](s3-csi-integration.md).
+You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../storage/concepts/bucket.md) as storage for your pod. For more information, see [{#T}](s3-csi-integration.md).
 
 {% endnote %}
 
@@ -162,4 +164,4 @@ To delete a dynamically provisioned volume, delete the `PersistentVolumeClaim` o
 kubectl delete pvc <PersistentVolumeClaim object ID>
 ```
 
-The disk will be deleted automatically from {{ compute-name }}.
+The disk will be deleted automatically from [{{ compute-full-name }}](../../../compute/).

@@ -31,9 +31,9 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   Before you start, [get an IAM token](../../../iam/operations/iam-token/create-for-sa.md#via-cli) for your service account and save it to a file.
+   To get started, [obtain an IAM token](../../../iam/operations/iam-token/create-for-sa.md#via-cli) for your service account and save it to a file.
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -83,7 +83,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
          ```
          terraform plan
          ```
@@ -121,7 +121,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
    To disable encryption for a bucket created using {{ TF }}:
@@ -185,6 +185,6 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 {% endlist %}
 
 
-#### For more information, see also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](../../concepts/encryption.md)

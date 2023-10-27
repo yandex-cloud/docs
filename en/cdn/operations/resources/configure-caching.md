@@ -116,7 +116,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the `yandex_cdn_resource` CDN resource to create:
 
@@ -158,7 +158,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
       Where:
 
-      * `cname`: Primary domain name used for content distribution. Required parameter.
+      * `cname`: Primary domain name used for content distribution. This is a required parameter.
       * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. This is an optional parameter. The default value is `true`.
       * `origin_protocol`: Origin protocol. This is an optional parameter. The default value is `http`.
       * `secondary_hostnames`: Additional domain names. This is an optional parameter.
@@ -166,8 +166,8 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
       * The `options` section contains additional parameters of CDN resources:
          * `browser_cache_settings`: Browser cache lifetime in seconds. This is an optional parameter. The default value is `0`.
          * `edge_cache_settings`: Cache lifetime for response codes in seconds. This is an optional parameter. The default value is `345600`.
-         * `ignore_query_params`: Ignore query parameters. Optional parameter, the default value is `false`.
-         * `ignore_cookie`: Ignore cookies. Optional parameter, the default value is `false`.
+         * `ignore_query_params`: Ignore query parameters. This is an optional parameter. The default value is `false`.
+         * `ignore_cookie`: Ignore cookies. This is an optional parameter. The default value is `false`.
 
       For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 

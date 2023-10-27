@@ -22,7 +22,7 @@
   Чтобы получить список пользователей кластера, выполните команду:
 
   ```
-  {{ yc-mdb-my }} user list --cluster-name=<имя кластера>
+  {{ yc-mdb-my }} user list --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
@@ -70,11 +70,13 @@
   Чтобы создать пользователя в кластере, выполните команду:
 
   ```
-  {{ yc-mdb-my }} user create <имя пользователя> \
-    --cluster-name=<имя кластера> \
-    --password=<пароль пользователя> \
-    --permissions=<список баз, к которым пользователь должен иметь доступ>
+  {{ yc-mdb-my }} user create <имя_пользователя> \
+    --cluster-name=<имя_кластера> \
+    --password=<пароль_пользователя> \
+    --permissions=<список_БД>
   ```
+
+  Где `permissions` — список БД, к которым пользователь должен иметь доступ.
 
   {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
@@ -89,17 +91,22 @@
   1. Добавьте ресурс `yandex_mdb_mysql_user`:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<имя пользователя>" {
-        cluster_id = "<идентификатор кластера>"
-        name       = "<имя пользователя>"
+      resource "yandex_mdb_mysql_user" "<имя_пользователя>" {
+        cluster_id = "<идентификатор_кластера>"
+        name       = "<имя_пользователя>"
         password   = "<пароль>"
         permission {
-          database_name = "<имя БД, к которой пользователь должен иметь доступ>"
-          roles         = [<список привилегий пользователя по отношению к БД>]
+          database_name = "<имя_БД>"
+          roles         = [<список_привилегий>]
         }
         ...
       }
       ```
+
+      Где:
+
+      * `database_name` — имя БД, к которой пользователь должен иметь доступ.
+      * `roles` — список привилегий пользователя по отношению к БД.
 
       {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
@@ -150,9 +157,9 @@
   Чтобы изменить пароль пользователя, выполните команду:
 
   ```
-  {{ yc-mdb-my }} user update <имя пользователя> \
-    --cluster-name=<имя кластера> \
-    --password=<новый пароль>
+  {{ yc-mdb-my }} user update <имя_пользователя> \
+    --cluster-name=<имя_кластера> \
+    --password=<новый_пароль>
   ```
 
   {% include [passwords-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
@@ -170,10 +177,10 @@
   1. Измените значение поля `password`:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<имя пользователя>" {
-        cluster_id = "<идентификатор кластера>"
-        name       = "<имя пользователя>"
-        password   = "<новый пароль>"
+      resource "yandex_mdb_mysql_user" "<имя_пользователя>" {
+        cluster_id = "<идентификатор_кластера>"
+        name       = "<имя_пользователя>"
+        password   = "<новый_пароль>"
         ...
       }
       ```
@@ -233,15 +240,23 @@
   Чтобы задать [настройки {{ MY }}](../concepts/settings-list.md#dbms-user-settings) для пользователя, выполните команду:
 
   ```
-  {{ yc-mdb-my }} user update <имя пользователя> \
-    --cluster-name=<имя кластера> \
-    --global-permissions=<список административных привилегий через запятую> \
-    --authentication-plugin=<плагин аутентификации> \
-    --max-questions-per-hour=<максимальное количество запросов в час> \
-    --max-updates-per-hour=<максимальное количество запросов UPDATE в час> \
-    --max-connections-per-hour=<максимальное количество соединений в час> \
-    --max-user-connections=<максимальное количество одновременных соединений>
+  {{ yc-mdb-my }} user update <имя_пользователя> \
+    --cluster-name=<имя_кластера> \
+    --global-permissions=<список_привилегий> \
+    --authentication-plugin=<плагин_аутентификации> \
+    --max-questions-per-hour=<максимум_запросов> \
+    --max-updates-per-hour=<максимум_запросов_UPDATE> \
+    --max-connections-per-hour=<максимум_соединений> \
+    --max-user-connections=<максимум_одновременных_соединений>
   ```
+
+  Где:
+
+  * `global-permissions` — список административных привилегий через запятую.
+  * `max-questions-per-hour` — максимальное количество запросов в час.
+  * `max-updates-per-hour` — максимальное количество запросов `UPDATE` в час.
+  * `max-connections-per-hour` — максимальное количество соединений в час.
+  * `max-user-connections` — максимальное количество одновременных соединений.
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
@@ -256,24 +271,31 @@
   1. Чтобы задать ограничения по количеству соединений и запросов, добавьте блок `connection_limits` к его описанию:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<имя пользователя>" {
+      resource "yandex_mdb_mysql_user" "<имя_пользователя>" {
         ...
         connection_limits {
-          max_questions_per_hour   = <максимальное количество запросов в час>
-          max_updates_per_hour     = <максимальное количество запросов UPDATE час>
-          max_connections_per_hour = <максимальное количество соединений в час>
-          max_user_connections     = <максимальное количество одновременных единений>
+          max_questions_per_hour   = <максимум_запросов>
+          max_updates_per_hour     = <максимум_запросов_UPDATE>
+          max_connections_per_hour = <максимум_соединений>
+          max_user_connections     = <максимум_одновременных_соединений>
           ...
         }
       }
       ```
 
+      Где:
+
+      * `max-questions-per-hour` — максимальное количество запросов в час.
+      * `max-updates-per-hour` — максимальное количество запросов `UPDATE` в час.
+      * `max-connections-per-hour` — максимальное количество соединений в час.
+      * `max-user-connections` — максимальное количество одновременных соединений.
+
   1. Чтобы настроить плагин аутентификации пользователя, добавьте блок `authentication_plugin` к его описанию:
 
       ```hcl
-      resource "yandex_mdb_mysql_user" "<имя пользователя>" {
+      resource "yandex_mdb_mysql_user" "<имя_пользователя>" {
         ...
-        authentication_plugin = "<плагин аутентификации>"
+        authentication_plugin = "<плагин_аутентификации>"
       }
       ```
 
@@ -319,7 +341,7 @@
   Чтобы удалить пользователя, выполните команду:
 
   ```
-  {{ yc-mdb-my }} user delete <имя пользователя> --cluster-name=<имя кластера>
+  {{ yc-mdb-my }} user delete <имя_пользователя> --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).

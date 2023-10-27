@@ -4,9 +4,9 @@ Deletes objects based on a list of keys passed in a request.
 
 It takes less time than deleting the same objects one by one via separate requests.
 
-The delete list may contain a maximum of 1000 keys.
+The delete list may contain up to 1,000 keys.
 
-If an object doesn't exist, {{ objstorage-name }} marks it as deleted in the response.
+If an object does not exist, {{ objstorage-name }} marks it as deleted in the response.
 
 You can configure responses so that {{ objstorage-name }} returns one of the following selections:
 
@@ -65,7 +65,7 @@ The list of keys to delete is passed in XML format.
 | Tag | Description |
 ----- | -----
 | `Delete` | Contains the response body.<br/><br/>Path: `/Delete`. |
-| `Quiet` | `<Quiet>true</Quiet>` enables <q>quiet</q> mode.<br/><br/>{{ objstorage-name }} will only include deletion errors in the response. If there are no errors, there won't be a response body.<br/><br/>If omitted, the default value is `false`.<br/><br/>Path: `/Delete/Quiet`. |
+| `Quiet` | `<Quiet>true</Quiet>` enables <q>quiet</q> mode.<br/><br/>{{ objstorage-name }} will only include deletion errors in the response. If there are no errors, the query will not return the response body. If the specified object does not exist at the time of the query, `Deleted` will be returned.<br/><br/>If omitted, the default value is `false`.<br/><br/>Path: `/Delete/Quiet`. |
 | `Object` | Contains parameters for deleting an object.<br/><br/>Path: `/Delete/Object`. |
 | `Key` | Object key.<br/><br/>Path: `/Delete/Object/Key`. |
 

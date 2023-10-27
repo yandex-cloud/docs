@@ -3,15 +3,15 @@
 This article describes how to run a new {{ k8s }} project in {{ yandex-cloud }}. An application from [{{ container-registry-full-name }}](../../container-registry/) is deployed in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and published on the internet via the [{{ alb-full-name }}](../../application-load-balancer/) Ingress controller.
 
 To launch an app:
-1. [{#T}](#create-sa).
-1. [{#T}](#create-k8s-res).
-1. [{#T}](#create-cr-res).
-1. [{#T}](#setup-alb).
-1. [{#T}](#create-ingress).
+1. [{#T}](#create-sa)
+1. [{#T}](#create-k8s-res)
+1. [{#T}](#create-cr-res)
+1. [{#T}](#setup-alb)
+1. [{#T}](#create-ingress)
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -44,9 +44,9 @@ If you no longer need these resources, [delete them](#clear-out).
 ### Register a domain zone and add a certificate {#register-domain}
 
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
-1. If you already have a [certificate](../../certificate-manager/concepts/index.md#types) for the [domain zone](../../dns/concepts/dns-zone.md), [add information about it](../../certificate-manager/operations/import/cert-create.md) to the {{ certificate-manager-full-name }} service.
+1. If you already have a [certificate](../../certificate-manager/concepts/index.md#types) for the [domain zone](../../dns/concepts/dns-zone.md), [add its details](../../certificate-manager/operations/import/cert-create.md) to [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
-   If you don't have a certificate, [create a new certificate from Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
+   If you have no certificate, issue a new Let's Encrypt® certificate and [add](../../certificate-manager/operations/managed/cert-create.md) it to {{ certificate-manager-name }}.
 1. Get the certificate ID:
 
    ```bash
@@ -59,20 +59,20 @@ If you no longer need these resources, [delete them](#clear-out).
    +------+--------+---------------+---------------------+----------+--------+
    |  ID  |  NAME  |    DOMAINS    |      NOT AFTER      |   TYPE   | STATUS |
    +------+--------+---------------+---------------------+----------+--------+
-   | <ID> | <name> | <domain name> | 2022-04-06 17:19:37 | IMPORTED | ISSUED |
+   | <ID> | <name> | <domain_name> | 2022-04-06 17:19:37 | IMPORTED | ISSUED |
    +------+--------+---------------+---------------------+----------+--------+
    ```
 
 ## Create service accounts {#create-sa}
 
-For a {{ k8s }} cluster and [load balancer](../../application-load-balancer/concepts/application-load-balancer.md) to run, the following [service accounts](../../iam/concepts/users/service-accounts.md) are required:
-* With the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) role for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where a {{ k8s }} cluster is created. This service account will be used to create resources that the {{ k8s }} cluster needs.
+For a {{ managed-k8s-name }} cluster and [load balancer](../../application-load-balancer/concepts/application-load-balancer.md) to run, the following [service accounts](../../iam/concepts/users/service-accounts.md) are required:
+* With the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) role for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where a {{ managed-k8s-name }} cluster is created. This service account will be used to create resources that the {{ managed-k8s-name }} cluster needs.
 * With the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder containing a [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). [Nodes](../../managed-kubernetes/concepts/index.md#node-group) will pull the required Docker images from the registry on behalf of this service account.
 * For the {{ alb-name }} Ingress controller to run, you need service accounts with the following roles:
   * [alb.editor](../../iam/concepts/access-control/roles.md#alb-editor): To create the required resources.
   * [vpc.publicAdmin](../../iam/concepts/access-control/roles.md#vpc-public-admin): To manage [external connectivity](../../vpc/security/index.md#roles-list).
   * [certificate-manager.certificates.downloader](../../iam/concepts/access-control/roles.md#certificate-manager-certificates-downloader): To use certificates registered in [{{ certificate-manager-name }}](../../certificate-manager/).
-  * [compute.viewer](../../iam/concepts/access-control/roles.md#compute-viewer): To use {{ k8s }} cluster nodes in load balancer [target groups](../../application-load-balancer/concepts/target-group.md).
+  * [compute.viewer](../../iam/concepts/access-control/roles.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in load balancer [target groups](../../application-load-balancer/concepts/target-group.md).
 
 ### Service account for resources {#res-sa}
 
@@ -288,12 +288,10 @@ To create a service account that lets nodes download the necessary Docker images
 
 {% include [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
 
-1. [Configure {{ k8s }} cluster security groups and node groups](../operations/connect/security-groups.md). A security group for a group of nodes must allow incoming TCP traffic from the load balancer subnets on ports 10501 and 10502 or from the load balancer security group (you'll need to specify the subnets and the group to [create a load balancer](#create-ingress-and-apps) later).
-1. Check that you can connect to the cluster using `kubectl`:
+## Connect to the {{ managed-k8s-name }} cluster {#cluster-connect}
 
-   ```bash
-   kubectl cluster-info
-   ```
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. [Configure {{ managed-k8s-name }} cluster security groups and node groups](../operations/connect/security-groups.md). A security group for a group of nodes must allow incoming TCP traffic from the load balancer subnets on ports 10501 and 10502 or from the load balancer security group (you will need to specify the subnets and the group to create a load balancer later).
 
 ## Create resources {{ container-registry-name }} {#create-cr-res}
 
@@ -305,11 +303,11 @@ Create a container registry:
 yc container registry create --name yc-auto-cr
 ```
 
-### Configure Docker Credential Helper {#config-ch}
+### Configure Docker credential helper {#config-ch}
 
-To facilitate authentication in {{ container-registry-name }}, configure [Docker Credential helper](../../container-registry/operations/authentication.md#cred-helper). It lets you use private {{ yandex-cloud }} registries without running the `docker login`command.
+To facilitate authentication in {{ container-registry-name }}, configure a [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper). It enables you to use private {{ yandex-cloud }} registries without running the `docker login`command.
 
-To configure the Credential helper, run the following command:
+To configure a credential helper, run the following command:
 
 ```bash
 yc container registry configure-docker
@@ -427,17 +425,17 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
       metadata:
         name: alb-demo-tls
         annotations:
-          ingress.alb.yc.io/subnets: <list of subnet IDs>
-          ingress.alb.yc.io/security-groups: <list of security group IDs>
-          ingress.alb.yc.io/external-ipv4-address: <auto or static IP address>
-          ingress.alb.yc.io/group-name: <Ingress group name>
+          ingress.alb.yc.io/subnets: <list_of_subnet_IDs>
+          ingress.alb.yc.io/security-groups: <list_of_security_group_IDs>
+          ingress.alb.yc.io/external-ipv4-address: <auto_or_static_IP_address>
+          ingress.alb.yc.io/group-name: <Ingress_group_name>
       spec:
         tls:
           - hosts:
-              - <domain name>
-            secretName: yc-certmgr-cert-id-<TLS certificate ID>
+              - <domain_name>
+            secretName: yc-certmgr-cert-id-<TLS_certificate_ID>
         rules:
-          - host: <domain name>
+          - host: <domain_name>
             http:
               paths:
                 - pathType: Prefix
@@ -466,8 +464,10 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
 
       Where:
       * `ingress.alb.yc.io/subnets`: Specify one or more [subnets](../../vpc/concepts/network.md#subnet) that {{ alb-name }} is going to work with.
-      * `ingress.alb.yc.io/security-groups`: Specify one or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If the parameter is omitted, the default security group is used. At least one of the security groups must allow outgoing TCP connections to ports 10501 and 10502 in the node group subnet or security group.
+      * `ingress.alb.yc.io/security-groups`: Specify one or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If you skip this parameter, the default security group will be used. At least one of the security groups must allow outgoing TCP connections to ports 10501 and 10502 in the node group subnet or security group.
       * `ingress.alb.yc.io/external-ipv4-address`: To get a new IP or provide public access to {{ alb-name }} from the internet, specify the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set the value to `auto`.
+
+         If you set `auto`, deleting the Ingress controller will also delete the IP address from the cloud. To avoid this, use an existing reserved IP address.
       * `ingress.alb.yc.io/group-name`: Specify the group name. It groups {{ k8s }} Ingress resources served by a separate {{ alb-name }} instance.
    1. Create a load balancer:
 
@@ -485,17 +485,17 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
 
       ```bash
       NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
-      alb-demo-tls  <none>  <domain name>  <IP address> 80, 443  15h
+      alb-demo-tls  <none>  <domain_name>  <IP_address> 80, 443  15h
       ```
 
       Based on the load balancer configuration, an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) will be automatically deployed.
-1. Follow the `https://<domain name>` link and make sure that your application is published.
+1. Follow the `https://<domain_name>` link and make sure that your application is published.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-1. [Delete the {{ k8s }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md):
+1. [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md):
 
    ```bash
    yc managed-kubernetes cluster delete --name k8s-demo

@@ -57,17 +57,17 @@
     c = AvroConsumer(
         {
             "bootstrap.servers": ','.join([
-            "<FQDN 1-го хоста-брокера>:9091",
+            "<FQDN_хоста-брокера_1>:9091",
             ...
-            "<FQDN N-го хоста-брокера>:9091",
+            "<FQDN_хоста-брокера_N>:9091",
             ]),
             "group.id": "avro-consumer",
             "security.protocol": "SASL_SSL",
             "ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
-            "sasl.password": "<пароль пользователя user>",
-            "schema.registry.url": "https://<FQDN или IP-адрес сервера {{ mkf-msr }}>:443",
+            "sasl.password": "<пароль_пользователя_user>",
+            "schema.registry.url": "https://<FQDN_или_IP-адрес_сервера_Managed_Schema_Registry>:443",
             "schema.registry.basic.auth.credentials.source": "SASL_INHERIT",
             "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
             "auto.offset.reset": "earliest"
@@ -155,18 +155,18 @@
     avroProducer = AvroProducer(
         {
             "bootstrap.servers": ','.join([
-                "<FQDN 1-го хоста-брокера>:9091",
+                "<FQDN_хоста-брокера_1>:9091",
                 ...
-                "<FQDN N-го хоста-брокера>:9091",
+                "<FQDN_хоста-брокера_N>:9091",
             ]),
             "security.protocol": 'SASL_SSL',
             "ssl.ca.location": '/usr/share/ca-certificates/{{ crt-local-file }}',
             "sasl.mechanism": 'SCRAM-SHA-512',
             "sasl.username": 'user',
-            "sasl.password": '<пароль пользователя user>',
+            "sasl.password": '<пароль_пользователя_user>',
             "on_delivery": delivery_report,
             "schema.registry.basic.auth.credentials.source": 'SASL_INHERIT',
-            "schema.registry.url": 'https://<FQDN или IP-адрес сервера {{ mkf-msr }}>:443',
+            "schema.registry.url": 'https://<FQDN_или_IP-адрес_сервера_Managed_Schema_Registry>:443',
             "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}"
         },
         default_key_schema=key_schema,

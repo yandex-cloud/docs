@@ -20,7 +20,7 @@ GET /{bucket}/{key}?retention&versionId={versionId} HTTP/2
 | Parameter | Description |
 ----- | -----
 | `retention` | Required parameter that indicates the type of operation. |
-| `versionId` | Object version ID. Required parameter. |
+| `versionId` | Object version ID. This is a required parameter. |
 
 ### Headers {#request-headers}
 
@@ -47,5 +47,5 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 
 | Element | Description |
 ----- | -----
-| `Mode` | <p>[Type](../../../concepts/object-lock.md#types) of retention:</p><ul><li>`GOVERNANCE`: An object lock with a predefined retention period that can be managed.</li><li>`COMPLIANCE`: An object lock with a predefined retention period with strict compliance.</li></ul><p>Path: `Retention\Mode`.</p> |
-| `RetainUntilDate` | <p>Date and time until which the object is retained, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`.</p><p>Path: `Retention\RetainUntilDate`.</p> |
+| `Mode` | <p>[Type](../../../concepts/object-lock.md#types) of retention:</p><ul><li>`GOVERNANCE`: Object lock with a predefined retention period that can be managed.</li><li>`COMPLIANCE`: Object lock with a predefined retention period with strict compliance.</li></ul><p>Path: `Retention\Mode`.</p> |
+| `RetainUntilDate` | <p>Lock end date and time in the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2025-01-01T00:00:00`. The lock end time value is specified in the [UTC±00:00](https://en.wikipedia.org/wiki/UTC%2B00:00) time zone. To use a different time zone, add `+` or `-` and a UTC±00:00 offset to the end of the record.</p><p>Path: `Retention\RetainUntilDate`.</p> |

@@ -1,12 +1,14 @@
 # S3cmd
 
-[S3cmd](https://s3tools.org/s3cmd) is a console client (Linux, Mac) for services that support the Amazon S3 HTTP API. General procedure for running commands can be found in the [official s3cmd documentation](https://s3tools.org/usage).
+[S3cmd](https://s3tools.org/s3cmd) is a console client (Linux, Mac) for services that support the Amazon S3 HTTP API. The general procedure for running commands can be found in the [official s3cmd documentation](https://s3tools.org/usage).
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
-## Installation {#installation}
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
+
+## Installing {#installation}
 
 To learn how to download and install S3cmd, see the [Download](https://s3tools.org/download) section on the official website of the project.
 
@@ -68,7 +70,7 @@ To enable debug output in the console, use the `--debug` key.
 s3cmd ls
 ```
 
-### Creating a bucket {#creating-bucket}
+### Create a bucket {#creating-bucket}
 
 ```bash
 s3cmd mb s3://bucket

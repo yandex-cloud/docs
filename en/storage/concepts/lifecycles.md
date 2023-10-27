@@ -11,13 +11,13 @@ Types of actions:
 Filters for grouping objects:
 
 * Object key prefix.
-* Minimum or maximum object size: Using the [S3 API](../s3/index.md) or [tools](../tools/index.md) that support it.
+* Minimum or maximum object size, using the management console, the [S3 API](../s3/index.md), or [tools](../tools/index.md) that support it.
 
-If you are using the S3 API, specify a lifecycle configuration in [XML format](../s3/api-ref/lifecycles/xml-config.md). For various tools with S3 API support, other configuration formats may be required. The AWS CLI, for example, uses JSON format.
+If you are using the S3 API, specify a lifecycle configuration in the [XML format](../s3/api-ref/lifecycles/xml-config.md). For various tools with S3 API support, other configuration formats may be required. The AWS CLI, for example, uses the JSON format.
 
 You can only configure object lifecycles for each individual bucket, not for a bucket group, folder, or cloud.
 
-Changes are applied to lifecycles at 00:00 UTC, every 24 hours.
+Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This operation takes a few hours to complete.
 
 #### See also {#see-also}
 

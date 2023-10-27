@@ -38,7 +38,7 @@ To set up DNS query caching:
 
 - Using {{ TF }}
 
-  1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. {% include [terraform-install](../../_includes/terraform-install.md) %}
   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
   1. Download the [k8s-node-local-dns.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-node-local-dns.tf) configuration file of the {{ managed-k8s-name }} cluster to the same working directory. The file describes:
      * [Network](../../vpc/concepts/network.md#network).
@@ -53,14 +53,14 @@ To set up DNS query caching:
      * [{{ k8s }} versions](../concepts/release-channels-and-updates.md) for the cluster and {{ managed-k8s-name }} node groups.
      * {{ managed-k8s-name }} cluster CIDR.
      * Name of the {{ managed-k8s-name }} cluster service account.
-  1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+  1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
   1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate
      ```
 
-     If there are any errors in the configuration files, {{ TF }} will point to them.
+     If there are any errors in the configuration files, {{ TF }} will point them out.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -99,243 +99,243 @@ To set up DNS query caching:
 
      {% cut "node-local-dns.yaml" %}
 
-     ```yaml
-     # Copyright 2018 The {{ k8s }} Authors.
-     #
-     # Licensed under the Apache License, Version 2.0 (the "License");
-     # you may not use this file except in compliance with the License.
-     # You may obtain a copy of the License at
-     #
-     #     http://www.apache.org/licenses/LICENSE-2.0
-     #
-     # Unless required by applicable law or agreed to in writing, software
-     # distributed under the License is distributed on an "AS IS" BASIS,
-     # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     # See the License for the specific language governing permissions and
-     # limitations under the License.
-     # Modified for {{ yandex-cloud }} Usage
-     ---
-     apiVersion: v1
-     kind: ServiceAccount
-     metadata:
-       name: node-local-dns
-       namespace: kube-system
-       labels:
-     ---
-     apiVersion: v1
-     kind: Service
-     metadata:
-       name: kube-dns-upstream
-       namespace: kube-system
-       labels:
-         k8s-app: kube-dns
-         kubernetes.io/name: "KubeDNSUpstream"
-     spec:
-       ports:
-       - name: dns
-         port: 53
-         protocol: UDP
-         targetPort: 53
-       - name: dns-tcp
-         port: 53
-         protocol: TCP
-         targetPort: 53
-       selector:
-         k8s-app: kube-dns
-     ---
-     apiVersion: v1
-     kind: ConfigMap
-     metadata:
-       name: node-local-dns
-       namespace: kube-system
-       labels:
-     data:
-       Corefile: |
-         cluster.local:53 {
-           errors
-           cache {
-             success 9984 30
-             denial 9984 5
-           }
-           reload
-           loop
-           bind 169.254.20.10 <kube-dns service IP address>
-           forward . __PILLAR__CLUSTER__DNS__ {
-             prefer_udp
-           }
-           prometheus :9253
-           health 169.254.20.10:8080
-         }
-         in-addr.arpa:53 {
-           errors
-           cache 30
-           reload
-           loop
-           bind 169.254.20.10 <kube-dns service IP address>
-           forward . __PILLAR__CLUSTER__DNS__ {
-             prefer_udp
-           }
-           prometheus :9253
-           }
-         ip6.arpa:53 {
-           errors
-           cache 30
-           reload
-           loop
-           bind 169.254.20.10 <kube-dns service IP address>
-           forward . __PILLAR__CLUSTER__DNS__ {
-             prefer_udp
-           }
-           prometheus :9253
-           }
-         .:53 {
-           errors
-           cache 30
-           reload
-           loop
-           bind 169.254.20.10 <kube-dns service IP address>
-           forward . __PILLAR__UPSTREAM__SERVERS__ {
-             prefer_udp
-           }
-           prometheus :9253
-           }
-     ---
-     apiVersion: apps/v1
-     kind: DaemonSet
-     metadata:
-       name: node-local-dns
-       namespace: kube-system
-       labels:
-         k8s-app: node-local-dns
-     spec:
-       updateStrategy:
-         rollingUpdate:
-           maxUnavailable: 10%
-       selector:
-         matchLabels:
-           k8s-app: node-local-dns
-       template:
-         metadata:
-           labels:
-             k8s-app: node-local-dns
-           annotations:
-             prometheus.io/port: "9253"
-             prometheus.io/scrape: "true"
-         spec:
-           priorityClassName: system-node-critical
-           serviceAccountName: node-local-dns
-           hostNetwork: true
-           dnsPolicy: Default # Don't use cluster DNS.
-           tolerations:
-           - key: "CriticalAddonsOnly"
-             operator: "Exists"
-           - effect: "NoExecute"
-             operator: "Exists"
-           - effect: "NoSchedule"
-             operator: "Exists"
-           containers:
-           - name: node-cache
-             image: k8s.gcr.io/dns/k8s-dns-node-cache:1.17.0
-             resources:
-               requests:
-                 cpu: 25m
-                 memory: 5Mi
-             args: [ "-localip", "169.254.20.10,<kube-dns IP address>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream" ]
-             securityContext:
-               privileged: true
-             ports:
-             - containerPort: 53
-               name: dns
-               protocol: UDP
-             - containerPort: 53
-               name: dns-tcp
-               protocol: TCP
-             - containerPort: 9253
-               name: metrics
-               protocol: TCP
-             livenessProbe:
-               httpGet:
-                 host: 169.254.20.10
-                 path: /health
-                 port: 8080
-               initialDelaySeconds: 60
-               timeoutSeconds: 5
-             volumeMounts:
-             - mountPath: /run/xtables.lock
-               name: xtables-lock
-               readOnly: false
-             - name: config-volume
-               mountPath: /etc/coredns
-             - name: kube-dns-config
-               mountPath: /etc/kube-dns
-           volumes:
-           - name: xtables-lock
-             hostPath:
-               path: /run/xtables.lock
-               type: FileOrCreate
-           - name: kube-dns-config
-             configMap:
-               name: kube-dns
-               optional: true
-           - name: config-volume
-             configMap:
-               name: node-local-dns
-               items:
-                 - key: Corefile
-                   path: Corefile.base
-     ---
-     # A headless service is a service with a service IP but instead of load-balancing it will return the IPs of our associated Pods.
-     # We use this to expose metrics to Prometheus.
-     apiVersion: v1
-     kind: Service
-     metadata:
-       annotations:
-         prometheus.io/port: "9253"
-         prometheus.io/scrape: "true"
-       labels:
-         k8s-app: node-local-dns
-       name: node-local-dns
-       namespace: kube-system
-     spec:
-       clusterIP: None
-       ports:
-         - name: metrics
-           port: 9253
-           targetPort: 9253
-       selector:
-         k8s-app: node-local-dns
-     ```
+      ```yaml
+      # Copyright 2018 The {{ k8s }} Authors.
+      #
+      # Licensed under the Apache License, Version 2.0 (the "License");
+      # you may not use this file except in compliance with the License.
+      # You may obtain a copy of the License at
+      #
+      #     http://www.apache.org/licenses/LICENSE-2.0
+      #
+      # Unless required by applicable law or agreed to in writing, software
+      # distributed under the License is distributed on an "AS IS" BASIS,
+      # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      # See the License for the specific language governing permissions and
+      # limitations under the License.
+      # Modified for {{ yandex-cloud }} Usage
+      ---
+      apiVersion: v1
+      kind: ServiceAccount
+      metadata:
+        name: node-local-dns
+        namespace: kube-system
+        labels:
+      ---
+      apiVersion: v1
+      kind: Service
+      metadata:
+        name: kube-dns-upstream
+        namespace: kube-system
+        labels:
+          k8s-app: kube-dns
+          kubernetes.io/name: "KubeDNSUpstream"
+      spec:
+        ports:
+        - name: dns
+          port: 53
+          protocol: UDP
+          targetPort: 53
+        - name: dns-tcp
+          port: 53
+          protocol: TCP
+          targetPort: 53
+        selector:
+          k8s-app: kube-dns
+      ---
+      apiVersion: v1
+      kind: ConfigMap
+      metadata:
+        name: node-local-dns
+        namespace: kube-system
+        labels:
+      data:
+        Corefile: |
+          cluster.local:53 {
+            errors
+            cache {
+              success 9984 30
+              denial 9984 5
+            }
+            reload
+            loop
+            bind 169.254.20.10 <kube-dns_IP_adress>
+            forward . __PILLAR__CLUSTER__DNS__ {
+              prefer_udp
+            }
+            prometheus :9253
+            health 169.254.20.10:8080
+          }
+          in-addr.arpa:53 {
+            errors
+            cache 30
+            reload
+            loop
+            bind 169.254.20.10 <kube-dns_IP_adress>
+            forward . __PILLAR__CLUSTER__DNS__ {
+              prefer_udp
+            }
+            prometheus :9253
+            }
+          ip6.arpa:53 {
+            errors
+            cache 30
+            reload
+            loop
+            bind 169.254.20.10 <kube-dns_IP_adress>
+            forward . __PILLAR__CLUSTER__DNS__ {
+              prefer_udp
+            }
+            prometheus :9253
+            }
+          .:53 {
+            errors
+            cache 30
+            reload
+            loop
+            bind 169.254.20.10 <kube-dns_IP_adress>
+            forward . __PILLAR__UPSTREAM__SERVERS__ {
+              prefer_udp
+            }
+            prometheus :9253
+            }
+      ---
+      apiVersion: apps/v1
+      kind: DaemonSet
+      metadata:
+        name: node-local-dns
+        namespace: kube-system
+        labels:
+          k8s-app: node-local-dns
+      spec:
+        updateStrategy:
+          rollingUpdate:
+            maxUnavailable: 10%
+        selector:
+          matchLabels:
+            k8s-app: node-local-dns
+        template:
+          metadata:
+            labels:
+              k8s-app: node-local-dns
+            annotations:
+              prometheus.io/port: "9253"
+              prometheus.io/scrape: "true"
+          spec:
+            priorityClassName: system-node-critical
+            serviceAccountName: node-local-dns
+            hostNetwork: true
+            dnsPolicy: Default # Don't use cluster DNS.
+            tolerations:
+            - key: "CriticalAddonsOnly"
+              operator: "Exists"
+            - effect: "NoExecute"
+              operator: "Exists"
+            - effect: "NoSchedule"
+              operator: "Exists"
+            containers:
+            - name: node-cache
+              image: registry.k8s.io/dns/k8s-dns-node-cache:1.17.0
+              resources:
+                requests:
+                  cpu: 25m
+                  memory: 5Mi
+              args: [ "-localip", "169.254.20.10,<kube-dns_IP_adress>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream" ]
+              securityContext:
+                privileged: true
+              ports:
+              - containerPort: 53
+                name: dns
+                protocol: UDP
+              - containerPort: 53
+                name: dns-tcp
+                protocol: TCP
+              - containerPort: 9253
+                name: metrics
+                protocol: TCP
+              livenessProbe:
+                httpGet:
+                  host: 169.254.20.10
+                  path: /health
+                  port: 8080
+                initialDelaySeconds: 60
+                timeoutSeconds: 5
+              volumeMounts:
+              - mountPath: /run/xtables.lock
+                name: xtables-lock
+                readOnly: false
+              - name: config-volume
+                mountPath: /etc/coredns
+              - name: kube-dns-config
+                mountPath: /etc/kube-dns
+            volumes:
+            - name: xtables-lock
+              hostPath:
+                path: /run/xtables.lock
+                type: FileOrCreate
+            - name: kube-dns-config
+              configMap:
+                name: kube-dns
+                optional: true
+            - name: config-volume
+              configMap:
+                name: node-local-dns
+                items:
+                  - key: Corefile
+                    path: Corefile.base
+      ---
+      # A headless service is a service with a service IP but instead of load-balancing it will return the IPs of our associated Pods.
+      # We use this to expose metrics to Prometheus.
+      apiVersion: v1
+      kind: Service
+      metadata:
+        annotations:
+          prometheus.io/port: "9253"
+          prometheus.io/scrape: "true"
+        labels:
+          k8s-app: node-local-dns
+        name: node-local-dns
+        namespace: kube-system
+      spec:
+        clusterIP: None
+        ports:
+          - name: metrics
+            port: 9253
+            targetPort: 9253
+        selector:
+          k8s-app: node-local-dns
+      ```
 
-     {% endcut %}
+      {% endcut %}
 
-  1. Create resources for NodeLocal DNS:
+   1. Create resources for NodeLocal DNS:
 
-     ```bash
-     kubectl apply -f node-local-dns.yaml
-     ```
+      ```bash
+      kubectl apply -f node-local-dns.yaml
+      ```
 
-     Result:
+      Result:
 
-     ```text
-     serviceaccount/node-local-dns created
-     service/kube-dns-upstream created
-     configmap/node-local-dns created
-     daemonset.apps/node-local-dns created
-     service/node-local-dns created
-     ```
+      ```text
+      serviceaccount/node-local-dns created
+      service/kube-dns-upstream created
+      configmap/node-local-dns created
+      daemonset.apps/node-local-dns created
+      service/node-local-dns created
+      ```
 
-  1. Make sure that DaemonSet is successfully deployed and running:
+   1. Make sure that DaemonSet is successfully deployed and running:
 
-     ```bash
-     kubectl get ds -l k8s-app=node-local-dns -n kube-system
-     ```
+      ```bash
+      kubectl get ds -l k8s-app=node-local-dns -n kube-system
+      ```
 
-     Result:
+      Result:
 
-     ```text
-     NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE SELECTOR  AGE
-     node-local-dns  3        3        3      3           3          <none>         24m
-     ```
+      ```text
+      NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE SELECTOR  AGE
+      node-local-dns  3        3        3      3           3          <none>         24m
+      ```
 
 {% endlist %}
 
@@ -418,8 +418,8 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
    Result:
 
    ```text
-   Server:         <kube-dns IP>
-   Address:        <kube-dns IP>#53
+   Server:         <kube-dns_IP_adress>
+   Address:        <kube-dns_IP_adress>#53
 
    Name:   kubernetes.default.svc.cluster.local
    Address: 10.96.128.1
@@ -429,7 +429,7 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
 
    ```bash
    dig +short @169.254.20.10 www.com
-   dig +short @<kube-dns IP> example.com
+   dig +short @<kube-dns_IP_adress> example.com
    ```
 
    Result:
@@ -437,11 +437,11 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
    ```text
    # dig +short @169.254.20.10 www.com
    52.128.23.153
-   # dig +short @<kube-dns IP> example.com
+   # dig +short @<kube-dns_IP_adress> example.com
    93.184.216.34
    ```
 
-   After `node-local-dns` launches, the iptables rules will be configured for [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) to respond on both of the addresses (`<kube-dns service IP>:53` and `169.254.20.10:53`).
+   After `node-local-dns` launches, the iptables rules will be configured for the [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) to respond on both of the addresses (`<kube-dns_IP>:53` and `169.254.20.10:53`).
 
    The `kube-dns` service can be accessed at the new address, that is, the `ClusterIp` of `kube-dns-upstream`. You may need this address to configure request forwarding.
 
@@ -503,8 +503,8 @@ Delete the resources you no longer need to avoid paying for them:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point to them.
-     1. Confirm the resources have been updated:
+        If there are any errors in the configuration files, {{ TF }} will point them out.
+     1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

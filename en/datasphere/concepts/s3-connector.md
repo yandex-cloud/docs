@@ -8,7 +8,7 @@ Connectors are created in the project and assigned to it. The connector's static
 
 {% include [fuse-disclaimer](../../_includes/datasphere/fuse-disclaimer.md) %}
 
-## S3 connector as a resource {#info}
+## Information on an S3 connector as a resource {#info}
 
 The system stores the following information about each S3 connector:
 
@@ -30,4 +30,4 @@ Once created, your S3 connector becomes available for the project. The community
 
 #### See also {#see-also}
 
-* [Connecting to an S3 storage using an S3 connector](../operations/data/s3-connectors.md).
+* [Connecting to an S3 storage using an S3 connector](../operations/data/s3-connectors.md)

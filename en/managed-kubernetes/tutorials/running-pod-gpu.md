@@ -1,8 +1,8 @@
-# Running workloads with GPUs
+# Running workloads using GPUs
 
-{{ managed-k8s-name }} clusters let you run workloads on GPUs, which may be helpful for tasks with special computing requirements.
+A [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) allows you to run workloads on [GPUs](../../compute/concepts/gpus.md), which may be of use for tasks with special computing requirements.
 
-To run workloads with GPUs on {{ managed-k8s-name }} cluster [pods](../concepts/index.md#pod):
+To run workloads using GPUs on {{ managed-k8s-name }} cluster [pods](../concepts/index.md#pod):
 1. [{#T}](#create-pod-gpu)
 1. [{#T}](#check-pod)
 
@@ -11,17 +11,16 @@ If you no longer need the resources you created, [delete them](#delete-resources
 ## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
-
 1. {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
 1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
-1. [Create a node group](../operations/node-group/node-group-create.md) with the following settings:
-   * **Platform**: Select `Intel Broadwell with Nvidia Tesla v100`.
-   * **GPU**: Specify the desired number of GPUs.
+1. [Create a {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) with the following settings:
+   * **Platform**: Select `Intel Broadwell with NVIDIA® Tesla v100`.
+   * **GPU**: Specify the required number of GPUs.
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Create a pod with a GPU {#create-pod-gpu}
 
-1. Save the GPU pod creation specification to a YAML file named `cuda-vector-add.yaml`:
+1. Save your GPU pod creation specification to a YAML file named `cuda-vector-add.yaml`:
 
    ```yaml
    apiVersion: v1
@@ -87,4 +86,4 @@ If you no longer need the resources you created, [delete them](#delete-resources
 
 Delete the resources you no longer need to avoid paying for them:
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).
+1. If you reserved a public static [IP address](../../vpc/concepts/address.md) for the {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).

@@ -111,19 +111,27 @@
      ```bash
      {{ yc-mdb-kf }} cluster create \
        --name <имя_кластера> \
-       --environment <окружение:_prestable_или_production> \
-       --version <версия_{{ KF }}:_{{ versions.cli.str }}> \
+       --environment <окружение> \
+       --version <версия> \
        --network-name <имя_сети> \
        --subnet-ids <идентификаторы_подсетей> \
        --brokers-count <количество_брокеров_в_зоне> \
        --resource-preset <класс_хоста> \
        --disk-type <тип_диска> \
-       --disk-size <размер_хранилища_в_гигабайтах> \
+       --disk-size <размер_хранилища_ГБ> \
        --assign-public-ip <публичный_доступ> \
        --security-group-ids <список_идентификаторов_групп_безопасности> \
-       --deletion-protection=<защита_от_удаления_кластера:_true_или_false>
+       --deletion-protection=<защита_от_удаления>
      ```
 
+
+     Где:
+
+     * `--environment` — окружение кластера: `prestable` или `production`.
+     * `--version` — версия {{ KF }}.  Принимает значения {{ versions.cli.str }}. 
+     * `--disk-type` — тип хранилища: `local-ssd` или `local-hdd`.
+  
+     * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
      {% note tip %}
 
@@ -138,10 +146,12 @@
      ```bash
      {{ yc-mdb-kf }} cluster create \
        ...
-       --maintenance-window type=<тип>[,day=<день_недели>,hour=<час_дня>]
+       --maintenance-window type=<тип_технического_обслуживания>,`
+                           `day=<день_недели>,`
+                           `hour=<час_дня> \
      ```
 
-     Где:
+     Где `type` — тип технического обслуживания:
 
      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -179,21 +189,21 @@
      
      ```hcl
      resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
-       environment         = "<окружение:_PRESTABLE_или_PRODUCTION>"
+       environment         = "<окружение>"
        name                = "<имя_кластера>"
        network_id          = "<идентификатор_сети>"
        subnet_ids          = ["<список_идентификаторов_подсетей>"]
        security_group_ids  = ["<список_идентификаторов_групп_безопасности_кластера>"]
-       deletion_protection = <защита_от_удаления_кластера:_true_или_false>
+       deletion_protection = <защита_от_удаления>
 
        config {
-         assign_public_ip = "<публичный_доступ_к_кластеру:_true_или_false>"
+         assign_public_ip = "<публичный_доступ>"
          brokers_count    = <количество_брокеров>
-         version          = "<версия_{{ KF }}:_{{ versions.tf.str }}>"
-         schema_registry  = "<управление_схемами_данных:_true_или_false>"
+         version          = "<версия>"
+         schema_registry  = "<управление_схемами_данных>"
          kafka {
            resources {
-             disk_size          = <размер_хранилища_в_гигабайтах>
+             disk_size          = <размер_хранилища_ГБ>
              disk_type_id       = "<тип_диска>"
              resource_preset_id = "<класс_хоста>"
            }
@@ -219,6 +229,16 @@
      ```
 
 
+
+
+     Где:
+
+     * `environment` — окружение кластера: `PRESTABLE` или `PRODUCTION`.
+     * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+     * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
+     * `version` — версия {{ KF }}: {{ versions.tf.str }}.
+     * `schema_registry` — управление схемами данных: `true` или `false`.
+ 
 
 
      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}

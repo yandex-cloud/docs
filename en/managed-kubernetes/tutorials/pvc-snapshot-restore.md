@@ -1,11 +1,11 @@
 # Working with snapshots
 
-{{ managed-k8s-name }} supports [snapshots](https://kubernetes.io/docs/concepts/storage/volume-snapshots/) that represent a point-in-time copy of a [PersistentVolume](../concepts/volume.md#provisioning-volumes).
+{{ managed-k8s-name }} supports snapshots, which are a point-in-time copy of a [PersistentVolume](../concepts/volume.md#provisioning-volumes). For more information about snapshots, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
 To create a snapshot and then restore it:
-1. [{#T}](#create-pvc-pod).
-1. [{#T}](#create-snapshot).
-1. [{#T}](#restore-from-snapshot).
+1. [{#T}](#create-pvc-pod)
+1. [{#T}](#create-snapshot)
+1. [{#T}](#restore-from-snapshot)
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -21,9 +21,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Using {{ TF }}
 
-     1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. {% include [terraform-install](../../_includes/terraform-install.md) %}
      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-     1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
+     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) cluster configuration file to the same working directory. The file describes:
         * Network.
         * Subnet.
         * Default security group and rules needed to run the cluster:
@@ -39,7 +39,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         terraform validate
         ```
 
-        If there are errors in the configuration files, {{ TF }} will point to them.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -123,10 +123,10 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
    kubectl get pod pod-source
    ```
 
-1. Make sure the date and time are written to the `/data/out.txt` file. For this, [run this command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
+1. Make sure the date and time are written to the `/data/out.txt` file. For this, [run the following command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
 
    ```bash
-   kubectl exec pod -- tail /data/out.txt
+   kubectl exec pod-source -- tail /data/out.txt
    ```
 
    Result:
@@ -143,7 +143,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
 
    ```yaml
    ---
-   apiVersion: snapshot.storage.k8s.io/v1beta1
+   apiVersion: snapshot.storage.k8s.io/v1
    kind: VolumeSnapshot
    metadata:
      name: new-snapshot-test

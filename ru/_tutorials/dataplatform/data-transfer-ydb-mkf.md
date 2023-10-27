@@ -219,7 +219,7 @@
     ```bash
     kafkacat \
         -C \
-        -b <FQDN_хоста-брокера-1>:9091,...,<FQDN_хоста-брокера N>:9091 \
+        -b <FQDN_хоста-брокера_1>:9091,...,<FQDN_хоста-брокера_N>:9091 \
         -t cdc.sensors \
         -X security.protocol=SASL_SSL \
         -X sasl.mechanisms=SCRAM-SHA-512 \

@@ -61,7 +61,7 @@ To log requests to the bucket:
       {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
       
-      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
       To enable logging for a bucket that you wish to monitor:
@@ -200,7 +200,7 @@ To disable logging, follow these steps:
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
    To disable the logging mechanism:

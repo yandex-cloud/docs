@@ -1,9 +1,9 @@
 ```bash
-mysql --host=<имя хоста {{ MY }}>.{{ dns-zone }} \
+mysql --host=<имя_хоста_{{ MY }}>.{{ dns-zone }} \
       --port={{ port-mmy }} \
       --ssl-ca=~/.mysql/root.crt \
       --ssl-mode=VERIFY_IDENTITY \
-      --user=<имя пользователя> \
+      --user=<имя_пользователя> \
       --password \
-      <имя БД>
+      <имя_БД>
 ```

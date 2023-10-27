@@ -8,7 +8,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource.
+   1. In the [management console]({{ link-console-main }}), select the folder to create a resource in.
 
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
@@ -137,7 +137,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Describe the resource parameters in the `yandex_cdn_resource` configuration file.
 

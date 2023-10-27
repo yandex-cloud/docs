@@ -1,6 +1,6 @@
 # Creating L7 load balancer
 
-To create an L7 load balancer:
+To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
 {% list tabs %}
 
@@ -35,9 +35,11 @@ To create an L7 load balancer:
 
    1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select three subnets for the load balancer nodes and enable traffic to these subnets.
 
+      {% include [subnets-required](../../_includes/application-load-balancer/subnets-required.md) %}
+
    1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Set the listener settings:
       1. Enter the listener name.
-      1. (optional) Enable **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Set the **{{ ui-key.yacloud.alb.label_port }}** to `80` and the **{{ ui-key.yacloud.common.type }}** to:
+      1. (Optional) Enable **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Set the **{{ ui-key.yacloud.alb.label_port }}** to `80` and the **{{ ui-key.yacloud.common.type }}** to:
          * `{{ ui-key.yacloud.alb.label_address-auto }}`.
          * `{{ ui-key.yacloud.alb.label_address-list }}`: Select an address from the drop-down list of the field that appears on the right.
       1. (optional) Enable **{{ ui-key.yacloud.alb.section_internal-address-specs }}**. Specify **{{ ui-key.yacloud.alb.label_port }}** and select **{{ ui-key.yacloud.common.label_subnet }}** from the drop-down list.
@@ -249,7 +251,7 @@ To create an L7 load balancer:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 

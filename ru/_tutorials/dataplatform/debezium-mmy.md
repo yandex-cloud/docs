@@ -65,7 +65,7 @@
             -importcert \
             -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/{{ crt-local-file }} \
             -keystore /etc/debezium/keystore.jks \
-            -storepass <пароль JKS> \
+            -storepass <пароль_JKS> \
             --noprompt
         ```
 
@@ -97,9 +97,9 @@
 
         ```sql
         INSERT INTO measurements VALUES
-          ('iv9a94th6rztooxh5ur2', '2020-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
-          ('rhibbh3y08qmz3sdbrbu', '2020-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
-          ('iv9a94th678tooxh5ur2', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
+          ('iv9a94th6rzt********', '2020-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+          ('rhibbh3y08qm********', '2020-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
+          ('iv9a94th678t********', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
         ```
 
 ## Настройте коннектор Debezium {#setup-debezium}
@@ -121,10 +121,10 @@
     ```init
     name=debezium-mmy
     connector.class=io.debezium.connector.mysql.MySqlConnector
-    database.hostname=c-<идентификатор кластера>.rw.{{ dns-zone }}
+    database.hostname=c-<идентификатор_кластера>.rw.{{ dns-zone }}
     database.port=3306
     database.user=user1
-    database.password=<пароль пользователя user1>
+    database.password=<пароль_пользователя_user1>
     database.dbname=db1
     database.server.name=mmy
     database.ssl.mode=required_identity
@@ -135,26 +135,26 @@
     snapshot.mode=never
     include.schema.changes=false
     database.history.kafka.topic=dbhistory.mmy
-    database.history.kafka.bootstrap.servers=<FQDN хоста-брокера 1>:9091,...,<FQDN хоста-брокера N>:9091
+    database.history.kafka.bootstrap.servers=<FQDN_хоста-брокера_1>:9091,...,<FQDN_хоста-брокера_N>:9091
 
     # Producer settings
     database.history.producer.security.protocol=SSL
     database.history.producer.ssl.truststore.location=/etc/debezium/keystore.jks
-    database.history.producer.ssl.truststore.password=<пароль JKS>
+    database.history.producer.ssl.truststore.password=<пароль_JKS>
     database.history.producer.sasl.mechanism=SCRAM-SHA-512
     database.history.producer.security.protocol=SASL_SSL
-    database.history.producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль пользователя debezium>";
+    database.history.producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль_пользователя_debezium>";
 
     # Consumer settings
     database.history.consumer.security.protocol=SSL
     database.history.consumer.ssl.truststore.location=/etc/debezium/keystore.jks
-    database.history.consumer.ssl.truststore.password=<пароль JKS>
+    database.history.consumer.ssl.truststore.password=<пароль_JKS>
     database.history.consumer.sasl.mechanism=SCRAM-SHA-512
     database.history.consumer.security.protocol=SASL_SSL
-    database.history.consumer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль пользователя debezium>";
+    database.history.consumer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль_пользователя_debezium>";
     ```
 
-    Здесь:
+    Где:
 
     * `name` — логическое имя коннектора Debezium. Используется для внутренних нужд коннектора.
     * `database.hostname` — [особый FQDN](../../managed-mysql/operations/connect.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
@@ -174,7 +174,7 @@
 
     * **{{ ui-key.yacloud.common.name }}** — `mmy.db1.measurements`.
 
-        Имена топиков для данных [конструируются](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-topic-names) по принципу `<имя сервера>.<имя базы данных>.<имя таблицы>`.
+        Имена топиков для данных [конструируются](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-topic-names) по принципу `<имя_сервера>.<имя_БД>.<имя_таблицы>`.
 
         Согласно [файлу настроек коннектора Debezium](#setup-debezium):
 
@@ -187,7 +187,7 @@
 
     * **{{ ui-key.yacloud.common.name }}** — `__debezium-heartbeat.mmy`.
 
-        Имена служебных топиков [конструируются](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-topics-prefix) по принципу `<префикс для heartbeat>.<имя сервера>`.
+        Имена служебных топиков [конструируются](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-topics-prefix) по принципу `<префикс_для_heartbeat>.<имя_сервера>`.
 
         Согласно [файлу настроек коннектора Debezium](#setup-debezium):
 
@@ -216,19 +216,19 @@
 
     ```ini
     # AdminAPI connect properties
-    bootstrap.servers=<FQDN хоста-брокера 1>:9091,...,<FQDN хоста-брокера N>:9091
+    bootstrap.servers=<FQDN_хоста-брокера_1>:9091,...,<FQDN_хоста-брокера_N>:9091
     sasl.mechanism=SCRAM-SHA-512
     security.protocol=SASL_SSL
     ssl.truststore.location=/etc/debezium/keystore.jks
-    ssl.truststore.password=<пароль JKS>
-    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль пользователя debezium>";
+    ssl.truststore.password=<пароль_JKS>
+    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль_пользователя_debezium>";
 
     # Producer connect properties
     producer.sasl.mechanism=SCRAM-SHA-512
     producer.security.protocol=SASL_SSL
     producer.ssl.truststore.location=/etc/debezium/keystore.jks
-    producer.ssl.truststore.password=<пароль JKS>
-    producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль пользователя debezium>";
+    producer.ssl.truststore.password=<пароль_JKS>
+    producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль_пользователя_debezium>";
 
     # Worker properties
     plugin.path=/etc/debezium/plugins/
@@ -254,7 +254,7 @@
     ```bash
     kafkacat \
         -C \
-        -b <FQDN хоста-брокера-1>:9091,...,<FQDN хоста-брокера N>:9091 \
+        -b <FQDN_хоста-брокера_1>:9091,...,<FQDN_хоста-брокера_N>:9091 \
         -t mmy.db1.measurements \
         -X security.protocol=SASL_SSL \
         -X sasl.mechanisms=SCRAM-SHA-512 \
@@ -277,7 +277,7 @@
     "payload": {
         "before": null,
         "after": {
-            "device_id": "iv9a94th6rztooxh5ur2",
+            "device_id": "iv9a94th6rzt********",
             "datetime": 1591378020000000,
             "latitude": 55.70329,
             "longitude": 37.65472,
@@ -312,7 +312,7 @@
 1. [Подключитесь к кластеру-источнику](../../managed-mysql/operations/connect.md) и добавьте еще одну строку в таблицу `measurements`:
 
     ```sql
-    INSERT INTO measurements VALUES ('iv7b74th678tooxh5ur2', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
+    INSERT INTO measurements VALUES ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
     ```
 
 1. Убедитесь, что в терминале с запущенной утилитой `kafkacat` отобразились сведения о добавленной строке.

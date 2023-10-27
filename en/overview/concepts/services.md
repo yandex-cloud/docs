@@ -63,6 +63,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 | [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | System user identification |
 | [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | {{ preview-stage }} Service for protection against DDoS attacks at the OSI model L7 application level |
 | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/index.yaml) | Speech recognition and synthesis technologies |
+| [{{ speechsense-full-name }}](../../speechsense/index.yaml) | {{ preview-stage }} Speech analytics service for analyzing voice and text communication channels |
 | [{{ tracker-full-name }}](../../tracker/index.yaml) | Service for business collaboration and workflows |
 | [{{ translate-full-name }}](../../translate/index.yaml) | Machine translation service |
 | [{{ vpc-full-name }}](../../vpc/index.yaml) | Cloud network management service |

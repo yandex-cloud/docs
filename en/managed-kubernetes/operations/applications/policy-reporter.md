@@ -81,6 +81,16 @@ To export policy results, set up external storage:
 
    The `target.s3.bucket` and `serviceaccountawskeyvalue` parameters are only required if export to {{ objstorage-name }} is enabled (`target.s3.enabled=true`), and the `target.kinesis.endpoint` and `target.kinesis.streamName` parameters are required if export to {{ yds-name }} is enabled (`target.kinesis.enabled=true`).
 
+## Testing the app {#check}
+
+1. Set up the Kyverno Application & Kyverno Policies app in the {{ managed-k8s-name }} cluster and follow this [guide](../../tutorials/marketplace/kyverno.md) to create a test policy.
+1. [Connect to the Policy Reporter UI](https://kyverno.github.io/policy-reporter/#core--policy-reporter-ui--kyverno-plugin) to analyze and visualize PolicyReports or ensure that data is received by {{ objstorage-name }} or {{ yds-name }}.
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/marketplace/kyverno.md)
+* [{#T}](../../tutorials/sign-cr-with-cosign.md)
+
 ## See also {#see-also}
 
 * [Policy Reporter documentation](https://kyverno.github.io/policy-reporter/).

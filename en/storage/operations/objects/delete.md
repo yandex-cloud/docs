@@ -36,12 +36,129 @@ To delete an object:
 
    In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
 
+   {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
+
+- AWS CLI
+
+   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+
+   In the terminal, run the `aws s3api delete-object` command:
+
+   ```bash
+   aws s3api delete-object \
+     --endpoint-url https://{{ s3-storage-host }} \
+     --bucket <bucket_name> \
+     --key <object_key>
+   ```
+
+   Where:
+   * `--bucket`: Name of your bucket
+   * `--key`: Object [key](../../concepts/object.md#key)
+
+   To delete multiple objects at once, provide the keys of these objects in the `--delete` parameter:
+
+   * **Bash:**
+
+      ```bash
+      aws s3api delete-objects \
+        --endpoint-url=https://{{ s3-storage-host }} \
+        --bucket <bucket_name> \
+        --delete '{"Objects":[{"Key":"<object_1_key>"},{"Key":"<object_2_key>"},...,{"Key":"<object_n_key>"}]}'
+      ```
+
+   * **PowerShell:**
+
+      ```powershell
+      aws s3api delete-objects `
+        --endpoint-url=https://{{ s3-storage-host }} `
+        --bucket <bucket_name> `
+        --delete '{\"Objects\":[{\"Key\":\"<object_1_key>\"},{\"Key\":\"<object_2_key>\"},...,{\"Key\":\"<object_n_key>\"}]}'
+      ```
+
+   Where:
+   * `--bucket`: Bucket name.
+   * `<object_1_key>`, `<object_2_key>`, `<object_n_key>`: [Keys](../../concepts/object.md#key) of the objects to delete.
+
+   Result:
+
+   ```bash
+   {
+     "Deleted": [
+         {
+             "Key": "<object_1_key>",
+             "VersionId": "null"
+         },
+         {
+             "Key": "<object_2_key>",
+             "VersionId": "null"
+         }
+         ...
+         {
+             "Key": "<object_n_key>",
+             "VersionId": "null"
+         }
+     ]
+   }
+   ```
+
+   You can specify objects for deletion using a query template in JMESPath format. To delete objects using a query template, run the following command:
+
+   * **Bash:**
+
+      ```bash
+      aws s3api list-objects \
+        --endpoint-url https://{{ s3-storage-host }} \
+        --bucket <bucket_name> \
+        --query '<query_in_JMESPath_format>' \
+        --output text | xargs -I {} aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket <bucket_name> --key {}
+      ```
+
+      Where:
+      * `--bucket`: Bucket name
+      * `--query`: Query in the [JMESPath](https://jmespath.org/) format
+
+      Here is an example of a command that deletes all objects that are located in the `screenshots` folder, and whose filenames start with the date `20231002`, from `sample-bucket`:
+
+      ```bash
+      aws s3api list-objects \
+        --endpoint-url https://{{ s3-storage-host }} \
+        --bucket sample-bucket \
+        --query 'Contents[?starts_with(Key, `screenshots/20231002`) == `true`].[Key]' \
+        --output text | xargs -I {} aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key {}
+      ```
+
+   * **PowerShell:**
+
+      ```powershell
+      Foreach($x in (aws s3api list-objects `
+        --endpoint-url https://{{ s3-storage-host }} `
+        --bucket <bucket_name> `
+        --query '<query_in_JMESPath_format>' `
+        --output text)) `
+        {aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket <bucket_name> --key $x}
+      ```
+
+      Where:
+      * `--bucket`: Bucket name
+      * `--query`: Query in the [JMESPath](https://jmespath.org/) format
+
+      Here is an example of a command that deletes all objects that are located in the `screenshots` folder, and whose filenames start with the date `20231002`, from `sample-bucket`:
+
+      ```powershell
+      Foreach($x in (aws s3api list-objects `
+        --endpoint-url https://{{ s3-storage-host }} `
+        --bucket sample-bucket `
+        --query 'Contents[?starts_with(Key, `screenshots/20231002`) == `true`].[Key]' `
+        --output text)) `
+        {aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket sample-bucket --key $x}
+      ```
+
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
    To delete an object created with {{ TF }} from a bucket:
@@ -82,7 +199,7 @@ To delete an object:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -96,6 +213,8 @@ To delete an object:
 - API
 
    Use the [delete](../../s3/api-ref/object/delete.md) S3 API method.
+
+   {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
 
 {% endlist %}
 
@@ -115,7 +234,7 @@ To check whether lock has been put and delete the object version when possible
    1. Get information about an object lock:
 
       ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }}/ \
+      aws --endpoint-url=https://{{ s3-storage-host }} \
         s3api head-object \
         --bucket <bucket_name> \
         --key <object_key> \
@@ -123,9 +242,9 @@ To check whether lock has been put and delete the object version when possible
       ```
 
       Where:
-      * `bucket`: Name of your bucket.
-      * `key`: Object [key](../../concepts/object.md#key).
-      * `version-id`: Object version ID.
+      * `--bucket`: Name of your bucket
+      * `--key`: Object [key](../../concepts/object.md#key)
+      * `--version-id`: Object version ID
 
       If an object version is locked, the following command returns the lock details:
 
@@ -155,7 +274,7 @@ To check whether lock has been put and delete the object version when possible
    1. If you have the `storage.admin` role and `"ObjectLockMode": "GOVERNANCE"` is set, delete an object version:
 
       ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }}/ \
+      aws --endpoint-url=https://{{ s3-storage-host }} \
         s3api delete-object \
         --bucket <bucket_name> \
         --key <object_key> \
@@ -164,10 +283,10 @@ To check whether lock has been put and delete the object version when possible
       ```
 
       Where:
-      * `bucket`: Name of your bucket.
-      * `key`: Object [key](../../concepts/object.md#key).
-      * `version-id`: Object version ID.
-      * `bypass-governance-retention`: Flag that shows that a lock is bypassed.
+      * `--bucket`: Name of your bucket.
+      * `--key`: Object [key](../../concepts/object.md#key).
+      * `--version-id`: Object version ID.
+      * `--bypass-governance-retention`: Flag that shows that a lock is bypassed.
 
 - API
 

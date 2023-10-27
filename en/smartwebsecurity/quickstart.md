@@ -30,18 +30,18 @@ To create a security profile:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your profile in.
-   1. In the list of services, select **{{ sws-name }}**.
-   1. Click **Create security profile** and select **From a preset template**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
       Preset profiles include:
-      * [Basic default rule](./concepts/rules.md#base-rules), enabled for all traffic, with the **Deny** [action type](./concepts/rules.md#rule-action).
-      * [Smart Protection rule](./concepts/rules.md#smart-protection-rules), enabled for all traffic, with the **Full protection** type.
+      * [Basic default rule](concepts/rules.md#base-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }} [action type](concepts/rules.md#rule-action).
+      * [Smart Protection rule](concepts/rules.md#smart-protection-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` action type.
 
       {% include [smart-protection-tip](../_includes/smartwebsecurity/smart-protection-tip.md) %}
 
    1. Enter the profile name, e.g., `test-sp1`.
-   1. In the **Action of the basic default rule** field, select **Deny**.
-   1. Click **Create**.
+   1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -52,10 +52,10 @@ To create a security profile:
 - Management console
 
    1. Select the `test-sp1` profile that you created earlier.
-   1. Make sure the **Security rules** tab contains a rule with the following parameters:
-      * **Type**: `Smart Protection`
-      * **Action**: `Full protection`
-      * **Condition**: `All traffic`
+   1. Make sure the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab contains a rule with the following parameters:
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.smart-web-security.overview.condition_full-trafic }}`
 
       This rule sends any traffic whose destination is the protected resource for automatic analysis using ML and behavioral analysis algorithms. As a result of automatic analysis:
       * Legitimate requests are routed to the protected resource.
@@ -70,16 +70,16 @@ To create a security profile:
 
 - Management console
 
-   1. Click ![plug](../_assets/smartwebsecurity/plug.svg) **Connect to host** at the top right.
+   1. At the top right, click ![plug](../_assets/smartwebsecurity/plug.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
    1. In the window that opens, select:
-      * [**Load balancer**](../application-load-balancer/concepts/application-load-balancer.md)
-      * [**HTTP router**](../application-load-balancer/concepts/http-router.md)
-      * [**Virtual host**](../application-load-balancer/concepts/http-router.md#virtual-host). You can connect the security profile to multiple virtual hosts at once.
+      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../application-load-balancer/concepts/application-load-balancer.md).
+      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../application-load-balancer/concepts/http-router.md).
+      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../application-load-balancer/concepts/http-router.md#virtual-host). You can connect the security profile to multiple virtual hosts at once.
 
-         To connect the profile to another L7 load balancer, click **Add load balancer**.
-   1. Click **Connect**.
+         To connect the profile to another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.
+   1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-      In the **Connected hosts** tab, you will see the connected virtual host.
+      You will see the connected virtual host under **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}**.
 
 {% endlist %}
 

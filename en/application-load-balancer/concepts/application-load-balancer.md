@@ -21,7 +21,9 @@ For the load balancer to work correctly:
 
 ## Host load balancer {#lb-location}
 
-When creating a load balancer, specify a [network](../../vpc/concepts/network.md) and [subnets](../../vpc/concepts/network.md#subnet) in [availability zones](../../overview/concepts/geo-scope.md). Those are the subnets where the load balancer's nodes will be hosted. Application backends will receive traffic from the load balancer nodes in these subnets.
+When creating a load balancer, specify a [network](../../vpc/concepts/network.md) and [subnets](../../vpc/concepts/network.md#subnet) in the [availability zones](../../overview/concepts/geo-scope.md). Those are the subnets where the load balancer's nodes will be hosted. Application backends will receive traffic from the load balancer nodes in these subnets.
+
+For a load balancer to run, make sure there are subnets in all availability zones even if you are not going to accept traffic in them. If any availability zone is missing subnets, [create](../../vpc/operations/subnet-create.md) them.
 
 See [below](#lcu-scaling-subnet-sizes) to learn what subnet sizes are recommended for load balancers.
 

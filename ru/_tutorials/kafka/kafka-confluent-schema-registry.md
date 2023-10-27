@@ -89,7 +89,7 @@
          -keystore /etc/schema-registry/client.truststore.jks \
          -alias CARoot \
          -import -file {{ crt-local-dir }}{{ crt-local-file }} \
-         -storepass <пароль защищенного хранилища сертификатов> \
+         -storepass <пароль_защищенного_хранилища_сертификатов> \
          --noprompt
     ```
 
@@ -99,7 +99,7 @@
     KafkaClient {
       org.apache.kafka.common.security.scram.ScramLoginModule required
       username="registry"
-      password="<пароль пользователя registry>";
+      password="<пароль_пользователя_registry>";
     };
     ```
 
@@ -120,9 +120,9 @@
     1. Добавьте в конец файла строки:
 
         ```ini
-        kafkastore.bootstrap.servers=SASL_SSL://<FQDN 1-го хоста-брокера:9091>,<FQDN 2-го хоста-брокера:9091>,...,<FQDN N-го хоста-брокера:9091>
+        kafkastore.bootstrap.servers=SASL_SSL://<FQDN_хоста-брокера_1:9091>,<FQDN_хоста-брокера_2:9091>,...,<FQDN_хоста-брокера_N:9091>
         kafkastore.ssl.truststore.location=/etc/schema-registry/client.truststore.jks
-        kafkastore.ssl.truststore.password=<пароль защищенного хранилища сертификатов>
+        kafkastore.ssl.truststore.password=<пароль_защищенного_хранилища_сертификатов>
         kafkastore.sasl.mechanism=SCRAM-SHA-512
         kafkastore.security.protocol=SASL_SSL
         ```
@@ -190,17 +190,17 @@
     c = AvroConsumer(
         {
             "bootstrap.servers": ','.join([
-                "<FQDN 1-го хоста-брокера>:9091",
+                "<FQDN_хоста-брокера_1>:9091",
                 ...
-                "<FQDN N-го хоста-брокера>:9091",
+                "<FQDN_хоста-брокера_N>:9091",
             ]),
             "group.id": "avro-consumer",
             "security.protocol": "SASL_SSL",
             "ssl.ca.location": "{{ crt-local-dir }}{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
-            "sasl.password": "<пароль пользователя user>",
-            "schema.registry.url": "http://<FQDN или IP-адрес сервера Confluent Schema Registry>:8081",
+            "sasl.password": "<пароль_пользователя_user>",
+            "schema.registry.url": "http://<FQDN_или_IP-адреc_сервера_Confluent_Schema_Registry>:8081",
         }
     )
 
@@ -285,17 +285,17 @@
     avroProducer = AvroProducer(
         {
             "bootstrap.servers": ','.join([
-                "<FQDN 1-го хоста-брокера>:9091",
+                "<FQDN_хоста-брокера_1>:9091",
                 ...
-                "<FQDN N-го хоста-брокера>:9091",
+                "<FQDN_хоста-брокера_N>:9091",
             ]),
             "security.protocol": "SASL_SSL",
             "ssl.ca.location": "{{ crt-local-dir }}{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
-            "sasl.password": "<пароль пользователя user>",
+            "sasl.password": "<пароль_пользователя_user>",
             "on_delivery": delivery_report,
-            "schema.registry.url": "http://<FQDN или IP-адрес сервера Schema Registry>:8081",
+            "schema.registry.url": "http://<FQDN_или_IP-адрес_сервера_Schema_Registry>:8081",
         },
         default_key_schema=key_schema,
         default_value_schema=value_schema,

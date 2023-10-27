@@ -119,8 +119,8 @@
 
     ```config
     [default]
-    accessid = "<идентификатор статического ключа>"
-    secret = "<статический ключ>"
+    accessid = "<идентификатор_статического_ключа>"
+    secret = "<статический_ключ>"
     threadnum = 4
     chunksize = 67108864
     low_speed_limit = 10240
@@ -174,7 +174,7 @@
 
     ```sql
     CREATE READABLE EXTERNAL TABLE s3_ext_table(id int, year int)
-    LOCATION('s3://{{ s3-storage-host }}/<имя бакета>/example.csv config_server=http://<внутренний IP-адрес виртуальной машины>:8553/s3.config region={{ region-id }}-a')
+    LOCATION('s3://{{ s3-storage-host }}/<имя_бакета>/example.csv config_server=http://<внутренний_IP-адрес_виртуальной_машины>:8553/s3.config region={{ region-id }}-a')
     FORMAT 'csv';
     ```
 

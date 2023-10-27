@@ -17,10 +17,10 @@ To calculate the cost of using {{ objstorage-name }}, use [our calculator]({{ li
 
 The {{ objstorage-name }} usage cost is based on:
 
-* [Storage class](concepts/storage-class.md).
-* Amount of storage used by your data.
-* Number of operations with your data.
-* Amount of outgoing traffic.
+* [Storage class](concepts/storage-class.md)
+* Amount of storage used by your data
+* Number of operations on your data
+* Amount of outgoing traffic
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -34,10 +34,10 @@ Storage usage is measured in GB per month. The volume of the data stored during 
 
 ### Performing operations with data {#rules-operations}
 
-Data operations are charged according to the following policy:
-* The minimum pricing unit for PUT and POST operations is 10.
+Data operations are billed according to the following policy:
+* The minimum billing unit for PUT and POST operations is 10.
 * The minimum billing unit for GET, HEAD, and OPTIONS operations is 100.
-* You are not charged for deleting data (DELETE operation).
+* You are not charged for deleting data (the DELETE operation).
 
 ## Pricing {#prices}
 

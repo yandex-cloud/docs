@@ -87,7 +87,7 @@ You can stop a resource by disabling end-user access to the content. To do this:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and add or edit the `yandex_cdn_resource` section setting `active = false`.
 

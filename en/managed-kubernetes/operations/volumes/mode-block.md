@@ -1,6 +1,10 @@
 # Mounting a volume in Block mode
 
-To connect a [volume in](../../concepts/volume.md#block) `volumeMode: Block`, perform the following steps.
+To mount a volume in the `volumeMode: Block` [mode](../../concepts/volume.md#block):
+1. [{#T}](#create-pvc)
+1. [{#T}](#create-pod)
+
+{% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
 ## Create a PersistentVolumeClaim object {#create-pvc}
 

@@ -14,7 +14,7 @@ A _node_ is an isolated group of specially created VMs (_instances_) the computi
 
 {% endnote %}
 
-You can access the nodes using the API. API requests can change the state of the node's interpreter. To return to the initial state, you will have to recreate the entire node.
+You can access the nodes using the API. API requests can change the state of the node interpreter. To return to the initial state, you will have to recreate the entire node.
 
 {% note info %}
 
@@ -41,7 +41,7 @@ To use {{ container-registry-full-name }}, the project service account needs the
 
 {% endnote %}
 
-When creating a node from a Docker image, you set, on your own, the node's API, the port your service will use, the connection time, the format of metrics to collect, and other parameters. Once the node is created, {{ ml-platform-name }} will track its state, maintain the performance of instances, and, if required, scale the node within the instance range specified.
+When creating a node from a Docker image, you set, on your own, the node's API, the port your service will use, the connection time, the format of metrics to collect, and other parameters. Once the node is created, {{ ml-platform-name }} will track its state, maintain the performance of instances, and, if required, scale the node within the specified instance range.
 
 ### Node statuses {#statuses}
 

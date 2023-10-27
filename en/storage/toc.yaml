@@ -35,6 +35,8 @@ items:
             href: operations/buckets/configure-object-lock.md
           - name: Bucket label management
             href: operations/buckets/tagging.md
+          - name: Getting bucket information and statistics
+            href: operations/buckets/get-info.md
       - name: Objects
         items:
           - name: Uploading an object

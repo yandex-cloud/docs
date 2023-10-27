@@ -89,7 +89,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the CDN resource to create:
 
@@ -129,12 +129,12 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
       Where:
 
       * `cname`: Primary domain name used for content distribution. This is a required parameter.
-      * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. This is an optional parameter, the default value is `true`.
-      * `origin_protocol`: Origin protocol. This is an optional parameter, the default value is `http`.
+      * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. This is an optional parameter. The default value is `true`.
+      * `origin_protocol`: Origin protocol. This is an optional parameter. The default value is `http`.
       * `secondary_hostnames`: Additional domain names. This is an optional parameter.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
-         * `slice`: Flag indicating whether segmentation will be used. This is an optional parameter, the default value is `false`.
+         * `slice`: Flag indicating whether segmentation will be used. This is an optional parameter. The default value is `false`.
 
       For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
