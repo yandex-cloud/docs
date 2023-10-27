@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><g fill="none" fill-rule="evenodd"><rect width="4" height="5.5" x="4" y="13.5" fill="#1A82E3" rx="1"/><rect width="4" height="9.5" x="10" y="9.5" fill="#1A82E3" rx="1"/><rect width="4" height="14" x="16" y="5" fill="#FC4F51" rx="1"/></g></svg>
+<svg  width="24" height="24"  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" fill-rule="evenodd">
+        <rect fill="#1A82E3" x="4" y="13.5" width="4" height="5.5" rx="1"></rect>
+        <rect fill="#1A82E3" x="10" y="9.5" width="4" height="9.5" rx="1">
+        </rect><rect fill="#FC4F51" x="16" y="5" width="4" height="14" rx="1"></rect>
+    </g></svg>
