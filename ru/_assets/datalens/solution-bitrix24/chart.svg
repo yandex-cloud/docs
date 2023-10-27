@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path fill="#D8D8D8" d="M0 0h24v24H0z" opacity=".01"/><path fill="#1E88E5" fill-rule="evenodd" d="M5 0a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-6-6H5Z" clip-rule="evenodd"/><path fill="#fff" fill-rule="evenodd" d="M17 12a5 5 0 1 1-5-5v5h5Z" clip-rule="evenodd" opacity=".9"/><path fill="#fff" fill-rule="evenodd" d="M17.9 10.1H14V6.2a5.006 5.006 0 0 1 3.9 3.9Z" clip-rule="evenodd" opacity=".9"/><path fill="#105FCC" fill-rule="evenodd" d="M17 6h4l-6-6v4a2 2 0 0 0 2 2Z" clip-rule="evenodd"/></svg>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect opacity="0.01" width="24" height="24" fill="#D8D8D8"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5 0C3.89543 0 3 0.89543 3 2V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6L15 0H5Z" fill="#1E88E5"/>
+<path opacity="0.9" fill-rule="evenodd" clip-rule="evenodd" d="M17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12C7 9.23858 9.23858 7 12 7V12H17Z" fill="white"/>
+<path opacity="0.9" fill-rule="evenodd" clip-rule="evenodd" d="M17.9 10.1002H14V6.2002C15.9591 6.59788 17.5023 8.14105 17.9 10.1002Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17 6H21L15 0V4C15 5.10457 15.8954 6 17 6Z" fill="#105FCC"/>
+</svg>
