@@ -144,7 +144,7 @@
     snapshot.mode=always
     ```
 
-    Здесь:
+    Где:
 
     * `name` — логическое имя коннектора Debezium. Используется для внутренних нужд коннектора.
     * `database.hostname` — [особый FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.

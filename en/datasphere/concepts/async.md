@@ -1,6 +1,6 @@
 # Background operations
 
-In the [{{ ds }} mode](project.md#serverless) in {{ ml-platform-name }}, you can run such time-consuming operations as model training, in the background. To do this, use special cells where your code is executed asynchronously. In this case, you can continue working with a notebook.
+In [{{ ds }} mode](project.md#serverless) in {{ ml-platform-name }}, you can run such time-consuming operations as model training, in the background. To do this, use special cells where your code is executed asynchronously. In this case, you can continue working with a notebook.
 
 If another part of a notebook uses the same variable as an asynchronous operation, a notification appears in the notebook, and you will need to specify the variable value explicitly when the asynchronous operation is complete.
 
@@ -14,13 +14,13 @@ Specifics of background operations:
 * Running operations in the background does not guarantee their immediate execution.
 * In general, background operations may take longer than regular ones.
 * Background operations can run on [preemptible](../../compute/concepts/preemptible-vm.md) virtual machines and resources.
-* Any background operations are suspended if there is an attempt to call interactive functions (such as, `input()` or `getpass()`).
-* Different pricing policies apply to background operations. For more information, see [{#T}](../pricing.md).
-* Cells with running background operations have read-only access to project storage. If there is a conflict in variable values after a background operation completes, {{ ml-platform-name }} will ask whether to save the computation result or to roll back to the previous values.
+* Any background operations are suspended if there is an attempt to run interactive functions (such as, `input()` or `getpass()`).
+* Background operations are priced differently. For more information, see [{#T}](../pricing.md).
+* Cells with running background operations have read-only access to project storage. If there is a conflict in variable values after a background operation is complete, {{ ml-platform-name }} will ask whether to save the computation result or to roll back to the previous values.
 
    {% note tip %}
 
-   Use object storage to save data during a background operation (such as logs or intermediate results). For a description of S3 storage usage in {{ ml-platform-name }} projects, see [{#T}](../operations/data/connect-to-s3.md).
+   Use object storage to save data, such as logs or intermediate results, during a background operation. To learn how to use S3 storage in {{ ml-platform-name }} projects, see [{#T}](../operations/data/connect-to-s3.md).
 
    {% endnote %}
 

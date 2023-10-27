@@ -1,6 +1,6 @@
-# Creating HTTP router for HTTP traffic
+# Creating an HTTP router for HTTP traffic
 
-To create an HTTP router and add a route to it:
+To create an [HTTP router](../concepts/http-router.md) and add a [route](../concepts/http-router.md#routes) to it:
 
 {% list tabs %}
 
@@ -189,7 +189,7 @@ To create an HTTP router and add a route to it:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, specify the parameters of the HTTP router and virtual host:
 

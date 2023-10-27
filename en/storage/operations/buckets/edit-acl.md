@@ -71,7 +71,7 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
        ```
 
        Where:
-       * `grant-type`: Type of permission grantee. Possible values:
+       * `grant-type`: Type of the permission grantee. The possible values include:
          * `grant-type-account`: User or service account.
          * `grant-type-all-authenticated-users`: [System group](../../concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
          * `grant-type-all-users`: System group of all internet users.
@@ -100,7 +100,7 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
@@ -129,19 +129,19 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
 
       * `access_key`: ID of the static access key.
       * `secret_key`: Value of the secret access key.
-      * `bucket`: Bucket name. This parameter is required.
+      * `bucket`: Bucket name. This is a required parameter.
       * `grant`: [ACL](../../concepts/acl.md). This is an optional parameter. For access management, use a service account with administrator rights.
          * `id`: User ID.
          * `type`: System group type.
          * `permissions`: Types of permissions according to the [ACL](../../concepts/acl.md#permissions-types).
          * `uri`: System group ID.
 
-      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
          ```
          terraform plan
          ```
@@ -157,7 +157,7 @@ To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name
 
       1. Confirm that you want to create the resources.
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API
 

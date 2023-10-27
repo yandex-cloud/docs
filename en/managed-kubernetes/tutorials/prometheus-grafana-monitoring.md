@@ -2,25 +2,23 @@
 
 {{ managed-k8s-name }} enables you to upload cluster object metrics to monitoring systems.
 
-In this article, you will learn how to set up the [{{ prometheus-name }}](https://prometheus.io/) metrics collection system and [{{ grafana-name }}](https://grafana.com/) visualization system in a {{ managed-k8s-name }} [cluster](../concepts/index.md#kubernetes-cluster). The [trickster caching proxy](https://github.com/trickstercache/trickster) will be installed to speed up the transfer of metrics.
+In this article, you will learn how to set up the [{{ prometheus-name }}](https://prometheus.io/) metrics collection system and the [{{ grafana-name }}](https://grafana.com/) visualization system in a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster). The [Trickster caching proxy](https://github.com/trickstercache/trickster) will be installed to speed up the transfer of metrics.
 
-To set up the {{ k8s }} cluster monitoring system:
-* [{#T}](#install-prometheus).
-* [{#T}](#install-trickster).
-* [{#T}](#install-grafana).
-* [{#T}](#configure-grafana).
+To set up the {{ managed-k8s-name }} cluster monitoring system:
+* [{#T}](#install-prometheus)
+* [{#T}](#install-trickster)
+* [{#T}](#install-grafana)
+* [{#T}](#configure-grafana)
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with internet access.
-
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-
 1. {% include [Install Helm](../../_includes/managed-kubernetes/helm-install.md) %}
 
 ## Install {{ prometheus-name }} {#install-prometheus}
 
-The {{ prometheus-name }} monitoring system scans {{ k8s }} cluster objects and collects their metrics into its own database. The collected metrics are available within the cluster over HTTP.
+The {{ prometheus-name }} monitoring system scans {{ managed-k8s-name }} cluster objects and collects their metrics into its own database. The collected metrics are available within the {{ managed-k8s-name }} cluster over HTTP.
 1. Add a repository containing the {{ prometheus-name }} distribution:
 
    ```bash
@@ -34,13 +32,13 @@ The {{ prometheus-name }} monitoring system scans {{ k8s }} cluster objects and 
    helm install my-prom prometheus-community/prometheus
    ```
 
-1. Make sure that all the pods changed their status to `Running`:
+1. Make sure that all the [pods](../concepts/index.md#pod) changed their status to `Running`:
 
    ```bash
-   kubectl get pods -l "app=prometheus"
+   kubectl get pods -l "app.kubernetes.io/instance=my-prom"
    ```
 
-   Command result:
+   Result:
 
    ```text
    NAME                                              READY  STATUS   RESTARTS  AGE
@@ -50,17 +48,17 @@ The {{ prometheus-name }} monitoring system scans {{ k8s }} cluster objects and 
    my-prom-prometheus-server-7b4c958476-m4v78        2/2    Running  0         81s
    ```
 
-## Install the trickster caching proxy {#install-trickster}
+## Install the Trickster caching proxy {#install-trickster}
 
-Trickster [speeds up reading](https://github.com/trickstercache/trickster#time-series-database-accelerator) from a {{ prometheus-name }} database, which enables the display of near real-time {{ grafana-name }} metrics and reduces the load on {{ prometheus-name }}.
-1. Add a repository containing the trickster distribution:
+The Trickster caching proxy [speeds up reading](https://github.com/trickstercache/trickster#time-series-database-accelerator) from a {{ prometheus-name }} database, which enables the display of near real-time {{ grafana-name }} metrics and reduces the load on {{ prometheus-name }}.
+1. Add a repository containing the Trickster distribution:
 
    ```bash
    helm repo add tricksterproxy https://helm.tricksterproxy.io && \
    helm repo update
    ```
 
-1. Create a `trickster.yaml` configuration file with the following trickster settings:
+1. Create a `trickster.yaml` configuration file with the following Trickster settings:
 
    {% cut "trickster.yaml" %}
 
@@ -132,13 +130,13 @@ Trickster [speeds up reading](https://github.com/trickstercache/trickster#time-s
    helm install trickster tricksterproxy/trickster --namespace default -f trickster.yaml
    ```
 
-1. Make sure the trickster pod status changed to `Running`:
+1. Make sure the Trickster pod status changed to `Running`:
 
    ```bash
    kubectl get pods -l "app=trickster"
    ```
 
-The caching proxy is available in the cluster at `http://trickster:8480`. {{ grafana-name }} will use this URL to collect metrics.
+The caching proxy is available in the {{ managed-k8s-name }} cluster at `http://trickster:8480`. {{ grafana-name }} will use this URL to collect metrics.
 
 ## Install {{ grafana-name }} {#install-grafana}
 
@@ -282,6 +280,5 @@ To install {{ grafana-name }}:
 ## Delete the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
-
-1. [Delete a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you reserved a [public static IP address](../../vpc/concepts/address.md#public-addresses) for the cluster, [delete it](../../vpc/operations/address-delete.md).
+1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. If you reserved a [public static IP address](../../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).

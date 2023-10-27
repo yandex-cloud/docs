@@ -54,7 +54,7 @@ FROM mdb_toolkit.pg_stat_activity();
 
 ```sql
 SELECT *
-FROM mdb_toolkit.gp_cancel_backend(<идентификатор процесса>,<текст сообщения>);
+FROM mdb_toolkit.gp_cancel_backend(<идентификатор_процесса>,<текст_сообщения>);
 ```
 
 Идентификатор процесса можно получить со [списком процессов в кластере](#list). Текст сообщения необязателен и передается клиенту при выполнении функции.
@@ -65,7 +65,7 @@ FROM mdb_toolkit.gp_cancel_backend(<идентификатор процесса>
 
 ```sql
 SELECT *
-FROM mdb_toolkit.gp_terminate_backend(<идентификатор процесса>,<текст сообщения>);
+FROM mdb_toolkit.gp_terminate_backend(<идентификатор_процесса>,<текст_сообщения>);
 ```
 
 Идентификатор процесса можно получить со [списком процессов в кластере](#list). Текст сообщения необязателен и передается клиенту при выполнении функции.
@@ -82,8 +82,8 @@ FROM mdb_toolkit.gp_terminate_backend(<идентификатор процесс
 1. Установите количество параллельных транзакций для [ресурсной группы](../../managed-greenplum/concepts/resource-groups.md):
 
     ```sql
-    ALTER RESOURCE GROUP <имя ресурсной группы>
-    SET concurrency <количество параллельных транзакций>;
+    ALTER RESOURCE GROUP <имя_ресурсной_группы>
+    SET concurrency <количество_параллельных_транзакций>;
     ```
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

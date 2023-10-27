@@ -9,12 +9,14 @@ To install HashiCorp Vault:
 1. [Install HashiCorp Vault](#install).
 1. [Initialize the vault](#vault-init).
 
+{% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
+
 ## Creating a service account and keys {#sa-keys-create}
 
 To use HashiCorp Vault, you need:
-* A [service account](../../../iam/concepts/users/service-accounts.md) with the `kms.keys.encrypterDecrypter` [role](../../../iam/concepts/access-control/roles.md).
-* An [authorized key](../../../iam/concepts/authorization/key.md).
-* A [symmetric encryption key](../../../kms/concepts/key.md).
+* [Service account](../../../iam/concepts/users/service-accounts.md) with the `kms.keys.encrypterDecrypter` [role](../../../iam/concepts/access-control/roles.md)
+* [Authorized key](../../../iam/concepts/authorization/key.md)
+* [Symmetric encryption key](../../../kms/concepts/key.md).
 1. [Create a service account](../../../iam/operations/sa/create.md):
 
    ```bash
@@ -43,7 +45,7 @@ To use HashiCorp Vault, you need:
 
    ```bash
    yc resource-manager folder add-access-binding \
-     --id <folder ID> \
+     --id <folder_ID> \
      --service-account-name vault-kms \
      --role kms.keys.encrypterDecrypter
    ```
@@ -52,8 +54,8 @@ To use HashiCorp Vault, you need:
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the folder page and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
+1. Click the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) name and open the **{{ marketplace-short-name }}** tab.
 1. Under **Applications available for installation**, select [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms-k8s) and click **Use**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
@@ -65,14 +67,13 @@ To use HashiCorp Vault, you need:
 ## Installation using a Helm chart {#helm-install}
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
-
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with HashiCorp Vault, run the following command:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat authorized-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
-     --version <Helm chart version> \
+   helm pull oci://{{ mkt-k8s-key.yc_vault-yckms-k8s.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_vault-yckms-k8s.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <namespace> \
@@ -80,8 +81,6 @@ To use HashiCorp Vault, you need:
      --set-file yandexKmsAuthJson=authorized-key.json \
      hashicorp ./vault/
    ```
-
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/vault-yckms-k8s#docker-images).
 
    This command also creates a new namespace required for HashiCorp Vault.
 
@@ -108,7 +107,7 @@ To initialize the vault:
 
    ```text
    NAME              READY  STATUS   RESTARTS  AGE
-   <vault pod name>  0/1    Running  0         58s
+   <vault_pod_name>  0/1    Running  0         58s
    ```
 
 1. Initialize the vault:
@@ -116,7 +115,7 @@ To initialize the vault:
    ```bash
    kubectl exec \
      --stdin=true \
-     --tty=true <vault pod name> \
+     --tty=true <vault_pod_name> \
      -- vault operator init
    ```
 
@@ -127,6 +126,7 @@ To initialize the vault:
    Recovery Key 2: S0kcValC6qSfEI4WJBovSbJWZntBUwtTrtisSIcS3n0e
    Recovery Key 3: t44ZRqbzLZNzfChinZNzLCNnwvFN/R52vbDq/UueHPPg
    ...
+
    Recovery key initialized with 5 key shares and a key threshold of 3. Please
    securely distribute the key shares printed above.
    ```
@@ -143,3 +143,8 @@ To initialize the vault:
    NAME               READY  STATUS   RESTARTS  AGE
    vault-yckms-k8s-0  1/1    Running  0         5m
    ```
+
+## See also {#see-also}
+
+* [HashiCorp Vault documentation](https://developer.hashicorp.com/vault/docs?product_intent=vault).
+* [{{ kms-name }} documentation](../../../kms/).

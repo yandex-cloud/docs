@@ -21,7 +21,10 @@
           * `{{ ui-key.yacloud.smartcaptcha.value_complexity-hard }}` — сложное задание.
 
           Пример задания можно посмотреть в окне предпросмотра.
-      * **{{ ui-key.yacloud.smartcaptcha.label_allowed-sites }}** — в формате IP-адресов или доменных имен. Указываются без `http`, `htpps` и без `/` в конце, например, `example.com`. Доменные имена распространяются и на поддомены без символа wildcard (`*`).
+      * **{{ ui-key.yacloud.smartcaptcha.label_allowed-sites }}** — в формате IP-адресов или доменных имен. Указываются без `http`, `https` и без `/` в конце, например, `example.com`.
+
+          Капча будет работать и во всех поддоменах указанных доменных имен.
+
       * **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** — готовый внешний вид кнопки **Я не робот** и окна с заданием:
           * `{{ ui-key.yacloud.smartcaptcha.value_config-standard }}` — внешний вид по умолчанию.
           * `Серый`.

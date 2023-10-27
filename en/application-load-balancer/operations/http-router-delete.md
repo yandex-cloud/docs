@@ -1,6 +1,6 @@
 ---
 title: "How to delete an HTTP router"
-description: "This guide describes how you can delete an HTTP router."
+description: "Follow this guide to delete an HTTP router."
 ---
 
 # Deleting an HTTP router
@@ -51,7 +51,7 @@ To delete an HTTP router:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To delete an HTTP router or virtual host created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the HTTP router or virtual host description (the `yandex_alb_http_router` and `yandex_alb_virtual_host` resources, respectively).

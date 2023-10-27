@@ -1,15 +1,10 @@
 # Expanding a StatefulSet controller volume
 
-To increase the size of a [volume](../../concepts/volume.md) for the StatefulSet controller:
-1. [{#T}](#create-sts).
-1. [{#T}](#upgrade-sts).
-1. [{#T}](#create-upgraded-sts).
+To increase the size of a [volume](../../concepts/volume.md) for the StatefulSet controller without shutting down the service:
+1. [{#T}](#create-sts)
+1. [{#T}](#upgrade-sts)
 
-{% note warning %}
-
-While the instruction is running, the number of the controller's [pods](../../concepts/index.md#pod) will drop to zero, which will make the service unavailable.
-
-{% endnote %}
+{% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
 ## Create a StatefulSet controller {#create-sts}
 
@@ -64,9 +59,8 @@ While the instruction is running, the number of the controller's [pods](../../co
    kubectl apply -f sts.yaml
    ```
 
-   The command will create a StatefulSet controller named `ubuntu-test` comprising three pods. The size of PersistentVolumeClaim for each pod is 1 GB.
-
-1. Make sure that the controller's pods have transitioned to the `Running` state and PersistentVolumeClaim to `Bound`:
+   The command will create a StatefulSet controller named `ubuntu-test` comprising three [pods](../../concepts/index.md#pod). The size of PersistentVolumeClaim per pod is 1 GB.
+1. Make sure the controller pod status changed to `Running` and PersistentVolumeClaim, to `Bound`:
 
    ```bash
    kubectl get pods,pvc
@@ -89,27 +83,29 @@ While the instruction is running, the number of the controller's [pods](../../co
 
 
 
-1. Make sure that for objects with the `k8s-csi` prefix, the disks have transitioned to `READY` status:
+1. Make sure that for objects with the `k8s-csi` prefix, the [disk](../../../compute/concepts/disk.md) status changed to `READY`:
 
    ```bash
    yc compute disk list
    ```
 
-   Command result:
+   Result:
 
+   
    ```text
-   +----------------------+--------------------------------------------------+-------------+-------------------+--------+----------------------+-------------+
-   |          ID          |                       NAME                       |    SIZE     |       ZONE        | STATUS |     INSTANCE IDS     | DESCRIPTION |
-   +----------------------+--------------------------------------------------+-------------+-------------------+--------+----------------------+-------------+
-   | ef3b5ln111s36h0ugf7c | k8s-csi-15319ac44278c2ff23f0df04ebdbe5a8aa6f4a49 |  1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
-   | ef3e617rmqrijnesob0n | k8s-csi-336f16a11f750525075d7c155ad26ae3513dca01 |  1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
-   | ef3rfleqkit01i3d2j41 | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e279fd3b6 |  1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
-   +----------------------+--------------------------------------------------+-------------+-------------------+--------+----------------------+-------------+
+   +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
+   |          ID          |                       NAME                       |    SIZE    |        ZONE       | STATUS |     INSTANCE IDS     | DESCRIPTION |
+   +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
+   | ef3b5ln111s36h0ugf7c | k8s-csi-15319ac44278c2ff23f0df04ebdbe5a8aa6f4a49 | 1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
+   | ef3e617rmqrijnesob0n | k8s-csi-336f16a11f750525075d7c155ad26ae3513dca01 | 1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
+   | ef3rfleqkit01i3d2j41 | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e279fd3b6 | 1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
+   +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
    ```
+
 
 ## Make changes to controller settings {#upgrade-sts}
 
-1. Save the current `ubuntu-test` controller configuration to a file called `ubuntu-test-sts.yaml`:
+1. Save the current `ubuntu-test` controller configuration to a file named `ubuntu-test-sts.yaml`:
 
    ```bash
    kubectl get sts ubuntu-test --output yaml > ubuntu-test-sts.yaml
@@ -133,85 +129,56 @@ While the instruction is running, the number of the controller's [pods](../../co
 
    {% endnote %}
 
-1. Reduce the number of `ubuntu-test` controller pods to zero:
-
-   ```bash
-   kubectl scale statefulset ubuntu-test --replicas=0
-   ```
-
-1. Wait for the controller to complete scaling. To monitor the status of pod deletion, use the command below:
-
-   ```bash
-   kubectl get pods
-   ```
-
-   The controller has finished scaling when there are no pods with the `pod/ubuntu-test-` prefix in the command result.
-
-1. Make sure that for objects with the `k8s-csi` prefix, the disks have an empty `INSTANCE IDS`:
-
-   ```bash
-   yc compute disk list
-   ```
-
-   Result:
-
-   ```text
-    +----------------------+--------------------------------------------------+-------------+--------------------+--------+----------------------+-------------+
-    |          ID          |                       NAME                       |    SIZE     |        ZONE        | STATUS |     INSTANCE IDS     | DESCRIPTION |
-    +----------------------+--------------------------------------------------+-------------+--------------------+--------+----------------------+-------------+
-    | ef3b5ln111s36h0ugf7c | k8s-csi-15319ac44278c2ff23f0df04ebdbe5a8aa6f4a49 |  1073741824 | {{ region-id }}-a  | READY  |                      |             |
-    | ef3e617rmqrijnesob0n | k8s-csi-336f16a11f750525075d7c155ad26ae3513dca01 |  1073741824 | {{ region-id }}-a  | READY  |                      |             |
-    | ef3rfleqkit01i3d2j41 | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e279fd3b6 |  1073741824 | {{ region-id }}-a  | READY  |                      |             |
-    +----------------------+--------------------------------------------------+-------------+--------------------+--------+----------------------+-------------+
-   ```
-
 1. Delete the current `ubuntu-test` StatefulSet controller:
 
    ```bash
    kubectl delete statefulset ubuntu-test --cascade=orphan
    ```
 
-1. Make sure that the StatefulSet controller is deleted:
+1. Make sure the StatefulSet controller has been deleted:
 
    ```bash
    kubectl get sts
    ```
 
-## Create a controller with new PersistentVolumeClaim settings {#create-upgraded-sts}
-
-1. Update the settings for each PersistentVolumeClaim controller:
+1. Delete the first pod, `ubuntu-test-0`:
 
    ```bash
-   kubectl patch pvc pvc-dynamic-ubuntu-test-0 --patch '{"spec": {"resources": {"requests": {"storage": "2Gi"}}}}' && \
-   kubectl patch pvc pvc-dynamic-ubuntu-test-1 --patch '{"spec": {"resources": {"requests": {"storage": "2Gi"}}}}' && \
-   kubectl patch pvc pvc-dynamic-ubuntu-test-2 --patch '{"spec": {"resources": {"requests": {"storage": "2Gi"}}}}'
+   kubectl delete pod ubuntu-test-0
    ```
 
-1. Create a StatefulSet controller with more storage:
+1. Make changes to the PersistentVolumeClaim of the deleted `ubuntu-test-0` pod by increasing the storage size to 2 GB:
+
+   ```bash
+   kubectl patch pvc pvc-dynamic-ubuntu-test-0 --patch '{"spec": {"resources": {"requests": {"storage": "2Gi"}}}}'
+   ```
+
+1. Apply the changes to the `ubuntu-test` controller:
 
    ```bash
    kubectl apply -f ubuntu-test-sts.yaml
    ```
 
-1. Make sure that a new StatefulSet controller comprising three pods has been created:
+1. Reduce the number of the `ubuntu-test` controller pods to 1:
 
    ```bash
-   kubectl get sts,pods
+   kubectl scale statefulset ubuntu-test --replicas=1
    ```
 
-   Result:
+1. Increase the storage size for the `ubuntu-test-1` and `ubuntu-test-2` pods to 2 GB:
 
-   ```text
-   NAME                           READY   AGE
-   statefulset.apps/ubuntu-test   3/3     15s
-
-   NAME                READY   STATUS    RESTARTS   AGE
-   pod/ubuntu-test-0   1/1     Running   0          16s
-   pod/ubuntu-test-1   1/1     Running   0          13s
-   pod/ubuntu-test-2   1/1     Running   0          10s
+   ```bash
+   kubectl patch pvc pvc-dynamic-ubuntu-test-1 --patch '{"spec": {"resources": {"requests": {"storage": "2Gi"}}}}' && \
+   kubectl patch pvc pvc-dynamic-ubuntu-test-2 --patch '{"spec": {"resources": {"requests": {"storage": "2Gi"}}}}'
    ```
 
-1. Make sure that PersistentVolume for the `ubuntu-test` controller has increased to 2 GB for each volume:
+1. Set the number of the `ubuntu-test` controller pods back to 3:
+
+   ```bash
+   kubectl scale statefulset ubuntu-test --replicas=3
+   ```
+
+1. Make sure PersistentVolume for the `ubuntu-test` controller has increased to 2 GB for each volume:
 
    ```bash
    kubectl get pv
@@ -226,5 +193,3 @@ While the instruction is running, the number of the controller's [pods](../../co
    pvc-a6fb0761-0771-483c-abfb-d4a89ec4719f   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-1   yc-network-hdd            11m
    pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-2   yc-network-hdd            11m
    ```
-
-

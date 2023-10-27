@@ -7,14 +7,15 @@ To use {{ CSI }} capabilities:
 1. [Configure {{ CSI }}](#configure-csi).
 
 See also:
-* [Using {{ CSI }} with a `PersistentVolume`](#csi-usage).
-* [Examples of creating a `PersistentVolume`](#examples).
+* [Using {{ CSI }} with a `PersistentVolume`](#csi-usage)
+* [Examples of creating a `PersistentVolume`](#examples)
 
 ## Setting up a runtime environment {#create-environment}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.editor` [role](../../../iam/concepts/access-control/roles.md).
 1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/index.md#sa). Save the key ID and secret key, as you will need them when installing {{ CSI }}.
-1. [Create a {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md) that will be mounted to a `PersistentVolume`. Save the bucket name, as you will need it when installing {{ CSI }}.
+1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md) that will be mounted to a `PersistentVolume`. Save the bucket name, as you will need it when installing {{ CSI }}.
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Set up {{ CSI }} {#configure-csi}
 
@@ -43,8 +44,8 @@ See also:
         namespace: kube-system
         name: csi-s3-secret
       stringData:
-        accessKeyID: <access key ID>
-        secretAccessKey: <secret key>
+        accessKeyID: <access_key_ID>
+        secretAccessKey: <secret_key>
         endpoint: https://{{ s3-storage-host }}
       ```
 
@@ -61,7 +62,7 @@ See also:
       parameters:
         mounter: geesefs
         options: "--memory-limit=1000 --dir-mode=0777 --file-mode=0666"
-        bucket: <optional: existing bucket name>
+        bucket: <optional:_existing_bucket_name>
         csi.storage.k8s.io/provisioner-secret-name: csi-s3-secret
         csi.storage.k8s.io/provisioner-secret-namespace: kube-system
         csi.storage.k8s.io/controller-publish-secret-name: csi-s3-secret
@@ -84,7 +85,7 @@ See also:
       ```bash
       kubectl create -f secret.yaml && \
       kubectl create -f k8s-csi-s3/deploy/kubernetes/provisioner.yaml && \
-      kubectl create -f k8s-csi-s3/deploy/kubernetes/attacher.yaml && \
+      kubectl create -f k8s-csi-s3/deploy/kubernetes/driver.yaml && \
       kubectl create -f k8s-csi-s3/deploy/kubernetes/csi-s3.yaml && \
       kubectl create -f storageclass.yaml
       ```
@@ -100,9 +101,10 @@ With {{ CSI }} configured, there are certain things to note about creating stati
 ### Dynamic PersistentVolume {#dpvc-csi-usage}
 
 For a dynamic `PersistentVolume`:
-* Specify the name of the desired storage class in the `spec.storageClassName` parameter when creating a `PersistentVolumeClaim`.
+* Specify the name of the storage class in the `spec.storageClassName` parameter when creating a `PersistentVolumeClaim`.
 * If required, specify a bucket name in the `bucket` parameter when [creating a storage class](#configure-csi). This affects {{ CSI }} behavior:
   * If you specified a bucket name in the `bucket` parameter when configuring your storage class, {{ CSI }} will create a separate folder in this bucket for each created `PersistentVolume`.
+
     {% note info %}
 
     This setting can be useful if the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) enforces strict [quotas]({{ link-console-quotas }}) on the number of {{ objstorage-name }} buckets.
@@ -161,7 +163,6 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
       {% endcut %}
 
       If necessary, change the requested storage size in the `spec.resources.requests.storage` parameter value.
-
    1. Create a `PersistentVolumeClaim`:
 
       ```bash
@@ -178,7 +179,7 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
 
       ```text
       NAME                STATUS  VOLUME                    CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-      csi-s3-pvc-dynamic  Bound   pvc-<dynamic bucket name> 5Gi       RWX           csi-s3        73m
+      csi-s3-pvc-dynamic  Bound   pvc-<dynamic_bucket_name> 5Gi       RWX           csi-s3        73m
       ```
 
 1. Create a pod to test your dynamic `PersistentVolume`.
@@ -222,11 +223,10 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
       kubectl get pods
       ```
 
-   While running, the pod will execute the `date` command several times and it write its result to a file named `/data/s3-dynamic/dynamic-date.txt`. You will find this file in the bucket.
-
+   While running, the pod will execute the `date` command several times and write its result to a file named `/data/s3-dynamic/dynamic-date.txt`. You will find this file in the bucket.
 1. Make sure that the file is in the bucket:
    1. Go to the folder page and select **{{ objstorage-name }}**.
-   1. Click the `pvc-<dynamic bucket name>` bucket.
+   1. Click the `pvc-<dynamic_bucket_name>` bucket.
 
 ### Static PersistentVolume {#create-static-pvc}
 
@@ -256,7 +256,6 @@ To use {{ CSI }} with a static `PersistentVolume`:
       {% endcut %}
 
       If necessary, change the requested storage size in the `spec.resources.requests.storage` parameter value.
-
    1. Create a file named `pv-static.yaml` containing a description of your static `PersistentVolume`:
 
       {% cut "pv-static.yaml" %}
@@ -278,7 +277,7 @@ To use {{ CSI }} with a static `PersistentVolume`:
           name: csi-s3-pvc-static
         csi:
           driver: ru.yandex.s3.csi
-          volumeHandle: "<bucket name>/<optional: path to the folder in the bucket>"
+          volumeHandle: "<bucket_name>/<optional:_path_to_the_folder_in_the_bucket>"
           controllerPublishSecretRef:
             name: csi-s3-secret
             namespace: kube-system
@@ -320,7 +319,7 @@ To use {{ CSI }} with a static `PersistentVolume`:
 
       ```text
       NAME               STATUS  VOLUME                   CAPACITY   ACCESS MODES  STORAGECLASS  AGE
-      csi-s3-pvc-static  Bound   <PersistentVolume name>  10Gi       RWX           csi-s3        73m
+      csi-s3-pvc-static  Bound   <PersistentVolume_name>  10Gi       RWX           csi-s3        73m
       ```
 
 1. Create a pod to test your static `PersistentVolume`.
@@ -366,7 +365,6 @@ To use {{ CSI }} with a static `PersistentVolume`:
       ```
 
    While running, the pod will execute the `date` command several times and write its result to a file named `/data/s3-static/static-date.txt`. You will find this file in the bucket.
-
 1. Make sure that the file is in the bucket:
    1. Go to the folder page and select **{{ objstorage-name }}**.
-   1. Click on `<bucket name>`.
+   1. Click the `<bucket_name>`.

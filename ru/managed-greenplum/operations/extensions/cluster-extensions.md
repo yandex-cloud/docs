@@ -41,7 +41,7 @@ SELECT extname FROM pg_extension;
 Подключитесь к выбранной базе данных и выполните команду:
 
 ```sql
-CREATE EXTENSION <имя расширения>;
+CREATE EXTENSION <имя_расширения>;
 ```
 
 Подробнее см. в [документации {{ GP }}](https://greenplum.docs.pivotal.io/6latest/ref_guide/sql_commands/CREATE_EXTENSION.html).

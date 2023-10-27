@@ -49,10 +49,10 @@
   1. Создайте топик:
 
      ```bash
-     {{ yc-mdb-kf }} topic create <имя топика> \
-       --cluster-name <имя кластера> \
-       --partitions <количество разделов> \
-       --replication-factor <фактор репликации>
+     {{ yc-mdb-kf }} topic create <имя_топика> \
+       --cluster-name <имя_кластера> \
+       --partitions <количество_разделов> \
+       --replication-factor <фактор_репликации>
      ```
 
      При необходимости здесь же задайте [настройки топика](../concepts/settings-list.md#topic-settings).
@@ -65,14 +65,14 @@
   1. Добавьте ресурс `yandex_mdb_kafka_topic` и, при необходимости, задайте [настройки топика](../concepts/settings-list.md#topic-settings) в блоке `topic_config`:
 
      ```hcl
-     resource "yandex_mdb_kafka_topic" "<имя топика>" {
-       cluster_id         = "<идентификатор кластера>"
-       name               = "<имя топика>"
-       partitions         = <количество разделов>
-       replication_factor = <фактор репликации>
+     resource "yandex_mdb_kafka_topic" "<имя_топика>" {
+       cluster_id         = "<идентификатор_кластера>"
+       name               = "<имя_топика>"
+       partitions         = <количество_разделов>
+       replication_factor = <фактор_репликации>
        topic_config {
-         compression_type = "<тип сжатия>"
-         flush_messages   = <максимальное число сообщений в памяти>
+         compression_type = "<тип_сжатия>"
+         flush_messages   = <максимальное_число_сообщений_в_памяти>
          ...
        }
      }
@@ -142,10 +142,10 @@
   1. Измените [настройки топика](../concepts/settings-list.md#topic-settings):
 
      ```bash
-     {{ yc-mdb-kf }} topic update <имя топика> \
-       --cluster-name <имя кластера> \
-       --partitions <количество разделов> \
-       --replication-factor <фактор репликации>
+     {{ yc-mdb-kf }} topic update <имя_топика> \
+       --cluster-name <имя_кластера> \
+       --partitions <количество_разделов> \
+       --replication-factor <фактор_репликации>
      ```
 
 - {{ TF }}
@@ -156,14 +156,14 @@
   1. Измените значение параметров в описании ресурса `yandex_mdb_kafka_topic`:
 
      ```hcl
-     resource "yandex_mdb_kafka_topic" "<имя топика>" {
-       cluster_id         = "<идентификатор кластера>"
-       name               = "<имя топика>"
-       partitions         = <количество разделов>
-       replication_factor = <фактор репликации>
+     resource "yandex_mdb_kafka_topic" "<имя_топика>" {
+       cluster_id         = "<идентификатор_кластера>"
+       name               = "<имя_топика>"
+       partitions         = <количество_разделов>
+       replication_factor = <фактор_репликации>
        topic_config {
-         compression_type = "<тип сжатия>"
-         flush_messages   = <максимальное число сообщений в памяти>
+         compression_type = "<тип_сжатия>"
+         flush_messages   = <максимальное_число_сообщений_в_памяти>
          ...
        }
      }
@@ -223,7 +223,7 @@
   1. Удалите топик:
 
      ```bash
-     {{ yc-mdb-kf }} topic delete <имя топика> --cluster-name <имя кластера>
+     {{ yc-mdb-kf }} topic delete <имя_топика> --cluster-name <имя_кластера>
      ```
 
 - {{ TF }}
@@ -271,7 +271,7 @@
   Чтобы получить список топиков, выполните следующую команду:
 
   ```bash
-  {{ yc-mdb-kf }} topic list --cluster-name <имя кластера>
+  {{ yc-mdb-kf }} topic list --cluster-name <имя_кластера>
   ```
 
 
@@ -304,7 +304,7 @@
   Чтобы получить детальную информацию о топике, выполните следующую команду:
 
   ```bash
-  {{ yc-mdb-kf }} topic get <имя топика> --cluster-name <имя кластера>
+  {{ yc-mdb-kf }} topic get <имя_топика> --cluster-name <имя_кластера>
   ```
 
 

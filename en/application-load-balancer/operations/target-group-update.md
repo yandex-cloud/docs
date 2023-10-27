@@ -89,7 +89,7 @@ To add a VM to a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Open the {{ TF }} configuration file and add the target section with `target` parameters to the fragment describing the target group:
 
       ```hcl
@@ -235,7 +235,7 @@ To remove a VM from a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Open the {{ TF }} configuration file and delete the `target` section with the IP address of the VM to be removed in the fragment describing the target group:
 
       Sample target group description in the {{ TF }} configuration:

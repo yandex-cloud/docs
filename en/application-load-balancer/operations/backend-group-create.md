@@ -240,7 +240,7 @@ To create a [backend group](../concepts/backend-group.md):
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
 

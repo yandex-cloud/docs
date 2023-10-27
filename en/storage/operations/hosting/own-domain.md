@@ -17,6 +17,13 @@ To support your own domain:
       1. In the [management console]({{ link-console-main }}), go to the bucket you want to use your own domain for.
       1. Go to ![website](../../../_assets/storage/website.svg) **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
       1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
+
+         {% note info %}
+
+         Only the domains created through this interface are displayed under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**. If a record was created in [{{ dns-name }}](../../../dns/quickstart.md), it will not appear there.
+
+         {% endnote %}
+
       1. In the window that opens, click **{{ ui-key.yacloud.dns.button_zone-create }}** and select a domain zone that corresponds to the bucket name, such as `example.com`. Click **{{ ui-key.yacloud.common.create }}**.
       1. Open **{{ ui-key.yacloud.dns.label_additional-settings }}**.
       1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, specify the resource record time to live or select a value from the list.
@@ -32,8 +39,8 @@ To support your own domain:
       {% cut "Example of DNS zone and resource record parameters" %}
 
       DNS zone parameters:
-      * Zone: `example.com`.
-      * Type: `Public`.
+      * Zone: `example.com.`
+      * Type: `Public`
 
       Resource record parameters:
 
@@ -48,8 +55,8 @@ To support your own domain:
    - Third-party DNS server
 
       Example of DNS zone parameters:
-      * Zone: `example.com`.
-      * Type: `Public`.
+      * Zone: `example.com.`
+      * Type: `Public`
 
       [CNAME](../../../dns/concepts/resource-record.md#cname) resource record example:
 

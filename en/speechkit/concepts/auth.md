@@ -1,9 +1,9 @@
 ---
 title: "Authentication in the {{ speechkit-full-name }} API"
-description: "To perform operations using the {{ speechkit-full-name }} API, you need to authenticate using your service, federated, or Yandex account. Specify the obtained IAM token in the API request in Authorization: Bearer format <IAM TOKEN>"
+description: "To perform operations using the {{ speechkit-full-name }} API, you need to authenticate using your service, federated, or Yandex account. Specify the obtained IAM token in the API request in Authorization: Bearer format <IAM-TOKEN>"
 ---
 
-# Authentication in the {{ speechkit-name }} API
+# Authentication with the {{ speechkit-name }} API
 
 {% include [ai-before-beginning](../../_includes/speechkit/ai-before-beginning.md) %}
 

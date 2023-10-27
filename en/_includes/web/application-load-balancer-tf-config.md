@@ -1,5 +1,40 @@
-
 ```hcl
+# Declaring variables for confidential parameters
+
+variable "folder_id" {
+  description = "ID of the folder where resources will be created"
+  type = string
+}
+
+variable "vm_user" {
+  type = string
+}
+
+variable "ssh_key_path" {
+  type      = string
+  sensitive = true
+}
+
+variable "dns_zone" {
+  type      = string
+}
+
+variable "domain" {
+  type      = string
+}
+
+# Adding other variables
+
+locals {
+  sa_name      = "ig-sa"
+  network_name = "network1"
+  subnet_name1 = "subnet-1"
+  subnet_name2 = "subnet-2"
+  subnet_name3 = "subnet-3"
+}
+
+# Setting up the provider
+
 terraform {
   required_providers {
     yandex = {
@@ -13,13 +48,8 @@ provider "yandex" {
   zone = "{{ region-id }}-a"
 }
 
-variable "folder_id" {
-  description = "ID of the folder where resources will be created"
-  default     = "<folder_ID>"
-}
-
 resource "yandex_iam_service_account" "ig-sa" {
-  name        = "ig-sa"
+  name = local.sa_name
 }
 
 resource "yandex_resourcemanager_folder_iam_member" "editor" {
@@ -29,25 +59,25 @@ resource "yandex_resourcemanager_folder_iam_member" "editor" {
 }
 
 resource "yandex_vpc_network" "network-1" {
-  name = "network1"
+  name = local.network_name
 }
 
 resource "yandex_vpc_subnet" "subnet-1" {
-  name           = "subnet1"
+  name           = local.subnet_name1
   zone           = "{{ region-id }}-a"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.1.0/24"]
 }
 
 resource "yandex_vpc_subnet" "subnet-2" {
-  name           = "subnet2"
+  name           = local.subnet_name2
   zone           = "{{ region-id }}-b"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.2.0/24"]
 }
 
 resource "yandex_vpc_subnet" "subnet-3" {
-  name           = "subnet3"
+  name           = local.subnet_name3
   zone           = "{{ region-id }}-c"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.3.0/24"]
@@ -61,6 +91,8 @@ resource "yandex_vpc_security_group" "alb-sg" {
     protocol       = "ANY"
     description    = "any"
     v4_cidr_blocks = ["0.0.0.0/0"]
+    from_port      = 1
+    to_port        = 65535
   }
 
   ingress {
@@ -138,7 +170,7 @@ resource "yandex_compute_instance_group" "alb-vm-group" {
     }
 
     metadata = {
-      user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("<path_to_public_SSH_key>")}"
+      user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ${file("${var.ssh_key_path}")}"
     }
   }
 
@@ -187,7 +219,7 @@ resource "yandex_alb_http_router" "alb-router" {
 resource "yandex_alb_virtual_host" "alb-host" {
   name           = "alb-host"
   http_router_id = yandex_alb_http_router.alb-router.id
-  authority      = ["alb-example.com"]
+  authority      = [var.domain, "www.${var.domain}"]
   route {
     name = "route-1"
     http_route {
@@ -240,13 +272,13 @@ resource "yandex_alb_load_balancer" "alb-1" {
 resource "yandex_dns_zone" "alb-zone" {
   name        = "alb-zone"
   description = "Public zone"
-  zone        = "alb-example.com."
+  zone        = "${var.domain}."
   public      = true
 }
 
 resource "yandex_dns_recordset" "rs-1" {
   zone_id = yandex_dns_zone.alb-zone.id
-  name    = "alb-example.com."
+  name    = "${var.domain}."
   ttl     = 600
   type    = "A"
   data    = [yandex_alb_load_balancer.alb-1.listener[0].endpoint[0].address[0].external_ipv4_address[0].address]
@@ -257,8 +289,6 @@ resource "yandex_dns_recordset" "rs-2" {
   name    = "www"
   ttl     = 600
   type    = "CNAME"
-  data    = ["alb-example.com"]
+  data    = [ var.domain ]
 }
 ```
-
-

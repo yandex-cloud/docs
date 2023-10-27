@@ -1,12 +1,12 @@
 # {{ ml-platform-name }} Jobs
 
-In {{ ml-platform-name }}, you can run jobs remotely. These are Python and bash scripts and executable binary files to be run on a {{ ml-platform-name }} VM.
+In {{ ml-platform-name }}, you can run jobs remotely. These are Python and bash scripts and executable binary files to run on a {{ ml-platform-name }} VM.
 
-Jobs are created and executed in [projects](project.md). However, they do not depend on notebooks and VMs running in a project.
+Jobs are created and run in [projects](project.md). However, they do not depend on notebooks and VMs running in a project.
 
 Before running a job, [install](../../cli/quickstart.md) and configure the [{{ yandex-cloud }} CLI](../../cli/) to use it for authentication in {{ yandex-cloud }}. You should also install the `datasphere` library in your Python environment. To do this, use the `pip install datasphere` command.
 
-When creating a job, specify its parameters in the `config.yaml` file: a [configuration of computing resources](configurations.md) that will be used for job execution and required files with input data. {{ ml-platform-name }} analyzes the job code, identifies dependencies, deploys the environment on the VM, and executes the job code. Sample configuration file:
+When creating a job, specify its parameters in the `config.yaml` file: a [configuration of computing resources](configurations.md) that will be used for job execution and required files with input data. {{ ml-platform-name }} analyzes the job code, identifies dependencies, deploys the environment on the VM, and runs the job code. Sample configuration file:
 
 ```yaml
 name: simple-python-script # job name

@@ -11,7 +11,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
    1. Select **{{ objstorage-name }}**.
    1. Click the name of the bucket you need.
-   1. Click the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
+   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab.
    1. Select the type of access for bucket operations.
    1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
@@ -83,7 +83,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
    To enable public access to bucket operations:
@@ -114,7 +114,7 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -130,12 +130,18 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API
 
    To allow public access to operations with your bucket, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/bucket_service.md#Update) gRPC API call.
 
 {% endlist %}
+
+{% note info %}
+
+If your bucket has access policies, you will also need to [configure](./policy.md#apply-policy) them for public access to work properly.
+
+{% endnote %}

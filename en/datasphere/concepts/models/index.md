@@ -2,7 +2,7 @@
 
 While using {{ ml-platform-full-name }}, a VM's memory stores the interpreter state, as well as computing and training results. You can save these computations to a separate resource named _model_.
 
-Two types of models are available in {{ ml-platform-name }}:
+In {{ ml-platform-name }}, there are two types of models available:
 * Models trained in projects.
 * [Foundation models](foundation-models.md) retrained based on the Fine-tuning method.
 
@@ -28,10 +28,10 @@ All information about models created in a project is available under **Resources
 
 The following information is stored about each model:
 
-* Name.
+* Name
 * Name of the notebook the model was created in.
 * Name of the variable the model was created from.
-* Model size in bytes.
+* Model size in bytes
 * Name of the user who created the model.
 * Dataset creation date in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format, e.g., `July 18, 2023, 14:23`.
 

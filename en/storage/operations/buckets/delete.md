@@ -1,6 +1,6 @@
 ---
 title: "How to delete a bucket"
-description: "This guide describes how you can delete a bucket."
+description: "Follow this guide to delete a bucket."
 ---
 
 # Deleting a bucket
@@ -137,7 +137,7 @@ You can only delete empty buckets. In the management console, information about 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
    To delete a bucket created with {{ TF }}:

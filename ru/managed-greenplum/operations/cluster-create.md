@@ -139,23 +139,23 @@
 
         
         ```bash
-        {{ yc-mdb-gp }} cluster create <имя кластера> \
-           --greenplum-version=<версия {{ GP }}: {{ versions.cli.str }}> \
-           --environment=<окружение: PRESTABLE или PRODUCTION> \
-           --network-name=<имя сети> \
-           --user-name=<имя пользователя> \
-           --user-password=<пароль пользователя> \
-           --master-config resource-id=<класс хоста>,`
-                          `disk-size=<объем хранилища, ГБ>,`
-                          `disk-type=<тип диска> \
-           --segment-config resource-id=<класс хоста>,`
-                          `disk-size=<объем хранилища, ГБ>,`
-                          `disk-type=<тип диска> \
-           --zone-id=<зона доступности> \
-           --subnet-id=<идентификатор подсети> \
-           --assign-public-ip=<публичный доступ к хостам: true или false> \
-           --security-group-ids=<список идентификаторов групп безопасности> \
-           --deletion-protection=<защита от удаления кластера: true или false>
+        {{ yc-mdb-gp }} cluster create <имя_кластера> \
+           --greenplum-version=<версия_Greenplum> \
+           --environment=<окружение> \
+           --network-name=<имя_сети> \
+           --user-name=<имя_пользователя> \
+           --user-password=<пароль_пользователя> \
+           --master-config resource-id=<класс_хоста>,`
+                          `disk-size=<объем_хранилища_ГБ>,`
+                          `disk-type=<тип_диска> \
+           --segment-config resource-id=<класс_хоста>,`
+                          `disk-size=<объем_хранилища_ГБ>,`
+                          `disk-type=<тип_диска> \
+           --zone-id=<зона_доступности> \
+           --subnet-id=<идентификатор_подсети> \
+           --assign-public-ip=<публичный_доступ_к_хостам> \
+           --security-group-ids=<список_идентификаторов_групп_безопасности> \
+           --deletion-protection=<защита_от_удаления_кластера>
         ```
 
         {% note info %}
@@ -166,7 +166,7 @@
 
         Где:
 
-        * `--greenplum-version` — версия {{ GP }}.
+        * `--greenplum-version` — версия {{ GP }}: {{ versions.cli.str }}.
         * `--environment` — окружение:
             * `PRODUCTION` — для стабильных версий ваших приложений.
             * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
@@ -184,9 +184,9 @@
 
         * `--zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `--subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
-        * `--assign-public-ip` — флаг, который указывается, если для хостов нужен [публичный доступ](../concepts/network.md#public-access-to-a-host).
+        * `--assign-public-ip` — флаг, который указывается, если для хостов нужен [публичный доступ](../concepts/network.md#public-access-to-a-host): `true` или `false`.
         * `--security-group-ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
-        * `--deletion-protection` — защита от удаления кластера.
+        * `--deletion-protection` — защита от удаления кластера: `true` или `false`.
 
 
             {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -194,18 +194,18 @@
     1. Чтобы задать время начала резервного копирования, передайте нужное значение в формате `HH:MM:SS` в параметре `--backup-window-start`:
 
         ```bash
-        {{ yc-mdb-gp }} cluster create <имя кластера> \
+        {{ yc-mdb-gp }} cluster create <имя_кластера> \
            ...
-           --backup-window-start=<время начала резервного копирования>
+           --backup-window-start=<время_начала_резервного_копирования>
         ```
 
     
     1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
 
         ```bash
-        {{ yc-mdb-gp }} cluster create <имя кластера> \
+        {{ yc-mdb-gp }} cluster create <имя_кластера> \
            ...
-           --host-group-ids=<идентификаторы групп выделенных хостов>
+           --host-group-ids=<идентификаторы_групп_выделенных_хостов>
         ```
 
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
@@ -214,9 +214,11 @@
     1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
 
         ```bash
-        {{ yc-mdb-gp }} cluster create <имя кластера> \
+        {{ yc-mdb-gp }} cluster create <имя_кластера> \
            ...
-           --maintenance-window type=<тип>[,day=<день недели>,hour=<час дня>]
+           --maintenance-window type=<тип_технического_обслуживания>,`
+                               `day=<день_недели>,`
+                               `hour=<час_дня> \
         ```
 
         Где `type` — тип технического обслуживания:
@@ -226,12 +228,17 @@
     1. Чтобы разрешить доступ из [{{ datalens-full-name }}](../../datalens/concepts/index.md) или [{{ data-transfer-full-name }}](../../data-transfer/), передайте значение `true` в соответствующих параметрах при создании кластера:
 
         ```bash
-        {{ yc-mdb-gp }} cluster create <имя кластера> \
+        {{ yc-mdb-gp }} cluster create <имя_кластера> \
            ...
-           --datalens-access=<доступ из {{ datalens-full-name }}: true или false> \
-           --datatransfer-access=<доступ из {{ data-transfer-full-name }}: true или false>
+           --datalens-access=<доступ_из_datalens> \
+           --datatransfer-access=<доступ_из_data_transfer>
         ```
 
+        Где:
+
+        * `--datalens-access` — доступ из {{ datalens-full-name }}: true или false.
+        * `--datatransfer-access` — доступ из {{ data-transfer-full-name }}: true или false.
+        
 - {{ TF }}
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -252,12 +259,12 @@
        Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
 
        ```hcl
-       resource "yandex_vpc_network" "<имя сети в {{ TF }}>" { name = "<имя сети>" }
+       resource "yandex_vpc_network" "<имя_сети_в_{{ TF }}>" { name = "<имя_сети>" }
   
-       resource "yandex_vpc_subnet" "<имя подсети в {{ TF }}>" {
-         name           = "<имя подсети>"
-         zone           = "<зона доступности>"
-         network_id     = yandex_vpc_network.<имя сети в {{ TF }}>.id
+       resource "yandex_vpc_subnet" "<имя_подсети_в_{{ TF }}>" {
+         name           = "<имя_подсети>"
+         zone           = "<зона_доступности>"
+         network_id     = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
          v4_cidr_blocks = ["<подсеть>"]
        }
        ```
@@ -269,42 +276,51 @@
 
        
        ```hcl
-       resource "yandex_mdb_greenplum_cluster" "<имя кластера в {{ TF }}>" {
-         name                = "<имя кластера>"
+       resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_{{ TF }}>" {
+         name                = "<имя_кластера>"
          environment         = "<окружение>"
-         network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
-         zone                = "<зона доступности>"
-         subnet_id           = yandex_vpc_subnet.<имя подсети в {{ TF }}>.id
-         assign_public_ip    = <публичный доступ к хостам кластера: true или false>
-         deletion_protection = <защита от удаления кластера: true или false>
-         version             = "<версия {{ GP }}>"
-         master_host_count   = <количество хостов-мастеров: 1 или 2>
-         segment_host_count  = <количество хостов-сегментов: от 2 до 32>
-         segment_in_host     = <количество сегментов на хост>
+         network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
+         zone                = "<зона_доступности>"
+         subnet_id           = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+         assign_public_ip    = <публичный_доступ_к_хостам_кластера>
+         deletion_protection = <защита_от_удаления_кластера>
+         version             = "<версия_Greenplum>"
+         master_host_count   = <количество_хостов_мастеров>
+         segment_host_count  = <количество_хостов_сегментов>
+         segment_in_host     = <количество_сегментов_на_хост>
   
          master_subcluster {
            resources {
-             resource_preset_id = "<класс хоста>"
-             disk_size          = <объем хранилища, ГБ>
-             disk_type_id       = "<тип диска>"
+             resource_preset_id = "<класс_хоста>"
+             disk_size          = <объем_хранилища_ГБ>
+             disk_type_id       = "<тип_диска>"
            }
          }
   
          segment_subcluster {
            resources {
-             resource_preset_id = "<класс хоста>"
-             disk_size          = <объем хранилища, ГБ>
-             disk_type_id       = "<тип диска>"
+             resource_preset_id = "<класс_хоста>"
+             disk_size          = <объем_хранилища_ГБ>
+             disk_type_id       = "<тип_диска>"
            }
          }
   
-         user_name     = "<имя пользователя>"
+         user_name     = "<имя_пользователя>"
          user_password = "<пароль>"
   
-         security_group_ids = ["<список идентификаторов групп безопасности>"]
+         security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
        }
        ```
 
+
+       Где:
+
+       * `assign_public_ip` — публичный доступ к хостам кластера: true или false.
+       * `deletion_protection` — защита от удаления кластера: true или false.
+       * `version` — версия {{ GP }}.
+       * `master_host_count` — количество хостов-мастеров: 1 или 2.
+       * `segment_host_count` — количество хостов-сегментов: от 2 до 32.
+       * `disk_size` — объем хранилища в гигабайтах.
 
        Включенная защита от удаления кластера не помешает подключиться вручную и удалить содержимое базы данных.
 

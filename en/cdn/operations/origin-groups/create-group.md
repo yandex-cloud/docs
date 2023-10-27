@@ -66,7 +66,7 @@ To create an [origin group](../../concepts/origins.md):
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Describe the properties of the `yandex_cdn_origin_group` resource in the configuration file:
 

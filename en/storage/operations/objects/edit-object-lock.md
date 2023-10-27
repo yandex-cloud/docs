@@ -9,7 +9,7 @@ Minimum required roles:
 * `storage.uploader` to set an object lock.
 * `storage.admin` to change an active object lock.
 
-You can only extend a compliance-mode retention. You can't shrink it or replace with a governance-mode retention.
+You can only extend a compliance-mode retention. You cannot shrink it or replace with a governance-mode retention.
 
 To put or configure a retention:
 
@@ -32,19 +32,19 @@ To put or configure a retention:
 
       Where:
 
-      * `bucket`: Name of your bucket.
-      * `key`: Object [key](../../concepts/object.md#key).
-      * `version-id`: Object version ID.
-      * `retention`: Settings of an object lock with a retention period (both parameters are required):
+      * `--bucket`: Name of your bucket.
+      * `--key`: Object [key](../../concepts/object.md#key).
+      * `--version-id`: Object version ID.
+      * `--retention`: Settings of an object lock with a retention period (both parameters are required):
 
          * `Mode` is the [type](../../concepts/object-lock.md#types) of object lock:
 
             * `GOVERNANCE`: Object lock with a predefined retention period that can be managed. You cannot set this type if an object version is already locked in compliance mode.
             * `COMPLIANCE`: Object lock with a predefined retention period with strict compliance.
 
-         * `RetainUntilDate`: Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`. If a version object is already locked in compliance mode, you can only extend it by setting new retain until date and time that are later than the current ones.
+         * `RetainUntilDate`: Lock end date and time in the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2025-01-01T00:00:00`. The lock end time value is specified in the [UTC±00:00](https://en.wikipedia.org/wiki/UTC%2B00:00) time zone. To use a different time zone, add `+` or `-` and a UTC±00:00 offset to the end of the record. For more information, see [this example](#example-lock). If a version object is already locked in compliance mode, you can only extend it by setting new retain until date and time that are later than the current ones.
 
-      * `bypass-governance-retention`: Flag that shows that a lock is bypassed. Select it if an object version is already locked in governance mode.
+      * `--bypass-governance-retention`: Flag that shows that a lock is bypassed. Select it if an object version is already locked in governance mode.
 
 - API
 
@@ -78,11 +78,11 @@ To remove a retention:
 
       Where:
 
-      * `bucket`: Name of your bucket.
-      * `key`: Object [key](../../concepts/object.md#key).
-      * `version-id`: Object version ID.
-      * `retention`: Settings of an object lock with a retention period. In both parameters, empty lines are specified to remove a lock.
-      * `bypass-governance-retention`: Flag that shows that a lock is bypassed.
+      * `--bucket`: Name of your bucket.
+      * `--key`: Object [key](../../concepts/object.md#key).
+      * `--version-id`: Object version ID.
+      * `--retention`: Settings of an object lock with a retention period. In both parameters, empty lines are specified to remove a lock.
+      * `--bypass-governance-retention`: Flag that shows that a lock is bypassed.
 
 - API
 
@@ -116,10 +116,10 @@ To put or configure a legal hold:
 
       Where:
 
-      * `bucket`: Name of your bucket.
-      * `key`: Object [key](../../concepts/object.md#key).
-      * `version-id`: Object version ID.
-      * `legal-hold`: Legal hold settings:
+      * `--bucket`: Name of your bucket.
+      * `--key`: Object [key](../../concepts/object.md#key).
+      * `--version-id`: Object version ID.
+      * `--legal-hold`: Legal hold settings:
 
          * `Status`: Legal hold status:
 
@@ -131,3 +131,16 @@ To put or configure a legal hold:
    Use the [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md) S3 API method.
 
 {% endlist %}
+
+## Examples {#examples}
+
+### Setting up a governance-mode retention with the Moscow time offset (UTC+3) {#example-lock}
+
+> ```bash
+> aws --endpoint-url=https://{{ s3-storage-host }}/ \
+>   s3api put-object-retention \
+>   --bucket test-bucket \
+>   --key object-key/ \
+>   --version-id 0005FA15******** \
+>   --retention Mode=GOVERNANCE,RetainUntilDate="2025-01-01T00:00:00+03:00" \
+> ```

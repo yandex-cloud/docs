@@ -59,7 +59,7 @@ description: "Follow this guide to delete a resource."
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To delete a CDN resource created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the section with the resource description.

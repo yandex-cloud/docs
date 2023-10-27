@@ -1,6 +1,6 @@
 ---
-title: "How to connect external nodes to a cluster"
-description: "This guide describes how you can connect external nodes to a cluster."
+title: "How to connect external nodes to a {{ managed-k8s-name }} cluster"
+description: "Follow this guide to connect external nodes to a {{ managed-k8s-name }} cluster."
 ---
 
 # Connecting external nodes to the cluster
@@ -11,19 +11,21 @@ Connecting [external nodes](../concepts/external-nodes.md) to a [{{ managed-k8s-
 
 {% endnote %}
 
-You can connect external servers to a {{ managed-k8s-name }} cluster using special {{ k8s }} API resources. The definitions ([CustomResourceDefinitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions)) of these resources are automatically pre-installed in a cluster.
+You can connect external servers as nodes to a {{ managed-k8s-name }} cluster using special {{ k8s }} API resources. The definitions ([CustomResourceDefinitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions)) of these resources are automatically pre-installed in a {{ managed-k8s-name }} cluster.
 
-## Requirements for connecting external resources to a cluster {#requirements}
+## Requirements for connecting external nodes to a cluster {#requirements}
 
 For external nodes to connect to a {{ managed-k8s-name }} cluster, both the cluster and the connecting servers must meet [certain requirements](../concepts/external-nodes.md#requirements).
 
-## Connection overview {#summary}
+## Getting started {#before-you-begin}
 
-To connect external nodes, you need to [create a node group object](#node-group-create) in the cluster's {{ k8s }} API.
+1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. [Create a node group object](#node-group-create) in the {{ managed-k8s-name }} cluster's {{ k8s }} API.
 
 Once you have created a group object, you can [add nodes](#add-node) to and [delete nodes](#remove-node) from the {{ managed-k8s-name }} cluster.
 
-If you have connection issues, please see the [Troubleshooting](#troubleshooting) section.
+If you have connection issues, see the [Troubleshooting](#troubleshooting) section.
 
 ## Creating a node group {#node-group-create}
 
@@ -37,14 +39,14 @@ To create an external node group, make sure the {{ managed-k8s-name }} cluster i
 
 - Management console
 
-  1. On the {{ managed-k8s-name }} cluster page, go to **Nodes manager**.
+  1. On the {{ managed-k8s-name }} cluster page, go to the **Nodes manager** tab.
   1. Click **Create node group**, then **External**.
   1. Enter a name for the {{ managed-k8s-name }} node group.
   1. Click **Add**.
 
 - CLI
 
-   1. To a YAML file named `ext-nodegroup.yaml`, save a specification of a `NodeGroup` object under the `mks.yandex.cloud/v1alpha1` API group in the `yandex-system` [namespace](../concepts/index.md#namespace):
+   1. To a YAML file named `ext-nodegroup.yaml`, save a specification of a `NodeGroup` object under the `mks.yandex.cloud/v1alpha1` {{ managed-k8s-name }} API group in the `yandex-system` [namespace](../concepts/index.md#namespace):
 
       ```yaml
       apiVersion: mks.yandex.cloud/v1alpha1
@@ -68,7 +70,7 @@ To create an external node group, make sure the {{ managed-k8s-name }} cluster i
 
 - Management console
 
-  1. On the {{ managed-k8s-name }} cluster page, go to **Nodes manager**.
+  1. On the {{ managed-k8s-name }} cluster page, go to the **Nodes manager** tab.
   1. Select the required {{ managed-k8s-name }} node group.
   1. Click **Edit**.
   1. Enter the [IP address](../../vpc/concepts/address.md) of the connecting server accessible from the {{ managed-k8s-name }} cluster's [cloud network](../../vpc/concepts/network.md#network).
@@ -140,7 +142,7 @@ You can install system components and add nodes to a {{ managed-k8s-name }} clus
 For an automated installation, create a secret with a private server connection SSH key in your {{ managed-k8s-name }} cluster. Create a secret:
 
 ```bash
-kubectl -n yandex-system create secret generic <secret name> --from-file=ssh-privatekey=<SSH key file path> --type=kubernetes.io/ssh-auth
+kubectl -n yandex-system create secret generic <secret_name> --from-file=ssh-privatekey=<SSH_key_file_path> --type=kubernetes.io/ssh-auth
 ```
 
 In the `NodeGroup` resource specification, include the name of the relevant secret:
@@ -171,7 +173,7 @@ In the `NodeGroup` resource specification, include the name of the relevant secr
     ...
     provisionBySsh:
       sshKeySecret:
-        name: <secret name>
+        name: <secret_name>
         namespace: system
   ```
 
@@ -185,7 +187,7 @@ For a semi-automated installation, set up all {{ managed-k8s-name }} external no
 1. Creating a NodeGroup object makes a secret available in a {{ managed-k8s-name }} cluster. The secret contains `kubeconfig` to use on connecting servers. Get it using `kubectl` configured to communicate with the {{ managed-k8s-name }} cluster and save it to a file:
 
    ```bash
-   kubectl -n yandex-system get secret <NodeGroup object name>-maintainer-kube-config -o json | jq -r '.data."kube-config"' | base64 -d
+   kubectl -n yandex-system get secret <NodeGroup_object_name>-maintainer-kube-config -o json | jq -r '.data."kube-config"' | base64 -d
    ```
 
 1. Save the downloaded `kubeconfig` on a connecting server:

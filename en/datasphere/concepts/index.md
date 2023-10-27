@@ -2,11 +2,11 @@
 
 {{ ml-platform-full-name }} is a full-cycle ML development environment. {{ ml-platform-full-name }} is part of the data platform and offers powerful features to easily work with {{ yandex-cloud }} services.
 
-{{ ml-platform-name }} helps significantly reduce the cost of ML as compared to computing on your own hardware or other cloud platforms thanks to automatic maintenance of computing resources.
+{{ ml-platform-name }} helps significantly reduce the cost of ML as compared to computing on your own hardware or other cloud platforms thanks to automatic maintenance of the computing resources.
 
 {{ ml-platform-name }} allows you to perform computing, train models, and deploy the trained models.
 
-## Advantages of the service {#advantages}
+## {{ ml-platform-full-name }} advantages {#advantages}
 
 ### Ready-to-use development environment {#ready-to-use}
 
@@ -38,9 +38,9 @@ Resource access permissions and scope are managed using new roles. For more info
 
 ### Various types of resources {#resources}
 
-You no longer have to re-enter data every time you need to connect to any object storage. To store all details, the **{{ ui-key.yc-ui-datasphere.resources.s3 }}** resource is now available. It allows you [to connect and disconnect](../operations/data/connect-to-s3.md) a bucket right in the {{ ml-platform-name }} interface.
+You no longer have to re-enter data every time you need to connect to any object storage. To store all details, we introduced **{{ ui-key.yc-ui-datasphere.resources.s3 }}** that allow you [to connect and disconnect](../operations/data/connect-to-s3.md) a bucket right in the {{ ml-platform-name }} interface.
 
-Another new type of resource is [Checkpoints](secrets.md) that store the interpreter state and variable values. You can use them to create [nodes](deploy/index.md#node) and [share them](../operations/projects/checkpoints.md#share) in communities via a direct link.
+There are also [Checkpoints](secrets.md) that store the interpreter state and variable values. You can use them to create [nodes](deploy/index.md#node) and [share them](../operations/projects/checkpoints.md#share) across communities through a direct link.
 
 ### Seamless use of running services {#deployment}
 
@@ -48,6 +48,6 @@ The new resources have greatly enriched the tools for deploying and [using servi
 
 [Aliases](deploy/index.md#alias) allow you to balance the load across multiple running nodes and publish new versions without having to stop a running service. You can [create an alias](../operations/deploy/alias-create.md) in the {{ ml-platform-name }} interface.
 
-You can now [create](../operations/deploy/node-create.md) nodes from both Python code cells and ready-made Docker images built outside {{ ml-platform-name }}. On the node page in the {{ ml-platform-name }} interface, you can track the monitoring charts and logs of deployed instances. You can also change the configuration of computing resources and send test requests to the deployed service API.
+You can now [create](../operations/deploy/node-create.md) nodes from both Python code cells and ready-made Docker images built outside {{ ml-platform-name }}. On the node page in the {{ ml-platform-name }} interface, you can track the monitoring charts and logs of the deployed instances. You can also change the configuration of computing resources and send test requests to the deployed service API.
 
-[Instructions](../operations/index.md#deploy) for working with nodes and aliases.
+You can find the guides for working with nodes and aliases [here](../operations/index.md#deploy).

@@ -47,34 +47,34 @@ To create a security profile:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your profile in.
-  1. In the list of services, select **{{ sws-name }}**.
-  1. Click **Create security profile** and select **From a preset template**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
       Preset profiles include:
-      * [Basic default rule](../smartwebsecurity/concepts/rules.md#base-rules) enabled for all traffic, with the **Deny** [action type](../smartwebsecurity/concepts/rules.md#rule-action).
-      * [Smart Protection rule](../smartwebsecurity/concepts/rules.md#smart-protection-rules), enabled for all traffic, with the **Full protection** type.
+      * [Basic default rule](../smartwebsecurity/concepts/rules.md#base-rules) enabled for all traffic with the [`{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` action type](../smartwebsecurity/concepts/rules.md#rule-action).
+      * [Smart Protection rule](../smartwebsecurity/concepts/rules.md#smart-protection-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` action type.
 
       {% include [smart-protection-tip](../_includes/smartwebsecurity/smart-protection-tip.md) %}
 
   1. Enter the profile name, e.g., `test-sp1`.
-  1. In the **Action of the basic default rule** field, select **Deny**. Thus, if no other rules are set, all traffic to the protected resource will be denied.
-  1. Click ![plus-sign](../_assets/plus-sign.svg) **Add rule**.
+  1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`. Thus, if no other rules are set, all traffic to the protected resource will be denied.
+  1. Click ![plus-sign](../_assets/plus-sign.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. In the rule creation window:
       1. Enter the rule name, e.g., `test-rule1`.
-      1. Set the rule priority, e.g., `999800`. The rule will have higher priority than preconfigured rules.
+      1. Set the rule priority, e.g., `999800`. The rule will have higher priority than the preconfigured ones.
 
           {% include [preconfigured-rules-priority](../_includes/smartwebsecurity/preconfigured-rules-priority.md) %}
 
-      1. Select the rule type: **Basic**.
-      1. Select the action: **Allow**.
+      1. Select the `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}` rule type.
+      1. Select the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}` action.
 
           The rule will describe conditions under which requests will be directed to the backend of the test application.
-      1. Expand the **Conditions** field.
-      1. In the **IP** field, select the **matches** option and set the public IP address of the device that will be sending requests to the L7 load balancer, e.g., `158.160.100.200`.
-      1. Click **Save rule**.
+      1. In the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field, select {{ ui-key.yacloud.smart-web-security.overview.condition_name-ip-range }}.
+      1. In the **IP conditions** field that appears, select `Matches or belongs to range` and set the public IP address of the device from which to send requests to the L7 load balancer, e.g., `158.160.100.200`.
+      1. Click **{{ ui-key.yacloud.common.add }}**.
 
-          The rule you created will appear in the table on the **Security rules** tab.
-  1. Click **Create**.
+          The rule you created will appear under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** in the table.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -84,18 +84,17 @@ To create a security profile:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to connect a security profile to a {{ alb-name }} virtual host.
-  1. In the list of services, select **{{ sws-name }}**.
-  1. Next to the `test-sp1` profile, click ![options](../_assets/options.svg) and select ![pencil](../_assets/pencil.svg) **Edit**.
-  1. Click ![plug](../_assets/smartwebsecurity/plug.svg) **Connect profile to host**.
+  1. In the [management console]({{ link-console-main }}), choose the folder where you want to connect a security profile to an {{ alb-name }} virtual host.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Select the `test-sp1` profile.
+  1. Click ![plug](../_assets/smartwebsecurity/plug.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
   1. In the window that opens, select:
-      * **Load balancer** named `test-load-balancer`.
-      * **HTTP router** named `test-http-router`.
-      * **Virtual host** named `test-virtual-host`.
-  1. Click **Connect**.
+      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}** `test-load-balancer`
+      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}** `test-http-router`
+      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}** `test-virtual-host`
+   1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
 
-      In the **Connected hosts** tab, you will see the connected virtual host.
-  1. Click **Save**.
+      You will see the connected virtual host under **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}**.
 
 {% endlist %}
 

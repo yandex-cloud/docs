@@ -6,6 +6,8 @@ The [AWS SDK for Go](https://aws.amazon.com/ru/sdk-for-go/) is a set of tools fo
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
+
 ## Installing {#installation}
 
 {% include [install-go-sdk](../../_includes/aws-tools/install-go-sdk.md)%}

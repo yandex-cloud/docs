@@ -4,7 +4,7 @@
 
 ## Applying or editing a policy {#apply-policy}
 
-The minimum role required to apply or modify an access policy is `storage.configurer`. See also the [role description](../../../storage/security/#storage-configurer).
+The minimum role required to apply or modify an access policy is `storage.configurer`. See the [role description](../../../storage/security/#storage-configurer).
 
 To apply or edit a bucket access policy:
 
@@ -180,13 +180,13 @@ To apply or edit a bucket access policy:
       Where:
       * `access_key`: ID of the static access key.
       * `secret_key`: Value of the secret access key.
-      * `bucket`: Bucket name. This parameter is required.
-      * `policy`: Policy name. This parameter is required.
+      * `bucket`: Bucket name. This is a required parameter.
+      * `policy`: Policy name. This is a required parameter.
 
-      For more information on resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
    1. Make sure the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
@@ -202,7 +202,7 @@ To apply or edit a bucket access policy:
 
       1. Confirm that you want to create the resources.
 
-      All the resources you need will then be created in the specified folder. You can check that the resources are there and their settings are correct using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -214,7 +214,7 @@ To apply or edit a bucket access policy:
 
 ## Viewing a policy {#view-policy}
 
-The minimum role required to view an access policy is `storage.configViewer`. See also the [role description](../../../storage/security/#storage-config-viewer).
+The minimum role required to view an access policy is `storage.configViewer`. See the [role description](../../../storage/security/#storage-config-viewer).
 
 To view the access policy applied to a bucket:
 
@@ -255,7 +255,7 @@ To view the access policy applied to a bucket:
 
 ## Deleting a policy {#delete-policy}
 
-The minimum role required to delete an access policy is `storage.configurer`. See also the [role description](../../../storage/security/#storage-configurer).
+The minimum role required to delete an access policy is `storage.configurer`. See the [role description](../../../storage/security/#storage-configurer).
 
 To delete a bucket policy:
 
@@ -281,7 +281,7 @@ To delete a bucket policy:
 
 - {{ TF }}
 
-   Learn more about {{ TF }} in the [documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    If you applied a bucket policy using {{ TF }}, you can delete it:
    1. Find the parameters of the previously created bucket policy to delete in the configuration file:
@@ -320,7 +320,7 @@ To delete a bucket policy:
    1. Delete the `policy` field describing the bucket policy settings from the configuration file.
    1. Make sure the configuration files are valid.
       1. In the command line, change to the folder where you edited the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan

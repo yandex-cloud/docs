@@ -63,7 +63,7 @@ To change the HTTP router parameters:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the HTTP router description.
 
@@ -531,7 +531,7 @@ To add a new route to an HTTP router's virtual host:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the virtual host description by adding the `route` section:
 

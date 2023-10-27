@@ -39,8 +39,8 @@
 
    ```bash
    {{ yc-mdb-my }} user update \
-       --global-permissions PROCESS <имя пользователя> \
-       --cluster-id <идентификатор кластера>
+       --global-permissions PROCESS <имя_пользователя> \
+       --cluster-id <идентификатор_кластера>
    ```
 
 1. Получите список запросов в базу с наибольшим временем выполнения с помощью запроса:
@@ -59,8 +59,8 @@
 
    ```bash
    {{ yc-mdb-my }} user update \
-       --global-permissions PROCESS <имя пользователя> \
-       --cluster-id <идентификатор кластера>
+       --global-permissions PROCESS <имя_пользователя> \
+       --cluster-id <идентификатор_кластера>
    ```
 
 1. Получите список потоков с помощью запроса:
@@ -95,8 +95,8 @@
 
    ```bash
    {{ yc-mdb-my }} user update \
-       --global-permissions PROCESS <имя пользователя> \
-       --cluster-id <идентификатор кластера>
+       --global-permissions PROCESS <имя_пользователя> \
+       --cluster-id <идентификатор_кластера>
    ```
 
 1. Получите список потоков с помощью запроса:
@@ -132,8 +132,8 @@
 
    ```bash
    {{ yc-mdb-my }} user update \
-       --global-permissions PROCESS <имя пользователя> \
-       --cluster-id <идентификатор кластера>
+       --global-permissions PROCESS <имя_пользователя> \
+       --cluster-id <идентификатор_кластера>
    ```
 
 1. Для просмотра блокировок уровня таблиц выполните запрос:

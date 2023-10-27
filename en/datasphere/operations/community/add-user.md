@@ -1,6 +1,6 @@
 ---
 title: "How to add users to a community"
-description: "Follow this guide to add users to a community."
+description: "Follow this guide to add a user to a community."
 ---
 
 # Adding a user to a community
@@ -16,6 +16,12 @@ description: "Follow this guide to add users to a community."
    If the required user is not on the list, click **{{ ui-key.yc-ui-datasphere.common.copy-link }}** and send them the copied link in any convenient way.
 
    Once the user accepts the invitation and follows the link, they become a member of the community.
+
+   {% note alert %}
+
+   The link does not expire. We recommend that you sometimes recreate the link so that users who have been removed from the community could not join it again.
+
+   {% endnote %}
 
 #### What's next {#what-is-next}
 

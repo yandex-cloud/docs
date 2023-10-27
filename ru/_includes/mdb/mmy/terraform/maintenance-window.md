@@ -1,12 +1,12 @@
 Чтобы настроить время [технического обслуживания](../../../../managed-mysql/concepts/maintenance.md) (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
 
 ```hcl
-resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
   ...
   maintenance_window {
-    type = <тип технического обслуживания: ANYTIME или WEEKLY>
-    day  = <день недели для типа WEEKLY>
-    hour = <час дня для типа WEEKLY>
+    type = <тип_технического_обслуживания>
+    day  = <день_недели>
+    hour = <час_дня>
   }
   ...
 }

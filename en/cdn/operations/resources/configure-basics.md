@@ -18,7 +18,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% note warning %}
 
-      You can't change the primary [domain name used for content distribution](../../concepts/resource.md#hostnames).
+      You cannot change the primary [domain name used for content distribution](../../concepts/resource.md#hostnames).
 
       {% endnote %}
 
@@ -94,7 +94,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To update the parameters of a CDN resource created using {{ TF }}:
 

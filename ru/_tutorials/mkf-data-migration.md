@@ -186,16 +186,16 @@
 1. В домашней директории создайте каталог `mirror-maker` для хранения сертификатов Java Keystore и конфигураций MirrorMaker:
 
    ```bash
-   mkdir --parents /home/<домашняя директория>/mirror-maker
+   mkdir --parents /home/<домашняя_директория>/mirror-maker
    ```
 
-1. Выберите пароль для хранилища сертификатов, создайте хранилище и добавьте в него SSL-сертификат для подключения к кластеру:
+1. Выберите пароль для хранилища сертификатов не короче 6 символов, создайте хранилище и добавьте в него SSL-сертификат для подключения к кластеру:
 
    ```bash
    sudo keytool --noprompt -importcert -alias {{ crt-alias }} \
       -file {{ crt-local-dir }}{{ crt-local-file }} \
-      -keystore /home/<домашняя директория>/mirror-maker/keystore \
-      -storepass <пароль хранилища сертификатов, не короче 6 символов>
+      -keystore /home/<домашняя_директория>/mirror-maker/keystore \
+      -storepass <пароль_хранилища_сертификатов>
    ```
 
 1. Создайте в каталоге `mirror-maker` файл конфигурации MirrorMaker `mm2.properties`:
@@ -203,8 +203,8 @@
    ```text
    # Kafka clusters
    clusters=cloud, source
-   source.bootstrap.servers=<FQDN брокера кластера-источника>:9092
-   cloud.bootstrap.servers=<FQDN брокера 1 кластера-приемника>:9091, ..., <FQDN брокера N кластера-приемника>:9091
+   source.bootstrap.servers=<FQDN_брокера_кластера-источника>:9092
+   cloud.bootstrap.servers=<FQDN_брокера_1_кластера-приемника>:9091, ..., <FQDN_брокера_N_кластера-приемника>:9091
 
    # Source and target cluster settings
    source->cloud.enabled=true
@@ -256,8 +256,8 @@
    cloud.client.id=mm2_producer_test
    cloud.group.id=mm2_producer_group
    cloud.ssl.enabled.protocols=TLSv1.2,TLSv1.1,TLSv1
-   cloud.ssl.truststore.location=/home/<домашняя директория>/mirror-maker/keystore
-   cloud.ssl.truststore.password=<пароль хранилища сертификатов>
+   cloud.ssl.truststore.location=/home/<домашняя_директория>/mirror-maker/keystore
+   cloud.ssl.truststore.password=<пароль_хранилища_сертификатов>
    cloud.ssl.protocol=TLS
    cloud.security.protocol=SASL_SSL
    cloud.sasl.mechanism=SCRAM-SHA-512
@@ -284,7 +284,7 @@
 Запустите MirrorMaker на ВМ командой:
 
 ```bash
-<путь установки Kafka>/bin/connect-mirror-maker.sh /home/<домашняя директория>/mirror-maker/mm2.properties
+<путь_установки_Apache_Kafka>/bin/connect-mirror-maker.sh /home/<домашняя_директория>/mirror-maker/mm2.properties
 ```
 
 ### Проверьте наличие данных в топике кластера-приемника {#check-data-mkf}

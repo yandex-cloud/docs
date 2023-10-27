@@ -419,6 +419,7 @@ default:
   yc-mdb-ms: yc managed-sqlserver
   yc-mdb-es: yc managed-elasticsearch
   yc-mdb-os: yc managed-opensearch
+  yc-serverless: yc serverless
   yc-compute-ig: yc compute instance-group
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
@@ -441,8 +442,8 @@ default:
   dns-zone: mdb.yandexcloud.net
   network-name: default
   zk-host-class: b2.medium
-  security-group: enp6saqnq4ie244g67sb
-  host-net-example: zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr8efcch64
+  security-group: enp6saqnq4ie********
+  host-net-example: zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr********
   disk-type-example: network-ssd
   mch-hs-version: 22.8
   mch-ck-version: 22.8
@@ -693,6 +694,7 @@ default:
   link-calc: https://cloud.yandex.ru/prices#calculator
   link-cloud-oauth: >-
     https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-auth-logout: https://auth.cloud.yandex.ru/logout
   link-cloud-partners: https://partners.cloud.yandex.ru/
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
@@ -7466,7 +7468,6 @@ default:
             field_key: Ключ KMS
           https:
             button_action-configure: Настроить
-            button_create-certificate: Перейти в Certificate Manager
             button_empty-action: Настроить
             button_save: Сохранить
             field_certificate: Сертификат

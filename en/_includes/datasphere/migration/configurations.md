@@ -25,6 +25,6 @@ Since projects run on different {{ yandex-cloud }} platforms with different comp
 
 ^1^ is available after you deposit at least $10 to your billing account or upon request to the support team.
 
-^2^ is only available for businesses, upon individual request to the support team.
+^2^ is only available for businesses and upon request to the support team.
 
 

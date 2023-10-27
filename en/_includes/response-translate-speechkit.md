@@ -1,7 +1,6 @@
 # Response format
 
 The response may contain:
-
 - Result of request execution if successful.
 - Error code and description if the request failed:
 
