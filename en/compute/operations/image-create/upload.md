@@ -94,7 +94,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To create an image:
    1. Describe the resource parameters in the `yandex_compute_image` configuration file.
@@ -137,7 +137,7 @@ After creation, the image will have the `CREATING` status. Wait until the image 
 
 ## Delete the image from {{ objstorage-name }} {#delete-image}
 
-If you have successfully created an image, you can [delete the image file](../../../storage/operations/objects/delete.md) from {{ objstorage-name }}. You can also [delete the bucket](../../../storage/operations/buckets/delete.md) if it doesn't contain any more objects.
+If you have successfully created an image, you can [delete the image file](../../../storage/operations/objects/delete.md) from {{ objstorage-name }}. You can also [delete the bucket](../../../storage/operations/buckets/delete.md) if it does not contain any more objects.
 
 ## Create a VM from the prepared image {#create-vm-from-user-image}
 

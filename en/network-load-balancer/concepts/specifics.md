@@ -10,11 +10,11 @@ Let's look at how an `external` load balancer works:
 
 1. The listener receives the traffic (packets) from the {{ yandex-cloud }} border router for the IP address and port it has been configured for.
 2. The listener calculates the `5-tuple` hash function from the parameters of the received IP packet. The hash function receives:
-   * Transmission protocol: TCP or UDP.
-   * Sender public IP address.
-   * Sender TCP or UDP port.
-   * Load balancer listener public IP address.
-   * Load balancer listener TCP or UDP port.
+   * Transmission protocol: TCP or UDP
+   * Sender public IP address
+   * Sender TCP or UDP port
+   * Load balancer listener public IP address
+   * Load balancer listener TCP or UDP port
 3. Based on the hash function calculation result, the listener sends the traffic to an active resource in the target group.
 4. The target group resource that has received traffic from the listener processes the traffic and sends the result back to the network load balancer.
 
@@ -75,7 +75,7 @@ Routes must have the next hop IP of one of the network VMs. Network VMs run in `
 
 #### Source NAT configured on network VMs {#source-nat}
 
-Make sure you set up [Source NAT](https://en.wikipedia.org/wiki/Network_address_translation#SNAT) to network VM addresses. Network VMs run in `Active/Active` mode. To set up Source NAT, refer to the documentation for software deployed on your network VM.
+Make sure you set up [Source NAT](https://en.wikipedia.org/wiki/Network_address_translation#SNAT) to network VM addresses. Network VMs run in `Active/Active` mode. To set up Source NAT, refer to the documentation for software deployed on your network VM. View an [example of how to set up Source NAT](../../tutorials/routing/high-accessible-dmz.md#setup-static-nat) on a Check Point NGFW.
 
 #### Route tables contain static routes with identical prefixes and different next hop IPs of network VMs {#divergent-next-hop}
 

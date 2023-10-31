@@ -1,0 +1,1 @@
+The `kms.asymmetricSignatureKeys.publicKeyViewer` role.

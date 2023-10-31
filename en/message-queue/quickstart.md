@@ -1,6 +1,6 @@
 ---
 title: "Getting started with {{ message-queue-full-name }} (message queues)"
-description: "In this tutorial, you'll learn how to make basic actions with message queues in {{ message-queue-full-name }}. First of all, install the AWS CLI, a command line utility for working with {{ message-queue-name }}."
+description: "In this tutorial, you will learn how to make basic actions with message queues in {{ message-queue-full-name }}. First of all, install the AWS CLI, a command line utility for working with {{ message-queue-name }}."
 ---
 
 # Getting started with {{ message-queue-name }}
@@ -9,7 +9,7 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
 1. Install the [AWS CLI](https://aws.amazon.com/cli/), a command line utility for working with Message Queue.
 1. Create a [service account](../iam/operations/sa/create.md) with the `editor` role.
-1. Create [static access keys](../iam/operations/sa/create-access-key.md). Save the ID and secret access key right away. You won't be able to view the secret access key parameters again after you close the window.
+1. Create [static access keys](../iam/operations/sa/create-access-key.md). Save the ID and secret access key right away. You will not be able to view the secret access key parameters again after you close the window.
 1. Set up the AWS CLI.
 
    {% list tabs %}
@@ -54,13 +54,15 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
    - Management console
 
-      1. Open the **Message Queue** section.
-      1. Click **Create queue**.
+      1. In the [management console]({{ link-console-main }}), select the folder to create the queue in.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+      1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
       1. Specify the queue name: `sample-queue`.
 
          {% include [name](../_includes/message-queue/ymq-name.md) %}
-      1. Select the **Standard** type. Do not change other settings.
-      1. Click **Create queue**.
+    
+      1. Select the `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}` type. Do not change other settings.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
 
    {% endlist %}
 
@@ -179,9 +181,9 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
    - Management console
 
-      1. Open the **Message Queue** section.
-      1. Click ![image](../_assets/vertical-ellipsis.svg) in the row of the queue to delete.
-      1. In the resulting menu, click **Delete**.
-      1. In the window that opens, click **Delete**.
+      1. In the [management console]({{ link-console-main }}), select the folder the queue belongs to.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+      1. Click ![image](../_assets/horizontal-ellipsis.svg) next to the appropriate queue and select **{{ ui-key.yacloud.common.delete }}**.
+      1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
    {% endlist %}

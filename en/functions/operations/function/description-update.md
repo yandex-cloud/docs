@@ -47,7 +47,7 @@ description: "Follow this guide to update a function description."
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To update the function description:
 

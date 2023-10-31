@@ -58,9 +58,9 @@
      1. Получите адрес хоста-мастера, используя Sentinel и любой хост {{ RD }}:
 
         ```bash
-        redis-cli -h <FQDN любого хоста {{ RD }}> \
+        redis-cli -h <FQDN_любого_хоста_{{ RD }}> \
           -p {{ port-mrd-sentinel }} \
-          sentinel get-master-addr-by-name <имя кластера {{ RD }}> | head -n 1
+          sentinel get-master-addr-by-name <имя_кластера_{{ RD }}> | head -n 1
         ```
 
      1. Подключитесь к хосту с этим адресом:
@@ -70,17 +70,17 @@
      **Чтобы подключиться напрямую к мастеру (без SSL):**
 
      ```bash
-     redis-cli -h c-<идентификатор кластера>.rw.{{ dns-zone }} \
+     redis-cli -h c-<идентификатор_кластера>.rw.{{ dns-zone }} \
        -p {{ port-mrd }} \
-       -a <пароль {{ RD }}>
+       -a <пароль_{{ RD }}>
      ```
 
      **Чтобы подключиться напрямую к мастеру (с SSL):**
 
      ```bash
-     redis-cli -h c-<идентификатор кластера>.rw.{{ dns-zone }} \
+     redis-cli -h c-<идентификатор_кластера>.rw.{{ dns-zone }} \
        -p {{ port-mrd-tls }} \
-       -a <пароль {{ RD }}> \
+       -a <пароль_{{ RD }}> \
        --tls \
        --cacert ~/.redis/{{ crt-local-file }}
      ```
@@ -90,17 +90,17 @@
      **Чтобы подключиться без SSL:**
 
      ```bash
-     redis-cli -h <FQDN хоста-мастера в любом шарде> \
+     redis-cli -h <FQDN_хоста-мастера_в_любом_шарде> \
        -p {{ port-mrd }} \
-       -a <пароль {{ RD }}>
+       -a <пароль_{{ RD }}>
      ```
 
      **Чтобы подключиться с SSL:**
 
      ```bash
-     redis-cli -h <FQDN хоста-мастера в любом шарде> \
+     redis-cli -h <FQDN_хоста-мастера_в_любом_шарде> \
        -p {{ port-mrd-tls }} \
-       -a <пароль {{ RD }}> \
+       -a <пароль_{{ RD }}> \
        --tls \
        --cacert ~/.redis/{{ crt-local-file }}
      ```

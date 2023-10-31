@@ -1,5 +1,7 @@
 # Bookmarks on pages
 
+{% include [actions-alert](../../_includes/wiki/actions-alert.md) %}
+
 To go to the specified area on the current or any other page, use an *anchor*:
 
 1. Open the page in [edit mode](../old-editor.md) and add to its text a label using the [`anchor` block](#anchor-call).
@@ -41,7 +43,7 @@ Add the `#` character to the right of the page URL and place the anchor name aft
 {{ wiki-pagename }}/#anchor_name
 ```
 
-To add a link to an anchor on the same page, you don't need to specify the full URL:
+To add a link to an anchor on the same page, you do not need to specify the full URL:
 
 ```
 #anchor_name

@@ -73,7 +73,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To remove a virtual machine created with {{ TF }} from a placement group:
 
@@ -117,7 +117,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

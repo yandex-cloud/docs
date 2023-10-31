@@ -30,14 +30,14 @@ For example, to check the status of BGP connectivity for a private or service co
 
 The monitoring service collects the following types of metrics for {{ interconnect-name }}:
 
-* [Trunk connection metrics](#trunk-metrics).
-* [Private or public connection metrics](#private-metrics).
+* [Trunk metrics](#trunk-metrics)
+* [Private or public connection metrics](#private-metrics)
 
-### Trunk connection metrics {#trunk-metrics}
+### Trunk metrics {#trunk-metrics}
 
 | Metric name | Units | Data type | Explanations |
 --- | --- | --- | ---
-| `connection_state` | N/A | bool | Current operational status of the physical port or LAG. |
+| `connection_state_up_down` | N/A | bool | Current operational status of the physical port or LAG. |
 | `lag_health` | Percent | Uint64 | Ratio of active ports in the LAG to the total number of ports in the LAG. |
 | `light_level_to_cloud_current_dbm` | dBm | float | Strength of the incoming optical signal on the {{ yandex-cloud }} equipment port. |
 | `light_level_to_cloud_min_dbm` | dBm | float | Minimum strength of the incoming optical signal on the {{ yandex-cloud }} equipment required for the correct operation of a physical port. |

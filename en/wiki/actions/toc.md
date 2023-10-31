@@ -1,5 +1,7 @@
 # Table of contents
 
+{% include [actions-alert](../../_includes/wiki/actions-alert.md) %}
+
 [{{ wiki-name }} pages](../pages-types.md#page) created in the old editor may automatically generate a table of contents based on headings. This is done using a dynamic block named `toc`.
 
 ## Adding a table of contents for a page {#single-page}

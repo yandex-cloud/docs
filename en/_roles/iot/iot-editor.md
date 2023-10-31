@@ -1,0 +1,1 @@
+The `iot.editor` role.

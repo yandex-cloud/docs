@@ -109,6 +109,6 @@
                 -alias YARootCrt \
                 -file ~/.redis/{{ crt-local-file }} \
                 -keystore ~/.redis/YATrustStore \
-                -storepass <пароль защищенного хранилища> \
+                -storepass <пароль_защищенного_хранилища> \
                 --noprompt && chmod 0655 ~/.redis/YATrustStore
         ```

@@ -126,7 +126,7 @@ You can only change the storage size by using the CLI or API.
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the storage description:
 

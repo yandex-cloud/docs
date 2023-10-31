@@ -1,5 +1,7 @@
 # Borders, width, and alignment of blocks
 
+{% include [formatter-alert](../../_includes/wiki/formatter-alert.md) %}
+
 For [text blocks with special formatting](../formatter.md), you can add frames, adjust the width of a block and its position relative to the edges of the page. To do this, add additional parameters to the block markup.
 
 ## Ready-made formatting templates {#wrapper}
@@ -19,7 +21,7 @@ When using the `wrapper` parameter, you can add other parameters to customize a 
 
 {% endnote %}
 
-Example:
+For example:
 
 ```
 %%(wacko wrapper=box)
@@ -40,7 +42,7 @@ Along with the `wrapper=text` parameter, the `align` parameter lets you adjust t
 | `left` | Left-aligned. |
 | `center` | Centered. This value is only valid in combination with the `wrapper=text` parameter. |
 
-Example:
+For example:
 
 ```
 %%(css align=right)
@@ -52,7 +54,7 @@ Example:
 
 Use the `width` parameter to adjust the block width in pixels.
 
-Example:
+For example:
 
 ```
 %%(css wrapper=box width=400)
@@ -80,7 +82,7 @@ border="<thickness in pixels> <line type> <line color>"
 | `grey` | Grey. |
 | `yellow` | Yellow. |
 
-Example:
+For example:
 
 ```
 %%(math wrapper=shade border="2px dashed red") X^{a+b}_{i-j} %%

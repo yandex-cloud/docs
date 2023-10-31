@@ -2,7 +2,7 @@
 
 You can use logical replication to migrate a database from an Amazon RDS for {{ PG }} _source cluster_ to a {{ mpg-name }} _target cluster_.
 
-[Logical replication]({{ pg-docs }}/logical-replication.html) uses the [subscription]({{ pg-docs }}/sql-createsubscription.html) mechanism. This lets you migrate data to the target cluster with minimal downtime. Logical replication is available in Amazon RDS for {{ PG }} version 10.4 and higher.
+[Logical replication]({{ pg-docs }}/logical-replication.html) uses the [subscription]({{ pg-docs }}/sql-createsubscription.html) mechanism. It allows you to migrate data to the target cluster with minimal downtime. Logical replication is available in Amazon RDS for {{ PG }} version 10.4 and higher.
 
 Use logical replication if [data migration using {{ data-transfer-full-name }}](../tutorials/data-migration.md#data-transfer) is not possible for any reason.
 
@@ -70,9 +70,9 @@ Create the required resources:
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [set up and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the configuration file [logical-replica-amazon-rds-to-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/logical-replica-amazon-rds-to-postgresql.tf) to the same working directory.
+   1. Download the [logical-replica-amazon-rds-to-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/logical-replica-amazon-rds-to-postgresql.tf) configuration file to the same working directory.
 
       This file describes:
 

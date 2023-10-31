@@ -23,6 +23,7 @@
 | Maximum message enqueue delay (`DelaySeconds` parameter) | 900 seconds (15 minutes) |
 | Number of messages being processed per standard queue | 120,000 |
 | Number of messages being processed per FIFO queue | 20,000 |
+| Rate of enqueueing messages in a FIFO queue | 100 messages per second |
 | Queue name | Maximum of 80 characters, including numbers, lowercase and uppercase Latin letters, hyphens, and underscores. The name of a FIFO queue must end with the `.fifo` suffix. |
 
 ##### Messages {#ymq-limits-messages}

@@ -93,7 +93,7 @@ The cost of resources includes:
    - {{ TF }}
 
       
-      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
       1. In the configuration file, describe the service account parameters:
@@ -125,8 +125,8 @@ The cost of resources includes:
 
          Where:
 
-         * `name`: Service account name. Required parameter.
-         * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Optional parameter. By default, the value specified in the provider settings is used.
+         * `name`: Service account name. This is a required parameter.
+         * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
          * `role`: Role being assigned.
 
          For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
@@ -178,7 +178,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
    1. In the [management console]({{ link-console-main }}), select the folder with the service account.
    1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. Choose a service account and click the line with its name.
+   1. Choose a service account and click the row with its name.
    1. On the top panel, click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
    1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.

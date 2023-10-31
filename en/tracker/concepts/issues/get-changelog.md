@@ -1,79 +1,77 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/get-changelog.md
+sourcePath: ru/tracker/api-ref/concepts/issues/get-changelog.md
 ---
-# Get the history of issue changes
+# Получить историю изменений задачи
 
-Use this request to get the history of changes to issues. If there are more than 50 records in the response, use the [`perPage` parameter](#params).
+Запрос позволяет получить историю изменений задачи. Если количество записей в ответе более 50, необходимо использовать [параметр `perPage`](#params).
 
-## Request format {#section_erc_zwm_z2b}
+## Формат запроса {#section_erc_zwm_z2b}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To get a list of issue changes, use an HTTP `GET` request.
-
+Чтобы получить список изменений задачи, используйте HTTP-запрос с методом `GET`. 
 ```json
 GET /{{ ver }}/issues/<issue-id>/changelog
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
+{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}  
 
-{% cut "Request parameters" %}
+{% cut "Параметры запроса" %}
 
-#### Additional parameters {#params}
+#### Дополнительные параметры {#params}
 
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| id | ID of the change followed by the requested changes. | String |
-| perPage | Number of changes per page. If this parameter is omitted, each page will display 50 changes by default. | Number |
-| field | ID of the [change parameter](#field). For example, `checklistItems` for viewing changes to the checklist or `status` for viewing all issue status updates. | String |
-| type | Key of the [change type](#diff-type). | String |
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+id | Идентификатор изменения, за которым следуют запрашиваемые изменения. | Строка
+perPage | Количество изменений на странице. Если параметр не указан, по умолчанию на странице будет выведено 50 изменений. | Число
+field | Идентификатор [параметра изменений](#field). Например, `checklistItems` для просмотра изменений в чеклисте или `status` для просмотра всех обновлений статуса задачи.| Строка
+type | Ключ [типа изменения](#diff-type). | Строка
 
 {% endcut %}
 
-## Response format {#section_kms_pbr_1fb}
+## Формат ответа {#section_kms_pbr_1fb}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
-
-    The response body contains a JSON array with the history of issue changes.
-
-  {% cut "Response headers" %}
-
-    The `Link` headers contain links to the first (`rel="first"`) and subsequent (`rel="next"`) pages of the response. By default, each page contains 50 changes.
-
+  
+    Тело ответа содержит JSON-массив с историей изменений задачи.
+	
+  {% cut "Заголовки ответа" %}
+	
+    Заголовки `Link` содержат ссылки на первую (`rel="first"`) и последующую (`rel="next"`) страницы ответа. По умолчанию на каждой странице располагается 50 изменений.
+	
     ```
     ...
     Link: <{{ host }}/v2/issues/SCR-8/changelog?perPage=50>; rel="first"
     Link: <{{ host }}/v2/issues/SCR-8/changelog?id=5b9a1a88f7c605001c0e14a5&perPage=50>; rel="next"
     ...
     ```
-
-  {% endcut %}
+  {% endcut %}    
 
     ```json
     [
      {
-            "id": "6033f986bd6c4a042c688392",
-            "self": "{{ host }}/v2/issues/TEST-27/changelog/6033f986bd6c4a042c688392",
-            "issue": {
-                "self": "{{ host }}/v2/issues/TEST-27",
-                "id": "6033f986bd6c4a042c688392",
-                "key": "TEST-27",
-                "display": "Issue name"
-            },
+         "id": "6033f986bd6c4a042c688392",
+         "self": "{{ host }}/v2/issues/TEST-27/changelog/6033f986bd6c4a042c688392",
+         "issue": {
+             "self": "{{ host }}/v2/issues/TEST-27",
+             "id": "6033f986bd6c4a042c688392",
+             "key": "TEST-27",
+             "display": "Название задачи"
+         },
          "updatedAt": "2021-02-22T18:35:50.157+0000",
          "updatedBy": {
              "self": "{{ host }}/v2/users/1234567890",
              "id": "1234567890",
-             "display": "First and Last name"
+             "display": "Имя Фамилия"
          },
          "type": "IssueCreated",
          "transport": "front",
@@ -82,14 +80,14 @@ Authorization: OAuth <token>
                  "field": {
                      "self": "{{ host }}/v2/fields/status",
                      "id": "status",
-                     "display": "Status"
+                     "display": "Статус"
                  },
                  "from": null,
                  "to": {
                      "self": "{{ host }}/v2/statuses/1",
                      "id": "1",
                      "key": "open",
-                     "display": "Open"
+                     "display": "Открыт"
                  }
              }
          ]
@@ -101,13 +99,13 @@ Authorization: OAuth <token>
              "self": "{{ host }}/v2/issues/TEST-27",
              "id": "6033f986bd6c4a042c688391",
              "key": "TEST-27",
-             "display": "Issue name"
+             "display": "Название задачи"
          },
          "updatedAt": "2021-02-22T18:35:57.359+0000",
          "updatedBy": {
              "self": "{{ host }}/v2/users/1234567890",
              "id": "1234567890",
-             "display": "First and Last name"
+             "display": "Имя Фамилия"
          },
          "type": "IssueUpdated",
          "transport": "front",
@@ -116,14 +114,14 @@ Authorization: OAuth <token>
                  "field": {
                      "self": "{{ host }}/v2/fields/followers",
                      "id": "followers",
-                     "display": "Followers"
+                     "display": "Наблюдатели"
                  },
                  "from": null,
                  "to": [
                      {
                          "self": "{{ host }}/v2/users/1234567890",
                          "id": "1234567890",
-                         "display": "First and Last name"
+                         "display": "Имя Фамилия"
                      }
                  ]
              }
@@ -136,13 +134,13 @@ Authorization: OAuth <token>
              "self": "{{ host }}/v2/issues/TEST-27",
              "id": "6033f986bd6c4a042c688391",
              "key": "TEST-27",
-             "display": "Issue name"
+             "display": "Название задачи"
          },
          "updatedAt": "2021-02-22T18:36:05.553+0000",
          "updatedBy": {
              "self": "{{ host }}/v2/users/1234567890",
              "id": "1234567890",
-             "display": "First and Last name"
+             "display": "Имя Фамилия"
          },
          "type": "IssueUpdated",
          "transport": "front",
@@ -151,95 +149,231 @@ Authorization: OAuth <token>
                  "field": {
                      "self": "{{ host }}/v2/fields/tags",
                      "id": "tags",
-                     "display": "Tags"
+                     "display": "Теги"
                  },
                  "from": null,
                  "to": [
-                     "New tag"
+                     "Новый тег"
                  ]
              }
+         ],
+     },
+     {
+        "id": "62bab52ca16f631eea3816a9",
+        "self": "{{ host }}/v2/issues/TEST-27/changelog/62bab52ca16f631eea3816a9",
+        "issue": {
+            "self": "{{ host }}/v2/issues/TEST-27",
+            "id": "5fbc929b5b28572f9418327d",
+            "key": "TEST-27",
+            "display": "Название задачи"
+        },
+        "updatedAt": "2022-06-28T08:00:44.155+0000",
+        "updatedBy": {
+            "self": "{{ host }}/v2/users/1134669289",
+            "id": "1134669289",
+            "display": "Имя Фамилия"
+        },
+        "type": "IssueWorkflow",
+        "transport": "front",
+        "fields": [
+            {
+                "field": {
+                    "self": "{{ host }}/v2/fields/status",
+                    "id": "status",
+                    "display": "Статус"
+                },
+                "from": {
+                    "self": "{{ host }}/v2/statuses/3",
+                    "id": "3",
+                    "key": "inProgress",
+                    "display": "В работе"
+                },
+                "to": {
+                    "self": "{{ host }}/v2/statuses/2",
+                    "id": "2",
+                    "key": "needInfo",
+                    "display": "Требуется информация"
+                }
+            },
+            {
+                "field": {
+                    "self": "{{ host }}/v2/fields/statusStartTime",
+                    "id": "statusStartTime",
+                    "display": "Статус изменен"
+                },
+                "from": "2022-06-28T07:29:45.753+0000",
+                "to": "2022-06-28T08:00:44.156+0000"
+            },
+            {
+                "field": {
+                    "self": "{{ host }}/v2/fields/followers",
+                    "id": "followers",
+                    "display": "Наблюдатели"
+                },
+                "from": [
+                    {
+                        "self": "{{ host }}/v2/users/780889736",
+                        "id": "780889736",
+                        "display": "Имя Фамилия"
+                    },
+                    {
+                        "self": "{{ host }}/v2/users/780891246",
+                        "id": "780891246",
+                        "display": "Имя Фамилия"
+                    }
+                ],
+                "to": [
+                    {
+                        "self": "{{ host }}/v2/users/780889736",
+                        "id": "780889736",
+                        "display": "Имя Фамилия"
+                    },
+                    {
+                        "self": "{{ host }}/v2/users/780891246",
+                        "id": "780891246",
+                        "display": "Имя Фамилия"
+                    },
+                    {
+                        "self": "{{ host }}/v2/users/1134669289",
+                        "id": "1134669289",
+                        "display": "Имя Фамилия"
+                    }
+                ]
+            }
+        ], 
+        "comments": {
+            "added": [
+                {
+                    "self": "{{ host }}/v2/issues/TEST-27/comments/10",
+                    "id": "10",
+                    "display": "<текст комментария>"
+                }
+            ]
+        },
+        "executedTriggers": [
+            {
+                "trigger": {
+                    "self": "{{ host }}/v2/queues/TEST/triggers/29",
+                    "id": "29",
+                    "display": "<имя триггера>"
+                },
+                "success": true,
+                "message": "<действие триггера>"
+            }
          ]
       }
     ]
-    ```
+    ``` 
+          
+  {% cut "Параметры ответа" %}
 
-  {% cut "Response parameters" %}
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   id | Идентификатор изменения. | Строка
+   self | Адрес ресурса API, который содержит информацию об изменении. | Строка
+   [issue](#issue) | Блок с информацией о задаче. | Объект
+   updatedAt | Дата и время изменения задачи в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
+   [updatedBy](#updated-by) | Блок с информацией о пользователе, который внес изменение в задачу. | Объект
+   transport | Служебный параметр. | Строка
+   type | [Тип изменения](#diff-type). | Строка
+   [fields](#fields) | Массив объектов с информацией об измененных параметрах задачи. | Массив объектов
+   [comments](#comments) | Блок с информацией о [комментарии](get-comments.md) к задаче. | Объект 
+   [executedTriggers](#executedTriggers) | Блок с информацией о [триггере](../queues/get-trigger.md), который сработал в задаче. | Объект       
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | id | Change ID. | String |
-   | self | Address of the API resource with information about the change. | String |
-   | [issue](#issue) | Block with information about the issue. | Object |
-   | updatedAt | Issue update date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
-   | [updatedBy](#updated-by) | Object with information about the user who edited the issue. | Object |
-   | transport | Service parameter. | String |
-   | type | [Type of change](#diff-type). | String |
-   | [fields](#fields) | Array of objects with information about updated issue parameters. | Array |
-
-   **Object fields** `issue` {#issue}
+   **Поля объекта** `issue` {#issue}
 
    {% include [issue](../../../_includes/tracker/api/issue.md) %}
 
-   **Object fields** `updatedBy` {#updated-by}
+   **Поля объекта** `updatedBy` {#updated-by}
 
    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-   **Array object fields** `fields` {#fields}
+   **Поля объектов массива** `fields` {#fields}
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | [field](#field) | Block with information about the updated issue parameter. | Object |
-   | [from](#from-to) | Block with information about the parameter value before the change. | Object |
-   | [to](#from-to) | Block with information about the parameter value after the change. | Object |
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   [field](#field) | Блок с информацией об измененном параметре задачи. | Объект
+   [from](#from-to) | Информация о значении параметра до изменения. <ul><li>Если в поле можно записать несколько значений, то передается массив объектов. Например, поле `followers`.</li><li>Если в поле можно записать только одно значение, то оно передается в строковом формате. Например, поле `statusStartTime`.</li></ul> | Строка / Объект 
+   [to](#from-to) | Информация о значении параметра после изменения. <ul><li>Если в поле можно записать несколько значений, то передается массив объектов. Например, поле `followers`.</li><li>Если в поле можно записать только одно значение, то оно передается в строковом формате. Например, поле `statusStartTime`.</li></ul> | Строка / Объект
 
-   **Object fields** `field` {#field}
+   **Поля объекта** `field` {#field}
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | self | Link to the updated issue parameter. | String |
-   | id | Issue parameter ID. | String |
-   | display | Issue parameter name displayed. | String |
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   self | Ссылка на измененный параметр задачи. | Строка
+   id | Идентификатор параметра задачи. | Строка
+   display | Отображаемое название параметра задачи. | Строка
 
-   **Object fields** `from` **and** `to` {#from-to}
+   **Поля объектов** `from` **и** `to` {#from-to} 
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | self | Link to the issue parameter value. | String |
-   | id | Issue parameter value ID. | String |
-   | key | Parameter value key. | String |
-   | display | Value parameter name displayed. | String |
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   self | Ссылка на значение параметра задачи. | Строка
+   id | Идентификатор значения параметра задачи. | Строка
+   key | Ключ значения параметра. | Строка
+   display | Отображаемое название значения параметра. | Строка
 
-   **Type of change** `type` {#diff-type}
+   **Поля объекта** `comments` {#comments}
 
-   | Type of change. | Description |
-   | ----- | ----- |
-   | IssueUpdated | The issue was edited. |
-   | IssueCreated | Issue created. |
-   | IssueMoved | The issue was moved to another queue. |
-   | IssueCloned | A clone of the issue was created. |
-   | IssueCommentAdded | A comment was added to the issue. |
-   | IssueCommentUpdated | An issue comment was edited. |
-   | IssueCommentRemoved | An issue comment was deleted. |
-   | IssueWorklogAdded | A record of time spent was added. |
-   | IssueWorklogUpdated | A record of time spent was edited. |
-   | IssueWorklogRemoved | A record of time spent was deleted. |
-   | IssueCommentReactionAdded | The comment was voted for. |
-   | IssueCommentReactionRemoved | A vote for the comment was removed. |
-   | IssueVoteAdded | The issue was voted for. |
-   | IssueVoteRemoved | A vote for the issue was removed. |
-   | IssueLinked | A link to another issue was created. |
-   | IssueLinkChanged | Type of link to another issue was changed. |
-   | IssueUnlinked | A link to another issue was deleted. |
-   | RelatedIssueResolutionChanged | Resolution of the linked issue was changed. |
-   | IssueAttachmentAdded | A file is attached to the issue. |
-   | IssueAttachmentRemoved | A file attached to the issue was removed. |
-   | IssueWorkflow | The issue status changed. |
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   [added](#added) | Блок с информацией о комментарии. | Объект
 
-  {% endcut %}
+   **Поля объекта** `added` {#added}
 
-- Request failed
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   self | Ссылка на объект комментария. | Строка
+   id | Идентификатор комментария. | Число
+   display | Текст комментария. | Строка
 
-  If the request is processed incorrectly, the API returns a response with an error code:
+   **Поля объекта** `executedTriggers` {#executedTriggers}
+
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   [trigger](#trigger) | Блок с информацией о триггере. | Объект
+   success | Статус срабатывания триггера. Допустимые значения:<ul><li>`true`— успешно;</li><li>`false`— неуспешно.</li></ul>| Логический
+   message | Действие, которое было выполнено при срабатывании триггера. | Строка
+
+   **Поля объекта** `trigger` {#trigger}
+
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   self | Ссылка на объект триггера. | Строка
+   id | Идентификатор триггера. | Число
+   display | Отображаемое название триггера. | Строка
+	
+   **Тип изменения** `type` {#diff-type}
+		
+   Тип изменения | Описание
+   ----- | -----
+   IssueUpdated | Задача изменена.
+   IssueCreated | Задача создана.
+   IssueMoved | Задача перемещена в другую очередь.
+   IssueCloned | Создан клон задачи.
+   IssueCommentAdded | Добавлен комментарий к задаче.
+   IssueCommentUpdated | Изменен комментарий к задаче.
+   IssueCommentRemoved | Удален комментарий к задаче.
+   IssueWorklogAdded | Добавлена запись о затраченном времени.
+   IssueWorklogUpdated | Изменена запись о затраченном времени.
+   IssueWorklogRemoved | Удалена запись о затраченном времени.
+   IssueCommentReactionAdded | За комментарий проголосовали.
+   IssueCommentReactionRemoved | Отозван голос за комментарий.
+   IssueVoteAdded | За задачу проголосовали.
+   IssueVoteRemoved | Отозван голос за задачу.
+   IssueLinked | Создана связь с другой задачей.
+   IssueLinkChanged | Изменен тип связи с другой задачей.
+   IssueUnlinked | Удалена связь с другой задачей.
+   RelatedIssueResolutionChanged | Изменена резолюция связанной задачи.
+   IssueAttachmentAdded | К задаче прикреплен файл.
+   IssueAttachmentRemoved | Прикрепленный к задаче файл удален.
+   IssueWorkflow | Изменен статус задачи.
+
+  {% endcut %}   
+
+- Запрос выполнен с ошибкой
+
+  Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
   {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
@@ -254,4 +388,3 @@ Authorization: OAuth <token>
   {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

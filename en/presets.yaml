@@ -4121,6 +4121,8 @@ default:
       blocks-desktop_b-queues-info:
         admin: Configure
         projects: Projects
+      blocks-desktop_b-related-issues__title:
+        is_epic_of: Epic issues
       blocks-desktop_b-screen:
         worklog: Time spent
       blocks-desktop_b-subscriptions-header:
@@ -4143,6 +4145,8 @@ default:
         pivot: Pivot report
         queue-hint: Queue
         timesheet: Timesheet report
+      blocks-desktop_calendar-editor--overrides-modal:
+        add-button: Add
       blocks-desktop_calendar-editor--working-time-select:
         option--daily24x7: Round the clock
       blocks-desktop_comment-form:
@@ -4592,6 +4596,8 @@ default:
         write-comment: Write a comment
       ui_components_Confirm:
         ok-button-text: 'Yes'
+      ui_components_create-issue-popup_CreateIssuePageLink:
+        open-create-form: Open full form
       ui_components_create-issue-popup_NewIssueForm:
         create: Create
         issue-name: Issue name
@@ -4680,6 +4686,8 @@ default:
         create-template-item: Create template
       ui_components_issue-links_ExternalLinksCollapse:
         external-relations: Links to external applications
+      ui_components_issue-links_InternalLinksCollapse:
+        relations: Links to other issues
       ui_components_IssueActionsButton:
         menu-item-create-subticket: Create sub-issue
       ui_components_IssueBulkActionPanel:
@@ -4740,6 +4748,8 @@ default:
         import: Import
       ui_components_issues-import_IssuesImportFilters:
         add-parameters: Add parameters
+      ui_components_IssuesGroupHeader:
+        no-epic: No epic
       ui_components_IssueSidebar:
         add-sidebar-field: Edit parameters list
       ui_components_IssuesPresetSelect:
@@ -6313,7 +6323,6 @@ default:
           label_lifecycle: Lifecycle
           label_lifecycle-dry-runs: Lifecycle dru runs
           label_lifecycle-rules: Lifecycle policy rules
-          label_only-selected: Only selected
           label_retained-top: Retained top
           label_selected: Selected
           label_tag-regexp: Tag regexp
@@ -6747,6 +6756,7 @@ default:
         target-group:
           button_create: Create target group
           label_list: Target groups
+          label_targets-section-title: Targets
       load-testing:
         button_add-bucket: Link bucket
         button_add-overload-test-id: Add ID
@@ -8882,39 +8892,9 @@ default:
                     title: YT cluster
         transfer:
           transfer:
-            ColumnsFilter:
-              exclude_columns:
-                title: Excluded columns (regular expressions)
-              include_columns:
-                title: Included columns (regular expressions)
-            RenameTable:
-              new_name:
-                title: Target table name
-              original_name:
-                title: Source table name
-            Table:
-              name_space:
-                title: Named schema
-              name:
-                title: Table name
-            TablesFilter:
-              exclude_tables:
-                title: Excluded tables (regular expressions)
-              include_tables:
-                title: Included tables (regular expressions)
-            ToStringTransformer:
-              columns:
-                title: Columns
-              tables:
-                title: Tables
             Transformation:
               transformers:
                 array_item_label: Transformation
-            Transformer:
-              filter_columns:
-                title: Columns filter
-              rename_tables:
-                title: Rename tables
     yc-ui-datasphere:
       alias:
         private: Private

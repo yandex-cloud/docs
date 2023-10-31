@@ -1,0 +1,1 @@
+The `kms.admin` role enables you to assign random roles for keys using the CLI and API, delete keys and key versions, and update the primary version. Includes all access rights of the `kms.editor` role.

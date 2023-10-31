@@ -29,7 +29,7 @@ After creating a security group, you can change its name and description, and [a
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 

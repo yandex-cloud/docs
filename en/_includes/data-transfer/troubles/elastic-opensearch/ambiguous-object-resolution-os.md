@@ -3,7 +3,7 @@
 Error messages:
 
 ```text
-object field starting or ending with a [.] makes object resolution ambiguous <field description>
+object field starting or ending with a [.] makes object resolution ambiguous <field_description>
 
 Index -1 out of bounds for length 0
 ```

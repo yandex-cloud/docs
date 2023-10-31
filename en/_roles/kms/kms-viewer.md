@@ -1,0 +1,1 @@
+The `kms.viewer` role enables you to read information about keys.

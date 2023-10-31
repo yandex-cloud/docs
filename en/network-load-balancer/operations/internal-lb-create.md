@@ -1,6 +1,6 @@
 ---
 title: "How to create an internal network load balancer"
-description: "Use this guide to create an internal network load balancer."
+description: "Follow this guide to create an internal network load balancer."
 ---
 
 # Create an internal network load balancer
@@ -119,7 +119,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To create an internal load balancer with a [listener](../concepts/listener.md) and a [target group](../concepts/target-resources.md):
 

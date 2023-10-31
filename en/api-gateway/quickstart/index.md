@@ -10,9 +10,9 @@ This guide will show you how to create and test different types of extensions. F
 ## Getting started {#before-you-begin}
 
 To get started in {{ yandex-cloud }}:
-1. Log in to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}). If you do not have an account yet, go to the management console and follow the guide.
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
-1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
+1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create an API gateway {#create-api-gw}
 
@@ -66,7 +66,7 @@ To get started in {{ yandex-cloud }}:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
 
@@ -181,7 +181,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
       * `user_hash`: Arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
       * `runtime`: The function [runtime environment](../../functions/concepts/runtime/index.md).
       * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
-      * `memory`: The amount of memory allocated for function execution, in MB.
+      * `memory`: Amount of memory allocated for function execution, in MB.
       * `execution_timeout`: Function execution timeout.
       * `service_account_id`: ID of the service account that should be used to invoke the function.
       * `tags`: Function tags.
@@ -193,7 +193,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -236,7 +236,7 @@ Add function information to the API gateway specification.
       The `/numbers` method, which uses the `cloud_functions` type `x-yc-apigateway-integration` extension, invokes a function by ID.
 
       To ensure that the API gateway works properly, in the `function_id` parameter, specify the ID of the function to invoke.
-      To let the API gateway access a private function, in the `service_account_id` parameter, specify a service account that has the rights to invoke the function.
+      To enable the API gateway to access a private function, in the `service_account_id` parameter, specify a service account that has the rights to invoke the function.
 
       ```
       openapi: "3.0.0"
@@ -361,7 +361,7 @@ Add function information to the API gateway specification.
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -379,7 +379,7 @@ Add function information to the API gateway specification.
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
          ```
          yc serverless api-gateway get <API gateway name>

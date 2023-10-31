@@ -124,7 +124,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To create a trigger for {{ objstorage-name }}:
 

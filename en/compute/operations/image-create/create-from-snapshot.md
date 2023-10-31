@@ -63,7 +63,7 @@ To create an image from a disk snapshot:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Describe the resource parameters in the `yandex_compute_image` configuration file.
 

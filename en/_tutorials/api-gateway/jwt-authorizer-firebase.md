@@ -176,8 +176,8 @@ Firebase:
 
       Where:
 
-      * `name`: API gateway name.
-      * `spec`: Specification file.
+      * `name`: API gateway name
+      * `spec`: Specification file
 
       Result:
 
@@ -194,7 +194,7 @@ Firebase:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the API gateway parameters:
 
@@ -243,8 +243,8 @@ Firebase:
 
       Where:
 
-      * `name`: API gateway name.
-      * `spec`: API gateway specification.
+      * `name`: API gateway name
+      * `spec`: API gateway specification
 
       For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
 
@@ -356,7 +356,7 @@ Deploy a static website:
 
    - {{ TF }}
 
-      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      {% include [terraform-install](../../_includes/terraform-install.md) %}
 
       1. In the configuration file, describe the resource parameters:
 
@@ -388,11 +388,11 @@ Deploy a static website:
 
          Where:
 
-         * `yandex_iam_service_account` is the description of the service account that will create and use a bucket:
-            * `name`: Service account name.
+         * `yandex_iam_service_account`: Description of the service account that will create and use a bucket:
+            * `name`: Service account name
          * `yandex_storage_bucket`: Bucket description:
-            * `bucket`: Bucket name.
-            * `acl`: Bucket access settings.
+            * `bucket`: Bucket name
+            * `acl`: Bucket access settings
 
          For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
@@ -485,11 +485,7 @@ Deploy a static website:
 
    - {{ TF }}
 
-      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-      
-      For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+      {% include [terraform-install](../../_includes/terraform-install.md) %}
 
       To set up a redirect for all requests:
 
@@ -514,8 +510,8 @@ Deploy a static website:
          Where:
 
          * `website`: Website parameters:
-            * `index_document`: Absolute path to the file of the website home page. Required parameter.
-            * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. Optional parameter.
+            * `index_document`: Absolute path to the file of the website home page. This is a required parameter.
+            * `error_document`: Absolute path to the file displayed to the user upon a `4xx` error. This is an optional parameter.
 
          For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}//storage_bucket#static-website-hosting).
 

@@ -1,0 +1,1 @@
+The `lockbox.payloadViewer` role is designed for service accounts and lets you access the contents of the secret.

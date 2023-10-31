@@ -109,7 +109,7 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.changeitems`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = publisher.data.changeitems`
 
     ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
@@ -140,7 +140,7 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
     ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
@@ -170,7 +170,7 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
 
 * Alert settings:
 
@@ -196,7 +196,7 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.bytes`
+    ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = publisher.data.bytes`
     ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:

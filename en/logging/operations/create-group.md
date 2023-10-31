@@ -82,7 +82,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 

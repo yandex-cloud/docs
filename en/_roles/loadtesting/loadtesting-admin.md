@@ -1,0 +1,1 @@
+At the moment, the service does not include an administrative function, so the `loadtesting.admin` role has the same permissions as `loadtesting.editor`.

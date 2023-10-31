@@ -123,7 +123,7 @@ You can also deploy an infrastructure for automatic scanning of Docker images on
 
    {% endlist %}
 
-1. Similarly create a service account named `invoker` and assign it the `serverless.functions.invoker` role for the folder where you created the registry.
+1. Repeat the steps to create a service account named `invoker` and assign it the `{{ roles-functions-invoker }}` role for the folder where you created the registry.
 1. Install Docker.
 
 ## Create a function {#create-function}
@@ -267,10 +267,10 @@ Create a trigger that will invoke your function when creating a Docker image [ta
   ```
 
   Where:
-  * `--name`: Trigger name
+  * `--name`: Trigger name.
   * `--registry-id`: [ID of the registry](../operations/registry/registry-list.md) to push the Docker image to.
   * `--events`: [Events](../../functions/concepts/trigger/cr-trigger.md#event) activating the trigger.
-  * `--invoke-function-id`: Function ID
+  * `--invoke-function-id`: Function ID.
   * `--invoke-function-service-account-id`: ID of the service account with rights to invoke the function.
 
   Result:

@@ -1,0 +1,1 @@
+Роль `search-api.executor` позволяет использовать сервис Search API.

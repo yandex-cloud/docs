@@ -1,6 +1,6 @@
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To create a message queue:
 
@@ -97,12 +97,12 @@
     * `access_key`: ID of the service account static access key for the queue. If it is not specified in the queue configuration, the ID from the provider configuration is used.
     * `secret_key`: Secret part of the static access key. If no secret key is set in the queue configuration, the key from the provider configuration is used.
 
-    For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+    For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are valid.
 
     1. In the command line, go to the directory where you created the configuration file.
-    1. Run the check using this command:
+    1. Run a check using this command:
         ```
         terraform plan
         ```
@@ -116,4 +116,4 @@
         ```
     1. Confirm that you want to create the resources.
 
-    Once you are done, all the resources you need will be created in the specified folder. You can check whether the resources are there, as well as verify their settings, using the [management console]({{ link-console-main }}). To delete the created resources, run the `terraform destroy` command.
+    All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}). To delete the created resources, run the `terraform destroy` command.

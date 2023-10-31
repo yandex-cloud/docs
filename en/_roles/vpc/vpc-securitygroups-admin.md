@@ -1,0 +1,1 @@
+The `vpc.securityGroups.admin` role lets you manage security groups.

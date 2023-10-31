@@ -1,0 +1,1 @@
+Роль `kms.asymmetricSignatureKeys.publicKeyViewer` позволяет получать открытый ключ асимметричной ключевой пары подписи.

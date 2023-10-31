@@ -42,7 +42,7 @@ To access a device, use its unique ID or name. For information on retrieving the
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To update the name of a device created using {{ TF }}:
 
@@ -140,7 +140,7 @@ To access a device, use its unique ID or name. For information on retrieving the
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To update the name of a device created using {{ TF }}:
 

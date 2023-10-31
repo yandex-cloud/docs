@@ -60,22 +60,22 @@ description: "Следуя данной инструкции, вы сможет�
 1. Зарегистрируйте бакет как репозиторий снапшотов, используя публичный [API {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/put-snapshot-repo-api.html):
 
     ```http
-    PUT --cacert ~/.elasticsearch/root.crt https://admin:<пароль>@<FQDN хоста>:9200/_snapshot/<репозиторий>
+    PUT --cacert ~/.elasticsearch/root.crt https://admin:<пароль>@<FQDN_хоста>:9200/_snapshot/<репозиторий>
     ```
 
     В параметрах запроса укажите бакет, связанный с сервисным аккаунтом кластера:
 
     ```bash
     curl --request PUT \
-         "https://admin:<пароль>@<FQDN хоста>:9200/_snapshot/<репозиторий>" \
+         "https://admin:<пароль>@<FQDN_хоста>:9200/_snapshot/<репозиторий>" \
          --cacert ~/.elasticsearch/root.crt \
          --header "Content-Type: application/json" \
          --data '{
            "type": "s3",
            "settings": {
              "endpoint": "{{ s3-storage-host }}",
-             "bucket": "<имя бакета>",
-             "base_path": "<путь к каталогу для снапшотов>",
+             "bucket": "<имя_бакета>",
+             "base_path": "<путь_к_каталогу_для_снапшотов>",
              "canned_acl": "bucket-owner-full-control"
            }
          }'

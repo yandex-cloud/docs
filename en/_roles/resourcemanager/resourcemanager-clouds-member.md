@@ -1,0 +1,1 @@
+The `resource-manager.clouds.member` role is required for everyone except the cloud owners and service accounts to access resources in a cloud not owned by the organization.

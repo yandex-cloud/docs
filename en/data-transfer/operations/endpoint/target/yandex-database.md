@@ -58,6 +58,6 @@ To create or edit an endpoint of a managed database, you need the [`ydb.viewer` 
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}**: Specify the [subdirectory](https://ydb.tech/en/docs/concepts/datamodel/dir) to place tables in.
 
-        The table path you should get is `<path in Yandex Database>/<subdirectory>/<table>`.
+        The table path you should get is `<path_in_Yandex_Database>/<subdirectory>/<table>`.
 
 {% endlist %}

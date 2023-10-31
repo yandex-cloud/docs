@@ -69,6 +69,8 @@ items:
         href: operations/greenplum-db.md
   - name: Практические руководства
     items:
+      - name: Все сценарии
+        href: tutorials/index.md
       - name: Миграция базы данных в {{ mgp-name }}
         href: tutorials/data-migration.md
       - name: >-

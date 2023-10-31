@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * Using {{ TF }}
 
-      1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. {% include [terraform-install](../../_includes/terraform-install.md) %}
       1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
       1. Download the [kafka-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-postgresql.tf) configuration file to the same working directory.
 
@@ -80,7 +80,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
       ```bash
       sudo apt update && sudo apt-get install --yes jq
 
-      
 ## Prepare the test data {#prepare-data}
 
 Let's assume the {{ KF }} `sensors` topic in the source cluster receives data from car sensors in JSON format.
@@ -91,7 +90,7 @@ Create a local `sample.json` file with the following test data:
 
 ```json
 {
-    "device_id": "iv9a94th6rztooxh5ur2",
+    "device_id": "iv9a94th6rzt********",
     "datetime": "2020-06-05 17:27:00",
     "latitude": 55.70329032,
     "longitude": 37.65472196,
@@ -102,7 +101,7 @@ Create a local `sample.json` file with the following test data:
     "fuel_level": null
 }
 {
-    "device_id": "rhibbh3y08qmz3sdbrbu",
+    "device_id": "rhibbh3y08qm********",
     "datetime": "2020-06-06 09:49:54",
     "latitude": 55.71294467,
     "longitude": 37.66542005,
@@ -113,7 +112,7 @@ Create a local `sample.json` file with the following test data:
     "fuel_level": 32
 }
 {
-    "device_id": "iv9a94th6rztooxh5ur2",
+    "device_id": "iv9a94th6rzt********",
     "datetime": "2020-06-07 15:00:10",
     "latitude": 55.70985913,
     "longitude": 37.62141918,
@@ -188,11 +187,11 @@ Create a local `sample.json` file with the following test data:
 
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it.
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<{{ PG }} target cluster name>` from the drop-down list.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: `db1`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `pg-user`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user password>`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<name_of_{{ PG }}_target_cluster>` from the drop-down list
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: `db1`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `pg-user`
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user_password>`
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
       1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -227,13 +226,13 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-       -b <FQDN of the broker host>:9091 \
+       -b <broker_host_FQDN>:9091 \
        -t sensors \
        -k key \
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username="mkf-user" \
-       -X sasl.password="<user password in the source cluster>" \
+       -X sasl.password="<user_password_in_the_source_cluster>" \
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 

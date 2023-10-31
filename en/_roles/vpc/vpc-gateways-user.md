@@ -1,0 +1,1 @@
+The `vpc.gateways.user` role allows you to connect NAT gateways to route tables.

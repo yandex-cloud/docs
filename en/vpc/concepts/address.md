@@ -20,6 +20,8 @@ Public IP addresses can be dynamic or static. When creating a cloud resource wit
 
 You can convert a dynamic public IP address to static. Static IP addresses do not change when resources are stopped, and you can reserve them in your folder for future use even if they are not linked to any cloud resources. To learn how to convert a dynamic IP address to static, see [{#T}](../../compute/operations/vm-control/vm-set-static-ip.md).
 
+{% include notitle [note-public-ip-traffic.md](../../_includes/pricing/note-public-ip-traffic.md) %}
+
 
 For more information about IP address pricing, see the [{#T}](../pricing.md#prices-public-ip) section of the {{ vpc-name }} documentation.
 

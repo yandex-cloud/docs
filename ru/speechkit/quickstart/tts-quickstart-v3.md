@@ -19,7 +19,7 @@
 
 {% endnote %}
 
-## Преобразуйте текст в аудио-файл {#text-to-wav-file}
+## Преобразуйте текст в аудиофайл {#text-to-wav-file}
 
 Чтобы синтезировать речь из текста в [TTS-разметке](../tts/markup/tts-markup.md) в файл формата [WAV](https://ru.wikipedia.org/wiki/WAV):
 

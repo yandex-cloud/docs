@@ -1,3 +1,8 @@
+---
+title: "Invoking a function asynchronously"
+description: "Follow this guide to configure and invoke a function asynchronously."
+---
+
 # Invoking a function asynchronously
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
@@ -12,14 +17,14 @@
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
-    1. Under **Asynchronous call**, switch the **Enable** toggle to on.
-    1. In the **Number of attempts** field, specify the number of invocation retries before the call is considered failed.
-    1. In the **Service account** field, specify a service account with rights to invoke the function.
-    1. In the **Destination for successful result** and **Destination for unsuccessful result** fields, specify where messages about successful and unsuccessful function calls should be sent to, respectively:
-        * **Not specified**: Do not send messages.
-        * **Message queue**: Send messages to a queue in {{ message-queue-name }}:
-            * **Message queue**: Queue in {{ message-queue-name }} where messages should be sent to.
-            * **Service account**: Service account with rights to write messages to the queue.
+    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**, switch the **{{ ui-key.yacloud.serverless-functions.item.editor.label_turn-on-button }}** toggle to on.
+    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_tries-count }}** field, specify the number of invocation retries before the call is considered failed.
+    1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, specify a service account with rights to invoke the function.
+    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_success-sa }}** and **{{ ui-key.yacloud.serverless-functions.item.editor.label_failed-sa }}** fields, specify where messages on successful and unsuccessful function calls should be sent to, respectively:
+        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}`: Do not send messages.
+        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-mq }}`: Send messages to a queue in {{ message-queue-name }}:
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mq }}**: Queue in {{ message-queue-name }} to send messages to.
+            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Service account with rights to write messages to the queue.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI

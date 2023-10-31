@@ -1,10 +1,6 @@
 # Blocks with special formatting
 
-{% note alert %}
-
-Special formatting blocks work on pages created in the [old editor](pages-types.md#page) and in [dynamic tables](pages-types.md#grid).
-
-{% endnote %}
+{% include [formatter-alert](../_includes/wiki/formatter-alert.md) %}
 
 You can use block formating to present text as a block with a specified formatting. For example, you can [highlight syntax](static-markup/highlight.md) in the source code, add a fragment of boxed text, or set up the [width and position](static-markup/wrappers.md) of a block on your page.
 
@@ -38,7 +34,7 @@ To add special formatting to your text, specify a value for the `<format>` field
 | `wacko` | Plain text |
 | Programming language.<br>For example: `C`, `Python`, or `Java` | Code in the specified programming language. View the list of supported languages in [{#T}](static-markup/highlight.md#formatters-name). |
 | `csv` | [Data in CSV format](static-markup/csv.md) |
-| `math` | [A mathematical formula using text markup](static-markup/formulas.md) |
+| `math` | [Mathematical formula using text markup](static-markup/formulas.md) |
 | Diagram type:<ul><li>`graphviz`</li><li>`blockdiag`</li><li>`seqdiag`</li></ul> | [Diagram in text markup](static-markup/diagram.md) |
 | `comment` | Comments: Text that will not be displayed on your page. |
 

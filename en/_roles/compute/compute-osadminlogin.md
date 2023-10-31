@@ -1,0 +1,1 @@
+The `compute.osAdminLogin` role.

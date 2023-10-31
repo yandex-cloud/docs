@@ -1,5 +1,7 @@
 # Tables
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 Simple tables are static tables that are created manually using markup elements.
 
 {{ wiki-name }} also supports table markup using standard [HTML tags](html-code.md).
@@ -8,95 +10,95 @@ Simple tables are static tables that are created manually using markup elements.
 
 - Tables in {{ wiki-name }} format
 
-   * To create a table, use the markup:
+    * To create a table, use the markup:
 
-      ```
-      #|
-      || Heading 1 | Heading 2| Heading 3 ||
-      || cell 11 | cell 12 | cell 13 ||
-      || cell 21 | cell 22 | cell 23 ||
-      |#
-      ```
+        ```
+        #|
+        || Heading 1 | Heading 2| Heading 3 ||
+        || cell 11 | cell 12 | cell 13 ||
+        || cell 21 | cell 22 | cell 23 ||
+        |#
+        ```
 
-      {% cut "See the result" %}
+        {% cut "See the result" %}
 
-      ![](../../_assets/wiki/table-with-border.png)
+        ![](../../_assets/wiki/table-with-border.png)
 
-      {% endcut %}
+        {% endcut %}
 
-   * To format a table at full page width without borders, use the markup:
+    * To format a table at full page width without borders, use the markup:
 
-      ```
-      #||
-      || cell 11 | cell 12 | cell 13||
-      || cell 21 | cell 22 | cell 23||
-      ||#
-      ```
+        ```
+        #||
+        || cell 11 | cell 12 | cell 13||
+        || cell 21 | cell 22 | cell 23||
+        ||#
+        ```
 
-      {% cut "See the result" %}
+        {% cut "See the result" %}
 
-      ![](../../_assets/wiki/table-without-border.png)
+        ![](../../_assets/wiki/table-without-border.png)
 
-      {% endcut %}
+        {% endcut %}
 
-   {% note info %}
+    {% note info %}
 
-   You can use [text styling elements](formatting.md) in table cells.
+    You can use [text styling elements](formatting.md) in table cells.
 
-   {% endnote %}
+    {% endnote %}
 
-- Tables in Markdown format
+-  Tables in Markdown format
 
-   Add an empty line before the table.
-   To create a table, use the markup:
+    Add an empty line before the table.
+    To create a table, use the markup:
 
-   ```
-   | Heading 1 | Heading 2 | Heading 3 |
-   | --- | --- | --- |
-   | cell 11 | cell 12 | cell 13 |
-   | cell 21 | cell 22 | cell 23 |
-   ```
+    ```
+    | Heading 1 | Heading 2 | Heading 3 |
+    | --- | --- | --- |
+    | cell 11 | cell 12 | cell 13 |
+    | cell 21 | cell 22 | cell 23 |
+    ```
 
-   {% cut "See the result" %}
+    {% cut "See the result" %}
 
-   ![](../../_assets/wiki/table-with-border.png)
+    ![](../../_assets/wiki/table-with-border.png)
 
-   {% endcut %}
+    {% endcut %}
 
-   {% note info %}
+    {% note info %}
 
-   You can use [text styling elements](formatting.md) in table cells.
+    You can use [text styling elements](formatting.md) in table cells.
 
-   {% endnote %}
+    {% endnote %}
 
 - Tables in CSV format
 
-   To display [CSV data](csv.md) as a table, use the markup:
+    To display [CSV data](csv.md) as a table, use the markup:
 
-   ```
-   %%(csv delimiter=; head=1)
-   Heading 1;Heading 2;Heading 3
-   cell 11;cell 12;cell 13
-   cell 21;cell 22;cell 23
-   %%
-   ```
+    ```
+    %%(csv delimiter=; head=1)
+    Heading 1;Heading 2;Heading 3
+    cell 11;cell 12;cell 13
+    cell 21;cell 22;cell 23
+    %%
+    ```
 
-   {% cut "See the result" %}
+    {% cut "See the result" %}
 
-   ![](../../_assets/wiki/csv-table.png)
+    ![](../../_assets/wiki/csv-table.png)
 
-   {% endcut %}
+    {% endcut %}
 
-   Markup parameters:
+    Markup parameters:
 
-   - `delimiter`: A field separator used in CSV tables.
+    - `delimiter`: A field separator used in CSV tables.
 
-   - `head`: If set to 1, the first row of the table becomes a heading.
+    - `head`: If set to 1, the first row of the table becomes a heading.
 
-   {% note info %}
+    {% note info %}
 
-   You can't use text formatting elements in CSV tables.
+    You cannot use text formatting elements in CSV tables.
 
-   {% endnote %}
+    {% endnote %}
 
 {% endlist %}

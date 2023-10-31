@@ -44,23 +44,23 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    
    ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
-     name = "<endpoint name>"
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
      settings {
        clickhouse_source {
-         security_groups = [ "list of security group IDs" ]
-         subnet_id       = "<subnet ID>"
+         security_groups = ["<list_of_security_group_IDs>"]
+         subnet_id       = "<subnet_ID>"
          connection {
            connection_options {
-             mdb_cluster_id = "<{{ mch-name }} cluster ID>"
-             database       = "<name of database to transfer>"
-             user           = "<username to connect>"
+             mdb_cluster_id = "<cluster_ID>"
+             database       = "<migrated_database_name>"
+             user           = "<username_for_connection>"
              password {
-               raw = "<user password>"
+               raw = "<user_password>"
              }
            }
          }
-         <advanced endpoint settings>
+         <additional_endpoint_settings>
        }
      }
    }
@@ -101,35 +101,35 @@ Connecting to the database with explicitly specified network addresses and ports
 
    
    ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
-     name = "<endpoint name>"
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
      settings {
        clickhouse_source {
-         security_groups = [ "list of security group IDs" ]
-         subnet_id       = "<subnet ID>"
+         security_groups = ["<list_of_security_group_IDs>"]
+         subnet_id       = "<subnet_ID>"
          connection {
            connection_options {
              on_premise {
-               http_port   = "<HTTP connection port>"
-               native_port = "<native interface connection port>"
+               http_port   = "<port_for_HTTP_connections>"
+               native_port = "<port_for_connecting_to_native_interface>"
                shards {
-                 name  = "<shard name>"
-                 hosts = [ "shard host IP or FQDN list" ]
+                 name  = "<shard_name>"
+                 hosts = [ "list_of_IP_addresses_or_FQDN_hosts_of_the_shard" ]
                }
                tls_mode {
                  enabled {
-                   ca_certificate = "<certificate in PEM format>"
+                   ca_certificate = "<PEM_certificate>"
                  }
                }
              }
-             database = "<name of database being transferred>"
-             user     = "<username for connection>"
+             database = "<migrated_database_name>"
+             user     = "<username_for_connection>"
              password {
-               raw = "<user password>"
+               raw = "<user_password>"
              }
            }
          }
-         <advanced endpoint settings>
+         <additional_endpoint_settings>
        }
      }
    }
@@ -158,9 +158,9 @@ Connecting to the database with explicitly specified network addresses and ports
 
    The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 
-   * `<schema name>.<table name>`: Fully qualified table name.
-   * `<schema name>.*`: All tables in the specified schema.
-   * `<table name>`: Table in the default schema.
+   * `<schema_name>.<table_name>`: Fully qualified table name.
+   * `<schema_name>.*`: All tables in the specified schema.
+   * `<table_name>`: Table in the default schema.
 
    Leave the lists empty to transfer all the tables.
 
@@ -170,13 +170,13 @@ Connecting to the database with explicitly specified network addresses and ports
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `exclude_tables`: List of excluded tables. Data from tables on this list will not be transmitted.
+   * `exclude_tables`: List of excluded tables. Data from the listed tables will not be transferred.
 
    The lists include the name of the schema (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 
-   * `<schema name>.<table name>`: Fully qualified table name.
-   * `<schema name>.*`: All tables in the specified schema.
-   * `<table name>`: Table in the default schema.
+   * `<schema_name>.<table_name>`: Fully qualified table name.
+   * `<schema_name>.*`: All tables in the specified schema.
+   * `<table_name>`: Table in the default schema.
 
 {% endlist %}
 
@@ -192,11 +192,11 @@ Transfers will fail if {{ CH }} source tables contain the following types of col
 | `UInt256` | `unhandled type UInt256` |
 | `Bool` | `unhandled type Bool` |
 | `Date32` | `unhandled type Date32` |
-| `JSON` | `unhandled type '<field name> <type name>'` |
-| `Array(Date)` | `Can't transfer type 'Array(Date)', column '<column name>'` |
-| `Array(DateTime)` | `Can't transfer type 'Array(DateTime)', column '<column name>'` |
-| `Array(DateTime64)` | `Can't transfer type 'Array(DateTime64)', column '<column name>'` |
-| `Map(,)` | `unhandled type Map(<type name>, <type name>)` |
+| `JSON` | `unhandled type '<field_name> <type_name>'` |
+| `Array(Date)` | `Can't transfer type 'Array(Date)', column '<column_name>'` |
+| `Array(DateTime)` | `Can't transfer type 'Array(DateTime)', column '<column_name>'` |
+| `Array(DateTime64)` | `Can't transfer type 'Array(DateTime64)', column '<column_name>'` |
+| `Map(,)` | `unhandled type Map(<type_name>, <type_name>)` |
 
 ### Supported table types {#known-limitations-table-types}
 If a {{ CH }} cluster is multi-host, you can transfer tables and materialized views based on `ReplicatedMergeTree` or `Distributed` engines only. Moreover, these tables and views must be present in all cluster hosts.

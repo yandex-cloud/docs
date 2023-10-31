@@ -1,6 +1,6 @@
 ---
 title: "How to create a VM from a custom image"
-description: "Use this tutorial to create a VM from a custom image."
+description: "Use this guide to create a VM from a custom image."
 ---
 
 # Creating a VM from a custom image
@@ -152,7 +152,7 @@ Make sure the uploaded image is in the `READY` status.
         --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
-      This command creates a VM with a 5 GB boot disk from the pre-loaded image named `test-vm-from-image`.
+      This command creates a VM with a 5GB boot disk from the pre-loaded image named `test-vm-from-image`.
 
       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
@@ -165,7 +165,7 @@ Make sure the uploaded image is in the `READY` status.
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To create a VM from a custom image:
    1. In the configuration file, describe the parameters of the resources you want to create:

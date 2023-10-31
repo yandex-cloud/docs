@@ -51,7 +51,7 @@ keywords:
 
 ### Доступный хост Dashboards {#fqdn-dashboards}
 
-FQDN вида `c-<идентификатор кластера>.rw.{{ dns-zone }}` всегда указывает на доступный хост {{ OS }} с ролью `DASHBOARDS` в кластере. Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+FQDN вида `c-<идентификатор_кластера>.rw.{{ dns-zone }}` всегда указывает на доступный хост {{ OS }} с ролью `DASHBOARDS` в кластере. Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
 ## Подключение к {{ OS }} Dashboards {#dashboards}
 
@@ -66,7 +66,7 @@ FQDN вида `c-<идентификатор кластера>.rw.{{ dns-zone }}
 - Через интернет
 
     1. Установите [SSL-сертификат](#ssl-certificate) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
-    1. На странице кластера в консоли управления нажмите кнопку **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** или перейдите в браузере по адресу `https://c-<идентификатор кластера>.rw.{{ dns-zone }}>`.
+    1. На странице кластера в консоли управления нажмите кнопку **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** или перейдите в браузере по адресу `https://c-<идентификатор_кластера>.rw.{{ dns-zone }}>`.
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
@@ -95,9 +95,9 @@ FQDN вида `c-<идентификатор кластера>.rw.{{ dns-zone }}
 
        ```nginx
        upstream os-dashboards-nodes {
-          server <FQDN хоста 1 с ролью DASHBOARDS>:443;
+          server <FQDN_хоста_1_с_ролью_DASHBOARDS>:443;
           ...
-          server <FQDN хоста N с ролью DASHBOARDS>:443;
+          server <FQDN_хоста_N_с_ролью_DASHBOARDS>:443;
        }
 
        server {
@@ -132,7 +132,7 @@ FQDN вида `c-<идентификатор кластера>.rw.{{ dns-zone }}
 
     1. Добавьте сертификат, указанный в директиве `ssl_certificate`, в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
 
-    1. Перейдите в браузере по адресу `https://<публичный IP-адрес ВМ>`.
+    1. Перейдите в браузере по адресу `https://<публичный_IP-адрес_ВМ>`.
 
     1. Введите имя пользователя `admin` и пароль.
 

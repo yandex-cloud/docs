@@ -57,7 +57,7 @@ To create a new [security group](../concepts/security-groups.md):
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To create a security group with multiple rules:
 

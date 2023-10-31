@@ -1,5 +1,7 @@
 # Links
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 To design links, use the markup:
 
 ```
@@ -30,7 +32,7 @@ To link to a {{ wiki-name }} page, you can use that page's relative address inst
    --- | ---
    | `{{ wiki-host-name }}/users/{{ username-oleg }}/notes` | `[{{ oleg-notes-title }}](/users/{{ username-oleg }}/notes)` |
 
-- Specify the address relative to the parent of the page where you're placing the link. Don't add `/` before the address.
+- Specify the address relative to the parent of the page where you are placing the link. Do not add `/` before the address.
 
    | Page URLs | Markup |
    --- | ---

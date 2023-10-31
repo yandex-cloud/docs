@@ -27,7 +27,7 @@
   Чтобы получить список шардов в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-rd }} shards list --cluster-name <имя кластера>
+  {{ yc-mdb-rd }} shards list --cluster-name <имя_кластера>
   ```
 
   Результат:
@@ -63,7 +63,7 @@
   Чтобы получить информацию о шарде, выполните команду:
 
   ```bash
-  {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя кластера>
+  {{ yc-mdb-rd }} shards get <имя_шарда> --cluster-name <имя_кластера>
   ```
 
 - API
@@ -108,13 +108,13 @@
   Чтобы добавить шард с двумя хостами в кластер, один с публичным доступом, а другой с [приоритетом хоста](../concepts/replication.md#master-failover) `50`:
 
   ```bash
-  {{ yc-mdb-rd }} shards add --name=<имя нового шарда> \
-    --cluster-name=<имя кластера> \
-    --host zone-id=<зона доступности>,`
-      `subnet-name=<имя подсети>,`
+  {{ yc-mdb-rd }} shards add --name=<имя_нового_шарда> \
+    --cluster-name=<имя_кластера> \
+    --host zone-id=<зона_доступности>,`
+      `subnet-name=<имя_подсети>,`
       `assign-public-ip=true \
-    --host zone-id=<зона доступности>,`
-      `subnet-name=<имя подсети>,`
+    --host zone-id=<зона_доступности>,`
+      `subnet-name=<имя_подсети>,`
       `replica-priority=50
   ```
 
@@ -126,17 +126,19 @@
   1. Добавьте к описанию кластера {{ mrd-name }} нужное количество блоков `host` с указанием имени шарда в параметре `shard_name`:
 
      ```hcl
-     resource "yandex_mdb_redis_cluster" "<имя кластера>" {
+     resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
        ...
        host {
-         zone             = "<зона доступности>"
-         subnet_id        = <идентификатор подсети>
-         assign_public_ip = <публичный доступ к хосту: true или false>
-         replica_priority = <приоритет хоста>
-         shard_name       = "<имя шарда>"
+         zone             = "<зона_доступности>"
+         subnet_id        = <идентификатор_подсети>
+         assign_public_ip = <публичный_доступ>
+         replica_priority = <приоритет_хоста>
+         shard_name       = "<имя_шарда>"
        }
      }
      ```
+
+     Где `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
 
   1. Проверьте корректность настроек.
 
@@ -190,8 +192,8 @@
   Чтобы удалить шард из кластера, выполните команду:
 
   ```bash
-  {{ yc-mdb-rd }} shards delete <имя шарда> \
-    --cluster-name=<имя кластера>
+  {{ yc-mdb-rd }} shards delete <имя_шарда> \
+    --cluster-name=<имя_кластера>
   ```
 
   Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).
@@ -256,7 +258,7 @@
 
   ```bash
   {{ yc-mdb-rd }} cluster rebalance \
-    --name=<имя кластера>
+    --name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).

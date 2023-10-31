@@ -1,0 +1,1 @@
+[Зона доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-c` поэтапно [выводится из эксплуатации](../../overview/concepts/ru-central1-c-deprecation.md). Подробнее о планах по развитию зон доступности и возможностях миграции см. [пост в блоге Yandex Cloud](/blog/posts/2022/03/az-deprecation-notice).

@@ -1,14 +1,8 @@
 # Create a trigger for {{ message-queue-name }} that sends messages to the {{ sf-name }} function
 
-Create a [trigger](../../concepts/trigger/ymq-trigger.md) for a {{ message-queue-short-name }} message queue and process the messages using the {{ sf-name }} [function](../../concepts/function.md).
+Create a [trigger](../../concepts/trigger/ymq-trigger.md) for a message queue in {{ message-queue-short-name }} and process the messages using the {{ sf-name }} [function](../../concepts/function.md).
 
-{% note warning %}
-
-* You can only create a trigger for a standard message queue.
-* The trigger must be in the same cloud as the queue that messages are read from.
-* Only one trigger can be created for each message queue.
-
-{% endnote %}
+{% include [ymq-trigger-note.md](../../../_includes/functions/ymq-trigger-note.md) %}
 
 ## Getting started {#before-begin}
 
@@ -23,7 +17,7 @@ To create a trigger, you need:
 
    * To invoke a function.
    * To read from the queue the trigger receives messages from.
-   * (optional) To write to the [Dead Letter Queue](../../concepts/dlq.md).
+   * (Optional) To write to a [Dead Letter Queue](../../concepts/dlq.md).
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
 
@@ -100,8 +94,8 @@ To create a trigger, you need:
    * `--invoke-function-id`: Function ID.
    * `--queue-service-account-name`: Service account with rights to read messages from the queue.
    * `--invoke-function-service-account-id`: Service account with rights to invoke the function.
-   * `--batch-size`: Message batch size. Optional parameter. The values may range from 1 to 10. The default value is 1.
-   * `--batch-cutoff`: Maximum waiting time. Optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
+   * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+   * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
 
    Result:
    ```text
@@ -127,7 +121,7 @@ To create a trigger, you need:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To create a trigger for the message queue:
 
@@ -149,12 +143,12 @@ To create a trigger, you need:
             1. You can see the queue ID under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** in the **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** field.
 
          * `service_account_id`: ID of the service account with rights to invoke a function.
-         * `batch_size`: Message batch size. Optional parameter. The values may range from 1 to 10. The default value is 1.
-         * `batch_cutoff`: Maximum waiting time. Optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The timer groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. The number of messages cannot exceed `batch-size`.
+         * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+         * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The timer groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. The number of messages cannot exceed `batch-size`.
       * `function`: Settings for the function, which will be activated by the trigger:
          * `id`: Function ID.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -177,7 +171,7 @@ To create a trigger, you need:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -225,6 +219,6 @@ To create a trigger, you need:
 
 {% endlist %}
 
-## For more information, see also {#see-also}
+## See also {#see-also}
 
 * [Trigger for {{ message-queue-short-name }} that sends messages to the {{ serverless-containers-name }} container](../../../serverless-containers/operations/ymq-trigger-create.md).

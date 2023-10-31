@@ -84,7 +84,7 @@ description: "Use this tutorial to create a Linux VM."
 
 
       * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a [service account](../../../iam/concepts/users/service-accounts.md).
-      * [Instructions](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
+      * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
    1. [Get the ID](../../../resource-manager/operations/folder/get-id.md) of the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
    1. Get information about the [image](../../concepts/image.md) to create your VM from (image ID and minimum [disk](../../concepts/disk.md) size):
       * If you know the [image family](../../concepts/image.md#family), get information about the latest image in this family:
@@ -197,7 +197,8 @@ description: "Use this tutorial to create a Linux VM."
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl

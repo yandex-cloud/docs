@@ -35,15 +35,15 @@ Prepare the infrastructure:
 
 1. [Create an endpoint](../data-transfer/operations/endpoint/index.md#create) for the target:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ CH }}`.
-    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ CH }}`
+    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.mdb_cluster_id.title }}`
 
       Select a target cluster from the list and specify its [connection settings](../data-transfer/operations/endpoint/target/clickhouse.md).
 
-1. [Create a transfer](../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+1. [Create a transfer](../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
 1. [Activate](../data-transfer/operations/transfer.md#activate) your transfer.
 
-A transfer only moves the current data and does not affect historical data. If you disable and enable a transfer again:
+A transfer only moves the current data and does not affect historical data. If you deactivate and activate the transfer again:
 
 1. Data obtained by the {{ metrika }} tag before the transfer was disabled will not be transferred.
 2. Depending on the cleanup policy selected in the target endpoint, the existing data tables will be:
@@ -64,7 +64,7 @@ A transfer only moves the current data and does not affect historical data. If y
 
       ```sql
       SELECT table FROM system.tables
-      WHERE database = '<{{ CH }} database name>'
+      WHERE database = '<{{ CH }}_database_name>'
       ```
 
       Result:
@@ -79,7 +79,7 @@ A transfer only moves the current data and does not affect historical data. If y
    1. Make sure the tables with hit and session data contain the tag data:
 
       ```sql
-      SELECT * FROM <name of the table with hit or session data>
+      SELECT * FROM <name_of_the_table_with_hit_or_session_data>
       ```
 
 ## Delete the resources you created {#clear-out}

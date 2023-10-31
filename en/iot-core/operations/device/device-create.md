@@ -82,7 +82,7 @@ description: "Follow this guide to create a device."
       yc iot device password add --device-name <device name>
       ```
 
-      You will be prompted to enter a password. The password requirements are as follows:
+      You will be prompted to enter a password. The requirements are as follows:
 
       * The password must contain numbers, upper-case and lower-case letters, and special characters.
       * It must be at least 14 characters long.
@@ -152,7 +152,7 @@ description: "Follow this guide to create a device."
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    {% note info %}
 

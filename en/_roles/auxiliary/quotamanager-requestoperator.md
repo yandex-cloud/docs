@@ -1,0 +1,1 @@
+The `quota-manager.requestOperator` role lets you create requests for new service quotas. This permission is also part of the `admin` and `editor` roles.

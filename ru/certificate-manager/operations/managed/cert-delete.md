@@ -64,10 +64,10 @@
 
 - {{ TF }}
 
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
-  
-  {% include [terraform-install](../../../_includes/terraform-install.md) %}
-  
+
   1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием сертификата:
 
       {% cut "Пример описания сертификата" %}

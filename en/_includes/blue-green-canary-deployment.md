@@ -2,16 +2,16 @@
 
 Configure web service architecture to switch between versions using the commonly adopted deployment models: [blue-green deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html) and [canary deployment](https://martinfowler.com/bliki/CanaryRelease.html).
 
-Both models use two backends: a "blue" and a "green" one. First you deploy a stable version generally available to users on one backend (let it be the blue one). Then you use the other backend (the green one) to test the next version. When the testing is complete, the backends switch roles:
+Both models use two backends: a "blue" and a "green" one. First you deploy a stable version generally available to users on one backend (e.g., the blue one). Then you use the other backend (the green one) to test the next version. When the testing is complete, the backends switch roles:
 
 * With a blue-green deployment, all user traffic switches from one backend to the other right away.
-* With canary deployment, the traffic is switched over gradually, starting with some part of your user base.
+* With a canary deployment, the traffic is switched over gradually, starting with some part of your user base.
 
 After that, the green backend becomes the primary one, and you can use the "blue" backend to test your next version. As long as your previous version runs on the blue backend, you can roll the service back to it by switching the backends back.
 
 In this tutorial, we use {{ objstorage-full-name }} buckets as backends with the {{ alb-full-name }} L7 load balancer switching traffic between them. User requests are transmitted to the load balancer via the {{ cdn-full-name }} content delivery network (CDN) that reduces the time of content delivery.
 
-We'll use the domain names `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` as examples.
+We will use the `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` domain names as examples.
 
 To perform steps, you can use various [supported tools](#supported-tools).
 
@@ -170,7 +170,7 @@ All resources belong to the same [cloud network](../vpc/concepts/network.md).
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of `canary-network` and its subnets: `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-c`:
 
@@ -1094,7 +1094,7 @@ To create security groups:
 
    1. In the [management console]({{ link-console-main }}), select `example-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-   1. If the CDN provider hasn't been activated yet, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
+   1. If the CDN provider is not activated yet, click **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**.
    1. Create a CDN resource:
 
       1. At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
@@ -1110,7 +1110,7 @@ To create security groups:
 
             {% note alert %}
 
-            The first domain name `cdn.yandexcloud.example` will become the primary one, and you won't be able to edit it after you create a CDN resource.
+            The first domain name `cdn.yandexcloud.example` will become the primary one, and you will not be able to edit it after you create a CDN resource.
 
             {% endnote %}
 
@@ -1144,7 +1144,7 @@ To create security groups:
 
 - CLI
 
-   1. If the CDN provider hasn't been activated yet, run the command:
+   1. If the CDN provider is not activated yet, run the command:
 
       ```bash
       yc cdn provider activate --folder-id <folder_ID> --type gcore

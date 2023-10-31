@@ -6,7 +6,7 @@ _[Распознавание речи](../../glossary/transcribation.md) (speech
 
 Сервис доступен по адресу `{{ api-host-sk-stt }}:443`.
 
-Для работы со {{ speechkit-name }} также доступен [Python SDK](../sdk/python/index.md). Он основан на [API v3 {{ speechkit-name }}]((../stt-v3/api-ref/grpc/)).
+Для работы со {{ speechkit-name }} также доступен [Python SDK](../sdk/python/index.md). Он основан на [API v3 {{ speechkit-name }}](../stt-v3/api-ref/grpc/).
 
 
 {% include [try-speechkit](../../_includes/speechkit/try-speechkit.md) %}

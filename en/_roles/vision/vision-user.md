@@ -1,0 +1,1 @@
+The `ai.vision.user` role enables you to use the service for analyzing images.

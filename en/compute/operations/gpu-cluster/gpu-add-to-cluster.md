@@ -29,7 +29,7 @@ GPU clusters are now only available in the `ru-central1-a` availability zone. Yo
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
 
@@ -84,8 +84,8 @@ GPU clusters are now only available in the `ru-central1-a` availability zone. Yo
 
       Where:
 
-      * `gpu_cluster_id`: GPU cluster ID. Required parameter.
-      * `image_id`: ID of the image with the drivers. Required parameter.
+      * `gpu_cluster_id`: GPU cluster ID. This is a required parameter.
+      * `image_id`: ID of the image with the drivers. This is a required parameter.
       * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md).
       * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) your VM will be created in.
 

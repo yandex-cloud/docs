@@ -25,7 +25,7 @@
 ## III квартал 2022 {#q3-2022}
 
 * Добавлена возможность менять пароль для пользователя-администратора. {{ tag-cli }} {{ tag-tf }}
-* Добавлена возможность [настройки СУБД и пулера соединений в {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022). {{ tag-tf }}
+* Добавлена возможность [настройки СУБД и менеджера подключений в {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022). {{ tag-tf }}
 * Добавлена поддержка расширения [postgis]({{gp.docs.vmware}}/5/greenplum-database/ref_guide-extensions-postGIS.html).
 * Добавлена возможность редактирования кластера и его параметров через CLI, а также возможность разрешения доступа из {{ data-transfer-full-name }}. Подробнее см. в разделе [Релизы YC CLI](../cli/release-notes.md#version0.94.0). {{ tag-cli }}
 * Обновлен механизм переключения мастера: бывший мастер возвращается в кластер как реплика и становится доступным для нового переключения сразу после завершения первого.

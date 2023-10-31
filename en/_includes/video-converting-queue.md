@@ -50,7 +50,7 @@ The infrastructure support cost includes:
    Save the secret **{{ ui-key.yacloud.lockbox.label_secret-id }}** from the **{{ ui-key.yacloud.lockbox.label_secret-general-section }}** section.
 
 1. [Create a message queue](../message-queue/operations/message-queue-new-queue.md) named `converter-queue` in {{ message-queue-full-name }}. Save the queue **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** from the **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** section.
-1. [Create a {{ ydb-short-name }} database](../ydb/quickstart.md#serverless) in `Serverless` mode. Save the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}** section.
+1. [Create a {{ ydb-short-name }} database](../ydb/quickstart.md#serverless) in `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}` mode. Save the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}** section.
 1.  [Create a table](../ydb/operations/schema.md#create-table)  in the database:
 
    * **{{ ui-key.yacloud.ydb.table.form.field_name }}**: `tasks`.
@@ -80,12 +80,12 @@ The function implements an API which you can use to perform the following action
          ```
 
       1. Create a file named `index.py` and paste the contents of `ffmpeg-api.py` from the archive into it.
-      1. Specify the following:
+      1. Specify the following parameters:
 
-         * Runtime environment: `python37`
-         * Entry point: `index.handle_api`
-         * Timeout: `5` seconds
-         * Service account: `ffmpeg-sa`
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handle_api`
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
+         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `ffmpeg-sa`
 
       1. Add environment variables:
 
@@ -121,23 +121,23 @@ Video conversion is done using the FFmpeg utility. The FFmpeg executable file is
    1. [Upload](../storage/operations/objects/upload.md) `src.zip` to the previously created bucket.
    1. [Create](../functions/operations/function/version-manage.md) a function version:
 
-      1. Specify the following:
+      1. Specify the following parameters:
 
-         * Upload method: `Object Storage`.
-         * Name of the previously created bucket.
-         * Object: `src.zip`.
-         * Runtime environment: `python37`.
-         * Entry point: `index.handle_process_event`.
-         * Timeout: `600` seconds.
-         * RAM: `2048 MB`.
-         * Service account: `ffmpeg-sa`.
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` upload method
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_bucket }}**: Name of the previously created bucket
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_object }}**: `src.zip`
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handle_process_event`
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `2048 {{ ui-key.yacloud.common.units.label_megabyte }}`
+         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `ffmpeg-sa`
 
       1. Add environment variables:
 
-         * `DOCAPI_ENDPOINT`: **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the database configuration.
-         * `SECRET_ID`: {{ lockbox-name }} secret **{{ ui-key.yacloud.lockbox.label_secret-id }}**.
-         * `YMQ_QUEUE_URL`: {{ message-queue-name }} queue **{{ ui-key.yacloud.ymq.queue.overview.label_url }}**.
-         * `S3_BUCKET`: Name of the previously created bucket.
+         * `DOCAPI_ENDPOINT`: **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the database configuration
+         * `SECRET_ID`: {{ lockbox-name }} secret **{{ ui-key.yacloud.lockbox.label_secret-id }}**
+         * `YMQ_QUEUE_URL`: {{ message-queue-name }} queue **{{ ui-key.yacloud.ymq.queue.overview.label_url }}**
+         * `S3_BUCKET`: Name of the previously created bucket
 
 {% endlist %}
 
@@ -155,7 +155,7 @@ A message queue is handled using a [trigger for {{ message-queue-name }}](../fun
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
       * Name the trigger `ffmpeg-trigger`.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}**.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select `converter-queue` and the `ffmpeg-sa` service account with the permissions to read messages from the queue.
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
       * Select the function to be invoked by the trigger: `ffmpeg-converter`.

@@ -3,9 +3,9 @@
 Error message:
 
 ```text
-Warn(replication): Usage of bulk objects in 'collection '<DB name>.<collection name>''
+Warn(replication): Usage of bulk objects in 'collection '<DB_name>.<collection_name>''
 breaks change event log, transfer is stopping.
-Reason: (BSONObjectTooLarge) BSONObj size: <object size> (<object size in hex>) is invalid.
+Reason: (BSONObjectTooLarge) BSONObj size: <object_size> (<object_size_in_hex>) is invalid.
 Size muse be between 0 and 16793600(16MB).
 ```
 

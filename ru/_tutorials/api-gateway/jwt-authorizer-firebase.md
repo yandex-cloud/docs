@@ -487,10 +487,6 @@ Firebase:
     
       {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-      
-      {% include [terraform-install](../../_includes/terraform-install.md) %}
-
-
       Чтобы настроить переадресацию всех запросов:
 
       1. Откройте файл конфигурации {{ TF }} и добавьте параметр `redirect_all_requests_to` в описание ресурса `yandex_storage_bucket`:

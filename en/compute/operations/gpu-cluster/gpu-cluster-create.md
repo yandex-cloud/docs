@@ -1,6 +1,6 @@
 ---
 title: "How to create a GPU cluster"
-description: "This guide tells you how to create a GPU cluster."
+description: "Follow this guide to create a GPU cluster."
 ---
 
 # Creating a GPU cluster
@@ -45,7 +45,7 @@ After creating a cluster, you can [add](gpu-add-to-cluster.md) VMs from the same
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
 
@@ -70,9 +70,9 @@ After creating a cluster, you can [add](gpu-add-to-cluster.md) VMs from the same
 
       Where:
 
-      * `name`: Cluster name. This is a required parameter.
+      * `name`: Cluster name. Required parameter.
       * `interconnect_type`: Type of connection. You can currently create clusters with the `InfiniBand` connection type only. This is a required parameter.
-      * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. This is an optional parameter.
+      * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. Optional parameter.
 
       For more information about the `yandex_compute_gpu_cluster` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/compute_gpu_cluster).
 

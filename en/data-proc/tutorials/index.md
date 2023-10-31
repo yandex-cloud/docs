@@ -7,6 +7,8 @@
 * [{#T}](./sqoop-mpg.md)
 * [{#T}](./geesefs-init-actions.md)
 * [{#T}](./s3-dataproc-ch.md)
+* [{#T}](./airflow-automation.md)
+* [{#T}](./dataproc-to-dataproc.md)
 
 ## Working with jobs {#jobs}
 

@@ -74,10 +74,10 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    1. Specify the endpoint parameters in the create command (only some of the supported parameters are given in the example):
 
       ```bash
-      {{ yc-dt }} endpoint create <endpoint type> \
-         --name <endpoint name> \
-         --description <endpoint description> \
-         <endpoint parameters>
+      {{ yc-dt }} endpoint create <endpoint_type> \
+         --name <endpoint_name> \
+         --description <endpoint_description> \
+         <endpoint_parameters>
       ```
 
       You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
@@ -95,7 +95,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }}, [install it and configure the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
    To create an endpoint:
@@ -105,11 +105,11 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
       Example of the configuration file structure:
 
       ```hcl
-      resource "ycp_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
-        name = "<endpoint name>"
+      resource "ycp_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+        name = "<endpoint_name>"
         settings {
-          <endpoint type> {
-            <endpoint parameters>
+          <endpoint_type> {
+            <endpoint_parameters>
           }
         }
       }
@@ -123,7 +123,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -197,10 +197,10 @@ You cannot change the endpoint and database types. For some endpoints, you canno
    1. Run the following command by providing a list of the settings to change (the example below does not contain a full list of parameters):
 
       ```bash
-      {{ yc-dt }} transfer update <endpoint type> <endpoint ID> \
-         --name <endpoint name> \
-         --description <endpoint description> \
-         <endpoint parameters>
+      {{ yc-dt }} transfer update <endpoint_type> <endpoint_ID> \
+         --name <endpoint_name> \
+         --description <endpoint_description> \
+         <endpoint_parameters>
       ```
 
       You can view the endpoint type and parameters in the settings section for the appropriate data source or target. You can get the endpoint ID with a [list of endpoints in the folder](#list).
@@ -216,7 +216,7 @@ You cannot change the endpoint and database types. For some endpoints, you canno
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -296,7 +296,7 @@ To delete an endpoint:
     To delete an endpoint, run the command:
 
     ```bash
-    {{ yc-dt }} endpoint delete <endpoint ID>
+    {{ yc-dt }} endpoint delete <endpoint_ID>
     ```
 
     You can get the endpoint ID with a [list of endpoints in the folder](#list).

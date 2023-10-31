@@ -105,9 +105,17 @@ items:
               Migrating databases from {{ mpg-full-name }} to {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
+          - name: >-
+              Migrating data from {{ mmy-full-name }} to {{ mpg-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/mmy-to-mpg.md
+          - name: >-
+              Migrating data from {{ mpg-name }} to {{ mmy-full-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/mpg-to-mmy.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Host classes
         items:

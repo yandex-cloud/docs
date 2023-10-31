@@ -10,8 +10,8 @@
 При вызове этих утилит используйте строку подключения с логином и паролем пользователя с ролью `mdbMonitor`, например:
 
 ```bash
-mongostat 5 --uri="mongodb://{имя_пользователя_с ролью_mdbMonitor}:{пароль}@{хост}:27018/?authSource=admin"
-mongotop 5 --uri="mongodb://{имя_пользователя_с ролью_mdbMonitor}:{пароль}@{хост}:27018/?authSource=admin"
+mongostat 5 --uri="mongodb://{<имя_пользователя_с_ролью_mdbMonitor>}:{<пароль>}@{<хост>}:27018/?authSource=admin"
+mongotop 5 --uri="mongodb://{<имя_пользователя_с_ролью_mdbMonitor>}:{<пароль>}@{<хост>}:27018/?authSource=admin"
 ```
 
 Здесь обе утилиты выводят набор данных о производительности с интервалом опроса (polling interval) в 5 секунд.
@@ -77,7 +77,7 @@ db.currentOp({ "$ownOps": true })
     1. Для получения всех логов кластера выполните команду:
 
         ```bash
-        {{ yc-mdb-mg }} cluster list-logs --id <идентификатор кластера>
+        {{ yc-mdb-mg }} cluster list-logs --id <идентификатор_кластера>
         ```
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).

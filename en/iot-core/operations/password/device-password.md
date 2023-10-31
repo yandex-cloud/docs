@@ -68,7 +68,7 @@ You can add a password to an already created device or set it when creating a de
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To add a password to a device created using {{ TF }}:
 
@@ -309,7 +309,7 @@ You can add a password to an already created device or set it when creating a de
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To delete the password of a device created using {{ TF }}:
 

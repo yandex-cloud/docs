@@ -1,5 +1,7 @@
 # Formulas
 
+{% include [formatter-alert](../../_includes/wiki/formatter-alert.md) %}
+
 You can insert in {{ wiki-name }} formulas created using [TeX]({{ link-about-tex }}) markup.
 
 - Standard formula design, suitable for inserting a separate line:

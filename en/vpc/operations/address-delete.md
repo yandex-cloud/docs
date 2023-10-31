@@ -64,7 +64,7 @@ You cannot restore an address after it is deleted.
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To delete a static public IP address created with {{ TF }}:
 

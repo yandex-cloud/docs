@@ -1,6 +1,6 @@
 ---
 title: "How to create a function version"
-description: "This guide describes how you can create a function version."
+description: "Follow this guide to create a function version."
 ---
 
 # Creating a function version
@@ -95,7 +95,7 @@ When creating a version, set the following parameters:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To create a new function version:
 

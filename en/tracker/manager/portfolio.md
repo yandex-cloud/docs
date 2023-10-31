@@ -16,9 +16,9 @@ The project portfolio page shows information about the portfolio team and curren
 
 * **{{ ui-key.startrek.ui_components_portfolios_Header.description-tab }}** tab. It includes the portfolio description, status, timeframes, names of the author and employee responsible for the portfolio, the list of its team members, comments, customers, and tags.
 
-* **{{ ui-key.startrek.ui_components_portfolios_Header.description-tab }}** tab. The list shows both open and closed portfolios and projects. You can reorder and move them across portfolios.
+* **{{ ui-key.startrek.ui_components_portfolios_Header.projects-tab }}** tab. The list shows both open and closed portfolios and projects. You can reorder and move them across portfolios.
 
-* **{{ ui-key.startrek.ui_components_projects_HeaderTabs.gantt-tab }}** tab. This is a roadmap for portfolio projects and issues included in them. The Gantt chart specifies the timeframes of the portfolios, projects, and issues and relationships between them. For more information, see [{#T}](../gantt/project.md).
+* **{{ ui-key.startrek.ui_components_projects_HeaderTabs.gantt-tab }}** tab. This is a road map for portfolio projects and issues included in them. The Gantt chart specifies the timeframes of the portfolios, projects, and issues and relationships between them. For more information, see [{#T}](../gantt/project.md).
 
 You can track your portfolio's progress indicator in the top-right corner of the portfolio page. The colors and sizes of the indicator bars change depending on the statuses of portfolios and projects explicitly nested in this portfolio. The portfolios and projects nested in the portfolios of this portfolio are not displayed in the progress indicator.
 

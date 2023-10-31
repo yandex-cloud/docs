@@ -9,11 +9,11 @@
     ```bash
     mongosh --norc \
             --tls \
-            --tlsCAFile /home/<домашняя директория>/.mongodb/root.crt \
-            --host '<FQDN хоста 1 {{ MG }}>:{{ port-mmg }},...,<FQDN хоста N {{ MG }}>:{{ port-mmg }}' \
-            --username <имя пользователя БД> \
-            --password <пароль пользователя БД> \
-            <имя БД>
+            --tlsCAFile /home/<домашняя_директория>/.mongodb/root.crt \
+            --host '<FQDN_хоста_1_{{ MG }}>:{{ port-mmg }},...,<FQDN_хоста_N_{{ MG }}>:{{ port-mmg }}' \
+            --username <имя_пользователя_БД> \
+            --password <пароль_пользователя_БД> \
+            <имя_БД>
     ```
 
 - Подключение с SSL для {{ MG }} 4.0
@@ -21,21 +21,21 @@
     ```bash
     mongosh --norc \
             --ssl \
-            --sslCAFile /home/<домашняя директория>/.mongodb/root.crt \
-            --host '<FQDN хоста 1 {{ MG }}>:{{ port-mmg }},...,<FQDN хоста N {{ MG }}>:{{ port-mmg }}' \
-            --username <имя пользователя БД> \
-            --password <пароль пользователя БД> \
-            <имя БД>
+            --sslCAFile /home/<домашняя_директория>/.mongodb/root.crt \
+            --host '<FQDN_хоста_1_{{ MG }}>:{{ port-mmg }},...,<FQDN_хоста_N_{{ MG }}>:{{ port-mmg }}' \
+            --username <имя_пользователя_БД> \
+            --password <пароль_пользователя_БД> \
+            <имя_БД>
     ```
 
 - Подключение без SSL
 
     ```bash
     mongosh --norc \
-            --host '<FQDN хоста 1 {{ MG }}>:{{ port-mmg }},...,<FQDN хоста N {{ MG }}>:{{ port-mmg }}' \
-            --username <имя пользователя БД> \
-            --password <пароль пользователя БД> \
-            <имя БД>
+            --host '<FQDN_хоста_1_{{ MG }}>:{{ port-mmg }},...,<FQDN_хоста_N_{{ MG }}>:{{ port-mmg }}' \
+            --username <имя_пользователя_БД> \
+            --password <пароль_пользователя_БД> \
+            <имя_БД>
     ```
 
 {% endlist %}
@@ -72,15 +72,15 @@ sudo apt update && sudo apt install --yes golang git && \
 
     func main() {
 
-          const DB_RS = "<имя набора реплик>"
-          const DB_NAME = "<имя БД>"
-          DB_HOSTS := []string {"<FQDN хоста 1 {{ MG }}>:27018",
+          const DB_RS = "<имя_набора_реплик>"
+          const DB_NAME = "<имя_БД>"
+          DB_HOSTS := []string {"<FQDN_хоста_1_{{ MG }}>:27018",
                                 ...,
-                                "<FQDN хоста N {{ MG }}>:27018"}
-          const DB_USER = "<имя пользователя БД>"
-          const DB_PASS = "<пароль пользователя БД>"
+                                "<FQDN_хоста_N_{{ MG }}>:27018"}
+          const DB_USER = "<имя_пользователя_БД>"
+          const DB_PASS = "<пароль_пользователя_БД>"
 
-          const CACERT = "/home/<домашняя директория>/.mongodb/root.crt"
+          const CACERT = "/home/<домашняя_директория>/.mongodb/root.crt"
 
           url := fmt.Sprintf("mongodb://%s:%s@%s/%s?replicaSet=%s&tls=true&tlsCaFile=%s",
                   DB_USER,
@@ -118,13 +118,13 @@ sudo apt update && sudo apt install --yes golang git && \
 
     func main() {
 
-          const DB_RS = "<имя набора реплик>"
-          const DB_NAME = "<имя БД>"
-          DB_HOSTS := []string {"<FQDN хоста 1 {{ MG }}>:27018",
+          const DB_RS = "<имя_набора_реплик>"
+          const DB_NAME = "<имя_БД>"
+          DB_HOSTS := []string {"<FQDN_хоста_1_{{ MG }}>:27018",
                                 ...,
-                                "<FQDN хоста N {{ MG }}>:27018"}
-          const DB_USER = "<имя пользователя БД>"
-          const DB_PASS = "<пароль пользователя БД>"
+                                "<FQDN_хоста_N_{{ MG }}>:27018"}
+          const DB_USER = "<имя_пользователя_БД>"
+          const DB_PASS = "<пароль_пользователя_БД>"
 
           url := fmt.Sprintf("mongodb://%s:%s@%s/%s?replicaSet=%s&tls=false",
                   DB_USER,
@@ -170,9 +170,11 @@ go run connect.go
     cd ~/.mongodb && \
     sudo keytool -importcert \
                  -alias {{ crt-alias }} -file root.crt \
-                 -keystore ssl -storepass <пароль хранилища сертификатов, не короче 6 символов> \
+                 -keystore ssl -storepass <пароль> \
                  --noprompt
     ```
+
+    Где `storepass` — пароль хранилища сертификатов, не короче 6 символов.
 
 1. Создайте директорию для проекта Maven:
 
@@ -285,19 +287,19 @@ go run connect.go
     public class App {
       public static void main(String[] args) {
 
-        System.setProperty("javax.net.ssl.trustStore", "/home/<домашняя директория>/.mongodb/YATrustStore");
-        System.setProperty("javax.net.ssl.trustStorePassword", "<пароль хранилища сертификатов>");
+        System.setProperty("javax.net.ssl.trustStore", "/home/<домашняя_директория>/.mongodb/YATrustStore");
+        System.setProperty("javax.net.ssl.trustStorePassword", "<пароль_хранилища_сертификатов>");
 
         final Integer DB_PORT = 27018;
 
         List DB_HOSTS = new ArrayList<ServerAddress>();
-        DB_HOSTS.add(new ServerAddress("<FQDN хоста 1 {{ MG }}>", DB_PORT));
+        DB_HOSTS.add(new ServerAddress("<FQDN_хоста_1_{{ MG }}>", DB_PORT));
         ...,
-        DB_HOSTS.add(new ServerAddress("<FQDN хоста N {{ MG }}>", DB_PORT));
+        DB_HOSTS.add(new ServerAddress("<FQDN_хоста_N_{{ MG }}>", DB_PORT));
 
-        final String DB_NAME = "<имя БД>";
-        final String DB_USER = "<имя пользователя БД>";
-        final String DB_PASS = "<пароль пользователя БД>";
+        final String DB_NAME = "<имя_БД>";
+        final String DB_USER = "<имя_пользователя_БД>";
+        final String DB_PASS = "<пароль_пользователя_БД>";
 
         MongoClient conn = MongoClients.create(
             MongoClientSettings.builder()
@@ -330,13 +332,13 @@ go run connect.go
         final Integer DB_PORT = 27018;
 
         List DB_HOSTS = new ArrayList<ServerAddress>();
-        DB_HOSTS.add(new ServerAddress("<FQDN хоста 1 {{ MG }}>", DB_PORT));
+        DB_HOSTS.add(new ServerAddress("<FQDN_хоста_1_{{ MG }}>", DB_PORT));
         ...,
-        DB_HOSTS.add(new ServerAddress("<FQDN хоста N {{ MG }}>", DB_PORT));
+        DB_HOSTS.add(new ServerAddress("<FQDN_хоста_N_{{ MG }}>", DB_PORT));
 
-        final String DB_NAME = "<имя БД>";
-        final String DB_USER = "<имя пользователя БД>";
-        final String DB_PASS = "<пароль пользователя БД>";
+        final String DB_NAME = "<имя_БД>";
+        final String DB_USER = "<имя_пользователя_БД>";
+        final String DB_PASS = "<пароль_пользователя_БД>";
 
         MongoClient conn = MongoClients.create(
             MongoClientSettings.builder()
@@ -382,14 +384,14 @@ npm install mongodb
     const util = require('util');
     const MongoClient = require('mongodb').MongoClient;
 
-    const DB_RS = '<имя набора реплик>'
-    const DB_NAME = '<имя БД>'
-    const DB_HOSTS = ['<FQDN хоста 1 {{ MG }}>:27018',
+    const DB_RS = '<имя_набора_реплик>'
+    const DB_NAME = '<имя_БД>'
+    const DB_HOSTS = ['<FQDN_хоста_1_{{ MG }}>:27018',
                       ...,
-                      '<FQDN хоста N {{ MG }}>:27018']
-    const DB_USER  = '<имя пользователя БД>'
-    const DB_PASS  = '<пароль пользователя БД>'
-    const CACERT   = '/home/<домашняя директория>/.mongodb/root.crt'
+                      '<FQDN_хоста_N_{{ MG }}>:27018']
+    const DB_USER  = '<имя_пользователя_БД>'
+    const DB_PASS  = '<пароль_пользователя_БД>'
+    const CACERT   = '/home/<домашняя_директория>/.mongodb/root.crt'
 
     const url = util.format('mongodb://%s:%s@%s/', DB_USER, DB_PASS, DB_HOSTS.join(','))
 
@@ -420,13 +422,13 @@ npm install mongodb
     const util = require('util');
     const MongoClient = require('mongodb').MongoClient;
 
-    const DB_RS = '<имя набора реплик>'
-    const DB_NAME = '<имя БД>'
-    const DB_HOSTS = ['<FQDN хоста 1 {{ MG }}>:27018',
+    const DB_RS = '<имя_набора_реплик>'
+    const DB_NAME = '<имя_БД>'
+    const DB_HOSTS = ['<FQDN_хоста_1_{{ MG }}>:27018',
                       ...
-                      '<FQDN хоста N {{ MG }}>:27018']
-    const DB_USER  = '<имя пользователя БД>'
-    const DB_PASS  = '<пароль пользователя БД>'
+                      '<FQDN_хоста_N_{{ MG }}>:27018']
+    const DB_USER  = '<имя_пользователя_БД>'
+    const DB_PASS  = '<пароль_пользователя_БД>'
 
     const url = util.format('mongodb://%s:%s@%s/', DB_USER, DB_PASS, DB_HOSTS.join(','))
 
@@ -473,12 +475,12 @@ sudo apt update && sudo apt install --yes php php-mongodb
 
     ```php
     <?php
-      $DB_RS    = '<имя набора реплик>';
-      $DB_NAME  = '<имя БД>';
-      $DB_HOSTS = '<FQDN хоста 1 {{ MG }}>:27018,...,<FQDN хоста N {{ MG }}>:27018';
-      $DB_USER  = '<имя пользователя БД>';
-      $DB_PASS  = '<пароль пользователя БД>';
-      $CACERT   = '/home/<домашняя директория>/.mongodb/root.crt';
+      $DB_RS    = '<имя_набора_реплик>';
+      $DB_NAME  = '<имя_БД>';
+      $DB_HOSTS = '<FQDN_хоста_1_{{ MG }}>:27018,...,<FQDN_хоста_N_{{ MG }}>:27018';
+      $DB_USER  = '<имя_пользователя_БД>';
+      $DB_PASS  = '<пароль_пользователя_БД>';
+      $CACERT   = '/home/<домашняя_директория>/.mongodb/root.crt';
 
       $uri = sprintf(
           'mongodb://%s:%s@%s/%s?replicaSet=%s',
@@ -510,11 +512,11 @@ sudo apt update && sudo apt install --yes php php-mongodb
 
     ```php
     <?php
-      $DB_RS    = '<имя набора реплик>';
-      $DB_NAME  = '<имя БД>';
-      $DB_HOSTS = '<FQDN хоста 1 {{ MG }}>:27018,...,<FQDN хоста N {{ MG }}>:27018';
-      $DB_USER  = '<имя пользователя БД>';
-      $DB_PASS  = '<пароль пользователя БД>';
+      $DB_RS    = '<имя_набора_реплик>';
+      $DB_NAME  = '<имя_БД>';
+      $DB_HOSTS = '<FQDN_хоста_1_{{ MG }}>:27018,...,<FQDN_хоста_N_{{ MG }}>:27018';
+      $DB_USER  = '<имя_пользователя_БД>';
+      $DB_PASS  = '<пароль_пользователя_БД>';
 
       $uri = sprintf(
           'mongodb://%s:%s@%s/%s?replicaSet=%s',
@@ -560,22 +562,22 @@ php connect.php
 
     ```powershell
     mongosh.exe --norc `
-                --host '<FQDN хоста 1 {{ MG }}>:{{ port-mmg }},...,<FQDN хоста N {{ MG }}>:{{ port-mmg }}' `
+                --host '<FQDN_хоста_1_{{ MG }}>:{{ port-mmg }},...,<FQDN_хоста_N_{{ MG }}>:{{ port-mmg }}' `
                 --tls `
                 --tlsCAFile $HOME\.mongodb\root.crt `
-                --username <имя пользователя БД> `
-                --password <пароль пользователя БД> `
-                <имя БД>
+                --username <имя_пользователя_БД> `
+                --password <пароль_пользователя_БД> `
+                <имя_БД>
     ```
 
 - Подключение без SSL
 
     ```powershell
     mongosh.exe --norc `
-                --host '<FQDN хоста 1 {{ MG }}>:{{ port-mmg }},...,<FQDN хоста N {{ MG }}>:{{ port-mmg }}' `
-                --username <имя пользователя БД> `
-                --password <пароль пользователя БД> `
-                <имя БД>
+                --host '<FQDN_хоста_1_{{ MG }}>:{{ port-mmg }},...,<FQDN_хоста_N_{{ MG }}>:{{ port-mmg }}' `
+                --username <имя_пользователя_БД> `
+                --password <пароль_пользователя_БД> `
+                <имя_БД>
     ```
 
 {% endlist %}
@@ -610,16 +612,16 @@ rs.status().set
     import pymongo
     from urllib.parse import quote_plus as quote
 
-    CACERT = '/home/<домашняя директория>/.mongodb/root.crt'
-    DB_RS = '<имя набора реплик>'
-    DB_NAME = '<имя БД>'
+    CACERT = '/home/<домашняя_директория>/.mongodb/root.crt'
+    DB_RS = '<имя_набора_реплик>'
+    DB_NAME = '<имя_БД>'
     DB_HOSTS =','.join([
-          '<FQDN хоста 1 {{ MG }}>:27018',
+          '<FQDN_хоста_1_{{ MG }}>:27018',
           ...,
-          '<FQDN хоста N {{ MG }}>:27018'
+          '<FQDN_хоста_N_{{ MG }}>:27018'
         ])
-    DB_USER = '<имя пользователя БД>'
-    DB_PASS = '<пароль пользователя БД>'
+    DB_USER = '<имя_пользователя_БД>'
+    DB_PASS = '<пароль_пользователя_БД>'
 
     url = 'mongodb://{user}:{pw}@{hosts}/?replicaSet={rs}&authSource={auth_src}'.format(
               user=quote(DB_USER),
@@ -648,15 +650,15 @@ rs.status().set
     import pymongo
     from urllib.parse import quote_plus as quote
 
-    DB_RS = '<имя набора реплик>'
-    DB_NAME = '<имя БД>'
+    DB_RS = '<имя_набора_реплик>'
+    DB_NAME = '<имя_БД>'
     DB_HOSTS =','.join([
-          '<FQDN хоста 1 {{ MG }}>:27018',
+          '<FQDN_хоста_1_{{ MG }}>:27018',
           ...,
-          '<FQDN хоста N {{ MG }}>:27018'
+          '<FQDN_хоста_N_{{ MG }}>:27018'
         ])
-    DB_USER = '<имя пользователя БД>'
-    DB_PASS = '<пароль пользователя БД>'
+    DB_USER = '<имя_пользователя_БД>'
+    DB_PASS = '<пароль_пользователя_БД>'
 
     url = 'mongodb://{user}:{pw}@{hosts}/?replicaSet={rs}&authSource={auth_src}'.format(
               user=quote(DB_USER),

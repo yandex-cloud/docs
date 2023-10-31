@@ -10,7 +10,7 @@
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. At the top right, click **{{ ui-key.yacloud.common.create }}**.
-   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify the subnet name. The naming requirements are as follows:
+   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify the subnet name. Naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -140,7 +140,7 @@
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the subnet parameters:
 

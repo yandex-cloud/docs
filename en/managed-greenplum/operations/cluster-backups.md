@@ -143,8 +143,6 @@ If you set the current time as the recovery time, the new cluster will match the
          --segment-resource-preset=<host class> \
          --segment-disk-size=<storage size, GB> \
          --segment-disk-type=<disk type> \
-         --segment-host-count=<number of segment hosts> \
-         --segment-in-host=<number of segments on host> \
          --zone-id=<availability zone> \
          --subnet-id=<subnet ID> \
          --assign-public-ip=<public access to the cluster: true or false>
@@ -153,12 +151,12 @@ If you set the current time as the recovery time, the new cluster will match the
 
       Where:
 
-      * `--backup-id`: [Backup](../concepts/backup.md) ID
+      * `--backup-id`: [Backup](../concepts/backup.md) ID.
       * `--time`: Point in time to which you need to restore a {{ GP }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored from a backup.
-      * `--name`: Cluster name
+      * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing, including {{ GP }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -168,8 +166,6 @@ If you set the current time as the recovery time, the new cluster will match the
       * `--segment-resource-preset`: [Segment host class](../concepts/instance-types.md#available-flavors).
       * `--segment-disk-size`: Segment host storage size in GB.
       * `--segment-disk-type`: [Disk type](../concepts/storage.md) on the segment hosts.
-      * `--segment-host-count`: Number of segment hosts.
-      * `--segment-in-host`: Number of segments on host.
       * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
       
@@ -182,7 +178,7 @@ If you set the current time as the recovery time, the new cluster will match the
    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
    * ID of the backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * Timestamp of the point to which you want to recover the cluster, in the `time` parameter. By default, the cluster will be restored from a backup.
+   * Timestamp to which you want to recover the cluster, in the `time` parameter. By default, the cluster is restored from a backup.
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
    By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `folderId` parameter.

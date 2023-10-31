@@ -180,7 +180,7 @@
       ```
       
       ```text
-      Shard rs01 at rs01/<host1>
+      Shard rs01 at rs01/<хост_1>
       {
         data: '7.05MiB',
         docs: 99752,
@@ -189,7 +189,7 @@
         'estimated docs per chunk': 49876
       }
       ---
-      Shard rs02 at rs02/<host2>
+      Shard rs02 at rs02/<хост_2>
       {
         data: '7.08MiB',
         docs: 100248,

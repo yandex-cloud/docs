@@ -22,6 +22,8 @@ After creating a cluster, you can:
 * [Change cluster security groups](#change-sg-set).
 
 
+* [Changing hybrid storage settings](#change-hybrid-storage).
+
 
 ## Change service account settings {#change-service-account}
 
@@ -93,8 +95,8 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
    1. Specify the class in the update cluster command:
 
       ```bash
-      {{ yc-mdb-ch }} cluster update <cluster name> \
-         --clickhouse-resource-preset <class ID>
+      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
+         --clickhouse-resource-preset=<class_ID>
       ```
 
       {{ mch-short-name }} will run the update host class command for the cluster.
@@ -110,17 +112,17 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
    1. In the {{ mch-name }} cluster description, change the value of the `resource_preset_id` parameter in the `clickhouse.resources` and `zookeeper.resources` blocks for {{ CH }} and {{ ZK }} hosts, respectively:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         clickhouse {
           resources {
-            resource_preset_id = "<{{ CH }} host class>"
+            resource_preset_id = "<{{ CH }}_host_class>"
             ...
           }
         }
         zookeeper {
           resources {
-            resource_preset_id = "<{{ ZK }} host class>"
+            resource_preset_id = "<{{ ZK }}_class_host>"
             ...
           }
         }
@@ -209,17 +211,17 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
    1. In the {{ mch-name }} cluster description, change the value of the `disk_size` parameter in the `clickhouse.resources` and `zookeeper.resources` blocks for {{ CH }} and {{ ZK }}, respectively:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         clickhouse {
           resources {
-            disk_size = <storage size in gigabytes>
+            disk_size = <storage_size_in_GB>
             ...
           }
         }
         zookeeper {
           resources {
-            disk_size = <storage size in gigabytes>
+            disk_size = <storage_size_in_GB>
             ...
           }
         }
@@ -285,10 +287,10 @@ Once enabled, user and database management settings for SQL cannot be disabled.
       * Set a password for the `admin` user in the `--admin-password` parameter.
 
       ```bash
-      {{ yc-mdb-ch }} cluster update <cluster name or ID>\
+      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
          ...
          --enable-sql-user-management true \
-         --admin-password "<admin password>"
+         --admin-password "<admin_password>"
       ```
 
    1. To enable [SQL database management](./databases.md#sql-database-management):
@@ -297,11 +299,11 @@ Once enabled, user and database management settings for SQL cannot be disabled.
       * Set a password for the `admin` user in the `--admin-password` parameter.
 
       ```bash
-      {{ yc-mdb-ch }} cluster update <cluster name or ID>\
+      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
          ...
          --enable-sql-user-management true \
          --enable-sql-database-management true \
-         --admin-password "<admin password>"
+         --admin-password "<admin_password>"
       ```
 
 - {{ TF }}
@@ -366,7 +368,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
    1. View the full list of settings specified for the cluster:
 
       ```bash
-      {{ yc-mdb-ch }} cluster get <cluster ID or name> --full
+      {{ yc-mdb-ch }} cluster get <cluster_name_or_ID> --full
       ```
 
    1. View a description of the update cluster configuration CLI command:
@@ -378,8 +380,8 @@ For more information, see [Memory management](../concepts/memory-management.md).
    1. Set the required parameter values:
 
       ```bash
-      {{ yc-mdb-ch }} cluster update-config <cluster ID or name> \
-           --set <parameter1 name>=<value1>,...
+      {{ yc-mdb-ch }} cluster update-config <cluster_name_or_ID> \
+           --set <parameter1_name>=<value1>,...
       ```
 
       {{ mch-short-name }} runs the update cluster settings operation.
@@ -395,7 +397,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
    1. In the {{ mch-name }} cluster description, change the values of the parameters in the `clickhouse.config` block:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         clickhouse {
           ...
@@ -427,9 +429,9 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
             compression {
               # Data compression settings
-              method              = "<compression algorithm: LZ4 or ZSTD>"
-              min_part_size       = <minimum table data chunk size in bytes>
-              min_part_size_ratio = <ratio of smallest data chunk size to full table size>
+              method              = "<compession_method:_LZ4_or_ZSTD>"
+              min_part_size       = <minimum_size_of_a_table_data_chunk_in_a_table_in_bytes>
+              min_part_size_ratio = <size_ratio_between_the_smallest_data_chunk_size_and_the_full_table_size>
             }
 
             graphite_rollup {
@@ -503,18 +505,18 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
       
       ```bash
-      {{ yc-mdb-ch }} cluster update <cluster ID or name> \
-         --backup-window-start <backup start time> \
-         --datalens-access=<true or false> \
-         --datatransfer-access=<true or false> \
-         --deletion-protection=<cluster deletion protection: true or false> \
-         --maintenance-window type=<maintenance type: anytime or weekly>,`
-                             `day=<day of week for weekly>,`
-                             `hour=<hour for weekly> \
-         --metrika-access=<true or false> \
-         --serverless-access=<true or false> \
-         --yandexquery-access=<{{ yq-full-name }} access: true or false> \
-         --websql-access=<true or false>
+      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
+         --backup-window-start <backup_start_time> \
+         --datalens-access=<true_or_false> \
+         --datatransfer-access=<true_or_false> \
+         --deletion-protection=<cluster_deletion_protection:_true_or_false> \
+         --maintenance-window type=<maintenance_type:_anytime_or_weekly>,`
+                             `day=<day_of_the_week_for_weekly_type>,`
+                             `hour=<hour_of_the_day_for_weekly_type> \
+         --metrika-access=<true_or_false> \
+         --serverless-access=<true_or_false> \
+         --yandexquery-access=<access_via_Yandex_Query:_true_or_false> \
+         --websql-access=<true_or_false>
       ```
 
 
@@ -524,7 +526,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
    
-   * `--datalens-access`: Enables DataLens access. The default value is `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
+   * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about setting up a connection, see [Connecting from {{ datalens-name }}](datalens-connect.md).
 
    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
@@ -539,7 +541,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    
    
-   * `--metrika-access`: Enables [data import from AppMetrika to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
+   * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. The default value is `false`.
 
@@ -560,11 +562,11 @@ For more information, see [Memory management](../concepts/memory-management.md).
    1. To change the backup start time, add a `backup_window_start` block to the {{ mch-name }} cluster description:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         backup_window_start {
-          hours   = <backup start hour>
-          minutes = <backup start minute>
+          hours   = <hour_of_backup_start_time>
+          minutes = <minute_of_backup_start_time>
         }
         ...
       }
@@ -574,7 +576,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
    1. To allow access from other services and [execution of SQL queries from the management console](web-sql-query.md), change the values of the appropriate fields in the `access` block:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         access {
           data_lens    = <access from DataLens: true or false>
@@ -594,9 +596,9 @@ For more information, see [Memory management](../concepts/memory-management.md).
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
-        deletion_protection = <protect cluster from deletion: true or false>
+        deletion_protection = <cluster_deletion_protection:_true_or_false>
       }
       ```
 
@@ -634,9 +636,7 @@ For more information, see [Memory management](../concepts/memory-management.md).
    
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), set `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
-   To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-   To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter.
+   To allow cluster access from [{{ yq-full-name }}](../../query/concepts/index.md), set `true` for the `configSpec.access.yandexQuery` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 
 
@@ -673,8 +673,8 @@ For more information, see [Memory management](../concepts/memory-management.md).
    1. Specify the destination folder in the move cluster command:
 
       ```bash
-      {{ yc-mdb-ch }} cluster move <cluster ID> \
-         --destination-folder-name=<destination folder name>
+      {{ yc-mdb-ch }} cluster move <cluster_name_or_ID> \
+         --destination-folder-name=<destination_folder_name>
       ```
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -716,8 +716,8 @@ For more information, see [Memory management](../concepts/memory-management.md).
    1. Specify the security groups in the update cluster command:
 
       ```bash
-      {{ yc-mdb-ch }} cluster update <cluster name> \
-         --security-group-ids <security group ID list>
+      {{ yc-mdb-ch }} cluster update <cluster_name> \
+         --security-group-ids <list_of_security_group_IDs>
       ```
 
 - {{ TF }}
@@ -729,9 +729,9 @@ For more information, see [Memory management](../concepts/memory-management.md).
    1. Change the value of the `security_group_ids` parameter in the cluster description:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
-        security_group_ids = ["<list of cluster security group IDs>"]
+        security_group_ids = [ <list_of_cluster_security_group_IDs> ]
       }
       ```
 
@@ -787,7 +787,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    1. If hybrid storage is disabled in the cluster, enable it:
 
       ```bash
-      {{ yc-mdb-ch }} cluster update <cluster name> \
+      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
           --cloud-storage=true
       ```
 
@@ -796,10 +796,11 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    1. Provide a list of settings to update:
 
       ```bash
-      {{ yc-mdb-ch }} cluster update <cluster name> \
-          --cloud-storage-data-cache=<true or false> \
-          --cloud-storage-data-cache-max-size=<amount of memory (in bytes)> \
-          --cloud-storage-move-factor=<share of free space>
+      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
+         --cloud-storage-data-cache=<true_or_false> \
+         --cloud-storage-data-cache-max-size=<storage_size_in_bytes> \
+         --cloud-storage-move-factor=<free_space_share> \
+         --cloud-storage-prefer-not-to-merge=<true_or_false>
       ```
 
       You can change the following settings:

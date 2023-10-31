@@ -1,0 +1,1 @@
+The `smart-captcha.editor` role enables you to manage CAPTCHAS (create, change, or delete them). Includes all access rights of the `smart-captcha.viewer` role.

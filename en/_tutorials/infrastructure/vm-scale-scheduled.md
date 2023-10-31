@@ -91,12 +91,12 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
            --folder-name example-folder
          ```
 
-      * `serverless.functions.invoker` to invoke the {{ sf-name }} function:
+      * `{{ roles-functions-invoker }}` to invoke the {{ sf-name }} function:
 
          ```bash
          yc resource-manager folder add-access-binding example-folder \
            --service-account-name vm-scale-scheduled-sa \
-           --role serverless.functions.invoker \
+           --role {{ roles-functions-invoker }} \
            --folder-name example-folder
          ```
 
@@ -110,7 +110,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 
       * `compute.admin` to manage the instance group.
       * `iam.serviceAccounts.user` to link the service account to instances in the group.
-      * `serverless.functions.invoker` to invoke the {{ sf-name }} function.
+      * `{{ roles-functions-invoker }}` to invoke the {{ sf-name }} function.
 
       To do this, use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/folder_service.md#SetAccessBindings) gRPC API call.
 
@@ -243,10 +243,9 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
-         * **{{ ui-key.yacloud.component.compute.resources.field_memor
-         y }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
          * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** field, select `vm-scale-scheduled-network`.
          * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
@@ -428,8 +427,8 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
       * In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, select `vm-scale-scheduled-sa`.
       * Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**, add the following variables:
 
-         * `IG_NAME` = `vm-scale-scheduled-ig`.
-         * `IG_BASE_SIZE` = `2`.
+         * `IG_NAME`: `vm-scale-scheduled-ig`.
+         * `IG_BASE_SIZE`: `2`.
          * `FOLDER_ID`: Folder ID. You can get the ID by following [this guide](../../resource-manager/operations/folder/get-id.md).
 
    1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
@@ -474,8 +473,8 @@ The function will contain the code with [{{ yandex-cloud }} CLI](../../cli/) com
 
       Where:
 
-      * The `--service-account-id` option is the ID of the `vm-scale-schedule-sa` service account. To get the ID, follow the instructions in the [Create an instance group](#create-ig) step on the **CLI** tab.
-      * The `FOLDER_ID` variable in the `--environment` option is the folder ID. You can get the ID by following [this guide](../../resource-manager/operations/folder/get-id.md).
+      * `--service-account-id`: ID of the `vm-scale-schedule-sa` service account. To get the ID, follow the guide in the [Create an instance group](#create-ig) step on the **CLI** tab.
+      * `FOLDER_ID` variable in the `--environment` option: Folder ID. You can get the ID by following [this guide](../../resource-manager/operations/folder/get-id.md).
 
       Result:
 

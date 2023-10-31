@@ -71,7 +71,7 @@ Let's set up a trigger to automatically assign the issue:
 1. Save your trigger.
    To check the trigger operation, change the status or components for any issue from the queue that you set up the trigger for.
 
-## Inviting assignees automatically {#summon_ticket}
+## Summoning assignees automatically {#summon_ticket}
 
 Having completed the issue, the employee might forget to specify some important information, for example, the time spent. In this case, you can set up a trigger that will automatically summon the user if the issue was closed, but the time spent was not specified.
 
@@ -154,7 +154,7 @@ You need to set up email integration if you want to send emails right from {{ tr
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
 
-1. If the users aren't your company's employees:
+1. If the users are not your company employees:
 
    1. [Allow receiving emails from external addresses](queue-mail.md#mail_tasks).
 
@@ -215,7 +215,7 @@ You need to set up email integration if you want to send emails from {{ tracker-
 
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
-1. If the users are not your company's employees, [allow sending emails from issue pages to external addresses](queue-mail.md#send_outside).
+1. If the users are not your company employees, [allow sending emails from issue pages to external addresses](queue-mail.md#send_outside).
 
 #### Step 2. Set up a form to register requests
 
@@ -225,7 +225,7 @@ To create issues based on requests submitted from a form:
 
 1. Add questions that allow users to provide relevant information that is required to register their request.
 
-   If you want to know the user's email address, add the **Email** question and make it a required field.
+   If you want to know the user email address, add the **Email** question and make it a required field.
 
    ![](../../_assets/tracker/trigger-example-form-constructor.png)
 
@@ -288,7 +288,7 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 
 1. Go to [{{ forms-full-name }}]({{ link-forms }}) and create a form. 
 
-1. Add questions that let users provide necessary information.
+1. Add questions so that users could provide the required information.
 
 #### Step 2. Creating a trigger for adding a form
 
@@ -344,7 +344,7 @@ Let's set up a trigger that, whenever an issue is closed, will add a feedback fo
 To ensure the form is inserted correctly, provide access to the queue for the yndx-forms-cnt-robot@ robot. To learn more about setting up access, see [Setting access rights for queues](queue-access.md).
 
 
-When the issue is closed, the robot will create a comment with a form and invite the assignee to comment.
+When the issue is closed, the robot will create a comment with a form and summon the assignee.
 
 ## Automatically adding issues to your board {#board}
 
@@ -475,7 +475,7 @@ As an example, let's assume we need a trigger that creates a sub-issue and fills
 
    {% note info %}
 
-   Make sure the parameters you send to the request body using variables are set in the original issue; otherwise, the trigger will not work.
+   Make sure the parameters you pass in the request body using variables are set in the original issue; otherwise, the trigger will not fire.
 
    {% endnote %}
 

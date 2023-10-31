@@ -16,15 +16,15 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 * Manually
 
-   1. [Create a {{ mgp-full-name }} source cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) of any suitable configuration with the `gp-user` admin user name and hosts in the public domain.
+   1. [Create a {{ mgp-full-name }} source cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) in any suitable configuration with the `gp-user` admin username and public hosts.
 
-   1. [Create a {{ mpg-full-name }} target cluster](../../managed-postgresql/operations/cluster-create.md#create-cluster) in any applicable configuration with publicly available hosts. When creating a cluster, specify:
+   1. [Create a {{ mpg-full-name }} target cluster](../../managed-postgresql/operations/cluster-create.md#create-cluster) in any suitable configuration with publicly available hosts. When creating a cluster, specify:
 
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
 
    
-   1. If you are using security groups in your clusters, make sure they have been set up correctly and allow connection to clusters:
+   1. If you are using security groups in clusters, make sure they are set up correctly and allow connecting to the clusters:
 
       * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
       * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
@@ -32,8 +32,8 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [greenplum-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/greenplum-postgresql.tf) configuration file to the same working directory.
 
       This file describes:
@@ -45,7 +45,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
       * Target endpoint.
       * Transfer.
 
-   1. In the file `greenplum-postgresql.tf`, specify the {{ GP }} and {{ PG }} administrator passwords.
+   1. In the `greenplum-postgresql.tf` file, specify the {{ GP }} and {{ PG }} administrator passwords.
    1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -53,7 +53,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -67,12 +67,12 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/greenplum.md) of the `{{ GP }}` type and specify the cluster connection parameters in it:
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: `<{{ GP }} source cluster name>` from the drop-down list.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}**: `postgres`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}**: `gp-user`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: `<user password>`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.service_schema.title }}**: `public`.
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: `<name_of_{{ GP }}_source_cluster>` from the drop-down list
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}**: `postgres`
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}**: `gp-user`
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: `<user_password>`
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.service_schema.title }}**: `public`
 
 1. Create a target endpoint and a transfer:
 
@@ -82,13 +82,13 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
         1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it.
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `Yandex Managed Service for PostgreSQL cluster`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<{{ PG }} target cluster name>` from the drop-down list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: `db1`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `pg-user`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user password>`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.connection_type.title }}**: `Yandex Managed Service for PostgreSQL cluster`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<name_of_{{ PG }}_target_cluster>` from the drop-down list
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.database.title }}**: `db1`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.user.title }}**: `pg-user`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.password.title }}**: `<user_password>`
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
 
             Replication is not available for this endpoint pair, but you can set up regular copying when creating a transfer. To do this, in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** field under **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.title }}**, select **Regular** and specify the copy interval. This will activate a transfer automatically after the specified time interval.
 
@@ -111,7 +111,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point to them.
+            If there are any errors in the configuration files, {{ TF }} will point them out.
 
         1. Create the required infrastructure:
 
@@ -121,7 +121,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md), create a table called `x_tab`, and populate it with data:
+1. [Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md), create a table named `x_tab`, and populate it with data:
 
    ```sql
    CREATE TABLE x_tab
@@ -159,7 +159,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 1. In the [target endpoint parameters](../../data-transfer/operations/endpoint/target/postgresql#additional-settings) select either a `DROP` or a `TRUNCATE` cleanup policy.
 1. [Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md).
-1. In the `x_tab` table, delete the row where ID is `41` and update the one where ID is `42`:
+1. In the `x_tab` table, delete the row with the `41` ID and update the one with the `42` ID:
 
    ```sql
    DELETE FROM x_tab WHERE id = 41;
@@ -194,10 +194,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    * Manually
 
-      
       * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
       * [{{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
-
 
    * Using {{ TF }}
 
@@ -211,9 +209,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point to them.
+            If there are any errors in the configuration files, {{ TF }} will point them out.
 
-        1. Confirm the resources have been updated.
+        1. Confirm updating the resources.
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

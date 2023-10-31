@@ -8,10 +8,10 @@ Before you start, install the [{{ ydb-short-name }} CLI](https://ydb.tech/en/doc
 
 To connect to your DB in {{ dd }} mode, allow incoming and outgoing traffic over TCP on port `{{ ydb.port-dedicated }}`. Make sure the assigned [security group](../../vpc/concepts/security-groups.md) contains the appropriate rule, or add one:
 
-* Port range: `{{ ydb.port-dedicated }}`
-* Protocol: `TCP`
-* Source: `CIDR`
-* CIDR blocks: `0.0.0.0/0`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ ydb.port-dedicated }}`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
 ## Get connection parameters {#endpoint-and-path}
 
@@ -22,13 +22,13 @@ You can get DB connection parameters in the {{ yandex-cloud }} management consol
 - Management console
 
    1. Go to the [management console]({{ link-console-main }}).
-   1. Select the folder with your DB and go to **{{ ydb-full-name }}**.
-   1. Select the DB to get the endpoint and path for.
+   1. Select the folder hosting your DB and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Select the DB you want to get the endpoint and path for.
 
-      * The DB endpoint is specified under **Connection** in the **Endpoint** line:
+      * The DB endpoint is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`):
 
          > For example, the endpoint for a DB in Serverless mode is `{{ ydb.ep-serverless }}` and in Dedicated mode is `{{ ydb.ep-dedicated }}`.
-      * The DB path is specified under **Connection** in the **Database** line.
+      * The DB path is specified under **{{ ui-key.yacloud.ydb.overview.section_connection }}** in the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`).
 
          > Sample DB path: `{{ ydb.path-serverless }}`.
 

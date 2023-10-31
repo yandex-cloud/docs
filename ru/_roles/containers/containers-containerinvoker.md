@@ -1,0 +1,1 @@
+Роль `serverless-containers.containerInvoker` позволяет вызывать контейнер.

@@ -6,7 +6,7 @@ Error message:
 Warn(Activate): YC: unable to resolve instance group:
 unable to resolve net topology: neither source nor target subnet found:
 No common availability zone found for the source and target endpoints:
-source zones: [<source zone name>], target zones: [<target zone name>]
+source zones: [<source_zone_name>], target zones: [<target_zone_name>]
 ```
 
 The error occurs if the source and target hosts are within {{ yandex-cloud }} but have no common [availability zones](../../../../overview/concepts/geo-scope.md).

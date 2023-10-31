@@ -1,0 +1,1 @@
+The `ai.translate.user` role enables you to use the service for text translation.

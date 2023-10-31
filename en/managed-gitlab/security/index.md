@@ -17,37 +17,33 @@ You can assign a role to a [cloud](../../resource-manager/concepts/resources-hie
 
 ## Which roles exist in the service {#roles-list}
 
+### Service roles {#service-roles}
+
 {% include [gitlab-viewer](../../_includes/iam/roles/gitlab-viewer.md) %}
 
 {% include [gitlab-editor](../../_includes/iam/roles/gitlab-editor.md) %}
 
 {% include [gitlab-admin](../../_includes/iam/roles/gitlab-admin.md) %}
 
-### {{ roles-viewer }} {#viewer}
-
-{% include [roles-viewer](../../_includes/roles-viewer.md) %}
-
-### {{ roles-editor }} {#editor}
-
-{% include [roles-editor](../../_includes/roles-editor.md) %}
-
-### {{ roles-admin }} {#admin}
-
-{% include [roles-admin](../../_includes/roles-admin.md) %}
-
-### {{ roles-cloud-member }} {#member}
+#### {{ roles-cloud-member }} {#member}
 
 {% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-### {{ roles-cloud-owner }} {#owner}
+#### {{ roles-cloud-owner }} {#owner}
 
 {% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+
+### Primitive roles {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## Roles required {#required-roles}
 
 To use the service, you need the `{{ roles.gitlab.editor }}` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where the projects are created. With the `{{ roles.gitlab.viewer }}` role, you can only view the list of projects and the contents of uploaded files.
 
 You can always assign a role with more permissions. For instance, you can assign `{{ roles.gitlab.admin }}` instead of `{{ roles.gitlab.editor }}`.
+
+To create a {{ GL }} instance, you also need the [`{{ roles-vpc-user }}`](../../iam/concepts/access-control/roles.md#vpc-user) role.
 
 
 ## What's next {#whats-next}
@@ -56,3 +52,4 @@ You can always assign a role with more permissions. For instance, you can assign
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+

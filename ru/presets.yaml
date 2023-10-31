@@ -4137,6 +4137,8 @@ default:
       blocks-desktop_b-queues-info:
         admin: Администрирование
         projects: Проекты
+      blocks-desktop_b-related-issues__title:
+        is_epic_of: Задачи эпика
       blocks-desktop_b-screen:
         worklog: Учёт времени
       blocks-desktop_b-subscriptions-header:
@@ -4159,6 +4161,8 @@ default:
         pivot: Отчёт по трудозатратам
         queue-hint: Очередь
         timesheet: Отчёт по исполнителям
+      blocks-desktop_calendar-editor--overrides-modal:
+        add-button: Добавить
       blocks-desktop_calendar-editor--working-time-select:
         option--daily24x7: Круглосуточно
       blocks-desktop_comment-form:
@@ -4608,6 +4612,8 @@ default:
         write-comment: Написать комментарий
       ui_components_Confirm:
         ok-button-text: Да
+      ui_components_create-issue-popup_CreateIssuePageLink:
+        open-create-form: Открыть полную форму
       ui_components_create-issue-popup_NewIssueForm:
         create: Создать
         issue-name: Название задачи
@@ -4696,6 +4702,8 @@ default:
         create-template-item: Создать шаблон
       ui_components_issue-links_ExternalLinksCollapse:
         external-relations: Связи с внешними приложениями
+      ui_components_issue-links_InternalLinksCollapse:
+        relations: Связи с другими задачами
       ui_components_IssueActionsButton:
         menu-item-create-subticket: Создать подзадачу
       ui_components_IssueBulkActionPanel:
@@ -4756,6 +4764,8 @@ default:
         import: Импортировать
       ui_components_issues-import_IssuesImportFilters:
         add-parameters: Добавить параметры
+      ui_components_IssuesGroupHeader:
+        no-epic: Без эпика
       ui_components_IssueSidebar:
         add-sidebar-field: Изменить список параметров
       ui_components_IssuesPresetSelect:
@@ -6333,7 +6343,6 @@ default:
           label_lifecycle: Жизненный цикл
           label_lifecycle-dry-runs: Проверки жизненного цикла
           label_lifecycle-rules: Правила политики удаления
-          label_only-selected: Только выбранные
           label_retained-top: Образов оставить
           label_selected: Выбранные
           label_tag-regexp: Тег
@@ -6767,6 +6776,7 @@ default:
         target-group:
           button_create: Создать целевую группу
           label_list: Целевые группы
+          label_targets-section-title: Целевые ресурсы
       load-testing:
         button_add-bucket: Привязать бакет
         button_add-overload-test-id: Добавить ID
@@ -8900,39 +8910,9 @@ default:
                     title: Кластер YT
         transfer:
           transfer:
-            ColumnsFilter:
-              exclude_columns:
-                title: Список исключенных колонок (регулярные выражения)
-              include_columns:
-                title: Список включенных колонок (регулярные выражения)
-            RenameTable:
-              new_name:
-                title: Имя таблицы приемника
-              original_name:
-                title: Имя таблицы источника
-            Table:
-              name_space:
-                title: Именованная схема
-              name:
-                title: Имя таблицы
-            TablesFilter:
-              exclude_tables:
-                title: Список исключенных таблиц (регулярные выражения)
-              include_tables:
-                title: Список включенных таблиц (регулярные выражения)
-            ToStringTransformer:
-              columns:
-                title: Список колонок
-              tables:
-                title: Список таблиц
             Transformation:
               transformers:
                 array_item_label: Преобразование
-            Transformer:
-              filter_columns:
-                title: Фильтр колонок
-              rename_tables:
-                title: Переименование таблиц
     yc-ui-datasphere:
       alias:
         private: Приватный

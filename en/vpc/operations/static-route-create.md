@@ -141,7 +141,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To create a route table and add [static routes](../concepts/static-routes.md):
 

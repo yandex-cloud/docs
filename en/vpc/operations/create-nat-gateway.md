@@ -92,7 +92,7 @@ To create and set up a NAT gateway:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To create a NAT gateway, specify it as the next hop in the [route](../concepts/static-routes.md) table, and link the table to the subnet, use the following configuration:
 

@@ -122,7 +122,7 @@ The infrastructure support costs include:
    - {{ TF }}
 
       
-      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
       1. In the configuration file, describe the service account parameters:
@@ -143,7 +143,7 @@ The infrastructure support costs include:
          Where:
 
          * `name`: Service account name. This is a required parameter.
-         * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Optional parameter. By default, the value specified in the provider settings is used.
+         * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
          * `role`: Role being assigned.
 
          For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).

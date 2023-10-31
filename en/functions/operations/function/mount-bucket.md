@@ -1,3 +1,8 @@
+---
+title: "Mounting a bucket to a function"
+description: "Follow this guide to mount a bucket to a function."
+---
+
 # Mounting a bucket to a function
 
 {% include [read-note](../../../_includes/functions/read-note.md) %}
@@ -10,11 +15,11 @@
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
-    1. Under **Mounted buckets**, click **Add bucket**.
+    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}**, click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}**.
     1. Specify the following in the field:
-        * **Mount point**: Name of the mount point. The directory where the bucket is mounted will be accessible at the `/function/storage/<mount_point>` path.
-        * **Bucket**: Name of the bucket you want to mount. Alternatively, you can create a new bucket.
-        * **Folder**: [Folder](../../../storage/concepts/object.md#folder) within the bucket. If you leave this field empty, the entire bucket will be mounted.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-name }}**: Name of the mount point. The directory where the bucket is mounted will be accessible at the `/function/storage/<mount_point>` path.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket }}**: Name of the bucket you want to mount. Alternatively, you can create a new bucket.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket-prefix }}**: [Folder](../../../storage/concepts/object.md#folder) within the bucket. If you leave this field empty, the entire bucket will be mounted.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - API

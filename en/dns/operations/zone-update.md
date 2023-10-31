@@ -50,7 +50,7 @@ To update a DNS zone:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To update a DNS zone created using {{ TF }}:
 

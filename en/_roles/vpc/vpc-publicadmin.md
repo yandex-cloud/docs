@@ -1,0 +1,1 @@
+The `vpc.publicAdmin` role lets you manage external connectivity. Important: if a network and subnet are in different folders, the `vpc.publicAdmin` role is checked for the folder where the network is located.

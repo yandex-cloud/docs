@@ -111,7 +111,7 @@ To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).

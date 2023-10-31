@@ -1,0 +1,1 @@
+Users with the `k8s.cluster-api.editor` role get the `yc:edit` group and the `edit` role in Kubernetes RBAC for all namespaces in a cluster.

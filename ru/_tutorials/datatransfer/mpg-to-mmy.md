@@ -12,7 +12,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     1. [Создайте кластер-источник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../overview/concepts/geo-scope.md), с хостами любой подходящей конфигурации в публичном доступе, и следующими настройками:
 
@@ -33,7 +33,7 @@
         * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
         * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups).
 
-* С помощью {{ TF }}
+- С помощью {{ TF }}
 
     1. Если у вас еще нет {{ TF }}, [установите и настройте его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -105,7 +105,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
@@ -126,7 +126,7 @@
     1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
     1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-* С помощью {{ TF }}
+- С помощью {{ TF }}
 
     1. Укажите в файле `postgresql-mysql.tf` значение `1` для параметра `transfer_enabled`.
 
@@ -199,14 +199,14 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     * [Трансфер](../../data-transfer/operations/transfer.md#delete).
     * [Эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
     * [Кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
     * [Кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
-* С помощью {{ TF }}
+- С помощью {{ TF }}
 
     Если вы создавали ресурсы с помощью {{ TF }}:
 

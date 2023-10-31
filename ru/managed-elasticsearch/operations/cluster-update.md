@@ -23,7 +23,11 @@ keywords:
 * [{#T}](#change-admin-password).
 * [{#T}](#change-additional-settings).
 
-Вы также можете обновить версию и изменить редакцию {{ ES }}. Подробнее см. в разделе [{#T}](./cluster-version-update.md).
+Подробнее о других изменениях кластера:
+
+* [{#T}](cluster-version-update.md).
+
+* [{#T}](host-migration.md).
 
 
 ## Изменить настройки сервисного аккаунта {#change-service-account}
@@ -53,8 +57,8 @@ keywords:
     1. Укажите идентификатор сервисного аккаунта в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-es }} cluster update <имя или идентификатор кластера> \
-          --service-account-id <идентификатор сервисного аккаунта>
+        {{ yc-mdb-es }} cluster update <имя_или_идентификатор_кластера> \
+          --service-account-id <идентификатор_сервисного_аккаунта>
         ```
 
         Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -70,9 +74,9 @@ keywords:
     1. Укажите в поле описания кластера `service_account_id` идентификатор сервисного аккаунта:
 
         ```hcl
-        resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+        resource "yandex_mdb_elasticsearch_cluster" "<имя_кластера>" {
           ...
-          service_account_id = <идентификатор сервисного аккаунта>
+          service_account_id = <идентификатор_сервисного_аккаунта>
         }
         ```
 
@@ -136,9 +140,9 @@ keywords:
     1. Укажите нужный класс для хостов с ролью _Data node_ и _Master node_ в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-es }} cluster update <имя или идентификатор кластера> \
-          --datanode-resource-preset <класс хостов с ролью Data node> \
-          --masternode-resource-preset <класс хостов с ролью Master node>
+        {{ yc-mdb-es }} cluster update <имя_или_идентификатор_кластера> \
+          --datanode-resource-preset <класс_хостов_с_ролью_Data_node> \
+          --masternode-resource-preset <класс_хостов_с_ролью_Master_node>
         ```
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -154,19 +158,19 @@ keywords:
   1. Измените в описании кластера {{ mes-name }} значение атрибута `resource_preset_id` в блоке `config.data_node.resources` или `config.master_node.resources`:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<имя_кластера>" {
         ...
         config {
           data_node {
             resources {
-              resource_preset_id = "<класс хоста>"
+              resource_preset_id = "<класс_хоста>"
               ...
             }
           }
 
           master_node {
             resources {
-              resource_preset_id = "<класс хоста>"
+              resource_preset_id = "<класс_хоста>"
               ...
             }
           }
@@ -241,10 +245,15 @@ keywords:
     1. Укажите новые [параметры хранилища](../concepts/storage.md) для хостов с ролью _Data node_ и _Master node_ в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-es }} cluster update <имя или идентификатор кластера> \
-          --datanode-disk-size <размер хранилища в гигабайтах для хостов с ролью Data node> \
-          --masternode-disk-size <размер хранилища в гигабайтах для хостов с ролью Master node>
+        {{ yc-mdb-es }} cluster update <имя_или_идентификатор_кластера> \
+          --datanode-disk-size <размер_хранилища_ГБ_Data_node> \
+          --masternode-disk-size <размер_хранилища_ГБ_Master_node>
         ```
+
+        Где:
+
+        * `--datanode-disk-size` — размер хранилища в гигабайтах для хостов с ролью Data node.
+        * `--masternode-disk-size` — размер хранилища в гигабайтах для хостов с ролью Master node.
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -261,19 +270,19 @@ keywords:
   1. Измените в описании кластера {{ mes-name }} значение атрибута `disk_size` в блоке `config.data_node.resources` или `config.master_node.resources`:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<имя_кластера>" {
         ...
         config {
           data_node {
             resources {
-              disk_size = <объем хранилища, ГБ>
+              disk_size = <размер_хранилища_ГБ>
               ...
             }
           }
 
           master_node {
             resources {
-              disk_size = <объем хранилища, ГБ>
+              disk_size = <размер_хранилища_ГБ>
               ...
             }
           }
@@ -341,7 +350,7 @@ keywords:
     1. Посмотрите полный список настроек, установленных для кластера:
 
         ```bash
-        {{ yc-mdb-es }} cluster get <идентификатор или имя кластера> --full
+        {{ yc-mdb-es }} cluster get <имя_или_идентификатор_кластера> --full
         ```
 
     1. Посмотрите описание команды CLI для изменения конфигурации кластера:
@@ -353,8 +362,8 @@ keywords:
     1. Установите нужные значения параметров:
 
         ```bash
-        {{ yc-mdb-es }} cluster update-config <идентификатор или имя кластера> \
-           --set <имя параметра1>=<значение1>,<имя параметра2>=<значение2>,...
+        {{ yc-mdb-es }} cluster update-config <имя_или_идентификатор_кластера> \
+           --set <имя_параметра_1>=<значение_1>,<имя_параметра_2>=<значение_2>,...
         ```
 
         Все поддерживаемые параметры приведены в разделе [{#T}](../concepts/settings-list.md).
@@ -404,21 +413,21 @@ keywords:
        * Ввод пароля в интерактивном режиме.
 
          ```bash
-         {{ yc-mdb-es }} cluster update <имя кластера> \
+         {{ yc-mdb-es }} cluster update <имя_кластера> \
            --read-admin-password
          ```
 
        * Ввод пароля открытым текстом (менее безопасный способ).
 
          ```bash
-         {{ yc-mdb-es }} cluster update <имя кластера> \
-           --admin-password <новый пароль>
+         {{ yc-mdb-es }} cluster update <имя_кластера> \
+           --admin-password <новый_пароль>
          ```
 
        * Автоматическая генерация пароля. Сгенерированный пароль будет выведен в консоль.
 
          ```bash
-         {{ yc-mdb-es }} cluster update <имя кластера> \
+         {{ yc-mdb-es }} cluster update <имя_кластера> \
            --generate-admin-password
          ```
 
@@ -435,10 +444,10 @@ keywords:
   1. Измените в описании кластера {{ mes-name }} значение атрибута `admin_password` в блоке `config`:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<имя_кластера>" {
         ...
         config {
-          admin_password = "<новый пароль пользователя-администратора>"
+          admin_password = "<новый_пароль_пользователя-администратора>"
           ...
         }
       }
@@ -502,12 +511,12 @@ keywords:
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
-        {{ yc-mdb-es }} cluster update <идентификатор или имя кластера> \
-           --plugins <имя плагина 1>,...,<имя плагина N> \
-           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                               `day=<день недели для типа weekly>,`
-                               `hour=<час дня для типа weekly> \
-           --deletion-protection=<защита от удаления кластера: true или false>
+        {{ yc-mdb-es }} cluster update <имя_или_идентификатор_кластера> \
+           --plugins <имя_плагина_1>,...,<имя_плагина_N> \
+           --maintenance-window type=<тип_технического_обслуживания>,`
+                               `day=<день_недели>,`
+                               `hour=<час_дня> \
+           --deletion-protection=<защита_от_удаления>
         ```
 
     Вы можете изменить следующие настройки:
@@ -537,10 +546,10 @@ keywords:
   1. Чтобы изменить список [плагинов {{ ES }}](cluster-plugins.md#elasticsearch), измените значение параметра `plugins` в блоке `config` описания кластера:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<имя_кластера>" {
         ...
         config {
-          plugins = [ "<список имен плагинов>" ]
+          plugins = [ "<список_имен_плагинов>" ]
         }
       }
       ```
@@ -550,11 +559,13 @@ keywords:
   1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<имя_кластера>" {
         ...
-        deletion_protection = <защита от удаления кластера: true или false>
+        deletion_protection = <защита_от_удаления>
       }
       ```
+
+      Где `deletion_protection` — защита от удаления кластера: `true` или `false`.
 
       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 

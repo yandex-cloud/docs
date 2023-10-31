@@ -1,4 +1,4 @@
-Create a [trigger](../../functions/concepts/trigger/iot-core-trigger.md) for an {{ iot-name }} device or registry topic and process message copies using a [{{ sf-name }} function](../../functions/concepts/function.md).
+Create a [trigger](../../functions/concepts/trigger/iot-core-trigger.md) for an {{ iot-name }} device or registry topic and process message copies using a {{ sf-name }} [function](../../functions/concepts/function.md).
 
 {% note warning %}
 
@@ -79,7 +79,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
    * `--name`: Trigger name.
    * `--registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
-   * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you're creating a trigger for a registry topic, you can omit this parameter.
+   * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger fires for all registry or device topics.
 
    {% include [trigger-param](../iot-core/trigger-param-cf.md) %}
@@ -115,7 +115,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To create a trigger for {{ iot-name }}:
 
@@ -148,7 +148,7 @@ The trigger must be in the same cloud with the registry or device it reads messa
       * `description`: Trigger description.
       * `iot`: [Topic](../../iot-core/concepts/topic/) parameters:
          * `registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
-         * `device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you're creating a trigger for a registry topic, you can omit this parameter.
+         * `device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
          * `topic`: ID of the [topic](../../iot-core/concepts/topic/) you want to create a trigger for. If no topic is set, the trigger fires for all registry or device topics.
       * `function`: Settings for the function, which will be activated by the trigger:
          * `id`: Function ID.

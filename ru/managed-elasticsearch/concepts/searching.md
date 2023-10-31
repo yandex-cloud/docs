@@ -14,7 +14,7 @@ description: "{{ ES }} выступает не только как хранил�
 
 В {{ mes-name }} запросы всех этих типов можно выполнять, используя следующие инструменты:
 - [JSON-запросы](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html), написанные с использованием [{{ ES }} QueryDSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html).
-- [URI-запросы](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-uri-request.html), в которых строка запроса в формате Lucene передается в GET-параметре: `?q=<строка запроса>`.
+- [URI-запросы](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-uri-request.html), в которых строка запроса в формате Lucene передается в GET-параметре: `?q=<строка_запроса>`.
 - [SQL-запросы](https://www.elastic.co/guide/en/elasticsearch/reference/current/sql-overview.html). {{ ES }} полностью поддерживает SQL-запросы, не требуя наличия какого-либо промежуточного посредника между собой и SQL.
 
 Некоторые возможности поиска в {{ ES }}: 

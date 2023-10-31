@@ -49,7 +49,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To delete a broker created using {{ TF }}:
 

@@ -35,7 +35,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including {{ mos-full-name }} itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
       1. Select the {{ OS }} version.
       1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.

@@ -36,7 +36,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To update a DNS record created using {{ TF }}:
 

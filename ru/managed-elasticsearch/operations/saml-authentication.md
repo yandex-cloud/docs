@@ -34,7 +34,7 @@ SAML (Security Assertion Markup Language) — это язык разметки �
     Используйте URL со [специальным FQDN кластера](cluster-connect.md#automatic-host-selection):
 
     ```
-    https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}/api/security/saml/callback
+    https://c-<идентификатор_кластера_{{ ES }}>.rw.{{ dns-zone }}/api/security/saml/callback
     ```
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -46,7 +46,7 @@ SAML (Security Assertion Markup Language) — это язык разметки �
     Используйте URL со [специальным FQDN кластера](cluster-connect.md#automatic-host-selection):
 
     ```
-    https://c-<идентификатор кластера>rw.{{ dns-zone }}
+    https://c-<идентификатор_кластера>rw.{{ dns-zone }}
     ```
 
     **Пример:** `https://c-e4ut2....rw.{{ dns-zone }}`
@@ -151,7 +151,7 @@ SAML (Security Assertion Markup Language) — это язык разметки �
 
 ### Подключение SAML SSO с Okta {#example-okta}
 
-Чтобы настроить SSO Okta для кластера с идентификатором `c9qmc1lmo2k060fkj2nj`:
+Чтобы настроить SSO Okta для кластера с идентификатором `c9qmc1lmo2k0********`:
 1. [Настройте провайдера идентификации Okta](#example-configuration-okta).
 1. [Настройте SSO для кластера {{ mes-name }}](#example-configuration-sso).
 1. [Настройте роли для SSO с Okta](#example-roles-sso).
@@ -168,14 +168,14 @@ SAML (Security Assertion Markup Language) — это язык разметки �
     * Укажите **Single sign on URL**:
 
         ```
-        https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}/api/security/saml/callback
+        https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}/api/security/saml/callback
         ```
 
     * Включите опцию **Use this for Recipient URL and Destination URL**.
     * Укажите **Audience URI (SP Entity ID)**:
 
         ```
-        https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}
+        https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}
         ```
 
     * Укажите **Name ID Format** — `Persistent`.
@@ -187,7 +187,7 @@ SAML (Security Assertion Markup Language) — это язык разметки �
     * Скопируйте **Identity Provider Issuer**:
 
         ```
-        http://www.okta.com/exkv2pzpvigX4c0bK5d6
+        http://www.okta.com/exkv2pzpvigX********
         ```
 
     * Содержимое поля **Provide the following IDP metadata to your SP provider** скопируйте и сохраните, например, под именем `okta.xml`.
@@ -196,13 +196,13 @@ SAML (Security Assertion Markup Language) — это язык разметки �
 
 #### Настройте SSO для кластера {#example-configuration-sso}
 
-Пусть после настройки провайдера был предоставлен **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}**: `http://www.okta.com/exkv2pzpvigX4c0bK5d6`. 
+Пусть после настройки провайдера был предоставлен **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}**: `http://www.okta.com/exkv2pzpvigX********`. 
 
 [Настройте SSO для кластера](#configuration-sso). При настройке укажите:
-* **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}**: `http://www.okta.com/exkv2pzpvigX4c0bK5d6`.
+* **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}**: `http://www.okta.com/exkv2pzpvigX********`.
 * **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_metadata_file }}**: файл метаданных, предоставленный Okta.
-* **{{ ui-key.yacloud.elasticsearch.auth.saml-sp_entity_id }}**: `https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}`.
-* **{{ ui-key.yacloud.elasticsearch.auth.saml-kibana_url }}**: `https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}`.
+* **{{ ui-key.yacloud.elasticsearch.auth.saml-sp_entity_id }}**: `https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}`.
+* **{{ ui-key.yacloud.elasticsearch.auth.saml-kibana_url }}**: `https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}`.
 * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_principal }}**: `nameid:persistent`.
 
 #### Настройте роли для SSO с Okta {#example-roles-sso}

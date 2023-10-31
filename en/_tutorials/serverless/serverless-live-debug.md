@@ -92,7 +92,7 @@ The infrastructure support costs include:
 
    - {{ TF }}
 
-      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      {% include [terraform-install](../../_includes/terraform-install.md) %}
 
       1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -225,7 +225,7 @@ The infrastructure support costs include:
 
          Where:
          * `service-account-id`: `sa-live-debug` ID.
-         * `folder-id`: ID of the folder where the service account was created.
+         * `folder-id`: ID of the folder the service account was created in.
          * `output`: Name of the file with the authorized key.
 
          Result:
@@ -257,8 +257,8 @@ The infrastructure support costs include:
          ```
 
          Where:
-         * `service-account-key`: File with the service account authorized key.
-         * `cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md).
+         * `service-account-key`: File with the service account authorized key
+         * `cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md)
 
       1. Add the credentials to the environment variables:
 

@@ -41,7 +41,7 @@ To create a [placement group](../../concepts/disk-placement-group.md) for non-re
       ```
 
    1. Create a group in the default folder using one of the placement strategies:
-      * [Spread placement]:
+      * [Spread placement](../../concepts/disk-placement-group.md#spread):
 
          ```bash
          yc compute disk-placement-group create \
@@ -54,7 +54,7 @@ To create a [placement group](../../concepts/disk-placement-group.md) for non-re
          * `--name`: Placement group name
          * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md)
          * `--strategy`: Placement strategy
-      * [Partition placement]:
+      * [Partition placement](../../concepts/disk-placement-group.md#partition):
 
          ```bash
          yc compute disk-placement-group create \

@@ -1,6 +1,6 @@
 # Adding a function version tag
 
-When creating a new version, it's assigned the `$latest` [tag](../../concepts/function.md#) by default.
+When creating a new version, it is assigned the `$latest` [tag](../../concepts/function.md#) by default.
 
 {% list tabs %}
 
@@ -22,7 +22,7 @@ When creating a new version, it's assigned the `$latest` [tag](../../concepts/fu
    id: b09ch6pmpohf********
    function_id: b097d9ous3ge********
    created_at: "2023-08-22T09:12:38.464Z"
-   runtime: python37
+   runtime: python311
    entrypoint: test.handler
    resources:
      memory: "134217728"
@@ -39,7 +39,7 @@ When creating a new version, it's assigned the `$latest` [tag](../../concepts/fu
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To add a version tag:
 

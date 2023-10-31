@@ -1,6 +1,13 @@
 # YC CLI Releases
 
 ## Current version {#latest-release}
+## Version 0.112.0 (12/10/23) {#version0.112.0}
+### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ compute-name }} {#compute}
+
+* Added support for a CentOS 7 connection using the `yc compute ssh` command.
+* Added the `yc compute instance relocate` and `yc compute disk relocate` commands to move VM instances and disks between availability zones.
 
 ## Version 0.111.0 (21/09/23) {#version0.111.0}
 
@@ -33,10 +40,10 @@
 Added the following asynchronous invocation parameters to the `yc serverless function version create` command:
 * `--async-max-retries` to set the maximum number of function invocation retries.
 * `--async-service-account-id` to specify the service account for function invocation.
-* `--async-success-ymq-arn` to set the queue to write a successful result to
-* `--async-success-sa-id` to specify the service account to write to the queue with successful results
+* `--async-success-ymq-arn` to set the queue to write a successful result to.
+* `--async-success-sa-id` to specify the service account to write to the successful results queue.
 * `--async-failure-ymq-arn` to set the queue to write a failure result to.
-* `--async-failure-sa-id` to specify the service account to write to the queue with failure results.
+* `--async-failure-sa-id` to specify the service account to write to the failure results queue.
 
 
 ## Previous releases {#previous-releases}
@@ -61,7 +68,7 @@ Added the following asynchronous invocation parameters to the `yc serverless fun
 
 ##### {{ iam-name }} {#iam}
 
-* Deleted the `yc iam federation` and `yc iam certificate` command groups that were used for managing SAML-compatible federations at the folder level. Now you should use the `yc organization-manager federation` command group to work with SAML-compatible federations.
+* Deleted the `yc iam federation` and `yc iam certificate` command groups that were used for managing SAML-compatible federations at the folder level. Now you can use the `yc organization-manager federation` command group to work with SAML-compatible federations.
 
 
 ##### {{ ig-name }} {#instance-groups}
@@ -752,8 +759,8 @@ Added the following flags to the `yc serverless container revision deploy` comma
 **{{ mgp-name }}**
 
 Added commands for {{ mgp-name }} primary support:
-* Commands in the `yc managed-greenplum cluster` group let you manage clusters.
-* Commands in the `yc managed-greenplum hosts` group let you manage hosts.
+* Commands in the `yc managed-greenplum cluster` group allow you to manage clusters.
+* Commands in the `yc managed-greenplum hosts` group allow you to manage hosts.
 
 
 **{{ mms-name }}**
@@ -1801,7 +1808,7 @@ Added primary support for {{ mkf-name }}:
 
 **Fixed**
 
-* Fixed the issue where it was not possible to add a VM to an existing placement group.
+* Fixed the issue of it being impossible to add a VM to an existing placement group.
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -2840,8 +2847,8 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **Fixed**
 
-* Attempts to get resources by specifying their unique ID would fail if the CLI configuration did not specify a `folder-id` parameter.
-* Attempts to get folders by specifying their unique ID would fail if the user did not have the `viewer` role for the folder in {{ yandex-cloud }}.
+* Attempts to get a resource by specifying its unique ID would fail if the CLI configuration did not specify the `folder-id` parameter.
+* Attempts to get a folder by specifying its unique ID would fail if the user did not have the `viewer` role for the folder in {{ yandex-cloud }}.
 * The `yc init` command would fail if the user did not have the `viewer` role in {{ yandex-cloud }}.
 
 #### Changes to {{ yandex-cloud }} services {#services}

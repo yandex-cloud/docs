@@ -1,44 +1,44 @@
 ---
-sourcePath: en/tracker/api-ref/get-macros.md
+sourcePath: ru/tracker/api-ref/get-macros.md
 ---
-# Get a macro
+# Получить макрос
 
-Use this request to get macro parameters.
+Запрос позволяет получить параметры макроса.
 
-## Request format {#section_wls_kl2_sfb}
+## Формат запроса {#section_wls_kl2_sfb}
 
-Before making the request, [get permission to access the API](concepts/access.md).
+Перед выполнением запроса [получите доступ к API](concepts/access.md).
 
-To get macro parameters, use an HTTP `GET` request:
+Чтобы получить параметры макроса, используйте HTTP-запрос с методом `GET`:
 
 ```json
 GET /{{ ver }}/queues/<queue-id>/macros/<macros-id>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <токен>
 {{ org-id }}
 ```
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| \<queue-id> | Queue ID or key. The queue key is case-sensitive. | String |
-| \<macros-id> | Macro ID. | String |
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+\<queue-id> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
+\<macros-id> | Идентификатор макроса. | Строка
 
-{% endcut %}
-
-## Response format {#section_bhn_lv2_sfb}
+{% endcut %} 
+  
+## Формат ответа {#section_bhn_lv2_sfb}
 
 {% list tabs %}
 
-- Request executed successfully
-
+- Запрос выполнен успешно
+  
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
-
-    The response body contains a JSON object with macro parameters.
-
+  
+    Тело ответа содержит JSON-объект с параметрами макроса.
+  
     ```json
     {
         "self": "{{ host }}/v2/queues/TEST/macros/3",
@@ -47,16 +47,16 @@ Authorization: OAuth <token>
           "self": "{{ host }}/v2/queues/TEST", 
           "id": "1",
           "key": "TEST",
-          "display": "Test queue"
+          "display": "Тестовая очередь"
            },
-        "name": "Test macro",
-        "body": "Test comment\nnot_var{{currentDateTime}}\nnot_var{{issue.author}}",
+        "name": "Тестовый макрос",
+        "body": "Тестовый комментарий\nnot_var{{currentDateTime}}\nnot_var{{issue.author}}",
         "fieldChanges": [
           {
             "field": {
                "self": "{{ host }}/v2/fields/tags", 
                "id": "tags",
-               "display": "Tags"
+               "display": "Теги"
               },
             "value": [
                     "tag1", "tag2"
@@ -67,41 +67,41 @@ Authorization: OAuth <token>
       }
     ```
 
-    {% cut "Response parameters" %}
+    {% cut "Параметры ответа" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with macro parameters. | String |
-    | id | Macro ID. | Number |
-    | [queue](#queue) | Object with information about the queue whose issues that the macro is applied to. | Object |
-    | name | Macro name. | String |
-    | body | [Message](manager/create-macroses.md) to be created when executing the macro. Format: ``` <Message text>\n<variable> ```<br/>where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li> ``\n``: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date. <br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
-    | [fieldChanges](#fieldChanges) | Array with information about the issue fields that the macro will trigger changes to. | Array of objects |
-
-    **Object fields** `queue` {#queue}
-
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    self | Адрес ресурса API, который содержит параметры макроса. | Строка
+    id | Идентификатор макроса. | Число
+    [queue](#queue) | Объект с информацией об очереди, к задачам которой применяется макрос. | Объект
+    name | Название макроса. | Строка
+    body | [Сообщение](manager/create-macroses.md), которое будет создано при выполнении макроса. Формат: ``` <Текст сообщение>\n<переменная> ```<br/>где:<ul><li> `<Текст сообщения>`— текст, который будет создан в поле **Комментарий** при выполнении макроса.</li><li> ``\n`` — символ переноса строки.</li><li> Переменная, которая может содержать:<br/>`not_var{{currentUser}}` — имя пользователя, который выполнил макрос;<br/> `not_var{{currentDateTime.date}}` — дату выполнения макроса; <br/>`not_var{{currentDateTime}}` — дату и время выполнения макроса;<br/>`{{issue.<ключ_поля>}}` — ключ поля задачи, значение которого отразится в сообщении. Полный список полей задачи: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>Чтобы удалить сообщение, используйте конструкцию `"body": {"unset":1}` | Строка
+    [fieldChanges](#fieldChanges) | Массив с информацией о полях задачи, изменения которых запустит макрос. | Массив объектов
+    
+    **Поля объекта** `queue` {#queue}
+    
     {% include [queue](../_includes/tracker/api/queue.md) %}
+    
+    **Объекты массива** `fieldChanges` {#fieldChanges}
 
-    **Array objects** `fieldChanges` {#fieldChanges}
+    Параметр | Описание | Тип данных
+    -------- | -------- | ---------- 
+    [field](#field) | Объект с информацией о поле задачи. | Объект
+    value | Массив со значениями поля задачи. | Массив объектов
+    
+    **Поля объекта** `field` {#field}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | [field](#field) | Object with information about the issue field. | Object |
-    | value | Array of issue field values. | Array of objects |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ---------- 
+    self | Адрес ресурса API, который содержит информацию о поле задачи. | Строка
+    id | Идентификатор поля задачи. | Строка
+    display | Отображаемое название поля задачи. | Строка
 
-    **Object fields** `field` {#field}
+    {% endcut %}  
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the issue field. | String |
-    | id | Issue field ID. | String |
-    | display | Issue field name displayed. | String |
-
-    {% endcut %}
-
-- Request failed
-
-  If the request is processed incorrectly, the API returns a response with an error code:
+- Запрос выполнен с ошибкой
+  
+  Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
 
@@ -114,4 +114,3 @@ Authorization: OAuth <token>
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

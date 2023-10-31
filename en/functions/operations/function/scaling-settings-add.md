@@ -70,7 +70,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To add scaling settings:
 
@@ -132,7 +132,6 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
       terraform apply
       ```
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
 
    You can check the deletion of the scaling settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

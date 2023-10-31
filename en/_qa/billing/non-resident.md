@@ -1,4 +1,4 @@
-# Questions about working with non-residents of Russia or Kazakhstan
+# Questions about working with non-residents of Russia and Kazakhstan
 
 
 #### Can I become a {{ yandex-cloud }} customer if I am a non-resident of Russia or Kazakhstan? {#non-resident}
@@ -11,6 +11,11 @@ Yes, but only if your legal status is a business.
 Residents of the countries listed below can enter into an agreement and create a billing account.
 
 {% include [non-resident-countries](../../billing/_includes/non-resident-countries.md) %}
+
+
+#### What should I do if my country is not in the list? {#more-countries}
+
+If your country is missing from the [list of countries](#countries) that {{ yandex-cloud }} works with, submit a request using the [form](/#contact-form). A {{ yandex-cloud }} manager will contact you.
 
 
 #### Will you provide an agreement for the provision and payment of services? {#contract}

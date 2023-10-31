@@ -1,8 +1,8 @@
 # Updating a disk
 
 After you create a [disk](../../concepts/disk.md), you can:
-* [Changing the name and description of a disk](#change-disk-name).
-* [Increase disk size](#change-disk-size) (available only on a [stopped](../../concepts/vm-statuses.md#list-of-statuses) [virtual machine](../../concepts/vm.md)).
+* [Change the name and description of a disk](#change-disk-name).
+* [Increase the disk size](#change-disk-size), including that of a disk attached to a [running](../../concepts/vm-statuses.md#list-of-statuses) VM.
 
 ## Changing the name and description of a disk {#change-disk-name}
 
@@ -64,7 +64,7 @@ You can only change the size of a disk by increasing it. You cannot reduce the s
 
 {% endnote %}
 
-You can only increase the size of a disk that is not attached to a running VM. To increase the disk size, make sure that the VM is stopped.
+You can increase the disk size even on a [running](../../concepts/vm-statuses.md#list-of-statuses) VM.
 
 {% list tabs %}
 
@@ -72,15 +72,12 @@ You can only increase the size of a disk that is not attached to a running VM. T
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. On the **{{ ui-key.yacloud.compute.switch_instances }}** page, stop the VM (see [{#T}](../vm-control/vm-stop-and-start.md#stop)).
-   1. Wait until the VM status changes to `STOPPED`.
    1. In the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-   1. Click ![image](../../../_assets/horizontal-ellipsis.svg) next to the desired disk and select **{{ ui-key.yacloud.compute.disks.button_action-edit }}**.
+   1. Click ![image](../../../_assets/horizontal-ellipsis.svg) next to the required disk and select **{{ ui-key.yacloud.compute.disks.button_action-edit }}**.
    1. Increase the disk size.
    1. Click **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 
       {{ compute-name }} will launch the operation to change the disk size.
-   1. When the operation finishes, go back to the **{{ ui-key.yacloud.compute.switch_instances }}** page and restart the VM.
 
 - CLI
 
@@ -98,12 +95,6 @@ You can only increase the size of a disk that is not attached to a running VM. T
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-   1. Stop the VM with the disk you want to update. To do this, select the `ID` of the VM:
-
-      ```bash
-      {{ yc-compute }} instance stop --id a7lcvu28njbhnkcteb5n
-      ```
-
    1. Select the `ID` or `NAME` of the required disk (for example, `first-disk`).
    1. Specify the size (for example, 32 GB) in the disk change command:
 
@@ -113,11 +104,6 @@ You can only increase the size of a disk that is not attached to a running VM. T
       ```
 
       {{ compute-name }} will launch the operation to change the disk size.
-   1. Run the VM:
-
-      ```bash
-      {{ yc-compute }} instance start --id a7lcvu28njbhnkcteb5n
-      ```
 
 - API
 
@@ -125,13 +111,11 @@ You can only increase the size of a disk that is not attached to a running VM. T
 
   To request the list of available disks, use the [list](../../api-ref/Disk/list.md) REST API method or the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API call.
 
-  To stop or start a VM, use the [stop](../../api-ref/Instance/stop.md) and [start](../../api-ref/Instance/start.md) methods for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Stop](../../api-ref/grpc/instance_service.md#Stop) and [InstanceService/Start](../../api-ref/grpc/instance_service.md#Start) gRPC API calls, respectively.
-
 {% endlist %}
 
 ## Increasing the size of a Linux disk partition {#change-part-size-linux}
 
-After increasing the disk size, you also need to increase its partition and file system. For boot disks, this should happen automatically.
+After increasing the disk size, you also need to increase its partition and file system. For boot disks, this happens automatically after you restart the VM.
 
 If the disk partition has not increased, or if you mean to increase the size of a non-boot disk, do it manually. The procedure depends on the file system:
 
