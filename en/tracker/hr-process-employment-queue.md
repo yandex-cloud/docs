@@ -39,11 +39,12 @@ To automate replication of issues from the `Candidates Queue` to the `Employment
 
 1. In the top-right corner of the `Candidates Queue` page, click ![](../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 1. In the left-hand panel, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.group-title--automatization }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.title }}** and click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_triggers.button-create }}**.
-1. In the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_name }}** field, enter a trigger name, such as `employ_candidate`.
+1. In the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_name }}** field, enter a trigger name, e.g., `employ_candidate`.
 1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_conditions }}**, select **{{ui-key.startrek-backend.fields.issue.fields.system }}** → **{{ ui-key.startrek-backend.fields.issue.status-key-value }}**.
 1. In the **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldChangedCondition }}** field that appears, select **{{ ui-key.startrek-backend.messages.trigger.condition.type.fieldBecameEqual }}** and then, in a new field next to it, select **Hired** (the status you created in the Candidates Queue workflow).
 1. Under **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_trigger-editor.label_actions }}**, select **{{ ui-key.startrek.blocks-desktop_trigger-action.select-action--webhook }}**.
-1. In the form that opens, enter the request parameters. In the **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-body }}** field, set the parameters of a new sub-issue. To substitute the values from the original issue, use [variables](user/vars.md):
+1. In the form that opens, enter the request parameters. In the **{{ ui-key.startrek.blocks-desktop_trigger-action.webhook-body }}** field, set the parameters of a new sub-issue.
+    To substitute the values from the original issue, use [variables](user/vars.md):
 
    #|
    || **Field** | **Content** ||

@@ -34,8 +34,8 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
 
       This command creates a placement group with the following characteristics:
 
-      - Named `my-group`.
-      - Placement strategy `spread`.
+      - Name: `my-group`
+      - Placement strategy: `spread`
 
    1. View the description of the CLI command for creating a VM:
 
@@ -60,9 +60,9 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
 
       This command creates a VM instance with the following characteristics:
 
-      - Named `instance-in-group-1`.
-      - In the `{{ region-id }}-a` availability zone.
-      - In the `my-group` placement group.
+      - Name: `instance-in-group-1`
+      - Availability zone: `{{ region-id }}-a`
+      - Placement group: `my-group`
 
    1. Check that the instance was created and added to the placement group:
 
@@ -88,7 +88,7 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To create a VM instance in a placement group:
 
@@ -136,7 +136,7 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -146,10 +146,10 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can verify that the virtual machine has been created and added to the placement group from the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check that the virtual machine has been created and added to the placement group using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
 ## See also {see-also}
 
-* [How to add a VM instance to a placement group](add-vm.md).
+* [How to add a VM instance to a placement group](add-vm.md)

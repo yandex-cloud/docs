@@ -17,12 +17,16 @@ items:
         href: operations/cluster-delete.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Pricing policy
         href: pricing.md
+  - name: Tutorials
+    items:
+      - name: Automating {{ dataproc-name }} operations
+        href: tutorials/data-proc-automation.md
   - name: Access management
     href: security/index.md
 base: en/managed-airflow

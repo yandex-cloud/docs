@@ -17,7 +17,7 @@
 
    - Использовать образ с поддержкой OS Login
 
-     [Создайте ВМ из подготовленного образа](../../../compute/operations/images-with-pre-installed-software/create.md) с поддержкой доступа через OS Login. Такие образы доступны в [{{ marketplace-full-name }}](/marketplace) и содержат `OS Login` в названии. При создании ВМ включите опцию **Доступ через OS Login**.
+     [Создайте ВМ из подготовленного образа](../../../compute/operations/images-with-pre-installed-software/create.md) с поддержкой доступа через OS Login. Такие образы доступны в [{{ marketplace-full-name }}](/marketplace) и содержат `OS Login` в названии. При создании ВМ включите опцию **Доступ через OS Login** или установите в [метаданных](../../concepts/vm-metadata.md) параметр `enable-oslogin` в значение `true`.
 
    - Установить самостоятельно
 
@@ -37,7 +37,7 @@
         {% endnote %}
 
      1. Запустите исполняемый файл и убедитесь, что компоненты установились корректно.
-     1. [Создайте ВМ из собственного образа](../../../compute/operations/vm-create/create-from-user-image.md). При создании ВМ включите опцию **Доступ через OS Login**.
+     1. [Создайте ВМ из собственного образа](../../../compute/operations/vm-create/create-from-user-image.md). При создании ВМ включите опцию **Доступ через OS Login** или установите в [метаданных](../../concepts/vm-metadata.md) параметр `enable-oslogin` в значение `true`.
 
      При возникновении проблем обратитесь в [техническую поддержку]({{ link-console-support }}).
 

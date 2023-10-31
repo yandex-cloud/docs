@@ -1,49 +1,49 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/queues/get-local-fields.md
+sourcePath: ru/tracker/api-ref/concepts/queues/get-local-fields.md
 ---
-# Get local queue fields
+# Получить локальные поля очереди
 
-Use this request to get issue [local fields](../../local-fields.md) linked to a given queue.
+Запрос позволяет получить [локальные поля](../../local-fields.md) задачи, привязанные к заданной очереди.
 
-## Request format {#query}
+## Формат запроса {#query}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To get local queue fields, use an HTTP `GET` request:
+Чтобы получить локальные поля очереди, используйте HTTP-запрос с методом `GET`:
 
 ```json
 GET /{{ ver }}/queues/<queue-id>/localFields
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String |
-
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
+    
 {% endcut %}
 
-## Response format {#answer}
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %} 
 
-    The response body contains information about the local queue fields in JSON format.
+    Тело ответа содержит информацию о локальных полях очереди в формате JSON.
 
     ```json
      {
         "self": "{{ host }}/v2/queues/ORG/localFields/loc_field_key",
         "id": "6054ae3a2b6b2c7f80bb9a93--loc_field_key",
         "name": "loc_field_name",
-        "description": "Field description",
+        "description": "Описание поля",
         "key": "loc_field_key",
         "version": 1,
         "schema": {
@@ -57,9 +57,9 @@ Authorization: OAuth <OAuth token>
            "type": "FixedListOptionsProvider",
            "needValidation": true,
            "values": [
-              "The first list item",
-              "The second list item",
-              "The third list item"
+              "Первый элемент списка",
+              "Второй элемент списка",
+              "Третий элемент списка"
              ]
           },
         "queryProvider": {
@@ -69,79 +69,82 @@ Authorization: OAuth <OAuth token>
         "category": {
             "self": "{{ host }}/v2/fields/categories/000000000000000000000001",
             "id": "000000000000000000000001",
-            "display": "System"
+            "display": "Системные"
         },
         "queue": {
             "self": "{{ host }}/v2/queues/ORG",
             "id": "1",
             "key": "ORG",
-            "display": "Organization"
+            "display": "Организация"
         },
-        "type": "local" 
+        "type": "local"     
      },
      ...
     ```
 
-    {% cut "Response parameters" %}
+    {% cut "Параметры ответа" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with information about the field. | String |
-    | id | Unique field ID. | String |
-    | name | Field name. | String |
-    | description | Field description. | String |
-    | key | Field key. | String |
-    | version | Field version. Each change to the field increases the version number. | Number |
-    | [schema](#schema) | Object with information about the field value's data type. | Object |
-    | readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable.</li><li>`false`: Editable.</li></ul> | Boolean |
-    | options | Shows if the list of values is restricted:<ul><li>`true`: The list of values is not restricted, you can set any value.</li><li>`false`: The list of values is restricted by the organization's settings.</li></ul> | Boolean |
-    | suggest | Enables/disables search suggestions when entering field values:<ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> | Boolean |
-    | [optionsProvider](#optionsProvider) | Object with information about allowed field values. | Object |
-    | [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You can't change the class using the API. | Object |
-    | order | Sequence number in the list of organization fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Number |
-    | [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Object |
-    | [queue](#queue) | Object with information about the issue queue. | Object |
-    | type | Field type. | String |
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    self | Адрес ресурса API, который содержит информацию о поле. | Строка
+    id | Уникальный идентификатор поля. | Строка
+    name | Название поля. | Строка
+    description | Описание поля. | Строка
+    key | Ключ поля. | Строка
+    version | Версия поля. Каждое изменение поля увеличивает номер версии. | Число
+    [schema](#schema) | Объект с информацией о типе данных значения поля. | Объект
+    readonly | Возможность редактировать значение поля:<ul><li>`true` — значение поля нельзя изменить;</li><li>`false` — значение поля можно изменить.</li></ul> | Логический
+    options | Ограничение списка значений:<ul><li>`true` — список значений не ограничен, можно задать любое значение;</li><li>`false` — список значений ограничен настройками организации.</li></ul> | Логический
+    suggest | Наличие подсказки при вводе значения поля:<ul><li>`true` — при вводе значения появляется поисковая подсказка;</li><li>`false` — функция поисковой подсказки отключена.</li></ul> | Логический
+    [optionsProvider](#optionsProvider) | Объект с информацией о допустимых значениях поля. | Объект
+    [queryProvider](#queryProvider) | Объект с информацией о классе языка запроса.<br/>Класс невозможно изменить с помощью API. | Объект
+    order | Порядковый номер в списке полей организации: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Число
+    [category](#category) | Объект с информацией о категории поля.<br/>Чтобы получить список всех категорий, используйте HTTP запрос:<br/>`GET /v2/fields/categories` | Объект
+    [queue](#queue) | Объект с информацией об очереди задачи.| Объект
+    type | Тип поля. | Строка
 
-    **Object fields** `schema` {#schema}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | type | Field value type. Possible data types:<ul><li>`string`: String. Available for fields with a single value.</li><li>`array`: Array. Available for fields with multiple values.</li></ul> | String |
-    | items | Value type. Available for fields with multiple values. | String |
-    | required | Shows if the field is required:<ul><li>`true`: Required.</li><li>`false`: Optional.</li></ul> | Boolean |
+    **Поля объекта** `schema` {#schema}
+    
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    type | Тип значения поля. Возможные типы данных:<ul><li>`string` — строка. Присутствует у полей с единственным значением.</li><li>`array` — массив. Присутствует у полей с несколькими значениями.</li></ul> | Строка
+    items | Тип значений. Присутствует у полей с несколькими значениями. | Строка
+    required | Обязательность заполнения поля:<ul><li>`true` — поле обязательно для заполнения;</li><li>`false` — поле не обязательно для заполнения.</li></ul> | Логический
 
-    **Object fields** `optionsProvider` {#optionsProvider}
+    **Поля объекта** `optionsProvider` {#optionsProvider}
+    
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    type | Тип выпадающего списка. | Строка
+    needValidation | Проверка значения на валидность:<ul><li>`true` — проверять значение списка на валидность;</li><li>`false` — не проверять значение списка на валидность.</li></ul> | Логический
+    values | Значения для выпадающего списка. | Массив строк
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | type | Type of drop-down list. | String |
-    | needValidation | Indicates if a list value requires validation:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Boolean |
-    | values | Drop-down list values. | Array of strings |
 
-    **Object fields** `queryProvider` {#queryProvider}
+    **Поля объекта** `queryProvider` {#queryProvider}
+    
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    type | Тип языка запроса. | Строка
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | type | Query language type. | String |
 
-    **Object fields** `category` {#category}
+    **Поля объекта** `category` {#category}
+    
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о категории поля. | Строка
+    id | Идентификатор категории поля. | Строка
+    display | Отображаемое название категории. | Строка
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the field category. | String |
-    | id | Field category ID. | String |
-    | display | Category name displayed. | String |
-
-    **Object fields** `queue` {#queue}
-
+    **Поля объекта** `queue` {#queue}
+    
     {% include [queue](../../../_includes/tracker/api/queue.md) %}
-
+    
     {% endcut %}
 
-- Request failed
+ - Запрос выполнен с ошибкой
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -156,4 +159,3 @@ Authorization: OAuth <OAuth token>
     {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

@@ -9,7 +9,7 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
    1. In the [management console]({{ link-console-main }}), select the folder where you want to remove the disk from the placement group.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
-   1. Click the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
+   1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
    1. Select the placement group to remove a disk from.
    1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_disks }}** panel.
    1. To the right of the name of the disk to remove, click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-delete }}**.
@@ -19,7 +19,7 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To remove a non-replicated disk created with {{ TF }} from a placement group:
 
@@ -69,7 +69,7 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -79,7 +79,7 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../../cli/quickstart.md) command below:
+      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc compute disk-placement-group get <placement_group_name>

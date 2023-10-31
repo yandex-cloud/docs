@@ -44,7 +44,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Open the configuration file and edit the fragment with the policy description:
 

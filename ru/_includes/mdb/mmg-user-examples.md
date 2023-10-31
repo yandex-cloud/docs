@@ -22,8 +22,8 @@
 
   ```
   yc managed-mongodb user create user2 \
-    --cluster-name <имя кластера> \
-    --password <пароль пользователя> \
+    --cluster-name <имя_кластера> \
+    --password <пароль_пользователя> \
     --permission database=db1,role=read
   ```
 

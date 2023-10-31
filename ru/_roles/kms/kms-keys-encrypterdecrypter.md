@@ -1,0 +1,1 @@
+Роль `kms.keys.encrypterDecrypter` позволяет шифровать и расшифровывать данные, а также просматривать информацию о ключах. Включает все права ролей `kms.keys.encrypter` и `kms.keys.decrypter`.

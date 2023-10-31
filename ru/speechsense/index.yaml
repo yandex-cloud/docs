@@ -10,6 +10,15 @@ description:
 meta:
   title: Yandex SpeechSense
 links:
+  - title: Начало работы
+    description: Загрузите в сервис первую запись диалога оператора с клиентом
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/data/upload-data
+  - title: Концепции
+    description: Узнайте про концепции и общее устройство сервиса
+    href: concepts/reports
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

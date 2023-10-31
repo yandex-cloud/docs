@@ -77,7 +77,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
 - {{ TF }}
 
-  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
   1. Describe the following in a configuration file:
      * Parameters of the `yandex_container_registry_iam_binding` resource to assign a role for a registry:
        * `registry_id`: ID of the registry for which a role is assigned. You can retrieve registry ID from the [folder registry list](../registry/registry-list.md#registry-list).
@@ -95,7 +95,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
        >
        >   members = [
        >      "userAccount:<user id>",
-       >  ]
+       >   ]
        > }
        > ```
 
@@ -118,7 +118,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
        >
        >   members = [
        >     "userAccount:<user id>",
-       >  ]
+       >   ]
        > }
        > ```
 
@@ -156,7 +156,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
      * Repository:
 
-       ```bash
+       ```
        yc container repository list-access-bindings <repository id>/<repository name>
        ```
 

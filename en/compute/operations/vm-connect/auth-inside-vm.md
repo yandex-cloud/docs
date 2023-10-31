@@ -2,10 +2,10 @@
 
 This section describes how to work with {{ yandex-cloud }} from inside a [VM](../../concepts/vm.md) via the API or CLI.
 
-To automate operations with {{ yandex-cloud }} from inside a VM, we recommend using [service accounts](../../../iam/concepts/users/service-accounts.md). This is more secure since you don't need to save your OAuth token on a VM and can restrict access rights to a service account.
+To automate operations with {{ yandex-cloud }} from inside a VM, we recommend using [service accounts](../../../iam/concepts/users/service-accounts.md). This is more secure since you do not need to save your [OAuth token](../../../iam/concepts/authorization/oauth-token.md) on a VM and can restrict access rights to a service account.
 
 {{ yandex-cloud }} provides simplified authentication via the API and CLI from inside a VM for service accounts. To authenticate:
-1. If you don't have a service account yet, [create one](../../../iam/operations/sa/create.md) and [configure access rights for it](../../../iam/operations/sa/assign-role-for-sa.md).
+1. If you do not have a service account yet, [create one](../../../iam/operations/sa/create.md) and [configure access rights for it](../../../iam/operations/sa/assign-role-for-sa.md).
 1. [Link the service account](#link-sa-with-instance) to your VM.
 1. [Authenticate from inside a VM](#auth-inside-vm).
 
@@ -18,6 +18,15 @@ To link a service account to a VM, you must have permission to use this account.
 ### Linking to an existing VM {#link-with-exist-instance}
 
 {% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Click the VM name.
+   1. Click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top-right corner of the page.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select an existing service account or create a new one.
+   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI
 

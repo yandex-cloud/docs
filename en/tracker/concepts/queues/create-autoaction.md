@@ -1,113 +1,111 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/queues/create-autoaction.md
+sourcePath: ru/tracker/api-ref/concepts/queues/create-autoaction.md
 ---
-# Create an auto action
+# Создать автодействие
 
-Use this request to create [auto actions](../../user/autoactions.md).
+Запрос позволяет создать [автодействие](../../user/autoactions.md).
 
-## Request format {#query}
+## Формат запроса {#query}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To create an auto action, use the HTTP `POST` request method. Request parameters are passed in the request body in JSON format.
+Чтобы создать автодействие, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
 
 ```json
 POST /{{ ver }}/queues/<queue-id>/autoactions
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 {
-    "name": "<auto action name>",
-    "filter": [<filter conditions that trigger the auto action>],
-    "actions": [<issue action parameters>]
+    "name": "<имя автодействия>",
+    "filter": [<условия фильтрации задач, для которых сработает автодействие>],
+    "actions": [<параметры действий над задачами>]
     
 }
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка или число
 
-{% endcut %}
+{% endcut %}    
 
-{% cut "Request body parameters" %}
+{% cut "Параметры тела запроса" %}
 
-**Required parameters**
+**Обязательные параметры**
 
 {% note info %}
 
-Specify at least one of the parameters in the request body: `filter` or `query`.
+В теле запроса укажите хотя бы один из параметров: `filter` или `query`.
 
 {% endnote %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| name | Auto action name. | String |
-| [filter](#filter) | An array with filter conditions for issue fields that trigger the auto action. | Array of objects |
-| query | The query line for issue filters that the auto action will apply to.<br/>Specified using the [query language](../../user/query-filter.md).<br/>For example: `"query": "\"Status\":\"In progress\""` | String |
-| [actions](#actions) | An array of issue actions. | Array of objects |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+name | Название автодействия. | Строка
+[filter](#filter) | Массив с условиями фильтрации полей задач, для которых сработает автодействие. | Массив объектов
+query | Строка запроса фильтрации задач, для которых сработает автодействие.<br/>Для написания используется [язык запросов](../../user/query-filter.md).<br/>Например: `"query": "\"Статус\":\"В работе\""` | Строка
+[actions](#actions) | Массив с действиями над задачами.  | Массив объектов
 
-**Additional parameters**
+**Дополнительные параметры**
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| active | Auto action status. Acceptable values:<ul><li>`true`: Active.</li><li>`false`: Inactive.</li></ul> | Boolean |
-| enableNotifications | Notification sending status. Possible values:<ul><li>`true`— send</li><li>`false`— don't send.</li></ul> | Boolean |
-| intervalMillis | The auto action triggering frequency in milliseconds. The value is set to `3600000` by default (once per hour). | Number |
-| calendar | The period when the auto action is active. Uses the `id` parameter: [work schedule ID](../../manager/schedule.md). | Object |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+active | Статус автодействия. Допустимые значения:<ul><li>`true`— активный;</li><li>`false`— неактивный.</li></ul> | Логический
+enableNotifications | Статус отправки уведомлений. Допустимые значения:<ul><li>`true`— отправлять;</li><li>`false`— не отправлять.</li></ul> | Логический
+intervalMillis | Периодичность запуска автодействия в миллисекундах. По умолчанию выставляется значение `3600000` (1 раз в час). | Число
+calendar | Период, в который автодействие активно. Имеет параметр `id` — идентификатор [графика работы](../../manager/schedule.md). | Объект
 
 {% endcut %}
 
-> Example: Create an auto action that will trigger for issues matching the filter conditions and change the issue status.
->
->- An HTTP POST method is used.
->- An auto action is created for the DESIGN queue.
->- Filter condition: Issues with the <q>In progress</q> status and the <q>Priority</q> set to <q>Critical</q>.
->- Issue action: Change status to <q>Need info</q>.
->- Trigger period: Work schedule with ID set to `2`.
->
+>Пример: Создать автодействие, которое срабатывает для задач, подходящих под условия фильтра, и меняет статус задач.
+>- Используется HTTP-метод POST.
+>- Создается автодействие для очереди DESIGN. 
+>- Условие фильтрации: задачи в статусе <q>В работе</q>, у которых в поле <q>Приоритет</q> указано <q>Критичный</q>. 
+>- Действие над задачей: переход в статус <q>Требуется информация</q>.
+>- Период срабатывания: график работы с идентификатором `2`. 
 >```json
 >POST /v2/queues/DESIGN/autoactions
 >Host: {{ host }}
->Authorization: OAuth <OAuth token>
+>Authorization: OAuth <OAuth-токен>
 >{{ org-id }}
 >{
->  "name": "AutoactionName",
->  "filter": {
->          "priority": [
->              "critical"
->           ],
->           "status": [
->               "inProgress"
->            ]
->       },
->   "actions": [
->       {
->          "type": "Transition",
->          "status": {
->              "key": "needInfo"
->              }
->       }
->     ],
->    "calendar": {
->           "id": 2
->       }
+>   "name": "AutoactionName",
+>   "filter": {
+>           "priority": [
+>               "critical"
+>            ],
+>            "status": [
+>                "inProgress"
+>             ]
+>        },
+>    "actions": [
+>        {
+>           "type": "Transition",
+>           "status": {
+>               "key": "needInfo"
+>               }
+>        }
+>      ],
+>     "calendar": {
+>            "id": 2
+>        }
 >}
 >```
 
-## Response format {#answer}
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-  The request body contains information about the created auto action in JSON format.
+  Тело запроса содержит информацию о созданном автодействии в формате JSON.
 
   ```json
   {
@@ -117,7 +115,7 @@ Specify at least one of the parameters in the request body: `filter` or `query`.
         "self": "{{ host }}/v2/queues/DESIGN",
         "id": "26",
         "key": "DESIGN",
-        "display": "Design"
+        "display": "Дизайн"
     },
     "name": "autoaction_name",
     "version": 1,
@@ -140,7 +138,7 @@ Specify at least one of the parameters in the request body: `filter` or `query`.
                 "self": "{{ host }}/v2/statuses/2",
                 "id": "2",
                 "key": "needInfo",
-                "display": "Need info"
+                "display": "Требуется информация"
             }
         }
     ],
@@ -153,53 +151,53 @@ Specify at least one of the parameters in the request body: `filter` or `query`.
   }
   ```
 
-   {% cut "Response parameters" %}
+   {% cut "Параметры ответа" %}
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | id | Auto action ID. | String |
-   | self | Auto action link. | String |
-   | [queue](#queue) | Queue to create the auto action in. | Can be set as an object, a string (if the [queue key](../../manager/create-queue.md#key) is passed), or a number (if the queue ID is passed). |
-   | name | Auto action name. | String |
-   | version | Auto action version. Each change to the auto action increases the version number. | Number |
-   | active | Auto action status. Acceptable values:<ul><li>`true`: Active.</li><li>`false`: Inactive.</li></ul> | Boolean |
-   | created | Auto action creation date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
-   | updated | Date and time of the auto action's last update in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | String |
-   | [filter](#filter) | An array with filter conditions for issue fields that trigger the auto action. | Array of objects |
-   | query | Query line for issue filters. | String |
-   | [actions](#actions) | An array of issue actions. | Array of objects |
-   | enableNotifications | Notification sending status. Possible values:<ul><li>`true`— send</li><li>`false`— don't send.</li></ul> | Boolean |
-   | totalIssuesProcessed | The number of issues processed by the auto action during the last triggering phase. | Number |
-   | intervalMillis | The auto action triggering frequency in milliseconds. The value is set to `3600000` by default (once per hour). | Number |
-   | calendar | The period when the auto action is active. Uses the `id` parameter: [work schedule ID](../../manager/schedule.md). | Object |
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   id | Идентификатор автодействия. | Строка
+   self | Ссылка на автодействие. | Строка
+   [queue](#queue) | Очередь, в которой нужно создать автодействие.| Может задаваться как объект, как строка (если передается [ключ очереди](../../manager/create-queue.md#key)), как число (если передается идентификатор очереди).
+   name | Название автодействия. | Строка
+   version | Версия автодействия. Каждое изменение автодействия увеличивает номер версии. | Число
+   active | Статус автодействия. Допустимые значения:<ul><li>`true`— активный;</li><li>`false`— неактивный.</li></ul> | Логический
+   created | Дата и время создания автодействия в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
+   updated | Дата и время последнего изменения автодействия в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
+   [filter](#filter) | Массив с условиями фильтрации полей задач, для которых сработает автодействие. | Массив объектов
+   query| Строка запроса для фильтрации задач. | Строка
+   [actions](#actions) | Массив с действиями над задачами. | Массив объектов
+   enableNotifications| Статус отправки уведомления. Допустимые значения:<ul><li>`true`— отправлять;</li><li>`false`— не отправлять.</li></ul> | Логический
+   totalIssuesProcessed| Количество задач, которые были проверены автодействием при последнем срабатывании. | Число
+   intervalMillis| Периодичность запуска автодействия в миллисекундах. По умолчанию выставляется значение `3600000` (1 раз в час). | Число
+   calendar | Период, в который автодействие активно. Имеет параметр `id` — идентификатор [графика работы](../../manager/schedule.md). | Объект
 
-   **Object fields** `queue` {#queue}
+   **Поля объекта** `queue` {#queue}
+    
+   {% include [queue](../../../_includes/tracker/api/queue.md) %} 
 
-   {% include [queue](../../../_includes/tracker/api/queue.md) %}
+    **Поля объектов массива** `filter` {#filter}
 
-    **Array object fields** `filter` {#filter}
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   filter | Массив с условиями фильтрации полей задач.<br/>Используйте запрос, чтобы получить идентфиикатор [глобального](../issues/get-global-fields.md) или [локального](../queues/get-local-fields.md) поля. |  Массив объектов
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | filter | An array with conditions for issue field filters.<br/>Use the request to receive an ID for a [global](../issues/get-global-fields.md) or [local](../queues/get-local-fields.md) field. | Array of objects |
+   **Поля объектов массива** `actions` {#actions}
 
-   **Array object fields** `actions` {#actions}
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   type | Тип действия. Допустимые значения:<ul><li>`Transition`— изменить статус задачи;</li><li>`Update`— изменить значения в полях;</li><li>`Event.comment-create`— добавить комментарий;</li><li>`Webhook`— отправить HTTP-запрос;</li><li>`CalculateFormula`— вычислить значение;</li></ul>| Строка
+   id | Идентификатор действия. | Строка
+   [status](#status) | Статус задачи. | Строка
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | type | Action type. Possible values:<ul><li>`Transition`— change issue status.</li><li>`Update`— change field values.</li><li>`Event.comment-create`— add comment.</li><li>`Webhook`— send an HTTP request.</li><li>`CalculateFormula`— calculate value.</li></ul> | String |
-   | id | Action ID. | String |
-   | [status](#status) | Issue status. | String |
-
-   **Array object fields** `status` {#status}
+   **Поля объектов массива** `status` {#status}
 
    {% include [status](../../../_includes/tracker/api/status.md) %}
 
    {% endcut %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If a request fails, the response message contains details of the errors encountered:
+    Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
 
     {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -214,4 +212,3 @@ Specify at least one of the parameters in the request body: `filter` or `query`.
     {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

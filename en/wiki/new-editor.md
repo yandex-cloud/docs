@@ -4,7 +4,7 @@
 
 In the new editor, you can work with your page in one of the two modes:
 * Visual editor: Use visual tools to [format text](wysiwyg/text-format.md), [add formatted blocks](wysiwyg/block-format.md), add [tables and tables of contents](wysiwyg/tables-format.md), and [embed third-party content](wysiwyg/embed-content.md).
-* Markdown: All content on the page is edited using [Markdown](static-markup.md).
+* Markdown: All content on the page is edited using [{{ yfm }}](link-yfm).
 
 You can use the toolbar in any mode:
 

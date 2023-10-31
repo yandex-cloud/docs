@@ -4,7 +4,7 @@ To use {{ TF }} to create configurations and run a [VM](../../compute/concepts/v
 
 ## Getting started {#before-begin}
 
-If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). In our example, we use a configuration file named `example.tf`, which is located in the `~/cloud-terraform` directory.
+{% include [terraform-install](../../_includes/terraform-install.md) %} In our example, we use a configuration file named `example.tf`, which is located in the `~/cloud-terraform` directory.
 
 ## Creating and running a VM from a {{ coi }} {#creating-vm}
 
@@ -104,7 +104,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
         cd /Users/<username>/cloud-terraform
         ```
 
-     1. Run the check using this command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
@@ -117,8 +117,8 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
         The refreshed state will be used to calculate this plan, but will not be
         persisted to local or remote state storage.
         ...
-        Note: You didn't specify an "-out" parameter to save this plan, so Terraform
-        can't guarantee that exactly these actions will be performed if
+        Note: You did not specify an "-out" parameter to save this plan, so Terraform
+        cannot guarantee that exactly these actions will be performed if
         "terraform apply" is subsequently run.
         ```
 
@@ -291,7 +291,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) to access {{ yandex-cloud }}.
    * `name`: Name of the instance group.
-   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
+   * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
    * `instance_template.network_interface.network_id`: ID of the [network](../../vpc/concepts/network.md).
    * `instance_template.network_interface.subnet_ids`: List of [subnet](../../vpc/concepts/network.md#subnet) IDs.
    * `instance_template.service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) authorized for this instance group.
@@ -323,7 +323,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
         cd /Users/<username>/cloud-terraform
         ```
 
-     1. Run the check using this command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
@@ -336,8 +336,8 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
         The refreshed state will be used to calculate this plan, but will not be
         persisted to local or remote state storage.
         ...
-        Note: You didn't specify an "-out" parameter to save this plan, so Terraform
-        can't guarantee that exactly these actions will be performed if
+        Note: You did not specify an "-out" parameter to save this plan, so Terraform
+        cannot guarantee that exactly these actions will be performed if
         "terraform apply" is subsequently run.
         ```
 

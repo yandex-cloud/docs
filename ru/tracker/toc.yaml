@@ -233,6 +233,8 @@ items:
         href: manager/agile-new-issues.md
       - name: Как настроить колонки
         href: manager/agile-new-columns.md
+      - name: Эпики
+        href: manager/epic-new.md
       - name: Инструменты на досках с бэклогом и спринтами
         items:
           - name: Обзор

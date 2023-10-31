@@ -175,7 +175,7 @@
 Имя события | Описание
 --- | ---
 `CreateCertificate` | Добавление сертификата
-`CreateDomain` | Создание домена
+`CreateDomain` | Добавление домена
 `UpdateCertificate` | Изменение сертификата
 `UpdateDomain` | Изменение домена
 `DeleteCertificate` | Удаление сертификата

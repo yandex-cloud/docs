@@ -5,7 +5,7 @@
 For all DBMS types, you can track:
 
 - CPU, memory, network, or disk usage, in absolute terms.
-- Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster's host class.
+- Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster host class.
 - The amount of data in the DB cluster and the remaining free space in data storage.
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ PG }}, you can track:
@@ -24,6 +24,10 @@ Logs of any level are written to a disk's system partition with 20 GB allocated,
 #### How do I track the amount of free storage space on ZooKeeper hosts? {#zookeeper-storage}
 
 Follow the instructions in [{#T}](../../managed-clickhouse/operations/monitoring.md) to track the host state or set up alerts.
+
+#### How do I monitor space used by data in hybrid storage? {#hybrid}
+
+Use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}. It shows the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts in {{ objstorage-name }}. The metric is only available for {{ mch-name }} clusters with the [hybrid storage](../../managed-clickhouse/concepts/storage.md#hybrid-storage-features) configured. You can learn how to make a request using the metric in [this guide](../../managed-clickhouse/tutorials/hybrid-storage.md#metrics).
 
 #### How do I set up an alert that is triggered once a certain disk space percentage is used up? {#disk-space-percentage}
 

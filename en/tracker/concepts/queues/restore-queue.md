@@ -1,119 +1,119 @@
 ---
-title: "How to restore a queue"
-description: "This article describes how to restore queues."
-sourcePath: en/tracker/api-ref/concepts/queues/restore-queue.md
+title: "Как восстановить очередь"
+description: "В данной статье описаны особенности восстановления очередей."
+sourcePath: ru/tracker/api-ref/concepts/queues/restore-queue.md
 ---
 
-# Restore a queue
+# Восстановить очередь
 
 {% note warning %}
-
-This request can only be made on behalf of the [administrator](../../role-model.md).
+ 
+Запрос может быть выполнен только от имени [администратора](../../role-model.md).
 
 {% endnote %}
 
-Use this request to restore a deleted queue.
+Запрос позволяет восстановить удаленную очередь.
 
-## Request format {#query}
+## Формат запроса {#query}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To restore a deleted queue, use an HTTP `POST` request.
+Для восстановления удаленной очереди используйте HTTP-запрос с методом `POST`.
 
 ```
 POST /v2/queues/<queue-id>/_restore
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка или число
 
 {% endcut %}
 
-## Response format {#answer}
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Successful execution of the request
+- Запрос выполнен успешно
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-   ```json
-   {
-       "self": "{{ host }}/v2/queues/TEST",
-       "id": 3,
-       "key": "TEST",
-       "version": 5,
-       "name": "Test",
-       "lead": {
-              "self": "{{ host }}/v2/users/1120000000016876",
-              "id": "<employee ID>",
-              "display": "<employee name displayed>"
-       },
-       "assignAuto": false,
-       "defaultType": {
-              "self": "{{ host }}/v2/issuetypes/1",
-              "id": "1",
-              "key": "bug",
-              "display": "Error"
-       },
-       "defaultPriority": {
-              "self": "{{ host }}/v2/priorities/3",
-              "id": "3",
-              "key": "normal",
-              "display": "Medium"
-       },
-       "denyVoting": false
-   }
-   ```
+    ```json
+    {
+        "self": "{{ host }}/v2/queues/TEST",
+        "id": 3,
+        "key": "TEST",
+        "version": 5,
+        "name": "Test",
+        "lead": {
+               "self": "{{ host }}/v2/users/1120000000016876",
+               "id": "<id сотрудника>",
+               "display": "<отображаемое имя сотрудника>"
+        },
+        "assignAuto": false,
+        "defaultType": {
+               "self": "{{ host }}/v2/issuetypes/1",
+               "id": "1",
+               "key": "bug",
+               "display": "Ошибка"
+        },
+        "defaultPriority": {
+               "self": "{{ host }}/v2/priorities/3",
+               "id": "3",
+               "key": "normal",
+               "display": "Средний"
+        },
+        "denyVoting": false
+    }
+    ```
 
-   {% cut "Response parameters" %}
+    {% cut "Параметры ответа" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Queue link | String |
-    | id | Queue ID | String |
-    | key | Queue key | String |
-    | version | Queue version. Each change to the queue increases its version number. | Number |
-    | name | Queue name | String |
-    | [lead](#lead) | Block with information about the queue owner | Objects |
-    | assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign</li><li>`false`: Do not assign</li></ul> | Logical |
-    | [defaultType](#default-type) | Block with information about the default issue type | Objects |
-    | [defaultPriority](#default-priority) | Block with information about the default issue priority | Objects |
-    | denyVoting | Flag that shows whether voting for issues is enabled | Logical |
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    self | Ссылка на очередь. | Строка
+    id | Идентификатор очереди. | Строка
+    key | Ключ очереди. | Строка
+    version | Версия очереди. Каждое изменение очереди увеличивает номер версии. | Число
+    name | Название очереди. | Строка
+    [lead](#lead) | Блок с информацией о владельце очереди. | Объект
+    assignAuto | Автоматически назначить исполнителя для новых задач очереди:<ul><li>`true`— назначить;</li><li>`false`— не назначать.</li></ul> | Логический
+    [defaultType](#default-type) | Блок с информацией о типе задачи по умолчанию. | Объект
+    [defaultPriority](#default-priority) | Блок с информацией о приоритете задачи по умолчанию. | Объект
+    denyVoting | Признак возможности голосования за задачи. | Логический
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Object fields** `defaultType` {#default-type}
+    **Поля объекта** `defaultType` {#default-type}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Link to the issue type | String |
-    | id | ID of the issue type | String |
-    | key | Key of the issue type | String |
-    | display | Issue type name displayed | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Ссылка на тип задачи | Строка
+    id | Идентификатор типа задачи | Строка
+    key | Ключ типа задачи | Строка
+    display | Отображаемое название типа задачи | Строка
 
-    **Object fields** `defaultPriority` {#default-priority}
+    **Поля объекта** `defaultPriority` {#default-priority}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Link to the priority type | String |
-    | id | Priority ID | String |
-    | key | Priority key | String |
-    | display | Priority name displayed | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Ссылка на тип приоритета | Строка
+    id | Идентификатор приоритета | Строка
+    key | Ключ приоритета | Строка
+    display | Отображаемое название приоритета | Строка
 
     {% endcut %}
 
-- The request failed
+- Запрос выполнен с ошибкой
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 

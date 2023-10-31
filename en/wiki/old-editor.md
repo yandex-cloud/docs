@@ -3,7 +3,7 @@
 {% include [edit-page](../_includes/wiki/edit-page.md) %}
 
 In the old editor, you can:
-* [Format the text](basic-markup.md).
+* [Formatting text](basic-markup.md).
 * [Add images](add-image.md).
 * [Add tables](add-grid.md).
 * Add a [table of contents](actions/toc.md), [bookmarks](actions/anchor.md), and [page lists](actions/page-lists.md).

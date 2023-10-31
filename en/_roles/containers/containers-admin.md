@@ -1,0 +1,1 @@
+The `serverless-containers.admin` role lets you manage container access settings.

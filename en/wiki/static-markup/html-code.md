@@ -1,5 +1,7 @@
 # HTML elements
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 ## Tags {#html-tags}
 To insert on a page design elements that are not included in the Markdown markup language, you can use HTML tags in the text.
 

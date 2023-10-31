@@ -1,43 +1,43 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/queues/get-trigger.md
+sourcePath: ru/tracker/api-ref/concepts/queues/get-trigger.md
 ---
-# Get trigger parameters
+# Получить параметры триггера
 
-Use this request to get information about [triggers](../../user/trigger.md) in the queue.
+Запрос позволяет получить информацию о [триггере](../../user/trigger.md) очереди.
 
-## Request format {#query}
+## Формат запроса {#query}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To get trigger parameters, use an HTTP `GET` request.
+Чтобы получить параметры триггера, используйте HTTP-запрос с методом `GET`. 
 
 ```json
 GET /{{ ver }}/queues/<queue-id>/triggers/<trigger-id>
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
-| \<trigger-id\> | Trigger ID. | Number |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка или число
+\<trigger-id\> | Идентификатор триггера. | Число
 
 {% endcut %}
 
-## Response format {#answer}
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-  The request body contains information about the trigger in JSON format.
+  Тело запроса содержит информацию о тригере в формате JSON.
 
     ```json
     {
@@ -47,7 +47,7 @@ Authorization: OAuth <OAuth token>
         "self": "{{ host }}/v2/queues/DESIGN",
         "id": "26",
         "key": "DESIGN",
-        "display": "Design"
+        "display": "Дизайн"
     },
     "name": "trigger_name",
     "order": "0.0002",
@@ -59,7 +59,7 @@ Authorization: OAuth <OAuth token>
                 "self": "{{ host }}/v2/statuses/2",
                 "id": "2",
                 "key": "needInfo",
-                "display": "Need info"
+                "display": "Требуется информация"
             }
         }
     ],
@@ -76,50 +76,50 @@ Authorization: OAuth <OAuth token>
     "version": 1,
     "active": true
     }
-    ```
+   ```
 
-   {% cut "Response parameters" %}
+   {% cut "Параметры ответа" %}
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | id | Trigger ID. | String |
-   | self | Link to the trigger. | String |
-   | [queue](#queue) | The queue where the trigger was created. | Can be set as an object, a string (if the [queue key](../../manager/create-queue.md#key) is passed), or a number (if the queue ID is passed). |
-   | name | Trigger name. | String |
-   | order | Trigger weight. This parameter affects the order in which the trigger is displayed in the interface. | String |
-   | [actions](#actions) | An array with trigger actions. | Array of objects |
-   | [conditions](#conditions) | An array with trigger conditions. | Array of objects |
-   | version | Trigger version. Each change to the trigger increases the version number. | Number |
-   | active | Trigger status. Acceptable values:<ul><li>`true`: Active.</li><li>`false`: Inactive.</li></ul> | Boolean |
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   id | Идентификатор триггера. | Строка
+   self | Ссылка на триггер. | Строка
+   [queue](#queue) | Очередь, в которой создан триггер.| Может задаваться как объект, как строка (если передается [ключ очереди](../../manager/create-queue.md#key)), как число (если передается идентификатор очереди).
+   name | Название триггера. | Строка
+   order | Вес триггера. Параметр влияет на порядок отображения триггера в интерфейсе. | Строка
+   [actions](#actions) | Массив с действиями триггера. | Массив объектов
+   [conditions](#conditions) | Массив с условиями срабатывания триггера. | Массив объектов
+   version | Версия триггера. Каждое изменение триггера увеличивает номер версии. | Число
+   active | Статус триггера. Допустимые значения:<ul><li>`true`— активный;</li><li>`false`— неактивный.</li></ul> | Логический
 
-   **Object fields** `queue` {#queue}
+   **Поля объекта** `queue` {#queue}
+    
+   {% include [queue](../../../_includes/tracker/api/queue.md) %} 
 
-   {% include [queue](../../../_includes/tracker/api/queue.md) %}
+   **Поля объектов массива** `actions` {#actions}
 
-   **Array object fields** `actions` {#actions}
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   type | Тип действия. Допустимые значения:<ul><li>`Transition`— изменить статус задачи;</li><li>`Update`— изменить значения в полях;</li><li>`Move`— переместить задачу;</li><li>`Event.comment-create`— добавить комментарий;</li><li>`CreateChecklist`— создать чек-лист;</li><li>`Webhook`— отправить HTTP-запрос;</li><li>`CalculateFormula`— вычислить значение;</li><li>`Event.create`— создать задачу.</li></ul>| Строка
+   id | Идентификатор действия. | Строка
+   [status](#status) | Статус задачи. | Строка
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | type | Action type. Acceptable values:<ul><li>`Transition`: Change issue status.</li><li>`Update`: Update field values.</li><li>`Move`: Move the issue.</li><li>`Event.comment-create`: Add a comment.</li><li>`CreateChecklist`: Create a checklist.</li><li>`Webhook`: Send an HTTP request.</li><li>`CalculateFormula`: Calculate a value.</li><li>`Event.create`: Create an issue.</li></ul> | String |
-   | id | Action ID. | String |
-   | [status](#status) | Issue status. | String |
+   **Поля объектов массива** `conditions` {#conditions}
 
-   **Array object fields** `conditions` {#conditions}
+   Параметр | Описание | Тип данных
+   ----- | ----- | -----
+   type | Тип условия. Допустипые значения:<ul><li>`or`— логическое ИЛИ;</li><li>`and`— логическое И.</li></ul> | Строка
+   conditions | Массив с условиями срабатывания триггера.<br/>Условие имеет параметр `type` — тип условия. Допустипые значения:<ul><li>`CommentNoneMatchCondition`— комментарий не содержит ни одного из фрагментов;</li><li>`CommentStringNotMatchCondition`— комментарий не содержит фрагмент;</li><li>`CommentFullyMatchCondition`— комментарий совпадает с;</li><li>`CommentAnyMatchCondition`— комментарий содержит любой из фрагментов;</li><li>`CommentStringMatchCondition`— комментарий содержит фрагмент;</li><li>`CommentAuthorNot`— автор комментария не;</li><li>`CommentAuthor`— автор комментария;</li><li>`CommentMessageExternal`— тип комментария `Письмо на почту`;</li><li>`CommentMessageInternal`— тип комментария `Комментарий в Трекере`.</li></ul>   |  Массив объектов
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | type | Condition type. Acceptable values:<ul><li>`or`: Boolean OR.</li><li>`and`: Boolean AND.</li></ul> | String |
-   | conditions | An array with trigger conditions.<br/>The condition has the `type` parameter, which denotes the condition type. Acceptable values:<ul><li>`CommentNoneMatchCondition`: The comment doesn't contain any of the fragments.</li><li>`CommentStringNotMatchCondition`: The comment doesn't contain the fragment.</li><li>`CommentFullyMatchCondition`: The comment matches fully.</li><li>`CommentAnyMatchCondition`: The comment contains any of the fragments.</li><li>`CommentStringMatchCondition`: The comment contains the fragment.</li><li>`CommentAuthorNot`: Not the comment poster.</li><li>`CommentAuthor`: The comment poster.</li><li>`CommentMessageExternal`: Comment type `E-mail comment`.</li><li>`CommentMessageInternal`: Comment type `Tracker comment`.</li></ul> | Array of objects |
-
-   **Array object fields** `status` {#status}
+   **Поля объектов массива** `status` {#status}
 
    {% include [status](../../../_includes/tracker/api/status.md) %}
 
    {% endcut %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If a request fails, the response message contains details of the errors encountered:
+    Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
 
     {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -134,4 +134,3 @@ Authorization: OAuth <OAuth token>
     {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

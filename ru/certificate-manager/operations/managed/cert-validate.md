@@ -88,10 +88,10 @@
 
 - {{ TF }}
 
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
-  
-  {% include [terraform-install](../../../_includes/terraform-install.md) %}
-  
+
   С помощью {{ TF }} можно создать DNS-запись, необходимую для прохождения проверки прав на домен. Для этого:
 
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:

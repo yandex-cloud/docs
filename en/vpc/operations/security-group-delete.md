@@ -7,7 +7,7 @@ description: "Follow this guide to delete a security group."
 
 {% note warning %}
 
-You can't delete security group created by default in the network.
+You cannot delete security group created by default in the network.
 
 {% endnote %}
 
@@ -66,7 +66,7 @@ To delete a security group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To delete a security group created with {{ TF }}:
 

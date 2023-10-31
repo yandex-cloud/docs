@@ -53,7 +53,7 @@ description: "Follow this guide to update the record retention period."
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To edit the record retention time in a log group created with {{ TF }}:
 

@@ -11,7 +11,7 @@ A {{ PG }} cluster consists of one or more [database hosts](../concepts/index.md
 
 * The number of hosts you can create together with a {{ PG }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available disk types depend on the selected [host class](../concepts/instance-types.md#available-flavors).
-* If DB storage is 95% full, the cluster switches to read-only mode. Plan and increase the required storage size in advance.
+* If the DB storage is 95% full, the cluster switches to read-only mode. Plan and increase the required storage size in advance.
 
 {% endnote %}
 
@@ -32,7 +32,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
    1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including {{ mpg-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the DBMS version.
 
       {% note info %}
@@ -56,12 +56,12 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       * Select the storage size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
-   1. (Optional) Under **Automatic increase of storage size**, specify the desired settings:
+   1. (Optional) Under **Automatic increase of storage size**, specify the required settings:
 
-      * In the **Increase size** field, set the conditions to:
+      * In the **Increase size** field, set the appropriate conditions to:
 
-          * Increase storage size during the next maintenance window when the storage is full by more than the specified percentage value (%).
-          * Increase storage size immediately when the storage is full by more than the specified percentage value (%).
+          * Increase the storage size during the next maintenance window when the storage is full by more than the specified percentage value (%).
+          * Increase the storage size immediately when the storage is full by more than the specified percentage value (%).
 
           You can set both conditions, but make sure that the threshold for increasing the size immediately is higher than that for increasing the size during a maintenance window.
 
@@ -199,9 +199,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   
-   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To create a cluster:
    1. In the configuration file, describe the parameters of the resources you want to create:
@@ -336,17 +334,17 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
+   To enable automatic increase of the storage size, provide the following in your request:
+
+   {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
+
+   
+   {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
+
+   {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
+
 {% endlist %}
-
-To enable automatic increase of storage size, provide the following in your request:
-
-{% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
-
-
-{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
-
-
-{% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
 
 {% note warning %}

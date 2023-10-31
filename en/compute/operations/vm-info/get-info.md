@@ -2,7 +2,7 @@
 
 To get basic information about each [VM](../../concepts/vm.md) you created, go to the [management console]({{ link-console-main }}) and open the VM page. To get detailed information with user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.
 
-You can also get basic information and metadata from [inside a VM](#inside-instance).
+You can also get basic information and metadata [from inside a VM](#inside-instance).
 
 ## Getting information from outside a VM {#outside-instance}
 
@@ -234,7 +234,7 @@ To set up metadata service parameters for a VM instance:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
@@ -258,10 +258,10 @@ To set up metadata service parameters for a VM instance:
       Where:
       * `yandex_compute_instance`: Description of the VM:
          * `metadata_options`: Metadata parameters:
-            * `aws_v1_http_endpoint` provides access to metadata using AWS format (IMDSv1). Possible values: `0` and `1`: `enabled`, `2`: `disabled`.
-            * `aws_v1_http_token` provides access to {{ iam-name }} credentials using AWS format (IMDSv1). Possible values: `0` and `1`: `enabled`, `2`: `disabled`.
-            * `gce_http_endpoint` provides access to metadata using Google Compute Engine format. Possible values: `0` and `1`: `enabled`, `2`: `disabled`.
-            * `gce_http_token` provides access to {{ iam-name }} credentials using Google Compute Engine format. Possible values: `0` and `1`: `enabled`, `2`: `disabled`.
+            * `aws_v1_http_endpoint` provides access to metadata using AWS format (IMDSv1). Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
+            * `aws_v1_http_token` provides access to {{ iam-name }} credentials using AWS format (IMDSv1). Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
+            * `gce_http_endpoint` provides access to metadata using Google Compute Engine format. Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
+            * `gce_http_token` provides access to {{ iam-name }} credentials using Google Compute Engine format. Possible values: `0` and `1`: `Enabled`; `2`: `Disabled`.
 
       For more information about the `yandex_compute_instance` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
 

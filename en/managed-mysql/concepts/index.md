@@ -9,7 +9,7 @@ The main entity used in {{ mmy-name }} is a _database cluster_.
 
 Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about {{ yandex-cloud }} availability zones [here](../../overview/concepts/geo-scope.md).
 
-* A cluster consisting of multiple hosts supports automatic failover, as each hosts can take the cluster's primary replica role.
+* A cluster consisting of multiple hosts supports automatic failover, as each host can take the cluster's primary replica role.
 
 * The cost of a single-host cluster is lower, but it does not guarantee fault tolerance.
 
@@ -34,7 +34,7 @@ When creating a cluster, specify:
 
 * _Environment_: Environment where the cluster will be deployed:
    * `PRODUCTION`: For stable versions of your apps.
-   * `PRESTABLE`: For testing, including the {{ mmy-short-name }} service itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
 
 A cluster created in a folder can be accessed by all VMs connected to the same cloud network. For more information about networking, see the [{{ vpc-name }} documentation](../../vpc/).

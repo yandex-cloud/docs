@@ -1,0 +1,1 @@
+The `mdb.admin` role lets you create and edit clusters of managed databases.

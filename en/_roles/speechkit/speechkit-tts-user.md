@@ -1,0 +1,1 @@
+The `ai.speechkit-tts.user` role enables you to use SpeechKit to synthesize speech.

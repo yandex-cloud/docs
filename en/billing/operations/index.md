@@ -17,6 +17,7 @@ description: "In this article, you will learn how to work with the {{ billing-na
 
 * [{#T}](create-new-account.md)
 * [{#T}](change-data.md)
+* [{#T}](get-data.md)
 * [{#T}](pin-cloud.md)
 * [{#T}](delete-account.md)
 * [{#T}](activate-commercial.md)

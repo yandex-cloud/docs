@@ -11,7 +11,7 @@
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
       1. Select the desired storage.
-      1. Click the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
+      1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
       1. Click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
       1. In the window that opens:
          1. Select the VM.
@@ -20,7 +20,7 @@
 
    - {{ TF }}
 
-      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
       Set the `allow_stopping_for_update` parameter to `true` on your VM, if you have not done it yet.
 

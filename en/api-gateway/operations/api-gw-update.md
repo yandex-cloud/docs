@@ -28,8 +28,8 @@ description: "Follow this guide to update an API gateway."
 
       Where:
 
-      - `id`: ID of the API gateway.
-      - `spec`: Updated specification file.
+      * `id`: ID of the API gateway
+      * `spec`: Updated specification file
 
       Result:
 
@@ -49,7 +49,7 @@ description: "Follow this guide to update an API gateway."
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To change the name, description, or specification of the API gateway:
 

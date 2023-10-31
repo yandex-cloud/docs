@@ -13,7 +13,7 @@
     ```bash
     redis-cli \
         -c \
-        -h <FQDN хоста-мастера в нужном шарде> \
+        -h <FQDN_хоста-мастера_в_нужном_шарде> \
         -a <пароль>
     ```
 
@@ -28,7 +28,7 @@
     ```bash
     redis-cli \
         -c \
-        -h <FQDN хоста-мастера в нужном шарде> \
+        -h <FQDN_хоста-мастера_в_нужном_шарде> \
         -a <пароль> \
         -p {{ port-mrd-tls }} \
         --tls \
@@ -69,9 +69,9 @@ GET foo
 
     func main() {
     	hostports := []string{
-    		"<FQDN хоста-мастера в шарде 1>:{{ port-mrd }}",
+    		"<FQDN_хоста-мастера_в_шарде_1>:{{ port-mrd }}",
     		...
-    		"<FQDN хоста-мастера в шарде N>:{{ port-mrd }}",
+    		"<FQDN_хоста-мастера_в_шарде_N>:{{ port-mrd }}",
     	}
     	options := redis.UniversalOptions{
     		Addrs:       hostports,
@@ -117,7 +117,7 @@ GET foo
     )
 
     func main() {
-    	caCert, err := ioutil.ReadFile("/home/<домашняя директория>/.redis/{{ crt-local-file }}")
+    	caCert, err := ioutil.ReadFile("/home/<домашняя_директория>/.redis/{{ crt-local-file }}")
     	if err != nil {
     		panic(err)
     	}
@@ -125,9 +125,9 @@ GET foo
     	caCertPool.AppendCertsFromPEM(caCert)
 
     	hostports := []string{
-    		"<FQDN хоста-мастера в шарде 1>:{{ port-mrd-tls }}",
+    		"<FQDN_хоста-мастера_в_шарде_1>:{{ port-mrd-tls }}",
     		...
-    		"<FQDN хоста-мастера в шарде N>:{{ port-mrd-tls }}",
+    		"<FQDN_хоста-мастера_в_шарде_N>:{{ port-mrd-tls }}",
     	}
     	options := redis.UniversalOptions{
     		Addrs:        hostports,
@@ -223,9 +223,9 @@ GET foo
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
 
         HashSet<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();
-        jedisClusterNodes.add(new HostAndPort("<FQDN хоста мастера в шарде 1>", {{ port-mrd }}));
+        jedisClusterNodes.add(new HostAndPort("<FQDN_хоста-мастера_в_шарде_1>", {{ port-mrd }}));
         ...
-        jedisClusterNodes.add(new HostAndPort("<FQDN хоста мастера в шарде N>", {{ port-mrd }}));
+        jedisClusterNodes.add(new HostAndPort("<FQDN_хоста-мастера_в_шарде_N>", {{ port-mrd }}));
 
         DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().
                 password("<пароль>").
@@ -262,18 +262,18 @@ GET foo
 
     public class App {
       public static void main(String[] args) {
-        System.setProperty("javax.net.ssl.trustStore", "/home/<домашняя директория>/.redis/YATrustStore");
-        System.setProperty("javax.net.ssl.trustStorePassword", "<пароль защищенного хранилища сертификатов>");
+        System.setProperty("javax.net.ssl.trustStore", "/home/<домашняя_директория>/.redis/YATrustStore");
+        System.setProperty("javax.net.ssl.trustStorePassword", "<пароль_защищенного_хранилища_сертификатов>");
 
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         Set<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();
         SSLParameters sslParameters = new SSLParameters();
-        jedisClusterNodes.add(new HostAndPort("<FQDN хоста-мастера в шарде 1>", {{ port-mrd-tls }}));
+        jedisClusterNodes.add(new HostAndPort("<FQDN_хоста-мастера_в_шарде_1>", {{ port-mrd-tls }}));
         ...
-        jedisClusterNodes.add(new HostAndPort("<FQDN хоста-мастера в шарде N>", {{ port-mrd-tls }}));
+        jedisClusterNodes.add(new HostAndPort("<FQDN_хоста-мастера_в_шарде_N>", {{ port-mrd-tls }}));
 
         DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().
-                password("<пароль кластера>").
+                password("<пароль_кластера>").
                 ssl(true).
                 sslParameters(sslParameters).
                 build();
@@ -315,12 +315,12 @@ GET foo
     const cluster = new Redis.Cluster(
         [
             {
-                host: "<FQDN хоста-мастера в шарде 1>",
+                host: "<FQDN_хоста-мастера_в_шарде_1>",
                 port: {{ port-mrd }}
             },
             ...
             {
-                host: "<FQDN хоста-мастера в шарде N>",
+                host: "<FQDN_хоста-мастера_в_шарде_N>",
                 port: {{ port-mrd }}
             }
         ],
@@ -361,12 +361,12 @@ GET foo
     const cluster = new Redis.Cluster(
         [
             {
-                host: "<FQDN хоста-мастера в шарде 1>",
+                host: "<FQDN_хоста-мастера_в_шарде_1>",
                 port: {{ port-mrd-tls }}
             },
             ...
             {
-                host: "<FQDN хоста-мастера в шарде N>",
+                host: "<FQDN_хоста-мастера_в_шарде_N>",
                 port: {{ port-mrd-tls }}
             },
         ],
@@ -374,7 +374,7 @@ GET foo
             redisOptions: {
                 password: "<пароль>",
                 tls: {
-                    ca: [fs.readFileSync("/home/<домашняя директория>/.redis/{{ crt-local-file }}")],
+                    ca: [fs.readFileSync("/home/<домашняя_директория>/.redis/{{ crt-local-file }}")],
                     checkServerIdentity: () => {
                         return null;
                     }
@@ -423,9 +423,9 @@ GET foo
     Predis\Autoloader::register();
 
     $hosts = [
-        "tcp://<FQDN хоста-мастера в шарде 1>:{{ port-mrd }}",
+        "tcp://<FQDN_хоста-мастера_в_шарде_1>:{{ port-mrd }}",
         ...
-        "tcp://<FQDN хоста-мастера в шарде N>:{{ port-mrd }}",
+        "tcp://<FQDN_хоста-мастера_в_шарде_N>:{{ port-mrd }}",
     ];
 
     $options = [
@@ -455,9 +455,9 @@ GET foo
    Predis\Autoloader::register();
 
    $hosts = [
-       'tls://<FQDN хоста-мастера в шарде 1>:{{ port-mrd-tls }}?ssl[cafile]=/home/<домашняя директория>/.redis/{{ crt-local-file }}',
+       'tls://<FQDN_хоста-мастера_в_шарде_1>:{{ port-mrd-tls }}?ssl[cafile]=/home/<домашняя_директория>/.redis/{{ crt-local-file }}',
        ...
-       'tls://<FQDN хоста-мастера в шарде N>:{{ port-mrd-tls }}?ssl[cafile]=/home/<домашняя директория>/.redis/{{ crt-local-file }}',
+       'tls://<FQDN_хоста-мастера_в_шарде_N>:{{ port-mrd-tls }}?ssl[cafile]=/home/<домашняя_директория>/.redis/{{ crt-local-file }}',
    ];
 
    $options = [
@@ -504,9 +504,9 @@ pip install pyopenssl redis-py-cluster setuptools_rust
     from rediscluster import RedisCluster
 
     startup_nodes = [
-        {"host": "<FQDN хоста-мастера в шарде 1>", "port": {{ port-mrd }}},
+        {"host": "<FQDN_хоста-мастера_в_шарде_1>", "port": {{ port-mrd }}},
         ...
-        {"host": "<FQDN хоста-мастера в шарде N>", "port": {{ port-mrd }}},
+        {"host": "<FQDN_хоста-мастера_в_шарде_N>", "port": {{ port-mrd }}},
     ]
 
     rc = RedisCluster(
@@ -530,9 +530,9 @@ pip install pyopenssl redis-py-cluster setuptools_rust
     from rediscluster import RedisCluster
 
     startup_nodes = [
-        {"host": "<FQDN хоста-мастера в шарде 1>", "port": {{ port-mrd-tls }}},
+        {"host": "<FQDN_хоста-мастера_в_шарде_1>", "port": {{ port-mrd-tls }}},
         ...
-        {"host": "<FQDN хоста-мастера в шарде N>", "port": {{ port-mrd-tls }}},
+        {"host": "<FQDN_хоста-мастера_в_шарде_N>", "port": {{ port-mrd-tls }}},
     ]
 
     rc = RedisCluster(
@@ -541,7 +541,7 @@ pip install pyopenssl redis-py-cluster setuptools_rust
         skip_full_coverage_check=True,
         password="<пароль>",
         ssl=True,
-        ssl_ca_certs="/home/<домашняя директория>/.redis/{{ crt-local-file }}",
+        ssl_ca_certs="/home/<домашняя_директория>/.redis/{{ crt-local-file }}",
     )
 
     rc.set("foo", "bar")
@@ -571,9 +571,9 @@ pip install pyopenssl redis-py-cluster setuptools_rust
     require 'redis'
 
     nodes = [
-      { host: '<FQDN хоста-мастера в шарде 1>', port: {{ port-mrd }} },
+      { host: '<FQDN_хоста-мастера_в_шарде_1>', port: {{ port-mrd }} },
       ...
-      { host: '<FQDN хоста-мастера в шарде N>', port: {{ port-mrd }} }
+      { host: '<FQDN_хоста-мастера_в_шарде_N>', port: {{ port-mrd }} }
     ]
 
     conn = Redis.new(
@@ -597,9 +597,9 @@ pip install pyopenssl redis-py-cluster setuptools_rust
     require 'redis'
 
     nodes = [
-      { host: '<FQDN хоста-мастера в шарде 1>', port: {{ port-mrd-tls }} },
+      { host: '<FQDN_хоста-мастера_в_шарде_1>', port: {{ port-mrd-tls }} },
       ...
-      { host: '<FQDN хоста-мастера в шарде N>', port: {{ port-mrd-tls }} }
+      { host: '<FQDN_хоста-мастера_в_шарде_N>', port: {{ port-mrd-tls }} }
     ]
 
     conn = Redis.new(
@@ -607,7 +607,7 @@ pip install pyopenssl redis-py-cluster setuptools_rust
       password: '<пароль>',
       ssl: true,
       ssl_params: {
-        ca_file: '/home/<домашняя директория>/.redis/{{ crt-local-file }}',
+        ca_file: '/home/<домашняя_директория>/.redis/{{ crt-local-file }}',
         verify_hostname: false
       }
     )

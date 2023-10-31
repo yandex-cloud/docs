@@ -20,7 +20,6 @@ There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ m
 * Manually
 
    1. Prepare the target cluster:
-      * Enable [topic management](../managed-kafka/concepts/topics.md#management) via the Admin API.
       * Create an [admin user](../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`.
       * Enable [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
       * Configure [security groups](../managed-kafka/operations/connect.md#configuring-security-groups), if required, to connect to the target cluster.
@@ -48,16 +47,16 @@ There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ m
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../_includes/terraform-install.md) %}
    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [kafka-mirrormaker-connector.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-connectors/kafka-mirrormaker-connector.tf) configuration file to the same working directory.
 
       This file describes:
 
-      * Network
-      * Subnet
+      * Network.
+      * Subnet.
       * Default security group and rules required to connect to the cluster from the internet.
-      * {{ mkf-name }} cluster with [topic management](../managed-kafka/concepts/topics#management) via the Admin API, an [administrator user](../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`, and the [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) setting enabled.
+      * {{ mkf-name }} cluster with an [administrator user](../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`, and the [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) setting on.
       * MirrorMaker connector.
 
    1. In `kafka-mirrormaker-connector.tf`, specify:
@@ -109,7 +108,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create a {{ mkf-name }} target cluster](../managed-kafka/operations/cluster-create.md):
 
-      * With [topic management](../managed-kafka/concepts/topics#management) via the Admin API.
       * With the `admin-cloud` [admin user](../managed-kafka/operations/cluster-accounts.md#create-account).
       * With [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) activated.
 
@@ -117,17 +115,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../_includes/terraform-install.md) %}
    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [kafka-mirror-maker.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-mirror-maker.tf) configuration file to the same working directory.
 
       This file describes:
 
-      * Network
-      * Subnet
+      * Network.
+      * Subnet.
       * Default security group and rules required to connect to the cluster and VM from the internet.
-      * A {{ mkf-name }} cluster with [topic management](../managed-kafka/concepts/topics#management) enabled via the Admin API, the `admin-cloud` [admin user](../managed-kafka/operations/cluster-accounts.md#create-account), and [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
-      * A virtual machine with public internet access.
+      * {{ mkf-name }} cluster with an [administrator user](../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`, and the [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) setting on.
+      * Virtual machine with public internet access.
 
    1. In `kafka-mirror-maker.tf`, specify:
 

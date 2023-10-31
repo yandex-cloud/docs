@@ -1,5 +1,5 @@
 ---
-title: "Migrating to {{ mes-name }} using snapshots"
+title: "Migration to {{ mes-name }} using snapshots"
 description: "{{ mes-name }} clusters support taking snapshots. This allows you to migrate data from another {{ ES }} cluster to it. For more information about snapshots, see the {{ ES }} documentation."
 ---
 
@@ -20,7 +20,7 @@ If you no longer need the resources you are using, [delete them](#clear-out).
 
 {% note warning %}
 
-You can't use a snapshot if the {{ ES }} version in the source cluster is higher than that in the target cluster. For example, you won't be able to restore a snapshot of an {{ ES }} 7.13 cluster in a {{ mes-name }} 7.11 cluster.
+You cannot use a snapshot if the {{ ES }} version in the source cluster is higher than that in the target cluster. For example, you will not be able to restore a snapshot of an {{ ES }} 7.13 cluster in a {{ mes-name }} 7.11 cluster.
 
 {% endnote %}
 
@@ -32,15 +32,13 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
 - Manually
 
-   
-   1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
+   1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
    1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role to it. A service account is required to access the bucket from the source and target clusters.
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account.
 
-
       {% note warning %}
 
-      Save the **key ID** and **secret key**. You will need them in the next steps.
+      Save the **key ID** and **secret key**. You will need them at the next steps.
 
       {% endnote %}
 
@@ -55,12 +53,12 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
 - Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [mes-migration.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/mes-migration.tf) configuration file to the same working directory. The file describes:
 
-      * Network
-      * Subnet
+      * Network.
+      * Subnet.
       * Security group and rules required to access the {{ mes-name }} target cluster.
       * `sa-mes-cluster` service account required to create a {{ mes-name }} cluster.
       * `sa-bucket` service account to handle the {{ objstorage-name }} bucket.

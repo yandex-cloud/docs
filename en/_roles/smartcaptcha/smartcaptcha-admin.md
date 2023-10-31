@@ -1,0 +1,1 @@
+The `smart-captcha.admin` role enables you to manage CAPTCHAS and access to them. Includes all access rights of the `smart-captcha.editor` role.

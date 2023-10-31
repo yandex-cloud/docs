@@ -1,6 +1,6 @@
 # Типы задач
 
-В очередь могут входить задачи разных типов, например <q>Новая возможность</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q> или <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>. Типы задач помогают при разделении работ внутри команды по направлениям деятельности (<q>Новая возможность</q>, <q>Ошибка</q>, <q>Улучшение</q>) или при декомпозиции задач (<q>Эпик</q>, <q>История</q>, <q>Задача</q>).
+В очередь могут входить задачи разных типов, например <q>Новая возможность</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q> или <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>. Типы задач помогают при разделении работ внутри команды по направлениям деятельности (<q>Новая возможность</q>, <q>Ошибка</q>, <q>Улучшение</q>) или при декомпозиции задач (<q>[Epic](epic-new.md)</q>, <q>Story</q>, <q>Задача</q>).
 
 Владелец очереди и пользователи, которым он выдал [доступ к настройкам очереди](queue-access.md), определяют:
 

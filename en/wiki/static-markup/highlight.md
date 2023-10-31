@@ -1,5 +1,7 @@
 # Highlighting syntax in code
 
+{% include [formatter-alert](../../_includes/wiki/formatter-alert.md) %}
+
 You can highlight code syntax in {{ wiki-name }} pages. To do this, use the markup:
 
 ```

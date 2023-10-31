@@ -106,7 +106,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To create a trigger that launches a function:
 
@@ -178,6 +178,6 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## For more information, see also {#see-also}
+## See also {#see-also}
 
 * [Timer that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/timer-create.md).

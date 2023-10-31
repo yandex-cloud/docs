@@ -1,0 +1,1 @@
+The `lockbox.editor` role lets you manage a secret and change its contents.

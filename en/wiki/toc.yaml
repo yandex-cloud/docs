@@ -39,14 +39,16 @@ items:
     items:
       - name: Overview
         href: new-editor.md
-      - name: Formatting text
-        href: wysiwyg/text-format.md
-      - name: Block formatting
-        href: wysiwyg/block-format.md
-      - name: Adding tables and tables of contents
-        href: wysiwyg/tables-format.md
-      - name: Adding third-party content
-        href: wysiwyg/embed-content.md
+      - name: Visual editor
+        items:
+          - name: Formatting text
+            href: wysiwyg/text-format.md
+          - name: Block formatting
+            href: wysiwyg/block-format.md
+          - name: Adding tables and tables of contents
+            href: wysiwyg/tables-format.md
+          - name: Adding third-party content
+            href: wysiwyg/embed-content.md
   - name: Old editor
     items:
       - name: Overview

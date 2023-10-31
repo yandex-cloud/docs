@@ -11,8 +11,10 @@ description: "This guide describes how you can get data from a stream in the AWS
 
   You can get data from a stream using the `get_shard_iterator` and `get_record/get_records` methods. When you invoke this method, you should specify the following parameters:
   * Name of the stream, e.g., `example-stream`.
-  * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) the stream is located in, such as `b1gi1kuj2dhtaupdb5es`.
-  * {{ ydb-full-name }} database ID with the stream, for example, `cc8028jgtuabcqutgtbv`.
+  * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) the stream is located in, such as `b1gi1kuj2dht********`.
+  * {{ ydb-short-name }} database ID with the stream, e.g., `cc8028jgtuab********`.
+
+  You also need to [configure](prepare.md) the AWS SDK and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `yds.viewer` role.
 
   To read records from a stream with the parameters specified above:
   1. Create a file named `stream_get_records.py` and copy the following code into it:
@@ -51,8 +53,8 @@ description: "This guide describes how you can get data from a stream in the AWS
 
 
      if __name__ == '__main__':
-         for record in get_records(cloud="b1gi1kuj2dhtaupdb5es",
-                                   database="cc8028jgtuabcqutgtbv",
+         for record in get_records(cloud="b1gi1kuj2dht********",
+                                   database="cc8028jgtuab********",
                                    stream_name="example-stream"):
              pprint(record)    
              print("The record has been read successfully")

@@ -1,0 +1,1 @@
+The `resource-manager.admin` role grants permission to edit, delete, and manage access to clouds and folders. It is assigned for an organization, a cloud, or a folder.

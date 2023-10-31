@@ -38,7 +38,7 @@ description: "Follow this guide to delete a network load balancer."
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To delete a network load balancer created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the network load balancer description.

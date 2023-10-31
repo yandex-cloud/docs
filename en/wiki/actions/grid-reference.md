@@ -1,5 +1,7 @@
 # Dynamic tables
 
+{% include [actions-alert](../../_includes/wiki/actions-alert.md) %}
+
 Using the `grid` block, you can embed a [dynamic table](../create-grid.md) in your page and set up its format.
 
 ### Using the block {#tab-call}
@@ -23,7 +25,7 @@ Using the `grid` block, you can embed a [dynamic table](../create-grid.md) in yo
 
 ## Setting filters for displaying rows {#row-filter}
 
-Use the `filter` parameter to set which rows should be displayed in the embedded table. Example:
+Use the `filter` parameter to set which rows should be displayed in the embedded table. For example:
 
 ```
 {{grid page="tableURL" filter="[id1]=value1, [id2]=value2"}}
@@ -31,7 +33,7 @@ Use the `filter` parameter to set which rows should be displayed in the embedded
 
 This filter will only display the rows for which the following conditions are satisfied at the same time:
 
-- Column with the ID `[id1]` contains `value1`.
+- Column with the ID `[id1]` is set to `value1`.
 
 - Column with the ID `[id2]` contains `value2`.
 
@@ -88,7 +90,7 @@ You can only display the specified columns of a dynamic table on a page. To do t
 ```
 This dynamic block contains only columns with the IDs: `id1, id2, id3`.
 
-To look up column ID:
+To find out the column ID:
 
 * Click ![](../../_assets/wiki/svg/actions-icon.svg) in the header of the desired column.
 

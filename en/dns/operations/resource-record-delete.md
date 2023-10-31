@@ -38,7 +38,7 @@ To delete a [resource record](../concepts/resource-record.md):
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To delete a record created using {{ TF }} from the DNS zone:
 
@@ -88,7 +88,7 @@ To delete a [resource record](../concepts/resource-record.md):
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
       yc dns zone list-records <DNS zone name>

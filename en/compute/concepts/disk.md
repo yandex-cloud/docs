@@ -16,6 +16,8 @@ Disks are designed for storing data and are attached to VMs. Detaching a disk do
 
 Each disk is located in an availability zone, where it is [replicated](#backup) (unless it is a non-replicated disk) to provide data protection. Disks are not replicated to other zones.
 
+After creating a disk, you can [change](../operations/disk-control/update.md#change-disk-name) its name and description and [increase](../operations/disk-control/update.md#change-disk-size) the disk size.
+
 ## Disks as a {{ yandex-cloud }} resource {#disk-as-resource}
 
 Disks are created within folders and inherit their access rights.

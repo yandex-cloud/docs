@@ -3,7 +3,7 @@ title: "Detaching a target group from a network load balancer"
 description: "Follow this guide to detach a target group from a network load balancer."
 ---
 
-# Detaching a target group from a network load balancer
+# Detach a target group from a network load balancer
 
 {% list tabs %}
 
@@ -42,7 +42,7 @@ description: "Follow this guide to detach a target group from a network load bal
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To detach a [target group](../concepts/target-resources.md) from a network load balancer created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the target group description.

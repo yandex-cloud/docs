@@ -8,6 +8,12 @@ items:
     items:
       - name: Загрузить данные
         href: operations/data/upload-data.md
+      - name: Работа с отчетами
+        href: operations/data/manage-reports.md
+  - name: Концепции
+    items:
+      - name: Отчеты в {{ speechsense-name }}
+        href: concepts/reports.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

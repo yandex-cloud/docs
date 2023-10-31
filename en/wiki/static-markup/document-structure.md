@@ -1,5 +1,7 @@
 # Page structure
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 ## Clusters and headings {#sections-and-titles}
 
 Add headings to divide a page into clusters. To format the heading, insert 1 to 6 `#` symbols and a space before the heading text. The heading level changes based on how many `#` symbols you type.

@@ -9,7 +9,7 @@ You can set up serialization when [creating](../operations/endpoint/index.md#cre
 
 ## Serialization at data delivery to {{ objstorage-name }} {#serializer-s3}
 
-When delivering data to {{ objstorage-name }}, you can select **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`, or `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}`. For `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, the **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.any_as_string.title }}** setting is available.
+When delivering data to {{ objstorage-name }}, you can select **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`, `PARQUET`, or `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}`. For `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, the **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.any_as_string.title }}** setting is available.
 
 The output data format depends both on the **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** setting selection and the type and settings of source endpoint conversion rules.
 
@@ -37,15 +37,15 @@ Output data:
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}
 
    ```text
-   <stream name>,<segment key>,<message sequence number>,<data write date and time>,Text string
-   <stream name>,<segment key>,<message sequence number>,<data write date and time>,"{""device_id"":""iv9"",""speed"":5}"
+   <stream_name>,<segment_key>,<message_sequential_number>,<write_date_and_time>,Text string
+   <stream_name>,<segment_key>,<message_sequential_number>,<write_date_and_time>,"{""device_id"":""iv9"",""speed"":5}"
    ```
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}
 
    ```text
-   {"data":"Text string","partition":<segment key>,"seq_no":<message sequence number>,"topic":"<stream name>","write_time":"<data write date and time>"}
-   {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<segment key>,"seq_no":<message sequence number>,"topic":"<stream name>","write_time":"<data write date and time>"}
+   {"data":"Text string","partition":<segment_key>,"seq_no":<message_sequential_number>,"topic":"<stream_name>","write_time":"<write_date_and_time>"}
+   {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<segment_key>,"seq_no":<message_sequential_number>,"topic":"<stream_name>","write_time":"<write_date_and_time>"}
    ```
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}
@@ -155,15 +155,15 @@ Automatic selection of serialization settings depending on the source type.
 
 * **key.converter.schemas.enable** and **value.converter.schemas.enable**: Determine whether to add a schema description to each message for keys and values when using `org.apache.kafka.connect.json.JsonConverter`.
 
-   Default value: `true`.
+   The default value is `true`.
 
 * **key.converter.schema.registry.url** and **value.converter.schema.registry.url**: Determine whether to add a schema description to each message for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 
-   Default value: `true`.
+   The default value is `true`.
 
 * **key.converter.basic.auth.user.info** and **value.converter.basic.auth.user.info**: Username and password for authorization in the Confluent Schema Registry for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 
-   Value format: `<username>:<password>`.
+   The value format is `<username>:<password>`.
 
 * **key.converter.ssl.ca** and **value.converter.ssl.ca**: Contents of the Confluent Schema Registry's SSL certificate for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 

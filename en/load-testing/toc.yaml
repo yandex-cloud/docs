@@ -28,6 +28,8 @@ items:
         href: tutorials/loadtesting-https-phantom.md
       - name: Using Pandora to run a step-load HTTPS test
         href: tutorials/loadtesting-https-pandora.md
+      - name: JMeter load testing
+        href: tutorials/loadtesting-jmeter.md
       - name: Load testing using multiple agents
         href: tutorials/loadtesting-multiply.md
       - name: Migrating load testing results from OverLoad

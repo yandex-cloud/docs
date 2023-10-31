@@ -1,0 +1,1 @@
+The `storage.viewer` role gives you read access to the list of buckets, settings, and data.

@@ -39,7 +39,7 @@
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To create a container and a container [revision](../../serverless-containers/operations/manage-revision.md):
 
@@ -51,7 +51,7 @@
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `name`: Container name. Required parameter. The naming requirements are as follows:
+      * `name`: Container name. This is a required parameter. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 

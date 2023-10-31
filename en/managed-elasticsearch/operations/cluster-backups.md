@@ -31,7 +31,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
    To get a list of cluster backups:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
    To get a list of all backups in a folder:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
@@ -80,7 +80,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
    To get information about the backup of an existing cluster:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
    To get information about the backup of a previously deleted cluster:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
@@ -117,7 +117,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
    1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -241,11 +241,11 @@ When creating a new cluster, set all required parameters.
 
       Where:
 
-      * `--backup-id`: [Backup](../concepts/backup.md) ID
-      * `--name`: Cluster name
+      * `--backup-id`: [Backup](../concepts/backup.md) ID.
+      * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing, including {{ ES }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -255,7 +255,7 @@ When creating a new cluster, set all required parameters.
 
          
          * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
-         * `assign-public-ip`: Flag to specify if a host requires [public access](../concepts/network.md#public-access-to-a-host).
+         * `assign-public-ip`: Flag to be set if [public access](../concepts/network.md#public-access-to-a-host) to the host is required.
 
 
          * `type`: [Host role](../concepts/hosts-roles.md).
@@ -361,8 +361,8 @@ When restoring from snapshots, the following restrictions apply:
 
    To restore an entire cluster, close all open indexes. To restore individual indexes, close only those indexes.
 
-1. [Retrieve a list of backups](#list-snapshots) and find the desired snapshot.
-1. [Start restoring](https://www.elastic.co/guide/en/elasticsearch/reference/current/restore-snapshot-api.html) an entire cluster or individual data indexes and streams from the desired snapshot.
+1. [Retrieve a list of backups](#list-snapshots) and find the required snapshot.
+1. [Start restoring](https://www.elastic.co/guide/en/elasticsearch/reference/current/restore-snapshot-api.html) an entire cluster or individual data indexes and streams from the required snapshot.
 
 For more information about restoring from snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html).
 

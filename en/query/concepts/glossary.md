@@ -48,7 +48,7 @@ Streaming analysis systems handle infinite data streams that do not have any beg
 
 Checkpoints contain information about a streaming query, including offsets in data streams.
 
-If you add instructions to access new streaming sources of data to the text of a query, checkpoints won't contain information about offsets within data streams. As a result, some data may be read from existing streams starting from the last checkpoint, while other data may be read once new messages appear in new data streams.
+If you add instructions to access new streaming sources of data to the text of a query, checkpoints will not contain information about offsets within data streams. As a result, some data may be read from existing streams starting from the last checkpoint, while other data may be read once new messages appear in new data streams.
 
 {% note info %}
 

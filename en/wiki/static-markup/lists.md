@@ -1,16 +1,18 @@
 # Lists
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 ## Numbered list {#section_numbered}
 
 ### List with numbers {#section_numbered_numbers}
 
 - Before each item in the list, add a number with a dot and a space.
 
-   {% note info %}
+    {% note info %}
 
-   The numbering of the list starts with the number that you put before the first item. The order of the numbers in the markup doesn't affect the numbering of the finished list. But it is more convenient to work with the source text if the list items are numbered in order.
+    The numbering of the list starts with the number that you put before the first item. The order of the numbers in the markup does not affect the numbering of the finished list. But it is more convenient to work with the source text if the list items are numbered in order.
 
-   {% endnote %}
+    {% endnote %}
 
 - To create a second-level list item, add three spaces to the beginning of the line.
 
@@ -42,7 +44,7 @@ Markup:
 
 - To create a list with Roman numerals, add the letter `I` or `i` before each list item with a dot and a space.
 
-- Lists with letters don't support skipping numbering steps using the `#` symbol.
+- Lists with letters do not support skipping numbering steps using the `#` symbol.
 
 Markup:
 
@@ -137,30 +139,30 @@ A to-do list (checklist) is a numbered or bulleted list where you can mark compl
 
 - Numbered list
 
-   ```
-   1. [x] Checked item
-   2. [] Unchecked item
-   3. [] Unchecked item
-   ```
+    ```
+    1. [x] Checked item
+    2. [] Unchecked item
+    3. [] Unchecked item
+    ```
 
-   {% cut "See the result" %}
+    {% cut "See the result" %}
 
-   ![](../../_assets/wiki/checklist-num.png)
+    ![](../../_assets/wiki/checklist-num.png)
 
-   {% endcut %}
+    {% endcut %}
 
-- Bulleted list
+- B ulleted list
 
-   ```
-   + List item
-     - [x] Checked item
-     - [] Unchecked item
-   ```
+    ```
+    + List item
+      - [x] Checked item
+      - [] Unchecked item
+    ```
 
-   {% cut "See the result" %}
+    {% cut "See the result" %}
 
-   ![](../../_assets/wiki/checklist-bullet.png)
+    ![](../../_assets/wiki/checklist-bullet.png)
 
-   {% endcut %}
+    {% endcut %}
 
 {% endlist %}

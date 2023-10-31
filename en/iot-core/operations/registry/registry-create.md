@@ -77,7 +77,7 @@ description: "Follow this guide to create a registry."
       yc iot registry password add --registry-name <registry name>
       ```
 
-      You will be prompted to enter a password. The password requirements are as follows:
+      You will be prompted to enter a password. The requirements are as follows:
 
       * The password must contain numbers, upper-case and lower-case letters, and special characters.
       * It must be at least 14 characters long.
@@ -100,7 +100,7 @@ description: "Follow this guide to create a registry."
 
       Where:
 
-      * `--registry-name`: Registry name
+      * `--registry-name`: Registry name.
       * `--certificate-file`: Path to the public key of the certificate, such as `cert.pem`.
 
       Result:
@@ -119,7 +119,7 @@ description: "Follow this guide to create a registry."
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    {% note info %}
 

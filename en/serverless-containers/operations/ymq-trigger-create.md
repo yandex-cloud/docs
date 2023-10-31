@@ -1,14 +1,8 @@
 # Creating a trigger for {{ message-queue-name }} that sends messages to a {{ serverless-containers-name }} container
 
-Create a [trigger for a {{ message-queue-short-name }} message queue](../concepts/trigger/ymq-trigger.md) and process the messages using the {{ serverless-containers-name }} [container](../concepts/container.md).
+Create a [trigger for a message queue in {{ message-queue-short-name }}](../concepts/trigger/ymq-trigger.md) and process the messages using the {{ serverless-containers-name }} [container](../concepts/container.md).
 
-{% note warning %}
-
-* You can only create a trigger for a standard message queue.
-* The trigger must be in the same cloud as the queue that messages are read from.
-* Only one trigger can be created for each message queue.
-
-{% endnote %}
+{% include [ymq-trigger-note.md](../../_includes/functions/ymq-trigger-note.md) %}
 
 ## Getting started {#before-begin}
 
@@ -23,7 +17,7 @@ To create a trigger, you need:
 
    * To invoke a container.
    * To read from the queue the trigger receives messages from.
-   * (optional) To write to the [Dead Letter Queue](../../serverless-containers/concepts/dlq.md).
+   * (Optional) To write to a [Dead Letter Queue](../../serverless-containers/concepts/dlq.md).
 
    You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
@@ -95,11 +89,11 @@ To create a trigger, you need:
       1. Select the desired queue.
       1. You can see the queue ID under **General information** in the **ARN** field.
 
-   * `--invoke-container-id`: Container ID
+   * `--invoke-container-id`: Container ID.
    * `--queue-service-account-name`: Service account with rights to read messages from the queue.
    * `--invoke-container-service-account-id`: Service account with rights to invoke the container.
-   * `--batch-size`: Message batch size. Optional parameter. The values may range from 1 to 10. The default value is 1.
-   * `--batch-cutoff`: Maximum waiting time. Optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
+   * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+   * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. The number of messages cannot exceed `batch-size`.
 
    Result:
 

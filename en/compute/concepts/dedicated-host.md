@@ -7,11 +7,13 @@ A _dedicated host_ is a physical server that is intended solely for hosting your
 You can create a group of one or more dedicated hosts of the same type. To optimize the use of resources, you can host multiple [VMs with different configurations](vm-platforms.md) on each dedicated host.
 
 Advantages of using dedicated hosts:
-* Security and compliance.
+* Security and compliance:
   You can use a dedicated host to physically isolate your VM in the public cloud if this is required by your company's information security service or industry standards, such as medical or financial ones.
-* Using your own licenses.
+* Using your own licenses:
+
   If your company has Microsoft licenses or those from other vendors that require linking to physical resources, you can use them in {{ yandex-cloud }} based on the <q>Bring your own license</q> (BYOL) model.
-* Managing your VM allocation.
+* Managing your VM allocation:
+
   You can choose which dedicated host to run your VM on or allow {{ compute-name }} to do it automatically.
 
 {% include [dedicated](../../_includes/compute/dedicated-quota.md) %}
@@ -33,11 +35,11 @@ The number of free dedicated hosts of each type per [availability zone](../../ov
 Current type: Intel<sup>®</sup> Ice Lake platform
 
 | Type and processor<br>(Ice Lake platform) | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size |
-|  --- | --- | --- | --- | --- | --- | --- |
-| `intel-6338-c108-m704-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6338](https://ark.intel.com/content/www/ru/ru/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 704 | 6 | 3198924357632 B <br>(~ 2.91 TB) |
+  --- | --- | --- | --- | --- | --- | ---
+| `intel-6338-c108-m704-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6338](https://ark.intel.com/content/www/ru/ru/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 704 | 6 | 3198924357632 B <br>(~2.91 TB) |
 
-  
-  You can only create hosts of this type in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+
+You can only create hosts of this type in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
 
 
 {% cut "Archived types: Intel Cascade Lake" %}
@@ -49,11 +51,11 @@ Do not use archived types to create dedicated hosts. Select a current type inste
 {% endnote %}
 
 | Type and processor<br>(Cascade Lake platform) | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size |
-| --- | --- | --- | --- | --- | --- | --- |
+--- | --- | --- | --- | --- | --- | ---
 | `intel-6230-c66-m454`<br>[Intel Xeon Gold 6230](https://ark.intel.com/content/www/ru/ru/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66 | 454 | 4 | 1600 × 10^9^ B <br>(~ 1.46 TB) |
 | `intel-6230-c66-m704-n1600x4`<br>Intel Xeon Gold 6230 | 2 | 40 | 66 | 704 | 4 | 1600 × 10^9^ B <br>(~ 1.46 TB) |
-| `intel-6230r-c84-m328-n3200x4`<br>[Intel Xeon Gold 6230R](https://ark.intel.com/content/www/ru/ru/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html) | 2 | 52 | 84 | 328 | 4 | 3198924357632 B <br>(~ 2.91 TB) |
-| `intel-6230r-c84-m454-n3200x4`<br>Intel Xeon Gold 6230R | 2 | 52 | 84 | 454 | 4 | 3198924357632 B <br>(~ 2.91 TB) |
+| `intel-6230r-c84-m328-n3200x4`<br>[Intel Xeon Gold 6230R](https://ark.intel.com/content/www/ru/ru/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html) | 2 | 52 | 84 | 328 | 4 | 3198924357632 B <br>(~2.91 TB) |
+| `intel-6230r-c84-m454-n3200x4`<br>Intel Xeon Gold 6230R | 2 | 52 | 84 | 454 | 4 | 3198924357632 B <br>(~2.91 TB) |
 
 {% endcut %}
 
@@ -78,7 +80,6 @@ When creating a VM on a dedicated host, you may encounter resource fragmentation
 
 In this case, you can run two VMs with two and four vCPUs to use the dedicated host's vCPUs at full capacity.
 
-
 ### Local and network disks {#resource-disks}
 
 Each dedicated host has multiple local disks available. Their number and size depend on the selected host configuration (see [above](#host-types)).
@@ -90,8 +91,11 @@ You can attach network and local disks to VMs on dedicated hosts. Make sure the 
 * You can only attach an entire local disk to a VM. For example, when attaching a disk to a VM on an `intel-6338-c108-m704-n3200x6` host, specify the exact disk size: `3198924357632`.
 * You cannot attach a single disk to two or more different VMs at the same time.
 
-You can only attach local disks to a VM while creating it. For more information about attaching disks, see [our guides](../operations/index.md#dedicated-host). To change the disks attached to an existing VM, you will have to recreate it.
+When working with local disks attached to VMs on dedicated hosts, you cannot:
 
+* Change an existing VM's RAM and CPU. To modify these parameters, recreate the VM.
+* Attach additional network disks to a `stopped` VM. You can only attach additional network disks to a [running](../operations/vm-control/vm-stop-and-start.md#start) VM.
+* Attach additional local disks to a VM or delete the attached ones. To change the local disks attached, recreate the VM. For more information about creating VMs with local disks on dedicated hosts, see the [guides](../operations/index.md#dedicated-host).
 
 ## Scaling policy {#scale-policy}
 
@@ -132,9 +136,9 @@ If the physical server is completely stopped, {{ compute-name }} performs the fo
 ## Linking a VM to a group or host {#bind-vm}
 
 To uniquely map a VM and a physical server, you can create a VM that is linked:
-* To a group of dedicated hosts.
+* To a group of dedicated hosts:
   When the VM is stopped, it will not be available on the group hosts, and when it is restarted, it may be linked to a different host of the group.
-* To the selected host of a group of hosts.
+* To the selected host of a group of hosts:
   When the VM is stopped, it will not be available on the host, and when it is restarted, it will be linked to the same host from the group.
 
 Linking a VM ensures that it will run on the same physical server or group of servers even after scheduled maintenance.

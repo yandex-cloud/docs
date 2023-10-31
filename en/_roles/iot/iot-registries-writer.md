@@ -1,0 +1,1 @@
+The `iot.registries.writer` role grants permission to send gRPC messages to Yandex IoT Core on behalf of a registry.

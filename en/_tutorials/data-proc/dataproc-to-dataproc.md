@@ -26,9 +26,9 @@ Prepare the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
             * `SPARK`
             * `YARN`
-        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`
-        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data
-        * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Bucket you created for output data.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
 
     1. If the cloud network uses [security groups](../../vpc/concepts/security-groups.md), [add](../../vpc/operations/security-group-add-rule.md) the following rule for outgoing traffic to the {{ dataproc-name }} cluster security group:
 
@@ -39,7 +39,7 @@ Prepare the infrastructure:
 
 - Using {{ TF }}
 
-    1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
     1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
     1. Download the [dataproc-to-dataproc.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/dataproc-to-dataproc.tf) configuration file to the same working directory.
 
@@ -57,7 +57,7 @@ Prepare the infrastructure:
     1. In the `dataproc-to-dataproc.tf` file, specify:
 
         * `folder_id`: Cloud folder ID, the same one specified in the provider settings.
-        * `input-bucket`: Name of the bucket for input datа.
+        * `input-bucket`: Name of the bucket for input data.
         * `output-bucket`: Name of the bucket for output data.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. For more information, see [{#T}](../../data-proc/operations/connect.md#data-proc-ssh).
 
@@ -88,7 +88,7 @@ Prepare the infrastructure:
     spark:spark.hive.metastore.uris=thrift://<{{ metastore-name }} IP address>:{{ port-metastore }}
     ```
 
-    To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../_assets/data-proc/metastore.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
+    To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../_assets/data-proc/metastore.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
 
 ## Create a test table {#create-table}
 

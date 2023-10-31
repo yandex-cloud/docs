@@ -37,6 +37,15 @@ To get the {{ k8s }} service account token:
    - kind: ServiceAccount
      name: gitlab-admin
      namespace: kube-system
+   ---
+   apiVersion: v1
+   kind: Secret
+   metadata:
+     name: gitlab-admin-token
+     namespace: kube-system
+     annotations:
+       kubernetes.io/service-account.name: gitlab-admin
+   type: kubernetes.io/service-account-token
    ```
 
    {% endcut %}

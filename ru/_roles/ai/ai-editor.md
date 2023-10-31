@@ -1,0 +1,1 @@
+Роль `ai.editor` позволяет использовать сервисы Translate, Vision, SpeechKit и YandexGPT. Включает в себя все разрешения, предоставляемые ролями `ai.viewer`, `ai.speechkit-stt.user`, `ai.speechkit-tts.user`, `ai.vision.user`, `ai.translate.user` и `ai.languageModels.user`.

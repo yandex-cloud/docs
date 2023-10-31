@@ -1,0 +1,1 @@
+The `serverless-containers.containerInvoker` role allows you to invoke containers.

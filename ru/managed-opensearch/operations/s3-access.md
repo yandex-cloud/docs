@@ -51,21 +51,21 @@
 1. Зарегистрируйте бакет как репозиторий снапшотов, используя публичный [API {{ OS }}]({{ os.docs }}/opensearch/snapshot-restore/#register-repository):
 
     ```http
-    PUT --cacert ~/.opensearch/root.crt https://admin:<пароль>@<идентификатор хоста {{ OS }} с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория>
+    PUT --cacert ~/.opensearch/root.crt https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>
     ```
 
     В параметрах запроса укажите бакет, связанный с сервисным аккаунтом кластера:
 
     ```bash
     curl --request PUT \
-         "https://admin:<пароль>@<идентификатор хоста {{ OS }} с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория>" \
+         "https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>" \
          --cacert ~/.opensearch/root.crt \
          --header "Content-Type: application/json" \
          --data '{
            "type": "s3",
            "settings": {
              "endpoint": "{{ s3-storage-host }}",
-             "bucket": "<имя бакета>"
+             "bucket": "<имя_бакета>"
            }
          }'
     ```

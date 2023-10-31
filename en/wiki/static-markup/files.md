@@ -1,5 +1,7 @@
 # Images and files
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 ## Embedding images {#add-image}
 
 To add image to a page, use markup:
