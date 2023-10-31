@@ -18,7 +18,7 @@ You can also work with a {{ ydb-full-name }} DB through:
 
 ## Create a database {#create-db}
 
-You can create a DB in the Serverless configuration or with dedicated servers. For more information about differences in configurations, see [Serverless and dedicated modes](concepts/serverless-and-dedicated.md). You cannot change the DB type once you have created it.
+You can create a DB in the Serverless configuration or with dedicated servers. For more information about differences between configurations, see [Serverless and dedicated modes](concepts/serverless-and-dedicated.md). You cannot change the DB type once you have created it.
 
 {% note info %}
 
@@ -33,16 +33,16 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-  1. In the list of services, select **{{ ydb-name }}**.
-  1. Click **Create database**.
-  1. Enter the **Name** of the DB. The naming requirements are as follows:
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. The naming requirements are as follows:
 
      {% include [name-format](../_includes/name-format.md) %}
 
-  1. Under **Database type**, select the **Serverless** option.
+  1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
 
       You can leave the default parameters for the DB being created and [change](operations/manage-databases.md#update-db-serverless) them later. For more information about DB parameters, see [{#T}](operations/manage-databases.md#create-db-serverless).
-  1. Click **Create database**.
+  1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
   Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
@@ -103,35 +103,35 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-  1. In the list of services, select **{{ ydb-name }}**.
-  1. Click **Create database**.
-  1. Enter the **Name** of the DB. The naming requirements are as follows:
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. The naming requirements are as follows:
 
      {% include [name-format](../_includes/name-format.md) %}
 
-  1. Under **Database type**, select the **Dedicated** option.
-  1. Under **Computing resources**, select the type and amount of [computing resources](concepts/resources.md#resource-presets).
-  1. Under **Storage groups**, select the disk type and number of [storage groups](concepts/resources.md#storage-groups) that determines the total amount of storage.
-  1. Under **Network**, configure network settings:
-     1. (Optional) In the **Public IP addresses** field, select **Assign** if you plan to run queries against the DB both from the {{ yandex-cloud }} network and the internet.
+  1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_dedicated-type }}`.
+  1. Under **{{ ui-key.yacloud.ydb.forms.label_section-compute }}**, select the type and amount of [computing resources](concepts/resources.md#resource-presets).
+  1. Under **{{ ui-key.yacloud.ydb.forms.label_section-storage }}**, select the disk type and number of [storage groups](concepts/resources.md#storage-groups) that determines the total amount of storage.
+  1. Under **{{ ui-key.yacloud.ydb.forms.label_section-network }}**, configure network settings:
+     1. (Optional) In the **{{ ui-key.yacloud.ydb.forms.field_public-ips }}** field, select **{{ ui-key.yacloud.ydb.forms.label_text-public-ips }}** if you plan to run queries against the DB both from the {{ yandex-cloud }} network and the internet.
 
         {% include [traffic_metering](_includes/traffic_metering.md) %}
 
-     1. Select an existing network from the **Cloud network** list or create a new one:
-        1. Click **Create new**.
-        1. In the window that opens, enter a **Name** for the new network.
-        1. (Optional) Select the **Create subnets** option. Subnets in each availability zone will be created automatically.
-        1. Click **Create**.
-     1. Under **Subnets**, select a network or create a new one for each [availability zone](../overview/concepts/geo-scope.md):
-        1. Click **Create new**.
-        1. In the window that opens, enter a **Name** for the new subnet.
-        1. (Optional) Enter a **Description** of the subnet.
-        1. Select the availability zone you need from the **Availability zone** list.
-        1. Specify the subnet address in [**CIDR**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
-        1. Click **Create**.
+     1. Select an existing network from the **{{ ui-key.yacloud.ydb.forms.field_network }}** list or create a new one:
+        1. Click **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
+        1. In the window that opens, enter a **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_name }}** for the new network.
+        1. (Optional) Select the **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** option. Subnets in each availability zone will be created automatically.
+        1. Click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+     1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each [availability zone](../overview/concepts/geo-scope.md):
+        1. Click **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
+        1. In the window that opens, enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** for the new subnet.
+        1. (Optional) Enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_description }}** of the subnet.
+        1. Select the availability zone you need from the **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_zone }}** list.
+        1. Specify the subnet address in [**{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_cidr }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
+        1. Click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
 
-     You cannot change the settings of the **Network** section after the database is created.
-  1. Click **Create database**.
+     You cannot change the settings of the **{{ ui-key.yacloud.ydb.forms.label_section-network }}** section after the database is created.
+  1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
      Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
 
@@ -235,16 +235,16 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder where the desired bucket is located.
-  1. In the list of services, select **{{ ydb-name }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the previously created database.
-  1. Go to the **Navigation** tab.
-  1. Click **SQL query** and enter the query text.
+  1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+  1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** and enter the query text.
 
      ```yql
      SELECT 1;
      ```
 
-  1. Click **Run**.
+  1. Click **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 
      See the query result below:
 

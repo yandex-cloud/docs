@@ -19,7 +19,7 @@ For more information, see [{#T}](../concepts/index.md).
    1. (Optional) Enter a cluster description.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including {{ mgp-full-name }} itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the {{ GP }} version.
 
    
@@ -61,11 +61,11 @@ For more information, see [{#T}](../concepts/index.md).
 
          {% note info %}
 
-         Such names as `admin`, `gpadmin`, `mdb_admin`, `mdb_replication`, `monitor`, `none`, `postgres`, `public`, `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
+         Such names as `admin`, `gpadmin`, `mdb_admin`, `mdb_replication`, `monitor`, `none`, `postgres`, `public`, and `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
 
          {% endnote %}
 
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be between 8 and 128 characters long.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be from 8 to 128 characters long.
 
    1. Configure additional cluster settings, if required:
 
@@ -101,7 +101,7 @@ For more information, see [{#T}](../concepts/index.md).
 
       * Number of segment hosts.
       * Number of segments per host. The maximum value of this parameter depends on a host class.
-      * [Host class](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster's segment hosts will be deployed.
+      * [Host class](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster segment hosts will be deployed.
       * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
          * Select the [disk type](../concepts/storage.md).
 
@@ -169,10 +169,10 @@ For more information, see [{#T}](../concepts/index.md).
       * `--greenplum-version`: {{ GP }} version.
       * `--environment`: Environment:
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including {{ GP }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-      * `--network-name`: [Name of the network](../../vpc/concepts/network.md#network).
-      * `--user-name`: Username, which may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, a number, or an underscore. It must be from 1 to 32 characters long.
-      * `--user-password`: Password, from 8 to 128 characters long.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+      * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
+      * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, a number, or an underscore. It must be from 1 to 32 characters long.
+      * `--user-password`: Password. It must be from 8 to 128 characters long.
       * `--master-config` and `--segment-config`: Master and segment host configurations:
          * `resource-id`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
@@ -241,7 +241,7 @@ For more information, see [{#T}](../concepts/index.md).
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
    
-   1. If you do not have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    2. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
@@ -357,7 +357,7 @@ For more information, see [{#T}](../concepts/index.md).
 
 - CLI
 
-   Create a {{ mgp-name }} cluster with test characteristics:
+   Create a {{ mgp-name }} cluster with the following test characteristics:
 
    
    * Named `gp-cluster`.
@@ -368,8 +368,8 @@ For more information, see [{#T}](../concepts/index.md).
    * With the password `user1user1`.
    * With master and segment hosts:
 
-      * `S2.medium` class.
-      * With a local SSD storage (`local-ssd`) of 100 GB.
+      * Class: `S2.medium`
+      * Local SSD storage (`local-ssd`): 100 GB
 
    * Availability zone: `{{ region-id }}-a`; subnet: `{{ subnet-id }}`
    * Public access to hosts: Allowed

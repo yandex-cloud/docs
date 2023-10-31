@@ -107,15 +107,15 @@ When restored to the current state, the new cluster will match the state of:
 
       Where:
 
-      * `--backup-id`: [Backup](../concepts/backup.md) ID
+      * `--backup-id`: [Backup](../concepts/backup.md) ID.
       * `--time`: Point in time to which you need to restore a {{ PG }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format.
-      * `--name`: Cluster name
+      * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing, including {{ PG }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
          * `PRODUCTION`: For stable versions of your apps.
 
-      * `--network-name`: [Network name](../../vpc/concepts/network.md#network)
+      * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
       * `--host`: Host parameters:
 
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
@@ -234,7 +234,7 @@ When restored to the current state, the new cluster will match the state of:
    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
    * ID of the backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * Timestamp of the point to which you want to recover the cluster, in the `time` parameter.
+   * Timestamp to which you want to recover the cluster, in the `time` parameter.
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
    By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `folderId` parameter.

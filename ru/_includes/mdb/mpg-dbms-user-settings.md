@@ -49,7 +49,7 @@
 
 - **Pooling mode**{#setting-pooling-mode} {{ tag-con }}
 
-  Режим, в котором работает пулер соединений [PgBouncer](https://www.pgbouncer.org/).
+  Режим, в котором работает менеджер подключений [PgBouncer](https://www.pgbouncer.org/).
 
   Возможные значения:
 

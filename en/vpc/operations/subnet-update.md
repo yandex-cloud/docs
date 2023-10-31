@@ -1,6 +1,6 @@
 # Updating a subnet
 
-After creating a [subnet](../concepts/network.md#subnet), you can change its name, description, and DCHP settings.
+After creating a [subnet](../concepts/network.md#subnet), you can change its name, description, and DHCP settings.
 
 {% list tabs %}
 
@@ -74,7 +74,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -112,7 +112,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -122,7 +122,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change to the subnet using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      You can check the subnet update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
       yc vpc subnet get <subnet name>

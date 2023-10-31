@@ -11,7 +11,7 @@ keywords:
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-Вы можете получить список хостов в кластере {{ ES }}, а также добавлять и удалять хосты кластера.
+Вы можете получить список хостов в кластере {{ ES }}, а также добавлять и удалять хосты кластера. О том, как перенести хосты кластера в другую зону доступности, см. [инструкцию](host-migration.md).
 
 {% note info %}
 
@@ -37,7 +37,7 @@ keywords:
     Чтобы получить список хостов в кластере, выполните команду:
 
     ```bash
-    {{ yc-mdb-es }} host list --cluster-name <имя кластера>
+    {{ yc-mdb-es }} host list --cluster-name <имя_кластера>
     ```
 
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -81,12 +81,17 @@ keywords:
 
     ```bash
     {{ yc-mdb-es }} host add \
-       --cluster-name <имя кластера> \
-       --host zone-id=<зона доступности>,`
-              `subnet-name=<имя подсети>,`
-              `assign-public-ip=<публичный доступ к хосту: true или false>,`
-              `type=<роль хоста: datanode или masternode>
+       --cluster-name <имя_кластера> \
+       --host zone-id=<зона_доступности>,`
+              `subnet-name=<имя_подсети>,`
+              `assign-public-ip=<публичный_доступ>,`
+              `type=<роль_хоста>
     ```
+
+    Где:
+
+    * `assign-public-ip` — публичный доступ к хосту: `true` или `false`.
+    * `type` — роль хоста: `datanode` или `masternode`.
 
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -103,17 +108,22 @@ keywords:
     1. Добавьте к описанию кластера {{ mes-name }} блок `host`.
 
         ```hcl
-        resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+        resource "yandex_mdb_elasticsearch_cluster" "<имя_кластера>" {
           ...
           host {
-            name             = "<имя хоста>"
-            zone             = "<зона доступности>"
-            type             = "<роль хоста: DATA_NODE или MASTER_NODE>"
-            assign_public_ip = <публичный доступ к хосту: true или false>
-            subnet_id        = "<идентификатор подсети>"
+            name             = "<имя_хоста>"
+            zone             = "<зона_доступности>"
+            type             = "<роль_хоста>"
+            assign_public_ip = <публичный_доступ>
+            subnet_id        = "<идентификатор_подсети>"
           }
         }
         ```
+
+        Где:
+
+        * `type` — роль хоста: `DATA_NODE` или `MASTER_NODE`.
+        * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
 
     1. Проверьте корректность настроек.
 
@@ -133,8 +143,6 @@ keywords:
     {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
   * Настройки нового хоста в одном или нескольких параметрах `hostSpecs`.
-
-  {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -170,7 +178,7 @@ keywords:
     Чтобы удалить хост из кластера, выполните команду:
 
     ```bash
-    {{ yc-mdb-es }} host delete <имя хоста> --cluster-name <имя кластера>
+    {{ yc-mdb-es }} host delete <имя_хоста> --cluster-name <имя_кластера>
     ```
 
     Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).

@@ -1,0 +1,1 @@
+The `load-balancer.privateAdmin` role lets you create, update, and delete load balancers and target groups without granting access to them from the internet.

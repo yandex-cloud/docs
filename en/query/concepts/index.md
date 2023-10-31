@@ -2,7 +2,7 @@
 
 {{ yq-full-name }} is a data service that can run federated queries against the [{{ objstorage-full-name }}](../../storage/concepts/index.md) object storage, managed [{{ mpg-name }}](https://cloud.yandex.ru/services/managed-postgresql) and [{{ mch-name }}](https://cloud.yandex.ru/services/managed-clickhouse) databases, and [{{ yds-full-name }}](../../data-streams/concepts/index.md) real-time streams. {{ yq-full-name }} uses YQL, a unified SQL dialect, to aggregate query execution results between these systems.
 
-{{ yq-full-name }} is a fully managed cloud service, meaning that you do not need to have running servers where software is deployed. Any resources that are required for making queries are allocated once you run them and released after they are complete. The queries themselves start running instantly.
+{{ yq-full-name }} is a fully managed cloud service, meaning that you do not need to have running servers with deployed software. Any resources that are required for making queries are allocated once you run them and released after they are complete. The queries themselves start running instantly.
 
 {{ yq-full-name }} allows you to:
 

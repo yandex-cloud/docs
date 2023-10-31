@@ -1,0 +1,1 @@
+The `iam.serviceAccounts.accessKeyAdmin` role lets you create, update, and delete static access keys for service accounts.

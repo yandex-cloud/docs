@@ -1,43 +1,43 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/get-worklog.md
+sourcePath: ru/tracker/api-ref/concepts/issues/get-worklog.md
 ---
-# Select records by parameters
+# Отобрать записи по параметрам
 
-Use this request to fetch data about the time spent by a specific user or during a certain period. You can make a `GET` or `POST` request.
+Запрос позволяет выбрать данные о времени, затраченном конкретным пользователем или в определенный промежуток времени. Вы можете использовать запрос с методом `GET` или с методом `POST`.
 
-## GET request format {#section_nvm_kth_jfb}
+## Формат GET запроса {#section_nvm_kth_jfb}
 
-To get records of time spent, use the HTTP `GET` request method:
+Чтобы получить записи о затраченном времени, используйте HTTP-запрос с методом `GET`:
 
 ```json
-GET /{{ ver }}/worklog?createdBy=<user ID or name>&createdAt=from:<start of the time range>&createdAt=to:<end of the time range>
+GET /{{ ver }}/worklog?createdBy=<идентификатор или имя пользователя>&createdAt=from:<начало временного диапазона>&createdAt=to:<окончание временного диапазона>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Request parameters" %}
+{% cut "Параметры запроса" %}
 
-**Additional parameters**
+**Дополнительные параметры**
 
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| createdBy | ID or username of the record author. Optional parameter. | String |
-| createdAt=from | Start of the time range the records are created in. Format: ```YYYY-MM-DDThh:mm:ss.sss±hhmm```</br>Optional parameter. | String |
-| createdAt=to | End of the time range the records are created in. Format: ```YYYY-MM-DDThh:mm:ss.sss±hhmm```</br>Optional parameter. | String |
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+createdBy | Идентификатор или логин автора записи. Необязательный параметр. | Строка
+createdAt=from | Начало временного диапазона, в который созданы записи. Формат: ```YYYY-MM-DDThh:mm:ss.sss±hhmm```</br>Необязательный параметр. | Строка
+createdAt=to | Окончание временного диапазона, в который созданы записи. Формат: ```YYYY-MM-DDThh:mm:ss.sss±hhmm```</br>Необязательный параметр. | Строка
 
 {% endcut %}
 
-## POST request format {#section_shz_tqb_kfb}
+## Формат POST запроса {#section_shz_tqb_kfb}
 
-To get records of time spent, use an HTTP `POST` request:
+Чтобы получить записи о затраченном времени, используйте HTTP-запрос с методом `POST`:
 
 ```json
 POST /{{ ver }}/worklog/_search
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <токен>
 {{ org-id }}
 
 {
@@ -51,31 +51,31 @@ Authorization: OAuth <token>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Request body parameters" %}
+{% cut "Параметры тела запроса" %}
 
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| createdBy | ID or username of the record author. Optional parameter. | String |
-| [createdAt](#createdAt) | Object with information about the record creation date and time. Optional parameter. | Object |
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+createdBy | Идентификатор или логин автора записи. Необязательный параметр. | Строка
+[createdAt](#createdAt) | Объект с информацией о времени и дате создания записей. Необязательный параметр. | Объект
 
-**Object fields** `createdAt` {#createdAt}
+**Поля объекта** `createdAt` {#createdAt}
 
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| from | Start of the time range the records are created in. Format: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | String |
-| to | End of the time range the records are created in. Format: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | String |
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+from | Начало временного диапазона, в который созданы записи. Формат: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | Строка
+to | Окончание временного диапазона, в который созданы записи. Формат: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | Строка
 
 {% endcut %}
 
-## Response format {#section_x4q_jcc_kfb}
+## Формат ответа {#section_x4q_jcc_kfb}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
-
-    The response body contains a JSON array with records about the time spent, which were selected according to the specified parameters.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %} 
+ 
+    Тело ответа содержит JSON-массив с записями о затраченном времени, которые были отобраны по заданным параметрам.
 
     ```json
     [
@@ -87,9 +87,9 @@ Authorization: OAuth <token>
         "self": "{{ host }}/v2/issues/TEST-324",
         "id": "515ec9eae4b09cfa984e2047",
         "key": "TEST-324",
-        "display": "important issue"
+        "display": "важная задача"
       },
-      "comment": "important comment",
+      "comment": "важный комментарий",
       "createdBy": {
         "self": "{{ host }}/v2/users/1120000000014909",
         "id": "veikus",
@@ -109,52 +109,52 @@ Authorization: OAuth <token>
     ]
     ```
 
-    {% cut "Response parameters" %}
+    {% cut "Параметры ответа" %}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with a record of the time spent on the issue. | String |
-    | id | ID of the record of time spent. | String |
-    | version | Record version. Each change to the record increases its version number. | String |
-    | [issue](#issue) | Block with information about the issue. | Object |
-    | comment | Text of the comment to the record. The comment is saved to the Time Spent report. | String |
-    | [createdBy](#createdBy) | Object with information about the record author. | Object |
-    | [updatedBy](#updatedBy) | Object with information about the user who updated the record last. | Object |
-    | createdAt | Record creation date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
-    | updatedAt | Record update date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
-    | start | Date and time when work on the issue started, in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
-    | duration | Time spent, in ```PnYnMnDTnHnMnS, PnW``` format, according to the [ISO 8601]({{ link-iso-8601 }}). | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит запись о затраченном времени. | Строка
+    id | Идентификатор записи о затраченном времени. | Строка
+    version | Версия записи. Каждое изменение записи увеличивает номер версии. | Строка
+    [issue](#issue) | Блок с информацией о задаче. | Объект
+    comment | Текст комментария к записи. Комментарий сохранится в Отчёте по затратам времени. | Строка
+    [createdBy](#createdBy) | Объект с информацией об авторе записи. | Объект
+    [updatedBy](#updatedBy) | Объект с информацией об авторе последнего изменения записи. | Объект
+    createdAt | Дата и время создания записи в формате: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | Строка
+    updatedAt | Дата и время обновления записи в формате: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | Строка
+    start | Дата и время начала работы над задачей в формате: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | Строка
+    duration | Затраченное время в формате ```PnYnMnDTnHnMnS, PnW``` в соответствии с [ISO 8601]({{ link-iso-8601 }}). | Строка
 
-    ##### `issue` object fields {#issue}
+    ##### Поля объекта `issue` {#issue}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the issue. | String |
-    | id | Issue ID. | String |
-    | key | Issue key. | String |
-    | display | Issue name displayed. | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о задаче. | Строка
+    id | Идентификатор задачи. | Строка
+    key | Ключ задачи. | Строка
+    display | Отображаемое название задачи. | Строка
 
-    **Object fields** `createdBy` {#createdBy}
+    **Поля объекта** `createdBy` {#createdBy}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the user. | String |
-    | id | User ID. | String |
-    | display | User's name displayed. | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
+    id | Идентификатор пользователя. | Строка
+    display | Отображаемое имя пользователя. | Строка
 
-    **Object fields** `updatedBy` {#updatedBy}
+    **Поля объекта** `updatedBy` {#updatedBy}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the user. | String |
-    | id | User ID. | String |
-    | display | User's name displayed. | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
+    id | Идентификатор пользователя. | Строка
+    display | Отображаемое имя пользователя. | Строка
 
     {% endcut %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If a request fails, the response message contains details of the errors encountered:
+    Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -167,4 +167,3 @@ Authorization: OAuth <token>
     {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

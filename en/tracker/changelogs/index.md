@@ -1,73 +1,81 @@
-# {{ tracker-full-name }} revision history for August 2023
+# {{ tracker-full-name }} revision history for September 2023
 
 * [Updates](#top-news)
 * [Fixes and improvements](#fixes)
 
 ## Updates {#top-news}
 
-### Integrations in queue settings {#queue-integrations}
-Added a new page, **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--integrations }}**, to the queue settings. You can use it to set up the following integrations:
+### New settings for queue access {#new-queue-access}
 
-* [Forms](../manager/forms-integration.md) to create issues based on responses from {{ forms-name }} forms.
-* [Email](../manager/queue-mail.md) to send and receive emails right on the issue page.
-* [Commits](../user/ticket-links.md#section_commit) to track commits made while completing an issue.
+The new access rights allow you to flexibly manage your team's queue permissions: from viewing, editing, or creating tasks, to editing queue settings. Moreover, you can now restrict access to the queue. You can configure these permissions both for individual users and groups of users.
 
+You still can override access rights in tasks using components and assign rights depending on roles in the task. Now these settings can be accessed from the new interface and are easier to use.
 
-### Changing an organization {#change-org}
+To manage access, go to the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-permissions }}** tab in queue settings. On this page, you can also view queue access rights for any user or user group.
 
-You can now use the organizations page to change the organization that {{ tracker-name }} is enabled for. To do this:
+For more details on setting up access rights, see [{#T}](../manager/queue-access.md).
 
-1. Go to the [organizations page]({{ link-tracker }}admin/orgs).
-1. Click **{{ ui-key.startrek.ui_components_page-admin_ChangeOrganizationModal.add-button }}**.
-1. In the window that opens, select an available organization and click **{{ ui-key.startrek.ui_components_page-admin_ChangeOrganizationModal.add-button }}**.
+### Advanced time tracking {#extended-spent-time}
 
-You can change both {{ yandex-cloud }} and {{ ya-360 }} organizations.
+Now you can easier track spent time thanks to [advanced time tracking](../user/time-spent.md#extended-spent-time). This feature allows you to:
 
+* Specify the spent time directly in the task right-hand panel.
+* Edit and delete spent time records without using the API.
+* Track how much time is left to complete a task.
+* Use a convenient time presentation form.
+* Specify the spent time without measurement units.
 
+Advanced time tracking can be enabled and configured separately for each queue. For more information, see [{#T}](../manager/queue-spent-time.md).
 
+### Integrations with forms within {{ tracker-name }} {#forms-integrations}
 
-### New page for connecting repositories {#reposutory-new-ui}
+In the queue integration settings, you can now create and integrate [{{ forms-full-name }}](../../forms/index.yaml) forms. To do this:
 
-The new interface now has the [connect repositories page]({{ link-tracker }}admin/repositories).
+1. In the settings for the queue for which you want to create or integrate the form, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.tab-title--integrations }}**.
 
-### Adding a repository on your own server {#repository-personal-server}
+1. Under **{{ ui-key.startrek.ui_components_queue-admin-tab-integrations_IntegrationForms.title }}**, click **{{ ui-key.startrek.ui_components_queue-admin-tab-integrations_IntegrationForms.settings-button-text }}**. On this page, you can work with forms:
 
-You can now [connect a repository](../user/add-repository.md) hosted on your own server without contacting support. To do this, make sure your server is associated with GitHub, GitLab, or Bitbucket.
+   * Create new forms and add existing ones. To do this, click **{{ ui-key.startrek.ui_components_page-queue-admin_queue-admin-tab-integrations-forms_components_FormsMenu.add-form }}** in the upper-right corner and select **{{ ui-key.startrek.ui_components_page-queue-admin_queue-admin-tab-integrations-forms_components_FormsMenu.add-form }}** or **{{ ui-key.startrek.ui_components_page-queue-admin_queue-admin-tab-integrations-forms_components_FormsMenu.create-new }}**.
 
-To connect a custom repository:
-1. Go to the [connect repositories page]({{ link-tracker }}admin/repositories).
-1. In the top-right corner, click **{{ ui-key.startrek.ui_components_admin-repositories_ConnectRepositoryDialog.connect }}**.
-1. In the **{{ ui-key.startrek.blocks-desktop_repository-modal.platform }}** field, select the platform your server is connected to.
-1. In the **{{ ui-key.startrek.ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField.server-url-label }}** field, specify your server address to any repository that can be accessed using a token.
-1. In the **{{ ui-key.startrek.ui_components_admin-repositories_ConnectRepositoryDialog.token-label }}** field, enter the token for connecting to your server.
-1. Click **{{ ui-key.startrek.blocks-desktop_repository-modal.button--connect }}**.
-1. Make sure that the repository status in {{ tracker-name }} is **{{ ui-key.startrek.blocks-desktop_page-admin-tab_type_repositories.status--success }}**.
+   * Edit and delete previously added forms. To do this, in the list of forms, click ![](../../_assets/tracker/svg/actions.svg) to the right of the record of interest and select an action.
 
+### Portfolios {#portfolios}
 
-### Migrating boards to new technologies {#boards-migration}
+{{ tracker-name }} now provides portfolios where you can combine [projects](../manager/project-new.md) and other portfolios. Portfolios help you structure and manage your project activities.
 
-Starting September 1, 2023, all boards with no migration restrictions were automatically transferred to the [new technologies](../manager/agile-new.md).
+Portfolios are available in the [section]({{ link-tracker }}pages/projects/list) ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}**. There you can create portfolios, populate them with projects and other portfolios, update statuses, and track progress. With portfolios, you can also use Gantt charts to easily track and adjust your project schedule.
 
-You can learn more about the board migration [here](../manager/boards-convertor.md).
+For more information on portfolios, see [{#T}](../manager/portfolio.md).
 
-### Mermaid support {#mermaid}
+### Project milestones {#milestones}
 
-You can now add [Mermaid](https://mermaid.js.org/) diagrams to {{ tracker-name }} issue descriptions and comments. To insert a diagram, open the list of commands using the `/` character and select ![](../../_assets/tracker/svg/mermaid.svg) **Mermaid**.
+Added a new [issue type](../manager/add-ticket-type.md): ![](../../_assets/tracker/svg/milestone.svg) **{{ ui-key.startrek.ui_components_issues_create-issue-popup_NewIssueForm.milestone-type }}**. You can use it to track important project development stages. Note that milestones have no **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--startDate }}** and **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--endDate }}** fields. They only have the **{{ ui-key.startrek.components_FormCreateIssue.field--dueDate }}** field.
+
+Project milestones in {{ tracker-name }} are displayed in the **{{ ui-key.startrek.ui_components_projects_HeaderTabs.description-tab }}** tab under the project description. On the [project Gantt chart](../gantt/project.md), milestones are shown as a diamond. Now you can add milestones to your project on these pages.
+
+To use milestones in a queue, add them to the [queue workflow](../manager/add-workflow.md).
+
+For more information on milestones, see [{#T}](../manager/milestones.md).
+
+### Visual workflow editor leaves beta {#new-default-workflow-page}
+
+The new [queue workflow](../manager/add-workflow.md) editor has left beta and is now available by default. Because of this, we have now removed the **Task Types** section from queue settings: all these options are now available under **Workflows**. To open workflows:
+
+1. Navigate to the required queue's settings.
+1. Select the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab.
+
+### Copying workflows from other queues {#copy-workflow}
+
+In the workflow editor, you can now copy workflows from one queue and use them in another queue. To do this:
+
+1. Navigate to the settings of the queue for which you want to set up a workflow.
+1. Select the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab.
+1. In the top-right corner, tap ![](../../_assets/tracker/svg/copy-workflow.svg).
+1. In the pop-up window, select the queue and its workflow you want to copy, and enter the name for the new workflow.
+1. Click **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.action-copy }}**.
 
 ## Fixes and improvements {#fixes}
 
-### Fixed a search of issues by field value {#search-filters-fix}
+### Fixed transition display on the workflow page {#fix-workflow-transition}
 
-Fixed the filter parameter error that occurred when searching for a selected parameter's value, such as **Status** or **Issue type**. The value being searched for was not displayed in the search results in the event of an exact match.
-
-
-### Fixed the error that occurred when switching to inactive tabs at an organization change {#organizations-fix}
-
-The fixed error occurred when multiple tabs with {{ tracker-name }} were open in the browser and the user changed the organization in one of them. The context persisted in the open tabs, which caused errors when switching to them.
-
-Now, when navigating across open tabs, the user will see a pop-up window prompting them to stay in the current organization or switch to a new one.
-
-
-### New project page {#projects-new}
-
-Updated the layout of [project pages](../manager/project-new.md). Their interface is now similar to that of {{ tracker-name}} issues.
+If you set a status transition into itself in the workflow editor, the transition line now does not cross the status block and displays correctly.

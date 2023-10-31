@@ -1,0 +1,1 @@
+The `loadtesting.generatorClient` role allows starting VMs, running tests on agents, and uploading the output to the repository (assigned to a service account that is used to create VMs with agents).

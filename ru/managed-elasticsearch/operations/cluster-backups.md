@@ -95,7 +95,7 @@ keywords:
     Чтобы получить данные о резервной копии кластера {{ ES }}, выполните команду:
 
     ```bash
-    {{ yc-mdb-es }} backup get <идентификатор резервной копии>
+    {{ yc-mdb-es }} backup get <идентификатор_резервной_копии>
     ```
 
     Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -139,7 +139,7 @@ keywords:
     1. Запросите создание резервной копии, указав идентификатор или имя кластера:
 
         ```bash
-        {{ yc-mdb-es }} cluster backup <идентификатор или имя кластера>
+        {{ yc-mdb-es }} cluster backup <имя_или_идентификатор_кластера>
         ```
 
         Идентификатор и имя кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -176,7 +176,7 @@ keywords:
   Чтобы восстановить из резервной копии удаленный ранее кластер:
   1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
-  1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.name }}** содержатся идентификаторы в формате `<идентификатор кластера>:<идентификатор резервной копии>`.
+  1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.name }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
   1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.common.folder }}** можно выбрать каталог для нового кластера.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -221,21 +221,21 @@ keywords:
         
         ```bash
         {{ yc-mdb-es }} cluster restore \
-           --backup-id=<идентификатор резервной копии> \
-           --name=<имя кластера> \
-           --environment=<окружение: PRESTABLE или PRODUCTION> \
-           --network-name=<имя сети> \
-           --host zone-id=<зона доступности>,`
-                 `subnet-id=<имя подсети>,`
-                 `assign-public-ip=<публичный доступ к хосту: true или false>,`
-                 `type=<роль хоста: datanode или masternode> \
-           --datanode-resource-preset=<класс хостов с ролью Data node> \
-           --datanode-disk-size=<размер хранилища в гигабайтах для хостов с ролью Data node> \
-           --datanode-disk-type=<тип диска для хостов с ролью Data node> \
-           --masternode-resource-preset=<класс хостов с ролью Master node> \
-           --masternode-disk-size=<размер хранилища в гигабайтах для хостов с ролью Master node> \
-           --masternode-disk-type=<тип диска для хостов с ролью Master node: network-ssd> \
-           --admin-password=<пароль пользователя admin>
+           --backup-id=<идентификатор_резервной_копии> \
+           --name=<имя_кластера> \
+           --environment=<окружение> \
+           --network-name=<имя_сети> \
+           --host zone-id=<зона_доступности>,`
+                 `subnet-id=<имя_подсети>,`
+                 `assign-public-ip=<публичный_доступ>,`
+                 `type=<роль_хоста> \
+           --datanode-resource-preset=<класс_хостов_Data_node> \
+           --datanode-disk-size=<размер_хранилища_ГБ_Data_node> \
+           --datanode-disk-type=<тип_диска_Data_node> \
+           --masternode-resource-preset=<класс_хостов_Master_node> \
+           --masternode-disk-size=<размер_хранилища_ГБ_Master_node> \
+           --masternode-disk-type=<тип_диска_Master_node> \
+           --admin-password=<пароль_пользователя_admin>
         ```
 
 
@@ -255,10 +255,10 @@ keywords:
 
             
             * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или   больше подсетей.
-            * `assign-public-ip` — флаг, который указывается, если для хоста требуется [публичный доступ](../concepts/network.md#public-access-to-a-host).
+            * `assign-public-ip` — флаг, который указывается, если для хоста требуется [публичный доступ](../concepts/network.md#public-access-to-a-host): : `true` или `false`.
 
 
-            * `type` — [роль хоста](../concepts/hosts-roles.md).
+            * `type` — [роль хоста](../concepts/hosts-roles.md): `datanode` или `masternode`.
 
         * `--datanode-resource-preset` — [класс хостов](../concepts/instance-types.md#available-flavors) с ролью Data node.
         * `--datanode-disk-size` — размер хранилища в гигабайтах для хостов с ролью Data node.

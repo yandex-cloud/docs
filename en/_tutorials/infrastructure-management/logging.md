@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost for a load balancer with logging includes:
 
 * Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A payment for computing resources, the amount of storage and backups for a {{ PG }} cluster (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
+* Fee for computing resources, the amount of storage and backups for a {{ PG }} cluster (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
 * Fee for function calls for log processing and computing resources allocated to execute the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for logging operations and log storage (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
 * Fee for {{ alb-name }} resource usage (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
@@ -65,7 +65,7 @@ To create a network:
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, enter `alb-logging-service-account`.
-   1. Add roles: `serverless.functions.invoker` and `editor`.
+   1. Add the `{{ roles-functions-invoker }}` and `editor` roles.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -580,7 +580,7 @@ To create a trigger:
 
    {% endlist %}
 
-1. Open the `http://<Load balancer IP address>` in the browser. Refresh the page several times.
+1. Open `http://<Load balancer IP address>` in the browser. Refresh the page several times.
 1. Make sure that the logs contain information about your requests to the load balancer:
 
    {% list tabs %}
@@ -591,7 +591,7 @@ To create a trigger:
       1. Select the `alb-logging-cluster` cluster.
       1. Go to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
       1. Select the user that you [created together with the cluster](#set-up-db-create-cluster) and enter their password.
-      1. Select the database you created along with the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+      1. Select the database you created along with the cluster, and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
       1. Click the `load_balancer_requests` table. You should now see the first rows of this table with your requests to the load balancer.
 
    {% endlist %}

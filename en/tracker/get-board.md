@@ -1,69 +1,69 @@
 ---
-sourcePath: en/tracker/api-ref/get-board.md
+sourcePath: ru/tracker/api-ref/get-board.md
 ---
-# Get board parameters
+# Получить параметры доски
 
-Use this request to get the parameters of an issue board.
+Запрос позволяет получить параметры доски.
 
-## Request format {#query}
+## Формат запроса {#query}
 
-Before making the request, [get permission to access the API](concepts/access.md).
+Перед выполнением запроса [получите доступ к API](concepts/access.md).
 
-To get the parameters of a specific issue board, use an HTTP `GET` request.
+Чтобы получить параметры конкретной доски задач, используйте HTTP-запрос с методом `GET`.
 
 ```
 GET /{{ ver }}/boards/<board-id>
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <токен>
 {{ org-id }}
 ```
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<board-id\> | Board ID | Number |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+\<board-id\> | Идентификатор доски | Число
 
 {% endcut %}
 
-## Response format {#answer}
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains a JSON object with board parameters.
+    Тело ответа содержит JSON-объект с параметрами доски.
 
     ```json
     {
       "self" : "{{ host }}/v2/boards/1",
       "id" : 1,
       "version" : 1412806202302,
-      "name" : "Testing",
+      "name" : "Тестирование",
       "columns" :
       [
        {
         "self" : "{{ host }}/v2/boards/1/columns/1387461731452",
         "id" : "1387461731452",
-        "display": "Open"
+        "display" : "Открыт"
        },
        ...
       ],
        "filter": {
-          "<key of parameter 1>": "<value 1>",
-          "<key of parameter 2>": [
-              "<value 2>",
+          "<ключ параметра 1>": "<значение 1>",
+          "<ключ параметра 2>": [
+              "<значение 2>",
                             ...
            ],
             ...
         },
        "orderBy": "updated",
        "orderAsc": false,
-       "query": "<Parameter 1>: <Value 1> AND <Parameter 2>: <Value 2> OR <Parameter 3>: <Value 3>...",
+       "query": "<Параметр 1>: <Значение 1> AND <Параметр 2>: <Значение 2> OR <Параметр 3>: <Значение 3>...",
        "useRanking": false,
        "estimateBy": {
           "self": "{{ host }}/v2/fields/storyPoints",
@@ -73,13 +73,13 @@ Authorization: OAuth <token>
        "country": {
           "self": "{{ host }}/v2/countries/1",
           "id": "1",
-          "display": "Russia"
+          "display": "Россия"
         },
        "defaultQueue": {
           "self": "{{ host }}/v2/queues/DOC",
           "id": "3",
           "key": "DOC",
-          "display": "Documentation"
+          "display": "Документирование"
         },
         "calendar": {
            "id": 6
@@ -87,76 +87,76 @@ Authorization: OAuth <token>
        }
     ```
 
-    {% cut "Response parameters" %}
+    {% cut "Параметры ответа" %}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with board parameters. | String |
-    | id | Board ID. | Number |
-    | version | Board version. Each change to the board increases its version number. | Number |
-    | name | Board name. | String |
-    | [columns](#columns) | Object with information about board columns. | Object |
-    | [filter](#filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values. | Object |
-    | orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
-    | orderAsc | Field value sorting order:<ul><li>`true`: Ascending.</li><li>`false`: Descending.</li></ul> | Boolean |
-    | query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md). | String |
-    | useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Object |
-    | [estimateBy](#estimateBy) | Object with information about the parameter that issues on the board are estimated by. <br/>Defaults to `Story Points`. | Object |
-    | [country](#country) | Object with information about the country. Data of a country's business calendar is used in the [Burndown chart](manager/burndown.md).<br/>To get a list of countries, use an HTTP request: `GET /v2/countries` | Object |
-    | [defaultQueue](#defaultQueue) | Object with information about the default queue for creating issues. | Object |
-    | [calendar](#calendar) | Object with information about the business calendar used for the board. The calendar is used to count working and non-working days in the [Burndown chart](manager/burndown.md). | Number |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит параметры доски. | Строка
+    id | Идентификатор доски. | Число
+    version | Версия доски. Каждое изменение доски увеличивает номер версии. | Число
+    name | Название доски. | Строка
+    [columns](#columns) | Объект с информацией о колонках доски. | Объект
+    [filter](#filter) | Объект с информацией об условиях фильтра, с помощью которого отбираются задачи для доски.<br/>Параметры задачи состоят из полей и значений. | Объект
+    orderBy | Ключ поля.<br/>Поле служит параметром для сортировки задач на доске.<br/>Полный список полей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Строка
+    orderAsc | Направление сортировки:<ul><li>`true` — по возрастанию значений поля;</li><li>`false` — по убыванию значений поля.</li></ul> | Логический
+    query | Параметры фильтра, с помощью которого отбираются задачи для доски.<br/>Параметры задаются на [языке запросов](user/query-filter.md). | Строка
+    useRanking | Возможность менять порядок задач на доске:<ul><li>`true`— разрешено;</li><li>`false`— запрещено.</li></ul> | Объект
+    [estimateBy](#estimateBy) | Объект с информацией о том, по какому параметру оцениваются задачи на доске. <br/>По умолчанию `Story Points`. | Объект
+    [country](#country) | Объект с информацией о стране. Данные производственного календаря страны используются в [Диаграмме сгорания задач](manager/burndown.md).<br/>Чтобы получить список стран, используйте HTTP-запрос: `GET /v2/countries` | Объект
+    [defaultQueue](#defaultQueue) | Объект с информацией об очереди, в которой задачи создаются по умолчанию. | Объект
+    [calendar](#calendar) | Объект с информацией о производственном календаре для этой доски. Календарь используется для расчета рабочих и нерабочих дней в [Диаграмме сгорания задач](manager/burndown.md). | Число
 
-    **Object fields** `columns` {#columns}
+    **Поля объекта** `columns` {#columns}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the board column | String |
-    | id | Column ID | String |
-    | display | Column name displayed | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о колонке доски | Строка
+    id | Идентификатор колонки | Строка
+    display | Отображаемое название колонки | Строка
 
-    **Object fields** `filter` {#filter}
+    **Поля объекта** `filter` {#filter}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | \<key of parameter 1\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
-    | \<key of parameter 2\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Array |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    \<ключ параметра 1\> | Ключ поля, который является параметром отбора задач на доску.<br/>Полный список полей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Строка
+    \<ключ параметра 2\> | Массив с ключами полей, которые являются параметрами отбора задач на доску.<br/>Полный список полей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Массив
 
-    **Object fields** `estimateBy` {#estimateBy}
+    **Поля объекта** `estimateBy` {#estimateBy}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the issue estimation parameter. | String |
-    | id | ID of the issue estimation parameter | String |
-    | display | Issue estimation parameter name displayed. | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о параметре оценки задачи | Строка
+    id | Идентификатор параметра оценки задачи | Строка
+    display | Отображаемое название параметра оценки задачи | Строка
 
-    **Object fields** `country` {#country}
+    **Поля объекта** `country` {#country}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with the country name | String |
-    | id | Country ID | String |
-    | display | Country name displayed | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит название страны | Строка
+    id | Идентификатор страны | Строка
+    display | Отображаемое название страны | Строка
 
-    **Object fields** `defaultQueue` {#defaultQueue}
+    **Поля объекта** `defaultQueue` {#defaultQueue}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the queue | String |
-    | id | Queue ID | String |
-    | key | Queue key | String |
-    | display | Queue name displayed | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию об очереди | Строка
+    id | Идентификатор очереди | Строка
+    key | Ключ очереди | Строка
+    display | Отображаемое название очереди | Строка
 
-    **Object fields** `calendar` {#calendar}
+    **Поля объекта** `calendar` {#calendar}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | id | Calendar ID | Number |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    id | Идентификатор календаря | Число
 
     {% endcut %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
 
@@ -169,4 +169,3 @@ Authorization: OAuth <token>
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

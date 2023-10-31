@@ -1,5 +1,7 @@
 # Quotes
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 ## Quoting a paragraph {#paragraph}
 
 * To quote a paragraph, add the `>` character at the start of that paragraph.

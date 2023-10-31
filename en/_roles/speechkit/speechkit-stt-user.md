@@ -1,0 +1,1 @@
+The `ai.speechkit-stt.user` role enables you to use SpeechKit to recognize speech.

@@ -1,15 +1,15 @@
 ---
 editable: false
 ---
-# Pricing for {{ network-load-balancer-name }}
+# {{ network-load-balancer-name }} pricing
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
-When using {{ network-load-balancer-full-name }}, you are charged for the incoming and outgoing traffic processed by a network load balancer and for the number of network load balancers.
+When using {{ network-load-balancer-full-name }}, you pay for the incoming and outgoing traffic processed by a network load balancer and for the number of network load balancers.
 
-In case of a network load balancer with a public IP address, you additionally pay for outbound internet traffic like in other [{{ yandex-cloud }}](../vpc/pricing.md#prices-traffic) services. Charges for outgoing traffic include the traffic that is generated when targets respond to health checks.
+For a network load balancer with a public IP address, you additionally pay for outbound internet traffic like in other [{{ yandex-cloud }}](../vpc/pricing.md#prices-traffic) services. Charges for outgoing traffic include the traffic generated when targets respond to health checks.
 
 ## Pricing {#prices}
 

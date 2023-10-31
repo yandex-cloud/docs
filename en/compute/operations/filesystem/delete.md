@@ -1,6 +1,6 @@
 # Deleting file storage
 
-1. [Detach file storage](detach-from-vm.md) from all the VMs it's attached to.
+1. [Detach file storage](detach-from-vm.md) from all the VMs it is attached to.
 1. Delete file storage in {{ compute-name }}:
 
    {% list tabs %}
@@ -10,12 +10,12 @@
    1. In the [management console]({{ link-console-main }}), select the folder where your file store is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
-   1. In the line of the appropriate file storage, click ![image](../../../_assets/options-grey.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the appropriate file storage row, click ![image](../../../_assets/options-grey.svg) and select **{{ ui-key.yacloud.common.delete }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
    - {{ TF }}
 
-      If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
       1. Open the {{ TF }} configuration file and delete the fragment with the storage description:
 
@@ -38,7 +38,7 @@
 
          {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      You can verify that the storage has been deleted using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      You can check the storage deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc compute filesystem list

@@ -1,5 +1,7 @@
 # Escaping characters
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 * To display markup characters, escape them by using the backward slash (`\`) or tilde (`~`):
 
    ```
@@ -40,13 +42,13 @@
 * All markup characters placed in the source code are escaped automatically:
 
    ```
-       Formatting text: 
-   
+       Formatting text:
+
        ```
        *Italics*
        **Bold**
        ```
-   
+
    ```
    {% cut "See the result" %}
 

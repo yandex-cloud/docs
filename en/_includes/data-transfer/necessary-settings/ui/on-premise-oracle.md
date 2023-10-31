@@ -19,8 +19,8 @@
 
    The lists include the name of the [schema]({{oracle.docs}}/admqs/managing-schema-objects.html) (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 
-   * `<schema name>.<table name>`: Fully qualified table name.
-   * `<schema name>.*`: All tables in the specified schema.
-   * `<table name>`: Table in the default schema.
+   * `<schema_name>.<table_name>`: Fully qualified table name.
+   * `<schema_name>.*`: All tables in the specified schema.
+   * `<table_name>`: Table in the default schema.
 
 * {% include [Convert NUMBER to INT64](../../fields/oracle/ui/convert-number-to-int64.md) %}

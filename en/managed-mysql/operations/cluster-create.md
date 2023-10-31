@@ -29,7 +29,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
    1. Select the environment where you want to create the {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including {{ mmy-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the DBMS version.
    1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm-platforms.md) where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the {{ mmy-name }} cluster, the characteristics of all existing hosts change, too.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
@@ -167,9 +167,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   
-   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To create a {{ mmy-name }} cluster:
    1. In the configuration file, describe the parameters of the resources you want to create:
@@ -382,7 +380,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    * Cloud ID: `{{ tf-cloud-id }}`
    * Folder ID: `{{ tf-folder-id }}`
    * New network: `mynet`
-   * Number of `{{ host-class }}` hosts in the new `mysubnet` subnet in the `{{ region-id }}-a` availability zone: 1. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * Number of `{{ host-class }}` hosts in the new `mysubnet` subnet, in the `{{ region-id }}-a` availability zone: 1. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
 
    
    * In a new security group named `mysql-sg` allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
@@ -390,10 +388,10 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
-   * With one `db1` database, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
-   * With protection against accidental {{ mmy-name }} cluster deletion.
+   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
+   * Protection against accidental {{ mmy-name }} cluster deletion: Enabled.
 
-   The configuration file for the {{ mmy-name }} cluster looks like this:
+   The configuration file for the {{ mmy-name }} cluster is as follows:
 
    
    

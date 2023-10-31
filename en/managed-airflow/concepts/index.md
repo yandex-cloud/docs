@@ -67,8 +67,6 @@ The main {{ AF }} components are as follows:
 
 * _DAG file storage_: [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) that stores DAG files. This storage can be accessed by web servers, schedulers, workers, and Triggerer.
 
-Interaction between the components is detailed in the [{{ AF }} architecture description](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html).
-
 To ensure fault tolerance and enhance performance, web servers, schedulers, and Triggerer may exist in multiple instances. Their number is set when creating a cluster.
 
 For workers, you can also set the minimum and maximum number of instances while creating a cluster. Their number will be scaled dynamically. This feature is provided by the [KEDA](https://airflow.apache.org/docs/helm-chart/stable/keda.html) controller.

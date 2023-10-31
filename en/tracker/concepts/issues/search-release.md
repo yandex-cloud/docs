@@ -1,20 +1,20 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/search-release.md
+sourcePath: ru/tracker/api-ref/concepts/issues/search-release.md
 ---
-# Release scroll view resources
+# Освободить ресурсы просмотра прокрутки
 
-Use this request to release the resources after viewing a search snapshot in the [{#T}](search-issues.md) request.
+Запрос позволяет освободить ресурсы после просмотра слепка поиска в запросе [{#T}](search-issues.md).
 
-## Request format {#section_rnm_x4j_p1b}
+## Формат запроса {#section_rnm_x4j_p1b}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To release scroll results, use an HTTP `POST` request:
+Для освобождения результатов прокрутки используйте HTTP-запрос с методом `POST`:
 
 ```json
 POST /v2/system/search/scroll/_clear
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
@@ -24,46 +24,46 @@ Authorization: OAuth <OAuth token>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Request body parameters" %}
+{% cut "Параметры тела запроса" %}
 
-**Required parameters**
+**Обязательные параметры**
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| scrollId | ID of the page with scroll results. The ID value is taken from the `X-Scroll-Id` header of the response to the [{#T}](search-issues.md) request. | String |
-| scrollToken | Token that certifies that the request belongs to the current user. The ID value is taken from the `X-Scroll-Token` header of the response to the [{#T}](search-issues.md) request. | String |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+scrollId | Идентификатор страницы результатов прокрутки. Значение идентификатора указывается из заголовка `X-Scroll-Id` ответа на запрос [{#T}](search-issues.md). | Строка
+scrollToken | Токен, удостоверяющий принадлежность запроса текущему пользователю. Значение идентификатора указывается из заголовка `X-Scroll-Token` ответа на запрос [{#T}](search-issues.md). | Строка
 
-Make sure to pass all `"srollId": "scrollToken"` pairs in your request. Their number is equal to the number of pages with search results.
+В запросе необходимо передать все пары `"srollId": "scrollToken"` вашего запроса. Количество таких пар равно количеству страниц с результатами поискового запроса.
 
 {% endcut %}
 
-> Example: Releasing scroll results
->
->- An HTTP POST method is used.
->
->```
->POST /v2/system/search/scroll/_clear HTTP/1.1
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
->
->{
->  "cXVlcnlUaGVuRmV0Y2g7NjsyNDU5MzpmQ0gwd0JOM1RvQ2NPM3ZJRkpfTnFBOzI0NTkyOmZDSDB3Qk4zVG9DY08zdklGSl9OcUE7MjQ1OTU6ZkNIMHdCTjNUb0NjTzN2SUZKX05xQTsyNDU5NDpmQ0gwd0JOM1RvQ2NPM3ZJRkpfTnFBOzIwMzg2OkNfVnFZdHZCU3Y2VUowT0N6dGVGdFE7MjAzODE6U3RqelpvSWZTYmVFX2VZYWRBcXlzZzswOw==": "c44356850f446b88e5b5cd65a34a1409aaaa0ec1b93f8925d6b1c91da0fe3804:1450339762515",
->  "cXVlcnlUaGVuRmV0Y2g7NjsyMDQ0MzpTdGp6Wm9JZlNiZUVfZVlhZEFxeXNnOzIwNDQ1OkNfVnFZdHZCU3Y2VUowT0N6dGVGdFE7MjA0NDI6U3RqelpvSWZTYmVFX2VZYWRBcXlzZzsyMDQ0NDpDX1ZxWXR2QlN2NlVKME9DenRlRnRROzI0NjcxOmZDSDB3Qk4zVG9DY08zdklGSl9OcUE7MjQ2NzI6ZkNIMHdCTjNUb0NjTzN2SUZKX05xQTswOw==": "b8e1c56966f037d9c4e241af40d31dc80af186fa079d75022822b2be88f785dc:1450344216969"
->}
->```
+> Освобождение результатов прокрутки:
+> 
+> - Используется HTTP-метод POST.
+> 
+> ```
+> POST /v2/system/search/scroll/_clear HTTP/1.1
+> Host: {{ host }}
+> Authorization: OAuth <OAuth-токен>
+> {{ org-id }}
+> 
+> {
+>   "cXVlcnlUaGVuRmV0Y2g7NjsyNDU5MzpmQ0gwd0JOM1RvQ2NPM3ZJRkpfTnFBOzI0NTkyOmZDSDB3Qk4zVG9DY08zdklGSl9OcUE7MjQ1OTU6ZkNIMHdCTjNUb0NjTzN2SUZKX05xQTsyNDU5NDpmQ0gwd0JOM1RvQ2NPM3ZJRkpfTnFBOzIwMzg2OkNfVnFZdHZCU3Y2VUowT0N6dGVGdFE7MjAzODE6U3RqelpvSWZTYmVFX2VZYWRBcXlzZzswOw==": "c44356850f446b88e5b5cd65a34a1409aaaa0ec1b93f8925d6b1c91da0fe3804:1450339762515",
+>   "cXVlcnlUaGVuRmV0Y2g7NjsyMDQ0MzpTdGp6Wm9JZlNiZUVfZVlhZEFxeXNnOzIwNDQ1OkNfVnFZdHZCU3Y2VUowT0N6dGVGdFE7MjA0NDI6U3RqelpvSWZTYmVFX2VZYWRBcXlzZzsyMDQ0NDpDX1ZxWXR2QlN2NlVKME9DenRlRnRROzI0NjcxOmZDSDB3Qk4zVG9DY08zdklGSl9OcUE7MjQ2NzI6ZkNIMHdCTjNUb0NjTzN2SUZKX05xQTswOw==": "b8e1c56966f037d9c4e241af40d31dc80af186fa079d75022822b2be88f785dc:1450344216969"
+> }
+> ```
 
-## Response format {#section_xc3_53j_p1b}
+## Формат ответа {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -72,4 +72,3 @@ Make sure to pass all `"srollId": "scrollToken"` pairs in your request. Their nu
     {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
 {% endlist %}
-

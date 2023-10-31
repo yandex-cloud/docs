@@ -4,7 +4,7 @@ An attempt to transfer data from the {{ CH }} source fails with this error:
 
 ```text
 
-Syntax error: failed at position 25 ('-'): <error details>. Expected one of: token, Dot, UUID, alias, AS, identifier, FINAL, SAMPLE, INTO OUTFILE, FORMAT, SETTINGS, end of query
+Syntax error: failed at position 25 ('-'): <error_details>. Expected one of: token, Dot, UUID, alias, AS, identifier, FINAL, SAMPLE, INTO OUTFILE, FORMAT, SETTINGS, end of query
 
 ```
 

@@ -13,3 +13,5 @@
 * [{#T}](yds-to-clickhouse.md)
 * [Миграция базы данных из Google BigQuery](bigquery-to-clickhouse.md)
 * [Поставка данных из {{ mkf-name }} с помощью {{ data-transfer-full-name }}](mkf-to-mch-migration.md)
+
+О миграции хостов кластера {{ mch-name }} в другую зону доступности читайте в [инструкции](../operations/host-migration.md).

@@ -32,7 +32,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       * (Optional) Add a cluster description.
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including {{ mrd-short-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       * Select the DBMS version.
       * If necessary, enable [cluster sharding](../concepts/sharding.md).
 
@@ -167,9 +167,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   
-   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To create a cluster:
 
@@ -275,10 +273,10 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    To create a cluster with a single host, provide a single `--host` parameter.
 
-   Create a {{ mrd-name }} cluster with test characteristics:
+   Create a {{ mrd-name }} cluster with the following test characteristics:
 
-   * Named `myredis`.
-   * Version `{{ versions.cli.latest }}`.
+   * Name: `myredis`.
+   * Version: `{{ versions.cli.latest }}`.
    * Environment `production`.
    * Network `default`.
    * A single `hm1.nano`-class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone and security group with ID `{{ security-group }}` with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
@@ -401,17 +399,17 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Name: `myredis`
    * Version: `{{ versions.tf.latest }}`
    * Environment: `PRODUCTION`
-   * Cloud ID: `{{ tf-cloud-id }}`
-   * Folder ID: `{{ tf-folder-id }}`
-   * New network: `mynet`
-   * With three subnets in the `mynet` network, one in each availability zone:
+   * Cloud ID: `{{ tf-cloud-id }}`.
+   * Folder ID: `{{ tf-folder-id }}`.
+   * New network: `mynet`.
+   * Three subnets in the `mynet` network, one in each availability zone:
       * `subnet-a` with the `10.1.0.0/24` range.
       * `subnet-b` with the `10.2.0.0/24` range.
       * `subnet-c` with the `10.3.0.0/24` range.
-   * With three hosts of the `{{ host-class }}` class, one in each subnet.
+   * Three `{{ host-class }}` hosts, one in each subnet.
   * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
-   * Network SSD storage (`{{ disk-type-example }}`): 16 GB
-   * Password: `user1user1`
+   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
+   * Password: `user1user1`.
    * Protection against accidental cluster deletion: Enabled
 
    The configuration file for this cluster is as follows:

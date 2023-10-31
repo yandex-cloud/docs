@@ -21,7 +21,7 @@
 
   ```bash
   {{ yc-mdb-mg }} database list
-     --cluster-name <имя кластера>
+     --cluster-name <имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -61,8 +61,8 @@
   Выполните команду создания БД, задав имя новой базы:
 
   ```bash
-  {{ yc-mdb-mg }} database create <имя базы данных>
-    --cluster-name <имя кластера>
+  {{ yc-mdb-mg }} database create <имя_БД>
+    --cluster-name <имя_кластера>
   ```
 
   {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
@@ -82,10 +82,10 @@
     1. Добавьте к описанию кластера {{ mmg-name }} блок `database`:
   
         ```hcl
-        resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+        resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
           ...
           database {
-            name = "<имя базы данных>"
+            name = "<имя_БД>"
           }
         }
         ```
@@ -134,8 +134,8 @@
   Чтобы удалить базу данных, выполните команду:
 
   ```bash
-  {{ yc-mdb-mg }} database delete <имя базы данных>
-     --cluster-name <имя кластера>
+  {{ yc-mdb-mg }} database delete <имя_БД>
+     --cluster-name <имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).

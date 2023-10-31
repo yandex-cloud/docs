@@ -49,7 +49,15 @@ To make your image available to other {{ yandex-cloud }} users, grant them publi
 
 _The feature is at the [Preview](../../overview/concepts/launch-stages.md) stage._
 
-An image can be optimized for deploying a large number of VMs. You can create VMs from optimized images much faster than from conventional ones: this enables you to instantly expand your computing power and use tools from your own image.
+{% note info %}
+
+You can migrate both optimized and non-optimized images.
+
+{% endnote %}
+
+Use optimized images only if you have a lot of disks and deployments.
+
+An image can be optimized for frequent VM deployments. This speeds up the deployment of VMs and enables you to quickly expand your computing power and use the relevant tools from your own image.
 
 Fast deployment is achieved by using multiple layers for storing data in a storage. The first layer stores the image source data, while the second one stores user data. When creating VM disks from optimized images, the first layer is reused rather than copied to a new storage location every time. Disks created from optimized images run on VMs in the same way as disks created from regular images: they can be used as boot disks and are fully available for data storage. The performance of these disks does not differ from that of regular ones.
 

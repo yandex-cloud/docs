@@ -44,10 +44,10 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
      ```
 
      Where:
-     * `repository-name`: Repository name.
-     * `rules`: Path to the file with the policy description.
-     * `description`: Description of the lifecycle policy (optional).
-     * `name`: Policy name (optional). The naming requirements are as follows:
+     * `repository-name`: Repository name
+     * `rules`: Path to the file with the policy description
+     * `description`: Description of the lifecycle policy (optional)
+     * `name`: Policy name (optional). The requirements are as follows:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -76,7 +76,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
      yc container repository lifecycle-policy list --repository-name crp3cpm16edqql0t30s2/ubuntu
      ```
 
-     Where `repository-name`: Repository name.
+     Where `repository-name` is the repository name.
 
      Result:
 
@@ -91,7 +91,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 

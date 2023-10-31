@@ -57,7 +57,7 @@ description: "Follow this guide to add a listener to a network load balancer."
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and add the `listener` section to the network load balancer description.
 
@@ -107,11 +107,11 @@ description: "Follow this guide to add a listener to a network load balancer."
 
 Add a listener with the following test specifications to the `test-load-balancer`:
 
-* Name: `test-listener`.
-* Port: `80`.
-* Target port: `81`.
-* Protocol: `TCP`.
-* IP version: `ipv4`.
+* Name: `test-listener`
+* Port: `80`
+* Target port: `81`
+* Protocol: `TCP`
+* IP version: `ipv4`
 
 {% list tabs %}
 

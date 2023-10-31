@@ -6,9 +6,9 @@
 
    ```bash
    curl \
-       --user <{{ ES }} username>:<password> \
+       --user <{{ ES }}_username>:<password> \
        --header 'Content-Type: application/json' \
-       --request PUT "https://<{{ ES }} cluster FQDN>:9200/_template/index_defaults" \
+       --request PUT "https://<{{ ES }}_cluster_FQDN>:9200/_template/index_defaults" \
        --data '
            {
                "index_patterns": "cdc*",
@@ -34,9 +34,9 @@
 
    ```bash
    curl \
-       --user <{{ ES }} username>:<password> \
+       --user <{{ ES }}_username>:<password> \
        --header 'Content-Type: application/json' \
-       --request GET 'https://<{{ ES }} cluster FQDN>:9200/<index name>/_settings/*total_fields.limit?include_defaults=true'
+       --request GET 'https://<{{ ES }}_cluster_FQDN>:9200/<index_name>/_settings/*total_fields.limit?include_defaults=true'
    ```
 
 * By default, when transferring data to a single index, only one host is used. To distribute the load across hosts when transferring large amounts of data, [set up a template](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-put-template.html#indices-put-template) to split new indexes into shards in advance.
@@ -45,9 +45,9 @@
 
    ```bash
    curl \
-       --user <{{ ES }} username>:<password> \
+       --user <{{ ES }}_username>:<password> \
        --header 'Content-Type: application/json' \
-       --request PUT 'https://<{{ ES }} cluster FQDN>:9200/_template/index_defaults' \
+       --request PUT 'https://<{{ ES }}_cluster_FQDN>:9200/_template/index_defaults' \
        --data '
            {
                "index_patterns": "cdc*",

@@ -7,10 +7,9 @@ To delete a message queue:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder the queue belongs to.
-   1. Open the **Message Queue** section.
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the row of the queue to delete.
-   1. In the resulting menu, click **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+   1. In the row of the queue you need, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - AWS CLI
 
@@ -30,7 +29,7 @@ To delete a message queue:
 
    If you created a message queue using {{ TF }}, you can delete it:
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-   1. Delete resources using the command:
+   1. Delete the resources using this command:
 
       ```bash
       terraform destroy
@@ -38,10 +37,10 @@ To delete a message queue:
 
       {% note alert %}
 
-      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      {{ TF }} will delete all the resources you created in the current configuration, such as clusters, networks, subnets, and VMs.
 
       {% endnote %}
 
-   1. Type the word `yes`, then press **Enter**.
+   1. Type `yes` and press **Enter**.
 
 {% endlist %}

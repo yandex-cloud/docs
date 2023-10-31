@@ -9,7 +9,7 @@ To simplify repetitive actions related to data schema setup and [data binding](.
 1. Click the **Upload from file** button and select the [data schema](#schema) file.
 1. Click **Edit**.
 
-## Data schema {#schema}
+## Data schemas {#schema}
 
 We support multiple data schema formats:
 1. [Text format](#txt_schema)

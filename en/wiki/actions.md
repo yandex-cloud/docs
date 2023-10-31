@@ -1,10 +1,6 @@
 # Dynamic blocks
 
-{% note alert %}
-
-Dynamic blocks work on pages created in the [old editor](pages-types.md#page) and in [dynamic tables](pages-types.md#grid).
-
-{% endnote %}
+{% include [actions-alert](../_includes/wiki/actions-alert.md) %}
 
 Using a dynamic block, you can insert a fragment with content generated automatically based on the page info data or information from an external source.
 

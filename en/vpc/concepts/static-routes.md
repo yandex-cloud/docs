@@ -54,12 +54,12 @@ A {{ vpc-short-name }} route table can include one or multiple entries. Each ent
 
 Each {{ vpc-short-name }} route table entry must include:
 
-* `Destination prefix`: Prefix of the destination IPv4 route in CIDR notation, such as `10.20.30.0/24`.
-* `Next hop`: Type of gateway that will handle outgoing traffic for the specified destination prefix. Allowed values include:
-   * `IP address`: IP address of the destination gateway, such as the [internal IP of a VM](../../compute/concepts/network.md#internal-ip) within one of the subnets.
-   * `Gateway`: Used to send traffic through a [NAT gateway](./gateways.md#nat-gateway). For this type of gateway, specify the name of an already existing NAT gateway on the cloud network.
+* `Destination prefix`: Prefix of the destination IPv4 route in CIDR notation, e.g., `10.20.30.0/24`.
+* `Next hop`: Type of the gateway that will handle outgoing traffic for the specified destination prefix. Allowed values include:
+   * `IP address`: IP address of the destination gateway, e.g., the [internal IP of a VM](../../compute/concepts/network.md#internal-ip) within one of the subnets.
+   * `Gateway`, to send traffic through a [NAT gateway](./gateways.md#nat-gateway). For this gateway type, specify the name of an already existing NAT gateway on the cloud network.
 
-If you create multiple entries with overlapping prefixes, the prefix with the larger subnet mask will have higher priority. For example, between two entries with destination prefixes `172.16.0.0/20` and `172.16.0.0/24`, the entry with the prefix `172.16.0.0/24` will be used for sending traffic, as it has higher priority.
+If you create multiple entries with overlapping prefixes, the prefix with the larger subnet mask will have higher priority. For example, between two entries with the `172.16.0.0/20` and `172.16.0.0/24` destination prefixes, the entry with the `172.16.0.0/24` prefix will be used for sending traffic, as it has higher priority.
 
 When creating a static route with an `IP address` as the `next hop`, you can specify an unused internal IP address on the cloud network. In this case, the virtual network will discard all traffic to the destination prefix of the route until you run a VM with that IP address.
 

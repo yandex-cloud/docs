@@ -18,7 +18,7 @@
 
 ## Работать с чеклистом {#checklist-operations}
 
-Работать с чеклистом могут все, у кого есть права [доступа](../access.md) к редактированию задачи. Вы можете выдать доступ как на всю [очередь](../manager/queue-access.md#set-access), так и на отдельную задачу через [роль](../role-model.md) или [компонент](../manager/queue-access.md#access-components).
+Работать с чеклистом могут все, у кого есть права [доступа](../access.md) к редактированию задачи. Вы можете выдать доступ как на всю [очередь](../manager/queue-access.md#set-access), так и на отдельную задачу через [роль](../manager/queue-access.md#task-role) или [компонент](../manager/queue-access.md#access-components).
 
 Операции с чеклистом:
 

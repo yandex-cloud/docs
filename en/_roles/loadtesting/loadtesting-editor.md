@@ -1,0 +1,1 @@
+The `loadtesting.editor` role allows viewing and deleting reports, creating, deleting, and editing VMs with agents, enables running and stopping load tests, loading test data, deleting reports, and uploading output to the repository.

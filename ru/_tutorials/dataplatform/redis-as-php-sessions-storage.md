@@ -99,7 +99,7 @@
     * Станьте владельцем каталога `/var/www/html/` и удалите из него все содержимое:
 
         ```bash
-        sudo chown <имя пользователя> /var/www/html/ --recursive && \
+        sudo chown <имя_пользователя> /var/www/html/ --recursive && \
         rm /var/www/html/*
         ```
 
@@ -131,7 +131,7 @@
         ...
         [Session]
         session.save_handler = redis
-        session.save_path = "tcp://<FQDN хоста-мастера Redis>:6379?auth=<пароль>"
+        session.save_path = "tcp://<FQDN_хоста-мастера_{{ RD }}>:6379?auth=<пароль>"
         ```
 
       - Кластер {{ RD }} с шардированием
@@ -149,7 +149,7 @@
         Где `<FQDN1>`, `<FQDN2>` и `<FQDN3>` — полные доменные имена [хостов-мастеров кластера](../../managed-redis/operations/hosts.md#list). Например, для кластера из 3-х шардов с паролем `password` значение параметра `session.save_path` будет выглядеть так:
 
         ```ini
-        session.save_path = "seed[]=rc1a-t9h8gxqor5v6lcc3.{{ dns-zone }}:6379&seed[]=rc1b-7qxk0h3b8pupxsj9.{{ dns-zone }}:6379&seed[]=rc1c-spy1c1i4vwvj0n8z.{{ dns-zone }}:6379&auth=password"
+        session.save_path = "seed[]=rc1a-t9h8gxqo********.{{ dns-zone }}:6379&seed[]=rc1b-7qxk0h3b********.{{ dns-zone }}:6379&seed[]=rc1c-spy1c1i4********.{{ dns-zone }}:6379&auth=password"
         ```
 
     {% endlist %}
@@ -181,7 +181,7 @@
 1. Из ВМ подключитесь к кластеру {{ RD }} с помощью `redis-cli`:
 
     ```bash
-    redis-cli -c -h <FQDN хоста-мастера> -a <пароль>
+    redis-cli -c -h <FQDN_хоста-мастера> -a <пароль>
     ```
 
     Введите команду для просмотра хранящихся в {{ RD }} ключей:
@@ -212,8 +212,8 @@
     ```
 
     ```text
-    1) "PHPREDIS_SESSION:keb02haicgi0ijeju3ngqqnucq"
-    2) "PHPREDIS_SESSION:c5r0mbe1v84pn2b5kj1umun1sp"
+    1) "PHPREDIS_SESSION:keb02haicgi0ijeju3********"
+    2) "PHPREDIS_SESSION:c5r0mbe1v84pn2b5kj********"
     ```
 
     Как видно из результатов запроса, для каждой сессии в {{ RD }} создан свой ключ.

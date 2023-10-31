@@ -41,7 +41,7 @@ When creating a cluster, specify:
 
 * _Environment_: Environment where the cluster will be deployed:
    * `PRODUCTION`: For stable versions of your apps.
-   * `PRESTABLE`: For testing, including {{ mgp-short-name }} itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 

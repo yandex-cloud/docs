@@ -40,7 +40,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To update the name of a registry created using {{ TF }}:
 
@@ -137,7 +137,7 @@ To access a registry, use its unique ID or name. For information on retrieving t
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To update the description of a registry created using {{ TF }}:
 
@@ -241,7 +241,7 @@ You can perform the following actions related to registry labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To add a label to a registry created using {{ TF }}:
 
@@ -350,7 +350,7 @@ You can perform the following actions related to registry labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To update the label of a registry created using {{ TF }}:
 
@@ -446,7 +446,7 @@ You can perform the following actions related to registry labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To delete the label of a registry created using {{ TF }}:
 

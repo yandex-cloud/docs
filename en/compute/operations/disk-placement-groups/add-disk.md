@@ -22,7 +22,7 @@ To add a disk to a placement group:
    1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_disks }}** panel and click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.placement-group.disks.button_add-disk }}**.
    1. In the window that opens, select the disk you want to add.
 
-      For groups with the [partition](../../concepts/disk-placement-group.md#partition) placement strategy, specify the partition number.
+      For groups with the [partition](../../concepts/disk-placement-group.md#partition), specify the partition number.
    1. Click **{{ ui-key.yacloud.common.add }}**.
 
 

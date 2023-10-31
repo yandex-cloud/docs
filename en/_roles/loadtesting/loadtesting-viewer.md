@@ -1,0 +1,1 @@
+The `loadtesting.viewer` role allows viewing reports and created agents.

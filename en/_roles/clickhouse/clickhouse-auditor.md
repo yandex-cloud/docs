@@ -1,0 +1,1 @@
+The `managed-clickhouse.auditor` role enables you to view information about clusters and quotas.

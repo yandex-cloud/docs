@@ -120,22 +120,36 @@
       ```bash
       {{ yc-mdb-mg }} cluster create \
         --name <имя_кластера> \
-        --environment=<окружение:_prestable_или_production> \
+        --environment=<окружение> \
         --network-name <имя_сети> \
         --host zone-id=<зона_доступности>,`
               `subnet-id=<идентификатор_подсети>,`
-              `assign-public-ip=<публичный_доступ_к_хосту:_true_или_false> \
+              `assign-public-ip=<публичный_доступ> \
         --mongod-resource-preset <класс_хоста> \
         --user name=<имя_пользователя>,password=<пароль_пользователя> \
-        --database name=<имя_базы_данных> \
+        --database name=<имя_БД> \
         --mongod-disk-type <тип_диска> \
-        --mongod-disk-size <размер_хранилища_в_ГБ> \
-        --performance-diagnostics=<включить_диагностику_производительности_кластера:_true_или_false> \
-        --deletion-protection=<защита_от_удаления_кластера:_true_или_false>
+        --mongod-disk-size <размер_хранилища_ГБ> \
+        --performance-diagnostics=<включить_диагностику> \
+        --deletion-protection=<защита_от_удаления>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
+
+      Где:
+
+      * `--environment` — окружение: `prestable` или `production`.
+
+      
+      * `--host` — параметры хоста:
+         * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+         * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
+         * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
+      * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.
+      * `--deletion-protection` — защита от удаления кластера: `true` или `false`.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -170,24 +184,24 @@
      ```hcl
      resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
        name                = "<имя_кластера>"
-       environment         = "<окружение:_PRESTABLE_или_PRODUCTION>"
+       environment         = "<окружение>"
        network_id          = "<идентификатор_сети>"
-       security_group_ids  = [ "<список_групп_безопасности>" ]
-       deletion_protection = <защита_от_удаления_кластера:_true_или_false>
+       security_group_ids  = [ "<список_идентификаторов_групп_безопасности>" ]
+       deletion_protection = <защита_от_удаления_кластера>
 
        cluster_config {
-         version = "<версия_{{ MG }}:_{{ versions.tf.str }}>"
+         version = "<версия_{{ MG }}>"
        }
 
        database {
-         name = "<имя_базы_данных>"
+         name = "<имя_БД>"
        }
 
        user {
          name     = "<имя_пользователя>"
          password = "<пароль_пользователя>"
          permission {
-           database_name = "<имя_базы_данных>"
+           database_name = "<имя_БД>"
            roles         = [ "<список_ролей_пользователя>" ]
          }
        }
@@ -195,13 +209,13 @@
        resources_mongod {
          resource_preset_id = "<класс_хоста>"
          disk_type_id       = "<тип_диска>"
-         disk_size          = <размер_хранилища_в_ГБ>
+         disk_size          = <размер_хранилища_ГБ>
        }
 
        host {
          zone_id          = "<зона_доступности>"
          subnet_id        = "<идентификатор_подсети>"
-         assign_public_ip = <публичный_доступ_к_хосту:_true_или_false>
+         assign_public_ip = <публичный_доступ>
        }
      }
 
@@ -217,6 +231,20 @@
 
 
 
+
+     Где:
+
+     * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
+
+     
+     * `host` — параметры хоста:
+       * `zone_id` — зона доступности.
+       * `subnet_id` — идентификатор подсети в выбранной зоне доступности.
+       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+
+
+     * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+     * `version` — версия {{ MG }}: {{ versions.tf.str }}.
 
      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -289,7 +317,7 @@
   * В окружении `production`.
   * В сети `{{ network-name }}`.
   * В группе безопасности с идентификатором `{{ security-group }}`.
-  * С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ region-id }}-a`.
+  * С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr********`, в зоне доступности `{{ region-id }}-a`.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 20 ГБ.
   * С одним пользователем, `user1`, с паролем `user1user1`.
   * С одной базой данных, `db1`.
@@ -306,7 +334,7 @@
     --network-name {{ network-name }} \
     --security-group-ids {{ security-group }} \
     --mongod-resource-preset {{ host-class }} \
-    --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64 \
+    --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr******** \
     --mongod-disk-size 20 \
     --mongod-disk-type {{ disk-type-example }} \
     --user name=user1,password=user1user1 \

@@ -247,12 +247,12 @@ A cluster must include a subcluster with a master host and at least one subclust
       * `--services`: List of [components](../concepts/environment.md) that you want to use in the cluster. If this parameter is omitted, the default set will be used: `hdfs`, `yarn`, `mapreduce`, `tez`, and `spark`.
       * `--ssh-public-keys-file`: Full path to the file with the public part of the SSH key to be used to access the cluster hosts. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
       * `--subcluster`: Subcluster parameters:
-         * `name`: Subcluster name
-         * `role`: Subcluster role (`masternode`, `datanode`, or `computenode`
-         * `resource-preset`: [Host class](../concepts/instance-types.md)
-         * `disk-type`: [Storage type](../concepts/storage.md)
-         * `disk-size`: Storage size in GB
-         * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet)
+         * `name`: Subcluster name.
+         * `role`: Subcluster role (`masternode`, `datanode`, or `computenode`).
+         * `resource-preset`: [Host class](../concepts/instance-types.md).
+         * `disk-type`: [Storage type](../concepts/storage.md).
+         * `disk-size`: Storage size in GB.
+         * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
          * `hosts-count`: Number of hosts in data storage or processing subclusters. The minimum value is `1` and the maximum value is `32`.
          * `assign-public-ip`: Access to subcluster hosts from the internet. This way, you can only connect to the cluster over an SSL connection. For more information, see [{#T}](connect.md).
 
@@ -340,7 +340,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       Where:
 
       * `URI`: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
-      * (Optional) `timeout`: Script execution timeout (in seconds). If your initialization script runs longer than this time, it will be terminated.
+      * (Optional) `timeout`: Script execution timeout (in seconds). If your initialization script runs longer than this time period, it will be terminated.
       * (Optional) `args`: Arguments separated by commas with which an initialization script must be executed.
 
 - {{ TF }}
@@ -352,7 +352,7 @@ A cluster must include a subcluster with a master host and at least one subclust
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
    
-   1. If you do not have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 

@@ -53,7 +53,7 @@
 1. Выберите целевую группу или [создайте новую](operations/target-group-create.md):
   
    * Нажмите **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
-   * Введите имя целевой группы. Требования к нему:
+   * Введите имя целевой группы. Требования к имени:
 
      {% include [name-format](../_includes/name-format.md) %}
   

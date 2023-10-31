@@ -22,7 +22,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
 
       * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: {{ mch-ck-version }} or higher.
-            * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
+
+      
+      * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
+
+
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`.
       * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}**: `{{ ui-key.yacloud.mdb.cluster.overview.label_storage-enabled }}`.
 
@@ -51,7 +55,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. In `clickhouse-hybrid-storage.tf`, specify the username and password to use to access the {{ mch-name }} cluster.
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
 
    1. To verify that the config files are correct, run the command below:
 
@@ -59,7 +63,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the infrastructure required to follow the steps provided in this tutorial:
 
@@ -112,7 +116,7 @@ The `TTL ...` expression defines a policy for operating with expiring data:
    * If the number of days from the current date to `EventDate` is less than the TTL value (that is, the lifetime has not expired yet), this data is kept in storage on network drives.
    * If the number of days from the current date to `EventDate` is greater than or equal to the TTL value (that is, the lifetime has already expired), this data is placed in the object storage according to the `TO DISK 'object_storage'` policy.
 
-You don't need to specify TTL for hybrid storage, but this allows you to explicitly control which data will be in {{ objstorage-name }}. If you don't specify TTL, data is placed in object storage only when storage on network disks runs out of space. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
+You do not need to specify TTL for hybrid storage; however, this allows you to explicitly control which data will be in {{ objstorage-name }}. If you do not specify TTL, data is placed in object storage only when the storage on network disks runs out of space. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 {% note info %}
 
@@ -197,7 +201,7 @@ To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tu
    GROUP BY disk_name
    ```
 
-   As a result, you'll see the distribution of table rows for the storage levels:
+   As a result, you will see the distribution of table rows for the storage levels:
 
    ```text
    ┌─sum(rows)─┬─disk_name──────┐
@@ -242,9 +246,21 @@ Result:
 
 As you can see from the SQL request result, from the user's point of view, the table is a single entity: {{ CH }} successfully queries this table regardless of where the data is actually located in it.
 
+## (Optional step) Monitor the amount of space used by data in {{ objstorage-name }} {#metrics}
+
+To find out the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}:
+
+1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Go to **Metric Explorer**.
+1. Run the following query:
+
+   ```text
+   "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<cluster_ID>", subcluster_name="clickhouse_subcluster"}
+   ```
+
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
@@ -256,7 +272,7 @@ Delete the resources you no longer need to avoid being charged for them:
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete `clickhouse-hybrid-storage.tf`.
    1. Run this command:
 
@@ -266,7 +282,7 @@ Delete the resources you no longer need to avoid being charged for them:
 
       If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

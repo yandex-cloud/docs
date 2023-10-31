@@ -1,0 +1,1 @@
+The `load-balancer.admin` role lets you create both private and public load balancers.

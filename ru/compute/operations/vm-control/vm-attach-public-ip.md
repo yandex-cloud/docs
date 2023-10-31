@@ -87,4 +87,56 @@
 
     Подробнее о команде `yc compute instance add-one-to-one-nat` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/add-one-to-one-nat.md).
 
+- {{ TF }}
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Чтобы создать публичный IP-адрес и привязать его к ВМ, используйте ресурс `yandex_vpc_address` и укажите его для ВМ в поле `nat_ip_address`:
+
+      ```hcl
+      # Создание статического IP-адреса
+
+      resource "yandex_vpc_address" "addr" {
+        name = "vm-adress"
+        external_ipv4_address {
+          zone_id = "<зона_доступности>"
+        }
+      }
+
+      # Создание ВМ
+
+      resource "yandex_compute_instance" "vm-1" {
+        name        = "<имя_ВМ>"
+        platform_id = "standard-v3"
+        resources {
+          core_fraction = 20
+          cores         = 2
+          memory        = 1
+        }
+        ...
+
+        ## Назначение ВМ подсети и IP-адреса в блоке network_interface
+
+        network_interface {
+          subnet_id      = "<идентификатор_подсети_ВМ>"
+          nat            = true
+          nat_ip_address = yandex_vpc_address.addr.external_ipv4_address[0].address
+        }
+        ...
+
+      }
+      ```
+
+      Где `nat_ip_address` — публичный IP-адрес, который будет привязан к ВМ. Ресурс `yandex_vpc_address` содержит в себе список элементов, где `[0]` — первый элемент списка, содержащий в себе IP-адрес.
+
+      Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
+
 {% endlist %}

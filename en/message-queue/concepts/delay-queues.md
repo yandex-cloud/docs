@@ -4,9 +4,9 @@ You can hide messages when they're sent to a queue. This lets you postpone their
 
 ## Delaying messages in queues {#delay-queues}
 
-To configure hiding messages from a queue when sending them, set the **Delivery delay** parameter when [creating a new queue](../operations/message-queue-new-queue.md) or change it for an existing one. The maximum delay period for message delivery is 15 minutes.
+To configure hiding messages from a queue when sending them, set the **{{ ui-key.yacloud.ymq.queue.form.field_sending-delay }}** parameter when [creating a new queue](../operations/message-queue-new-queue.md) or change it for an existing one. The maximum delay period for message delivery is 15 minutes.
 
-Changing the delay setting for standard queues doesn't affect the delay of messages that are already in queue. For FIFO queues, changing the delay setting affects the delay of messages already in the queue.
+Changing the delay setting for standard queues does not affect the delay of messages that are already in the queue. For FIFO queues, changing the delay setting affects the delay of messages already in the queue.
 
 Delay queues are similar to [visibility timeouts](visibility-timeout.md). The difference between the two features is that, for delay queues, a message is hidden immediately after it is added to a queue, while for visibility timeouts a message is hidden only after it is consumed from the queue.
 

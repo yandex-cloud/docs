@@ -1,0 +1,1 @@
+The `smart-captcha.viewer` role enables you to view CAPTCHA information.

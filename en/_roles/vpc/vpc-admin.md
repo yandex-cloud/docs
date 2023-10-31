@@ -1,0 +1,1 @@
+The `vpc.admin` network administrator role includes all the permissions granted by the `vpc.privateAdmin`, the `vpc.publicAdmin`, and the `vpc.securityGroups.admin` roles.

@@ -22,15 +22,15 @@
 
             Specify the target cluster connection settings.
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
 
       1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate).
 
    * Using {{ TF }}
 
-      1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. {% include [terraform-install](../../_includes/terraform-install.md) %}
       1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-      1. Download the transfer and endpoint configuration file called [data-transfer-mmy-mysql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-mysql.tf) to the same working directory.
+      1. Download the transfer and the [data-transfer-mmy-mysql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-mysql.tf) endpoint configuration file to the same working directory.
 
       1. Specify the following in the configuration file:
 
@@ -94,7 +94,7 @@
 
          If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      1. Confirm that the resources have been updated.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

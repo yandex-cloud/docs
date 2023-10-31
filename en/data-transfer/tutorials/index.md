@@ -21,6 +21,8 @@ Migration with data storage type changed.
 
 * [{{ MY }} to {{ ydb-short-name }}](managed-mysql-to-ydb.md)
 * [{{ PG }} to {{ ydb-short-name }}](mpg-to-ydb.md)
+* [{{ MY }} to {{ PG }}](mmy-to-mpg.md)
+* [{{ PG }} to {{ MY }}](mpg-to-mmy.md)
 
 ## Change data capture {#cdc}
 
@@ -77,7 +79,6 @@ Uploading data to scalable {{ objstorage-name }} storage allows you to save on d
 ![storage](../../_assets/data-transfer/tutorials/storage.svg)
 
 * [{{ MY }} to {{ objstorage-name }}](mmy-objs-migration.md)
-* [{{ at-name }} to {{ objstorage-name }}](trails-to-os.md)
 * [{{ PG }} to {{ objstorage-name }}](mpg-to-objstorage.md)
 
 

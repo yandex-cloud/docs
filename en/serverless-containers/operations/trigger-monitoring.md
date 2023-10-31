@@ -41,15 +41,15 @@ The chart update period is 15 seconds.
 
 ## Custom {#metrics} metrics
 
- To get started with [metrics](../../monitoring/concepts/data-model.md#metric), [dashboards](../../monitoring/concepts/visualization/dashboard.md), and [alerts](../../monitoring/concepts/alerting.md#alert) in {{ monitoring-name }}, in the top-right corner, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**.
+To get started with [metrics](../../monitoring/concepts/data-model.md#metric), [dashboards](../../monitoring/concepts/visualization/dashboard.md), and [alerts](../../monitoring/concepts/alerting.md#alert) in {{ monitoring-name }}, in the top-right corner, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**.
 
 | Metric name | Units | Entity type | Explanations |
 |----|----|----|----|
-| `serverless.triggers.`<br/>`inflight` | Invocations | <ul><li>`request`: Container invocations</li></ul> | Number of concurrent container calls |
+| `serverless.triggers.`<br/>`inflight` | Invocations | <ul><li>`request`: Container invocations</li></ul> | Number of concurrent container invocations |
 | `serverless.triggers.`<br/>`error_per_second` | Errors per second | <ul><li>`request`: Container invocations</li><li>`message_queue`: Accesses to the {{ message-queue-full-name }}</li><li>`dlq`: Accesses to the Dead Letter Queue</li></ul> | Frequency of errors when processing container invocations |
-| `serverless.triggers.`<br/>`access_error_per_second` | Errors per second | <ul><li>`request`: Container invocations</li><li>`message_queue`: Accesses to the {{ message-queue-full-name }}</li><li>`dlq`: Accesses to the Dead Letter Queue</li></ul> | Access error frequency when processing container calls |
+| `serverless.triggers.`<br/>`access_error_per_second` | Errors per second | <ul><li>`request`: Container invocations</li><li>`message_queue`: Accesses to the {{ message-queue-full-name }}</li><li>`dlq`: Accesses to the Dead Letter Queue</li></ul> | Access error frequency when processing container invocations |
 | `serverless.triggers.`<br/>`retry_per_second` | Invocations per second | <ul><li>`request`: Container invocations</li></ul> | Frequency of repeat container invocations in the event of an error |
-| `serverless.triggers.`<br/>`read_events_per_second` | Events per second | <ul><li>`incoming`: Events causing any trigger to fire except for {{ message-queue-full-name }}</li><li>`message_queue`: Events causing the trigger to fire for {{ message-queue-full-name }}</li></ul> | Frequency of events causing a trigger to fire |
+| `serverless.triggers.`<br/>`read_events_per_second` | Events per second | <ul><li>`incoming`: Events causing any trigger to fire, except for a trigger for {{ message-queue-full-name }}.</li><li>`message_queue`: Events causing a trigger to fire for {{ message-queue-full-name }}.</li></ul> | Frequency of events causing a trigger to fire |
 | `serverless.triggers.`<br/>`execution_time_milliseconds` | Invocations per second | <ul><li>`request`: Container invocations</li></ul> | Histogram of the container invocation frequency distribution by request processing time in milliseconds. Request processing time intervals are shown in the `bin` label. |
 
 ### Custom metrics labels {#labels}

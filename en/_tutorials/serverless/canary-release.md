@@ -112,7 +112,7 @@ The cost of resources to support a web application includes:
          terraform plan
          ```
 
-      If the configuration is specified correctly, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays information about the service account. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -278,9 +278,9 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
               tag: "${var.function.tag}"
               service_account_id: <service_account_ID>
       ```
-   1. Under **Variable settings**, enable **Canary release**.
-   1. Set the **Share of requests in canary release** field value to `50`.
-   1. In the **Variables for canary release** field, set `function.tag`=`canary`.
+   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, switch the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-release }}** toggle to on.
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-share }}** field, enter `50`.
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-variables }}** field, set `function.tag`=`canary`.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 - CLI
@@ -390,9 +390,9 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      * `canary.0.weight`: Percentage of requests in the canary release.
-      * `canary.0.variables`: Variables for the canary release.
-      * `spec`: API gateway specification.
+      * `canary.0.weight`: Percentage of requests in the canary release
+      * `canary.0.variables`: Variables for the canary release
+      * `spec`: API gateway specification
 
       For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
 

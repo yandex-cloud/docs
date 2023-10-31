@@ -9,9 +9,9 @@ To delete a disk snapshot schedule:
    1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-   1. Click the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
-   1. Next to the schedule you wish to delete, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
-   1. Confirm schedule deletion.
+   1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
+   1. Next to the schedule to delete, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+   1. Confirm the schedule deletion.
 
 - CLI
 
@@ -79,7 +79,7 @@ To delete a disk snapshot schedule:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and delete the fragment with the schedule description:
 
@@ -112,7 +112,7 @@ To delete a disk snapshot schedule:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can verify that the schedule has been deleted using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   You can check the schedule deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
    yc compute snapshot-schedule list

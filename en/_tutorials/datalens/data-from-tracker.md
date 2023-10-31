@@ -46,30 +46,30 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a DB for storing the {{ tracker-short-name }} data {#database-create}
 
 1. Go to the [management console]({{ link-console-main }}).
-1. In the top-left corner, click ![](../../_assets/datalens/all-services.svg) **All services**.
-1. Select **Data platform** → **{{ mch-name }}**.
-1. Click **Create {{ CH }} cluster**.
+1. In the top-left corner, click ![](../../_assets/datalens/all-services.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. Select **Data platform** → **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. Click **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Specify the cluster parameters:
-   * Basic parameters:
-      * **Environment**: `PRODUCTION`.
-      * **Version**: `22.8 LTS`.
-   * Resources:
-      * **Platform**: `Intel Ice Lake`.
-      * **Type**: `Standard`.
-      * **Host class**: `{{ s3-c2-m8 }}`.
-   * Storage size: `30 GB`.
-   * Hosts:
-      * **Public access**: `Enabled`.
-   * DBMS settings:
-      * **User management via SQL**: `Disabled`.
-      * **Database management via SQL**: `Disabled`.
-      * **Username**: `tracker_data`.
-      * **DB name**: `db1`.
-   * Service settings:
-      * **Access from {{ datalens-short-name }}**: `Enabled`.
-      * **Access from Serverless**: `Enabled`.
+   * {{ ui-key.yacloud.mdb.forms.section_base }}:
+      * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
+      * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `22.8 LTS`
+   * {{ ui-key.yacloud.mdb.forms.new_section_resource }}:
+      * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}**: `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v3 }}`
+      * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}**: `Standard`
+      * **{{ ui-key.yacloud.mdb.forms.section_resource }}**: `{{ s3-c2-m8 }}`
+   * {{ ui-key.yacloud.mdb.forms.section_disk }}: `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+   * {{ ui-key.yacloud.mdb.forms.section_host }}:
+      * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**: `{{ ui-key.yacloud.common.enabled }}`
+   * {{ ui-key.yacloud.mdb.forms.section_settings }}:
+      * **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**: `{{ ui-key.yacloud.common.disabled }}`
+      * **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}**: `{{ ui-key.yacloud.common.disabled }}`
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `tracker_data`
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
+   * {{ ui-key.yacloud.mdb.forms.section_service-settings }}:
+      * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**: `{{ ui-key.yacloud.common.enabled }}`
+      * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**: `{{ ui-key.yacloud.common.enabled }}`
          For a full list of settings, see [{{ mch-name }} settings](../../managed-clickhouse/concepts/settings-list.md).
-1. Click **Create cluster**. Wait for the created cluster's status to change to `Alive`.
+1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**. Wait for the created cluster status to change to `Alive`.
 1. Copy and save the host name for further setup.
    ![tracker-host-name]{{ sf-name }}(../../_assets/dl-tracker-host-name.png =680x372)
 
@@ -77,14 +77,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Go to the [Create an app](https://oauth.yandex.ru/client/new) page.
 1. Fill out the fields below:
-   * **Service name**.
-   * **Platforms**: `Web services`.
+   * **Service name**
+   * **Platforms**: `Web services`
    * **Redirect URI**: Click **Enter URL for debugging** or type `https://oauth.yandex.ru/verification_code`.
 1. Under **Data access**, specify:
-   * `Read from tracker`.
-   * `Write in tracker`.
+   * `Read from tracker`
+   * `Write in tracker`
 1. Click **Create app**.
-1. In the window that appears, enter the following URL in the browser search bar:
+1. In the window that opens, enter the following URL in the browser search bar:
 
    ```
    https://oauth.yandex.ru/authorize?response_type=token&client_id=ID
@@ -98,20 +98,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a {{ sf-name }} function for importing the data {#function-import}
 
 1. Go to the [management console]({{ link-console-main }}).
-1. In the top-left corner, click ![](../../_assets/datalens/all-services.svg) **All services**.
-1. Select **Serverless computing** → **{{ sf-name }}**.
-1. Click **Create function**.
-1. Specify a name for the function and click **Create**.
-1. In the **Editor** window that opens, select `Python / 3.9` runtime environment.
-1. Click **Next**.
-1. In the **Method** field, click **ZIP archive**.
+1. In the top-left corner, click ![](../../_assets/datalens/all-services.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
+1. Select **Serverless computing** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+1. Specify a name for the function and click **{{ ui-key.yacloud.serverless-functions.create.button_create }}**.
+1. In the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** window that opens, select `Python / 3.9` as the runtime environment.
+1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, click **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
 1. Attach a [test archive](https://github.com/yandex-cloud/yc-architect-solution-library/raw/main/yc-tracker/tracker-data-import/build/tracker-data-import.zip).
-1. In the **Entry point** field, specify `tracker-import.handler`.
-1. Under **Parameters**, specify:
-   * **Timeout, sec**: `60`.
-   * **RAM**: `1024`.
-   * **Environment variables**:
-      * `TRACKER_ORG_ID`: {{ ya-360 }} organization ID.
+1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `tracker_import.handler`.
+1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
+   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `60`
+   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `1024`
+   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
+      * `TRACKER_ORG_ID`: {{ ya-360 }} organization ID
 
          {% note info "Note" %}
 
@@ -119,17 +119,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          {% endnote %}
 
-      * `TRACKER_OAUTH_TOKEN`: [OAuth token](#oauth-token) of the {{ tracker-short-name }} account.
-      * `CH_HOST`: [Host](#database-create) name.
-      * `CH_DB`: [Database](#database-create) name.
-      * `CH_USER`: [Username](#database-create).
-      * `CH_PASSWORD`: [Password](#database-create).
-      * `CH_ISSUES_TABLE`: `tracker_issues`.
-      * `CH_CHANGELOG_TABLE`: `tracker_changelog`.
-      * `TRACKER_INITIAL_HISTORY_DEPTH`: `1d`.
-         * `CH_STATUSES_VIEW`: `v_tracker_statuses`.
-1. Click **Create version**.
-1. In the **Testing** tab, click **Run test**.
+      * `TRACKER_OAUTH_TOKEN`: [OAuth token](#oauth-token) of the {{ tracker-short-name }} account
+      * `CH_HOST`: [Host](#database-create) name
+      * `CH_DB`: [Database](#database-create) name
+      * `CH_USER`: [Username](#database-create)
+      * `CH_PASSWORD`: [Password](#database-create)
+      * `CH_ISSUES_TABLE`: `tracker_issues`
+      * `CH_CHANGELOG_TABLE`: `tracker_changelog`
+      * `TRACKER_INITIAL_HISTORY_DEPTH`: `1d`
+      * `CH_STATUSES_VIEW`: `v_tracker_statuses`
+1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+1. In the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab, click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
 1. The test result is a data import log:
    ```json
    {
@@ -142,14 +142,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
    }
    ```
 1. Create a [trigger](../../functions/concepts/trigger/index.md) to regularly export new data to the DB:
-   1. Open the **{{ sf-name }}** section.
-   1. Click ![trigger](../../_assets/functions/triggers.svg) → **Create trigger**.
-   1. Set the trigger type to **Timer**.
-   1. In the **Cron expression** field, select `Every day`.
-   1. Under **Function settings**, click **Create new**.
-   1. Enter the account name. By default, the account is assigned the `serverless.functions.invoker` role to work with the trigger.
-   1. Click **Create**.
-   1. Click **Create trigger**.
+   1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** section.
+   1. Click ![trigger](../../_assets/functions/triggers.svg) → **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+   1. Set the trigger type to **{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}**.
+   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, select `{{ ui-key.yacloud.common.button_cron-day }}`.
+   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, click **{{ ui-key.yacloud.component.service-account-select.button_create-account-new }}**.
+   1. Enter the account name. By default, the account is assigned the `{{ roles-functions-invoker }}` role to work with the trigger.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 ## Create a connection in {{ datalens-short-name }} {#connection-create}
 
@@ -194,7 +194,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a dashboard {#dashboard-create}
 
 1. On the [{{ datalens-full-name }}]({{ link-datalens-main }}) homepage, click **Create dashboard**.
-1. In the window that opens, enter a name for the dashboard. The dashboard appears in the list on the navigation page.
+1. In the window that opens, enter a name for the dashboard. The dashboard will appear in the list on the navigation page.
 
 For more information about setting up dashboards, see [{{ datalens-full-name }} dashboard](../../datalens/concepts/dashboard.md).
 
@@ -202,11 +202,11 @@ For more information about setting up dashboards, see [{{ datalens-full-name }} 
 
 1. At the top of the [dashboard](#dashboard-create) page, click **Add**→ **Chart**.
 1. Fill in the widget parameters. Pay close attention to the following fields:
-   * **Name**. Sets the name of the widget. It's displayed on top of the widget.
-   * **Chart**. Sets the widget to add.
-   * **Description**. Sets the description of the widget. It's displayed at the bottom of the widget.
-   * **Auto height**. Sets the automatic height for **Table** and **Markdown** widgets. If this parameter is disabled, you can set the height of the widget on the page using the mouse.
-1. Click **Add**. The widget is displayed on the dashboard.
+   * **Name**: Sets the name of the widget. It is displayed at the top of the widget.
+   * **Chart**: Sets the widget to add.
+   * **Description**: Sets the description of the widget. It is displayed at the bottom of the widget.
+   * **Auto height**: Sets the automatic height for **Table** and **Markdown** widgets. If this parameter is disabled, you can set the height of the widget on the page using the mouse.
+1. Click **Add**. The widget will be displayed on the dashboard.
 
 {% cut "Sample dashboard based on data from the `v_tracker_issues` table" %}
 

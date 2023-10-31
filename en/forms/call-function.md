@@ -16,7 +16,7 @@ You can integrate a form with {{ sf-name }} functions only using [forms for busi
 1. In the service account creation window, fill in the following fields:
    1. **Name**; it may only contain lowercase Latin letters, numbers, and hyphens.
    1. **Description**; it may contain any characters.
-   1. In the **Roles in folder** field, add the `serverless.functions.invoker` role.
+   1. In the **Roles in folder** field, add the `{{ roles-functions-invoker }}` role.
 1. Click **Create**.
 
 If no billing account is linked to your {{ yandex-cloud }} account, a window for creating a billing account will open. Fill in its fields to create an account. For more information, see [{#T}](../getting-started/individuals/registration.md#new-account).

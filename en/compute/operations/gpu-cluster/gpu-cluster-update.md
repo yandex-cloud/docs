@@ -34,7 +34,7 @@ For information about how to add a VM to a cluster, see [{#T}](./gpu-add-to-clus
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the GPU cluster description:
 
@@ -60,7 +60,7 @@ For information about how to add a VM to a cluster, see [{#T}](./gpu-add-to-clus
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can check that the cluster has been updated using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   You can check the cluster update using the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
    yc compute gpu-cluster get <cluster_name>

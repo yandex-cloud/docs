@@ -34,7 +34,7 @@ The infrastructure support cost for this scenario includes:
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account, such as `sa-function`. The naming requirements are as follows:
+   1. Enter a name for the service account, e.g., `sa-function`. The naming requirements are as follows:
 
       {% include [name-format](../_includes/name-format.md) %}
 
@@ -128,7 +128,7 @@ The infrastructure support cost for this scenario includes:
    1. Select a service account, e.g., `sa-function`.
    1. Configure the environment variables:
       * `YDB_ENDPOINT`: Enter the first part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
-      * `YDB_DATABASE`: Enter the second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
+      * `YDB_DATABASE`: Enter the second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}

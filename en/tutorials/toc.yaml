@@ -281,6 +281,10 @@ items:
         href: dataplatform/mmy-ydb-migration.md
       - name: '{{ MY }} change data capture and delivery to {{ DS }}'
         href: dataplatform/mmy-to-yds.md
+      - name: >-
+          Migrating data from {{ mmy-name }} to {{ mpg-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/mmy-to-mpg.md
       - name: Migrating data from {{ ES }} to {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
@@ -311,6 +315,10 @@ items:
         href: dataplatform/mpg-to-objstorage.md
       - name: '{{ PG }} change data capture and delivery to {{ DS }}'
         href: dataplatform/mpg-to-yds.md
+      - name: >-
+          Migrating data from {{ mpg-name }} to {{ mmy-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/mpg-to-mmy.md
       - name: Migrating databases from {{ GP }} to {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Migrating databases from {{ GP }} to {{ PG }}

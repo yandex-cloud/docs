@@ -47,7 +47,7 @@ Before deleting a target group, detach it from the network load balancer. You ca
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To delete a target group created with {{ TF }}:
    1. Open the {{ TF }} configuration file and delete the fragment with the target group description.

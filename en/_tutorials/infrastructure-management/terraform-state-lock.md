@@ -276,4 +276,4 @@ member flag, but this is not recommended.
 If you no longer need the resources you created, delete them:
 1. [Delete](../../ydb/operations/schema.md#drop-table) the table from the database.
 1. [Delete](../../ydb/operations/manage-databases.md#delete-db) the `state-lock-db` database.
-1. [Delete](../../storage/operations/buckets/delete.md) the `terraform-ydb-tutorial` bucket.
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket.

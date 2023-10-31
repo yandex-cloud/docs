@@ -1,17 +1,52 @@
 # Релизы YC CLI
 
 ## Текущая версия {#latest-release}
-## Версия 0.112.0 (12.10.23) {#version0.112.0}
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+### Версия 0.113.0 (31.10.23) {#version0.113.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ managed-k8s-name }} {#k8s}
+
+* В команду `yc k8s node-group update` добавлен параметр `--location`. Это параметр позволяет изменить [зону доступности](../overview/concepts/geo-scope.md), в которой развернута группа узлов.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mkf-name }}**
+
+* Команды `yc managed-kafka cluster create` и `yc managed-kafka cluster update`: флаг `--unmanaged-topics` помечен как `deprecated`. Соответствующее поле больше не отправляется в запросах API, но флаг останется для сохранения обратной совместимости.
+
+**{{ mos-name }}**
+
+* Добавлена группа команд `yc managed-opensearch` для управления базами данных {{ mos-name }}.
+
+**{{ mch-name }}**
+
+* Для команды `yc managed-clickhouse cluster --mongodb-source` добавлена настройка `options`.
+* Для команды `yc managed-clickhouse cluster set-compression` добавлена настройка `level`.
 
 ##### {{ compute-name }} {#compute}
+
+* Добавлена возможность замены переменных окружения в шаблонах, загружаемых с помощью команды `--metadata-from-file`.
+
+##### {{ vpc-name }} {#vpc}
+
+* Добавлена команда `yc vpc subnet relocate`.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.112.0 (12.10.23) {#version0.112.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+###### {{ compute-name }} {#compute}
 
 * Поддержано подключение к CentOS 7 с помощью команды `yc compute ssh`.
 * Добавлены команды `yc compute instance relocate` и `yc compute disk relocate` для перемещения ВМ и дисков между зонами доступности.
 
-## Версия 0.111.0 (21.09.23) {#version0.111.0}
+### Версия 0.111.0 (21.09.23) {#version0.111.0}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 ##### {{ compute-name }} {#compute}
 
@@ -45,8 +80,6 @@
 * `--async-failure-ymq-arn` - для указания очереди для неуспешного результата
 * `--async-failure-sa-id` - для указания сервисного аккаунта для записи в очередь неуспешного результата
 
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.110.0 (14.09.23) {#version0.110.0}
 

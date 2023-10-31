@@ -39,7 +39,7 @@ To link a cloud or transfer an existing one:
 
 - {{ TF }}
 
-  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To link a cloud, a service account must have the `billing.accounts.owner` or `editor` [role](../security/index.md#set-role) for the billing account.
 

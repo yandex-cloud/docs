@@ -1,0 +1,1 @@
+The `loadtesting.loadTester` role allows viewing and deleting reports, creating, deleting, and editing VMs with agents, enables the running of load tests, stopping tests, loading test data, and deleting reports.

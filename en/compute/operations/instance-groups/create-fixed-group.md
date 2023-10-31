@@ -50,7 +50,7 @@ To create a fixed-size instance group:
          ```
 
          Where:
-         * `name`: Name of the instance group. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters.
+         * `name`: Name of the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
          * `service_account_id`: Service account ID.
 
             {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
@@ -171,7 +171,8 @@ To create a fixed-size instance group:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
@@ -256,7 +257,7 @@ To create a fixed-size instance group:
       * `yandex_compute_instance_group`: Description of the instance group:
          * General information about the instance group:
             * `name`: Name of the instance group.
-            * `folder_id`: ID of the folder.
+            * `folder_id`: Folder ID.
             * `service_account_id`: Service account ID.
             * `deletion_protection`: Instance group deletion protection. You cannot delete an instance group with this option enabled. The default value is `false`.
          * [Instance template](../../concepts/instance-groups/instance-template.md):
@@ -280,7 +281,7 @@ To create a fixed-size instance group:
 
          {% endnote %}
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}

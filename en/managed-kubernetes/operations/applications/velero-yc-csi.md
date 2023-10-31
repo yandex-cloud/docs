@@ -23,8 +23,8 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
 
    ```bash
    yc resource-manager folder add-access-binding <folder_ID> \
-     --role storage.editor
-    \  --subject serviceAccount:<service_account_ID>
+     --role storage.editor \
+     --subject serviceAccount:<service_account_ID>
    ```
 
 1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md) in JSON format and save it to the `sa-key.json` file:
@@ -35,11 +35,11 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
      --format=json > sa-key.json
    ```
 
-1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
+1. [Create a {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the {{ managed-k8s-name }} cluster name and select the ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **Applications available for installation**, select [Velero](/marketplace/products/yc/velero-yc-csi) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
@@ -59,14 +59,14 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
-1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [Helm install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [kubectl setup](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Velero, run this command:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/velero-yc-csi/helm/velero \
-        --version <Helm_chart_version> \
+   helm pull oci://{{ mkt-k8s-key.yc_velero-yc-csi.helmChart.name }} \
+        --version {{ mkt-k8s-key.yc_velero-yc-csi.helmChart.tag }} \
         --untar && \
    helm install \
         --namespace velero \
@@ -75,8 +75,6 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/backup.md) 
         --set-file serviceaccountawskeyvalue=<path_to_sa-key.json_file> \
         velero ./velero/
    ```
-
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/velero-yc-csi#docker-images).
 
 ## See also {#see-also}
 

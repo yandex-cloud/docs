@@ -25,18 +25,17 @@ For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers, tables without
     1. Study the structure of tables without a primary key that need to be transferred to the target:
 
         ```sql
-        SHOW CREATE TABLE <database name>.<table name>;
+        SHOW CREATE TABLE <database_name>.<table_name>;
         ```
 
     1. Add a simple or complex primary key to the tables that need to be transferred to the target:
 
         ```sql
-        ALTER TABLE <table name> ADD PRIMARY KEY (<column or group of columns>);
+        ALTER TABLE <table_name> ADD PRIMARY KEY (<column_or_column_group>);
         ```
 
     1. If the table being transferred to the target has no column or group of columns suitable for the role of the primary key, create a new column:
 
         ```sql
-        ALTER TABLE <table name> ADD id BIGINT PRIMARY KEY AUTO_INCREMENT;
+        ALTER TABLE <table_name> ADD id BIGINT PRIMARY KEY AUTO_INCREMENT;
         ```
-

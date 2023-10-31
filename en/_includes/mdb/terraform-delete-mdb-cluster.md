@@ -1,12 +1,12 @@
 {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
 
-For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+{% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
 To delete a cluster created using {{ TF }}:
-1. In the command line, go to the folder with the current {{ TF }} configuration file with an infrastructure plan.
-1. Delete resources using the command:
+1. In the command line, go to the folder that houses the current {{ TF }} configuration file with an infrastructure plan.
+1. Delete the resources using this command:
 
    ```bash
    terraform destroy
@@ -18,4 +18,4 @@ To delete a cluster created using {{ TF }}:
 
    {% endnote %}
 
-1. Type the word `yes`, then press **Enter**.
+1. Type `yes` and press **Enter**.

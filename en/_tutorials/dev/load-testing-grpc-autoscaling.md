@@ -16,8 +16,6 @@ When testing is complete, [delete the created resources](#clear-out) if you no l
 
 1. Register a [domain name](../../dns/concepts/resource-record.md) for your website.
 1. If [security groups](../../vpc/concepts/security-groups.md) are enabled for your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [create](../../vpc/operations/security-group-create.md) a group according to the rules described in [{#T}](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
-
-   If security groups are not available in your cloud, all incoming and outgoing traffic will be enabled for the resources and no additional setup is required.
 1. [Set up the {{ managed-k8s-name }} cluster](../../managed-kubernetes/quickstart.md).
 1. [Install Metrics Provider](../../managed-kubernetes/operations/applications/metrics-provider.md).
 1. Install the Ingress controller:

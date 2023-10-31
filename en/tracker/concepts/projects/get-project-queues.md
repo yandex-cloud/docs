@@ -1,53 +1,53 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/projects/get-project-queues.md
+sourcePath: ru/tracker/api-ref/concepts/projects/get-project-queues.md
 ---
-# Get a list of project queues
+# Получить список очередей проекта
 
-Use this request to get a list of queues whose issues are included in a [project](../../manager/project-new.md).
+Запрос позволяет получить список очередей, задачи которых попадают в [проект](../../manager/project-new.md).
 
-## Request format {#query}
+## Формат запроса {#query}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To get a list of project queues, use an HTTP `GET` request:
+Чтобы получить список очередей проекта, используйте HTTP-запрос с методом `GET`.
 
 ```
 GET /{{ ver }}/projects/<project-id>/queues
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| \<project-id> | Project ID | Number |
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+\<project-id> | Идентификатор проекта | Число
+
+{% endcut %}  
+
+
+{% cut "Параметры запроса" %}
+
+**Дополнительные параметры**
+
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+expand | Дополнительные поля, которые будут включены в ответ. Если проект содержит несколько очередей, параметры отображаются для каждой очереди:<ul><li>`all` — все параметры очереди;</li><li>`projects` — все проекты организации;</li><li>`components` — компоненты очереди;</li><li>`versions` — версии очереди;</li><li>`types` — типы задач очереди;</li><li>`team` — участники команды очереди;</li><li>`workflows` — жизненные циклы очереди и их типы задач;</li><li>`fields` — обязательные поля очереди;</li><li>`notification_fields` — поля в уведомлениях о задачах очереди;</li><li>`issue_types_config` — настройки задач очереди;</li><li>`enabled_feaures` — настройки интеграций очереди;</li><li> `signature_settings` — информация о почтовом ящике очереди: адрес, псевдоним и подпись.</li></ul> | Строка
 
 {% endcut %}
 
-{% cut "Request parameters" %}
-
-**Additional parameters**
-
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| expand | Additional fields to include in the response. If there are multiple queues in the project, parameters are displayed for each queue:<ul><li>`all`: All queue parameters.</li><li>`projects`: All organization projects.</li><li>`components`: Queue components.</li><li>`versions`: Queue versions.</li><li>`types`: Queue issue types.</li><li>`team`: Queue team members.</li><li>`workflows`: Queue workflows and their issue types.</li><li>`fields`: Required queue fields.</li><li>`notification_fields`: Queue issue notification fields.</li><li>`issue_types_config`: Queue issue settings.</li><li>`enabled_features`: Queue integration settings.</li><li> `signature_settings`: Information about the queue mailbox: address, alias, and signature.</li></ul> | String |
-
-{% endcut %}
-
-## Response format {#answer}
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains information about the project in JSON format.
-
+    Тело ответа содержит информацию о проекте в формате JSON.
     ```json
     [
         {
@@ -56,24 +56,24 @@ Authorization: OAuth <OAuth token>
             "key": "ORG",
             "version": 6,
             "name": "Default",
-            "description": "Queue description "Default" (ORG)",
+            "description": "Описание очереди «Default» (ORG)",
             "lead": {
                 "self": "{{ host }}/v2/users/780889736",
                 "id": "780889736",
-                "display": "Tracker service robot "
+                "display": "Робот сервиса Tracker "
             },
             "assignAuto": false,
             "defaultType": {
                 "self": "{{ host }}/v2/issuetypes/2",
                 "id": "2",
                 "key": "task",
-                "display": "Issue"
+                "display": "Задача"
             },
             "defaultPriority": {
                 "self": "{{ host }}/v2/priorities/3",
                 "id": "3",
                 "key": "normal",
-                "display": "Medium"
+                "display": "Средний"
             },
             "allowExternalMailing": true,
             "addIssueKeyInEmail": true,
@@ -89,24 +89,24 @@ Authorization: OAuth <OAuth token>
             "key": "TEST",
             "version": 8,
             "name": "Testing",
-            "description": "Description of the "Testing" queue (TEST)",
+            "description": "Описание очереди «Testing» (TEST)",
             "lead": {
                 "self": "{{ host }}/v2/users/1234567890",
                 "id": "1234567890",
-                "display": "First and Last name"
+                "display": "Имя Фамилия"
             },
             "assignAuto": true,
             "defaultType": {
                 "self": "{{ host }}/v2/issuetypes/2",
                 "id": "2",
                 "key": "task",
-                "display": "Issue"
+                "display": "Задача"
             },
             "defaultPriority": {
                 "self": "{{ host }}/v2/priorities/3",
                 "id": "3",
                 "key": "normal",
-                "display": "Medium"
+                "display": "Средний"
             },
             "allowExternalMailing": false,
             "addIssueKeyInEmail": false,
@@ -119,67 +119,66 @@ Authorization: OAuth <OAuth token>
     ]
     ```
 
-   {% cut "Response parameters" %}
+   {% cut "Параметры ответа" %}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the queue. | String |
-    | id | Queue ID. | Number |
-    | key | Queue key. | String |
-    | version | Queue version. Each change to the queue increases its version number. | String |
-    | name | Queue name. | String |
-    | description | Text description of the queue. | String |
-    | lead | Block with information about the queue owner. | Object |
-    | assignAuto | Flag indicating that new issues in the queue are assigned automatically:<ul><li>`true`: Assigned.</li><li>`false`: Not assigned.</li></ul> | Boolean |
-    | defaultType | Block with information about the default issue type. | Object |
-    | defaultPriority | Block with information about the default issue priority. | Object |
-    | allowExternalMailing | Flag that indicates if emails to external addresses are allowed:<ul><li>`true`: Allowed.</li><li>`false`: Not allowed.</li></ul> | Boolean |
-    | addIssueKeyInEmail | Flag that indicates if the issue number is added to the email subject:<ul><li>`true`: Added.</li><li>`false`: Not added.</li></ul> | Boolean |
-    | denyVoting | Flag that indicates if voting for issues is allowed:<ul><li>`true`: Allowed.</li><li>`false`: Not allowed. </li></ul> | Boolean |
-    | denyConductorAutolink | Service parameter. | Boolean |
-    | denyTrackerAutolink | Flag that indicates whether to add an automatic link to issues in other queues:<ul><li>`true`: Add a link.</li><li>`false`: Do not add a link if the key of an issue from another queue is added to the comment or description.</li></ul> | Boolean |
-    | useComponentPermissionsIntersection | The method of getting access rights to issues with multiple components:<ul><li>`true`: As an overlap of component access rights.</li><li>`false`: As a combination of component access rights.</li></ul> | Boolean |
-    | useLastSignature | Service parameter. | Boolean |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию об очереди. | Строка
+    id | Идентификатор очереди. | Число
+    key | Ключ очереди. | Строка
+    version | Версия очереди. Каждое изменение очереди увеличивает номер версии. | Строка
+    name | Название очереди. | Строка
+    description | Текстовое описание очереди. | Строка
+    lead | Блок с информацией о владельце очереди. | Объект
+    assignAuto | Признак автоматического назначения исполнителя для новых задач очереди:<ul><li>`true` — назначить;</li><li>`false` — не назначать.</li></ul> | Логический
+    defaultType | Блок с информацией о типе задачи по умолчанию. | Объект
+    defaultPriority | Блок с информацией о приоритете задачи по умолчанию. | Объект
+    allowExternalMailing | Признак отправки писем на внешние адреса:<ul><li>`true` — разрешить;</li><li>`false` — запретить.</li></ul> | Логический
+    addIssueKeyInEmail | Признак добавления номера задачи в тему письма:<ul><li>`true` — добавить;</li><li>`false` — не добавлять.</li></ul> | Логический
+    denyVoting | Признак запрета голосования за задачи:<ul><li>`true` – голосование запрещено;</li><li>`false` — голосование разрешено. </li></ul> | Логический
+    denyConductorAutolink | Служебный параметр. | Логический
+    denyTrackerAutolink | Признак автоматической связи с задачами других очередей:<ul><li>`true` — добавить связь;</li><li>`false` — не добавлять связь, если ключ задачи из другой очереди добавлен в комментарий или в описание.</li></ul> | Логический
+    useComponentPermissionsIntersection | Способ получения прав доступа к задачам с несколькими компонентами:<ul><li>`true` — как пересечение прав доступа к компонентам;</li><li>`false` — как объединение прав доступа к компонентам.</li></ul> | Логический
+    useLastSignature | Служебный параметр. | Логический
 
-    **Object fields** `lead`
+    **Поля объекта** `lead`
+    
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
+    id | Идентификатор пользователя. | Число
+    display | Отображаемое имя пользователя. | Строка
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the user. | String |
-    | id | User ID. | Number |
-    | display | User's name displayed. | String |
+    **Поля объекта** `defaultType`
+    
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о типе задаче. | Строка
+    id | Идентификатор типа задачи. | Число
+    key | Ключ типа задачи. | Строка
+    display | Отображаемое название типа задачи. | Строка
 
-    **Object fields** `defaultType`
-
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the issue type. | String |
-    | id | ID of the issue type. | Number |
-    | key | Key of the issue type. | String |
-    | display | Issue type name displayed. | String |
-
-    **Object fields** `defaultPriority`
-
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the issue priority. | String |
-    | id | Issue priority ID. | Number |
-    | key | Issue priority key. | String |
-    | display | Issue priority name displayed. | String |
+    **Поля объекта** `defaultPriority`
+    
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о приоритете задаче. | Строка
+    id | Идентификатор приоритета задачи. | Число
+    key | Ключ приоритета задачи. | Строка
+    display | Отображаемое название приоритета задачи. | Строка
 
     {% endcut %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If the request is processed incorrectly, the API returns a response with an error code:
-
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    
     {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
     {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
     {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
-
+    
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
-
+    
 {% endlist %}
-

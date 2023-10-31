@@ -46,7 +46,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-  {% endlist %}
+   {% endlist %}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -280,6 +280,7 @@ To restore the snapshot:
 ## Delete the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
+
 1. Delete the {{ managed-k8s-name }} cluster:
 
    {% list tabs %}
@@ -305,7 +306,7 @@ Delete the resources you no longer need to avoid paying for them:
 
      1. Confirm the deletion of resources.
 
-  {% endlist %}
+   {% endlist %}
 
 1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).
 1. [Delete the disk snapshot](../../compute/operations/snapshot-control/delete.md).

@@ -1,1 +1,5 @@
+---
+canonical: "{{ link-docs }}/tutorials/datalens/data-from-metrica-yc-visualization"
+---
+
 {% include [data-from-metrica-yc-visualization](../../_tutorials/datalens/data-from-metrica-yc-visualization.md) %}

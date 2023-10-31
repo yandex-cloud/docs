@@ -1,47 +1,49 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/delete-external-link.md
+sourcePath: ru/tracker/api-ref/concepts/issues/delete-external-link.md
 ---
-# Delete an external link
+# Удалить внешнюю связь
 
-Use this request to delete an issue's link to an [external application object](../../external-links.md).
+Запрос позволяет удалить связь задачи с [объектом внешнего приложения](../../external-links.md).
 
-## Request format {#rec-format}
+## Формат запроса {#rec-format}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To delete an external link, use an HTTP `DELETE` request.
+Чтобы удалить внешнюю связь, используйте HTTP-запрос с методом `DELETE`. 
 
 ```
 DELETE /{{ ver }}/issues/<issue-id>/remotelinks/<external-link-id>
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
 
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| \<issue-id> | ID or key of the current issue. | String |
-| \<external-link-id> | [External link ID](get-external-links.md). | String |
+{% cut "Ресурс" %}
 
-{% endcut %}
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+\<issue-id> | Идентификатор или ключ текущей задачи. | Строка
+\<external-link-id> | [Идентификатор внешней связи](get-external-links.md). | Строка
 
-## Response format {#answer}
+{% endcut %}   
+	
+
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
   {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
 
-  The response body is missing.
+  Тело ответа отсутствует.
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-  If the request is processed incorrectly, the API returns a response with an error code:
+  Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
    {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 

@@ -1,6 +1,6 @@
 ---
 title: "How to create a network load balancer"
-description: "Use this guide to create a network load balancer."
+description: "Follow this guide to create a network load balancer."
 ---
 
 # Creating a network load balancer
@@ -106,7 +106,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Describe the parameters of the network load balancer resource in a configuration file.
 

@@ -42,6 +42,8 @@ To start using hybrid storage:
 
 See an example in the [Using hybrid storage](../tutorials/hybrid-storage.md) tutorial.
 
+To track the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts in {{ objstorage-full-name }}, use the `ch_s3_disk_parts_size` [metric](../tutorials/hybrid-storage.md#metrics) in {{ monitoring-full-name }}. It is only available for {{ mch-name }} clusters with hybrid storage set up.
+
 ### Available storage policies {#storage-policies}
 
 {% note info %}
@@ -65,9 +67,9 @@ A {{ mch-name }} cluster with enabled hybrid storage supports the following stor
 
 * `object storage`: In tables with this policy, rows are placed only in object storage. There is no data transfer between storages.
 
-Storage policies do not affect [merge operations]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) for data chunks. For any storage policy you can:
+Storage policies do not affect [merge operations]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) for data chunks. With any storage policy, you can:
 
-* Enable and disable the `prefer_not_to_merge` setting that merges stored data chunks.
+* Enable and disable the `prefer_not_to_merge` setting that merges stored data chunks. This setting is available in the [CLI and API](../operations/update.md#change-hybrid-storage).
 * Set any value of the `max_data_part_size_bytes` setting that specifies the maximum size of the resulting data chunk that you will get after merging smaller chunks.
 
 However, you can configure the behavior of these operations using the [ClickHouse settings](./settings-list.md) available in the cluster.
@@ -93,6 +95,10 @@ A {{ mch-name }} cluster with enabled hybrid storage has the following settings:
 * `move_factor`: Sets the minimum share of free space in cluster storage. If the actual value is less than this setting value, the data is moved to {{ objstorage-full-name }}. The minimum value is `0`, the maximum one is `1`, and the default one is `0.01`.
 
    Data chunks to move are enqueued from the largest to the smallest value. Next, the amount of data chunks that is equal to the value at which the `move_factor` condition is met, is moved.
+
+* `prefer_not_to_merge`: Disables [data part merges]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) in cluster and object storage. The merge functionality is enabled by default.
+
+   Once inserted into the table, the data is saved as a chunk and sorted by the primary key. Then, in the background, the chunks belonging to the same partition are merged into a larger chunk within 10 to 15 minutes after the insert. You can use the [system.parts]({{ ch.docs }}/operations/system-tables/parts#system_tables-parts) system table to view the merged data chunks and partitions.
 
 You can specify hybrid storage settings when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-hybrid-storage) a cluster.
 

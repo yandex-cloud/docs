@@ -10,9 +10,9 @@ When working with Velero, you can use [nfs](https://kubernetes.io/docs/concepts/
 
 {% endnote %}
 
-In this article, you will learn how to create a backup of a {{ k8s }} cluster node group using Velero, save it in {{ objstorage-name }}, and restore it in a node group in a different cluster:
-1. [Create a node group backup](#backup).
-1. [Recover a node group of another cluster from a backup](#restore).
+In this article, you will learn how to create a backup of a {{ managed-k8s-name }} cluster node group using Velero, save it in {{ objstorage-name }}, and restore it in a node group in a different cluster:
+1. [Create a backup of your {{ managed-k8s-name }} node group](#backup).
+1. [Recover a node group of another {{ managed-k8s-name }} cluster from a backup](#restore).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -36,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [velero-backup.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/velero-backup.tf) configuration file to the same working directory.
 
@@ -47,10 +47,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * Rules for service traffic.
          * Rule for connecting to services from the internet.
       * Two {{ managed-k8s-name }} clusters and their node groups.
-      * Service account required to use the {{ managed-k8s-name }} clusters and node groups.
-      * Service account with the `compute.admin` role to work with Velero.
+      * [Service account](../../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} clusters and node groups.
+      * Service account with the `compute.admin` [role](../../iam/concepts/access-control/roles.md) to work with Velero.
       * Static access key for the service account used to work with Velero.
-      * Bucket in {{ objstorage-name }}.
+      * [Bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}.
    1. In `velero-backup.tf`, specify:
       * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create resources in.
       * `k8s_version`: [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) 1.22 or higher.
@@ -59,14 +59,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `sa_name_velero`: Name of the service account to work with Velero.
       * `storage_sa_id`: ID of the service account with the `storage.admin` role. It will be used to create a bucket in {{ objstorage-name }} with `READ and WRITE` permissions in the [ACL](../../storage/concepts/acl.md) for the `sa_name_velero` service account.
       * `bucket_name`: {{ objstorage-name }} bucket name.
-   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
    1. Create the required infrastructure:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -106,14 +106,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```ini
    [default]
-     aws_access_key_id=<key ID>
-     aws_secret_access_key=<key value>
+     aws_access_key_id=<key_ID>
+     aws_secret_access_key=<key_value>
    ```
 
 ## Backups {#backup}
 
 To back up the {{ managed-k8s-name }} node group data:
-1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the first cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the first {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
 
@@ -146,11 +146,11 @@ To back up the {{ managed-k8s-name }} node group data:
 ## Restoring data from backups {#restore}
 
 To restore data from the {{ managed-k8s-name }} cluster node group:
-1. [Configure kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) to work with the second cluster.
+1. [Configure kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) to work with the second {{ managed-k8s-name }} cluster.
 
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
 
-1. Make sure the data backup is displayed in the new cluster:
+1. Make sure the data backup is displayed in the new {{ managed-k8s-name }} cluster:
 
    ```bash
    velero backup get
@@ -204,8 +204,8 @@ If you no longer need the resources you created, delete them:
 - Manually
 
    * [Delete the clusters {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-   * If you reserved[ public static IP addresses](../../vpc/concepts/address.md#public-addresses) for the clusters, [delete them](../../vpc/operations/address-delete.md).
-   * [Delete the bucket {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+   * If you reserved [public static IP addresses](../../vpc/concepts/address.md#public-addresses) for the {{ managed-k8s-name }} clusters, [delete them](../../vpc/operations/address-delete.md).
+   * [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
    * [Delete the service account](../../iam/operations/sa/delete.md) used to work with Velero.
 
 - Using {{ TF }}
@@ -218,8 +218,8 @@ If you no longer need the resources you created, delete them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
-   1. Confirm the resources have been updated:
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

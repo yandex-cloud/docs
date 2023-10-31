@@ -80,7 +80,7 @@
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * **{{ ui-key.yacloud.mdb.forms.section_pooler }}** — режим работы и параметры [пулера соединений](../concepts/pooling.md):
+        * **{{ ui-key.yacloud.mdb.forms.section_pooler }}** — режим работы и параметры [менеджера подключений](../concepts/pooling.md):
 
             {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
 

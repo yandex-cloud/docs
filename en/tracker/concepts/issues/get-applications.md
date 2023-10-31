@@ -1,32 +1,33 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/get-applications.md
+sourcePath: ru/tracker/api-ref/concepts/issues/get-applications.md
 ---
-# Get a list of external applications
+# Получить список внешних приложений
 
-Use this request to get a list of applications to which you can [create a link](../../external-links.md).
+Запрос позволяет получить список внешних приложений, с которыми можно [создать связь](../../external-links.md).
 
-## Request format {#query}
+## Формат запроса {#query}
 
-To get a list of available external applications, use an HTTP `GET` request:
+Чтобы получить список доступных внешних приложений, используйте HTTP-запрос с методом `GET`:
 
 ```json
 GET /{{ ver }}/applications
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-## Response format {#answer}
+
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains information about external applications in JSON format.
+    Тело ответа содержит информацию о внешних приложениях в формате JSON.
 
     ```json
     [
@@ -34,24 +35,24 @@ Authorization: OAuth <OAuth token>
             "self": "{{ host }}/{{ ver }}/applications/my-application",
             "id": "my-application",
             "type": "my-application",
-            "name": "Application name"
+            "name": "Имя Приложения"
         },
         ...
     ]
     ```
 
-    {% cut "Response parameters" %}
+    {% cut "Параметры ответа" %}
 
-    | Parameter | Description | Data type |
-    | ----- | ----- | ----- |
-    | self | Address of the API resource with information about the application. | String |
-    | id | Application ID. | String |
-    | type | Application type. The same as the `id` parameter value. | String |
-    | name | Application name. | String |
+    Параметр | Описание | Тип данных
+    ----- | ----- | -----
+    self | Адрес ресурса API, который содержит информацию о приложении. | Строка
+    id | Идентификатор приложения. | Строка
+    type | Тип приложения. Значение совпадает со значением параметра `id`.| Строка
+    name | Имя приложения. | Строка
 
     {% endcut %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
     {% include [400](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -62,4 +63,3 @@ Authorization: OAuth <OAuth token>
     {% include [500](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
-

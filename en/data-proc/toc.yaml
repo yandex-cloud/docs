@@ -29,7 +29,7 @@ items:
         items:
           - name: Connecting to component interfaces
             href: operations/connect-interfaces.md
-          - name: How to use Sqoop
+          - name: Using Sqoop
             href: operations/sqoop-usage.md
       - name: Jobs
         items:
@@ -107,11 +107,13 @@ items:
           Importing data from {{ objstorage-full-name }}, processing and
           exporting it to {{ mch-full-name }}
         href: tutorials/s3-dataproc-ch.md
+      - name: Automating operations using {{ maf-name }}
+        href: tutorials/airflow-automation.md
       - name: Shared use of tables through {{ metastore-name }}
         href: tutorials/dataproc-to-dataproc.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Host classes
         items:

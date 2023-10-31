@@ -9,8 +9,8 @@ items:
         href: quickstart/index.md
       - name: Как распознать короткие аудиофайлы в API v1
         href: quickstart/stt-quickstart-v1.md
-      - name: Как распознать потоковое аудио в API v3
-        href: quickstart/stt-quickstart-v3.md
+      - name: Как распознать длинные аудиофайлы в API v2
+        href: quickstart/stt-quickstart-v2.md
       - name: Как синтезировать речь в API v1
         href: quickstart/tts-quickstart-v1.md
       - name: Как синтезировать речь в API v3

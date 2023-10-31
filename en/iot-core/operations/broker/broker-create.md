@@ -1,6 +1,6 @@
 ---
 title: "How to create a broker"
-description: "This guide describes how you can create a broker."
+description: "Follow this guide to create a broker."
 ---
 
 # Creating a broker
@@ -78,7 +78,7 @@ description: "This guide describes how you can create a broker."
       yc iot broker password add --broker-name <broker name>
       ```
 
-      You will be prompted to enter a password. The password requirements are as follows:
+      You will be prompted to enter a password. The requirements are as follows:
 
       * The password must contain numbers, upper-case and lower-case letters, and special characters.
       * It must be at least 14 characters long.
@@ -120,7 +120,7 @@ description: "This guide describes how you can create a broker."
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    {% note info %}
 

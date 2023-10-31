@@ -62,19 +62,19 @@
 
     ```bash
     {{ yc-mdb-mg }} cluster enable-sharding \
-      --cluster-name=<имя кластера> \
+      --cluster-name=<имя_кластера> \
       --host type=mongoinfra,`
-        `zone-id=<зона доступности>,`
-        `subnet-name=<имя подсети> \
+        `zone-id=<зона_доступности>,`
+        `subnet-name=<имя_подсети> \
       --host type=mongoinfra,`
-        `zone-id=<зона доступности>,`
-        `subnet-name=<имя подсети> \
+        `zone-id=<зона_доступности>,`
+        `subnet-name=<имя_подсети> \
       --host type=mongoinfra,`
-        `zone-id=<зона доступности>,`
-        `subnet-name=<имя подсети> \
-      --mongoinfra resource-preset=<класс хоста>,`
-        `disk-size=<размер хранилища в ГБ>,`
-        `disk-type=<тип диска>
+        `zone-id=<зона_доступности>,`
+        `subnet-name=<имя_подсети> \
+      --mongoinfra resource-preset=<класс_хоста>,`
+        `disk-size=<размер_хранилища_ГБ>,`
+        `disk-type=<тип_диска>
     ```
 
     Где:
@@ -92,28 +92,28 @@
 
     ```bash
     {{ yc-mdb-mg }} cluster enable-sharding \
-      --cluster-name=<имя кластера> \
+      --cluster-name=<имя_кластера> \
       --host type=mongos,`
-        `zone-id=<зона доступности>,`
-        `subnet-name=<имя подсети> \
+        `zone-id=<зона_доступности>,`
+        `subnet-name=<имя_подсети> \
       --host type=mongos,`
-        `zone-id=<зона доступности>,`
-        `subnet-name=<имя подсети> \
-      --mongos resource-preset=<класс хоста>,`
-        `disk-size=<размер хранилища в ГБ>,`
-        `disk-type=<тип диска> \
+        `zone-id=<зона_доступности>,`
+        `subnet-name=<имя_подсети> \
+      --mongos resource-preset=<класс_хоста>,`
+        `disk-size=<размер_хранилища_ГБ>,`
+        `disk-type=<тип_диска> \
       --host type=mongocfg,`
-        `zone-id=<зона доступности>,`
-        `subnet-name=<имя подсети> \
+        `zone-id=<зона_доступности>,`
+        `subnet-name=<имя_подсети> \
       --host type=mongocfg,`
-        `zone-id=<зона доступности>,`
-        `subnet-name=<имя подсети> \
+        `zone-id=<зона_доступности>,`
+        `subnet-name=<имя_подсети> \
       --host type=mongocfg,`
-        `zone-id=<зона доступности>,`
-        `subnet-name=<имя подсети> \
-      --mongocfg resource-preset=<класс хоста>,`
-        `disk-size=<размер хранилища в ГБ>,`
-        `disk-type=<тип диска>
+        `zone-id=<зона_доступности>,`
+        `subnet-name=<имя_подсети> \
+      --mongocfg resource-preset=<класс_хоста>,`
+        `disk-size=<размер_хранилища_ГБ>,`
+        `disk-type=<тип_диска>
     ```
 
     Где:
@@ -145,26 +145,26 @@
 
         ```hcl
         resources_mongoinfra {
-          resource_preset_id = "<класс хоста>"
-          disk_type_id       = "<тип диска>"
-          disk_size          = <размер хранилища в ГБ>
+          resource_preset_id = "<класс_хоста>"
+          disk_type_id       = "<тип_диска>"
+          disk_size          = <размер_хранилища_ГБ>
         }
 
         host {
-          zone_id   = "<зона доступности>"
-          subnet_id = "<идентификатор подсети>"
+          zone_id   = "<зона_доступности>"
+          subnet_id = "<идентификатор_подсети>"
           type      = "mongoinfra"
         }
 
         host {
-          zone_id   = "<зона доступности>"
-          subnet_id = "<идентификатор подсети>"
+          zone_id   = "<зона_доступности>"
+          subnet_id = "<идентификатор_подсети>"
           type      = "mongoinfra"
         }
 
         host {
-          zone_id   = "<зона доступности>"
-          subnet_id = "<идентификатор подсети>"
+          zone_id   = "<зона_доступности>"
+          subnet_id = "<идентификатор_подсети>"
           type      = "mongoinfra"
         }
         ```
@@ -175,44 +175,44 @@
 
         ```hcl
         resources_mongos {
-          resource_preset_id = "<класс хоста>"
-          disk_type_id       = "<тип диска>"
-          disk_size          = <размер хранилища в ГБ>
+          resource_preset_id = "<класс_хоста>"
+          disk_type_id       = "<тип_диска>"
+          disk_size          = <размер_хранилища_ГБ>
         }
 
         resources_mongocfg {
-          resource_preset_id = "<класс хоста>"
-          disk_type_id       = "<тип диска>"
-          disk_size          = <размер хранилища в ГБ>
+          resource_preset_id = "<класс_хоста>"
+          disk_type_id       = "<тип_диска>"
+          disk_size          = <размер_хранилища_ГБ>
         }
 
         host {
-          zone_id   = "<зона доступности>"
-          subnet_id = "<идентификатор подсети>"
+          zone_id   = "<зона_доступности>"
+          subnet_id = "<идентификатор_подсети>"
           type      = "mongos"
         }
 
         host {
-          zone_id   = "<зона доступности>"
-          subnet_id = "<идентификатор подсети>"
+          zone_id   = "<зона_доступности>"
+          subnet_id = "<идентификатор_подсети>"
           type      = "mongos"
         }
 
         host {
-          zone_id   = "<зона доступности>"
-          subnet_id = "<идентификатор подсети>"
+          zone_id   = "<зона_доступности>"
+          subnet_id = "<идентификатор_подсети>"
           type      = "mongocfg"
         }
 
         host {
-          zone_id   = "<зона доступности>"
-          subnet_id = "<идентификатор подсети>"
+          zone_id   = "<зона_доступности>"
+          subnet_id = "<идентификатор_подсети>"
           type      = "mongocfg"
         }
 
         host {
-          zone_id   = "<зона доступности>"
-          subnet_id = "<идентификатор подсети>"
+          zone_id   = "<зона_доступности>"
+          subnet_id = "<идентификатор_подсети>"
           type      = "mongocfg"
         }
         ```
@@ -255,7 +255,7 @@
   Чтобы получить список шардов в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-mg }} shards list --cluster-name <имя кластера>
+  {{ yc-mdb-mg }} shards list --cluster-name <имя_кластера>
   ```
 
   Результат:
@@ -302,10 +302,10 @@
   Чтобы добавить шард в кластер, выполните команду (в примере приведены не все доступные параметры):
 
   ```bash
-  {{ yc-mdb-mg }} shards add <имя нового шарда> \
-    --cluster-name=<имя кластера> \
-    --host zone-id=<зона доступности>,`
-      `subnet-name=<имя подсети>
+  {{ yc-mdb-mg }} shards add <имя_нового_шарда> \
+    --cluster-name=<имя_кластера> \
+    --host zone-id=<зона_доступности>,`
+      `subnet-name=<имя_подсети>
   ```
 
   Где:
@@ -325,13 +325,13 @@
   1. Добавьте к описанию кластера {{ mmg-name }} нужное количество блоков `host` с типом `MONGOD` в параметре `type` и именем шарда в параметре `shard_name`:
 
      ```hcl
-     resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+     resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
        ...
        host {
-         zone_id    = "<зона доступности>"
-         subnet_id  = "<идентификатор подсети>"
+         zone_id    = "<зона_доступности>"
+         subnet_id  = "<идентификатор_подсети>"
          type       = "mongod"
-         shard_name = "<имя шарда>"
+         shard_name = "<имя_шарда>"
        }
      }
      ```
@@ -386,8 +386,8 @@
   Чтобы удалить шард из кластера, выполните команду:
 
   ```bash
-  {{ yc-mdb-mg }} shards delete <имя шарда> \
-    --cluster-name=<имя кластера>
+  {{ yc-mdb-mg }} shards delete <имя_шарда> \
+    --cluster-name=<имя_кластера>
   ```
 
   Имя шарда можно запросить со [списком шардов в кластере](#list-shards), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).

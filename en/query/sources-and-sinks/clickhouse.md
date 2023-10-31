@@ -47,7 +47,7 @@ You need a service account to detect {{ mch-name }} cluster connection points 
 
 {% note warning %}
 
-You should first allow network access from {{ yq-full-name }} to {{ mch-name }} clusters. To do this, in the settings of the database to which the connection is made, enable **Access from Yandex Query**.
+But first allow network access from {{ yq-full-name }} to {{ mch-name }} clusters. To do this, in the settings of the database to which the connection is made, enable **Access from Yandex Query**.
 
 {% endnote %}
 
@@ -64,7 +64,7 @@ Where:
 * `<db>`: Name of the {{ CH }} database in the cluster.
 * `<table>`: Name of the table in the database.
 
-## Restrictions {#limits}
+## Limitations {#limits}
 
 There are several restrictions when working with {{ CH }} clusters.
 

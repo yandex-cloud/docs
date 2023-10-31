@@ -15,7 +15,7 @@ description: "Follow this guide to create a {{ network-load-balancer-name }} tar
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
    1. In the left-hand panel, select ![image](../../_assets/trgroups.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
    1. Click **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
-   1. Enter the name of the target group. The password requirements are as follows:
+   1. Enter the name of the target group. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -44,7 +44,7 @@ description: "Follow this guide to create a {{ network-load-balancer-name }} tar
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Describe the parameters of the target group resource in a configuration file:
 

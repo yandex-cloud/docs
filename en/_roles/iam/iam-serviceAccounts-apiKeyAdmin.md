@@ -1,0 +1,1 @@
+The `iam.serviceAccounts.apiKeyAdmin` role lets you create, update, and delete API keys for service accounts.

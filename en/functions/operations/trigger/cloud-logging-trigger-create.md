@@ -137,7 +137,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To create a trigger for {{ cloud-logging-name }}:
 
@@ -170,7 +170,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `description`: Trigger description
+      * `description`: Trigger description.
       * `logging`: Logging parameters, which will activate the trigger when added to the log group, and the batch message settings:
          * `group_id`: Log group ID.
          * `resource_types`: Resource types, e.g., `resource_types = [ "serverless.function" ]` for {{ sf-name }} functions. You can specify multiple types.

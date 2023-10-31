@@ -1,7 +1,13 @@
-The [Fluent Bit](https://fluentbit.io/) log processor lets you transfer the {{ managed-k8s-name }} cluster logs to [{{ cloud-logging-full-name }}](../logging/). The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
+{% note info %}
+
+You can enable sending of [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) logs to [{{ cloud-logging-full-name }}](../logging/) by specifying the `master logging` setting when [creating](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating ](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) a cluster. The setting is only available in the CLI, {{ TF }}, and API.
+
+{% endnote %}
+
+The [Fluent Bit](https://fluentbit.io/) log processor lets you transfer the {{ managed-k8s-name }} cluster logs to {{ cloud-logging-name }}. The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
 
 To set up transfer of logs:
-1. [Prepare the {{ k8s }} cluster](#configure-cluster).
+1. [Prepare the {{ managed-k8s-name }} cluster](#configure-cluster).
 1. [Install and configure Fluent Bit](#fluent-bit-install).
 
 ## Getting started {#before-you-begin}
@@ -21,7 +27,7 @@ To set up transfer of logs:
       ```
 
 1. [Create a log group](../logging/operations/create-group.md).
-1. [Create a {{ k8s }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with {{ k8s }} version 1.21 or higher.
+1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with [{{ k8s }} version](../managed-kubernetes/concepts/release-channels-and-updates.md) 1.21 or higher.
 
 1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -32,7 +38,7 @@ To set up transfer of logs:
 - Using {{ yandex-cloud }}
 
    1. Install Fluent Bit by following the [instructions](../managed-kubernetes/operations/applications/fluentbit.md).
-   1. [Check transmission of {{ k8s }} cluster logs](../logging/operations/read-logs.md) to {{ cloud-logging-name }}.
+   1. [Check transmission of {{ managed-k8s-name }} cluster logs](../logging/operations/read-logs.md) to {{ cloud-logging-name }}.
 
 - Manually
 
@@ -60,7 +66,7 @@ To set up transfer of logs:
 
       {% endlist %}
 
-   1. Create a secret including the key of the service account:
+   1. Create a secret including the key of the [service account](../iam/concepts/users/service-accounts.md):
 
       ```bash
       kubectl create secret generic secret-key-json \
@@ -83,13 +89,13 @@ To set up transfer of logs:
             Name            yc-logging
             Match           *
             group_id        <og group ID>
-            resource_id     <optional: cluster ID {{ k8s }}>
+            resource_id     <optional: {{ managed-k8s-name }} cluster ID>
             message_key     log
             authorization   iam-key-file:/etc/secret/key.json
       ...
       ```
 
-      You can request the log group ID with a [list of log groups in the folder](../logging/operations/list.md).
+      You can request the [log group](../logging/concepts/log-group.md) ID with a [list of log groups in the folder](../logging/operations/list.md).
 
       If necessary, specify [additional settings](https://github.com/yandex-cloud/fluent-bit-plugin-yandex#configuration-parameters) for the Fluent Bit.
    1. Create Fluent Bit objects:
@@ -111,14 +117,13 @@ To set up transfer of logs:
       kubectl get pods -n logging
       ```
 
-   1. [Check transmission of {{ k8s}} cluster logs](../logging/operations/read-logs.md) to {{ cloud-logging-name }}.
+   1. [Check transmission of {{ managed-k8s-name }} cluster logs](../logging/operations/read-logs.md) to {{ cloud-logging-name }}.
 
 {% endlist %}
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
-
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 1. [Delete the {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you reserved a public static IP address for the cluster, [delete it](../vpc/operations/address-delete.md).
+1. If you reserved a [public static IP address](../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster, [delete it](../vpc/operations/address-delete.md).
 1. [Delete the log group](../logging/operations/delete-group.md).

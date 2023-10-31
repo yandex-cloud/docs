@@ -18,15 +18,15 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-   1. In the list of services, select **{{ ydb-name }}**.
-   1. Click **Create database**.
-   1. Enter the **Name** of the DB. The naming requirements are as follows:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+   1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. Under **Database type**, select the **Serverless** option.
+   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
    1. You will be suggested default values for DB parameters. They are selected for you to get started in the most efficient way. You can change them right away or later, if required. For more information about the DB settings, see [Serverless and dedicated modes](../concepts/serverless-and-dedicated.md).
-   1. Click **Create database**.
+   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
    Wait for the database status to change to `Running`.
 
@@ -81,7 +81,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the {{ TF }} configuration file, describe the parameters of the serverless DB to create:
 
@@ -145,13 +145,13 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the database settings.
-   1. In the list of services, select **{{ ydb-name }}**.
-   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the DB you need and select **Edit**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the DB you need and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
    1. Configure the DB settings:
       1. Change the DB name, if required.
-      1. Under **Limits**, specify the [throughput](../pricing/serverless.md#prices-ru) and [max size](../pricing/serverless.md#rules-storage).
-      1. Under **Pricing**, set the [provisioned capacity](../pricing/serverless.md#prices-ru).
-   1. Click **Update database**.
+      1. Under **{{ ui-key.yacloud.ydb.overview.label_serverless-limits }}**, specify the [throughput](../pricing/serverless.md#prices-ru) and [max size](../pricing/serverless.md#rules-storage).
+      1. Under **{{ ui-key.yacloud.ydb.overview.label_serverless-billing }}**, set the [provisioned capacity](../pricing/serverless.md#prices-ru).
+   1. Click **{{ ui-key.yacloud.ydb.forms.button_update-database }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -176,7 +176,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
       >   --new-name mydb
       > ```
 
-   1. Setting a consumption limit of 100 request units per second for a serverless DB named db5:
+   1. Setting a consumption limit of 100 request units per second for a serverless DB named `db5`:
 
       > ```bash
       > yc ydb database update db5 \
@@ -185,7 +185,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the serverless DB description:
 
@@ -251,14 +251,14 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-   1. In the list of services, select **{{ ydb-name }}**.
-   1. Click **Create database**.
-   1. Enter the database **Name**. The naming requirements are as follows:
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+   1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. Under **Database type**, select the **Dedicated** option.
-   1. Under **Computing resources**, select the type and amount of [computing resources](../concepts/resources.md#resource-presets).
+   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_dedicated-type }}`.
+   1. Under **{{ ui-key.yacloud.ydb.forms.label_section-compute }}**, select the type and amount of [computing resources](../concepts/resources.md#resource-presets).
 
       {% note warning %}
 
@@ -266,25 +266,25 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
       {% endnote %}
 
-   1. Under **Storage groups**, select the disk type and number of [storage groups](../concepts/resources.md#storage-groups) that determines the total amount of storage.
-   1. Under **Network**, configure network settings:
-      1. (Optional) In the **Public IP addresses** field, select **Assign** if you plan to query the database from the {{ yandex-cloud }} network and the internet.
+   1. Under **{{ ui-key.yacloud.ydb.forms.label_section-storage }}**, select the disk type and number of [storage groups](../concepts/resources.md#storage-groups) that determines the total amount of storage.
+   1. Under **{{ ui-key.yacloud.ydb.forms.label_section-network }}**, configure network settings:
+      1. (Optional) In the **{{ ui-key.yacloud.ydb.forms.field_public-ips }}** field, select **{{ ui-key.yacloud.ydb.forms.label_text-public-ips }}** if you plan to query the database from the {{ yandex-cloud }} network and the internet.
 
          {% include [traffic_metering](../_includes/traffic_metering.md) %}
 
-      1. Select an existing network from the **Cloud network** list or create a new one:
-         * Click **Create new**.
-         * In the window that opens, enter a **Name** for the new network.
-         * (Optional) Select the **Create subnets** option. Subnets in each availability zone will be created automatically.
-         * Click **Create**.
-      1. Under **Subnets**, select a subnet or create a new one for each availability zone:
-         * Click **Create new**.
-         * In the window that opens, enter a **Name** for the new subnet.
-         * (Optional) Enter a **Description** of the subnet.
-         * Select the availability zone you need from the **Availability zone** list.
-         * Specify the subnet address in [**CIDR**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
-         * Click **Create**.
-   1. Click **Create database**.
+      1. Select an existing network from the **{{ ui-key.yacloud.ydb.forms.field_network }}** list or create a new one:
+         * Click **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
+         * In the window that opens, enter a **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_name }}** for the new network.
+         * (Optional) Select the **{{ ui-key.yacloud.component.vpc.create-network-dialog.field_is-default }}** option. Subnets in each availability zone will be created automatically.
+         * Click **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
+      1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each availability zone:
+         * Click **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
+         * In the window that opens, enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_name }}** for the new subnet.
+         * (Optional) Enter a **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_description }}** of the subnet.
+         * Select the availability zone you need from the **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_zone }}** list.
+         * Specify the subnet address in [**{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.field_cidr }}**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
+         * Click **{{ ui-key.yacloud.component.vpc.create-subnetwork-dialog.button_create }}**.
+   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
    Wait for the database status to change to `Running`.
 
@@ -351,7 +351,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the {{ TF }} configuration file, describe the parameters of the Dedicated DB to create:
 
@@ -432,13 +432,13 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the database settings.
-   1. In the list of services, select **{{ ydb-name }}**.
-   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the DB you need and select **Edit**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the DB you need and select **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
    1. Configure the DB settings:
       1. Change the DB name, if required.
-      1. Under **Computing resources**, select the type and amount of [computing resources](../concepts/resources.md#resource-presets).
-      1. Under **Storage groups**, select the disk type and number of [storage groups](../concepts/resources.md#storage-groups) that determines the total amount of storage.
-   1. Click **Update database**.
+      1. Under **{{ ui-key.yacloud.ydb.forms.label_section-compute }}**, select the type and amount of [computing resources](../concepts/resources.md#resource-presets).
+      1. Under **{{ ui-key.yacloud.ydb.forms.label_section-storage }}**, select the disk type and number of [storage groups](../concepts/resources.md#storage-groups) that determines the total amount of storage.
+   1. Click **{{ ui-key.yacloud.ydb.forms.button_update-database }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -467,7 +467,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the DB description:
 
@@ -509,7 +509,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to get a list of databases for.
-   1. In the list of services, select **{{ ydb-name }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 
 - {{ yandex-cloud }} CLI
 
@@ -532,8 +532,8 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the DB from.
-   1. In the list of services, select **{{ ydb-name }}**.
-   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the DB you need and select **Delete**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the DB you need and select **{{ ui-key.yacloud.ydb.overview.button_action-delete }}**.
    1. Confirm the deletion.
 
 - {{ yandex-cloud }} CLI
@@ -550,7 +550,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and delete the fragment with the DB description.
 

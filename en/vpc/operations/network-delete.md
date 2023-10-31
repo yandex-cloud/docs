@@ -64,7 +64,7 @@ You cannot restore a network after it is deleted.
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 

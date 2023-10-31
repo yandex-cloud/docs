@@ -79,7 +79,7 @@
     * Тип сервиса, для которого требуется получить записи, в параметре `serviceType`:
 
         * `GREENPLUM` — лог операций {{ GP }}.
-        * `GREENPLUM_POOLER` — лог операций пулера соединений.
+        * `GREENPLUM_POOLER` — лог операций менеджера подключений.
         * `GREENPLUM_PXF` — лог протокола [PXF](external-tables.md).
 
 {% endlist %}
@@ -115,7 +115,7 @@
     * Тип сервиса, для которого требуется получить записи, в параметре `serviceType`:
 
         * `GREENPLUM` — лог операций {{ GP }}.
-        * `GREENPLUM_POOLER` — лог операций пулера соединений.
+        * `GREENPLUM_POOLER` — лог операций менеджера подключений.
         * `GREENPLUM_PXF` — лог протокола [PXF](external-tables.md).
 
 {% endlist %}

@@ -1,5 +1,7 @@
 # Formatting CSV data
 
+{% include [formatter-alert](../../_includes/wiki/formatter-alert.md) %}
+
 To display CSV data as a table, use the markup:
 
 ```
@@ -24,7 +26,7 @@ Markup parameters:
 
 {% note info %}
 
-You can't use [text formatting elements](formatting.md) in CSV tables.
+You cannot use [text formatting elements](formatting.md) in CSV tables.
 
 {% endnote %}
 

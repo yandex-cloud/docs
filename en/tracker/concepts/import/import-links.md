@@ -1,24 +1,27 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/import/import-links.md
+title: "Как импортировать связи"
+description: "В данной статье описаны особенности импорта связей."
+sourcePath: ru/tracker/api-ref/concepts/import/import-links.md
 ---
-# Import links
+
+# Импортировать связи
 
 {% note warning %}
 
-This request can only be executed if the user has permission to edit the issue whose links are to be imported.
+Запрос может быть выполнен только если у пользователя есть право на изменение задачи, связи которой импортируются.
 
-{% endnote %}
+{% endnote %} 
 
-Use it to import to {{ tracker-name }} links to other issues.
+С помощью запроса вы можете импортировать в {{ tracker-name }} связи задачи с другими задачами.
 
-## Request format {#section_i14_lyb_p1b}
+## Формат запроса {#section_i14_lyb_p1b}
 
-To import links, use an HTTP `POST` request. Link parameters are passed in the request body in JSON format:
+Чтобы импортировать связь, используйте HTTP-запрос с методом `POST`. Параметры связи передаются в теле запроса в формате JSON:
 
 ```json
 POST /{{ ver }}/issues/<issue_id>/links/_import
 Host: {{ host }}
-Authorization: OAuth <token>
+Authorization: OAuth <токен>
 {{ org-id }}
 
 {
@@ -33,43 +36,43 @@ Authorization: OAuth <token>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Resource" %}
+{% cut "Ресурс" %}
 
-| Parameter | Description | Data type |
-| --- | --- | --- |
-| \<issues-id\> | Key of the issue to attach the file to. | String |
-
-{% endcut %}
-
-{% cut "Request body parameters" %}
-
-**Required parameters**
-
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| relationship | Type of links between issues:<ul><li>`relates`: Simple link.</li><li>`is dependent by`: The current issue blocks the linked one.</li><li>`depends on`: The current issue depends on the linked one.</li><li>`is subtask for`: The current issue is a sub-issue of the linked one.</li><li>`is parent task for`: The current issue is a parent issue of the linked one.</li><li>`duplicates`: The current issue duplicates the linked one.</li><li>`is duplicated by`: The linked issue duplicates the current one.</li><li>`is epic of`: The current issue is an epic of the linked one. You can only set this type of link for Epic-type issues.</li><li>`has epic`: The linked issue is an epic of the current one. You can only set this type of link for Epic-type issues.</li><li>`clone`: The linked issue is a clone of the current one.</li><li>`original`: The current issue is a clone of the linked one.</li></ul> | String |
-| issue | ID or key of the issue being linked. | String |
-| createdAt | Link creation date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify a value in the interval from the time of creation to the time the issue being linked was last updated. | String |
-| createdBy | Username or ID of the user who created the link. | <ul><li>String for the username</li><li> Number for the ID</li></ul> |
-
-**Additional parameters**
-
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| updatedAt | Date and time of the link's last update in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify a value in the interval from the time of creation to the time the issues being linked were last updated.<br/><br/>The parameter is only used together with the `updatedBy` parameter. | String |
-| updatedBy | Username or ID of the user who edited the link last.<br/><br/>The parameter is only used together with the `updatedAt` parameter. | <ul><li>String for the username</li><li>Number for the ID</li></ul> |
+Параметр | Описание | Тип данных
+--- | --- | ---
+\<issues-id\> | Ключ задачи, к которой будет прикреплен файл. | Строка
 
 {% endcut %}
 
-## Response format {#section_isd_myb_p1b}
+{% cut "Параметры тела запроса" %}
+
+**Обязательные параметры**
+
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+relationship | Тип связи между задачами:<ul><li>`relates` — простая связь.</li><li>`is dependent by` — текущая задача является блокером.</li><li>`depends on` — текущая задача зависит от связываемой</li><li>`is subtask for` — текущая задача является подзадачей связываемой.</li><li>`is parent task for` — текущая задача является родительской для связываемой задачи.</li><li>`duplicates` — текущая задача дублирует связываемую.</li><li>`is duplicated by` — связываемая задача дублирует текущую.</li><li>`is epic of` — текущая задача является эпиком связываемой. Связь такого типа можно установить только для задач типа "Эпик".</li><li>`has epic` — связываемая задача является эпиком текущей. Связь такого типа можно установить только для задач типа "Эпик".</li><li>`clone` — связываемая задача является клоном текущей.</li><li>`original` — текущая задача является клоном связанной.</li></ul> | Строка
+issue | Идентификатор или ключ связываемой задачи. | Строка
+createdAt | Дата и время создания связи. формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. Вы можете указать время в интервале от создания до последнего обновления задач, между которыми устанавливается связь. | Строка
+createdBy | Логин или идентификатор создателя связи. | <ul><li>Строка для логина</li><li>Число для идентификатора</li></ul>
+
+**Дополнительные параметры**
+
+Параметр | Описание | Тип данных
+-------- | -------- | ----------
+updatedAt | Дата и время последнего изменения связи. формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. Вы можете указать время в интервале от создания до последнего обновления задач, между которыми устанавливается связь.<br/><br/>Параметр указывается только вместе с параметром `updatedBy`. | Строка
+updatedBy | Логин или идентификатор пользователя, который редактировал связь последним.<br/><br/>Параметр указывается только вместе с параметром `updatedAt`. | <ul><li>Строка для логина</li><li>Число для идентификатора</li></ul>
+
+{% endcut %}
+
+## Формат ответа {#section_isd_myb_p1b}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %} 
 
-    The response body contains the parameters of the attached file in JSON format:
+    Тело ответа содержит параметры прикрепленного файла в формате JSON:
 
     ```json
     {
@@ -78,8 +81,8 @@ Authorization: OAuth <token>
             "type": {
                 "self": "{{ host }}/v2/linktypes/subtask",
                 "id": "subtask",
-                "inward": "Sub-issue",
-                "outward": "Parent issue"
+                "inward": "Подзадача",
+                "outward": "Родительская задача"
             },
             "direction": "outward",
             "object": {
@@ -90,102 +93,101 @@ Authorization: OAuth <token>
             },
             "createdBy": {
                 "self": "{{ host }}/v2/users/1120000000049224",
-                "id": "<employee ID>",
-                "display": "<employee name displayed>"
+                "id": "<id сотрудника>",
+                "display": "<отображаемое имя сотрудника>"
             },
             "updatedBy": {
                 "self": "{{ host }}/v2/users/1120000000049224",
-                "id": "<employee ID>",
-                "display": "<employee name displayed>"
+                "id": "<id сотрудника>",
+                "display": "<отображаемое имя сотрудника>"
             },
             "createdAt": "2017-06-11T05:16:01.421+0000",
             "updatedAt": "2017-06-11T05:16:01.421+0000",
             "assignee": {
                 "self": "{{ host }}/v2/users/1120000000049224",
-                "id": "<employee ID>",
-                "display": "<employee name displayed>"
+                "id": "<id сотрудника>",
+                "display": "<отображаемое имя сотрудника>"
             },
             "status": {
                 "self": "{{ host }}/v2/statuses/1",
                 "id": "1",
                 "key": "open",
-                "display": "Open"
+                "display": "Открыт"
             }
         }
     ```
+    {% cut "Параметры ответа" %}
 
-    {% cut "Response parameters" %}
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о связи. | Строка
+    id | Идентификатор связи. | Число
+    [type](#type) | Блок с информацией о типе связи. | Объект
+    sdirection | Тип связи задачи, указанной в запросе, по отношению к задаче в поле [object](#resp-object-param). Возможны следующие значения:<ul><li>`outward` — задача, указанная в запросе, является основной для задачи в поле [object](#resp-object-param).</li><li>`inward` — задача в поле [object](#resp-object-param) является основной для задачи, указанной в запросе.</li></ul> | Строка
+    [object](#object) | Блок с информацией о связанной задаче. | Объект
+    [createdBy](#createdBy) | Блок с информацией о создателе связи. | Объект
+    [updatedBy](#updatedBy) | Блок с информацией о последнем изменившем связанную задачу пользователе. | Объект
+    createdAt | Дата и время создания связи. | Строка
+    updatedAt | Дата и время изменения связи. | Строка
+    [assignee](#assignee) | Исполнитель связанной задачи. | Объект
+    [status](#status) | Статус связанной задачи. | Объект
+        
+    **Поля объекта** `type` {#type}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the link. | String |
-    | id | Link ID. | Number |
-    | [type](#type) | Block with information about the link type. | Object |
-    | sdirection | Link type of the issue specified in the request in relation to the issue specified in the [object](#resp-object-param) field. Possible values:<ul><li>`outward`: The issue specified in the request is the main one for the issue in the [object](#resp-object-param) field.</li><li>`inward`: The issue specified in the [object](#resp-object-param) field is the main one for the issue in the request.</li></ul> | String |
-    | [object](#object) | Block with information about the linked issue. | Object |
-    | [createdBy](#createdBy) | Block with information about the user who created the link. | Object |
-    | [updatedBy](#updatedBy) | Block with information about the user who edited the linked issue last. | Object |
-    | createdAt | Link creation date and time. | String |
-    | updatedAt | Link update date and time. | String |
-    | [assignee](#assignee) | Assignee of the linked issue. | Object |
-    | [status](#status) | Status of the linked issue. | Object |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Ссылка на тип связи. | Строка
+    id | Идентификатор типа связи. | Строка
+    inward | Название типа связи задачи в поле [object](#resp-object-param) по отношению к задаче, указанной в запросе. | Строка
+    outward | Название типа связи задачи, указанной в запросе, по отношению к задаче в поле [object](#resp-object-param). | Строка
 
-    **Object fields** `type` {#type}
+    **Поля объекта** `object` {#object}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Link to the link type. | String |
-    | id | ID of the link type. | String |
-    | inward | Name of the link type of the issue specified in the [object](#resp-object-param) field in relation to the issue specified in the request. | String |
-    | outward | Name of the link type of the issue specified in the request in relation to the issue specified in the [object](#resp-object-param) field. | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию о задаче. | Строка
+    id | Идентификатор задачи. | Строка
+    key | Ключ задачи. | Строка
+    display | Отображаемое название задачи. | Строка
 
-    **Object fields** `object` {#object}
+    **Поля объекта** `createdBy` {#createBy}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the issue. | String |
-    | id | Issue ID. | String |
-    | key | Issue key. | String |
-    | display | Issue name displayed. | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Ссылка на пользователя. | Строка
+    id | Идентификатор пользователя. | Строка
+    display | Отображаемое имя пользователя. | Строка
 
-    **Object fields** `createdBy` {#createBy}
+    **Поля объекта** `updatedBy` {#updatedBy}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Link to the user. | String |
-    | id | User ID. | String |
-    | display | User's name displayed. | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------   
+    self | Ссылка на пользователя. | Строка
+    id | Идентификатор пользователя. | Строка
+    display | Отображаемое имя пользователя. | Строка
 
-    **Object fields** `updatedBy` {#updatedBy}
+    **Поля объекта** `assignee` {#asignee}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Link to the user. | String |
-    | id | User ID. | String |
-    | display | User's name displayed. | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Ссылка на пользователя. | Строка
+    id | Идентификатор пользователя. | Строка
+    display | Отображаемое имя пользователя. | Строка
 
-    **Object fields** `assignee` {#asignee}
+    **Поля объекта** `status` {#status}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Link to the user. | String |
-    | id | User ID. | String |
-    | display | User's name displayed. | String |
-
-    **Object fields** `status` {#status}
-
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Status link. | String |
-    | id | Status ID. | String |
-    | key | Status key. | String |
-    | display | Status name displayed. | String |
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Ссылка на статус. | Строка
+    id | Идентификатор статуса. | Строка
+    key | Ключ статуса. | Строка
+    display | Отображаемое название статуса. | Строка
 
     {% endcut %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If a request fails, the response message contains details of the errors encountered:
+    Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 

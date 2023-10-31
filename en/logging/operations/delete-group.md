@@ -49,7 +49,7 @@ The name of the [default log group](../concepts/log-group.md) is `default`. The 
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To delete a log group created with {{ TF }}:
 

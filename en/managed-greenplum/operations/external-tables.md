@@ -45,7 +45,6 @@ SQL query syntax to create an external table:
 CREATE [WRITABLE] EXTERNAL TABLE <table name>
        (<column name> <data type> [, ...])
        LOCATION('pxf://<data path or table name>?PROFILE=<profile name>&JDBC_DRIVER=<JDBC driver name>&DB_URL=<connection string>&USER=<username>')
-       FORMAT '[TEXT|CSV|CUSTOM]';
 ```
 
 Where:
@@ -60,6 +59,12 @@ Where:
 * (optional) `username`: Username to connect to the external DBMS.
 
 The `WRITABLE` option enables you to write data to an external object. To be able to read data from an external object, create a table with the `READABLE` option.
+
+{% note warning %}
+
+When creating external tables, do not set up the user password explicitly. Use other methods of password setup.
+
+{% endnote %}
 
 This SQL query does not contain an exhaustive list of available parameters. For more information, see the [{{ GP }} documentation]({{ gp.docs.pivotal }}/6-4/pxf/intro_pxf.html) and examples for creating external tables.
 

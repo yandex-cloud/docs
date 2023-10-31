@@ -128,7 +128,7 @@ To change basic settings of a snapshot schedule:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the schedule description:
 
@@ -194,7 +194,7 @@ To change a list of disks for which snapshots are scheduled:
 
          {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-      * To delete a disk, under **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}**, next to the disk you wish to delete from the schedule, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-disk }}**.
+      * To delete a disk, under **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}**, next to the disk you want to delete from the schedule, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-disk }}**.
 
 - CLI
 

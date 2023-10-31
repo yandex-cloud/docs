@@ -138,12 +138,12 @@ You can restore an individual [shard](../concepts/sharding.md) or the whole clus
 
       Where:
 
-      * `--backup-id`: [Backup](../concepts/backup.md) ID
+      * `--backup-id`: [Backup](../concepts/backup.md) ID.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including {{ MS }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
       * `--host`: Host parameters:

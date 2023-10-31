@@ -1,5 +1,7 @@
 # Forms from {{ forms-full-name }}
 
+{% include [actions-alert](../../_includes/wiki/actions-alert.md) %}
+
 [{{ forms-full-name }}]({{ link-forms-b2b }}) is a service that enables you to administer surveys, tests and quizzes, collect feedback, and accept applications. You can read more about the service features in the [{{ forms-full-name }} documentation](../../forms/).
 
 ## Adding a response to a {{ wiki-name }} page {#forms-wiki}
@@ -20,7 +22,7 @@ For information about how to get the form embed code, see the [{{ forms-full-nam
 
 To add a form to your page using the [new editor](../pages-types.md#wysiwyg):
 
-1. Get the iframe embed code for the form. For more information, see the [{{ forms-full-name }}documentation](../../forms/publish.md#section_c21_gdb_42b).
+1. Get the iframe embed code for the form. For more information, see the [{{ forms-full-name }} documentation](../../forms/publish.md#section_c21_gdb_42b).
 
 1. Copy the `src` attribute value from the `iframe` tag.
 

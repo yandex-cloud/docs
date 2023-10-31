@@ -1,16 +1,16 @@
 ---
-sourcePath: en/tracker/api-ref/error-codes.md
+sourcePath: ru/tracker/api-ref/error-codes.md
 ---
-# Possible response codes
+# Возможные коды ответа
 
 200
-:  Successful execution of the request.
+:   Запрос выполнен успешно.
 
 201
-:  The `POST` request resulted in creating a new object.
+:   В результате выполнения запроса с методом `POST` успешно создан новый объект.
 
 204
-:  The DELETE request is executed, the object was deleted.
+:   Запрос с методом DELETE успешно выполнен, объект удален.
 
 {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
 

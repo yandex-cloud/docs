@@ -29,19 +29,19 @@
 1. Загрузите данные из хранилища ключей:
 
    ```bash
-   curl --request POST "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_nodes/reload_secure_settings"
+   curl --request POST "https://<IP-адрес_или_FQDN_хоста_с_ролью_DATA_в_кластере-источнике>:{{ port-mes }}/_nodes/reload_secure_settings"
    ```
 
 1. Зарегистрируйте репозиторий:
 
    ```bash
    curl --request PUT \
-        "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>" \
+        "https://<IP-адрес_или_FQDN_хоста_с_ролью_DATA_в_кластере-источнике>:{{ port-mes }}/_snapshot/<имя_репозитория>" \
         --header 'Content-Type: application/json' \
         --data '{
           "type": "s3",
           "settings": {
-            "bucket": "<имя бакета>",
+            "bucket": "<имя_бакета>",
             "endpoint": "{{ s3-storage-host }}"
           }
         }'

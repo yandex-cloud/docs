@@ -53,7 +53,7 @@ SELECT * FROM postgresql_mdb_connection.`my_db.my_table`
 
 {% endnote %}
 
-## Синтаксис запросов { #query }
+## Синтаксис запросов {#query}
 Для работы с {{ PG }} используется следующая форма SQL-запроса:
 
 ```sql
@@ -65,7 +65,7 @@ SELECT * FROM postgresql_mdb_connection.`<db>.<table>`
 * `<db>` — имя базы данных {{ PG }} в кластере.
 * `<table>` — имя таблицы в базе данных.
 
-## Ограничения { #limits }
+## Ограничения {#limits}
 
 При работе с кластерами {{ PG }} существует ряд ограничений.
 
@@ -82,7 +82,7 @@ SELECT * FROM postgresql_mdb_connection.`<db>.<table>`
 1. При чтении всегда используется [пространство имен](https://www.postgresql.org/docs/current/catalog-pg-namespace.html) `public`, указать другое нельзя.
 
 
-## Поддерживаемые типы данных { #supported_types }
+## Поддерживаемые типы данных {#supported_types}
 
 Ниже приведена таблица соответствия типов {{ PG }} и типов {{ yq-full-name }}.
 

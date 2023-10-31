@@ -59,10 +59,10 @@ To use the AWS tools, follow these steps:
    - Management console
 
       1. Go to the folder that the service account belongs to.
-      1. At the top of the screen, go to the **Service accounts** tab.
-      1. Choose a service account and click the line with its name.
-      1. Click **Create new key** in the top panel.
-      1. Click **Create static access key**.
+      1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+      1. Choose a service account and click the row with its name.
+      1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
+      1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. Enter a description of the key so that you can easily find it in the management console.
       1. Save the ID and private key.
 
@@ -126,7 +126,7 @@ To use the AWS tools, follow these steps:
    ```
 
    As a result, the files `~/.aws/credentials` and `~/.aws/config` will be created (`C:\Users\USERNAME\.aws\credentials` and `C:\Users\USERNAME\.aws\config` on Windows).
-1. Check that the settings are correct by running the table listing command against the [created](../../operations/manage-databases.md) DB. As the `--endpoint` value, specify the Document API endpoint available on the **Overview** tab of your database in the [management console]({{ link-console-main }}).
+1. Check that the settings are correct by running the table listing command against the [created](../../operations/manage-databases.md) DB. As the `--endpoint` value, specify the Document API endpoint available in the **{{ ui-key.yacloud.ydb.database.switch_overview }}** tab of your database in the [management console]({{ link-console-main }}).
 
    ```bash
    aws dynamodb list-tables \

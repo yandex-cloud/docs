@@ -66,9 +66,9 @@ Connecting to the database with explicitly specified network addresses and ports
 
       The lists include the name of the [schema]({{gp.docs.vmware}}/6/greenplum-database/admin_guide-ddl-ddl-schema.html) (description of DB contents, structure, and integrity constraints) and the table name. Both lists support expressions in the following format:
 
-      * `<schema name>.<table name>`: Fully qualified table name.
-      * `<schema name>.*`: All tables in the specified schema.
-      * `<table name>`: Table in the default schema.
+      * `<schema_name>.<table_name>`: Fully qualified table name.
+      * `<schema_name>.*`: All tables in the specified schema.
+      * `<table_name>`: Table in the default schema.
 
    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.strong_consistency.title }}**: When enabled, {{ data-transfer-name }} will apply additional steps to the source to assure [snapshot consistency](#snapshot-consistency).
 

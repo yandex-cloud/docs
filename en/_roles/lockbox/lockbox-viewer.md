@@ -1,0 +1,1 @@
+The `lockbox.viewer` role lets you read the metadata of the secret.

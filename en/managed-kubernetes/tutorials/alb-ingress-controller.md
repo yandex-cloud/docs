@@ -314,7 +314,7 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1; default value
+         * `http`: HTTP/1.1. Default value
          * `http2`: HTTP/2
          * `grpc`: gRPC
       * `ingress.alb.yc.io/transport-security`: Encryption protocol used by the connections between the load balancer and the backends:
@@ -324,9 +324,9 @@ Command result:
       * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
       * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, for example, `websocket`.
       * `ingress.alb.yc.io/request-timeout`: Maximum period for which the connection can be established.
-      * `ingress.alb.yc.io/idle-timeout`: Maximum connection keep-alive time with no data to transmit.
+      * `ingress.alb.yc.io/idle-timeout`: Maximum connection keep-alive time with zero data transmission.
 
-         Values for `request-timeout` and `idle-timeout` must be specified with units of measurement, e.g., `300ms`, `1.5h`. Acceptable units of measurement include:
+         Values for `request-timeout` and `idle-timeout` must be specified with units of measurement, for example: `300ms`, `1.5h`. Acceptable units of measurement:
          * `ns`: Nanoseconds
          * `us`: Microseconds
          * `ms`: Milliseconds
@@ -356,7 +356,7 @@ Command result:
       The expected result is a non-empty value in the `ADDRESS` field for the created Ingress controller:
 
       ```bash
-      NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
+      NAME          CLASS   HOSTS          ADDRESS       PORTS    AGE
       alb-demo-tls  <none>  <domain_name>  <IP_address>  80, 443  15h
       ```
 
@@ -364,7 +364,7 @@ Command result:
 
 - Ingress controller for a backend group
 
-   To set up a [backend group](../../application-load-balancer/concepts/backend-group.md) use the `HttpBackendGroup` [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/). As a backend, you can use an {{ alb-name }} target group or an {{ objstorage-name }} bucket.
+   To set up a [backend group](../../application-load-balancer/concepts/backend-group.md) use [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) `HttpBackendGroup`. As a backend, you can use a {{ alb-name }} target group or {{ objstorage-name }} bucket.
 
    To configure {{ alb-name }} to work with a backend group:
    1. Create a [backend group with a bucket](../../application-load-balancer/operations/backend-group-create.md#with-s3-bucket):
@@ -541,13 +541,13 @@ Command result:
 
       * `ingress.alb.yc.io/internal-alb-subnet`: Subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
       * `ingress.alb.yc.io/protocol`: Connection protocol used by the load balancer and the backends:
-         * `http`: HTTP/1.1; default value
+         * `http`: HTTP/1.1. Default value
          * `http2`: HTTP/2
          * `grpc`: gRPC
       * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
       * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, for example, `websocket`.
       * `ingress.alb.yc.io/request-timeout`: Maximum period for which the connection can be established.
-      * `ingress.alb.yc.io/idle-timeout`: Maximum connection keep-alive time with no data to transmit.
+      * `ingress.alb.yc.io/idle-timeout`: Maximum connection keep-alive time with zero data transmission.
 
          Values for `request-timeout` and `idle-timeout` must be specified with units of measurement, e.g., `300ms`, `1.5h`. Acceptable units of measurement include:
          * `ns`: Nanoseconds
@@ -641,7 +641,7 @@ Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/gr
 
    - Backend group
 
-      Open the application URI in the browser:
+      Open the application URI in your browser:
 
       ```http
       https://<your_domain>/app1
@@ -654,6 +654,6 @@ Specifying a name for the Ingress group settings using the `ingress.alb.yc.io/gr
 ## Delete the resources you created {#clear-out}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
-1. [Delete the {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }} cluster.
+1. [Delete a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Delete the {{ alb-name }} target groups](../../application-load-balancer/operations/target-group-delete.md).
 1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).

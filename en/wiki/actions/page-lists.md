@@ -1,5 +1,7 @@
 # Page lists
 
+{% include [actions-alert](../../_includes/wiki/actions-alert.md) %}
+
 You can add lists to your [page](../pages-types.md#page):
 
 * [{#T}](#tree)

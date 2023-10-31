@@ -12,13 +12,7 @@ Transformers are set as a list. When activating a transfer, a transformation pla
 
 Some transformers may have limitations and only apply to some source-target pairs. The list of transformers will be updated moving forward. Currently, the following types are available:
 
-* [{#T}](#rename-tables)
-* [{#T}](#columns-filter)
-* [{#T}](#data-mask)
-* [{#T}](#subtable-splitting)
-* [{#T}](#replace-primary-key)
-* [{#T}](#convert-to-string)
-* [{#T}](#shard)
+{% include [list-of-transformers](../../_includes/data-transfer/list-of-transformers.md) %}
 
 ### Renaming tables {#rename-tables}
 

@@ -98,7 +98,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
       Save the ID of the `service-account-for-budget`.
 
-   1. Assign the service account the `compute.admin`, `iam.serviceAccounts.user` and `serverless.functions.invoker` roles for the folder:
+   1. Assign the service account the `compute.admin`, `iam.serviceAccounts.user`, and `{{ roles-functions-invoker }}` roles for the folder:
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
          --role compute.admin \
@@ -109,7 +109,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
          --subject serviceAccount:<service_account_ID>
 
       yc resource-manager folder add-access-binding <folder_ID> \
-         --role serverless.functions.invoker \
+         --role {{ roles-functions-invoker }} \
          --subject serviceAccount:<service_account_ID>
       ```
 
@@ -122,7 +122,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
    To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
 
-   To assign the service account the `compute.admin`, `iam.serviceAccounts.user`, and `serverless.functions.invoker` folder roles, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
+   To assign the service account the `compute.admin`, `iam.serviceAccounts.user`, and `{{ roles-functions-invoker }}` roles for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
 
 {% endlist %}
 
@@ -150,12 +150,12 @@ zip src.zip index.go go.mod
       1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and select the archive created in the previous step.
       1. Specify the `index.StopComputeInstances` entry point.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`.
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`
+         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-            * `FOLDER_ID`: ID of the folder to stop the VM instances in.
-            * `TAG`: `target-for-stop`.
+            * `FOLDER_ID`: ID of the folder to stop the VM instances in
+            * `TAG`: `target-for-stop`
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI
@@ -292,7 +292,7 @@ The user can create a budget if they have the `editor` role. To get notification
    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the `function-for-budget` function and specify:
 
       * [Tag of the function version](../../functions/concepts/function.md#tag). The default tag is `$latest`.
-      * Service account: `service-account-for-budget`. It will be used to invoke the function.
+      * Service account named `service-account-for-budget`. It will be used to invoke the function.
 
    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 

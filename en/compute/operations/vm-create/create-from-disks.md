@@ -1,6 +1,6 @@
 ---
 title: "How to create a VM from a set of disks"
-description: "Use this tutorial to create a VM from a set of existing disks."
+description: "Use this guide to create a VM from a set of existing disks."
 ---
 
 # Creating a VM from a set of disks
@@ -69,7 +69,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
       * (Optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). With a service account, you can flexibly configure access rights for your resources.
-      * Enter username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
 
          {% note alert %}
 
@@ -143,7 +143,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
 - {{ TF }}
 
-  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To create a VM from a set of disks:
   1. In the configuration file, describe the parameters of the resources you want to create:

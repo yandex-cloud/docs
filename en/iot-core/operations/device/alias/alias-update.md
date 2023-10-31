@@ -49,7 +49,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
 
    {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../../_includes/terraform-install.md) %}
 
    To update an alias created with {{ TF }}:
 

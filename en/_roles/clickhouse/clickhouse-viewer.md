@@ -1,0 +1,1 @@
+The `managed-clickhouse.viewer` role enables you to view information about clusters, runtime logs, and quotas.

@@ -67,7 +67,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To add a certificate to a registry created using {{ TF }}:
 
@@ -178,7 +178,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To delete the certificate of a registry created using {{ TF }}:
 

@@ -2,9 +2,9 @@
 
 {{ unified-agent-full-name }} collects metrics in the {{ prometheus-name }} format and converts them to the {{ monitoring-full-name }} format. {{ unified-agent-short-name }} enables you to pull metrics from applications that deliver them in the {{ prometheus-name }} format.
 
-To deliver custom application metrics to {{ monitoring-full-name }}, use the [metrics_pull input](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input) that regularly polls an application over HTTP expecting to receive metrics in {{ prometheus-name }} format.
+To deliver custom application metrics to {{ monitoring-full-name }}, use the [metrics_pull input](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input) that regularly polls an application over HTTP expecting to receive metrics in the {{ prometheus-name }} format.
 
-As an example, let's discuss delivery of metrics from a test application written in Python. You can run your test application and {{ unified-agent-short-name }} both on different VMs and on a single VM. If run on different VMs, make sure their [security groups](../../../vpc/concepts/security-groups.md) allow incoming and outgoing traffic on port `8000` via `TCP`.
+As an example, let's consider delivery of metrics from a test application written in Python. You can run your test application and {{ unified-agent-short-name }} both on different VMs and on a single VM. If run on different VMs, make sure their [security groups](../../../vpc/concepts/security-groups.md) allow incoming and outgoing traffic on port `8000` via `TCP`.
 
 ## Example of delivering custom application metrics {#example}
 

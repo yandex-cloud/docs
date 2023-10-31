@@ -1,8 +1,6 @@
-# Начало работы со {{ speechkit-short-name }}
+# Начало работы со {{ speechkit-name }}
 
-Если вы хотите попробовать, как сервис синтезирует или [распознает речь](../../glossary/transcribation.md), воспользуйтесь демо на [странице сервиса](https://cloud.yandex.ru/services/speechkit#demo).
-
-О стоимости использования сервиса {{ speechkit-name }} см. [{#T}](../pricing.md).
+Вы можете протестировать распознавание и синтез речи в сервисе {{ speechkit-name }} на [странице демо](https://cloud.yandex.ru/services/speechkit#demo). О стоимости использования сервиса читайте в разделе [{#T}](../pricing.md).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -10,18 +8,16 @@
 
 ## Распознавание речи {#stt-quickstart}
 
-* [{#T}](stt-quickstart-v1.md)
-* [{#T}](stt-quickstart-v3.md)
+Узнайте, как распознать [короткие](stt-quickstart-v1.md) и [длинные](stt-quickstart-v2.md) предзаписанные аудиофайлы в {{ speechkit-name }}. Также сервис позволяет распознать голос в [режиме реального времени](../stt/api/streaming-examples-v3.md).
 
 ## Синтез речи {#tts-quickstart}
 
-* [{#T}](tts-quickstart-v1.md)
-* [{#T}](tts-quickstart-v3.md)
+Узнайте, как преобразовать текст в аудио с помощью [API v1](tts-quickstart-v1.md) и [API v3](tts-quickstart-v3.md) {{ speechkit-name }}. API v3 позволяет более гибко настроить синтез. Подробнее о различиях версий API в разделе [{#T}](../tts/index.md#features).
 
 #### См. также {#see-also}
 
-* [Подробнее про синтез речи](../tts/index.md)
 * [Подробнее про распознавание речи](../stt/index.md)
+* [Подробнее про синтез речи](../tts/index.md)
 * [Поддерживаемые форматы аудио](../formats.md)
 * [Необходимые роли для выполнения операций](../security/index.md)
 * [Все примеры интеграции {{ speechkit-name }}](../tutorials/index.md)

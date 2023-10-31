@@ -33,10 +33,21 @@ By default, the service does not shard collections transferred to a sharded clus
 Transfers to {{ MG }} do not migrate indexes. When a transfer changes its status to {{ dt-status-repl }}, manually create an index for each sharded collection:
 
 ```javascript
-db.<collection name>.createIndex(<index properties>)
+db.<collection_name>.createIndex(<index_properties>)
 ```
 
 For more information about the `createIndex()` function, see the [{{ MG }} documentation](https://www.mongodb.com/docs/manual/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex).
+
+## {{ MY }} {#mysql}
+
+Types of data in {{ MY }} target tables may have the `unsigned` property:
+
+* `unsigned smallint`: Values greater than 2^31 are too large to be stored on the target.
+* `unsigned bigint`: Values greater than 2^63 are too large to be stored on the target.
+
+A primary key in {{ MY }} cannot be a string of unlimited length.
+
+The {{ MY }} target ignores the source schema name and creates tables in the schema whose name is specified in the endpoint settings.
 
 ## {{ PG }} {#postgresql}
 
@@ -46,7 +57,7 @@ If the definition of the `VIEW` to be transferred contains an invocation of the 
 
 The source treats `FOREIGN TABLE` as a regular view and uses the general algorithm for views when handling them.
 
-If the source of a transfer _from {{ PG }} to {{ PG }}_ has a non-empty "List of included tables" specified, user-defined data types that are present in these tables aren't transferred. If this is the case, please transfer your custom data types manually.
+If the source of a transfer _from {{ PG }} to {{ PG }}_ has a non-empty "List of included tables" specified, user-defined data types in these tables are not transferred. If this is the case, transfer your custom data types manually.
 
 When transferring [partitioned tables](https://www.postgresql.org/docs/current/ddl-partitioning.html), take the following into account:
 

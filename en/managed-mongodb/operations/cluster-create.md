@@ -33,7 +33,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including {{ mmg-short-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
       * Specify the DBMS version.
 
@@ -47,7 +47,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the storage size for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the storage size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
@@ -148,9 +148,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   
-   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To create a cluster:
 
@@ -283,15 +281,15 @@ If you specified security group IDs when creating a cluster, you may also need t
    Create a {{ mmg-name }} cluster with test characteristics:
 
    
-   * Name: `mymg`
-   * Environment: `Production`
-   * Network: `{{ network-name }}`
-   * Security group ID: `{{ security-group }}`
-   * `{{ host-class }}` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone: 1
-   * Network SSD storage (`{{ disk-type-example }}`): 20 GB
-   * User: `user1`, with the `user1user1` password
-   * Database: `db1`
-   * Protection against accidental cluster deletion: Enabled
+   * Name: `mymg`.
+   * Environment: `production`.
+   * Network: `{{ network-name }}`.
+   * Security group ID: `{{ security-group }}`.
+   * `{{ host-class }}` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone: 1.
+   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
+   * User: `user1`, with the `user1user1` password.
+   * Database: `db1`.
+   * Protection against accidental cluster deletion: Enabled.
 
 
    Run the following command:
@@ -319,7 +317,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    * Name: `mymg`.
    * Version: `{{ versions.tf.latest }}`.
-   * Environment `PRODUCTION`.
+   * Environment: `PRODUCTION`.
    * Cloud ID: `{{ tf-cloud-id }}`.
    * Folder ID: `{{ tf-folder-id }}`.
    * Network: `mynet`.
@@ -448,7 +446,7 @@ Network specifications:
 
 - {{ TF }}
 
-   Configuration file for a cluster with standard sharding:
+   The configuration file for a cluster with standard sharding is as follows:
 
    ```hcl
    resource "yandex_mdb_mongodb_cluster" "mymg" {
@@ -556,7 +554,6 @@ Cluster test characteristics:
 * Host class: `{{ host-class }}`.
 * SSD network storage: `{{ disk-type-example }}`.
 * Storage size: 10 GB.
-* Number of `host` blocks: 6. For each of them, set the host type: `mongod`, `mongos`, or `mongocfg`.
 
 Network characteristics:
 
@@ -570,7 +567,7 @@ Network characteristics:
 
 - {{ TF }}
 
-   Configuration file for a cluster with advanced sharding:
+   The configuration file for a cluster with advanced sharding is as follows:
 
    ```hcl
    resource "yandex_mdb_mongodb_cluster" "mymg" {

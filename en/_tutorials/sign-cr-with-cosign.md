@@ -3,9 +3,9 @@ This tutorial describes how to sign [Docker images](../container-registry/concep
 To sign Docker images and set up their verification:
 1. [Sign a Docker image using Cosign](#cosign).
 1. [Create a policy for signature verification](#kyverno).
-1. [Check the results](#check-result).
+1. [Check the result](#check-result).
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-begin}
 
@@ -16,8 +16,8 @@ If you no longer need these resources, [delete them](#clear-out).
 - Manually
 
    1. [Create service accounts](../iam/operations/sa/create.md):
-      * A [service account](../iam/concepts/users/service-accounts.md) for the resources with the [[{{ roles-editor }}](../resource-manager/security/index.md#roles-list) role](../iam/concepts/access-control/roles.md) to the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources that the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
-      * A service account for nodes with the [{{ roles-cr-puller }}](../container-registry/security/index.md#choosing-roles) role to the folder with the Docker image [registry](../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
+      * [Service account](../iam/concepts/users/service-accounts.md) for the resources with the [{{ roles-editor }}](../resource-manager/security/index.md#roles-list) [role](../iam/concepts/access-control/roles.md) to the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
+      * A service account for nodes with the [{{ roles-cr-puller }}](../container-registry/security/index.md#required-roles) role to the folder with the Docker image [registry](../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
 
       You can use the same service account for both operations.
    1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
@@ -25,14 +25,14 @@ If you no longer need these resources, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-   1. If you don't have {{ TF }}, [install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. {% include [terraform-install](../_includes/terraform-install.md) %}
+   1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [k8s-validate-cr-image.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/k8s-validate-cr-image.tf) configuration file to the same working directory.
 
       This file describes:
       * [Network](../vpc/concepts/network.md#network).
       * [Subnet](../vpc/concepts/network.md#subnet).
-      * [Security group and rules](../managed-kubernetes/operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
+      * [Security group](../managed-kubernetes/operations/connect/security-groups.md) and rules needed to run the {{ managed-k8s-name }} cluster:
          * Rules for service traffic.
          * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
       * {{ managed-k8s-name }} cluster.
@@ -44,14 +44,14 @@ If you no longer need these resources, [delete them](#clear-out).
       * {{ managed-k8s-name }} cluster CIDR.
       * Name of the cluster service account.
       * Name of the {{ container-registry-name }} registry.
-   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
    1. Create the required infrastructure:
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
@@ -66,9 +66,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
 1. [Install the {{ k8s }} Helm package manager](https://helm.sh/docs/intro/install).
 
-### Add multiple Docker images to the {{ container-registry-name }} registry {#add-docker-images}
+### Add multiple Docker images to the {{ container-registry-name }} registry {#add-docker-images}.
 
-1. [Authenticate in {{ container-registry-name }}](../container-registry/operations/authentication.md).
+1. [Get authenticated in {{ container-registry-name }}](../container-registry/operations/authentication.md).
 1. [Create multiple Docker images](../container-registry/operations/docker-image/docker-image-create.md). One image will be signed using Cosign, while others will remain unsigned.
 1. [Push Docker images](../container-registry/operations/docker-image/docker-image-push.md) to the {{ container-registry-name }} registry.
 
@@ -127,7 +127,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Create a policy for signature verification {#kyverno}
 
-1. Create an [authorized key](../iam/concepts/authorization/key.md) for the service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#choosing-roles) role and save it to the file:
+1. Create an [authorized key](../iam/concepts/authorization/key.md) for the service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#required-roles) role and save it to the file:
 
    ```bash
    yc iam key create \
@@ -236,7 +236,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
       {% endcut %}
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       kubectl apply -f ./policy.yaml
@@ -248,7 +248,9 @@ If you no longer need these resources, [delete them](#clear-out).
       clusterpolicy.kyverno.io/check-image configured
       ```
 
-## Check the results {#check-result}
+1. {% include [install policy reporter](../_includes/managed-kubernetes/install-policy-reporter.md) %}
+
+## Check the result {#check-result}
 
 * Create a [pod](../managed-kubernetes/concepts/index.md#pod) from the signed Docker image:
 
@@ -282,7 +284,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs %}
 
@@ -291,23 +293,23 @@ Some resources are not free of charge. Delete the resources you no longer need t
    1. [Delete the {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
    1. If you reserved a public static IP address for the cluster, [delete it](../vpc/operations/address-delete.md).
    1. [Delete the service accounts](../iam/operations/sa/delete.md).
-   1. [Delete all the Docker images](../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
+   1. [Delete all Docker images](../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
    1. [Delete the {{ container-registry-name }} registry](../container-registry/operations/registry/registry-delete.md).
 
 - Using {{ TF }}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-   1. [Delete all the Docker images](../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
-   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. [Delete all Docker images](../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
+   1. In the terminal window, switch to the directory containing the infrastructure plan.
    1. Delete the `k8s-validate-cr-image.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are errors in the configuration files, {{ TF }} will point to them.
-   1. Confirm the update of resources.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 

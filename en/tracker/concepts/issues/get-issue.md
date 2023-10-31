@@ -1,64 +1,64 @@
 ---
-sourcePath: en/tracker/api-ref/concepts/issues/get-issue.md
+sourcePath: ru/tracker/api-ref/concepts/issues/get-issue.md
 ---
-# Get issue parameters
+# Получить параметры задачи
 
-Use this request to get information about an issue.
+Запрос позволяет получить информацию о задаче.
 
-## Request format {#section_rnm_x4j_p1b}
+## Формат запроса {#section_rnm_x4j_p1b}
 
-Before making the request, [get permission to access the API](../access.md).
+Перед выполнением запроса [получите доступ к API](../access.md).
 
-To get issues, use an HTTP `GET` request:
+Для получения задачи используйте HTTP-запрос с методом `GET`:
 
 ```json
 GET /v2/issues/<issue-id>
 Host: {{ host }}
-Authorization: OAuth <OAuth token>
+Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
+{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}  
 
-{% cut "Request parameters" %}
+{% cut "Параметры запроса" %}
 
-**Additional parameters**
+**Дополнительные параметры**
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| expand | Additional fields to be included in the response: <ul><li>`transitions`: Workflow transitions between statuses.</li><li>`attachments`: Attachments.</li></ul> | String |
+Параметр | Описание | Тип данных
+----- | ----- | -----
+expand |  Дополнительные поля, которые будут включены в ответ: <ul><li>`transitions` — переходы по жизненному циклу;</li><li>`attachments` — вложения.</li></ul> | Строка
 
 {% endcut %}
 
-> Example: Request for a single issue with the required fields specified
->
->- Use the HTTP GET method.
->- The response will display attachments.
->
->```
->GET /v2/issues/JUNE-3?expand=attachments HTTP/1.1
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
->```
+> Запрос одной задачи с указанием необходимых полей:
+> 
+> - Используется HTTP-метод GET.
+> - В ответе включено отображение приложений.
+> 
+> ```
+> GET /v2/issues/JUNE-3?expand=attachments HTTP/1.1
+> Host: {{ host }}
+> Authorization: OAuth <OAuth-токен>
+> {{ org-id }}
+> ```
 
-## Response format {#answer}
+## Формат ответа {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Запрос выполнен успешно
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains the results in JSON format.
+    Тело ответа содержит результаты в формате JSON.
 
     {% include [answer-issue](../../../_includes/tracker/api/answer-issue.md) %}
 
-- Request failed
+- Запрос выполнен с ошибкой
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
     {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
@@ -67,4 +67,3 @@ Authorization: OAuth <OAuth token>
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
-

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ vpc-name }}
+# {{ vpc-name }} pricing
 
 {{ vpc-name }} usage is rated by the pricing policy described in this section.
 
@@ -28,7 +28,7 @@ A public IP address can be in one of the following two states:
 1. **Inactive**: When a _static_ public IP address is not linked to a cloud resource or is linked to a stopped resource.
 
 
-All prices are shown without VAT.
+All prices are net of VAT.
 
 
 
@@ -69,7 +69,7 @@ You will be charged per hour of NAT gateway usage and for outgoing traffic via t
 {% include notitle [usd-egress-nat.md](../_pricing/vpc/usd-egress-nat.md) %}
 
 
-#### Egress traffic via NAT gateways {#nat-gateway-egress-traffic}
+#### Outgoing traffic via NAT gateways {#nat-gateway-egress-traffic}
 
 Outgoing traffic via a NAT gateway exceeding 100 GB per month is billable.
 
@@ -95,8 +95,10 @@ The [security group](concepts/security-groups.md) functionality is at the [Previ
 ### Egress traffic {#prices-traffic}
 
 
-All prices are shown without VAT.
+All prices are net of VAT.
 
+
+{% include notitle [note-public-ip-traffic.md](../_includes/pricing/note-public-ip-traffic.md) %}
 
 
 
@@ -111,7 +113,7 @@ All prices are shown without VAT.
 ## {{ ddos-protection-full-name }} pricing {#prices-ddos-protection}
 
 
-All prices are shown without VAT.
+All prices are net of VAT.
 
 
 

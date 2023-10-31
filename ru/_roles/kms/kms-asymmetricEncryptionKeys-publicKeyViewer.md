@@ -1,0 +1,1 @@
+Роль `kms.asymmetricEncryptionKeys.publicKeyViewer` позволяет получать открытый ключ асимметричной ключевой пары шифрования.

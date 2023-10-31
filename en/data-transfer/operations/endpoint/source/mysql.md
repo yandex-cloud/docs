@@ -44,20 +44,20 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    
    ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
-     name = "<endpoint name>"
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
      settings {
        mysql_source {
-         security_groups = [ "list of security group IDs" ]
+         security_groups = ["<list_of_security_group_IDs>"]
          connection {
-           mdb_cluster_id = "<{{ mmy-name }} cluster ID>"
+           mdb_cluster_id = "<cluster_ID>"
          }
-         database = "<name of database being transferred>"
-         user     = "<username for connection>"
+         database = "<migrated_database_name>"
+         user     = "<username_for_connection>"
          password {
-           raw = "<user password>"
+           raw = "<user_password>"
          }
-         <advanced endpoint settings>
+         <additional_endpoint_settings>
        }
      }
    }
@@ -98,23 +98,23 @@ For OnPremise, all fields are filled in manually.
 
    
    ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
-     name = "<endpoint name>"
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
      settings {
        mysql_source {
-         security_groups = [ "list of security group IDs" ]
+         security_groups = ["<list_of_security_group_IDs>"]
          connection {
            on_premise {
-             hosts = ["<host list>"]
-             port  = <connection port>
+             hosts = ["<list_of_hosts>"]
+             port  = <port_for_connection>
            }
          }
-         database = "<name of database being transferred>"
-         user     = "<username for connection>"
+         database = "<migrated_database_name>"
+         user     = "<username_for_connection>"
          password {
-           raw = "<user password>"
+           raw = "<user_password>"
          }
-         <advanced endpoint settings>
+         <additional_endpoint_settings>
        }
      }
    }
@@ -189,7 +189,7 @@ For OnPremise, all fields are filled in manually.
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-   * `excludeTablesRegex`: Blacklist of tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
+   * `excludeTablesRegex`: List of excluded tables. Data from the listed tables will not be transferred. This option is specified using regular expressions.
 
    * `timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 

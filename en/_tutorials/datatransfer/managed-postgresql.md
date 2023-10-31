@@ -15,19 +15,19 @@
       1. [Prepare the target cluster](../../data-transfer/operations/prepare.md#target-pg).
       1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-POSTGRES }}`.
-         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-POSTGRES }}`
+         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`
 
          Specify the parameters for connecting to the source cluster.
 
       1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ PG }}`.
-         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ PG }}`
+         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`
 
          Specify the ID of the target cluster.
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with a _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
+      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
       1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate).
 
          {% note warning %}
@@ -38,7 +38,7 @@
 
    * Using {{ TF }}
 
-      1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. {% include [terraform-install](../../_includes/terraform-install.md) %}
       1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
       1. Download the [data-transfer-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-transfer-pgsql-mpg.tf) configuration file to the same working directory.
 
@@ -110,7 +110,7 @@
 
          If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      1. Confirm that the resources have been updated.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

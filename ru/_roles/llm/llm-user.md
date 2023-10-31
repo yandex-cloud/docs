@@ -1,0 +1,1 @@
+Роль `ai.languageModels.user` позволяет использовать сервис YandexGPT.

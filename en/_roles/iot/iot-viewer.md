@@ -1,0 +1,1 @@
+The `iot.viewer` role.
