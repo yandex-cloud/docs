@@ -66,9 +66,9 @@
    Результат:
 
    ```text
-    NAME         READY  SECRET              AGE
-    domain-name  True   domain-name-secret  45m
-    ```
+   NAME         READY  SECRET              AGE
+   domain-name  True   domain-name-secret  45m
+   ```
 
 ## Установка с помощью Helm-чарта {#helm-install}
 

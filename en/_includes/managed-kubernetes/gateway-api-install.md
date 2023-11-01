@@ -1,4 +1,4 @@
-# Installing Gateway API
+# Installing the Gateway API
 
 The [Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). These include `GatewayClass`, `Gateway`, `HTTPRoute`, and more.
 
@@ -10,7 +10,7 @@ In {{ managed-k8s-name }}, the Gateway API launches [{{ alb-full-name }}](../../
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
-1. [Create a service account](../../iam/operations/sa/create.md) required for the Gateway API:
+1. [Create a service account](../../iam/operations/sa/create.md) required for the Gateway API.
 1. [Assign it the roles](../../iam/operations/sa/assign-role-for-sa.md):
    * `alb.editor`: To create the required resources.
    * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
@@ -38,13 +38,14 @@ In {{ managed-k8s-name }}, the Gateway API launches [{{ alb-full-name }}](../../
    * **Subnet ID 1**, **Subnet ID 2**, **Subnet ID 3**: Select the [subnets](../../vpc/concepts/network.md#subnet) to [host the load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
    * **Service account key**: Paste the contents of the `sa-key.json` file or create a new [service account](../../iam/concepts/users/service-accounts.md) [key](../../iam/concepts/authorization/key.md).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Wait for the application to change its status to `Deployed`.
 
 
 ## Installation using a Helm chart {#helm-install}
 
 1. {% include [helm-install](helm-install.md) %}
 1. {% include [Install and configure kubectl](kubectl-install.md) %}
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Gateway API, run the command below:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Gateway API, run the command below:
 
    ```bash
     export HELM_EXPERIMENTAL_OCI=1 && \

@@ -28,9 +28,9 @@ The provider transforms the request to collect external metrics from a {{ manage
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
    * **Application name**: Enter an application name.
    * **Folder ID**: Specify the [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where {{ MP }} will run.
-   * **Time window**: Specify the time window for which metrics will be collected (in `DdHhMmSs` format, such as `5d10h30m20s`).
+   * **Time window**: Specify the time window for which metrics will be collected (in `DdHhMmSs` format, e.g., `5d10h30m20s`).
    * (Optional) **Disable decimation**: Select this option not to apply a data [decimation function](../../../monitoring/concepts/decimation.md).
-   * (Optional) **Aggregation function**: Select a data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). The default value is `AVG`.
+   * (Optional) **Aggregation function**: Select a data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). The default value is `AVG`.
    * (Optional) **Data filling**: Configure filling in missing data:
      * `NULL`: Returns `null` as the metric value and `timestamp` as the timestamp value. This is a default value.
      * `NONE`: Returns no values.
@@ -45,7 +45,8 @@ The provider transforms the request to collect external metrics from a {{ manage
      {% endnote %}
 
    * **Secret Key**: Copy and paste the contents of the `sa-key.json` file or create a new service account access key. The service account must have the `monitoring.viewer` role.
-1. Click **Install**.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -81,13 +82,13 @@ The provider transforms the request to collect external metrics from a {{ manage
    ```
 
    Required parameters:
-   * `namespace`: [namespace](../../concepts/index.md#namespace) where the provider will be deployed.
+   * `namespace`: [Namespace](../../concepts/index.md#namespace) where the provider will be deployed.
    * `yandexMetrics.folderId`: [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the provider will run.
-   * `window`: Time window for which metrics will be collected (in `DdHhMmSs` format, such as `5d10h30m20s`).
+   * `window`: Time window for which metrics will be collected (in `DdHhMmSs` format, e.g., `5d10h30m20s`).
    * `yandexMetrics.token.serviceAccountJson`: Path to the static access key of the service account with the `monitoring.viewer` role.
 
    Decimation parameters (`downsampling`). For the provider to work, you need to select at least one of the parameters below:
-   * `yandexMetrics.downsampling.gridAggregation`: Data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). Default value: `AVG`.
+   * `yandexMetrics.downsampling.gridAggregation`: Data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). The default value is `AVG`.
    * `yandexMetrics.downsampling.gapFilling`: Settings for filling in missing data:
      * `NULL`: Returns `null` as the metric value and `timestamp` as the timestamp value.
      * `NONE`: Returns no values.

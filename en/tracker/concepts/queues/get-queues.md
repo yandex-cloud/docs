@@ -1,48 +1,48 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/queues/get-queues.md
+sourcePath: en/tracker/api-ref/concepts/queues/get-queues.md
 ---
-# Получить список очередей
+# Get a list of queues
 
-Запрос позволяет получить список доступных очередей. Если количество очередей в ответе более 50, необходимо использовать механизм [постраничного отображения](../../common-format.md#displaying-results).
+Use this request to get a list of available queues. If there are more than 50 queues in the response, use [pagination](../../common-format.md#displaying-results).
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Для поиска задач используйте HTTP-запрос с методом `GET`.
+To search for issues, use an HTTP `POST` request.
 
 ```
 GET /v2/queues/
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Параметры запроса" %}
+{% cut "Request parameters" %}
 
-**Дополнительные параметры**
+**Additional parameters**
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-expand | Дополнительные поля, которые будут включены в ответ. Возможные значения:<ul><li>`projects` — проекты очереди;</li><li>`components` — компоненты;</li><li>`versions` — версии;</li><li>`types` — типы задач;</li><li>`team` — список участников команды;</li><li>`workflows` — жизненные циклы.</li></ul>| Строка
-perPage | Количество очередей на странице ответа. Значение по умолчанию — 50. Дополнительные параметры показа ответа можно настроить с помощью  механизма [постраничного отображения](#view-pages). | Целое число
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| expand | Additional fields to include in the response. Possible values:<ul><li>`projects`: Queue projects.</li><li>`components`: Components.</li><li>`versions`: Versions.</li><li>`types`: Issue types.</li><li>`team`: List of team members.</li><li>`workflows`: Workflows.</li></ul> | String |
+| perPage | Number of queues per response page. Default: 50. To set up additional response output parameters, use [pagination](#view-pages). | Integer |
 
 {% endcut %}
 
-> Пример: Получить список задач с указанием дополнительных параметров фильтрации.
+> Example: Get a list of issues with additional filtering options.
 >
-> - Используется HTTP-метод `GET`.
+>- An HTTP `GET` method is used.
 >
-> ```
-> GET /v2/queues HTTP/1.1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
-> {{ org-id }}
-> ```
+>```
+>GET /v2/queues HTTP/1.1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>```
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -54,30 +54,30 @@ perPage | Количество очередей на странице ответ
     "key": "TEST",
     "version": 5,
     "name": "Test",
-    "description": "Очередь, заведённая в тестовых целях",
+    "description": "Queue created for testing purposes",
     "lead": {
            "self": "{{ host }}/v2/users/1120000000016876",
-           "id": "<id сотрудника>",
-           "display": "<отображаемое имя сотрудника>"
+           "id": "<employee ID>",
+           "display": "<employee name displayed>"
     },
     "assignAuto": false,
     "defaultType": {
            "self": "{{ host }}/v2/issuetypes/1",
            "id": "1",
            "key": "bug",
-           "display": "Ошибка"
+           "display": "Bug"
     },
     "defaultPriority": {
            "self": "{{ host }}/v2/priorities/3",
            "id": "3",
            "key": "normal",
-           "display": "Средний"
+           "display": "Medium"
     },
     "teamUsers": [
            {
                "self": "{{ host }}/v2/users/1120000000016876",
-               "id": "<id сотрудника>",
-               "display": "<отображаемое имя сотрудника>"
+               "id": "<employee ID>",
+               "display": "<employee name displayed>"
            },
            ...
     ],
@@ -86,7 +86,7 @@ perPage | Количество очередей на странице ответ
                "self": "{{ host }}/v2/issuetypes/1",
                "id": "1",
                "key": "bug",
-               "display": "Ошибка"
+               "display": "Bug"
            },
            ...
     ],
@@ -94,7 +94,7 @@ perPage | Количество очередей на странице ответ
            {
                "self": "{{ host }}/v2/versions/4",
                "id": "4",
-               "display": "Куку"
+               "display": "Cuckoo"
         }
     ],
     "workflows": {
@@ -103,7 +103,7 @@ perPage | Количество очередей на странице ответ
                     "self": "{{ host }}/v2/issuetypes/1",
                     "id": "1",
                     "key": "bug",
-                    "display": "Ошибка"
+                    "display": "Bug"
                 },
                 ...
            ]
@@ -115,7 +115,7 @@ perPage | Количество очередей на странице ответ
                       "self": "{{ host }}/v2/issuetypes/1",
                       "id": "1",
                       "key": "bug",
-                      "display": "Ошибка"
+                      "display": "Bug"
             },
             "workflow": {
                       "self": "{{ host }}/v2/workflows/dev",
@@ -127,7 +127,7 @@ perPage | Количество очередей на странице ответ
                       "self": "{{ host }}/v2/resolutions/2",
                       "id": "2",
                       "key": "wontFix",
-                      "display": "Не будет исправлено"
+                      "display": "Won't fix"
                    },
                 ...
             ]
@@ -139,113 +139,114 @@ perPage | Количество очередей на странице ответ
 ]  
 ```
 
-{% cut "Параметры ответа" %}
+{% cut "Response parameters" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-self | Ссылка на очередь. | Строка
-id | Идентификатор очереди. | Строка
-key | Ключ очереди. | Строка
-version | Версия очереди. Каждое изменение очереди увеличивает номер версии. | Число
-name | Название очереди. | Строка
-description | Текстовое описание очереди. | Строка
-[lead](#lead) | Блок с информацией о владельце очереди. | Объект
-assignAuto | Автоматически назначить исполнителя для новых задач очереди:<ul><li>`true`— назначить;</li><li>`false`— не назначать.</li></ul> | Логический
-[defaultType](#default-type) | Блок с информацией о типе задачи по умолчанию. | Объект
-[defaultPriority](#default-priority) | Блок с информацией о приоритете задачи по умолчанию | Объект
-[teamUsers](#team-users) | Массив с информацией об участниках команды очереди | Массив объектов
-[issueTypes](#issue-types) | Массив с информацией о типах задач очереди. | Массив объектов
-[versions](#versions) | Массив с информацией о версиях очереди | Массив объектов
-[workflows](#workflows) | Список жизненных циклов очереди и их типов задач. | Массив.
-denyVoting | Признак возможности голосования за задачи. | Логический
-[issueTypesConfig](#issue-types-config) | Массив с настройками задач очереди. | Массив объектов
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| self | Queue link. | String |
+| id | Queue ID. | String |
+| key | Queue key. | String |
+| version | Queue version. Each change to the queue increases its version number. | Number |
+| name | Queue name. | String |
+| description | Text description of the queue. | String |
+| [lead](#lead) | Block with information about the queue owner. | Object |
+| assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign.</li><li>`false`: Do not assign.</li></ul> | Boolean |
+| [defaultType](#default-type) | Block with information about the default issue type. | Object |
+| [defaultPriority](#default-priority) | Block with information about the default issue priority. | Object |
+| [teamUsers](#team-users) | Array with information about queue team members | Array of objects |
+| [issueTypes](#issue-types) | Array with information about queue issue types. | Array of objects |
+| [versions](#versions) | Array with information about queue versions | Array of objects |
+| [workflows](#workflows) | List of queue workflows and their issue types. | Array. |
+| denyVoting | Flag that indicates if voting for issues is enabled. | Boolean |
+| [issueTypesConfig](#issue-types-config) | Array with queue issue settings. | Array of objects |
 
 {% include [user](../../../_includes/tracker/api/user.md) %}
 
-**Поля объекта** `defaultType` {#default-type}
+**Object fields** `defaultType` {#default-type}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-self | Ссылка на тип задачи | Строка
-id | Идентификатор типа задачи | Строка
-key | Ключ типа задачи | Строка
-display | Отображаемое название типа задачи | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| self | Link to the issue type | String |
+| id | ID of the issue type | String |
+| key | Key of the issue type | String |
+| display | Issue type name displayed | String |
 
-**Поля объекта** `defaultPriority` {#default-priority}
+**Object fields** `defaultPriority` {#default-priority}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-self | Ссылка на тип приоритета | Строка
-id | Идентификатор приоритета | Строка
-key | Ключ приоритета | Строка
-display | Отображаемое название приоритета | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| self | Link to the priority type | String |
+| id | Priority ID | String |
+| key | Priority key | String |
+| display | Priority name displayed | String |
 
-**Поля объектов массива** `teamUsers` {#team-users}
+**Array object fields** `teamUsers` {#team-users}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-self | Ссылка на пользователя | Строка
-id | Идентификатор пользователя | Строка
-display | Отображаемое имя пользователя | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| self | Link to the user | String |
+| id | User ID | String |
+| display | User's name displayed | String |
 
-**Поля объектов массива** `issueTypes` {#issue-types}
+**Array object fields** `issueTypes` {#issue-types}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-self | Ссылка на тип задачи | Строка
-id | Идентификатор типа задачи | Строка
-key | Ключ типа задачи | Строка
-display | Отображаемое название типа задачи | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| self | Link to the issue type | String |
+| id | ID of the issue type | String |
+| key | Key of the issue type | String |
+| display | Issue type name displayed | String |
 
-**Поля объектов массива** `versions` {#versions}
+**Array object fields** `versions` {#versions}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-self | Ссылка на версию очереди | Строка
-id | Идентификатор версии | Строка
-display | Отображаемое название версии | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| self | Link to the queue version | String |
+| id | Version ID | String |
+| display | Version name displayed | String |
 
-**Поля объектов массива** `workflows` {#workflows}
+**Array object fields** `workflows` {#workflows}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-self | Ссылка на тип задачи | Строка
-id | Идентификатор типа задачи | Строка
-key | Ключ типа задачи | Строка
-display | Отображаемое название типа задачи | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| self | Link to the issue type | String |
+| id | ID of the issue type | String |
+| key | Key of the issue type | String |
+| display | Issue type name displayed | String |
 
-**Поля объектов массива** `issueTypesConfig` {#issue-types-config}
+**Array object fields** `issueTypesConfig` {#issue-types-config}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-[issueType](#issue-type) | Блок с информацией о типе задачи | Объект
-[workflow](#workflow) | Блок с информацией о жизненном цикле типа задачи | Объект
-[resolutions](#resolutions) | Массив с возможными резолюциями типа задачи | Массив объектов
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| [issueType](#issue-type) | Block with information about the issue type | Object |
+| [workflow](#workflow) | Block with information about the issue type workflow | Object |
+| [resolutions](#resolutions) | Array with possible issue type resolutions | Array of objects |
 
-**Поля объекта** `issueType` {#issue-type}
+**Object fields** `issueType` {#issue-type}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-self | Ссылка на тип задачи | Строка
-id | Идентификатор типа задачи | Строка
-key | Ключ типа задачи | Строка
-display | Отображаемое название типа задачи | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| self | Link to the issue type | String |
+| id | ID of the issue type | String |
+| key | Key of the issue type | String |
+| display | Issue type name displayed | String |
 
-**Поля объекта** `workflow` {#workflow}
+**Object fields** `workflow` {#workflow}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-self | Ссылка на объект жизненного цикла | Строка
-id | Идентификатор жизненного цикла | Строка
-display | Отображаемое название жизненного цикла | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| self | Link to the workflow object | String |
+| id | Workflow ID | String |
+| display | Workflow name displayed | String |
 
-**Поля объектов массива** `resolutions` {#resolutions}
+**Array object fields** `resolutions` {#resolutions}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-self | Ссылка на объект резолюции | Строка
-id | Идентификатор резолюции | Строка
-key | Идентификатор резолюции | Строка
-display | Отображаемое название резолюции | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| self | Link to the resolution object | String |
+| id | Resolution ID | String |
+| key | Resolution ID | String |
+| display | Resolution name displayed | String |
 
 {% endcut %}
+

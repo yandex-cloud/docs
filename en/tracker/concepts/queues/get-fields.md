@@ -1,49 +1,49 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/queues/get-fields.md
+sourcePath: en/tracker/api-ref/concepts/queues/get-fields.md
 ---
-# Получить обязательные поля очереди
+# Get required fields for the queue
 
-Запрос позволяет получить информацию об обязательных полях очереди. Очередь выбирается при указании идентификатора или ключа.
+Use this request to get information about required queue fields. The queue is selected when the ID or key is specified.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Для получения обязательных полей очереди используйте HTTP-запрос с методом `GET`.
+To get required fields of a queue, use an HTTP `GET` request.
 
 ```
 GET /v2/queues/<queue-id>/fields
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка или число
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
 
 {% endcut %}
 
-> Пример: Получить обязательные поля очереди `TEST`.
+> Example: Get required `TEST` queue fields.
 >
-> - Используется HTTP-метод `GET`.
+>- An HTTP `GET` method is used.
 >
-> ```
-> GET /v2/queues/TEST/fields HTTP/1.1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
-> {{ org-id }}
-> ```
+>```
+>GET /v2/queues/TEST/fields HTTP/1.1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>```
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -52,7 +52,7 @@ Authorization: OAuth <OAuth-токен>
         {
             "self": "{{ host }}/v2/fields/stand",
             "id": "stand",
-            "name": "Стенд",
+            "name": "Bench",
             "version": 1361890459119,
             "schema": {
                 "type": "string",
@@ -65,19 +65,19 @@ Authorization: OAuth <OAuth-токен>
                 "type": "QueueFixedListOptionsProvider",
                 "values": {
                     "DIRECT": [
-                        "Не указано",
-                        "Тестовый",
-                        "Разработческий",
-                        "Бета",
+                        "Not specified",
+                        "Test",
+                        "Development",
+                        "Beta",
                         "Production",
                         "Trunk"
                     ]
                 },
                 "defaults": [
-                    "Не указано",
-                    "Тестовый",
-                    "Разработческий",
-                    "Бета",
+                    "Not specified",
+                    "Test",
+                    "Development",
+                    "Beta",
                     "Production"
                 ]
             },
@@ -90,43 +90,44 @@ Authorization: OAuth <OAuth-токен>
     ]
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Ссылка на объект поля. | Строка
-    id | Идентификатор поля. | Строка
-    name | Название поля. | Строка
-    version | Номер версии. | Число
-    [schema](#schema) | Объект с информацией о типе содержимого поля. | Объект
-    readonly | Признак возможности редактировать поле. Возможные значения:<ul><li>`true` — редактируемое поле;</li><li>`false` — нередактируемое поле.</li></ul> | Логический
-    options | Признак наличия вариантов заполнения поля. | Логический
-    suggest | Доступность подсказок при заполнении поля. | Логический
-    optionsProvider | Блок с информацией о наборе возможных значений в поле. | Объект
-    queryProvider | Информация о типе поля для query-запросов. | Объект
-    order | Вес поля при отображении в интерфейсе. Поля с меньшим весом отображаются выше полей с большим весом. | Число
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Link to the field object. | String |
+    | id | Field ID. | String |
+    | name | Field name. | String |
+    | version | Version number. | Number |
+    | [schema](#schema) | Object with information about the type of field content. | Object |
+    | readonly | Shows if the field is editable. Possible values:<ul><li>`true`: Editable.</li><li>`false`: Non-editable.</li></ul> | Boolean |
+    | options | Shows if there are options for filling in the field. | Boolean |
+    | suggest | Shows if suggestions are available when filling in the field. | Boolean |
+    | optionsProvider | Block with information about a set of possible field values. | Object |
+    | queryProvider | Information about the type of field for quiery requests. | Object |
+    | order | Weight of the field when displayed in the interface. Fields with a lower weight are displayed above fields with a higher weight. | Number |
 
-    **Поля объекта** `schema` {#schema}
+    **Object fields** `schema` {#schema}
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    type | Тип содержимого поля. Возможные значения:<ul><li>`float` — числовое поле;</li><li>`string` — текстовое поле.</li></ul> | Строка
-    required | Признак обязательности заполнения поля. | Логический
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | type | Type of field content. Possible values:<ul><li>`float`: Numeric field.</li><li>`string`: Text field.</li></ul> | String |
+    | required | Shows if the field is required. | Boolean |
 
-    **Поля объекта** `optionsProvider`
+    **Object fields** `optionsProvider`
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    type | Информация о типе поля для query-запросов | Строка
-    values | Массив с информацией о специальных значениях для очередей | Объект
-    defaults | Массив значений поля | Массив
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | type | Information about the type of field for query requests | String |
+    | values | Array with information about special values for queues | Object |
+    | defaults | Array of field values | Array |
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
+

@@ -10,7 +10,7 @@ To save user responses on your {{ wiki-name }} page, set up [integration with {{
 
 ## Adding a form to a {{ wiki-name }} page {#insert-form}
 
-Use the `forms` block to add a form to your [page](../pages-types.md#page).
+Use the `forms` block to add a form to your [page](../pages-types.md#page). The form will be displayed in a light or dark theme depending on the [{{ wiki-name }} layout settings](../settings-wiki.md).
 
 ```
 {{forms id="form_id"}}

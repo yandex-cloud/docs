@@ -1,62 +1,62 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/new-transition.md
+sourcePath: en/tracker/api-ref/concepts/issues/new-transition.md
 ---
-# Выполнить переход в статус
+# Make a status transition
 
-Запрос позволяет перевести задачу в новый статус.
+Use this request to switch an issue to a new status.
 
-## Формат запроса {#section_rkq_bhl_dfb}
+## Request format {#section_rkq_bhl_dfb}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы перевести задачу в новый статус, используйте HTTP-запрос с методом `POST`. Если настройки перехода позволяют изменять параметры задачи, укажите их в теле запроса в формате JSON:
+To change an issue's status, use an HTTP `POST` request. If the transition settings let you change the issue parameters, specify them in the request body in JSON format:
 
 ```json
 POST /{{ ver }}/issues/<issue-id>/transitions/<transition-id>/_execute
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
-  "<ключ1>":"<значение1>",
-  "<ключ2>":"<значение2>",
+  "<key1>":"<value1>",
+  "<key2>":"<value2>",
   ...
-  "comment":"<текст комментария>"
+  "comment":"<comment text>"
 }
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-\<issue-id> | Идентификатор или ключ текущей задачи. | Строка
-\<transition-id> | Идентификатор перехода. | Строка
-
-{% endcut %} 
-
-{% cut "Параметры тела запроса" %}
-
-**Обязательные параметры**
-
-Параметр | Значение | Тип данных
------ | ----- | -----
-\<ключ\> | Поле задачи, доступное для изменения при переходе. Список ключей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Зависит от типа параметра.
-comment | Комментарий к задаче. | Строка
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| \<issue-id> | ID or key of the current issue. | String |
+| \<transition-id> | Transition ID. | String |
 
 {% endcut %}
 
-## Формат ответа {#section_rcd_ysf_2fb}
+{% cut "Request body parameters" %}
+
+**Required parameters**
+
+| Parameter | Value | Data type |
+| ----- | ----- | ----- |
+| \<key\> | Issue field that can be edited during the transition. List of keys: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Depends on the parameter type. |
+| comment | Comment on the issue. | String |
+
+{% endcut %}
+
+## Response format {#section_rcd_ysf_2fb}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
-  
-    Тело ответа содержит JSON-массив со списком переходов, доступных для задачи в новом статусе.
-  
+
+    The response body contains a JSON array with a list of transitions available for the issue in the new status.
+
     ```json
     [ 
     {
@@ -76,32 +76,32 @@ comment | Комментарий к задаче. | Строка
      ...
     ]
     ```
-	
-  {% cut "Параметры ответа" %}
-	
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Адрес ресурса API, который содержит информацию о переходе. | Строка
-  id | Идентификатор перехода. | Строка
-  [to](#to) | Блок с информацией о статусе, в который можно перевести задачу. | Объект
-  [screen](#screen) | Блок с информацией об экране перехода. | Объект
-        
-  **Поля объекта** `to` {#to}
-		
-  {% include [status](../../../_includes/tracker/api/status.md) %}
-       
-  **Поля объекта** `screen` {#screen}
 
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Адрес ресурса API, который содержит информацию об экране перехода. | Строка
-  id | Идентификатор экрана перехода. | Строка
+  {% cut "Response parameters" %}
+
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Address of the API resource with information about the transition. | String |
+  | id | Transition ID. | String |
+  | [to](#to) | Block with information about the status that the issue can transition to. | Object |
+  | [screen](#screen) | Block with information about the transition screen. | Object |
+
+  **Object fields** `to` {#to}
+
+  {% include [status](../../../_includes/tracker/api/status.md) %}
+
+  **Object fields** `screen` {#screen}
+
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Address of the API resource with information about the transition screen. | String |
+  | id | Transition screen ID. | String |
 
   {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-  Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+  If the request is processed incorrectly, the API returns a response with an error code:
 
   {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -113,8 +113,9 @@ comment | Комментарий к задаче. | Строка
 
   {% include [answer-error-422](../../../_includes/tracker/api/answer-error-422.md) %}
 
-  {% include [answer-error-500](../../../_includes/tracker/api/answer-error-500.md) %} 
+  {% include [answer-error-500](../../../_includes/tracker/api/answer-error-500.md) %}
 
-  {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %} 
-	
+  {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
+
 {% endlist %}
+

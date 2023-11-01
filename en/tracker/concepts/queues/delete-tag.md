@@ -1,66 +1,66 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/queues/delete-tag.md
+sourcePath: en/tracker/api-ref/concepts/queues/delete-tag.md
 ---
-# Удалить тег из очереди
+# Remove a tag from a queue
 
-Запрос позволяет удалить тег из очереди.
+Use this request to remove a tag from a queue.
 
 {% note warning %}
 
-Тег нельзя удалить, если он используется хотя бы в одной задаче очереди.
+You can't remove a tag if it is used in at least one issue of the queue.
 
 {% endnote %}
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы удалить тег, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
+To remove a tag, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
 
 ```
 POST /{{ ver }}/queues/<queue-id>/tags/_remove
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
-    "tag": "<имя тега>"
+    "tag": "<tag name>"
 }
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка или число
-
-{% endcut %}
-
-{% cut "Параметры тела запроса" %}
-
-**Обязательные параметры**
-
-Параметр | Значение | Тип данных
------ | ----- | -----
-tag | Имя тега | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
 
 {% endcut %}
 
-## Формат ответа {#answer}
+{% cut "Request body parameters" %}
+
+**Required parameters**
+
+| Parameter | Value | Data type |
+| ----- | ----- | ----- |
+| tag | Tag name | String |
+
+{% endcut %}
+
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
-    
-    Тело ответа отсутствует.
 
-- Запрос выполнен с ошибкой
+    The response body is missing.
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+- Request failed
+
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -73,3 +73,4 @@ tag | Имя тега | Строка
     {% include [answer-error-422](../../../_includes/tracker/api/answer-error-422.md) %}
 
 {% endlist %}
+

@@ -9,5 +9,5 @@ default:
       latest: '6.22'
       str: '6.22'
     console:
-      latest: '6.22'
+      latest: '6.25'
       str: '6.22'

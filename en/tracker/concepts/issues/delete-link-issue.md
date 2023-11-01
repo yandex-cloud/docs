@@ -1,49 +1,47 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/delete-link-issue.md
+sourcePath: en/tracker/api-ref/concepts/issues/delete-link-issue.md
 ---
-# Удалить связь с задачей
+# Remove issue links
 
-Запрос позволяет удалить связь задачи с другой задачей.
+Use this request to remove links between issues.
 
-## Формат запроса {#rec-format}
+## Request format {#rec-format}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы удалить связь текущей задачи с другой задачей, используйте HTTP-запрос с методом `DELETE`. 
+To unlink your issue from another issue, use the HTTP `DELETE` request method.
 
 ```
 DELETE /{{ ver }}/issues/<issue-id>/links/<link-id>
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
+{% cut "Resource" %}
 
-{% cut "Ресурс" %}
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| \<issue-id> | ID or key of the current issue. | String |
+| \<link-id> | [Link ID to another issue](get-links.md). | String |
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-\<issue-id> | Идентификатор или ключ текущей задачи. | Строка
-\<link-id> | [Идентификатор связи с другой задачей](get-links.md). | Строка
+{% endcut %}
 
-{% endcut %}   
-	
-
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
   {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
 
-  Тело ответа отсутствует.
+  The response body is missing.
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-  Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+  If the request is processed incorrectly, the API returns a response with an error code:
 
    {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -54,3 +52,4 @@ Authorization: OAuth <OAuth-токен>
    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
+

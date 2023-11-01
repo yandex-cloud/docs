@@ -6,7 +6,7 @@ Gantt charts for lists of {{ tracker-name }} projects show all projects along wi
 
 To go to the Gantt chart:
 
-1. Go to the [projects page]({{ link-tracker }}pages/projects) or select ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** in the [left-hand panel]({{ link-tracker }}) and choose the list to open: **Full list of my projects** or **{{ ui-key.startrek.ui_components_NavigationBar_ProjectsPanel.all-projects-link }}**.
+1. Go to the [projects page]({{ link-tracker }}pages/projects) or select ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** in the [left-hand panel]({{ link-tracker }}) and click **Full list of my projects**.
 
 1. Select the **{{ ui-key.startrek.ui_components_filter-pane_ViewModeSwitch.mode-gantt }}** tab.
    * The project list is displayed to the left of the chart. To open the list of project issues, click ![](../../_assets/tracker/svg/arrow.svg) next to the project name. The issues are displayed as a hierarchical list.
@@ -16,21 +16,21 @@ To go to the Gantt chart:
 
 1. To set up the time scale, select **{{ ui-key.startrek.ui_components_Gantt.scale-days }}**, **{{ ui-key.startrek.ui_components_Gantt.scale-month }}**, or **{{ ui-key.startrek.ui_components_Gantt.scale-quarters }}** in the bottom-right corner of the chart. The scale settings persist after refreshing the page or opening the chart again.
 
-## Changing deadlines {#timing}
+## Changing project timeframes {#timing}
 
-* If the project deadlines are not shown on the chart (its start and end dates are not set), hover over the chart next to the project name, position the issue bar along the time axis, and click the left mouse button.
+* If the project timeframes are not shown on the chart (its start and end dates are not set), hover over the chart next to the project name, position the project bar along the time axis, and click the left mouse button.
 
 * To shift the project start and end dates by the same value, drag the bar along the time axis.
 
 * To change the project duration, drag the left edge of the bar (the start date) or the right edge of the bar (end date).
 
-## Assigning a user responsible for a project {#assigned}
+## Assigning an employee in charge {#assigned}
 
-On a Gantt chart for a list of projects, you can appoint or change the user responsible for a project.
+On a Gantt chart for a list of projects, you can appoint or change an employee in charge of a project.
 
-1. Click ![](../../_assets/tracker/svg/pick-user.svg) on the portfolio or project bar.
+1. Click ![](../../_assets/tracker/svg/pick-user.svg) on the project bar.
 
-1. Enter the name of the employee that will be responsible for the project.
+1. Enter the name of the employee in charge of a portfolio or project.
 
 {% note info %}
 

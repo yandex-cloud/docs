@@ -27,18 +27,18 @@ Thumbor features:
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired {{ k8s }} cluster and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select [Thumbor](/marketplace/products/yc/thumbor) and click **Use**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the {{ k8s }} cluster name and select the ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Under **Applications available for installation**, select [Thumbor](/marketplace/products/yc/thumbor) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Thumbor.
    * **Application name**: Enter an application name.
    * **Bucket name**: Specify the [name of the bucket](#before-you-begin) you created earlier.
    * **{{ objstorage-name }} static access key**: Paste the contents of the `sa-key.json` file.
-   * (optional) **Security key**: Specify the security key for URL signing.
-   * **Allow unsigned URLs (unsafe)**: Select this option if you didn't specify a security key at the previous step.
+   * (Optional) **Security key**: Specify the security key for URL signing.
+   * **Allow unsigned URLs (unsafe)**: Select this option if you did not specify a security key at the previous step.
    * **Subfolder in the bucket**: Specify the name of the bucket folder (without the ending `/` symbol) where images are located.
-1. Click **Install**.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}

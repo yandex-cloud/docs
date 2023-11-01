@@ -41,6 +41,8 @@ items:
             href: operations/roles-and-users.md
           - name: Управление ресурсными группами
             href: operations/resource-groups.md
+          - name: Мониторинг и управление сессиями и запросами в командном центре
+            href: operations/command-center.md
           - name: Управление клиентскими процессами и сессиями пользователей
             href: operations/cluster-process.md
       - name: Расширения {{ GP }}

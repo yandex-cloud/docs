@@ -10,11 +10,11 @@ You can use a [Gantt chart](../gantt/project.md) to schedule your work under a p
 
 ## Portfolio page {#page}
 
-In {{ tracker-name }}, you can open any project available to you from the navigation panel on the left: click ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** or follow the [direct link]({{ link-tracker }}pages/projects/list) and select a project portfolio from the list.
+In {{ tracker-name }}, you can open any portfolio available to you from the navigation panel on the left: click ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** or follow the [direct link]({{ link-tracker }}pages/projects/list) and select a project portfolio from the list.
 
 The project portfolio page shows information about the portfolio team and current status, as well as lists projects included in the portfolio:
 
-* **{{ ui-key.startrek.ui_components_portfolios_Header.description-tab }}** tab. It includes the portfolio description, status, timeframes, names of the author and employee responsible for the portfolio, the list of its team members, comments, customers, and tags.
+* **{{ ui-key.startrek.ui_components_portfolios_Header.description-tab }}** tab. It includes the portfolio description, status, timeframes, author and employee in charge of the portfolio, list of team members, comments, customers, and tags.
 
 * **{{ ui-key.startrek.ui_components_portfolios_Header.projects-tab }}** tab. The list shows both open and closed portfolios and projects. You can reorder and move them across portfolios.
 

@@ -23,6 +23,7 @@
 
 * [{#T}](roles-and-users.md)
 * [{#T}](resource-groups.md)
+* [{#T}](command-center.md)
 * [{#T}](cluster-process.md)
 
 ## Расширения {{ GP }}

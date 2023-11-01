@@ -1,45 +1,45 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/delete-worklog.md
+sourcePath: en/tracker/api-ref/concepts/issues/delete-worklog.md
 ---
-# Удалить запись о затраченном времени
+# Delete a record of time spent
 
-Запрос позволяет удалить запись о времени, затраченном на выполнение задачи.
+Use this request to delete a record of the time spent on an issue.
 
-## Формат запроса {#section_fkp_5ng_jfb}
+## Request format {#section_fkp_5ng_jfb}
 
-Чтобы удалить записи о затраченном на задачу времени, используйте HTTP-запрос с методом `DELETE`:
+To delete records of time spent on issues, use an HTTP `DELETE` request:
 
 ```json
 DELETE /{{ ver }}/issues/<issue-id>/worklog/<worklog-id>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <token>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
---- | --- | ---
-\<issue-id\> | Идентификатор или ключ задачи. | Строка
-\<worklog-id\> | Идентификатор записи о затраченном времени. | Строка
+| Parameter | Description | Data type |
+| --- | --- | --- |
+| \<issues-id\> | Issue ID or key. | String |
+| \<worklog-id\> | ID of the record of time spent. | String |
 
 {% endcut %}
 
-## Формат ответа {#section_wlq_d5g_jfb}
+## Response format {#section_wlq_d5g_jfb}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
-    
-    Тело ответа отсутствует.
 
-- Запрос выполнен с ошибкой
+    The response body is missing.
 
-    Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
+- Request failed
+
+    If a request fails, the response message contains details of the errors encountered:
 
     {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
 
@@ -50,3 +50,4 @@ Authorization: OAuth <токен>
     {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+

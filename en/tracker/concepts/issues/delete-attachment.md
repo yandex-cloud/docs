@@ -1,59 +1,60 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/delete-attachment.md
+sourcePath: en/tracker/api-ref/concepts/issues/delete-attachment.md
 ---
-# Удалить файл
+# Delete a file
 
-Запрос позволяет удалить прикрепленный файл.
+Use this request to delete attached files.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы удалить файл, используйте HTTP-запрос с методом `DELETE`.
+To delete a file, use an HTTP `DELETE` request.
 
 ```
 DELETE /{{ ver }}/issues/<issue-id>/attachments/<attachment-id>/
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<issue-id\> | Идентификатор или ключ задачи | Строка
-\<attachment-id\> | Уникальный идентификатор файла | Строка или число
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<issue-id\> | Issue ID or key | String |
+| \<attachment-id\> | Unique file ID | String or number |
 
 {% endcut %}
 
-> Пример: Удалить файл, прикрепленный к задаче `JUNE-2`.
+> Example: Delete a file attached to the `JUNE-2` issue.
 >
-> - Используется HTTP-метод `DELETE`.
+>- An HTTP `DELETE` method is used.
 >
-> ```
-> DELETE /v2/issues/JUNE-2/attachments/4159/ HTTP/1.1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
-> {{ org-id }}
-> ```
+>```
+>DELETE /v2/issues/JUNE-2/attachments/4159/ HTTP/1.1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>```
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
 
-    Тело ответа отсутствует.
+    The response body is missing.
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
+
