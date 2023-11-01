@@ -31,9 +31,10 @@ Syntax:
 |`--subnet-id`|<b>`string`</b><br/>Subnet id.|
 |`--subnet-name`|<b>`string`</b><br/>Subnet name.|
 |`--public-ip`|Set when the Kubernetes cluster needs an external IPv4.|
-|`--regional`|Create highly available master for the cluster. Master will be distributed across 3 instances.|
+|`--regional`|Create highly available master for the cluster. Master will be distributed across 3 instances. Equal to --etcd-cluster-size=3|
 |`--region`|<b>`string`</b><br/>ID of the region where regional Kubernetes cluster resides|
 |`--master-location`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>List of regional master locations.<br/><br/>Possible property names:<br/><ul> <li><code>subnet-id</code>:     Subnet id.</li> <li><code>subnet-name</code>:     Subnet name.</li> <li><code>zone</code>:     Zone of the subnet.</li> </ul>|
+|`--etcd-cluster-size`|<b>`int`</b><br/>Number of master instances. Can be equal 1 or 3.|
 |`--release-channel`|<b>`string`</b><br/>Master and Node Groups release channel. Every release channel have it's own list of available versions and new revisions release policy.<br/>* 'regular' used by default. It usually have one or two stable kubernetes versions available. It's new revisions contains bug and security fixes, but also can contain new well tested features.<br/>* 'rapid' is less stable, but receives new features earlier. Usually have most new kubernetes version available.<br/>* 'stable' is most stable, but it's new revisions contains only critical bug and security fixes.|
 |`--version`|<b>`string`</b><br/>Kubernetes master version. Default depends on release channel. See available in 'yc managed-kubernetes list-versions'.|
 |`--enable-network-policy`|Enable network policy enforcement for the cluster. Calico network policy controller will be used.|

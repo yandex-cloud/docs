@@ -10,3 +10,4 @@ The deadlines of issues are shown on the chart as bars plotted along the time a
 - [Gantt chart for queues](queue.md)
 - [Gantt chart for projects](project.md)
 - [Gantt chart for a list of projects](list-of-projects.md)
+- [Gantt chart for project portfolios](portfolio.md)

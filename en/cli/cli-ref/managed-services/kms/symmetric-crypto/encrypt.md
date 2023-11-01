@@ -21,8 +21,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Symmetric key name.|
 |`--version-id`|<b>`string`</b><br/>Symmetric key version id to encrypt. Otherwise primary version of symmetric key will be used.|
 |`--aad-context-file`|<b>`string`</b><br/>Additional authenticated data file. Otherwise performs encrypt operation without aad context.|
-|`--plaintext-file`|<b>`string`</b><br/>Required. Plaintext file.|
-|`--ciphertext-file`|<b>`string`</b><br/>Required. File to write ciphertext.|
+|`--plaintext-file`|<b>`string`</b><br/>Plaintext file. Otherwise performs encrypt operation with data from stdin.|
+|`--ciphertext-file`|<b>`string`</b><br/>File to write ciphertext. Otherwise write ciphertext to stdout.|
 
 #### Global Flags
 

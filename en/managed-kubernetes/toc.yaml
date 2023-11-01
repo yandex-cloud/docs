@@ -29,6 +29,8 @@ items:
             href: operations/applications/marketplace.md
           - name: Installing Argo CD
             href: operations/applications/argo-cd.md
+          - name: Installing Chaos Mesh
+            href: operations/applications/chaos-mesh.md
           - name: >-
               Installing cert-manager with the {{ dns-name }} ACME webhook
               plugin
@@ -57,6 +59,8 @@ items:
             href: operations/applications/hashicorp-vault.md
           - name: Installing the {{ alb-name }} Ingress controller
             href: operations/applications/alb-ingress-controller.md
+          - name: Installing Istio
+            href: operations/applications/istio.md
           - name: Installing Jaeger
             href: operations/applications/jaeger.md
           - name: Installing Kyverno & Kyverno Policies
@@ -138,7 +142,7 @@ items:
         href: tutorials/index.md
       - name: Creating a new {{ k8s }} project in {{ yandex-cloud }}
         href: tutorials/new-kubernetes-project.md
-      - name: Running workloads with GPUs
+      - name: Running workloads using GPUs
         href: tutorials/running-pod-gpu.md
       - name: Using node groups with GPUs and no pre-installed drivers
         href: tutorials/driverless-gpu.md
@@ -246,12 +250,14 @@ items:
             href: concepts/node-group/node-group-gpu.md
       - name: Network in {{ managed-k8s-name }}
         href: concepts/network.md
-      - name: External cluster nodes
-        href: concepts/external-nodes.md
       - name: Network settings and cluster policies
         href: concepts/network-policy.md
       - name: Automatic scaling
         href: concepts/autoscale.md
+      - name: Audit policy
+        href: concepts/audit-policy.md
+      - name: External cluster nodes
+        href: concepts/external-nodes.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Recommendations for using {{ managed-k8s-name }}

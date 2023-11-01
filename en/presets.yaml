@@ -3886,7 +3886,6 @@ default:
         new-agile-board: New board
         new-dashboard: New dashboard
         new-queue: New queue
-        queues: Queues
         settings: Personal settings
       blocks-desktop_b-page_type_projects:
         deadline: Deadline
@@ -4687,7 +4686,7 @@ default:
       ui_components_issue-links_ExternalLinksCollapse:
         external-relations: Links to external applications
       ui_components_issue-links_InternalLinksCollapse:
-        relations: Links to other issues
+        relations: Related tasks
       ui_components_IssueActionsButton:
         menu-item-create-subticket: Create sub-issue
       ui_components_IssueBulkActionPanel:
@@ -4778,8 +4777,6 @@ default:
         caption: Issues
         filter-items-link: Full list of filtered issues
         search-input-placeholder: Search by issue name
-      ui_components_NavigationBar_ProjectsPanel:
-        all-projects-link: All portfolios and projects
       ui_components_NavigationBar:
         appearance-title: Interface
         boards: Boards
@@ -5868,6 +5865,7 @@ default:
         import: Import
         label_auto: Auto
         label_create-new_female: Create new
+        label_filters: Filters
         label_http: HTTP
         label_https: HTTPS
         label_key: Key
@@ -6444,8 +6442,19 @@ default:
         action_expand-start: Save
         cluster:
           perf-diag:
+            label_action-terminate-query: Terminate query
+            label_action-terminate-session: Terminate session
             label_field-query-cpu-time: CPU time
             label_field-query-peak-memory: Peak memory
+            label_filter-entity-query: Queries
+            label_filter-entity-session: Sessions
+            label_query-field-read-bytes: Disk R
+            label_query-field-running-time-seconds: CPU Time
+            label_query-field-spill-total-bytes: Spill
+            label_query-field-total-time: Total time
+            label_query-field-vm-peak-kb: Peak memory
+            label_query-field-write-bytes: Disk W
+            section_command-center: Command center
             title_consumption-history: Usage history
             title_current-state: Current state
             title_states-history: State history
@@ -6787,7 +6796,7 @@ default:
         meta-section: Test information
         restart: Restart
         section_agent: Agent
-        test-data-section: Test data
+        test-data-section: Attached files
       lockbox:
         button_action-open-version-add-dialog: Create a new version from this one
         button_action-schedule-for-destruction: Schedule destruction
@@ -6993,7 +7002,7 @@ default:
           additional-field-serverless: Serverless access
           additional-field-sox: IDM
           additional-field-websql: Access from the management console
-          additional-field-yandex-query: Yandex Query access
+          additional-field-yandex-query: ''
           backup-retain-period: Retention period for automatic backups, days
           backup-window-start: Backup start time (UTC)
           base_field_description: Description
@@ -7260,7 +7269,7 @@ default:
             label_bucket: Bucket
             label_bucket-prefix: Folder
             label_failed-sa: Destination for unsuccessful result
-            label_lockbox-secret: Yandex Lockbox secrets
+            label_lockbox-secret: Lockbox secrets
             label_mount-point-name: Mount point
             label_mount-point-path: Mount path
             label_mq: Message Queue
@@ -9161,12 +9170,12 @@ default:
     yc_fluent-bit:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
-        tag: 2.1.7-1
+        tag: 2.1.7-2
     yc_gateway-api:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.24
+        tag: 0.4.25
     yc_gitlab-agent:
       helmChart:
         name: >-

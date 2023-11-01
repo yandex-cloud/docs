@@ -18,9 +18,9 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Asymmetric signature key id.|
 |`--name`|<b>`string`</b><br/>Asymmetric signature key name.|
-|`--signature-output-file`|<b>`string`</b><br/>Required. File to write signature value to.|
+|`--signature-output-file`|<b>`string`</b><br/>File to write signature value to. Otherwise write signature value to stdout.|
 |`--outform`|<b>`string`</b><br/>Signature output format. Can be 'raw' (default), 'hex' and 'base64'.|
-|`--message-file`|<b>`string`</b><br/>Required. Message file.|
+|`--message-file`|<b>`string`</b><br/>Message file. Otherwise performs sign operation with data from stdin.|
 |`--inform`|<b>`string`</b><br/>Message file format. Can be 'raw' (default), 'hex' and 'base64'.|
 
 #### Global Flags

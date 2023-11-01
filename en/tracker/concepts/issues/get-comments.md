@@ -1,50 +1,47 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/get-comments.md
+sourcePath: en/tracker/api-ref/concepts/issues/get-comments.md
 ---
-# Получить комментарии к задаче
+# Get issue comments
 
-Запрос позволяет получить список комментариев к задаче. 
+Use this request to get a list of comments on an issue.
 
-По умолчанию запрос возвращает только первую страницу, на которой отображается 50 комментариев. Если комментариев больше 50, используйте [постраничное отображение результатов](#pagination).
+## Request format {#section_rnm_x4j_p1b}
 
-## Формат запроса {#section_rnm_x4j_p1b}
+Before making the request, [get permission to access the API](../access.md).
 
-Перед выполнением запроса [получите доступ к API](../access.md).
-
-Для получения комментариев используйте HTTP-запрос с методом `GET`:
+To get a list of comments, use an HTTP `GET` request:
 
 ```json
 GET /{{ ver }}/issues/<issue-id>/comments
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}  
+{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
 
-> Запрос комментариев одной задачи:
-> 
-> Используется HTTP-метод GET.
->  
-> ```
-> GET /v2/issues/JUNE-3/comments HTTP/1.1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
-> {{ org-id }}
-> ```
+>Request for comments on a single issue:
+>
+>Use the HTTP GET method.
+>
+>```
+>GET /v2/issues/JUNE-3/comments HTTP/1.1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>```
 
-## Формат ответа {#section_xc3_53j_p1b}
+## Response format {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
-
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md %}
 
-    Тело ответа содержит JSON-массив с информацией о комментариях:
+    The response body contains a JSON array with information about comments:
 
     ```json
     [
@@ -52,16 +49,16 @@ Authorization: OAuth <OAuth-токен>
             "self": "{{ host }}/v2/issues/JUNE-2/comments/9849018",
             "id": 9849018,
             "longId" : "5fa15a24ac894475dd14ff07",
-            "text": "Комментарий",
+            "text": "Comment",
             "createdBy": {
                 "self": "{{ host }}/v2/users/1120000000049224",
-                "id": "<id сотрудника>",
-                "display": "<отображаемое имя сотрудника>"
+                "id": "<employee ID>",
+                "display": "<employee name displayed>"
             },
             "updatedBy": {
                 "self": "{{ host }}/v2/users/1120000000049224",
-                "id": "<id сотрудника>",
-                "display": "<отображаемое имя сотрудника>"
+                "id": "<employee ID>",
+                "display": "<employee name displayed>"
             },
             "createdAt": "2017-06-11T05:11:12.347+0000",
             "updatedAt": "2017-06-11T05:11:12.347+0000",
@@ -73,54 +70,37 @@ Authorization: OAuth <OAuth-токен>
     ]
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Ссылка на объект комментария | Строка
-    id | Идентификатор комментария | Число
-    longId | Идентификатор комментария в виде строки | Строка
-    text | Текст комментария. | Строка
-    [createdBy](#object-fields-createdBy) | Объект с информацией о создателе комментария. | Объект
-    [updatedBy](#object-fields-updatedBy) | Объект с информацией о сотруднике, внесшем последнее изменение в комментарий. | Объект
-    createdAt | Дата и время создания комментария в формате:<br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` | Строка
-    updatedAt | Дата и время обновления комментария.<br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` | Строка
-    version | Версия комментария. Каждое изменение комментария увеличивает номер версии. | Число
-    type | Тип комментария:<ul><li>`standart` — отправлен через интерфейс {{ tracker-name }};</li><li>`incoming` — создан из входящего письма;</li><li>`outcoming` — создан из исходящего письма.</li></ul> | Строка
-    transport | Способ добавления комментария:<ul><li>`internal` — через интерфейс {{ tracker-name }};</li><li>`email` — через письмо.</li></ul> | Строка
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Link to the comment object | String |
+    | id | Comment ID | Number |
+    | longId | ID of the comment in string format. | String |
+    | text | Text of the comment. | String |
+    | [createdBy](#object-fields-createdBy) | Object with information about the user who added the comment. | Object |
+    | [updatedBy](#object-fields-updatedBy) | Object with information about the user who edited the comment last. | Object |
+    | createdAt | Comment creation date and time in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String |
+    | updatedAt | Comment update date and time.<br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` | String |
+    | version | Comment version. Each change to the comment increases its version number. | Number |
+    | type | Comment type:<ul><li>`standard`: Comment sent via the {{ tracker-name }} interface.</li><li>`incoming`: Comment created from an incoming message.</li><li>`outcoming`: Comment created from an outgoing message.</li></ul> | String |
+    | transport | Method of adding a comment:<ul><li>`internal`: Via the {{ tracker-name }} interface.</li><li>`email`: Via email.</li></ul> | String |
 
-    **Поля объекта** `createdBy` {#object-fields-createdBy}
-
-    {% include [user](../../../_includes/tracker/api/user.md) %}
-       
-    **Поля объекта** `updatedBy` {#object-fields-updatedBy}
+    **Object fields** `createdBy` {#object-fields-createdBy}
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    {% endcut %}  
+    **Object fields** `updatedBy` {#object-fields-updatedBy}
 
-- Запрос выполнен с ошибкой
+    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    {% endcut %}
+
+- Request failed
+
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
 
-## Постраничное отображение комментариев {#pagination}
-
-Для постраничного отображения результатов используйте в строке запроса дополнительные параметры:
-
-```json
-GET /{{ ver }}/issues/<issue-id>/comments?perPage=20&id=123
-```
-
-где: 
-
-* `perPage` — количество комментариев на странице; 
-
-* `id` — значение параметра `id` у комментария, после которого начнется запрашиваемая страница. 
-
-Ссылки на первую и следующую страницы указаны в заголовке ответа **Link**.
-
-О постраничном отображении результатов читайте также в разделе [Общий формат запросов](../../common-format.md#displaying-results).

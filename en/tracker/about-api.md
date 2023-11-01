@@ -1,22 +1,22 @@
 ---
-title: "{{ tracker-full-name }} API. Обзор"
-description: "{{ tracker-full-name }} API предназначен для веб-сервисов и приложений, которые работают с задачами вашей организации от имени пользователя. При этом возможность выполнять те или иные действия через API зависит от прав доступа пользователя, от имени которого выполняются запросы. Вы можете управлять {{ tracker-name }} с помощью HTTP-запросов к REST API."
-sourcePath: ru/tracker/api-ref/about-api.md
+title: "{{ tracker-full-name }} API. Overview"
+description: "The {{ tracker-full-name }} API is designed for web services and apps that work with your organization's issues on behalf of a user. The actions available in the API depend on the access rights of the user on whose behalf requests are made. You can manage {{ tracker-name }} using HTTP requests to the REST API."
+sourcePath: en/tracker/api-ref/about-api.md
 ---
 
-# {{ api-name }}. Обзор
+# {{ api-name }}. Overview
 
-Вы можете управлять {{ tracker-name }} с помощью HTTP-запросов к REST API. 
+You can manage {{ tracker-name }} using HTTP requests to the REST API.
 
-{{ api-name }} предназначен для веб-сервисов и приложений, которые работают с задачами вашей организации от имени пользователя. При этом возможность выполнять те или иные действия через API зависит от прав доступа пользователя, от имени которого выполняются запросы.
+{{ api-name }} is designed for web services and apps that work with your organization's issues on behalf of a user. The actions available in the API depend on the access rights of the user on whose behalf requests are made.
 
-{{ api-name }} позволяет:
+{{ api-name }} lets you:
 
-- искать, создавать и редактировать задачи;
-- создавать и редактировать доски задач;
-- просматривать настройки очереди;
-- добавлять и редактировать поля задач.
+- Search, create, and edit issues.
+- Create and edit issue boards.
+- View queue settings.
+- Add and edit issue fields.
 
-Перед тем как начать работу с {{ api-name }}, ознакомьтесь с [общим форматом запросов](common-format.md). 
+Before getting started with {{ api-name }}, take a look at the [general request format](common-format.md).
 
-О том, как получить доступ приложений к {{ api-name }}, читайте в разделе [{#T}](concepts/access.md).
+To learn how to get access to {{ api-name }} for your applications, see [{#T}](concepts/access.md).

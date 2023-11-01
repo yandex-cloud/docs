@@ -24,7 +24,7 @@ keywords:
 
    1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
 
-   1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта, зарегистрируйтесь и в консоли управления создайте свое первое облако. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
+   1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта, [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html) и в консоли управления создайте свое первое облако. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 

@@ -20,7 +20,7 @@ Syntax:
 |`--id`|<b>`string`</b><br/>ID of the ClickHouse cluster.|
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--with`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Specify compression settings.<br/><br/>Possible property names:<br/><ul> <li><code>method</code>:     Compression method. Supported values: 'lz4', 'zstd'.</li> <li><code>min-part-size</code>:     Minimum size of a part of a table.</li> <li><code>min-part-size-ratio</code>:     Minimum ratio of a part to the size of the table.</li> </ul>|
+|`--with`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Specify compression settings.<br/><br/>Possible property names:<br/><ul> <li><code>method</code>:     Compression method. Supported values: 'lz4', 'zstd'.</li> <li><code>min-part-size</code>:     Minimum size of a part of a table.</li> <li><code>min-part-size-ratio</code>:     Minimum ratio of a part to the size of the table.</li> <li><code>level</code>:     Compression level for ZSTD method.</li> </ul>|
 
 #### Global Flags
 

@@ -139,6 +139,7 @@ Syntax:
 	- [yc compute host-group remove-labels](host-group/remove-labels.md) — Remove labels from the specified host group
 	- [yc compute host-group delete](host-group/delete.md) — Delete the specified host group
 	- [yc compute host-group list-hosts](host-group/list-hosts.md) — List hosts of the specified host group
+	- [yc compute host-group update-host](host-group/update-host.md) — Update host of the specified host group
 	- [yc compute host-group list-instances](host-group/list-instances.md) — List instances of the specified host group
 	- [yc compute host-group list-operations](host-group/list-operations.md) — List operations for the specified host group
 - [yc compute disk-placement-group](disk-placement-group/index.md) — Manage disk placement groups

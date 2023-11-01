@@ -1,6 +1,6 @@
 # Installing HashiCorp Vault with {{ kms-name }} support
 
-[HashiCorp Vault](https://www.vaultproject.io/) is an open source tool for securely storing and accessing secrets (such as passwords, certificates, and tokens).
+[HashiCorp Vault](https://www.vaultproject.io/) is an open-source tool for securely storing and accessing secrets (e.g., passwords, certificates, and tokens).
 
 The application image contains a pre-installed build of HashiCorp Vault with added support for [Auto Unseal](https://developer.hashicorp.com/vault/docs/concepts/seal#auto-unseal) via [{{ kms-full-name }}](../../../kms/). The build is based on [HashiCorp Vault](https://github.com/hashicorp/vault/tags) of the appropriate version.
 
@@ -16,7 +16,7 @@ To install HashiCorp Vault:
 To use HashiCorp Vault, you need:
 * [Service account](../../../iam/concepts/users/service-accounts.md) with the `kms.keys.encrypterDecrypter` [role](../../../iam/concepts/access-control/roles.md)
 * [Authorized key](../../../iam/concepts/authorization/key.md)
-* [Symmetric encryption key](../../../kms/concepts/key.md).
+* [Symmetric encryption key](../../../kms/concepts/key.md)
 1. [Create a service account](../../../iam/operations/sa/create.md):
 
    ```bash
@@ -54,15 +54,16 @@ To use HashiCorp Vault, you need:
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-1. Click the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) name and open the **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms-k8s) and click **Use**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**! [Marketplace](../../../_assets/marketplace.svg) tab.
+1. Under **Applications available for installation**, select [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms-k8s) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
    * **Application name**: Enter an application name.
    * **Service account key for Vault**: Copy the contents of the `authorized-key.json` file to this field.
    * **{{ kms-short-name }} key ID for Vault**: Specify the [previously obtained](#sa-keys-create) {{ kms-name }} key ID.
-1. Click **Install**.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 

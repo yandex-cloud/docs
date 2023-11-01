@@ -1,129 +1,129 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/queues/create-version.md
+sourcePath: en/tracker/api-ref/concepts/queues/create-version.md
 ---
-# Создать версию очереди
+# Creating a queue version
 
-Запрос позволяет создать [версию очереди](../../manager/versions.md). 
+Use this request to create a [queue version](../../manager/versions.md).
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making a request, [get permission to access the API](../access.md).
 
-Чтобы создать версию очереди используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
+To create a queue version, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
 
 ```
 POST /{{ ver }}/versions/
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth_token>
 {{ org-id }}
 
 {
-   "queue": "<ключ_очереди>",
-   "name": "<название_версии>
+   "queue": "<queue_key>",
+   "name": "version_name>
 }
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Параметры тела запроса" %}
+{% cut "Request body parameters" %}
 
-Тело запроса содержит информацию, необходимую для создания новой версии очереди:
+The request body contains the information required to create a new queue version:
 
-**Обязательные параметры**
+**Required parameters**
 
-Параметр | Описание | Тип данных
+| Parameter | Description | Data type |
 -------- | -------- | ----------
-queue | Ключ очереди. | Строка
-name | Название версии. | Строка
+| queue | Queue key | String |
+| name | Version name | String |
 
-**Дополнительные параметры**
+**Additional parameters**
 
-Параметр | Описание | Тип данных
+| Parameter | Description | Data type |
 -------- | -------- | ----------
-description | Описание версии. | Строка
-startDate | Дата начала версии в формате `YYYY-MM-DD`. | Строка
-dueDate | Дата завершения версии в формате `YYYY-MM-DD`. | Строка
+| description | Version description | String |
+| startDate | Version start date in `YYYY-MM-DD` format | String |
+| dueDate | Version end date in `YYYY-MM-DD` format | String |
 
 {% endcut %}
 
-> Пример: Создать версию очереди `Test Queue`.
+> Example: Creating a queue version named `Test Queue`.
 >
-> - Используется HTTP-метод `POST`.
-> - Создается версия очереди с ключом `TESTQUEUE`.
-> - Задается название версии `version 0.1`.
-> - Задается описание версии `Test version 1`.
-> - Задается дата начала версии `2023.10.03`.
-> - Задается дата завершения версии `2024.06.03`.
+> - An HTTP `POST` method is used.
+> - Create a queue version with the `TESTQUEUE` key.
+> - Set the version name: `version 0.1`.
+> - Set the version description: `Test version 1`.
+> - Set the version start date: `2023.10.03`.
+> - Set the version end date: `2024.06.03`.
 >
 > ```
 > POST /v2/queues/TEST/versions HTTP/1.1
 > Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
+> Authorization: OAuth <OAuth token>
 > {{ org-id }}
->{
+> {
 >   "queue": "TESTQUEUE",
 >   "name": "version 0.1",
 >   "description": "Test version 1",
 >   "startDate": "2023-10-03",
 >   "dueDate": "2024-06-03"
->}
+> }
 > ```
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- The request is executed successfully
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    ```json
-    [
-        {
-            "self": "{{ host }}/v2/versions/1",
-            "id": 1,
-            "version": 1,
-            "queue": {
-                "self": "{{ host }}/v2/queues/TESTQUEUE",
-                "id": "6",
-                "key": "TESTQUEUE",
-                "display": "Test Queue"
-            },
-            "name": "version 0.1",
-            "description": "Test version 1",
-            "startDate": "2023-10-03",
-            "dueDate": "2024-06-03",
-            "released": false,
-            "archived": false
-        }
-    ]
-    ```
+   ```json
+   [
+       {
+           "self": "{{ host }}/v2/versions/1",
+           "id": 1,
+           "version": 1,
+           "queue": {
+               "self": "{{ host }}/v2/queues/TESTQUEUE",
+               "id": "6",
+               "key": "TESTQUEUE",
+               "display": "Test Queue"
+           },
+           "name": "version 0.1",
+           "description": "Test version 1",
+           "startDate": "2023-10-03",
+           "dueDate": "2024-06-03",
+           "released": false,
+           "archived": false
+       }
+   ]
+   ```
 
-    {% cut "Параметры ответа" %}
+   {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Ссылка на объект версии. | Строка
-    id | Идентификатор версии. | Число
-    version | Номер версии. | Число
-    [queue](#queue) | Объект с информацией об очереди. | Объект
-    name | Название версии. | Строка
-    description | Текстовое описание версии. | Строка
-    startDate | Дата начала версии. | Строка
-    dueDate | Дата завершения версии. | Строка
-    released | Признак выпущенной версии. | Логический
-    archived | Признак архивной версии. | Логический
+   | Parameter | Description | Data type |
+   ----- | ----- | -----
+   | self | Link to the version object. | String |
+   | id | Version ID | Number. |
+   | version | Version number. | Number |
+   | [queue](#queue) | Object with information about the queue. | Objects |
+   | name | Version name | String |
+   | description | Text description of the version. | String |
+   | startDate | Version start date. | String |
+   | dueDate | Version end date. | String |
+   | released | Flag of the released version. | Logical |
+   | archived | Flag of the archived version. | Logical |
 
-    **Поля объекта** `queue` {#queue}
-    
-    {% include [queue](../../../_includes/tracker/api/queue.md) %}
+   `queue` **object fields** {#queue}
 
-    {% endcut %}
+   {% include [queue](../../../_includes/tracker/api/queue.md) %}
 
-- Запрос выполнен с ошибкой
+   {% endcut %}
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+- The request failed
 
-    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+   If the request is processed incorrectly, the API returns a response with an error code:
+
+   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}

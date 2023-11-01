@@ -1,87 +1,87 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/bulkchange/bulk-update-issues.md
+sourcePath: en/tracker/api-ref/concepts/bulkchange/bulk-update-issues.md
 ---
-# Массовое редактирование задач
+# Make bulk changes to issues
 
-Запрос позволяет изменить параметры нескольких задач одновременно.
+Use this request to change parameters for multiple issues at once.
 
 {% note info %}
 
-Максимальное количество задач для однократного обновления — 10 000.
+The maximum number of issues per change is 10,000.
 
 {% endnote %}
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы изменить задачи, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
+To edit issues, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
 
 ```json
 POST /{{ ver }}/bulkchange/_update
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
   "issues": ["TEST-1", "TEST-2", "TEST-3"],
   "values": {
-    "<параметр>": "<значение параметра>",
-    "<параметр>": "<значение параметра>"
+    "<parameter>": "<parameter value>",
+    "<parameter>": "<parameter value>"
   }
 }
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Параметры запроса" %}
+{% cut "Request parameters" %}
 
-**Дополнительные параметры**
+**Additional parameters**
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-notify | Признак уведомления об изменении задачи:<ul><li>`true` — пользователи, указанные в полях задачи, получат уведомления;</li><li>`false` — (по умолчанию) пользователи не получат уведомления.</li></ul> | Логический
-
-{% endcut %}
-
-{% cut "Параметры тела запроса" %}
-
-**Обязательные параметры**
-
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-issues | Массив идентификаторов задач или фильтр на [языке запросов](../../user/query-filter.md). | Массив или Строка
-values | Параметры задач, которые будут изменены. Используйте параметры, доступные при [редактировании задачи](../issues/patch-issue.md#req-get-params). | Строка
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| notify | Flag indicating if users should be notified about issue changes:<ul><li>`true`: Users specified in the issue fields are notified.</li><li>`false` (by default): No users are notified.</li></ul> | Logical |
 
 {% endcut %}
 
-> Пример 1: Изменить задачи.
+{% cut "Request body parameters" %}
+
+**Required parameters**
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| issues | Array of issue IDs or a filter in the [query language](../../user/query-filter.md). | Array or String |
+| values | Issue parameters that will be updated. Use the parameters that are available when [editing the issue](../issues/patch-issue.md#req-get-params). | String |
+
+{% endcut %}
+
+> Example 1: Edit issues.
 >
->- Используется HTTP-метод POST.
->- Тип задач <q>TEST-1</q>, <q>TEST-2</q>, <q>TEST-3</q> меняется на <q>Ошибка</q>.
+>- An HTTP POST method is used.
+>- The type for issues <q>TEST-1</q>, <q>TEST-2</q>, and <q>TEST-3</q> is changed to <q>Bug</q>.
 >
 >```json
 >POST /{{ ver }}/bulkchange/_update
 >Host: {{ host }}
->Authorization: OAuth <OAuth-токен>
+>Authorization: OAuth <OAuth token>
 >{{ org-id }}
 >{
 >  "issues": ["TEST-1","TEST-2","TEST-3"],
 >  "values": {
->    "type": {"name": "Ошибка"}
+>    "type": {"name": "Error"}
 >  }
 >}
->```
+> ```
 
-> Пример 2: Изменить задачи, используя фильтр на языке запросов.
+> Example 2: Edit issues using a filter in the query language.
 >
->- Используется HTTP-метод POST.
->- Для задач, в названии которых есть слово `Test`, приоритет меняется на `Блокер` и добавляется комментарий "Updated via API".
+>- An HTTP POST method is used.
+>- For issues with the word `Test` in their names, the priority changes to `Blocker` and a comment saying "Updated via API" is added.
 >
 >```json
 >POST /{{ ver }}/bulkchange/_update
 >Host: {{ host }}
->Authorization: OAuth <OAuth-токен>
+>Authorization: OAuth <OAuth token>
 >{{ org-id }}
 >{
 >  "issues": "Summary: Test"
@@ -91,15 +91,15 @@ values | Параметры задач, которые будут изменен
 >  }
 >}
 >```
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- The request is executed successfully
 
     {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
-    Тело ответа содержит информацию об операции массового редактирования в формате JSON.
+    The response body contains information about the bulk change operation in JSON format.
 
     ```json
     {
@@ -108,42 +108,42 @@ values | Параметры задач, которые будут изменен
         "createdBy": {
             "self": "{{ host }}/v2/users/1234567890",
             "id": "1234567890",
-            "display": "Имя Фамилия"
+            "display": "First and last name"
         },
         "createdAt": "2020-12-15T11:52:53.665+0000",
         "status": "CREATED",
-        "statusText": "Операция массового редактирования задач создана.",
+        "statusText": "Bulk change task created.",
         "executionChunkPercent": 0,
         "executionIssuePercent": 0
     }
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    id | Идентификатор операции массового редактирования. | Строка
-    self | Адрес ресурса API, который содержит информацию о массовом редактировании. | Строка
-    [createdBy](#createdBy) | Объект с информацией об инициаторе массового редактирования. | Объект
-    createdAt | Дата и время создания операции массового редактирования. | Строка
-    status | Статус операции массового редактирования. | Строка
-    statusText | Описание статуса операции массового редактирования. | Строка
-    executionChunkPercent | Служебный параметр. | Число
-    executionIssuePercent | Служебный параметр. | Число
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | id | Bulk change operation ID | String |
+    | self | Address of the API resource with information about the bulk change | String |
+    | [createdBy](#createdBy) | Object with information about the user who made the bulk change. | Objects |
+    | createdAt | Date and time when the bulk change operation was created. | String |
+    | status | Bulk change operation status | String |
+    | statusText | Description of the bulk change operation status | String |
+    | executionChunkPercent | Service parameter | Number |
+    | executionIssuePercent | Service parameter | Number |
 
-    **Поля объекта** `createdBy` {#createdBy}
+    **Object fields** `createdBy` {#createdBy}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
-    id | Идентификатор пользователя. | Число
-    display | Отображаемое имя пользователя. | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the user | String |
+    | id | User ID | Number |
+    | display | Displayed user name | String |
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- The request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 

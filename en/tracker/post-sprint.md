@@ -1,22 +1,22 @@
 ---
-sourcePath: ru/tracker/api-ref/post-sprint.md
+sourcePath: en/tracker/api-ref/post-sprint.md
 ---
-# Создать спринт
+# Create a sprint
 
-Запрос позволяет создать спринт.
+Use this request to create sprints.
 
-## Формат запроса {#section_zs1_wjg_qfb}
+## Request format {#section_zs1_wjg_qfb}
 
-Чтобы создать спринт, используйте HTTP-запрос с методом `POST`:
+To create a sprint, use an HTTP `POST` request:
 
 ```json
 POST /{{ ver }}/sprints
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <token>
 {{ org-id }}
 
 {
-  "name": "Новый Спринт",
+  "name": "New Sprint",
   "board": 
     {
       "id": "1"
@@ -28,52 +28,52 @@ Authorization: OAuth <токен>
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-{% cut "Параметры тела запроса" %}
+{% cut "Request body parameters" %}
 
-**Обязательные параметры**
+**Required parameters**
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-name | Название спринта. | Строка
-[board](#req-board) | Объект с информацией о доске, к задачам которой относится спринт. | Строка
-startDate | Дата начала спринта в формате: ```YYYY-MM-DD``` | Строка
-endDate | Дата окончания спринта в формате: ```YYYY-MM-DD``` | Строка
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| name | Sprint name. | String |
+| [board](#req-board) | Object with information about the board whose issues the sprint refers to. | String |
+| startDate | Sprint start date in ```YYYY-MM-DD``` format | String |
+| endDate | Sprint end date in ```YYYY-MM-DD``` format | String |
 
-**Поле объекта** `board` {#req-board}
+**Object field** `board` {#req-board}
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-id | Идентификатор доски. | Строка
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| id | Board ID. | String |
 
 {% endcut %}
 
-## Формат ответа {#section_rqk_pvh_qfb}
+## Response format {#section_rqk_pvh_qfb}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
-    
-    Тело ответа содержит JSON-объект с параметрами созданного спринта.
+
+    The response body contains a JSON object with the parameters of the created sprint.
 
     ```json
     {
       "self" : "{{ host }}/v2/sprints/4469",
       "id" : 4469,
       "version" : 1,
-      "name" : "Новый Спринт",
+      "name": "New Sprint",
       "board" : {
         "self" : "{{ host }}/v2/boards/3",
         "id" : "1",
-        "display" : "Тестирование"
+        "display" : "Testing"
       },
       "status" : "draft",
       "archived" : false,
       "createdBy" : {
         "self" : "{{ host }}/v2/users/1120000000014425",
         "id" : "1120000000014425",
-        "display" : "Виктор Булдаков"
+        "display" : "Victor Buldakov"
       },
       "createdAt" : "2015-06-23T17:03:24.799+0000",
       "startDate" : "2015-06-01",
@@ -83,45 +83,45 @@ id | Идентификатор доски. | Строка
     }
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит параметры спринта. | Строка
-    id | Идентификатор спринта. | Число
-    version | Версия спринта. Каждое изменение спринта увеличивает номер версии. | Число
-    name | Название спринта. | Строка
-    [board](#ans-board) | Объект с информацией о доске, к задачам которой относится спринт. | Строка
-    status | Статус спринта. <br/>Возможные статусы:<ul><li>`draft` — открыт;</li><li>`in_progress` — в работе;</li><li>`released` — решен;</li><li>`archived` — в архиве.</li></ul> | Строка
-    archived | Нахождение спринта в архиве:<ul><li>`true`— спринт находится в архиве;</li><li>`false`— спринт активен.</li></ul> | Логический
-    [createdBy](#ans-createdBy) | Объект с информацией о создателе спринта. | Объект
-    createdAt | Дата и время создания спринта в формате: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | Строка
-    startDate | Дата начала спринта в формате: ```YYYY-MM-DD``` | Строка
-    endDate | Дата окончания спринта в формате: ```YYYY-MM-DD``` | Строка
-    startDateTime | Дата и время фактического начала спринта в формате: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | Строка
-    endDateTime | Дата и время фактического окончания спринта в формате: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with sprint parameters. | String |
+    | id | Sprint ID. | Number |
+    | version | Sprint version. Each change to the sprint increases its version number. | Number |
+    | name | Sprint name. | String |
+    | [board](#ans-board) | Object with information about the board whose issues the sprint refers to. | String |
+    | status | Sprint status. <br/>Possible statuses:<ul><li>`draft`: Open.</li><li>`in_progress`: In progress.</li><li>`released`: Resolved.</li><li>`archived`: Archived.</li></ul> | String |
+    | archived | Shows whether the sprint is archived:<ul><li>`true`: The sprint is archived.</li><li>`false`: The sprint is not archived.</li></ul> | Boolean |
+    | [createdBy](#ans-createdBy) | Object with information about the user who created the sprint. | Object |
+    | createdAt | Sprint creation date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
+    | startDate | Sprint start date in ```YYYY-MM-DD``` format | String |
+    | endDate | Sprint end date in ```YYYY-MM-DD``` format | String |
+    | startDateTime | Date and time of the sprint's actual start in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
+    | endDateTime | Date and time of the sprint's actual end in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
 
-    **Поля объекта** `board` {#ans-board}
+    **Object fields** `board` {#ans-board}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о доске. | Строка
-    id | Идентификатор доски. | Строка
-    display | Отображаемое название доски. | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the board. | String |
+    | id | Board ID. | String |
+    | display | Board name displayed. | String |
 
-    **Поля объекта** `createdBy` {#ans-createdBy}
+    **Object fields** `createdBy` {#ans-createdBy}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
-    id | Идентификатор пользователя. | Строка
-    display | Отображаемое имя пользователя. | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the user. | String |
+    | id | User ID. | String |
+    | display | User's name displayed. | String |
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
+    If a request fails, the response message contains details of the errors encountered:
 
     {% include [error](../_includes/tracker/api/answer-error-400.md) %}
 
@@ -136,3 +136,4 @@ id | Идентификатор доски. | Строка
     {% include [error](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+

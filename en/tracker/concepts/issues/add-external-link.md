@@ -1,65 +1,64 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/add-external-link.md
+sourcePath: en/tracker/api-ref/concepts/issues/add-external-link.md
 ---
-# Добавить внешнюю связь
+# Add an external link
 
-Запрос позволяет создать связь для работы с [объектом внешнего приложения](../../external-links.md).
+Use this request to create a link for working with an [external application object](../../external-links.md).
 
-## Формат запроса {#rec-format}
+## Request format {#rec-format}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы создать внешнюю связь, используйте HTTP-запрос с методом `POST`. 
+To create an external link, use an HTTP `POST` request.
 
 ```
 POST /{{ ver }}/issues/<issue-id>/remotelinks?backlink=true
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
     "relationship": "RELATES",
-    "key": "<ключ объекта>",
-    "origin": "<идентификатор приложения>"
+    "key": "<object key>",
+    "origin": "<application ID>"
 }
 ```
 
-
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}  
+{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
 
-{% cut "Параметры запроса" %}
+{% cut "Request parameters" %}
 
-**Дополнительные параметры**
+**Additional parameters**
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-backlink |Значение `true` следует указать, чтобы при добавлении связи выполнить [запрос из {{ tracker-name }} для создания дублирующей связи во внешнем приложении](../../ext-app-setup.md#create). | Логический
-
-{% endcut %}
-
-{% cut "Параметры тела запроса" %}
-
-**Обязательные параметры**
-
-Параметр | Описание | Тип данных
------ | ----- | -----
-relationship |Тип связи. Рекомендуем использовать значение `RELATES` — связан. | Строка
-key |   Ключ объекта во внешнем приложении. | Строка
-origin | Идентификатор приложения, с объектом которого нужно создать связь. | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| backlink | Set `true` to execute a [request from {{ tracker-name }}, when adding a link, to create a duplicate link in an external application](../../ext-app-setup.md#create). | Boolean |
 
 {% endcut %}
 
-## Формат ответа {#answer}
+{% cut "Request body parameters" %}
+
+**Required parameters**
+
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| relationship | Link type. We recommend using the value `RELATES`. | String |
+| key | Key of the external application object. | String |
+| origin | ID of the application whose object you need to create a link to. | String |
+
+{% endcut %}
+
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
   {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
-  
-  Тело запроса содержит информацию о созданной связи в формате JSON.
+
+  The request body contains information about the created link in JSON format.
 
    ```json
     {
@@ -68,8 +67,8 @@ origin | Идентификатор приложения, с объектом к
         "type": {
             "self": "{{ host }}/{{ ver }}/linktypes/relates",
             "id": "relates",
-            "inward": "Связана",
-            "outward": "Связана"
+            "inward": "Linked",
+            "outward": "Linked"
         },
         "direction": "outward",
         "object": {
@@ -96,67 +95,62 @@ origin | Идентификатор приложения, с объектом к
         "createdAt": "2021-07-19T06:18:09.327+0000",
         "updatedAt": "2021-07-19T06:18:09.327+0000"
     }
+   ```
 
-    ```
-   
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Адрес ресурса API, который содержит информацию о внешней связи. | Строка
-    id | Идентификатор связи. | Строка
-    [type](#type) | Блок с информацией о типе связи. | Объект
-    direction {#direction} | <q>Направление</q> связи. Параметр релевантен для несимметричных типов связей, например <q>Родительская задача</q> — <q>Подзадача</q>. Возможны следующие значения:<ul><li>`outward` — задача, указанная в запросе, является основной для объекта.</li><li>`inward` — объект является основным для задачи, указанной в запросе.</li></ul> | Строка
-    [object](#object){#object-param} | Блок с информацией об объекте внешнего приложения. | Объект
-    [createdBy](#createdBy) | Блок с информацией о создателе связи. | Объект
-    [updatedBy](#updatedBy) | Блок с информацией о последнем сотруднике, изменявшим связь. | Объект
-    createdAt | Дата и время создания связи. | Строка
-    updatedAt | Дата и время последнего обновления связи. | Строка
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Address of the API resource with information about the external link. | String |
+    | id | Link ID. | String |
+    | [type](#type) | Block with information about the link type. | Object |
+    | direction {#direction} | <q>Link</q> direction. The parameter is relevant for non-symmetric link types, such as <q>Parent issue</q> — <q>Sub-issue</q>. Possible values:<ul><li>`outward`: The issue specified in the request is the main one for the object.</li><li>`inward`: The object is the main one for the issue specified in the request.</li></ul> | String |
+    | [object](#object){#object-param} | Block with information about an external application object. | Object |
+    | [createdBy](#createdBy) | Block with information about the user who created the link. | Object |
+    | [updatedBy](#updatedBy) | Block with information about the employee who updated the link last. | Object |
+    | createdAt | Link creation date and time. | String |
+    | updatedAt | Date and time when the link was last updated. | String |
 
-  
-    **Поля объекта** `type` {#type}
-  
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Адрес ресурса API, который содержит информацию о типе связи. | Строка
-    id | Идентификатор типа связи. | Строка
-    inward | Название типа связи в зависимости от [<q>направления</q>](#direction). | Строка
-    outward | Название типа связи в зависимости от [<q>направления</q>](#direction). | Строка
-  
-  
-    **Поля объекта** `object` {#object}
-  
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Адрес ресурса API, который содержит информацию об объекте внешнего приложения. | Строка
-    id | Идентификатор объекта. | Строка
-    key | Ключ объекта. | Строка
-    [application](#application) | Блок с информацией о внешнем приложении. | Объект
+    **Object fields** `type` {#type}
 
-    **Поля объекта** `application` {#application}
-  
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Адрес ресурса API, который содержит информацию о внешнем приложении. | Строка
-    id | Идентификатор приложения. | Строка
-    type | Тип приложения. | Строка
-    name | Отображаемое название приложения. | Строка
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Address of the API resource with information about the link type. | String |
+    | id | ID of the link type. | String |
+    | inward | Link type name depending on the [<q>direction</q>](#direction). | String |
+    | outward | Link type name depending on the [<q>direction</q>](#direction). | String |
 
+    **Object fields** `object` {#object}
 
-    **Поля объекта** `createdBy` {#createdBy}
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Address of the API resource with information about the external application object. | String |
+    | id | Object ID. | String |
+    | key | Object key. | String |
+    | [application](#application) | Block with information about the external application. | Object |
+
+    **Object fields** `application` {#application}
+
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Address of the API resource with information about the external application. | String |
+    | id | Application ID. | String |
+    | type | Application type. | String |
+    | name | Application name displayed. | String |
+
+    **Object fields** `createdBy` {#createdBy}
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
-  
 
-    **Поля объекта** `updatedBy` {#updatedBy}
-  
+    **Object fields** `updatedBy` {#updatedBy}
+
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    {% endcut %}   
+    {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-  Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+  If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 

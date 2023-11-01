@@ -1,6 +1,6 @@
 # Formatting text in issues
 
-To add formatting to the issue description and comments, use the visual editor or {{ yfm }} syntax.
+To add formatting to the issue description and comments, use the visual editor or [{{ yfm }} syntax]({{ yfm-link }}).
 
 To format text and lists, embed tables and images, use the following toolbar buttons:
 
@@ -8,7 +8,7 @@ To format text and lists, embed tables and images, use the following toolbar but
 
 1. To cancel or repeat an action, use the ![](../../_assets/tracker/text-edit/undo.svg) and ![](../../_assets/tracker/text-edit/redo.svg) buttons.
 
-1. To format text using [{{ yfm }} markup]({{ yfm-link }}), click ![](../../_assets/tracker/text-edit/set.svg) and select **Markup** mode.
+1. To format text using {{ yfm }} markup, click ![](../../_assets/tracker/text-edit/set.svg) and select **Markup** mode.
 
 1. To disable the toolbar, click ![](../../_assets/tracker/text-edit/set.svg) and turn off the **Toolbar** option. If the toolbar is disabled, you can run commands using the `/` character in **Editor** mode.
 
@@ -67,7 +67,7 @@ To add a link:
 
 1. On the toolbar, click ![](../../_assets/tracker/text-edit/link.svg).
 
-1. Enter the link's URL. If you did not select a text fragment, enter the text to be displayed as a link.
+1. Enter the link's URL. If you have not selected a text fragment, enter the text to be displayed as a link.
 
 1. Click **{{ ui-key.startrek.blocks-desktop_comment-form.save }}**.
 

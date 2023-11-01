@@ -1,6 +1,6 @@
 # Issue types
 
-A queue may include different types of issues, such as <q>New feature</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q>, or <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>. Issue types are helpful when distributing work in a team by activity area (<q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>) or decomposing issues (<q>Epic</q>, <q>Story</q>, or <q>Issue</q>).
+A queue may include different types of issues, e.g., <q>New feature</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q>, or <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>. Issue types are helpful when distributing work in a team by activity area (<q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>) or decomposing issues (<q>Epic</q>, <q>Story</q>, or <q>Issue</q>).
 
 The queue owner and users granted [permission to access the queue settings](queue-access.md) specify:
 
@@ -22,6 +22,8 @@ To add a new issue type to the queue:
 
 1. To add an issue type to an existing workflow, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_types.add-issue-type }}** in the respective workflow section and select the appropriate issue type from the list of system issue types. To learn how to add an issue type to a new workflow, see the [guide on creating workflows](add-workflow.md#create).
 
+To set the default type for a queue issue, select one of the options in the {{ ui-key.startrek.ui_components_queue-admin-tab-workflows_WorkflowsStateList.default-type-title }} field.
+
 ## Creating an issue type {#create-ticket-type}
 
 {% note warning %}
@@ -39,9 +41,9 @@ To create a new issue type:
 1. Click **{{ ui-key.startrek.blocks-desktop_page-admin-tab.create--types }}**.
 
 1. Fill out the fields below:
-   * **Name**: Enter a name for your new issue type in Russian
-   * **Name in English**: Will be generated automatically based on the Russian name
-   * **Key**: Will be generated automatically based on the Russian name
+   * **Name**: Enter a name for your new issue type in Russian.
+   * **Name in English**: Will be generated automatically based on the Russian name.
+   * **Key**: Will be generated automatically based on the Russian name.
 
 1. Click **{{ ui-key.startrek.blocks-desktop_b-create-ticket-form__labels.submit }}**.
 
@@ -56,9 +58,9 @@ You can also create a new issue type on the workflows page. The created issue ty
 1. Click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_types.add-issue-type }}**, start typing the name of the new issue type, and click the create button.
 
 1. Fill out the fields below:
-   * **Name**: Enter a name for your new issue type in Russian
-   * **Name in English**: Will be generated automatically based on the Russian name
-   * **Key**: Will be generated automatically based on the Russian name
+   * **Name**: Enter a name for your new issue type in Russian.
+   * **Name in English**: Will be generated automatically based on the Russian name.
+   * **Key**: Will be generated automatically based on the Russian name.
 
 1. Click **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_OrgAdminEntityForm.create }}**.
 

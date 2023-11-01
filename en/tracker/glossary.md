@@ -21,7 +21,7 @@ Workflow
 ## A {#rus-g}
 
 Agile methodologies {#agile}
-:   Team work strategies that follow iterative development at their core, breaking the workload down into smaller cycles called sprints. There are various [Agile development approaches]({{ link-wiki-agile-en }}), such as [Scrum]({{ link-wiki-scrum }}) and [Kanban]({{ link-wiki-kanban }}). In {{ tracker-name }}, agile tools are grouped on [issue boards](manager/agile.md).
+:   Team work strategies that follow iterative development at their core, breaking the workload down into smaller cycles called sprints. There is a number of [Agile development approaches]({{ link-wiki-agile-en }}), e.g., [Scrum]({{ link-wiki-scrum }}) and [Kanban]({{ link-wiki-kanban }}). In {{ tracker-name }}, agile tools are grouped on [issue boards](manager/agile.md).
 
 ## D {#rus-d}
 
@@ -43,8 +43,11 @@ Key (queue key and issue key) {#key}
 
     Issue key is a unique ID of the issue. It consists of the queue key and the sequence number, e.g., `TEST-123`.
 
+Queue team {#queue-team}
+:   Queue team includes users who create and complete issues in the given queue. You can assign the team members privileged access rights to issues in the queue.
+
 Component
-:  Parameter that allows users to group queue issues based on a shared theme, such as their product, pipeline, responsible party, etc. Components can be [configured on the queue page](manager/components.md).
+:   Parameter that allows users to group queue issues related to the same subject, such as their product, pipeline, employee in charge, etc. Components can be [configured on the queue page](manager/components.md).
 
 ## O {#rus-o}
 
@@ -59,13 +62,13 @@ Queue
 ## P {#rus-p}
 
 Issue fields
-:   Various attributes, such as an issue <q>{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}</q>, <q>{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}</q>, or <q>{{ ui-key.startrek-backend.fields.issue.status-key-value }}</q>. You can [edit parameters on the issue page](user/edit-ticket.md#edit-fields).
+:   Various attributes, such as issue <q>{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}</q>, <q>{{ ui-key.startrek-backend.fields.issue.dueDate-key-value }}</q>, or <q>{{ ui-key.startrek-backend.fields.issue.status-key-value }}</q>. You can [edit parameters on the issue page](user/edit-ticket.md#edit-fields).
 
 Invite to comment
 :   Inviting a user to comment means entering the user's name when [sending a comment to an issue](user/comments.md#call-comment) in order to draw their attention to that comment. The mentioned user will receive a notification with the text of the comment by email and in {{ tracker-name }} ![](../_assets/tracker/svg/bell_2.svg) **Notifications** (if the user opened the {{ tracker-name }} interface before).
 
 Project
-:   In {{ tracker-name }}, projects are sets of issues that have a shared goal. Every project has a deadline and responsible employee. Projects can include issues from different queues. That's why you can use projects to group issues from different teams. You can learn more about projects [here](manager/project-new.md).
+:   In {{ tracker-name }}, projects are sets of issues that have a shared goal. Every project has a deadline and an employee in charge. Projects can include issues from different queues. That is why you can use projects to group issues from different teams. You can learn more about projects [here](manager/project-new.md).
 
 ## R {#rus-r}
 
@@ -89,12 +92,12 @@ Tag
 :   Type of a label one can add to any issue. Tags are useful for grouping issues by any attribute and then searching for issues with preset tags. To add tags to an issue, [edit the **{{ ui-key.startrek-backend.fields.issue.tags-key-value }}** parameter](user/edit-ticket.md#edit-fields).
 
 Issue type
-:   {{ tracker-name }} issues come in various types, such as: <q>New feature</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>, or <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q>. In the queue created for each issue type, you can [set up your workflow](manager/add-ticket-type.md).
+:   {{ tracker-name }} issues come in various types, for example: <q>New feature</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>, or <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q>. In the queue created for each issue type, you can [set up your workflow](manager/add-ticket-type.md).
 
 ## F {#rus-f}
 
 Filter
-:   Filters let users search for issues in {{ tracker-name }} by issue settings. For example, you can find all issues in queues where you have the author or assignee status. [More about searching issues by parameters.](user/create-filter.md)
+:   Filters allow users to search for issues in {{ tracker-name }} by issue settings. For example, you can find all issues in queues where you have the author or assignee status. [More about searching issues by parameters.](user/create-filter.md)
 
 ## C {#rus-ch}
 
@@ -122,7 +125,7 @@ SLA
 :   In {{ tracker-name }}, an SLA is a [set of rules](manager/sla.md) that defines timeframes for processing issues in queues. For example, you can set the time within which the assignee has to respond to the issue, answer the requestor's comment, or complete the issue. [Learn more about SLAs.](sla-head.md)
 
 Story
-:   In [Agile methodologies](#agile), a <q>User Story</q> is a description of a feature that needs to be implemented in a product. {{ tracker-name }} includes the {{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }} issue type that can be used to [group any issues](user/links.md) based on a common topic.
+:   In [Agile methodologies](#agile), a <q>User Story</q> is a description of a feature that needs to be implemented in a product. {{ tracker-name }} includes the {{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--story }} issue type that can be used to [group any issues](user/links.md) by theme.
 
 Story Point
 :   Relative rating that describes the effort needed to complete an issue. The Story Point unit is not usually measured in terms of man-hours. [The team rates issues collectively](manager/planning-poker.md) by comparing them to a simple task.
@@ -130,4 +133,4 @@ Story Point
 ## Y {#en-y}
 
 {{ yfm }} (YFM)
-:   Markup {{ yfm }} is a set of rules for formatting text using special characters. You can use it to [format text in issue descriptions and comments](user/markup.md).
+:   {{ yfm }} markup is a set of rules for formatting text using special characters. You can use it to [format text in issue descriptions and comments](user/markup.md).

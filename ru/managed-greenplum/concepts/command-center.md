@@ -8,6 +8,12 @@ _Командный центр {{ GP }}_ — это инструмент для 
 * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}** — снимки состояний сессий или запросов за определенный момент времени в прошлом.
 * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}** — история завершенных запросов с возможностью агрегации по {{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-query-cpu-time }}, {{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-query-peak-memory }} и другим показателям потребления за определенный момент времени.
 
-Любую текущую сессию и запрос можно прервать или детализировать для отображения подробной информации. Для запросов можно просмотреть план выполнения и JSON, а для сессий — историю как сессии целиком, так и ее отдельных запросов.
+Любую текущую сессию и запрос можно прервать или детализировать для отображения подробной информации. Для запросов [можно просмотреть](../operations/command-center.md) план выполнения и JSON, а для сессий — историю сессии целиком и ее отдельных запросов.
+
+{% note info %}
+
+Командный центр доступен в кластерах с версией {{ GP }} {{ versions.console.latest }} и выше.
+
+{% endnote %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

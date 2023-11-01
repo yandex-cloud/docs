@@ -1,58 +1,59 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/get-attachment.md
+sourcePath: en/tracker/api-ref/concepts/issues/get-attachment.md
 ---
-# Скачать файл
+# Download a file
 
-Запрос позволяет скачать прикрепленный к задаче файл.
+Use this request to download files attached to issues.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы скачать файл, используйте HTTP-запрос с методом `GET`.
+To download a file, use an HTTP `GET` request.
 
 ```
 GET /{{ ver }}/issues/<issue-id>/attachments/<attachment-id>/<filename>
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<issue-id\> | Идентификатор или ключ задачи | Строка
-\<attachment-id\> | Уникальный идентификатор файла | Строка или число
-\<filename\> | Имя файла | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<issue-id\> | Issue ID or key | String |
+| \<attachment-id\> | Unique file ID | String or number |
+| \<filename\> | File name | String |
 
 {% endcut %}
 
-> Пример: Скачать файл, прикрепленный к задаче `JUNE-2`.
+> Example: Download a file attached to the `JUNE-2` issue.
 >
-> - Используется HTTP-метод `GET`.
+>- An HTTP `GET` method is used.
 >
-> ```
-> GET /v2/issues/JUNE-2/attachments/4159/attachment.txt HTTP/1.1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
-> {{ org-id }}
-> ```
+>```
+>GET /v2/issues/JUNE-2/attachments/4159/attachment.txt HTTP/1.1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>```
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
+

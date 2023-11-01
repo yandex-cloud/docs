@@ -14,14 +14,14 @@
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select [Container Storage Interface for S3](/marketplace/products/yc/csi-s3) and click **Use**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the {{ managed-k8s-name }} cluster name and select the ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Under **Applications available for installation**, select [Container Storage Interface for S3](/marketplace/products/yc/csi-s3) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select the `kube-system` [namespace](../../concepts/index.md#namespace).
-   * **Application name**: Specify the application name, for example, `csi-s3`.
+   * **Application name**: Specify the application name, e.g., `csi-s3`.
    * **Create storage class**: Select this option to create a new [storage class](../volumes/manage-storage-class.md) when deploying the application.
-   * **Create secret**: Select this option to create a new secret form a storage class when installing the application.
+   * **Create secret**: Select this option to create a new secret for a storage class when installing the application.
    * **S3 key ID**: Copy the service account key ID into this field.
    * **S3 secret key**: Copy the service account secret key into this field.
    * **General S3 bucket for volumes**: Specify the name of the general bucket where [dynamically allocated volumes](../../concepts/volume.md#dynamic-provisioning) will be created. For CSI to create a new bucket for each volume, leave this field blank.
@@ -33,7 +33,8 @@
    * **Storage class name**: If you previously selected the **Create storage class** option, specify the name of the new storage class.
    * **Secret name**: If you previously selected the **Create secret** option, specify the name of the new secret to be created for the storage class. Otherwise, specify the name of the existing secret to be used for the storage class.
    * **Ignore all taints**: Select this option if you want the CSI driver used to mount the file system on nodes to ignore all taints set for the {{ managed-k8s-name }} cluster nodes.
-1. Click **Install**.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 

@@ -79,7 +79,15 @@ To set up a status transition:
    * [Transition conditions](./workflow-action-edit.md#conditions): Conditions under which a transition will be available.
    * [Transition screen](./workflow-action-edit.md#screen): Pop-up window where the user must fill in the respective fields to update the issue parameters.
 
-For convenience, there is a special transition type named **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.meta-status-title }}**. For example, if you need to add a status to a workflow, which is achievable from any other status, you will not need to manually set up these transitions for each status in the diagram. Just enable **{{  ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.meta-status-title }}** and the diagram will show a meta transition for this status.
+For convenience, there is a special transition type named **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.meta-status-title }}**. For example, if you need to add a status to a workflow, which is achievable from any other status, you will not need to manually set up these transitions for each status in the diagram. Just enable **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.meta-status-title }}** and the diagram will show a meta transition for this status.
+
+### Copying transitions {#copy-transitions}
+
+You can apply transitions of one status to other statuses. To do this:
+
+1. In the status settings, click ![](../../_assets/tracker/svg/actions.svg).
+1. Click ![](../../_assets/tracker/svg/copy-transition.svg) **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.action-export-transitions }}** or ![](../../_assets/tracker/svg/paste-transition.svg) **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_StatusEdit.action-import-transitions }}**.
+1. In the list, select a status to insert or copy the transitions to.
 
 ## Creating a status {#create-status}
 

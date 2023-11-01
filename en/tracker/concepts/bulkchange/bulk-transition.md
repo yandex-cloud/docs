@@ -1,26 +1,26 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/bulkchange/bulk-transition.md
+sourcePath: en/tracker/api-ref/concepts/bulkchange/bulk-transition.md
 ---
-# Массовое изменение статуса задач
+# Make bulk changes to issue statuses
 
-Запрос позволяет выполнить переход в новый статус для нескольких задач одновременно. 
+Use this request to switch multiple issues to a new status at once.
 
 {% note info %}
 
-Чтобы узнать, какие переходы доступны для задачи, выполните [запрос списка переходов](../issues/get-transitions.md). Для некоторых статусов (например, <q>Закрыт</q>) в параметре `value` тела запроса должна быть указана [резолюция]({{ link-admin-resolutions }}).
+To find out what status transitions are available for an issue, make a [request for a list of transitions](../issues/get-transitions.md). For some statuses, such as <q>Closed</q>, the `value` parameter in the request body must be set to [resolution]({{ link-admin-resolutions }}).
 
 {% endnote %}
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы изменить статус задач, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
+To update issue statuses, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
 
 ```json
 POST /{{ ver }}/bulkchange/_transition
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
@@ -31,61 +31,61 @@ Authorization: OAuth <OAuth-токен>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Параметры запроса" %}
+{% cut "Request parameters" %}
 
-**Дополнительные параметры**
+**Additional parameters**
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-notify | Признак уведомления об изменении задачи:<ul><li>`true` — пользователи, указанные в полях задачи, получат уведомления;</li><li>`false` — (по умолчанию) пользователи не получат уведомления.</li></ul> | Логический
-
-{% endcut %}
-
-{% cut "Параметры тела запроса" %}
-
-**Обязательные параметры**
-
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-transition | Идентификатор перехода. | Строка
-issues | Идентификаторы задач, статус которых необходимо изменить. | Строка
-
-**Дополнительные параметры**
-
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-values | Параметры задач, которые будут изменены при смене статуса. Используйте параметры, доступные при [редактировании задачи](../issues/patch-issue.md#req-get-params). | Строка
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| notify | Flag indicating if users should be notified about issue changes:<ul><li>`true`: Users specified in the issue fields are notified.</li><li>`false` (by default): No users are notified.</li></ul> | Boolean |
 
 {% endcut %}
 
->Пример. Изменить статус нескольких задач.
+{% cut "Request body parameters" %}
+
+**Required parameters**
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| transition | Transition ID. | String |
+| issues | IDs of the issues to change the status of. | String |
+
+**Additional parameters**
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| values | Issue parameters that will be updated after the status change. Use the parameters that are available when [editing the issue](../issues/patch-issue.md#req-get-params). | String |
+
+{% endcut %}
+
+> Example. Bulk change of multiple issues' statuses.
 >
->- Используется HTTP-метод POST.
->- Статус задач <q>TEST-1</q>, <q>TEST-2</q>, <q>TEST-3</q> меняется на <q>Закрыт</q> с резолюцией <q>Решен</q>.
+>- An HTTP POST method is used.
+>- The status of the <q>TEST-1</q>, <q>TEST-2</q>, and <q>TEST-3</q> issues is changed to <q>Closed</q> with the <q>Resolved</q> resolution.
 >
 >```json
 >POST /{{ ver }}/bulkchange/_transition
 >Host: {{ host }}
->Authorization: OAuth <OAuth-токен>
+>Authorization: OAuth <OAuth token>
 >{{ org-id }}
 >{
 >"transition": "close",
 >"issues": ["TEST-1", "TEST-2", "TEST-3"],
 >"values": {
->    "resolution": "fixed"
->   }
+>   "resolution": "fixed"
+>  }
 >}
 >```
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
-    Тело ответа содержит информацию об операции массового редактирования в формате JSON.
+    The response body contains information about the bulk change operation in JSON format.
 
     ```json
     {
@@ -94,42 +94,42 @@ values | Параметры задач, которые будут изменен
         "createdBy": {
             "self": "{{ host }}/v2/users/1234567890",
             "id": "1234567890",
-            "display": "Имя Фамилия"
+            "display": "First and Last name"
         },
         "createdAt": "2020-12-15T11:52:53.665+0000",
         "status": "CREATED",
-        "statusText": "Операция массового редактирования задач создана.",
+        "statusText": "Bulk change task created.",
         "executionChunkPercent": 0,
         "executionIssuePercent": 0
     }
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    id | Идентификатор операции массового редактирования. | Строка
-    self | Адрес ресурса API, который содержит информацию о массовом редактировании. | Строка
-    [createdBy](#createdBy) | Объект с информацией об инициаторе массового редактирования. | Объект
-    createdAt | Дата и время создания операции массового редактирования. | Строка
-    status | Статус операции массового редактирования. | Строка
-    statusText | Описание статуса операции массового редактирования. | Строка
-    executionChunkPercent | Служебный параметр. | Число
-    executionIssuePercent | Служебный параметр. | Число
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | id | Bulk change operation ID. | String |
+    | self | Address of the API resource with information about the bulk change. | String |
+    | [createdBy](#createdBy) | Object with information about the user who made the bulk change. | Object |
+    | createdAt | Date and time when the bulk change operation was created. | String |
+    | status | Bulk change operation status. | String |
+    | statusText | Description of the bulk change operation status. | String |
+    | executionChunkPercent | Service parameter. | Number |
+    | executionIssuePercent | Service parameter. | Number |
 
-    **Поля объекта** `createdBy` {#createdBy}
+    **Object fields** `createdBy` {#createdBy}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
-    id | Идентификатор пользователя. | Число
-    display | Отображаемое имя пользователя. | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the user. | String |
+    | id | User ID. | Number |
+    | display | User's name displayed. | String |
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 

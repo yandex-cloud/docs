@@ -1,25 +1,25 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/queues/create-queue.md
+sourcePath: en/tracker/api-ref/concepts/queues/create-queue.md
 ---
-# Создать очередь
+# Create a queue
 
-Запрос позволяет создать очередь.
+Use this request to create queues.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы создать очередь, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
+To create a queue, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
 
 ```
 POST /{{ ver }}/queues/
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
     "key": "DESIGN",
-    "name": "Дизайн",
+    "name": "Design",
     "lead": "artemredkin",
     "defaultType": "task",
     "defaultPriority": "normal",
@@ -34,38 +34,38 @@ Authorization: OAuth <OAuth-токен>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Параметры тела запроса" %}
+{% cut "Request body parameters" %}
 
-**Обязательные параметры**
+**Required parameters**
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-key | Ключ очереди | Строка
-name | Название очереди | Строка
-lead | Логин или идентификатор владельца очереди | Строка
-defaultType | Идентификатор или ключ типа задач по умолчанию | Строка
-defaultPriority | Идентификатор или ключ приоритета задач по умолчанию | Строка
-[issueTypesConfig](#issue-types-config) | Массив с настройками типов задач очереди | Массив объектов
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| key | Queue key | String |
+| name | Queue name | String |
+| lead | Username or ID of the queue owner | String |
+| defaultType | ID or key of the default issue type | String |
+| defaultPriority | ID or key of the default issue priority | String |
+| [issueTypesConfig](#issue-types-config) | Array with settings of queue issue types | Array of objects |
 
-**Поля объектов массива** `issueTypesConfig` {#issue-types-config}
+**Array object fields** `issueTypesConfig` {#issue-types-config}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-issueType | Ключ типа задачи | Строка
-workflow | Идентификатор воркфлоу | Строка
-resolutions | Массив с идентификаторами или ключами возможных резолюций | Массив
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| issueType | Key of the issue type | String |
+| workflow | Workflow ID | String |
+| resolutions | Array with the IDs or keys of possible resolutions | Array |
 
 {% endcut %}
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
   {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
-  Тело запроса содержит информацию о созданной очереди в формате JSON.
+  The request body contains information about the created queue in JSON format.
 
     ```json
     {
@@ -73,7 +73,7 @@ resolutions | Массив с идентификаторами или ключа
            "id": 111,
            "key": "DESIGN",
            "version": 1400150916068,
-           "name": "Дизайн",
+           "name": "Design",
            "lead": {
               "self": "{{ host }}/v2/users/1120000000004859",
               "id": "artemredkin",
@@ -96,46 +96,46 @@ resolutions | Массив с идентификаторами или ключа
     }
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Ссылка на очередь. | Строка
-    id | Идентификатор очереди. | Строка
-    key | Ключ очереди. | Строка
-    version | Версия очереди. Каждое изменение очереди увеличивает номер версии. | Число
-    name | Название очереди. | Строка
-    [lead](#lead) | Блок с информацией о владельце очереди. | Объект
-    assignAuto | Автоматически назначить исполнителя для новых задач очереди:<ul><li>`true`— назначить;</li><li>`false`— не назначать.</li></ul> | Логический
-    allowExternals | Разрешить отправку писем наружу. Допустимые значения:<ul><li>`true`— разрешить;</li><li>`false`— не разрешать.</li></ul> | Логический
-    [defaultType](#default-type) | Блок с информацией о типе задачи по умолчанию. | Объект
-    [defaultPriority](#default-priority) | Блок с информацией о приоритете задачи по умолчанию. | Объект
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Queue link. | String |
+    | id | Queue ID. | String |
+    | key | Queue key. | String |
+    | version | Queue version. Each change to the queue increases its version number. | Number |
+    | name | Queue name. | String |
+    | [lead](#lead) | Block with information about the queue owner. | Object |
+    | assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign.</li><li>`false`: Do not assign.</li></ul> | Boolean |
+    | allowExternals | Allow sending emails to external addresses. Possible values:<ul><li>`true`: Allow.</li><li>`false`: Do not allow.</li></ul> | Boolean |
+    | [defaultType](#default-type) | Block with information about the default issue type. | Object |
+    | [defaultPriority](#default-priority) | Block with information about the default issue priority. | Object |
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Поля объекта** `defaultType` {#default-type}
+    **Object fields** `defaultType` {#default-type}
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Ссылка на тип задачи | Строка
-    id | Идентификатор типа задачи | Строка
-    key | Ключ типа задачи | Строка
-    display | Отображаемое название типа задачи | Строка
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Link to the issue type | String |
+    | id | ID of the issue type | String |
+    | key | Key of the issue type | String |
+    | display | Issue type name displayed | String |
 
-    **Поля объекта** `defaultPriority` {#default-priority}
+    **Object fields** `defaultPriority` {#default-priority}
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Ссылка на тип приоритета | Строка
-    id | Идентификатор приоритета | Строка
-    key | Ключ приоритета | Строка
-    display | Отображаемое название приоритета | Строка
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Link to the priority type | String |
+    | id | Priority ID | String |
+    | key | Priority key | String |
+    | display | Priority name displayed | String |
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
+    If a request fails, the response message contains details of the errors encountered:
 
     {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -152,3 +152,4 @@ resolutions | Массив с идентификаторами или ключа
     {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+

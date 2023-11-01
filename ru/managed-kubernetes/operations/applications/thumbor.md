@@ -1,6 +1,6 @@
 # Установка Thumbor
 
-[Thumbor](https://thumbor.readthedocs.io) — проект с [открытым исходным кодом](https://github.com/thumbor/thumbor), предназначенный для обработки изображений по запросу. Thumbor работает как HTTP-сервис и выполняет такие преобразования как обрезка изображений, масштабирование, [наложение фильтров](https://thumbor.readthedocs.io/en/latest/filters.html#available-filters) и [многие другие](https://thumbor.readthedocs.io/en/latest/imaging.html).
+[Thumbor](https://thumbor.readthedocs.io/en/latest/) — проект с [открытым исходным кодом](https://github.com/thumbor/thumbor), предназначенный для обработки изображений по запросу. Thumbor работает как HTTP-сервис и выполняет такие преобразования как обрезка изображений, масштабирование, [наложение фильтров](https://thumbor.readthedocs.io/en/latest/filters.html#available-filters) и [многие другие](https://thumbor.readthedocs.io/en/latest/imaging.html).
 
 Возможности Thumbor:
 * Поддержка всех популярных форматов изображений.
@@ -121,6 +121,10 @@
 {% endlist %}
 
 Подробнее о работе с изображениями см. в [документации Thumbor](https://thumbor.readthedocs.io/en/latest/imaging.html).
+
+## Что дальше {#what-is-next}
+
+Узнайте, как использовать приложение Thumbor для редактирования изображений на вашем сайте. [Пример работы с Thumbor](../../tutorials/marketplace/thumbor.md), рассмотренный в документации, включает в себя настройку сервиса [{{ cdn-full-name }}](../../../cdn/concepts/index.md). Он позволяет снизить скорость загрузки изображений на сайте.
 
 ## См. также {#see-also}
 

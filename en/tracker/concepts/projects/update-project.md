@@ -1,97 +1,96 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/projects/update-project.md
+sourcePath: en/tracker/api-ref/concepts/projects/update-project.md
 ---
-# Изменить проект
+# Edit a project
 
-Запрос позволяет обновить информацию о [проекте](../../manager/project-new.md).
+Use this request to update information about a [project](../../manager/project-new.md).
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы изменить проект, используйте HTTP-запрос с методом `PUT`. Параметры запроса передаются в его теле в формате JSON.
+To edit a project, use an HTTP `PUT` request. Request parameters are passed in the request body in JSON format.
 
 ```
-PUT /{{ ver }}/projects/<project-id>?version=<номер версии>
+PUT /{{ ver }}/projects/<project-id>?version=<version number>
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
-    "queues": "<ключ очереди>" 
+    "queues": "<queue key>" 
 }
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-\<project-id> | Идентификатор проекта | Число
-
-{% endcut %}  
-
-
-{% cut "Параметры запроса" %}
-
-**Обязательные параметры**
-
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-version | Версия проекта. Изменения вносятся только в текущую версию проекта. | Число
-
-**Дополнительные параметры**
-
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-expand | Дополнительные поля, которые будут включены в ответ:<ul><li>`queues` — очереди проекта. </li></ul> | Строка
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| \<project-id> | Project ID | Number |
 
 {% endcut %}
 
-{% cut "Параметры тела запроса" %}
+{% cut "Request parameters" %}
 
-**Обязательные параметры**
+**Required parameters**
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-queues | Задачи, которые планируется включать в проект. | Строка
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| version | Project version. Changes are only made to the current version of the project. | Number |
 
-**Дополнительные параметры**
+**Additional parameters**
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-name | Название проекта. | Строка
-description | Описание проекта. Параметр не отображается в интерфейсе {{ tracker-name }}. | Строка
-lead | Идентификатор или логин исполнителя проекта. | Число / Строка
-status | Этап, на котором находится проект:<ul><li>`DRAFT` – Черновик.</li><li>`IN_PROGRESS` — В работе.</li><li>`LAUNCHED` — Запущен.</li><li>`POSTPONED` — Отложен. </li></ul> | Строка
-startDate | Дата начала проекта в формате `YYYY-MM-DD`. | Строка
-endDate | Дата завершения проекта в формате `YYYY-MM-DD`. | Строка
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| expand | Additional fields to be included in the response: <ul><li>`queues`: Project queues. </li></ul> | String |
 
 {% endcut %}
 
-## Формат ответа {#answer}
+{% cut "Request body parameters" %}
+
+**Required parameters**
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| queues | Issues to include in the project. | String |
+
+**Additional parameters**
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| name | Project name. | String |
+| description | Project description. This parameter isn't displayed in the {{ tracker-name }} interface. | String |
+| lead | ID or username of the project assignee. | Number / String |
+| status | Stage of the project:<ul><li>`DRAFT`: Draft.</li><li>`IN_PROGRESS`: In progress.</li><li>`LAUNCHED`: Launched.</li><li>`POSTPONED`: Postponed. </li></ul> | String |
+| startDate | Project start date in `YYYY-MM-DD` format. | String |
+| endDate | Project end date in `YYYY-MM-DD` format. | String |
+
+{% endcut %}
+
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    Тело ответа содержит информацию об измененном проекте в формате JSON.
+    The response body contains information about the updated project in JSON format.
 
     ```json
     {
         "self": "{{ host }}/v2/projects/9",
         "id": "9",
         "version": 5,
-        "key": "Проект",
-        "name": "Проект",
-        "description": "Проект с изменениями",
+        "key": "Project",
+        "name": "Project",
+        "description": "Project with updates",
         "lead": {
             "self": "{{ host }}/v2/users/12314567890",
             "id": "1234567890",
-            "display": "Имя Фамилия"
+            "display": "First and Last name"
         },
         "status": "launched",
         "startDate": "2020-11-16",
@@ -99,45 +98,44 @@ endDate | Дата завершения проекта в формате `YYYY-M
     }
     ```
 
-   {% cut "Параметры ответа" %}
-    
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о проекте. | Строка
-    id | Идентификатор проекта. | Число
-    version | Версия проекта. Каждое изменение параметров увеличивает номер версии. | Число
-    key | Ключ проекта. Совпадает с названием проекта. | Строка
-    name | Название проекта. | Строка
-    description | Описание проекта. Параметр не отображается в интерфейсе {{ tracker-name }}. | Строка
-    lead | Блок с информацией об исполнителе проекта. | Объект
-    status | Этап, на котором находится проект:<ul><li>`DRAFT` — Черновик.</li><li>`IN_PROGRESS` — В работе.</li><li>`LAUNCHED` — Запущен.</i><li>`POSTPONED` — Отложен. </li></ul> | Строка
-    startDate | Дата начала проекта в формате `YYYY-MM-DD`. | Строка
-    endDate | Дата завершения проекта в формате `YYYY-MM-DD`. | Строка
-    
-    **Поля объекта** `lead`
-    
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
-    id | Идентификатор пользователя. | Число
-    display | Отображаемое имя пользователя. | Строка
+   {% cut "Response parameters" %}
+
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the project. | String |
+    | id | Project ID. | Number |
+    | version | Project version. Each change of the parameters increases the version number. | Number |
+    | key | Project key. Matches the project name. | String |
+    | name | Project name. | String |
+    | description | Project description. This parameter isn't displayed in the {{ tracker-name }} interface. | String |
+    | lead | Block with information about the project assignee. | Object |
+    | status | Stage of the project:<ul><li>`DRAFT`: Draft.</li><li>`IN_PROGRESS`: In progress.</li><li>`LAUNCHED`: Launched.</i><li>`POSTPONED`: Postponed. </li></ul> | String |
+    | startDate | Project start date in `YYYY-MM-DD` format. | String |
+    | endDate | Project end date in `YYYY-MM-DD` format. | String |
+
+    **Object fields** `lead`
+
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the user. | String |
+    | id | User ID. | Number |
+    | display | User's name displayed. | String |
 
     {% endcut %}
 
+- Request failed
 
-- Запрос выполнен с ошибкой
-
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
     {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
     {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
-    
+
     {% include [answer-error-412](../../../_includes/tracker/api/answer-error-412.md) %}
 
     {% include [answer-error-428](../../../_includes/tracker/api/answer-error-428.md) %}
 
-
 {% endlist %}
+

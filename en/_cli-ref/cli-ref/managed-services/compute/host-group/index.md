@@ -27,6 +27,7 @@ Aliases:
 - [yc compute host-group remove-labels](remove-labels.md) — Remove labels from the specified host group
 - [yc compute host-group delete](delete.md) — Delete the specified host group
 - [yc compute host-group list-hosts](list-hosts.md) — List hosts of the specified host group
+- [yc compute host-group update-host](update-host.md) — Update host of the specified host group
 - [yc compute host-group list-instances](list-instances.md) — List instances of the specified host group
 - [yc compute host-group list-operations](list-operations.md) — List operations for the specified host group
 

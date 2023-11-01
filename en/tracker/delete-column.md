@@ -1,75 +1,75 @@
 ---
-sourcePath: ru/tracker/api-ref/delete-column.md
+sourcePath: en/tracker/api-ref/delete-column.md
 ---
-# Удалить колонку
+# Delete a column
 
-Запрос позволяет удалить колонку.
+Use this request to delete columns.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](concepts/access.md).
+Before making a request, [get permission to access the API](concepts/access.md).
 
-Чтобы удалить колонку, используйте HTTP-запрос с методом `DELETE`.
+To delete a column, use an HTTP `DELETE` request.
 
 ```
 DELETE /{{ ver }}/boards/<board-id>/columns/<column-id>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <token>
 {{ org-id }}
-If-Match: "<номер версии>"
+If-Match: "<version number>"
 ```
 
-{% cut "Заголовки" %}
+{% cut "Headers" %}
 
 - **Host**
 
-    Адрес узла, предоставляющего API:
+    Address of the node that provides the API:
     ```
     {{ host }}
     ```
 
 - **Authorization**
 
-    OAuth-токен в формате `OAuth <значение токена>`, например:
+    OAuth token in `OAuth <token value>` format, for example:
 
     ```
     OAuth 0c4181a7c2cf4521964a72ff57a34a07
     ```
 
 
-- **X-Org-ID** или **X-Cloud-Org-ID**
+- **X-Org-ID** or **X-Cloud-Org-ID**
 
-    Идентификатор организации. Если у вас только организация {{ org-full-name }}, используйте заголовок `X-Cloud-Org-ID`, если только {{ ya-360 }} или оба типа организаций — `X-Org-ID`.
+    Organization ID. If you only have a {{ org-full-name }} organization, use the `X-Cloud-Org-ID` header; if only {{ ya-360 }} or both organization types, use `X-Org-ID`.
 
 
 - **If-Match**
 
-    Номер текущей версии доски.
+    Number of the current board version.
 
 {% endcut %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<board-id\> | Идентификатор доски | Число
-\<column-id\> | Идентификатор колонки | Число
+Parameter | Description | Data type
+--------- | ----------- | ---------
+\<board-id\> | Board ID | Number
+\<column-id\> | Column ID | Number
 
 {% endcut %}
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Successful execution of the request
 
     {% include [answer-204](../_includes/tracker/api/answer-204.md) %}
-    
-    Тело ответа отсутствует.
 
-- Запрос выполнен с ошибкой
+    The response body is missing.
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+- The request failed
+
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
 

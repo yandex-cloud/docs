@@ -1,47 +1,47 @@
 ---
-sourcePath: ru/tracker/api-ref/delete-macros.md
+sourcePath: en/tracker/api-ref/delete-macros.md
 ---
-# Удалить макрос
+# Delete a macro
 
-Запрос позволяет удалить макрос.
+Use this request to delete macros.
 
-## Формат запроса {#section_nnm_hdt_sfb}
+## Request format {#section_nnm_hdt_sfb}
 
-Перед выполнением запроса [получите доступ к API](concepts/access.md).
+Before making the request, [get permission to access the API](concepts/access.md).
 
-Чтобы удалить макрос, используйте HTTP-запрос с методом `DELETE`:
+To delete a macro, use an HTTP `DELETE` request:
 
 ```
 DELETE /{{ ver }}/queues/<queue-id>/macros/<macros-id>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <token>
 {{ org-id }}
 ```
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-\<queue-id> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
-\<macros-id> | Идентификатор макроса. | Строка
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| \<queue-id> | Queue ID or key. The queue key is case-sensitive. | String |
+| \<macros-id> | Macro ID. | String |
 
-{% endcut %} 
+{% endcut %}
 
-## Формат ответа {#section_p1j_lgt_sfb}
+## Response format {#section_p1j_lgt_sfb}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
   {% include [answer-204](../_includes/tracker/api/answer-204.md) %}
-  
-  Тело ответа отсутствует.
 
-- Запрос выполнен с ошибкой
+  The response body is missing.
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+- Request failed
+
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
 
@@ -50,5 +50,6 @@ Authorization: OAuth <токен>
     {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
 
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
-     
+
 {% endlist %}
+

@@ -1,34 +1,34 @@
 ---
-sourcePath: ru/tracker/api-ref/get-boards.md
+sourcePath: en/tracker/api-ref/get-boards.md
 ---
-# Получить параметры всех досок
+# Get parameters of all boards
 
-Запрос позволяет получить параметры всех досок задач, созданных пользователями организации.
+Use this request to get parameters of all issue boards created by the organization's users.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](concepts/access.md).
+Before making the request, [get permission to access the API](concepts/access.md).
 
-Чтобы получить параметры всех досок задач, используйте HTTP-запрос с методом `GET`.
+To get the parameters of all issue boards, use an HTTP `GET` request.
 
 ```
 GET /{{ ver }}/boards
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <token>
 {{ org-id }}
 ```
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
-    Тело ответа содержит JSON-массив с параметрами всех досок, созданных пользователями организации.
+    The response body contains a JSON array with parameters for all boards created by the organization's users.
 
     ```json
     [
@@ -36,82 +36,82 @@ Authorization: OAuth <токен>
       "self" : "{{ host }}/v2/boards/1",
       "id" : 1,
       "version" : 1412806202302,
-      "name" : "Тестирование",
+      "name" : "Testing",
       "columns" :
       [
        {
         "self" : "{{ host }}/v2/boards/1/columns/1387461731452",
         "id" : "1387461731452",
-        "display" : "Открыт"
+        "display": "Open"
        },
         ...
       ],
       "filter": {
-         "<ключ параметра 1>": "<значение 1>",
-         "<ключ параметра 2>": [
-              "<значение 2>",
+         "<key of parameter 1>": "<value 1>",
+         "<key of parameter 2>": [
+              "<value 2>",
                              ...
             ],
              ...
          },
       "orderBy": "updated",
       "orderAsc": false,
-      "query": "<Параметр 1>: <Значение 1> AND <Параметр 2>: <Значение 2> OR <Параметр 3>: <Значение 3>...",
+      "query": "<Parameter 1>: <Value 1> AND <Parameter 2>: <Value 2> OR <Parameter 3>: <Value 3>...",
       "useRanking": false,
       "country": {
            "self": "{{ host }}/v2/countries/1",
            "id": "1",
-           "display": "Россия"
+           "display": "Russia"
             }
        },
       ...
     ]
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит параметры доски. | Строка
-    id | Идентификатор доски. | Число
-    version | Версия доски. Каждое изменение доски увеличивает номер версии. | Число
-    name | Название доски. | Строка
-    [columns](#columns) | Объект с информацией о колонках доски. | Объект
-    [filter](#filter) | Объект с информацией об условиях фильтра, с помощью которого отбираются задачи для доски.<br/>Параметры задачи состоят из полей и значений. | Объект
-    orderBy | Ключ поля.<br/>Поле служит параметром для сортировки задач на доске.<br/>Полный список полей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Строка
-    orderAsc | Направление сортировки:<ul><li>`true` — по возрастанию значений поля;</li><li>`false` — по убыванию значений поля.</li></ul> | Логический
-    query | Параметры фильтра, с помощью которого отбираются задачи для доски.<br/>Параметры задаются на [языке запросов](user/query-filter.md). | Строка
-    useRanking | Возможность менять порядок задач на доске:<ul><li>`true`— разрешено;</li><li>`false`— запрещено.</li></ul> | Логический
-    [country](#country) | Объект с информацией о стране. Данные производственного календаря страны используются в Диаграмме сгорания задач.<br/>Чтобы получить список стран, используйте HTTP-запрос: `GET /v2/countries` | Объект
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with board parameters. | String |
+    | id | Board ID. | Number |
+    | version | Board version. Each change to the board increases its version number. | Number |
+    | name | Board name. | String |
+    | [columns](#columns) | Object with information about board columns. | Object |
+    | [filter](#filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values. | Object |
+    | orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+    | orderAsc | Field value sorting order:<ul><li>`true`: Ascending.</li><li>`false`: Descending.</li></ul> | Boolean |
+    | query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md). | String |
+    | useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Boolean |
+    | [country](#country) | Object with information about the country. Data of a country's business calendar is used in the Burn down chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries` request. | Object |
 
-    **Поля объекта** `columns` {#columns}
+    **Object fields** `columns` {#columns}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о колонке доски | Строка
-    id | Идентификатор колонки | Строка
-    display | Отображаемое название колонки | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the board column | String |
+    | id | Column ID | String |
+    | display | Column name displayed | String |
 
-    **Поля объекта** `filter` {#filter}
+    **Object fields** `filter` {#filter}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    \<ключ параметра 1\> | Ключ поля, который является параметром отбора задач на доску.<br/>Полный список полей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Строка
-    \<ключ параметра 2\> | Массив с ключами полей, которые являются параметрами отбора задач на доску.<br/>Полный список полей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Массив
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | \<key of parameter 1\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+    | \<key of parameter 2\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Array |
 
-    **Поля объекта** `country` {#country}
+    **Object fields** `country` {#country}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит название страны | Строка
-    id | Идентификтор страны | Строка
-    display | Отображаемое название страны | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with the country name | String |
+    | id | Country ID | String |
+    | display | Country name displayed | String |
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
 
@@ -124,3 +124,4 @@ Authorization: OAuth <токен>
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+

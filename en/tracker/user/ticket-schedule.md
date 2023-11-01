@@ -16,7 +16,15 @@ To schedule creation of issues:
 
 1. In the top-right corner, click ![](../../_assets/tracker/svg/queue-settings.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
 
-1. In the left-hand panel, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin.group-title--automatization }}** → **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.title }}** and click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.button-create }}**.
+1. In the left-hand panel, select **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.title }}**.
+
+   {% note info %}
+
+   Scheduled issue creation is currently not supported in the new interface. The following steps are performed in the old interface.
+
+   {% endnote %}
+
+1. On the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.title }}** page, click **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoactions.button-create }}**.
 
 1. Select the **{{ ui-key.startrek.blocks-desktop_b-page-queue-admin-tab_type_autoaction-editor.type-toggle--create }}** type.
 
