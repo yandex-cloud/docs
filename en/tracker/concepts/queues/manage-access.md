@@ -1,32 +1,32 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/queues/manage-access.md
+sourcePath: en/tracker/api-ref/concepts/queues/manage-access.md
 ---
-# Выдать права доступа к очереди
+# Granting queue access rights
 
-Запрос позволяет настроить [доступы к очереди](../../manager/queue-access.md). 
+This request allows you to set up [queue access permissions](../../manager/queue-access.md).
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making a request, [get permission to access the API](../access.md).
 
-Чтобы настроить доступы к очереди, используйте HTTP-запрос с методом `PATCH`. Параметры запроса передаются в его теле в формате JSON.
+To set up queue access permissions, use an HTTP `PATCH` request. Request parameters are passed in the request body in JSON format.
 
 ```json
 PATCH /{{ ver }}/queues/<queue-id>/permissions
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
    "create": {
-      "groups": [<идентификатор_группы_1>, <идентификатор_группы_2>]
+      "groups": [<group_1_ID>, <group_2_ID>]
    },
    "write": {
       "users": {
-         "remove": ["<логин_пользователя_1>", "<идентификатор_пользователя_2>"]
+         "remove": ["<user_1_username>", "<user_2_ID>"]
       },
       "groups": {
-         "add":[<идентификатор_группы_1>]
+         "add":[<group_1_ID>]
        },
       "roles": {
          "add":["author", "assignee"]
@@ -34,7 +34,7 @@ Authorization: OAuth <OAuth-токен>
    },
    "read": {
       "groups": {
-         "add":[<идентификатор_группы_3>]
+         "add":[<group_3_ID>]
        },
       "roles": {
          "add":["follower"]
@@ -42,97 +42,97 @@ Authorization: OAuth <OAuth-токен>
    },
    "grant": {
       "users": {
-         "remove": ["<идентификатор_аккаунта_пользователя_4>",  "<идентификатор_пользователя_2>"]
+         "remove": ["<user_account_4_ID>",  "<user_2_ID>"]
       },
    },
-   
+
 }
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
+Parameter | Description | Data type
 -------- | -------- | ----------
-\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
+\<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String
 
 {% endcut %}
 
-{% cut "Параметры тела запроса" %}
+{% cut "Request body parameters" %}
 
-Тело запроса содержит информацию, необходимую для управления доступами.
+The request body contains information required for access management.
 
-**Допустимые поля объекта тела запроса**
+**Acceptable request body object fields**
 
-Укажите в запросе хотя бы одно из полей:
+Specify at least one of the following fields in your request:
 
-Параметр | Описание | Тип данных
+Parameter | Description | Data type
 -------- | -------- | ----------
-create | Разрешения на создание задач в очереди. | Объект
-write | Разрешения на редактирование задач в очереди. | Объект
-read | Разрешения на чтение задач в очереди. | Объект
-grant | Разрешения на изменение настроек очереди. | Объект
+create | Permissions to create issues in a queue | Objects
+write | Permissions to edit issues in a queue | Objects
+read | Permissions to read issues in a queue | Objects
+grant | Permissions to update queue settings | Objects
 
 
-**Допустимые поля объектов, к которым применяются разрешения**
+**Acceptable object fields that permissions apply to**
 
-Каждое из полей тела запроса содержит перечень пользователей, групп, ролей, к которым применяется действие разрешения. Укажите в перечне хотя бы одно из полей:
+Each of the request body fields contains a list of users, groups, and roles that the respective permission action applies to. Specify at least one of the following fields in the list:
 
-Параметр | Описание | Тип данных
+Parameter | Description | Data type
 -------- | -------- | ----------
-users | Список пользователей. | Объект или массив элементов
-groups | Список групп. | Объект или массив элементов
-roles | Список ролей. | Объект или массив элементов
+users | User list | Object or array of elements
+groups | Group list | Object or array of elements
+roles | Role list | Object or array of elements
 
-**Допустимые значения полей объектов, к которым применяются разрешения**
+**Acceptable object field values that permissions apply to**
 
-В каждом из полей можно указать либо массив идентификаторов, либо объект:
+In each field, you can specify either an array of IDs or an object:
 
-- Если указан массив идентификаторов, то разрешения для данных ресурсов будут созданы или перезаписаны в соответствии с запросом;
-- Если указан объект, то разрешения будут добавлены или отозваны в соответствии с указанным ключом: 
+- If an array of IDs is set, permissions for the specified resources will be created or overridden as requested.
+- If an object is set, permissions will be added or revoked based on the specified key:
 
-Ключ | Описание | Тип данных
+Key | Description | Data type
 -------- | -------- | ----------
-add | Добавить разрешение. | Массив элементов
-remove | Отозвать разрешение. | Массив элементов
+add | Add a permission | Array of elements
+remove | Revoke a permission | Array of elements
 
-**Допустимые идентификаторы**
+**Acceptable IDs**
 
-Тип ресурса | Идентификатор | Описание |Тип данных
+Resource type | ID | Description | Data type
 -------- | -------- | ---------- | ----------
-**users** | uid | Уникальный идентификатор учетной записи пользователя в {{ tracker-name }}. | Число
-&nbsp; | passportUid | Уникальный идентификатор аккаунта пользователя в организации {{ ya-360 }} и Яндекс ID. | Число
-&nbsp; | login | Логин пользователя. | Строка
-&nbsp; | cloudUid | Уникальный идентификатор пользователя в {{ org-full-name }}. | Строка
-&nbsp; | trackerUid | Уникальный идентификатор аккаунта пользователя в {{ tracker-name }}. | Число
-**groups** | id | Идентификатор группы. | Число
-**roles** | role_id | Идентификатор роли. | Строка
+**users** | uid | Unique ID of the user {{ tracker-name }} account | Number
+&nbsp; | passportUid | Unique ID of the user account in the {{ ya-360 }} organization and Yandex ID | Number
+&nbsp; | login | Username of the user | String
+&nbsp; | cloudUid | User unique ID in {{ org-full-name }} | String
+&nbsp; | trackerUid | Unique ID of the user {{ tracker-name }} account | Number
+**groups** | id | Group ID | Number
+**roles** | role_id | Role ID | String
 
 {% note info %}
 
-Идентификаторы ролей:
-* `author` — Автор,
-* `assignee` — Исполнитель,
-* `follower` — Наблюдатель,
-* `access` — С правом доступа.
+Role IDs include:
+* `author`: Author
+* `assignee`: Assignee
+* `follower`: Follower
+* `access`: With the right of access
 
-Идентификаторы групп можно получить запросом `{{ host }}/{{ ver }}/groups`.
+You can get group IDs using the `{{ host }}/{{ ver }}/groups` request.
 
 {% endnote %}
 
 
 {% endcut %}
 
-> Пример 1: Выдать права на создание и редактирование задач в очереди с ключом `TESTQUEUE` пользователю с логином `user1`.
+> Example 1: Grant permissions to create and edit issues in a queue with the `TESTQUEUE` key to the user named `user1`.
 >
-> - Используется HTTP-метод `PATCH`.
-> - Права выдаются пользователю `user1` в очереди с ключом `TESTQUEUE`.
-> - В результате запроса имеющиеся у пользователя права в очереди будут перезаписаны.
+> - The HTTP `PATCH` method is used.
+> - The permissions are granted to `user1` in the `TESTQUEUE`.
+> - As a result of the request, the user's current queue permissions will be overridden.
 > ```
 > PATCH /{{ ver }}/queues/TESTQUEUE/permissions HTTP/1.1
 > Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
+> Authorization: OAuth <OAuth token>
 > {{ org-id }}
 >
 > {
@@ -145,15 +145,15 @@ remove | Отозвать разрешение. | Массив элементо�
 > }
 > ```
 
-> Пример 2: Выдать право настройки очереди с ключом `TESTQUEUE` пользователю с логином `user1` и отозвать такое право у пользователя с уникальным идентификатором `1234567890`.
+> Example 2: Grant permission to set up a queue with the `TESTQUEUE` key to `user1` and revoke the same permission from the user whose unique ID is `1234567890`.
 >
-> - Используется HTTP-метод `PATCH`.
-> - Пользователю `user1` выдается право настройки очереди с ключом `TESTQUEUE`.
-> - У пользователя с идентификатором `1234567890` отзывается право настройки очереди с ключом `TESTQUEUE`.
+> - The HTTP `PATCH` method is used.
+> - The `TESTQUEUE` setup permission is granted to `user1`.
+> - The `TESTQUEUE` setup permission is revoked from the user with the `1234567890` ID.
 > ```
 > PATCH /{{ ver }}/queues/TESTQUEUE/permissions HTTP/1.1
 > Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
+> Authorization: OAuth <OAuth token>
 > {{ org-id }}
 >
 > {
@@ -165,12 +165,12 @@ remove | Отозвать разрешение. | Массив элементо�
 >     }
 > }
 > ```
-   
 
-## Формат ответа {#answer}
+
+## Response format {#answer}
 
 {% list tabs %}
-- Запрос выполнен успешно
+- The request is executed successfully
    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
    ```json
    {
@@ -179,55 +179,55 @@ remove | Отозвать разрешение. | Массив элементо�
        "create": {
            "self": "https://api.tracker.yandex.net/v2/queues/TESTQUEUE/permissions/create",
            "users": [
-                { "self": "https://api.tracker.yandex.net/v2/users/9876543210", "id": "9876543210", "display": "Пользователь 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
+                { "self": "https://api.tracker.yandex.net/v2/users/9876543210", "id": "9876543210", "display": "User 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
            ],
            "roles": [
-               { "self": "https://api.tracker.yandex.net/v2/roles/author", "id": "author", "display": "Автор" },
-               { "self": "https://api.tracker.yandex.net/v2/roles/queue-lead", "id": "queue-lead", "display": "Владелец очереди" },
-               { "self": "https://api.tracker.yandex.net/v2/roles/assignee", "id": "assignee", "display": "Исполнитель" }
+               { "self": "https://api.tracker.yandex.net/v2/roles/author", "id": "author", "display": "Author" },
+               { "self": "https://api.tracker.yandex.net/v2/roles/queue-lead", "id": "queue-lead", "display": "Queue owner" },
+               { "self": "https://api.tracker.yandex.net/v2/roles/assignee", "id": "assignee", "display": "Assignee" }
            ]
        },
        "write": {
            "self": "https://api.tracker.yandex.net/v2/queues/TESTQUEUE/permissions/write",
            "users": [
-                { "self": "https://api.tracker.yandex.net/v2/users/9876543210", "id": "9876543210", "display": "Пользователь 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
+                { "self": "https://api.tracker.yandex.net/v2/users/9876543210", "id": "9876543210", "display": "User 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
            ],
            "roles": [
-               { "self": "https://api.tracker.yandex.net/v2/roles/author", "id": "author", "display": "Автор" },
-               { "self": "https://api.tracker.yandex.net/v2/roles/queue-lead", "id": "queue-lead", "display": "Владелец очереди" },
-               { "self": "https://api.tracker.yandex.net/v2/roles/assignee", "id": "assignee", "display": "Исполнитель" }
+               { "self": "https://api.tracker.yandex.net/v2/roles/author", "id": "author", "display": "Author" },
+               { "self": "https://api.tracker.yandex.net/v2/roles/queue-lead", "id": "queue-lead", "display": "Queue owner" },
+               { "self": "https://api.tracker.yandex.net/v2/roles/assignee", "id": "assignee", "display": "Assignee" }
            ]
        },
        "grant": {
            "self": "https://api.tracker.yandex.net/v2/queues/TESTQUEUE/permissions/grant",
            "users": [
-                { "self": "https://api.tracker.yandex.net/v2/users/9876543210", "id": "9876543210", "display": "Пользователь 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
+                { "self": "https://api.tracker.yandex.net/v2/users/9876543210", "id": "9876543210", "display": "User 1", "cloudUid": "ajej6h7nffmtaf*****", "passportUid": 9876543210 }
            ],
            "roles": [
-               { "self": "https://api.tracker.yandex.net/v2/roles/author", "id": "author", "display": "Автор" },
-               { "self": "https://api.tracker.yandex.net/v2/roles/queue-lead", "id": "queue-lead", "display": "Владелец очереди" },
-               { "self": "https://api.tracker.yandex.net/v2/roles/assignee", "id": "assignee", "display": "Исполнитель" }
+               { "self": "https://api.tracker.yandex.net/v2/roles/author", "id": "author", "display": "Author" },
+               { "self": "https://api.tracker.yandex.net/v2/roles/queue-lead", "id": "queue-lead", "display": "Queue owner" },
+               { "self": "https://api.tracker.yandex.net/v2/roles/assignee", "id": "assignee", "display": "Assigee" }
            ]
        }
    }
 
    ```
 
-   {% cut "Параметры ответа" %}
-   Параметр | Описание | Тип данных
+   {% cut "Response parameters" %}
+   Parameter | Description | Data type
    ----- | ----- | -----
-   self | Ссылка на объект выданных доступов в очереди. | Строка
-   version | Номер версии. | Число
-   create | Разрешения на создание задач в очереди. | Объект
-   write | Разрешения на редактирование задач в очереди. | Объект
-   read | Разрешения на чтение задач в очереди. | Объект
-   grant | Разрешения на изменение настроек очереди. | Объект
+   self | Link to the object with granted queue access permissions | String
+   version | Version number | Number
+   create | Permissions to create issues in a queue | Object
+   write | Permissions to edit issues in a queue | Object
+   read | Permissions to read issues in a queue | Object
+   grant | Permissions to update queue settings | Object
 
    {% endcut %}
 
-- Запрос выполнен с ошибкой
+- The request failed
 
-   Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+   If the request is processed incorrectly, the API returns a response with an error code:
 
    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 

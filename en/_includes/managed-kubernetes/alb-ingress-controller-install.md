@@ -34,6 +34,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    * **Cluster ID**: Specify a [cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
    * **Service account key**: Paste the contents of the `sa-key.json` file.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Wait for the application to change its status to `Deployed`.
 
 
 ## Installation using a Helm chart {#install-alb-helm}

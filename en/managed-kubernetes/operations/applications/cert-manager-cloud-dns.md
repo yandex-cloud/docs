@@ -1,6 +1,6 @@
 # Installing cert-manager with the {{ dns-full-name }} ACME webhook plugin
 
-[cert-manager](https://cert-manager.io) is an application that adds certificates and certificate issuers as resource types in {{ k8s }} clusters and to facilitate obtaining, renewal, and use of such certificates.
+[cert-manager](https://cert-manager.io) is an application that adds certificates and certificate issuers as resource types in [{{ managed-k8s-name }} clusters](../../concepts/index.md#kubernetes-cluster) to facilitate obtaining, renewal, and use of such certificates.
 The {{ dns-full-name }} ACME webhooks plugin for cert-manager allows you to complete a [DNS-01 challenge](https://letsencrypt.org/ru/docs/challenge-types/#проверка-dns-01) via [{{ dns-name }}](../../../dns/).
 
 ## Getting started {#before-you-begin}
@@ -9,10 +9,10 @@ The {{ dns-full-name }} ACME webhooks plugin for cert-manager allows you to comp
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. Make sure that the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) is located in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the [{{ dns-name }} zone](../../../dns/concepts/dns-zone.md).
+1. Make sure that the {{ managed-k8s-name }} cluster is located in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the [{{ dns-name }} zone](../../../dns/concepts/dns-zone.md).
 1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Create a service account](../../../iam/operations/sa/create.md) for cert-manager.
-1. [Assign to it the ](../../../iam/operations/sa/assign-role-for-sa.md) `dns.editor` role for the folder hosting the [public DNS zone](../../../dns/concepts/dns-zone.md#public-zones).
+1. [Assign to it](../../../iam/operations/sa/assign-role-for-sa.md) the `dns.editor` role for the folder hosting the [public DNS zone](../../../dns/concepts/dns-zone.md#public-zones).
 1. [Create an authorized key](../../../iam/operations/authorized-key/create.md) and save it to a file named `key.json`.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
@@ -22,11 +22,11 @@ The {{ dns-full-name }} ACME webhooks plugin for cert-manager allows you to comp
 1. Under **Applications available for installation**, select [cert-manager with a plugin for {{ dns-full-name }} ACME webhook](/marketplace/products/yc/cert-manager-webhook-yandex) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter an application name, such as `cert-manager`.
-   * **Service account key**: Paste the contents of the `key.json` file or create a new key.
+   * **Application name**: Enter an application name, e.g., `cert-manager`.
+   * **Service account key**: Paste the contents of the `key.json` file or create a new [key](../../../iam/concepts/authorization/key.md).
    * **Folder ID**: Specify the ID of the folder hosting the {{ dns-name }} zone, to confirm domain ownership at the DNS-01 challenge.
-   * **Email address to get notifications from Let's Encrypt**: Specify the email address for receiving Let's Encrypt notifications.
-   * **Let's Encrypt server address**: Select a Let's Encrypt server address from the list:
+   * **Email address to get notifications from Let's Encrypt**: Specify the email address for Let's Encrypt® notifications.
+   * **Let's Encrypt server address**: Select a Let's Encrypt® server address from the list:
       * `https://acme-v02.api.letsencrypt.org/directory`: Primary URL.
       * `https://acme-staging-v02.api.letsencrypt.org/directory`: Test URL.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
@@ -66,8 +66,8 @@ The {{ dns-full-name }} ACME webhooks plugin for cert-manager allows you to comp
    Result:
 
    ```text
-    NAME         READY  SECRET              AGE
-    domain-name  True   domain-name-secret  45m
+   NAME         READY  SECRET              AGE
+   domain-name  True   domain-name-secret  45m
    ```
 
 ## Installation using a Helm chart {#helm-install}
@@ -91,7 +91,7 @@ The {{ dns-full-name }} ACME webhooks plugin for cert-manager allows you to comp
      cert-manager-webhook-yandex ./cert-manager-webhook-yandex/
    ```
 
-   As a Let's Encrypt server URL, use:
+   As a Let's Encrypt® server URL, use:
    * `https://acme-v02.api.letsencrypt.org/directory`: Primary URL.
    * `https://acme-staging-v02.api.letsencrypt.org/directory`: Test URL.
 
@@ -102,7 +102,12 @@ The {{ dns-full-name }} ACME webhooks plugin for cert-manager allows you to comp
    kubectl get pods --namespace=<namespace> -l app=cert-manager-webhook-yandex -w
    ```
 
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/dnschallenge.md)
+* [{#T}](../../tutorials/ingress-cert-manager.md)
+
 ## See also {#see-also}
 
-* [Let's Encrypt documentation](https://letsencrypt.org/docs/client-options/).
-* [cert-manager documentation](https://cert-manager.io/docs/configuration/).
+* [Let's Encrypt® documentation](https://letsencrypt.org/docs/client-options/)
+* [cert-manager documentation](https://cert-manager.io/docs/configuration/)

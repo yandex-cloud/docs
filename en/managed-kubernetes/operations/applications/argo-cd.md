@@ -12,13 +12,13 @@
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired cluster and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select [Argo CD](/marketplace/products/yc/argo-cd) and click **Use**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the cluster name and select the ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Under **Applications available for installation**, select [Argo CD](/marketplace/products/yc/argo-cd) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) for Argo CD or create a new one.
    * **Application name**: Enter an application name.
-1. Click **Install**.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 1. Get the administrator password (`admin`):
 

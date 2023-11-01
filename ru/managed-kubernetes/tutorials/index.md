@@ -66,3 +66,4 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](marketplace/jaeger-over-ydb.md)
 * [{#T}](marketplace/kyverno.md)
 * [{#T}](marketplace/metrics-provider.md)
+* [{#T}](marketplace/thumbor.md)

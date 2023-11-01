@@ -9,20 +9,20 @@
    * If {{ GL }} is deployed in [{{ mgl-full-name }}](../../../managed-gitlab/), use the [instance FQDN](../../../compute/concepts/network.md##hostname).
 1. Obtain a registration token:
    * To configure {{ GLR }} throughout the [{{ GL }} instance](../../../managed-gitlab/concepts/index.md) ({{ GL }} administrator access required):
-      1. Click **Menu** and select the **Admin** option.
-      1. Choose **CI/CD** → **Runners**.
-      1. Click **Register an instance runner** and save the value of the `Registration token` parameter.
-   * To configure {{ GLR }} for a group or project:
-      1. Select a group or project you want to configure.
-      1. On the left-hand side of the resulting window, click **Settings** and select the **CI/CD** option.
-      1. Under **Runners**, click **Expand**.
-      1. Save the value of the `Registration token` parameter.
+     1. Click **Menu** and select the **Admin** option.
+     1. Choose **CI/CD** → **Runners**.
+     1. Click **Register an instance runner** and save the value of the `Registration token` parameter.
+   * To configure {{ GLR }} for a group or a project:
+     1. Select the group or project you need.
+     1. On the left-hand side of the window that opens, click **Settings** and select the **CI/CD** option.
+     1. Under **Runners**, click **Expand**.
+     1. Save the value of the `Registration token` parameter.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-1. Click the {{ managed-k8s-name }} cluster name and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select [{{ GLR }}](/marketplace/products/yc/gitlab-runner) and click **Use**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the {{ managed-k8s-name }} cluster name and select the ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Under **Applications available for installation**, select [{{ GLR }}](/marketplace/products/yc/gitlab-runner) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for {{ GLR }}.
    * **Application name**: Enter a name for the application.
@@ -32,12 +32,12 @@
 
       {% note warning %}
 
-      The privileged mode increases the risk of information security incidents. Check the [documentation](https://docs.gitlab.com/runner/executors/kubernetes.html#using-dockerdind) before using it.
+      The privileged mode increases the risk of information security incidents. Please read the [documentation](https://docs.gitlab.com/runner/executors/kubernetes.html#using-dockerdind) before using it.
 
       {% endnote %}
 
    * (Optional) **List of tags**: Provide a list of tags for task distribution across multiple GitLab Runners.
-1. Click **Install**.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 1. Go back to the Runners page of your {{ GL }} instance, reload the page, and make sure you see a new {{ GLR }}.
 

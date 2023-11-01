@@ -55,6 +55,8 @@ items:
         href: tutorials/index.md
       - name: Публикация обновлений для игр
         href: tutorials/prefetch.md
+      - name: Редактирование изображений для сайтов с помощью Thumbor
+        href: tutorials/thumbor.md
       - name: Интеграция L7-балансировщика с CDN и Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса

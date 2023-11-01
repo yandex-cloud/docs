@@ -32,6 +32,19 @@ To create a workflow:
 
 1. [Add statuses to the diagram](./workflow-status-edit.md#add-status) and [set up transitions](./workflow-action-edit.md#add-action) between them. Stick to the [rules](#rules).
 
+## Copying a workflow from a different queue {#copy}
+
+To copy a workflow from a different queue:
+
+1. Go to the page of the queue to copy the workflow to.
+1. In the top-right corner, click ![](../../_assets/tracker/svg/settings-old.svg) **{{ ui-key.startrek.ui_components_PageQueue_header.settings }}**.
+1. In the **{{ ui-key.startrek.ui_components_page-queue-admin_QueueAdminPageContent.menu-item-workflows }}** tab, click ![](../../_assets/tracker/svg/copy-process.svg).
+1. In the window that opens, fill in the fields:
+   * **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.label-queue }}**
+   * **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.label-workflow }}**
+   * **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.label-name }}**
+1. Click **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_CopyWorkflowDialog.action-copy }}**.
+
 ## Deleting a workflow {#section_s35_xz5_vbb}
 
 {% note warning %}

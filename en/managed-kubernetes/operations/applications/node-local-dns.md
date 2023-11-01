@@ -1,8 +1,8 @@
 # Installing NodeLocal DNS
 
-[NodeLocal DNS](/marketplace/products/yc/node-local-dns) reduces the load from DNS requests by running a cache on every [node](../../concepts/index.md#node-group) in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster). This improves cluster performance and fault tolerance.
+[NodeLocal DNS](/marketplace/products/yc/node-local-dns) reduces the load from DNS requests by running a cache on every [node](../../concepts/index.md#node-group) in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster). This improves {{ managed-k8s-name }} cluster performance and fault tolerance.
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [kubectl installation](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -14,21 +14,22 @@
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the folder page and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation** select [NodeLocal DNS](/marketplace/products/yc/node-local-dns) and click **Use**.
+1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** ![Marketplace](../../../_assets/marketplace.svg) tab.
+1. Under **Applications available for installation**, select [NodeLocal DNS](/marketplace/products/yc/node-local-dns) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select the `kube-system` [namespace](../../concepts/index.md#namespace).
-   * **Application name**: Specify the name that the application will be deployed as in the cluster.
+   * **Application name**: Specify the name for the application to be deployed in the {{ managed-k8s-name }} cluster.
    * **ClusterIp address for kube-dns**: Specify the IP obtained [before starting](#before-you-begin).
    * **Work with Cilium**: Select this option if a cluster uses the [Cilium network policy controller](../../concepts/network-policy.md#cilium).
-1. Click **Install**.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Wait for the application to change its status to `Deployed`.
 
 After installing NodeLocal DNS, use the following values:
-* {{ k8s }} cluster zone: `cluster.local`.
-* NodeLocal DNS cache address: `169.254.20.10`.
-* Application port for external queries: `53`.
-* Port for collecting metrics in Prometheus format: `9253`.
+* {{ managed-k8s-name }} cluster zone: `cluster.local`
+* NodeLocal DNS cache address: `169.254.20.10`
+* Application port for external queries: `53`
+* Port for collecting metrics in Prometheus format: `9253`
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -38,8 +39,8 @@ After installing NodeLocal DNS, use the following values:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 &&\
-   helm pull oci://{{ registry }}/yc-marketplace/k8s.gcr.io/node-local-dns/chart \
-     --version <Helm chart version> \
+   helm pull oci://{{ mkt-k8s-key.yc_node-local-dns.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_node-local-dns.helmChart.tag }} \
      --untar && \
    KUBE_DNS_IP="$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})" && \
    helm install \
@@ -47,7 +48,5 @@ After installing NodeLocal DNS, use the following values:
      --set config.clusterIp=$KUBE_DNS_IP \
      node-local-dns ./chart/
    ```
-
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/node-local-dns#docker-images).
 
 For more information about local DNS caching, see [{#T}](../../tutorials/node-local-dns.md).

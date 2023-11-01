@@ -15,13 +15,13 @@ To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or another pro
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select [Falco](/marketplace/products/yc/falco) and click **Use**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) name and select the ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Under **Applications available for installation**, select [Falco](/marketplace/products/yc/falco) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Falco.
    * **Application name**: Enter an application name.
-1. Click **Install**.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
@@ -34,16 +34,14 @@ To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or another pro
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/falco \
-     --version <Helm chart version> \
+   helm pull oci://{{ mkt-k8s-key.yc_falco.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_falco.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <namespace> \
      --create-namespace \
      falco ./falco
    ```
-
-   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/falco).
 
 ## See also {#see-also}
 

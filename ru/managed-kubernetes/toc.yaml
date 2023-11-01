@@ -228,6 +228,8 @@ items:
             href: tutorials/marketplace/kyverno.md
           - name: Использование {{ MP }} для трансляции метрик
             href: tutorials/marketplace/metrics-provider.md
+          - name: Редактирование изображений для сайтов с помощью Thumbor
+            href: tutorials/marketplace/thumbor.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

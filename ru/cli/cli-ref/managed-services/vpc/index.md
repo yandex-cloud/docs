@@ -63,6 +63,7 @@ Syntax:
 	- [yc vpc subnet list-operations](subnet/list-operations.md) — List operations for a subnet.
 	- [yc vpc subnet list-used-addresses](subnet/list-used-addresses.md) — List used addresses in subnet.
 	- [yc vpc subnet move](subnet/move.md) — Move a subnet to another folder.
+	- [yc vpc subnet relocate](subnet/relocate.md) — Relocate a subnet to another zone.
 - [yc vpc address](address/index.md) — Manage addresses.
 	- [yc vpc address get](address/get.md) — Get information about an address.
 	- [yc vpc address list](address/list.md) — List addresses in a folder.

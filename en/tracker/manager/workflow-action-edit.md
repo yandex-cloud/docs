@@ -4,7 +4,7 @@ You can use transitions to set up rules for changing the issue statuses. Set con
 
 The queue owner and users granted [permission to access the queue settings](queue-access.md) can edit transitions in queue workflows.
 
-## Transition settings {#add-action}
+## Transition settings {#set-transition}
 
 You can set up transitions between statuses within a workflow using the workflow visual editor. To open the workflow editor:
 
@@ -27,20 +27,31 @@ To add an auto action:
 1. Select the automations you need from the list and configure them. If there is no suitable automation, set up a [trigger](../user/trigger.md).
 
 Possible auto actions at issue status change include:
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-SendEmailFunction }}**: Send emails to specific employees or users performing certain issue roles (for example, to the issue reporter or assignee)
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-AddCommentFunction }}**: Make a comment in the issue on behalf of a certain user (employee or robot)
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-SetActiveSprintFunction }}**: Add an issue to an active sprint on the selected board
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-SetCurrentTimeFunction }}**: Write the transition time to the selected field
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-CalculateFieldFunction }}**: Sum up the contents of multiple fields and write the resulting value to another field
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-MoveUsersFunction }}**: Move or copy users from one field to another
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-RemoveUsersFromCcFunction }}**: Remove a user from the list of issue followers, for example, if the required information was received from them and their participation in the issue is no longer required
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-AddTextToFieldFunction }}**: Fill in an issue field. When setting up this type of automation, a filter by the type of field value will be helpful
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-RemoveFieldValueFunction }}**: Remove the contents of any issue field
-* **{{ ui-key.startrek.ui_components_workflow-functions.type-UnsetResolutionFunction }}**: If the issue was completed with a certain resolution, this resolution will be canceled
+* **{{ ui-key.startrek.ui_components_workflow-functions.type-SendEmailFunction }}**: Send emails to specific employees or users performing certain issue roles (for example, to the issue reporter or assignee).
+* **{{ ui-key.startrek.ui_components_workflow-functions.type-AddCommentFunction }}**: Make a comment in the issue on behalf of a certain user (employee or robot).
+* **{{ ui-key.startrek.ui_components_workflow-functions.type-SetActiveSprintFunction }}**: Add an issue to an active sprint on the selected board.
+* **{{ ui-key.startrek.ui_components_workflow-functions.type-SetCurrentTimeFunction }}**: Write the transition time to the selected field.
+* **{{ ui-key.startrek.ui_components_workflow-functions.type-CalculateFieldFunction }}**: Sum up the contents of multiple fields and write the resulting value to another field.
+* **{{ ui-key.startrek.ui_components_workflow-functions.type-MoveUsersFunction }}**: Move or copy users from one field to another.
+* **{{ ui-key.startrek.ui_components_workflow-functions.type-RemoveUsersFromCcFunction }}**: Remove a user from the list of issue followers, for example, if the required information was received from them and their participation in the issue is no longer required.
+* **{{ ui-key.startrek.ui_components_workflow-functions.type-AddTextToFieldFunction }}**: Fill in an issue field. When setting up this type of automation, a filter by the type of field value will be helpful.
+* **{{ ui-key.startrek.ui_components_workflow-functions.type-RemoveFieldValueFunction }}**: Remove the contents of any issue field.
+* **{{ ui-key.startrek.ui_components_workflow-functions.type-UnsetResolutionFunction }}**: If the issue was completed with a certain resolution, this resolution will be canceled.
 
 ### Transition conditions {#conditions}
 
-You can limit conditions when a transition is active. For example, the transition can be limited to a list of employees or those who have specific roles.
+You can set up conditions under which a transition will be active:
+
+* The previous transition was made from the status the current transition will lead to.
+* The issue is linked to an issue from the specified queue.
+  * The transition is only available for linked issues from the selected queue.
+* The transition is made by a user from the group, including subgroups.
+  * The transition can only be made by users from the selected [group](../access.md#group-access) and subgroup. The condition is available for {{ yandex-360 }} organizations for business.
+* The user is specified in the field.
+  * The transition is available for users specified in the selected issue [field](../user/create-param.md).
+* The transition is made by the queue owner.
+* The transition is made by a user from the list.
+  * The transition can be made by specified organization users.
 
 To add transition conditions:
 
@@ -57,12 +68,20 @@ To add the transition screen:
 1. In the transition settings, open the **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.settings-screen }}** section and enable **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEditPageScreen.enable-transition-screen }}**.
 
 1. Customize the transition screen:
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.screen-title--label-ru }}**: Text in the pop-up window title
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.screen-title--label-en }}**: Text in the pop-up window title in the English interface
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.screen-elements-title }}**: Select the fields that users can update on the transition screen. Set the default field values if required. To make a field required, select the box to the right of it
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.worklogs-enable }}**: Enable the option to add the time registration form to the transition screen
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.linking-enable }}**: Enable the option to add the form for adding links with other issues to the transition screen
-   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.comment-enable }}**: Enable the option to add a comment field to the transition screen
+   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.screen-title--label-ru }}**: Text in the pop-up window title.
+   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.screen-title--label-en }}**: Text in the pop-up window title in the English interface.
+   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.screen-elements-title }}**: Select the fields that users can update on the transition screen. Set the default field values if required. To make a field required, select the box to the right of it.
+   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.worklogs-enable }}**: Enable the option to add the time registration form to the transition screen.
+   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.linking-enable }}**: Enable the option to add the form for adding links with other issues to the transition screen.
+   * **{{ ui-key.startrek.blocks-desktop_workflow-editor--action_tab_screen.comment-enable }}**: Enable the option to add a comment field to the transition screen.
+
+### Copying transition settings {#copy-transition-settings}
+
+You can apply the settings of a transition to other transitions. To do this:
+
+1. In the transition settings, click ![](../../_assets/tracker/svg/actions.svg).
+1. Click ![](../../_assets/tracker/svg/copy-transition.svg) **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.action-export-settings }}** or ![](../../_assets/tracker/svg/paste-transition.svg) **{{ ui-key.startrek.ui_components_queue-admin-tab-workflows_TransitionEdit.action-import-settings }}**.
+1. In the list, select a transition to insert or copy the settings to.
 
 ## Adding a transition between statuses {#add-action}
 
@@ -78,11 +97,15 @@ To add a transition between statuses added to a workflow:
 
 1. Fill out the fields below:
    * **Name**: **Initial status** name will be substituted automatically. You can edit it if needed.
-   * **Name in English**: Will be generated automatically from the Russian name.
+   * **Name in English**: Will be generated automatically based on the Russian name.
 
 1. Configure the required [automation](#automatization), [conditions](#conditions), and [transition screen](#screen).
 
-You can also add a transition right in the diagram by joining two statuses with an arrow. To do this, hover over a spare point in the initial status section, hold it, and drag it to a spare point of another status.
+You can also add a transition right in the diagram by joining two statuses with an arrow. To do this, hover over a spare point in the initial status section, hold the cursor down and drag it to a spare point of another status.
+
+To change a transition's starting/ending point, hold the cursor down on the transition line next to the status and move the arrow to the point of your choice.
+
+![](../_assets/../../_assets/tracker/transition-on-diagram.gif)
 
 ## Removing a transition {#remove-action}
 

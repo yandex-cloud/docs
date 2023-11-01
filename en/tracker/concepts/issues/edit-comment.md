@@ -1,64 +1,63 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/edit-comment.md
+sourcePath: en/tracker/api-ref/concepts/issues/edit-comment.md
 ---
-# Редактировать комментарий
+# Edit a comment
 
-Запрос позволяет редактировать комментарий.
+Use this request to edit comments.
 
-## Формат запроса {#section_rkq_bhl_dfb}
+## Request format {#section_rkq_bhl_dfb}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы изменить комментарий, который был [добавлен к задаче](add-comment.md) ранее, используйте HTTP-запрос с методом `PATCH`. Параметр запроса передается в его теле в формате JSON:
+To edit a comment previously [added to an issue](add-comment.md), use an HTTP `PATCH` request. Request parameters are passed in the request body in JSON format:
 
 ```json
 PATCH /{{ ver }}/issues/<issue-id>/comments/<comment-id>
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
-   "text": "<новый текст комментария>"
+   "text": "<new comment text>"
 }
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-\<issue-id> | Идентификатор или ключ текущей задачи. | Строка
-\<comment-id> | [Уникальный идентификатор комментария](get-comments.md#section_xc3_53j_p1b) в числовом формате (id) или формате строки (longId). | Строка или число
-
-{% endcut %} 
-
-
-{% cut "Параметры тела запроса" %}
-
-**Обязательные параметры**
-
-Параметр | Значение | Тип данных
------ | ----- | -----
-text | Скорректированный комментарий к задаче. | Строка
-
-**Дополнительные параметры**
-
-Параметр | Значение | Тип данных
------ | ----- | -----
-attachmentIds | Список [идентификаторов вложений](temp-attachment.md). | Массив строк
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| \<issue-id> | ID or key of the current issue. | String |
+| \<comment-id> | [Unique ID of the comment](get-comments.md#section_xc3_53j_p1b) in numeric (id) or string format (longId). | String or number |
 
 {% endcut %}
 
-## Формат ответа {#section_rcd_ysf_2fb}
+{% cut "Request body parameters" %}
+
+**Required parameters**
+
+| Parameter | Value | Data type |
+| ----- | ----- | ----- |
+| text | Edited issue comment. | String |
+
+**Additional parameters**
+
+| Parameter | Value | Data type |
+| ----- | ----- | ----- |
+| attachmentIds | List of [attachment IDs](temp-attachment.md). | Array of strings |
+
+{% endcut %}
+
+## Response format {#section_rcd_ysf_2fb}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
-  
-    Тело ответа содержит информацию о добавленном комментарии в формате JSON.
+
+    The response body contains information about the added comment in JSON format.
 
   ```json
   [ 
@@ -66,31 +65,31 @@ attachmentIds | Список [идентификаторов вложений](t
     "self" : "{{ host }}/v2/issues/TREK-1/comments/684",
     "id" : "684",  
     "longId" : "5fc4bc634e121b12f44a0488",  
-    "text" : "<текст комментария>",
+    "text": "<comment text>",
     "createBody" : {
      "self" : "{{ host }}/v2/users/1120000000016876",
-     "id" : "<id пользователя>",
-     "display" : "<отображаемое имя пользователя>"
+     "id" : "<user ID>",
+     "display" : "<user's name displayed"
     },
     "updateBody" : {
      "self" : "{{ host }}/v2/users/1120000000016876",
-     "id" : "<id пользователя>",
-     "display" : "<отображаемое имя пользователя>"
+     "id" : "<user ID>",
+     "display" : "<user's name displayed"
     },
     "createdAt" : "2020-11-30T09:33:23.638+0000",  
     "updatedAt" : "2020-11-30T09:39:07.631+0000",  
     "summonees" : [
      { 
       "self" : "{{ host }}/v2/users/1120000000016576",
-      "id" : "<id пользователя>",
-      "display" : "<отображаемое имя пользователя>"
+      "id" : "<user ID>",
+      "display" : "<user's name displayed"
      } 
     ],
    "maillistSummonees" : [
      { 
       "self" : "{{ host }}/v2/maillists/usertest@test.ru",
-      "id" : "<адрес рассылки>",
-      "display" : "<отображаемое имя рассылки>"
+      "id" : "<mailing list address>",
+      "display" : "<mailing list name displayed>"
      } 
     ], 
     "version" : 2,  
@@ -100,49 +99,49 @@ attachmentIds | Список [идентификаторов вложений](t
   ]
   ```
 
-  {% cut "Параметры ответа" %}
+  {% cut "Response parameters" %}
 
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Ссылка на комментарий. | Строка
-  id | Идентификатор комментария. | Строка
-  longId | Идентификатор комментария в формате строки. | Строка
-  text | Комментарий к задаче. | Строка
-  [createdBy](#object-fields-createdBy) | Блок с информацией о пользователе, который добавил комментарий. | Объект
-  [updatedBy](#object-fields-updatedBy) | Блок с информацией о пользователе, который последним изменил комментарий. | Объект
-  createdAt | Дата и время создания комментария. | Строка
-  updatedAt | Дата и время обновления комментария. | Строка
-  [summonees](#object-fields-summonees) | Блок с информацией о пользователях, которые призваны в комментарии. | Объект
-  [maillistsummonees](#object-fields-maillistsummonees) | Блок с информацией о рассылках, которые призваны в комментарии. | Объект
-  version | Версия комментария. Каждое изменение комментария увеличивает номер версии. | Число
-  type | Тип комментария:<ul><li>`standart` — отправлен через интерфейс {{ tracker-name }};</li><li>`incoming` — создан из входящего письма;</li><li>`outcoming` — создан из исходящего письма.</li></ul> | Строка
-  transport | Способ добавления комментария:<ul><li>`internal` — через интерфейс {{ tracker-name }};</li><li>`email` — через письмо.</li></ul> | Строка
-      
-  **Поля объекта** `createdBy` {#object-fields-createdBy}
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Link to the comment. | String |
+  | id | Comment ID. | String |
+  | longId | ID of the comment in string format. | String |
+  | text | Comment on the issue. | String |
+  | [createdBy](#object-fields-createdBy) | Block with information about the user who added the comment. | Object |
+  | [updatedBy](#object-fields-updatedBy) | Block with information about the user who edited the comment last. | Object |
+  | createdAt | Comment creation date and time. | String |
+  | updatedAt | Comment update date and time. | String |
+  | [summonees](#object-fields-summonees) | Block with information about users who are invited in comments. | Object |
+  | [maillistsummonees](#object-fields-maillistsummonees) | Block with information about mailing lists mentioned in comments. | Object |
+  | version | Comment version. Each change to the comment increases its version number. | Number |
+  | type | Comment type:<ul><li>`standard`: Comment sent via the {{ tracker-name }} interface.</li><li>`incoming`: Comment created from an incoming message.</li><li>`outcoming`: Comment created from an outgoing message.</li></ul> | String |
+  | transport | Method of adding a comment:<ul><li>`internal`: Via the {{ tracker-name }} interface.</li><li>`email`: Via email.</li></ul> | String |
 
-  {% include [user](../../../_includes/tracker/api/user.md) %}
-
-  **Поля объекта** `updatedBy` {#object-fields-updatedBy}
-
-  {% include [user](../../../_includes/tracker/api/user.md) %}
-     
-  **Поля объекта** `summonees` {#object-fields-summonees}
+  **Object fields** `createdBy` {#object-fields-createdBy}
 
   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-  **Поля объекта** `maillistsummonees` {#object-fields-maillistsummonees}
+  **Object fields** `updatedBy` {#object-fields-updatedBy}
 
-  Параметр | Описание | Тип данных
-  ----- | ----- | ----- 
-  self | Ссылка на рассылку. | Строка
-  id | Адрес рассылки. | Строка
-  display | Отображаемое имя рассылки. | Строка
+  {% include [user](../../../_includes/tracker/api/user.md) %}
+
+  **Object fields** `summonees` {#object-fields-summonees}
+
+  {% include [user](../../../_includes/tracker/api/user.md) %}
+
+  **Object fields** `maillistsummonees` {#object-fields-maillistsummonees}
+
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Link to the mailing list. | String |
+  | id | Mailing list address. | String |
+  | display | Mailing list name displayed. | String |
 
   {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-  Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+  If the request is processed incorrectly, the API returns a response with an error code:
 
   {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 

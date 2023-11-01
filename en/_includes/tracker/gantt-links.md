@@ -1,4 +1,4 @@
-Links between issues are shown as arrows from the dependent to the blocking issue, in case:
+Links between issues are shown as arrows from the dependent to the blocking issue if all of the following conditions are met:
 
    1. The start date is specified for both issues.
    1. The deadline is set for both issues.

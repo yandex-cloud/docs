@@ -8,7 +8,7 @@ You can create a project from scratch or based on an issue.
 
 To create a project:
 
-1. Go to any page that a portfolio can be created from:
+1. Go to any page a project can be created from:
 
    * In the left-hand panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**{{ ui-key.startrek.blocks-desktop_b-queues-info.projects }}** and click **Create** → **Project**.
    * In the [list of portfolios and projects](my-projects.md) of the **List** tab, click **Create project** under the list.
@@ -27,7 +27,7 @@ To create a project:
 
 1. [Add](#add-tickets) issues to the project. You can add issues from the project page or from the issue page, as well as by using [bulk editing](bulk-change.md).
 
-   The project isn't linked to any issue queue: that's why you can add issues to it from any queue that you have access to. Access to project issues depends on the [access settings](../user/queue.md) of the queue that the issue belongs to.
+   The project is not linked to any issue queue: that is why you can add issues to it from any queue that you have access to. Access to project issues depends on the [access settings](../user/queue.md) of the queue that the issue belongs to.
 
    {% note info %}
 
@@ -75,7 +75,7 @@ To create a project based on an issue:
 
 1. Click the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field in the right-hand panel. If you do not see the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field, add it by clicking **{{ ui-key.startrek.ui_components_issues-import_IssuesImportFilters.add-parameters }}**.
 
-1. Start typing the project name in the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field and pick the option you need from the list that appears.
+1. Start typing the project's name in the **{{ ui-key.startrek-backend.fields.issue.project-key-value }}** field and pick the option you need from the list of suggestions.
 
 #### Adding multiple issues {#from-bulk}
 
@@ -103,7 +103,7 @@ To create a project based on an issue:
 
 {% note alert %}
 
-Both the project's reporter and the user specified in the **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--lead }}** field can delete the project.
+A project can be deleted by its author or the user specified in the **{{ ui-key.startrek.ui_components_Project.sidebar-param-title--lead }}** field.
 
 {% endnote %}
 

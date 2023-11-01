@@ -8,7 +8,7 @@ Jaeger is able to use the following types of data storage:
 
 ## Installation using {{ marketplace-name }} {#marketplace-install}
 
-### Before you begin {#before-you-begin}
+### Getting started {#before-you-begin}
 
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -26,7 +26,7 @@ Jaeger is able to use the following types of data storage:
 
 ### {{ ydb-name }} setup {#create-ydb}
 
-1. [Create a database](../../../ydb/operations/manage-databases.md#create-db-dedicated) with a suitable configuration and `Dedicated` as your [DB type](../../../ydb/concepts/serverless-and-dedicated.md).
+1. [Create a database](../../../ydb/operations/manage-databases.md#create-db-dedicated) with a suitable configuration, selecting `Dedicated` as your [DB type](../../../ydb/concepts/serverless-and-dedicated.md).
 
    {% note warning %}
 
@@ -44,9 +44,9 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
    ```bash
    yc iam key create \
-     --service-account-id <service account ID> \
-     --folder-id <folder ID> \
-     --cloud-id <cloud ID> \
+     --service-account-id <service_account_ID> \
+     --folder-id <folder_ID> \
+     --cloud-id <cloud_ID> \
      --description jaeger-over-ydb \
      --format json \
      -o key.json
@@ -56,8 +56,8 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
    ```text
    {
-     "id": "<service account key ID>",
-     "service_account_id": "<service account ID>",
+     "id": "<service_account_key_ID>",
+     "service_account_id": "<service_account_ID>",
      "created_at": "2022-01-27T03:29:45.139311367Z",
      "description": "jaeger-over-ydb",
      "key_algorithm": "RSA_2048"
@@ -78,13 +78,13 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
 ### Installing Jaeger {#install-jaeger}
 
-1. Go to the folder page and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store) and click **Use**.
+1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the cluster name and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** ![Marketplace](../../../_assets/marketplace.svg) tab.
+1. Under **Applications available for installation**, select [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store)and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
    * **Application name**: Enter an application name.
-   * **{{ ydb-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, such as `lb.etnk1hv0jol3cu5pojp7.{{ ydb.host-dedicated }}:{{ ydb.port-dedicated }}`.
+   * **{{ ydb-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, e.g., `lb.etnk1hv0jol3cu5pojp7.{{ ydb.host-dedicated }}:{{ ydb.port-dedicated }}`.
    * **Database**: Specify a database name, for example, `/{{ region-id }}/b1gkgm9daf4605njnmn8/etnk2hv0jol5cu5pojp7`.
    * **Database directory**: `jaeger`.
    * **Use metadata to authenticate from inside a VM**: Select this option if authentication in the virtual machine is required.
@@ -94,7 +94,8 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
    * **Install jaeger-agent**: Select this option to install [jaeger-agent](https://hub.docker.com/r/jaegertracing/jaeger-agent/).
 
    The endpoint and the DB names were returned when [preparing the {{ ydb-name }} DB](#create-ydb) whereas the service account settings were retrieved in the [previous subsection](#create-sa-key).
-1. Click **Install**.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 

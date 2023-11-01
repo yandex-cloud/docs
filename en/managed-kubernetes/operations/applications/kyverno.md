@@ -6,13 +6,19 @@
 
 You can send notifications from Kyverno to other systems using the [Policy reporter](/marketplace/products/yc/policy-reporter) extension.
 
+{% note tip %}
+
+To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). Vulnerability detection will help you configure security policies.
+
+{% endnote %}
+
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
-1. Click the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) name and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) and click **Use**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) name and select the ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Under **Applications available for installation**, select [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
-   * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Kyverno.
+   * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Kyverno. Make sure it contains no applications or objects, or else Kyverno will not run properly.
    * **Application name**: Enter an application name.
    * **Activating Kyverno Policies**: Select to install the Kyverno Policies extension.
    * **Pod Security Standard profile**: Select a [Pod Security Standard profile](https://kubernetes.io/docs/concepts/security/pod-security-standards/):
@@ -22,13 +28,15 @@ You can send notifications from Kyverno to other systems using the [Policy repor
    * **Validation failure action**: Select a response to Kyverno triggering:
       * `audit`: Notify.
       * `enforce`: Block.
-1. Click **Install**.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
 1. {% include [Helm installation](../../../_includes/managed-kubernetes/helm-install.md) %}
-1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+1. {% include [kubectl installation](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Kyverno, run the following command:
 
    ```bash
@@ -41,6 +49,46 @@ You can send notifications from Kyverno to other systems using the [Policy repor
      --create-namespace \
      kyverno ./kyverno/
    ```
+
+   Select a namespace that does not contain any applications or objects, or else Kyverno will not run properly.
+
+## Application versions {#versions}
+
+For each Kubernetes version, a certain Kyverno version is supported. The required Kyverno version is installed by default depending on your Kubernetes version.
+
+|  Kubernetes version | Kyverno version |       Documentation      |
+| ------------------- | --------------- | ------------------------ |
+|     1.21 or older   |        1.6      | [Kyverno 1.6 documentation](https://release-1-6-0.kyverno.io/docs/) |
+|         1.22        |        1.7      | [Kyverno 1.7 documentation](https://release-1-7-0.kyverno.io/docs/) |
+|         1.23        |        1.8      | [Kyverno 1.8 documentation](https://release-1-8-0.kyverno.io/docs/) |
+|    1.24 and higher  |        1.9      | [Kyverno 1.9 documentation](https://release-1-9-0.kyverno.io/docs/) |
+
+## Deleting the application {#uninstall}
+
+If you no longer need the Kyverno application, delete it:
+
+{% list tabs %}
+
+- Using {{ marketplace-name }}
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Click the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) name and select the ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+   1. Under **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}**, in the [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) line, click ![image](../../../_assets/marketplace/three_dots.png =22x13) and then click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
+   1. [Connect to the cluster](../connect/index.md#kubectl-connect) using kubectl.
+   1. [Clear the application's webhook configurations](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), or else the cluster will not run properly.
+
+- Using Helm
+
+   1. [Connect to the cluster](../connect/index.md#kubectl-connect) using kubectl.
+   1. Delete the application:
+
+      ```bash
+      helm uninstall --namespace <namespace> kyverno ./kyverno/
+      ```
+
+   1. [Clear the application's webhook configurations](https://release-1-8-0.kyverno.io/docs/installation/#clean-up-webhook-configurations), or else the cluster will not run properly.
+
+{% endlist %}
 
 ## See also {#see-also}
 

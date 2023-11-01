@@ -1,79 +1,79 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/count-issues.md
+sourcePath: en/tracker/api-ref/concepts/issues/count-issues.md
 ---
-# Узнать количество задач
+# Find out the number of issues
 
-Запрос позволяет узнать количество задач, удовлетворяющих условиям вашего запроса.
+Use this request to find out the number of issues that meet the conditions of your request.
 
-## Формат запроса {#section_rnm_x4j_p1b}
+## Request format {#section_rnm_x4j_p1b}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Для получения числа задач, удовлетворяющих определенным критериям, используйте HTTP-запрос с методом `POST`. Критерии для поиска передаются в теле запроса в формате JSON:
+To get the number of issues that meet certain criteria, use an HTTP `POST` request. The search criteria are passed in the request body in JSON format:
 
 ```json
 POST /v2/issues/_count
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
 "filter": {
-    "<имя поля>": "<значение в поле>"
+    "<field name>": "<field value>"
   },
-  "query": "фильтр на языке запросов"
+  "query": "filter in the query language"
 }
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Параметры тела запроса" %}
+{% cut "Request body parameters" %}
 
-**Дополнительные параметры**
+**Additional parameters**
 
-Параметр | Описание | Формат
------ | ----- | -----
-filter | Параметры фильтрации задач. В параметре можно указать название любого поля и значение, по которому будет производиться фильтрация. | Объект
-query | Фильтр на [языке запросов](../../user/query-filter.md). | Строка
+| Parameter | Description | Format |
+| ----- | ----- | ----- |
+| filter | Parameters for filtering issues. The parameter can specify any field and value to filter by. | Object |
+| query | A filter using the [query language](../../user/query-filter.md). | String |
 
 {% endcut %}
 
-> Запрос количества задач с указанием дополнительных параметров фильтрации:
-> 
-> - Используется HTTP-метод POST.
-> - Ответ должен содержать только количество задач из очереди <q>JUNE</q>, в которых не указан исполнитель.
-> 
-> ```
-> POST /v2/issues/_count HTTP/1.1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
-> {{ org-id }}
-> 
-> {
->   "filter": {
->     "queue": "JUNE",
->     "assignee": "empty()"
->   }
-> }
-> ```
+> Request for the number of issues with additional filtering options:
+>
+>- An HTTP POST method is used.
+>- The response should only contain the number of issues from the <q>JUNE</q> queue that don't have an assignee.
+>
+>```
+>POST /v2/issues/_count HTTP/1.1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>
+>{
+>  "filter": {
+>    "queue": "JUNE",
+>    "assignee": "empty()"
+>  }
+>}
+>```
 
-## Формат ответа {#section_xc3_53j_p1b}
+## Response format {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
-    
-    В ответе содержится число задач, удовлетворяющих условиям вашего запроса.
+
+    The response contains the number of issues that meet the conditions of your request.
 
     ```
     5221186
     ```
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -82,3 +82,4 @@ query | Фильтр на [языке запросов](../../user/query-filter.
     {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
 {% endlist %}
+

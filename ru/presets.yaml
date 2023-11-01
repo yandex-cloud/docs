@@ -501,6 +501,9 @@ default:
   region-id: ru-central1
   device-id: b91qprkvbks9********
   registry-id: b9100l5i0ms9********
+  cname-example: cl-msa87*****.edgecdn.ru
+  domain-name-example: cdn.example.com
+  folder-id-example: b1g86q4m5vej********
   compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
   host-class: s2.micro
   b1-nano: b1.nano (2 × 5% vCPU, 2 ГБ)
@@ -3902,7 +3905,6 @@ default:
         new-agile-board: Создать доску задач
         new-dashboard: Создать дашборд
         new-queue: Создать очередь
-        queues: Очереди
         settings: Персональные настройки
       blocks-desktop_b-page_type_projects:
         deadline: Дедлайн
@@ -4703,7 +4705,7 @@ default:
       ui_components_issue-links_ExternalLinksCollapse:
         external-relations: Связи с внешними приложениями
       ui_components_issue-links_InternalLinksCollapse:
-        relations: Связи с другими задачами
+        relations: Связанные задачи
       ui_components_IssueActionsButton:
         menu-item-create-subticket: Создать подзадачу
       ui_components_IssueBulkActionPanel:
@@ -4794,8 +4796,6 @@ default:
         caption: Задачи
         filter-items-link: Полный список задач по фильтру
         search-input-placeholder: Поиск по названию задачи
-      ui_components_NavigationBar_ProjectsPanel:
-        all-projects-link: Все портфели и проекты
       ui_components_NavigationBar:
         appearance-title: Интерфейс
         boards: Доски задач
@@ -5886,6 +5886,7 @@ default:
         import: Импортировать
         label_auto: Автоматически
         label_create-new_female: Создать новую
+        label_filters: Фильтры
         label_http: HTTP
         label_https: HTTPS
         label_key: Ключ
@@ -6464,8 +6465,19 @@ default:
         action_expand-start: Сохранить
         cluster:
           perf-diag:
+            label_action-terminate-query: Прервать запрос
+            label_action-terminate-session: Прервать сессию
             label_field-query-cpu-time: CPU time
             label_field-query-peak-memory: Peak memory
+            label_filter-entity-query: Запросы
+            label_filter-entity-session: Сессии
+            label_query-field-read-bytes: Disk R
+            label_query-field-running-time-seconds: CPU time
+            label_query-field-spill-total-bytes: Spill
+            label_query-field-total-time: Total time
+            label_query-field-vm-peak-kb: Peak memory
+            label_query-field-write-bytes: Disk W
+            section_command-center: Командный центр
             title_consumption-history: История потребления
             title_current-state: Текущее состояние
             title_states-history: История состояний
@@ -6807,7 +6819,7 @@ default:
         meta-section: Информация о тесте
         restart: Перезапустить
         section_agent: Агент
-        test-data-section: Тестовые данные
+        test-data-section: Прикрепленные файлы
       lockbox:
         button_action-open-version-add-dialog: Создать новую версию на основе этой
         button_action-schedule-for-destruction: Запланировать удаление
@@ -7013,7 +7025,7 @@ default:
           additional-field-serverless: Доступ из Serverless
           additional-field-sox: IDM
           additional-field-websql: Доступ из консоли управления
-          additional-field-yandex-query: Доступ из Yandex Query
+          additional-field-yandex-query: ''
           backup-retain-period: Срок хранения автоматических резервных копии, дней
           backup-window-start: Начало резервного копирования (UTC)
           base_field_description: Описание
@@ -7280,7 +7292,7 @@ default:
             label_bucket: Бакет
             label_bucket-prefix: Папка
             label_failed-sa: Назначение для неуспешного результата
-            label_lockbox-secret: Секреты Yandex Lockbox
+            label_lockbox-secret: Секреты Lockbox
             label_mount-point-name: Точка монтирования
             label_mount-point-path: Путь монтирования
             label_mq: Очередь сообщений
@@ -9179,12 +9191,12 @@ default:
     yc_fluent-bit:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
-        tag: 2.1.7-1
+        tag: 2.1.7-2
     yc_gateway-api:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.24
+        tag: 0.4.25
     yc_gitlab-agent:
       helmChart:
         name: >-

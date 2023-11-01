@@ -18,7 +18,7 @@ The queue team includes the employees who create and execute issues in the give
 The owner manages the queue:
 
 * Edits the [main settings](edit-queue-general.md).
-* Adds users to the [queue team](queue-team.md).
+* Adds users to the [queue team](../glossary.md#queue-team).
 * Configures [notifications](subscriptions.md).
 * Changes [access rights to the queue](queue-access.md).
 

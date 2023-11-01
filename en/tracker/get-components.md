@@ -1,34 +1,34 @@
 ---
-sourcePath: ru/tracker/api-ref/get-components.md
+sourcePath: en/tracker/api-ref/get-components.md
 ---
-# Получить список компонентов
+# Get a list of components
 
-Запрос позволяет получить список всех [компонентов](manager/components.md), созданных пользователями организации.
+This request returns a list of all [components](manager/components.md) created by the organization's users.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](concepts/access.md).
+Before making the request, [get permission to access the API](concepts/access.md).
 
-Чтобы получить все компоненты, используйте HTTP-запрос с методом `GET`.
+To get all components, use an HTTP `GET` request.
 
 ```
 GET /v2/components
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
-    {% include [answer-200](../_includes/tracker/api/answer-200.md) %} 
+    {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
-    Тело ответа содержит JSON-массив с параметрами всех компонентов, созданных пользователями организации.
+    The response body contains a JSON array with parameters for all components created by the organization's users.
 
     ```json
     [
@@ -41,13 +41,13 @@ Authorization: OAuth <OAuth-токен>
             "self": "{{ host }}/v2/queues/ORG",
             "id": "1",
             "key": "ORG",
-            "display": "Организация"
+            "display": "Organization"
         },
-        "description": "<Описание компонента>",
+        "description": "<Component description>",
         "lead": {
                "self": "{{ host }}/v2/users/1120000000016876",
-               "id": "<id сотрудника>",
-               "display": "<Отображаемое имя сотрудника>"
+               "id": "<employee ID>",
+               "display": "<Employee display name>"
             },
         "assignAuto": false
       },
@@ -55,32 +55,32 @@ Authorization: OAuth <OAuth-токен>
     ]  
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Ссылка на компонент. | Строка
-    id | Идентификатор компонента. | Число
-    version | Версия компонента. Каждое изменение компонента увеличивает номер версии. | Число
-    name | Название компонента. | Строка
-    [queue](#queue) | Объект с информацией об очереди компонента.| Объект
-    description | Текстовое описание компонента. | Строка
-    [lead](#lead) | Блок с информацией о владельце компонента. | Объект
-    assignAuto | Автоматически назначить владельца компонента исполнителем для новых задач с этим компонентом:<ul><li>`true`— назначить;</li><li>`false`— не назначать.</li></ul> | Логический
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Component link. | String |
+    | id | Component ID. | Number |
+    | version | Component version. Each change to the component increases the version number. | Number |
+    | name | Component name. | String |
+    | [queue](#queue) | Object with information about the component's queue. | Object |
+    | description | Text description of the component. | String |
+    | [lead](#lead) | Block with information about the component owner. | Object |
+    | assignAuto | Automatically assign the component owner as the assignee for all subsequent issues containing the component:<ul><li>`true`— assign</li><li>`false`— don't assign.</li></ul> | Boolean |
 
-    **Поля объекта** `queue` {#queue}
-        
+    **Object fields** `queue` {#queue}
+
     {% include [queue](../_includes/tracker/api/queue.md) %}
 
-    **Поля объекта** `lead` {#lead}
+    **Object fields** `lead` {#lead}
 
     {% include [user](../_includes/tracker/api/user.md) %}
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [error](../_includes/tracker/api/answer-error-400.md) %}
 
@@ -93,3 +93,4 @@ Authorization: OAuth <OAuth-токен>
     {% include [error](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+

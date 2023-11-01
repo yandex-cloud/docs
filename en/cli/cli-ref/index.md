@@ -47,6 +47,7 @@ Syntax:
 - [yc managed-greenplum](managed-services/managed-greenplum/index.md) — Manage Greenplum clusters and hosts.
 - [yc managed-redis](managed-services/managed-redis/index.md) — Manage Redis clusters, hosts, databases, backups and users.
 - [yc managed-elasticsearch](managed-services/managed-elasticsearch/index.md) — Manage ElasticSearch clusters, hosts, indexes and backups.
+- [yc managed-opensearch](managed-services/managed-opensearch/index.md) — Managed OpenSearch clusters, hosts, indexes and backups.
 - [yc managed-kafka](managed-services/managed-kafka/index.md) — Manage Apache Kafka clusters, brokers, topics, users and connectors.
 - [yc container](managed-services/container/index.md) — Manage Container resources.
 - [yc load-balancer](managed-services/load-balancer/index.md) — Manage Yandex Load Balancer resources
