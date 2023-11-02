@@ -73,6 +73,8 @@ items:
         href: archive/object-storage-veritas.md
       - name: Deploying the GlusterFS parallel file system
         href: archive/ha-regional-glusterfs.md
+      - name: Deploying the GlusterFS parallel file system in high performance mode
+        href: archive/ha-regional-glusterfs-high-performance.md
       - name: Digitizing image archives in {{ vision-name }}
         href: archive/archive-from-vision-to-object-storage.md
   - name: Test environment

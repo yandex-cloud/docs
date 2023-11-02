@@ -9,7 +9,7 @@ Access to {{ speechsense-full-name }} is regulated by assigning permissions in a
 
 The list of operations available to {{ speechsense-name }} users is determined by the roles they have. Roles can be assigned to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md). For more information about managing access to {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
-## Which resources you can assign roles to {#resources}
+## Which resources can be assigned a role {#resources}
 
 You can assign a role for a space or a project. Roles assigned for a space also apply to all nested projects and resources.
 

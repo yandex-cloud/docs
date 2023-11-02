@@ -1,1 +1,0 @@
-The `organization-manager.admin` role grants permission to edit organization settings, create identity federations, add and remove users, create other administrators, and manage the resources of an organization's clouds.

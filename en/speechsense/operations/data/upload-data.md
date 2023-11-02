@@ -209,10 +209,10 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
 
     ```bash
     python3 upload_grpc.py \
-        --audio-path audio.wav \
-        --meta-path metadata-example.json \
-        --connection-id 2 \
-        --token-type iam-key \
+        --audio-path <audio_file> \
+        --meta-path <metadata> \
+        --connection-id <connection_ID> \
+        --token-type iam-token \
         --token ${IAM_TOKEN}
     ```
 
@@ -220,3 +220,6 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
 
     * `audio-path`: Path to the audio file with the dialog.
     * `meta-path`: Path to the file with the dialog metadata.
+    * `connection-id`: ID of the connection you upload the data to.
+    * `token-type`: Authentication method. Possible values are `iam-token` or `api-key` depending on the used authorization type.
+    * `token`: Value of the token used for authorization.

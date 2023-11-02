@@ -33,3 +33,7 @@ You can track changes in the {{ yandex-cloud }} services and tools using our doc
 ## {{ yandex-cloud }} tools {#working-tools}
 
 * [CLI](../cli/release-notes.md)
+
+## Container-based development {#containerization}
+
+* [{{ managed-k8s-full-name }}](../managed-kubernetes/changelog.md)

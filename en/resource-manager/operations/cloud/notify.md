@@ -1,8 +1,8 @@
 # Getting notifications from services in a cloud
 
-By default, cloud owners (all users with the `resource-manager.clouds.owner` role) get notifications in the cloud.
+By default, cloud owners (all users with the `{{ roles-cloud-owner }}` role) get notifications in the cloud.
 
-If you want users to get notifications from services, add them to the list of subscribers to notifications:
+If you want users to get notifications from services, add them to the list of users subscribed to notifications:
 
 {% list tabs %}
 
@@ -10,13 +10,26 @@ If you want users to get notifications from services, add them to the list of su
 
    1. Open the [Service notifications]({{ link-cloud-notifications }}) page for the selected cloud. If necessary, [switch to another cloud](switch-cloud.md).
    1. Click **{{ ui-key.yacloud.iam.cloud.incident-notifications.button_open-dialog }}**.
-   1. Select the user you want to subscribe to notifications and click **{{ ui-key.yacloud.common.add }}**.
+   1. In the **{{ ui-key.yacloud.iam.cloud.incident-notifications.label_subscribers-dialog-header }}** window that opens, select:
 
-      {% note info %}
+      1. Users you want to subscribe to notifications.
 
-      You can add users with a [Yandex account](../../../iam/concepts/index.md#passport) as well as [federated users](../../../iam/concepts/index.md#saml-federation). Federated users should specify their email address in their account settings.
+         {% note info %}
 
-      {% endnote %}
+         You can add users with a [Yandex account](../../../iam/concepts/index.md#passport) as well as [federated users](../../../iam/concepts/index.md#saml-federation). Federated users should specify their email address in their account settings.
+
+         {% endnote %}
+
+      1. Services to send notifications to the users.
+      1. Methods for delivering notifications to the selected users.
+
+         {% note warning %}
+
+         Email address, phone number, and Telegram channel to receive the messages can be specified in the [notification settings]({{ link-cloud-communications }}).
+
+         {% endnote %}
+
+   1. Click **{{ ui-key.yacloud.common.add }}**.
 
 - API
 

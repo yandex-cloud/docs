@@ -239,6 +239,14 @@ items:
             href: operations/instance-groups/update.md
           - name: Изменить группу ВМ по YAML-спецификации
             href: operations/instance-groups/update-from-yaml.md
+          - name: Перенести группу ВМ в другую зону доступности
+            href: operations/instance-groups/move-group.md
+          - name: >-
+              Перенести группу ВМ с сетевым балансировщиком в другую зону
+              доступности
+            href: operations/instance-groups/move-group-with-nlb.md
+          - name: Перенести группу ВМ с L7-балансировщиком в другую зону доступности
+            href: operations/instance-groups/move-group-with-alb.md
           - name: Настроить проверку состояния приложения на ВМ
             href: operations/instance-groups/enable-autohealing.md
           - name: Обновить группу

@@ -77,12 +77,12 @@ To create an API key:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Add resource parameters to the configuration file:
 
       * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
-      * `-description`: Key description. This is an optional parameter.
+      * `description`: Key description. This is an optional parameter.
       * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
 
       Example of the configuration file structure:
@@ -100,7 +100,7 @@ To create an API key:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -158,10 +158,10 @@ To make it easier to find an API key without knowing its ID, add a description w
 
 - {{ TF }}
 
-   1. Add resource parameters to the configuration file:
+   1. Add parameters of resource to the configuration file:
 
       * `service_account_id`: Service account ID. This is a required parameter.
-      * `-description`: Key description. This is an optional parameter.
+      * `description`: Key description. This is an optional parameter.
 
       {% cut "Example of adding a description when creating a service account API key using {{ TF }}" %}
 
@@ -179,7 +179,7 @@ To make it easier to find an API key without knowing its ID, add a description w
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan

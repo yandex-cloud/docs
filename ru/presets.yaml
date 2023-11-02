@@ -5506,6 +5506,7 @@ default:
         button_process-in-yq: Обработать в YQ
         label_bucket: Бакет
         label_cloudLogging: Cloud Logging
+        label_collecting-logs: Сбор событий
         label_dataStream: Data Streams
         label_destination: Назначение
         label_event-filter-section: Сбор событий с уровня сервисов (Data plane)
@@ -5520,6 +5521,7 @@ default:
         label_resource-type: Ресурс
         label_service-account: Сервисный аккаунт
         label_stream-name: Поток данных
+        title_kms-key: Ключ шифрования
       backup:
         action_add-to-recovery-list: Добавить к списку файлов для восстановления
         action_detach-instance: Отвязать от политики
@@ -6588,6 +6590,7 @@ default:
             value_data-transfer: Data Transfer
             value_managed-clickhouse: Кластер ClickHouse
             value_serverless-functions: Функция
+            value_storage: Бакет
             value_vpc: Сеть
             value_ydb: База данных YDB
           service-account:
@@ -7496,6 +7499,7 @@ default:
             field_certificate-manager: Сертификат
             field_source: Источник
             value_method-certificate-manager: Certificate Manager
+            value_method-custom: Свой сертификат
           lifecycle:
             button_lifecycle_empty-create: Настроить
             button_save: Сохранить
@@ -9127,7 +9131,7 @@ default:
         s3: Коннектор S3
         secret: Секрет
       restrictions:
-        CHANGING_DISK_SIZE: ' Изменение размера хранилища проекта'
+        CHANGING_DISK_SIZE: Изменение размера хранилища проекта
         DATAPROC_TEMPLATES: Шаблоны Data Proc
         NODES_AND_ALIASES: Развертывание эксплуатации моделей
         project-mode: Режим работы проектов

@@ -1,1 +1,0 @@
-The `datalens.creator` role grants access to DataLens with a permission to create workbooks and collections in the DataLens root. You can view and edit workbooks and collections created by other users only if you have access permissions to these workbooks and collections.

@@ -227,7 +227,7 @@
        max_size: 6
        measurement_duration: 60s
        warmup_duration: 120s
-       cooldown_duration: 60s
+       stabilization_duration: 60s
        initial_size: 2
        cpu_utilization_rule:
          utilization_target: 40

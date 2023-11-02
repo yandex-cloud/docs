@@ -14,7 +14,7 @@
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the group parameters:
 
@@ -32,7 +32,7 @@
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      * `description`: Group description. Optional parameter.
+      * `description`: Group description. This is an optional parameter.
       * `organization_id`: ID of the organization to add the group to.
 
    1. Create resources:

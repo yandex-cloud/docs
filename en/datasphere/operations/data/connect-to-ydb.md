@@ -87,7 +87,7 @@ Save the received token to a file named `key.json`.
 
 1. Configure the environment variables:
     * `<endpoint>`: First part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
-    * `<database_location>`: Second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
+    * `<database_location>`: Second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
     * `<table_name>`: Table name.
 
 1. Run the cell.

@@ -158,6 +158,9 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](instance-groups/update.md)
 * [{#T}](instance-groups/update-from-yaml.md)
+* [{#T}](instance-groups/move-group.md)
+* [{#T}](instance-groups/move-group-with-nlb.md)
+* [{#T}](instance-groups/move-group-with-alb.md)
 * [{#T}](instance-groups/enable-autohealing.md)
 * [{#T}](instance-groups/deploy/rolling-update.md)
 * [{#T}](instance-groups/deploy/zero-downtime.md)

@@ -2,7 +2,7 @@
 
 With an [identity federation](../../concepts/add-federation.md), you can use [Keycloak](https://www.keycloak.org/) to authenticate users in an organization.
 
-Setting up authentication includes the following steps:
+Authentication setup includes the following steps:
 
 1. [Creating and setting up a federation in {{ org-full-name }}](#yc-settings).
 
@@ -44,7 +44,7 @@ To follow the steps in this section, you will need:​
 
    {% endnote %}
 
-1. Valid certificate that is used for signing in the Keycloak service. To get it:
+1. Valid certificate used for signing in the Keycloak service. To get it:
 
    1. Log in to the Keycloak administrator account at:
 
@@ -100,17 +100,17 @@ To follow the steps in this section, you will need:​
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
-   1. Click **Create federation**.
+   1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
    1. Give your federation a name. It must be unique within the folder.
 
    1. You can also add a description, if required.
 
-   1. In the **Cookie lifetime** field, specify the period of time that must elapse before the browser asks the user to re-authenticate.
+   1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
 
-   1. In the **IdP Issuer** field, provide the following link:
+   1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter a link of the form:
 
       - Keycloak 17 or higher
 
@@ -118,7 +118,7 @@ To follow the steps in this section, you will need:​
          http://<host>:8080/realms/master
          ```
 
-         If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
+         If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, for example:
 
          ```
          {{ link-keycloak-example }}
@@ -130,13 +130,13 @@ To follow the steps in this section, you will need:​
          http://<host>:8080/realms/master
          ```
 
-         If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
+         If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, for example:
 
          ```
          {{ link-keycloak-example-old }}
          ```
 
-   1. In the **Link to the IdP login page** field, provide the following link:
+   1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, enter a link of the form:
 
       - Keycloak 17 or higher
 
@@ -164,15 +164,15 @@ To follow the steps in this section, you will need:​
 
       {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-   1. Enable **Automatically create users** to automatically add a new user to your organization after authentication. If this option is disabled, you will need to [manually add](../../operations/add-account.md#add-user-sso) your federated users.
+   1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to automatically add a new user to your organization after authentication. If this option is disabled, you will need to [manually add](../../operations/add-account.md#add-user-sso) your federated users.
 
       {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
-   1. To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable the **Sign authentication requests** option. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate. You can download the certificate in the **Sign authentication requests** field immediately after creating a federation.
+   1. It you want all authentication requests from {{ yandex-cloud }} to contain a digital signature, enable the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate. You can download the certificate in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field immediately after saving a federation.
 
    1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 
-   1. Click **Create federation**.
+   1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
 - CLI
 
@@ -240,7 +240,7 @@ To follow the steps in this section, you will need:​
                http://<host>:8080/realms/master
                ```
 
-               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
+               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, for example:
 
                ```
                {{ link-keycloak-example }}
@@ -252,7 +252,7 @@ To follow the steps in this section, you will need:​
                http://<host>:8080/realms/master
                ```
 
-               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
+               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, for example:
 
                ```
                {{ link-keycloak-example-old }}
@@ -351,7 +351,7 @@ To follow the steps in this section, you will need:​
                http://<host>:8080/realms/master
                ```
 
-               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, e.g.:
+               If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, for example:
 
                ```
                {{ link-keycloak-example }}
@@ -409,7 +409,7 @@ To follow the steps in this section, you will need:​
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Specify the federation parameters in the configuration file:
 
@@ -482,7 +482,7 @@ To follow the steps in this section, you will need:​
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }}resources.
       * `case_insensitive_name_ids`: Flag that indicates whether usernames are case-insensitive.
-         If the option is enabled, the IDs of federated user names are case-insensitive.
+         If the option is enabled, the IDs of federated user names will be case-insensitive.
       * `security_settings`: Federation security settings:
       * `encrypted_assertions`: Sign authentication requests.
          If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
@@ -526,7 +526,7 @@ To follow the steps in this section, you will need:​
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -544,7 +544,7 @@ To follow the steps in this section, you will need:​
 
       1. Confirm you want to create a federation.
 
-   This creates the federation in the specified organization. You can check that the federation is there and its settings are correct in the organization's [Federations]({{ link-org-federations }}) section.
+   This will create a federation in the specified organization. You can check the new federation and its settings in the organization's [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) section.
 
 {% endlist %}
 
@@ -556,21 +556,21 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 - Management console
 
-   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click the name of the federation to add a certificate to.
 
-   1. At the bottom of the page, click **Add certificate**.
+   1. At the bottom of the page, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
 
-   1. Enter the certificate name and description.
+   1. Enter certificate name and description.
 
-   1. Choose how to add the certificate:
+   1. Choose how to add a certificate:
 
-      * To add a certificate as a file, click **Choose a file** and specify the path to it.
+      * To add a certificate as a file, click **{{ ui-key.yacloud_portal.component.file-input.button_choose }}** and specify the path to it.
 
-      * To paste the contents of a copied certificate, select the **Text** method and paste the contents.
+      * To paste the contents of a copied certificate, select the **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** method and paste the contents.
 
-   1. Click **Add**.
+   1. Click **{{ ui-key.yacloud_org.actions.add }}**.
 
 - CLI
 
@@ -621,7 +621,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 {% note tip %}
 
-To ensure the authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to the federation, i.e. both the current one and those to use afterwards. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
+To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to be used afterwards. If one certificate turns invalid, {{ yandex-cloud }} will attempt to verify the signature with another one.
 
 {% endnote %}
 
@@ -728,7 +728,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
    1. Click **Save**.
 
-1. If you enabled the **Sign authentication requests** option when [creating a federation](#create-federation) in {{ org-full-name }}, set up digital signature verification in the SAML application:
+1. If you enabled the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option when [creating a federation](#create-federation) in {{ org-full-name }}, set up digital signature verification in the SAML application:
 
    {% list tabs %}
 
@@ -740,7 +740,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the **Archive Format** field, select **Certificate PEM**. (You might need to generate certificates first so that clicking **Import key** makes the **Certificate PEM** option available.)
          {#signature}
-      1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **Sign authentication requests** field.
+      1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
 
       1. Click **Confirm**.
 
@@ -752,7 +752,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the **Archive Format** field, select **Certificate PEM**.
          {#signature}
-      1. Click **Select file** and select the certificate to be used for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **Sign authentication requests** field.
+      1. Click **Select file** and select the certificate to be used for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
 
       1. Click **Import**.
 
@@ -764,7 +764,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
 1. In the **Archive Format** field, select **Certificate PEM**. (You might need to generate certificates first so that clicking **Import key** makes the **Certificate PEM** option available.)
    {#signature}
-1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **Sign authentication requests** field.
+1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
 
 1. Click **Confirm**.
 
@@ -780,7 +780,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
 ## Adding users to {{ org-full-name }} {#add-users}
 
-If you did not enable the **Automatically create users** option when [creating a federation](#yc-settings), you will have to add federated users to your organization manually.
+If you did not enable the **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** option when [creating a federation](#yc-settings), you will have to add federated users to your organization manually.
 
 To do this, you will need user Name IDs. They are returned by the IdP server along with a response confirming successful authentication.
 
@@ -796,15 +796,15 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. Go to [{{org-full-name}}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
+   1. In the top-right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
 
    1. Select the identity federation to add users from.
 
    1. List the Name IDs of users, separating them with line breaks.
 
-   1. Click **Add**. This will give the users access to the organization.
+   1. Click **{{ ui-key.yacloud_org.actions.add }}**. This will give the users access to the organization.
 
 - CLI
 

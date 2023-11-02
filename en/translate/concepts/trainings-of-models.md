@@ -1,8 +1,8 @@
 # Retraining models
 
-_The feature is in the [Preview](../../overview/concepts/launch-stages.md)._
+_The feature is at the [Preview](../../overview/concepts/launch-stages.md) stage._
 
-You can improve the quality of machine translations in a specific field of expertise by using your own data to train the model. This will not degrade the quality of translations of everyday language.
+You can improve the quality of machine translations in a specific domain by using your own data to train the model. This will not degrade the quality of translations of everyday language.
 
 ### What data is required for retraining {#data}
 
@@ -10,7 +10,7 @@ For retraining, you need a [TMX](https://en.wikipedia.org/wiki/Translation_Memor
 
 {% note warning %}
 
-Texts should match the target knowledge domain as closely as possible (such as legal documents, medicine, or oil and gas). Mixing subjects leads to worse results.
+The texts you use for training should match the target knowledge domain as closely as possible (such as legal documents, medicine, or oil and gas). If you provide texts on multiple domains, this may decrease the result quality.
 
 {% endnote %}
 
@@ -26,4 +26,4 @@ To use a model, enter its ID in the `model` parameter when sending a request.
 
 ### How retraining is charged {#pricing}
 
-During the [Preview stage](../../overview/concepts/launch-stages.md), the training functionality is provided free of charge. The cost of translations created using the received models is in line with the [current rates](../pricing.md).
+During the [Preview stage](../../overview/concepts/launch-stages.md), the training feature is provided free of charge. The cost of translations created using the obtained models is in line with the [current rates](../pricing.md).

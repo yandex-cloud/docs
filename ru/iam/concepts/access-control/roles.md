@@ -307,8 +307,6 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ iot-full-name }} {#iot-roles}
 
-{% include [iot-admin](../../../_includes/roles-iot-admin.md) %}
-
 {% include [iot-editor](../../../_includes/roles-iot-editor.md) %}
 
 {% include [iot-viewer](../../../_includes/roles-iot-viewer.md) %}
@@ -397,8 +395,6 @@ _Роль_ — это набор разрешений, который опред
 
 
 ## {{ mes-full-name }} {#mes-roles}
-
-{% include [mes-auditor](../../../_includes/iam/roles/mes-auditor.md) %}
 
 {% include [mes-viewer](../../../_includes/iam/roles/mes-viewer.md) %}
 

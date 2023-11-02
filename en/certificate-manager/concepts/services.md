@@ -5,6 +5,7 @@ You can use {{ certificate-manager-name }} certificates in the following {{ yand
 * [{{ objstorage-full-name }}](#os).
 * [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
+* [{{ cdn-full-name }}](#cdn).
 
 You can also store a user certificate's public part as a [{{ lockbox-full-name }}](#lockbox) secret using {{ TF }}.
 

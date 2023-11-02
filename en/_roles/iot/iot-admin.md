@@ -1,1 +1,0 @@
-The `iot.admin` role.

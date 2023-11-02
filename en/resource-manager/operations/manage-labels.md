@@ -57,7 +57,7 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, add the following fragment to the resource:
 
@@ -146,7 +146,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, find the following fragment:
 
@@ -218,7 +218,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, find the following fragment:
 
@@ -233,7 +233,7 @@ You can only edit a label using the {{ yandex-cloud }} CLI and {{ TF }}.
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   After that, the label will be removed from the resource. You can check the label's deletion using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+   After that, the label will be removed from the resource. You can check the deletion of the label using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
    ```
    yc <service_name> <resource_type> get <resource_name_or_ID>

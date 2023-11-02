@@ -1,21 +1,21 @@
 ---
 title: "{{ translate-full-name }} overview"
-description: "You can use {{ translate-name }} to integrate Yandex Translate with custom applications and web projects. {{ translate-full-name }} supports more than 90 languages and can translate individual words and complete texts. If you don't know the source language of a text, the service automatically detects it while translating. You can also use the service to just detect the text language."
+description: "You can use {{ translate-name }} to integrate Yandex Translator algorithms with custom applications and web projects. {{ translate-full-name }} supports over 90 languages and can translate both individual words and complete texts. If you do not know the source language of a text, {{ translate-full-name }} will automatically detect it while translating. You can also use it to just detect the text language."
 ---
 
 # {{ translate-full-name }} overview
 
-You can use {{ translate-name }} to integrate [Yandex Translate](https://translate.yandex.com) with custom applications and web projects. {{ translate-full-name }} supports more than 90 languages and can translate individual words and complete texts.
+You can use {{ translate-name }} to integrate [Yandex Translate](https://translate.yandex.ru) algorithms with custom applications and web projects. Yandex Translate supports over 90 languages and can translate both individual words and complete texts.
 
 ## Language detection {#detect}
 
-If you don't know the source language of a text, the service automatically detects it while translating. You can also use the service to just [detect the text language](../operations/detect.md).
+If you do not know the source language of a text, {{ translate-full-name }} will automatically detect it while translating. You can also use it to just [detect the text language](../operations/detect.md).
 
 ## Glossaries {#glossaries}
 
-To increase the accuracy of translations on a specific topic, [pass a glossary in the request](../operations/better-quality.md#with-glossary). A glossary is a dictionary of words and phrases with a single translation. [Learn more about glossaries](glossary.md).
+To increase the accuracy of translations on a specific topic, you can [provide a glossary in your request](../operations/better-quality.md#with-glossary). A glossary is a termbase containing words and phrases with a single translation. You can learn more about glossaries [here](glossary.md).
 
 #### What's next {#what-is-next}
 
-* [Learn how to translate text](../operations/translate.md)
+* [Learn how to translate a text](../operations/translate.md)
 * [Detect the language of a text](../operations/detect.md)

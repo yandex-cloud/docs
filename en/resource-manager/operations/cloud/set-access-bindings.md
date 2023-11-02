@@ -145,7 +145,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Describe the properties of the cloud access rights in a configuration file:
       * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
@@ -223,7 +223,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
    {% endnote %}
 
-   1. Make sure the resource doesn't have any roles that you don't want to lose:
+   1. Make sure the resource has no roles assigned that you would rather not lose:
 
       ```bash
       yc resource-manager cloud list-access-binding my-cloud
@@ -280,6 +280,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
    The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
 
    {% endnote %}
+
 
    ```bash
    curl -X POST \

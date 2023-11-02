@@ -18,9 +18,9 @@ Collecting audit logs enables you to use analytical tools and promptly respond t
 * [Exporting audit logs to SIEM systems](./export-siem.md).
 * [Alert settings in {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md).
 
-## Configuration-level audit logs {#control-plane-logs}
+## Management audit logs {#control-plane-logs}
 
-{{ at-name }} collects [configuration-level (Control Plane)](./control-plane-vs-data-plane.md#control-plane-events) audit logs for the following {{ yandex-cloud }} services:
+{{ at-name }} collects [management (control plane)](./control-plane-vs-data-plane.md#control-plane-events) audit logs for the following {{ yandex-cloud }} services:
 
 * {{ alb-full-name }}
 * {{ at-full-name }}
@@ -46,35 +46,31 @@ Collecting audit logs enables you to use analytical tools and promptly respond t
 * {{ ydb-full-name }}
 * {{ yq-full-name }}
 
-The following [configuration-level](./events.md) events are logged:
+The following [management events](./events.md) are logged:
 
-The following [service-level events](events-data-plane.md) are logged:
+* Logins by federated users
+* Creating/deleting service accounts
+* Creating/deleting keys of service accounts
+* Editing user roles and service accounts
+* Creating/deleting resources
+* Editing resource settings
+* Stopping/restarting a resource
+* Changing access policies
+* Creating/editing security groups
+* Actions with encryption keys and secrets
 
-* Execution result of a DNS query from a Cloud DNS client
-* Accessing the contents of a secret
-* Decrypting ciphertext with a key
-* Encrypting a text string with a key
-* Generating a high-entropy key for Envelope Encryption
-* Decrypting ciphertext with a previous-version key and re-encrypting the decrypted text with a new version of the same key
-* Updating an object's ACL in a bucket
-* Creating an object in a bucket
-* Deleting an object from a bucket
-* Deleting bucket object tags
-* Updating bucket object tags
-* Updating an object in a bucket
-
-## Service-level audit logs {#data-plane-logs}
+## Data audit logs {#data-plane-logs}
 
 {% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
-{{ at-name }} collects [service-level (Data Plane)](./control-plane-vs-data-plane.md#data-plane-events) audit logs for the following {{ yandex-cloud }} services:
+{{ at-name }} collects [data (data plane)](./control-plane-vs-data-plane.md#data-plane-events) audit logs for the following {{ yandex-cloud }} services:
 
 * {{ dns-full-name }}
 * {{ lockbox-full-name }}
 * {{ kms-full-name }}
 * {{ objstorage-full-name }}
 
-The following [service-level](events-data-plane.md) events are logged:
+The following [data events](events-data-plane.md) are logged:
 
 * Execution result of a DNS query from a Cloud DNS client.
 * Accessing the contents of a secret.

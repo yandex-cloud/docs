@@ -243,6 +243,38 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 ## {{ ml-platform-name }} {#datasphere-roles}
 
+{% include [projects-viewer](../../../_includes/roles-datasphere-project-viewer.md) %}
+
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-viewer }}` role have the `Viewer` role in the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab on the project page.
+
+{% include [projects-developer](../../../_includes/roles-datasphere-projects-developer.md) %}
+
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-developer }}` role have the `Developer` role in the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab on the project page.
+
+{% include [projects-editor](../../../_includes/roles-datasphere-projects-editor.md) %}
+
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-editor }}` role have the `Editor` role in the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab on the project page.
+
+{% include [projects-admin](../../../_includes/roles-datasphere-projects-admin.md) %}
+
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-admin }}` role have the `Admin` role in the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab on the project page.
+
+{% include [communities-viewer](../../../_includes/roles-datasphere-communities-viewer.md) %}
+
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-viewer }}` role have the `Viewer` role in the **{{ ui-key.yc-ui-datasphere.common.members }}** tab on the community page.
+
+{% include [communities-developer](../../../_includes/roles-datasphere-communities-developer.md) %}
+
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-developer }}` role have the `Developer` role in the **{{ ui-key.yc-ui-datasphere.common.members }}** tab on the community page.
+
+{% include [communities-editor](../../../_includes/roles-datasphere-communities-editor.md) %}
+
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-editor }}` role have the `Editor` role in the **{{ ui-key.yc-ui-datasphere.common.members }}** tab on the community page.
+
+{% include [communities-admin](../../../_includes/roles-datasphere-communities-admin.md) %}
+
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-admin }}` role have the `Admin` role in the **{{ ui-key.yc-ui-datasphere.common.members }}** tab on the community page.
+
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
@@ -251,6 +283,8 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 ## {{ iam-full-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
+
+{% include [roles-sa-admin](../../../_includes/roles-sa-admin.md) %}
 
 {% include [roles-sa-accessKeyAdmin](../../../_includes/roles-sa-accessKeyAdmin.md) %}
 
@@ -264,10 +298,14 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [roles-iam-auditor](../../../_includes/roles-iam-auditor.md) %}
 
+{% include [roles-iam-viewer](../../../_includes/roles-iam-viewer.md) %}
+
+{% include [roles-iam-editor](../../../_includes/roles-iam-editor.md) %}
+
+{% include [roles-iam-admin](../../../_includes/roles-iam-admin.md) %}
+
 
 ## {{ iot-full-name }} {#iot-roles}
-
-{% include [iot-admin](../../../_includes/roles-iot-admin.md) %}
 
 {% include [iot-editor](../../../_includes/roles-iot-editor.md) %}
 
@@ -357,8 +395,6 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 
 ## {{ mes-full-name }} {#mes-roles}
-
-{% include [mes-auditor](../../../_includes/iam/roles/mes-auditor.md) %}
 
 {% include [mes-viewer](../../../_includes/iam/roles/mes-viewer.md) %}
 
@@ -581,6 +617,22 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 {% include [roles-speechkit-tts-user](../../../_includes/roles-speechkit-tts-user.md) %}
 
 
+## {{ speechsense-full-name }} {#speechsense-roles}
+
+{% include [auditor](../../../_includes/roles-speech-sense-auditor.md) %}
+
+{% include [viewer](../../../_includes/roles-speech-sense-viewer.md) %}
+
+{% include [editor](../../../_includes/roles-speech-sense-editor.md) %}
+
+{% include [admin](../../../_includes/roles-speech-sense-admin.md) %}
+
+{% include [spaces-creator](../../../_includes/roles-speech-sense-spaces-creator.md) %}
+
+{% include [data-viewer](../../../_includes/roles-speech-sense-data-viewer.md) %}
+
+{% include [data-editor](../../../_includes/roles-speech-sense-data-editor.md) %}
+
 ## {{ translate-full-name }} {#translate-roles}
 
 {% include [roles-translate-user](../../../_includes/translate/roles-translate-user.md) %}
@@ -619,3 +671,13 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 ## {{ yagpt-full-name }} {#yandexgpt-roles}
 
 {% include [roles-yandexgpt-user](../../../_includes/roles-yandexgpt-user.md) %}
+
+## AI services {#ai-roles}
+
+{% include [roles-ai-auditor](../../../_includes/roles-ai-auditor.md) %}
+
+{% include [roles-ai-viewer](../../../_includes/roles-ai-viewer.md) %}
+
+{% include [roles-ai-editor](../../../_includes/roles-ai-editor.md) %}
+
+{% include [roles-ai-admin](../../../_includes/roles-ai-admin.md) %}

@@ -1,5 +1,7 @@
 # Creating a new message queue
 
+Message queues in {{ message-queue-name }} enable [messaging](../concepts/message.md) between components of distributed applications. Messages can be sent to queues using the [API](../api-ref/index.md) or other supported [tools](../instruments/index.md).
+
 To create a new message queue:
 
 {% list tabs %}
@@ -28,26 +30,28 @@ To create a new message queue:
 
 - AWS CLI
 
-   Run the following command in the terminal:
+   1. [Install and configure](configuring-aws-cli.md) the AWS CLI.
 
-   ```bash
-   aws sqs create-queue \
-     --queue-name <queue_name> \
-     --endpoint <endpoint>/
-   ```
+   1. Run the following command in the terminal:
 
-   Where:
+      ```bash
+      aws sqs create-queue \
+        --queue-name <queue_name> \
+        --endpoint <endpoint>
+      ```
 
-   * `sample-queue`: Queue name.
-   * `endpoint`: Endpoint, for example: `https://message-queue.{{ api-host }}/`.
+      Where:
 
-   Result:
+      * `--queue-name`: Name of the new queue, e.g., `sample-queue`.
+      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
 
-   ```json
-   {
-       "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
-   }
-   ```
+      Result:
+
+      ```json
+      {
+          "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd********/000000000000002n034r/sample-queue"
+      }
+      ```
 
 - {{ TF }}
 

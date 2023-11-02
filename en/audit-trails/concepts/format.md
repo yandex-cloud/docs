@@ -1,12 +1,12 @@
-# Configuration-level event audit log
+# Management event audit log
 
-A configuration-level (Control Plane) audit log is a JSON object with a record of events that occurred to {{ yandex-cloud }} resources.
+A management (control plane) audit log is a JSON object with a record of events that occurred to {{ yandex-cloud }} resources.
 
 The log entry [format](#scheme) is universal for any event. The values of some fields are determined both by the source resource and the event type.
 
-An event object is the service resource that the operation is performed with. An event subject is an account to perform the operation under.
+An event object is the service resource on which the operation is performed. An event subject is the account under which the operation is performed.
 
-{% cut "Sample configuration-level audit log generated when creating a VM" %}
+{% cut "Sample management audit log generated when creating a VM" %}
 
 If a federated user creates a VM in {{ compute-full-name }}, the following entry is written in the audit log:
 
@@ -120,8 +120,15 @@ If a federated user creates a VM in {{ compute-full-name }}, the following entry
     "subject_name": string,
     "federation_id": string,
     "federation_name": string,
-    "federation_type": string
-
+    "federation_type": string,
+    "impersonator_info": {
+      "impersonator_id": string,
+      "type": string,
+      "name": string,
+      "federation_id": string,
+      "federation_name": string,
+      "federation_type": string
+    }
   },
   "authorization": {
     "authorized": boolean
@@ -154,8 +161,8 @@ If a federated user creates a VM in {{ compute-full-name }}, the following entry
 
 | Field | Description |
 --- | ---
-| `event_id` | **string**<br>Event ID. |
-| `event_source` | **string**<br>Name of the service that is the event source. |
+| `event_id` | **string**<br>Event ID |
+| `event_source` | **string**<br>Name of the event source service |
 | `event_type` | **string**<br>Event type, which is determined by the event source service. For more information, see [{#T}](events.md). |
 | `event_time` | **string**<br>Time when the event occurred. |
 | `authentication` | **object**<br>Authentication data of the event subject |
@@ -166,6 +173,13 @@ If a federated user creates a VM in {{ compute-full-name }}, the following entry
 | `authentication.federation_id`* | **string**<br>ID of the federation the federated user belongs to |
 | `authentication.federation_name`* | **string**<br>Name of the federation the federated user belongs to |
 | `authentication.federation_type`* | **string**<br>Federation type. The possible value is:<ul><li>`PRIVATE_FEDERATION`: Federation managed by {{ yandex-cloud }} clients</li></ul> |
+| `authentication.impersonator_info` | **object**<br>Authentication data of the event subject when [impersonation](../../iam/concepts/access-control/index.md#impersonation) is used. |
+| `authentication.impersonator_info.impersonator_id` | **string**<br>Impersonator subject ID |
+| `authentication.impersonator_info.type` | **string**<br>Impersonator subject type. The possible values include:<ul><li>`YANDEX_PASSPORT_USER_ACCOUNT`: Yandex account</li><li>`SERVICE_ACCOUNT`: Service account</li><li>`FEDERATED_USER_ACCOUNT`: Federated account</li> |
+| `authentication.impersonator_info.name` | **string**<br>Impersonator subject name |
+| `authentication.impersonator_info.federation_id`* | **string**<br>ID of the federation the impersonated federated user belongs to. |
+| `authentication.impersonator_info.federation_name`* | **string**<br>Name of the federation the impersonated federated user belongs to. |
+| `authentication.impersonator_info.federation_type`* | **string**<br>Federation type. The possible value is:<ul><li>`PRIVATE_FEDERATION`: Federation managed by {{ yandex-cloud }} clients</li></ul> |
 | `authorization` | **object**<br>Authorization data of the event subject |
 | `authorization.authorized` | **boolean**<br>Authorization result. The possible values include:<ul><li>`true`: Authorization is successful.</li><li>`false`: Authorization failed.</li> |
 | `resource_metadata` | **object**<br>Metadata of the event object |
@@ -178,10 +192,10 @@ If a federated user creates a VM in {{ compute-full-name }}, the following entry
 | `request_metadata.user_agent` | **string**<br>User-agent of an event subject |
 | `request_metadata.request_id` | **string**<br>Query ID |
 | `event_status` | **string**<br>Event status, which is determined by the source service and the event type. The possible values include:<ul><li>`STARTED`: The operation started.</li><li>`ERROR`: The operation failed.</li><li>`DONE`: The operation completed successfully.</li><li>`CANCELLED`: The operation is canceled.</li></ul> |
-| `error` | **object**<br>Status error. [google.rpc.Status](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto) object:<ul><li>`code`: [Error code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).</li><li>`message`: Error description</li><li>`details`: [Error details](https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto)</li></ul> |
+| `error` | **object**<br>Status error. [google.rpc.Status](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto) object:<ul><li>`code`: [Error code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto)</li><li>`message`: Error description</li><li>`details`: [Error details](https://github.com/googleapis/googleapis/blob/master/google/rpc/error_details.proto)</li></ul> |
 | `details` | **object**<br>Event details, which are determined by the source service and the event type. |
 
-<small>* The field is available when `subject_type` = `FEDERATED_USER_ACCOUNT`</small>
+<small>* The field is available when `subject_type` = `FEDERATED_USER_ACCOUNT`</small>.
 
 {% note info %}
 
@@ -193,7 +207,7 @@ If the action was run by a {{ yandex-cloud }} infrastructure service or a suppor
 
 Depending on the [destination object](./trail.md#target) (a bucket or log group), the message used by {{ at-name }} to transmit audit logs has a different structure and content:
 * If the destination object is a bucket, the message is a file containing an array of [JSON objects](./format.md#scheme) of the audit log.
-* For a log group: A message that only includes one JSON object from an audit log.
+* If the destination object is a log group, the message includes a single JSON object of the audit log.
 ### Audit log file in a bucket {#log-file-name}
 
 Below is the template for the full name of an audit log file in a bucket:
@@ -202,7 +216,7 @@ Below is the template for the full name of an audit log file in a bucket:
 
 ### Log group entry {#logging-group-name}
 
-Values of log group entries:
+Log group entries have the following values:
 * **{{ ui-key.yacloud.logging.column_header-time }}**: `Event_time` field value of the event
 * **JSON**: JSON object of the event
 * **{{ ui-key.yacloud.logging.column_header-level }}**: Calculated depending on the `event_status` value:

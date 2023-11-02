@@ -34,8 +34,8 @@ The package provides two components to work with {{ captcha-name }}:
 
 | Component | Description |
 --- | ---
-| `SmartCaptcha` | The component for user validation on websites with the **"I’m not a robot"** button ([standard CAPTCHA](./validation.md#usual-captcha)). |
-| `InvisibleSmartCaptcha` | The component for user validation on websites without the **"I’m not a robot"** button ([invisible CAPTCHA](./validation.md#invisible-captcha)). |
+| `SmartCaptcha` | Website user validation component with the **"I’m not a robot"** button ([standard CAPTCHA](./validation.md#usual-captcha)). |
+| `InvisibleSmartCaptcha` | Website user validation component without the **"I’m not a robot"** button ([invisible CAPTCHA](./validation.md#invisible-captcha)). |
 
 ### SmartCaptcha component {#smartcaptcha-component}
 
@@ -160,4 +160,32 @@ export const SubscriptionToCaptcha = () => {
     </>
   );
 };
+```
+
+## Resetting a {{ captcha-name }} state {#reset-status}
+
+A CAPTCHA retains its state after a user is [validated](validation.md). To enable a user to pass validation again, configure a state reset. If this is not done, a repeat request will be sent to the server with the same one-time token as the first time.
+
+State reset configuration example:
+
+```ts
+import { SmartCaptcha } from "@yandex/smart-captcha";
+import { useState } from "react";
+
+export default function App() {
+
+  const [resetCaptcha, setResetCaptcha] = useState(0);
+
+  /* Update the state */
+  const handleReset = () => setResetCaptcha((prev) => prev + 1);
+
+  return (
+    <div className="App">
+      <SmartCaptcha
+        key={resetCaptcha}
+        sitekey="<client_key>"
+      \>
+    <div\>
+  );
+}
 ```

@@ -44,7 +44,7 @@ ACL, загруженный для объектов, применяется мг
   * С помощью [CLI или API {{ iam-short-name }}](../../iam/operations/users/get.md).
 * [Сервисный аккаунт](../../iam/concepts/users/service-accounts).
 
-  Для получения идентификатора перейдите в раздел **Сервисные аккаунты** консоли управления.
+  Для получения идентификатора перейдите в раздел **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** консоли управления.
 
 * [Системная группа](#system-groups)
 

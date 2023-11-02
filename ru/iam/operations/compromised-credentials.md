@@ -86,6 +86,10 @@ OAuth-токен можно отозвать. При этом IAM-токен, д
 1. Предоставьте новый API-ключ сервисам и пользователям, которые его используют.
 1. [Удалите старый API-ключ](./api-key/delete.md).
 
+### Серверный ключ {{ captcha-name }} {#captcha-server-key}
+
+[Создайте новую капчу](../../smartcaptcha/quickstart.md#creat-captcha) и на странице сайта замените ей старую капчу, [серверный ключ](../../smartcaptcha/concepts/keys.md) которой попал в открытый доступ.
+
 ### Cookie {#cookie-invalidation}
 
 Прекратите действие cookie:

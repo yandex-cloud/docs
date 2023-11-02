@@ -4,440 +4,442 @@ This section lists the language pairs that support glossaries.
 
 {% note tip %}
 
-To search the page, press **Ctrl** + **F** (**Cmd** + **F** on MacOS).
+To search the page, press **CTRL** + **F** (for MacOS, use **CMD** + **F**).
 
 {% endnote %}
 
-List of languages sorted alphabetically:
+List of languages (from A to Z):
 
 {% list tabs %}
 
 - By source language
-  * `af-en` — Afrikaans-English
-  * `am-en` — Amharic-English
-  * `ar-en` — Arabic-English
-  * `az-en` — Azerbaijani-English
-  * `az-ru` — Azerbaijani-Russian
-  * `ba-ru` — Bashkir-Russian
-  * `ba-tt` — Bashkir-Tatar
-  * `be-ru` — Belarusian-Russian
-  * `bg-ru` — Bulgarian-Russian
-  * `bn-en` — Bengali-English
-  * `bs-en` — Bosnian-English
-  * `ca-en` — Catalan-English
-  * `cs-en` — Czech-English
-  * `cs-ru` — Czech-Russian
-  * `cy-en` — Welsh-English
-  * `da-en` — Danish-English
-  * `de-en` — German-English
-  * `de-es` — German-Spanish
-  * `de-fr` — German-French
-  * `de-it` — German-Italian
-  * `de-lb` — German-Luxembourgish
-  * `de-ru` — German-Russian
-  * `el-en` — Greek-English
-  * `el-ru` — Greek-Russian
-  * `en-af` — English-Afrikaans
-  * `en-am` — English-Amharic
-  * `en-ar` — English-Arabic
-  * `en-bn` — English-Bengali
-  * `en-bs` — English-Bosnian
-  * `en-ca` — English-Catalan
-  * `en-cs` — English-Czech
-  * `en-cy` — English-Welsh
-  * `en-da` — English-Danish
-  * `en-de` — English-German
-  * `en-el` — English-Greek
-  * `en-eo` — English-Esperanto
-  * `en-es` — English-Spanish
-  * `en-et` — English-Estonian
-  * `en-eu` — English-Basque
-  * `en-fa` — English-Persian
-  * `en-fi` — English-Finnish
-  * `en-fr` — English-French
-  * `en-ga` — English-Irish
-  * `en-gd` — English-Gaelic
-  * `en-gl` — English-Galician
-  * `en-gu` — English-Gujarati
-  * `en-he` — English-Hebrew
-  * `en-hi` — English-Hindi
-  * `en-ht` — English-Haitian
-  * `en-hu` — English-Hungarian
-  * `en-id` — English-Indonesian
-  * `en-is` — English-Icelandic
-  * `en-it` — English-Italian
-  * `en-ja` — English-Japanese
-  * `en-jv` — English-Javanese
-  * `en-ka` — English-Georgian
-  * `en-km` — English-Khmer
-  * `en-kn` — English-Kannada
-  * `en-ko` — English-Korean
-  * `en-la` — English-Latin
-  * `en-lo` — English-Lao
-  * `en-lt` — English-Lithuanian
-  * `en-lv` — English-Latvian
-  * `en-mg` — English-Malagasy
-  * `en-mi` — English-Maori
-  * `en-mk` — English-Macedonian
-  * `en-ml` — English-Malayalam
-  * `en-mn` — English-Mongolian
-  * `en-mr` — English-Marathi
-  * `en-ms` — English-Malay
-  * `en-mt` — English-Maltese
-  * `en-my` — English-Burmese
-  * `en-ne` — English-Nepali
-  * `en-nl` — English-Dutch
-  * `en-no` — English-Norwegian
-  * `en-pa` — English-Punjabi
-  * `en-pt` — English-Portuguese
-  * `en-ro` — English-Romanian
-  * `en-ru` — English-Russian
-  * `en-si` — English-Sinhala
-  * `en-sk` — English-Slovak
-  * `en-sl` — English-Slovenian
-  * `en-sq` — English-Albanian
-  * `en-su` — English-Sundanese
-  * `en-sv` — English-Swedish
-  * `en-sw` — English-Swahili
-  * `en-ta` — English-Tamil
-  * `en-te` — English-Telugu
-  * `en-th` — English-Thai
-  * `en-tl` — English-Tagalog
-  * `en-tr` — English-Turkish
-  * `en-ur` — English-Urdu
-  * `en-uz` — English-Uzbek
-  * `en-vi` — English-Vietnamese
-  * `en-xh` — English-Xhosa
-  * `en-yi` — English-Yiddish
-  * `en-zh` — English-Chinese
-  * `eo-en` — Esperanto-English
-  * `es-de` — Spanish-German
-  * `es-en` — Spanish-English
-  * `es-pt` — Spanish-Portuguese
-  * `es-ru` — Spanish-Russian
-  * `et-en` — Estonian-English
-  * `et-ru` — Estonian-Russian
-  * `eu-en` — Basque-English
-  * `fa-en` — Persian-English
-  * `fi-en` — Finnish-English
-  * `fr-de` — French-German
-  * `fr-en` — French-English
-  * `fr-ru` — French-Russian
-  * `ga-en` — Irish-English
-  * `gd-en` — Gaelic-English
-  * `gl-en` — Galician-English
-  * `gu-en` — Gujarati-English
-  * `he-en` — Hebrew-English
-  * `hi-en` — Hindi-English
-  * `hr-ru` — Croatian-Russian
-  * `ht-en` — Haitian-English
-  * `hu-en` — Hungarian-English
-  * `hy-ru` — Armenian-Russian
-  * `id-en` — Indonesian-English
-  * `is-en` — Icelandic-English
-  * `it-de` — Italian-German
-  * `it-en` — Italian-English
-  * `it-ru` — Italian-Russian
-  * `ja-en` — Japanese-English
-  * `jv-en` — Javanese-English
-  * `ka-en` — Georgian-English
-  * `kk-ru` — Kazakh-Russian
-  * `km-en` — Khmer-English
-  * `kn-en` — Kannada-English
-  * `ko-en` — Korean-English
-  * `ky-ru` — Kyrgyz-Russian
-  * `la-en` — Latin-English
-  * `lb-de` — Luxembourgish-German
-  * `lo-en` — Lao-English
-  * `lt-en` — Lithuanian-English
-  * `lt-ru` — Lithuanian-Russian
-  * `lv-en` — Latvian-English
-  * `lv-ru` — Latvian-Russian
-  * `mg-en` — Malagasy-English
-  * `mi-en` — Maori-English
-  * `mk-en` — Macedonian-English
-  * `ml-en` — Malayalam-English
-  * `mn-en` — Mongolian-English
-  * `mr-en` — Marathi-English
-  * `ms-en` — Malay-English
-  * `mt-en` — Maltese-English
-  * `my-en` — Burmese-English
-  * `ne-en` — Nepalese-English
-  * `nl-en` — Dutch-English
-  * `no-en` — Norwegian-English
-  * `pa-en` — Punjabi-English
-  * `pl-ru` — Polish-Russian
-  * `pt-en` — Portuguese-English
-  * `pt-es` — Portuguese-Spanish
-  * `pt-ru` — Portuguese-Russian
-  * `ro-en` — Romanian-English
-  * `ro-ru` — Romanian-Russian
-  * `ru-az` — Russian-Azerbaijani
-  * `ru-ba` — Russian-Bashkir
-  * `ru-be` — Russian-Belarusian
-  * `ru-bg` — Russian-Bulgarian
-  * `ru-cs` — Russian-Czech
-  * `ru-de` — Russian-German
-  * `ru-el` — Russian-Greek
-  * `ru-en` — Russian-English
-  * `ru-es` — Russian-Spanish
-  * `ru-et` — Russian-Estonian
-  * `ru-fr` — Russian-French
-  * `ru-hr` — Russian-Croatian
-  * `ru-hy` — Russian-Armenian
-  * `ru-it` — Russian-Italian
-  * `ru-kk` — Russian-Kazakh
-  * `ru-ky` — Russian-Kyrgyz
-  * `ru-lt` — Russian-Lithuanian
-  * `ru-lv` — Russian-Latvian
-  * `ru-pl` — Russian-Polish
-  * `ru-pt` — Russian-Portuguese
-  * `ru-ro` — Russian-Romanian
-  * `ru-sr` — Russian-Serbian
-  * `ru-tg` — Russian-Tajik
-  * `ru-tr` — Russian-Turkish
-  * `ru-tt` — Russian-Tatar
-  * `ru-uk` — Russian-Ukrainian
-  * `ru-uz` — Russian-Uzbek
-  * `si-en` — Sinhala-English
-  * `sk-en` — Slovak-English
-  * `sl-en` — Slovenian-English
-  * `sq-en` — Albanian-English
-  * `sr-ru` — Serbian-Russian
-  * `su-en` — Sundanese-English
-  * `sv-en` — Swedish-English
-  * `sw-en` — Swahili-English
-  * `ta-en` — Tamil-English
-  * `te-en` — Telugu-English
-  * `tg-ru` — Tajik-Russian
-  * `th-en` — Thai-English
-  * `tl-en` — Tagalog-English
-  * `tr-en` — Turkish-English
-  * `tr-ru` — Turkish-Russian
-  * `tt-ba` — Tatar-Bashkir
-  * `tt-ru` — Tatar-Russian
-  * `uk-ru` — Ukrainian-Russian
-  * `ur-en` — Urdu-English
-  * `uz-en` — Uzbek-English
-  * `uz-ru` — Uzbek-Russian
-  * `vi-en` — Vietnamese-English
-  * `xh-en` — Xhosa-English
-  * `yi-en` — Yiddish-English
-  * `zh-en` — Chinese-English
-  * `zh-ru` — Chinese-Russian
+
+   * `af-en`: Afrikaans-English
+   * `am-en`: Amharic-English
+   * `ar-en`: Arabic-English
+   * `az-en`: Azerbaijani-English
+   * `az-ru`: Azerbaijani-Russian
+   * `ba-ru`: Bashkir-Russian
+   * `ba-tt`: Bashkir-Tatar
+   * `be-ru`: Belarusian-Russian
+   * `bg-ru`: Bulgarian-Russian
+   * `bn-en`: Bengali-English
+   * `bs-en`: Bosnian-English
+   * `ca-en`: Catalan-English
+   * `cs-en`: Czech-English
+   * `cs-ru`: Czech-Russian
+   * `cy-en`: Welsh-English
+   * `da-en`: Danish-English
+   * `de-en`: German-English
+   * `de-es`: German-Spanish
+   * `de-fr`: German-French
+   * `de-it`: German-Italian
+   * `de-lb`: German-Luxembourgish
+   * `de-ru`: German-Russian
+   * `el-en`: Greek-English
+   * `el-ru`: Greek-Russian
+   * `en-af`: English-Afrikaans
+   * `en-am`: English-Amharic
+   * `en-ar`: English-Arabic
+   * `en-bn`: English-Bengali
+   * `en-bs`: English-Bosnian
+   * `en-ca`: English-Catalan
+   * `en-cs`: English-Czech
+   * `en-cy`: English-Welsh
+   * `en-da`: English-Danish
+   * `en-de`: English-German
+   * `en-el`: English-Greek
+   * `en-eo`: English-Esperanto
+   * `en-es`: English-Spanish
+   * `en-et`: English-Estonian
+   * `en-eu`: English-Basque
+   * `en-fa`: English-Persian
+   * `en-fi`: English-Finnish
+   * `en-fr`: English-French
+   * `en-ga`: English-Irish
+   * `en-gd`: English-Gaelic
+   * `en-gl`: English-Galician
+   * `en-gu`: English-Gujarati
+   * `en-he`: English-Hebrew
+   * `en-hi`: English-Hindi
+   * `en-ht`: English-Haitian
+   * `en-hu`: English-Hungarian
+   * `en-id`: English-Indonesian
+   * `en-is`: English-Icelandic
+   * `en-it`: English-Italian
+   * `en-ja`: English-Japanese
+   * `en-jv`: English-Javanese
+   * `en-ka`: English-Georgian
+   * `en-km`: English-Khmer
+   * `en-kn`: English-Kannada
+   * `en-ko`: English-Korean
+   * `en-la`: English-Latin
+   * `en-lo`: English-Lao
+   * `en-lt`: English-Lithuanian
+   * `en-lv`: English-Latvian
+   * `en-mg`: English-Malagasy
+   * `en-mi`: English-Maori
+   * `en-mk`: English-Macedonian
+   * `en-ml`: English-Malayalam
+   * `en-mn`: English-Mongolian
+   * `en-mr`: English-Marathi
+   * `en-ms`: English-Malay
+   * `en-mt`: English-Maltese
+   * `en-my`: English-Burmese
+   * `en-ne`: English-Nepali
+   * `en-nl`: English-Dutch
+   * `en-no`: English-Norwegian
+   * `en-pa`: English-Punjabi
+   * `en-pt`: English-Portuguese
+   * `en-ro`: English-Romanian
+   * `en-ru`: English-Russian
+   * `en-si`: English-Sinhala
+   * `en-sk`: English-Slovak
+   * `en-sl`: English-Slovenian
+   * `en-sq`: English-Albanian
+   * `en-su`: English-Sundanese
+   * `en-sv`: English-Swedish
+   * `en-sw`: English-Swahili
+   * `en-ta`: English-Tamil
+   * `en-te`: English-Telugu
+   * `en-th`: English-Thai
+   * `en-tl`: English-Tagalog
+   * `en-tr`: English-Turkish
+   * `en-ur`: English-Urdu
+   * `en-uz`: English-Uzbek
+   * `en-vi`: English-Vietnamese
+   * `en-xh`: English-Xhosa
+   * `en-yi`: English-Yiddish
+   * `en-zh`: English-Chinese
+   * `eo-en`: Esperanto-English
+   * `es-de`: Spanish-German
+   * `es-en`: Spanish-English
+   * `es-pt`: Spanish-Portuguese
+   * `es-ru`: Spanish-Russian
+   * `et-en`: Estonian-English
+   * `et-ru`: Estonian-Russian
+   * `eu-en`: Basque-English
+   * `fa-en`: Persian-English
+   * `fi-en`: Finnish-English
+   * `fr-de`: French-German
+   * `fr-en`: French-English
+   * `fr-ru`: French-Russian
+   * `ga-en`: Irish-English
+   * `gd-en`: Gaelic-English
+   * `gl-en`: Galician-English
+   * `gu-en`: Gujarati-English
+   * `he-en`: Hebrew-English
+   * `hi-en`: Hindi-English
+   * `hr-ru`: Croatian-Russian
+   * `ht-en`: Haitian-English
+   * `hu-en`: Hungarian-English
+   * `hy-ru`: Armenian-Russian
+   * `id-en`: Indonesian-English
+   * `is-en`: Icelandic-English
+   * `it-de`: Italian-German
+   * `it-en`: Italian-English
+   * `it-ru`: Italian-Russian
+   * `ja-en`: Japanese-English
+   * `jv-en`: Javanese-English
+   * `ka-en`: Georgian-English
+   * `kk-ru`: Kazakh-Russian
+   * `km-en`: Khmer-English
+   * `kn-en`: Kannada-English
+   * `ko-en`: Korean-English
+   * `ky-ru`: Kyrgyz-Russian
+   * `la-en`: Latin-English
+   * `lb-de`: Luxembourgish-German
+   * `lo-en`: Lao-English
+   * `lt-en`: Lithuanian-English
+   * `lt-ru`: Lithuanian-Russian
+   * `lv-en`: Latvian-English
+   * `lv-ru`: Latvian-Russian
+   * `mg-en`: Malagasy-English
+   * `mi-en`: Maori-English
+   * `mk-en`: Macedonian-English
+   * `ml-en`: Malayalam-English
+   * `mn-en`: Mongolian-English
+   * `mr-en`: Marathi-English
+   * `ms-en`: Malay-English
+   * `mt-en`: Maltese-English
+   * `my-en`: Burmese-English
+   * `ne-en`: Nepalese-English
+   * `nl-en`: Dutch-English
+   * `no-en`: Norwegian-English
+   * `pa-en`: Punjabi-English
+   * `pl-ru`: Polish-Russian
+   * `pt-en`: Portuguese-English
+   * `pt-es`: Portuguese-Spanish
+   * `pt-ru`: Portuguese-Russian
+   * `ro-en`: Romanian-English
+   * `ro-ru`: Romanian-Russian
+   * `ru-az`: Russian-Azerbaijani
+   * `ru-ba`: Russian-Bashkir
+   * `ru-be`: Russian-Belarusian
+   * `ru-bg`: Russian-Bulgarian
+   * `ru-cs`: Russian-Czech
+   * `ru-de`: Russian-German
+   * `ru-el`: Russian-Greek
+   * `ru-en`: Russian-English
+   * `ru-es`: Russian-Spanish
+   * `ru-et`: Russian-Estonian
+   * `ru-fr`: Russian-French
+   * `ru-hr`: Russian-Croatian
+   * `ru-hy`: Russian-Armenian
+   * `ru-it`: Russian-Italian
+   * `ru-kk`: Russian-Kazakh
+   * `ru-ky`: Russian-Kyrgyz
+   * `ru-lt`: Russian-Lithuanian
+   * `ru-lv`: Russian-Latvian
+   * `ru-pl`: Russian-Polish
+   * `ru-pt`: Russian-Portuguese
+   * `ru-ro`: Russian-Romanian
+   * `ru-sr`: Russian-Serbian
+   * `ru-tg`: Russian-Tajik
+   * `ru-tr`: Russian-Turkish
+   * `ru-tt`: Russian-Tatar
+   * `ru-uk`: Russian-Ukrainian
+   * `ru-uz`: Russian-Uzbek
+   * `si-en`: Sinhala-English
+   * `sk-en`: Slovak-English
+   * `sl-en`: Slovenian-English
+   * `sq-en`: Albanian-English
+   * `sr-ru`: Serbian-Russian
+   * `su-en`: Sundanese-English
+   * `sv-en`: Swedish-English
+   * `sw-en`: Swahili-English
+   * `ta-en`: Tamil-English
+   * `te-en`: Telugu-English
+   * `tg-ru`: Tajik-Russian
+   * `th-en`: Thai-English
+   * `tl-en`: Tagalog-English
+   * `tr-en`: Turkish-English
+   * `tr-ru`: Turkish-Russian
+   * `tt-ba`: Tatar-Bashkir
+   * `tt-ru`: Tatar-Russian
+   * `uk-ru`: Ukrainian-Russian
+   * `ur-en`: Urdu-English
+   * `uz-en`: Uzbek-English
+   * `uz-ru`: Uzbek-Russian
+   * `vi-en`: Vietnamese-English
+   * `xh-en`: Xhosa-English
+   * `yi-en`: Yiddish-English
+   * `zh-en`: Chinese-English
+   * `zh-ru`: Chinese-Russian
 
 - By target language
-  * `en-af` — English-Afrikaans
-  * `en-am` — English-Amharic
-  * `en-ar` — English-Arabic
-  * `ru-az` — Russian-Azerbaijani
-  * `ru-ba` — Russian-Bashkir
-  * `tt-ba` — Tatar-Bashkir
-  * `ru-be` — Russian-Belarusian
-  * `ru-bg` — Russian-Bulgarian
-  * `en-bn` — English-Bengali
-  * `en-bs` — English-Bosnian
-  * `en-ca` — English-Catalan
-  * `en-cs` — English-Czech
-  * `ru-cs` — Russian-Czech
-  * `en-cy` — English-Welsh
-  * `en-da` — English-Danish
-  * `en-de` — English-German
-  * `es-de` — Spanish-German
-  * `fr-de` — French-German
-  * `it-de` — Italian-German
-  * `lb-de` — Luxembourgish-German
-  * `ru-de` — Russian-German
-  * `en-el` — English-Greek
-  * `ru-el` — Russian-Greek
-  * `af-en` — Afrikaans-English
-  * `am-en` — Amharic-English
-  * `ar-en` — Arabic-English
-  * `az-en` — Azerbaijani-English
-  * `bn-en` — Bengali-English
-  * `bs-en` — Bosnian-English
-  * `ca-en` — Catalan-English
-  * `cs-en` — Czech-English
-  * `cy-en` — Welsh-English
-  * `da-en` — Danish-English
-  * `de-en` — German-English
-  * `el-en` — Greek-English
-  * `eo-en` — Esperanto-English
-  * `es-en` — Spanish-English
-  * `et-en` — Estonian-English
-  * `eu-en` — Basque-English
-  * `fa-en` — Persian-English
-  * `fi-en` — Finnish-English
-  * `fr-en` — French-English
-  * `ga-en` — Irish-English
-  * `gd-en` — Gaelic-English
-  * `gl-en` — Galician-English
-  * `gu-en` — Gujarati-English
-  * `he-en` — Hebrew-English
-  * `hi-en` — Hindi-English
-  * `ht-en` — Haitian-English
-  * `hu-en` — Hungarian-English
-  * `id-en` — Indonesian-English
-  * `is-en` — Icelandic-English
-  * `it-en` — Italian-English
-  * `ja-en` — Japanese-English
-  * `jv-en` — Javanese-English
-  * `ka-en` — Georgian-English
-  * `km-en` — Khmer-English
-  * `kn-en` — Kannada-English
-  * `ko-en` — Korean-English
-  * `la-en` — Latin-English
-  * `lo-en` — Lao-English
-  * `lt-en` — Lithuanian-English
-  * `lv-en` — Latvian-English
-  * `mg-en` — Malagasy-English
-  * `mi-en` — Maori-English
-  * `mk-en` — Macedonian-English
-  * `ml-en` — Malayalam-English
-  * `mn-en` — Mongolian-English
-  * `mr-en` — Marathi-English
-  * `ms-en` — Malay-English
-  * `mt-en` — Maltese-English
-  * `my-en` — Burmese-English
-  * `ne-en` — Nepalese-English
-  * `nl-en` — Dutch-English
-  * `no-en` — Norwegian-English
-  * `pa-en` — Punjabi-English
-  * `pt-en` — Portuguese-English
-  * `ro-en` — Romanian-English
-  * `ru-en` — Russian-English
-  * `si-en` — Sinhala-English
-  * `sk-en` — Slovak-English
-  * `sl-en` — Slovenian-English
-  * `sq-en` — Albanian-English
-  * `su-en` — Sundanese-English
-  * `sv-en` — Swedish-English
-  * `sw-en` — Swahili-English
-  * `ta-en` — Tamil-English
-  * `te-en` — Telugu-English
-  * `th-en` — Thai-English
-  * `tl-en` — Tagalog-English
-  * `tr-en` — Turkish-English
-  * `ur-en` — Urdu-English
-  * `uz-en` — Uzbek-English
-  * `vi-en` — Vietnamese-English
-  * `xh-en` — Xhosa-English
-  * `yi-en` — Yiddish-English
-  * `zh-en` — Chinese-English
-  * `en-eo` — English-Esperanto
-  * `de-es` — German-Spanish
-  * `en-es` — English-Spanish
-  * `pt-es` — Portuguese-Spanish
-  * `ru-es` — Russian-Spanish
-  * `en-et` — English-Estonian
-  * `ru-et` — Russian-Estonian
-  * `en-eu` — English-Basque
-  * `en-fa` — English-Persian
-  * `en-fi` — English-Finnish
-  * `de-fr` — German-French
-  * `en-fr` — English-French
-  * `ru-fr` — Russian-French
-  * `en-ga` — English-Irish
-  * `en-gd` — English-Gaelic
-  * `en-gl` — English-Galician
-  * `en-gu` — English-Gujarati
-  * `en-he` — English-Hebrew
-  * `en-hi` — English-Hindi
-  * `ru-hr` — Russian-Croatian
-  * `en-ht` — English-Haitian
-  * `en-hu` — English-Hungarian
-  * `ru-hy` — Russian-Armenian
-  * `en-id` — English-Indonesian
-  * `en-is` — English-Icelandic
-  * `de-it` — German-Italian
-  * `en-it` — English-Italian
-  * `ru-it` — Russian-Italian
-  * `en-ja` — English-Japanese
-  * `en-jv` — English-Javanese
-  * `en-ka` — English-Georgian
-  * `ru-kk` — Russian-Kazakh
-  * `en-km` — English-Khmer
-  * `en-kn` — English-Kannada
-  * `en-ko` — English-Korean
-  * `ru-ky` — Russian-Kyrgyz
-  * `en-la` — English-Latin
-  * `de-lb` — German-Luxembourgish
-  * `en-lo` — English-Lao
-  * `en-lt` — English-Lithuanian
-  * `ru-lt` — Russian-Lithuanian
-  * `en-lv` — English-Latvian
-  * `ru-lv` — Russian-Latvian
-  * `en-mg` — English-Malagasy
-  * `en-mi` — English-Maori
-  * `en-mk` — English-Macedonian
-  * `en-ml` — English-Malayalam
-  * `en-mn` — English-Mongolian
-  * `en-mr` — English-Marathi
-  * `en-ms` — English-Malay
-  * `en-mt` — English-Maltese
-  * `en-my` — English-Burmese
-  * `en-ne` — English-Nepali
-  * `en-nl` — English-Dutch
-  * `en-no` — English-Norwegian
-  * `en-pa` — English-Punjabi
-  * `ru-pl` — Russian-Polish
-  * `en-pt` — English-Portuguese
-  * `es-pt` — Spanish-Portuguese
-  * `ru-pt` — Russian-Portuguese
-  * `en-ro` — English-Romanian
-  * `ru-ro` — Russian-Romanian
-  * `az-ru` — Azerbaijani-Russian
-  * `ba-ru` — Bashkir-Russian
-  * `be-ru` — Belarusian-Russian
-  * `bg-ru` — Bulgarian-Russian
-  * `cs-ru` — Czech-Russian
-  * `de-ru` — German-Russian
-  * `el-ru` — Greek-Russian
-  * `en-ru` — English-Russian
-  * `es-ru` — Spanish-Russian
-  * `et-ru` — Estonian-Russian
-  * `fr-ru` — French-Russian
-  * `hr-ru` — Croatian-Russian
-  * `hy-ru` — Armenian-Russian
-  * `it-ru` — Italian-Russian
-  * `kk-ru` — Kazakh-Russian
-  * `ky-ru` — Kyrgyz-Russian
-  * `lt-ru` — Lithuanian-Russian
-  * `lv-ru` — Latvian-Russian
-  * `pl-ru` — Polish-Russian
-  * `pt-ru` — Portuguese-Russian
-  * `ro-ru` — Romanian-Russian
-  * `sr-ru` — Serbian-Russian
-  * `tg-ru` — Tajik-Russian
-  * `tr-ru` — Turkish-Russian
-  * `tt-ru` — Tatar-Russian
-  * `uk-ru` — Ukrainian-Russian
-  * `uz-ru` — Uzbek-Russian
-  * `zh-ru` — Chinese-Russian
-  * `en-si` — English-Sinhala
-  * `en-sk` — English-Slovak
-  * `en-sl` — English-Slovenian
-  * `en-sq` — English-Albanian
-  * `ru-sr` — Russian-Serbian
-  * `en-su` — English-Sundanese
-  * `en-sv` — English-Swedish
-  * `en-sw` — English-Swahili
-  * `en-ta` — English-Tamil
-  * `en-te` — English-Telugu
-  * `ru-tg` — Russian-Tajik
-  * `en-th` — English-Thai
-  * `en-tl` — English-Tagalog
-  * `en-tr` — English-Turkish
-  * `ru-tr` — Russian-Turkish
-  * `ba-tt` — Bashkir-Tatar
-  * `ru-tt` — Russian-Tatar
-  * `ru-uk` — Russian-Ukrainian
-  * `en-ur` — English-Urdu
-  * `en-uz` — English-Uzbek
-  * `ru-uz` — Russian-Uzbek
-  * `en-vi` — English-Vietnamese
-  * `en-xh` — English-Xhosa
-  * `en-yi` — English-Yiddish
-  * `en-zh` — English-Chinese
+
+   * `en-af`: English-Afrikaans
+   * `en-am`: English-Amharic
+   * `en-ar`: English-Arabic
+   * `ru-az`: Russian-Azerbaijani
+   * `ru-ba`: Russian-Bashkir
+   * `tt-ba`: Tatar-Bashkir
+   * `ru-be`: Russian-Belarusian
+   * `ru-bg`: Russian-Bulgarian
+   * `en-bn`: English-Bengali
+   * `en-bs`: English-Bosnian
+   * `en-ca`: English-Catalan
+   * `en-cs`: English-Czech
+   * `ru-cs`: Russian-Czech
+   * `en-cy`: English-Welsh
+   * `en-da`: English-Danish
+   * `en-de`: English-German
+   * `es-de`: Spanish-German
+   * `fr-de`: French-German
+   * `it-de`: Italian-German
+   * `lb-de`: Luxembourgish-German
+   * `ru-de`: Russian-German
+   * `en-el`: English-Greek
+   * `ru-el`: Russian-Greek
+   * `af-en`: Afrikaans-English
+   * `am-en`: Amharic-English
+   * `ar-en`: Arabic-English
+   * `az-en`: Azerbaijani-English
+   * `bn-en`: Bengali-English
+   * `bs-en`: Bosnian-English
+   * `ca-en`: Catalan-English
+   * `cs-en`: Czech-English
+   * `cy-en`: Welsh-English
+   * `da-en`: Danish-English
+   * `de-en`: German-English
+   * `el-en`: Greek-English
+   * `eo-en`: Esperanto-English
+   * `es-en`: Spanish-English
+   * `et-en`: Estonian-English
+   * `eu-en`: Basque-English
+   * `fa-en`: Persian-English
+   * `fi-en`: Finnish-English
+   * `fr-en`: French-English
+   * `ga-en`: Irish-English
+   * `gd-en`: Gaelic-English
+   * `gl-en`: Galician-English
+   * `gu-en`: Gujarati-English
+   * `he-en`: Hebrew-English
+   * `hi-en`: Hindi-English
+   * `ht-en`: Haitian-English
+   * `hu-en`: Hungarian-English
+   * `id-en`: Indonesian-English
+   * `is-en`: Icelandic-English
+   * `it-en`: Italian-English
+   * `ja-en`: Japanese-English
+   * `jv-en`: Javanese-English
+   * `ka-en`: Georgian-English
+   * `km-en`: Khmer-English
+   * `kn-en`: Kannada-English
+   * `ko-en`: Korean-English
+   * `la-en`: Latin-English
+   * `lo-en`: Lao-English
+   * `lt-en`: Lithuanian-English
+   * `lv-en`: Latvian-English
+   * `mg-en`: Malagasy-English
+   * `mi-en`: Maori-English
+   * `mk-en`: Macedonian-English
+   * `ml-en`: Malayalam-English
+   * `mn-en`: Mongolian-English
+   * `mr-en`: Marathi-English
+   * `ms-en`: Malay-English
+   * `mt-en`: Maltese-English
+   * `my-en`: Burmese-English
+   * `ne-en`: Nepalese-English
+   * `nl-en`: Dutch-English
+   * `no-en`: Norwegian-English
+   * `pa-en`: Punjabi-English
+   * `pt-en`: Portuguese-English
+   * `ro-en`: Romanian-English
+   * `ru-en`: Russian-English
+   * `si-en`: Sinhala-English
+   * `sk-en`: Slovak-English
+   * `sl-en`: Slovenian-English
+   * `sq-en`: Albanian-English
+   * `su-en`: Sundanese-English
+   * `sv-en`: Swedish-English
+   * `sw-en`: Swahili-English
+   * `ta-en`: Tamil-English
+   * `te-en`: Telugu-English
+   * `th-en`: Thai-English
+   * `tl-en`: Tagalog-English
+   * `tr-en`: Turkish-English
+   * `ur-en`: Urdu-English
+   * `uz-en`: Uzbek-English
+   * `vi-en`: Vietnamese-English
+   * `xh-en`: Xhosa-English
+   * `yi-en`: Yiddish-English
+   * `zh-en`: Chinese-English
+   * `en-eo`: English-Esperanto
+   * `de-es`: German-Spanish
+   * `en-es`: English-Spanish
+   * `pt-es`: Portuguese-Spanish
+   * `ru-es`: Russian-Spanish
+   * `en-et`: English-Estonian
+   * `ru-et`: Russian-Estonian
+   * `en-eu`: English-Basque
+   * `en-fa`: English-Persian
+   * `en-fi`: English-Finnish
+   * `de-fr`: German-French
+   * `en-fr`: English-French
+   * `ru-fr`: Russian-French
+   * `en-ga`: English-Irish
+   * `en-gd`: English-Gaelic
+   * `en-gl`: English-Galician
+   * `en-gu`: English-Gujarati
+   * `en-he`: English-Hebrew
+   * `en-hi`: English-Hindi
+   * `ru-hr`: Russian-Croatian
+   * `en-ht`: English-Haitian
+   * `en-hu`: English-Hungarian
+   * `ru-hy`: Russian-Armenian
+   * `en-id`: English-Indonesian
+   * `en-is`: English-Icelandic
+   * `de-it`: German-Italian
+   * `en-it`: English-Italian
+   * `ru-it`: Russian-Italian
+   * `en-ja`: English-Japanese
+   * `en-jv`: English-Javanese
+   * `en-ka`: English-Georgian
+   * `ru-kk`: Russian-Kazakh
+   * `en-km`: English-Khmer
+   * `en-kn`: English-Kannada
+   * `en-ko`: English-Korean
+   * `ru-ky`: Russian-Kyrgyz
+   * `en-la`: English-Latin
+   * `de-lb`: German-Luxembourgish
+   * `en-lo`: English-Lao
+   * `en-lt`: English-Lithuanian
+   * `ru-lt`: Russian-Lithuanian
+   * `en-lv`: English-Latvian
+   * `ru-lv`: Russian-Latvian
+   * `en-mg`: English-Malagasy
+   * `en-mi`: English-Maori
+   * `en-mk`: English-Macedonian
+   * `en-ml`: English-Malayalam
+   * `en-mn`: English-Mongolian
+   * `en-mr`: English-Marathi
+   * `en-ms`: English-Malay
+   * `en-mt`: English-Maltese
+   * `en-my`: English-Burmese
+   * `en-ne`: English-Nepali
+   * `en-nl`: English-Dutch
+   * `en-no`: English-Norwegian
+   * `en-pa`: English-Punjabi
+   * `ru-pl`: Russian-Polish
+   * `en-pt`: English-Portuguese
+   * `es-pt`: Spanish-Portuguese
+   * `ru-pt`: Russian-Portuguese
+   * `en-ro`: English-Romanian
+   * `ru-ro`: Russian-Romanian
+   * `az-ru`: Azerbaijani-Russian
+   * `ba-ru`: Bashkir-Russian
+   * `be-ru`: Belarusian-Russian
+   * `bg-ru`: Bulgarian-Russian
+   * `cs-ru`: Czech-Russian
+   * `de-ru`: German-Russian
+   * `el-ru`: Greek-Russian
+   * `en-ru`: English-Russian
+   * `es-ru`: Spanish-Russian
+   * `et-ru`: Estonian-Russian
+   * `fr-ru`: French-Russian
+   * `hr-ru`: Croatian-Russian
+   * `hy-ru`: Armenian-Russian
+   * `it-ru`: Italian-Russian
+   * `kk-ru`: Kazakh-Russian
+   * `ky-ru`: Kyrgyz-Russian
+   * `lt-ru`: Lithuanian-Russian
+   * `lv-ru`: Latvian-Russian
+   * `pl-ru`: Polish-Russian
+   * `pt-ru`: Portuguese-Russian
+   * `ro-ru`: Romanian-Russian
+   * `sr-ru`: Serbian-Russian
+   * `tg-ru`: Tajik-Russian
+   * `tr-ru`: Turkish-Russian
+   * `tt-ru`: Tatar-Russian
+   * `uk-ru`: Ukrainian-Russian
+   * `uz-ru`: Uzbek-Russian
+   * `zh-ru`: Chinese-Russian
+   * `en-si`: English-Sinhala
+   * `en-sk`: English-Slovak
+   * `en-sl`: English-Slovenian
+   * `en-sq`: English-Albanian
+   * `ru-sr`: Russian-Serbian
+   * `en-su`: English-Sundanese
+   * `en-sv`: English-Swedish
+   * `en-sw`: English-Swahili
+   * `en-ta`: English-Tamil
+   * `en-te`: English-Telugu
+   * `ru-tg`: Russian-Tajik
+   * `en-th`: English-Thai
+   * `en-tl`: English-Tagalog
+   * `en-tr`: English-Turkish
+   * `ru-tr`: Russian-Turkish
+   * `ba-tt`: Bashkir-Tatar
+   * `ru-tt`: Russian-Tatar
+   * `ru-uk`: Russian-Ukrainian
+   * `en-ur`: English-Urdu
+   * `en-uz`: English-Uzbek
+   * `ru-uz`: Russian-Uzbek
+   * `en-vi`: English-Vietnamese
+   * `en-xh`: English-Xhosa
+   * `en-yi`: English-Yiddish
+   * `en-zh`: English-Chinese
 
 {% endlist %}

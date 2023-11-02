@@ -12,7 +12,7 @@ You can choose between these two types of main tasks in {{ captcha-name }}:
 
   {% cut "Checkbox" %}
 
-  ![image](../../_assets/smartcaptcha/checkbox-task.gif)
+  ![image](../../_assets/smartcaptcha/checkbox-task.gif =370x105)
 
   {% endcut %}
 
@@ -26,7 +26,7 @@ You can choose between these two types of main tasks in {{ captcha-name }}:
 
   {% cut "Slider" %}
 
-  ![image](../../_assets/smartcaptcha/slider-task.gif =370x93)
+  ![image](../../_assets/smartcaptcha/slider-task.gif =370x127)
 
   {% endcut %}
 
@@ -40,7 +40,7 @@ There are several types of additional tasks in {{ captcha-name }}:
 
   {% cut "Text recognition" %}
 
-  ![image](../../_assets/smartcaptcha/text-task.gif =370x401)
+  ![image](../../_assets/smartcaptcha/text-task.gif =370x427)
 
   {% endcut %}
 
@@ -54,7 +54,7 @@ There are several types of additional tasks in {{ captcha-name }}:
 
   {% cut "Silhouettes" %}
 
-  ![image](../../_assets/smartcaptcha/silhouette-task.gif)
+  ![image](../../_assets/smartcaptcha/silhouette-task.gif =370x393)
 
   {% endcut %}
 
@@ -68,6 +68,6 @@ There are several types of additional tasks in {{ captcha-name }}:
 
   {% cut "Kaleidoscope" %}
 
-  ![image](../../_assets/smartcaptcha/kaleidoscope-task.gif =370x405)
+  ![image](../../_assets/smartcaptcha/kaleidoscope-task.gif =370x415)
 
   {% endcut %}

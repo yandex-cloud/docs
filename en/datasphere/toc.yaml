@@ -75,6 +75,8 @@ items:
             href: operations/projects/clear-outputs.md
           - name: Working with Git
             href: operations/projects/work-with-git.md
+          - name: Running a job in {{ ml-platform-name }} Jobs
+            href: operations/projects/work-with-jobs.md
           - name: Running a Docker container in a separate cell
             href: operations/user-images-cell.md
       - name: Working with resources

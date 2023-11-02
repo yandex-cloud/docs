@@ -1,6 +1,6 @@
 ---
 title: "How to delete a service account"
-description: "This guide describes how you can delete a service account."
+description: "Follow this guide to delete a service account."
 ---
 
 # Deleting a service account
@@ -57,7 +57,7 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To delete a service account:
 

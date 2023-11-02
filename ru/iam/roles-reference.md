@@ -613,10 +613,6 @@ description: "В статье приведен полный справочник
 
 {% include [iot-editor](../_roles/iot/iot-editor.md) %}
 
-#### iot.admin {#iot-admin}
-
-{% include [iot-admin](../_roles/iot/iot-admin.md) %}
-
 Подробнее см. [{#T}](../iot-core/security/index.md).
 
 
@@ -715,6 +711,23 @@ description: "В статье приведен полный справочник
 Подробнее см. [{#T}](../lockbox/security/index.md).
 
 
+## {{ maf-full-name }} {#managed-airflow-roles}
+
+#### managed-airflow.viewer {#managed-airflow-viewer}
+
+{% include [managed-airflow.viewer](../_roles/airflow/airflow-viewer.md) %}
+
+#### managed-airflow.editor {#managed-airflow-editor}
+
+{% include [managed-airflow.editor](../_roles/airflow/airflow-editor.md) %}
+
+#### managed-airflow.admin {#managed-airflow-admin}
+
+{% include [managed-airflow.admin](../_roles/airflow/airflow-admin.md) %}
+
+Подробнее см. [{#T}](../managed-airflow/security/index.md).
+
+
 ## {{ mkf-full-name }} {#managed-kafka-roles}
 
 #### managed-kafka.auditor {#managed-kafka-auditor}
@@ -758,10 +771,6 @@ description: "В статье приведен полный справочник
 
 
 ## {{ mes-full-name }} {#managed-elasticsearch-roles}
-
-#### managed-elasticsearch.auditor {#managed-elasticsearch-auditor}
-
-{% include [managed-elasticsearch.auditor](../_roles/elasticsearch/elasticsearch-auditor.md) %}
 
 #### managed-elasticsearch.viewer {#managed-elasticsearch-viewer}
 
@@ -1059,6 +1068,27 @@ description: "В статье приведен полный справочник
 Подробнее см. [{#T}](../storage/security/index.md).
 
 
+## {{ yq-full-name }} {#query-roles}
+
+#### yq.viewer {#query-viewer}
+
+{% include [query.viewer](../_roles/yq/yq-viewer.md) %}
+
+#### yq.editor {#query-editor}
+
+{% include [query.editor](../_roles/yq/yq-editor.md) %}
+
+#### yq.admin {#query-admin}
+
+{% include [query.admin](../_roles/yq/yq-admin.md) %}
+
+#### yq.invoker {#query-invoker}
+
+{% include [query.invoker](../_roles/yq/yq-invoker.md) %}
+
+Подробнее см. [{#T}](../query/security/index.md).
+
+
 ## {{ resmgr-full-name }} {#resource-manager-roles}
 
 #### resource-manager.auditor {#resource-manager-auditor}
@@ -1263,3 +1293,14 @@ description: "В статье приведен полный справочник
 {% include [vision-user](../_roles/vision/vision-user.md) %}
 
 Подробнее см. [{#T}](../vision/security/index.md).
+
+
+## {{ wiki-full-name }} {#wiki-roles}
+
+#### wiki.viewer {#wiki-viewer}
+
+{% include [wiki-viewer](../_roles/wiki/wiki-viewer.md) %}
+
+#### wiki.admin {#wiki-admin}
+
+{% include [wiki-admin](../_roles/wiki/wiki-admin.md) %}

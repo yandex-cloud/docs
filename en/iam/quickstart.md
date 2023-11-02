@@ -1,6 +1,6 @@
 # Getting started with {{ iam-short-name }}
 
-{{ iam-short-name }} allows you to manage access to {{ yandex-cloud }} resources. To get started with the service, add a user to an organization and grant them access to a resource in one of your clouds. [Learn more about organizations, resources, and users](../overview/roles-and-resources.md).
+To get started with {{ iam-short-name }}, add a user to your organization and grant them access to a resource in one of your clouds. [Learn more about organizations, resources, and users](../overview/roles-and-resources.md).
 
 ## Getting started {#before-you-begin}
 
@@ -8,16 +8,16 @@
 1. Log in to the [management console]({{ link-console-main }}). If you do not have an account yet, go to the management console and follow the guide.
 1. Make sure that you have the required [roles](./concepts/access-control/roles.md):
 
-   1. In the management console, select the appropriate cloud in the list on the left. For example:
+   1. In the management console, select the appropriate cloud from the list on the left. For example:
 
       ![image](../_assets/resource-manager/switch-cloud-n-n.png)
 
-   1. Click the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Specify your account in the search bar.
    1. Check that your account has the following roles:
 
-      * Organization owner (`organization-manager.organizations.owner`) or administrator (`organization-manager.admin`).
-      * Cloud owner (`resource-manager.clouds.owner`) or administrator (`admin`).
+      * Organization owner (`organization-manager.organizations.owner`) or organization administrator (`organization-manager.admin`).
+      * Cloud owner (`resource-manager.clouds.owner`) or cloud administrator (`admin`).
 
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have any users to add to the cloud, you can [create a new account](https://passport.yandex.com/registration) on Yandex and grant this account access to the cloud.
@@ -30,7 +30,7 @@
 
 {% note info %}
 
-You can also invite users to your organization directly, from your cloud page in the management console. For more, see the [instructions](./operations/users/create.md#add-useraccount).
+You can also invite users to your organization directly, from your cloud page in the management console. For more information, see [this guide](./operations/users/create.md#add-useraccount).
 
 {% endnote %}
 
@@ -77,8 +77,8 @@ If the user no longer needs the assigned roles, revoke them:
 
 ## What's next {#what-is-next}
 
-* The [step-by-step instructions](operations/index.md) will help you perform specific tasks in {{ iam-name }}.
-* Learn [about access management in {{ yandex-cloud }}](concepts/access-control/index.md).
+* The [step-by-step guides](operations/index.md) will help you perform specific tasks in {{ iam-name }}.
+* Learn about [access management in {{ yandex-cloud }}](concepts/access-control/index.md).
 * See the [best practices for using {{ yandex-cloud }} securely](best-practices/using-iam-securely.md).
 * Learn about [authentication in {{ yandex-cloud }}](concepts/authorization/index.md#authentication).
 * [Learn how to work with service accounts](quickstart-sa.md).
