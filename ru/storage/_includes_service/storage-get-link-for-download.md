@@ -1,5 +1,5 @@
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Выберите сервис **{{ objstorage-name }}**.
+1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Нажмите на имя необходимого бакета.
 1. Нажмите на имя объекта.
 1. Нажмите кнопку **{{ ui-key.yacloud.storage.file.button_generate }}** в правом верхнем углу.

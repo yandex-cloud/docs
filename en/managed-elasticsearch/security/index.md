@@ -34,8 +34,6 @@ The chart below shows which roles are available in the service and how they inhe
 
 ### Service roles {#service-roles}
 
-{% include [mes-auditor](../../_includes/iam/roles/mes-auditor.md) %}
-
 {% include [mes-viewer](../../_includes/iam/roles/mes-viewer.md) %}
 
 {% include [mes-editor](../../_includes/iam/roles/mes-editor.md) %}

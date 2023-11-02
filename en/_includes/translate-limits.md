@@ -13,7 +13,7 @@ The limits for using glossaries are as follows:
 
 - The number of pairs sent to glossaries must be **no more than 50**.
 
-- The total number of Unicode characters in this structure must be **no more than 20,000**. 10,000 characters per source text and 10,000 characters per target text.
+- The total number of Unicode characters in this structure must be **no more than 20,000**: 10,000 characters per source text and 10,000 characters per target text.
 
 {% note warning %}
 

@@ -65,7 +65,7 @@ description: "The article provides a full reference and description of roles for
 
 {% include [api-gateway.admin](../_roles/apigateway/apigateway-admin.md) %}
 
-For more information, see [{#T}](../api-gateway/security/index.md).
+Learn more in [Access management in {{ api-gw-name }}](../api-gateway/security/index.md).
 
 
 ## {{ alb-full-name }} {#alb-roles}
@@ -82,7 +82,7 @@ For more information, see [{#T}](../api-gateway/security/index.md).
 
 {% include [alb.admin](../_roles/apploadbalancer/apploadbalancer-admin.md) %}
 
-For more information, see [{#T}](../application-load-balancer/security/index.md).
+Learn more in [Access management in {{ alb-name }}](../application-load-balancer/security/index.md).
 
 
 ## {{ at-full-name }} {#at-roles}
@@ -107,20 +107,7 @@ For more information, see [{#T}](../application-load-balancer/security/index.md)
 
 {% include [audit-trails.configviewer](../_roles/audittrails/audittrails-configviewer.md) %}
 
-For more information, see [{#T}](../audit-trails/security/index.md).
-
-
-## {{ certificate-manager-full-name }} {#certificate-manager-roles}
-
-#### certificate-manager.admin {#certificate-manager-admin}
-
-{% include [certificate-manager.admin](../_roles/certificatemanager/certificatemanager-admin.md) %}
-
-#### certificate-manager.certificates.downloader {#certificate-manager-certificates-downloader}
-
-{% include [certificate-manager.certificates.downloader](../_roles/certificatemanager/certificatemanager-certificates-downloader.md) %}
-
-For more information, see [{#T}](../certificate-manager/security/index.md).
+Learn more in [Access management in {{ at-name }}](../audit-trails/security/index.md).
 
 
 ## {{ backup-full-name }} {#backup-roles}
@@ -137,7 +124,7 @@ For more information, see [{#T}](../certificate-manager/security/index.md).
 
 {% include [backup.admin](../_roles/backup/backup-admin.md) %}
 
-For more information, see [{#T}](../backup/security/index.md).
+Learn more in [Access management in {{ backup-name }}](../backup/security/index.md).
 
 
 ## {{ billing-name }} {#billing-roles}
@@ -170,7 +157,7 @@ For more information, see [{#T}](../backup/security/index.md).
 
 {% include [billing.partners.editor](../_roles/billing/billing-partners-editor.md) %}
 
-For more information, see [{#T}](../billing/security/index.md).
+Learn more in [Access management in {{ billing-name }}](../billing/security/index.md).
 
 
 ## {{ cdn-full-name }} {#cdn-roles}
@@ -187,7 +174,7 @@ For more information, see [{#T}](../billing/security/index.md).
 
 {% include [cdn-admin](../_roles/cdn/cdn-admin.md) %}
 
-For more information, see [{#T}](../cdn/security/index.md).
+Learn more in [Access management in {{ cdn-name }}](../cdn/security/index.md).
 
 
 ## {{ dns-full-name }} {#dns-roles}
@@ -219,79 +206,7 @@ For more information, see [{#T}](../dns/security/index.md).
 
 #### functions.viewer {#functions-viewer}
 
-{% include [functions.viewer](../_roles/functions/functions-viewer.md) %}
-
-#### functions.functionInvoker {#functions-functionInvoker}
-
-{% include [functions.functionInvoker](../_roles/functions/functions-functioninvoker.md) %}
-
-#### functions.editor {#functions-editor}
-
-{% include [functions.editor](../_roles/functions/functions-editor.md) %}
-
-#### functions.mdbProxiesUser {#functions-mdbProxiesUser}
-
-{% include [functions.mdbProxiesUser](../_roles/functions/functions-mdbproxiesuser.md) %}
-
-#### functions.admin {#functions-admin}
-
-{% include [functions.admin](../_roles/functions/functions-admin.md) %}
-
-For more information, see [{#T}](../functions/security/index.md).
-
-
-## {{ cloud-logging-full-name }} {#logging-roles}
-
-#### logging.viewer {#logging-viewer}
-
-{% include [logging.viewer](../_roles/logging/logging-viewer.md) %}
-
-#### logging.editor {#logging-editor}
-
-{% include [logging.editor](../_roles/logging/logging-editor.md) %}
-
-#### logging.reader {#logging-reader}
-
-{% include [logging.reader](../_roles/logging/logging-reader.md) %}
-
-#### logging.writer {#logging-writer}
-
-{% include [logging.writer](../_roles/logging/logging-writer.md) %}
-
-#### logging.admin {#logging-admin}
-
-{% include [logging.admin](../_roles/logging/logging-admin.md) %}
-
-For more information, see [{#T}](../logging/security/index.md).
-
-
-## {{ org-full-name }} {#organization-roles}
-
-#### organization-manager.viewer {#organization-manager-viewer}
-
-{% include [organizationmanager-viewer](../_roles/organizationmanager/organizationmanager-viewer.md) %}
-
-#### organization-manager.admin {#organization-manager-admin}
-
-{% include [organizationmanager-admin](../_roles/organizationmanager/organizationmanager-admin.md) %}
-
-#### organization-manager.organizations.owner {#organization-manager-organizations-owner}
-
-{% include [organizationmanager-organizations-owner](../_roles/organizationmanager/organizationmanager-organizations-owner.md) %}
-
-#### organization-manager.osLogins.viewer {#organization-manager-osLogins-viewer}
-
-{% include [organizationmanager-oslogins-viewer](../_roles/organizationmanager/organizationmanager-oslogins-viewer.md) %}
-
-#### organization-manager.osLogins.admin {#organization-manager-osLogins-admin}
-
-{% include [organizationmanager-oslogins-admin](../_roles/organizationmanager/organizationmanager-oslogins-admin.md) %}
-
-#### organization-manager.groups.memberAdmin {#organization-manager-groups-memberAdmin}
-
-{% include [organizationmanager-groups-memberAdmin](../_roles/organizationmanager/organizationmanager-groups-memberAdmin.md) %}
-
-For more information, see [{#T}](../organization/security/index.md).
+Learn more in [Access management in {{ certificate-manager-name }}](../certificate-manager/security/index.md).
 
 
 ## {{ compute-full-name }} {#compute-roles}
@@ -336,7 +251,7 @@ For more information, see [{#T}](../organization/security/index.md).
 
 {% include [compute.snapshotSchedules.editor](../_roles/compute/compute-snapshotschedules-editor.md) %}
 
-For more information, see [{#T}](../compute/security/index.md).
+Learn more in [Access management in {{ compute-name }}](../compute/security/index.md).
 
 
 ## {{ container-registry-full-name }} {#cr-roles}
@@ -365,32 +280,7 @@ For more information, see [{#T}](../compute/security/index.md).
 
 {% include [container-registry.images.scanner](../_roles/containerregistry/containerregistry-images-scanner.md) %}
 
-For more information, see [{#T}](../container-registry/security/index.md).
-
-
-## {{ datalens-full-name }} {#datalens-roles}
-
-#### datalens.visitor {#datalens-visitor}
-
-{% include [datalens-visitor](../_roles/datalens/datalens-visitor.md) %}
-
-#### datalens.creator {#datalens-creator}
-
-{% include [datalens-creator](../_roles/datalens/datalens-creator.md) %}
-
-#### datalens.admin {#datalens-admin}
-
-{% include [datalens-admin](../_roles/datalens/datalens-admin.md) %}
-
-#### datalens.instances.user {#datalens-instances-user}
-
-{% include [datalens-instances-user](../_roles/datalens/datalens-instances-user.md) %}
-
-#### datalens.instances.admin {#datalens-instances-admin}
-
-{% include [datalens-instances-admin](../_roles/datalens/datalens-instances-admin.md) %}
-
-For more information, see [{#T}](../datalens/security/roles.md).
+Learn more in [Access management in {{ container-registry-name }}](../container-registry/security/index.md).
 
 
 ## {{ dataproc-full-name }} {#dataproc-roles}
@@ -443,7 +333,7 @@ For more information, see [{#T}](../datalens/security/roles.md).
 
 {% include [managed-metastore.admin](../_roles/dataproc/managedmetastore-admin.md) %}
 
-For more information, see [{#T}](../data-proc/security/index.md).
+Learn more in [Access management in {{ dataproc-name }}](../data-proc/security/index.md).
 
 
 ## {{ ml-platform-full-name }} {#datasphere-roles}
@@ -480,15 +370,7 @@ For more information, see [{#T}](../data-proc/security/index.md).
 
 {% include [datasphere.communities.admin](../_roles/datasphere/datasphere-communities-admin.md) %}
 
-#### datasphere.user {#datasphere-user}
-
-{% include [datasphere.user](../_roles/datasphere/datasphere-user.md) %}
-
-#### datasphere.admin {#datasphere-admin}
-
-{% include [datasphere.admin](../_roles/datasphere/datasphere-admin.md) %}
-
-For more information, see [{#T}](../datasphere/security/index.md).
+Learn more in [Access management in {{ ml-platform-name }}](../datasphere/security/index.md).
 
 
 ## {{ yds-full-name }} {#yds-roles}
@@ -509,7 +391,7 @@ For more information, see [{#T}](../datasphere/security/index.md).
 
 {% include [yds.admin](../_roles/yds/yds-admin.md) %}
 
-For more information, see [{#T}](../data-streams/security/index.md).
+Learn more in [Access management in {{ yds-name }}](../data-streams/security/index.md).
 
 
 ## {{ data-transfer-full-name }} {#data-transfer-roles}
@@ -530,7 +412,7 @@ For more information, see [{#T}](../data-streams/security/index.md).
 
 {% include [data-transfer.admin](../_roles/datatransfer/datatransfer-admin.md) %}
 
-For more information, see [{#T}](../data-transfer/security/index.md).
+Learn more in [Access management in {{ data-transfer-name }}](../data-transfer/security/index.md).
 
 
 ## {{ yagpt-full-name }} {#yagpt-roles}
@@ -612,10 +494,6 @@ For more information, see [{#T}](../iam/security/index.md).
 #### iot.editor {#iot-editor}
 
 {% include [iot-editor](../_roles/iot/iot-editor.md) %}
-
-#### iot.admin {#iot-admin}
-
-{% include [iot-admin](../_roles/iot/iot-admin.md) %}
 
 For more information, see [{#T}](../iot-core/security/index.md).
 
@@ -715,6 +593,23 @@ For more information, see [{#T}](../load-testing/security/index.md).
 For more information, see [{#T}](../lockbox/security/index.md).
 
 
+## {{ maf-full-name }} {#managed-airflow-roles}
+
+#### managed-airflow.viewer {#managed-airflow-viewer}
+
+{% include [managed-airflow.viewer](../_roles/airflow/airflow-viewer.md) %}
+
+#### managed-airflow.editor {#managed-airflow-editor}
+
+{% include [managed-airflow.editor](../_roles/airflow/airflow-editor.md) %}
+
+#### managed-airflow.admin {#managed-airflow-admin}
+
+{% include [managed-airflow.admin](../_roles/airflow/airflow-admin.md) %}
+
+For more information, see [{#T}](../managed-airflow/security/index.md).
+
+
 ## {{ mkf-full-name }} {#managed-kafka-roles}
 
 #### managed-kafka.auditor {#managed-kafka-auditor}
@@ -758,10 +653,6 @@ For more information, see [{#T}](../managed-clickhouse/security/index.md).
 
 
 ## {{ mes-full-name }} {#managed-elasticsearch-roles}
-
-#### managed-elasticsearch.auditor {#managed-elasticsearch-auditor}
-
-{% include [managed-elasticsearch.auditor](../_roles/elasticsearch/elasticsearch-auditor.md) %}
 
 #### managed-elasticsearch.viewer {#managed-elasticsearch-viewer}
 
@@ -1059,6 +950,27 @@ For more information, see [{#T}](../network-load-balancer/security/index.md).
 For more information, see [{#T}](../storage/security/index.md).
 
 
+## {{ yq-full-name }} {#query-roles}
+
+#### yq.viewer {#query-viewer}
+
+{% include [query.viewer](../_roles/yq/yq-viewer.md) %}
+
+#### yq.editor {#query-editor}
+
+{% include [query.editor](../_roles/yq/yq-editor.md) %}
+
+#### yq.admin {#query-admin}
+
+{% include [query.admin](../_roles/yq/yq-admin.md) %}
+
+#### yq.invoker {#query-invoker}
+
+{% include [query.invoker](../_roles/yq/yq-invoker.md) %}
+
+For more information, see [{#T}](../query/security/index.md).
+
+
 ## {{ resmgr-full-name }} {#resource-manager-roles}
 
 #### resource-manager.auditor {#resource-manager-auditor}
@@ -1263,3 +1175,14 @@ For more information, see [{#T}](../vpc/security/index.md).
 {% include [vision-user](../_roles/vision/vision-user.md) %}
 
 For more information, see [{#T}](../vision/security/index.md).
+
+
+## {{ wiki-full-name }} {#wiki-roles}
+
+#### wiki.viewer {#wiki-viewer}
+
+{% include [wiki-viewer](../_roles/wiki/wiki-viewer.md) %}
+
+#### wiki.admin {#wiki-admin}
+
+{% include [wiki-admin](../_roles/wiki/wiki-admin.md) %}

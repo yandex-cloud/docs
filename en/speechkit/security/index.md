@@ -11,11 +11,11 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to {#resources}
+## Which resources can be assigned a role {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control-without-service-account.md) %}
 
-## What roles exist in the service {#roles-list}
+## Which roles exist in the service {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -26,6 +26,22 @@ In this section, you will learn:
 #### {{ roles-speechkit-tts }} {#ai-speechkit-tts-user}
 
 {% include notitle [roles-speechkit-tts-user](../../_includes/roles-speechkit-tts-user.md) %}
+
+#### ai.auditor {#ai-auditor}
+
+{% include notitle [roles-ai-auditor](../../_includes/roles-ai-auditor.md) %}
+
+#### ai.viewer {#ai-viewer}
+
+{% include notitle [roles-ai-viewer](../../_includes/roles-ai-viewer.md) %}
+
+#### ai.editor {#ai-editor}
+
+{% include notitle [roles-ai-editor](../../_includes/roles-ai-editor.md) %}
+
+#### ai.admin {#ai-admin}
+
+{% include notitle [roles-ai-admin](../../_includes/roles-ai-admin.md) %}
 
 For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
 

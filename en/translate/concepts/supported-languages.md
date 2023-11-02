@@ -4,11 +4,11 @@ This section lists the supported translation languages.
 
 {% note tip %}
 
-To search the page, press **Ctrl** + **F** (**Cmd** + **F** on MacOS).
+To search the page, press **CTRL** + **F** (for MacOS, use **CMD** + **F**).
 
 {% endnote %}
 
-List of languages sorted alphabetically:
+List of languages (from A to Z):
 
 1. `af`: Afrikaans
 1. `am`: Amharic

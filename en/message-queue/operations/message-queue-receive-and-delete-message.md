@@ -1,57 +1,82 @@
 # Receiving and deleting messages
 
-After messages are received and processed, they should be deleted from a queue:
+Messages queued in {{ message-queue-name }} are received by consumers, i.e., components of distributed applications. After messages are received and processed, they should be deleted from the queue.
 
 {% list tabs %}
 
 - AWS CLI
 
-   Run the following command in the terminal:
+   1. [Install and configure](configuring-aws-cli.md) the AWS CLI.
+   1. [Create](message-queue-new-queue.md) a message queue and [send](message-queue-send-message.md) a test message to it.
+   1. Receive the message you sent earlier:
 
-   ```bash
-   aws sqs receive-message \
-     --queue-url <message_queue_URL> \
-     --endpoint <endpoint>/
-   ```
+      ```bash
+      aws sqs receive-message \
+        --queue-url <queue_URL> \
+        --endpoint <endpoint>
+      ```
 
-   Where:
+      Where:
 
-   * `queue-url`: Message queue URL, for example: `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`.
-   * `endpoint`: Endpoint, for example: `https://message-queue.{{ api-host }}/`.
+      * `--queue-url`: URL of the queue to receive the message from.
+      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value
 
-   Result:
+      Result:
 
-   ```json
-   {
-       "Messages": [
-           {
-               "MessageId": "948de7-9ec8d787-cbf3465c-c",
-               "ReceiptHandle": "EAEggbjIg_8sKAM",
-               "MD5OfBody": "ed076287532e86365e841e92bfc50d8c",
-               "Body": "Hello World",
-               "Attributes": {
-                   "ApproximateFirstReceiveTimestamp": "1545927269377",
-                   "ApproximateReceiveCount": "1",
-                   "SentTimestamp": "1545922344034"
-               }
-           }
-       ]
-   }
-   ```
+      ```json
+      {
+          "Messages": [
+              {
+                  "MessageId": "948de7-9ec8d787-c*******-*",
+                  "ReceiptHandle": "EAEggbj********",
+                  "MD5OfBody": "ed076287532e86365e841e92********",
+                  "Body": "Hello World",
+                  "Attributes": {
+                      "ApproximateFirstReceiveTimestamp": "15459********",
+                      "ApproximateReceiveCount": "1",
+                      "SentTimestamp": "15459********",
+                      "SenderId": "abcdefkbh72is78********"
+                  }
+              }
+          ]
+      }
+      ```
 
-   To delete a message, use the value of the `receipt-handle` parameter, that is, the ID of the message [receipt](../concepts/message.md). Run the following command in the terminal:
+      Save the `ReceiptHandle` parameter value. You will need it at the next steps.
 
-   ```bash
-   aws sqs delete-message \
-     --queue-url <message_queue_URL> \
-     --endpoint <endpoint>/ \
-     --receipt-handle <receipt_ID>
-   ```
+      {% note info %}
 
-   Where:
+      If there are no messages in the queue, the `aws sqs receive-message` command will end with no text output to the terminal.
 
-   * `queue-url`: Message queue URL, for example: `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`.
-   * `endpoint`: Endpoint, for example: `https://message-queue.{{ api-host }}/`.
-   * `receipt-handle`: Message receipt ID.
+      {% endnote %}
+
+   1. To delete a message from the queue, use the [receipt ID](../concepts/message.md): the `ReceiptHandle` parameter value received along with the message.
+
+      Delete the received message from the queue:
+
+       ```bash
+       aws sqs delete-message \
+         --queue-url <queue_URL> \
+         --endpoint <endpoint> \
+         --receipt-handle <receipt_ID>
+       ```
+
+       Where:
+
+       * `--queue-url`: URL of the queue to delete the message from.
+       * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value
+       * `--receipt-handle`: Previously saved message receipt ID (`ReceiptHandle`).
+
+{% endlist %}
+
+If the delete command is executed successfully, no text is output to the terminal. To check the deletion of the message:
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder where you created the message queue.
+   1. In the list of services, select **{{ message-queue-name }}**.
+   1. The current number of enqueued messages is specified in the **Messages in queue** field.
 
 {% endlist %}

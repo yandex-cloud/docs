@@ -3,6 +3,8 @@ href: index.yaml
 items:
   - name: Getting started
     items:
+      - name: Overview
+        href: quickstart-overview.md
       - name: How to manage access to resources
         href: quickstart.md
       - name: How to work with service accounts
@@ -115,7 +117,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: Roles reference
+  - name: Role reference
     href: roles-reference.md
     hidden: true
   - name: API reference

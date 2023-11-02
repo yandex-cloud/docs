@@ -23,7 +23,7 @@ To create an additional cloud:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To activate the cloud, make sure to link it to your billing account. To do this, use the `yandex_billing_cloud_binding` resource and specify the cloud in the `cloud_id` field.
 

@@ -69,9 +69,7 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the certificate description:
 
@@ -97,7 +95,7 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can check the changes done to the certificate and its configuration either from the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+   You can check the certificate update and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
    yc certificate-manager certificate get <certificate_name>

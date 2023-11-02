@@ -52,7 +52,7 @@ Access rights will be inherited by child resources from their parent resources. 
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -94,7 +94,7 @@ Access rights will be inherited by child resources from their parent resources. 
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified folder. You can check if the resource is there either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc resource-manager folder list-access-bindings <folder name>|<folder_ID>
@@ -299,7 +299,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -316,10 +316,9 @@ To grant a service account access rights to an organization, you need the `{{ ro
       ```
 
       Where:
-
-      * `organization_id`: [Organization ID](../../organization/operations/org-profile.md). Required parameter.
-      * `role`: Role being assigned. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`. Required parameter.
-      * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is being assigned to. It should be specified in `serviceAccount:<service_account_ID>` format. Required parameter.
+      * `organization_id`: [Organization ID](../../organization/operations/org-profile.md). This is a required parameter.
+      * `role`: Role being assigned. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/roles.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`. This is a required parameter.
+      * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is being assigned to. It should be specified in `serviceAccount:<service_account_ID>` format. This is a required parameter.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
@@ -344,7 +343,7 @@ To grant a service account access rights to an organization, you need the `{{ ro
 
       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-      All the resources you need will then be created in the specified organization. You can check if the resource is there either from the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+      All the resources you need will then be created in the specified organization. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc organization-manager organization list-access-bindings <organization_technical_name>|<organization_ID>

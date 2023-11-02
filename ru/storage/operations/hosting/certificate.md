@@ -147,16 +147,22 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 - Консоль управления
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-   1. Выберите сервис **{{ objstorage-name }}**.
+   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Нажмите на имя необходимого бакета.
-   1. Перейдите на вкладку **HTTPS**.
-   1. В отобразившейся панели справа нажмите кнопку **Настроить**.
-   1. В поле **Источник** выберите **Свой сертификат**.
+   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+   1. В отобразившейся панели справа нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
+   1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите `{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}`.
    1. Добавьте сертификат и секретный ключ.
-   1. Нажмите кнопку **Сохранить**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 - API
 
   Чтобы загрузить собственный сертификат безопасности, воспользуйтесь методом REST API [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig).
 
 {% endlist %}
+
+{% note info %}
+
+{% include [public-link](../../../_includes/storage/public-link.md) %}
+
+{% endnote %}

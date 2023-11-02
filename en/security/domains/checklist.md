@@ -27,7 +27,20 @@
 * **Working with service accounts**: [Assign a service account to a VM instance](../../compute/operations/vm-connect/auth-inside-vm.md) and get a token using the metadata service. Set up a local firewall on the VM instance so that only the necessary processes and system users have access to the metadata service (IP address: 169.254.169.254).<!-- tbd: добавить ссылку на решение -->
 * **2FA**: For an identity federation, set up 2FA on the side of your IdP. For a Yandex account, set up 2FA using [this guide](https://yandex.com/support/id/authorization/twofa.html).
 * **billing.accounts.owner protection**: After performing the initial operations, do not use an account with this role. To manage a billing account, assign the `admin`, `editor`, or `viewer` role for the billing account to a specific employee with a federated account.
-* **resource-manager.clouds.owner protection**: Assign the `resource-manager.clouds.owner` role to employees with federated accounts. Set a strong password for the Yandex account that was used to create the cloud, and use it only when absolutely necessary. Grant administrators less privileged access and use `resource-manager.clouds.owner` only when absolutely necessary.
+* **Organization-manager.organizations.owner protection**:
+
+    {% list tabs %}
+
+    - In an identity federation
+
+      Grant the `organization-manager.organizations.owner` role to a federated account and then delete a passport account with this role from your organization. To mitigate the risks of possible federation failures, follow the steps described in [Deleting a passport account from an organization](../operations/account-deletion.md).
+
+    - Without an identity federation
+
+      Set a complex password for the Yandex account used to create the organization. Grant the less privileged `organization-manager.admin` role to organization administrators and use the account with the `organization-manager.organizations.owner` role only if you absolutely have to.
+
+    {% endlist %}
+
 * **Resource model**: Place all critical resources that must be compliant with standards in a separate cloud. Divide resource groups by folders. Host shared resources (such as network and security groups) in a separate shared resource folder.
 
 ## Data encryption and key/secret management {#data-encryption}

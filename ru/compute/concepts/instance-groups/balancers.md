@@ -17,7 +17,7 @@
 Чтобы целевая группа начала получать трафик, ее нужно привязать к балансировщику. {{ compute-name }} не делает этого автоматически. 
 
 * Целевую группу {{ network-load-balancer-name }} нужно [привязать к балансировщику](../../../network-load-balancer/operations/target-group-attach.md) напрямую. 
-* Целевую группу {{ alb-name }} нужно привязать к [группе бэкендов](../../../application-load-balancer/concepts/backend-group.md), а группу бэкендов — к балансировщику, напрямую или через [HTTP-роутеру](../../../application-load-balancer/concepts/http-router.md), в зависимости от типа балансировки. Подробнее см. в [инструкциях по управлению ресурсами {{ alb-name }}](../../../application-load-balancer/operations/index.md). 
+* Целевую группу {{ alb-name }} нужно привязать к [группе бэкендов](../../../application-load-balancer/concepts/backend-group.md), а группу бэкендов — к балансировщику, напрямую или через [HTTP-роутер](../../../application-load-balancer/concepts/http-router.md), в зависимости от типа балансировки. Подробнее см. в [инструкциях по управлению ресурсами {{ alb-name }}](../../../application-load-balancer/operations/index.md). 
 
 
 ### Проверки состояния от балансировщиков {#principles-health-checks}

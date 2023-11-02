@@ -13,17 +13,26 @@ To delete a message queue:
 
 - AWS CLI
 
-   Run the following command in the terminal:
+   1. Get the URL of the message queue to be deleted:
 
-   ```
-   aws sqs delete-queue \
-     --queue-url <message_queue_URL> \
-     --endpoint <endpoint>/
-   ```
+      ```bash
+      aws sqs list-queues \
+        --endpoint <endpoint>
+      ```
 
-   Where:
-   * `queue-url`: Message queue URL, for example: `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`.
-   * `endpoint`: Endpoint, for example: `https://message-queue.{{ api-host }}/`.
+      Where `--endpoint` is the endpoint in the `https://message-queue.{{ api-host }}/` value.
+
+   1. Delete the message queue:
+
+      ```
+      aws sqs delete-queue \
+        --queue-url <queue_URL> \
+        --endpoint <endpoint>
+      ```
+
+      Where:
+      * `--queue-url`: URL of the queue to be deleted.
+      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
 
 - {{ TF }}
 

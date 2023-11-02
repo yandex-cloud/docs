@@ -1,6 +1,6 @@
 # Deleting a folder
 
-To delete a folder, you must have the [`editor`](../../../iam/concepts/access-control/roles.md#editor) role or higher for the folder. If you are unable to perform this operation, contact an [administrator](../../../iam/concepts/access-control/roles.md#admin) or the [folder owner](../../concepts/resources-hierarchy.md#owner).
+To delete a folder, you must have the [`editor`](../../../iam/concepts/access-control/roles.md#editor) role or higher for the folder. If you cannot perform this operation, contact an [administrator](../../../iam/concepts/access-control/roles.md#admin) or the [folder owner](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs %}
 
@@ -10,7 +10,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
    1. Click ![image](../../../_assets/options.svg) next to the folder and select **{{ ui-key.yacloud.common.delete }}**.
 
-   1. Specify a folder deletion time: the delay, after which the folder will be deleted. Select one of the available delays or `{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. The default folder deletion delay is 7 days.
+   1. Specify folder deletion delay: the time period after which the folder will be deleted. Select one of the suggested periods or `{{ ui-key.yacloud.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. The default folder deletion delay is 7 days.
 
    1. Click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -22,7 +22,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To delete a folder created with {{ TF }}:
 
@@ -71,7 +71,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the folder's deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      You can check the folder deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
       yc resource-manager folder list

@@ -22,7 +22,7 @@
    * В блоке **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**:
 
      * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — укажите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию для хранения логов работы [нод](../../concepts/deploy/index.md#node).
-     * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — укажите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого будут создаваться коннекторы S3 или кластеры {{ dataproc-name }}. Сервисный аккаунт должен иметь необходимые [роли](../../../iam/concepts/access-control/roles).
+     * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — укажите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого {{ ml-platform-name }} будут создавать кластеры {{ dataproc-name }} и выполнять другие действия в сервисах {{ yandex-cloud }}. Сервисный аккаунт должен иметь необходимые [роли](../../../iam/concepts/access-control/roles).
      * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** — укажите [подсеть](../../../vpc/concepts/network.md#subnet) в [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, если она нужна для связи с другими сервисами {{ yandex-cloud }}. Вместе с подсетью обязательно укажите сервисный аккаунт с минимальной ролью `{{ roles-vpc-user }}`.
 
      {% include [subnet-create](../../../_includes/subnet-create.md) %}

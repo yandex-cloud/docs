@@ -18,7 +18,7 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role f
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To delete a cloud created using {{ TF }}:
 

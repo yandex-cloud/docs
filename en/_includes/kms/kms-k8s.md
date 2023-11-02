@@ -1,6 +1,6 @@
 Use {{ kms-short-name }} keys to encrypt secrets, that is, confidential information such as passwords, OAuth tokens, and SSH keys, in {{ managed-k8s-full-name }}. To do this, specify a {{ kms-short-name }} key when creating a cluster. This key will be used for encryption and decryption.
 
-Make sure you specify the encryption key when creating a {{ k8s }} cluster, as you can't add it when updating the cluster.
+Make sure you specify the encryption key when creating a {{ k8s }} cluster, as you cannot add it when updating the cluster.
 
 {% list tabs %}
 
@@ -49,7 +49,7 @@ Make sure you specify the encryption key when creating a {{ k8s }} cluster, as y
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    Specify a key when [creating a cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ k8s }}:
 

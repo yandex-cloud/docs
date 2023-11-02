@@ -1,1 +1,0 @@
-The `organization-manager.viewer` role grants permission to view, but not edit, an organization's settings.

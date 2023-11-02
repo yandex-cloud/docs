@@ -12,7 +12,7 @@ To create a static access key:
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. Choose a service account and click the line with its name.
+   1. Choose a service account and click the row with its name.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
    1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -77,7 +77,7 @@ To create a static access key:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -91,9 +91,9 @@ To create a static access key:
 
       Where:
 
-      * `service_account_id`: Service account ID. Required parameter.
-      * `description`: Key description. Optional parameter.
-      * `pgp_key`: Additional PGP key for encrypting a private key. Optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
+      * `service_account_id`: Service account ID. This is a required parameter.
+      * `description`: Key description. This is an optional parameter.
+      * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
 
       For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
 

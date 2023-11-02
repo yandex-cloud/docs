@@ -36,10 +36,10 @@ To complete the tutorial, a Splunk instance must be available to the intermediat
 
 The infrastructure support cost includes:
 
-* Using virtual machines (see [{{ compute-short-name }} pricing](../../compute/pricing.md)).
+* Fee for using VM instances (see [{{ compute-short-name }} pricing](../../compute/pricing.md)).
 * Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
 * Fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
-* A fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
+* Fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 
 ## Prepare the environment {#prepare-environment}
 
@@ -136,9 +136,9 @@ The infrastructure support cost includes:
 
       Where:
 
-      * `role`: Role being assigned
-      * `id`: ID of the folder from which audit logs will be collected
-      * `service-account-id`: ID of your service account
+      * `role`: Role being assigned.
+      * `id`: ID of the folder from which audit logs will be collected.
+      * `service-account-id`: ID of your service account.
 
    1. Assign the [storage.uploader](../../storage/security/#storage-uploader) role to the folder that will host the trail:
 
@@ -151,9 +151,9 @@ The infrastructure support cost includes:
 
       Where:
 
-      * `role`: Role being assigned
-      * `id`: ID of the folder to host the trail
-      * `service-account-id`: ID of your service account
+      * `role`: Role being assigned.
+      * `id`: ID of the folder to host the trail.
+      * `service-account-id`: ID of your service account.
 
    1. Assign the [kms.keys.encrypterDecrypter](../../kms/security/#service) role to the encryption key:
 
@@ -167,7 +167,7 @@ The infrastructure support cost includes:
       Where:
 
       * `role`: Role being assigned.
-      * `id`: The ID of the KMS key.
+      * `id`: ID of the KMS key.
       * `service-account-id`: ID of your service account.
 
 {% endlist %}
@@ -228,7 +228,7 @@ To create the trail, make sure you have the following roles:
 
 Enable `HTTPEventCollector` and get an `Event Collector` token by following the [instructions](https://docs.splunk.com/Documentation/SplunkCloud/8.2.2105/Data/UsetheHTTPEventCollector#Configure_HTTP_Event_Collector_on_Splunk_Cloud_Platform).
 
-## Set up an NAT gateway for the subnet with the intermediate VM {#enable-nat}
+## Set up a NAT gateway for the subnet with the intermediate VM {#enable-nat}
 
 {% list tabs %}
 
@@ -268,7 +268,7 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following the 
 
 - {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Clone the [Yandex Cloud Security Solution Library repository](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
 
       ```

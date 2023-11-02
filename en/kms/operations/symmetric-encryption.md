@@ -36,7 +36,7 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    {% include [terraform-encryption](../../_includes/kms/terraform-encryption.md) %}
 
@@ -98,8 +98,8 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 
 #### See also {#see-also}
 
-* [Command line interface (YC CLI)](../../cli)
-* [Symmetric encryption in {{ kms-full-name }}](../concepts/symmetric-encryption.md)
-* [Asymmetric encryption in {{ kms-full-name }}](../concepts/asymmetric-encryption.md)
-* [Managing keys in KMS](./index.md)
-* [Encrypting secrets in Hashicorp Terraform](../../kms/tutorials/terraform-secret.md)
+* [Command line interface (YC CLI)](../../cli).
+* [Symmetric encryption in {{ kms-full-name }}](../concepts/symmetric-encryption.md).
+* [Asymmetric encryption in {{ kms-full-name }}](../concepts/asymmetric-encryption.md).
+* [Managing keys in KMS](./index.md).
+* [Encrypting secrets in Hashicorp Terraform](../../kms/tutorials/terraform-secret.md).

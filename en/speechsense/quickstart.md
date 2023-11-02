@@ -9,6 +9,7 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../getting-started/).
 1. Accept the user agreement.
 1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) that your account has the `speech-sense.spaces.creator` role assigned.
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Select the organization to work with {{ speechsense-name }} in or [create](../organization/operations/enable-org.md) a new one.
 
@@ -31,7 +32,7 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
   * Under **Client**, specify the number of the track that contains the client's voice in your aurecordings and define their display name (`Client` by default).
   * Under **Shared metadata**, change the parameter names used in the system, if necessary.
   * If your metadata includes additional information you want to save and analyze, add it to appropriate section. Provide the parameter key (must match the key in the metadata file), speca type, and enter a display name to use in the system. The supported additional parameters `Date`, `String`, `Number`, `Logical`, and `JSON`.
- * Click **Create connection**.
+ * Click **Create connection**.
 
  {% cut "Example of metadata.json" %}
 

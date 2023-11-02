@@ -1,1 +1,0 @@
-The `logging.viewer` role grants permission to list log groups and view information about them.

@@ -142,11 +142,11 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
 - {{ TF }}
 
-  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    {% note alert %}
 
-   Don't create the resource together with the `yandex_resourcemanager_folder_iam_policy` resource. They will conflict with each other.
+   Do not create the resource together with the `yandex_resourcemanager_folder_iam_policy` resource. They will conflict with each other.
 
    {% endnote %}
 
@@ -154,8 +154,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. Required parameter.
-      * `role`: Role being assigned. Required parameter.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
+      * `role`: Role being assigned. This is a required parameter.
 
          {% note info %}
 
@@ -163,7 +163,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% endnote %}
 
-      * `member`: User to assign the role to. Required parameter. Possible values:
+      * `member`: User to assign the role to. This is a required parameter. Possible values:
                   * `userAccount:<user ID>`: [User ID](../../../iam/operations/users/get.md).
          * `serviceAccount:<service account ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
          * `federatedUser:<user account ID>`: [User account ID](../../../organization/operations/users-get.md).
@@ -184,6 +184,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
       }
       ...
       ```
+
 
       {% endcut %}
 
@@ -243,7 +244,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    {% endnote %}
 
-   1. Make sure the resource doesn't have any roles that you don't want to lose:
+   1. Make sure the resource has no roles assigned that you would rather not lose:
       ```bash
       yc resource-manager folder list-access-bindings my-folder
       ```
@@ -309,11 +310,11 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    {% note alert %}
 
-   Don't create the resource together with the `yandex_resourcemanager_folder_iam_policy` resource. They will conflict with each other.
+   Do not create the resource together with the `yandex_resourcemanager_folder_iam_policy` resource. They will conflict with each other.
 
    {% endnote %}
 
@@ -321,8 +322,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. Required parameter.
-      * `role`: Role being assigned. Required parameter.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
+      * `role`: Role being assigned. This is a required parameter.
 
          {% note info %}
 
@@ -413,11 +414,11 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    {% note alert %}
 
-   Don't create the resource together with the `yandex_resourcemanager_folder_iam_policy` resource. They will conflict with each other.
+   Do not create the resource together with the `yandex_resourcemanager_folder_iam_policy` resource. They will conflict with each other.
 
    {% endnote %}
 
@@ -425,8 +426,8 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
    1. Describe the parameters of the folder role in a configuration file:
 
-      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. Required parameter.
-      * `role`: Role being assigned. Required parameter.
+      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
+      * `role`: Role being assigned. This is a required parameter.
 
          {% note info %}
 
@@ -434,7 +435,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
          {% endnote %}
 
-      * `member`: User to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service account ID>`, where `<service account ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. Required parameter.
+      * `member`: User to assign the role to. To add a user to the list, create a record as follows: `serviceAccount:<service account ID>`, where `<service account ID>` is the [service account identifier](../../../iam/operations/sa/get-id.md). You can list several service accounts. This is a required parameter.
 
       {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -516,7 +517,7 @@ To grant a user access to folder resources, assign the user a [role](../../../ia
 
       * `<folder-name>`: Folder name. You can specify a folder by its name or ID.
       * `<folder-id>`: Folder ID.
-      * `<role-id>`: Role ID, such as `editor`.
+      * `<role-id>`: Role ID, e.g., `editor`.
       * `<federated-user-id>`: ID of user account assigned the role.
 
       For example, grant a federated user with the ID `aje6o61dvog2h6g9a33s` the `editor` role to the `my-folder` folder:

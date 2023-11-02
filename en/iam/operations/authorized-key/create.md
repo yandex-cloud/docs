@@ -1,6 +1,6 @@
 # Creating authorized keys
 
-To create [authorized keys](../../concepts/authorization/key.md):
+To create an [authorized key](../../concepts/authorization/key.md):
 
 {% list tabs %}
 
@@ -8,7 +8,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. Choose a service account and click the line with its name.
+   1. Choose a service account and click the row with its name.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
    1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
    1. Select the encryption algorithm.
@@ -23,7 +23,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
 
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   Create authorized keys for the `my-robot` service account:
+   Create an authorized key for the `my-robot` service account:
 
    ```bash
    yc iam key create --service-account-name my-robot -o my-robot-key.json
@@ -60,8 +60,8 @@ To create [authorized keys](../../concepts/authorization/key.md):
 
    Where:
 
-   * `<iam-token>`: The IAM token of the user who has rights to view service accounts in the folder.
-   * `<service-account-id>`: The `ID` of the service account that the keys are created for.
+   * `<iam-token>`: IAM token of the user who has permissions to create keys for the specified service account.
+   * `<service-account-id>`: `ID` of the service account the keys are created for.
 
    If successful, the server response will contain the private key (`privateKey`) and public key ID (`id`). Save this data. You will not be able to get the key value again.
 
@@ -83,14 +83,14 @@ To create [authorized keys](../../concepts/authorization/key.md):
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
-      * `service_account_id`: Service account [ID](../sa/get-id.md). Required parameter.
-      * `description`: Key description. Optional parameter.
-      * `key_algorithm`: Key generation algorithm. Optional parameter. The default algorithm is `RSA_2048`. For more information about the acceptable parameter values, see the [API documentation](../../api-ref/Key/index.md).
-      * `pgp_key`: Additional PGP key for encrypting a private key. Optional parameter. Specify the public part of the key in base64 encoding or in the `keybase:keybaseusername` format.
+      * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
+      * `description`: Key description. This is an optional parameter.
+      * `key_algorithm`: Key generation algorithm. This is an optional parameter. The default algorithm is `RSA_2048`. For more information about the acceptable parameter values, see the [API documentation](../../api-ref/Key/index.md).
+      * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in the `keybase:keybaseusername` format.
 
       Example of the configuration file structure:
 

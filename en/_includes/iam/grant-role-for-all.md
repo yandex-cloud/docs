@@ -7,7 +7,7 @@ For example, allow any authenticated user to view folder information:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. Click the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window, click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.subject.select }}**.
    1. Go to the **{{ ui-key.yacloud_org.common.resource-acl.label_groups }}** section.
@@ -52,11 +52,11 @@ For example, allow any authenticated user to view folder information:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    {% note alert %}
 
-   Don't create the resource together with the `yandex_resourcemanager_folder_iam_policy` resource. They will conflict with each other.
+   Do not create the resource together with the `yandex_resourcemanager_folder_iam_policy` resource. They will conflict with each other.
 
    {% endnote %}
 

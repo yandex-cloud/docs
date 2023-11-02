@@ -48,30 +48,30 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
-   1. Click **Create federation**.
+   1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
 
    1. Give your federation a name. It must be unique within the folder.
 
    1. You can also add a description, if required.
 
-   1. In the **Cookie lifetime** field, specify the period of time that must elapse before the browser asks the user to re-authenticate.
+   1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
 
-   1. In the **IdP Issuer** field, enter the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+   1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, enter the link from the **Object ID** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
       ```
       https://accounts.google.com/o/saml2?idpid=<SAML app ID>
       ```
 
-   1. In the **Link tothe IdP login page** field, enter the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
+   1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, paste the link copied from the **SSO URL** field on the Google Workspace **Google IdP information** page. The link should have the following format:
 
       ```
       https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
       ```
       {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-   1. Enable **Automatically create users** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../operations/add-account.md#add-user-sso) your federated users.
+   1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to add authenticated users to your organization automatically. If you do not enable this option, you will need to [manually add](../../operations/add-account.md#add-user-sso) your federated users.
 
       {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
@@ -195,7 +195,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Specify the federation parameters in the configuration file:
 
@@ -252,7 +252,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          $ terraform plan
@@ -270,7 +270,7 @@ Do not close the page where you create an app in Google Workspace: you will get 
 
       1. Confirm you want to create a federation.
 
-      This will create a federation in the specified organization. You can check the new federation and its settings in the organization's [Federations]({{ link-org-federations }}) section.
+      This will create a federation in the specified organization. You can check the new federation and its settings in the organization's [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) section.
 
 {% endlist %}
 
@@ -282,21 +282,21 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 - Management console
 
-   1. In the left-hand panel, select [Federations]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click the name of the federation to add a certificate to.
 
-   1. At the bottom of the page, click **Add certificate**.
+   1. At the bottom of the page, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
 
    1. Enter certificate name and description.
 
    1. Choose how to add a certificate:
 
-      * To add a certificate as a file, click **Choose a file** and specify the path to it.
+      * To add a certificate as a file, click **{{ ui-key.yacloud_portal.component.file-input.button_choose }}** and specify the path to it.
 
-      * To paste the contents of a copied certificate, select the **Text** method and paste the contents.
+      * To paste the contents of a copied certificate, select the **{{ ui-key.yacloud_org.component.form-file-upload.method.manual }}** method and paste the contents.
 
-   1. Click **Add**.
+   1. Click **{{ ui-key.yacloud_org.actions.add }}**.
 
 - CLI
 
@@ -405,16 +405,15 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 ### Mapping user attributes {#claims-mapping}
 
-
-User data | Comment | Application Attributes
---------- | ------- | ----------------------
-Unique user ID | Required attribute. Using an email address is recommended. | **Name ID** field in service provider settings
-Last name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
-First name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
-Full name | Displayed in {{ yandex-cloud }} services.<br>Example: John Smith.<br> Value length limit: {{ saml-limit-display-name }}. | Attribute unavailable
-Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone`
-Profile image | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | Attribute unavailable
+| User data | Comment | Application Attributes |
+------------------- | ----------- | -------------------
+| Unique user ID | Required attribute. Using an email address is recommended. | **Name ID** field in service provider settings |
+| Last name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
+| Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
+| Full name | Displayed in {{ yandex-cloud }} services.<br>Example: John Smith.<br> Value length limit: {{ saml-limit-display-name }}. | Attribute unavailable |
+| Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:&nbsp;`smith@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+| Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone` |
+| Profile image | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | Attribute unavailable |
 
 {% note warning %}
 
@@ -428,7 +427,7 @@ The `thumbnailPhoto` attribute value exceeding the length limit is ignored. If t
 
 ### Add users to your organization {#add-users-to-org}
 
-If you did not enable the **Automatically create users** option when [creating a federation](#yc-settings), you will have to add federated users to your organization manually.
+If you did not enable the **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** option when [creating a federation](#yc-settings), you will have to add federated users to your organization manually.
 
 To do this, you will need user name IDs. They are returned by the IdP server along with a response confirming successful authentication.
 
@@ -444,15 +443,15 @@ A user can be added by an organization administrator (the `organization-manager.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 
-   1. In the left-hand panel, select [Users]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
+   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
-   1. In the top-right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **Add federated users**.
+   1. In the top-right corner, click ![icon-users](../../../_assets/datalens/arrow-down.svg) → **{{ ui-key.yacloud_org.page.users.action.add-federated-users }}**.
 
    1. Select the identity federation to add users from.
 
    1. List the name IDs of users, separating them with line breaks.
 
-   1. Click **Add**. This will give the users access to the organization.
+   1. Click **{{ ui-key.yacloud_org.actions.add }}**. This will give the users access to the organization.
 
 - CLI
 

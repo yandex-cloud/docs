@@ -34,8 +34,6 @@ description: "В этом разделе вы узнаете, на какие р
 
 ### Сервисные роли {#service-roles}
 
-{% include [mes-auditor](../../_includes/iam/roles/mes-auditor.md) %}
-
 {% include [mes-viewer](../../_includes/iam/roles/mes-viewer.md) %}
 
 {% include [mes-editor](../../_includes/iam/roles/mes-editor.md) %}

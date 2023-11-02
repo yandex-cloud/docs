@@ -7,12 +7,14 @@
 * [{{ iam-short-name }}-токены](../../iam/concepts/authorization/iam-token.md).
 * [Статические ключи доступа](../../iam/concepts/authorization/access-key.md).
 * [OAuth-токен](../../iam/concepts/authorization/oauth-token.md).
+* [Серверные ключи {{ captcha-name }}](../../smartcaptcha/concepts/keys.md).
 
 {{ yandex-cloud }} подключен к следующим программам поиска секретов:
 
 * [GitHub Secret scanning partner program](#github-secret-scanning).
 * [GitLab Secret Detection](#gitlab-secret-detection).
 * [Поисковый индекс Яндекс](#secret-is-leaked).
+* [Helm-чарты в {{ marketplace-full-name }}](#helm-charts).
 
 ## GitHub {#github-secret-scanning}
 
@@ -31,6 +33,10 @@
 ## Поисковый индекс Яндекс {#search-index-detection}
 
 {{ yandex-cloud }} по умолчанию ищет секреты на страницах, которые проиндексированы поиском Яндекс.
+
+## Helm-чарты в {{ marketplace-full-name }} {#helm-charts}
+
+{{ yandex-cloud }} по умолчанию ищет секреты в [Helm-чартах](https://helm.sh/docs/topics/charts/), доступных в [{{ marketplace-full-name }}](../../managed-kubernetes/operations/applications/marketplace.md).
 
 ## Как узнать, что секрет обнаружен {#secret-is-detected}
 
@@ -83,6 +89,12 @@
 
    ```regexp
    y[0-3]_[-_A-Za-z0-9]{55}
+   ```
+
+* Серверные ключи {{ captcha-name }}
+
+   ```regexp
+   ysc2_[a-zA-Z0-9]{40}[0-9a-f]{8}
    ```
 
 {% note info %}

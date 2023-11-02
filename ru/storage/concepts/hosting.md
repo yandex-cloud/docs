@@ -108,3 +108,6 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
   Чтобы использовать протокол HTTPS с собственным доменом, укажите [FQDN](https://ru.wikipedia.org/wiki/FQDN) нужного домена в имени бакета.
 
 Управлять доменами {{ dns-full-name }} можно как в настройках бакета, так и в сервисе [{{ dns-name }}](../../dns/operations/index.md).
+
+{% include [public-link](../../_includes/storage/public-link.md) %}
+

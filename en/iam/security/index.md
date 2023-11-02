@@ -12,7 +12,7 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources can be assigned a role {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -26,6 +26,8 @@ In this section, you will learn:
 
 {% include [roles-sa-user](../../_includes/roles-sa-user.md) %}
 
+{% include [roles-sa-admin](../../_includes/roles-sa-admin.md) %}
+
 For some services, you need a service account to perform operations, such as in [{{ ig-name }}](../../compute/concepts/instance-groups/index.md) or [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). If you specified a service account in the request, {{ iam-short-name }} will check whether you have permissions to use this account.
 
 {% include [roles-sa-accessKeyAdmin](../../_includes/roles-sa-accessKeyAdmin.md) %}
@@ -38,6 +40,14 @@ For some services, you need a service account to perform operations, such as in 
 
 {% include [roles-sa-tokenCreator](../../_includes/roles-sa-tokenCreator.md) %}
 
+{% include [roles-iam-auditor](../../_includes/roles-iam-auditor.md) %}
+
+{% include [roles-iam-viewer](../../_includes/roles-iam-viewer.md) %}
+
+{% include [roles-iam-editor](../../_includes/roles-iam-editor.md) %}
+
+{% include [roles-iam-admin](../../_includes/roles-iam-admin.md) %}
+
 #### {{ roles-cloud-owner }} {#cloud-owner}
 
 {% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
@@ -45,8 +55,6 @@ For some services, you need a service account to perform operations, such as in 
 #### {{ roles-cloud-member }} {#cloud-member}
 
 {% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
-
-{% include [roles-iam-auditor](../../_includes/roles-iam-auditor.md) %}
 
 ### Primitive roles {#primitive-roles}
 

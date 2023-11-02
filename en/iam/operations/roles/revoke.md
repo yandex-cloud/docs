@@ -77,7 +77,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. To revoke a resource role from a subject, find the resource description in the configuration file:
 
