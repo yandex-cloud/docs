@@ -1,1 +1,0 @@
-The `organization-manager.groups.memberAdmin` role grants permission to view a group's information, add and remove group members.

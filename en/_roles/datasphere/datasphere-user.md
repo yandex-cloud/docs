@@ -1,1 +1,0 @@
-The `datasphere.user` role is deprecated and no longer used.

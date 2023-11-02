@@ -26,8 +26,6 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [resource-manager.clouds.owner](../../_includes/roles-resource-manager-clouds-owner.md) %}
 
-{% include [iot-admin](../../_includes/roles-iot-admin.md) %}
-
 {% include [iot-editor](../../_includes/roles-iot-editor.md) %}
 
 {% include [iot-viewer](../../_includes/roles-iot-viewer.md) %}

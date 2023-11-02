@@ -12,7 +12,7 @@ The user is responsible for correctly choosing security settings in {{ managed-k
 
 ## Sensitive data {#critical-data}
 
-When using {{ managed-k8s-name }} to comply with PCI DSS or other security standards, it is forbidden to:
+When using {{ managed-k8s-name }} to comply with PCI DSS or other security standards, it is forbidden to: 
 
 * Use sensitive data in names and descriptions of clusters, node groups, namespaces, services, and pods.
 * Use sensitive data in [{{ k8s }} node labels](../../managed-kubernetes/concepts/#node-labels) and [{{ yandex-cloud }} service resource labels](../../resource-manager/concepts/labels.md).
@@ -309,7 +309,7 @@ Audit events are collected from the {{ k8s }} API level by {{ cloud-logging-name
 
 ### {{ k8s }} pod level {#kubernetes-pods-level}
 
-Different options for collecting and exporting pod-level events in {{ k8s }} is described in the [{{ k8s }} official documentation](https://kubernetes.io/docs/concepts/cluster-administration/logging/).
+To learn more about options for collecting and exporting pod-level events in {{ k8s }}, refer to the [{{ k8s }} official documentation](https://kubernetes.io/docs/concepts/cluster-administration/logging/).
 
 Examples of collecting and exporting pod logs:
 
@@ -324,7 +324,7 @@ The [Filebeat](/marketplace/products/yc/filebeat) plugin for transferring logs t
 
 Instructions on how to export {{ monitoring-name }} metrics is given in the section [Exporting events to SIEM](audit-logs.md#metriki-yandex-monitoring).
 
-### {{ k8s }} Flow logs {#flow-logs-kubernetes}
+### {{ k8s }} flow logs {#flow-logs-kubernetes}
 
 ![](../../_assets/overview/solution-library-icon.svg)[Exporting flow logs to {{ objstorage-full-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/cilium-s3)
 

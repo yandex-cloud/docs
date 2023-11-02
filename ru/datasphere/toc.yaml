@@ -3,14 +3,6 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
-  - name: Как организовать работу в {{ ml-platform-name }}
-    items:
-      - name: Настроить проект для работы с облаком
-        href: tutorials/basics.md
-      - name: Организовать сообщество для студентов
-        href: tutorials/community-for-students.md
-      - name: Автоматизировать настройку проектов
-        href: tutorials/automation-community-settings.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -25,7 +17,7 @@ items:
             href: operations/community/manage-community-labels.md
           - name: Управление конфигурациями сообщества
             href: operations/community/manage-community-config.md
-          - name: Добавить канал связи
+          - name: Добавить ссылку для сообщества
             href: operations/community/link-channel.md
           - name: Привязать платежный аккаунт
             href: operations/community/link-ba.md
@@ -55,10 +47,10 @@ items:
             href: operations/projects/delete.md
           - name: Удалить пользователя из проекта
             href: operations/projects/delete-user.md
-          - name: Подключиться к JupyterLab из локальной IDE
-            href: operations/projects/remote-connect.md
       - name: Работа в ноутбуке
         items:
+          - name: Подключиться к JupyterLab из локальной IDE
+            href: operations/projects/remote-connect.md
           - name: Выбрать вычислительные ресурсы
             href: operations/projects/control-compute-resources.md
           - name: Проверить загрузку GPU
@@ -99,8 +91,6 @@ items:
             href: operations/data/models.md
       - name: Подключение к источникам данных
         items:
-          - name: Подключение к хранилищу S3
-            href: operations/data/s3-connectors.md
           - name: Подключение к S3 с помощью библиотеки boto3
             href: operations/data/connect-to-s3.md
           - name: Подключение к базе данных {{ CH }}
@@ -169,8 +159,8 @@ items:
             href: concepts/async.md
           - name: Вычисления на кластерах Apache Spark™
             href: concepts/data-proc.md
-      - name: DataSphere Jobs
-        href: concepts/jobs.md
+          - name: Задания DataSphere
+            href: concepts/jobs.md
       - name: Ресурсы
         items:
           - name: Обзор
@@ -197,30 +187,44 @@ items:
         href: concepts/limits.md
       - name: Специальные условия для образования
         href: concepts/freetier.md
+  - name: Как организовать работу в {{ ml-platform-name }}
+    items:
+      - name: Настроить проект для работы с облаком
+        href: tutorials/basics.md
+      - name: Организовать сообщество для студентов
+        href: tutorials/community-for-students.md
+      - name: Автоматизировать настройку проектов
+        href: tutorials/automation-community-settings.md
+      - name: Интегрировать сервис {{ dataproc-full-name }}
+        href: tutorials/data-proc-integration.md
   - name: Практические руководства
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Интеграция с сервисом {{ dataproc-full-name }}
-        href: tutorials/data-proc-integration.md
-      - name: Классификация изображений на видеокадрах
-        href: tutorials/video-recognition.md
-      - name: Развертывание сервиса из ячейки с кодом
-        href: tutorials/node-from-cell.md
-      - name: Развертывание сервиса на основе Docker-образа
-        href: tutorials/node-from-docker.md
-      - name: Генерация изображения с помощью модели Stable Diffusion
-        href: tutorials/stable-diffusion.md
-      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
-        href: tutorials/data-from-metrica-yc-visualization.md
-      - name: Запуск вычислений по расписанию
-        href: tutorials/regular-launch.md
-      - name: Запуск вычислений с помощью API
-        href: tutorials/batch-code-execution.md
-      - name: Обучение модели на данных из {{ objstorage-full-name }}
-        href: tutorials/s3-to-datasphere.md
-      - name: Создание сервера MLFlow для логирования экспериментов и артефактов
-        href: tutorials/mlflow-datasphere.md
+      - name: Разработка
+        items:
+          - name: Классификация изображений на видеокадрах
+            href: tutorials/video-recognition.md
+          - name: Запуск вычислений по расписанию
+            href: tutorials/regular-launch.md
+          - name: Запуск вычислений с помощью API
+            href: tutorials/batch-code-execution.md
+          - name: Обучение модели на данных из {{ objstorage-full-name }}
+            href: tutorials/s3-to-datasphere.md
+          - name: Создание сервера MLFlow для логирования экспериментов и артефактов
+            href: tutorials/mlflow-datasphere.md
+      - name: Эксплуатация
+        items:
+          - name: Развертывание сервиса из ячейки с кодом
+            href: tutorials/node-from-cell.md
+          - name: Развертывание сервиса на основе Docker-образа
+            href: tutorials/node-from-docker.md
+          - name: Генерация изображения с помощью модели Stable Diffusion
+            href: tutorials/stable-diffusion.md
+      - name: Аналитика данных
+        items:
+          - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
+            href: tutorials/data-from-metrica-yc-visualization.md
   - name: Справочник API
     items:
       - name: Обзор

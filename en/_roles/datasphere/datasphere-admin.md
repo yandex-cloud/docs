@@ -1,1 +1,0 @@
-The `datasphere.admin` role is deprecated and no longer used.

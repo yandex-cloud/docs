@@ -66,7 +66,7 @@ When using Object Storage, be sure that support for TLS protocols below version 
 
 ### {{ alb-name }} {#load-balancer}
 
-[{{ alb-name }}](../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. See [how to set up the listener](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) in the {{ alb-name }} documentation.
+[{{ alb-name }}](../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. See [how to set up the listener](../../application-load-balancer/concepts/application-load-balancer.md#listener-example) in the Application Load Balancer documentation.
 
 ### {{ vpc-name }} (VPC) {#vpc}
 
@@ -152,7 +152,7 @@ A secure value for AES-GCM mode is encryption using 4294967296 (= 2<sup>32</sup>
 
 {% note alert %}
 
-Destroying any version of a key means destroying all data encrypted with it. You can protect a key against deletion by setting the [deletionProtection](../../kms/api-ref/SymmetricKey/index.md) parameter. However, it doesn't protect against deleting individual versions.
+Destroying any version of a key means destroying all data encrypted with it. You can protect a key against deletion by setting the [deletionProtection](../../kms/api-ref/SymmetricKey/index.md) parameter. However, it does not protect against deleting individual versions.
 
 {% endnote %}
 
@@ -160,7 +160,7 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
 
 ## Managing secrets {#secrets}
 
-Do not use critical data and access secrets (such as authentication tokens, API keys, and encryption keys) explicitly in the code, cloud object names and descriptions, VM metadata, and so on. Instead, use secret storage services like {{ lockbox-name }} or HashiCorp Vault.
+Do not use critical data and access secrets, such as authentication tokens, API keys, and encryption keys, explicitly in the code, cloud object names and descriptions, VM metadata, etc. Instead, use secret storage services, such as {{ lockbox-name }} or HashiCorp Vault.
 
 ### {{ lockbox-name }} {#lockbox}
 

@@ -51,7 +51,6 @@ This section describes how to assign a role to a user with a Yandex account. The
 
       For example, assign the `viewer` role for the `mycloud` [cloud](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
-
       ```bash
       yc resource-manager cloud add-access-binding mycloud \
           --role viewer \
@@ -93,13 +92,13 @@ This section describes how to assign a role to a user with a Yandex account. The
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Add the resource parameters to the configuration file, specify the required role and a list of cloud users:
 
       * `cloud_id`: [Cloud ID](../../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
-      * `role`: Role being assigned. Required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
+      * `role`: Role being assigned. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
 
       Example of the configuration file structure:
 

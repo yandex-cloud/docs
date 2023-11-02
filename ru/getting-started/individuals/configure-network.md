@@ -14,6 +14,12 @@
     1. Снова нажмите **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
     1. В открывшемся окне выберите зону доступности `{{ region-id }}-a`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
+    {% note info %}
+
+    {% include [zone-c-deprecation](../../_includes/vpc/zone-c-deprecation.md) %}
+
+    {% endnote %}
+
 {% endlist %}
 
 ## Создайте ВМ для сервиса во всех зонах доступности {#create-vms}

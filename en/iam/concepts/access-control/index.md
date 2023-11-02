@@ -47,17 +47,17 @@ To find out what roles exist and what permissions they include, see [{#T}](roles
 
 ### Subjects that roles are assigned to {#subject}
 
-Roles are assigned to subjects. There are four types of subjects:
+Roles are assigned to subjects. The following subject types are available:
 
-* `userAccount`: [A Yandex account](../index.md#passport) added to {{ yandex-cloud }}.
-* `serviceAccount`: [A service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
+* `userAccount`: [Yandex account](../index.md#passport) added to {{ yandex-cloud }}.
+* `serviceAccount`: [Service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
 
    {% include [include](../../../_includes/sa-assign-role-note.md) %}
-* `federatedUser`: A user account  from an [identity federation](../../../organization/concepts/add-federation.md), like Active Directory.
+* `federatedUser`: User account in an [identity federation](../../../organization/concepts/add-federation.md), e.g., Active Directory.
 
-* `group`: A group of users created in [{{ org-full-name }}](../../../organization/).
+* `group`: User group created in [{{ org-full-name }}](../../../organization/).
 
-* `system`: [A system group](system-group.md).
+* `system`: [System group](system-group.md).
 
 ### Access binding {#access-bindings}
 
@@ -71,7 +71,7 @@ Each binding is a single assignment of a role to a subject. To assign a user mul
 
 If a resource has child resources, all permissions from the parent resource will be inherited by the child resources. For example, if you assign a user a role for a folder where a VM instance resides, all permissions of this role will also apply to the instance.
 
-If a child resource is also assigned some roles, a list of permissions for this resource will be combined with a list of permissions for its parent resource. You can't limit the list of permissions inherited from the parent resource.
+If a child resource is also assigned some roles, a list of permissions for this resource will be combined with a list of permissions for its parent resource. You cannot limit the list of permissions inherited from the parent resource.
 
 ### Impersonation {#impersonation}
 
@@ -85,12 +85,13 @@ The administrator can revoke the role whenever needed.
 
 Some restrictions apply to [assigning roles](../../operations/roles/grant.md) in the management console:
 
-* You can only assign cloud and folder roles to users with a Yandex account and federated account.
-* You can't assign roles to multiple subjects at once, unlike in the API or CLI. In the management console, you should first select the subject (user or service account), and then assign roles to it.
+* You cannot assign roles to multiple subjects at once, unlike in the API or CLI. In the management console, you should first select the subject (user or service account) and then assign roles to it.
 
 #### See also {#see-also}
 
-Step-by-step instructions and examples:
+For more information about managing access to a specific {{ yandex-cloud }} service, see the <q>Access management</q> section in the documentation for that service.
+
+Step-by-step guides and examples:
 
 * [{#T}](../../operations/roles/grant.md)
 * [{#T}](../../operations/roles/revoke.md)

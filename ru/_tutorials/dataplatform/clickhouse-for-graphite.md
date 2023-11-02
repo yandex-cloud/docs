@@ -55,34 +55,28 @@
 
   1. Подготовьте yaml-файл `graphite-rollup.yaml` с описанием параметров `rollup`, например:
   
-      ```bash
-                name: test_rollup
-      patterns:    
-          - regexp: click_cost
+      ```yaml
+      name: test_rollup
+      patterns:
+        - regexp: click_cost
           function: max
           retention:
             - age: 86400
               precision: 60
       ```
 
-  1. Вместо `<CLUSTER_ID>` укажите идентификатор кластера, вместо `<путь к yaml-файлу>` — путь к `graphite-rollup.yaml` и выполните команду: 
-   
+  1. Выполните команду:
+
       ```bash
-      yc managed-clickhouse cluster add-graphite-rollup <CLUSTER_ID> --rollup-file-name <путь к yaml-файлу>
+      yc managed-clickhouse cluster add-graphite-rollup <CLUSTER_ID> --rollup-file-name <путь_к_файлу_yaml>
       ```
 
       Где:
 
-      * `<CLUSTER_ID>` – идентификатор кластера.
-      * `<путь к yaml-файлу>` — путь к `graphite-rollup.yaml`.
+      * `<CLUSTER_ID>` — идентификатор кластера.
+      * `<путь_к_файлу_yaml>` — путь к `graphite-rollup.yaml`.
 
-      Подробнее о команде `managed-clickhouse cluster add-graphite-rollup` см. в [справочнике CLI](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md). 
-
-      {% note info %}
-
-      Для удаления конфигурации `rollup` используйте команду `managed-clickhouse cluster remove-graphite-rollup`. Подробнее о команде см. в [справочнике CLI](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/remove-graphite-rollup.md).
-
-      {% endnote %}
+      Подробнее о команде `managed-clickhouse cluster add-graphite-rollup` см. в [справочнике CLI](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md).
 
 - API
   
@@ -167,17 +161,17 @@
 
   В интерфейсе ClickHouse CLI выполните запрос на создание таблицы на основе [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/). В качестве параметра передайте имя секции `rollup`, описанной ранее:
 
-    ```bash
+    ```sql
     CREATE TABLE GraphiteTable
     (        
-        metric String, 
-        time DateTime, 
-        value Int64, 
-        version UInt64
+        Path String, 
+        Time DateTime, 
+        Value Int64, 
+        Version UInt64
     )
     ENGINE = GraphiteMergeTree('test_rollup')
-    PARTITION BY time
-    ORDER BY cityHash64(version, metric)
+    PARTITION BY Time
+    ORDER BY cityHash64(Version, Path)
     ```
 
 {% endlist %}
@@ -219,6 +213,19 @@
     Подробнее о настройке Graphite см. в [документации](https://graphite.readthedocs.io/en/latest/index.html). 
 
 ## Как удалить созданные ресурсы {#clear-out}
+
+Чтобы удалить из кластера конфигурацию `rollup`:
+
+1. Удалите все таблицы, которые используют эту конфигурацию.
+1. Используйте команду `yc managed-clickhouse cluster remove-graphite-rollup`.
+
+Подробнее о команде см. в [справочнике CLI](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/remove-graphite-rollup.md).
+
+{% note alert %}
+
+Удаление конфигурации `rollup` без предварительного удаления таблиц, которые ее используют, может привести к отказу кластера.
+
+{% endnote %}
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 

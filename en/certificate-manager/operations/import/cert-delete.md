@@ -64,7 +64,7 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and delete the fragment with the certificate description:
 
@@ -73,7 +73,7 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
       ```
       ...
       resource "yandex_cm_certificate" "imported-certificate" {
-        name = "my-certificate"
+        name    = "my-certificate"
 
         self_managed {
           certificate = <<-EOT
@@ -97,7 +97,7 @@ To delete a [custom certificate](../../concepts/imported-certificate.md):
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   You can check the certificate's deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+   You can check the certificate deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
    yc certificate-manager certificate list

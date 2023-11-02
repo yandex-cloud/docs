@@ -1,6 +1,6 @@
 # Updating a folder
 
-The management console only allows you to change the name of a folder. To change its description, use the CLI or API.
+To update a folder name or description, use the management console, CLI, API, or {{ TF }}.
 
 {% list tabs %}
 
@@ -8,7 +8,7 @@ The management console only allows you to change the name of a folder. To change
 
    1. Select the folder on the management console [home page]({{ link-console-cloud }}). This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
    1. Click ![image](../../../_assets/options.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
-   1. Enter a new name for the folder.
+   1. Enter a new name and description for the folder.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
 - CLI
@@ -53,7 +53,7 @@ The management console only allows you to change the name of a folder. To change
          For example, the `fhmp74bfis2a********` VM belongs to the `b1gpvjd9ir42********` folder:
 
          ```bash
-         yc compute instance get fhmp74bfis2ais728p2a
+         yc compute instance get fhmp74bfis2a********
          ```
 
          Result:
@@ -82,7 +82,7 @@ The management console only allows you to change the name of a folder. To change
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To edit the settings of a folder created with {{ TF }}:
 
@@ -93,7 +93,7 @@ The management console only allows you to change the name of a folder. To change
       ```hcl
       ...
       resource "yandex_resourcemanager_folder" "folder1" {
-        cloud_id    = "b1gia12......fvsleds"
+        cloud_id    = "b1gia12lt1tp********"
         name        = "myfolder"
         description = "this is my default-folder"
       }
@@ -132,7 +132,7 @@ The management console only allows you to change the name of a folder. To change
       You can check the folder update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```
-      yc resource-manager folder list-operations <folder name>|<folder ID>
+      yc resource-manager folder list-operations <folder_name>|<folder_ID>
       ```
 
 {% endlist %}

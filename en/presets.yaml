@@ -685,6 +685,7 @@ default:
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-cloud-notifications: https://console.cloud.yandex.com/cloud?section=notifications
+  link-cloud-communications: https://console.cloud.yandex.com/folders?openSettings=communications
   link-datalens-main: https://datalens.yandex.com
   link-datalens-settings: https://datalens.yandex.com/settings
   link-speechsense-main: https://speechsense.cloud.yandex.ru/
@@ -5485,6 +5486,7 @@ default:
         button_process-in-yq: Process in YQ
         label_bucket: Bucket
         label_cloudLogging: Cloud Logging
+        label_collecting-logs: Collecting events
         label_dataStream: Data Streams
         label_destination: Destination
         label_event-filter-section: Collecting events from the service level (Data plane)
@@ -5499,6 +5501,7 @@ default:
         label_resource-type: Resource
         label_service-account: Service account
         label_stream-name: Data stream
+        title_kms-key: Encryption key
       backup:
         action_add-to-recovery-list: Add to list of files to be recovered
         action_detach-instance: Detach from policy
@@ -6565,6 +6568,7 @@ default:
             value_data-transfer: Data Transfer
             value_managed-clickhouse: ClickHouse cluster
             value_serverless-functions: Function
+            value_storage: Bucket
             value_vpc: Network
             value_ydb: YDB database
           service-account:
@@ -7473,6 +7477,7 @@ default:
             field_certificate-manager: Certificate
             field_source: Source
             value_method-certificate-manager: Certificate Manager
+            value_method-custom: Your certificate
           lifecycle:
             button_lifecycle_empty-create: Configure
             button_save: Save
