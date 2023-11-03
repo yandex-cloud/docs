@@ -56,3 +56,4 @@ Method | Description
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for the host group.
 [update](update.md) | Updates the specified host group.
 [updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the host group.
+[updateHost](updateHost.md) | Update host

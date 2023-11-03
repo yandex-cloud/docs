@@ -123,7 +123,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
       * Enter a name for the VM, e.g., `mlflow-vm`.
       * Select the `{{ region-id }}-a` availability zone.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select `Ubuntu 20.04`.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select `Ubuntu 22.04`.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab and configure the boot disk:
       * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.instances.create-disk.value_network-ssd }}`
       * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `20 GB`
@@ -208,7 +208,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
 1. Install the required packages by running the following commands one by one:
 
    ```bash
-   conda install -c "conda-forge/label/cf202003" mlflow
+   conda install -c conda-forge mlflow
    conda install -c anaconda boto3
    pip install psycopg2-binary
    pip install pandas
@@ -251,12 +251,6 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
       aws_secret_access_key=<secret_key>
       ```
 
-1. Add authentication at server startup:
-
-   ```bash
-   mlflow server --app-name basic-auth
-   ```
-
 1. Run the MLFlow Tracking Server by substituting your cluster data:
 
    ```bash
@@ -282,7 +276,7 @@ For MLFlow to run automatically after the VM restarts, make it the `Systemd` ser
    sudo nano /etc/systemd/system/mlflow-tracking.service
    ```
 
-1. Add the following lines to the file by substituting your cluster data:
+1. Add the following lines to the file, replacing the placeholders with your data:
 
    ```bash
    [Unit]
@@ -293,16 +287,20 @@ For MLFlow to run automatically after the VM restarts, make it the `Systemd` ser
    Environment=MLFLOW_S3_ENDPOINT_URL=https://storage.yandexcloud.net/
    Restart=on-failure
    RestartSec=30
-   StandardOutput=file:/home/ubuntu/mlflow_logs/stdout.log
-   StandardError=file:/home/ubuntu/mlflow_errors/stderr.log
-   User=ubuntu
-   ExecStart=/bin/bash -c 'PATH=/home/ubuntu/anaconda3/envs/mlflow_env/bin/:$PATH exec mlflow server --backend-store-uri postgresql://<username>:<password>@<host>:6432/db1?sslmode=verify-full --default-artifact-root s3://mlflow-bucket/artifacts -h 0.0.0.0 -p 8000'
+   StandardOutput=file:/home/<VM_username>/mlflow_logs/stdout.log
+   StandardError=file:/home/<VM_username>/mlflow_errors/stderr.log
+   User=<VM_username>
+   ExecStart=/bin/bash -c 'PATH=/home/<VM_username>/anaconda3/envs/mlflow_env/bin/:$PATH exec mlflow server --backend-store-uri postgresql://<DB_username>:<password>@<host>:6432/db1?sslmode=verify-full --default-artifact-root s3://mlflow-bucket/artifacts -h 0.0.0.0 -p 8000'
 
    [Install]
    WantedBy=multi-user.target
    ```
+   Where:
 
-1. Run the service and activate autoload at system startup:
+   * <VM_username>: VM account username.
+   * <DB_username>: Username specified when creating a database cluster.
+
+1. Run the service and enable autoload at system startup:
 
    ```bash
    sudo systemctl daemon-reload

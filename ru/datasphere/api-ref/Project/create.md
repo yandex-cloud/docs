@@ -32,7 +32,10 @@ POST https://datasphere.{{ api-host }}/datasphere/v2/projects
     "earlyAccess": true,
     "ide": "string",
     "defaultFolderId": "string",
-    "staleExecTimeoutMode": "string"
+    "staleExecTimeoutMode": "string",
+    "ideExecutionMode": "string",
+    "vmInactivityTimeout": "string",
+    "defaultDedicatedSpec": "string"
   },
   "limits": {
     "maxUnitsPerHour": "integer",
@@ -58,6 +61,9 @@ settings.<br>earlyAccess | **boolean** (boolean)<br><p>Is early access preview e
 settings.<br>ide | **string**<br><p>Project IDE.</p> <ul> <li>JUPYTER_LAB: Project running on JupyterLab IDE.</li> </ul> 
 settings.<br>defaultFolderId | **string**<br><p>Default project folder ID.</p> 
 settings.<br>staleExecTimeoutMode | **string**<br><p>Timeout to automatically stop stale executions.</p> <ul> <li>ONE_HOUR: Setting to automatically stop stale execution after one hour with low consumption.</li> <li>THREE_HOURS: Setting to automatically stop stale execution after three hours with low consumption.</li> <li>NO_TIMEOUT: Setting to never automatically stop stale executions.</li> </ul> 
+settings.<br>ideExecutionMode | **string**<br><p>VM allocation mode.</p> <ul> <li>SERVERLESS: VM is allocated for specific execution and deallocated after the execution ends.</li> <li>DEDICATED: VM is allocated at the first execution and stays allocated until manually deallocated. Or until timeout exceeded.</li> </ul> 
+settings.<br>vmInactivityTimeout | **string**<br><p>Timeout for VM deallocation.</p> 
+settings.<br>defaultDedicatedSpec | **string**<br><p>Default VM configuration for DEDICATED mode.</p> 
 limits | **object**<br><p>Limits of the project.</p> 
 limits.<br>maxUnitsPerHour | **integer** (int64)<br><p>The number of units that can be spent per hour.</p> 
 limits.<br>maxUnitsPerExecution | **integer** (int64)<br><p>The number of units that can be spent on the one execution.</p> 

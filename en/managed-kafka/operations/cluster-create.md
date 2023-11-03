@@ -31,7 +31,6 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       1. Select the {{ KF }} version.
       1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
-         1. Enable the **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** setting.
          1. After creating your {{ mkf-name }} cluster, [create an admin user](cluster-accounts.md#create-user).
 
          {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}

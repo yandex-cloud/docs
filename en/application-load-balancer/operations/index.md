@@ -33,6 +33,7 @@ description: "Step-by-step guide for using {{ alb-full-name }} in {{ yandex-clou
 * [{#T}](application-load-balancer-manage-logs.md)
 * [{#T}](application-load-balancer-get-log-group-id.md)
 * [{#T}](application-load-balancer-stop-and-start.md)
+* [{#T}](application-load-balancer-relocate.md)
 * [{#T}](application-load-balancer-delete.md)
 
 ## Tools for {{ managed-k8s-name }} {#k8s-ingress-controller}

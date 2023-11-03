@@ -7,7 +7,6 @@ A {{ mkf-name }} cluster provides two ways for you to manage topics and partitio
 ## Managing topics and partitions with the {{ KF }} Admin API {#admin-api}
 
 To manage topics via the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi):
-1. Enable **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** when [creating a cluster](cluster-create.md) or [changing its settings](cluster-update.md).
 1. [Create](cluster-accounts.md#create-user) a cluster admin user.
 1. Manage topics on behalf of this user through [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi) calls. Review your favorite programming language manual for information on working with the Admin API.
 

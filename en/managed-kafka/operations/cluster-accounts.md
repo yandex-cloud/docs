@@ -4,7 +4,7 @@ Users in {{ KF }}:
 * Keep the access permissions of data [producers and consumers](../concepts/producers-consumers.md) separate.
 
    A producer or consumer can only access [topics](../concepts/topics.md) that are allowed for their users. You can use the same user for multiple producers or consumers: the former get the rights to write data to certain topics and the latter get the read rights.
-* [Manage topics](cluster-topics.md#admin-api) if you enabled the **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** setting when [creating a cluster](cluster-create.md). For more information, see [{#T}](../concepts/topics.md).
+* [Manage topics](cluster-topics.md#admin-api). For more information, see [{#T}](../concepts/topics.md).
 
 After [creating an {{ KF }} cluster](cluster-create.md), you can:
 * [{#T}](#create-user).
@@ -19,7 +19,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 
 {% note info %}
 
-If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enabled, use the CLI, API, or {{ TF }} to create an admin user.
+To create an administrator user, use the command-line interface, API, or {{ TF }}.
 
 {% endnote %}
 
@@ -61,7 +61,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
         --permission topic=<topic name>,role=<user role: producer or consumer>
       ```
 
-   To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enabled:
+   To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster:
    1. See the description of the create user CLI command:
 
       ```bash
@@ -122,7 +122,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
          * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](cluster-topics.md#list-topics).
          * Topic permissions in the `role` parameter: `ACCESS_ROLE_PRODUCER` for the producer or `ACCESS_ROLE_CONSUMER` for the consumer.
 
-   To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enabled, when creating a user, provide the `permission` block in the `userSpec` parameter with the following values:
+   To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster, when creating a user, provide the `permission` block in the `userSpec` parameter with the following values:
    * `topicName`: `*`
    * `role`: `ACCESS_ROLE_ADMIN`
 
@@ -290,12 +290,6 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
    1. Select the appropriate topic from the drop-down list or enter its name:
 
-      {% note info %}
-
-      If you enabled the **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** setting when creating a cluster, you should enter the topic name manually.
-
-      {% endnote %}
-
       1. Specify the following in the **{{ ui-key.yacloud.kafka.label_topic }}** field:
 
          * `*` to allow access to any topics.
@@ -406,7 +400,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
 ## Revoking user permissions {#revoke-permission}
 
-If, in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enabled, you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/topics.md#management), you will no longer be able to manage topics. Do not revoke this role without first granting it to another user.
+If, in a cluster, you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/topics.md#management), you will no longer be able to manage topics. Do not revoke this role without first granting it to another user.
 
 {% list tabs %}
 
@@ -470,7 +464,7 @@ If, in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enab
 
 ## Deleting a user {#delete-account}
 
-If, in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enabled, you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role, you will no longer be able to manage topics. Assign this role to another user before deleting it.
+If, in a cluster, you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role, you will no longer be able to manage topics. Assign this role to another user before deleting it.
 
 {% list tabs %}
 

@@ -38,6 +38,7 @@ recognition_model | **[RecognitionModelOptions](#RecognitionModelOptions)**<br>C
 eou_classifier | **[EouClassifierOptions](#EouClassifierOptions)**<br>Configuration for end of utterance detection model. 
 recognition_classifier | **[RecognitionClassifierOptions](#RecognitionClassifierOptions)**<br>Configuration for classifiers over speech recognition. 
 speech_analysis | **[SpeechAnalysisOptions](#SpeechAnalysisOptions)**<br>Configuration for speech analysis over speech recognition. 
+speaker_labeling | **[SpeakerLabelingOptions](#SpeakerLabelingOptions)**<br>Configuration for speaker labeling 
 
 
 ### RecognitionModelOptions {#RecognitionModelOptions}
@@ -137,6 +138,13 @@ Field | Description
 enable_speaker_analysis | **bool**<br>Analyse speech for every speaker 
 enable_conversation_analysis | **bool**<br>Analyse conversation of two speakers 
 descriptive_statistics_quantiles[] | **double**<br>Quantile levels in range (0, 1) for descriptive statistics 
+
+
+### SpeakerLabelingOptions {#SpeakerLabelingOptions}
+
+Field | Description
+--- | ---
+speaker_labeling | enum **SpeakerLabeling**<br>Specifies the execution of speaker labeling. Default is SPEAKER_LABELING_DISABLED. <ul><li>`SPEAKER_LABELING_ENABLED`: Enable speaker labeling</li><li>`SPEAKER_LABELING_DISABLED`: Disable speaker labeling</li></ul>
 
 
 ### AudioChunk {#AudioChunk}

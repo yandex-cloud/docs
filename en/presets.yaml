@@ -835,7 +835,7 @@ default:
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   k8s-api-link: >-
     https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
-  k8s-versions-rapid: 1.23, 1.24, 1.25, 1.26, 1.27
+  k8s-versions-rapid: 1.23, 1.24, 1.25, 1.26, 1.27, 1.28
   k8s-versions-regular: 1.23, 1.24, 1.25, 1.26, 1.27
   k8s-versions-stable: 1.23, 1.24, 1.25, 1.26, 1.27
   cic-bgp-asn: 200350
@@ -4687,7 +4687,7 @@ default:
       ui_components_issue-links_ExternalLinksCollapse:
         external-relations: Links to external applications
       ui_components_issue-links_InternalLinksCollapse:
-        relations: Related tasks
+        relations: Related issues
       ui_components_IssueActionsButton:
         menu-item-create-subticket: Create sub-issue
       ui_components_IssueBulkActionPanel:
@@ -6672,7 +6672,6 @@ default:
         field_connector-security-protocol: Security protocol
         field_connector-ssl-truststore-certificates: Certificate in PEM format
         field_schema-registry: Schema registry
-        field_unmanaged-topics: Manage topics via the API
         label_brokers-per-az: Number of brokers in zone
         label_connector-this-cluster: Use this cluster
         label_connectors: Connectors

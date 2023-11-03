@@ -1,33 +1,43 @@
 # Viewing details of service usage by customers
 
 You can view details of how customers use services:
-* In the management console.
-* In the partner portal.
+
+* In the management console
+* On the partner portal
 
 {% list tabs %}
 
 - Management console
 
    To view charts and tables with information about {{ yandex-cloud }} service usage:
-   1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
-   2. Select an account on the **Accounts** page.
-   3. Go to the **Usage details** page.
+
+   1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/main-menu.svg) **All services**.
+   1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
+   1. Click the appropriate account name and select ![image](../../_assets/billing/detalization.svg) **Usage details**.
 
    For more information about the settings of the **Usage details** page, see the [{{ billing-name }} documentation](../../billing/operations/check-charges.md).
 
 - Partner portal
 
-   Log on to the [partner portal](https://partners.cloud.yandex.ru/) with the Yandex ID the partner account in {{ yandex-cloud }} is linked to. There are several ways to check details of service usage by customers:
+   Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID to which your partner account in {{ yandex-cloud }} is linked. There are several ways to check details of service usage by customers:
 
-   * **Customers** tab
-      1. Go to the **Customers** tab in the partner portal.
-      1. Select the customer you need.
+   * **Dashboard** section
+
+      1. In the left-hand panel, select ![icon](../../_assets/partner/dashboard.svg) **Dashboard**.
+      1. Select the customer's account from the list and click it.
       1. Go to the **Service usage** tab.
 
-   * **Rewards** tab
+   * **Rewards** section
 
-      Go to the **Rewards** tab in the partner portal. It shows the total amount for services consumed by all customers.
+      1. In the left-hand panel, select ![icon](../../_assets/partner/rewards.svg) **Rewards**.
+      1. Specify the statistics period. The chart will display the total consumption by month for all customers.
 
-      A `.csv` file provides detailed statistics by customer. Select the period to generate the report for and click **Download file**. The maximum period is 92 days.
+         {% note info %}
+
+         The maximum statistics period is 92 days.
+
+         {% endnote %}
+
+         You can download a `.csv` file with detailed statistics by customer. To do this, click **Download CSV**.
 
 {% endlist %}

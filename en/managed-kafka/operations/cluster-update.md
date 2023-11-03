@@ -27,7 +27,6 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. In the appropriate cluster row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
-   1. Enable the **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** setting.
    1. [Create an admin user](./cluster-accounts.md#create-user).
 
 - CLI

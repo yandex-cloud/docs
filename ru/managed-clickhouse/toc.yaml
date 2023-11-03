@@ -249,6 +249,8 @@ items:
                 href: api-ref/Cluster/move.md
               - name: rescheduleMaintenance
                 href: api-ref/Cluster/rescheduleMaintenance.md
+              - name: restartHosts
+                href: api-ref/Cluster/restartHosts.md
               - name: restore
                 href: api-ref/Cluster/restore.md
               - name: start

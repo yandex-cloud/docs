@@ -1,3 +1,8 @@
+---
+title: "How to connect a Windows Server VM to {{ backup-full-name }}"
+description: "Follow this guide to connect a Windows Server VM to {{ backup-name }}."
+---
+
 # Connecting a Windows Server VM to {{ backup-name }}
 
 {{ backup-name }} supports backing up [{{ compute-name }} VMs](../../compute/concepts/vm.md) running Windows Server 2019 and 2022. For more information, see [{#T}](../concepts/vm-connection.md#os).

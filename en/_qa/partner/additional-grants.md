@@ -2,50 +2,39 @@
 
 #### What is the purpose of additional grants? {#additional-grants}
 
-The program is aimed at helping partners activate their business of providing services to customers in {{ yandex-cloud }}. Therefore, we track our partners' objectives using grants. Within the first six months of obtaining partner status, you can receive two types of temporary grants under the program:
-* A grant for testing replicated solutions.
-* A grant for your customer's pilot.
+The program is aimed at helping partners launch their business of providing services to customers in {{ yandex-cloud }}. To facilitate the partner businesses, we give grants. Within the first six months of obtaining partner status, you can receive two types of temporary grants under the program:
 
-#### What is the grant for testing replicated solutions? {#test-grant}
-
-This grant is given for solutions that a partner plans to regularly deploy in {{ yandex-cloud }} for their customers. The grant for testing replicated solutions can only be credited to the partner's account.
-
-{% note warning %}
-
-You can't transfer the grant amount to your customers' sub-accounts. You can only use it in your partner account's clouds. If you deploy a project for a customer in your partner account's cloud, you won't receive a partner bonus for consumption in that cloud. A bonus for consumption can be credited after this cloud is transferred to the customer's sub-account.
-
-{% endnote %}
-
-#### How do I get a grant for testing replicated solutions? {#get-test-grant}
-
-Send a request to the support service with the following information:
-* A description of the solution you want to implement.
-* Deadlines for its implementation and testing with a reasonable explanation.
-* The way you plan to replicate the solution to your customers.
-* A list of services you need.
-* The requested grant amount in rubles.
-* Your partner account.
-
-The support service will review your request and notify you of its decision about giving the grant and its terms and conditions (amount, validity period, and crediting period).
+* Grant for your customer's pilot
+* Grants under the partner support programs
 
 #### What is the grant for your customer's pilot? {#pilot-grant}
 
-The grant for a pilot is credited to a customer's sub-account.
+The grant for a pilot is credited to a customer subaccount.
 
 {% note info %}
 
-A sub-account is an additional account for a customer's billing account. It's created automatically when you link your customer's account to your partner account in the partner portal. It's displayed both in your {{ yandex-cloud }} account's console and the customer's console.
+A subaccount is an additional account for a customer's billing account. It is created automatically when you link your customer's account to your account on the partner portal. It is displayed both in your {{ yandex-cloud }} account's console and the customer's console.
 
 {% endnote %}
 
-#### How do I get a grant for a pilot to my customer's sub-account? {#get-pilot-grant}
+#### How do I get a pilot grant for my customer's subaccount? {#get-pilot-grant}
 
-Send a request to the support service with the following information:
-* The customer's billing account.
-* A brief description of the solution and what the pilot is designed for.
+Send a request to the support team with the following information:
+
+* Customer's billing account.
+* Brief description of the solution and what the pilot is designed for.
 * Deadlines for the pilot.
-* A list of required services.
-* The requested grant amount in rubles.
-* The customer's sub-account linked to your account.
+* List of required services.
+* Requested grant amount in rubles.
+* Customer's subaccount linked to your account.
 
-The support service will review your request and notify you of its decision about giving the grant and its terms and conditions (amount, validity period, and crediting period).
+We will review your request and notify you of our decision on the grant and its terms (amount, validity period, and crediting period).
+
+#### Which grants are issued under the partner support program? {#support-grant}
+
+For all our partners, we provide appropriate resources for trying out our new services and functionalities:
+
+* One-month grant for 5,000 rubles for trying out our {{ yandex-cloud }} services.
+* Grant for 10,000 rubles on the ["Cloud engineer"](https://practicum.yandex.ru/ycloud/) course in Yandex Practicum (for two engineers).
+
+Our {{ yandex-cloud }} Professional [tier](../../partner/specializations/index.md) partners receive a one-year 150,000 ruble grant for creating and maintaining a demo stand.

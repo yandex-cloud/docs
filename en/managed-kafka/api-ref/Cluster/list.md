@@ -232,7 +232,7 @@ clusters[].<br>config.<br>zookeeper.<br>resources.<br>diskTypeId | **string**<br
 clusters[].<br>config.<br>zoneId[] | **string**<br><p>IDs of availability zones where Kafka brokers reside.</p> 
 clusters[].<br>config.<br>brokersCount | **integer** (int64)<br><p>The number of Kafka brokers deployed in each availability zone.</p> 
 clusters[].<br>config.<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that defines whether a public IP address is assigned to the cluster. If the value is ``true``, then Apache Kafka® cluster is available on the Internet via it's public IP address.</p> 
-clusters[].<br>config.<br>unmanagedTopics | **boolean** (boolean)<br><p>Allows to manage topics via AdminAPI</p> 
+clusters[].<br>config.<br>unmanagedTopics | **boolean** (boolean)<br><p>Allows to manage topics via AdminAPI Deprecated. Feature enabled permanently.</p> 
 clusters[].<br>config.<br>schemaRegistry | **boolean** (boolean)<br><p>Enables managed schema registry on cluster</p> 
 clusters[].<br>config.<br>access | **object**<br><p>Access policy for external services.</p> 
 clusters[].<br>config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 

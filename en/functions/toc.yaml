@@ -429,6 +429,8 @@ items:
             href: functions/api-ref/grpc/index.md
           - name: FunctionService
             href: functions/api-ref/grpc/function_service.md
+          - name: NetworkService
+            href: functions/api-ref/grpc/network_service.md
           - name: OperationService
             href: functions/api-ref/grpc/operation_service.md
       - name: REST

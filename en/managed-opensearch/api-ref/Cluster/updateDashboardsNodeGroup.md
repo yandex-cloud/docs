@@ -31,7 +31,14 @@ name | <p>Required. Name of the Dashboards type host group to be updated.</p> <p
       "diskSize": "string",
       "diskTypeId": "string"
     },
-    "hostsCount": "string"
+    "hostsCount": "string",
+    "zoneIds": [
+      "string"
+    ],
+    "subnetIds": [
+      "string"
+    ],
+    "assignPublicIp": true
   }
 }
 ```
@@ -46,6 +53,9 @@ nodeGroupSpec.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the pr
 nodeGroupSpec.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage used by the host, in bytes.</p> 
 nodeGroupSpec.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage used by the host: ``network-hdd``, ``network-ssd`` or ``local-ssd``.</p> 
 nodeGroupSpec.<br>hostsCount | **string** (int64)<br><p>Number of hosts in the group.</p> 
+nodeGroupSpec.<br>zoneIds[] | **string**<br><p>IDs of the availability zones for hosts</p> 
+nodeGroupSpec.<br>subnetIds[] | **string**<br><p>IDs of the subnets for hosts</p> 
+nodeGroupSpec.<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the hosts should get a public IP address.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

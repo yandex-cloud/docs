@@ -24,11 +24,10 @@
 
 #### Два канала распознались в один / Как распознать каждый канал отдельно {#two-channels}
 
-Проверьте формат вашей записи.
+Проверьте формат вашей записи:
 
-Для LPCM используйте параметр [config.specification.audioChannelCount](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params) равный 2.
-
-Указывать параметр для MP3 и OggOpus не нужно, поскольку информация о количестве каналов содержится в файле. Файл автоматически распределится на две записи.
+* Для LPCM используйте параметр [config.specification.audioChannelCount](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params), равный 2.
+* Для MP3 и OggOpus указывать параметр не нужно, поскольку информация о количестве каналов уже содержится в файле. Файл автоматически распределится на нужное количество записей.
 
 Распознанный текст в ответе разделяется параметром [channelTag](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#get-result-response).
 

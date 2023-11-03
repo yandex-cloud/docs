@@ -12,7 +12,7 @@ The {{ yagpt-name }} model is available under **Foundation models**. You can use
 
 ## Data required for {{ yagpt-name }} retraining {#yagpt-tuning}
 
-To retrain the {{ yagpt-name }} model using the Fine-tuning method, prepare a JSON file with sample queries and reference responses. Save the file in the [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoding:
+To retrain the {{ yagpt-name }} model using the Fine-tuning method, prepare a JSON file with at least ten sample queries and reference responses. Save the file in the [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoding:
 
 ```json
 [

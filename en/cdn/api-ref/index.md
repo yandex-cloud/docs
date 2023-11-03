@@ -14,3 +14,4 @@ Resource | Description
 [Provider](Provider/index.md) | A set of methods for managing Provider Service resources.
 [RawLogs](RawLogs/index.md) | 
 [Resource](Resource/index.md) | Provider's resources management service.
+[ResourceRules](ResourceRules/index.md) | Rules management service.  Used for Resources Rules management.

@@ -1,6 +1,6 @@
 # Connecting to {{ jlab }}Lab from a local IDE
 
-In {{ ml-platform-name }}, you can work with projects run in [{{ dd }}](../../concepts/project.md#dedicated) mode from any local IDE if it supports the use of remote {{ jlab }} servers.
+In {{ ml-platform-name }}, you can work with projects run in [{{ dd }}](../../concepts/project.md#dedicated) mode from any local IDE if it supports the use of remote {{ jlab }} servers. This feature is disabled by default, but the community administrator can enable it in the [community settings](../community/manage-community-config.md).
 
 {% note info %}
 

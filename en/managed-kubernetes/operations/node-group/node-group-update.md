@@ -3,7 +3,7 @@ title: "How to update a {{ managed-k8s-name }} node group"
 description: "Follow this guide to update a {{ managed-k8s-name }} node group."
 ---
 
-# Changing a node group
+# Updating a node group {{ managed-k8s-name }}
 
 {% include [yc-node-group-list](../../../_includes/managed-kubernetes/node-group-list.md) %}
 
@@ -15,23 +15,24 @@ You can change the following parameters of a [{{ managed-k8s-name }} node group]
 * Name
 * Description
 * Number of {{ managed-k8s-name }} nodes
-* {{ k8s }} version
+* [{{ k8s }} version](../../concepts/release-channels-and-updates.md)
+* [IP address](../../../vpc/concepts/address.md) assignment method: internal only or both internal and external
 * [Container runtime environment](../../concepts/index.md#config)
 * List of [security groups](../connect/security-groups.md)
 
   {% note alert %}
 
-  Do not delete security groups attached to a running {{ managed-k8s-name }} node group as this may disrupt its operation and result in a loss of data.
+  Do not delete [security groups](../../../vpc/concepts/security-groups.md) attached to a running {{ managed-k8s-name }} node group as this may disrupt its operation and result in a loss of data.
 
   {% endnote %}
 
-* Computing resources and {{ managed-k8s-name }} node disk size
+* [Computing resources](../../../compute/concepts/vm-platforms.md) and {{ managed-k8s-name }} node [disk](../../../compute/concepts/disk.md) size
 * {{ managed-k8s-name }} node name template
 * [Update](../../concepts/release-channels-and-updates.md#updates) policy
 
 {% note alert %}
 
-Do not reconfigure VMs belonging to a {{ managed-k8s-name }} cluster with the help of the [{{ compute-full-name }} interfaces](../../../compute/operations/vm-control/vm-update.md). This will disrupt the operation of the node group and the whole {{ managed-k8s-name }} cluster.
+Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) with the help of the [{{ compute-full-name }} interfaces](../../../compute/operations/vm-control/vm-update.md). This will disrupt the operation of the node group and the whole {{ managed-k8s-name }} cluster.
 
 {% endnote %}
 
@@ -39,8 +40,8 @@ Do not reconfigure VMs belonging to a {{ managed-k8s-name }} cluster with the he
 
 - Management console
 
-  To update a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
-  1. Open **{{ managed-k8s-name }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
+  To update a {{ managed-k8s-name }} node group:
+  1. Open **{{ managed-k8s-name }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Go to the **Node group** tab.
   1. Click **Edit** in the top-right corner.
@@ -77,7 +78,7 @@ Do not reconfigure VMs belonging to a {{ managed-k8s-name }} cluster with the he
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
   * `--template-labels`: Update [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) in `<label_name>=<label_value>` format for VMs representing the {{ managed-k8s-name }} group nodes. You can specify multiple labels separated by commas.
-  * `--latest-revision`: Get all available updates for the current version of the [master](../../concepts/index.md#master).
+  * `--latest-revision`: Get all available updates for current [master {{ managed-k8s-name }}](../../concepts/index.md#master) version.
   * `--auto-upgrade`: Manage automatic updates.
   * Managing the maintenance window:
     * `--anytime-maintenance-window`: Perform maintenance at any time.
@@ -94,7 +95,7 @@ Do not reconfigure VMs belonging to a {{ managed-k8s-name }} cluster with the he
 
 - {{ TF }}
 
-  To update a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
+  To update a {{ managed-k8s-name }} node group:
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
      For more information about creating this file, see [{#T}](node-group-create.md).
@@ -200,6 +201,14 @@ Do not reconfigure VMs belonging to a {{ managed-k8s-name }} cluster with the he
   Use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
 
 {% endlist %}
+
+Alternatively, you can grant internet access permission to {{ managed-k8s-name }} cluster nodes by creating and setting up a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../../vpc/tutorials/nat-instance.md). As a result, through [static routing](../../../vpc/concepts/static-routes.md), traffic will be routed via the gateway or a separate VM instance with NAT features.
+
+{% note info %}
+
+If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IPs will be disabled. For more information, see the [{{ vpc-full-name }} documentation](../../../vpc/concepts/static-routes.md#internet-routes).
+
+{% endnote %}
 
 ## Managing node group labels {#manage-label}
 

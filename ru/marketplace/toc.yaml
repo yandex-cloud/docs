@@ -92,4 +92,6 @@ items:
                 href: license-manager/api-ref/Lock/get.md
               - name: getByInstanceAndResource
                 href: license-manager/api-ref/Lock/getByInstanceAndResource.md
+              - name: list
+                href: license-manager/api-ref/Lock/list.md
 base: ru/marketplace

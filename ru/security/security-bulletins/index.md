@@ -2,6 +2,8 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [3.11.2023 — CVE-2023-5043 Nginx ingress controller fo Kubernetes vulnerabilities](../../_includes/security/security-bulletins/cve-2023-5043.md) %}
+
 {% include [26.10.2023 — CVE-2023-3484 GitLab Security Release: 16.1.2, 16.0.7, and 15.11.11](../../_includes/security/security-bulletins/cve-2023-3484-gitlab-security-release.md) %}
 
 {% include [26.10.2023 — CVE-2023-3424 - CVE-2023-1936 GitLab Security Release: 16.1.1, 16.0.6, and 15.11.10](../../_includes/security/security-bulletins/cve-2023-3424-cve-2023-1936-gitlab-security-release.md) %}
