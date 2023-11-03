@@ -24,7 +24,7 @@ The cost of using [API v3](tts-v3/api-ref/grpc/index.md) depends on the number 
 
 
 
-The cost of using {{ speechkit-name }} for speech recognition depends on the recognition type and duration of a recognized audio fragment. The cost is calculated for a calendar month ([Reporting period](https://cloud.yandex.com/docs/billing/concepts/glossary)).
+The cost of using {{ speechkit-name }} for speech recognition depends on the recognition type and duration of a recognized audio fragment. Cost is calculated for a calendar month ([Reporting period](../billing/concepts/glossary.md)).
 
 #### Streaming speech recognition {#rules-stt-streaming}
 
@@ -38,7 +38,7 @@ The billing unit is a 15-second segment of single-channel audio. Shorter segment
 
 {% note warning %}
 
-In [streaming mode](stt/streaming.md), billing begins when a [message with recognition settings](stt/streaming.md#specification-msg) is sent. Even if you don't send any audio after this message, it's treated as 1 consumed billable unit.
+In [streaming mode](stt/streaming.md), billing begins when a [message with recognition settings](stt/streaming.md#specification-msg) is sent. Even if you do not send any audio after this message, it will be treated as one consumed billing unit.
 
 {% endnote %}
 

@@ -15,6 +15,7 @@ A set of methods for managing Project Jobs.
 | [Finalize](#Finalize) | Triggers cleanup after downloading job results. |
 | [ReadStdLogs](#ReadStdLogs) | Returns stream of job logs. |
 | [ReadLogs](#ReadLogs) | Returns stream of job logs. |
+| [DownloadJobFiles](#DownloadJobFiles) | Returns download urls for job files. |
 | [List](#List) | Lists jobs. |
 | [Get](#Get) | Returns job by id. |
 | [Delete](#Delete) | Deletes specified job. |
@@ -40,6 +41,7 @@ job_parameters | **[JobParameters](#JobParameters)**<br>Parameters of the job.
 config | **string**<br>Config of the job. 
 name | **string**<br>Name of the job. 
 desc | **string**<br>Description of the job. 
+data_ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Job data TTL. 
 
 
 ### JobParameters {#JobParameters}
@@ -203,6 +205,9 @@ config | **string**<br>Config of the job, copied from configuration file.
 created_by_id | **string**<br>ID of the user who created the job. 
 project_id | **string**<br>ID of the project. 
 job_parameters | **[JobParameters](#JobParameters1)**<br> 
+data_expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Job data expiration timestamp. 
+data_cleared | **bool**<br>Marks if the job data has been cleared. 
+output_files[] | **[File](#File1)**<br>Output files of the job. 
 
 
 ### JobParameters {#JobParameters1}
@@ -217,15 +222,6 @@ cmd | **string**<br>Job run command.
 env | **[Environment](#Environment1)**<br>Job environment description. 
 attach_project_disk | **bool**<br>Should project disk be attached to VM. 
 cloud_instance_type | **[CloudInstanceType](#CloudInstanceType1)**<br>VM specification. 
-
-
-### File {#File1}
-
-Field | Description
---- | ---
-desc | **[FileDesc](#FileDesc1)**<br> 
-sha256 | **string**<br>SHA256 of the file. 
-size_bytes | **int64**<br>File size in bytes. 
 
 
 ### FileDesc {#FileDesc1}
@@ -263,7 +259,7 @@ password | **oneof:** `password_plain_text` or `password_ds_secret_name`<br>Pass
 Field | Description
 --- | ---
 conda_yaml | **string**<br>Conda YAML. 
-local_modules[] | **[File](#File2)**<br>List of local modules descriptions. 
+local_modules[] | **[File](#File1)**<br>List of local modules descriptions. 
 
 
 ### CloudInstanceType {#CloudInstanceType1}
@@ -271,6 +267,15 @@ local_modules[] | **[File](#File2)**<br>List of local modules descriptions.
 Field | Description
 --- | ---
 name | **string**<br>Name of DataSphere VM configuration. 
+
+
+### File {#File1}
+
+Field | Description
+--- | ---
+desc | **[FileDesc](#FileDesc2)**<br> 
+sha256 | **string**<br>SHA256 of the file. 
+size_bytes | **int64**<br>File size in bytes. 
 
 
 ### ExecuteProjectJobResponse {#ExecuteProjectJobResponse}
@@ -393,6 +398,52 @@ source | **oneof:** `standard_stream` or `file_path`<br>
 &nbsp;&nbsp;file_path | **string**<br>System debug log files. 
 
 
+## DownloadJobFiles {#DownloadJobFiles}
+
+Returns download urls for job files.
+
+**rpc DownloadJobFiles ([DownloadProjectJobFilesRequest](#DownloadProjectJobFilesRequest)) returns ([DownloadProjectJobFilesResponse](#DownloadProjectJobFilesResponse))**
+
+### DownloadProjectJobFilesRequest {#DownloadProjectJobFilesRequest}
+
+Field | Description
+--- | ---
+job_id | **string**<br>Required.  
+files[] | **[File](#File2)**<br> The minimum number of elements is 1.
+
+
+### File {#File2}
+
+Field | Description
+--- | ---
+desc | **[FileDesc](#FileDesc2)**<br> 
+sha256 | **string**<br>SHA256 of the file. 
+size_bytes | **int64**<br>File size in bytes. 
+
+
+### FileDesc {#FileDesc2}
+
+Field | Description
+--- | ---
+path | **string**<br>Path of the file on filesystem. 
+var | **string**<br>Variable to use in cmd substitution. 
+
+
+### DownloadProjectJobFilesResponse {#DownloadProjectJobFilesResponse}
+
+Field | Description
+--- | ---
+download_files[] | **[StorageFile](#StorageFile2)**<br> 
+
+
+### StorageFile {#StorageFile2}
+
+Field | Description
+--- | ---
+file | **[File](#File3)**<br> 
+url | **string**<br>File URL. 
+
+
 ## List {#List}
 
 Lists jobs.
@@ -430,14 +481,17 @@ config | **string**<br>Config of the job, copied from configuration file.
 created_by_id | **string**<br>ID of the user who created the job. 
 project_id | **string**<br>ID of the project. 
 job_parameters | **[JobParameters](#JobParameters2)**<br> 
+data_expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Job data expiration timestamp. 
+data_cleared | **bool**<br>Marks if the job data has been cleared. 
+output_files[] | **[File](#File3)**<br>Output files of the job. 
 
 
 ### JobParameters {#JobParameters2}
 
 Field | Description
 --- | ---
-input_files[] | **[File](#File2)**<br>List of input files. 
-output_files[] | **[FileDesc](#FileDesc2)**<br>List of output files descriptions. 
+input_files[] | **[File](#File3)**<br>List of input files. 
+output_files[] | **[FileDesc](#FileDesc3)**<br>List of output files descriptions. 
 s3_mount_ids[] | **string**<br>List of DataSphere S3 mount ids. 
 dataset_ids[] | **string**<br>List of DataSphere dataset ids. 
 cmd | **string**<br>Job run command. 
@@ -446,16 +500,7 @@ attach_project_disk | **bool**<br>Should project disk be attached to VM.
 cloud_instance_type | **[CloudInstanceType](#CloudInstanceType2)**<br>VM specification. 
 
 
-### File {#File2}
-
-Field | Description
---- | ---
-desc | **[FileDesc](#FileDesc2)**<br> 
-sha256 | **string**<br>SHA256 of the file. 
-size_bytes | **int64**<br>File size in bytes. 
-
-
-### FileDesc {#FileDesc2}
+### FileDesc {#FileDesc3}
 
 Field | Description
 --- | ---
@@ -500,6 +545,15 @@ Field | Description
 name | **string**<br>Name of DataSphere VM configuration. 
 
 
+### File {#File3}
+
+Field | Description
+--- | ---
+desc | **[FileDesc](#FileDesc4)**<br> 
+sha256 | **string**<br>SHA256 of the file. 
+size_bytes | **int64**<br>File size in bytes. 
+
+
 ## Get {#Get}
 
 Returns job by id.
@@ -527,14 +581,17 @@ config | **string**<br>Config of the job, copied from configuration file.
 created_by_id | **string**<br>ID of the user who created the job. 
 project_id | **string**<br>ID of the project. 
 job_parameters | **[JobParameters](#JobParameters3)**<br> 
+data_expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Job data expiration timestamp. 
+data_cleared | **bool**<br>Marks if the job data has been cleared. 
+output_files[] | **[File](#File4)**<br>Output files of the job. 
 
 
 ### JobParameters {#JobParameters3}
 
 Field | Description
 --- | ---
-input_files[] | **[File](#File3)**<br>List of input files. 
-output_files[] | **[FileDesc](#FileDesc3)**<br>List of output files descriptions. 
+input_files[] | **[File](#File4)**<br>List of input files. 
+output_files[] | **[FileDesc](#FileDesc4)**<br>List of output files descriptions. 
 s3_mount_ids[] | **string**<br>List of DataSphere S3 mount ids. 
 dataset_ids[] | **string**<br>List of DataSphere dataset ids. 
 cmd | **string**<br>Job run command. 
@@ -543,16 +600,7 @@ attach_project_disk | **bool**<br>Should project disk be attached to VM.
 cloud_instance_type | **[CloudInstanceType](#CloudInstanceType3)**<br>VM specification. 
 
 
-### File {#File3}
-
-Field | Description
---- | ---
-desc | **[FileDesc](#FileDesc3)**<br> 
-sha256 | **string**<br>SHA256 of the file. 
-size_bytes | **int64**<br>File size in bytes. 
-
-
-### FileDesc {#FileDesc3}
+### FileDesc {#FileDesc4}
 
 Field | Description
 --- | ---
@@ -595,6 +643,15 @@ local_modules[] | **[File](#File4)**<br>List of local modules descriptions.
 Field | Description
 --- | ---
 name | **string**<br>Name of DataSphere VM configuration. 
+
+
+### File {#File4}
+
+Field | Description
+--- | ---
+desc | **[FileDesc](#FileDesc5)**<br> 
+sha256 | **string**<br>SHA256 of the file. 
+size_bytes | **int64**<br>File size in bytes. 
 
 
 ## Delete {#Delete}

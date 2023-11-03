@@ -138,7 +138,9 @@ A set of methods for managing MySQL clusters.
         "maxPreparedStmtCount": "integer",
         "optimizerSwitch": "string",
         "optimizerSearchDepth": "integer",
-        "queryResponseTimeStats": true
+        "queryResponseTimeStats": true,
+        "userstat": true,
+        "maxExecutionTime": "integer"
       },
       "userConfig": {
         "innodbBufferPoolSize": "integer",
@@ -229,7 +231,9 @@ A set of methods for managing MySQL clusters.
         "maxPreparedStmtCount": "integer",
         "optimizerSwitch": "string",
         "optimizerSearchDepth": "integer",
-        "queryResponseTimeStats": true
+        "queryResponseTimeStats": true,
+        "userstat": true,
+        "maxExecutionTime": "integer"
       },
       "defaultConfig": {
         "innodbBufferPoolSize": "integer",
@@ -320,7 +324,9 @@ A set of methods for managing MySQL clusters.
         "maxPreparedStmtCount": "integer",
         "optimizerSwitch": "string",
         "optimizerSearchDepth": "integer",
-        "queryResponseTimeStats": true
+        "queryResponseTimeStats": true,
+        "userstat": true,
+        "maxExecutionTime": "integer"
       }
     },
     "mysqlConfig_8_0": {
@@ -409,7 +415,9 @@ A set of methods for managing MySQL clusters.
         "lockWaitTimeout": "integer",
         "maxPreparedStmtCount": "integer",
         "optimizerSwitch": "string",
-        "optimizerSearchDepth": "integer"
+        "optimizerSearchDepth": "integer",
+        "userstat": true,
+        "maxExecutionTime": "integer"
       },
       "userConfig": {
         "innodbBufferPoolSize": "integer",
@@ -496,7 +504,9 @@ A set of methods for managing MySQL clusters.
         "lockWaitTimeout": "integer",
         "maxPreparedStmtCount": "integer",
         "optimizerSwitch": "string",
-        "optimizerSearchDepth": "integer"
+        "optimizerSearchDepth": "integer",
+        "userstat": true,
+        "maxExecutionTime": "integer"
       },
       "defaultConfig": {
         "innodbBufferPoolSize": "integer",
@@ -583,7 +593,9 @@ A set of methods for managing MySQL clusters.
         "lockWaitTimeout": "integer",
         "maxPreparedStmtCount": "integer",
         "optimizerSwitch": "string",
-        "optimizerSearchDepth": "integer"
+        "optimizerSearchDepth": "integer",
+        "userstat": true,
+        "maxExecutionTime": "integer"
       }
     },
     // end of the list of possible fields`config`
@@ -737,6 +749,8 @@ config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>maxPreparedStmtCount | **inte
 config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>optimizerSwitch | **string**<br><p>The system variable enables control over optimizer behavior.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch">MySQL documentation for the variable</a> https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html</p> 
 config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>optimizerSearchDepth | **integer** (int64)<br><p>The maximum depth of search performed by the query optimizer</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 62, inclusive.</p> 
 config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>queryResponseTimeStats | **boolean** (boolean)<br><p>Enables and disables collection of query times</p> <p>For details, see <a href="https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html#query_response_time_stats">Percona documentation for the variable</a>.</p> 
+config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>userstat | **boolean** (boolean)<br><p>Enables or disables collection of statistics</p> <p>For details, see <a href="https://docs.percona.com/percona-server/5.7/diagnostics/user_stats.html#userstat">Percona documentation for the variable</a>.</p> 
+config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>maxExecutionTime | **integer** (int64)<br><p>The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_execution_time">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 4294967295, inclusive.</p> 
 config.<br>mysqlConfig_5_7.<br>userConfig | **object**<br><p>User-defined settings for a MySQL 5.7 cluster.</p> <p>Options and structure of ``MysqlConfig5_7`` reflects MySQL 5.7 configuration file.</p> 
 config.<br>mysqlConfig_5_7.<br>userConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 config.<br>mysqlConfig_5_7.<br>userConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -823,6 +837,8 @@ config.<br>mysqlConfig_5_7.<br>userConfig.<br>maxPreparedStmtCount | **integer**
 config.<br>mysqlConfig_5_7.<br>userConfig.<br>optimizerSwitch | **string**<br><p>The system variable enables control over optimizer behavior.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch">MySQL documentation for the variable</a> https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html</p> 
 config.<br>mysqlConfig_5_7.<br>userConfig.<br>optimizerSearchDepth | **integer** (int64)<br><p>The maximum depth of search performed by the query optimizer</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 62, inclusive.</p> 
 config.<br>mysqlConfig_5_7.<br>userConfig.<br>queryResponseTimeStats | **boolean** (boolean)<br><p>Enables and disables collection of query times</p> <p>For details, see <a href="https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html#query_response_time_stats">Percona documentation for the variable</a>.</p> 
+config.<br>mysqlConfig_5_7.<br>userConfig.<br>userstat | **boolean** (boolean)<br><p>Enables or disables collection of statistics</p> <p>For details, see <a href="https://docs.percona.com/percona-server/5.7/diagnostics/user_stats.html#userstat">Percona documentation for the variable</a>.</p> 
+config.<br>mysqlConfig_5_7.<br>userConfig.<br>maxExecutionTime | **integer** (int64)<br><p>The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_execution_time">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 4294967295, inclusive.</p> 
 config.<br>mysqlConfig_5_7.<br>defaultConfig | **object**<br><p>Default configuration for a MySQL 5.7 cluster.</p> <p>Options and structure of ``MysqlConfig5_7`` reflects MySQL 5.7 configuration file.</p> 
 config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -909,6 +925,8 @@ config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>maxPreparedStmtCount | **intege
 config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>optimizerSwitch | **string**<br><p>The system variable enables control over optimizer behavior.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch">MySQL documentation for the variable</a> https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html</p> 
 config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>optimizerSearchDepth | **integer** (int64)<br><p>The maximum depth of search performed by the query optimizer</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 62, inclusive.</p> 
 config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>queryResponseTimeStats | **boolean** (boolean)<br><p>Enables and disables collection of query times</p> <p>For details, see <a href="https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html#query_response_time_stats">Percona documentation for the variable</a>.</p> 
+config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>userstat | **boolean** (boolean)<br><p>Enables or disables collection of statistics</p> <p>For details, see <a href="https://docs.percona.com/percona-server/5.7/diagnostics/user_stats.html#userstat">Percona documentation for the variable</a>.</p> 
+config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>maxExecutionTime | **integer** (int64)<br><p>The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_execution_time">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 4294967295, inclusive.</p> 
 config.<br>mysqlConfig_8_0 | **object** <br>`config` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`<br>
 config.<br>mysqlConfig_8_0.<br>effectiveConfig | **object**<br><p>Effective settings for a MySQL 8.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file.</p> 
 config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
@@ -992,6 +1010,8 @@ config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>lockWaitTimeout | **integer**
 config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>maxPreparedStmtCount | **integer** (int64)<br><p>This variable limits the total number of prepared statements in the server.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 4194304, inclusive.</p> 
 config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>optimizerSwitch | **string**<br><p>The system variable enables control over optimizer behavior.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_switch">MySQL documentation for the variable</a> https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html</p> 
 config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>optimizerSearchDepth | **integer** (int64)<br><p>The maximum depth of search performed by the query optimizer</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 62, inclusive.</p> 
+config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>userstat | **boolean** (boolean)<br><p>Enables or disables collection of statistics</p> <p>For details, see <a href="https://docs.percona.com/percona-server/8.0/diagnostics/user_stats.html#userstat">Percona documentation for the variable</a>.</p> 
+config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>maxExecutionTime | **integer** (int64)<br><p>The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_execution_time">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 4294967295, inclusive.</p> 
 config.<br>mysqlConfig_8_0.<br>userConfig | **object**<br><p>User-defined settings for a MySQL 8.0 cluster.</p> <p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file.</p> 
 config.<br>mysqlConfig_8_0.<br>userConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 config.<br>mysqlConfig_8_0.<br>userConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -1074,6 +1094,8 @@ config.<br>mysqlConfig_8_0.<br>userConfig.<br>lockWaitTimeout | **integer** (int
 config.<br>mysqlConfig_8_0.<br>userConfig.<br>maxPreparedStmtCount | **integer** (int64)<br><p>This variable limits the total number of prepared statements in the server.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 4194304, inclusive.</p> 
 config.<br>mysqlConfig_8_0.<br>userConfig.<br>optimizerSwitch | **string**<br><p>The system variable enables control over optimizer behavior.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_switch">MySQL documentation for the variable</a> https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html</p> 
 config.<br>mysqlConfig_8_0.<br>userConfig.<br>optimizerSearchDepth | **integer** (int64)<br><p>The maximum depth of search performed by the query optimizer</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 62, inclusive.</p> 
+config.<br>mysqlConfig_8_0.<br>userConfig.<br>userstat | **boolean** (boolean)<br><p>Enables or disables collection of statistics</p> <p>For details, see <a href="https://docs.percona.com/percona-server/8.0/diagnostics/user_stats.html#userstat">Percona documentation for the variable</a>.</p> 
+config.<br>mysqlConfig_8_0.<br>userConfig.<br>maxExecutionTime | **integer** (int64)<br><p>The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_execution_time">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 4294967295, inclusive.</p> 
 config.<br>mysqlConfig_8_0.<br>defaultConfig | **object**<br><p>Default configuration for a MySQL 8.0 cluster.</p> <p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file.</p> 
 config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -1156,6 +1178,8 @@ config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>lockWaitTimeout | **integer** (
 config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>maxPreparedStmtCount | **integer** (int64)<br><p>This variable limits the total number of prepared statements in the server.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 4194304, inclusive.</p> 
 config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>optimizerSwitch | **string**<br><p>The system variable enables control over optimizer behavior.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_switch">MySQL documentation for the variable</a> https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html</p> 
 config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>optimizerSearchDepth | **integer** (int64)<br><p>The maximum depth of search performed by the query optimizer</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 62, inclusive.</p> 
+config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>userstat | **boolean** (boolean)<br><p>Enables or disables collection of statistics</p> <p>For details, see <a href="https://docs.percona.com/percona-server/8.0/diagnostics/user_stats.html#userstat">Percona documentation for the variable</a>.</p> 
+config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>maxExecutionTime | **integer** (int64)<br><p>The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_execution_time">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 4294967295, inclusive.</p> 
 networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 health | **string**<br><p>Aggregated health of the cluster.</p> <ul> <li>HEALTH_UNKNOWN: Health of the cluster is unknown (``health`` for every host in the cluster is ``UNKNOWN``).</li> <li>ALIVE: Cluster is alive and well (``health`` for every host in the cluster is ``ALIVE``).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is ``DEAD``).</li> <li>DEGRADED: Cluster is degraded (``health`` for at least one host in the cluster is not ``ALIVE``).</li> </ul> 
 status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster is stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 

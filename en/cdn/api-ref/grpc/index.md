@@ -14,4 +14,5 @@ Service | Description
 [ProviderService](./provider_service.md) | A set of methods for managing Provider Service resources.
 [RawLogsService](./raw_logs_service.md) | 
 [ResourceService](./resource_service.md) | Provider's resources management service.
+[ResourceRulesService](./rule_service.md) | Rules management service. <br>Used for Resources Rules management.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

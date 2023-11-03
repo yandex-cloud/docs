@@ -41,7 +41,7 @@ zʲ | z' | мягкая "з" (palatalized voiced alveolar fricative) | **з**и�
 **Гласные** | | |
 ə | @ | [Шва](https://en.wikipedia.org/wiki/Schwa) — безударные "а", "о" или "э" (mid central vowel) | коров**а** [kɐrovə], м**о**локо [məlɐ′ko]
 a | a | ударная "а" или "я" (open front unrounded vowel) | т**а**м [tam], м**я**ч [mʲat͡ɕ], **я**ма [jamə]
-ɐ | 6 | безударная "а" (near-open central vowel | кар**а**вай [kərɐvaj], гол**о**ва [gəlɐva]
+ɐ | 6 | безударная "а" (near-open central vowel) | кар**а**вай [kərɐvaj], гол**о**ва [gəlɐva]
 e | e | ударная "е" (close-mid front unrounded vowel) | п**е**чь [pʲet͡ɕ]
 ɛ | E | ударная "э" (open-mid front unrounded vowel) | **э**то [ɛtə]
 i | i | ударная "и" (close front unrounded vowel) | л**и**ст [lʲist]

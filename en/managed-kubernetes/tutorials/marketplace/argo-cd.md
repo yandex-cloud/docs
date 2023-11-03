@@ -5,11 +5,11 @@
 This tutorial describes how to integrate a [{{ mgl-full-name }} instance](../../../managed-gitlab/concepts/index.md#instance), a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster), and [Argo CD](/marketplace/products/yc/argo-cd) that is installed in the cluster and builds Docker containers using [Kaniko](https://github.com/GoogleContainerTools/kaniko).
 
 To integrate Argo CD with {{ managed-k8s-name }} and {{ mgl-name }}:
-1. [{#T}](#create-gitlab)
-1. [{#T}](#configure-gitlab)
-1. [{#T}](#runner)
-1. [{#T}](#setup-repo)
-1. [{#T}](#deploy-argo)
+1. [{#T}](#create-gitlab).
+1. [{#T}](#configure-gitlab).
+1. [{#T}](#runner).
+1. [{#T}](#setup-repo).
+1. [{#T}](#deploy-argo).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -54,7 +54,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the cluster configuration file [k8s-argocd.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-argocd.tf) to the same working directory. The file describes:
+   1. Download the [k8s-argocd.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-argocd.tf) cluster configuration file to the same working directory. The file describes:
       * [Network](../../../vpc/concepts/network.md#network).
       * [Subnet](../../../vpc/concepts/network.md#subnet).
       * [Security group](../../../vpc/concepts/security-groups.md) and [rules](../../operations/connect/security-groups.md) required for the cluster, node group, {{ mgl-name }} instance, and {{ container-registry-name }} container to run:
@@ -115,7 +115,7 @@ To run build tasks in the [{{ managed-k8s-name }} cluster](../../concepts/index.
 1. Retrieve the {{ GLR }} settings:
    1. Open the {{ GL }} administration panel in the browser:
       * If the {{ GL }} has been deployed on a {{ compute-full-name }} [VM instance](../../../compute/concepts/vm.md), use its [public IP](../../../compute/concepts/network.md#public-ip).
-      * If the {{ GL }} has been deployed in {{ mgl-name }}, use the [instance FQDN](../../../compute/concepts/network.md##hostname).
+      * If {{ GL }} is deployed in {{ mgl-name }}, use the [instance FQDN](../../../compute/concepts/network.md##hostname).
    1. Select the project named `gitlab-test`.
    1. On the left-hand side of the resulting window, click **Settings** and select the **CI/CD** option.
    1. Under **Runners**, click **Expand**.
@@ -218,11 +218,11 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
    1. Click **Expand** next to **Variables**.
    1. Add three environment variables:
 
-      Name | Value | Options
-      --- | --- | ---
-      CI_REGISTRY | {{ registry }}/<registry ID> | `no`
-      CI_REGISTRY_USER | json_key | `no`
-      CI_REGISTRY_PASSWORD | <`cat key.json \| base64` command output> | `Mask variable`
+      | Name | Value | Options |
+      | --- | --- | --- |
+      | CI_REGISTRY | {{ registry }}/<registry ID> | `no` |
+      | CI_REGISTRY_USER | json_key | `no` |
+      | CI_REGISTRY_PASSWORD | <`cat key.json \| base64` command output> | `Mask variable` |
 
 1. Set up access to the repository:
    1. [Generate a new pair of SSH keys](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) or use an existing one.
@@ -249,7 +249,7 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
    ```
 
 1. Run the build script. To track its progress, in the drop-down menu, select **CI/CD** → **Pipelines**. Wait until both build steps are complete.
-1. Open the completed build and copy the following line from the log (you'll need at the next step):
+1. Open the completed build and copy the following line from the log (you will need it at the next step):
 
    ```text
    INFO[0025] Pushing image to {{ registry }}/<registry ID>/gitlab-test/my-app:main.<commit number>
@@ -260,6 +260,9 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
 ### Install Argo CD to the {{ k8s }} cluster {#install}
 
 1. Install Argo CD by following this [guide](../../operations/applications/argo-cd.md).
+
+   {% include [Install kubectl](../../../_includes/managed-kubernetes/note-node-group-internet-access.md) %}
+
 1. Configure the `argocd-server` port forwarding to the local machine, and then connect to the {{ k8s }} cluster:
 
    ```bash

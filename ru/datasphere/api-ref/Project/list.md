@@ -47,7 +47,10 @@ ownedById | <p>User ID to filter projects that are returned. Only projects that 
         "earlyAccess": true,
         "ide": "string",
         "defaultFolderId": "string",
-        "staleExecTimeoutMode": "string"
+        "staleExecTimeoutMode": "string",
+        "ideExecutionMode": "string",
+        "vmInactivityTimeout": "string",
+        "defaultDedicatedSpec": "string"
       },
       "limits": {
         "maxUnitsPerHour": "integer",
@@ -80,6 +83,9 @@ projects[].<br>settings.<br>earlyAccess | **boolean** (boolean)<br><p>Is early a
 projects[].<br>settings.<br>ide | **string**<br><p>Project IDE.</p> <ul> <li>JUPYTER_LAB: Project running on JupyterLab IDE.</li> </ul> 
 projects[].<br>settings.<br>defaultFolderId | **string**<br><p>Default project folder ID.</p> 
 projects[].<br>settings.<br>staleExecTimeoutMode | **string**<br><p>Timeout to automatically stop stale executions.</p> <ul> <li>ONE_HOUR: Setting to automatically stop stale execution after one hour with low consumption.</li> <li>THREE_HOURS: Setting to automatically stop stale execution after three hours with low consumption.</li> <li>NO_TIMEOUT: Setting to never automatically stop stale executions.</li> </ul> 
+projects[].<br>settings.<br>ideExecutionMode | **string**<br><p>VM allocation mode.</p> <ul> <li>SERVERLESS: VM is allocated for specific execution and deallocated after the execution ends.</li> <li>DEDICATED: VM is allocated at the first execution and stays allocated until manually deallocated. Or until timeout exceeded.</li> </ul> 
+projects[].<br>settings.<br>vmInactivityTimeout | **string**<br><p>Timeout for VM deallocation.</p> 
+projects[].<br>settings.<br>defaultDedicatedSpec | **string**<br><p>Default VM configuration for DEDICATED mode.</p> 
 projects[].<br>limits | **object**<br><p>Limits of the project.</p> 
 projects[].<br>limits.<br>maxUnitsPerHour | **integer** (int64)<br><p>The number of units that can be spent per hour.</p> 
 projects[].<br>limits.<br>maxUnitsPerExecution | **integer** (int64)<br><p>The number of units that can be spent on the one execution.</p> 

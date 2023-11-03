@@ -2,13 +2,13 @@
 
 The _VAR (Value Added Reseller) program_ is a partnership program where a partner company resells {{ yandex-cloud }} services and earns a partner bonus.
 
-A _partner bonus_ is a [discount](#premium) on {{ yandex-cloud }} services and technical support. The discount amount depends on the monthly (calendar) amount of services that the partner's customers used in total. When calculating the amount of services consumed, the cost of {{ marketplace-name }} resources and the partner's own consumption of services are not included.
+A _partner bonus_ is a [discount](#premium) on {{ yandex-cloud }} services and technical support. The discount amount depends on the total amount of services consumed by the partner's customers for a calendar month. The amount of consumed services does not include the cost of {{ marketplace-name }} resources and the partner's own consumption of services.
 
 Partners have to pay for the consumption of services by their customers. Under the VAR program, {{ yandex-cloud }} invoices a partner for the total consumption of services by all of its customers. Partners can settle payment invoices in advance (advance payment) or based on the results of consumption (postpaid model). They can also use a [billing threshold](../../billing/concepts/billing-threshold.md).
 
 Program participants:
-* A partner is a business that is a resident of the Russian Federation and provides services using {{ yandex-cloud }} technologies.
-* A client is a business that purchases {{ yandex-cloud }} services from a partner (a partner subaccount).
+* Partner: Business that is a resident of the Russian Federation and provides services using {{ yandex-cloud }} technologies.
+* Customer: Business that purchases {{ yandex-cloud }} services from a partner (a partner's subaccount).
 
 
 ## Bonus for participating in the program {#premium}
@@ -17,16 +17,16 @@ A partner bonus is a discount on {{ yandex-cloud }} services applied to the paym
 
 ### Discount amount {#discount}
 
-The discount amount depends on the total monthly consumption of {{ yandex-cloud }} services by all sub-accounts (customers) linked to the partner's billing account. For more information, see the [Partner Agreement](https://yandex.ru/legal/cloud_grant/?lang=en).
+The discount amount depends on the total monthly consumption of {{ yandex-cloud }} services by all subaccounts (customers) linked to the partner's billing account. For more information, see the [Partner Agreement](https://yandex.ru/legal/cloud_grant/?lang=en).
 
-### What is not included when calculating a partner bonus {#ignore}
+### What is not included in a partner bonus {#ignore}
 
-The discount doesn't apply to:
-* The partner's own consumption of services in the partner account.
-* Grants credited to sub-accounts.
+The discount does not apply to:
+* Partner's own consumption of services in the partner account.
+* Grants credited to subaccounts.
 * Microsoft resources from {{ marketplace-name }}.
 
-You can view the absolute and relative discounts for a billing period under **Rewards** on the [partner portal]({{ link-cloud-partners }}).
+You can view the absolute and relative discounts for a reporting period under **Partner bonus** on the [partner portal]({{ link-cloud-partners }}).
 
 ## How to leave the program {#end}
 

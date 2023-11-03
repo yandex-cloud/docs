@@ -1,8 +1,11 @@
+---
+title: "How to connect a Linux VM to {{ backup-full-name }}"
+description: "Follow this guide to connect a Linux VM to {{ backup-name }}."
+---
+
 # Connecting a Linux VM to {{ backup-name }}
 
 {{ backup-name }} supports backing up [{{ compute-name }} VMs](../../compute/concepts/vm.md) running such Linux OS's as Ubuntu 20.04 or lower and CentOS 7. For more information, see [{#T}](../concepts/vm-connection.md#os).
-
-{% include [ask-for-turning-on](../../_includes/backup/ask-for-turning-on.md) %}
 
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
 
@@ -20,7 +23,7 @@
       ```bash
       sudo apt update && \
       sudo apt install -y jq && \
-      curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash
+      curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
       ```
 
       Result:
@@ -36,7 +39,7 @@
       sudo yum install epel-release -y && \
       sudo yum update -y && \
       sudo yum install jq -y && \
-      curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash
+      curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
       ```
 
       Result:

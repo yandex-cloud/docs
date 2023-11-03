@@ -23,7 +23,7 @@ On the project editing page, you can change the project name and description, se
 
       * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: Specify the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to store [node](../../concepts/deploy/index.md#node) logs.
       * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: Specify the [service account](../../../iam/concepts/users/service-accounts.md) to create S3 connectors or {{ dataproc-name }} clusters under. The service account must have the required [roles](../../../iam/concepts/access-control/roles).
-      * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**: Specify a [subnet](../../../vpc/concepts/network.md#subnet) if you need one to connect to other {{ yandex-cloud }} services. Along with the subnet, make sure to specify a service account with the `{{ roles-vpc-user }}` role or higher.
+      * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**: Specify a [subnet](../../../vpc/concepts/network.md#subnet) in the `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md) if you need one to connect to other {{ yandex-cloud }} services. Along with the subnet, make sure to specify a service account with the `{{ roles-vpc-user }}` role or higher.
 
       {% include [subnet-create](../../../_includes/subnet-create.md) %}
 

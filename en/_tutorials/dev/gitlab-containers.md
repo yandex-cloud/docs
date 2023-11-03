@@ -15,14 +15,14 @@ To set up the infrastructure required to store the source code, build the Docker
    1. [Review the list of paid resources available](#paid-resources).
 
 
-   1. [Install additional dependencies](#prepare).
-1. [Create {{ managed-k8s-name }} and {{ container-registry-full-name }} resources](#k8s-cr-create).
+1. [Prepare your infrastructure](#deploy-infrastructure).
 1. [Create a {{ GL }} instance](#create-gitlab).
 1. [Configure {{ GL }}](#configure-gitlab).
 1. [Create a test application](#app-create).
-1. [Create a {{ GLR }}](#runners).
-1. [Create a {{ GLA }}](#agent).
-1. [Configure building and deploying a Docker image from CI](#ci).
+1. [Create a {{ GLR }}](#runner).
+1. [Set up {{ k8s }} authentication in {{ GL }}](#gitlab-authentication).
+1. [Configure the CI script](#ci).
+1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -40,192 +40,269 @@ Infrastructure support costs include fees for the following resources:
 * Usage of a [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 
 
-### Install additional dependencies {#prepare}
+{% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
 
-To run the script, install the following in the local environment:
-* [{{ yandex-cloud }} command line interface (YC CLI)](../../cli/operations/install-cli.md)
-* [`jq` JSON stream processor](https://stedolan.github.io/jq/)
-* [Helm package manager]({{ links.helm.install }})
+{% include [prepare](../../_includes/managed-gitlab/prepare.md) %}
 
-## Create {{ managed-k8s-name }} and {{ container-registry-name }} resources {#k8s-cr-create}
-
-1. Create a {{ managed-k8s-name }} cluster and a {{ container-registry-name }} registry.
-
-   Create the {{ managed-k8s-name }} resources required to run the script: a [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group).
-
-   To store Docker images, you need a {{ container-registry-name }} [registry](../../container-registry/concepts/registry.md).
-
-   {% list tabs %}
-
-   - Manually
-
-      1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-      1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet), [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
-      1. [Create service accounts](../../iam/operations/sa/create.md):
-         * With the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) role to the folder where a {{ managed-k8s-name }} cluster is being created. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
-         * With the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../iam/concepts/access-control/roles.md#cr-images-pusher) roles. This service account will be used to push the Docker images that you build to {{ GL }} and pull them to run in pods.
-
-         {% note tip %}
-
-         You can use the same [service account](../../iam/concepts/users/service-accounts.md) to manage your {{ managed-k8s-name }} cluster and its node groups.
-
-         {% endnote %}
-
-      1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with the following settings:
-         * **Service account for resources**: Select the service account with the `{{ roles-editor }}` role you created previously.
-         * **Service account for nodes**: Select the service account with the `{{ roles-cr-puller }}` and `{{ roles-cr-pusher }}` roles that you created previously.
-         * **{{ k8s }} version**: Select **1.21** or higher.
-         * **Public address**: `Auto`.
-
-         Save the cluster ID, as you will need it at the next steps.
-      1. [Create a registry](../../container-registry/operations/registry/registry-create.md).
-
-   - Using {{ TF }}
-
-      1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-      1. Download the [k8s-argocd.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-argocd.tf) cluster configuration file to the same working directory. The file describes:
-         * [Network](../../vpc/concepts/network.md#network).
-         * [Subnet](../../vpc/concepts/network.md#subnet).
-         * [Security group](../../vpc/concepts/security-groups.md) and [rules](../../managed-kubernetes/operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
-            * Rules for service traffic.
-            * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
-            * Rules for connecting to a Git repository over SSH on port 22.
-            * Rules that allow HTTP and HTTPS traffic through ports 80 and 443.
-            * Rules for connecting to {{ container-registry-name }} through port 5050.
-         * {{ managed-k8s-name }} cluster.
-         * [Service account](../../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} cluster and node group.
-         * [{{ container-registry-name }} registry](../../container-registry/concepts/registry.md).
-      1. Specify the following in the configuration file:
-         * [Folder ID](../../resource-manager/operations/folder/get-id.md).
-         * {{ k8s }} version for the {{ managed-k8s-name }} cluster and node groups.
-         * {{ managed-k8s-name }} cluster CIDR.
-         * Name of the cluster service account.
-         * Name of the {{ container-registry-name }} registry.
-      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
-
-         ```bash
-         terraform validate
-         ```
-
-         If there are any errors in the configuration files, {{ TF }} will point them out.
-      1. Create the required infrastructure:
-
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
-
-   {% endlist %}
-
-   {% note warning %}
-
-   For applications running in production environments, make sure to restrict access of {{ k8s }} cluster service accounts to pushing images to a registry. This is required for security reasons. In that case, create a separate service account with the `{{ roles-cr-pusher }}` role and use it for building containers.
-
-   {% endnote %}
-
-1. [Create a static key](../../iam/operations/sa/create-access-key.md) for the service account with the `{{ roles-cr-pusher }}` role and save it to the `key.json` file:
-
-   ```bash
-   yc iam key create \
-     --service-account-name <service_account_name> \
-     --output key.json
-   ```
-
-   This key is required to access the registry from {{ GL }}.
-
-1. [Save the ID of the registry created](../../container-registry/operations/registry/registry-list.md#registry-get), as you will need it at the next steps.
-
-1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
-
-## Create a {{ GL }} instance {#create-gitlab}
-
-{% list tabs %}
-
-
-- {{ mgl-full-name }} instance
-
-   Create a [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance) by following [this guide](../../managed-gitlab/quickstart.md#instance-create).
-
-
-- VM running a {{ GL }} image
-
-   Launch {{ GL }} on a VM with a public IP.
-
-   {% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
-
-{% endlist %}
-
-## Configure {{ GL }} {#configure-gitlab}
+{% include [create-gitlab](../../_includes/managed-gitlab/create-gitlab.md) %}
 
 {% include [Create a project](../../_includes/managed-gitlab/initialize.md) %}
 
-## Create a test application {#app-create}
+{% include [app-create](../../_includes/managed-gitlab/app-create.md) %}
 
-Create a test application that can be deployed in a {{ managed-k8s-name }} cluster:
-1. Add `Dockerfile` to the project:
-   1. Log in to {{ GL }}.
-   1. On the home page, select a repository.
-   1. Select the **Repository** → **Files** section.
-   1. Click **+** and select **New file** from the drop-down menu.
-   1. Name the file as `Dockerfile` and add the following code to it:
+{% include [create glr](../../_includes/managed-gitlab/k8s-runner.md) %}
 
-      ```Dockerfile
-      FROM alpine:3.10
-      CMD echo "Hello"
-      ```
+## Set up {{ k8s }} authentication in {{ GL }} {#gitlab-authentication}
 
-   1. Add a comment to the commit in the **Commit message** field: `Dockerfile for test application`.
+You can set up authentication in {{ GL }} using a {{ k8s }} service account token or the [{{ GLA }}](/marketplace/products/yc/gitlab-agent) application:
+
+{% list tabs %}
+
+- Service account token
+
+   {% include notitle [k8s-get-token](../../_includes/managed-gitlab/k8s-get-token.md) %}
+
+- {{ GLA }}
+
+   {% include notitle [create gla](../../_includes/managed-gitlab/k8s-agent.md) %}
+
+{% endlist %}
+
+## Configure the CI script {#ci}
+
+1. Create the [{{ GL }} environment variables](https://docs.gitlab.com/ee/ci/variables/README.html):
+   1. Go to **Settings** in the left-hand {{ GL }} panel and select **CI/CD** from the drop-down list.
+   1. Click **Expand** next to **Variables**.
+   1. Add the following environment variables depending on the {{ k8s }} authentication method in {{ GL }}:
+
+      {% list tabs %}
+
+      - Service account token
+
+        * `KUBE_URL`: {{ managed-k8s-name }} master address You can retrieve it using the following command:
+
+          ```bash
+          yc managed-kubernetes cluster get <cluster_ID_or_name> --format=json \
+             | jq -r .master.endpoints.external_v4_endpoint
+          ```
+
+        * `KUBE_TOKEN`: Token that will use {{ GL }} to apply the configuration. Use the token obtained earlier.
+
+      - {{ GLA }}
+
+      {% endlist %}
+
+      * `CI_REGISTRY`: Address of the previously created registry in `{{ registry }}/<registry_ID>` format.
+      * `CI_REGISTRY_KEY`: Key that {{ GL }} will use to access the registry. Copy the contents of the previously obtained `key.json` static key file to access the registry.
+
+      To add a variable:
+      * Click **Add variable**.
+      * In the window that opens, enter the variable name in the **Key** field and the value in the **Value** field.
+      * Click **Add variable**.
+1. Create the CI script's configuration file:
+   1. In the left-hand panel in {{ GL }}, select **Repository** and click the **Files** tab.
+   1. Click ![image](../../_assets/plus.svg) to the right of the project name and select **New file** from the drop-down menu.
+   1. Name the file as `.gitlab-ci.yml`. Add the steps to build and push a Docker image and update the application configuration in the {{ managed-k8s-name }} cluster. The file structure depends on the {{ k8s }} authentication method in {{ GL }}:
+
+      {% list tabs %}
+
+      - Service account token
+
+        * To build a container through `kaniko` without using the {{ GLR }} privileged mode:
+
+          {% cut ".gitlab-ci.yml" %}
+
+          ```yaml
+          stages:
+            - build
+            - deploy
+
+          build:
+            stage: build
+            image:
+              name: gcr.io/kaniko-project/executor:debug
+              entrypoint: [""]
+          script:
+              - mkdir -p /kaniko/.docker
+              - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(echo -n "json_key:${CI_REGISTRY_KEY}" | base64 | tr -d '\n' )\"}}}" > /kaniko/.docker/config.json
+              - >-
+                /kaniko/executor
+                --context "${CI_PROJECT_DIR}"
+                --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
+                --destination "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
+
+          deploy:
+            image: gcr.io/cloud-builders/kubectl:latest
+            stage: deploy
+            script:
+              - kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true
+              - kubectl config set-credentials admin --token="$KUBE_TOKEN"
+              - kubectl config set-context default --cluster=k8s --user=admin
+              - kubectl config use-context default
+              - sed -i "s,__VERSION__,${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}," k8s.yaml
+              - kubectl apply -f k8s.yaml
+          ```
+
+          {% endcut %}
+
+        * To build a container through `docker:dind` using the {{ GLR }} privileged mode:
+
+          {% cut ".gitlab-ci.yml" %}
+
+          ```yaml
+          stages:
+            - build
+            - deploy
+
+          image: docker:20.10.16
+
+          variables:
+            DOCKER_HOST: tcp://docker:2376
+            DOCKER_TLS_CERTDIR: "/certs"
+            DOCKER_TLS_VERIFY: 1
+            DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
+            DOCKER_DRIVER: overlay2
+
+          services:
+            - docker:20.10.16-dind
+
+          before_script:
+            - for try in {1..10}; do sleep 0.5; docker info && break ; done
+
+          build:
+            stage: build
+            script:
+              - echo "${CI_REGISTRY_KEY}" | docker login ${CI_REGISTRY} -u json_key --password-stdin
+              - >-
+                docker build
+                "${CI_PROJECT_DIR}"
+                --file "${CI_PROJECT_DIR}/Dockerfile"
+                --tag "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
+              - docker push "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
+
+          deploy:
+            image: gcr.io/cloud-builders/kubectl:latest
+            stage: deploy
+            script:
+              - kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true
+              - kubectl config set-credentials admin --token="$KUBE_TOKEN"
+              - kubectl config set-context default --cluster=k8s --user=admin
+              - kubectl config use-context default
+              - sed -i "s,__VERSION__,${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}," k8s.yaml
+              - kubectl apply -f k8s.yaml
+          ```
+
+          {% endcut %}
+
+      - {{ GLA }}
+
+        * To build a container through `kaniko` without using the {{ GLR }} privileged mode:
+
+          {% cut ".gitlab-ci.yml" %}
+
+          ```yaml
+          stages:
+            - build
+            - deploy
+
+          build:
+            stage: build
+            image:
+              name: gcr.io/kaniko-project/executor:debug
+              entrypoint: [""]
+          script:
+              - mkdir -p /kaniko/.docker
+              - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(echo -n "json_key:${CI_REGISTRY_KEY}" | base64 | tr -d '\n' )\"}}}" > /kaniko/.docker/config.json
+              - >-
+                /kaniko/executor
+                --context "${CI_PROJECT_DIR}"
+                --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
+                --destination "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
+
+          deploy:
+            image: bitnami/kubectl:latest
+            stage: deploy
+            script:
+              - kubectl config use-context ${CI_PROJECT_PATH}:<{{ GLA }} name>
+              - cat k8s.yaml | sed -e "s,__VERSION__,${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}," | kubectl apply -f -
+          ```
+
+          {% endcut %}
+
+         * To build a container through `docker:dind` using the {{ GLR }} privileged mode:
+
+            {% cut ".gitlab-ci.yml" %}
+
+            ```yaml
+            stages:
+              - build
+              - deploy
+
+            image: docker:20.10.16
+
+            variables:
+              DOCKER_HOST: tcp://docker:2376
+              DOCKER_TLS_CERTDIR: "/certs"
+              DOCKER_TLS_VERIFY: 1
+              DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
+              DOCKER_DRIVER: overlay2
+
+            services:
+              - docker:20.10.16-dind
+
+            before_script:
+              - for try in {1..10}; do sleep 0.5; docker info && break ; done
+
+            build:
+              stage: build
+              script:
+                - echo "${CI_REGISTRY_KEY}" | docker login ${CI_REGISTRY} -u json_key --password-stdin
+                - >-
+                  docker build
+                  "${CI_PROJECT_DIR}"
+                  --file "${CI_PROJECT_DIR}/Dockerfile"
+                  --tag "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
+                - docker push "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
+
+            deploy:
+              image: bitnami/kubectl:latest
+              stage: deploy
+              script:
+                - kubectl config use-context ${CI_PROJECT_PATH}:<{{ GLA }}_name>
+                - cat k8s.yaml | sed -e "s,__VERSION__,${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}," | kubectl apply -f -
+            ```
+
+            {% endcut %}
+
+        Replace `<{{ GLA }}_name>` with the agent name in {{ mgl-name }}.
+
+      {% endlist %}
+
+   1. Add a comment to the commit in the **Commit message** field: `CI scripts`.
    1. Click **Commit changes**.
-1. Add the manifest for the {{ managed-k8s-name }} cluster resources to the project:
-   1. Select the **Repository** → **Files** section.
-   1. Click **+** and select **New file** from the drop-down menu.
-   1. Name the file as `k8s.yaml`:
 
-      ```yaml
-      apiVersion: v1
-      kind: Namespace
-      metadata:
-        name: hello-world
-      ---
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: hello-world-deployment
-        namespace: hello-world
-      spec:
-        replicas: 1
-        selector:
-          matchLabels:
-            app: hello
-        template:
-          metadata:
-            namespace: hello-world
-            labels:
-              app: hello
-          spec:
-            containers:
-              - name: hello-world
-                image: {{ registry }}/<registry_ID>/hello:__VERSION__
-                imagePullPolicy: Always
-      ```
+   In the `.gitlab-ci.yml` file, the following two steps of project build are described:
+   * Build a Docker image using the `Dockerfile` and push the image to {{ container-registry-name }}.
+   * Set up an environment to work with {{ k8s }} and apply `k8s.yaml` configurations to {{ managed-k8s-name }} clusters. This way, the application is deployed on the previously created {{ managed-k8s-name }} cluster.
 
-   1. In the `<registry_ID>` field, specify the ID of the registry that you created previously.
-   1. Add a comment to the commit in the **Commit message** field: `Docker image deployment config`.
-   1. Click **Commit changes**.
+## Check the result {#check-result}
 
-## Create a {{ GLR }} {#runners}
+1. Once you save the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **CI/CD** → **Pipelines** in the drop-down menu in the left-hand panel in {{ GL }} and wait for the build stages to complete.
+1. To check how the created application is running in your {{ managed-k8s-name }} cluster, view its container logs:
 
-{% include notitle [create glr](../../_includes/managed-gitlab/k8s-runner.md) %}
+   ```bash
+   kubectl logs deployment/hello-world-deployment -n hello-world
+   ```
 
-## Configure a Docker image build and deployment from CI {#ci}
+   Result:
 
-{% include [Setup CI/CD](../../_includes/managed-gitlab/configure-ci.md) %}
+   ```text
+   Hello
+   ```
 
 ## Delete the resources you created {#clear-out}
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
-
 1. [Delete the created Docker images](../../container-registry/operations/docker-image/docker-image-delete.md).
 1. Delete the {{ managed-k8s-name }} cluster and {{ container-registry-name }} registry:
 
@@ -241,7 +318,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
    - Using {{ TF }}
 
       1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-      1. Delete the `k8s-gl.tf` configuration file.
+      1. Delete the `k8s-and-registry-for-gitlab.tf` configuration file.
       1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
@@ -253,7 +330,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         All the resources described in the `k8s-gl.tf` configuration file will be deleted.
+         All resources described in the `k8s-and-registry-for-gitlab.tf` configuration file will be deleted.
 
    {% endlist %}
 
