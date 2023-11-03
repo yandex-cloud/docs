@@ -17,6 +17,7 @@ A set of methods for managing groups of dedicated hosts.
 | [ListOperations](#ListOperations) | Lists operations for the specified host group. |
 | [ListInstances](#ListInstances) | Lists instances that belongs to the specified host group. |
 | [ListHosts](#ListHosts) | Lists hosts that belongs to the specified host group. |
+| [UpdateHost](#UpdateHost) | Update host |
 | [ListAccessBindings](#ListAccessBindings) | Lists access bindings for the host group. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the host group. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the host group. |
@@ -583,6 +584,68 @@ host_id | **string**<br>ID of the host which replaces this one.
 deadline_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The date and time when this host will be automatically freed of instances. 
 
 
+## UpdateHost {#UpdateHost}
+
+Update host
+
+**rpc UpdateHost ([UpdateHostGroupHostRequest](#UpdateHostGroupHostRequest)) returns ([operation.Operation](#Operation4))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateHostGroupHostMetadata](#UpdateHostGroupHostMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Host](#Host1)<br>
+
+### UpdateHostGroupHostRequest {#UpdateHostGroupHostRequest}
+
+Field | Description
+--- | ---
+host_group_id | **string**<br>Required. ID of the host group to update. The maximum string length in characters is 50.
+host_id | **string**<br>Required. ID of the host to update. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Host are going to be updated. 
+deadline_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The date and time when this host will be automatically freed of instances. Timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+
+
+### Operation {#Operation4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateHostGroupHostMetadata](#UpdateHostGroupHostMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Host](#Host1)>**<br>if operation finished successfully. 
+
+
+### UpdateHostGroupHostMetadata {#UpdateHostGroupHostMetadata}
+
+Field | Description
+--- | ---
+host_group_id | **string**<br>ID of the host group that is being updated. 
+host_id | **string**<br>ID of the host that is being updated. 
+
+
+### Host {#Host1}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the host. 
+status | enum **Status**<br>Current status of the host. New instances are unable to start on host in DOWN status. 
+server_id | **string**<br>ID of the physical server that the host belongs to. 
+replacement | **[Replacement](#Replacement1)**<br>Set temporarily if maintenance is planned for this host, and a new host was provided as a replacement. 
+
+
+### Replacement {#Replacement1}
+
+Field | Description
+--- | ---
+host_id | **string**<br>ID of the host which replaces this one. 
+deadline_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The date and time when this host will be automatically freed of instances. 
+
+
 ## ListAccessBindings {#ListAccessBindings}
 
 Lists access bindings for the host group.
@@ -626,7 +689,7 @@ type | **string**<br>Required. Type of the subject. <br>It can contain one of th
 
 Sets access bindings for the host group.
 
-**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation4))**
+**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation5))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)<br>
@@ -656,7 +719,7 @@ id | **string**<br>Required. ID of the subject. <br>It can contain one of the fo
 type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
-### Operation {#Operation4}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -683,7 +746,7 @@ resource_id | **string**<br>ID of the resource for which access bindings are bei
 
 Updates access bindings for the host group.
 
-**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation5))**
+**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation6))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)<br>
@@ -721,7 +784,7 @@ id | **string**<br>Required. ID of the subject. <br>It can contain one of the fo
 type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
-### Operation {#Operation5}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---

@@ -99,6 +99,9 @@ early_access | **bool**<br>Is early access preview enabled for the project.
 ide | enum **Ide**<br>Project IDE. <ul><li>`JUPYTER_LAB`: Project running on JupyterLab IDE.</li></ul>
 default_folder_id | **string**<br>Default project folder ID. 
 stale_exec_timeout_mode | enum **StaleExecutionTimeoutMode**<br>Timeout to automatically stop stale executions. <ul><li>`ONE_HOUR`: Setting to automatically stop stale execution after one hour with low consumption.</li><li>`THREE_HOURS`: Setting to automatically stop stale execution after three hours with low consumption.</li><li>`NO_TIMEOUT`: Setting to never automatically stop stale executions.</li></ul>
+ide_execution_mode | enum **IdeExecutionMode**<br>VM allocation mode. <ul><li>`SERVERLESS`: VM is allocated for specific execution and deallocated after the execution ends.</li><li>`DEDICATED`: VM is allocated at the first execution and stays allocated until manually deallocated. Or until timeout exceeded.</li></ul>
+vm_inactivity_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for VM deallocation. 
+default_dedicated_spec | **string**<br>Default VM configuration for DEDICATED mode. 
 
 
 ### Limits {#Limits}
@@ -183,6 +186,9 @@ early_access | **bool**<br>Is early access preview enabled for the project.
 ide | enum **Ide**<br>Project IDE. <ul><li>`JUPYTER_LAB`: Project running on JupyterLab IDE.</li></ul>
 default_folder_id | **string**<br>Default project folder ID. 
 stale_exec_timeout_mode | enum **StaleExecutionTimeoutMode**<br>Timeout to automatically stop stale executions. <ul><li>`ONE_HOUR`: Setting to automatically stop stale execution after one hour with low consumption.</li><li>`THREE_HOURS`: Setting to automatically stop stale execution after three hours with low consumption.</li><li>`NO_TIMEOUT`: Setting to never automatically stop stale executions.</li></ul>
+ide_execution_mode | enum **IdeExecutionMode**<br>VM allocation mode. <ul><li>`SERVERLESS`: VM is allocated for specific execution and deallocated after the execution ends.</li><li>`DEDICATED`: VM is allocated at the first execution and stays allocated until manually deallocated. Or until timeout exceeded.</li></ul>
+vm_inactivity_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for VM deallocation. 
+default_dedicated_spec | **string**<br>Default VM configuration for DEDICATED mode. 
 
 
 ### Limits {#Limits1}
@@ -323,6 +329,9 @@ early_access | **bool**<br>Is early access preview enabled for the project.
 ide | enum **Ide**<br>Project IDE. <ul><li>`JUPYTER_LAB`: Project running on JupyterLab IDE.</li></ul>
 default_folder_id | **string**<br>Default project folder ID. 
 stale_exec_timeout_mode | enum **StaleExecutionTimeoutMode**<br>Timeout to automatically stop stale executions. <ul><li>`ONE_HOUR`: Setting to automatically stop stale execution after one hour with low consumption.</li><li>`THREE_HOURS`: Setting to automatically stop stale execution after three hours with low consumption.</li><li>`NO_TIMEOUT`: Setting to never automatically stop stale executions.</li></ul>
+ide_execution_mode | enum **IdeExecutionMode**<br>VM allocation mode. <ul><li>`SERVERLESS`: VM is allocated for specific execution and deallocated after the execution ends.</li><li>`DEDICATED`: VM is allocated at the first execution and stays allocated until manually deallocated. Or until timeout exceeded.</li></ul>
+vm_inactivity_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for VM deallocation. 
+default_dedicated_spec | **string**<br>Default VM configuration for DEDICATED mode. 
 
 
 ### Limits {#Limits2}
@@ -386,6 +395,9 @@ early_access | **bool**<br>Is early access preview enabled for the project.
 ide | enum **Ide**<br>Project IDE. <ul><li>`JUPYTER_LAB`: Project running on JupyterLab IDE.</li></ul>
 default_folder_id | **string**<br>Default project folder ID. 
 stale_exec_timeout_mode | enum **StaleExecutionTimeoutMode**<br>Timeout to automatically stop stale executions. <ul><li>`ONE_HOUR`: Setting to automatically stop stale execution after one hour with low consumption.</li><li>`THREE_HOURS`: Setting to automatically stop stale execution after three hours with low consumption.</li><li>`NO_TIMEOUT`: Setting to never automatically stop stale executions.</li></ul>
+ide_execution_mode | enum **IdeExecutionMode**<br>VM allocation mode. <ul><li>`SERVERLESS`: VM is allocated for specific execution and deallocated after the execution ends.</li><li>`DEDICATED`: VM is allocated at the first execution and stays allocated until manually deallocated. Or until timeout exceeded.</li></ul>
+vm_inactivity_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for VM deallocation. 
+default_dedicated_spec | **string**<br>Default VM configuration for DEDICATED mode. 
 
 
 ### Limits {#Limits3}

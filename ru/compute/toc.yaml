@@ -599,6 +599,8 @@ items:
                 href: api-ref/HostGroup/update.md
               - name: updateAccessBindings
                 href: api-ref/HostGroup/updateAccessBindings.md
+              - name: updateHost
+                href: api-ref/HostGroup/updateHost.md
           - name: HostType
             items:
               - name: Overview

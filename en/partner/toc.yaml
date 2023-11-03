@@ -1,17 +1,20 @@
 title: Yandex Cloud partner program
 href: index.yaml
+editable: false
 items:
-  - name: Step-by-step instructions
+  - name: Step-by-step guides
     expanded: true
     items:
-      - name: Pinning a customer in the partner portal
+      - name: Adding a customer
         href: operations/pin-client.md
-      - name: Checking access permissions to a customer's clouds
+      - name: Verifying access permissions to a customer's cloud
         href: operations/access/check.md
-      - name: Granting a partner access to a customer's clouds
+      - name: Granting a partner access to a customer's cloud
         href: operations/access/grant.md
       - name: Viewing details of service usage by customers
         href: operations/get-client-stat.md
+      - name: Suspending services to customers
+        href: operations/stop-client-services.md
   - name: Partner programs
     expanded: true
     items:
@@ -19,6 +22,15 @@ items:
         href: program/referral.md
       - name: VAR program
         href: program/var.md
+  - name: Specializations
+    expanded: true
+    items:
+      - name: Overview
+        href: specializations/index.md
+      - name: Conditions
+        href: specializations/conditions.md
+  - name: Terms and definitions
+    href: terms.md
   - name: Questions and answers
     expanded: true
     items:
@@ -32,6 +44,6 @@ items:
         href: qa/start-grant.md
       - name: Additional grants in the partner program
         href: qa/additional-grants.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: qa/all.md
 base: en/partner

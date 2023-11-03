@@ -58,6 +58,7 @@ end_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Update timestamp. 
 state | enum **State**<br>Subscription lock state. <ul><li>`UNLOCKED`: Subscription unlocked.</li><li>`LOCKED`: Subscription locked to the resource.</li><li>`DELETED`: Subscription lock deleted.</li></ul>
+template_id | **string**<br>ID of the subscription template. 
 
 
 ### Template {#Template}
@@ -133,6 +134,7 @@ end_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Update timestamp. 
 state | enum **State**<br>Subscription lock state. <ul><li>`UNLOCKED`: Subscription unlocked.</li><li>`LOCKED`: Subscription locked to the resource.</li><li>`DELETED`: Subscription lock deleted.</li></ul>
+template_id | **string**<br>ID of the subscription template. 
 
 
 ### Template {#Template1}

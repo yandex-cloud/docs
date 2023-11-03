@@ -253,3 +253,21 @@ Errors occur [when connecting to a {{ managed-k8s-name }} node](../../managed-ku
 * No private SSH key is added to an authentication agent (ssh-agent).
 
    **Solution:** Add a private key by running the `ssh-add <path_to_private_key_file>` command.
+
+#### How do I grant internet access to {{ managed-k8s-name }} cluster nodes? {#internet}
+
+If {{ managed-k8s-name }} cluster nodes have no access to the internet, the following error occurs when trying to connect to the internet:
+
+```text
+Failed to pull image "{{ registry }}/***": rpc error: code = Unknown desc = Error response from daemon: Gethttps://{{ registry }}/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+```
+
+There are several ways to grant internet access to {{ managed-k8s-name }} cluster nodes:
+* Create and configure a [NAT gateway](../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../vpc/tutorials/nat-instance.md). As a result, through [static routing](../../vpc/concepts/static-routes.md), traffic will be routed via the gateway or a separate [VM instance](../../compute/concepts/vm.md) with NAT features.
+* [Assign a public IP address to a {{ managed-k8s-name }} node group](../../managed-kubernetes/operations/node-group/node-group-update.md#update-settings).
+
+{% note info %}
+
+If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IPs will be disabled. For more information, see the [{{ vpc-full-name }} documentation](../../vpc/concepts/static-routes.md#internet-routes).
+
+{% endnote %}

@@ -2263,7 +2263,10 @@ Field | Description
 --- | ---
 resources | **[Resources](#Resources11)**<br>Resources allocated to the hosts. 
 hosts_count | **int64**<br>Number of hosts in the group. 
-roles[] | **[OpenSearch.GroupRole](#OpenSearch10)**<br>Roles of the host group. 
+roles[] | **[OpenSearch.GroupRole](#OpenSearch10)**<br>Opensearch roles applicable to the node group. 
+zone_ids[] | **string**<br>IDs of the availability zones for hosts 
+subnet_ids[] | **string**<br>IDs of the subnets for hosts 
+assign_public_ip | **bool**<br>Whether the hosts should get a public IP address. 
 
 
 ### Resources {#Resources11}
@@ -2409,6 +2412,9 @@ Field | Description
 --- | ---
 resources | **[Resources](#Resources12)**<br>Resources allocated to the hosts. 
 hosts_count | **int64**<br>Number of hosts in the group. 
+zone_ids[] | **string**<br>IDs of the availability zones for hosts 
+subnet_ids[] | **string**<br>IDs of the subnets for hosts 
+assign_public_ip | **bool**<br>Whether the hosts should get a public IP address. 
 
 
 ### Resources {#Resources12}

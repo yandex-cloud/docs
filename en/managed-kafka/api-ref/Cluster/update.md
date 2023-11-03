@@ -194,7 +194,7 @@ configSpec.<br>zookeeper.<br>resources.<br>diskTypeId | **string**<br><p>Type of
 configSpec.<br>zoneId[] | **string**<br><p>IDs of availability zones where Kafka brokers reside.</p> 
 configSpec.<br>brokersCount | **integer** (int64)<br><p>The number of Kafka brokers deployed in each availability zone.</p> 
 configSpec.<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that defines whether a public IP address is assigned to the cluster. If the value is ``true``, then Apache Kafka® cluster is available on the Internet via it's public IP address.</p> 
-configSpec.<br>unmanagedTopics | **boolean** (boolean)<br><p>Allows to manage topics via AdminAPI</p> 
+configSpec.<br>unmanagedTopics | **boolean** (boolean)<br><p>Allows to manage topics via AdminAPI Deprecated. Feature enabled permanently.</p> 
 configSpec.<br>schemaRegistry | **boolean** (boolean)<br><p>Enables managed schema registry on cluster</p> 
 configSpec.<br>access | **object**<br><p>Access policy for external services.</p> 
 configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 

@@ -857,7 +857,7 @@ default:
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   k8s-api-link: >-
     https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
-  k8s-versions-rapid: 1.23, 1.24, 1.25, 1.26, 1.27
+  k8s-versions-rapid: 1.23, 1.24, 1.25, 1.26, 1.27, 1.28
   k8s-versions-regular: 1.23, 1.24, 1.25, 1.26, 1.27
   k8s-versions-stable: 1.23, 1.24, 1.25, 1.26, 1.27
   cic-bgp-asn: 200350
@@ -6694,7 +6694,6 @@ default:
         field_connector-security-protocol: Протокол безопасности
         field_connector-ssl-truststore-certificates: Сертификат в формате PEM
         field_schema-registry: Реестр схем данных
-        field_unmanaged-topics: Управление топиками через API
         label_brokers-per-az: Количество брокеров в зоне
         label_connector-this-cluster: Использовать этот кластер
         label_connectors: Коннекторы
@@ -7639,7 +7638,7 @@ default:
         gateways:
           button_move-gateway: Переместить
           field_type: Тип
-          value_gateway-type-egress-nat: NAT в интернет
+          value_gateway-type-egress-nat: NAT-шлюз
         label_network: Сеть
         network:
           overview:
@@ -7703,7 +7702,7 @@ default:
             popup-route-table_field_route-table-id: Таблица маршрутизации
         subnetworks:
           button_action-add-route-table: Привязать таблицу маршрутизации
-          button_action-egress-nat-enable: Включить NAT в интернет
+          button_action-egress-nat-enable: Включить NAT-шлюз
           create:
             button_add-cidr: Добавить CIDR
             button_add-domain-name-server: Добавить сервер доменных имен

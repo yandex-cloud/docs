@@ -43,7 +43,7 @@ folderId | **string**<br><p>Required. ID of the folder to create a sink in.</p> 
 name | **string**<br><p>Name of the sink. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 description | **string**<br><p>Description of the sink.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Sink labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-serviceAccountId | **string**<br><p>Logs will be written to the sink on behalf of this service account</p> <p>Value must match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
+serviceAccountId | **string**<br><p>Logs will be written to the sink on behalf of this service account</p> <p>The maximum string length in characters is 64.</p> 
 yds | **object**<br>Yandex data stream <br> includes only one of the fields `yds`, `s3`<br>
 yds.<br>streamName | **string**<br><p>Fully qualified name of data stream</p> <p>The maximum string length in characters is 512.</p> 
 s3 | **object**<br>Object storage <br> includes only one of the fields `yds`, `s3`<br>

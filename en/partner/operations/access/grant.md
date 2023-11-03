@@ -1,34 +1,20 @@
 # Granting a partner access to a customer's cloud
 
-In this section, you'll learn how to grant access and permissions to a cloud and verify the access granted.
+In this section, you will learn how to grant access and permissions to a cloud and a billing account.
 
 ## Granting access to a cloud {#grant}
 
-For a partner to have access to a customer's cloud:
+{% list tabs %}
 
-1. In the customer console, select the cloud to grant access to.
-1. Go to **Access control**.
-1. Click **Add user**.
-1. In the **Email** field, enter the `@yandex.ru` email address linked to the partner's account in {{ yandex-cloud }}.
-1. Refresh the page to make sure that the partner is added.
+- Management console
 
-Once added, partners are only assigned one role by default, which doesn't give the necessary permissions to perform operations. Learn more about [roles in {{ yandex-cloud }}](../../../resource-manager/security/).
+  1. In the [management console]({{ link-console-main }}), select a cloud.
+  1. Click the **Access bindings** tab.
+  1. Click **Assign roles**.
+  1. In the **Configure access bindings** window, click **Select user**.
+  1. Select a user from the list or search by user.
+  1. Click **Add role**.
+  1. Choose the `{{ roles-cloud-owner }}` role from the list. Users with this role can link a cloud to a billing account. You can assign other roles if needed.
+  1. Click **Save**.
 
-## Assigning a role for the cloud {#role}
-
-To assign a role:
-
-1. Click the menu icon ![image](../../../_assets/options.svg) next to the partner's name.
-1. Select the desired role.
-1. Click **Close**.
-
-## Granting access to a billing account {#check}
-
-To grant access to a billing account:
-
-1. In the customer's account, go to the **Billing** tab.
-1. In the panel on the left, select **Access control**.
-1. Click **Add user** and add the partner's account.
-
-Now the partner has access both to the cloud and billing account. It may take a few minutes for access to be enabled.
-
+{% endlist %}

@@ -49,7 +49,7 @@ updateMask | **string**<br>Field mask that specifies which attributes of the fun
 name | **string**<br><p>New name of the sink. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 description | **string**<br><p>New Description of the sink.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>New sink labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-serviceAccountId | **string**<br><p>new service account to use for logs writing to the sink.</p> <p>Value must match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
+serviceAccountId | **string**<br><p>new service account to use for logs writing to the sink.</p> <p>The maximum string length in characters is 64.</p> 
 yds | **object**<br>Yandex data stream <br> includes only one of the fields `yds`, `s3`<br>
 yds.<br>streamName | **string**<br><p>Fully qualified name of data stream</p> <p>The maximum string length in characters is 512.</p> 
 s3 | **object**<br>Object storage <br> includes only one of the fields `yds`, `s3`<br>

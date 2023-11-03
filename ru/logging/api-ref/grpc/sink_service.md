@@ -140,7 +140,7 @@ folder_id | **string**<br>Required. ID of the folder to create a sink in. <br>To
 name | **string**<br>Name of the sink. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the sink. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Sink labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-service_account_id | **string**<br>Logs will be written to the sink on behalf of this service account Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+service_account_id | **string**<br>Logs will be written to the sink on behalf of this service account The maximum string length in characters is 64.
 sink | **oneof:** `yds` or `s3`<br>Logs destination
 &nbsp;&nbsp;yds | **[Sink.Yds](#Sink2)**<br>Yandex data stream 
 &nbsp;&nbsp;s3 | **[Sink.S3](#Sink2)**<br>Object storage 
@@ -220,7 +220,7 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>New name of the sink. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>New Description of the sink. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>New sink labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-service_account_id | **string**<br>new service account to use for logs writing to the sink. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+service_account_id | **string**<br>new service account to use for logs writing to the sink. The maximum string length in characters is 64.
 sink | **oneof:** `yds` or `s3`<br>New logs destination
 &nbsp;&nbsp;yds | **[Sink.Yds](#Sink3)**<br>Yandex data stream 
 &nbsp;&nbsp;s3 | **[Sink.S3](#Sink3)**<br>Object storage 

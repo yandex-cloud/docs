@@ -15,23 +15,14 @@ The main entity in the service is the _{{ k8s }} cluster_.
 
 The service fully manages the master and monitors the status and health of node groups. Users can manage nodes directly and configure {{ k8s }} clusters using the {{ yandex-cloud }} management console and the {{ managed-k8s-name }} CLI and API.
 
-{% note warning %}
-
-Groups of {{ k8s }} nodes require internet access for downloading images and components.
-
-Internet access can be provided in the following ways:
-* By assigning a [public IP address](../../vpc/concepts/address.md#public-addresses) to each node in the group.
-* By [configuring a VM as a NAT instance](../../tutorials/routing/nat-instance.md).
-* By [setting up a NAT gateway](../../vpc/operations/create-nat-gateway.md).
-
-{% endnote %}
+{% include [Install kubectl](../../_includes/managed-kubernetes/note-node-group-internet-access.md) %}
 
 {{ k8s }} clusters in the {{ yandex-cloud }} infrastructure use the following resources:
 
-Resource | Amount | Comment
---- | --- | ---
-Subnet | 2 | {{ k8s }} reserves ranges of IP addresses to use for pods and services.
-Public IP | N | The N number includes:<br>* **One** public IP address for the NAT instance.<br>* A public IP address assigned to **each** node in the group if you use one-to-one NAT technology.
+| Resource | Amount | Comment |
+| --- | --- | --- |
+| Subnet | 2 | {{ k8s }} reserves IP address ranges to be used for pods and services. |
+| Public IP | N | The N number includes:<br>* **One** public IP address for the NAT instance.<br>* A public IP address assigned to **each** node in the group if you use one-to-one NAT technology. |
 
 ## Master {#master}
 

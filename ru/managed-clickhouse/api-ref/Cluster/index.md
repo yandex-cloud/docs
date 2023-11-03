@@ -1549,6 +1549,7 @@ Method | Description
 [listShards](listShards.md) | Retrieves a list of shards that belong to the specified cluster.
 [move](move.md) | Moves a ClickHouse cluster to the specified folder.
 [rescheduleMaintenance](rescheduleMaintenance.md) | Reschedules planned maintenance operation.
+[restartHosts](restartHosts.md) | 
 [restore](restore.md) | Creates a new ClickHouse cluster using the specified backup.
 [start](start.md) | Starts the specified ClickHouse cluster.
 [stop](stop.md) | Stops the specified ClickHouse cluster.

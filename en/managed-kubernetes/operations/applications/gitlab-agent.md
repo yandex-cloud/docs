@@ -80,6 +80,10 @@ For more information about setting up and registering an agent, see the [{{ GL }
 
 1. Open your {{ GL }} instance and go to **Infrastucture → {{ k8s }} clusters**. Make sure the agent status changed to `Connected`.
 
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/gitlab-containers.md).
+
 ## See also {#see-also}
 
 * [{{ GL }} Agent documentation](https://docs.gitlab.com/ee/user/clusters/agent/).
