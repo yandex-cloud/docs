@@ -237,7 +237,7 @@ yc container registry configure-docker
    +----------------------+---------------------+-----------------------------+-------+-----------------+
    |          ID          |       CREATED       |            NAME             | TAGS  | COMPRESSED SIZE |
    +----------------------+---------------------+-----------------------------+-------+-----------------+
-   | crpa2mf008mpjig73rp6 | 2019-11-20 11:52:17 | crp71hkgiolp6677hg9i/ubuntu | hello | 27.5 MB         |
+   | crpa2mf008mp******** | 2019-11-20 11:52:17 | crp71hkgiolp********/ubuntu | hello | 27.5 MB         |
    +----------------------+---------------------+-----------------------------+-------+-----------------+
    ```
 
@@ -271,13 +271,13 @@ yc container registry configure-docker
 
    ```
    NAME                           READY  STATUS     RESTARTS  AGE
-   hello-ubuntu-5847fb96b4-54g48  0/1    Completed  3         61s
+   hello-ubuntu-5847fb9***-*****  0/1    Completed  3         61s
    ```
 
 1. Посмотрите логи контейнера, запущенного на этом поде:
 
    ```
-   kubectl logs hello-ubuntu-5847fb96b4-54g48
+   kubectl logs hello-ubuntu-5847fb9***-*****
    ```
 
    Результат:

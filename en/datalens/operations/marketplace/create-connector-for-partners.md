@@ -3,6 +3,7 @@
 If you are a {{ datalens-short-name }} partner, you can create your own connector (connection type) and add it to [{{ datalens-short-name }} {{ marketplace-short-name }}](../../concepts/marketplace.md) or to the [connections]({{ link-datalens-main }}/connections/new) page. With the help of a connector, users will be able to create datasets, charts, and dashboards from your data.
 
 Advantages of working with a connector for {{ datalens-short-name }} partners:
+
 * Easy user access to data.
 * Data access control (each user only sees the data that you make available).
 * Deployment of a ready-made configurable dashboard with your data.
@@ -23,16 +24,18 @@ Provide the {{ datalens-short-name }} manager with your product information:
 * Price and preferred payment method (if your product is fee-based).
 * Developer contacts.
 
-## Creating a connector {#how-to-create-connector}
+## How to create a connector {#how-to-create-connector}
 
 You need to create a connector in the same CH cluster that will host your user data.
 
 1. Create a [{{ CH }} cluster](../../../managed-clickhouse/operations/cluster-create.md) in the cloud.
+
    1. In the cluster, add a DB user called `datalens` with [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
 
       {% note info %}
 
       If the user management via SQL is enabled for the cluster, you can create a user with the following command:
+
       ```sql
       CREATE USER IF NOT EXISTS <username> ON CLUSTER <cluster_name>
           IDENTIFIED WITH plaintext_password by '<user_password>'
@@ -42,6 +45,7 @@ You need to create a connector in the same CH cluster that will host your user d
       {% endnote %}
 
    1. In the settings, enable **Access from {{ datalens-short-name }}** and **Database management via SQL**.
+
 1. Provide the password and the cluster host list to {{ datalens-short-name }}.
 1. Generate a pair of RSA-2048 keys. Provide the public key and the key version to {{ datalens-short-name }}.
    Key generation requirements: `public_exponent=65537`, `key_size=2048`. A key version is an integer that is required for future seamless key rotation.
@@ -129,7 +133,6 @@ You need to create a connector in the same CH cluster that will host your user d
 
 1. Deliver the access token to the user through your website or some other way.
 
-
 ## User steps for a connector {#work-with-connector}
 
 1. Gets an access token for {{ datalens-short-name }} on your website.
@@ -145,7 +148,6 @@ You need to create a connector in the same CH cluster that will host your user d
 
 1. Saves the connection. At this point, {{ datalens-short-name }} deploys a standard dashboard based on connector data.
 
-
 #### See also
 
-- [{#T}](../../concepts/marketplace.md)
+* [{#T}](../../concepts/marketplace.md)

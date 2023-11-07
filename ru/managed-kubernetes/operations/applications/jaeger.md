@@ -19,10 +19,10 @@
    ```
 
 1. Чтобы разрешить [подам](../../concepts/index.md#pod) кластера {{ k8s }} подключаться к {{ ydb-name }}, настройте [группы безопасности](../connect/security-groups.md). Добавьте правило для входящего трафика:
-   * Диапазон портов — `2135`.
-   * Протокол — `TCP`.
-   * Тип источника — `Группа безопасности`.
-   * Группа безопасности — текущая (`Self`).
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `2135`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
 
 ### Подготовка {{ ydb-name }} {#create-ydb}
 
@@ -84,8 +84,8 @@
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
    * **Название приложения** — укажите название приложения.
-   * **{{ ydb-name }} эндпоинт** — укажите имя эндпоинта {{ ydb-name }}, например `lb.etnk1hv0jol3cu5pojp7.{{ ydb.host-dedicated }}:{{ ydb.port-dedicated }}`.
-   * **База данных** — укажите имя БД, например `/{{ region-id }}/b1gkgm9daf4605njnmn8/etnk2hv0jol5cu5pojp7`.
+   * **{{ ydb-name }} эндпоинт** — укажите имя эндпоинта {{ ydb-name }}, например `lb.etnk1hv0jol3********.{{ ydb.host-dedicated }}:{{ ydb.port-dedicated }}`.
+   * **База данных** — укажите имя БД, например `/{{ region-id }}/b1gkgm9daf46********/etnk2hv0jol5********`.
    * **Директория в базе данных** — `jaeger`.
    * **Использовать сервис метаданных для аутентификации изнутри ВМ** — выберите эту опцию, если требуется аутентификация внутри виртуальной машины.
    * **ID ключа сервисного аккаунта** — укажите идентификатор ключа сервисного аккаунта.
@@ -95,7 +95,7 @@
 
    Имя эндпоинта и БД были получены при [подготовке БД {{ ydb-name }}](#create-ydb), настройки для сервисного аккаунта — [в предыдущем подразделе](#create-sa-key).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Дождитесь перехода приложения в статус `Deployed`.
+1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 

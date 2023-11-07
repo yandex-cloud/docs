@@ -60,9 +60,9 @@
 
      ```text
      NAME                                      READY  STATUS   RESTARTS  AGE
-     cert-manager-69cf79df7f-ghw6s             1/1    Running  0         54s
-     cert-manager-cainjector-7648dc6696-gnrzz  1/1    Running  0         55s
-     cert-manager-webhook-7746f64877-wz9bh     1/1    Running  0         54s
+     cert-manager-69********-ghw6s             1/1    Running  0         54s
+     cert-manager-cainjector-76********-gnrzz  1/1    Running  0         55s
+     cert-manager-webhook-77********-wz9bh     1/1    Running  0         54s
      ```
 
   1. Создайте YAML-файл `acme-issuer.yaml` с манифестом объекта `ClusterIssuer`:

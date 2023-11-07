@@ -42,10 +42,10 @@
 
    ```text
    NAME                                              READY  STATUS   RESTARTS  AGE
-   my-prom-prometheus-alertmanager-7b8f48b99d-xt6ws  2/2    Running  0         81s
-   my-prom-prometheus-node-exporter-pxpwg            1/1    Running  0         81s
-   my-prom-prometheus-pushgateway-69f47c5f55-swrfb   1/1    Running  0         81s
-   my-prom-prometheus-server-7b4c958476-m4v78        2/2    Running  0         81s
+   my-prom-prometheus-alertmanager-7b********-xt6ws  2/2    Running  0         81s
+   my-prom-prometheus-node-exporter-*****            1/1    Running  0         81s
+   my-prom-prometheus-pushgateway-69********-swrfb   1/1    Running  0         81s
+   my-prom-prometheus-server-7b********-m4v78        2/2    Running  0         81s
    ```
 
 ## Установите кеширующий прокси trickster {#install-trickster}

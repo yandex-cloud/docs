@@ -12,8 +12,11 @@ Working in a cloud folder is available if you activated {{ datalens-short-name }
 
 To switch to a different {{ datalens-short-name }} instance:
 
-1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
-1. Click on your account photo in the lower-left corner.
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Click your account photo in the bottom-left corner.
+
+   ![image](../../../_assets/datalens/organization/select-organization.png)
+
 1. In the list, select the organization to switch to or **Without organization** mode:
 
    {% list tabs %}
@@ -25,21 +28,18 @@ To switch to a different {{ datalens-short-name }} instance:
      If the organization you selected has no organization-level {{ datalens-short-name }} instance but has an instance at the level of a folder in the cloud that belongs to the organization:
 
      1. In the drop-down menu, select the **Folders** tab.
-
-        ![image](../../../_assets/datalens/organization/organization-attention.png)
-
-     1. Select the desired cloud folder containing a {{ datalens-short-name }} instance.
+     1. Select the appropriate cloud folder containing a {{ datalens-short-name }} instance.
 
         ![image](../../../_assets/datalens/organization/organization-catalog.png)
 
-     1. Click **Open Datalens**.
+     1. Click **Open {{ datalens-short-name }}**.
 
    - Without organization
 
      If you want to use a {{ datalens-short-name }} instance in your cloud folder but the cloud itself is not included in any organization:
 
      1. In the drop-down menu, select the **Folders** tab.
-     1. Expand the list of folders in the desired cloud and select a folder.
-     1. Click **Open Datalens**.
+     1. Expand the list of folders in the appropriate cloud and select a folder.
+     1. Click **Open {{ datalens-short-name }}**.
 
    {% endlist %}

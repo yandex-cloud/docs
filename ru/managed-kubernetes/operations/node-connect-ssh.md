@@ -139,20 +139,20 @@ yc managed-kubernetes node-group add-metadata \
 
      ```bash
      NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
-     cl17i6943n92sb98jifg-itif  Ready   <none>  31m  v1.13.3  10.0.0.27    84.201.145.251  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
-     cl17i6943n92sb98jifg-ovah  Ready   <none>  31m  v1.13.3  10.0.0.22    84.201.149.184  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
+     cl17i6943n92********-itif  Ready   <none>  31m  v1.13.3  10.0.0.27    84.201.145.251  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
+     cl17i6943n92********-ovah  Ready   <none>  31m  v1.13.3  10.0.0.22    84.201.149.184  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
      ```
 
      Публичный IP-адрес указан в столбце `EXTERNAL-IP`.
 
 - Консоль управления
 
-  1. Откройте раздел **{{ compute-name }}** в каталоге, где создан ваш кластер {{ managed-k8s-name }}.
-  1. На панели слева выберите ![image](../../_assets/managed-kubernetes/group_cc.svg) **Группы виртуальных машин**.
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в каталоге, где создан ваш кластер {{ managed-k8s-name }}.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Нажмите на группу ВМ, имя которой соответствует идентификатору группы узлов {{ managed-k8s-name }}.
-  1. В открывшемся окне перейдите на вкладку **Список ВМ**.
+  1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_instances }}**.
   1. Нажмите на ВМ, публичный адрес которой хотите узнать.
-  1. Публичный IP-адрес указан в блоке **Сеть** в строке **Публичный IPv4**.
+  1. Публичный IP-адрес указан в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** в строке **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
 
 - CLI
 
@@ -170,7 +170,7 @@ yc managed-kubernetes node-group add-metadata \
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
      |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-     | cat684ojo3irchtpeg84 | cata9ertn6tcr09bh9rm | test-nodegroup | cl17i6943n92sb98jifg | 2019-04-12 12:38:35 | RUNNING |    2 |
+     | cat684ojo3ir******** | cata9ertn6tc******** | test-nodegroup | cl17i6943n92******** | 2019-04-12 12:38:35 | RUNNING |    2 |
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
      ```
 
@@ -179,7 +179,7 @@ yc managed-kubernetes node-group add-metadata \
      Публичный IP-адрес узла {{ managed-k8s-name }} указан в столбце `IP` после символа `~`.
 
      ```bash
-     yc compute instance-group list-instances cl17i6943n92sb98jifg
+     yc compute instance-group list-instances cl17i6943n92********
      ```
 
      Результат:
@@ -188,8 +188,8 @@ yc managed-kubernetes node-group add-metadata \
      +----------------------+---------------------------+--------------------------+---------------+----------------+
      |     INSTANCE ID      |           NAME            |            IP            |    STATUS     | STATUS MESSAGE |
      +----------------------+---------------------------+--------------------------+---------------+----------------+
-     | ef31h24k03pg0mhunfm1 | cl17i6943n92sb98jifg-itif | 10.0.0.27~84.201.145.251 | RUNNING [53m] |                |
-     | ef37ddhg9i7jhs7tc3pe | cl17i6943n92sb98jifg-ovah | 10.0.0.22~84.201.149.184 | RUNNING [53m] |                |
+     | ef31h24k03pg******** | cl17i6943n92********-itif | 10.0.0.27~84.201.145.251 | RUNNING [53m] |                |
+     | ef37ddhg9i7j******** | cl17i6943n92********-ovah | 10.0.0.22~84.201.149.184 | RUNNING [53m] |                |
      +----------------------+---------------------------+--------------------------+---------------+----------------+
      ```
 
@@ -213,7 +213,7 @@ yc managed-kubernetes node-group add-metadata \
 
   ```bash
   The authenticity of host '130.193.40.101 (130.193.40.101)' can't be established.
-  ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHkGgpLELJ8.
+  ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHk********.
   Are you sure you want to continue connecting (yes/no)?
   ```
 

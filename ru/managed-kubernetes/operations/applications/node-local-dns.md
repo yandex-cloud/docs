@@ -23,7 +23,7 @@
    * **Адрес ClusterIp сервиса kube-dns** — укажите IP-адрес, полученный [перед началом работы](#before-you-begin).
    * **Работа с Cilium** — выберите эту опцию, если кластер использует [контроллер сетевых политик Cilium](../../concepts/network-policy.md#cilium).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Дождитесь перехода приложения в статус `Deployed`.
+1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 После установки NodeLocal DNS использует следующие значения:
 * Зона кластера {{ managed-k8s-name }} — `cluster.local`.

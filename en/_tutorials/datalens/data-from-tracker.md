@@ -154,8 +154,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a connection in {{ datalens-short-name }} {#connection-create}
 
 1. Open the **{{ mch-name}}** [cluster](#database-create).
-1. Open the **{{ datalens-short-name }}** tab.
-1. Click **Create connection**.
+1. On the left side of the window, select ![datalens](../../_assets/datalens/chart.svg) **{{ datalens-short-name }}**.
+1. Click **Create connection**.
 1. Specify the connection settings:
    * **Connection**: `Select in a folder`.
    * **Cluster**: Cluster specified when [creating a database](#database-create).
@@ -165,9 +165,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * **Password**: Password specified when [creating a database](#database-create).
    * **Cache TTL in seconds**: `Default`.
    * **Raw SQL level**: `Forbid`.
-   * **HTTPS**: `Enabled`.
+   * **HTTPS**: `{{ ui-key.yacloud.common.enabled }}`.
+
       ![connection-settings](../../_assets/datalens/connection-settings.png =680x665)
-1. Click **Create connection**.
+
+1. Click **Create connection**.
 
 ## Create a dataset {#dataset-create}
 
@@ -183,7 +185,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Create a chart {#chart-create}
 
 
-1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) homepage.
+1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
 1. Click **Create chart**.
 1. In the top-left corner, click ![image](../../_assets/datalens/datasets.svg) **Select dataset**.
 1. In the **Datasets** drop-down list, select the [dataset](#dataset-create) you created in the previous step.
@@ -193,7 +195,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a dashboard {#dashboard-create}
 
-1. On the [{{ datalens-full-name }}]({{ link-datalens-main }}) homepage, click **Create dashboard**.
+1. On the [{{ datalens-full-name }}]({{ link-datalens-main }}) home page, click **Create dashboard**.
 1. In the window that opens, enter a name for the dashboard. The dashboard will appear in the list on the navigation page.
 
 For more information about setting up dashboards, see [{{ datalens-full-name }} dashboard](../../datalens/concepts/dashboard.md).

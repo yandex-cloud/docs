@@ -10,9 +10,9 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ k8s }}.
-  1. Перейдите во вкладку **Группы узлов**.
+  1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
 
 - CLI
 
@@ -28,7 +28,7 @@
   +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
   |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
   +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-  | catvhf4iv6dt8hguut9i | catcafja9ktuc7ven4le | test-nodegroup | cl1ec3le3qv3g2k441sd | 2019-04-09 10:56:22 | RUNNING |    2 |
+  | catvhf4iv6dt******** | catcafja9ktu******** | test-nodegroup | cl1ec3le3qv3******** | 2019-04-09 10:56:22 | RUNNING |    2 |
   +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
   ```
 
@@ -46,9 +46,9 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ k8s }}.
-  1. Перейдите во вкладку **Группы узлов**.
+  1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. Нажмите на имя нужной группы узлов.
 
 - CLI
@@ -62,12 +62,12 @@
   Результат:
 
   ```text
-  id: catvhf4iv6dt8hguut9i
-  cluster_id: catcafja9ktuc7ven5ny
+  id: catvhf4iv6dt********
+  cluster_id: catcafja9ktu********
   created_at: "2019-04-09T10:56:22Z"
   ...
-      subnet_id: b0c0jfcpqgngfu05rhcj
-  instance_group_id: cl1ec3le3qv3g2k233sd
+      subnet_id: b0c0jfcpqgng********
+  instance_group_id: cl1ec3le3qv3********
   node_version: 1.13.3
   ```
 

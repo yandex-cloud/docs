@@ -55,7 +55,7 @@ title: "Обеспечение доступа к приложению, запу�
        spec:
          containers:
          - name: hello-app
-           image: {{ registry }}/crpjd37scfv653nl11i9/hello:1.1
+           image: {{ registry }}/crpjd37scfv6********/hello:1.1
    ```
 
 1. Создайте приложение:
@@ -107,7 +107,7 @@ title: "Обеспечение доступа к приложению, запу�
        Labels:  app=hello
        Containers:
         hello-app:
-         Image:        {{ registry }}/crpab12cdef353nl11i9/hello:1.1
+         Image:        {{ registry }}/crpab12cdef3********/hello:1.1
          Port:         <none>
          Host Port:    <none>
          Environment:  <none>
@@ -119,11 +119,11 @@ title: "Обеспечение доступа к приложению, запу�
        Available      False   MinimumReplicasUnavailable
        Progressing    True    ReplicaSetUpdated
      OldReplicaSets:  <none>
-     NewReplicaSet:   hello-74c9c1b238 (2/2 replicas created)
+     NewReplicaSet:   hello-74******** (2/2 replicas created)
      Events:
        Type    Reason             Age   From                   Message
        ----    ------             ----  ----                   -------
-       Normal  ScalingReplicaSet  10s   deployment-controller  Scaled up replica set hello-74c9c1b238 to 2
+       Normal  ScalingReplicaSet  10s   deployment-controller  Scaled up replica set hello-74******** to 2
      ```
 
    {% endlist %}
@@ -184,8 +184,8 @@ title: "Обеспечение доступа к приложению, запу�
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог по умолчанию.
-     1. Выберите сервис **{{ network-load-balancer-name }}**.
-     1. На вкладке **Балансировщики** отображен сетевой балансировщик нагрузки с префиксом `k8s` в имени и уникальным идентификатором вашего кластера {{ k8s }} в описании.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. На вкладке **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** отображен сетевой балансировщик нагрузки с префиксом `k8s` в имени и уникальным идентификатором вашего кластера {{ k8s }} в описании.
 
    - CLI
 
@@ -234,7 +234,7 @@ title: "Обеспечение доступа к приложению, запу�
 
      ```text
      Hello, world!
-     Running in 'hello-74c9c1b238-c1rpa'
+     Running in 'hello-74********-c1rpa'
      ```
 
    {% endlist %}
@@ -252,7 +252,7 @@ metadata:
     # Тип балансировщика: внутренний.
     yandex.cloud/load-balancer-type: internal
     # Идентификатор подсети, в которой необходимо выделить IP-адрес для внутреннего сетевого балансировщика нагрузки.
-    yandex.cloud/subnet-id: e1b23q26ab1c0dce8te9
+    yandex.cloud/subnet-id: e1b23q26ab1c********
 spec:
   type: LoadBalancer
   ports:
@@ -298,10 +298,15 @@ spec:
     targetPort: 8080
   selector:
     app: hello
-  loadBalancerIP: <заранее зарезервированный IP-адрес>
+  loadBalancerIP: <IP-адрес>
   type: LoadBalancer
-  externalTrafficPolicy: <Local или Cluster>
+  externalTrafficPolicy: <управление_трафиком>
 ```
+
+Где:
+
+* `loadBalancerIP` — заранее зарезервированный IP-адрес.
+* `externalTrafficPolicy` — управление трафиком: `Local` или `Cluster`.
 
 ## Параметры проверки состояния узлов {#healthcheck}
 
@@ -345,11 +350,11 @@ apiVersion: v1
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: <имя политики>
-  namespace: <пространство имен>
+  name: <имя_политики>
+  namespace: <пространство_имен>
 spec:
   podSelector:
-    <правила фильтрации подов>
+    <правила_фильтрации_подов>
   policyTypes:
   - Ingress
   ingress:
@@ -359,10 +364,10 @@ spec:
     - ipBlock:
         cidr: 198.18.248.0/24
     - ipBlock:
-        cidr: <диапазон адресов, с которых разрешен доступ к балансировщику>
+        cidr: <диапазон_адресов_с_которых_разрешен_доступ_к_балансировщику>
     ...
     - ipBlock:
-        cidr: <диапазон адресов, с которых разрешен доступ к балансировщику>
+        cidr: <диапазон_адресов_с_которых_разрешен_доступ_к_балансировщику>
 ```
 
 Где:

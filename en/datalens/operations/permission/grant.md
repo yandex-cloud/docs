@@ -2,11 +2,11 @@
 
 Only a user with `{{ permission-admin }}` access privileges can grant or update permissions for an object or folder: they can do so directly or by confirming a request. By default, objects inherit the permissions of the parent folder.
 
-Before granting a user access permissions, [add](../../security/index.md#add-new-user) the user to the respective organization or cloud.
+Before granting permissions to a user, [add](../../security/add-new-user.md) them to {{ datalens-short-name }}.
 
 ## Granting object permissions {#grant-object}
 
-1. On the navigation page, find the relevant access object.
+1. On the [navigation page]({{ link-datalens-main }}/navigation), find the access object.
 
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
@@ -20,7 +20,7 @@ Before granting a user access permissions, [add](../../security/index.md#add-new
 
 ## Granting folder permissions {#grant-folder}
 
-1. On the navigation page, find the relevant folder.
+1. On the [navigation page]({{ link-datalens-main }}/navigation), find the folder.
 1. Click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) next to the folder and select **Permissions**.
 1. Grant access to:
 
@@ -52,7 +52,7 @@ Before granting a user access permissions, [add](../../security/index.md#add-new
 
 To confirm a [request](request.md) for access permission to a folder or object:
 
-1. On the navigation page, find the relevant folder or access object.
+1. On the [navigation page]({{ link-datalens-main }}/navigation), find the folder or access object.
 
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
@@ -65,7 +65,8 @@ To confirm a [request](request.md) for access permission to a folder or object:
 ## Updating permissions {#change}
 
 To update folder or object permissions:
-1. On the navigation page, find the relevant folder or access object.
+
+1. On the [navigation page]({{ link-datalens-main }}/navigation), find the folder or access object.
 
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 

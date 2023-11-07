@@ -26,10 +26,10 @@
 - Консоль управления
 
   [Создайте группу узлов {{ managed-k8s-name }}](../operations/node-group/node-group-create.md) со следующими параметрами:
-  * **Тип масштабирования**: `Автоматический`.
-  * **Минимальное кол-во узлов**: укажите количество узлов {{ managed-k8s-name }}, которое должно оставаться в группе при минимальной нагрузке.
-  * **Максимальное кол-во узлов**: укажите максимально допустимое количество узлов {{ managed-k8s-name }} в группе.
-  * **Начальное кол-во узлов**: количество узлов {{ managed-k8s-name }}, которые следует создать вместе с группой (должно быть не меньше минимального и не больше максимального количества узлов в группе).
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_scale-type }}** масштабирования: `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`.
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}**: укажите количество узлов {{ managed-k8s-name }}, которое должно оставаться в группе при минимальной нагрузке.
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**: укажите максимально допустимое количество узлов {{ managed-k8s-name }} в группе.
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}**: количество узлов {{ managed-k8s-name }}, которые следует создать вместе с группой (должно быть не меньше минимального и не больше максимального количества узлов в группе).
 
 - CLI
 
@@ -95,7 +95,7 @@
   1. Создайте {{ k8s-hpa }} для вашего приложения, например:
 
      ```bash
-     kubectl autoscale deployment/<имя приложения> --cpu-percent=50 --min=1 --max=3
+     kubectl autoscale deployment/<имя_приложения> --cpu-percent=50 --min=1 --max=3
      ```
 
      Где:

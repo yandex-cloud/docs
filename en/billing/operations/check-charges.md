@@ -5,7 +5,8 @@ You can view charts and tables with information about {{ yandex-cloud }} service
 1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 1. In the top-left corner, click ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
 1. Select ![image](../../_assets/billing.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-1. Click the name of the appropriate account and select ![image](../../_assets/billing/chart-area-stacked.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}**.
+1. Select the account you want to get details for.
+1. In the left-hand panel, select ![image](../../_assets/billing/chart-area-stacked.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}**.
 1. Select the detail depth.
 
 Depending on the selected detail depth, you will be able to view different data:
@@ -42,7 +43,7 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 - For labels
 
-   You can view usage details by [service resource labels](../../resource-manager/concepts/labels.md). You can [add a label](../../resource-manager/operations/manage-labels.md) to a resource and then specify the label name in the **Label key** list. If there are details for the selected label in the cloud, you will see information in the chart and the table below it with all the values corresponding to the selected label.
+   You can view usage details for [service resource labels](../../resource-manager/concepts/labels.md). You can [add a label](../../resource-manager/operations/manage-labels.md) to a resource and then specify the label name in the **Label key** list. If there are details for the selected label in the cloud, you will see information in the chart and the table below it with all the values corresponding to the selected label.
    You can also view details by a specific value of the label you select for one or more products in different folders of the selected cloud:
    1. Click **{{ ui-key.yacloud.billing.account.detail.filter_label_all-filters }}** (by default, all products in all clouds and available folders are selected). The selected elements have a mark next to their name.
    1. Specify the criteria for details:
@@ -92,6 +93,6 @@ The number of columns in the table depends on the selected detail depth. See a d
 | {{ ui-key.yacloud.billing.account.detail.column_service }} | Name of service within which the resources were consumed. <br/>Only shown when by service/product usage details are selected. |
 | {{ ui-key.yacloud.billing.account.detail.column_product }} | Product name <br/>Only shown when by product usage details are selected. |
 | {{ ui-key.yacloud.billing.account.detail.column_unit }} | Units and amount of resources consumed. <br/>Only shown when usage details for products are selected. |
-| {{ ui-key.yacloud.billing.account.detail.column_cost }} | Amount corresponding to the resources consumed before discount. |
+| {{ ui-key.yacloud.billing.account.detail.column_cost }} | Cost of consumed resources before discount. |
 | {{ ui-key.yacloud.billing.account.detail.column_credit }} | Discount amount in the contract currency (excluding VAT or other taxes and fees). |
-| {{ ui-key.yacloud.billing.account.detail.column_expense }} | Total amount corresponding to the resources consumed after discount. |
+| {{ ui-key.yacloud.billing.account.detail.column_expense }} | Total cost of consumed resources after discount. |

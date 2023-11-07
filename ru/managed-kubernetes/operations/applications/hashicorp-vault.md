@@ -63,7 +63,7 @@
    * **Ключ сервисной учетной записи для Vault** — скопируйте в это поле содержимое файла `authorized-key.json`.
    * **ID ключа {{ kms-short-name }} для Vault** — укажите [полученный ранее](#sa-keys-create) идентификатор ключа {{ kms-name }}.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Дождитесь перехода приложения в статус `Deployed`.
+1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
@@ -123,9 +123,9 @@
    Результат:
 
    ```text
-   Recovery Key 1: ulbugw4IKttmCCPprF6JwmUCyx1YfieCQPQiI2S0VV9o
-   Recovery Key 2: S0kcValC6qSfEI4WJBovSbJWZntBUwtTrtisSIcS3n0e
-   Recovery Key 3: t44ZRqbzLZNzfChinZNzLCNnwvFN/R52vbDq/UueHPPg
+   Recovery Key 1: ulbugw4IKttmCCPprF6JwmUCyx1YfieCQPQi********
+   Recovery Key 2: S0kcValC6qSfEI4WJBovSbJWZntBUwtTrtis********
+   Recovery Key 3: t44ZRqbzLZNzfChinZNzLCNnwvFN/R52vbD*/*******
    ...
 
    Recovery key initialized with 5 key shares and a key threshold of 3. Please

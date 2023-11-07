@@ -13,7 +13,7 @@
   1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 
   
-  1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
+  1. На странице [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
 
 
   1. Если у вас еще нет [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../../resource-manager/operations/folder/create.md).
@@ -62,7 +62,7 @@
        --version 1.13 \
        --cluster-ipv4-range 10.1.0.0/16 \
        --service-ipv4-range 10.2.0.0/16 \
-       --security-group-ids enpe5sdn7vs5mu6udl7i,enpj6c5ifh755o6evmu4 \
+       --security-group-ids enpe5sdn7vs5********,enpj6c5ifh75******** \
        --service-account-name default-sa \
        --node-service-account-name default-sa \
        --daily-maintenance-window start=22:00,duration=10h
@@ -93,11 +93,11 @@
 
      ```bash
      done (5m47s)
-     id: cathn0s6qobfa61p3u6k
-     folder_id: b1g66jflru0ek1omtsu0
+     id: cathn0s6qobf********
+     folder_id: b1g66jflru0e********
      ...
-       service_account_id: aje3932acd0c5ur7gatp
-       node_service_account_id: aje3932acd0c5hg8dagp
+       service_account_id: aje3932acd0c********
+       node_service_account_id: aje3932acd0c********
        release_channel: REGULAR
      ```
 
@@ -125,12 +125,12 @@
      ```bash
      {{ yc-k8s }} cluster create \
      ...
-       --master-logging enabled=<отправка_логов:_true_или_false>,`
+       --master-logging enabled=<отправка_логов>,`
          `log-group-id=<идентификатор_лог-группы>,`
          `folder-id=<идентификатор_каталога>,`
-         `kube-apiserver-enabled=<отправка_логов_kube-apiserver:_true_или_false>,`
-         `cluster-autoscaler-enabled=<отправка_логов_cluster-autoscaler:_true_или_false>,`
-         `events-enabled=<отправка_событий_{{ k8s }}:_true_или_false>
+         `kube-apiserver-enabled=<отправка_логов_kube-apiserver>,`
+         `cluster-autoscaler-enabled=<отправка_логов_cluster-autoscaler>,`
+         `events-enabled=<отправка_событий_{{ k8s }}>
      ```
 
      Где:

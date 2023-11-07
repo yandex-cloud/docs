@@ -93,7 +93,7 @@ items:
             href: operations/connection/create-ydb.md
           - name: Creating a {{ GP }} connection
             href: operations/connection/create-greenplum.md
-          - name: Creating a CHYT connection
+          - name: Creating a {{ ytsaurus-name }} CHYT connection
             items:
               - name: Connection
                 href: operations/connection/chyt/create-chyt.md

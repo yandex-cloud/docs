@@ -1,6 +1,6 @@
 ---
 title: "How to add parameters to a chart"
-description: "Follow this guide to add parameters to a chart."
+description: "Follow this guide to add a parameter to a chart."
 ---
 
 # Adding parameters to a chart
@@ -14,13 +14,17 @@ description: "Follow this guide to add parameters to a chart."
 
 To add a [parameter](../../concepts/parameters.md) to a chart:
 
-1. On the navigation page, find the chart to add the parameter to.
+
+{% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
+
+
+1. In the left-hand panel, click ![image](../../../_assets/datalens/chart.svg) **Charts** and select a chart to add a parameter for.
 1. On the left of the screen, click ![image](../../../_assets/plus-sign.svg) under the dataset and select **Parameter**.
 1. In the **Add parameter** window, specify:
 
-   * **Name**. Sets the parameter name.
-   * **Type**. Defines the parameter data type: **Date**, **Date and time**, **Fractional number**, **Logical**, **String**, or **Integer**.
-   * **Default value**. Required. Used when no parameter value is set in the dashboard, chart URL, or chart settings.
+   * **Name**: Sets the parameter name.
+   * **Type**: Defines the parameter data type: **Date**, **Date and time**, **Fractional number**, **Logical**, **String**, or **Integer**.
+   * **Default value**: This is a required value. It is used when no parameter value is set in the dashboard, chart URL, or chart settings.
 
 1. Click **Add**.
 

@@ -13,7 +13,7 @@
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) `k8s.tunnelClusters.agent` и `vpc.publicAdmin`.
 1. [Создайте кластер](kubernetes-cluster/kubernetes-cluster-create.md) {{ k8s }} любой подходящей конфигурации.
 
-   В блоке **Сетевые настройки кластера** выберите опцию **Включить туннельный режим**.
+   В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}** выберите опцию **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
 
 1. [Создайте группу узлов](node-group/node-group-create.md) любой подходящей конфигурации.
 
@@ -214,14 +214,14 @@
          serviceAccountName: "hubble-ui"
          containers:
            - name: frontend
-             image: "quay.io/cilium/hubble-ui:v0.7.9@sha256:e0e461c680ccd083ac24fe4f9e19e675422485f04d8720635ec41f2ba9e5562c"
+             image: "quay.io/cilium/hubble-ui:v0.7.9@sha256:e0e461c680ccd083ac24fe4f9e19e675422485f04d8720635ec41f2b********"
              imagePullPolicy: IfNotPresent
              ports:
                - containerPort: 8080
                  name: http
              resources: {}
            - name: backend
-             image: "quay.io/cilium/hubble-ui-backend:v0.7.9@sha256:632c938ef6ff30e3a080c59b734afb1fb7493689275443faa1435f7141aabe76"
+             image: "quay.io/cilium/hubble-ui-backend:v0.7.9@sha256:632c938ef6ff30e3a080c59b734afb1fb7493689275443faa1435f71********"
              imagePullPolicy: IfNotPresent
              env:
                - name: EVENTS_SERVER_PORT
@@ -233,7 +233,7 @@
                  name: grpc
              resources: {}
            - name: proxy
-             image: "docker.io/envoyproxy/envoy:v1.18.2@sha256:e8b37c1d75787dd1e712ff389b0d37337dc8a174a63bed9c34ba73359dc67da7"
+             image: "docker.io/envoyproxy/envoy:v1.18.2@sha256:e8b37c1d75787dd1e712ff389b0d37337dc8a174a63bed9c34ba7335********"
              imagePullPolicy: IfNotPresent
              ports:
                - containerPort: 8081
@@ -427,7 +427,7 @@
 1. Убедитесь, что сетевые политики не действуют — в колонках `POLICY (ingress) ENFORCEMENT` и `POLICY (egress) ENFORCEMENT` указано значение `Disabled`:
 
    ```bash
-   kubectl -n kube-system exec <имя пода контроллера Cilium> -- cilium endpoint list
+   kubectl -n kube-system exec <имя_пода_контроллера_Cilium> -- cilium endpoint list
    ```
 
 1. Убедитесь, что приложения `xwing` и `tiefighter` имеют доступ к API сервиса `deathstar` и возвращают строку `Ship landed`, т. к. сетевые политики не активированы:
@@ -490,7 +490,7 @@
 1. Убедитесь, что политика для объекта `k8s:class=deathstar` перешла в состояние `Enabled`:
 
    ```bash
-   kubectl -n kube-system exec <имя пода контроллера Cilium> -- cilium endpoint list
+   kubectl -n kube-system exec <имя_пода_контроллера_Cilium> -- cilium endpoint list
    ```
 
 1. Проверьте доступность сервиса `deathstar` для пода `tiefighter`:

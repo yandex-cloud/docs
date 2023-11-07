@@ -1,6 +1,6 @@
 # Visualizing Bitrix24 data
 
-You will create a connection to a demo Bitrix24 data source and get familiar with the dashboard and charts built by Bitrix24 based on {{ datalens-short-name }}. You'll also learn to work with [datasets](../../datalens/concepts/dataset/index.md), [charts](../../datalens/concepts/chart/index.md), and [dashboards](../../datalens/concepts/dashboard.md).
+You will create a connection to a demo Bitrix24 data source and get familiar with the dashboard and charts built by Bitrix24 based on {{ datalens-short-name }}. You will also learn to work with [datasets](../../datalens/concepts/dataset/index.md), [charts](../../datalens/concepts/chart/index.md), and [dashboards](../../datalens/concepts/dashboard.md).
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
@@ -14,14 +14,8 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Step 1. Create a connection to Bitrix24 {#create-connection-bitrix24}
 
-1. Go to [{{ datalens-short-name }}]({{ link-datalens-main }}) and click **Create connection**.
-
-   {% cut "Creating a connection" %}
-
-   ![image](../../_assets/datalens/solution-bitrix24/create-connection.png)
-
-   {% endcut %}
-
+1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
 1. Select the [**Bitrix24**]({{ link-datalens-main }}/connections/new/bitrix24) connection type.
 
    {% cut "Selecting a connection type" %}
@@ -109,7 +103,7 @@ You can see a copy of the main dashboard. Feel free to edit the dashboard as you
    1. Click **Add** and select **Chart**.
    1. In the **Chart** field, click **Select**.
    1. Select the **Number of leads by channel** chart. This will automatically fill in the **Name** field.
-   1. Click **Add**. The widget is displayed on the dashboard.
+   1. Click **Add**. The widget will be displayed on the dashboard.
    1. Set up the size and position of widgets on the dashboard.
    1. Click **Save** to save your changes to the dashboard.
 
@@ -214,8 +208,8 @@ To visualize interaction by type, create a column chart.
 
 1. When the dataset is saved, click **Create chart** in the top-right corner.
 1. For the [visualization type](../../datalens/visualization-ref/index.md), choose **Column chart**.
-1. Add the types of customer contacts on the chart. To do this, drag the `TYPE_NAME` field from the **Dimensions** section to the **X** section.
-1. Add the number of interactions of each type to the chart. To do this, drag the `ID_COUNT` field from the **Measures** section to the **Y** section.
+1. Add the types of customer contacts on the chart. To do this, drag the `TYPE_NAME` field from **Dimensions** to the **X** section.
+1. Add the number of interactions of each type to the chart. To do this, drag the `ID_COUNT` field from **Measures** to the **Y** section.
 
    ![image](../../_assets/datalens/solution-bitrix24/new-chart-sections.png)
 
@@ -232,6 +226,6 @@ Add the chart to your dashboard:
 1. At the top of the page, click **Edit**.
 1. Click **Add** and select **Chart**.
 1. Choose the **Number of interactions by type** chart. This will automatically fill in the **Name** field.
-1. Click **Add**. The widget is displayed on the dashboard.
+1. Click **Add**. The widget will be displayed on the dashboard.
 1. Set up the size and position of widgets on the dashboard.
 1. Click **Save** to save your changes to the dashboard.

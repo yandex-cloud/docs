@@ -46,7 +46,7 @@
 
         ```bash
         yc iam key create \
-           --service-account-name <имя сервисного аккаунта для Ingress-контроллера> \
+           --service-account-name <имя_сервисного_аккаунта_для_Ingress-контроллера> \
            --output key.json
         ```
 
@@ -252,13 +252,13 @@
       name: logs-demo-nondefault
       annotations:
         ingress.alb.yc.io/group-name: non-default
-        ingress.alb.yc.io/subnets: <список идентификаторов подсетей>
-        ingress.alb.yc.io/security-groups: <список идентификаторов групп безопасности>
+        ingress.alb.yc.io/subnets: <список_идентификаторов_подсетей>
+        ingress.alb.yc.io/security-groups: <список_идентификаторов_групп_безопасности>
         ingress.alb.yc.io/group-settings-name: non-default-settings
         ingress.alb.yc.io/external-ipv4-address: auto
     spec:
       rules:
-        - host: <доменное имя>
+        - host: <доменное_имя>
           http:
             paths:
               - pathType: Prefix
@@ -275,13 +275,13 @@
       name: logs-demo-disabled
       annotations:
         ingress.alb.yc.io/group-name: logs-disabled
-        ingress.alb.yc.io/subnets: <список идентификаторов подсетей>
-        ingress.alb.yc.io/security-groups: <список идентификаторов групп безопасности>
+        ingress.alb.yc.io/subnets: <список_идентификаторов_подсетей>
+        ingress.alb.yc.io/security-groups: <список_идентификаторов_групп_безопасности>
         ingress.alb.yc.io/group-settings-name: logs-disabled-settings
         ingress.alb.yc.io/external-ipv4-address: auto
     spec:
       rules:
-        - host: <доменное имя>
+        - host: <доменное_имя>
           http:
             paths:
               - pathType: Prefix
@@ -298,12 +298,12 @@
       name: logs-demo-default
       annotations:
         ingress.alb.yc.io/group-name: default
-        ingress.alb.yc.io/subnets: <список идентификаторов подсетей>
-        ingress.alb.yc.io/security-groups: <список идентификаторов групп безопасности>
+        ingress.alb.yc.io/subnets: <список_идентификаторов_подсетей>
+        ingress.alb.yc.io/security-groups: <список_идентификаторов_групп_безопасности>
         ingress.alb.yc.io/external-ipv4-address: auto
     spec:
       rules:
-        - host: <доменное имя>
+        - host: <доменное_имя>
           http:
             paths:
               - pathType: Prefix
@@ -400,7 +400,7 @@
     metadata:
       name: non-default-settings
     logOptions:
-      logGroupID: <идентификатор пользовательской лог-группы>
+      logGroupID: <идентификатор_пользовательской_лог-группы>
       discardRules:
         - discardPercent: 50
           grpcCodes:

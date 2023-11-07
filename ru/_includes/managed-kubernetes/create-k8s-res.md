@@ -42,10 +42,10 @@
 
 1. Проверьте, что создание кластера {{ managed-k8s-name }} успешно завершено.
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был создан кластер {{ managed-k8s-name }}.
-   1. В списке сервисов выберите **{{ managed-k8s-name }}**.
+   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Проверьте, что кластер {{ managed-k8s-name }} успешно создан:
-      * В столбце **Статус** должно быть указано `Running`.
-      * В столбце **Состояние** должно быть указано `Healthy`.
+      * В столбце **{{ ui-key.yacloud.k8s.cluster.overview.label_status }}** должно быть указано `Running`.
+      * В столбце **{{ ui-key.yacloud.k8s.cluster.overview.label_health }}** должно быть указано `Healthy`.
 1. Создайте [группу узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group):
 
    {% list tabs %}

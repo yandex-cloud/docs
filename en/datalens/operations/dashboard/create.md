@@ -14,7 +14,7 @@ To create a dashboard:
 
 
 
-1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. Click **Create dashboard**.
 
 

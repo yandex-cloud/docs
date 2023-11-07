@@ -99,7 +99,7 @@
              selector:
                matchLabels:
                  service: "compute"
-                 resource_id: "<имя узла>"
+                 resource_id: "<имя_узла>"
                  resource_type: "vm"
            target:
              type: Value
@@ -132,9 +132,9 @@
    Результат:
 
    ```text
-   nginx-6c5cbfc6d9-dbfrn                      1/1     Running   0          2d22h
-   nginx-6c5cbfc6d9-gckhp                      1/1     Running   0          2d22h
-   metrics-server-v0.3.1-6b998b66d6-f7dv6      2/2     Running   4          7d3h
+   nginx-6c********-dbfrn                      1/1     Running   0          2d22h
+   nginx-6c********-gckhp                      1/1     Running   0          2d22h
+   metrics-server-v0.3.1-6b********-f7dv6      2/2     Running   4          7d3h
    ```
 
 ## Проверьте работу {{ MP }} {#validate}
@@ -158,7 +158,7 @@ Conditions:
   Type            Status  Reason            Message
   ----            ------  ------            -------
   AbleToScale     True    ReadyForNewScale  recommended size matches current size
-  ScalingActive   True    ValidMetricFound  the HPA was able to successfully calculate a replica count from external metric cpu_usage(&LabelSelector{MatchLabels:map[string]string{resource_id: <имя узла>,resource_type: vm,service: compute,},MatchExpressions:[]LabelSelectorRequirement{},})
+  ScalingActive   True    ValidMetricFound  the HPA was able to successfully calculate a replica count from external metric cpu_usage(&LabelSelector{MatchLabels:map[string]string{resource_id: <имя_узла>,resource_type: vm,service: compute,},MatchExpressions:[]LabelSelectorRequirement{},})
 Events:           <none>
 ```
 
