@@ -5976,11 +5976,13 @@ default:
           resources:
             field_core-fraction: Гарантированная доля vCPU
             field_cores: vCPU
+            field_gpus: GPU
             field_memory: RAM
             field_platform: Платформа
             field_preemptible: Прерываемая
             label_platform-standard-v2: Intel Cascade Lake
             label_sw-accelerated-net: Программно-ускоренная сеть
+            value_platform-tab-gpu: Есть GPU
         console-dashboard:
           button_action-change-org: Изменить организацию
           button_action-create-folder: Создать каталог
@@ -6069,6 +6071,7 @@ default:
             button_create: Создать диск
           edit:
             button_update: Сохранить изменения
+          label_disk-used: Подключен
           popup_detach-disk_button_detach: Отсоединить
           popup-confirm_button_delete: Удалить
         group:
@@ -6650,23 +6653,111 @@ default:
           marketplace:
             button_install: Установить
             button_release-uninstall: Удалить
+            label_release-status-DEPLOYED: Deployed
             section_releases: Установленные приложения
+          node-groups:
+            button_create: Создать группу узлов
+            label_type-custom: Внешняя
+            popup-confirm_button_delete: Удалить
+          overview:
+            label_health: Состояние
+            label_id: Идентификатор
+            label_status: Статус
           switch_custom-resources: Пользовательские ресурсы
+          switch_events: События
           switch_marketplace: Marketplace
+          switch_namespaces: Пространства имен
+          switch_nodes-manager: Управление узлами
           switch_workloads: Рабочая нагрузка
         clusters:
           button_create: Создать кластер
           create:
+            button_add-day-of-week: Добавить день и время
             field_address-type: Публичный адрес
+            field_cluster-cidr: CIDR кластера
             field_kms-key: Ключ шифрования
+            field_maintenance-daily: Время (UTC) и продолжительность
+            field_maintenance-window: Частота обновлений / Отключение
+            field_master-type: Тип мастера
+            field_master-version: Версия Kubernetes
+            field_network: Облачная сеть
+            field_network-policy: Включить сетевые политики
+            field_node-service-account: Сервисный аккаунт для узлов
+            field_release-channel: Релизный канал
+            field_security-groups: Группы безопасности
+            field_service-account: Сервисный аккаунт для ресурсов
+            field_service-cidr: CIDR сервисов
+            field_subnetwork: Подсеть
+            field_tunnel-mode: Включить туннельный режим
+            label_maintenance-weekly: Расписание по дням
+            section_allocation: Сетевые настройки кластера
+            section_main-cluster: Конфигурация мастера
+            section_maintenance: Настройки окна обновлений
             switch_auto: Автоматически
+            switch_none: Без адреса
+            switch_region: Региональный
+            switch_zone: Зональный
+            value_maintenance-anytime: В любое время
+            value_maintenance-daily: Ежедневно
+            value_maintenance-disabled: Отключено
+            value_maintenance-weekly: В выбранные дни
+          popup-confirm_button_delete: Удалить
         custom-resources:
           label_tab-resources: Ресурсы
+        namespaces:
+          button_create: Создать
+          popup-add_field_name: Имя
+        node-group:
+          overview:
+            label_platform: Платформа
+            section_placement-policy: Размещение
         node-groups:
           create:
+            button_add-ip: Добавить IP-адрес
+            button_add-node-label: Добавить метку
+            button_add-node-taint: Добавить политику
+            button_add-sysctl: Добавить переменную
+            field_address-type: Публичный адрес
+            field_container-runtime: Среда запуска контейнеров
+            field_disk-type: Тип диска
             field_driverless-gpu: Не устанавливать драйверы GPU
+            field_initial-size: Начальное кол-во узлов
             field_key: SSH-ключ
+            field_locations: Расположение
+            field_max-expansion: Расширение размера группы, макс.
+            field_max-size: Максимальное кол-во узлов
+            field_max-unavailable: Уменьшение размера группы, макс.
+            field_min-size: Минимальное кол-во узлов
+            field_node-labels: Метки узла
+            field_node-version: Версия Kubernetes
+            field_scale-size: Кол-во узлов
+            field_scale-type: Тип
+            field_security-groups: Группы безопасности
+            label_add-location: Добавить расположение
+            label_runtime-CONTAINERD: containerd
+            label_runtime-DOCKER: Docker
+            section_access: Доступ
+            section_additional: Дополнительно
+            section_deploy: В процессе создания и обновления разрешено
+            section_disk: Хранилище
             section_gpu-settings: Настройки GPU
+            section_network: Сетевые настройки
+            section_scale: Масштабирование
+            switch_auto: Автоматически
+            switch_none: Без адреса
+            value_network-hdd: HDD
+            value_network-ssd: SSD
+            value_network-ssd-io-m3: SSD IO
+            value_network-ssd-nonreplicated: Нереплицируемый SSD
+            value_scale-auto: Автоматический
+            value_scale-fixed: Фиксированный
+        node:
+          overview:
+            label_labels: Метки
+            label_monitoring: Мониторинг
+        nodes:
+          label_node-groups: Группы узлов
+          label_nodes: Узлы
         workloads:
           label_tab-yaml: YAML
       kafka:
@@ -6735,6 +6826,7 @@ default:
             button_create: Создать
           form:
             field_algorithm: Алгоритм шифрования
+            field_name: Имя
             field_rotation: Период ротации, дни
             value_no-rotation: Нет ротации
           overview:
@@ -6785,6 +6877,7 @@ default:
           label_health-check-protocol: Тип
           label_health-check-timeout: Время ожидания, c
           label_health-check-unhealthy-threshold: Порог неработоспособности
+          label_list: Балансировщики
           section_attached-target-groups: Целевые группы
           section_listeners: Обработчики
         target-group:

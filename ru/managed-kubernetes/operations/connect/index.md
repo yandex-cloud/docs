@@ -28,7 +28,7 @@
 
      ```bash
      {{ yc-k8s }} cluster \
-       get-credentials <идентификатор или имя кластера> \
+       get-credentials <имя_или_идентификатор_кластера> \
        --internal
      ```
 
@@ -36,7 +36,7 @@
 
      ```bash
      {{ yc-k8s }} cluster \
-       get-credentials <идентификатор или имя кластера> \
+       get-credentials <имя_или_идентификатор_кластера> \
        --external
      ```
 

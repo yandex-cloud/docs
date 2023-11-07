@@ -14,8 +14,8 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 
 {% endlist %}
 
@@ -25,9 +25,9 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
-  1. В разделе **Установленные приложения** нажмите на имя нужного вам приложения.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+  1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}** нажмите на имя нужного вам приложения.
 
 {% endlist %}
 
@@ -43,11 +43,11 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
   1. В разделе **Доступные для установки приложения** нажмите на имя нужного вам приложения.
-  1. В открывшемся окне нажмите кнопку **Использовать**.
-  1. Укажите настройки приложения и нажмите кнопку **Установить**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+  1. Укажите настройки приложения и нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 
 {% endlist %}
 
@@ -57,11 +57,11 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
-  1. В разделе **Установленные приложения** нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) в строке приложения, которое требуется изменить.
-  1. В открывшемся меню нажмите кнопку **Редактировать**.
-  1. Внесите нужные изменения и нажмите кнопку **Сохранить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+  1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}** нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) в строке приложения, которое требуется изменить.
+  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+  1. Внесите нужные изменения и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -71,9 +71,9 @@
 
 - Консоль управления
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
-  1. В разделе **Установленные приложения** нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) в строке приложения, которое требуется удалить.
-  1. В открывшемся меню нажмите кнопку **Удалить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+  1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}** нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) в строке приложения, которое требуется удалить.
+  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
 
 {% endlist %}

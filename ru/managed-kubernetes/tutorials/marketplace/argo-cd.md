@@ -34,17 +34,17 @@
      {% endnote %}
 
   1. [Создайте кластер {{ k8s }}](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../operations/node-group/node-group-create.md) со следующими настройками:
-     * **Сервисный аккаунт для ресурсов** — созданный ранее сервисный аккаунт с ролью `{{ roles-editor }}`.
-     * **Сервисный аккаунт для узлов** — созданный ранее сервисный аккаунт с ролями `{{ roles-cr-puller }}` и `{{ roles-cr-pusher }}`.
-     * **Публичный адрес** — `Автоматически`.
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** — созданный ранее сервисный аккаунт с ролью `{{ roles-editor }}`.
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** — созданный ранее сервисный аккаунт с ролями `{{ roles-cr-puller }}` и `{{ roles-cr-pusher }}`.
+     * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
      * Отдельные параметры группы узлов:
-       * **vCPU** — `4`.
-       * **RAM** — `8 ГБ`.
-       * **Прерываемая**.
-       * **Масштабирование** — `Автоматическое`.
-       * **Минимальное кол-во узлов** — `1`.
-       * **Максимальное кол-во узлов** — `4`.
-       * **Начальное кол-во узлов** — `1`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
+       * **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}** — `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}` **{{ ui-key.yacloud.k8s.node-groups.create.field_scale-type }}**.
+       * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}** — `1`.
+       * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}** — `4`.
+       * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}** — `1`.
 
      Сохраните идентификатор кластера — он понадобится для следующих шагов.
   1. [Создайте реестр {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
@@ -127,8 +127,8 @@
    ```yaml
    ---
    imagePullPolicy: IfNotPresent
-   gitlabUrl: <публичный IP-адрес ВМ или FQDN инстанса {{ mgl-name }}>
-   runnerRegistrationToken: "<registration token>"
+   gitlabUrl: <публичный_IP-адрес_ВМ_или_FQDN_инстанса_{{ GL }}>
+   runnerRegistrationToken: "<registration_token>"
    terminationGracePeriodSeconds: 3600
    concurrent: 10
    checkInterval: 30
@@ -191,7 +191,7 @@
 
      Чтобы настроить {{ GL }} и подготовить процесс непрерывной интеграции ([Continuous Integration](/blog/posts/2022/10/ci-cd), CI), создайте новый проект и введите параметры для авторизации в CI:
      1. На странице сервиса {{ compute-name }} выберите созданную ВМ и найдите ее [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
-     1. Откройте в браузере ссылку `http://<публичный IP-адрес ВМ>`. Откроется административная панель {{ GL }}.
+     1. Откройте в браузере ссылку `http://<публичный_IP-адрес_ВМ>`. Откроется административная панель {{ GL }}.
      1. Задайте пароль администратора и нажмите кнопку **Change your password**.
      1. Введите логин `root` и пароль администратора.
      1. Нажмите кнопку **Sign in**.
@@ -204,7 +204,7 @@
 1. Получите [авторизованный ключ](../../../iam/concepts/authorization/key.md) для созданного ранее сервисного аккаунта с ролью `{{ roles-cr-pusher }}`:
 
    ```bash
-   yc iam key create --service-account-name <имя сервисного аккаунта реестра> -o key.json
+   yc iam key create --service-account-name <имя_сервисного_аккаунта_реестра> -o key.json
    ```
 
 1. Сохраните содержимое этого ключа — оно потребуется на следующем шаге:
@@ -220,9 +220,9 @@
 
       Name | Value | Опции
       --- | --- | ---
-      CI_REGISTRY | {{ registry }}/<идентификатор реестра> | `no`
+      CI_REGISTRY | {{ registry }}/<идентификатор_реестра> | `no`
       CI_REGISTRY_USER | json_key | `no`
-      CI_REGISTRY_PASSWORD | <вывод команды `cat key.json \| base64`> | `Mask variable`
+      CI_REGISTRY_PASSWORD | <вывод_команды_`cat key.json \| base64`> | `Mask variable`
 
 1. Настройте доступ к репозиторию:
    1. [Сгенерируйте новую пару SSH-ключей](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) или используйте существующую.
@@ -230,14 +230,14 @@
 1. Клонируйте репозиторий:
 
    ```bash
-   git clone git@<имя инстанса {{ mgl-name }}>.gitlab.yandexcloud.net:gitlab-test/my-app.git
+   git clone git@<имя_инстанса_{{ GL }}>.gitlab.yandexcloud.net:gitlab-test/my-app.git
    ```
 
 1. Загрузите архив `app.zip` и распакуйте его.
 1. Скопируйте в директорию `my-app` все файлы (включая скрытые) из загруженного архива:
 
    ```bash
-   cp -a <путь к директории с файлами из app.zip> <путь к директории my-app>
+   cp -a <путь_к_директории_с_файлами_из_app.zip> <путь_к_директории_my-app>
    ```
 
 1. Сохраните изменения и отправьте их в репозиторий:
@@ -252,7 +252,7 @@
 1. Откройте завершенную сборку и скопируйте строку из лога, она понадобится на следующем этапе:
 
    ```text
-   INFO[0025] Pushing image to {{ registry }}/<идентификатор реестра>/gitlab-test/my-app:main.<номер коммита>
+   INFO[0025] Pushing image to {{ registry }}/<идентификатор_реестра>/gitlab-test/my-app:main.<номер_коммита>
    ```
 
 ## Разверните приложение с помощью Argo CD {#deploy-argo}
@@ -266,7 +266,7 @@
 1. Настройте переадресацию порта сервиса `argocd-server` на локальный компьютер и подключитесь к кластеру {{ k8s }}:
 
    ```bash
-   kubectl port-forward svc/<название приложения Argo CD>-argocd-server 8080:443
+   kubectl port-forward svc/<название_приложения_Argo_CD>-argocd-server 8080:443
    ```
 
 1. Получите пароль администратора из секрета {{ k8s }}:
@@ -290,7 +290,7 @@
 1. В консоли Argo CD перейдите в раздел **Settings** → **Repositories**.
 1. Нажмите кнопку **Connect Repo Using SSH**.
 1. В открывшейся форме задайте параметры:
-   * **Repository URL** — URL репозитория вида `https://<имя инстанса {{ GL }}>.gitlab.yandexcloud.net/gitlab-test/my-app.git`.
+   * **Repository URL** — URL репозитория вида `https://<имя_инстанса_{{ GL }}>.gitlab.yandexcloud.net/gitlab-test/my-app.git`.
    * **Username** — `gitlab-ci-token`.
    * **Password** — токен {{ GL }}, сгенерированный ранее.
 1. Нажмите кнопку **Connect**.
@@ -300,13 +300,13 @@
    * **Project** — `default`.
    * **Sync policy** — `Automatic`, затем выберите опции **Prune resources** и **Self Heal**.
    * **Sync options** — выберите опцию `Auto-Create Namespace`.
-   * **Source** — укажите URL репозитория вида `https://<имя инстанса {{ GL }}>.gitlab.yandexcloud.net/gitlab-test/my-app.git`.
+   * **Source** — укажите URL репозитория вида `https://<имя_инстанса_{{ GL }}>.gitlab.yandexcloud.net/gitlab-test/my-app.git`.
    * **Path** — `.helm`.
    * **Cluster URL** — `https://kubernetes.default.svc`.
    * **Namespace** — `my-app`.
    * **Directory** — выберите `Helm` и в появившейся секции **Parameters** задайте параметры, исходя из значения успешно завершенной сборки {{ GL }}:
-     * **image.repository** — `{{ registry }}/<идентификатор реестра>/gitlab-test/my-app`.
-     * **image.tag** — `main.<номер коммита>`.
+     * **image.repository** — `{{ registry }}/<идентификатор_реестра>/gitlab-test/my-app`.
+     * **image.tag** — `main.<номер_коммита>`.
 1. Нажмите кнопку **Create** и дождитесь завершения синхронизации.
 1. Для проверки запуска приложения выполните команду в кластере {{ k8s }}:
 

@@ -22,14 +22,23 @@ Authorization: OAuth <OAuth-токен>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}  
+{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %} 
+
+{% cut "Параметры запроса" %}
+
+**Дополнительные параметры**
+Параметр | Описание | Тип данных
+----- | ----- | -----
+expand |  Дополнительные поля, которые будут включены в ответ: <ul><li>`attachments` — вложения;</li><li>`html` — HTML-разметка комментария;</li><li>`all` — все дополнительные поля.</li></ul> | Строка
+
+{% endcut %}
 
 > Запрос комментариев одной задачи:
 > 
 > Используется HTTP-метод GET.
 >  
 > ```
-> GET /v2/issues/JUNE-3/comments HTTP/1.1
+> GET /v2/issues/JUNE-3/comments?expand=all HTTP/1.1
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}
@@ -52,7 +61,9 @@ Authorization: OAuth <OAuth-токен>
             "self": "{{ host }}/v2/issues/JUNE-2/comments/9849018",
             "id": 9849018,
             "longId" : "5fa15a24ac894475dd14ff07",
-            "text": "Комментарий",
+            "text": "Комментарий **номер один.**",
+            "textHtml": "<p>Комментарий <strong>номер один.</strong></p>\n",
+            "attachments": [{ "self": "https://api.tracker.yandex.net/v2/issues/JUNE-3/attachments/1", "id": "1", "display": "Untitled.png" }],
             "createdBy": {
                 "self": "{{ host }}/v2/users/1120000000049224",
                 "id": "<id сотрудника>",
@@ -68,7 +79,7 @@ Authorization: OAuth <OAuth-токен>
             "version": 1,
             "type" : "standard",
             "transport" : "internal"   
-    },
+        },
         ...
     ]
     ```
@@ -81,6 +92,8 @@ Authorization: OAuth <OAuth-токен>
     id | Идентификатор комментария | Число
     longId | Идентификатор комментария в виде строки | Строка
     text | Текст комментария. | Строка
+    textHtml | HTML-разметка комментария. | Строка
+    attachments | Вложения. | Строка
     [createdBy](#object-fields-createdBy) | Объект с информацией о создателе комментария. | Объект
     [updatedBy](#object-fields-updatedBy) | Объект с информацией о сотруднике, внесшем последнее изменение в комментарий. | Объект
     createdAt | Дата и время создания комментария в формате:<br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` | Строка

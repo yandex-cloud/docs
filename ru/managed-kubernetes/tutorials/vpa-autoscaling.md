@@ -112,11 +112,11 @@
    Результат:
 
    ```text
-   vpa-admission-controller-58cf99779c-qmxtv  1/1  Running  0  44h
-   vpa-recommender-678f4f6d4b-jqvgt           1/1  Running  0  44h
-   vpa-updater-64ddd67787-xqsts               1/1  Running  0  44h
-   nginx-6c5cbfc6d9-62j7w                     1/1  Running  0  42h
-   nginx-6c5cbfc6d9-6t4nz                     1/1  Running  0  42h
+   vpa-admission-controller-58********-qmxtv  1/1  Running  0  44h
+   vpa-recommender-67********-jqvgt           1/1  Running  0  44h
+   vpa-updater-64********-xqsts               1/1  Running  0  44h
+   nginx-6c********-62j7w                     1/1  Running  0  42h
+   nginx-6c********-6t4nz                     1/1  Running  0  42h
    ```
 
    {% note info %}

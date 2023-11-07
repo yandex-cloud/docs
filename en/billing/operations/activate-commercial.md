@@ -7,7 +7,7 @@ If you have not spent the full amount of the [initial grant](../concepts/bonus-a
 To upgrade to the paid version:
 1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **{{ billing-name }}**.
 1. Select an account on the **{{ ui-key.yacloud.billing.label_accounts }}** page.
-1. On the **{{ ui-key.yacloud.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
+1. On the ![image](../../_assets/billing/flag.svg) **{{ ui-key.yacloud.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}**.
 1. Confirm the action by clicking **{{ ui-key.yacloud.billing.account.button_billing-payment-action }}** again.
 
 

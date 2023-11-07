@@ -36,10 +36,8 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 1. Download the [file with traffic accident statistics](https://storage.yandexcloud.net/doc-files/dtp201804-1.csv) for April-December 2018 in CSV format.
 
-1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page and click **Create connection**.
-
-   ![image](../../_assets/datalens/solution-07/02-create-connection.png)
-
+1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
+1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
 1. Select the **Files** connection type.
 
    ![image](../../_assets/datalens/solution-07/select-file-connection.png)
@@ -490,9 +488,9 @@ You need to add new fields to the previously created **Accidents** dataset.
 
    ![image](../../_assets/datalens/solution-07/23-heatmap.png)
 
-1. Add polygons to the map. Drag the **Polygon** field from the **Dimensions** section to the **Geopolygons** section.
+1. Add polygons to the map. Drag the **Polygon** field from **Dimensions** to the **Geopolygons** section.
 
-1. Change colors of the polygons based on the number of accidents. Drag the **Number of accidents** field from the **Measures** section to the **Colors** section.
+1. Change colors of the polygons based on the number of accidents. Drag the **Number of accidents** field from **Measures** to the **Colors** section.
 
 1. Drag the following fields to the **Tooltips** section:
 

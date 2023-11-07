@@ -79,7 +79,7 @@
 
    ```bash
    yc iam key create \
-     --service-account-name <имя сервисного аккаунта для Gateway API> \
+     --service-account-name <имя_сервисного_аккаунта_для_Gateway_API> \
      --output sa-key.json
    ```
 
@@ -93,26 +93,26 @@
      --name=prod \
      --labels reserved=true \
      --external-ipv4 \
-     zone=<зона доступности> && \
+     zone=<зона_доступности> && \
    yc vpc address create \
      --name=dev \
      --labels reserved=true \
      --external-ipv4 \
-     zone=<зона доступности>
+     zone=<зона_доступности>
    ```
 
-   Где `зона доступности` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой расположен ваш кластер {{ k8s }}.
+   Где `<зона_доступности>` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой расположен ваш кластер {{ k8s }}.
 
    Сохраните публичные IP-адреса — они понадобятся для дальнейшей настройки.
 1. Создайте [ресурсные записи](../../../dns/concepts/resource-record.md) для вашей публичной DNS-зоны:
 
    ```bash
    yc dns zone add-records \
-     --name <имя вашей DNS-зоны> \
-     --record '*.prod.<имя вашей DNS-зоны> 60 A <IP-адрес для среды prod>' && \
+     --name <имя_вашей_DNS-зоны> \
+     --record '*.prod.<имя_вашей_DNS-зоны> 60 A <IP-адрес_для_среды_prod>' && \
    yc dns zone add-records \
-     --name <имя вашей DNS-зоны> \
-     --record '*.dev.<имя вашей DNS-зоны> 60 A <IP-адрес для среды dev>'
+     --name <имя_вашей_DNS-зоны> \
+     --record '*.dev.<имя_вашей_DNS-зоны> 60 A <IP-адрес_для_среды_dev>'
    ```
 
    >Пример корректной команды:
@@ -138,14 +138,14 @@
      -out gateway-cert-prod.pem \
      -nodes \
      -days 365 \
-     -subj '/CN=*.prod.<имя вашей DNS-зоны>' && \
+     -subj '/CN=*.prod.<имя_вашей_DNS-зоны>' && \
    openssl req -x509 \
       -newkey rsa:4096 \
       -keyout gateway-key-dev.pem \
       -out gateway-cert-dev.pem \
       -nodes \
       -days 365 \
-      -subj '/CN=*.dev.<имя вашей DNS-зоны>'
+      -subj '/CN=*.dev.<имя_вашей_DNS-зоны>'
    ```
 
    На основании этих сертификатов в кластере {{ k8s }} будут созданы секреты для тестовых сред `prod` и `dev`.
@@ -186,14 +186,14 @@
    metadata:
      name: gateway-api-dev
      annotations:
-       gateway.alb.yc.io/security-groups: <группа безопасности кластера>
+       gateway.alb.yc.io/security-groups: <группа_безопасности_кластера>
     spec:
      gatewayClassName: yc-df-class
      listeners:
      - name: gateway-api-dev
        protocol: HTTP
        port: 80
-       hostname: "*.dev.<имя вашей DNS-зоны>"
+       hostname: "*.dev.<имя_вашей_DNS-зоны>"
        allowedRoutes:
          namespaces:
            from: Selector
@@ -206,7 +206,7 @@
      - name: gateway-api-dev-tls
        protocol: HTTPS
        port: 443
-       hostname: "*.dev.<имя вашей DNS-зоны>"
+       hostname: "*.dev.<имя_вашей_DNS-зоны>"
        allowedRoutes:
          namespaces:
            from: Selector
@@ -225,7 +225,7 @@
          mode: Terminate
      addresses:
       - type: IPAddress
-         value: <IP-адрес для среды dev>
+         value: <IP-адрес_для_среды_dev>
    ```
 
    {% endcut %}
@@ -243,7 +243,7 @@
      namespace: dev-app
    spec:
      hostnames:
-     - "app.dev.<имя вашей DNS-зоны>"
+     - "app.dev.<имя_вашей_DNS-зоны>"
      parentRefs:
      - name: gateway-api-dev
        namespace: default
@@ -322,14 +322,14 @@
    metadata:
      name: gateway-api-prod
      annotations:
-       gateway.alb.yc.io/security-groups: <группа безопасности кластера>
+       gateway.alb.yc.io/security-groups: <группа_безопасности_кластера>
    spec:
      gatewayClassName: yc-df-class
      listeners:
      - name: gateway-api-prod
        protocol: HTTP
        port: 80
-       hostname: "*.prod.<имя вашей DNS-зоны>"
+       hostname: "*.prod.<имя_вашей_DNS-зоны>"
        allowedRoutes:
          namespaces:
            from: Selector
@@ -342,7 +342,7 @@
      - name: gateway-api-prod-tls
        protocol: HTTPS
        port: 443
-       hostname: "*.prod.<имя вашей DNS-зоны>"
+       hostname: "*.prod.<имя_вашей_DNS-зоны>"
        allowedRoutes:
          namespaces:
            from: Selector
@@ -361,7 +361,7 @@
          mode: Terminate
      addresses:
        - type: IPAddress
-         value: <IP-адрес для среды prod>
+         value: <IP-адрес_для_среды_prod>
    ```
 
    {% endcut %}
@@ -379,7 +379,7 @@
      namespace: prod-app
    spec:
      hostnames:
-     - "app.prod.<имя вашей DNS-зоны>"
+     - "app.prod.<имя_вашей_DNS-зоны>"
      parentRefs:
      - name: gateway-api-prod
        namespace: default
@@ -480,8 +480,8 @@
 ## Проверьте работу Gateway API {#check-apps}
 
 Для проверки работы Gateway API перейдите по ссылкам в браузере:
-* `app.prod.<имя вашей DNS-зоны>`.
-* `dev.prod.<имя вашей DNS-зоны>`.
+* `app.prod.<имя_вашей_DNS-зоны>`.
+* `dev.prod.<имя_вашей_DNS-зоны>`.
 
 ## Удалите созданные ресурсы {#clear-out}
 

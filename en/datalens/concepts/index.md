@@ -12,7 +12,7 @@ With {{ datalens-full-name }}, you can track your product and business metrics d
 
 {% note warning %}
 
-The number of {{ datalens-short-name }} instances in one [cloud {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud): 1.
+The maximum number of {{ datalens-short-name }} instances per {{ yandex-cloud }} [organization](../../organization/quickstart.md) or [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) is 1.
 
 {% endnote %}
 

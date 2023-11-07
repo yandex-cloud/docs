@@ -287,6 +287,10 @@ items:
           Migrating data from {{ mmy-name }} to {{ mpg-name }} using {{
           data-transfer-name }}
         href: dataplatform/mmy-to-mpg.md
+      - name: >-
+          Migrating data from AWS RDS for {{ PG }} to {{ mpg-full-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/rds-to-mpg.md
       - name: Migrating data from {{ ES }} to {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
