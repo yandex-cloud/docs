@@ -41,11 +41,11 @@ description: "Следуя данной инструкции, вы сможет�
 - Консоль управления
 
   Чтобы изменить кластер {{ managed-k8s-name }}:
-  1. Откройте раздел **{{ managed-k8s-name }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
-  1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. В открывшемся окне измените необходимые параметры.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI
 
@@ -70,12 +70,12 @@ description: "Следуя данной инструкции, вы сможет�
        --service-account-name <имя_сервисного_аккаунта_для_ресурсов> \
        --node-service-account-id <идентификатор_сервисного_аккаунта_для_узлов_{{ managed-k8s-name }}> \
        --security-group-ids <список_идентификаторов_групп_безопасности> \
-       --master-logging enabled=<отправка_логов:_true_или_false>,`
+       --master-logging enabled=<отправка_логов>,`
            `log-group-id=<идентификатор_лог-группы>,`
            `folder-id=<идентификатор_каталога>,`
-           `kube-apiserver-enabled=<отправка_логов_kube-apiserver:_true_или_false>,`
-           `cluster-autoscaler-enabled=<отправка_логов_cluster-autoscaler:_true_или_false>,`
-           `events-enabled=<отправка_событий_{{ k8s }}:_true_или_false>
+           `kube-apiserver-enabled=<отправка_логов_kube-apiserver>,`
+           `cluster-autoscaler-enabled=<отправка_логов_cluster-autoscaler>,`
+           `events-enabled=<отправка_событий_{{ k8s }}>
      ```
 
      Где:
@@ -156,8 +156,8 @@ description: "Следуя данной инструкции, вы сможет�
 
   ```bash
   done (1s)
-  id: abcd123ef4ghi567j8k9
-  folder_id: l1m01nopqr1st2uvwxy1
+  id: abcd123ef4gh********
+  folder_id: l1m01nopqr1s********
   ...
   description: My test {{ k8s }} cluster
   labels:
@@ -189,8 +189,8 @@ description: "Следуя данной инструкции, вы сможет�
 
   ```bash
   done (1s)
-  id: abcd123ef4ghi567j8k9
-  folder_id: l1m01nopqr1st2uvwxy1
+  id: abcd123ef4gh********
+  folder_id: l1m01nopqr1s********
   ...
   description: My test {{ k8s }} cluster
   labels:
@@ -216,8 +216,8 @@ description: "Следуя данной инструкции, вы сможет�
 
   ```bash
   done (1s)
-  id: cati493bu7ian006a4a8
-  folder_id: b1g88tflru0ek1omtsu0
+  id: cati493bu7ia********
+  folder_id: b1g88tflru0e********
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
   ...

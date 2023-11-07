@@ -12,7 +12,7 @@
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) `k8s.tunnelClusters.agent` и `vpc.publicAdmin`.
 1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
 
-   В блоке **Сетевые настройки кластера** выберите опцию **Включить туннельный режим**.
+   В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}** выберите опцию **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
 1. [Создайте группу узлов](node-group/node-group-create.md) любой подходящей конфигурации.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
@@ -155,7 +155,7 @@
              requests:
                cpu: 25m
                memory: 5Mi
-           args: [ "-localip", "169.254.20.10,<IP-адрес сервиса kube-dns>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream", "-skipteardown=true", "-setupinterface=false", "-setupiptables=false" ]
+           args: [ "-localip", "169.254.20.10,<IP-адрес_сервиса_kube-dns>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream", "-skipteardown=true", "-setupinterface=false", "-setupiptables=false" ]
            securityContext:
              privileged: true
            ports:
@@ -285,19 +285,19 @@
 
    ```text
    NAME     READY  STATUS   RESTARTS  AGE  IP         NODE        NOMINATED NODE  READINESS GATES
-   nettool  1/1    Running  0         23h  10.1.0.68  <имя узла>  <none>          <none>
+   nettool  1/1    Running  0         23h  10.1.0.68  <имя_узла>  <none>          <none>
    ```
 
 1. Узнайте IP-адрес пода, на котором развернут NodeLocal DNS:
 
    ```bash
-   kubectl get pod -o wide -n kube-system | grep 'node-local.*<имя узла>'
+   kubectl get pod -o wide -n kube-system | grep 'node-local.*<имя_узла>'
    ```
 
    Результат:
 
    ```text
-   node-local-dns-gv68c  1/1  Running  0  26m  <IP-адрес пода>  <имя узла>  <none>  <none>
+   node-local-dns-gv68c  1/1  Running  0  26m  <IP-адрес_пода>  <имя_узла>  <none>  <none>
    ```
 
 ## Проверьте работу NodeLocal DNS {#test-nodelocaldns}
@@ -306,7 +306,7 @@
 1. Узнайте значение метрик для DNS-запросов до начала проверки:
 
    ```bash
-   kubectl exec -ti nettool -- curl http://<IP-адрес пода>:9253/metrics | grep coredns_dns_requests_total
+   kubectl exec -ti nettool -- curl http://<IP-адрес_пода>:9253/metrics | grep coredns_dns_requests_total
    ```
 
    Результат:
@@ -353,7 +353,7 @@
 1. Убедитесь, что значения метрик увеличились:
 
    ```bash
-   kubectl exec -ti nettool -- curl http://<IP-адрес пода>:9253/metrics | grep coredns_dns_requests_total
+   kubectl exec -ti nettool -- curl http://<IP-адрес_пода>:9253/metrics | grep coredns_dns_requests_total
    ```
 
    Результат:

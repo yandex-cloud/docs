@@ -10,12 +10,12 @@
 
   Чтобы удалить [группу узлов](../../concepts/index.md#node-group):
   1. Перейдите в [кластер {{ k8s }}](../../concepts/index.md#kubernetes-cluster), в котором требуется удалить группу узлов:
-     1. Откройте раздел **{{ managed-k8s-name }}** в каталоге.
+     1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в каталоге.
      1. Откройте нужный кластер {{ k8s }}.
-     1. Перейдите на вкладку **Управление узлами**.
-  1. На вкладке **Группы узлов** нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) в строке группы узлов, которую требуется удалить.
-  1. В открывшемся меню нажмите кнопку **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+  1. На вкладке **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) в строке группы узлов, которую требуется удалить.
+  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.popup-confirm_button_delete }}**.
 
 - CLI
 
@@ -24,7 +24,7 @@
   1. Удалите группу узлов:
 
      ```bash
-     yc k8s node-group delete <имя группы узлов>
+     yc k8s node-group delete <имя_группы_узлов>
      ```
 
      Результат:

@@ -28,11 +28,8 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 Create a dataset based on the **Files** [connection](../../datalens/concepts/connection.md) type.
 
-1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
-1. Click **Create connection**.
-
-   ![image](../../_assets/datalens/solution-01/01-create-connection.png)
-
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
 1. Select **Files**.
 
    ![image](../../_assets/datalens/solution-01/select-file-connection.png)
@@ -91,28 +88,28 @@ Create a dataset based on the **Files** [connection](../../datalens/concepts/con
 
 ## Step 3. Create the first chart {#step3}
 
-To visualize data divided by gender, create a bar chart type [chart](../../datalens/concepts/chart/index.md).
+To visualize data by gender, create a bar chart type [chart](../../datalens/concepts/chart/index.md).
 
-1. Add the names of superheroes to the chart. To do this, drag the **Name** field from the **Dimensions** section to the **X** section.
-1. Add the superheros' weight to the chart. To do this, drag the **Weight avg** field from the **Measures** section to the **Y** section.
+1. Add the names of superheroes to the chart. To do this, drag the **Name** field from **Dimensions** to the **X** section.
+1. Add the superheroes' weight to the chart. To do this, drag the **Weight avg** field from **Measures** to the **Y** section.
 
    ![image](../../_assets/datalens/solution-01/12-Chart-XY.png)
 
-1. Sort the chart by weight (for example, in descending order).
+1. Sort the chart by weight, e.g., in descending order.
 
-   1. From the first column in the **Measures** section, drag the **Weight avg** field to the **Sorting** section.
+   1. From the first column in **Measures**, drag the **Weight avg** field to the **Sorting** section.
 
       ![image](../../_assets/datalens/solution-01/13-Chart-Sort.png)
 
-1. Leave only the superheroes whose weight is known on the chart (greater than zero).
+1. Leave only the superheroes whose weight is known (greater than zero) on the chart.
 
-   1. From the first column in the **Measures** section, drag the **Weight avg** field to the **Filters** section.
-   1. In the window that opens, specify the operation **Greater** than and the value **0**.
+   1. From the first column in **Measures**, drag the **Weight avg** field to the **Filters** section.
+   1. In the window that opens, specify the **Greater than** operator and the **0** value.
    1. Click **Apply filter**.
 
       ![image](../../_assets/datalens/solution-01/14-Chart-Filter.png)
 
-1. Add a color division for superheroes depending on their gender to the chart. To do this, drag the **Gender** field from the **Dimensions** section to the **Colors** section.
+1. Add a color division for superheroes depending on their gender to the chart. To do this, drag the **Gender** field from **Dimensions** to the **Colors** section.
 
    ![image](../../_assets/datalens/solution-01/15-Chart-Color.png)
 
@@ -148,7 +145,7 @@ To visualize whether a superhero is good or bad, create a bar chart.
    1. In the window that opens, enter the name of the new chart: **SuperHeroes — alignment**.
    1. Click **Done**.
 
-1. Add to the chart a color division for superheroes depending on whether they are good or bad. To do this, drag the **Alignment** field from the **Dimensions** section to the **Colors** section.
+1. Add to the chart a color division for superheroes depending on whether they are good or bad. To do this, drag the **Alignment** field from **Dimensions** to the **Colors** section.
 
    The previous value of the section (the **Gender** field) is replaced with **Alignment**.
 
@@ -167,7 +164,7 @@ To visualize whether a superhero is good or bad, create a bar chart.
 
 Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts to.
 
-1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. Click **Create dashboard**.
 
    ![image](../../_assets/datalens/solution-01/22-Create-Dashboard.png)

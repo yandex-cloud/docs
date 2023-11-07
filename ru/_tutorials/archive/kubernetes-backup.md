@@ -25,8 +25,8 @@
 - Вручную
 
   1. [Создайте два кластера {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) в каждом со следующими настройками:
-    * **Версия {{ k8s }}** — **1.22** или выше.
-    * **Публичный адрес** — `Автоматически`.
+    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** — `1.22` или выше.
+    * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
 
     Один кластер {{ managed-k8s-name }} будет использован для создания резервной копии группы узлов, другой — для восстановления.
   1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md).

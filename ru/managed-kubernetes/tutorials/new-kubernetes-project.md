@@ -366,7 +366,7 @@ yc container registry configure-docker
    +----------------------+---------------------+----------------------------+-------+-----------------+
    |          ID          |       CREATED       |            NAME            | TAGS  | COMPRESSED SIZE |
    +----------------------+---------------------+----------------------------+-------+-----------------+
-   | crpa2mf008mpjig73rp6 | 2019-11-20 11:52:17 | crp71hkgiolp6677hg9i/nginx | hello | 27.5 MB         |
+   | crpa2mf008mp******** | 2019-11-20 11:52:17 | crp71hkgiolp********/nginx | hello | 27.5 MB         |
    +----------------------+---------------------+----------------------------+-------+-----------------+
    ```
 
@@ -389,13 +389,13 @@ yc container registry configure-docker
 
    ```text
    NAME                          READY  STATUS   RESTARTS  AGE
-   hello-nginx-5847fb96b4-54g48  1/1    Running  0         1h
+   hello-nginx-5847fb96**-*****  1/1    Running  0         1h
    ```
 
 1. Посмотрите логи контейнера, запущенного на этом поде:
 
    ```bash
-   kubectl logs hello-nginx-5847fb96b4-54g48
+   kubectl logs hello-nginx-5847fb96**-*****
    ```
 
    Результат:

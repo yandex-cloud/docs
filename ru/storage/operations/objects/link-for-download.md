@@ -11,3 +11,9 @@
   {% include [storage-get-link-for-download](../../_includes_service/storage-get-link-for-download.md) %}
 
 {% endlist %}
+
+{% note info %}
+
+Продлить срок действия подписанной ссылки на объект в бакете с ограниченным доступом нельзя. Если срок действия ссылки истек, сформируйте новую ссылку.
+
+{% endnote %}

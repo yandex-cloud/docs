@@ -2,7 +2,11 @@
 
 To add information to a message displayed when contacting support:
 
-1. Open the dashboard.
+
+{% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
+
+
+1. In the left-hand panel, click ![image](../../../_assets/datalens/dashboard-0523.svg) **Dashboards** and select the dashboard you need.
 1. In the top-right corner, click **Edit**.
 1. At the top of the screen, click ![image](../../../_assets/settings.svg).
 1. In **Other settings**, next to the **Window before contacting support** field, click **Configure**.

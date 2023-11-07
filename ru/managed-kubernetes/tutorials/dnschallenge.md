@@ -19,7 +19,7 @@
 
    ```bash
    yc iam key create \
-     --service-account-name <имя сервисного аккаунта> \
+     --service-account-name <имя_сервисного_аккаунта> \
      --format json \
      --output iamkey.json
    ```
@@ -57,7 +57,7 @@
        name: clusterissuer
        kind: ClusterIssuer
      dnsNames:
-       - <доменное имя>
+       - <доменное_имя>
    ```
 
 1. Передайте сертификат в кластер {{ managed-k8s-name }}:

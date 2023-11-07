@@ -14,8 +14,8 @@
 1. {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
 1. [Создайте группу узлов {{ managed-k8s-name }}](../operations/node-group/node-group-create.md) с настройками:
-   * **Платформа** — выберите `Intel Broadwell with NVIDIA® Tesla v100`.
-   * **GPU** — укажите нужное количество GPU.
+   * **{{ ui-key.yacloud.k8s.node-group.overview.label_platform }}** — выберите `{{ ui-key.yacloud.component.compute.resources.value_platform-tab-gpu }}` → `Intel Broadwell with NVIDIA® Tesla v100`.
+   * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}** — укажите нужное количество GPU.
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Создайте под с GPU {#create-pod-gpu}
@@ -60,9 +60,9 @@
    Namespace:    default
    Priority:     0
    ...
-     Normal  Pulling    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Successfully pulled image "registry.k8s.io/cuda-vector-add:v0.1"
-     Normal  Created    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Created container cuda-vector-add
-     Normal  Started    16m   kubelet, cl1i7hcbti99j6bbua6u-ebyq  Created container
+     Normal  Pulling    16m   kubelet, cl1i7hcbti99********-ebyq  Successfully pulled image "registry.k8s.io/cuda-vector-add:v0.1"
+     Normal  Created    16m   kubelet, cl1i7hcbti99********-ebyq  Created container cuda-vector-add
+     Normal  Started    16m   kubelet, cl1i7hcbti99********-ebyq  Created container
    ```
 
 1. Посмотрите логи работы пода:

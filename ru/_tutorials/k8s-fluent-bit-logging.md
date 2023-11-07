@@ -22,7 +22,7 @@
 
       ```bash
       yc iam key create \
-        --service-account-name <имя сервисного аккаунта для Fluent Bit> \
+        --service-account-name <имя_сервисного_аккаунта_для_Fluent_Bit> \
         --output key.json
       ```
 
@@ -88,8 +88,8 @@
          [OUTPUT]
            Name            yc-logging
            Match           *
-           group_id        <идентификатор лог-группы>
-           resource_id     <опционально: идентификатор кластера {{ managed-k8s-name }}>
+           group_id        <идентификатор_лог-группы>
+           resource_id     <опционально_идентификатор_кластера_{{ k8s }}>
            message_key     log
            authorization   iam-key-file:/etc/secret/key.json
      ...

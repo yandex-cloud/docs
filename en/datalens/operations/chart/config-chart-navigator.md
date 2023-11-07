@@ -7,8 +7,12 @@ You can configure the navigator if the following conditions are met:
 
 To set up the navigator:
 
-1. On the navigation page, find the chart and open it.
-1. In the left part of the screen above the chart, click ![image](../../../_assets/datalens/gear.svg).
+
+{% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
+
+
+1. In the left-hand panel, click ![image](../../../_assets/datalens/chart.svg) **Charts** and select a chart to set up the navigator for.
+1. On the left side of the screen above the chart, click ![image](../../../_assets/datalens/gear.svg).
 1. In the **Chart settings** window, enable the **Navigator** option.
 1. Select the navigator display mode:
 

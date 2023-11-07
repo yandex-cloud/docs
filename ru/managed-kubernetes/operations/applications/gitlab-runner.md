@@ -36,9 +36,9 @@
 
         {% endnote %}
 
-    * (Опционально) **Список тегов** — укажите список тегов для распределения задач между несколькими GitLab Runner.
+    * (Опционально) **Список тегов** — укажите список тегов для распределения задач между несколькими {{ GLR }}.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Дождитесь перехода приложения в статус `Deployed`.
+1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 1. Вернитесь на страницу Runners инстанса {{ GL }}, обновите ее и убедитесь, что появился новый {{ GLR }}.
 
 ## Установка с помощью Helm-чарта {#helm-install}
@@ -55,9 +55,9 @@
      --version {{ mkt-k8s-key.yc_gitlab-runner.helmChart.tag }} \
      --untar && \
    helm install \
-     --namespace <пространство имен> \
+     --namespace <пространство_имен> \
      --create-namespace \
-     --set gitlabDomain=<публичный_IP-адрес_ВМ_или_FQDN_инстанса_Yandex_Managed_Service_for_GitLab> \
+     --set gitlabDomain=<публичный_IP-адрес_ВМ_или_FQDN_инстанса_{{ GL }}> \
      --set runnerToken=<ранее_полученный_регистрационный_токен> \
      gitlab-runner ./gitlab-runner/
    ```

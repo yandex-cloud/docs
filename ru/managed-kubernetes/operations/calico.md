@@ -23,7 +23,7 @@
 
      1. [Создайте облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
      1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) любой подходящей конфигурации. При создании [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) задействуйте контроллер сетевых политик Calico:
-        * В консоли управления, выбрав опцию **Включить сетевые политики**.
+        * В консоли управления, выбрав опцию **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}**.
         * С помощью CLI, указав флаг `--enable-network-policy`.
         * С помощью метода [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster).
 

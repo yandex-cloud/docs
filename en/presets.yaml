@@ -5956,11 +5956,13 @@ default:
           resources:
             field_core-fraction: Guaranteed vCPU performance
             field_cores: vCPU
+            field_gpus: GPU
             field_memory: RAM
             field_platform: Platform
             field_preemptible: Preemptible
             label_platform-standard-v2: Intel Cascade Lake
             label_sw-accelerated-net: Software accelerated network
+            value_platform-tab-gpu: With GPU
         console-dashboard:
           button_action-change-org: Change organization
           button_action-create-folder: Create folder
@@ -6049,6 +6051,7 @@ default:
             button_create: Create disk
           edit:
             button_update: Save changes
+          label_disk-used: Active
           popup_detach-disk_button_detach: Detach
           popup-confirm_button_delete: Delete
         group:
@@ -6628,23 +6631,111 @@ default:
           marketplace:
             button_install: Install
             button_release-uninstall: Uninstall
+            label_release-status-DEPLOYED: Deployed
             section_releases: Installed applications
+          node-groups:
+            button_create: Create a node group
+            label_type-custom: External
+            popup-confirm_button_delete: Delete
+          overview:
+            label_health: State
+            label_id: ID
+            label_status: Status
           switch_custom-resources: Custom resources
+          switch_events: Events
           switch_marketplace: Marketplace
+          switch_namespaces: Namespaces
+          switch_nodes-manager: Nodes manager
           switch_workloads: Workload
         clusters:
           button_create: Create cluster
           create:
+            button_add-day-of-week: Add day and time
             field_address-type: Public address
+            field_cluster-cidr: CIDR cluster
             field_kms-key: Encryption key
+            field_maintenance-daily: Time (UTC) and duration
+            field_maintenance-window: Maintenance frequency / Disable
+            field_master-type: Type of master
+            field_master-version: Kubernetes version
+            field_network: Cloud network
+            field_network-policy: Enable network policy
+            field_node-service-account: Service account for nodes
+            field_release-channel: Release channel
+            field_security-groups: Security groups
+            field_service-account: Service account for resources
+            field_service-cidr: CIDR services
+            field_subnetwork: Subnet
+            field_tunnel-mode: Enable tunnel mode
+            label_maintenance-weekly: Weekly schedule
+            section_allocation: Cluster network settings
+            section_main-cluster: Master configuration
+            section_maintenance: Maintenance window settings
             switch_auto: Auto
+            switch_none: No address
+            switch_region: Regional
+            switch_zone: Zonal
+            value_maintenance-anytime: Anytime
+            value_maintenance-daily: Daily
+            value_maintenance-disabled: Disabled
+            value_maintenance-weekly: On selected days
+          popup-confirm_button_delete: Delete
         custom-resources:
           label_tab-resources: Resources
+        namespaces:
+          button_create: Create
+          popup-add_field_name: Name
+        node-group:
+          overview:
+            label_platform: Platform
+            section_placement-policy: Placement
         node-groups:
           create:
+            button_add-ip: Add IP address
+            button_add-node-label: Add  label
+            button_add-node-taint: Add policy
+            button_add-sysctl: Add variable
+            field_address-type: Public address
+            field_container-runtime: Container runtime
+            field_disk-type: Disk type
             field_driverless-gpu: Do not install GPU drivers
+            field_initial-size: Initial number of nodes
             field_key: SSH key
+            field_locations: Location
+            field_max-expansion: Max expansion of group size
+            field_max-size: Maximum number of nodes
+            field_max-unavailable: Max reduction of group size
+            field_min-size: Minimum number of nodes
+            field_node-labels: Node labels
+            field_node-version: Kubernetes version
+            field_scale-size: Number of nodes
+            field_scale-type: Type
+            field_security-groups: Security groups
+            label_add-location: Add location
+            label_runtime-CONTAINERD: containerd
+            label_runtime-DOCKER: Docker
+            section_access: Access
+            section_additional: Additional
+            section_deploy: Allow when creating and updating
+            section_disk: Storage
             section_gpu-settings: GPU settings
+            section_network: Network settings
+            section_scale: Scaling
+            switch_auto: Auto
+            switch_none: No address
+            value_network-hdd: HDD
+            value_network-ssd: SSD
+            value_network-ssd-io-m3: SSD IO
+            value_network-ssd-nonreplicated: Non-replicated SSD
+            value_scale-auto: Automatic
+            value_scale-fixed: Fixed
+        node:
+          overview:
+            label_labels: Labels
+            label_monitoring: Monitoring
+        nodes:
+          label_node-groups: Node group
+          label_nodes: Nodes
         workloads:
           label_tab-yaml: YAML
       kafka:
@@ -6713,6 +6804,7 @@ default:
             button_create: Create
           form:
             field_algorithm: Encryption algorithm
+            field_name: Name
             field_rotation: Rotation period, days
             value_no-rotation: No rotation
           overview:
@@ -6763,6 +6855,7 @@ default:
           label_health-check-protocol: Type
           label_health-check-timeout: Timeout in sec
           label_health-check-unhealthy-threshold: Unhealthy threshold
+          label_list: Load balancers
           section_attached-target-groups: Target groups
           section_listeners: Listeners
         target-group:

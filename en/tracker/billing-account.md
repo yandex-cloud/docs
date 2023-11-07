@@ -55,7 +55,7 @@ To link a billing account:
 
    {% include [payment-card-validation](../_includes/billing/payment-card-validation.md) %}
 
-1. Tap **{{ ui-key.startrek.ui_components_page-admin_BillingScreen.create-account }}**.
+1. Click **{{ ui-key.startrek.ui_components_page-admin_BillingScreen.create-account }}**.
 
    {% note info %}
 
@@ -63,7 +63,7 @@ To link a billing account:
 
    {% endnote %}
 
-   The billing account is created with a [status](../billing/concepts/billing-account-statuses.md):
+   The billing account will be created with a [status](../billing/concepts/billing-account-statuses.md):
 
    * `NEW`: For individuals who are residents of Russia or Kazakhstan with any payment method and businesses that are residents of Russia or Kazakhstan with the **{{ ui-key.yacloud_billing_account.cloud-billing-account.payment-type_label_card }}** payment method.
 
@@ -95,7 +95,7 @@ Once the billing account is created, [link it to {{ tracker-name }}](#bind). You
 
 ## Changing a billing account {#change}
 
-To change a billing account:
+You can only change an organization's billing account once a month. To change a billing account:
 1. Go to **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**. The page displays the billing account linked to {{ tracker-name }}.
 2. Click **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.rebind-account }}** in the top-right corner. Select the billing account you want to use instead of the current one or click **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**.
    If you want to create a new account, follow [this guide](#create).

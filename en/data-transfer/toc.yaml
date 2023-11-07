@@ -97,6 +97,8 @@ items:
             href: tutorials/managed-clickhouse.md
           - name: '{{ GP }} cluster'
             href: tutorials/managed-greenplum.md
+          - name: Migrating data from AWS RDS for {{ PG }}
+            href: tutorials/rds-to-mpg.md
       - name: Data mirroring
         items:
           - name: '{{ KF }}'

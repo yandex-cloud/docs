@@ -123,17 +123,17 @@
    metadata:
      name: grpc-demo
      annotations:
-       ingress.alb.yc.io/subnets: <идентификаторы подсетей>
+       ingress.alb.yc.io/subnets: <идентификаторы_подсетей>
        ingress.alb.yc.io/external-ipv4-address: auto 
        ingress.alb.yc.io/protocol: grpc
-       ingress.alb.yc.io/security-groups: <идентификатор группы безопасности>
+       ingress.alb.yc.io/security-groups: <идентификатор_группы_безопасности>
    spec:
      tls:
        - hosts:
-           - <имя сайта>
-         secretName: yc-certmgr-cert-id-<идентификатор сертификата> 
+           - <имя_сайта>
+         secretName: yc-certmgr-cert-id-<идентификатор_сертификата> 
      rules:
-       - host: <имя сайта>
+       - host: <имя_сайта>
          http:
            paths:
              - pathType: Prefix
@@ -158,7 +158,7 @@
 
      При значении `auto` Ingress-контроллер получит [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) автоматически. При удалении Ingress-контроллера IP-адрес также будет удален из облака.
    * `ingress.alb.yc.io/security-groups` — идентификатор группы безопасности, созданной при [подготовке облака к работе](#prepare-cloud). Если в вашем облаке не включены группы безопасности, удалите эту аннотацию.
-   * `secretName` — указание на TLS-сертификат из [{{ certificate-manager-full-name }}](../../certificate-manager/) в формате `yc-certmgr-cert-id-<идентификатор сертификата>`.
+   * `secretName` — указание на TLS-сертификат из [{{ certificate-manager-full-name }}](../../certificate-manager/) в формате `yc-certmgr-cert-id-<идентификатор_сертификата>`.
    * `hosts`, `host` — доменное имя, которому соответствует TLS-сертификат.
 
    Подробнее см. [поля и аннотации ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md).
@@ -213,9 +213,9 @@
            selector:
             matchLabels:
               service: "application-load-balancer"
-              load_balancer: <идентификатор балансировщика>
+              load_balancer: <идентификатор_балансировщика>
               code: "total"
-              backend_group: <идентификаторы группы бэкендов>
+              backend_group: <идентификаторы_группы_бэкендов>
          target:
            type: AverageValue
            averageValue: 2
@@ -268,7 +268,7 @@
        - id: Gun
          gun:
            type: grpc
-           target: <название вашего сайта>:<порт>
+           target: <название_вашего_сайта>:<порт>
            tls: true
          ammo:
            type: grpc/json
@@ -305,9 +305,9 @@
    
 1. [Запустите тест](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
-   * В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** нажмите **Выбрать файлы** и выберите сохраненный ранее файл `ammo.json`.
+   * В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** и выберите сохраненный ранее файл `ammo.json`.
    * В блоке настроек **{{ ui-key.yacloud.load-testing.label_test-settings }}**:
-     * В поле **{{ ui-key.yacloud.load-testing.field_settings-type }}** выберите **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
+     * В поле **{{ ui-key.yacloud.load-testing.field_settings-type }}** выберите `{{ ui-key.yacloud.load-testing.label_settings-type-config }}`.
      * В поле **{{ ui-key.yacloud.load-testing.field_config-file }}** нажмите **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** и загрузите подготовленный ранее файл `load.yaml`.
 
 1. Наблюдайте за прохождением теста:

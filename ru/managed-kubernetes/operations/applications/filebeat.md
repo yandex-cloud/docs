@@ -20,9 +20,9 @@
    * **Название приложения** — укажите название приложения, например `filebeat`.
    * **Имя пользователя {{ ES }}** — введите имя учетной записи, под которой Filebeat будет подключаться к кластеру {{ mes-name }}.
    * **Пароль для подключения к {{ ES }}** — введите пароль для учетной записи в кластере {{ mes-name }}.
-   * **FQDN сервиса {{ ES }}** — укажите URL и порт для кластера {{ mes-name }}, например `https://c-c9q07rjo9c11q4e1p0om.rw.{{ dns-zone }}:9200`. Подробнее о подключении к кластеру {{ mes-name }} см. в [документации сервиса](../../../managed-elasticsearch/operations/cluster-connect.md).
+   * **FQDN сервиса {{ ES }}** — укажите URL и порт для кластера {{ mes-name }}, например `https://c-c9q07rjo9c11********.rw.{{ dns-zone }}:9200`. Подробнее о подключении к кластеру {{ mes-name }} см. в [документации сервиса](../../../managed-elasticsearch/operations/cluster-connect.md).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Дождитесь перехода приложения в статус `Deployed`.
+1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 1. [Подключитесь к веб-интерфейсу Kibana](../../../managed-elasticsearch/quickstart.md#connect-kibana) и убедитесь, что события кластера {{ managed-k8s-name }} начали поступать.
 
 ## Установка с помощью Helm-чарта {#helm-install}

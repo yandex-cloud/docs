@@ -38,7 +38,7 @@ You can create other resources manually or using {{ TF }}.
 
 ### Using {{ TF }} {#create-terraform}
 
-1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 1. Download the [clusters-postgresql-data-proc-and-vm.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/sqoop/clusters-postgresql-data-proc-and-vm.tf) configuration file and save it to the same working directory.
 
@@ -117,12 +117,12 @@ You can create other resources manually or using {{ TF }}.
 
 ## Importing the database {#import}
 
-To enable [database parallelism](https://sqoop.apache.org/docs/1.4.2/SqoopUserGuide.html#_controlling_parallelism), Sqoop lets you split imported data both by the primary key and other table columns. In the example, the data is split by the `age` column.
+To enable [database parallelism](https://sqoop.apache.org/docs/1.4.2/SqoopUserGuide.html#_controlling_parallelism), Sqoop lets you split imported data not only by the primary key but also other table columns. In the example, the data is split by the `age` column.
 
-Let:
+Let's assume that:
 
 {% include [Shared settings](./shared-properties.md) %}
-* {{ mpg-name }} cluster ID: `c9qgcd6lplrsjt9jhtuu`.
+* {{ mpg-name }} cluster ID: `c9qgcd6lplrs********`.
 
 {% list tabs %}
 
@@ -133,7 +133,7 @@ Let:
 
       ```bash
       sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-          --connect "jdbc:postgresql://c-c9qgcd6lplrsjt9jhtuu.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
+          --connect "jdbc:postgresql://c-c9qgcd6lplrs********.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
           --username "user1" \
           --P \
           --table "persons" \
@@ -148,7 +148,7 @@ Let:
 
       ```bash
       sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-          --connect "jdbc:postgresql://c-c9qgcd6lplrsjt9jhtuu.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
+          --connect "jdbc:postgresql://c-c9qgcd6lplrs********.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
           --username "user1" \
           --table "persons" \
           --target-dir "import-directory" \
@@ -163,7 +163,7 @@ Let:
 
       ```bash
       sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-          --connect "jdbc:postgresql://c-c9qgcd6lplrsjt9jhtuu.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
+          --connect "jdbc:postgresql://c-c9qgcd6lplrs********.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
           --username "user1" \
           --P \
           --table "persons" \
@@ -181,7 +181,7 @@ Let:
 
       ```bash
       sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-          --connect "jdbc:postgresql://c-c9qgcd6lplrsjt9jhtuu.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
+          --connect "jdbc:postgresql://c-c9qgcd6lplrs********.rw.{{ dns-zone }}:{{ port-mpg }}/db1" \
           --username "user1" \
           --P \
           --table "persons" \

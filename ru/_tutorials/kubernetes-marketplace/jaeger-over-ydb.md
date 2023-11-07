@@ -33,7 +33,7 @@
    Результат:
 
    ```text
-   <имя приложения jaeger-ydb-store-agent> ClusterIP 10.2.238.190 ...
+   <имя_приложения_jaeger-ydb-store-agent> ClusterIP 10.2.238.190 ...
    ```
 
 ## Установите тестовое приложение {#hotrod-install}
@@ -54,7 +54,7 @@
        image: jaegertracing/example-hotrod:latest
        env:
        - name: JAEGER_AGENT_HOST
-         value: "<имя приложения jaeger-ydb-store-agent>.default.svc.cluster.local"
+         value: "<имя_приложения_jaeger-ydb-store-agent>.default.svc.cluster.local"
        - name: JAEGER_AGENT_PORT
          value: "6831"
        ports:
@@ -87,13 +87,13 @@
    Результат:
 
    ```text
-   <имя приложения jaeger-ydb-store-query>  LoadBalancer  10.2.222.155  130.133.51.247  16686:31189/TCP ...
+   <имя_приложения_jaeger-ydb-store-query>  LoadBalancer  10.2.222.155  130.133.51.247  16686:31189/TCP ...
    ```
 
 1. Настройте переадресацию порта сервиса `jaeger-ydb-store-query` на локальный компьютер:
 
    ```bash
-   kubectl port-forward service/<имя приложения jaeger-ydb-store-query> 16686:16686
+   kubectl port-forward service/<имя_приложения_jaeger-ydb-store-query> 16686:16686
    ```
 
 1. В другом окне консоли настройте переадресацию порта приложения `hotrod` на локальный компьютер:

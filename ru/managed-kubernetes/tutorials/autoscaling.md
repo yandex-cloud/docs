@@ -23,35 +23,35 @@
      * `load-balancer.admin` — для управления [сетевым балансировщиком нагрузки](../../network-load-balancer/).
    * Сервисный аккаунт `sa-k8s-nodes` для управления группой узлов:
      * `container-registry.images.puller` — для загрузки образов из [{{ container-registry-full-name }}](../../container-registry/).
-1. [Создайте сеть](../../vpc/quickstart.md) с именем `k8s-network` для размещения кластера. При создании сети выберите опцию **Создать подсети**.
+1. [Создайте сеть](../../vpc/quickstart.md) с именем `k8s-network` для размещения кластера. При создании сети выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
 1. [Создайте группы безопасности](../operations/connect/security-groups.md) для мастера и узлов:
    * `sg-k8s` — для [мастера и группы узлов](../operations/connect/security-groups.md#rules-internal).
    * `k8s-public-services` — для обеспечения [публичного доступа к сервисам из интернета](../operations/connect/security-groups.md#rules-nodes).
    * `k8s-master-whitelist` — для [доступа к API {{ k8s }}](../operations/connect/security-groups.md#rules-master).
 1. [Создайте ключ шифрования](../../kms/operations/key.md#create):
-   * **Имя ключа** — `k8s-symetric-key`.
-   * **Алгоритм шифрования** — `AES-128`.
-   * **Период ротации** — 365 дней.
+   * **{{ ui-key.yacloud.kms.symmetric-key.form.field_name }}** — `k8s-symetric-key`.
+   * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** — `AES-128`.
+   * **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** — `365 дней`.
 1. [Создайте кластер {{ managed-k8s-name }} ](../operations/kubernetes-cluster/kubernetes-cluster-create.md) со следующими настройками:
-   * **Сервисный аккаунт для ресурсов** — `sa-k8s-master`.
-   * **Сервисный аккаунт для узлов** — `sa-k8s-nodes`.
-   * **Ключ шифрования** — `k8s-symetric-key`.
-   * **Релизный канал** — `RAPID`.
-   * **Публичный адрес** — `Автоматически`.
-   * **Тип мастера** — `Региональный`.
-   * **Облачная сеть** — `k8s-network`.
-   * **Группы безопасности** — `sg-k8s`, `k8s-master-whitelist`.
-   * **Включить туннельный режим** — включено.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** — `sa-k8s-master`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** — `sa-k8s-nodes`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}** — `k8s-symetric-key`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_release-channel }}** — `RAPID`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** — `k8s-network`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_security-groups }}** — `sg-k8s`, `k8s-master-whitelist`.
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}** — `{{ ui-key.yacloud.common.enabled }}`.
 1. [Создайте две группы узлов](../operations/node-group/node-group-create.md) в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b` со следующими настройками:
-   * В блоке **Масштабирование**:
-     * **Тип** — `Автоматический`.
-     * **Минимальное кол-во узлов** — `1`.
-     * **Максимальное кол-во узлов** — `3`.
-     * **Начальное кол-во узлов** — `1`.
-   * В блоке **Сетевые настройки**:
-     * **Публичный адрес** — `Автоматически`.
-     * **Группы безопасности** — `sg-k8s`, `k8s-public-services`.
-     * **Расположение** — `{{ region-id }}-a` или `{{ region-id }}-b`.
+   * В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**:
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_scale-type }}** — `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}** — `1`.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}** — `3`.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}** — `1`.
+   * В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_security-groups }}** — `sg-k8s`, `k8s-public-services`.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_locations }}** — `{{ region-id }}-a` или `{{ region-id }}-b`.
 
 1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

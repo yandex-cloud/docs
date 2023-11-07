@@ -36,7 +36,7 @@
       +----------------------+------+------------+-------------------+--------+--------------+-------------+
       |          ID          | NAME |    SIZE    |       ZONE        | STATUS | INSTANCE IDS | DESCRIPTION |
       +----------------------+------+------------+-------------------+--------+--------------+-------------+
-      | ef3ouo4sgl86740ridn6 | k8s  | 4294967296 | {{ region-id }}-a | READY  |              |             |
+      | ef3ouo4sgl86******** | k8s  | 4294967296 | {{ region-id }}-a     | READY  |              |             |
       +----------------------+------+------------+-------------------+--------+--------------+-------------+
       ```
 
@@ -91,18 +91,18 @@
    apiVersion: v1
    kind: PersistentVolume
    metadata:
-     name: <имя PersistentVolume>
+     name: <имя_PersistentVolume>
    spec:
      capacity:
-       storage: <размер PersistentVolume>
+       storage: <размер_PersistentVolume>
      accessModes:
        - ReadWriteOnce
      storageClassName: "yc-network-hdd"
      csi:
        driver: disk-csi-driver.mks.ycloud.io
        fsType: ext4
-       volumeHandle: <идентификатор диска>
-     storageClassName: <имя класса хранилища>
+       volumeHandle: <идентификатор_диска>
+     storageClassName: <имя_класса_хранилища>
    ```
 
 
@@ -116,23 +116,23 @@
    Результат:
 
    ```text
-   persistentvolume/<имя PersistentVolume> created
+   persistentvolume/<имя_PersistentVolume> created
    ```
 
 1. Посмотрите информацию о созданном объекте `PersistentVolume`:
 
    ```bash
-   kubectl describe persistentvolume <имя PersistentVolume>
+   kubectl describe persistentvolume <имя_PersistentVolume>
    ```
 
    Результат:
 
    ```text
-   Name:            <имя PersistentVolume>
+   Name:            <имя_PersistentVolume>
    Labels:          <none>
    Annotations:     <none>
    Finalizers:      [kubernetes.io/pv-protection]
-   StorageClass:    <имя класса хранилища>
+   StorageClass:    <имя_класса_хранилища>
    Status:          Available
    ...
    ```
@@ -147,15 +147,15 @@
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
-     name: <имя PersistentVolumeClaim>
+     name: <имя_PersistentVolumeClaim>
    spec:
      accessModes:
        - ReadWriteOnce
      resources:
        requests:
-         storage: <размер PersistentVolumeClaim>
-     storageClassName: <имя класса хранилища>
-     volumeName: <имя PersistentVolume>
+         storage: <размер_PersistentVolumeClaim>
+     storageClassName: <имя_класса_хранилища>
+     volumeName: <имя_PersistentVolume>
    ```
 
    {% note info %}
@@ -173,23 +173,23 @@
       Результат:
 
       ```text
-      persistentvolumeclaim/<имя PersistentVolumeClaim> created
+      persistentvolumeclaim/<имя_PersistentVolumeClaim> created
       ```
 
    1. Посмотрите информацию о созданном `PersistentVolumeClaim`:
 
       ```bash
-      kubectl describe persistentvolumeclaim <имя PersistentVolumeClaim>
+      kubectl describe persistentvolumeclaim <имя_PersistentVolumeClaim>
       ```
 
       Результат:
 
       ```text
-      Name:          <имя PersistentVolumeClaim>
+      Name:          <имя_PersistentVolumeClaim>
       Namespace:     default
-      StorageClass:  <имя класса хранилища>
+      StorageClass:  <имя_класса_хранилища>
       Status:        Bound
-      Volume:        <имя PersistentVolume>
+      Volume:        <имя_PersistentVolume>
       ...
       ```
 
@@ -214,7 +214,7 @@
      volumes:
      - name: persistent-storage
        persistentVolumeClaim:
-         claimName: <имя PersistentVolumeClaim>
+         claimName: <имя_PersistentVolumeClaim>
    ```
 
    Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
@@ -244,11 +244,11 @@
    Priority:   0
    ...
      ----    ------                  ----  ----                     -------
-     Normal  Scheduled               20m   default-scheduler        Successfully assigned default/test-pod to cl1jtehftl7q1umj18ll-icut
-     Normal  SuccessfulAttachVolume  20m   attachdetach-controller  AttachVolume.Attach succeeded for volume "<имя PersistentVolume>"
+     Normal  Scheduled               20m   default-scheduler        Successfully assigned default/test-pod to cl1jtehftl7q********-icut
+     Normal  SuccessfulAttachVolume  20m   attachdetach-controller  AttachVolume.Attach succeeded for volume "<имя_PersistentVolume>"
    ```
 
-После этого рядом с используемым диском в консоли управления в **{{ compute-name }}** в разделе **Диски** появится надпись **Подключен**.
+После этого рядом с используемым диском в консоли управления в **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в разделе **{{ ui-key.yacloud.compute.switch_disks }}** появится надпись **{{ ui-key.yacloud.compute.disks.label_disk-used }}**.
 
 ## Как удалить том {#delete-volume}
 
@@ -256,13 +256,13 @@
 1. Удалите объект `PersistentVolumeClaim`:
 
    ```bash
-   kubectl delete pvc <идентификатор объекта PersistentVolumeClaim>
+   kubectl delete pvc <идентификатор_объекта_PersistentVolumeClaim>
    ```
 
 1. Удалите объект `PersistentVolume`:
 
    ```bash
-   kubectl delete pv <идентификатор объекта PersistentVolume>
+   kubectl delete pv <идентификатор_объекта_PersistentVolume>
    ```
 
 1. [Удалите диск](../../../compute/operations/disk-control/delete.md) в {{ compute-name }}, связанный с объектом `PersistentVolume`.

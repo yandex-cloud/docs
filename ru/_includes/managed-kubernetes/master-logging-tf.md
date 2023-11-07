@@ -1,15 +1,15 @@
 >```hcl
->resource "yandex_kubernetes_cluster" "<имя кластера>" {
+>resource "yandex_kubernetes_cluster" "<имя_кластера>" {
 >  ...
 >  master {
 >    ...
 >    master_logging {
->      enabled                    = <отправка логов: true или false>
->      log_group_id               = "<идентификатор лог-группы>"
->      folder_id                  = "<идентификатор каталога>"
->      kube_apiserver_enabled     = <отправка логов kube-apiserver: true или false>
->      cluster_autoscaler_enabled = <отправка логов cluster-autoscaler: true или false>
->      events_enabled             = <отправка событий {{ k8s }}: true или false>
+>      enabled                    = <отправка_логов>
+>      log_group_id               = "<идентификатор_лог-группы>"
+>      folder_id                  = "<идентификатор_каталога>"
+>      kube_apiserver_enabled     = <отправка_логов_kube-apiserver>
+>      cluster_autoscaler_enabled = <отправка_логов_cluster-autoscaler>
+>      events_enabled             = <отправка_событий_{{ k8s }}>
 >    }
 >  }
 >}

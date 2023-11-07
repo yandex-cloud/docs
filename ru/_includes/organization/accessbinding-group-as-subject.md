@@ -101,7 +101,7 @@
        * `role` — назначаемая [роль](../../iam/concepts/access-control/roles.md). Обязательный параметр.
        * `member` — группа, которой назначается роль. Указывается в виде `group:<идентификатор_группы>`. Обязательный параметр.
 
-       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member`, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
+       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
     1. Проверьте корректность конфигурационных файлов.
 
@@ -126,8 +126,8 @@
 
        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-       ```
-       yc resource-manager folder list-access-bindings <folder-name>|<folder-id>
+       ```bash
+       yc resource-manager folder list-access-bindings <название_папки>|<идентификатор_папки>
        ```
 
 {% endlist %}

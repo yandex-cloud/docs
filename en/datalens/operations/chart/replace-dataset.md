@@ -2,7 +2,11 @@
 
 To replace a dataset in a chart:
 
-1. Open the chart.
+
+{% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
+
+
+1. In the left-hand panel, click ![image](../../../_assets/datalens/chart.svg) **Charts** and select the chart you need.
 1. On the left side of the screen, click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) next to the dataset and select **Replace dataset**.
 1. Select another dataset.
 

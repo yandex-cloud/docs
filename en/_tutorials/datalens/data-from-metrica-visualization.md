@@ -4,7 +4,7 @@ One of the Yandex Metrica tags that you have access to will be used as the data 
 
 ![image](../../_assets/datalens/solution-03/01-metrica-list.png)
 
-If no tags are available in your list, gain access to a tag or use the Yandex Metrica demo dashboard. It's automatically created when you create a {{ datalens-short-name }} instance.
+If no tags are available in your list, gain access to a tag or use the Yandex Metrica demo dashboard. It is automatically created when you create a {{ datalens-short-name }} instance.
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
@@ -13,7 +13,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Edit the chart](#step3).
 
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
@@ -22,15 +22,12 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 {% note warning %}
 
-This step is available to users who have permission to any Yandex Metrica tag. If you don't have permission to a tag, open a ready-to-use dashboard named [**Yandex Metrica Live Demo Dashboard**]({{ link-datalens-main }}/navigation?path=Demo%2FMetrica%20Live%2FMetrica%20Live%20Demo%20Dashboard) and proceed to step 2.
+This step is available to users who have permission to any Yandex Metrica tag. If do not have permission to a tag, deploy a [dashboard from {{ datalens-short-name }} {{ marketplace-short-name }}](https://datalens.yandex.ru/marketplace/f2e5hpq5mc7bscsjc6jr) and proceed to step 2.
 
 {% endnote %}
 
-1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
-1. Click **Create connection**.
-
-   ![image](../../_assets/datalens/solution-03/02-create-connection.png)
-
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
 1. Select **Metrica**.
 
    ![image](../../_assets/datalens/solution-03/03-choose-metrica.png)
@@ -66,7 +63,7 @@ This step is available to users who have permission to any Yandex Metrica tag. I
 
 {% note warning %}
 
-If you don't have a Yandex Metrica tag and you skipped step 1, use the [**Yandex Metrica Live Demo Dashboard**]({{ link-datalens-main }}/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
+If you do not have a Yandex Metrica tag and you skipped step 1, deploy a [dashboard from {{ datalens-short-name }} {{ marketplace-short-name }}](https://datalens.yandex.ru/marketplace/f2e5hpq5mc7bscsjc6jr).
 
 {% endnote %}
 
@@ -88,7 +85,7 @@ You can change the standard [dashboard](../../datalens/concepts/dashboard.md) ho
 
    ![image](../../_assets/datalens/solution-03/12-delete-charts2.png)
 
-1. In the upper-right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
    ![image](../../_assets/datalens/solution-03/13-save-dashboard.png)
 
@@ -105,7 +102,7 @@ You can edit any chart on the dashboard. For example, change the visualization t
 
    ![image](../../_assets/datalens/solution-03/15-choose-pie.png)
 
-1. In the upper-right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 
    ![image](../../_assets/datalens/solution-03/16-save-chart.png)
 

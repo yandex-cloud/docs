@@ -4,7 +4,7 @@ You can use {{ datalens-short-name }} to grant public access to your charts and 
 
 {% note warning %}
 
-Before publishing your own data, make sure that your charts and dashboards don't contain personal data or trade secrets. Access to published data is not restricted.
+Before publishing your own data, make sure that your charts and dashboards do not contain personal data or trade secrets. Access to published data is not restricted.
 
 {% endnote %}
 
@@ -30,10 +30,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 Create a dataset based on the **Files** [connection](../../datalens/concepts/connection.md) type.
 
 1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) interface.
-1. Click **Create connection**.
-
-   ![image](../../_assets/datalens/solution-05/01-create-connection.png)
-
+1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
 1. Select the **Files** connection type.
 
    ![image](../../_assets/datalens/solution-05/select-file-connection.png)
@@ -97,11 +94,11 @@ This will create the file connection. The data will be shown in the same form as
 
    ![image](../../_assets/datalens/solution-05/13-1-choose-map-geo.png)
 
-1. Add polygons of districts to the map. To do this, drag the **Coordinates** field from the **Dimensions** to the **Polygons (Geoplygons)** section.
+1. Add polygons of districts to the map. To do this, drag the **Coordinates** field from **Dimensions** to the **Polygons (Geoplygons)** section.
 
     ![image](../../_assets/datalens/solution-05/14-use-coordinates.png)
 
-1. Change the district colors based on the population. Drag the **Population** field from the **Measures** section to the **Colors** section.
+1. Change the district colors based on the population. Drag the **Population** field from **Measures** to the **Colors** section.
 
     ![image](../../_assets/datalens/solution-05/15-use-measure.png)
 

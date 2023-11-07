@@ -95,7 +95,7 @@
 1. Подпишите Docker-образ в реестре {{ container-registry-name }}:
 
    ```bash
-   cosign sign --key cosign.key {{ registry }}/<ID реестра>/<имя Docker-образа>:<тег>
+   cosign sign --key cosign.key {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>
    ```
 
    Подписанный образ будет использоваться при [проверке результата](#check-result).
@@ -104,25 +104,25 @@
 
    ```text
    Enter password for private key:
-   Pushing signature to: {{ registry }}/<ID реестра>/<имя Docker-образа>
+   Pushing signature to: {{ registry }}/<ID_реестра>/<имя_Docker-образа>
    ```
 
-   В реестре {{ container-registry-name }} должен появится второй объект с тегом `sha256-....sig` и хешем `{{ registry }}/<ID реестра>/<имя Docker-образа>@sha256:...`.
+   В реестре {{ container-registry-name }} должен появится второй объект с тегом `sha256-....sig` и хешем `{{ registry }}/<ID_реестра>/<имя_Docker-образа>@sha256:...`.
 1. Вручную проверьте, что подпись валидна:
 
    ```bash
-   cosign verify --key cosign.pub {{ registry }}/<ID реестра>/<имя Docker-образа>:<тег>
+   cosign verify --key cosign.pub {{ registry }}/<ID_реестра>/<имя_Docker-образа>:<тег>
    ```
 
    Результат:
 
    ```text
-   Verification for {{ registry }}/<ID реестра>/<имя Docker-образа>:<тег> --
+   Verification for {{ registry }}/<ID_реестра>/<имя_Docker-образа>:<тег> --
    The following checks were performed on each of these signatures:
    - The cosign claims were validated
    - The signatures were verified against the specified public key
 
-   [{"critical":{"identity":{"docker-reference":"{{ registry }}/<ID реестра>/<имя Docker-образа>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
+   [{"critical":{"identity":{"docker-reference":"{{ registry }}/<ID_реестра>/<имя_Docker-образа>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
    ```
 
 ## Создайте политику для проверки подписей {#kyverno}
@@ -131,7 +131,7 @@
 
    ```bash
    yc iam key create \
-     --service-account-name=<имя сервисного аккаунта с ролью {{ roles-cr-puller }}> \
+     --service-account-name=<имя_сервисного_аккаунта_с_ролью_{{ roles-cr-puller }}> \
      --output=authorized-key.json
    ```
 
@@ -192,13 +192,13 @@
                     - Pod
             verifyImages:
             - imageReferences:
-              - "{{ registry }}/<ID реестра>/*"
+              - "{{ registry }}/<ID_реестра>/*"
               attestors:
               - count: 1
                 entries:
                 - keys:
                     publicKeys: |-
-                      <содержимое cosign.pub>
+                      <содержимое_cosign.pub>
       ```
 
       {% cut "Пример заполненного файла policy.yaml." %}
@@ -222,7 +222,7 @@
                     - Pod
             verifyImages:
             - imageReferences:
-              - "{{ registry }}/crpd2f2bnrlb2i7ltssl/*"
+              - "{{ registry }}/crpd2f2bnrlb********/*"
               attestors:
               - count: 1
                 entries:
@@ -230,7 +230,7 @@
                     publicKeys: |-
                       -----BEGIN PUBLIC KEY-----
                       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE1jTu/9rJZZvUFi4bGhlvgMQdIY97
-                      7NuGl2zzpV7olAyIu/WiywxI7Fny5tk6JmNPIFvSAtys3c08gfEcVV3D1Q==
+                      7NuGl2zzpV7olAyIu/WiywxI7Fny5tk6JmNPIFvSAtys3c08gfEc********
                       -----END PUBLIC KEY-----
       ```
 
@@ -255,7 +255,7 @@
 * Создайте [под](../managed-kubernetes/concepts/index.md#pod) из подписанного Docker-образа:
 
   ```bash
-  kubectl run pod --image={{ registry }}/<ID реестра>/<имя Docker-образа>:<тег>
+  kubectl run pod --image={{ registry }}/<ID_реестра>/<имя_Docker-образа>:<тег>
   ```
 
   Результат:
@@ -267,7 +267,7 @@
 * Создайте под из неподписанного Docker-образа:
 
   ```bash
-  kubectl run pod2 --image={{ registry }}/<ID реестра>/<имя неподписанного Docker-образа>:<тег>
+  kubectl run pod2 --image={{ registry }}/<ID_реестра>/<имя_неподписанного_Docker-образа>:<тег>
   ```
 
   Результат:
@@ -279,7 +279,7 @@
 
   check-image:
     check-image: 
-      failed to verify signature for {{ registry }}/crpsere9njsadcq6fgm2/alpine:2.0: .attestors[0].entries[0].keys: no matching signatures:
+      failed to verify signature for {{ registry }}/crpsere9njsa********/alpine:2.0: .attestors[0].entries[0].keys: no matching signatures:
   ```
 
 ## Удалите созданные ресурсы {#clear-out}

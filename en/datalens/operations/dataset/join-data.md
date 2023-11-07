@@ -2,7 +2,11 @@
 
 When multiple source tables are available, you can combine their data:
 
-1. Open the dataset. If you do not have a dataset, [create one](create.md).
+
+{% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
+
+
+1. In the left-hand panel, click ![image](../../../_assets/datalens/datasets.svg) **Datasets** and select the dataset you need. If you do not have a dataset, [create one](create.md).
 1. In the top-left corner, select the **Sources** tab.
 1. Under **Tables**, select a table and drag it to your workspace.
 1. Select another table and drag it to your workspace. A link will automatically be created between these tables based on the first matching field name and field data type.
@@ -40,7 +44,8 @@ When multiple source tables are available, you can combine their data:
 
 1. Click **Save**.
 
-You can [add data to a dataset using a SQL query](add-data.md) and combine them with other tables.
+You can [add data to a dataset using an SQL query](add-data.md) and combine this data with other tables.
 
 #### See also {#see-also}
-- [{#T}](../../concepts/data-join.md#ui-join)
+
+* [{#T}](../../concepts/data-join.md#ui-join)

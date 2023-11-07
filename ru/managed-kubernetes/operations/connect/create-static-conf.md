@@ -22,10 +22,10 @@
 
    - Консоль управления
 
-     1. Перейдите на страницу [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите {{ managed-k8s-name }}.
+     1. Перейдите на страницу [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
 
-     В блоке **Общая информация** отобразится уникальный идентификатор кластера {{ managed-k8s-name }}.
+     В поле **{{ ui-key.yacloud.k8s.cluster.overview.label_id }}** отобразится уникальный идентификатор кластера {{ managed-k8s-name }}.
 
    - CLI
 
@@ -39,7 +39,7 @@
      +----------------------+--------+---------------------+---------+---------+------------------------+--------------------+
      |          ID          |  NAME  |     CREATED AT      | HEALTH  | STATUS  |    EXTERNAL ENDPOINT   |  INTERNAL ENDPOINT |
      +----------------------+--------+---------------------+---------+---------+------------------------+--------------------+
-     | catb3ppsdsh7vajr216f | my-k8s | 2019-09-04 15:17:11 | HEALTHY | RUNNING | https://84.201.148.31/ | https://10.0.0.24/ |
+     | catb3ppsdsh7******** | my-k8s | 2019-09-04 15:17:11 | HEALTHY | RUNNING | https://84.201.148.31/ | https://10.0.0.24/ |
      +----------------------+--------+---------------------+---------+---------+------------------------+--------------------+
      ```
 
@@ -52,13 +52,13 @@
    - Bash
 
      ```bash
-     CLUSTER_ID=catb3ppsdsh7vajr216f
+     CLUSTER_ID=catb3ppsdsh7********
      ```
 
    - PowerShell
 
      ```shell script
-     $CLUSTER_ID = "catb3ppsdsh7vajr216f"
+     $CLUSTER_ID = "catb3ppsdsh7********"
      ```
 
    {% endlist %}

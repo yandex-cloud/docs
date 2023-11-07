@@ -94,8 +94,8 @@
 
      ```text
      done (1m17s)
-     id: catpl8c44kiibp20u4f3
-     cluster_id: catcsqidoos7tq0513us
+     id: catpl8c44kii********
+     cluster_id: catcsqidoos7********
      ...
          start_time:
            hours: 22

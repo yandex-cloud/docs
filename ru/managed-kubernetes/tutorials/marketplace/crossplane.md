@@ -90,7 +90,7 @@
        source: Secret
        secretRef:
          name: yc-creds
-         namespace: <пространство имен для Crossplane>
+         namespace: <пространство_имен_для_Crossplane>
          key: credentials
    ```
 
