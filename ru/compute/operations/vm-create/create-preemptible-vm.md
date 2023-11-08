@@ -89,6 +89,7 @@
 
      {% include [vm-connect-linux](../../../_includes/vm-connect-linux.md) %}
 
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_placement }}** выберите [группу размещения](../../concepts/placement-groups.md) ВМ.
   1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   ВМ появится в списке.

@@ -28,7 +28,7 @@
 
 #### Пригласить пользователя с аккаунтом на Яндексе {#passport-user}
 
-Чтобы пригласить в организацию пользователя с аккаунтом на Яндексе, воспользуйтесь [инструкцией](../../organization/operations/add-account.md#add-or-invite-user-account) из документации {{ org-full-name }}.
+Чтобы пригласить в организацию пользователя с аккаунтом на Яндексе, воспользуйтесь [инструкцией](../../organization/operations/add-account.md#useraccount) из документации {{ org-full-name }}.
 
 {% note warning %}
 

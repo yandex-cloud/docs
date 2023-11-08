@@ -11,6 +11,7 @@
 * [{#T}](plugins.md)
 * [{#T}](cluster-stop.md)
 * [{#T}](host-groups.md)
+* [{#T}](host-migration.md)
 * [{#T}](cluster-backups.md)
 * [{#T}](s3-access.md)
 * [{#T}](cluster-delete.md)

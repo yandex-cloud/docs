@@ -36,11 +36,11 @@ To access a {{ managed-k8s-name }} cluster, use its unique ID. Save it to a vari
      Result:
 
      ```bash
-     +----------------------+----------+---------------------+---------+---------+-------------------------+----------------------+
-     |          ID          |   NAME   |     CREATED AT      | HEALTH  | STATUS  |    EXTERNAL ENDPOINT    |  INTERNAL ENDPOINT   |
-     +----------------------+----------+---------------------+---------+---------+-------------------------+----------------------+
-     | catb3ppsdsh7vajr216f | my-k8s   | 2019-09-04 15:17:11 | HEALTHY | RUNNING | https://84.201.148.31/  | https://10.0.0.24/   |
-     +----------------------+----------+---------------------+---------+---------+-------------------------+----------------------+
+     +----------------------+--------+---------------------+---------+---------+------------------------+--------------------+
+     |          ID          |  NAME  |     CREATED AT      | HEALTH  | STATUS  |    EXTERNAL ENDPOINT   |  INTERNAL ENDPOINT |
+     +----------------------+--------+---------------------+---------+---------+------------------------+--------------------+
+     | catb3ppsdsh7******** | my-k8s | 2019-09-04 15:17:11 | HEALTHY | RUNNING | https://84.201.148.31/ | https://10.0.0.24/ |
+     +----------------------+--------+---------------------+---------+---------+------------------------+--------------------+
      ```
 
    {% endlist %}
@@ -63,7 +63,7 @@ To access a {{ managed-k8s-name }} cluster, use its unique ID. Save it to a vari
 
    {% endlist %}
 
-## Prepare the cluster certificate {#prepare-cert}
+## Prepare a cluster certificate {#prepare-cert}
 
 Save the {{ managed-k8s-name }} cluster certificate to a file named `ca.pem`. This certificate confirms the authenticity of the {{ managed-k8s-name }} cluster.
 
@@ -163,7 +163,7 @@ Create a `ServiceAccount` object to interact with the {{ k8s }} API inside the {
         namespace: kube-system
       ```
 
-      {% endlist %}
+   {% endlist %}
 
 1. Create a `ServiceAccount` object and a secret for it:
 

@@ -116,6 +116,8 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Устройство сети в {{ yandex-cloud }}
+        href: concepts/network-overview.md
       - name: Облачные сети и подсети
         href: concepts/network.md
       - name: Адреса облачных ресурсов

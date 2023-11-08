@@ -100,13 +100,13 @@ sourcePath: ru/_api-ref/datalens/function-ref/RAVG.md
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **RAVG(SUM([Orders]) TOTAL)**   | **RAVG(SUM([Orders]) WITHIN [City])**   | **RAVG(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:--------------------------------|:----------------------------------------|:---------------------------------------|
 | `'Detroit'`       | `'Furniture'`       | `7`                 | `7.00`                          | `7.00`                                  | `7.00`                                 |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `16.00`                         | `16.00`                                 | `24.00`                                |
+| `'Detroit'`       | `'Office Supplies'` | `25`                | `16.00`                         | `16.00`                                 | `25.00`                                |
 | `'London'`        | `'Furniture'`       | `1`                 | `11.00`                         | `1.00`                                  | `4.00`                                 |
-| `'London'`        | `'Office Supplies'` | `10`                | `10.75`                         | `5.50`                                  | `15.50`                                |
+| `'London'`        | `'Office Supplies'` | `10`                | `10.75`                         | `5.50`                                  | `17.50`                                |
 | `'Moscow'`        | `'Furniture'`       | `2`                 | `9.00`                          | `2.00`                                  | `3.33`                                 |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `8.17`                          | `3.00`                                  | `17.33`                                |
+| `'Moscow'`        | `'Office Supplies'` | `4`                 | `8.17`                          | `3.00`                                  | `13.00`                                |
 | `'San Francisco'` | `'Furniture'`       | `5`                 | `7.71`                          | `5.00`                                  | `3.75`                                 |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `9.62`                          | `14.00`                                 | `23.00`                                |
+| `'San Francisco'` | `'Office Supplies'` | `23`                | `9.62`                          | `14.00`                                 | `15.50`                                |
 
 {% endcut %}
 
@@ -147,4 +147,4 @@ sourcePath: ru/_api-ref/datalens/function-ref/RAVG.md
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

@@ -5895,6 +5895,7 @@ default:
         resource-acl:
           button_add-federation-user: Add federation user
           button_assign-binding: Edit roles
+          button_invite-users: Invite users
           button_new-bindings: Assign bindings
           button_remove-bindings: Remove bindings
           label_access-bindings: Access bindings
@@ -6264,13 +6265,21 @@ default:
         placement-group:
           disks:
             button_add-disk: Add disk
+          instances:
+            button_action-delete: Delete from group
+            button_add-instance: Add VM
+            popup-add_button_add: Add
+            popup-confirm_button_delete: Delete from group
           switch_disks: List of disks
+          switch_instances: List of VMs
         placement-groups:
           button_create: Create
           button_create-disk-pg: Non-replicated disk placement group
+          button_create-instance-pg: VM placement group
           create:
             button_create: Create
           label_tab-disks: Non-replicated disk placement groups
+          label_tab-instances: VM placement groups
         snapshots-schedules:
           action_attach-disk: Add disk
           action_detach-disk: Delete from schedule
@@ -9101,6 +9110,8 @@ default:
         per-time: Total unit limit per hour
         period-of-inactivity: Period of inactivity
         security-group: Security group
+      import-ipynb:
+        open-in-dataSphere: Run in Yandex DataSphere
       invite-link:
         reset-invitation-link: Recreate invite link
         reset-link: Recreate link

@@ -586,14 +586,16 @@ items:
       - name: Примеры конфигураций и сценариев IAM
         href: iam/how-to/index.md
         hidden: true
-      - name: Удаление облака
+      - name: Как удалить облако
         href: iam/how-to/deleting-cloud.md
-      - name: Отмена удаления облака
+      - name: Как отменить удаление облака
         href: iam/how-to/cancel-pending-deletion.md
       - name: Как изменить владельца облака
         href: iam/how-to/change-cloud-owner.md
       - name: Как изменить владельца организации
         href: iam/how-to/change-organization-owner.md
+      - name: Как удалить организацию
+        href: iam/how-to/deleting-organization.md
   - name: KMS
     items:
       - name: Все решения для Cloud KMS
@@ -637,6 +639,16 @@ items:
         href: managed-kubernetes/known-issues/multi-attach-error-for-volume.md
       - name: Устранение ошибки DEADLINE_EXCEEDED
         href: managed-kubernetes/known-issues/error-504.md
+      - name: >-
+          Устранение проблем с синхронизацией времени на узлах кластера {{
+          managed-k8s-name }}
+        href: managed-kubernetes/known-issues/ntp-time-sync-issues.md
+      - name: Устранение проблем с разрешением DNS-имен в {{ managed-k8s-name }}
+        href: managed-kubernetes/known-issues/dns-name-resolving-issues.md
+      - name: >-
+          Устранение ошибки 0/10 nodes are available - node(s) had untolerated
+          taint
+        href: managed-kubernetes/known-issues/untolerated-taints-issue.md
       - name: Примеры конфигураций и сценариев Managed Service for Kubernetes
         href: managed-kubernetes/how-to/index.md
         hidden: true
@@ -656,6 +668,10 @@ items:
         href: managed-kubernetes/how-to/changing-net-or-subnet.md
       - name: Как создать внутренний Ingress-контроллер
         href: managed-kubernetes/how-to/create-internal-ingress-balancer.md
+      - name: >-
+          Как настроить автоматическое удаление старых образов с узлов {{
+          managed-k8s-name }}
+        href: managed-kubernetes/how-to/configuring-automatic-image-deletion.md
   - name: Managed GitLab
     items:
       - name: Все решения для Managed Service for Kubernetes
@@ -750,6 +766,8 @@ items:
           Устранение проблем с некорректным MIME-типов объектов при их загрузке
           в {{ objstorage-short-name }}
         href: storage/known-issues/incorrect-mime-type.md
+      - name: Устранение проблем с загрузкой новых объектов в бакет
+        href: storage/known-issues/objects-uploading-issue.md
       - name: Примеры конфигураций и сценариев Object Storage
         href: storage/how-to/index.md
         hidden: true
@@ -777,6 +795,8 @@ items:
         href: storage/how-to/configuring-bucket-domain.md
       - name: Как изменить класс хранения
         href: storage/how-to/change-storage-class.md
+      - name: Как восстановить удаленные данные из бакета
+        href: storage/how-to/recover-deleted-objects.md
   - name: Managed MySQL
     items:
       - name: Все решения для Managed MySQL

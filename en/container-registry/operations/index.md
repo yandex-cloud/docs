@@ -47,6 +47,10 @@ For more information about working with a {{ coi }} image, see the [{{ cos-name 
 * [{#T}](lifecycle-policy/lifecycle-policy-dry-run.md)
 * [{#T}](lifecycle-policy/lifecycle-policy-delete.md)
 
+## Scanning Docker images for vulnerabilities {#scanning}
+
+* [{#T}](scanning-docker-image.md)
+
 ## Working with roles {#roles}
 
 * [{#T}](roles/grant.md)
