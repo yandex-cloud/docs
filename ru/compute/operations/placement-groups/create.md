@@ -2,7 +2,23 @@
 
 Создайте [группу размещения](../../concepts/placement-groups.md).
 
+{% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
+
 {% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана группа размещения.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}**.
+  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.button_create }}** и выберите **{{ ui-key.yacloud.compute.placement-groups.button_create-instance-pg }}**.
+  1. Введите имя группы размещения. Требования к нему:
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
+  1. (Опционально) Добавьте описание группы размещения.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.create.button_create }}**.
 
 - CLI
 
@@ -25,8 +41,8 @@
      Результат:
 
      ```bash
-     id: fd83bv4rnsna2sjkiq4s
-     folder_id: b1g5kkhshgs9s0l4609d
+     id: fd83bv4rnsna********
+     folder_id: b1g5kkhshgs9********
      created_at: "2019-12-30T10:07:34Z"
      name: my-group
      spread_placement_strategy: {}
@@ -49,7 +65,7 @@
       +----------------------+----------+----------+
       |          ID          |   NAME   | STRATEGY |
       +----------------------+----------+----------+
-      | fd83bv4rnsna2sjkiq4s | my-group | SPREAD   |
+      | fd83bv4rnsna******** | my-group | SPREAD   |
       +----------------------+----------+----------+
       ```
 

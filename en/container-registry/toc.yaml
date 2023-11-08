@@ -91,6 +91,8 @@ items:
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
       - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
+      - name: Storing Docker images created in {{ mgl-full-name }} projects
+        href: tutorials/image-storage.md
   - name: Concepts
     items:
       - name: Overview

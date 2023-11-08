@@ -100,13 +100,13 @@ Result
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **RSUM(SUM([Orders]) TOTAL)**   | **RSUM(SUM([Orders]) WITHIN [City])**   | **RSUM(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:--------------------------------|:----------------------------------------|:---------------------------------------|
 | `'Detroit'`       | `'Furniture'`       | `7`                 | `7`                             | `7`                                     | `7`                                    |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `32`                            | `32`                                    | `48`                                   |
+| `'Detroit'`       | `'Office Supplies'` | `25`                | `32`                            | `32`                                    | `25`                                   |
 | `'London'`        | `'Furniture'`       | `1`                 | `33`                            | `1`                                     | `8`                                    |
-| `'London'`        | `'Office Supplies'` | `10`                | `43`                            | `11`                                    | `62`                                   |
+| `'London'`        | `'Office Supplies'` | `10`                | `43`                            | `11`                                    | `35`                                   |
 | `'Moscow'`        | `'Furniture'`       | `2`                 | `45`                            | `2`                                     | `10`                                   |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `49`                            | `6`                                     | `52`                                   |
+| `'Moscow'`        | `'Office Supplies'` | `4`                 | `49`                            | `6`                                     | `39`                                   |
 | `'San Francisco'` | `'Furniture'`       | `5`                 | `54`                            | `5`                                     | `15`                                   |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `77`                            | `28`                                    | `23`                                   |
+| `'San Francisco'` | `'Office Supplies'` | `23`                | `77`                            | `28`                                    | `62`                                   |
 
 {% endcut %}
 
@@ -147,4 +147,4 @@ Result
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

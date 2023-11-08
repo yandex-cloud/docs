@@ -55,6 +55,8 @@ items:
     items:
       - name: Облака и сервисы
         href: concepts/manage-services.md
+      - name: Членство в организации
+        href: concepts/membership.md
       - name: Федерации удостоверений
         href: concepts/add-federation.md
       - name: OS Login

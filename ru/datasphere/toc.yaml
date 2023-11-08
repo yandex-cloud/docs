@@ -127,6 +127,8 @@ items:
             href: operations/projects/publication.md
           - name: Экспортировать проект
             href: operations/projects/export.md
+          - name: Открыть ноутбук в {{ ml-platform-name }}
+            href: operations/projects/open-in-datasphere.md
       - name: Как перенести работу в новую версию
         href: operations/migration.md
   - name: Концепции

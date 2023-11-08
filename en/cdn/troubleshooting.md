@@ -24,6 +24,8 @@ Make sure that:
 
 ## The CDN responds to file requests with 5xx codes (server error) {#responses-5xx}
 
+{% include [ipv4-note](../_includes/cdn/ipv4-note.md) %}
+
 Make sure that:
 
 * Origins respond to CDN server requests within 5 seconds.

@@ -12,12 +12,12 @@ description:
 meta:
   title: Yandex Cloud Video
 links:
-  - title: Начало работы с видеотрансляциями
-    description: Создайте первую трансляцию
-    href: streaming
   - title: Начало работы с хостингом видео
     description: Загрузите первое видео
     href: hosting
+  - title: Начало работы с видеотрансляциями
+    description: Создайте первую трансляцию
+    href: streaming
   - title: Концепции
     description: Узнайте про каналы, трансляции, линии и видео
     href: concepts/

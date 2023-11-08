@@ -40,4 +40,4 @@ REGEXP_MATCH("RU 912873","\w\s\d") = TRUE
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

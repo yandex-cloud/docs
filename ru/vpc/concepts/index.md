@@ -7,7 +7,7 @@ description: "{{ vpc-full-name }} ({{ vpc-short-name }}) — это сервис
 
 {{ vpc-full-name }} ({{ vpc-short-name }}) — это сервис для создания облачных сетей, которые используются для передачи информации внутри облака и соединения облачных ресурсов с интернетом.
 
-![image](../../_assets/vpc/vpc-overview.png)
+![image](../../_assets/vpc/vpc-overview.svg)
 
 С помощью {{ vpc-short-name }} вы можете:
 

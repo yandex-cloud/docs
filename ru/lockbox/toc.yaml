@@ -13,6 +13,8 @@ items:
         href: operations/secret-update.md
       - name: Настроить права доступа к секрету
         href: operations/secret-access.md
+      - name: Получить информацию о секрете
+        href: operations/secret-get-info.md
       - name: Удалить секрет
         href: operations/secret-delete.md
       - name: Деактивировать и активировать секрет

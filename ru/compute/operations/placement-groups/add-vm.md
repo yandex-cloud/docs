@@ -2,7 +2,27 @@
 
 Добавьте существующую виртуальную машину в [группу размещения](../../concepts/placement-groups.md).
 
+{% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
+
 {% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит группа размещения.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}**.
+  1. Выберите группу размещения, в которую хотите добавить ВМ.
+  1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_instances }}**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.placement-group.instances.button_add-instance }}**.
+
+  1. В открывшемся окне выберите ВМ и нажмите кнопку **{{ ui-key.yacloud.compute.placement-group.instances.popup-add_button_add }}**.
+
+  {% note info %}
+
+  В группу размещения можно добавить только остановленную ВМ (`stopped`).
+
+  {% endnote %}
 
 - CLI
 
@@ -19,7 +39,7 @@
      Результат:
 
      ```bash
-     id: epdlv1pp54019j09fhue
+     id: epdlv1pp5401********
      ...
      ```
 
@@ -40,7 +60,7 @@
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
-     | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-a | RUNNING |             | 10.129.0.5  |
+     | epdep2kq6dt5******** | instance-in-group-1 | {{ region-id }}-a | RUNNING |             | 10.129.0.5  |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      ```
 
@@ -53,7 +73,7 @@
      Результат:
 
      ```bash
-     id: epdlv1pp54019j09fhue
+     id: epdlv1pp5401********
      ...
      status: STOPPED
      ```
@@ -67,13 +87,19 @@
      Результат:
 
      ```bash
-     id: epdlv1pp54019j09fhue
+     id: epdlv1pp5401********
      ...
      placement_policy:
-       placement_group_id: fd83bv4rnsna2sjkiq4s
+       placement_group_id: fd83bv4rnsna********
      ```
 
      Данная команда добавит виртуальную машину `instance-in-group-2` в группу размещения `my-group`.
+
+     {% note info %}
+
+     Если не указать номер раздела при добавлении ВМ в группу с [размещением разделами](../../concepts/placement-groups.md#partition), то ВМ добавится в случайный раздел.
+
+     {% endnote %}
 
   1. Проверьте, что виртуальная машина добавлена в группу размещения:
 
@@ -87,8 +113,8 @@
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
-     | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
-     | epdlv1pp54019j09fhue | instance-in-group-2 | {{ region-id }}-b | STOPPED |             | 10.129.0.30 |
+     | epdep2kq6dt5******** | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
+     | epdlv1pp5401******** | instance-in-group-2 | {{ region-id }}-b | STOPPED |             | 10.129.0.30 |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      ```
 
@@ -101,7 +127,7 @@
      Результат:
 
      ```bash
-     id: epdlv1pp54019j09fhue
+     id: epdlv1pp5401********
      ...
      status: RUNNING
      ```
@@ -139,6 +165,12 @@
      ```
 
      Где `placement_group_id` — идентификатор группы размещения.
+
+     {% note info %}
+
+     Если не указать номер раздела при добавлении ВМ в группу с [размещением разделами](../../concepts/placement-groups.md#partition), то ВМ добавится в случайный раздел.
+
+     {% endnote %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
 

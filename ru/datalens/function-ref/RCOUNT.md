@@ -100,13 +100,13 @@ sourcePath: ru/_api-ref/datalens/function-ref/RCOUNT.md
 | **[City]**        | **[Category]**      | **SUM([Orders])**   | **RCOUNT(SUM([Orders]) TOTAL)**   | **RCOUNT(SUM([Orders]) WITHIN [City])**   | **RCOUNT(SUM([Orders]) AMONG [City])**   |
 |:------------------|:--------------------|:--------------------|:----------------------------------|:------------------------------------------|:-----------------------------------------|
 | `'Detroit'`       | `'Furniture'`       | `7`                 | `1`                               | `1`                                       | `1`                                      |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `2`                               | `2`                                       | `2`                                      |
+| `'Detroit'`       | `'Office Supplies'` | `25`                | `2`                               | `2`                                       | `1`                                      |
 | `'London'`        | `'Furniture'`       | `1`                 | `3`                               | `1`                                       | `2`                                      |
-| `'London'`        | `'Office Supplies'` | `10`                | `4`                               | `2`                                       | `4`                                      |
+| `'London'`        | `'Office Supplies'` | `10`                | `4`                               | `2`                                       | `2`                                      |
 | `'Moscow'`        | `'Furniture'`       | `2`                 | `5`                               | `1`                                       | `3`                                      |
 | `'Moscow'`        | `'Office Supplies'` | `4`                 | `6`                               | `2`                                       | `3`                                      |
 | `'San Francisco'` | `'Furniture'`       | `5`                 | `7`                               | `1`                                       | `4`                                      |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `8`                               | `2`                                       | `1`                                      |
+| `'San Francisco'` | `'Office Supplies'` | `23`                | `8`                               | `2`                                       | `4`                                      |
 
 {% endcut %}
 
@@ -147,4 +147,4 @@ sourcePath: ru/_api-ref/datalens/function-ref/RCOUNT.md
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

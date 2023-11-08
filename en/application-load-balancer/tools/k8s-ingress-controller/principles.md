@@ -56,3 +56,28 @@ The primary pod manages the {{ alb-name }} resource architecture using the follo
 | [Backend group](../../concepts/backend-group.md) | `HttpBackendGroup` ([reference](../../k8s-ref/http-backend-group.md)) or [service](../../../managed-kubernetes/concepts/index.md#service) collection ([reference](../../k8s-ref/service.md)) |
 | [Target group](../../concepts/target-group.md) | Cluster [node group](../../../managed-kubernetes/concepts/index.md#node-group) |
 
+## IDs of load balancer resources in a {{ k8s }} cluster {#alb-ids}
+
+IDs of resources of an {{ alb-name }} load balancer deployed in the `Ingress` configuration are specified in the custom `IngressGroupStatus` resource of the {{ managed-k8s-name }} cluster. To view them:
+
+{% list tabs %}
+
+- Management console
+
+  1. In the [management console]({{ link-console-main }}), select the folder where the required {{ managed-k8s-name }} cluster was created.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Select the {{ managed-k8s-name }} cluster whose `Ingress` configuration was used to create a load balancer.
+  1. On the {{ managed-k8s-name }} cluster page, go to the ![custom-resources.svg](../../../_assets/custom-resources.svg) **{{ ui-key.yacloud.k8s.cluster.switch_custom-resources }}** tab.
+  1. Select `ingressgroupstatuses.alb.yc.io` and open the **{{ ui-key.yacloud.k8s.custom-resources.label_tab-resources }}** tab.
+  1. Select a resource with the `Ingress` resource group name specified in the `ingress.alb.yc.io/group-name` annotation and go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-yaml }}** tab.
+
+- CLI
+
+  1. {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+  1. Run this command:
+
+     ```bash
+     kubectl describe IngressGroupStatus
+     ```
+
+{% endlist %}

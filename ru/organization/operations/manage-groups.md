@@ -57,13 +57,7 @@
 
 Роль, которая выдана на всю организацию, позволяет участникам группы управлять всеми ресурсами {{ yandex-cloud }}, которые подключены к организации, в соответствии с правами роли.
 
-{% list tabs %}
-
-- CLI
-
-    {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
-
-{% endlist %}
+{% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
 
 ## Сопоставить группу пользователей {#group-mapping}
 
