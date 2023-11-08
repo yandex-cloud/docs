@@ -16,10 +16,9 @@
 1. Создайте [статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта в формате JSON и сохраните его в файл `sa-key.json`:
 
    ```bash
-  yc iam key create \
-  --service-account-name <имя_сервисного_аккаунта> \
-  --folder-id <id_каталога_с_сервисным_аккаунтом> \
-  --output sa-key.json
+   yc iam key create \
+     --service-account-name <имя_сервисного_аккаунта_для_Ingress-контроллера> \
+     --output sa-key.json
    ```
 
 
