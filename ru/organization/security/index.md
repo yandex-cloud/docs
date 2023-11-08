@@ -337,10 +337,4 @@
 
 #### Назначить роль на Организацию {#access-binding-organization}
 
-{% list tabs %}
-
-- CLI
-
-    {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
-
-{% endlist %}
+{% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}

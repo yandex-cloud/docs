@@ -1,0 +1,1 @@
+Работа с группами размещения со стратегией [размещения разделами](../../compute/concepts/placement-groups.md#partition) доступна с помощью [CLI](../../cli/quickstart.md) и [API](../../compute/api-ref/).

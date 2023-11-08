@@ -106,7 +106,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/RMAX.md
 | `'Moscow'`        | `'Furniture'`       | `2`                 | `25`                            | `2`                                     | `7`                                    |
 | `'Moscow'`        | `'Office Supplies'` | `4`                 | `25`                            | `4`                                     | `25`                                   |
 | `'San Francisco'` | `'Furniture'`       | `5`                 | `25`                            | `5`                                     | `7`                                    |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `25`                            | `23`                                    | `23`                                   |
+| `'San Francisco'` | `'Office Supplies'` | `23`                | `25`                            | `23`                                    | `25`                                   |
 
 {% endcut %}
 
@@ -147,4 +147,4 @@ sourcePath: ru/_api-ref/datalens/function-ref/RMAX.md
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.

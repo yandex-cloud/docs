@@ -8,5 +8,5 @@
 
 ## Что дальше {#what-is-next}
 
-* Узнайте, как [добавить пользователя](../operations/users/create.md#federated-user) из федерации удостоверений.
+* Узнайте, как [добавить пользователя](../operations/users/create.md#add-user-sso) из федерации удостоверений.
 * Узнайте, как настроить федерацию удостоверений в документации [{{ org-full-name }}](../../organization/concepts/add-federation.md).

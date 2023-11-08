@@ -5915,6 +5915,7 @@ default:
         resource-acl:
           button_add-federation-user: Добавить федеративного пользователя
           button_assign-binding: Изменить роли
+          button_invite-users: Пригласить пользователей
           button_new-bindings: Назначить роли
           button_remove-bindings: Отозвать роли
           label_access-bindings: Права доступа
@@ -6286,13 +6287,21 @@ default:
         placement-group:
           disks:
             button_add-disk: Добавить диск
+          instances:
+            button_action-delete: Удалить из группы
+            button_add-instance: Добавить ВМ
+            popup-add_button_add: Добавить
+            popup-confirm_button_delete: Удалить из группы
           switch_disks: Список дисков
+          switch_instances: Список ВМ
         placement-groups:
           button_create: Создать
           button_create-disk-pg: Группу размещения нереплицируемых дисков
+          button_create-instance-pg: Группу размещения ВМ
           create:
             button_create: Создать
           label_tab-disks: Группы размещения нереплицируемых дисков
+          label_tab-instances: Группы размещения ВМ
         snapshots-schedules:
           action_attach-disk: Добавить диск
           action_detach-disk: Удалить из расписания
@@ -9121,6 +9130,8 @@ default:
         per-time: На юниты в час
         period-of-inactivity: Прерывать ячейки с низкой нагрузкой через
         security-group: Группа безопасности
+      import-ipynb:
+        open-in-dataSphere: Запустить в Yandex DataSphere
       invite-link:
         reset-invitation-link: Пересоздать ссылку для приглашения
         reset-link: Пересоздать ссылку

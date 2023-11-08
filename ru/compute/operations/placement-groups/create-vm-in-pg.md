@@ -2,6 +2,8 @@
 
 Создайте виртуальную машину в [группе размещения](../../concepts/placement-groups.md).
 
+{% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
+
 {% list tabs %}
 
 - CLI
@@ -25,8 +27,8 @@
      Результат:
 
      ```bash
-     id: fdvte50kv3nclagfknoc
-     folder_id: aoeieef3k7ppari05ajo
+     id: fdvte50kv3nc********
+     folder_id: aoeieef3k7pp********
      created_at: "2019-12-20T08:59:44Z"
      name: my-group
      spread_placement_strategy: {}
@@ -52,10 +54,10 @@
      Результат:
 
      ```bash
-     id: epdep2kq6dt5uekuhcrd
+     id: epdep2kq6dt5********
      ...
      placement_policy:
-       placement_group_id: fd83bv4rnsna2sjkiq4s
+       placement_group_id: fd83bv4rnsna********
      ```
 
      Данная команда создаст виртуальную машину со следующими характеристиками:
@@ -76,7 +78,7 @@
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
-     | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-a | RUNNING |             | 10.129.0.5  |
+     | epdep2kq6dt5******** | instance-in-group-1 | {{ region-id }}-a | RUNNING |             | 10.129.0.5  |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      ```
 

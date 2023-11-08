@@ -165,20 +165,20 @@ Sorted by `[City]`, `[Category]`.
 
 Result
 
-| **[City]**        | **[Category]**      | **SUM([Orders])**   | **MMAX(SUM([Orders]), 1 TOTAL)**   | **MMAX(SUM([Orders]), 1 WITHIN [City])**   | **MMAX(SUM([Orders]), 1 AMONG [City])**   |
-|:------------------|:--------------------|:--------------------|:-----------------------------------|:-------------------------------------------|:------------------------------------------|
-| `'Detroit'`       | `'Furniture'`       | `7`                 | `7`                                | `7`                                        | `7`                                       |
-| `'Detroit'`       | `'Office Supplies'` | `25`                | `25`                               | `25`                                       | `25`                                      |
-| `'London'`        | `'Furniture'`       | `1`                 | `25`                               | `1`                                        | `7`                                       |
-| `'London'`        | `'Office Supplies'` | `10`                | `10`                               | `10`                                       | `10`                                      |
-| `'Moscow'`        | `'Furniture'`       | `2`                 | `10`                               | `2`                                        | `2`                                       |
-| `'Moscow'`        | `'Office Supplies'` | `4`                 | `4`                                | `4`                                        | `25`                                      |
-| `'San Francisco'` | `'Furniture'`       | `5`                 | `5`                                | `5`                                        | `5`                                       |
-| `'San Francisco'` | `'Office Supplies'` | `23`                | `23`                               | `23`                                       | `23`                                      |
+| **[City]**        | **[Category]**      | **SUM([Orders])**   | **MMAX(SUM([Orders]), 1 TOTAL ORDER BY [City])**   | **MMAX(SUM([Orders]), 1 WITHIN [City] ORDER BY [City])**   | **MMAX(SUM([Orders]), 1 AMONG [City] ORDER BY [City])**   |
+|:------------------|:--------------------|:--------------------|:---------------------------------------------------|:-----------------------------------------------------------|:----------------------------------------------------------|
+| `'Detroit'`       | `'Furniture'`       | `7`                 | `7`                                                | `7`                                                        | `7`                                                       |
+| `'Detroit'`       | `'Office Supplies'` | `25`                | `25`                                               | `25`                                                       | `25`                                                      |
+| `'London'`        | `'Furniture'`       | `1`                 | `25`                                               | `1`                                                        | `7`                                                       |
+| `'London'`        | `'Office Supplies'` | `10`                | `10`                                               | `10`                                                       | `25`                                                      |
+| `'Moscow'`        | `'Furniture'`       | `2`                 | `10`                                               | `2`                                                        | `2`                                                       |
+| `'Moscow'`        | `'Office Supplies'` | `4`                 | `4`                                                | `4`                                                        | `10`                                                      |
+| `'San Francisco'` | `'Furniture'`       | `5`                 | `5`                                                | `5`                                                        | `5`                                                       |
+| `'San Francisco'` | `'Office Supplies'` | `23`                | `23`                                               | `23`                                                       | `23`                                                      |
 
 {% endcut %}
 
 
 #### Data source support {#data-source-support}
 
-`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.6`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
+`ClickHouse 21.8`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`.
