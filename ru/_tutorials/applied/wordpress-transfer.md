@@ -402,7 +402,7 @@
 	 sudo apt-get update && sudo apt-get install software-properties-common
 	 ```
 
-  1. Добавьте репозитории `unverse` and `certbot`:
+  1. Добавьте репозитории `universe` and `certbot`:
 
      ```bash
      sudo add-apt-repository universe && sudo add-apt-repository ppa:certbot/certbot
