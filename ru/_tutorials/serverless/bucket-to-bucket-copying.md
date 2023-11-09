@@ -460,7 +460,7 @@
        SRC_BUCKET=$(echo "$message" | jq -r .details.bucket_id)
        SRC_OBJECT=$(echo "$message" | jq -r .details.object_id)
        aws --endpoint-url="$S3_ENDPOINT" s3 cp "s3://$SRC_BUCKET/$SRC_OBJECT" "s3://$DST_BUCKET/$SRC_OBJECT"
-     done
+     done;
    ) 1>&2
    ```
 
