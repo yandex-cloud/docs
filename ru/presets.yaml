@@ -4811,6 +4811,7 @@ default:
         process-type-support: Поддержка
         standard-info-section-time: Учёт времени
       ui_components_page-admin_BillingAccountInfo:
+        person-type-company: Юридическое лицо или ИП
         rebind-account: Заменить платёжный аккаунт
         refill-balance: Пополнить баланс
         refill-dialog-ok-issue: Выписать счёт
@@ -5090,6 +5091,9 @@ default:
           title: Настройка прав доступа
       marketplace:
         label_product-ids: Идентификаторы продукта
+        product-pricing-type_byol: BYOL
+        product-pricing-type_free: Free
+        product-pricing-type_payg: PAYG
       organization:
         action:
           select: Продолжить
@@ -5360,6 +5364,10 @@ default:
         users: Пользователи
     yacloud_portal:
       common:
+        max: Максимум
+        min: Минимум
+        recommended: Рекомендуемое значение
+        submit: Отправить
         units:
           label_gigabyte: ГБ
           label_megabyte: МБ
@@ -5367,6 +5375,39 @@ default:
         file-input:
           button_choose: Выбрать файл
           button_choose-multiple: Выбрать файлы
+      marketplace_v2:
+        common:
+          menu_ticket: Тикет заявки
+        product:
+          page_action_product-create: Добавить продукт
+          tab_tariffs: Тариф
+          tab_versions: Версии продукта
+        tariff:
+          action_create-trial-spec: Создать пробный период
+          tariff-table_action_create: Создать тариф
+          tariff-table_type: Тип
+        version:
+          label_compute-image: Образ Compute
+          label_image-description: Описание
+          label_image-name: Название
+          label_k8s-manifest: Манифест
+          label_resource-spec_cpu: CPU
+          label_resource-spec_disk-size: Размер диска
+          label_resource-spec_gpu: GPU
+          label_resource-spec_memory: RAM
+          label_resource-spec_network: Сеть
+          label_resource-spec_platforms: Платформы
+          label_short-description: Краткое описание
+          label_tariff: Тариф
+          label_tos-url: URL
+          label_tutorial: Как установить продукт
+          label_use-cases: Примеры использования
+          section_title_packages: Состав продукта
+          section_title_resource-spec: Необходимые ресурсы
+          version-table_action_create: Создать версию
+      portal:
+        products: Продукты
+        support: Поддержка
       subAccount:
         detail:
           column_cost: Общая стоимость

@@ -135,6 +135,8 @@
          network_interface_specs:
            - network_id: c64mknqgnd8a********
              primary_v4_address_spec: {}
+         placement_policy:
+           placement_group_id: rmppvhrgm77g********
          scheduling_policy:
            preemptible: false
          ```
@@ -159,6 +161,8 @@
            * `false` (по умолчанию) — обычная.
 
            Создавая группу прерываемых ВМ учитывайте, что ВМ будут останавливаться спустя 24 часа непрерывной работы, а могут быть остановлены еще раньше. При этом возможна ситуация, что {{ ig-name }} не сможет сразу перезапустить их из-за нехватки ресурсов. Это может произойти, если резко возрастет потребление вычислительных ресурсов в {{ yandex-cloud }}.
+         * `placement_policy` — (опционально) параметры [группы размещения ВМ](../../concepts/placement-groups.md):
+           * `placement_group_id` — идентификатор группы размещения.
      * [Политики](../../concepts/instance-groups/policies/index.md):
 
        ```yaml
@@ -215,6 +219,8 @@
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+       placement_policy:
+         placement_group_id: rmppvhrgm77g********
      deploy_policy:
        max_unavailable: 1
        max_expansion: 0

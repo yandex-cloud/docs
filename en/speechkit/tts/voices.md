@@ -29,15 +29,15 @@ The table lists the properties of the supported voices that use deep neural netw
 | `ru-RU` | Russian | `madirus` | M | — | v1, v3 |
 | `ru-RU` | Russian | `omazh` | F | (default) neutral — `neutral` </br> angry — `evil` | v1, v3 |
 | `ru-RU` | Russian | `zahar` | M | (default) neutral — `neutral` </br> happy — `good` | v1, v3 |
-| `ru-RU` | Russian | `dasha` | F | — | v3 |
-| `ru-RU` | Russian | `julia` | F | — | v3 |
-| `ru-RU` | Russian | `lera` | F | — | v3 |
-| `ru-RU` | Russian | `marina` | F | — | v3 |
-| `ru-RU` | Russian | `alexander` | M | — | v3 |
-| `ru-RU` | Russian | `kirill` | M | — | v3 |
-| `ru-RU` | Russian | `anton` | M | — | v3 |
+| `ru-RU` | Russian | `dasha`  | F | (default) neutral — `neutral` </br> happy — `good`</br> friendly — `friendly` | v3 |
+| `ru-RU` | Russian | `julia`  | F | (default) neutral — `neutral` </br> stern — `strict` | v3 |
+| `ru-RU` | Russian | `lera`  | F | (default) neutral — `neutral` </br> friendly — `friendly` | v3 |
+| `ru-RU` | Russian | `masha`  | F | (default) happy — `good` </br> stern — `strict` </br> friendly — `friendly` | v3 |
+| `ru-RU` | Russian | `marina`  | F | (default) neutral — `neutral` </br> whisper— `whisper` </br> friendly — `friendly` | v3 |
+| `ru-RU` | Russian | `alexander` | M | (default) neutral — `neutral` </br> happy — `good` | v3 |
+| `ru-RU` | Russian | `kirill` | M | (default) neutral — `neutral` </br> stern — `strict` </br> happy — `good` | v3 |
+| `ru-RU` | Russian | `anton` | M | (default) neutral — `neutral` </br> happy — `good` | v3 |
 | `uz-UZ` | Uzbek | `nigora` | F | — | v1, v3 |
-
 
 The `oksana` and `alena` voices were created from the recordings of a single voice artist. The `oksana` voice is no longer on the list of supported voices. Use the `alena` voice with the `good` role instead. The `oksana` voice is still available for legacy projects.
 

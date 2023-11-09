@@ -13,6 +13,8 @@ Before running a job, [install](../../../cli/quickstart.md) and configure the [{
 
 When a job is run, the `datasphere` library analyzes the environment, collects code dependencies, and can provide them to {{ ml-platform-name }} for deploying the environment on a cloud VM. To avoid unnecessary system dependencies that can affect a job's performance, we recommend using a virtual environment, such as [venv](https://docs.python.org/3/library/venv.html) or [conda](https://docs.conda.io/en/latest/#).
 
+{% include [jobs-info](../../../_includes/datasphere/jobs-environment.md) %}
+
 ## Create a job {#create-job}
 
 1. Install the `datasphere` library:

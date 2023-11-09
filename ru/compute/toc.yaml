@@ -41,10 +41,14 @@ items:
             href: operations/placement-groups/delete.md
           - name: Создать ВМ в группе размещения
             href: operations/placement-groups/create-vm-in-pg.md
+          - name: Создать группу виртуальных машин в группе размещения
+            href: operations/placement-groups/create-ig-in-pg.md
           - name: Добавить ВМ в группу размещения
             href: operations/placement-groups/add-vm.md
           - name: Исключить ВМ из группы размещения
             href: operations/placement-groups/delete-vm.md
+          - name: Исключить группу виртуальных машин из группы размещения
+            href: operations/placement-groups/delete-ig-from-pg.md
       - name: Образы с предустановленным ПО
         items:
           - name: Создать ВМ из публичного образа
@@ -225,6 +229,8 @@ items:
             href: operations/instance-groups/create-with-coi.md
           - name: Создать группу ВМ по YAML-спецификации
             href: operations/instance-groups/create-from-yaml.md
+          - name: Создать группу виртуальных машин в группе размещения
+            href: operations/placement-groups/create-ig-in-pg.md
       - name: Получение информации о группе виртуальных машин
         items:
           - name: Получить список групп ВМ
@@ -269,6 +275,8 @@ items:
             href: operations/instance-groups/start.md
           - name: Удалить группу ВМ
             href: operations/instance-groups/delete.md
+          - name: Исключить группу виртуальных машин из группы размещения
+            href: operations/placement-groups/delete-ig-from-pg.md
       - name: Выделенные хосты
         items:
           - name: Создать группу выделенных хостов

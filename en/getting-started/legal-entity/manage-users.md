@@ -94,7 +94,7 @@ To add federation users to an organization:
 
 - CLI
 
-   1. Choose a role from the list in [Roles](../../iam/concepts/access-control/roles.md).
+   1. Select a role from the list in [Roles](../../iam/concepts/access-control/roles.md).
    1. [Get the user ID](../../organization/operations/users-get.md).
    1. Assign the role using the command:
 
@@ -125,7 +125,7 @@ To add federation users to an organization:
 
    Use the `updateAccessBindings` method for the corresponding resource.
 
-   1. Choose a role from the list in [Roles](../../iam/concepts/access-control/roles.md).
+   1. Select a role from the list in [Roles](../../iam/concepts/access-control/roles.md).
    1. [Get the user ID](../../organization/operations/users-get.md).
    1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 
@@ -165,4 +165,4 @@ To grant a user organization management permissions, assign them one of the foll
 
    By default, the user who creates an organization is the organization owner.
 
-* `organization-manager.viewer`: This role lets you view, but not edit, an organization's settings.
+* `organization-manager.viewer`: This role allows you to view an organization's settings without editing them.

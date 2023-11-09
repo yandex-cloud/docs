@@ -19,7 +19,7 @@
 
 ## Создайте продукт в кабинете партнера {#create-product}
 
-[Создайте продукт](operations/create-product.md). Дальнейшие действия будут доступны после одобрения заявки. Вы можете уточнить заявку и связаться с менеджером {{ marketplace-short-name }} в разделе **Тикет заявки**.
+[Создайте продукт](operations/create-product.md). Дальнейшие действия будут доступны после одобрения заявки. Вы можете уточнить заявку и связаться с менеджером {{ marketplace-short-name }} в разделе **{{ ui-key.yacloud_portal.marketplace_v2.common.menu_ticket }}**.
 
 ## Создайте тариф {#create-tariff}
 

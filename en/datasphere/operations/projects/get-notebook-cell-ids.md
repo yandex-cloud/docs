@@ -2,32 +2,50 @@
 
 To work with a project through API, you may need IDs of notebooks and their cells.
 
+{% note warning %}
+
+The guide applies to {{ ds }} mode only.
+
+{% endnote %}
+
 ## Getting started {#before-begin}
 
 {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 
 ## Getting a notebook ID {#get-notebook-id}
 
-1. Right-click any cell.
-1. In the window that opens, select **Сopy Notebook Id**.
+{% list tabs %}
 
-   The clipboard will have a line like:
+- {{ ds }}
 
-   ```text
-   null/<community_ID>/<project_ID>/<notebook_ID>
-   ```
+   1. Right-click any cell.
+   1. In the window that opens, select **Сopy Notebook Id**.
 
-1. Copy the part of the line with the notebook ID.
+      The clipboard will have a line like:
+
+      ```text
+      null/<community_ID>/<project_ID>/<notebook_ID>
+      ```
+
+   1. Copy the part of the line with the notebook ID.
+
+{% endlist %}
 
 ## Getting a cell ID {#get-cell-id}
 
-1. Right-click the cell you need.
-1. In the window that opens, select **Сopy Cell Id**.
+{% list tabs %}
 
-   The clipboard will have a line like:
+- {{ ds }}
 
-   ```text
-   null/<community_ID>/<project_ID>/<notebook_ID>/cell/<cell_ID>
-   ```
+   1. Right-click the cell you need.
+   1. In the window that opens, select **Сopy Cell Id**.
 
-1. Copy the part of the line with the cell ID.
+      The clipboard will have a line like:
+
+      ```text
+      null/<community_ID>/<project_ID>/<notebook_ID>/cell/<cell_ID>
+      ```
+
+   1. Copy the part of the line with the cell ID.
+
+{% endlist %}

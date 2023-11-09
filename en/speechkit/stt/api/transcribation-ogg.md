@@ -18,12 +18,18 @@ If you do not have an OggOpus audio file, you can download a [sample file](https
 
 ## Perform speech recognition via the API {#recognize-using-api}
 
+{% note warning %}
+
+For two-channel OggOpus audio files, do not specify the number of channels in the `audioChannelCount` parameter.
+
+{% endnote %}
+
 {% list tabs %}
 
 - cURL
 
    1. [Get a link to an audio file](../../../storage/operations/objects/link-for-download.md) in {{ objstorage-name }}.
-   1. Create a file, e.g., `body.json`, and paste the following code to it:
+   1. Create a file like `body.json` and add the following code to it:
 
       ```json
       {

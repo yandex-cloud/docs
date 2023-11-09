@@ -24,4 +24,6 @@ cloud-instance-type: c1.4
 
 {{ ml-platform-name }} Jobs stores input data cache, environments, logs, and job execution results. You can reuse the data and share it across jobs in a single project. The size of stored data is limited. For more information about {{ ml-platform-name }} limits, see [{#T}](limits.md).
 
+{% include [jobs-info](../../_includes/datasphere/jobs-environment.md) %}
+
 You can find jobs in the **{{ ml-platform-name }} Jobs** tab of a project. Their progress and results will be available under **Run history**.

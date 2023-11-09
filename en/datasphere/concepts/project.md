@@ -45,3 +45,21 @@ For the same reason, you will not be able to change a configuration for multiple
 You can have multiple configurations of the VMs assigned to a single project. When running computations in your notebook for the first time, select a configuration to use for them.
 
 VM billing in the {{ dd }} mode will start once the first computations are run in a notebook and will continue as long as the VM is assigned to the respective project. You can learn more about {{ ml-platform-name }} usage cost [here](../pricing.md).
+
+#### {{ jlab }}Lab console {#console}
+
+In {{ dd }} mode, you can use the {{ jlab }}Lab console with an interactive Python interpreter. The console is run on a separate VM instance with the c1.4 configuration. To open the console, on the {{ jlab }}Lab home page, select **{{ ml-platform-name }} Kernel** under **Console**. You enter commands in the console input line and run them using the **Shift** + **Enter** keyboard shortcut.
+
+If you just close the console, the VM instance will keep running. To shut down the console VM and stop paying for it, use the **{{ dd }} mode** widget in the top-right corner of the screen or on the project home page and shut down the console VM.
+
+#### {{ jlab }}Lab extensions {#extensions}
+
+The following {{ jlab }}Lab extensions are available in {{ dd }} mode:
+
+* {{ jlab }}Lab-latex
+* {{ jlab }}Lab-widgets ipywidgets
+* {{ jlab }}Lab-code-formatter black isort
+* {{ jlab }}Lab-execute-time
+* {{ jlab }}Lab-limit-output
+* {{ jlab }}Lab-spellchecker
+* [{{ jlab }}Lab-templates](../operations/projects/templates.md)
