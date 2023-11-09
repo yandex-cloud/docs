@@ -28,7 +28,7 @@ Check the format of your recording.
 
 For LPCM, use the [config.specification.audioChannelCount](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params) parameter equal to 2.
 
-You don't need to specify the parameter for OggOpus, since the file contains information about the number of channels. The file will be automatically split into two recordings.
+Do not specify this parameter for MP3 and OggOpus, since the number of channels is stated in the file. The file will be automatically split into two recordings.
 
 The recognized text in the response is separated by the [channelTag](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#get-result-response) parameter.
 

@@ -13,8 +13,7 @@ name: simple-python-script # имя задания
 desc: Program description # описание задания
 cmd: python main.py --data ${DATA} --result ${OUTPUT}
 env:
-  python:
-    auto: true # позволяет передать в DataSphere код и зависимости pip
+  python: auto # позволяет передать в DataSphere код и зависимости pip
 inputs:
   - numbers.txt: DATA
 outputs:
@@ -27,3 +26,7 @@ cloud-instance-type: c1.4
 {% include [jobs-info](../../_includes/datasphere/jobs-environment.md) %}
 
 Задания можно найти в проекте на вкладке **{{ ml-platform-name }} Jobs**. Прогресс выполнения и результаты будут доступны в разделе **История запусков**.
+
+#### См. также {#see-also}
+
+[{#T}](../operations/projects/work-with-jobs.md)

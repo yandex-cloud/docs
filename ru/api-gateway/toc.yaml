@@ -108,7 +108,7 @@ items:
             href: concepts/extensions/parametrization.md
           - name: Канареечный релиз
             href: concepts/extensions/canary.md
-          - name: Ограничение скорости запросов
+          - name: Ограничение скорости обработки запросов
             href: concepts/extensions/rate-limit.md
       - name: Квоты и лимиты
         href: concepts/limits.md

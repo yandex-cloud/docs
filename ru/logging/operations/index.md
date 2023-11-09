@@ -2,14 +2,14 @@
 
 * [{#T}](./write-logs.md)
 * [{#T}](./read-logs.md)
+* [{#T}](./list.md)
+* [{#T}](./access-rights.md)
 
 ### Управление лог-группой
 
 * [{#T}](./create-group.md)
-* [{#T}](./access-rights.md)
 * [{#T}](./retention-period.md)
-* [{#T}](./list.md)
-* [{#T}](./monitoring.md)
+* [Посмотреть графики мониторинга](./monitoring.md)
 * [{#T}](./delete-group.md)
 
 ### Выгрузка логов

@@ -5,6 +5,7 @@
 ## Платформа данных {#data-platform}
 
 * [{{ dataproc-full-name }}](../data-proc/release-notes/index.md)
+* [{{ data-transfer-full-name }}](../data-transfer/changelogs/index.md)
 * [{{ ml-platform-full-name }}](../datasphere/release-notes.md)
 * [{{ mkf-full-name }}](../managed-kafka/release-notes.md)
 * [{{ mch-full-name }}](../managed-clickhouse/release-notes.md)

@@ -14,6 +14,8 @@ items:
             href: concepts/geo-scope.md
           - name: Вывод из эксплуатации зоны {{ region-id }}-c
             href: concepts/ru-central1-c-deprecation.md
+          - name: Ограничения в зоне {{ region-id }}-d
+            href: concepts/ru-central1-d-limits.md
       - name: Устройство сети
         href: concepts/network.md
       - name: Взаимодействие пользователей и ресурсов

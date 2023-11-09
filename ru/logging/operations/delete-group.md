@@ -3,7 +3,7 @@ title: "Инструкция о том, как удалить лог-групп�
 description: "Из статьи вы узнаете, как удалить лог-группу в {{ cloud-logging-name }}."
 ---
 
-# Удаление группы
+# Удалить лог-группу
 
 {% note info %}
 
@@ -107,5 +107,38 @@ description: "Из статьи вы узнаете, как удалить ло�
 - API
 
   Чтобы удалить пользовательскую лог-группу, воспользуйтесь методом REST API [delete](../api-ref/LogGroup/delete.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Delete](../api-ref/grpc/log_group_service.md#Delete).
+
+  
+  **Пример запроса**
+
+  Пример использования написан с помощью утилиты `grpcurl`. Чтобы воспользоваться им, [аутентифицируйтесь](../api-ref/authentication.md) в API и клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi). 
+
+  Выполните запрос:
+  
+  ```bash
+  grpcurl -rpc-header "Authorization: Bearer $(yc iam create-token)" \
+     -d '{"log_group_id": "<идентификатор_лог-группы>"}' \
+     -import-path ~/cloudapi/ \
+     -import-path ~/cloudapi/third_party/googleapis/ \
+     -proto ~/cloudapi/yandex/cloud/logging/v1/log_group_service.proto \
+  logging.api.cloud.yandex.net:443 yandex.cloud.logging.v1.LogGroupService.Delete
+  ```
+
+  Ответ:
+
+  ```text
+  {
+    "id": "e23omac87b3a********",
+    "description": "Delete log group",
+    "createdAt": "2023-03-25T05:48:01.626155032Z",
+    "createdBy": "ajego134p5h1********",
+    "modifiedAt": "2023-03-25T05:48:01.626155032Z",
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.logging.v1.DeleteLogGroupMetadata",
+      "logGroupId": "e23ff0on5amv********"
+    }
+  }
+  ```
+
 
 {% endlist %}
