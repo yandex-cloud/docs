@@ -1,4 +1,4 @@
-# Ограничение скорости запросов
+# Ограничение скорости обработки запросов
 
 {% include [note-preview-by-request](../../../_includes/note-preview.md) %}
 
