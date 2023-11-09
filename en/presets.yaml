@@ -409,6 +409,7 @@ default:
   yc-mdb-kf: yc managed-kafka
   yc-mdb-ms: yc managed-sqlserver
   yc-mdb-es: yc managed-elasticsearch
+  yc-serverless: yc serverless
   yc-compute-ig: yc compute instance-group
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
@@ -4793,6 +4794,7 @@ default:
         process-type-support: Support
         standard-info-section-time: Time spent
       ui_components_page-admin_BillingAccountInfo:
+        person-type-company: Legal entity or individual entrepreneur
         rebind-account: Change billing account
         refill-balance: Top up balance
         refill-dialog-ok-issue: Issue an invoice
@@ -5070,6 +5072,9 @@ default:
           title: Configuring access bindings
       marketplace:
         label_product-ids: Product IDs
+        product-pricing-type_byol: BYOL
+        product-pricing-type_free: Free
+        product-pricing-type_payg: PAYG
       organization:
         action:
           select: Continue
@@ -5340,6 +5345,10 @@ default:
         users: Users
     yacloud_portal:
       common:
+        max: Maximum
+        min: Minimum
+        recommended: Recommended
+        submit: Send
         units:
           label_gigabyte: GB
           label_megabyte: MB
@@ -5347,6 +5356,39 @@ default:
         file-input:
           button_choose: Choose a file
           button_choose-multiple: Choose files
+      marketplace_v2:
+        common:
+          menu_ticket: Ticket
+        product:
+          page_action_product-create: Add product
+          tab_tariffs: Pricing plan
+          tab_versions: Product versions
+        tariff:
+          action_create-trial-spec: Create trial period
+          tariff-table_action_create: Create pricing plan
+          tariff-table_type: Type
+        version:
+          label_compute-image: Compute image
+          label_image-description: Description
+          label_image-name: Name
+          label_k8s-manifest: Manifest
+          label_resource-spec_cpu: CPU
+          label_resource-spec_disk-size: Disk size
+          label_resource-spec_gpu: GPU
+          label_resource-spec_memory: RAM
+          label_resource-spec_network: Network
+          label_resource-spec_platforms: Platforms
+          label_short-description: Short description
+          label_tariff: Pricing plan
+          label_tos-url: URL
+          label_tutorial: How to install the product
+          label_use-cases: Use cases
+          section_title_packages: Product contents
+          section_title_resource-spec: Resources
+          version-table_action_create: Create version
+      portal:
+        products: Products
+        support: Support
       subAccount:
         detail:
           column_cost: Cost

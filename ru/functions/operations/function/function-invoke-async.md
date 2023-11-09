@@ -5,7 +5,7 @@ description: "Следуя данной инструкции, вы сможет�
 
 # Вызвать функцию асинхронно
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [note-preview](../../../_includes/note-preview.md) %}
 
 ## Настройте асинхронный вызов {#async}
 

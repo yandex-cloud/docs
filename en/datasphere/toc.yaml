@@ -79,6 +79,8 @@ items:
             href: operations/projects/work-with-jobs.md
           - name: Running a Docker container in a separate cell
             href: operations/user-images-cell.md
+          - name: Setting up template-based notebook creation
+            href: operations/projects/templates.md
       - name: Working with resources
         items:
           - name: Using secrets

@@ -5,44 +5,40 @@ description: "Follow this guide to update an API gateway."
 
 # Updating API gateways
 
+After you create an API gateway, you can change any of its parameters and the OpenAPI specification.
+
 {% list tabs %}
 
 - Management console
 
-   To update an API gateway specification:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to edit an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. In the API gateway row, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
-   1. Edit the name, description, or specification of the API gateway.
+   1. Edit the API gateway parameters or OpenAPI specification if needed.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 
 - CLI
 
-   To change the API gateway specification:
-   1. Make your changes in the specification file `hello-world.yaml`.
-   1. Run this command:
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To update an API gateway:
+
+   1. If necessary, edit the OpenAPI specification file or create a new one.
+   1. View a description of the CLI command for updating an API gateway:
+
+      ```bash
+      {{ yc-serverless }} api-gateway update --help
       ```
-      yc serverless api-gateway update --id d5dug9gkmu187iojcrtr --spec=hello_world.yaml
-      ```
 
-      Where:
+   1. In the update command, specify the API gateway ID or name and the parameters to update (not all the supported parameters are listed below):
 
-      * `id`: ID of the API gateway
-      * `spec`: Updated specification file
-
-      Result:
-
-      ```
-      done (6s)
-      id: d5dug9gkmu187iojcrtr
-      folder_id: b1g55tflru0ek7omtfu0
-      created_at: "2020-06-17T09:20:22.929Z"
-      name: hello-world
-      description: hello world
-      status: ACTIVE
-      domain: d5dug9gkmu187iojcpvp.apigw.yandexcloud.net
-      log_group_id: ckghq1hm19q7ek5sjnh5
+      ```bash
+      {{ yc-serverless }} api-gateway update \
+        --id <gateway_ID> \
+        --new-name <new_gateway_name>
+        --spec=<path_to_new_specification_file> \
       ```
 
 - {{ TF }}
@@ -133,7 +129,7 @@ description: "Follow this guide to update an API gateway."
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change to the API gateway using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      You can check the API gateway update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
       yc serverless api-gateway get <API gateway name>

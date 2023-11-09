@@ -5,6 +5,46 @@ description: "Follow this guide to create an API gateway."
 
 # Creating API gateways
 
+Before you start, prepare an API specification file based on the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) standard.
+
+{% cut "Sample `hello-world.yaml` specification file" %}
+
+```yaml
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Test API
+paths:
+  /hello:
+    get:
+      summary: Say hello
+      operationId: hello
+      parameters:
+        - name: user
+          in: query
+          description: User name to appear in greetings
+          required: false
+          schema:
+            type: string
+            default: 'world'
+      responses:
+        '200':
+          description: Greeting
+          content:
+            'text/plain':
+                schema:
+                  type: "string"
+      x-yc-apigateway-integration:
+        type: dummy
+        http_code: 200
+        http_headers:
+          'Content-Type': "text/plain"
+        content:
+          'text/plain': "Hello, {user}!\n"
+```
+
+{% endcut %}
+
 {% list tabs %}
 
 - Management console
@@ -12,107 +52,32 @@ description: "Follow this guide to create an API gateway."
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field, enter `numbers`.
-   1. (Optional) In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_description }}** field, enter a description.
-   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add a specification:
-
-      ```yaml
-      openapi: "3.0.0"
-      info:
-        version: 1.0.0
-        title: Test API
-      paths:
-        /hello:
-          get:
-            summary: Say hello
-            operationId: hello
-            parameters:
-              - name: user
-                in: query
-                description: User name to appear in greetings
-                required: false
-                schema:
-                  type: string
-                  default: 'world'
-            responses:
-              '200':
-                description: Greeting
-                content:
-                  'text/plain':
-                     schema:
-                       type: "string"
-            x-yc-apigateway-integration:
-              type: dummy
-              http_code: 200
-              http_headers:
-                'Content-Type': "text/plain"
-              content:
-                'text/plain': "Hello, {user}!\n"
-      ```
+   1. Enter a name for the API gateway in the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** field.
+   1. (Optional) In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_description }}** field, enter a description for the API gateway.
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the OpenAPI specification text.
+   1. Configure additional API gateway settings if needed.
    1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
 
 - CLI
 
-   To create an API gateway:
-   1. Save the following specification to a file named `hello-world.yaml`:
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-      ```yaml
-      openapi: "3.0.0"
-      info:
-        version: 1.0.0
-        title: Test API
-      paths:
-        /hello:
-          get:
-            summary: Say hello
-            operationId: hello
-            parameters:
-              - name: user
-                in: query
-                description: User name to appear in greetings
-                required: false
-                schema:
-                  type: string
-                  default: 'world'
-            responses:
-              '200':
-                description: Greeting
-                content:
-                  'text/plain':
-                     schema:
-                       type: "string"
-            x-yc-apigateway-integration:
-              type: dummy
-              http_code: 200
-              http_headers:
-                'Content-Type': "text/plain"
-              content:
-                'text/plain': "Hello, {user}!\n"
-      ```
-   1. Run this command:
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To create an API gateway:
+
+   1. View a description of the CLI command for creating an API gateway:
 
       ```bash
-      yc serverless api-gateway create --name hello-world --spec=hello-world.yaml --description "hello world"
+      {{ yc-serverless }} api-gateway create --help
       ```
 
-      Where:
+   1. Specify gateway parameters in the create command (not all the supported parameters are listed):
 
-      * `name`: API gateway name
-      * `spec`: Specification file
-      * `description`: API gateway description
-
-      Result:
-
-      ```text
-      done (29s)
-      id: d5dug9gkmu187iojcrtr
-      folder_id: b1g55tflru0ek7omtfu0
-      created_at: "2020-06-17T09:20:22.929Z"
-      name: hello-world
-      description: hello world
-      status: ACTIVE
-      domain: d5dug9gkmu187iojcpvp.apigw.yandexcloud.net
-      log_group_id: ckghq1hm19q7ek5sjnh5
+      ```bash
+      {{ yc-serverless }} api-gateway create \
+         --name <gateway_name> \
+         --spec=<path_to_specification_file>
       ```
 
 - {{ TF }}

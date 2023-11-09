@@ -55,19 +55,22 @@ POST https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
 }
 ```
 
-| Parameter | Description |
------ | -----
-| config | **object**<br>Field with the recognition settings. |
-| config.<br>specification | **object**<br>Recognition settings. |
-| config.<br>specification.<br>languageCode | **string**<br>Language that recognition will be performed for.<br/>See a list of available languages in the [model description](../models.md). The default value is `ru-RU` (Russian). |
-| config.<br>specification.<br>model | **string**<br>The language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](../models.md) depend on the selected language. Default value: `general`. Depending on the selected model, [pricing](../../pricing.md#rules-stt-long) may change. |
-| config.<br>specification.<br>profanityFilter | **boolean**<br>Profanity filter.<br/>Acceptable values:<ul><li>`true`: Exclude profanities from recognition results.</li><li>`false` (default): Do not exclude profanities from recognition results.</li></ul> |
-| config.<br>specification.<br>literature_text | **boolean**<br>Enable text <q>normalization</q> mode, primarily placing punctuation. |
-| config.<br>specification.<br>audioEncoding | **string**<br>The [format](../../formats.md) of the synthesized audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM`: [LPCM without WAV header](../../formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](../../formats.md#oggopus) format.</li><li>`MP3`: [MP3](../../formats.md#MP3) format.</li></ul> |
-| config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> |
-| config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>The number of channels in [LPCM](../../formats.md#lpcm) files. The value of `1` is used by default.<br>Do not use this field for files in [OggOpus](../../formats.md#oggopus) or [MP3](../../formats.md#MP3) formats. |
-| config.<br>specification.<br>rawResults | **boolean** <br>Flag that indicates how to write numbers. `true`: In words. `false` (by default): In numbers. |
-| audio.<br>uri | **string**<br>The URI of the audio file for recognition. Supports only links to files stored in [Yandex Object Storage](../../../storage/). |
+#|
+|| Parameter | Description ||
+|| config | **object**<br>Field with recognition settings. ||
+|| config.<br>specification | **object**<br>Recognition settings. ||
+|| config.<br>specification.<br>languageCode | **string**<br>Language that recognition will be performed for.<br/>See a list of available languages in the [model description](../models.md). The default value is `ru-RU` (Russian). ||
+|| config.<br>specification.<br>model | **string**<br>Language model to be used for recognition.<br/>The closer the model is matched, the better the recognition result. You can only specify one model per request.<br/>[Acceptable values](../models.md) depend on the selected language. The default value is `general`. Depending on the selected model, [pricing](../../pricing.md#rules-stt-long) may change. ||
+|| config.<br>specification.<br>profanityFilter | **boolean**<br>Profanity filter.<br/>Acceptable values include:<ul><li>`true`: Exclude profanities from recognition results.</li><li>`false` (default): Do not exclude profanities from recognition results.</li></ul> ||
+|| config.<br>specification.<br>literature_text | **boolean**<br>Enables text <q>normalization</q> mode, most particularly, punctuation. ||
+|| config.<br>specification.<br>audioEncoding | **string**<br>[Synthesized audio](../../formats.md) format.<br/>Acceptable values include:<ul><li>`LINEAR16_PCM`: [LPCM without WAV header](../../formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](../../formats.md#oggopus) format.</li><li>`MP3`: [MP3](../../formats.md#MP3) format.</li></ul> ||
+|| config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>Sampling frequency of the synthesized audio.<br/>This parameter is required if `format` is set to `LINEAR16_PCM`. Acceptable values include:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> ||
+|| config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>Number of channels for [LPCM](../../formats.md#lpcm) files. The default value is `1`.<br>
+**Important:** Do not use this field for [OggOpus](../../formats.md#oggopus) and [MP3](../../formats.md#MP3) files.
+||
+|| config.<br>specification.<br>rawResults | **boolean** <br>Flag indicating how to write numbers. `true`: In words. `false` (by default): In numbers. ||
+|| audio.<br>uri | **string**<br>URI of the audio file for recognition. Supports only links to files stored in [Yandex Object Storage](../../../storage/). ||
+|#
 
 #### Response {#sendfile-response}
 

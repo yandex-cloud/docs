@@ -41,6 +41,8 @@ instance_template:
       one_to_one_nat_spec:
         ip_version: IPV4
   scheduling_policy: {}
+  placement_policy:
+    placement_group_id: rmppvhrgm77g********
 scale_policy:
   auto_scale:
     min_zone_size: 0

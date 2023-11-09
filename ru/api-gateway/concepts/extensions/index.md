@@ -18,7 +18,7 @@ description: "Расширение x-yc-apigateway позволяет задат
  `service_account_id` | `string`          | Идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого API-шлюз будет выполнять операции.     
  `validator`          | `ValidatorObject` | [Валидатор HTTP-запросов и ответов](validator.md#validator_object) или ссылка на него. Может быть переопределен на уровне конкретной операции. 
  `cors`               | `CorsRuleObject`  | [Правило обработки preflight-запросов CORS](cors.md#corsrule_object) или ссылка на него. Может быть переопределено на уровне конкретного пути. 
- `rateLimit`          | `RateLimitObject` | [Ограничение скорости запросов](rate-limit.md#rate_limit_object) или ссылка на него. Может быть переопределено на уровне конкретного пути и/или операции. 
+ `rateLimit`          | `RateLimitObject` | [Ограничение скорости обработки запросов](rate-limit.md#rate_limit_object) или ссылка на него. Может быть переопределено на уровне конкретного пути и/или операции. 
 
 ### Спецификация расширения {#tl-spec}
 
