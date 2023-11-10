@@ -193,65 +193,6 @@
 
 {% endlist %}
 
-## Удалить топик {#delete-topic}
-
-{% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
-
-{% list tabs %}
-
-- Консоль управления
-
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
-  1. Нажмите значок ![image](../../_assets/options.svg) для нужного топика и выберите пункт **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
-
-- CLI
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы удалить топик:
-  1. Посмотрите описание команды CLI для изменения топиков:
-
-     ```bash
-     {{ yc-mdb-kf }} topic delete --help
-     ```
-
-  1. Удалите топик:
-
-     ```bash
-     {{ yc-mdb-kf }} topic delete <имя_топика> --cluster-name <имя_кластера>
-     ```
-
-- {{ TF }}
-
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-
-     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  1. Удалите ресурс `yandex_mdb_kafka_topic` с описанием нужного топика.
-  1. Проверьте корректность настроек.
-
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-  1. Подтвердите изменение ресурсов.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic).
-
-
-- API
-
-  Чтобы удалить топик, воспользуйтесь методом REST API [delete](../api-ref/Topic/delete.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Delete](../api-ref/grpc/topic_service.md#Delete) и передайте в запросе:
-  * Идентификатор кластера, в котором находится топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](#list-topics).
-
-
-{% endlist %}
-
 ## Получить список топиков в кластере {#list-topics}
 
 {% list tabs %}
@@ -311,6 +252,89 @@
 - API
 
   Чтобы получить детальную информацию о топике, воспользуйтесь методом REST API [get](../api-ref/Topic/get.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Get](../api-ref/grpc/topic_service.md#Get) и передайте в запросе:
+  * Идентификатор кластера, в котором находится топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  * Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](#list-topics).
+
+
+{% endlist %}
+
+## Импортировать топик в {{ TF }} {#import-topic}
+
+С помощью импорта вы можете передать существующие в кластере топики под управление {{ TF }}.
+
+{% list tabs %}
+
+- {{ TF }}
+
+    1. Укажите в конфигурационном файле {{ TF }} топик, который необходимо импортировать:
+
+        ```hcl
+        resource "yandex_mdb_kafka_topic" "<имя_топика>" {}
+        ```
+
+    1. Выполните команду для импорта топика:
+
+        ```hcl
+        terraform import yandex_mdb_kafka_topic.<имя_топика> <идентификатор_кластера>:<имя_топика>
+        ```
+
+        Подробнее об импорте топиков см. в [документации провайдера {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_topic.html.markdown#import).
+
+{% endlist %}
+
+## Удалить топик {#delete-topic}
+
+{% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
+  1. Нажмите значок ![image](../../_assets/options.svg) для нужного топика и выберите пункт **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы удалить топик:
+  1. Посмотрите описание команды CLI для изменения топиков:
+
+     ```bash
+     {{ yc-mdb-kf }} topic delete --help
+     ```
+
+  1. Удалите топик:
+
+     ```bash
+     {{ yc-mdb-kf }} topic delete <имя_топика> --cluster-name <имя_кластера>
+     ```
+
+- {{ TF }}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. Удалите ресурс `yandex_mdb_kafka_topic` с описанием нужного топика.
+  1. Проверьте корректность настроек.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic).
+
+
+- API
+
+  Чтобы удалить топик, воспользуйтесь методом REST API [delete](../api-ref/Topic/delete.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Delete](../api-ref/grpc/topic_service.md#Delete) и передайте в запросе:
   * Идентификатор кластера, в котором находится топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](#list-topics).
 

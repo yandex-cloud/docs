@@ -12,8 +12,9 @@
 * [{#T}](#update-account).
 * [{#T}](#grant-permission).
 * [{#T}](#revoke-permission).
-* [{#T}](#delete-account).
 * [{#T}](#list-accounts).
+* [{#T}](#import-account).
+* [{#T}](#delete-account).
 
 ## Создать пользователя {#create-user}
 
@@ -469,6 +470,69 @@
 
 {% endlist %}
 
+## Получить список пользователей в кластере {#list-accounts}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить список пользователей:
+  1. Чтобы получить список пользователей, выполните команду:
+
+     ```bash
+     {{ yc-mdb-kf }} user list --cluster-name <имя_кластера>
+     ```
+
+  1. Чтобы получить подробную информацию по конкретному пользователю, выполните команду:
+
+     ```bash
+     {{ yc-mdb-kf }} user get <имя_пользователя> --cluster-name <имя_кластера>
+     ```
+
+
+- API
+
+  Чтобы получить список пользователей, воспользуйтесь методом REST API [list](../api-ref/User/list.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/List](../api-ref/grpc/user_service.md#List) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
+
+  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](#list-clusters).
+
+
+{% endlist %}
+
+## Импортировать пользователя в {{ TF }} {#import-account}
+
+С помощью импорта вы можете передать существующих в кластере пользователей под управление {{ TF }}.
+
+{% list tabs %}
+
+- {{ TF }}
+
+    1. Укажите в конфигурационном файле {{ TF }} пользователя, которого необходимо импортировать:
+
+        ```hcl
+        resource "yandex_mdb_kafka_user" "<имя_пользователя>" {}
+        ```
+
+    1. Выполните команду для импорта пользователя:
+
+        ```hcl
+        terraform import yandex_mdb_kafka_user.<имя_пользователя> <идентификатор_кластера>:<имя_пользователя>
+        ```
+
+        Подробнее об импорте пользователей см. в [документации провайдера {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_user.html.markdown#import).
+
+{% endlist %}
+
 ## Удалить пользователя {#delete-account}
 
 Если в кластере удалить [пользователя-администратора](../concepts/topics.md#management) с ролью `ACCESS_ROLE_ADMIN`, то будет потеряна возможность управлять топиками. Перед удалением выдайте эту роль другому пользователю.
@@ -519,45 +583,6 @@
   Чтобы удалить пользователя, воспользуйтесь методом REST API [delete](../api-ref/User/delete.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/Delete](../api-ref/grpc/user_service.md#Delete) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя пользователя, которого требуется удалить, в параметре `userName`. Чтобы узнать имя, [получите список пользователей в кластере](#list-accounts).
-
-
-{% endlist %}
-
-## Получить список пользователей в кластере {#list-accounts}
-
-{% list tabs %}
-
-- Консоль управления
-
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
-
-- CLI
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы получить список пользователей:
-  1. Чтобы получить список пользователей, выполните команду:
-
-     ```bash
-     {{ yc-mdb-kf }} user list --cluster-name <имя_кластера>
-     ```
-
-  1. Чтобы получить подробную информацию по конкретному пользователю, выполните команду:
-
-     ```bash
-     {{ yc-mdb-kf }} user get <имя_пользователя> --cluster-name <имя_кластера>
-     ```
-
-
-- API
-
-  Чтобы получить список пользователей, воспользуйтесь методом REST API [list](../api-ref/User/list.md) для ресурса [User](../api-ref/User/index.md) или вызовом gRPC API [UserService/List](../api-ref/grpc/user_service.md#List) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
-
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](#list-clusters).
 
 
 {% endlist %}

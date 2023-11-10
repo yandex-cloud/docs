@@ -10,7 +10,7 @@
 
 - Консоль управления
 
-  {% include [create-console](../../../_includes/iam/create-api-key-console.md) %}  
+  {% include [create-console](../../../_includes/iam/create-api-key-console.md) %}
 
 - CLI
 
@@ -130,7 +130,7 @@
 
 ### Добавить описание при создании {#add-description}
 
-Чтобы было проще найти API-ключ не зная его идентификатора, добавьте описание при создании:
+Чтобы было проще найти API-ключ, не зная его идентификатора, добавьте описание при создании:
 
 {% list tabs %}
 
