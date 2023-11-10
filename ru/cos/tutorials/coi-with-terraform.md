@@ -4,12 +4,12 @@
 
 ## Перед началом работы {#before-begin}
 
-{% include [terraform-install](../../_includes/terraform-install.md) %} В сценарии используется конфигурационный файл с названием `example.tf` в директории `~/cloud-terraform`.
+Убедитесь что у вас установлен: {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
 ## Создание и запуск виртуальной машины с образом {{ coi }} {#creating-vm}
 
 ### Создайте файлы конфигурации ВМ {#create-config-vm}
-
+На примере конфигурационного файла с названием `example.tf` в директории `~/cloud-terraform`.
 1. Используйте образ {{ coi }} из [семейства образов](../../compute/concepts/image.md#family) {{ yandex-cloud }}. Для этого в конфигурационный файл `example.tf` добавьте строки:
 
    ```
