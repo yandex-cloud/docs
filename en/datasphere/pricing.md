@@ -49,6 +49,8 @@ Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you 
 
 If you need to store large amounts of data, you can use {{ objstorage-full-name }}. In this case, data storage will be charged according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 
+[Model storage](#prices-models) is charged separately. Its pricing depends on the model size that is calculated in GB and rounded up to an integer.
+
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 The monthly usage rate is based on 720 hours a month.

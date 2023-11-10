@@ -1,44 +1,44 @@
 # Supported models
 
-_Image classification is currently in the [Preview stage](../../../overview/concepts/launch-stages.md)._
+_Image classification is currently at the [Preview stage](../../../overview/concepts/launch-stages.md)._
 
-The service provides image classification based on a model that is trained on a specific set of images. The model is specified in the `classificationConfig` configuration of a request.
+{{ vision-full-name }} provides image classification based on a model that is trained on a specific set of images. The model is specified in the `classificationConfig` configuration of a request.
 
-Only one of the two types of properties can be included in the model:
+You can only include one of the two property types in the model:
 
-* Mutually exclusive: the sum of probabilities of all the model properties is equal to one.
-* Independent: the probability of each property is equal to any value between 0 and 1.
+* Mutually exclusive: The sum of probabilities of all model properties is equal to one.
+* Independent: The probability of each property is equal to any value between zero and one.
 
-Currently supported models:
+Currently, the following models are supported:
 
 * [quality](#quality): Assesses the quality of an image.
 * [moderation](#moderation): Estimates whether an image meets moderation requirements.
 
 ## quality {#quality}
 
-Assesses the quality of an image.
+This model assesses the quality of an image.
 
-**With this model, you can:**
+**With it, you can:**
 
 * Filter low-quality images, for example, to exclude them from search results.
-* Moderate images for a photo contest and select only high-quality images.
+* Moderate images for a photo contest and select only high-quality ones.
 * Compare similar images and choose the one with the best quality.
 
-[Try this model](../../operations/classification/quality.md).
+You can [try this model](../../operations/classification/quality.md) now.
 
-**Property type**: mutually exclusive.
+The **property type** for this model is mutually exclusive.
 
-**Properties:**
+The **properties** are as follows:
 
-* `low`: A low-quality image with clearly visible artifacts.
-* `medium`: A standard quality image with minor artifacts.
-* `high`: A high-quality image without visible artifacts.
+* `low`: Low-quality image with clearly visible artifacts.
+* `medium`: Regular quality image with minor artifacts.
+* `high`: High-quality image without visible artifacts.
 
 **Examples of classification results:**
 
 {% list tabs %}
 
-- high
+- High
 
   ![image](../../../_assets/vision/high.jpg)
 
@@ -59,7 +59,7 @@ Assesses the quality of an image.
   ]
   ```
 
-- medium
+- Medium
 
   ![image](../../../_assets/vision/medium.jpg)
 
@@ -80,7 +80,7 @@ Assesses the quality of an image.
   ]
   ```
 
-- low
+- Low
 
   ![image](../../../_assets/vision/low.jpg)
 
@@ -105,25 +105,25 @@ Assesses the quality of an image.
 
 ## moderation {#moderation}
 
-Evaluates how well the image matches the properties used during moderation.
+This model evaluates how well the image matches the moderation properties.
 
-**With this model, you can:**
+**With it, you can:**
 
 * Filter adult content.
 * Detect illegal content.
 * Show a copyright violation warning for images with watermarks.
 * Check whether there is text in an image to use the [text recognition feature](../ocr/index.md) afterwards.
 
-[Try this model](../../operations/classification/moderation.md).
+You can [try this model](../../operations/classification/moderation.md) now.
 
-**Property type**: independent.
+The **property type** for this model is independent.
 
-**Properties:**
+The **properties** are as follows:
 
-* `adult`: the image shows adult-only content.
-* `gruesome`: the image contains shocking content.
-* `text`: the image contains text.
-* `watermarks`: the image contains watermarks.
+* `adult`: The image has adult content.
+* `gruesome`: The image has shocking content.
+* `text`: The image has text.
+* `watermarks`: The image has watermarks.
 
 **Example of a classification result:**
 

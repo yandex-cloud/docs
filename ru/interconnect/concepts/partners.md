@@ -22,13 +22,14 @@
 
 Партнер | ТП | Макс. емкость, Мбит/с | Примечания
 --- | --- | --- | ---
-[RETN](https://retn.net/) | M9, OST | 10000 | -
-[MASTERTEL](https://mastertel.ru/yacloud/) |  M9, NORD | 1000 | -
-[ЭрТелеком](https://ertelecom.ru/) | M9, NORD | 1000 | -
-[Билайн](https://beeline.ru) | M9 | 1000 | -
-[РТ Солар](https://rt-solar.ru) | M9 | 1000 | ГОСТ VPN
-[Obit](https://www.obit.ru/company/channels/) | M9 | 1000 | -
-[TNS Plus](https://tnsplus.kz/) | M9 | 1000 | -
+[RETN](https://retn.net/) | M9, OST | 10000 | - |
+[MASTERTEL](https://mastertel.ru/yacloud/) |  M9, NORD | 1000 | - |
+[MSK-IX](https://www.msk-ix.ru/) | M9 | 1000 | - |
+[ЭрТелеком](https://ertelecom.ru/) | M9, NORD | 1000 | - |
+[Билайн](https://beeline.ru) | M9 | 1000 | - |
+[РТ Солар](https://rt-solar.ru) | M9 | 1000 | ГОСТ VPN |
+[Obit](https://www.obit.ru/company/channels/) | M9 | 1000 | - |
+[TNS Plus](https://tnsplus.kz/) | M9 | 1000 | - |
 
 где:
 

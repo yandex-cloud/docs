@@ -59,6 +59,8 @@ items:
         href: concepts/membership.md
       - name: Федерации удостоверений
         href: concepts/add-federation.md
+      - name: Группы пользователей
+        href: concepts/groups.md
       - name: OS Login
         href: concepts/os-login.md
       - name: Квоты и лимиты

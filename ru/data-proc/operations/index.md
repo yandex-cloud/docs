@@ -6,6 +6,7 @@
 * [{#T}](cluster-create.md)
 * [{#T}](connect.md)
 * [{#T}](cluster-update.md)
+* [{#T}](migration-to-an-availability-zone.md)
 * [{#T}](cluster-delete.md)
 
 ## Подкластеры {{ dataproc-name }}

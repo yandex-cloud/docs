@@ -28,7 +28,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
    {{ yc-mdb-gp }} cluster list-operations <cluster ID or name>
    ```
 
-   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
    Result:
 
@@ -80,6 +80,14 @@ The Point-in-Time Recovery (PITR) technology enables you to restore cluster stat
 When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
 For a new cluster, you should set all the parameters that are required at creation.
+
+{% note warning %}
+
+Recovering from a backup imposes restrictions on parameters of the new cluster.
+
+{% include [limits](../../_includes/mdb/mgp/restore-limits.md) %}
+
+{% endnote %}
 
 If you set the current time as the recovery time, the new cluster will match the state of the latest available recovery point.
 
@@ -156,7 +164,7 @@ If you set the current time as the recovery time, the new cluster will match the
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).

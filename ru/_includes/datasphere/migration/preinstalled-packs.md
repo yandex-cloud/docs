@@ -1,1183 +1,1164 @@
 ### DS Default (Python 3.10) {#python-3-10}
 
-  {% cut "A-E" %}
+{% cut "A-E" %}
 
-    * [absl-py](https://abseil.io/docs/python/quickstart) 1.4.0
-    * [aiobotocore](https://github.com/aio-libs/aiobotocore) 2.1.2
-    * [aiohttp](https://github.com/aio-libs/aiohttp) 3.8.5
-    * [aiohttp-retry](https://github.com/inyutin/aiohttp_retry) 2.8.3
-    * [aioitertools](https://github.com/omnilib/aioitertools) 0.11.0
-    * [aiosignal](https://github.com/aio-libs/aiosignal) 1.3.1
-    * [alabaster](https://alabaster.readthedocs.io/en/latest/) 0.7.13
-    * [albumentations](https://github.com/albumentations-team/albumentations) 1.2.1
-    * [altair](https://altair-viz.github.io/) 4.2.2
-    * [amqp](https://github.com/celery/py-amqp) 5.1.1
-    * [antlr4-python3-runtime](https://github.com/parrt/antlr4-python3) 4.9.3
-    * [anyio](https://anyio.readthedocs.io/en/stable/) 3.7.1
-    * [appdirs](https://github.com/ActiveState/appdirs) 1.4.4
-    * [argon2-CFFI](https://argon2-CFFI.readthedocs.io/en/stable/) 23.1.0
-    * [argon2-CFFI-bindings](https://github.com/hynek/argon2-cffi-bindings) 21.2.0
-    * [array-record](https://github.com/google/array_record) 0.4.0
-    * [arviz](https://github.com/arviz-devs/arviz) 0.15.1
-    * [astropy](https://github.com/astropy/astropy) 5.2.2
-    * [astunparse](https://github.com/simonpercivall/astunparse) 1.6.3
-    * [async-timeout](https://gitlab.apertis.org/pkg/python-async-timeout) 4.0.2
-    * [asyncssh](https://asyncssh.readthedocs.io/en/latest/index.html) 2.13.2
-    * [atpublic](https://public.readthedocs.io/en/stable/) 4.0
-    * [attrs](https://www.attrs.org/en/stable/) 23.1.0
-    * [audioread](https://github.com/beetbox/audioread) 3.0.0
-    * [autograd](https://github.com/HIPS/autograd) 1.6.2
-    * [Babel](https://github.com/python-babel/babel) 2.12.1
-    * [backcall](https://backcall.readthedocs.io/en/latest/) 0.2.0
-    * [bcrypt](https://github.com/pyca/bcrypt) 4.0.1
-    * [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) 4.12.2
-    * [billiard](https://github.com/celery/billiard) 4.1.0
-    * [bleach](https://bleach.readthedocs.io/en/latest/) 6.0.0
-    * [blinker](https://blinker.readthedocs.io/en/stable/) 1.4
-    * [blis](https://github.com/explosion/Cython-blis) 0.7.10
-    * [blosc2](https://github.com/Blosc/python-blosc2) 2.0.0
-    * [bokeh](https://github.com/bokeh/bokeh) 3.1.1
-    * [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) 1.20.24
-    * [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) 1.23.24
-    * [branca](https://github.com/python-visualization/branca) 0.6.0
-    * [build](https://github.com/pypa/build) 0.10.0
-    * [CacheControl](https://github.com/psf/cachecontrol) 0.13.1
-    * [cachetools](https://github.com/tkem/cachetools) 5.3.1
-    * [catalogue](https://github.com/explosion/catalogue) 2.0.9
-    * [celery](https://docs.celeryq.dev/en/stable/getting-started/introduction.html) 5.3.1
-    * [certifi](https://github.com/certifi/python-certifi) 2023.7.22
-    * [CFFI](https://cffi.readthedocs.io/en/latest/) 1.15.1
-    * [chardet](https://github.com/chardet/chardet) 4.0.0
-    * [charset-normalizer](https://github.com/Ousret/charset_normalizer) 3.2.0
-    * [chex](https://github.com/google-deepmind/chex) 0.1.7
-    * [Click](https://click.readthedocs.io/en/latest/) 8.1.6
-    * [Click-didyoumean](https://github.com/click-contrib/click-didyoumean) 0.3.0
-    * [Click-plugins](https://github.com/click-contrib/click-plugins) 1.1.1
-    * [Click-repl](https://github.com/click-contrib/click-repl) 0.3.0
-    * [cligj](https://github.com/mapbox/cligj) 0.7.2
-    * [cloud-ml](https://github.com/XiaoMi/cloud-ml-sdk) 0.0.1
-    * [cloudpickle](https://github.com/cloudpipe/cloudpickle) 2.2.1
-    * [cmake](https://github.com/python-cmake-buildsystem/python-cmake-buildsystem) 3.25.2
-    * [cmdstanpy](https://github.com/stan-dev/cmdstanpy) 1.1.0
-    * [colorama](https://github.com/tartley/colorama) 0.4.6
-    * [colorcet](https://github.com/holoviz/colorcet) 3.0.1
-    * [colorlover](https://github.com/plotly/colorlover) 0.3.0
-    * [community](https://github.com/ewdurbin/community) 1.0.0b1
-    * [confection](https://github.com/explosion/confection) 0.1.0
-    * [configobj](https://github.com/DiffSK/configobj) 5.0.8
-    * [cons](https://github.com/pythological/python-cons) 0.4.6
-    * [contextlib2](https://contextlib2.readthedocs.io/en/stable/) 21.6.0
-    * [contourpy](https://contourpy.readthedocs.io/en/stable/) 1.1.1
-    * [convertdate](https://github.com/fitnr/convertdate) 2.4.0
-    * [cryptography](https://cryptography.io/en/latest/) 3.4.8
-    * [cufflinks](https://github.com/santosjorge/cufflinks) 0.17.3
-    * [cupy-cuda11x](https://github.com/cupy/cupy) 11.0.0
-    * [cvxopt](https://cvxopt.org/userguide/) 1.3.1
-    * [cvxpy](https://github.com/cvxpy/cvxpy) 1.3.2
-    * [cycler](https://Matplotlib.org/cycler/) 0.11.0
-    * [cymem](https://github.com/explosion/cymem) 2.0.7
-    * [Cython](https://cython.readthedocs.io/en/latest/src/quickstart/install.html) 0.29.26
-    * [Dask](https://dask.org/) 2022.12.1
-    * [datascience](https://github.com/data-8/datascience) 0.17.6
-    * [DAWG-Python](https://github.com/pytries/DAWG-Python) 0.7.2
-    * [db-dtypes](https://github.com/googleapis/python-db-dtypes-pandas) 1.1.1
-    * [dbus-python](https://github.com/posborne/dbus-python) 1.2.18
-    * [debugpy](https://github.com/microsoft/debugpy) 1.6.6
-    * [decorator](https://github.com/micheles/decorator) 5.1.1
-    * [defusedxml](https://github.com/tiran/defusedxml) 0.7.1
-    * [dictdiffer](https://dictdiffer.readthedocs.io/en/latest/) 0.9.0
-    * [diskcache](https://github.com/grantjenks/python-diskcache) 5.6.1
-    * [distributed](https://github.com/DomHudson/distributed-python) 2022.12.1
-    * [distro](https://github.com/nir0s/distro/tree/python2.6-support) 1.7.0
-    * [distro-info](https://github.com/mondeja/distro_info) 1.1+ubuntu0.1
-    * [dlib](https://github.com/davisking/dlib) 19.24.2
-    * [dm-tree](https://github.com/google-deepmind/tree) 0.1.8
-    * [docopt](https://github.com/docopt/docopt) 0.6.2
-    * [docutils](https://github.com/docutils) 0.18.1
-    * [dopamine-rl](https://google.github.io/dopamine/) 4.0.6
-    * [dpath](https://github.com/akesterson/dpath-python) 2.1.6
-    * [duckdb](https://duckdb.org/docs/api/python/overview.html) 0.8.1
-    * [dulwich](https://dulwich.io/docs/) 0.21.5
-    * [dvc](https://github.com/iterative/dvc) 2.58.2
-    * [dvc-data](https://github.com/iterative/dvc-data) 0.51.0
-    * [dvc-http](https://github.com/iterative/dvc-http) 2.30.2
-    * [dvc-objects](https://github.com/iterative/dvc-objects) 0.25.0
-    * [dvc-render](https://github.com/iterative/dvc-render) 0.5.3
-    * [dvc-studio-client](https://github.com/iterative/dvc-studio-client) 0.13.0
-    * [dvc-task](https://github.com/iterative/dvc-task) 0.3.0
-    * [earthengine-api](https://github.com/google/earthengine-api) 0.1.361
-    * [easydict](https://github.com/makinacorpus/easydict) 1.10
-    * [ecos](https://github.com/embotech/ecos-python) 2.0.12
-    * [editdistance](https://github.com/roy-ht/editdistance) 0.6.2
-    * [en-core-web-sm](https://github.com/explosion/spacy-models) 3.5.0
-    * [entrypoints](https://entrypoints.readthedocs.io/en/latest/) 0.4
-    * [ephem](https://github.com/brandon-rhodes/pyephem) 4.1.4
-    * [et-xmlfile](https://github.com/biydnd/et_xmlfile) 1.1.0
-    * [etils](https://github.com/google/etils) 1.4.0
-    * [etuples](https://github.com/pythological/etuples) 0.3.9
-    * [exceptiongroup](https://github.com/agronholm/exceptiongroup) 1.1.2
+* [absl-py](https://abseil.io/docs/python/quickstart) 1.4.0
+* [aiobotocore](https://github.com/aio-libs/aiobotocore) 2.1.2
+* [aiohttp](https://github.com/aio-libs/aiohttp) 3.8.5
+* [aiohttp-retry](https://github.com/inyutin/aiohttp_retry) 2.8.3
+* [aioitertools](https://github.com/omnilib/aioitertools) 0.11.0
+* [aiosignal](https://github.com/aio-libs/aiosignal) 1.3.1
+* [alabaster](https://alabaster.readthedocs.io/en/latest/) 0.7.13
+* [albumentations](https://github.com/albumentations-team/albumentations) 1.2.1
+* [altair](https://altair-viz.github.io/) 4.2.2
+* [amqp](https://github.com/celery/py-amqp) 5.1.1
+* [antlr4-python3-runtime](https://github.com/parrt/antlr4-python3) 4.9.3
+* [anyio](https://anyio.readthedocs.io/en/stable/) 3.7.1
+* [appdirs](https://github.com/ActiveState/appdirs) 1.4.4
+* [argon2-CFFI](https://argon2-CFFI.readthedocs.io/en/stable/) 23.1.0
+* [argon2-CFFI-bindings](https://github.com/hynek/argon2-cffi-bindings) 21.2.0
+* [array-record](https://github.com/google/array_record) 0.4.0
+* [arviz](https://github.com/arviz-devs/arviz) 0.15.1
+* [astropy](https://github.com/astropy/astropy) 5.2.2
+* [astunparse](https://github.com/simonpercivall/astunparse) 1.6.3
+* [async-timeout](https://gitlab.apertis.org/pkg/python-async-timeout) 4.0.2
+* [asyncssh](https://asyncssh.readthedocs.io/en/latest/index.html) 2.13.2
+* [atpublic](https://public.readthedocs.io/en/stable/) 4.0
+* [attrs](https://www.attrs.org/en/stable/) 23.1.0
+* [audioread](https://github.com/beetbox/audioread) 3.0.0
+* [autograd](https://github.com/HIPS/autograd) 1.6.2
+* [Babel](https://github.com/python-babel/babel) 2.12.1
+* [backcall](https://backcall.readthedocs.io/en/latest/) 0.2.0
+* [bcrypt](https://github.com/pyca/bcrypt) 4.0.1
+* [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) 4.12.2
+* [billiard](https://github.com/celery/billiard) 4.1.0
+* [bleach](https://bleach.readthedocs.io/en/latest/) 6.1.0
+* [blinker](https://blinker.readthedocs.io/en/stable/) 1.4
+* [blis](https://github.com/explosion/Cython-blis) 0.7.10
+* [blosc2](https://github.com/Blosc/python-blosc2) 2.0.0
+* [bokeh](https://github.com/bokeh/bokeh) 3.1.1
+* [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) 1.20.24
+* [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) 1.23.24
+* [branca](https://github.com/python-visualization/branca) 0.6.0
+* [build](https://github.com/pypa/build) 0.10.0
+* [CacheControl](https://github.com/psf/cachecontrol) 0.13.1
+* [cachetools](https://github.com/tkem/cachetools) 5.3.1
+* [catalogue](https://github.com/explosion/catalogue) 2.0.9
+* [celery](https://docs.celeryq.dev/en/stable/getting-started/introduction.html) 5.3.1
+* [certifi](https://github.com/certifi/python-certifi) 2023.7.22
+* [CFFI](https://cffi.readthedocs.io/en/latest/) 1.16.0
+* [chardet](https://github.com/chardet/chardet) 4.0.0
+* [charset-normalizer](https://github.com/Ousret/charset_normalizer) 3.3.0
+* [chex](https://github.com/google-deepmind/chex) 0.1.7
+* [Click](https://click.readthedocs.io/en/latest/) 8.1.6
+* [Click-didyoumean](https://github.com/click-contrib/click-didyoumean) 0.3.0
+* [Click-plugins](https://github.com/click-contrib/click-plugins) 1.1.1
+* [Click-repl](https://github.com/click-contrib/click-repl) 0.3.0
+* [cligj](https://github.com/mapbox/cligj) 0.7.2
+* [cloud-ml](https://github.com/XiaoMi/cloud-ml-sdk) 0.0.1
+* [cloudpickle](https://github.com/cloudpipe/cloudpickle) 2.2.1
+* [cmake](https://github.com/python-cmake-buildsystem/python-cmake-buildsystem) 3.25.2
+* [cmdstanpy](https://github.com/stan-dev/cmdstanpy) 1.1.0
+* [colorama](https://github.com/tartley/colorama) 0.4.6
+* [colorcet](https://github.com/holoviz/colorcet) 3.0.1
+* [colorlover](https://github.com/plotly/colorlover) 0.3.0
+* [community](https://github.com/ewdurbin/community) 1.0.0b1
+* [confection](https://github.com/explosion/confection) 0.1.0
+* [configobj](https://github.com/DiffSK/configobj) 5.0.8
+* [cons](https://github.com/pythological/python-cons) 0.4.6
+* [contextlib2](https://contextlib2.readthedocs.io/en/stable/) 21.6.0
+* [contourpy](https://contourpy.readthedocs.io/en/stable/) 1.1.1
+* [convertdate](https://github.com/fitnr/convertdate) 2.4.0
+* [cryptography](https://cryptography.io/en/latest/) 3.4.8
+* [cufflinks](https://github.com/santosjorge/cufflinks) 0.17.3
+* [cupy-cuda11x](https://github.com/cupy/cupy) 11.0.0
+* [cvxopt](https://cvxopt.org/userguide/) 1.3.1
+* [cvxpy](https://github.com/cvxpy/cvxpy) 1.3.2
+* [cycler](https://Matplotlib.org/cycler/) 0.12.1
+* [cymem](https://github.com/explosion/cymem) 2.0.7
+* [Cython](https://cython.readthedocs.io/en/latest/src/quickstart/install.html) 3.0.4
+* [Dask](https://dask.org/) 2022.12.1
+* [datascience](https://github.com/data-8/datascience) 0.17.6
+* [DAWG-Python](https://github.com/pytries/DAWG-Python) 0.7.2
+* [db-dtypes](https://github.com/googleapis/python-db-dtypes-pandas) 1.1.1
+* [dbus-python](https://github.com/posborne/dbus-python) 1.2.18
+* [debugpy](https://github.com/microsoft/debugpy) 1.6.6
+* [decorator](https://github.com/micheles/decorator) 5.1.1
+* [defusedxml](https://github.com/tiran/defusedxml) 0.7.1
+* [dictdiffer](https://dictdiffer.readthedocs.io/en/latest/) 0.9.0
+* [diskcache](https://github.com/grantjenks/python-diskcache) 5.6.1
+* [distributed](https://github.com/DomHudson/distributed-python) 2022.12.1
+* [distro](https://github.com/nir0s/distro/tree/python2.6-support) 1.7.0
+* [distro-info](https://github.com/mondeja/distro_info) 1.1+ubuntu0.1
+* [dlib](https://github.com/davisking/dlib) 19.24.2
+* [dm-tree](https://github.com/google-deepmind/tree) 0.1.8
+* [docopt](https://github.com/docopt/docopt) 0.6.2
+* [docutils](https://github.com/docutils) 0.18.1
+* [dopamine-rl](https://google.github.io/dopamine/) 4.0.6
+* [dpath](https://github.com/akesterson/dpath-python) 2.1.6
+* [duckdb](https://duckdb.org/docs/api/python/overview.html) 0.8.1
+* [dulwich](https://dulwich.io/docs/) 0.21.5
+* [dvc](https://github.com/iterative/dvc) 2.58.2
+* [dvc-data](https://github.com/iterative/dvc-data) 0.51.0
+* [dvc-http](https://github.com/iterative/dvc-http) 2.30.2
+* [dvc-objects](https://github.com/iterative/dvc-objects) 0.25.0
+* [dvc-render](https://github.com/iterative/dvc-render) 0.5.3
+* [dvc-studio-client](https://github.com/iterative/dvc-studio-client) 0.13.0
+* [dvc-task](https://github.com/iterative/dvc-task) 0.3.0
+* [earthengine-api](https://github.com/google/earthengine-api) 0.1.361
+* [easydict](https://github.com/makinacorpus/easydict) 1.10
+* [ecos](https://github.com/embotech/ecos-python) 2.0.12
+* [editdistance](https://github.com/roy-ht/editdistance) 0.6.2
+* [en-core-web-sm](https://github.com/explosion/spacy-models) 3.5.0
+* [entrypoints](https://entrypoints.readthedocs.io/en/latest/) 0.4
+* [ephem](https://github.com/brandon-rhodes/pyephem) 4.1.4
+* [et-xmlfile](https://github.com/biydnd/et_xmlfile) 1.1.0
+* [etils](https://github.com/google/etils) 1.4.0
+* [etuples](https://github.com/pythological/etuples) 0.3.9
+* [exceptiongroup](https://github.com/agronholm/exceptiongroup) 1.1.2
 
-  {% endcut %}
+{% endcut %}
 
-  {% cut "F-L" %}
+{% cut "F-L" %}
 
-    * [fastai](https://docs.fast.ai/) 2.7.12
-    * [fastcore](https://github.com/fastai/fastcore) 1.5.29
-    * [fastdownload](https://github.com/fastai/fastdownload) 0.0.7
-    * [fastjsonschema](https://horejsek.github.io/python-fastjsonschema/#) 2.18.0
-    * [fastprogress](https://github.com/fastai/fastprogress) 1.0.3
-    * [fastrlock](https://github.com/scoder/fastrlock) 0.8.1
-    * [filelock](https://py-filelock.readthedocs.io/en/latest/index.html#installation) 3.12.2
-    * [Fiona](https://github.com/Toblerity/Fiona) 1.9.4.post1
-    * [firebase-admin](https://github.com/firebase/firebase-admin-python) 5.3.0
-    * [Flask](https://github.com/pallets/flask) 2.2.5
-    * [flatbuffers](https://flatbuffers.dev/flatbuffers_guide_use_python.html) 23.5.26
-    * [flatten-dict](https://github.com/ianlini/flatten-dict) 0.4.2
-    * [flax](https://flax.readthedocs.io/en/latest/) 0.7.0
-    * [flufl.lock](https://flufllock.readthedocs.io/en/stable/) 8.0.2
-    * [folium](https://python-visualization.github.io/folium/latest/) 0.14.0
-    * [fonttools](https://github.com/fonttools/fonttools) 4.42.1
-    * [frozendict](https://github.com/Marco-Sulla/python-frozendict) 2.3.8
-    * [frozenlist](https://github.com/aio-libs/frozenlist) 1.4.0
-    * [FSSPEC](https://filesystem-spec.readthedocs.io/en/latest/?badge=latest) 2023.6.0
-    * [funcy](https://funcy.readthedocs.io/en/stable/overview.html) 2.0
-    * [future](http://python-future.org/quickstart.html) 0.18.3
-    * [gast](https://github.com/serge-sans-paille/gast) 0.4.0
-    * [gcsfs](https://gcsfs.readthedocs.io/en/latest/) 2023.6.0
-    * [gdown](https://github.com/wkentaro/gdown) 4.6.6
-    * [Gensim](https://radimrehurek.com/gensim/) 4.3.1
-    * [geographiclib](https://github.com/geographiclib/geographiclib-python) 2.0
-    * [geopandas](https://github.com/geopandas/geopandas) 0.13.2
-    * [geopy](https://github.com/geopy/geopy) 2.3.0
-    * [gin-config](https://github.com/google/gin-config) 0.5.0
-    * [gitdb](https://gitdb.readthedocs.io/en/stable/intro.html) 4.0.10
-    * [GitPython](https://gitpython.readthedocs.io/en/stable/intro.html) 3.1.32
-    * [glob2](https://github.com/miracle2k/python-glob2) 0.7
-    * google 2.0.3
-    * [google-api-core](https://github.com/googleapis/python-api-core) 2.11.1
-    * [google-api-python-client](https://googleapis.github.io/google-api-python-client/) 2.84.0
-    * [google-auth](https://googleapis.dev/python/google-auth/latest/index.html) 2.17.3
-    * [google-auth-httplib2](https://github.com/googleapis/google-auth-library-python-httplib2) 0.1.0
-    * [google-auth-oauthlib](https://github.com/googleapis/google-auth-library-python-oauthlib) 1.0.0
-    * [google-cloud-bigquery](https://cloud.google.com/python/docs/reference/bigquery/latest) 3.10.0
-    * [google-cloud-bigquery-connection](https://cloud.google.com/python/docs/reference/bigqueryconnection/latest) 1.12.1
-    * [google-cloud-bigquery-storage](https://cloud.google.com/python/docs/reference/bigquerystorage/latest) 2.22.0
-    * [google-cloud-core](https://cloud.google.com/python/docs/reference/google-cloud-core/latest) 2.3.3
-    * [google-cloud-datastore](https://cloud.google.com/python/docs/reference/datastore/latest) 2.15.2
-    * [google-cloud-firestore](https://cloud.google.com/python/docs/reference/firestore/latest) 2.11.1
-    * [google-cloud-functions](https://cloud.google.com/python/docs/reference/cloudfunctions/latest) 1.13.1
-    * [google-cloud-language](https://cloud.google.com/python/docs/reference/language/latest) 2.9.1
-    * [google-cloud-storage](https://cloud.google.com/python/docs/reference/storage/latest) 2.8.0
-    * [google-cloud-translate](https://cloud.google.com/python/docs/reference/translate/latest) 3.11.2
-    * [google-crc32c](https://github.com/googleapis/python-crc32c) 1.5.0
-    * [google-pasta](https://github.com/google/pasta) 0.2.0
-    * [google-resumable-media](https://github.com/googleapis/google-resumable-media-python) 2.5.0
-    * [googleapis-common-protos](https://github.com/googleapis/api-common-protos) 1.59.1
-    * [googledrivedownloader](https://github.com/ndrplz/google-drive-downloader) 0.4
-    * [grandalf](https://github.com/bdcht/grandalf) 0.8
-    * [Graphviz](https://graphviz.readthedocs.io/en/stable/) 0.20.1
-    * [greenlet](https://greenlet.readthedocs.io/en/latest/) 2.0.2
-    * [grpc-google-iam-v1](https://github.com/googleapis/python-grpc-google-iam-v1) 0.12.6
-    * [gRPCio](https://grpc.io/docs/languages/python/quickstart/) 1.56.2
-    * [gRPCio-status](https://github.com/conda-forge/grpcio-status-feedstock) 1.48.2
-    * [gspread](https://docs.gspread.org/en/latest/) 3.4.2
-    * [gspread-dataframe](https://gspread-dataframe.readthedocs.io/en/latest/index.html) 3.3.1
-    * [gym](https://github.com/openai/gym) 0.25.2
-    * [gym-notices](https://github.com/Farama-Foundation/gym-notices) 0.0.8
-    * [h5netcdf](https://h5netcdf.org/) 1.2.0
-    * [h5py](https://docs.h5py.org/en/stable/build.html) 3.8.0
-    * [holidays](https://github.com/vacanza/python-holidays) 0.29
-    * [holoviews](https://github.com/holoviz/holoviews) 1.15.4
-    * [html5lib](https://github.com/html5lib/html5lib-python) 1.1
-    * [httpimport](https://github.com/operatorequals/httpimport) 1.3.1
-    * [httplib2](https://github.com/httplib2/httplib2) 0.21.0
-    * [humanize](https://github.com/python-humanize/humanize) 4.6.0
-    * [hydra-core](https://hydra.cc/docs/intro) 1.3.2
-    * [hyperopt](https://github.com/hyperopt/hyperopt) 0.2.7
-    * [idna](https://github.com/kjd/idna) 3.4
-    * [imageio](https://github.com/imageio/imageio) 2.25.1
-    * [imageio-ffmpeg](https://github.com/imageio/imageio-ffmpeg) 0.4.8
-    * [imagesize](https://github.com/shibukawa/imagesize_py) 1.4.1
-    * [imbalanced-learn](https://github.com/scikit-learn-contrib/imbalanced-learn) 0.10.1
-    * [imgaug](https://imgaug.readthedocs.io/en/latest/) 0.4.0
-    * [importlib-metadata](https://importlib-metadata.readthedocs.io/en/latest/) 4.6.4
-    * [importlib-resources](https://github.com/python/importlib_resources) 6.0.0
-    * [imutils](https://github.com/PyImageSearch/imutils) 0.5.4
-    * [inflect](https://inflect.readthedocs.io/en/latest/) 6.0.5
-    * [iniconfig](https://github.com/RonnyPfannschmidt/iniconfig) 2.0.0
-    * intel-openmp 2023.2.0
-    * [ipykernel](https://github.com/ipython/ipykernel) 5.4.2
-    * [ipython](https://ipython.org/install.html) 7.19.0
-    * [ipython-genutils](https://github.com/ipython/ipython_genutils) 0.2.0
-    * [ipython-sql](https://github.com/catherinedevlin/ipython-sql) 0.4.1
-    * [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/user_guide.html) 7.7.1
-    * [iterative-telemetry](https://github.com/iterative/telemetry-python) 0.0.8
-    * [itsdangerous](https://github.com/pallets/itsdangerous) 2.1.2
-    * [jax](https://github.com/google/jax) 0.4.13
-    * [jaxlib](https://jax.readthedocs.io/en/latest/) 0.4.13+cuda11.cudnn86
-    * [jedi](https://jedi.readthedocs.io/en/latest/docs/usage.html) 0.17.2
-    * [jeepney](https://jeepney.readthedocs.io/en/latest/) 0.7.1
-    * [jieba](https://github.com/fxsjy/jieba) 0.42.1
-    * [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/intro) 3.1.2
-    * [jmespath](https://github.com/jmespath/jmespath.py) 0.10.0
-    * [joblib](https://joblib.readthedocs.io/en/latest/installing.html) 1.3.1
-    * [jsonpickle](https://jsonpickle.readthedocs.io/en/latest/) 3.0.1
-    * [jsonschema](https://python-jsonschema.readthedocs.io/en/stable/) 4.19.1
-    * [jsonschema-specifications](https://github.com/python-jsonschema/jsonschema-specifications) 2023.7.1
-    * [jupyter-client](https://github.com/jupyter/jupyter_client) 6.1.12
-    * [jupyter-console](https://jupyter-console.readthedocs.io/en/latest/) 6.1.0
-    * [jupyter_core](https://jupyter-core.readthedocs.io/en/stable/api/jupyter_core.html) 5.3.1
-    * [jupyter-server](https://jupyter-server.readthedocs.io/en/latest/) 1.24.0
-    * [jupyterlab-pygments](https://github.com/jupyterlab/jupyterlab_pygments) 0.2.2
-    * [jupyterlab-widgets](https://ipywidgets.readthedocs.io/en/latest/user_install.html) 3.0.8
-    * [kaggle](https://github.com/Kaggle/kaggle-api) 1.5.16
-    * [Keras](https://keras.io/) 2.12.0
-    * [keyring](https://github.com/jaraco/keyring) 23.5.0
-    * [kiwisolver](https://kiwisolver.readthedocs.io/en/latest/basis/installation.html) 1.4.5
-    * [kombu](https://readthedocs.org/projects/kombu/downloads/pdf/latest/) 5.3.1
-    * [langcodes](https://langcodes-hickford.readthedocs.io/en/sphinx/index.html) 3.3.0
-    * [launchpadlib](https://help.launchpad.net/API/launchpadlib) 1.10.16
-    * [lazr.restfulclient](https://lazr-restfulclient.readthedocs.io/en/latest/) 0.14.4
-    * [lazr.uri](https://lazruri.readthedocs.io/en/latest/index.html) 1.0.6
-    * [lazy_loader](https://github.com/scientific-python/lazy_loader) 0.3
-    * [libclang](https://libclang.readthedocs.io/en/latest/) 16.0.6
-    * [librosa](https://librosa.org/doc/latest/index.html) 0.10.0.post2
-    * [LightGBM](https://lightgbm.readthedocs.io/en/latest/) 3.3.5
-    * [linkify-it-py](https://github.com/tsutsu3/linkify-it-py) 2.0.2
-    * [lit](https://github.com/llvm/llvm-project/tree/main/llvm/utils/lit) 16.0.6
-    * [llvmlite](https://llvmlite.readthedocs.io/en/latest/) 0.39.1
-    * [locket](https://github.com/riverford/locket) 1.0.0
-    * [logical-unification](https://github.com/pythological/unification/) 0.4.6
-    * [LunarCalendar](https://github.com/wolfhong/LunarCalendar) 0.0.9
-    * [lxml](https://lxml.de/index.html) 4.9.3
+* [fastai](https://docs.fast.ai/) 2.7.12
+* [fastcore](https://github.com/fastai/fastcore) 1.5.29
+* [fastdownload](https://github.com/fastai/fastdownload) 0.0.7
+* [fastjsonschema](https://horejsek.github.io/python-fastjsonschema/#) 2.18.1
+* [fastprogress](https://github.com/fastai/fastprogress) 1.0.3
+* [fastrlock](https://github.com/scoder/fastrlock) 0.8.1
+* [filelock](https://py-filelock.readthedocs.io/en/latest/index.html#installation) 3.12.2
+* [Fiona](https://github.com/Toblerity/Fiona) 1.9.4.post1
+* [firebase-admin](https://github.com/firebase/firebase-admin-python) 5.3.0
+* [Flask](https://github.com/pallets/flask) 2.2.5
+* [flatbuffers](https://flatbuffers.dev/flatbuffers_guide_use_python.html) 23.5.26
+* [flatten-dict](https://github.com/ianlini/flatten-dict) 0.4.2
+* [flax](https://flax.readthedocs.io/en/latest/) 0.7.0
+* [flufl.lock](https://flufllock.readthedocs.io/en/stable/) 8.0.2
+* [folium](https://python-visualization.github.io/folium/latest/) 0.14.0
+* [fonttools](https://github.com/fonttools/fonttools) 4.43.1
+* [frozendict](https://github.com/Marco-Sulla/python-frozendict) 2.3.8
+* [frozenlist](https://github.com/aio-libs/frozenlist) 1.4.0
+* [FSSPEC](https://filesystem-spec.readthedocs.io/en/latest/?badge=latest) 2023.6.0
+* [funcy](https://funcy.readthedocs.io/en/stable/overview.html) 2.0
+* [future](http://python-future.org/quickstart.html) 0.18.3
+* [gast](https://github.com/serge-sans-paille/gast) 0.4.0
+* [gcsfs](https://gcsfs.readthedocs.io/en/latest/) 2023.6.0
+* [gdown](https://github.com/wkentaro/gdown) 4.6.6
+* [Gensim](https://radimrehurek.com/gensim/) 4.3.1
+* [geographiclib](https://github.com/geographiclib/geographiclib-python) 2.0
+* [geopandas](https://github.com/geopandas/geopandas) 0.13.2
+* [geopy](https://github.com/geopy/geopy) 2.3.0
+* [gin-config](https://github.com/google/gin-config) 0.5.0
+* [gitdb](https://gitdb.readthedocs.io/en/stable/intro.html) 4.0.10
+* [GitPython](https://gitpython.readthedocs.io/en/stable/intro.html) 3.1.32
+* [glob2](https://github.com/miracle2k/python-glob2) 0.7
+* google 2.0.3
+* [google-api-core](https://github.com/googleapis/python-api-core) 2.11.1
+* [google-api-python-client](https://googleapis.github.io/google-api-python-client/) 2.84.0
+* [google-auth](https://googleapis.dev/python/google-auth/latest/index.html) 2.17.3
+* [google-auth-httplib2](https://github.com/googleapis/google-auth-library-python-httplib2) 0.1.0
+* [google-auth-oauthlib](https://github.com/googleapis/google-auth-library-python-oauthlib) 1.0.0
+* [google-cloud-bigquery](https://cloud.google.com/python/docs/reference/bigquery/latest) 3.10.0
+* [google-cloud-bigquery-connection](https://cloud.google.com/python/docs/reference/bigqueryconnection/latest) 1.12.1
+* [google-cloud-bigquery-storage](https://cloud.google.com/python/docs/reference/bigquerystorage/latest) 2.22.0
+* [google-cloud-core](https://cloud.google.com/python/docs/reference/google-cloud-core/latest) 2.3.3
+* [google-cloud-datastore](https://cloud.google.com/python/docs/reference/datastore/latest) 2.15.2
+* [google-cloud-firestore](https://cloud.google.com/python/docs/reference/firestore/latest) 2.11.1
+* [google-cloud-functions](https://cloud.google.com/python/docs/reference/cloudfunctions/latest) 1.13.1
+* [google-cloud-language](https://cloud.google.com/python/docs/reference/language/latest) 2.9.1
+* [google-cloud-storage](https://cloud.google.com/python/docs/reference/storage/latest) 2.8.0
+* [google-cloud-translate](https://cloud.google.com/python/docs/reference/translate/latest) 3.11.2
+* [google-crc32c](https://github.com/googleapis/python-crc32c) 1.5.0
+* [google-pasta](https://github.com/google/pasta) 0.2.0
+* [google-resumable-media](https://github.com/googleapis/google-resumable-media-python) 2.5.0
+* [googleapis-common-protos](https://github.com/googleapis/api-common-protos) 1.59.1
+* [googledrivedownloader](https://github.com/ndrplz/google-drive-downloader) 0.4
+* [grandalf](https://github.com/bdcht/grandalf) 0.8
+* [Graphviz](https://graphviz.readthedocs.io/en/stable/) 0.20.1
+* [greenlet](https://greenlet.readthedocs.io/en/latest/) 2.0.2
+* [grpc-google-iam-v1](https://github.com/googleapis/python-grpc-google-iam-v1) 0.12.6
+* [gRPCio](https://grpc.io/docs/languages/python/quickstart/) 1.56.2
+* [gRPCio-status](https://github.com/conda-forge/grpcio-status-feedstock) 1.48.2
+* [gspread](https://docs.gspread.org/en/latest/) 3.4.2
+* [gspread-dataframe](https://gspread-dataframe.readthedocs.io/en/latest/index.html) 3.3.1
+* [gym](https://github.com/openai/gym) 0.25.2
+* [gym-notices](https://github.com/Farama-Foundation/gym-notices) 0.0.8
+* [h5netcdf](https://h5netcdf.org/) 1.2.0
+* [h5py](https://docs.h5py.org/en/stable/build.html) 3.8.0
+* [holidays](https://github.com/vacanza/python-holidays) 0.29
+* [holoviews](https://github.com/holoviz/holoviews) 1.15.4
+* [html5lib](https://github.com/html5lib/html5lib-python) 1.1
+* [httpimport](https://github.com/operatorequals/httpimport) 1.3.1
+* [httplib2](https://github.com/httplib2/httplib2) 0.21.0
+* [humanize](https://github.com/python-humanize/humanize) 4.6.0
+* [hydra-core](https://hydra.cc/docs/intro) 1.3.2
+* [hyperopt](https://github.com/hyperopt/hyperopt) 0.2.7
+* [idna](https://github.com/kjd/idna) 3.4
+* [imageio](https://github.com/imageio/imageio) 2.25.1
+* [imageio-ffmpeg](https://github.com/imageio/imageio-ffmpeg) 0.4.8
+* [imagesize](https://github.com/shibukawa/imagesize_py) 1.4.1
+* [imbalanced-learn](https://github.com/scikit-learn-contrib/imbalanced-learn) 0.10.1
+* [imgaug](https://imgaug.readthedocs.io/en/latest/) 0.4.0
+* [importlib-metadata](https://importlib-metadata.readthedocs.io/en/latest/) 4.6.4
+* [importlib-resources](https://github.com/python/importlib_resources) 6.0.0
+* [imutils](https://github.com/PyImageSearch/imutils) 0.5.4
+* [inflect](https://inflect.readthedocs.io/en/latest/) 6.0.5
+* [iniconfig](https://github.com/RonnyPfannschmidt/iniconfig) 2.0.0
+* intel-openmp 2023.2.0
+* [ipykernel](https://github.com/ipython/ipykernel) 5.4.2
+* [ipython](https://ipython.org/install.html) 7.19.0
+* [ipython-genutils](https://github.com/ipython/ipython_genutils) 0.2.0
+* [ipython-sql](https://github.com/catherinedevlin/ipython-sql) 0.4.1
+* [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/user_guide.html) 7.7.1
+* [iterative-telemetry](https://github.com/iterative/telemetry-python) 0.0.8
+* [itsdangerous](https://github.com/pallets/itsdangerous) 2.1.2
+* [jax](https://github.com/google/jax) 0.4.13
+* [jaxlib](https://jax.readthedocs.io/en/latest/) 0.4.13+cuda11.cudnn86
+* [jedi](https://jedi.readthedocs.io/en/latest/docs/usage.html) 0.17.2
+* [jeepney](https://jeepney.readthedocs.io/en/latest/) 0.7.1
+* [jieba](https://github.com/fxsjy/jieba) 0.42.1
+* [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/intro) 3.1.2
+* [jmespath](https://github.com/jmespath/jmespath.py) 0.10.0
+* [joblib](https://joblib.readthedocs.io/en/latest/installing.html) 1.3.1
+* [jsonpickle](https://jsonpickle.readthedocs.io/en/latest/) 3.0.1
+* [jsonschema](https://python-jsonschema.readthedocs.io/en/stable/) 4.19.1
+* [jsonschema-specifications](https://github.com/python-jsonschema/jsonschema-specifications) 2023.7.1
+* [jupyter-client](https://github.com/jupyter/jupyter_client) 8.4.0
+* [jupyter-console](https://jupyter-console.readthedocs.io/en/latest/) 6.1.0
+* [jupyter_core](https://jupyter-core.readthedocs.io/en/stable/api/jupyter_core.html) 5.4.0
+* [jupyter-server](https://jupyter-server.readthedocs.io/en/latest/) 1.24.0
+* [jupyterlab-pygments](https://github.com/jupyterlab/jupyterlab_pygments) 0.2.2
+* [jupyterlab-widgets](https://ipywidgets.readthedocs.io/en/latest/user_install.html) 3.0.8
+* [kaggle](https://github.com/Kaggle/kaggle-api) 1.5.16
+* [Keras](https://keras.io/) 2.12.0
+* [keyring](https://github.com/jaraco/keyring) 23.5.0
+* [kiwisolver](https://kiwisolver.readthedocs.io/en/latest/basis/installation.html) 1.4.5
+* [kombu](https://readthedocs.org/projects/kombu/downloads/pdf/latest/) 5.3.1
+* [langcodes](https://langcodes-hickford.readthedocs.io/en/sphinx/index.html) 3.3.0
+* [launchpadlib](https://help.launchpad.net/API/launchpadlib) 1.10.16
+* [lazr.restfulclient](https://lazr-restfulclient.readthedocs.io/en/latest/) 0.14.4
+* [lazr.uri](https://lazruri.readthedocs.io/en/latest/index.html) 1.0.6
+* [lazy_loader](https://github.com/scientific-python/lazy_loader) 0.3
+* [libclang](https://libclang.readthedocs.io/en/latest/) 16.0.6
+* [librosa](https://librosa.org/doc/latest/index.html) 0.10.0.post2
+* [LightGBM](https://lightgbm.readthedocs.io/en/latest/) 3.3.5
+* [linkify-it-py](https://github.com/tsutsu3/linkify-it-py) 2.0.2
+* [lit](https://github.com/llvm/llvm-project/tree/main/llvm/utils/lit) 16.0.6
+* [llvmlite](https://llvmlite.readthedocs.io/en/latest/) 0.39.1
+* [locket](https://github.com/riverford/locket) 1.0.0
+* [logical-unification](https://github.com/pythological/unification/) 0.4.6
+* [LunarCalendar](https://github.com/wolfhong/LunarCalendar) 0.0.9
+* [lxml](https://lxml.de/index.html) 4.9.3
 
-  {% endcut %}
+{% endcut %}
 
-  {% cut "M-P" %}
+{% cut "M-P" %}
 
-    * [Markdown](https://python-markdown.github.io/#Features) 3.4.4
-    * [Markdown-it-py](https://github.com/executablebooks/markdown-it-py) 3.0.0
-    * [MarkupSafe](https://markupsafe.palletsprojects.com/en/1.1.x/) 2.1.3
-    * [Matplotlib](https://matplotlib.org/) 3.7.1
-    * [Matplotlib-inline](https://github.com/ipython/matplotlib-inline) 0.1.6
-    * [Matplotlib-venn](https://github.com/konstantint/matplotlib-venn) 0.11.9
-    * [mdit-py-plugins](https://mdit-py-plugins.readthedocs.io/en/latest/) 0.4.0
-    * [mdurl](https://github.com/markdown-it/mdurl/blob/master/README.md) 0.1.2
-    * [miniKanren](https://github.com/pythological/kanren) 1.0.3
-    * [missingno](https://github.com/ResidentMario/missingno) 0.5.2
-    * [mistune](https://mistune.readthedocs.io/en/latest/) 3.0.1
-    * [mizani](https://mizani.readthedocs.io/en/stable/) 0.8.1
-    * [mkl](https://github.com/IntelPython/mkl-service) 2019.0
-    * [ml-dtypes](https://github.com/jax-ml/ml_dtypes) 0.2.0
-    * [ml-kernel](http://elrepo.org/tiki/kernel-ml) 0.0.1
-    * [mlxtend](https://rasbt.github.io/mlxtend/) 0.22.0
-    * [more-itertools](https://more-itertools.readthedocs.io/en/latest/) 9.1.0
-    * [Moto](https://github.com/spulec/moto) 4.1.14
-    * [moviepy](https://github.com/Zulko/moviepy) 1.0.3
-    * [mpmath](https://mpmath.org/) 1.3.0
-    * [msgpack](https://msgpack-python.readthedocs.io/en/latest/api.html) 1.0.5
-    * [multidict](https://multidict.aio-libs.org/en/stable/index.html) 6.0.4
-    * [multipledispatch](https://github.com/mrocklin/multipledispatch) 1.0.0
-    * [multitasking](https://github.com/ranaroussi/multitasking) 0.0.11
-    * [murmurhash](https://github.com/hajimes/mmh3) 1.0.9
-    * [music21](https://music21.readthedocs.io/en/latest/) 8.1.0
-    * [nanotime](https://github.com/jbenet/nanotime) 0.5.2
-    * [natsort](https://natsort.readthedocs.io/en/stable/) 8.3.1
-    * [nbclient](https://nbclient.readthedocs.io/en/latest/) 0.8.0
-    * [nbconvert](https://nbconvert.readthedocs.io/en/latest/) 7.8.0
-    * [nbformat](https://nbformat.readthedocs.io/en/latest/) 5.9.2
-    * [nest-asyncio](https://github.com/erdewit/nest_asyncio) 1.5.6
-    * [NetworkX](https://networkx.org/) 3.1
-    * [nibabel](https://peerherholz.github.io/workshop_weizmann/data/image_manipulation_nibabel.html) 4.0.2
-    * [NLTK](https://www.nltk.org/) 3.8.1
-    * [notebook](https://jupyter-notebook.readthedocs.io/en/stable/) 6.1.5
-    * [numba](http://numba.pydata.org/) 0.56.4
-    * [NumExpr](https://numexpr.readthedocs.io/en/latest/) 2.8.4
-    * [NumPy](https://numpy.org/) 1.22.4
-    * [oauth2client](https://oauth2client.readthedocs.io/en/latest/) 4.1.3
-    * [oauthlib](https://github.com/oauthlib/oauthlib) 3.2.2
-    * [OmegaConf](https://omegaconf.readthedocs.io/en/2.0_branch/) 2.3.0
-    * [opencv-contrib-python](https://github.com/opencv/opencv-python) 4.7.0.72
-    * [OpenCV-Python](https://docs.opencv.org/master/) 4.7.0.72
-    * [OpenCV-Python-headless](https://github.com/opencv/opencv-python) 4.8.0.74
-    * [openpyxl](https://openpyxl.readthedocs.io/en/stable/) 3.0.10
-    * [opt-einsum](https://optimized-einsum.readthedocs.io/en/stable/) 3.3.0
-    * [optax](https://optax.readthedocs.io/en/stable/) 0.1.7
-    * [orbax-checkpoint](https://orbax.readthedocs.io/en/latest/) 0.3.1
-    * [orjson](https://github.com/ijl/orjson) 3.9.4
-    * [osqp](https://osqp.org/docs/interfaces/python.html) 0.6.2.post8
-    * [packaging](https://packaging.pypa.io/en/latest/) 23.1
-    * [palettable](https://jiffyclub.github.io/palettable/) 3.3.3
-    * [Pandas](https://pandas.pydata.org/) 1.5.3
-    * [Pandas-datareader](https://pandas-datareader.readthedocs.io/en/latest/index.html) 0.10.0
-    * [Pandas-gbq](https://pandas-gbq.readthedocs.io/en/latest/) 0.17.9
-    * [pandocfilters](https://github.com/jgm/pandocfilters) 1.5.0
-    * [panel](https://panel.holoviz.org/) 1.2.1
-    * [param](https://param.holoviz.org/) 1.13.0
-    * [Paramiko](http://docs.paramiko.org/en/stable/) 3.3.1
-    * [parso](https://parso.readthedocs.io/en/latest/) 0.7.1
-    * [partd](https://github.com/dask/partd) 1.4.0
-    * [pathlib](https://pathlib.readthedocs.io/en/stable/) 1.0.1
-    * [pathspec](https://python-path-specification.readthedocs.io/en/latest/) 0.11.2
-    * [pathy](https://github.com/abarnert/pathy) 0.10.2
-    * [patsy](https://patsy.readthedocs.io/en/latest/) 0.5.3
-    * [Pexpect](https://pexpect.readthedocs.io/en/latest/) 4.8.0
-    * [pickleshare](https://github.com/pickleshare/pickleshare) 0.7.5
-    * [Pillow](https://pillow.readthedocs.io/en/stable/) 10.0.1
-    * [pip](https://pip.pypa.io/en/stable/) 23.2.1
-    * [pip-tools](https://github.com/jazzband/pip-tools) 6.13.0
-    * [platformdirs](https://github.com/platformdirs/platformdirs) 3.10.0
-    * [plotly](https://plotly.com/python/) 5.13.1
-    * [plotnine](https://plotnine.readthedocs.io/en/stable/) 0.10.1
-    * [pluggy](https://pluggy.readthedocs.io/en/latest/) 1.2.0
-    * [polars](https://pola-rs.github.io/polars/) 0.17.3
-    * [Pooch](https://www.fatiando.org/pooch/latest/) 1.6.0
-    * [portpicker](https://github.com/google/python_portpicker) 1.5.2
-    * [prefetch-generator](https://github.com/justheuristic/prefetch_generator) 1.0.3
-    * [preshed](https://github.com/explosion/preshed) 3.0.8
-    * [prettytable](https://github.com/jazzband/prettytable) 0.7.2
-    * [proglog](https://github.com/Edinburgh-Genome-Foundry/Proglog) 0.1.10
-    * [progressbar2](https://progressbar-2.readthedocs.io/en/latest/index.html) 4.2.0
-    * [prometheus-client](https://github.com/prometheus/client_python) 0.17.1
-    * [promise](https://github.com/plesner/python-promise) 2.3
-    * [prompt-toolkit](https://python-prompt-toolkit.readthedocs.io/en/stable/) 3.0.39
-    * [prophet](https://github.com/facebook/prophet) 1.1.4
-    * [proto-plus](https://proto-plus-python.readthedocs.io/en/stable/) 1.22.3
-    * [protobuf](https://developers.google.com/protocol-buffers/docs/pythontutorial) 3.20.3
-    * [psutil](https://psutil.readthedocs.io/en/latest/) 5.7.3
-    * [psycopg2-binary](https://www.psycopg.org/docs/install.html) 2.9.6
-    * [Ptyprocess](https://ptyprocess.readthedocs.io/en/latest/) 0.7.0
-    * [py-cpuinfo](https://github.com/workhorsy/py-cpuinfo) 9.0.0
-    * [py4j](https://www.py4j.org/) 0.10.9.7
-    * [PyArrow](https://arrow.apache.org/docs/python/) 9.0.0
-    * [pyasn1](https://github.com/etingof/pyasn1) 0.5.0
-    * [pyasn1-modules](https://github.com/etingof/pyasn1-modules) 0.3.0
-    * [pybase64](https://pybase64.readthedocs.io/en/stable/) 1.1.1
-    * [pycocotools](https://github.com/AhmetEkiz/using_pycocotools) 2.0.6
-    * [pycparser](https://github.com/eliben/pycparser) 2.21
-    * [pyct](https://github.com/holoviz-dev/pyct) 0.5.0
-    * [pydantic](https://docs.pydantic.dev/latest/) 1.10.12
-    * [pydata-google-auth](https://pydata-google-auth.readthedocs.io/en/latest/) 1.8.1
-    * [pydot](https://github.com/pydot/pydot) 1.4.2
-    * [pydot-ng](https://github.com/pydot/pydot-ng) 2.0.0
-    * [pydotplus](https://github.com/carlos-jenkins/pydotplus) 2.0.2
-    * [PyDrive](https://pythonhosted.org/PyDrive/) 1.3.1
-    * [pyerfa](https://github.com/liberfa/pyerfa) 2.0.0.3
-    * [pygame](https://github.com/pygame/pygame) 2.5.0
-    * [pygit2](https://www.pygit2.org/) 1.12.2
-    * [Pygments](https://pygments.org/) 2.16.1
-    * [PyGObject](https://pygobject.readthedocs.io/en/latest/) 3.42.1
-    * [pygtrie](https://pygtrie.readthedocs.io/en/latest/) 2.5.0
-    * [PyJWT](https://pyjwt.readthedocs.io/en/stable/) 2.3.0
-    * [pymc](https://www.pymc.io/welcome.html) 5.1.2
-    * [PyMeeus](https://pymeeus.readthedocs.io/en/latest/) 0.5.12
-    * [pymorphy2](https://pymorphy2.readthedocs.io/en/stable/) 0.9.1
-    * [pymorphy2-dicts-ru](https://github.com/kmike/pymorphy2-dicts/) 2.4.417127.4579844
-    * [Pympler](https://pympler.readthedocs.io/en/latest/) 1.0.1
-    * [pymystem3](https://github.com/nlpub/pymystem3) 0.2.0
-    * [PyNaCl](https://pynacl.readthedocs.io/en/latest/) 1.5.0
-    * [pynvml](https://github.com/gpuopenanalytics/pynvml) 11.5.0
-    * [PyOpenGL](https://github.com/mcfletch/pyopengl) 3.1.7
-    * [PyParsing](https://pyparsing-docs.readthedocs.io/en/latest/) 2.4.7
-    * [pyproj](https://pyproj4.github.io/pyproj/stable/) 3.6.0
-    * [pyproject_hooks](https://pyproject-hooks.readthedocs.io/en/latest/pyproject_hooks.html) 1.0.0
-    * [Pyrsistent](https://pyrsistent.readthedocs.io/en/latest/) 0.19.3
-    * [PySocks](https://github.com/Anorov/PySocks) 1.7.1
-    * [pytensor](https://pytensor.readthedocs.io/en/latest/) 2.10.1
-    * [pytest](https://docs.pytest.org/en/stable/) 7.2.2
-    * [python-apt](https://github.com/ParrotSec/python-apt) 2.4.0+ubuntu2
-    * [python-dateutil](https://dateutil.readthedocs.io/en/stable/) 2.8.2
-    * [python-louvain](https://github.com/taynaud/python-louvain) 0.16
-    * [python-slugify](https://github.com/un33k/python-slugify) 8.0.1
-    * [python-utils](https://github.com/wolph/python-utils) 3.7.0
-    * [pytz](https://github.com/stub42/pytz) 2022.7.1
-    * [pyviz-comms](https://github.com/holoviz/pyviz_comms) 2.3.2
-    * [PyWavelets](https://pywavelets.readthedocs.io/en/latest/index.html) 1.4.1
-    * [PyYAML](https://pyyaml.org/wiki/PyYAMLDocumentation) 6.0.1
-    * [PyZMQ](https://pyzmq.readthedocs.io/en/latest/) 25.1.1
+* [Markdown](https://python-markdown.github.io/#Features) 3.4.4
+* [Markdown-it-py](https://github.com/executablebooks/markdown-it-py) 3.0.0
+* [MarkupSafe](https://markupsafe.palletsprojects.com/en/1.1.x/) 2.1.3
+* [Matplotlib](https://matplotlib.org/) 3.7.1
+* [Matplotlib-inline](https://github.com/ipython/matplotlib-inline) 0.1.6
+* [Matplotlib-venn](https://github.com/konstantint/matplotlib-venn) 0.11.9
+* [mdit-py-plugins](https://mdit-py-plugins.readthedocs.io/en/latest/) 0.4.0
+* [mdurl](https://github.com/markdown-it/mdurl/blob/master/README.md) 0.1.2
+* [miniKanren](https://github.com/pythological/kanren) 1.0.3
+* [missingno](https://github.com/ResidentMario/missingno) 0.5.2
+* [mistune](https://mistune.readthedocs.io/en/latest/) 3.0.2
+* [mizani](https://mizani.readthedocs.io/en/stable/) 0.8.1
+* [mkl](https://github.com/IntelPython/mkl-service) 2019.0
+* [ml-dtypes](https://github.com/jax-ml/ml_dtypes) 0.2.0
+* [ml-kernel](http://elrepo.org/tiki/kernel-ml) 0.0.1
+* [mlxtend](https://rasbt.github.io/mlxtend/) 0.22.0
+* [more-itertools](https://more-itertools.readthedocs.io/en/latest/) 9.1.0
+* [Moto](https://github.com/spulec/moto) 4.1.14
+* [moviepy](https://github.com/Zulko/moviepy) 1.0.3
+* [mpmath](https://mpmath.org/) 1.3.0
+* [msgpack](https://msgpack-python.readthedocs.io/en/latest/api.html) 1.0.5
+* [multidict](https://multidict.aio-libs.org/en/stable/index.html) 6.0.4
+* [multipledispatch](https://github.com/mrocklin/multipledispatch) 1.0.0
+* [multitasking](https://github.com/ranaroussi/multitasking) 0.0.11
+* [murmurhash](https://github.com/hajimes/mmh3) 1.0.9
+* [music21](https://music21.readthedocs.io/en/latest/) 8.1.0
+* [nanotime](https://github.com/jbenet/nanotime) 0.5.2
+* [natsort](https://natsort.readthedocs.io/en/stable/) 8.3.1
+* [nbclient](https://nbclient.readthedocs.io/en/latest/) 0.8.0
+* [nbconvert](https://nbconvert.readthedocs.io/en/latest/) 7.9.2
+* [nbformat](https://nbformat.readthedocs.io/en/latest/) 5.9.2
+* [nest-asyncio](https://github.com/erdewit/nest_asyncio) 1.5.6
+* [NetworkX](https://networkx.org/) 3.1
+* [nibabel](https://peerherholz.github.io/workshop_weizmann/data/image_manipulation_nibabel.html) 4.0.2
+* [NLTK](https://www.nltk.org/) 3.8.1
+* [notebook](https://jupyter-notebook.readthedocs.io/en/stable/) 6.1.5
+* [numba](http://numba.pydata.org/) 0.56.4
+* [NumExpr](https://numexpr.readthedocs.io/en/latest/) 2.8.4
+* [NumPy](https://numpy.org/) 1.22.4
+* [oauth2client](https://oauth2client.readthedocs.io/en/latest/) 4.1.3
+* [oauthlib](https://github.com/oauthlib/oauthlib) 3.2.2
+* [OmegaConf](https://omegaconf.readthedocs.io/en/2.0_branch/) 2.3.0
+* [opencv-contrib-python](https://github.com/opencv/opencv-python) 4.7.0.72
+* [OpenCV-Python](https://docs.opencv.org/master/) 4.7.0.72
+* [OpenCV-Python-headless](https://github.com/opencv/opencv-python) 4.8.0.74
+* [openpyxl](https://openpyxl.readthedocs.io/en/stable/) 3.0.10
+* [opt-einsum](https://optimized-einsum.readthedocs.io/en/stable/) 3.3.0
+* [optax](https://optax.readthedocs.io/en/stable/) 0.1.7
+* [orbax-checkpoint](https://orbax.readthedocs.io/en/latest/) 0.3.1
+* [orjson](https://github.com/ijl/orjson) 3.9.4
+* [osqp](https://osqp.org/docs/interfaces/python.html) 0.6.2.post8
+* [packaging](https://packaging.pypa.io/en/latest/) 23.2
+* [palettable](https://jiffyclub.github.io/palettable/) 3.3.3
+* [Pandas](https://pandas.pydata.org/) 1.5.3
+* [Pandas-datareader](https://pandas-datareader.readthedocs.io/en/latest/index.html) 0.10.0
+* [Pandas-gbq](https://pandas-gbq.readthedocs.io/en/latest/) 0.17.9
+* [pandocfilters](https://github.com/jgm/pandocfilters) 1.5.0
+* [panel](https://panel.holoviz.org/) 1.2.1
+* [param](https://param.holoviz.org/) 1.13.0
+* [Paramiko](http://docs.paramiko.org/en/stable/) 3.3.1
+* [parso](https://parso.readthedocs.io/en/latest/) 0.7.1
+* [partd](https://github.com/dask/partd) 1.4.0
+* [pathlib](https://pathlib.readthedocs.io/en/stable/) 1.0.1
+* [pathspec](https://python-path-specification.readthedocs.io/en/latest/) 0.11.2
+* [pathy](https://github.com/abarnert/pathy) 0.10.2
+* [patsy](https://patsy.readthedocs.io/en/latest/) 0.5.3
+* [Pexpect](https://pexpect.readthedocs.io/en/latest/) 4.8.0
+* [pickleshare](https://github.com/pickleshare/pickleshare) 0.7.5
+* [Pillow](https://pillow.readthedocs.io/en/stable/) 10.0.1
+* [pip](https://pip.pypa.io/en/stable/) 23.2.1
+* [pip-tools](https://github.com/jazzband/pip-tools) 6.13.0
+* [platformdirs](https://github.com/platformdirs/platformdirs) 3.11.0
+* [plotly](https://plotly.com/python/) 5.13.1
+* [plotnine](https://plotnine.readthedocs.io/en/stable/) 0.10.1
+* [pluggy](https://pluggy.readthedocs.io/en/latest/) 1.2.0
+* [polars](https://pola-rs.github.io/polars/) 0.17.3
+* [Pooch](https://www.fatiando.org/pooch/latest/) 1.6.0
+* [portpicker](https://github.com/google/python_portpicker) 1.5.2
+* [prefetch-generator](https://github.com/justheuristic/prefetch_generator) 1.0.3
+* [preshed](https://github.com/explosion/preshed) 3.0.8
+* [prettytable](https://github.com/jazzband/prettytable) 0.7.2
+* [proglog](https://github.com/Edinburgh-Genome-Foundry/Proglog) 0.1.10
+* [progressbar2](https://progressbar-2.readthedocs.io/en/latest/index.html) 4.2.0
+* [prometheus-client](https://github.com/prometheus/client_python) 0.17.1
+* [promise](https://github.com/plesner/python-promise) 2.3
+* [prompt-toolkit](https://python-prompt-toolkit.readthedocs.io/en/stable/) 3.0.39
+* [prophet](https://github.com/facebook/prophet) 1.1.4
+* [proto-plus](https://proto-plus-python.readthedocs.io/en/stable/) 1.22.3
+* [protobuf](https://developers.google.com/protocol-buffers/docs/pythontutorial) 3.20.3
+* [psutil](https://psutil.readthedocs.io/en/latest/) 5.7.3
+* [psycopg2-binary](https://www.psycopg.org/docs/install.html) 2.9.6
+* [Ptyprocess](https://ptyprocess.readthedocs.io/en/latest/) 0.7.0
+* [py-cpuinfo](https://github.com/workhorsy/py-cpuinfo) 9.0.0
+* [py4j](https://www.py4j.org/) 0.10.9.7
+* [PyArrow](https://arrow.apache.org/docs/python/) 9.0.0
+* [pyasn1](https://github.com/etingof/pyasn1) 0.5.0
+* [pyasn1-modules](https://github.com/etingof/pyasn1-modules) 0.3.0
+* [pybase64](https://pybase64.readthedocs.io/en/stable/) 1.1.1
+* [pycocotools](https://github.com/AhmetEkiz/using_pycocotools) 2.0.6
+* [pycparser](https://github.com/eliben/pycparser) 2.21
+* [pyct](https://github.com/holoviz-dev/pyct) 0.5.0
+* [pydantic](https://docs.pydantic.dev/latest/) 1.10.12
+* [pydata-google-auth](https://pydata-google-auth.readthedocs.io/en/latest/) 1.8.1
+* [pydot](https://github.com/pydot/pydot) 1.4.2
+* [pydot-ng](https://github.com/pydot/pydot-ng) 2.0.0
+* [pydotplus](https://github.com/carlos-jenkins/pydotplus) 2.0.2
+* [PyDrive](https://pythonhosted.org/PyDrive/) 1.3.1
+* [pyerfa](https://github.com/liberfa/pyerfa) 2.0.0.3
+* [pygame](https://github.com/pygame/pygame) 2.5.0
+* [pygit2](https://www.pygit2.org/) 1.12.2
+* [Pygments](https://pygments.org/) 2.16.1
+* [PyGObject](https://pygobject.readthedocs.io/en/latest/) 3.42.1
+* [pygtrie](https://pygtrie.readthedocs.io/en/latest/) 2.5.0
+* [PyJWT](https://pyjwt.readthedocs.io/en/stable/) 2.3.0
+* [pymc](https://www.pymc.io/welcome.html) 5.1.2
+* [PyMeeus](https://pymeeus.readthedocs.io/en/latest/) 0.5.12
+* [pymorphy2](https://pymorphy2.readthedocs.io/en/stable/) 0.9.1
+* [pymorphy2-dicts-ru](https://github.com/kmike/pymorphy2-dicts/) 2.4.417127.4579844
+* [Pympler](https://pympler.readthedocs.io/en/latest/) 1.0.1
+* [pymystem3](https://github.com/nlpub/pymystem3) 0.2.0
+* [PyNaCl](https://pynacl.readthedocs.io/en/latest/) 1.5.0
+* [pynvml](https://github.com/gpuopenanalytics/pynvml) 11.5.0
+* [PyOpenGL](https://github.com/mcfletch/pyopengl) 3.1.7
+* [PyParsing](https://pyparsing-docs.readthedocs.io/en/latest/) 2.4.7
+* [pyproj](https://pyproj4.github.io/pyproj/stable/) 3.6.0
+* [pyproject_hooks](https://pyproject-hooks.readthedocs.io/en/latest/pyproject_hooks.html) 1.0.0
+* [Pyrsistent](https://pyrsistent.readthedocs.io/en/latest/) 0.19.3
+* [PySocks](https://github.com/Anorov/PySocks) 1.7.1
+* [pytensor](https://pytensor.readthedocs.io/en/latest/) 2.10.1
+* [pytest](https://docs.pytest.org/en/stable/) 7.2.2
+* [python-apt](https://github.com/ParrotSec/python-apt) 2.4.0+ubuntu2
+* [python-dateutil](https://dateutil.readthedocs.io/en/stable/) 2.8.2
+* [python-louvain](https://github.com/taynaud/python-louvain) 0.16
+* [python-slugify](https://github.com/un33k/python-slugify) 8.0.1
+* [python-utils](https://github.com/wolph/python-utils) 3.7.0
+* [pytz](https://github.com/stub42/pytz) 2022.7.1
+* [pyviz-comms](https://github.com/holoviz/pyviz_comms) 2.3.2
+* [PyWavelets](https://pywavelets.readthedocs.io/en/latest/index.html) 1.4.1
+* [PyYAML](https://pyyaml.org/wiki/PyYAMLDocumentation) 6.0.1
+* [PyZMQ](https://pyzmq.readthedocs.io/en/latest/) 25.1.1
 
-  {% endcut %}
+{% endcut %}
 
-  {% cut "R-Z" %}
+{% cut "R-Z" %}
 
-    * [qdldl](https://github.com/osqp/qdldl-python) 0.1.7.post0
-    * [qudida](https://github.com/arsenyinfo/qudida) 0.0.4
-    * [referencing](https://referencing.readthedocs.io/en/stable/) 0.30.2
-    * [regex](https://libraries.io/pypi/regex) 2022.10.31
-    * [Requests](https://requests.readthedocs.io/en/master/) 2.27.1
-    * [Requests-oauthlib](https://requests-oauthlib.readthedocs.io/en/latest/) 1.3.1
-    * [Requests-unixsocket](https://github.com/msabramo/requests-unixsocket) 0.2.0
-    * [requirements-parser](https://requirements-parser.readthedocs.io/en/stable/) 0.5.0
-    * [responses](https://github.com/getsentry/responses) 0.23.1
-    * [Rich](https://rich.readthedocs.io/en/stable/) 13.4.2
-    * [rpds-py](https://github.com/crate-py/rpds) 0.10.3
-    * [rpy2](https://github.com/rpy2/rpy2) 3.4.2
-    * [RSA](https://stuvel.eu/software/rsa/) 4.9
-    * [ruamel.yaml](https://yaml.readthedocs.io/en/latest/) 0.17.32
-    * [ruamel.yaml.clib](https://github.com/ruamel/yaml.clib) 0.2.7
-    * [S3Fs](https://s3fs.readthedocs.io/en/latest/) 0.5.2
-    * [s3transfer](https://github.com/boto/s3transfer) 0.5.2
-    * [scikit-image](https://github.com/scikit-image/scikit-image) 0.19.3
-    * [scikit-learn](https://scikit-learn.org/stable/) 1.2.2
-    * [Scipy](https://www.scipy.org/) 1.10.1
-    * [scmrepo](https://github.com/iterative/scmrepo) 1.2.1
-    * [scp](https://github.com/jbardin/scp.py) 0.13.3
-    * [scs](https://www.cvxgrp.org/scs/api/python.html) 3.2.3
-    * [seaborn](https://seaborn.pydata.org/) 0.12.2
-    * [SecretStorage](https://secretstorage.readthedocs.io/en/latest/) 3.3.1
-    * [Send2Trash](https://github.com/arsenetar/send2trash) 1.8.2
-    * [serialzy](https://github.com/lambdazy/serialzy) 1.3.0
-    * [setuptools](https://github.com/pypa/setuptools) 51.0.0
-    * [shapely](https://shapely.readthedocs.io/en/stable/manual.html) 2.0.1
-    * [shortuuid](https://github.com/skorokithakis/shortuuid) 1.0.11
-    * [shtab](https://github.com/iterative/shtab) 1.6.4
-    * [Six](https://six.readthedocs.io/) 1.16.0
-    * [sklearn-Pandas](https://github.com/scikit-learn-contrib/sklearn-pandas) 2.2.0
-    * [smart-open](https://github.com/RaRe-Technologies/smart_open) 6.3.0
-    * [smmap](https://smmap.readthedocs.io/en/latest/index.html) 5.0.0
-    * [sniffio](https://sniffio.readthedocs.io/en/latest/) 1.3.0
-    * [snowballstemmer](https://github.com/snowballstem/snowball) 2.2.0
-    * [sortedcontainers](https://github.com/grantjenks/python-sortedcontainers) 2.4.0
-    * [SoundFile](https://pysoundfile.readthedocs.io/en/latest/) 0.12.1
-    * [soupsieve](https://facelessuser.github.io/soupsieve/) 2.5
-    * [soxr](https://python-soxr.readthedocs.io/en/stable/) 0.3.5
-    * [spaCy](https://spacy.io/usage/spacy-101) 3.5.4
-    * [spaCy-legacy](https://github.com/explosion/spacy-legacy) 3.0.12
-    * [spaCy-loggers](https://github.com/explosion/spacy-loggers) 1.0.4
-    * [Sphinx](https://sphinx-ru.readthedocs.io/ru/latest/sphinx.html) 5.0.2
-    * [sphinxcontrib-applehelp](https://github.com/sphinx-doc/sphinxcontrib-applehelp) 1.0.4
-    * [sphinxcontrib-devhelp](https://github.com/sphinx-doc/sphinxcontrib-devhelp) 1.0.2
-    * [sphinxcontrib-htmlhelp](https://github.com/sphinx-doc/sphinxcontrib-htmlhelp) 2.0.1
-    * [sphinxcontrib-jsmath](https://github.com/sphinx-doc/sphinxcontrib-jsmath) 1.0.1
-    * [sphinxcontrib-qthelp](https://github.com/sphinx-doc/sphinxcontrib-qthelp) 1.0.3
-    * [sphinxcontrib-serializinghtml](https://github.com/sphinx-doc/sphinxcontrib-serializinghtml) 1.1.5
-    * [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy) 2.0.19
-    * [sqlparse](https://sqlparse.readthedocs.io/en/latest/) 0.4.4
-    * [sqltrie](https://github.com/iterative/sqltrie) 0.7.0
-    * [srsly](https://libraries.io/pypi/srsly) 2.4.7
-    * [statsmodels](https://github.com/statsmodels/statsmodels) 0.13.5
-    * stt-metrics 0.12
-    * [sympy](https://docs.sympy.org/latest/index.html) 1.11.1
-    * [tables](https://github.com/PyTables/PyTables) 3.8.0
-    * [tabulate](https://github.com/astanin/python-tabulate) 0.9.0
-    * [tblib](https://github.com/ionelmc/python-tblib) 2.0.0
-    * [tenacity](https://tenacity.readthedocs.io/en/latest/) 8.2.2
-    * [tensorboard](https://github.com/tensorflow/tensorboard) 2.12.3
-    * [tensorboard-data-server](https://github.com/tensorflow/tensorboard) 0.7.1
-    * [TensorFlow](https://www.tensorflow.org/) 2.12.0
-    * [tensorflow-datasets](https://github.com/tensorflow/datasets) 4.9.2
-    * [tensorflow-estimator](https://www.tensorflow.org/guide/estimator) 2.12.0
-    * tensorflow-gcs-config 2.12.0
-    * [tensorflow-hub](https://github.com/tensorflow/hub) 0.14.0
-    * [tensorflow-io-gcs-filesystem](https://github.com/tensorflow/io) 0.32.0
-    * [tensorflow-metadata](https://github.com/tensorflow/metadata) 1.13.1
-    * [tensorflow-probability](https://github.com/tensorflow/probability) 0.20.1
-    * [tensorstore](https://github.com/google/tensorstore) 0.1.40
-    * [termcolor](https://pypi.org/project/termcolor/) 2.3.0
-    * [terminado](https://libraries.io/pypi/terminado) 0.17.1
-    * [text-unidecode](https://github.com/kmike/text-unidecode) 1.3
-    * [textblob](https://textblob.readthedocs.io/en/dev/) 0.17.1
-    * [tf-slim](https://github.com/google-research/tf-slim) 1.1.0
-    * [thinc](https://thinc.ai/docs/) 8.1.10
-    * [threadpoolctl](https://github.com/joblib/threadpoolctl) 3.2.0
-    * [tifffile](https://github.com/cgohlke/tifffile) 2023.7.18
-    * [tinycss2](https://doc.courtbouillon.org/tinycss2/latest/) 1.2.1
-    * [toml](https://toml.io/en/) 0.10.2
-    * [tomli](https://github.com/hukkin/tomli) 2.0.1
-    * [tomlkit](https://toolkit.readthedocs.io/en/master/) 0.12.1
-    * [toolz](https://toolz.readthedocs.io/en/latest/) 0.12.0
-    * [Torch](https://pytorch.org/) 2.0.1+cu118
-    * [torchaudio](https://pytorch.org/audio/main/torchaudio.html) 2.0.2+cu118
-    * [torchdata](https://pytorch.org/data/main/index.html) 0.6.1
-    * [torchsummary](https://github.com/dsp6414/torch-summary) 1.5.1
-    * [torchtext](https://pytorch.org/text/stable/index.html) 0.15.2
-    * [torchvision](https://pytorch.org/vision/stable/index.html) 0.15.2+cu118
-    * [Tornado](https://www.tornadoweb.org/en/stable/) 6.3.3
-    * [tqdm](https://tqdm.github.io/) 4.65.0
-    * [Traitlets](https://traitlets.readthedocs.io/en/stable/) 5.10.0
-    * [triton](https://github.com/openai/triton) 2.0.0
-    * [tweepy](https://github.com/tweepy/tweepy) 4.13.0
-    * [typer](https://github.com/tiangolo/typer) 0.9.0
-    * [types-PyYAML](https://github.com/python/typeshed) 6.0.12.11
-    * [types-setuptools](https://github.com/python/typeshed) 68.0.0.3
-    * [typing_extensions](https://typing-extensions.readthedocs.io/en/latest/) 4.8.0
-    * [tzdata](https://github.com/python/tzdata) 2023.3
-    * [tzlocal](https://github.com/regebro/tzlocal) 5.0.1
-    * [uc-micro-py](https://github.com/tsutsu3/uc.micro-py) 1.0.2
-    * [unattended-upgrades](https://github.com/mvo5/unattended-upgrades) 0.1
-    * [uritemplate](https://uritemplate.readthedocs.io/en/latest/) 4.1.1
-    * [urllib3](https://urllib3.readthedocs.io/en/latest/) 1.26.16
-    * [vega-datasets](https://vega.github.io/vega-datasets/) 0.9.0
-    * [vine](https://github.com/celery/vine) 5.0.0
-    * [Voluptuous](http://alecthomas.github.io/voluptuous/docs/_build/html/index.html) 0.13.1
-    * [wadllib](https://launchpad.net/wadllib) 1.3.6
-    * [wasabi](https://pypi.org/project/wasabi/) 1.1.2
-    * [wcwidth](https://github.com/jquast/wcwidth) 0.2.6
-    * [webcolors](https://webcolors.readthedocs.io/en/1.11.1/) 1.13
-    * [webencodings](https://pythonhosted.org/webencodings/) 0.5.1
-    * [websocket-client](https://websocket-client.readthedocs.io/en/latest/) 1.6.1
-    * [Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/) 2.3.6
-    * [wheel](https://wheel.readthedocs.io/en/stable/) 0.41.1
-    * [widgetsnbextension](https://packages.ubuntu.com/cs/groovy/python3-widgetsnbextension) 3.6.4
-    * [wordcloud](https://github.com/amueller/word_cloud) 1.8.2.2
-    * [wrapt](https://wrapt.readthedocs.io/en/latest/) 1.14.1
-    * [wurlitzer](https://github.com/minrk/wurlitzer) 3.0.2
-    * [xarray](https://docs.xarray.dev/en/stable/) 2022.12.0
-    * [xarray-einstats](https://einstats.python.arviz.org/en/latest/) 0.6.0
-    * [XGBoost](https://xgboost.ai/) 1.7.6
-    * [xlrd](https://xlrd.readthedocs.io/en/latest/) 2.0.1
-    * [xmltodict](https://github.com/martinblech/xmltodict) 0.13.0
-    * [xxhash](https://github.com/ifduyue/python-xxhash) 2.0.0
-    * [xyzservices](https://xyzservices.readthedocs.io/en/stable/) 2023.7.0
-    * [YaDisk](https://yadisk.readthedocs.io/ru/latest/) 1.2.14
-    * yandex-datasphere-cloudpickle 2.2.0.dev0
-    * yandex-datasphere-pyenv 1.0.0
-    * [yarl](https://yarl.aio-libs.org/en/latest/index.html) 1.9.2
-    * [yellowbrick](https://github.com/DistrictDataLabs/yellowbrick) 1.5
-    * [yfinance](https://github.com/ranaroussi/yfinance) 0.2.25
-    * [zc.lockfile](https://pypi.org/project/zc.lockfile/) 3.0.post1
-    * [zict](https://zict.readthedocs.io/en/latest/index.html) 3.0.0
-    * [zipp](https://github.com/jaraco/zipp) 3.16.2
+* [qdldl](https://github.com/osqp/qdldl-python) 0.1.7.post0
+* [qudida](https://github.com/arsenyinfo/qudida) 0.0.4
+* [referencing](https://referencing.readthedocs.io/en/stable/) 0.30.2
+* [regex](https://libraries.io/pypi/regex) 2022.10.31
+* [Requests](https://requests.readthedocs.io/en/master/) 2.27.1
+* [Requests-oauthlib](https://requests-oauthlib.readthedocs.io/en/latest/) 1.3.1
+* [Requests-unixsocket](https://github.com/msabramo/requests-unixsocket) 0.2.0
+* [requirements-parser](https://requirements-parser.readthedocs.io/en/stable/) 0.5.0
+* [responses](https://github.com/getsentry/responses) 0.23.1
+* [Rich](https://rich.readthedocs.io/en/stable/) 13.4.2
+* [rpds-py](https://github.com/crate-py/rpds) 0.10.6
+* [rpy2](https://github.com/rpy2/rpy2) 3.4.2
+* [RSA](https://stuvel.eu/software/rsa/) 4.9
+* [ruamel.yaml](https://yaml.readthedocs.io/en/latest/) 0.17.32
+* [ruamel.yaml.clib](https://github.com/ruamel/yaml.clib) 0.2.7
+* [S3Fs](https://s3fs.readthedocs.io/en/latest/) 0.5.2
+* [s3transfer](https://github.com/boto/s3transfer) 0.5.2
+* [scikit-image](https://github.com/scikit-image/scikit-image) 0.19.3
+* [scikit-learn](https://scikit-learn.org/stable/) 1.2.2
+* [Scipy](https://www.scipy.org/) 1.10.1
+* [scmrepo](https://github.com/iterative/scmrepo) 1.2.1
+* [scp](https://github.com/jbardin/scp.py) 0.13.3
+* [scs](https://www.cvxgrp.org/scs/api/python.html) 3.2.3
+* [seaborn](https://seaborn.pydata.org/) 0.12.2
+* [SecretStorage](https://secretstorage.readthedocs.io/en/latest/) 3.3.1
+* [Send2Trash](https://github.com/arsenetar/send2trash) 1.8.2
+* [serialzy](https://github.com/lambdazy/serialzy) 1.4.0
+* [setuptools](https://github.com/pypa/setuptools) 51.0.0
+* [shapely](https://shapely.readthedocs.io/en/stable/manual.html) 2.0.1
+* [shortuuid](https://github.com/skorokithakis/shortuuid) 1.0.11
+* [shtab](https://github.com/iterative/shtab) 1.6.4
+* [Six](https://six.readthedocs.io/) 1.16.0
+* [sklearn-Pandas](https://github.com/scikit-learn-contrib/sklearn-pandas) 2.2.0
+* [smart-open](https://github.com/RaRe-Technologies/smart_open) 6.3.0
+* [smmap](https://smmap.readthedocs.io/en/latest/index.html) 5.0.0
+* [sniffio](https://sniffio.readthedocs.io/en/latest/) 1.3.0
+* [snowballstemmer](https://github.com/snowballstem/snowball) 2.2.0
+* [sortedcontainers](https://github.com/grantjenks/python-sortedcontainers) 2.4.0
+* [SoundFile](https://pysoundfile.readthedocs.io/en/latest/) 0.12.1
+* [soupsieve](https://facelessuser.github.io/soupsieve/) 2.5
+* [soxr](https://python-soxr.readthedocs.io/en/stable/) 0.3.5
+* [spaCy](https://spacy.io/usage/spacy-101) 3.5.4
+* [spaCy-legacy](https://github.com/explosion/spacy-legacy) 3.0.12
+* [spaCy-loggers](https://github.com/explosion/spacy-loggers) 1.0.4
+* [Sphinx](https://sphinx-ru.readthedocs.io/ru/latest/sphinx.html) 5.0.2
+* [sphinxcontrib-applehelp](https://github.com/sphinx-doc/sphinxcontrib-applehelp) 1.0.4
+* [sphinxcontrib-devhelp](https://github.com/sphinx-doc/sphinxcontrib-devhelp) 1.0.2
+* [sphinxcontrib-htmlhelp](https://github.com/sphinx-doc/sphinxcontrib-htmlhelp) 2.0.1
+* [sphinxcontrib-jsmath](https://github.com/sphinx-doc/sphinxcontrib-jsmath) 1.0.1
+* [sphinxcontrib-qthelp](https://github.com/sphinx-doc/sphinxcontrib-qthelp) 1.0.3
+* [sphinxcontrib-serializinghtml](https://github.com/sphinx-doc/sphinxcontrib-serializinghtml) 1.1.5
+* [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy) 2.0.19
+* [sqlparse](https://sqlparse.readthedocs.io/en/latest/) 0.4.4
+* [sqltrie](https://github.com/iterative/sqltrie) 0.7.0
+* [srsly](https://libraries.io/pypi/srsly) 2.4.7
+* [statsmodels](https://github.com/statsmodels/statsmodels) 0.13.5
+* stt-metrics 0.12
+* [sympy](https://docs.sympy.org/latest/index.html) 1.11.1
+* [tables](https://github.com/PyTables/PyTables) 3.8.0
+* [tabulate](https://github.com/astanin/python-tabulate) 0.9.0
+* [tblib](https://github.com/ionelmc/python-tblib) 2.0.0
+* [tenacity](https://tenacity.readthedocs.io/en/latest/) 8.2.2
+* [tensorboard](https://github.com/tensorflow/tensorboard) 2.12.3
+* [tensorboard-data-server](https://github.com/tensorflow/tensorboard) 0.7.1
+* [TensorFlow](https://www.tensorflow.org/) 2.12.0
+* [tensorflow-datasets](https://github.com/tensorflow/datasets) 4.9.2
+* [tensorflow-estimator](https://www.tensorflow.org/guide/estimator) 2.12.0
+* tensorflow-gcs-config 2.12.0
+* [tensorflow-hub](https://github.com/tensorflow/hub) 0.14.0
+* [tensorflow-io-gcs-filesystem](https://github.com/tensorflow/io) 0.32.0
+* [tensorflow-metadata](https://github.com/tensorflow/metadata) 1.13.1
+* [tensorflow-probability](https://github.com/tensorflow/probability) 0.20.1
+* [tensorstore](https://github.com/google/tensorstore) 0.1.40
+* [termcolor](https://pypi.org/project/termcolor/) 2.3.0
+* [terminado](https://libraries.io/pypi/terminado) 0.17.1
+* [text-unidecode](https://github.com/kmike/text-unidecode) 1.3
+* [textblob](https://textblob.readthedocs.io/en/dev/) 0.17.1
+* [tf-slim](https://github.com/google-research/tf-slim) 1.1.0
+* [thinc](https://thinc.ai/docs/) 8.1.10
+* [threadpoolctl](https://github.com/joblib/threadpoolctl) 3.2.0
+* [tifffile](https://github.com/cgohlke/tifffile) 2023.7.18
+* [tinycss2](https://doc.courtbouillon.org/tinycss2/latest/) 1.2.1
+* [toml](https://toml.io/en/) 0.10.2
+* [tomli](https://github.com/hukkin/tomli) 2.0.1
+* [tomlkit](https://toolkit.readthedocs.io/en/master/) 0.12.1
+* [toolz](https://toolz.readthedocs.io/en/latest/) 0.12.0
+* [Torch](https://pytorch.org/) 2.0.1+cu118
+* [torchaudio](https://pytorch.org/audio/main/torchaudio.html) 2.0.2+cu118
+* [torchdata](https://pytorch.org/data/main/index.html) 0.6.1
+* [torchsummary](https://github.com/dsp6414/torch-summary) 1.5.1
+* [torchtext](https://pytorch.org/text/stable/index.html) 0.15.2
+* [torchvision](https://pytorch.org/vision/stable/index.html) 0.15.2+cu118
+* [Tornado](https://www.tornadoweb.org/en/stable/) 6.3.3
+* [tqdm](https://tqdm.github.io/) 4.65.0
+* [Traitlets](https://traitlets.readthedocs.io/en/stable/) 5.11.2
+* [triton](https://github.com/openai/triton) 2.0.0
+* [tweepy](https://github.com/tweepy/tweepy) 4.13.0
+* [typer](https://github.com/tiangolo/typer) 0.9.0
+* [types-PyYAML](https://github.com/python/typeshed) 6.0.12.11
+* [types-setuptools](https://github.com/python/typeshed) 68.0.0.3
+* [typing_extensions](https://typing-extensions.readthedocs.io/en/latest/) 4.8.0
+* [tzdata](https://github.com/python/tzdata) 2023.3
+* [tzlocal](https://github.com/regebro/tzlocal) 5.0.1
+* [uc-micro-py](https://github.com/tsutsu3/uc.micro-py) 1.0.2
+* [unattended-upgrades](https://github.com/mvo5/unattended-upgrades) 0.1
+* [uritemplate](https://uritemplate.readthedocs.io/en/latest/) 4.1.1
+* [urllib3](https://urllib3.readthedocs.io/en/latest/) 2.0.7
+* [vega-datasets](https://vega.github.io/vega-datasets/) 0.9.0
+* [vine](https://github.com/celery/vine) 5.0.0
+* [Voluptuous](http://alecthomas.github.io/voluptuous/docs/_build/html/index.html) 0.13.1
+* [wadllib](https://launchpad.net/wadllib) 1.3.6
+* [wasabi](https://pypi.org/project/wasabi/) 1.1.2
+* [wcwidth](https://github.com/jquast/wcwidth) 0.2.8
+* [webcolors](https://webcolors.readthedocs.io/en/1.11.1/) 1.13
+* [webencodings](https://pythonhosted.org/webencodings/) 0.5.1
+* [websocket-client](https://websocket-client.readthedocs.io/en/latest/) 1.6.1
+* [Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/) 2.3.6
+* [wheel](https://wheel.readthedocs.io/en/stable/) 0.41.1
+* [widgetsnbextension](https://packages.ubuntu.com/cs/groovy/python3-widgetsnbextension) 3.6.4
+* [wordcloud](https://github.com/amueller/word_cloud) 1.8.2.2
+* [wrapt](https://wrapt.readthedocs.io/en/latest/) 1.14.1
+* [wurlitzer](https://github.com/minrk/wurlitzer) 3.0.2
+* [xarray](https://docs.xarray.dev/en/stable/) 2022.12.0
+* [xarray-einstats](https://einstats.python.arviz.org/en/latest/) 0.6.0
+* [XGBoost](https://xgboost.ai/) 1.7.6
+* [xlrd](https://xlrd.readthedocs.io/en/latest/) 2.0.1
+* [xmltodict](https://github.com/martinblech/xmltodict) 0.13.0
+* [xxhash](https://github.com/ifduyue/python-xxhash) 2.0.0
+* [xyzservices](https://xyzservices.readthedocs.io/en/stable/) 2023.7.0
+* [YaDisk](https://yadisk.readthedocs.io/ru/latest/) 1.2.14
+* yandex-datasphere-cloudpickle 2.2.0.dev0
+* yandex-datasphere-pyenv 1.0.0
+* [yarl](https://yarl.aio-libs.org/en/latest/index.html) 1.9.2
+* [yellowbrick](https://github.com/DistrictDataLabs/yellowbrick) 1.5
+* [yfinance](https://github.com/ranaroussi/yfinance) 0.2.25
+* [zc.lockfile](https://pypi.org/project/zc.lockfile/) 3.0.post1
+* [zict](https://zict.readthedocs.io/en/latest/index.html) 3.0.0
+* [zipp](https://github.com/jaraco/zipp) 3.16.2
 
-  {% endcut %}
+{% endcut %}
 
 ### DS Default (Python 3.8) {#python-3-8}
 
-  {% cut "A-E" %}
+{% cut "A-E" %}
 
-    * [absl-py](https://abseil.io/docs/python/quickstart) 0.12.0
-    * [aiohttp](https://github.com/aio-libs/aiohttp) 3.8.5
-    * [aiosignal](https://github.com/aio-libs/aiosignal) 1.3.1
-    * [alembic](https://alembic.sqlalchemy.org/en/latest/) 1.11.2
-    * [antlr4-python3-runtime](https://github.com/parrt/antlr4-python3) 4.8
-    * [appdirs](https://github.com/ActiveState/appdirs) 1.4.4
-    * [argon2-CFFI](https://argon2-CFFI.readthedocs.io/en/stable/) 23.1.0
-    * [argon2-CFFI-bindings](https://github.com/hynek/argon2-cffi-bindings) 21.2.0
-    * [astunparse](https://github.com/simonpercivall/astunparse) 1.6.3
-    * [async-timeout](https://gitlab.apertis.org/pkg/python-async-timeout) 4.0.3
-    * [atpublic](https://public.readthedocs.io/en/stable/) 2.3
-    * [attrs](https://www.attrs.org/en/stable/) 23.1.0
-    * [audioread](https://github.com/beetbox/audioread) 2.1.9
-    * [autograd](https://github.com/HIPS/autograd) 1.3
-    * [aws-sam-translator](https://github.com/aws/serverless-application-model) 1.42.0
-    * [aws-xray-sdk](https://docs.aws.amazon.com/xray-sdk-for-python/latest/reference/aws_xray_sdk.html) 2.9.0
-    * [backcall](https://backcall.readthedocs.io/en/latest/) 0.2.0
-    * [bcrypt](https://github.com/pyca/bcrypt) 3.2.0
-    * [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) 4.12.2
-    * [bleach](https://bleach.readthedocs.io/en/latest/) 6.0.0
-    * [blinker](https://blinker.readthedocs.io/en/stable/) 1.6.2
-    * [blis](https://github.com/explosion/Cython-blis) 0.7.5
-    * [boto](https://github.com/boto/boto) 2.49.0
-    * [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) 1.12.31
-    * [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) 1.15.49
-    * [Bottleneck](https://bottleneck.readthedocs.io/en/latest/) 1.3.2
-    * [cachetools](https://github.com/tkem/cachetools) 4.2.4
-    * [catalogue](https://github.com/explosion/catalogue) 2.0.6
-    * [CatBoost](https://catboost.ai/docs/concepts/about.html) 1.2
-    * [certifi](https://github.com/certifi/python-certifi) 2023.7.22
-    * [CFFI](https://cffi.readthedocs.io/en/latest/) 1.15.1
-    * [cfn-lint](https://www.npmjs.com/package/cfn-lint) 0.33.2
-    * [chardet](https://github.com/chardet/chardet) 3.0.4
-    * [charset-normalizer](https://github.com/Ousret/charset_normalizer) 3.2.0
-    * [clang](https://libclang.readthedocs.io/en/latest/) 5.0
-    * [Click](https://click.readthedocs.io/en/latest/) 8.1.6
-    * [cloud-ml](https://github.com/XiaoMi/cloud-ml-sdk) 0.0.1
-    * [colorama](https://github.com/tartley/colorama) 0.4.4
-    * [commonmark](https://commonmark.org/) 0.9.1
-    * [configobj](https://github.com/DiffSK/configobj) 5.0.6
-    * [configparser](https://github.com/jaraco/configparser) 4.0.2
-    * [contourpy](https://contourpy.readthedocs.io/en/stable/) 1.1.1
-    * [cryptography](https://cryptography.io/en/latest/) 41.0.4
-    * [cycler](https://[Matplotlib](https://matplotlib.org/).org/cycler/) 0.11.0
-    * [cymem](https://github.com/explosion/cymem) 2.0.6
-    * [Cython](https://cython.readthedocs.io/en/latest/src/quickstart/install.html) 0.29.26
-    * [Dask](https://dask.org/) 2.9.0
-    * [databricks-cli](https://docs.databricks.com/en/dev-tools/cli/index.html) 0.17.7
-    * [dataclasses](https://github.com/ericvsmith/dataclasses) 0.6
-    * [DAWG-Python](https://github.com/pytries/DAWG-Python) 0.7.2
-    * [debugpy](https://github.com/microsoft/debugpy) 1.5.1
-    * [decorator](https://github.com/micheles/decorator) 5.1.1
-    * [defusedxml](https://github.com/tiran/defusedxml) 0.7.1
-    * [dill](https://github.com/uqfoundation/dill) 0.3.4
-    * [distro](https://github.com/nir0s/distro/tree/python2.6-support) 1.6.0
-    * [docker](https://docker-py.readthedocs.io/en/stable/) 6.1.3
-    * [docopt](https://github.com/docopt/docopt) 0.6.2
-    * [docutils](https://github.com/docutils) 0.15.2
-    * [dpath](https://github.com/akesterson/dpath-python) 2.0.5
-    * [dvc](https://github.com/iterative/dvc) 1.4.0
-    * [ecdsa](https://github.com/tlsfuzzer/python-ecdsa) 0.17.0
-    * [entrypoints](https://entrypoints.readthedocs.io/en/latest/) 0.4
+* absl-py 0.12.0
+* aiohttp 3.8.5
+* aiosignal 1.3.1
+* alembic 1.11.2
+* antlr4-python3-runtime 4.8
+* appdirs 1.4.4
+* argon2-cffi 23.1.0
+* argon2-cffi-bindings 21.2.0
+* astunparse 1.6.3
+* async-timeout 4.0.3
+* atpublic 2.3
+* attrs 23.1.0
+* audioread 2.1.9
+* autograd 1.3
+* aws-sam-translator 1.42.0
+* aws-xray-sdk 2.9.0
+* backcall 0.2.0
+* bcrypt 3.2.0
+* beautifulsoup4 4.12.2
+* bleach 6.1.0
+* blinker 1.6.2
+* blis 0.7.5
+* boto 2.49.0
+* boto3 1.12.31
+* botocore 1.15.49
+* Bottleneck 1.3.2
+* cachetools 4.2.4
+* catalogue 2.0.6
+* catboost 1.2
+* certifi 2023.7.22
+* cffi 1.16.0
+* cfn-lint 0.33.2
+* chardet 3.0.4
+* charset-normalizer 3.3.0
+* clang 5.0
+* click 8.1.6
+* cloud-ml 0.0.1
+* colorama 0.4.4
+* commonmark 0.9.1
+* configobj 5.0.6
+* configparser 4.0.2
+* contourpy 1.1.1
+* cryptography 41.0.4
+* cycler 0.12.1
+* cymem 2.0.6
+* Cython 3.0.4
+* dask 2.9.0
+* databricks-cli 0.17.7
+* dataclasses 0.6
+* DAWG-Python 0.7.2
+* debugpy 1.5.1
+* decorator 5.1.1
+* defusedxml 0.7.1
+* dill 0.3.4
+* distro 1.6.0
+* docker 6.1.3
+* docopt 0.6.2
+* docutils 0.15.2
+* dpath 2.0.5
+* dvc 1.4.0
+* ecdsa 0.17.0
+* entrypoints 0.4
 
-  {% endcut %}
+{% endcut %}
 
-  {% cut "F-L" %}
+{% cut "F-L" %}
 
-    * [fairseq](https://github.com/pytorch/fairseq) 0.10.2
-    * [fastai](https://docs.fast.ai/) 1.0.60
-    * [fastjsonschema](https://horejsek.github.io/python-fastjsonschema/#) 2.18.0
-    * [fastprogress](https://github.com/fastai/fastprogress) 1.0.0
-    * [filelock](https://py-filelock.readthedocs.io/en/latest/index.html) 3.4.2
-    * [Flask](https://github.com/pallets/flask) 2.3.2
-    * [flatbuffers](https://flatbuffers.dev/flatbuffers_guide_use_python.html) 1.12
-    * [flatten-json](https://github.com/amirziai/flatten) 0.1.7
-    * [flufl.lock](https://flufllock.readthedocs.io/en/stable/) 3.2
-    * [fonttools](https://github.com/fonttools/fonttools) 4.42.1
-    * [frozenlist](https://github.com/aio-libs/frozenlist) 1.4.0
-    * [FSSPEC](https://filesystem-spec.readthedocs.io/en/latest/?badge=latest) 2021.11.1
-    * [funcy](https://funcy.readthedocs.io/en/stable/overview.html) 1.17
-    * [future](http://python-future.org/quickstart.html) 0.18.2
-    * [gast](https://github.com/serge-sans-paille/gast) 0.4.0
-    * [Gensim](https://radimrehurek.com/gensim/) 3.8.1
-    * [gitdb](https://gitdb.readthedocs.io/en/stable/intro.html) 4.0.10
-    * [GitPython](https://gitpython.readthedocs.io/en/stable/intro.html) 3.1.32
-    * [google-api-core](https://github.com/googleapis/python-api-core) 1.31.5
-    * [google-api-python-client](https://googleapis.github.io/google-api-python-client/) 1.8.0
-    * [google-auth](https://googleapis.dev/python/google-auth/latest/index.html) 1.35.0
-    * [google-auth-httplib2](https://github.com/googleapis/google-auth-library-python-httplib2) 0.1.0
-    * [google-auth-oauthlib](https://github.com/googleapis/google-auth-library-python-oauthlib) 0.4.6
-    * [google-pasta](https://github.com/google/pasta) 0.2.0
-    * [googleapis-common-protos](https://github.com/googleapis/api-common-protos) 1.60.0
-    * [grandalf](https://github.com/bdcht/grandalf) 0.6
-    * [Graphviz](https://graphviz.readthedocs.io/en/stable/) 0.20.1
-    * [greenlet](https://greenlet.readthedocs.io/en/latest/) 2.0.2
-    * [gRPCio](https://grpc.io/docs/languages/python/quickstart/) 1.58.0
-    * [gunicorn](https://gunicorn.org/#docs) 20.1.0
-    * [h5py](https://docs.h5py.org/en/stable/build.html) 3.1.0
-    * [httplib2](https://github.com/httplib2/httplib2) 0.20.2
-    * [huggingface-hub](https://github.com/huggingface/huggingface_hub) 0.2.1
-    * [hydra-core](https://hydra.cc/docs/intro) 1.1.1
-    * [idna](https://github.com/kjd/idna) 2.8
-    * [importlib-metadata](https://importlib-metadata.readthedocs.io/en/latest/) 6.8.0
-    * [importlib-resources](https://github.com/python/importlib_resources) 6.1.0
-    * [ipykernel](https://github.com/ipython/ipykernel) 5.4.2
-    * [ipython](https://ipython.org/install.html) 7.19.0
-    * [ipython-genutils](https://github.com/ipython/ipython_genutils) 0.2.0
-    * [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/user_guide.html) 8.0.7
-    * [itsdangerous](https://github.com/pallets/itsdangerous) 2.1.2
-    * [jax](https://github.com/google/jax) 0.1.77
-    * [jaxlib](https://jax.readthedocs.io/en/latest/) 0.1.64+cuda112
-    * [jedi](https://jedi.readthedocs.io/en/latest/docs/usage.html) 0.17.2
-    * [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/intro) 3.1.2
-    * [jmespath](https://github.com/jmespath/jmespath.py) 0.10.0
-    * [joblib](https://joblib.readthedocs.io/en/latest/installing.html) 1.3.1
-    * [jsondiff](https://github.com/xlwings/jsondiff) 1.1.2
-    * [jsonpatch](https://github.com/stefankoegl/python-json-patch) 1.32
-    * [jsonpath-ng](https://github.com/h2non/jsonpath-ng) 1.5.3
-    * [jsonpointer](https://github.com/stefankoegl/python-json-pointer) 2.2
-    * [jsonschema](https://python-jsonschema.readthedocs.io/en/stable/) 4.19.1
-    * [jsonschema-specifications](https://github.com/python-jsonschema/jsonschema-specifications) 2023.7.1
-    * [junit-xml](https://github.com/kyrus/python-junit-xml) 1.9
-    * [jupyter-client](https://github.com/jupyter/jupyter_client) 6.1.12
-    * [jupyter_core](https://jupyter-core.readthedocs.io/en/stable/api/jupyter_core.html) 5.3.1
-    * [jupyterlab-Pygments](https://github.com/jupyterlab/jupyterlab_pygments) 0.2.2
-    * [jupyterlab-widgets](https://ipywidgets.readthedocs.io/en/latest/user_install.html) 3.0.8
-    * [kaggle](https://github.com/Kaggle/kaggle-api) 1.5.8
-    * [Keras](https://keras.io/) 2.6.0
-    * [Keras-Preprocessing](https://github.com/keras-team/keras-preprocessing) 1.1.2
-    * [kiwisolver](https://kiwisolver.readthedocs.io/en/latest/basis/installation.html) 1.4.5
-    * [langcodes](https://langcodes-hickford.readthedocs.io/en/sphinx/index.html) 3.3.0
-    * [librosa](https://librosa.org/doc/latest/index.html) 0.8.0
-    * [LightGBM](https://lightgbm.readthedocs.io/en/latest/) 2.3.1
-    * [llvmlite](https://llvmlite.readthedocs.io/en/latest/) 0.34.0
+* fairseq 0.10.2
+* fastai 1.0.60
+* fastjsonschema 2.18.1
+* fastprogress 1.0.0
+* filelock 3.4.2
+* Flask 2.3.2
+* flatbuffers 1.12
+* flatten-json 0.1.7
+* flufl.lock 3.2
+* fonttools 4.43.1
+* frozenlist 1.4.0
+* fsspec 2021.11.1
+* funcy 1.17
+* future 0.18.2
+* gast 0.4.0
+* gensim 3.8.1
+* gitdb 4.0.10
+* GitPython 3.1.32
+* google-api-core 1.31.5
+* google-api-python-client 1.8.0
+* google-auth 1.35.0
+* google-auth-httplib2 0.1.0
+* google-auth-oauthlib 0.4.6
+* google-pasta 0.2.0
+* googleapis-common-protos 1.60.0
+* grandalf 0.6
+* graphviz 0.20.1
+* greenlet 2.0.2
+* grpcio 1.58.0
+* gunicorn 20.1.0
+* h5py 3.1.0
+* httplib2 0.20.2
+* huggingface-hub 0.2.1
+* hydra-core 1.1.1
+* idna 3.4
+* importlib-metadata 6.8.0
+* importlib-resources 6.1.0
+* ipykernel 5.4.2
+* ipython 7.19.0
+* ipython-genutils 0.2.0
+* ipywidgets 8.0.7
+* itsdangerous 2.1.2
+* jax 0.1.77
+* jaxlib 0.1.64+cuda112
+* jedi 0.17.2
+* Jinja2 3.1.2
+* jmespath 0.10.0
+* joblib 1.3.1
+* jsondiff 1.1.2
+* jsonpatch 1.32
+* jsonpath-ng 1.5.3
+* jsonpointer 2.2
+* jsonschema 4.19.1
+* jsonschema-specifications 2023.7.1
+* junit-xml 1.9
+* jupyter_client 8.4.0
+* jupyter_core 5.4.0
+* jupyterlab-pygments 0.2.2
+* jupyterlab-widgets 3.0.8
+* kaggle 1.5.8
+* keras 2.6.0
+* Keras-Preprocessing 1.1.2
+* kiwisolver 1.4.5
+* langcodes 3.3.0
+* librosa 0.8.0
+* lightgbm 2.3.1
+* llvmlite 0.34.0
 
-  {% endcut %}
+{% endcut %}
 
-  {% cut "M-P" %}
+{% cut "M-P" %}
 
-    * [Mako](https://www.makotemplates.org/) 1.2.4
-    * [Markdown](https://python-markdown.github.io/#Features) 3.4.4
-    * [MarkupSafe](https://markupsafe.palletsprojects.com/en/1.1.x/) 2.1.3
-    * [Matplotlib](https://matplotlib.org/) 3.1.3
-    * [Matplotlib-inline](https://github.com/ipython/matplotlib-inline) 0.1.3
-    * [midi2audio](https://github.com/bzamecnik/midi2audio) 0.1.1
-    * [mistune](https://mistune.readthedocs.io/en/latest/) 3.0.1
-    * [ml-kernel](http://elrepo.org/tiki/kernel-ml) 0.0.1
-    * [mlflow](https://github.com/mlflow/mlflow) 2.5.0
-    * [Mock](https://mock.readthedocs.io/en/latest/) 4.0.3
-    * [more-itertools](https://more-itertools.readthedocs.io/en/latest/) 8.12.0
-    * [Moto](https://github.com/spulec/moto) 1.3.14
-    * [multidict](https://multidict.aio-libs.org/en/stable/index.html) 6.0.4
-    * [murmurhash](https://github.com/hajimes/mmh3) 1.0.6
-    * [music21](https://music21.readthedocs.io/en/latest/) 6.3.0
-    * [nanotime](https://github.com/jbenet/nanotime) 0.5.2
-    * [nbclient](https://nbclient.readthedocs.io/en/latest/) 0.8.0
-    * [nbconvert](https://nbconvert.readthedocs.io/en/latest/) 7.8.0
-    * [nbformat](https://nbformat.readthedocs.io/en/latest/) 5.9.2
-    * [nest-asyncio](https://github.com/erdewit/nest_asyncio) 1.5.4
-    * [NetworkX](https://networkx.org/) 2.4
-    * [NLTK](https://www.nltk.org/) 3.4.5
-    * [notebook](https://jupyter-notebook.readthedocs.io/en/stable/) 6.1.5
-    * [numba](http://numba.pydata.org/) 0.51.2
-    * [NumExpr](https://numexpr.readthedocs.io/en/latest/) 2.8.1
-    * [NumPy](https://numpy.org/) 1.19.2
-    * [nvidia-ml-py3](https://snyk.io/advisor/python/nvidia-ml-py3) 7.352.0
-    * [oauth2client](https://oauth2client.readthedocs.io/en/latest/) 4.1.3
-    * [oauthlib](https://github.com/oauthlib/oauthlib) 3.2.2
-    * [OmegaConf](https://omegaconf.readthedocs.io/en/2.0_branch/) 2.1.1
-    * [opt-einsum](https://optimized-einsum.readthedocs.io/en/stable/) 3.3.0
-    * [packaging](https://packaging.pypa.io/en/latest/) 23.1
-    * [Pandas](https://pandas.pydata.org/) 0.25.3
-    * [pandocfilters](https://github.com/jgm/pandocfilters) 1.5.0
-    * [Paramiko](http://docs.paramiko.org/en/stable/) 2.9.1
-    * [parso](https://parso.readthedocs.io/en/latest/) 0.7.1
-    * [pathspec](https://python-path-specification.readthedocs.io/en/latest/) 0.9.0
-    * [pathy](https://github.com/abarnert/pathy) 0.6.1
-    * [Pexpect](https://pexpect.readthedocs.io/en/latest/) 4.8.0
-    * [pickleshare](https://github.com/pickleshare/pickleshare) 0.7.5
-    * [Pillow](https://pillow.readthedocs.io/en/stable/) 10.0.1
-    * [pip](https://pip.pypa.io/en/stable/) 21.3.1
-    * [pkgutil_resolve_name](https://docs.python.org/3.8/library/pkgutil.html#pkgutil.resolve_name) 1.3.10
-    * [platformdirs](https://github.com/platformdirs/platformdirs) 3.10.0
-    * [plotly](https://plotly.com/python/) 5.15.0
-    * [ply](https://ply.readthedocs.io/en/latest/) 3.11
-    * [Pooch](https://www.fatiando.org/pooch/latest/) 1.5.2
-    * [portalocker](https://portalocker.readthedocs.io/en/latest/) 2.3.2
-    * [preshed](https://github.com/explosion/preshed) 3.0.6
-    * [prometheus-client](https://github.com/prometheus/client_python) 0.17.1
-    * [promise](https://github.com/plesner/python-promise) 2.3
-    * [prompt-toolkit](https://python-prompt-toolkit.readthedocs.io/en/stable/) 3.0.39
-    * [protobuf](https://developers.google.com/protocol-buffers/docs/pythontutorial) 4.24.0
-    * [psutil](https://psutil.readthedocs.io/en/latest/) 5.7.3
-    * [Ptyprocess](https://ptyprocess.readthedocs.io/en/latest/) 0.7.0
-    * [PyArrow](https://arrow.apache.org/docs/python/) 0.17.1
-    * [pyasn1](https://github.com/etingof/pyasn1) 0.4.8
-    * [pyasn1-modules](https://github.com/etingof/pyasn1-modules) 0.2.8
-    * [pybase64](https://pybase64.readthedocs.io/en/stable/) 1.1.1
-    * [pycparser](https://github.com/eliben/pycparser) 2.21
-    * [PycURL](http://pycurl.io/docs/latest/index.html) 7.43.0.5
-    * [pydantic](https://docs.pydantic.dev/latest/) 1.8.2
-    * [pyDeprecate](https://borda.github.io/pyDeprecate/) 0.3.1
-    * [pydot](https://github.com/pydot/pydot) 1.4.2
-    * [Pygments](https://pygments.org/) 2.16.1
-    * [PyGObject](https://pygobject.readthedocs.io/en/latest/) 3.26.1
-    * [pygtrie](https://pygtrie.readthedocs.io/en/latest/) 2.3.2
-    * [PyJWT](https://pyjwt.readthedocs.io/en/stable/) 2.8.0
-    * [pymorphy2](https://pymorphy2.readthedocs.io/en/stable/) 0.9.1
-    * [pymorphy2-dicts-ru](https://github.com/kmike/pymorphy2-dicts/) 2.4.417127.4579844
-    * [Pympler](https://pympler.readthedocs.io/en/latest/) 1.0.1
-    * [PyNaCl](https://pynacl.readthedocs.io/en/latest/) 1.4.0
-    * [pynvml](https://github.com/gpuopenanalytics/pynvml) 11.5.0
-    * [PyParsing](https://pyparsing-docs.readthedocs.io/en/latest/) 2.4.7
-    * [Pyrsistent](https://pyrsistent.readthedocs.io/en/latest/) 0.18.0
-    * [python-apt](https://github.com/ParrotSec/python-apt) 1.6.5+ubuntu0.7
-    * [python-dateutil](https://dateutil.readthedocs.io/en/stable/) 2.8.2
-    * [python-jose](https://python-jose.readthedocs.io/en/latest/) 3.3.0
-    * [python-slugify](https://github.com/un33k/python-slugify) 5.0.2
-    * [pytorch-lightning](https://github.com/Lightning-AI/lightning) 1.4.9
-    * [pytorch-lightning-bolts](https://github.com/Lightning-Universe/lightning-bolts) 0.3.2
-    * [pytz](https://github.com/stub42/pytz) 2021.3
-    * [PyYAML](https://pyyaml.org/wiki/PyYAMLDocumentation) 6.0.1
-    * [PyZMQ](https://pyzmq.readthedocs.io/en/latest/) 25.1.1
+* Mako 1.2.4
+* Markdown 3.4.4
+* MarkupSafe 2.1.3
+* matplotlib 3.1.3
+* matplotlib-inline 0.1.3
+* midi2audio 0.1.1
+* mistune 3.0.2
+* ml-kernel 0.0.1
+* mlflow 2.5.0
+* mock 4.0.3
+* more-itertools 8.12.0
+* moto 1.3.14
+* multidict 6.0.4
+* murmurhash 1.0.6
+* music21 6.3.0
+* nanotime 0.5.2
+* nbclient 0.8.0
+* nbconvert 7.9.2
+* nbformat 5.9.2
+* nest-asyncio 1.5.4
+* networkx 2.4
+* nltk 3.4.5
+* notebook 6.1.5
+* numba 0.51.2
+* numexpr 2.8.1
+* numpy 1.19.2
+* nvidia-ml-py3 7.352.0
+* oauth2client 4.1.3
+* oauthlib 3.2.2
+* omegaconf 2.1.1
+* opt-einsum 3.3.0
+* packaging 23.2
+* pandas 0.25.3
+* pandocfilters 1.5.0
+* paramiko 2.9.1
+* parso 0.7.1
+* pathspec 0.9.0
+* pathy 0.6.1
+* pexpect 4.8.0
+* pickleshare 0.7.5
+* Pillow 10.1.0
+* pip 21.3.1
+* pkgutil_resolve_name 1.3.10
+* platformdirs 3.11.0
+* plotly 5.15.0
+* ply 3.11
+* pooch 1.5.2
+* portalocker 2.3.2
+* preshed 3.0.6
+* prometheus-client 0.17.1
+* promise 2.3
+* prompt-toolkit 3.0.39
+* protobuf 4.24.0
+* psutil 5.7.3
+* ptyprocess 0.7.0
+* pyarrow 0.17.1
+* pyasn1 0.4.8
+* pyasn1-modules 0.2.8
+* pybase64 1.1.1
+* pycparser 2.21
+* pycurl 7.43.0.5
+* pydantic 1.8.2
+* pyDeprecate 0.3.1
+* pydot 1.4.2
+* Pygments 2.16.1
+* PyGObject 3.26.1
+* pygtrie 2.3.2
+* PyJWT 2.8.0
+* pymorphy2 0.9.1
+* pymorphy2-dicts-ru 2.4.417127.4579844
+* Pympler 1.0.1
+* PyNaCl 1.4.0
+* pynvml 11.5.0
+* pyparsing 2.4.7
+* pyrsistent 0.18.0
+* python-apt 1.6.5+ubuntu0.7
+* python-dateutil 2.8.2
+* python-jose 3.3.0
+* python-slugify 5.0.2
+* pytorch-lightning 1.4.9
+* pytorch-lightning-bolts 0.3.2
+* pytz 2021.3
+* PyYAML 6.0.1
+* pyzmq 25.1.1
 
-  {% endcut %}
+{% endcut %}
 
-  {% cut "R-Z" %}
+{% cut "R-Z" %}
 
-    * [querystring-parser](https://github.com/bernii/querystring-parser) 1.2.4
-    * [referencing](https://referencing.readthedocs.io/en/stable/) 0.30.2
-    * [regex](https://libraries.io/pypi/regex) 2021.11.10
-    * [Requests](https://requests.readthedocs.io/en/master/) 2.22.0
-    * [Requests-oauthlib](https://requests-oauthlib.readthedocs.io/en/latest/) 1.3.0
-    * [resampy](https://resampy.readthedocs.io/en/stable/) 0.2.2
-    * [responses](https://github.com/getsentry/responses) 0.10.15
-    * [retrying](https://github.com/rholder/retrying) 1.3.3
-    * [Rich](https://rich.readthedocs.io/en/stable/) 10.16.1
-    * [rpds-py](https://github.com/crate-py/rpds) 0.10.3
-    * [RSA](https://stuvel.eu/software/rsa/) 4.8
-    * [ruamel.yaml](https://yaml.readthedocs.io/en/latest/) 0.17.19
-    * [ruamel.yaml.clib](https://github.com/ruamel/yaml.clib) 0.2.6
-    * [S3Fs](https://s3fs.readthedocs.io/en/latest/) 0.4.1
-    * [s3transfer](https://github.com/boto/s3transfer) 0.3.7
-    * [sacrebleu](https://github.com/mjpost/sacrebleu) 2.0.0
-    * [sacremoses](https://github.com/alvations/sacremoses) 0.0.46
-    * [scikit-learn](https://scikit-learn.org/stable/) 1.3.0
-    * [Scipy](https://www.scipy.org/) 1.10.1
-    * [scp](https://github.com/jbardin/scp.py) 0.13.2
-    * [Send2Trash](https://github.com/arsenetar/send2trash) 1.8.2
-    * [serialzy](https://github.com/lambdazy/serialzy) 1.3.0
-    * [setuptools](https://github.com/pypa/setuptools) 51.0.0
-    * [shortuuid](https://github.com/skorokithakis/shortuuid) 1.0.8
-    * [shtab](https://github.com/iterative/shtab) 1.5.2
-    * [Six](https://six.readthedocs.io/) 1.16.0
-    * [slugify](https://github.com/zacharyvoase/slugify) 0.0.1
-    * [smart-open](https://github.com/RaRe-Technologies/smart_open) 5.2.1
-    * [smmap](https://smmap.readthedocs.io/en/latest/index.html) 5.0.0
-    * [sounddevice](https://python-sounddevice.readthedocs.io/en/0.4.0/) 0.3.15
-    * [SoundFile](https://pysoundfile.readthedocs.io/en/latest/) 0.10.3.post1
-    * [soupsieve](https://facelessuser.github.io/soupsieve/) 2.5
-    * [spaCy](https://spacy.io/usage/spacy-101) 3.2.1
-    * [spaCy-legacy](https://github.com/explosion/spacy-legacy) 3.0.8
-    * [spaCy-loggers](https://github.com/explosion/spacy-loggers) 1.0.1
-    * [SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy) 2.0.19
-    * [sqlparse](https://sqlparse.readthedocs.io/en/latest/) 0.4.4
-    * [srsly](https://libraries.io/pypi/srsly) 2.4.2
-    * [sshpubkeys](https://github.com/ojarva/python-sshpubkeys) 3.3.1
-    * stt-metrics 0.12
-    * [tabulate](https://github.com/astanin/python-tabulate) 0.9.0
-    * [tenacity](https://tenacity.readthedocs.io/en/latest/) 8.2.2
-    * [tensorboard](https://github.com/tensorflow/tensorboard) 2.6.0
-    * [tensorboard-data-server](https://github.com/tensorflow/tensorboard) 0.6.1
-    * [tensorboard-plugin-wit](https://github.com/conda-forge/tensorboard-plugin-wit-feedstock) 1.8.0
-    * [tensorboardX](https://github.com/lanpa/tensorboardX) 2.4
-    * [TensorFlow](https://www.tensorflow.org/) 2.6.0
-    * [tensorflow-datasets](https://github.com/tensorflow/datasets) 2.1.0
-    * [tensorflow-estimator](https://www.tensorflow.org/guide/estimator) 2.7.0
-    * [tensorflow-metadata](https://github.com/tensorflow/metadata) 1.5.0
-    * [termcolor](https://pypi.org/project/termcolor/) 1.1.0
-    * [terminado](https://libraries.io/pypi/terminado) 0.17.1
-    * [testpath](https://testpath.readthedocs.io/en/latest/) 0.5.0
-    * [text-unidecode](https://github.com/kmike/text-unidecode) 1.3
-    * [thinc](https://thinc.ai/docs/) 8.0.13
-    * [threadpoolctl](https://github.com/joblib/threadpoolctl) 3.2.0
-    * [tinycss2](https://doc.courtbouillon.org/tinycss2/latest/) 1.2.1
-    * [Tokenizers](https://huggingface.co/docs/tokenizers/python/latest/) 0.10.3
-    * [toml](https://toml.io/en/) 0.10.2
-    * [Torch](https://pytorch.org/) 1.9.1+cu111
-    * [torchaudio](https://pytorch.org/audio/main/torchaudio.html) 0.9.1
-    * [torchmetrics](https://torchmetrics.readthedocs.io/en/stable/index.html) 0.6.2
-    * [torchvision](https://pytorch.org/vision/stable/index.html) 0.10.1+cu111
-    * [Tornado](https://www.tornadoweb.org/en/stable/) 6.3.3
-    * [tqdm](https://tqdm.github.io/) 4.50.0
-    * [Traitlets](https://traitlets.readthedocs.io/en/stable/) 5.10.0
-    * [Transformers](https://huggingface.co/transformers/index.html) 4.14.0
-    * [typer](https://github.com/tiangolo/typer) 0.4.0
-    * [typing_extensions](https://typing-extensions.readthedocs.io/en/latest/) 4.8.0
-    * [unattended-upgrades](https://github.com/mvo5/unattended-upgrades) 0.1
-    * [uritemplate](https://uritemplate.readthedocs.io/en/latest/) 3.0.1
-    * [urllib3](https://urllib3.readthedocs.io/en/latest/) 1.26.16
-    * [Voluptuous](http://alecthomas.github.io/voluptuous/docs/_build/html/index.html) 0.12.2
-    * [wasabi](https://pypi.org/project/wasabi/) 0.9.0
-    * [wcwidth](https://github.com/jquast/wcwidth) 0.2.6
-    * [webcolors](https://webcolors.readthedocs.io/en/1.11.1/) 1.11.1
-    * [webencodings](https://pythonhosted.org/webencodings/) 0.5.1
-    * [websocket-client](https://websocket-client.readthedocs.io/en/latest/) 1.6.1
-    * [Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/) 2.3.6
-    * [wget](https://pypi.org/project/wget/) 3.2
-    * [wheel](https://wheel.readthedocs.io/en/stable/) 0.37.1
-    * [widgetsnbextension](https://packages.ubuntu.com/cs/groovy/python3-widgetsnbextension) 4.0.8
-    * [wrapt](https://wrapt.readthedocs.io/en/latest/) 1.14.1
-    * [wurlitzer](https://github.com/minrk/wurlitzer) 3.0.2
-    * [XGBoost](https://xgboost.ai/) 0.90
-    * [xmltodict](https://github.com/martinblech/xmltodict) 0.12.0
-    * [xxhash](https://github.com/ifduyue/python-xxhash) 2.0.0
-    * [YaDisk](https://yadisk.readthedocs.io/ru/latest/) 1.2.14
-    * yandex-datasphere-cloudpickle 2.2.0.dev0
-    * yandex-datasphere-pyenv 1.0.0
-    * [yandexcloud](https://github.com/yandex-cloud/python-sdk) 0.233.0
-    * [yarl](https://yarl.aio-libs.org/en/latest/index.html) 1.9.2
-    * [ydb](https://kandi.openweaver.com/python/ydb-platform/ydb-python-sdk) 3.5.0
-    * [zc.lockfile](https://pypi.org/project/zc.lockfile/) 2.0
-    * [zipp](https://github.com/jaraco/zipp) 3.17.0
+* querystring-parser 1.2.4
+* referencing 0.30.2
+* regex 2021.11.10
+* requests 2.22.0
+* requests-oauthlib 1.3.0
+* resampy 0.2.2
+* responses 0.10.15
+* retrying 1.3.3
+* rich 10.16.1
+* rpds-py 0.10.6
+* rsa 4.8
+* ruamel.yaml 0.17.19
+* ruamel.yaml.clib 0.2.6
+* s3fs 0.4.1
+* s3transfer 0.3.7
+* sacrebleu 2.0.0
+* sacremoses 0.0.46
+* scikit-learn 1.3.0
+* scipy 1.10.1
+* scp 0.13.2
+* Send2Trash 1.8.2
+* serialzy 1.4.0
+* setuptools 51.0.0
+* shortuuid 1.0.8
+* shtab 1.5.2
+* six 1.16.0
+* slugify 0.0.1
+* smart-open 5.2.1
+* smmap 5.0.0
+* sounddevice 0.3.15
+* SoundFile 0.10.3.post1
+* soupsieve 2.5
+* spacy 3.2.1
+* spacy-legacy 3.0.8
+* spacy-loggers 1.0.1
+* SQLAlchemy 2.0.19
+* sqlparse 0.4.4
+* srsly 2.4.2
+* sshpubkeys 3.3.1
+* stt-metrics 0.12
+* tabulate 0.9.0
+* tenacity 8.2.2
+* tensorboard 2.6.0
+* tensorboard-data-server 0.6.1
+* tensorboard-plugin-wit 1.8.0
+* tensorboardX 2.4
+* tensorflow 2.6.0
+* tensorflow-datasets 2.1.0
+* tensorflow-estimator 2.7.0
+* tensorflow-metadata 1.5.0
+* termcolor 1.1.0
+* terminado 0.17.1
+* testpath 0.5.0
+* text-unidecode 1.3
+* thinc 8.0.13
+* threadpoolctl 3.2.0
+* tinycss2 1.2.1
+* tokenizers 0.10.3
+* toml 0.10.2
+* torch 1.9.1+cu111
+* torchaudio 0.9.1
+* torchmetrics 0.6.2
+* torchvision 0.10.1+cu111
+* tornado 6.3.3
+* tqdm 4.50.0
+* traitlets 5.11.2
+* transformers 4.14.0
+* typer 0.4.0
+* typing_extensions 4.8.0
+* unattended-upgrades 0.1
+* uritemplate 3.0.1
+* urllib3 1.26.16
+* voluptuous 0.12.2
+* wasabi 0.9.0
+* wcwidth 0.2.8
+* webcolors 1.11.1
 
-  {% endcut %}
+{% endcut %}
 
 ### DS Default (Python 3.7) {#python-3-7}
 
-  {% cut "A-E" %}
+{% cut "A-E" %}
 
-    * [absl-py](https://abseil.io/docs/python/quickstart) 0.12.0
-    * [addict](https://github.com/mewwts/addict) 2.4.0
-    * [antlr4-python3-runtime](https://github.com/parrt/antlr4-python3) 4.8
-    * [appdirs](https://github.com/ActiveState/appdirs) 1.4.4
-    * [argon2-CFFI](https://argon2-CFFI.readthedocs.io/en/stable/) 23.1.0
-    * [argon2-CFFI-bindings](https://github.com/hynek/argon2-cffi-bindings) 21.2.0
-    * [astor](https://astor.readthedocs.io/en/latest/) 0.8.1
-    * [async-generator](https://github.com/python-trio/async_generator) 1.10
-    * [atpublic](https://public.readthedocs.io/en/stable/) 2.3
-    * [attrs](https://www.attrs.org/en/stable/) 23.1.0
-    * [audioread](https://github.com/beetbox/audioread) 2.1.9
-    * [autograd](https://github.com/HIPS/autograd) 1.3
-    * [aws-sam-translator](https://github.com/aws/serverless-application-model) 1.38.0
-    * [aws-xray-sdk](https://docs.aws.amazon.com/xray-sdk-for-python/latest/reference/aws_xray_sdk.html) 2.8.0
-    * [backcall](https://backcall.readthedocs.io/en/latest/) 0.2.0
-    * [bcrypt](https://github.com/pyca/bcrypt) 3.2.0
-    * [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) 4.12.2
-    * [bleach](https://bleach.readthedocs.io/en/latest/) 6.0.0
-    * [blis](https://github.com/explosion/Cython-blis) 0.7.4
-    * [boto](https://github.com/boto/boto) 2.49.0
-    * [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) 1.12.31
-    * [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) 1.15.49
-    * [Bottleneck](https://bottleneck.readthedocs.io/en/latest/) 1.3.2
-    * [cached-property](https://github.com/pydanny/cached-property) 1.5.2
-    * [cachetools](https://github.com/tkem/cachetools) 4.2.2
-    * [catalogue](https://github.com/explosion/catalogue) 2.0.4
-    * [CatBoost](https://catboost.ai/docs/concepts/about.html) 0.24
-    * [certifi](https://github.com/certifi/python-certifi) 2023.7.22
-    * [CFFI](https://cffi.readthedocs.io/en/latest/) 1.15.1
-    * [cfn-lint](https://www.npmjs.com/package/cfn-lint) 0.33.2
-    * [chardet](https://github.com/chardet/chardet) 3.0.4
-    * [charset-normalizer](https://github.com/Ousret/charset_normalizer) 3.2.0
-    * [Click](https://click.readthedocs.io/en/latest/) 7.1.2
-    * [cloud-ml](https://github.com/XiaoMi/cloud-ml-sdk) 0.0.1
-    * [colorama](https://github.com/tartley/colorama) 0.4.4
-    * [commonmark](https://commonmark.org/) 0.9.1
-    * [configobj](https://github.com/DiffSK/configobj) 5.0.6
-    * [configparser](https://github.com/jaraco/configparser) 4.0.2
-    * [cryptography](https://cryptography.io/en/latest/) 3.4.7
-    * [cycler](https://[Matplotlib](https://matplotlib.org/).org/cycler/) 0.11.0
-    * [cymem](https://github.com/explosion/cymem) 2.0.5
-    * [Cython](https://cython.readthedocs.io/en/latest/src/quickstart/install.html) 0.29.26
-    * [Dask](https://dask.org/) 2.9.0
-    * [dataclasses](https://github.com/ericvsmith/dataclasses) 0.6
-    * [DAWG-Python](https://github.com/pytries/DAWG-Python) 0.7.2
-    * [debugpy](https://github.com/microsoft/debugpy) 1.3.0
-    * [decorator](https://github.com/micheles/decorator) 5.1.1
-    * [defusedxml](https://github.com/tiran/defusedxml) 0.7.1
-    * [dill](https://github.com/uqfoundation/dill) 0.3.4
-    * [distro](https://github.com/nir0s/distro/tree/python2.6-support) 1.5.0
-    * [docker](https://docker-py.readthedocs.io/en/stable/) 5.0.0
-    * [docopt](https://github.com/docopt/docopt) 0.6.2
-    * [docutils](https://github.com/docutils) 0.15.2
-    * [dpath](https://github.com/akesterson/dpath-python) 2.0.1
-    * [dvc](https://github.com/iterative/dvc) 1.4.0
-    * [ecdsa](https://github.com/tlsfuzzer/python-ecdsa) 0.17.0
-    * [enot](https://github.com/comtihon/enot) 1.0.3
-    * enot-core 1.0.1
-    * [enot-utils](https://enot-autodl.rtd.enot.ai/en/stable/reference_documentation/utils.html) 1.0.2
-    * [entrypoints](https://entrypoints.readthedocs.io/en/latest/) 0.3
+* absl-py 0.12.0
+* addict 2.4.0
+* antlr4-python3-runtime 4.8
+* appdirs 1.4.4
+* argon2-cffi 23.1.0
+* argon2-cffi-bindings 21.2.0
+* astor 0.8.1
+* async-generator 1.10
+* atpublic 2.3
+* attrs 23.1.0
+* audioread 2.1.9
+* autograd 1.3
+* aws-sam-translator 1.38.0
+* aws-xray-sdk 2.8.0
+* backcall 0.2.0
+* bcrypt 3.2.0
+* beautifulsoup4 4.12.2
+* bleach 6.0.0
+* blis 0.7.4
+* boto 2.49.0
+* boto3 1.12.31
+* botocore 1.15.49
+* Bottleneck 1.3.2
+* cached-property 1.5.2
+* cachetools 4.2.2
+* catalogue 2.0.4
+* catboost 0.24
+* certifi 2023.7.22
+* cffi 1.15.1
+* cfn-lint 0.33.2
+* chardet 3.0.4
+* charset-normalizer 3.3.0
+* click 7.1.2
+* cloud-ml 0.0.1
+* colorama 0.4.4
+* commonmark 0.9.1
+* configobj 5.0.6
+* configparser 4.0.2
+* cryptography 3.4.7
+* cycler 0.11.0
+* cymem 2.0.5
+* Cython 3.0.4
+* dask 2.9.0
+* dataclasses 0.6
+* DAWG-Python 0.7.2
+* debugpy 1.3.0
+* decorator 5.1.1
+* defusedxml 0.7.1
+* dill 0.3.4
+* distro 1.5.0
+* docker 5.0.0
+* docopt 0.6.2
+* docutils 0.15.2
+* dpath 2.0.1
+* dvc 1.4.0
+* ecdsa 0.17.0
+* enot 1.0.3
+* enot-core 1.0.1
+* enot-utils 1.0.2
+* entrypoints 0.4
 
-  {% endcut %}
+{% endcut %}
 
-  {% cut "F-L" %}
+{% cut "F-L" %}
 
-    * [fairseq](https://github.com/pytorch/fairseq) 0.10.2
-    * [fastai](https://docs.fast.ai/) 1.0.60
-    * [fastjsonschema](https://horejsek.github.io/python-fastjsonschema/#) 2.18.0
-    * [fastprogress](https://github.com/fastai/fastprogress) 1.0.0
-    * [filelock](https://py-filelock.readthedocs.io/en/latest/index.html#installation) 3.0.12
-    * [flatten-json](https://github.com/amirziai/flatten) 0.1.7
-    * [flufl.lock](https://flufllock.readthedocs.io/en/stable/) 3.2
-    * [fonttools](https://github.com/fonttools/fonttools) 4.38.0
-    * [FSSPEC](https://filesystem-spec.readthedocs.io/en/latest/?badge=latest) 2021.7.0
-    * [funcy](https://funcy.readthedocs.io/en/stable/overview.html) 1.16
-    * [future](http://python-future.org/quickstart.html) 0.18.2
-    * [gast](https://github.com/serge-sans-paille/gast) 0.2.2
-    * [Gensim](https://radimrehurek.com/gensim/) 3.8.1
-    * [gitdb](https://gitdb.readthedocs.io/en/stable/intro.html) 4.0.7
-    * [GitPython](https://gitpython.readthedocs.io/en/stable/intro.html) 3.1.18
-    * [google-api-core](https://github.com/googleapis/python-api-core) 1.31.0
-    * [google-api-python-client](https://googleapis.github.io/google-api-python-client/) 1.8.0
-    * [google-auth](https://googleapis.dev/python/google-auth/latest/index.html) 1.33.1
-    * [google-auth-httplib2](https://github.com/googleapis/google-auth-library-python-httplib2) 0.1.0
-    * [google-pasta](https://github.com/google/pasta) 0.2.0
-    * [googleapis-common-protos](https://github.com/googleapis/api-common-protos) 1.53.0
-    * [googledrivedownloader](https://github.com/ndrplz/google-drive-downloader) 0.4
-    * [grandalf](https://github.com/bdcht/grandalf) 0.6
-    * [Graphviz](https://graphviz.readthedocs.io/en/stable/) 0.17
-    * [gRPCio](https://grpc.io/docs/languages/python/quickstart/) 1.38.1
-    * [h5py](https://docs.h5py.org/en/stable/build.html) 3.3.0
-    * [httplib2](https://github.com/httplib2/httplib2) 0.19.1
-    * [hydra-core](https://hydra.cc/docs/intro) 1.1.0
-    * [idna](https://github.com/kjd/idna) 2.8
-    * [importlib-metadata](https://importlib-metadata.readthedocs.io/en/latest/) 6.7.0
-    * [importlib-resources](https://github.com/python/importlib_resources) 5.12.0
-    * [iniconfig](https://github.com/RonnyPfannschmidt/iniconfig) 1.1.1
-    * [ipykernel](https://github.com/ipython/ipykernel) 5.4.2
-    * [ipython](https://ipython.org/install.html) 7.19.0
-    * [ipython-genutils](https://github.com/ipython/ipython_genutils) 0.2.0
-    * [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/user_guide.html) 7.5.1
-    * [jax](https://github.com/google/jax) 0.1.77
-    * [jaxlib](https://jax.readthedocs.io/en/latest/) 0.1.55
-    * [jedi](https://jedi.readthedocs.io/en/latest/docs/usage.html) 0.17.2
-    * [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/intro) 3.1.2
-    * [jmespath](https://github.com/jmespath/jmespath.py) 0.10.0
-    * [joblib](https://joblib.readthedocs.io/en/latest/installing.html) 1.0.1
-    * [jsondiff](https://github.com/xlwings/jsondiff) 1.1.2
-    * [jsonpatch](https://github.com/stefankoegl/python-json-patch) 1.32
-    * [jsonpath-ng](https://github.com/h2non/jsonpath-ng) 1.5.3
-    * [jsonpointer](https://github.com/stefankoegl/python-json-pointer) 2.1
-    * [jsonschema](https://python-jsonschema.readthedocs.io/en/stable/) 4.17.3
-    * [junit-xml](https://github.com/kyrus/python-junit-xml) 1.9
-    * [jupyter-client](https://github.com/jupyter/jupyter_client) 6.1.12
-    * [jupyter-core](https://github.com/jupyter/jupyter_core) 4.12.0
-    * [jupyterlab-Pygments](https://github.com/jupyterlab/jupyterlab_Pygments) 0.2.2
-    * [kaggle](https://github.com/Kaggle/kaggle-api) 1.5.8
-    * [Keras](https://keras.io/) 2.3.1
-    * [Keras-Applications](https://keras.io/api/applications/) 1.0.8
-    * [Keras-Preprocessing](https://github.com/keras-team/keras-preprocessing) 1.1.2
-    * [kiwisolver](https://kiwisolver.readthedocs.io/en/latest/basis/installation.html) 1.4.5
-    * [librosa](https://librosa.org/doc/latest/index.html) 0.8.0
-    * [LightGBM](https://lightgbm.readthedocs.io/en/latest/) 2.3.1
-    * [llvmlite](https://llvmlite.readthedocs.io/en/latest/) 0.34.0
+* fairseq 0.10.2
+* fastai 1.0.60
+* fastjsonschema 2.18.1
+* fastprogress 1.0.0
+* filelock 3.0.12
+* flatten-json 0.1.7
+* flufl.lock 3.2
+* fonttools 4.38.0
+* fsspec 2021.7.0
+* funcy 1.16
+* future 0.18.2
+* gast 0.2.2
+* gensim 3.8.1
+* gitdb 4.0.7
+* GitPython 3.1.18
+* google-api-core 1.31.0
+* google-api-python-client 1.8.0
+* google-auth 1.33.1
+* google-auth-httplib2 0.1.0
+* google-pasta 0.2.0
+* googleapis-common-protos 1.53.0
+* googledrivedownloader 0.4
+* grandalf 0.6
+* graphviz 0.17
+* grpcio 1.38.1
+* h5py 3.3.0
+* httplib2 0.19.1
+* hydra-core 1.1.0
+* idna 3.4
+* importlib-metadata 6.7.0
+* importlib-resources 5.12.0
+* iniconfig 1.1.1
+* ipykernel 5.4.2
+* ipython 7.19.0
+* ipython-genutils 0.2.0
+* ipywidgets 7.5.1
+* jax 0.1.77
+* jaxlib 0.1.55
+* jedi 0.17.2
+* Jinja2 3.1.2
+* jmespath 0.10.0
+* joblib 1.0.1
+* jsondiff 1.1.2
+* jsonpatch 1.32
+* jsonpath-ng 1.5.3
+* jsonpointer 2.1
+* jsonschema 4.17.3
+* junit-xml 1.9
+* jupyter-client 7.4.9
+* jupyter-core 4.12.0
+* jupyterlab-pygments 0.2.2
+* kaggle 1.5.8
+* Keras 2.3.1
+* Keras-Applications 1.0.8
+* Keras-Preprocessing 1.1.2
+* kiwisolver 1.4.5
+* librosa 0.8.0
+* lightgbm 2.3.1
+* llvmlite 0.34.0
 
-  {% endcut %}
+{% endcut %}
 
-  {% cut "M-P" %}
+{% cut "M-P" %}
 
-    * [Markdown](https://python-markdown.github.io/#Features) 3.3.4
-    * [MarkupSafe](https://markupsafe.palletsprojects.com/en/1.1.x/) 2.1.3
-    * [Matplotlib](https://matplotlib.org/) 3.1.3
-    * [Matplotlib-inline](https://github.com/ipython/matplotlib-inline) 0.1.2
-    * [midi2audio](https://github.com/bzamecnik/midi2audio) 0.1.1
-    * [mistune](https://mistune.readthedocs.io/en/latest/) 3.0.1
-    * [ml-kernel](http://elrepo.org/tiki/kernel-ml) 0.0.1
-    * [MMCV-full](https://mmcv.readthedocs.io/en/latest/) 1.2.0
-    * [mmdet](https://mmdetection.readthedocs.io/en/latest/) 2.3.0rc0+c6b5ca2
-    * mmpycocotools 12.0.3
-    * [Mock](https://mock.readthedocs.io/en/latest/) 4.0.3
-    * [more-itertools](https://more-itertools.readthedocs.io/en/latest/) 8.8.0
-    * [Moto](https://github.com/spulec/moto) 1.3.14
-    * [murmurhash](https://github.com/hajimes/mmh3) 1.0.5
-    * [music21](https://music21.readthedocs.io/en/latest/) 6.3.0
-    * [nanotime](https://github.com/jbenet/nanotime) 0.5.2
-    * [nbclient](https://nbclient.readthedocs.io/en/latest/) 0.7.4
-    * [nbconvert](https://nbconvert.readthedocs.io/en/latest/) 7.6.0
-    * [nbformat](https://nbformat.readthedocs.io/en/latest/) 5.8.0
-    * [nest-asyncio](https://github.com/erdewit/nest_asyncio) 1.5.1
-    * [NetworkX](https://networkx.org/) 2.4
-    * [NLTK](https://www.nltk.org/) 3.4.5
-    * [notebook](https://jupyter-notebook.readthedocs.io/en/stable/) 6.1.5
-    * [numba](http://numba.pydata.org/) 0.51.2
-    * [NumExpr](https://numexpr.readthedocs.io/en/latest/) 2.7.3
-    * [NumPy](https://numpy.org/) 1.19.1
-    * [nvidia-ml-py3](https://snyk.io/advisor/python/nvidia-ml-py3) 7.352.0
-    * [oauth2client](https://oauth2client.readthedocs.io/en/latest/) 4.1.3
-    * [OmegaConf](https://omegaconf.readthedocs.io/en/2.0_branch/) 2.1.0
-    * [OpenCV-Python](https://docs.opencv.org/master/) 4.5.3.56
-    * [opt-einsum](https://optimized-einsum.readthedocs.io/en/stable/) 3.3.0
-    * [packaging](https://packaging.pypa.io/en/latest/) 23.1
-    * [Pandas](https://pandas.pydata.org/) 0.25.3
-    * [pandocfilters](https://github.com/jgm/pandocfilters) 1.5.0
-    * [Paramiko](http://docs.paramiko.org/en/stable/) 2.7.2
-    * [parso](https://parso.readthedocs.io/en/latest/) 0.7.1
-    * [pathspec](https://python-path-specification.readthedocs.io/en/latest/) 0.9.0
-    * [pathy](https://github.com/abarnert/pathy) 0.6.0
-    * [Pexpect](https://pexpect.readthedocs.io/en/latest/) 4.8.0
-    * [pickleshare](https://github.com/pickleshare/pickleshare) 0.7.5
-    * [Pillow](https://pillow.readthedocs.io/en/stable/) 9.5.0
-    * [pip](https://pip.pypa.io/en/stable/) 21.0.1
-    * [pkgutil-resolve-name](https://docs.python.org/3.7/library/pkgutil.html#pkgutil.resolve_name) 1.3.10
-    * [plotly](https://plotly.com/python/) 4.9.0
-    * [pluggy](https://pluggy.readthedocs.io/en/latest/) 0.13.1
-    * [ply](https://ply.readthedocs.io/en/latest/) 3.11
-    * [Pooch](https://www.fatiando.org/pooch/latest/) 1.4.0
-    * [portalocker](https://portalocker.readthedocs.io/en/latest/) 2.0.0
-    * [preshed](https://github.com/explosion/preshed) 3.0.5
-    * [prometheus-client](https://github.com/prometheus/client_python) 0.17.1
-    * [promise](https://github.com/plesner/python-promise) 2.3
-    * [prompt-toolkit](https://python-prompt-toolkit.readthedocs.io/en/stable/) 3.0.39
-    * [protobuf](https://developers.google.com/protocol-buffers/docs/pythontutorial) 3.17.3
-    * [psutil](https://psutil.readthedocs.io/en/latest/) 5.7.3
-    * [Ptyprocess](https://ptyprocess.readthedocs.io/en/latest/) 0.7.0
-    * [py](https://py.readthedocs.io/_/downloads/en/latest/pdf/) 1.10.0
-    * [PyArrow](https://arrow.apache.org/docs/python/) 0.17.1
-    * [pyasn1](https://github.com/etingof/pyasn1) 0.4.8
-    * [pyasn1-modules](https://github.com/etingof/pyasn1-modules) 0.2.8
-    * [pybase64](https://pybase64.readthedocs.io/en/stable/) 1.1.1
-    * [pycparser](https://github.com/eliben/pycparser) 2.21
-    * [PycURL](http://pycurl.io/docs/latest/index.html) 7.43.0.5
-    * [pydantic](https://docs.pydantic.dev/latest/) 1.8.2
-    * [pydot](https://github.com/pydot/pydot) 1.4.2
-    * [Pygments](https://pygments.org/) 2.16.1
-    * [PyGObject](https://pygobject.readthedocs.io/en/latest/) 3.26.1
-    * [pygtrie](https://pygtrie.readthedocs.io/en/latest/) 2.3.2
-    * [pymorphy2](https://pymorphy2.readthedocs.io/en/stable/) 0.9.1
-    * [pymorphy2-dicts-ru](https://github.com/kmike/pymorphy2-dicts/) 2.4.417127.4579844
-    * [Pympler](https://pympler.readthedocs.io/en/latest/) 1.0.1
-    * [PyNaCl](https://pynacl.readthedocs.io/en/latest/) 1.4.0
-    * [pynvml](https://github.com/gpuopenanalytics/pynvml) 11.5.0
-    * [PyParsing](https://pyparsing-docs.readthedocs.io/en/latest/) 2.4.7
-    * [Pyrsistent](https://pyrsistent.readthedocs.io/en/latest/) 0.19.3
-    * [pytest](https://docs.pytest.org/en/stable/) 6.1.2
-    * [python-apt](https://github.com/ParrotSec/python-apt) 1.6.5+ubuntu0.5
-    * [python-dateutil](https://dateutil.readthedocs.io/en/stable/) 2.8.2
-    * [python-jose](https://python-jose.readthedocs.io/en/latest/) 3.3.0
-    * [python-slugify](https://github.com/un33k/python-slugify) 5.0.2
-    * [pytorch-ranger](https://github.com/mpariente/Ranger-Deep-Learning-Optimizer) 0.1.1
-    * [pytz](https://github.com/stub42/pytz) 2021.1
-    * [PyYAML](https://pyyaml.org/wiki/PyYAMLDocumentation) 5.3.1
-    * [PyZMQ](https://pyzmq.readthedocs.io/en/latest/) 25.1.1
+* Markdown 3.3.4
+* MarkupSafe 2.1.3
+* matplotlib 3.1.3
+* matplotlib-inline 0.1.2
+* midi2audio 0.1.1
+* mistune 3.0.2
+* ml-kernel 0.0.1
+* mmcv-full 1.2.0
+* mmdet 2.3.0rc0+c6b5ca2
+* mmpycocotools 12.0.3
+* mock 4.0.3
+* more-itertools 8.8.0
+* moto 1.3.14
+* murmurhash 1.0.5
+* music21 6.3.0
+* nanotime 0.5.2
+* nbclient 0.7.4
+* nbconvert 7.6.0
+* nbformat 5.8.0
+* nest-asyncio 1.5.8
+* networkx 2.4
+* nltk 3.4.5
+* notebook 6.1.5
+* numba 0.51.2
+* numexpr 2.7.3
+* numpy 1.19.1
+* nvidia-ml-py3 7.352.0
+* oauth2client 4.1.3
+* omegaconf 2.1.0
+* opencv-python 4.5.3.56
+* opt-einsum 3.3.0
+* packaging 23.2
+* pandas 0.25.3
+* pandocfilters 1.5.0
+* paramiko 2.7.2
+* parso 0.7.1
+* pathspec 0.9.0
+* pathy 0.6.0
+* pexpect 4.8.0
+* pickleshare 0.7.5
+* Pillow 9.5.0
+* pip 21.0.1
+* pkgutil-resolve-name 1.3.10
+* plotly 4.9.0
+* pluggy 0.13.1
+* ply 3.11
+* pooch 1.4.0
+* portalocker 2.0.0
+* preshed 3.0.5
+* prometheus-client 0.17.1
+* promise 2.3
+* prompt-toolkit 3.0.39
+* protobuf 3.17.3
+* psutil 5.7.3
+* ptyprocess 0.7.0
+* py 1.10.0
+* pyarrow 0.17.1
+* pyasn1 0.4.8
+* pyasn1-modules 0.2.8
+* pybase64 1.1.1
+* pycparser 2.21
+* pycurl 7.43.0.5
+* pydantic 1.8.2
+* pydot 1.4.2
+* Pygments 2.16.1
+* pygobject 3.26.1
+* pygtrie 2.3.2
+* pymorphy2 0.9.1
+* pymorphy2-dicts-ru 2.4.417127.4579844
+* Pympler 1.0.1
+* PyNaCl 1.4.0
+* pynvml 11.5.0
+* pyparsing 2.4.7
+* pyrsistent 0.19.3
+* pytest 6.1.2
+* python-apt 1.6.5+ubuntu0.5
+* python-dateutil 2.8.2
+* python-jose 3.3.0
+* python-slugify 5.0.2
+* pytorch-ranger 0.1.1
+* pytz 2021.1
+* PyYAML 5.3.1
+* pyzmq 25.1.1
 
-  {% endcut %}
+{% endcut %}
 
-  {% cut "R-Z" %}
+{% cut "R-Z" %}
 
-    * [regex](https://libraries.io/pypi/regex) 2021.7.6
-    * [Requests](https://requests.readthedocs.io/en/master/) 2.22.0
-    * [resampy](https://resampy.readthedocs.io/en/stable/) 0.2.2
-    * [responses](https://github.com/getsentry/responses) 0.10.15
-    * [retrying](https://github.com/rholder/retrying) 1.3.3
-    * [Rich](https://rich.readthedocs.io/en/stable/) 10.6.0
-    * [RSA](https://stuvel.eu/software/rsa/) 4.7.2
-    * [ruamel.yaml](https://yaml.readthedocs.io/en/latest/) 0.17.10
-    * [ruamel.yaml.clib](https://github.com/ruamel/yaml.clib) 0.2.6
-    * [S3Fs](https://s3fs.readthedocs.io/en/latest/) 0.4.1
-    * [s3transfer](https://github.com/boto/s3transfer) 0.3.7
-    * [sacrebleu](https://github.com/mjpost/sacrebleu) 1.5.1
-    * [sacremoses](https://github.com/alvations/sacremoses) 0.0.45
-    * [scikit-learn](https://scikit-learn.org/stable/) 0.22.1
-    * [Scipy](https://www.scipy.org/) 1.4.1
-    * [scp](https://github.com/jbardin/scp.py) 0.13.2
-    * [Send2Trash](https://github.com/arsenetar/send2trash) 1.8.2
-    * [sentencepiece](https://github.com/google/sentencepiece) 0.1.96
-    * [serialzy](https://github.com/lambdazy/serialzy) 1.3.0
-    * [setuptools](https://github.com/pypa/setuptools) 51.0.0
-    * [SharedArray](https://gitlab.com/tenzing/shared-array) 3.2.1
-    * [shortuuid](https://github.com/skorokithakis/shortuuid) 1.0.1
-    * [shtab](https://github.com/iterative/shtab) 1.3.9
-    * [Six](https://six.readthedocs.io/) 1.16.0
-    * [slugify](https://github.com/zacharyvoase/slugify) 0.0.1
-    * [smart-open](https://github.com/RaRe-Technologies/smart_open) 5.1.0
-    * [smmap](https://smmap.readthedocs.io/en/latest/index.html) 4.0.0
-    * [sounddevice](https://python-sounddevice.readthedocs.io/en/0.4.0/) 0.3.15
-    * [SoundFile](https://pysoundfile.readthedocs.io/en/latest/) 0.10.3.post1
-    * [soupsieve](https://facelessuser.github.io/soupsieve/) 2.4.1
-    * [spaCy](https://spacy.io/usage/spacy-101) 3.1.1
-    * [spaCy-legacy](https://github.com/explosion/spacy-legacy) 3.0.8
-    * [srsly](https://libraries.io/pypi/srsly) 2.4.1
-    * [sshpubkeys](https://github.com/ojarva/python-sshpubkeys) 3.3.1
-    * stt-metrics 0.12
-    * [tabulate](https://github.com/astanin/python-tabulate) 0.8.9
-    * [tblib](https://github.com/ionelmc/python-tblib) 1.7.0
-    * [tensorboard](https://github.com/tensorflow/tensorboard) 1.15.0
-    * [tensorboardX](https://github.com/lanpa/tensorboardX) 2.1
-    * [TensorFlow](https://www.tensorflow.org/) 1.15.0
-    * [tensorflow-datasets](https://github.com/tensorflow/datasets) 2.1.0
-    * [tensorflow-estimator](https://www.tensorflow.org/guide/estimator) 1.15.1
-    * [tensorflow-gpu](https://www.tensorflow.org/install/gpu) 1.15.0
-    * [tensorflow-metadata](https://github.com/tensorflow/metadata) 1.1.0
-    * [termcolor](https://pypi.org/project/termcolor/) 1.1.0
-    * [terminado](https://libraries.io/pypi/terminado) 0.17.1
-    * [terminaltables](https://robpol86.github.io/terminaltables/) 3.1.0
-    * [testpath](https://testpath.readthedocs.io/en/latest/) 0.5.0
-    * [text-unidecode](https://github.com/kmike/text-unidecode) 1.3
-    * [thinc](https://thinc.ai/docs/) 8.0.8
-    * [tinycss2](https://doc.courtbouillon.org/tinycss2/latest/) 1.2.1
-    * [Tokenizers](https://huggingface.co/docs/tokenizers/python/latest/) 0.5.2
-    * [toml](https://toml.io/en/) 0.10.2
-    * [Torch](https://pytorch.org/) 1.6.0
-    * [torch-optimizer](https://pytorch-optimizer.readthedocs.io/en/latest/) 0.0.1a16
-    * [torchvision](https://pytorch.org/vision/stable/index.html) 0.7.0
-    * [Tornado](https://www.tornadoweb.org/en/stable/) 6.2
-    * [tqdm](https://tqdm.github.io/) 4.50.0
-    * [Traitlets](https://traitlets.readthedocs.io/en/stable/) 5.9.0
-    * [Transformers](https://huggingface.co/transformers/index.html) 2.5.1
-    * [typer](https://github.com/tiangolo/typer) 0.3.2
-    * [typing-extensions](https://libraries.io/pypi/typing-extensions) 4.7.1
-    * [unattended-upgrades](https://github.com/mvo5/unattended-upgrades) 0.1
-    * [uritemplate](https://uritemplate.readthedocs.io/en/latest/) 3.0.1
-    * [urllib3](https://urllib3.readthedocs.io/en/latest/) 1.24.3
-    * [Virtualenv](https://virtualenv.pypa.io/en/latest/) 15.1.0
-    * [Voluptuous](http://alecthomas.github.io/voluptuous/docs/_build/html/index.html) 0.12.1
-    * [wasabi](https://pypi.org/project/wasabi/) 0.8.2
-    * [wcwidth](https://github.com/jquast/wcwidth) 0.2.6
-    * [webcolors](https://webcolors.readthedocs.io/en/1.11.1/) 1.11.1
-    * [webencodings](https://pythonhosted.org/webencodings/) 0.5.1
-    * [websocket-client](https://websocket-client.readthedocs.io/en/latest/) 1.1.0
-    * [Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/) 2.0.1
-    * [wget](https://pypi.org/project/wget/) 3.2
-    * [wheel](https://wheel.readthedocs.io/en/stable/) 0.36.2
-    * [widgetsnbextension](https://packages.ubuntu.com/cs/groovy/python3-widgetsnbextension) 3.5.1
-    * [wrapt](https://wrapt.readthedocs.io/en/latest/) 1.14.1
-    * [wurlitzer](https://github.com/minrk/wurlitzer) 3.0.2
-    * [XGBoost](https://xgboost.ai/) 0.90
-    * [xmltodict](https://github.com/martinblech/xmltodict) 0.12.0
-    * [xxhash](https://github.com/ifduyue/python-xxhash) 2.0.0
-    * [YaDisk](https://yadisk.readthedocs.io/ru/latest/) 1.2.14
-    * yandex-datasphere-cloudpickle 2.2.0.dev0
-    * yandex-datasphere-pyenv 1.0.0
-    * [yapf](https://github.com/google/yapf) 0.31.0
-    * [zc.lockfile](https://pypi.org/project/zc.lockfile/) 2.0
-    * [zipp](https://github.com/jaraco/zipp) 3.15.0
+* regex 2021.7.6
+* requests 2.22.0
+* resampy 0.2.2
+* responses 0.10.15
+* retrying 1.3.3
+* rich 10.6.0
+* rsa 4.7.2
+* ruamel.yaml 0.17.10
+* ruamel.yaml.clib 0.2.6
+* s3fs 0.4.1
+* s3transfer 0.3.7
+* sacrebleu 1.5.1
+* sacremoses 0.0.45
+* scikit-learn 0.22.1
+* scipy 1.4.1
+* scp 0.13.2
+* Send2Trash 1.8.2
+* sentencepiece 0.1.96
+* serialzy 1.4.0
+* setuptools 51.0.0
+* SharedArray 3.2.1
+* shortuuid 1.0.1
+* shtab 1.3.9
+* six 1.16.0
+* slugify 0.0.1
+* smart-open 5.1.0
+* smmap 4.0.0
+* sounddevice 0.3.15
+* SoundFile 0.10.3.post1
+* soupsieve 2.4.1
+* spacy 3.1.1
+* spacy-legacy 3.0.8
+* srsly 2.4.1
+* sshpubkeys 3.3.1
+* stt-metrics 0.12
+* tabulate 0.8.9
+* tblib 1.7.0
+* tensorboard 1.15.0
+* tensorboardX 2.1
+* tensorflow 1.15.0
+* tensorflow-datasets 2.1.0
+* tensorflow-estimator 1.15.1
+* tensorflow-gpu 1.15.0
+* tensorflow-metadata 1.1.0
+* termcolor 1.1.0
+* terminado 0.17.1
+* terminaltables 3.1.0
+* testpath 0.5.0
+* text-unidecode 1.3
+* thinc 8.0.8
+* tinycss2 1.2.1
+* tokenizers 0.5.2
+* toml 0.10.2
+* torch 1.6.0
+* torch-optimizer 0.0.1a16
+* torchvision 0.7.0
+* tornado 6.2
+* tqdm 4.50.0
+* traitlets 5.9.0
+* transformers 2.5.1
+* typer 0.3.2
+* typing-extensions 4.7.1
+* unattended-upgrades 0.1
+* uritemplate 3.0.1
+* urllib3 1.24.3
+* virtualenv 15.1.0
+* voluptuous 0.12.1
+* wasabi 0.8.2
+* wcwidth 0.2.8
+* webcolors 1.11.1
+* webencodings 0.5.1
+* websocket-client 1.1.0
+* Werkzeug 2.0.1
+* wget 3.2
+* wheel 0.36.2
+* widgetsnbextension 3.5.1
+* wrapt 1.14.1
+* wurlitzer 3.0.2
+* xgboost 0.90
+* xmltodict 0.12.0
+* xxhash 2.0.0
+* yadisk 1.2.14
+* yandex-datasphere-cloudpickle 2.2.0.dev0
+* yandex-datasphere-pyenv 1.0.0
+* yapf 0.31.0
+* zc.lockfile 2.0
+* zipp 3.15.0
 
-  {% endcut %}
+{% endcut %}

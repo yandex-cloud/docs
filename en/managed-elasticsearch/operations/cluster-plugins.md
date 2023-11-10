@@ -27,7 +27,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
    Enabled plugins will be shown in the `plugins` list.
 
-   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -56,7 +56,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
       --plugins=<plugin 1 name>,...,<plugin N name>
    ```
 
-   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 

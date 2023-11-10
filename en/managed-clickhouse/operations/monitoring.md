@@ -13,9 +13,9 @@ description: "In this tutorial, you will learn how to monitor the state of {{ CH
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Monitoring cluster status {#monitoring-cluster}
+## Monitoring cluster state {#monitoring-cluster}
 
-To view detailed information about the {{ mch-name }} cluster status:
+To view detailed information about the {{ mch-name }} cluster state:
 
 {% list tabs %}
 
@@ -49,7 +49,7 @@ To view detailed information about the {{ mch-name }} cluster status:
    * **CPU cores usage**: Number of processor cores used.
    * **CPU cores usage per host**: Number of processor cores used on each host.
    * **CPU usage per host**: Usage of processor cores on each host.
-   * **Disk read per host:** Disk read rate on each host (bytes per second).
+   * **Disk read per host:** Disk read rate on each host (in bytes per second).
    * **Disk space usage**: Shows how much disk space is used (in bytes).
    * **Disk space usage per host**: Shows how much disk space is used on each host (two charts are displayed: in bytes and %).
    * **Disk usage per host**: Speed of disk operations on each host (in bytes per second).
@@ -96,8 +96,8 @@ To view detailed information about the {{ mch-name }} cluster status:
    * **Disk read per host:** Disk read rate on each host (in bytes per second).
    * **Disk space usage**: Shows how much disk space is used (in bytes). Two charts are displayed: one for each host and one for all hosts.
    * **Disk space usage per host**: Shows how much disk space is used on each host (%).
-   * **Disk usage per host**: The speed of disk operations on each host (bytes per second).
-   * **Disk write per host**: Disk write rate on each host (bytes per second).
+   * **Disk usage per host**: Speed of disk operations on each host (in bytes per second).
+   * **Disk write per host**: Disk write rate on each host (in bytes per second).
    * **Ephemeral nodes**: The number of Ephemeral nodes.
 
    {% note info %}
@@ -121,7 +121,7 @@ To view detailed information about the {{ mch-name }} cluster status:
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed information about the status of individual {{ mch-name }} hosts:
+To view detailed information about the state of individual {{ mch-name }} hosts:
 
 {% list tabs %}
 
@@ -139,7 +139,7 @@ To view detailed information about the status of individual {{ mch-name }} hosts
    * **Disk IOPS**: Number of disk operations per second.
    * **Memory usage**: Use of RAM, in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
    * **Network bytes**: Speed of data exchange over the network, in bytes per second.
-   * **Network packets**: Number of packets exchanged over the network per second.
+   * **Network packets**: Number of packets exchanged over the network, per second.
 
 {% endlist %}
 
@@ -150,7 +150,7 @@ To view detailed information about the status of individual {{ mch-name }} hosts
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
    1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mch-name }} — Cluster Overview** to configure cluster alerts.
@@ -178,8 +178,8 @@ To determine the threshold values for the `ch_system_events_FailedQuery_rate` me
 
 For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` and `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` thresholds are only set in bytes. For example, here are the recommended values for a 100 GB disk:
 
-* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`: `102,005,473,280` bytes (95%).
-* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`: `85,899,345,920` bytes (80%).
+* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`: `102,005,473,280` bytes (95%)
+* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`: `85,899,345,920` bytes (80%)
 
 You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-clickhouse).
 

@@ -10,7 +10,7 @@
 
 1. {% include [default-catalogue.md](../default-catalogue.md) %}
 
-1. Посмотрите описание команды CLI для создания группы ВМ:
+1. Посмотрите описание команды [CLI](../../glossary/cli.md) для создания группы ВМ:
 
    {% list tabs %}
 

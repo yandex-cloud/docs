@@ -1,6 +1,6 @@
 # Работа с шаблонами SQL-запросов
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
+{% include notitle [preview](../../_includes/note-preview.md) %}
 
 Для быстрого создания SQL-запросов используйте готовые шаблоны и собственные сохраненные запросы. 
 
@@ -34,3 +34,8 @@
 
 После сохранения запроса он отобразится в списке сохраненных запросов (![image](../../_assets/websql/template.svg)), а если вы добавили подсказку, то он будет показываться как шаблон вместе с [готовыми шаблонами](#available-templates) {{ websql-full-name }}.
 
+{% note warning %}
+
+Запросы сохраняются для выбранной [организации](../../organization/concepts/manage-services.md) {{ yandex-cloud }} и текущей сессии браузера.
+
+{% endnote %}

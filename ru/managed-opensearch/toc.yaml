@@ -187,6 +187,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Публичные материалы
+    href: public-talks.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

@@ -20,7 +20,7 @@ If you no longer need the resources you are using, [delete them](#clear-out).
 
 {% note warning %}
 
-You cannot use a snapshot if the {{ ES }} version in the source cluster is higher than that in the target cluster. For example, you will not be able to restore a snapshot of an {{ ES }} 7.13 cluster in a {{ mes-name }} 7.11 cluster.
+You can't use a snapshot if the {{ ES }} version in the source cluster is higher than that in the target cluster. For example, you will not be able to restore a snapshot of an {{ ES }} 7.13 cluster in a {{ mes-name }} 7.11 cluster.
 
 {% endnote %}
 
@@ -32,7 +32,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
 
 - Manually
 
-   1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
+   1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
    1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role to it. A service account is required to access the bucket from the source and target clusters.
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account.
 

@@ -417,6 +417,8 @@ items:
         href: tutorials/batch-recognition-stt.md
       - name: Канареечный релиз функции {{ sf-name }}
         href: tutorials/canary-release.md
+      - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
+        href: tutorials/nodejs-cron-restart-vm.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

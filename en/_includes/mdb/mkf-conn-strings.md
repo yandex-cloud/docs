@@ -12,7 +12,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 - Connecting without using SSL
 
-  1. Run the command for receiving messages from a topic:
+   1. Run this command for receiving messages from a topic:
 
       ```bash
       kafkacat -C \
@@ -41,17 +41,19 @@ sudo apt update && sudo apt install -y kafkacat
 
 - Connecting via SSL
 
-    1. Run the command for receiving messages from a topic:
+   1. Run this command for receiving messages from a topic:
 
-        {% include [default-get-string](./mkf/default-get-string.md) %}
+      {% include [default-get-string](./mkf/default-get-string.md) %}
 
-        The command will continuously read new messages from the topic.
+      The command will continuously read new messages from the topic.
 
-    1. In a separate terminal, run the command for sending a message to a topic:
+   1. In a separate terminal, run the command for sending a message to a topic:
 
-        {% include [default-get-string](./mkf/default-send-string.md) %}
+      {% include [default-get-string](./mkf/default-send-string.md) %}
 
 {% endlist %}
+
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
 {% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
 
@@ -210,7 +212,7 @@ Before connecting:
       }
       ```
 
-    1. Building and launching applications:
+   1. Building and launching applications:
 
       ```bash
       cd ~/cs-project/consumer && dotnet build && \
@@ -281,7 +283,7 @@ Before connecting:
       }
       ```
 
-    1. Code example for getting messages from a topic:
+   1. Code example for getting messages from a topic:
 
       `cs-project/consumer/Program.cs`
 
@@ -337,7 +339,7 @@ Before connecting:
       }
       ```
 
-    1. Building and launching applications:
+   1. Building and launching applications:
 
       ```bash
       cd ~/cs-project/consumer && dotnet build && \
@@ -350,6 +352,8 @@ Before connecting:
       ```
 
 {% endlist %}
+
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
@@ -426,7 +430,7 @@ Before connecting:
 
 - Connecting without using SSL
 
-    1. Example code for delivering a message to a topic:
+   1. Example code for delivering a message to a topic:
 
       `producer/main.go`
 
@@ -465,7 +469,7 @@ Before connecting:
       }
 
       func publish(message string, producer sarama.SyncProducer) {
-        // publish sync
+        // Publish sync
         msg := &sarama.ProducerMessage {
             Topic: "<topic name>",
             Value: sarama.StringEncoder(message),
@@ -480,7 +484,7 @@ Before connecting:
       }
       ```
 
-    1. Code example for getting messages from a topic:
+   1. Code example for getting messages from a topic:
 
       `consumer/main.go`
 
@@ -506,7 +510,7 @@ Before connecting:
             conf.ClientID = "sasl_scram_client"
             conf.Metadata.Full = true
             conf.Net.SASL.Enable = true
-            conf.Net.SASL.User =  "<consumer username>"
+            conf.Net.SASL.User =  "<consumer name>"
             conf.Net.SASL.Password = "<consumer password>"
             conf.Net.SASL.Handshake = true
             conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
@@ -534,10 +538,10 @@ Before connecting:
             signals := make(chan os.Signal, 1)
             signal.Notify(signals, os.Interrupt)
 
-            // Count how many message processed
+            // Count the number of processed messages
             msgCount := 0
 
-            // Get signal for finish
+            // Get signal to finish
             doneCh := make(chan struct{})
             go func() {
                     for {
@@ -559,14 +563,14 @@ Before connecting:
       }
       ```
 
-    1. Building applications:
+   1. Building applications:
 
       ```bash
       cd ~/go-project/producer && go build && \
       cd ~/go-project/consumer && go build
       ```
 
-    1. Running applications:
+   1. Running applications:
 
       ```bash
       ~/go-project/consumer/consumer
@@ -578,7 +582,7 @@ Before connecting:
 
 - Connecting via SSL
 
-    1. Example code for delivering a message to a topic:
+   1. Example code for delivering a message to a topic:
 
       `producer/main.go`
 
@@ -651,7 +655,7 @@ Before connecting:
       }
       ```
 
-    1. Code example for getting messages from a topic:
+   1. Code example for getting messages from a topic:
 
       `consumer/main.go`
 
@@ -691,7 +695,7 @@ Before connecting:
             pemData, err := ioutil.ReadFile(pemPath)
             if err != nil {
                 fmt.Println("Couldn't load cert: ", err.Error())
-                    // handle the error
+                    // Handle the error
             }
             certs.AppendCertsFromPEM(pemData)
 
@@ -723,10 +727,10 @@ Before connecting:
             signals := make(chan os.Signal, 1)
             signal.Notify(signals, os.Interrupt)
 
-            // Count how many message processed
+            // Count the number of processed messages
             msgCount := 0
 
-            // Get signal for finish
+            // Get signal to finish
             doneCh := make(chan struct{})
             go func() {
                     for {
@@ -748,14 +752,14 @@ Before connecting:
       }
       ```
 
-    1. Building applications:
+   1. Building applications:
 
       ```bash
       cd ~/go-project/producer && go build && \
       cd ~/go-project/consumer && go build
       ```
 
-    1. Running applications:
+   1. Running applications:
 
       ```bash
       ~/go-project/consumer/consumer
@@ -767,6 +771,8 @@ Before connecting:
 
 {% endlist %}
 
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
 ### Java {#java}
@@ -776,13 +782,15 @@ Before connecting:
 1. Install the dependencies:
 
    ```bash
-   sudo apt update && sudo apt install -y default-jdk maven
+   sudo apt update && sudo apt install --yes default-jdk maven
    ```
 
 1. Create a folder for the Maven project:
 
    ```bash
-   cd ~/ && mkdir project && cd project && mkdir -p consumer/src/java/com/example producer/src/java/com/example && cd ~/project
+   cd ~/ && \
+   mkdir --parents project/consumer/src/java/com/example project/producer/src/java/com/example && \
+   cd ~/project
    ```
 
 1. Create a configuration file for Maven:
@@ -866,10 +874,10 @@ Before connecting:
    ```
    {% endcut %}
 
-   You can view current versions of Maven dependencies at:
-   - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients),
-   - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind),
-   - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple).
+   Refer to the relevant project pages in the Maven repository for up-to-date versions of the dependencies:
+   - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
+   - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)
+   - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
 
 1. Copy `pom.xml` to the directories of the producer application and consumer application:
 
@@ -1141,6 +1149,8 @@ Before connecting:
 
 {% endlist %}
 
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
 ### Node.js {#nodejs}
@@ -1350,6 +1360,8 @@ npm install node-rdkafka
 
 {% endlist %}
 
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
 ### PowerShell {#powershell}
@@ -1358,7 +1370,7 @@ Before connecting:
 
 1. Install the latest available version of [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
 
-1. Download the [archive with binary files](https://kafka.apache.org/downloads) for the {{ KF }} version run by the cluster. It doesn't matter which Scala version you run.
+1. Download the [archive with binary files](https://kafka.apache.org/downloads) for the {{ KF }} version run by the cluster. Your Scala version is irrelevant.
 
 1. Unpack the archive.
 
@@ -1366,7 +1378,7 @@ Before connecting:
 
    Unpack the {{ KF }} files to the root directory of the disk, for example, `C:\kafka_2.12-2.6.0\`.
 
-   If the path to the {{ KF }}'s executable and batch files is too long, then when trying to run the files, you'll get an error: `The input line is too long`.
+   If the path to the executable and batch files of {{ KF }} is too long, you will get the error `The input line is too long` when trying to run the files.
 
    {% endnote %}
 
@@ -1374,7 +1386,7 @@ Before connecting:
 
 - Connecting without using SSL
 
-   1. Run the command for receiving messages from a topic:
+   1. Run this command for receiving messages from a topic:
 
       ```powershell
       <path to the directory with Kafka files>\bin\windows\kafka-console-consumer.bat `
@@ -1415,7 +1427,7 @@ Before connecting:
         --noprompt
       ```
 
-   1. Run the command for receiving messages from a topic:
+   1. Run this command for receiving messages from a topic:
 
       ```powershell
       <path to the directory with Kafka files>\bin\windows\kafka-console-consumer.bat `
@@ -1450,6 +1462,8 @@ Before connecting:
 
 {% endlist %}
 
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
 {% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
 
 ### Python (kafka-python) {#kafka-python}
@@ -1476,8 +1490,8 @@ pip3 install kafka-python lz4 python-snappy crc32c
           bootstrap_servers='<FQDN of the broker host>:9092',
           security_protocol="SASL_PLAINTEXT",
           sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_password='<producer password>',
-          sasl_plain_username='<producer name>')
+          sasl_plain_username='<producer name>',
+          sasl_plain_password='<producer password>')
 
       producer.send('<topic name>', b'test message', b'key')
       producer.flush()
@@ -1496,8 +1510,8 @@ pip3 install kafka-python lz4 python-snappy crc32c
           bootstrap_servers='<broker FQDN>:9092',
           security_protocol="SASL_PLAINTEXT",
           sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_password='<consumer password>',
-          sasl_plain_username='<consumer username>')
+          sasl_plain_username='<consumer name>',
+          sasl_plain_password='<consumer password>')
 
       print("ready")
 
@@ -1528,8 +1542,8 @@ pip3 install kafka-python lz4 python-snappy crc32c
           bootstrap_servers='<FQDN of the broker host>:9091',
           security_protocol="SASL_SSL",
           sasl_mechanism="SCRAM-SHA-512",
+          sasl_plain_username='<producer name>',
           sasl_plain_password='<producer password>',
-          sasl_plain_username='<producer username>',
           ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
       producer.send('<topic name>', b'test message', b'key')
@@ -1549,8 +1563,8 @@ pip3 install kafka-python lz4 python-snappy crc32c
           bootstrap_servers='<broker FQDN>:9091',
           security_protocol="SASL_SSL",
           sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_password='<consumer password>',
           sasl_plain_username='<consumer username>',
+          sasl_plain_password='<consumer password>',
           ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
       print("ready")
@@ -1570,6 +1584,8 @@ pip3 install kafka-python lz4 python-snappy crc32c
       ```
 
 {% endlist %}
+
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
@@ -1720,5 +1736,7 @@ pip install confluent_kafka
       ```
 
 {% endlist %}
+
+{% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}

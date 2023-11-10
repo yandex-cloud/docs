@@ -1,10 +1,10 @@
-# Migrating databases from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
+# Migrating a database from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
 
 There are two ways to migrate data from a third-party _source cluster_ to a {{ mmy-name }} _target cluster_:
 
 * [Transferring data using {{ data-transfer-full-name }}](#data-transfer).
 
-   This method is easy to configure, does not require the creation of an intermediate VM, and lets you transfer the entire database without interrupting user service. To use it, allow connections to the source cluster from the internet.
+   This method is easy to configure, does not require the creation of an intermediate VM, and allows you to transfer the entire database without interrupting user service. To use it, allow connections to the source cluster from the internet.
 
    For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
@@ -12,7 +12,7 @@ There are two ways to migrate data from a third-party _source cluster_ to a {{ m
 
    A _logical dump_ is a file with a set of commands running which one by one you can restore the state of a database. To ensure that a logical dump is complete, before creating it, switch the source cluster to <q>read-only</q> mode.
 
-   Use this method only if, for some reason, it's not possible to migrate data using {{ data-transfer-name }}.
+   Use this method only if, for some reason, it is not possible to migrate data using {{ data-transfer-name }}.
 
 ## Transferring data using {{ data-transfer-name }} {#data-transfer}
 
@@ -76,15 +76,15 @@ Create the required resources:
 
 * Using Terraform
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the configuration file [data-migration-mysql-mmy.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/data-migration-mysql-mmy.tf) to the same working directory.
+   1. Download the [data-migration-mysql-mmy.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/data-migration-mysql-mmy.tf) configuration file to the same working directory.
 
       This file describes:
 
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
+      * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
       * {{ mmy-name }} cluster with public internet access.
       * (Optional) Virtual machine with public internet access.
 
@@ -109,7 +109,7 @@ Create the required resources:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -137,20 +137,22 @@ Create the required resources:
 
       ```bash
       mysqldump \
-          --host=<source cluster master host FQDN or IP> \
+          --host=<FQDN_or_IP> \
           --user=<username> \
           --password \
           --port=<port> \
           --set-gtid-purged=OFF \
           --quick \
           --single-transaction \
-          <database name> > ~/db_dump.sql
+          <DB_name> > ~/db_dump.sql
       ```
+
+      Where `--host` is the FQDN or IP of the source cluster's master host.
 
       If required, provide additional parameters in the create dump command:
 
       * `--events`: If there are recurring events in your database.
-      * `--routines`: If your database has stored procedures and functions.
+      * `--routines`: If your database stores procedures and functions.
 
       For InnoDB tables, use the `--single-transaction` option to guarantee data integrity.
 
@@ -193,10 +195,10 @@ Create the required resources:
           --rows=10000000 \
           --threads=8 \
           --compress \
-          --database=<database name> \
+          --database=<DB_name> \
           --user=<username> \
           --ask-password \
-          --host=<source cluster master host FDQN or IP>
+          --host=<FQDN_or_IP>
       ```
 
       Where:
@@ -208,6 +210,7 @@ Create the required resources:
       * `--rows`: Number of rows in table fragments. The smaller the value, the more files in a dump.
       * `--threads`: Number of threads used. The recommended value is equal to half the server's free cores.
       * `--compress`: Output file compression.
+      * `--host`: FQDN or IP of the source cluster's master host.
 
    1. In the dump file, change the table engine names to `InnoDB`:
 
@@ -230,7 +233,7 @@ Create the required resources:
 1. Copy the archive containing the database dump to the intermediate virtual machine using the `scp` utility, for instance:
 
    ```bash
-   scp ~/db_dump.tar.gz <VM username>@<VM public IP>:~/db_dump.tar.gz
+   scp ~/db_dump.tar.gz <VM_username>@<VM_public_IP>:~/db_dump.tar.gz
    ```
 
 1. Extract the dump from the archive:
@@ -265,22 +268,22 @@ For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/e
 
          ```bash
          mysql \
-             --host=c-<target cluster ID>.rw.{{ dns-zone }} \
+             --host=c-<target_cluster_ID>.rw.{{ dns-zone }} \
              --user=<username> \
              --port={{ port-mmy }} \
-             <database name> < ~/db_dump.sql
+             <DB_name> < ~/db_dump.sql
          ```
 
-      * If you are restoring your dump from a host connecting to {{ yandex-cloud }} from the internet, [obtain an SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert) and transmit the `--ssl-ca` and the `--ssl-mode` parameters in the restore command:
+      * If you are restoring your dump from a host connecting to {{ yandex-cloud }} from the internet, [obtain an SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert) and provide the `--ssl-ca` and the `--ssl-mode` parameters in the restore command:
 
          ```bash
          mysql \
-             --host=c-<target cluster ID>.rw.{{ dns-zone }} \
+             --host=c-<target_cluster_ID>.rw.{{ dns-zone }} \
              --user=<username> \
              --port={{ port-mmy }} \
              --ssl-ca=~/.mysql/root.crt \
              --ssl-mode=VERIFY_IDENTITY \
-             <database name> < ~/db_dump.sql
+             <DB_name> < ~/db_dump.sql
          ```
 
 * Using the myloader utility
@@ -297,7 +300,7 @@ For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/e
 
       ```bash
       myloader \
-          --host=c-<target cluster ID>.rw.{{ dns-zone }} \
+          --host=c-<target_cluster_ID>.rw.{{ dns-zone }} \
           --directory=db_dump/ \
           --overwrite-tables \
           --threads=8 \
@@ -312,7 +315,7 @@ You can get the cluster ID with a [list of clusters in the folder](../../managed
 
 ### Deleting created resources {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
@@ -334,9 +337,9 @@ Delete the resources you no longer need to avoid being charged for them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -58,7 +58,7 @@ To set up integration for an individual {{ GL }} project, create one.
       * **Project name**: Enter a name for the project.
       * **Project URL**: Select the administrator user in the field next to the {{ mgl-name }} instance FQDN.
 
-      Leave the other fields as they are.
+      Leave the other fields unchanged.
    1. Click **Create project**.
 
 - VM running a {{ GL }} image
@@ -72,7 +72,7 @@ To set up integration for an individual {{ GL }} project, create one.
       ```
 
    1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
-   1. In the browser, open a link, such as `http://<public VM IP address>`. The {{ GL }} web interface will open.
+   1. In the browser, open this link: `http://<public VM IP address>`. The {{ GL }} web interface will open.
    1. Log in using the administrator account:
       * **Username or email**: `root`
       * **Password**: Password you copied earlier

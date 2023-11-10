@@ -25,7 +25,7 @@ Select your [host class](../../managed-postgresql/concepts/instance-types.md) ba
 
 - Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [postgresql-1c.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/postgresql-1c.tf) configuration file to the same working directory.
 
@@ -38,8 +38,8 @@ Select your [host class](../../managed-postgresql/concepts/instance-types.md) ba
 
    1. Specify the infrastructure settings under `locals` in the `postgresql-1c.tf` configuration file:
 
-      * `cluster_name`: The name of the cluster.
-      * `pg_version`: {{ PG }} version used for working with <q>1C:Enterprise</q>. The names of these versions end in `-1c`.
+      * `cluster_name`: Cluster name.
+      * `pg_version`: {{ PG }} version used for working with <q>1C:Enterprise</q>. The names of these versions end with `-1c`.
       * `db_name`: Database name.
       * `username` and `password`: Database owner username and password.
 
@@ -68,10 +68,10 @@ Add the created database as an information base to <q>1C:Enterprise</q>. When ad
 
 * **Secure connection**: Disabled.
 * **DBMS type**: `PostgreSQL`.
-* **Database server**: `c-<cluster ID>.rw.{{ dns-zone }} port={{ port-mpg }}`.
-* **Database name**: The name of the database you specified when creating the cluster.
-* **Database user**: The name of the user being the database owner.
-* **User password**: The password of the user being the database owner.
+* **Database server**: `c-<cluster_ID>.rw.{{ dns-zone }} port={{ port-mpg }}`.
+* **Database name**: Name of the database you specified when creating the cluster.
+* **Database user**: Username of the database owner.
+* **User password**: Password of the database owner.
 * **Create database if none present**: Disabled.
 
 ### {{ PG }} extensions for <q>1C:Enterprise</q> support {#extensions}

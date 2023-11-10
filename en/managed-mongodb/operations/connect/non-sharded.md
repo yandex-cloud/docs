@@ -23,11 +23,13 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
                mongodb://<FQDN of {{ MG }} host 1>:{{ port-mmg }},..,<FQDN of {{ MG }} host N>:{{ port-mmg }}/<DB name>
                ```
 
+               {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
          1. Click **Download** to download the connection driver.
       1. On the **SSH/SSL** tab:
          1. Enable the **Use SSL** setting.
          1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](./index.md#get-ssl-cert).
-   1. Click **Test Connection** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **OK** to save the data source.
 
 - DBeaver
@@ -47,13 +49,15 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
             mongodb://<FQDN of {{ MG }} host 1>:{{ port-mmg }},..,<FQDN of {{ MG }} host N>:{{ port-mmg }}/<DB name>
             ```
 
+            {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
          1. In the **Device** list, select `SCRAM-SHA-256` (type of password encryption when connecting to the DB).
          1. Under **Authentication**, specify the DB username and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
          1. In the **Root certificate** field, specify the path to the saved [SSL certificate](./index.md#get-ssl-cert) file.
          1. Under **Settings**, select **Skip hostname validation**.
-   1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Test connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}

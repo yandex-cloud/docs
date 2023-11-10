@@ -19,20 +19,20 @@
    To enable statistics collection, pass the `--performance-diagnostics` parameter in the update cluster command:
 
    ```bash
-   {{ yc-mdb-pg }} cluster update <cluster name or ID> \
+   {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
        ...
        --performance-diagnostics enabled=true,`
-                                `sessions-sampling-interval=<sessions sampling interval>,`
-                                `statements-sampling-interval=<statements sampling interval> \
+                                `sessions-sampling-interval=<session_sampling_interval>,`
+                                `statements-sampling-interval=<statement_sampling_interval> \
        ...
    ```
 
-   Acceptable parameter values:
+   Acceptable parameter values include:
 
    - `sessions-sampling-interval`: Between `1` and `86400` seconds.
    - `statements-sampling-interval`: Between `60` and `86400` seconds.
 
-* {{ TF }}
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -52,7 +52,7 @@
 
       {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
-* API
+- API
 
    To enable statistics collection, use the [create](../api-ref/Cluster/create.md) or [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) or [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
@@ -67,7 +67,7 @@
 
    {% note warning %}
 
-   This API method resets any cluster settings that are not passed explicitly in the request to their defaults. To avoid this, be sure to pass the names of the fields to be changed in the `updateMask` parameter.
+   This API method resets any cluster settings that are not provided explicitly in the request to their defaults. To avoid this, make sure to provide the names of the fields to be changed in the `updateMask` parameter.
 
    {% endnote %}
 
@@ -97,7 +97,7 @@
 
 - API
 
-   To get statistics for sessions, use the [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/perf_diag_service#ListRawSessionStates) gRPC API call and deliver the following in your query:
+   To get statistics for sessions, use the [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/perf_diag_service#ListRawSessionStates) gRPC API call and deliver the following in your request:
 
    * Cluster ID for the `cluster_id` parameter.
 

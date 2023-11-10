@@ -27,18 +27,16 @@ You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, 
 
    Result:
 
-   
    ```text
-   +-----------------------+--------------+--------+------------+-----------+----------+-------------------+-----------+
-   |         NAME          |  CLUSTER ID  |  TYPE  | SHARD NAME |   ROLE    |  HEALTH  |      ZONE ID      | PUBLIC IP |
-   +-----------------------+--------------+--------+------------+-----------+----------+-------------------+-----------+
-   | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY   | ALIVE    | {{ region-id }}-b | false     |
-   | rc1a...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY | ALIVE    | {{ region-id }}-a | false     |
-   +-----------------------+--------------+--------+------------+-----------+----------+-------------------+-----------+
+   +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
+   |           NAME             |  CLUSTER ID  |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
+   +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
+   | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | {{ region-id }}-b | false     |
+   | rc1a...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | {{ region-id }}-a | false     |
+   +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
    ```
 
-
-   You can get the {{ mmg-name }} cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the {{ mmg-name }} cluster name with [a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -73,7 +71,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
    1. Specify the host parameters:
       * [Availability zone](../../overview/concepts/geo-scope.md).
       * [Subnet](../../vpc/concepts/network.md#subnet) (if the required subnet is not on the list, create it).
-      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}. You cannot change this setting after you create a host.
       * Host type and shard name, if sharding is enabled for the {{ mmg-name }} cluster.
    1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -93,14 +91,14 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
       Result:
 
       ```text
-      +-----------+-----------+------------+-------------------+------------------+
-      |     ID    |   NAME    | NETWORK ID |       ZONE        |      RANGE       |
-      +-----------+-----------+------------+-------------------+------------------+
+      +-----------+-----------+------------+---------------+------------------+
+      |     ID    |   NAME    | NETWORK ID |       ZONE    |      RANGE       |
+      +-----------+-----------+------------+---------------+------------------+
       | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
       | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
       | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
       | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
-      +-----------+-----------+------------+-------------------+------------------+
+      +-----------+-----------+------------+---------------+------------------+
       ```
 
       If the required subnet is not on the list, create it.
@@ -115,7 +113,9 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
       ```bash
       {{ yc-mdb-mg }} host add \
         --cluster-name <cluster name> \
-        --host zone-id=<availability zone>,subnet-id=<subnet ID>
+        --host zone-id=<availability zone>,`
+              `subnet-id=<subnet ID>,`
+              `assign-public-ip=<public access to host: true or false> \
       ```
 
       {{ mmg-name }} will run the add host operation.
@@ -165,7 +165,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
           role             = "<replica type: PRIMARY or SECONDARY>"
           zone_id          = "<availability zone>"
           subnet_id        = "<subnet in availability zone>"
-          assign_public_ip = true / false
+          assign_public_ip = "public access to host: true or false>
           shard_name       = "<shard name in sharded cluster>"
           type             = "<host type in sharded cluster: MONGOD, MONGOINFRA, MONGOS, or MONGOCFG>"
           ...
@@ -200,7 +200,7 @@ To enable security groups, request access to this feature from the [support team
 
 {% note warning %}
 
-If you cannot [connect](connect/index.md) to the added host, check that the {{ mmg-name }} cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect/index.md) to the added host, make sure that the {{ mmg-name }} cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
 title: "Creating an {{ ES }} cluster"
-description: "A cluster of Yandex Managed Service for {{ ES }} is a group of multiple linked {{ ES }} hosts. When creating an {{ ES }} cluster, specify parameters separately for your hosts with the Master Node role and Data Node role."
+description: "A cluster in the Managed Service for {{ ES }} is a group of multiple linked {{ ES }} hosts. When creating an {{ ES }} cluster, specify parameters separately for your hosts with the **Master Node** role and the **Data Node** role."
 keywords:
   - "Creating an {{ ES }} cluster"
   - "{{ ES }} cluster"
@@ -11,7 +11,7 @@ keywords:
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-An [{{ mes-name }} cluster ](../concepts/index.md)is a group of multiple linked {{ ES }} hosts. An {{ mes-name }} cluster provides high search performance by distributing search and indexing tasks across all hosts with the _Data node_ [role](../concepts/hosts-roles.md) in the cluster. To learn more about roles in the {{ mes-name }} cluster, see [{#T}](../concepts/hosts-roles.md).
+A [{{ mes-name }} cluster](../concepts/index.md)is a group of multiple linked {{ ES }} hosts. A {{ mes-name }} cluster provides high search performance by distributing search and indexing tasks across all hosts with the _Data node_ [role](../concepts/hosts-roles.md) in the cluster. To learn more about roles in the {{ mes-name }} cluster, see [{#T}](../concepts/hosts-roles.md).
 
 {% note info %}
 
@@ -28,7 +28,7 @@ As of June 13, 2022, the `Gold` [edition](../concepts/es-editions.md) in {{ mes-
 
 {% endnote %}
 
-When creating an {{ mes-name }} cluster, specify parameters separately for your _Master node_ and _Data node_ hosts.
+When creating a {{ mes-name }} cluster, specify parameters separately for the hosts with the _Master node_ and the _Data node_ roles.
 
 You can use hosts only with the _Data node_ role, without creating dedicated hosts for the _Master node_ role. In this case, hosts with the _Data node_ role combine the two roles.
 
@@ -36,21 +36,25 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 - Management console
 
-   To create an {{ mes-name }} cluster:
+   To create a {{ mes-name }} cluster:
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an {{ mes-name }} cluster.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ mes-name }} cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
-      1. Enter a name and description of the {{ mes-name }} cluster. The {{ mes-name }} cluster name must be unique within the folder.
+      1. Enter a name and description for the {{ mes-name }} cluster. The {{ mes-name }} cluster name must be unique within the folder.
       1. Select the environment where you want to create the {{ mes-name }} cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       1. Select the {{ ES }} version from the list.
       1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
+      
+      1. Select a service account with the `storage.editor` role from the drop-down list or create a new one if you plan to use data from an {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access). For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
+
+
    
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the [cloud network](../../vpc/concepts/network.md#network) to host the {{ mes-name }} cluster and the [security group](../../vpc/concepts/security-groups.md) for cluster network traffic. You may also need to [reconfigure security groups](cluster-connect.md#configuring-security-groups) to connect to the {{ mes-name }} cluster.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the [cloud network](../../vpc/concepts/network.md#network) to host the {{ mes-name }} cluster and the [security group](../../vpc/concepts/security-groups.md) for cluster network traffic. You may also need to [set up security groups](cluster-connect.md#configuring-security-groups) to connect to the {{ mes-name }} cluster.
 
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_user }}**, specify the `admin` user password.
@@ -60,7 +64,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
    1. Configure hosts with the _Data node_ role by opening the **{{ ui-key.yacloud.opensearch.title_data-node }}** tab:
       1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the platform, host type, and host class.
 
-         The host class defines the technical characteristics of [VM instances](../../compute/concepts/vm.md) that {{ ES }} nodes are deployed on. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for a {{ mes-name }} cluster, the characteristics of all existing instances also change.
+         The host class defines the technical characteristics of [VM instances](../../compute/concepts/vm.md) {{ ES }} nodes are deployed on. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for a {{ mes-name }} cluster, the characteristics of all existing instances also change.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
          * Select the [disk type](../concepts/storage.md).
 
@@ -96,7 +100,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
             {% note tip %}
 
-            We do not recommend enabling public access for _Master node_ hosts as this might be unsafe.
+            We do not recommend enabling public access for hosts with the _Master node_ role as it may be unsafe.
 
             {% endnote %}
 
@@ -142,25 +146,25 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         --datanode-resource-preset <Data_node_host_class> \
         --datanode-disk-size <storage_size_in_gigabytes_for_Data_Node_hosts> \
         --datanode-disk-type <disk_type_for_Data_node_hosts> \
-        --masternode-resource-preset <host_class_with_Master_node_role> \
-        --masternode-disk-size <storage_size_in_megabytes_for_Master_node_hosts> \
+        --masternode-resource-preset <Master_node_host_class> \
+        --masternode-disk-size <storage_size_in_gigabytes_for_Master_node_hosts> \
         --masternode-disk-type <disk_type_for_Master_node_hosts> \
         --security-group-ids <security_group_ID_list> \
-        --version <version_{{ ES }}:_{{ versions.cli.str }}> \
-        --edition <edition_{{ ES }}:_basic_or_platinum> \
+        --version <{{ ES }}_version:_{{ versions.cli.str }}> \
+        --edition <{{ ES }}_edition:_basic_or_platinum> \
         --admin-password <admin_password> \
         --plugins=<plugin_1_name>,...,<plugin_N_name> \
         --deletion-protection=<cluster_deletion_protection:_true_or_false>
       ```
 
 
-      Enter the subnet ID `subnet-id` if the [availability zone](../../overview/concepts/geo-scope.md) includes more than one subnet.
+      Enter the `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) includes more than one subnet.
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       {% note info %}
 
-      When creating a {{ mes-name }} cluster, the `anytime` [maintenance](../concepts/maintenance.md) mode is set by default. You can set a specific maintenance period when [updating the {{ mes-name }} cluster settings](cluster-update.md#change-additional-settings).
+      When creating a {{ mes-name }} cluster, the `anytime` [maintenance](../concepts/maintenance.md) mode is set by default. You can set a specific maintenance window when [updating the {{ mes-name }} cluster settings](cluster-update.md#change-additional-settings).
 
       {% endnote %}
 
@@ -180,7 +184,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       
@@ -192,8 +196,8 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         deletion_protection = "<deletion_protection:_true_or_false>"
 
         config {
-          version = "<(optional)_version_{{ ES }}:_{{ versions.tf.str }}>"
-          edition = "<(optional)_edition_{{ ES }}:_basic_or_platinum>"
+          version = "<(optional)_{{ ES }}_version:_{{ versions.tf.str }}>"
+          edition = "<(optional)_{{ ES }}_edition:_basic_or_platinum>"
 
           admin_password = "<admin_password>"
 
@@ -213,7 +217,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
             }
           }
 
-          plugins = [ "<plugin_name_list>" ]
+          plugins = [ "<list_of_plugin_names>" ]
 
         }
 
@@ -241,7 +245,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 
 
-      If {{ mes-name }} cluster deletion protection is activated, this does not protect the DB contents.
+      If the {{ mes-name }} cluster deletion protection is activated, this does not protect the DB contents.
 
       1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
@@ -281,7 +285,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 {% note warning %}
 
-If you specified security group IDs when creating a {{ mes-name }} cluster, you may also need to [reconfigure security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a {{ mes-name }} cluster, you may also need to [set up security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
@@ -296,45 +300,45 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
 
    To create a {{ mes-name }} cluster with a single host, provide a single `--host` parameter.
 
-   Create a {{ mes-name }} cluster with test characteristics:
+   Create a {{ mes-name }} cluster with the following test characteristics:
    * Name: `my-es-clstr`.
    * Version: `{{ versions.cli.latest }}`.
    * Edition: `Platinum`.
    * Environment: `PRODUCTION`.
-   * The `default` network.
+   * Network: `default`.
 
 
-   * Security group with the ID `enpp2s8l3irh********`.
+   * Security group ID: `enpp2s8l3irh********`.
 
 
-   * A single publicly available `{{ host-class }}` class host with the _Data node_ role in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
-   * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
-   * Password `esadminpwd` and username `admin`.
-   * Protection against accidental {{ mes-name }} cluster deletion.
+   * Single publicly available `{{ host-class }}` host with the _Data node_ role in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
+   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
+   * Username: `admin` with the `esadminpwd` password.
+   * Protection against accidental {{ mes-name }} cluster deletion: Enabled.
 
-    Run the following command:
-    
-        
-    ```bash
-    {{ yc-mdb-es }} cluster create \
-      --name my-es-clstr \
-      --environment production \
-      --network-name default \
-      --host zone-id={{ region-id }}-a,assign-public-ip=true,type=datanode \
-      --datanode-resource-preset {{ host-class }} \
-      --datanode-disk-type={{ disk-type-example }} \
-      --datanode-disk-size=20 \
-      --admin-password=esadminpwd \
-      --security-group-ids enpp2s8l3irh******** \
-      --version {{ versions.cli.latest }} \
-      --edition platinum \
-      --deletion-protection=true
-    ```
-    
+   Run the following command:
+
+   
+   ```bash
+   {{ yc-mdb-es }} cluster create \
+     --name my-es-clstr \
+     --environment production \
+     --network-name default \
+     --host zone-id={{ region-id }}-a,assign-public-ip=true,type=datanode \
+     --datanode-resource-preset {{ host-class }} \
+     --datanode-disk-type={{ disk-type-example }} \
+     --datanode-disk-size=20 \
+     --admin-password=esadminpwd \
+     --security-group-ids enpp2s8l3irh******** \
+     --version {{ versions.cli.latest }} \
+     --edition platinum \
+     --deletion-protection=true
+   ```
+
 
 - {{ TF }}
 
-   Create a {{ mes-name }} cluster. Here is the configuration file format for the {{ mes-name }} cluster:
+   Create a {{ mes-name }} cluster. The configuration file for the {{ mes-name }} cluster is as follows:
 
    
    
@@ -412,17 +416,17 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
    * Version: `{{ versions.tf.latest }}`.
    * Edition: `Basic`.
    * Environment: `PRODUCTION`.
-   * Cluster deletion protection: `deletion_protection`. You cannot delete a cluster with this option enabled.
-   * Cloud with the `{{ tf-cloud-id }}` ID.
-   * Folder with the `{{ tf-folder-id }}` ID.
-   * New `mynet` network.
+   * {{ mes-name }} cluster `deletion protection`: Enabled. You cannot delete a {{ mes-name }} cluster with this option enabled.
+   * Cloud ID: `{{ tf-cloud-id }}`.
+   * Folder ID: `{{ tf-folder-id }}`.
+   * New network: `mynet`.
 
 
    * New `es-sg` security group allowing an internet connection to the {{ mes-name }} cluster on ports 443 (Kibana) and 9200 ({{ ES }}).
 
 
-   * A single publicly available `{{ host-class }}` class host with the _Data node_ role in the `mysubnet` subnet, in the `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
-   * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
-   * Password `esadminpwd` and username `admin`.
+   * Single publicly available `{{ host-class }}` host with the _Data node_ role in the `mysubnet` subnet, in the `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
+   * Username: `admin` with the `esadminpwd` password.
 
 {% endlist %}

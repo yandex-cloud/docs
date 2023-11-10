@@ -29,19 +29,19 @@
 1. Upload the data from the keystore:
 
    ```bash
-   curl --request POST "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_nodes/reload_secure_settings"
+   curl --request POST "https://<IP_or_FQDN_of_source_cluster_DATA_host>:{{ port-mes }}/_nodes/reload_secure_settings"
    ```
 
 1. Register the repository:
 
    ```bash
    curl --request PUT \
-        "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>" \
+        "https://<IP_or_FQDN_of_source_cluster_DATA_host>:{{ port-mes }}/_snapshot/<repository_name>" \
         --header 'Content-Type: application/json' \
         --data '{
           "type": "s3",
           "settings": {
-            "bucket": "<bucket name>",
+            "bucket": "<bucket_name>",
             "endpoint": "{{ s3-storage-host }}"
           }
         }'

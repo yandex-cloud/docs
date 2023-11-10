@@ -28,6 +28,9 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
          * **Host**: Specify comma-separated FQDNs of master hosts in each shard.
+
+            {% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
          * **Port**: `{{ port-mrd }}` for a regular cluster or `{{ port-mrd-tls }}` for a cluster with SSL encryption enabled.
          * Under **Authentication**, specify the cluster password.
       1. On the **SSH** tab:
@@ -43,7 +46,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
          1. Under **Parameters**:
             1. Select **Method**: **Set of certificates**.
             1. In the **Root certificate** field, specify the path to the saved [SSL certificate](./index.md#get-ssl-cert) file.
-   1. Click **Test connection ...** to test a DB connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Test connection ...** to test a DB connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}

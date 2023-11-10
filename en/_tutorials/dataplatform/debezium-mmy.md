@@ -65,7 +65,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
           -importcert \
           -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/{{ crt-local-file }} \
           -keystore /etc/debezium/keystore.jks \
-          -storepass <JKS password> \
+          -storepass <JKS_password> \
           --noprompt
       ```
 
@@ -97,9 +97,9 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
       ```sql
       INSERT INTO measurements VALUES
-        ('iv9a94th6rztooxh5ur2', '2020-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
-        ('rhibbh3y08qmz3sdbrbu', '2020-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
-        ('iv9a94th678tooxh5ur2', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
+        ('iv9a94th6rzt********', '2020-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+        ('rhibbh3y08qm********', '2020-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
+        ('iv9a94th678t********', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
       ```
 
 ## Configure Debezium {#setup-debezium}
@@ -121,10 +121,10 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    ```init
    name=debezium-mmy
    connector.class=io.debezium.connector.mysql.MySqlConnector
-   database.hostname=c-<cluster ID>.rw.{{ dns-zone }}
+   database.hostname=c-<cluster_ID>.rw.{{ dns-zone }}
    database.port=3306
    database.user=user1
-   database.password=<user1 user password>
+   database.password=<user1_user_password>
    database.dbname=db1
    database.server.name=mmy
    database.ssl.mode=required_identity
@@ -135,23 +135,23 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    snapshot.mode=never
    include.schema.changes=false
    database.history.kafka.topic=dbhistory.mmy
-   database.history.kafka.bootstrap.servers=<FQDN of broker host 1>:9091,...,<FQDN of Nth broker host>:9091
+   database.history.kafka.bootstrap.servers=<FQDN_of_broker_host_1>:9091,...,<FQDN_of_broker_host_N>:9091
 
    # Producer settings
    database.history.producer.security.protocol=SSL
    database.history.producer.ssl.truststore.location=/etc/debezium/keystore.jks
-   database.history.producer.ssl.truststore.password=<JKS password>
+   database.history.producer.ssl.truststore.password=<JKS_password>
    database.history.producer.sasl.mechanism=SCRAM-SHA-512
    database.history.producer.security.protocol=SASL_SSL
-   database.history.producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<debezium user password>";
+   database.history.producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<debezium_user_password>";
 
    # Consumer settings
    database.history.consumer.security.protocol=SSL
    database.history.consumer.ssl.truststore.location=/etc/debezium/keystore.jks
-   database.history.consumer.ssl.truststore.password=<JKS password>
+   database.history.consumer.ssl.truststore.password=<JKS_password>
    database.history.consumer.sasl.mechanism=SCRAM-SHA-512
    database.history.consumer.security.protocol=SASL_SSL
-   database.history.consumer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<debezium user password>";
+   database.history.consumer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<debezium_user_password>";
    ```
 
    Where:
@@ -174,7 +174,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
    * **{{ ui-key.yacloud.common.name }}**: `mmy.db1.measurements`.
 
-      Topic names [follow](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-topic-names) the convention `<server name>.<database name>.<table name>`.
+      Data topic names [follow](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-topic-names) the `<server_name>.<DB_name>.<table_name>` convention.
 
       According to the [Debezium configuration file](#setup-debezium):
 
@@ -187,7 +187,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
    * **{{ ui-key.yacloud.common.name }}**: `__debezium-heartbeat.mmy`.
 
-      Names for service topics [follow](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-topics-prefix) the convention `<prefix for heartbeat>.<server name>`.
+      Names for service topics [follow](https://debezium.io/documentation/reference/connectors/mysql.html#mysql-property-heartbeat-topics-prefix) the `<prefix_for_heartbeat>.<server_name>` convention.
 
       According to the [Debezium configuration file](#setup-debezium):
 
@@ -200,9 +200,9 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 1. Create a service topic to track changes to the data format schema:
 
-   * **{{ ui-key.yacloud.common.name }}**: `dbhistory.mmy`.
-   * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Delete`.
-   * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`.
+   * **{{ ui-key.yacloud.common.name }}**: `dbhistory.mmy`
+   * **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**: `Delete`
+   * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`
 
 1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `debezium`.
 
@@ -216,19 +216,19 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
    ```ini
    # AdminAPI connect properties
-   bootstrap.servers=<FQDN of broker host 1>:9091,...,<FQDN of broker host N>:9091
+   bootstrap.servers=<FQDN_of_broker_host_1>:9091,...,<FQDN_of_broker_host_N>:9091
    sasl.mechanism=SCRAM-SHA-512
    security.protocol=SASL_SSL
    ssl.truststore.location=/etc/debezium/keystore.jks
-   ssl.truststore.password=<JKS password>
-   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<debezium user password>";
+   ssl.truststore.password=<JKS_password>
+   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<debezium_user_password>";
 
    # Producer connect properties
    producer.sasl.mechanism=SCRAM-SHA-512
    producer.security.protocol=SASL_SSL
    producer.ssl.truststore.location=/etc/debezium/keystore.jks
-   producer.ssl.truststore.password=<JKS password>
-   producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<debezium user password>";
+   producer.ssl.truststore.password=<JKS_password>
+   producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<debezium_user_password>";
 
    # Worker properties
    plugin.path=/etc/debezium/plugins/
@@ -254,7 +254,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    ```bash
    kafkacat \
        -C \
-       -b <FQDN of broker host 1>:9091,...,<FQDN of broker host N>:9091 \
+       -b <FQDN_of_broker_host_1>:9091,...,<FQDN_of_broker_host_N>:9091 \
        -t mmy.db1.measurements \
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
@@ -277,7 +277,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    "payload": {
        "before": null,
        "after": {
-           "device_id": "iv9a94th6rztooxh5ur2",
+           "device_id": "iv9a94th6rzt********",
            "datetime": 1591378020000000,
            "latitude": 55.70329,
            "longitude": 37.65472,
@@ -312,14 +312,14 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 1. [Connect to the source cluster](../../managed-mysql/operations/connect.md) and add another row to the `measurements` table:
 
    ```sql
-   INSERT INTO measurements VALUES ('iv7b74th678tooxh5ur2', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
+   INSERT INTO measurements VALUES ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
    ```
 
 1. Make sure the terminal running `kafkacat` displays details about the added row.
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 1. Delete the [virtual machine](../../compute/operations/vm-control/vm-delete.md).
 

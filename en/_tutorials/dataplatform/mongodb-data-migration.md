@@ -1,6 +1,6 @@
 # Migrating data to {{ mmg-name }}
 
-To migrate your data to {{ mmg-name }}, you need to transfer the data, acquire a write lock for the old database, and switch over the load to the target cluster in {{ yandex-cloud }}.
+To migrate your data to {{ mmg-name }}, transfer the data, write-lock the old database, and transfer the load to the target cluster in {{ yandex-cloud }}.
 
 There are two ways to migrate data from a third-party _source cluster_ to a {{ mmg-name }} _target cluster_:
 
@@ -58,23 +58,23 @@ You can create a database dump using `mongodump`. For more information about thi
 1. Create a database dump:
 
    ```bash
-   mongodump --host <DBMS server address> \
+   mongodump --host <DBMS_server_address> \
              --port <port> \
              --username <username> \
              --password "<password>" \
-             --db <database name> \
+             --db <DB_name> \
              --out /db_dump
    ```
 
    If you can use multiple processor cores to create a dump, use the `-j` flag with the number of cores available:
 
    ```bash
-   mongodump --host <DBMS server address> \
+   mongodump --host <DBMS_server_address> \
              --port <port> \
              --username <username> \
              --password "<password>" \
-             -j <number of cores> \
-             --db <database name> \
+             -j <number_of_cores> \
+             --db <DB_name> \
              --out /db_dump
    ```
 
@@ -96,7 +96,7 @@ To prepare the virtual machine to restore the dump:
 1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. The required amount of RAM and processor cores depends on the amount of data to migrate and the required migration speed.
 
 
-    The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice the size of the database).
+    The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database up to 1 GB in size. The larger the database, the more disk storage (at least twice the size of the database) and RAM you need for migration.
 
     The virtual machine must be in the same network and availability zone as the {{ mmg-name }} cluster master host. The VM must be also assigned an external IP address so that you can upload the dump file from outside {{ yandex-cloud }}.
 
@@ -112,7 +112,7 @@ To prepare the virtual machine to restore the dump:
 1. Move the DB dump from your server to the VM. For example, you can use the `scp` utility:
 
    ```bash
-   scp ~/db_dump.tar.gz <VM username>@<VM public address>:/tmp/db_dump.tar.gz
+   scp ~/db_dump.tar.gz <VM_username>@<VM_public_IP>:/tmp/db_dump.tar.gz
    ```
 
 1. Unpack the dump on the virtual machine:
@@ -131,27 +131,27 @@ Use the [mongorestore](https://docs.mongodb.com/manual/reference/program/mongore
 * If you restore a dump from the VM in {{ yandex-cloud }}:
 
    ```bash
-   mongorestore --host <DBMS server address> \
+   mongorestore --host <DBMS_server_address> \
                 --port <port> \
                 --username <username> \
                 --password "<password>" \
-                -j <number of streams> \
-                --authenticationDatabase <DB name> \
+                -j <number_of_streams> \
+                --authenticationDatabase <DB_name> \
                 --nsInclude '*.*' /tmp/db_dump
    ```
 
 * If you restore from a dump stored on a server outside {{ yandex-cloud }}, SSL parameters must be explicitly set for `mongorestore`:
 
    ```bash
-   mongorestore --host <DBMS server address> \
+   mongorestore --host <DBMS_server_address> \
                 --port <port> \
                 --ssl \
-                --sslCAFile <path to certificate file> \
+                --sslCAFile <path_to_certificate_file> \
                 --username <username> \
                 --password "<password>" \
-                -j <number of streams> \
-                --authenticationDatabase <DB name> \
+                -j <number_of_streams> \
+                --authenticationDatabase <DB_name> \
                 --nsInclude '*.*' ~/db_dump
    ```
 
-* If you only want to transfer specific collections, set the `--nsInclude` and `--nsExclude` flags, specifying the namespaces to include or exclude for the set of collections being restored.
+* If you want to transfer specific collections, set the `--nsInclude` and `--nsExclude` flags, specifying the namespaces to include or exclude for the set of collections being restored.

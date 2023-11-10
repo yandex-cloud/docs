@@ -100,6 +100,8 @@
 2. Перейдите по ссылке **{{ ui-key.startrek.ui_components_page-admin_BillingAccountInfo.rebind-account }}** в верхнем правом углу. Выберите платежный аккаунт, на который хотите заменить текущий, или нажмите **+ {{ ui-key.startrek.ui_components_page-admin_BillingAccountList.create-account }}**. 
    Если вы решили создать новый аккаунт, воспользуйтесь [инструкцией](#create).
 
+![](../_assets/tracker/changelogs/change-ba.png =690x)
+
 Переключение на выбранный или созданный платежный аккаунт произойдет в начале следующего месяца.
 
 {% note tip %}

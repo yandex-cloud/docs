@@ -27,7 +27,7 @@ Rule settings depend on the connection method you select:
 
    [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
 
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** : `{{ port-mmy }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_tcp }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
@@ -82,9 +82,23 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
+## {{ MY }} host FQDN {#fqdn}
+
+To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+
+* [Request a list of cluster hosts](../operations/hosts.md#list).
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**.
+* Look up the FQDN in the management console:
+
+   1. Go to the cluster page.
+   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+
+Cluster hosts also use [special FQDNs](#special-fqdns).
+
 ## Special FQDNs {#special-fqdns}
 
-Just like usual FQDNs, which can be requested with a [list of cluster hosts](./hosts.md#list), {{ mmy-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
+Alongside regular FQDNs, {{ mmy-name }} provides some special FQDNs, which can also be used when connecting to a cluster.
 
 {% note warning %}
 
@@ -147,7 +161,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Select **File** → **New** → **Data Source** → **{{ MY }}**.
       1. On the **General** tab:
          1. Specify the connection parameters:
-            * **Host**: <host name>.{{ dns-zone }} or a [special FQDN](#special-fqdns).
+            * **Host**: [Any {{ MY }} host FQDN](#fqdn) or a [special FQDN](#special-fqdns).
             * **Port**: `{{ port-mmy }}`.
             * **User**, **Password**: DB user's name and password.
             * **Database**: Name of the DB to connect to.
@@ -165,9 +179,9 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Select **{{ MY }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
-         * **Server**: <host name>.{{ dns-zone }} or a [special FQDN](#special-fqdns).
+         * **Server**: [FQDN of any {{ MY }} host](#fqdn) or a [special FQDN](#special-fqdns).
          * **Port**: `{{ port-mmy }}`.
-         * **Database**: DB you want to connect to.
+         * **Database**: DB to connect to.
          * **Username**, **Password**: DB username and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.

@@ -69,14 +69,14 @@ Make sure this does not affect your applications:
    1. Get information about a cluster and check the {{ PG }} version in the `config.version` parameter:
 
       ```bash
-      {{ yc-mdb-pg }} cluster get <cluster ID or name>
+      {{ yc-mdb-pg }} cluster get <cluster_name_or_ID>
       ```
 
    1. Start the {{ PG }} upgrade:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update <cluster ID or name> \
-         --postgresql-version <new version number>
+      {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
+         --postgresql-version <new_version_number>
       ```
 
    Once the upgrade is launched, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
@@ -91,13 +91,13 @@ Make sure this does not affect your applications:
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-   1. Under `cluster_config` of the desired {{ mpg-name }} cluster, add the `version` field or edit it if it already exists:
+   1. Under `cluster_config` of the required {{ mpg-name }} cluster, add the `version` field or edit it if it already exists:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
         cluster_config {
-          version = "<PostgreSQL version>"
+          version = "<{{ PG }}_version>"
         }
       }
       ```
@@ -132,7 +132,7 @@ Let's say you need to upgrade your cluster from version 11 to version 12.
 
 - CLI
 
-   1. To get a list of clusters and find out their IDs and names, run the command:
+   1. To get a list of clusters and find out their IDs and names, run this command:
 
       ```bash
       {{ yc-mdb-pg }} cluster list
@@ -142,7 +142,7 @@ Let's say you need to upgrade your cluster from version 11 to version 12.
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
       +----------------------+---------------+---------------------+--------+---------+
-      | c9q8p8j2gaih8iti42mh |   postgre406  | 2021-10-23 12:44:17 | ALIVE  | RUNNING |
+      | c9q8p8j2gaih******** |   postgre406  | 2021-10-23 12:44:17 | ALIVE  | RUNNING |
       +----------------------+---------------+---------------------+--------+---------+
       ```
 
@@ -153,7 +153,7 @@ Let's say you need to upgrade your cluster from version 11 to version 12.
       ```
 
       ```text
-        id: c9q8p8j2gaih8iti42mh
+        id: c9q8p8j2gaih********
         ...
         config:
           version: "11"

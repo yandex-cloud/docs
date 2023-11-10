@@ -88,7 +88,7 @@ For more information, see [{#T}](../../managed-postgresql/concepts/maintenance.m
 
 #### Which version of {{ PG }} does {{ mpg-short-name }} use? {#dbms-version}
 
-{{ mpg-short-name }} supports {{ PG }} 11, 12, 13, and 14, as well as PostgreSQL 11, 12, 13, and 14 for 1C.
+{{ mpg-short-name }} supports {{ PG }} 11, 12, 13, 14, 15, and 16, as well as {{ PG }} 11, 12, 13, 14, and 15 for 1C.
 
 #### Which {{ PG }} version and settings are best suited when creating databases for 1C? {#1c-version}
 
@@ -123,7 +123,7 @@ The cluster characteristics change within 30 minutes. During this period, other 
 
 #### Can I set up auto increase of the cluster storage size? {#storage-autoscale}
 
-Yes, you can set up automatic increase of the storage size when [creating](../../managed-postgresql/operations/cluster-create.md) or [updating](../../managed-postgresql/operations/update.md) a cluster.
+Yes, you can set up automatic increase of the storage size when [creating](../../managed-postgresql/operations/cluster-create.md) or [updating](../../managed-postgresql/operations/storage-space.md#disk-size-autoscale) a cluster.
 
 #### Is DB host backup enabled by default? {#default-backup}
 

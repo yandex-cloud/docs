@@ -12,6 +12,8 @@ When creating a cluster, you can:
 
 {{ mrd-short-name }} generates a name for each cluster host when it is created. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
 
+{% include [see-fqdn](../../_includes/mdb/mrd/fqdn-host.md) %}
+
 
 You can use the FQDN to access the host within a single cloud network.
 

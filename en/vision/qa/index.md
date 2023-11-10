@@ -32,7 +32,7 @@ The `license-plates` recognition model supports only Russian (`ru`) and English 
 
 #### How do I recognize and present individual fields from a document rather than the whole text? {#qa-specific-detection}
 
-For this, select the `line` model in the configuration: this model is better suited for recognizing individual lines. For a more detailed guide, see [{#T}](../operations/ocr/text-detection.md#string).
+For this, select the `line` model in the configuration: this model is better suited for recognizing individual lines. For a more detailed guide, see [{#T}](../operations/ocr/text-detection-single-line.md#vision-line-recognition).
 
 #### Why are element coordinates determined incorrectly? {#coordinate-definition-issue}
 

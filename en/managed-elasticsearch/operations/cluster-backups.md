@@ -245,7 +245,7 @@ When creating a new cluster, set all required parameters.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -260,7 +260,7 @@ When creating a new cluster, set all required parameters.
 
          * `type`: [Host role](../concepts/hosts-roles.md).
 
-      * `--datanode-resource-preset`: [Class of hosts](../concepts/instance-types.md#available-flavors) with the Data node role.
+      * `--datanode-resource-preset`: [Class of hosts](../concepts/instance-types.md#available-flavors) with the Data Node role.
       * `--datanode-disk-size`: Storage size in gigabytes for hosts with the Data node role.
       * `--datanode-disk-type`: [Disk type](../concepts/storage.md) for hosts with the Data node role:
 
@@ -271,7 +271,7 @@ When creating a new cluster, set all required parameters.
          * `network-ssd-nonreplicated`
 
 
-      * `--masternode-resource-preset`: [Class of hosts](../concepts/instance-types.md#available-flavors) with the Master node role.
+      * `--masternode-resource-preset`: [Class of hosts](../concepts/instance-types.md#available-flavors) with the Master Node role.
       * `--masternode-disk-size`: Storage size in gigabytes for hosts with the Master node role.
       * `--masternode-disk-type`: [Disk type](../concepts/storage.md) for hosts with the Master node role. Only `network-ssd` are available.
 
@@ -326,7 +326,7 @@ To work with snapshots, use the [{{ ES }} public API](https://www.elastic.co/gui
    GET https://admin:<password>@<host_FQDN>:9200/_snapshot/_all
    ```
 
-   If the required repository is not on the list, [connect it](./s3-access.md).
+   If the repository you need is not on the list, [connect it](./s3-access.md).
 
 1. [Create a snapshot](https://www.elastic.co/guide/en/elasticsearch/reference/current/create-snapshot-api.html) of the required data or cluster in the selected repository:
 

@@ -31,6 +31,14 @@ items:
             href: operations/connect-interfaces.md
           - name: Using Sqoop
             href: operations/sqoop-usage.md
+          - name: Delta Lake
+            items:
+              - name: Setting up Delta Lake in single-cluster mode
+                href: operations/deltalake/one-cluster-mode.md
+              - name: Setting up Delta Lake in multi-cluster mode
+                href: operations/deltalake/multi-cluster-mode.md
+              - name: Tips for setting up and using Delta Lake
+                href: operations/deltalake/tips.md
       - name: Jobs
         items:
           - name: All jobs
@@ -147,6 +155,8 @@ items:
         href: concepts/storage.md
       - name: Component properties
         href: concepts/settings-list.md
+      - name: Delta Lake in {{ dataproc-name }}
+        href: concepts/deltalake.md
       - name: Logs in {{ dataproc-name }}
         href: concepts/logs.md
       - name: Initialization scripts

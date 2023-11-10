@@ -13,7 +13,7 @@ _{{ ml-platform-name }} resources_ are objects that are created or used in proje
 You can use the following types of resources in {{ ml-platform-name }} projects:
 
 * [Datasets](dataset.md): Ways of storing information that provide quick access to large amounts of data within a project.
-* [Secrets](secrets.md): Key-value pairs that store private data (tokens, keys, etc.) in encrypted form. Secrets are created in a project and associated with it. You can use secrets as environment variables in a cell.
+* [Secrets](secrets.md): Key-value pairs that store private data (tokens, keys, etc.) in encrypted form. Secrets are created in a project and assigned to it. You can use secrets as environment variables in a cell.
 * [Docker images](docker.md): OS environments with certain software, libraries, environment variables, and configuration files.
 * S3 connectors: Saved configurations used to connect [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md). You can mount buckets into a project's file system to make it easier to access code data. To learn how to create an S3 connector, see [{#T}](../operations/data/connect-to-s3.md).
 * Checkpoints: [Saved states](save-state.md) of a notebook, including cell code, output, and variable values, as well as project storage data. Checkpoints are versioned.

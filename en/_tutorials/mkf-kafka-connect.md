@@ -1,7 +1,7 @@
 
 {% note info %}
 
-{{ mkf-name }} has built-in support for certain connectors and lets you manage them. For a list of available connectors, see [{#T}](../managed-kafka/concepts/connectors.md). If you need other connectors or want to manage Kafka Connect manually, refer to this manual.
+{{ mkf-name }} has built-in support for certain connectors and allows you to manage them. For a list of available connectors, see [{#T}](../managed-kafka/concepts/connectors.md). If you need other connectors or want to manage Kafka Connect manually, refer to this tutorial.
 
 {% endnote %}
 
@@ -13,10 +13,10 @@ Data is moved using _connectors_ that are run in separate worker threads.
 
 To learn more about Kafka Connect, see the [{{ KF }}](https://kafka.apache.org/documentation/#connect) documentation.
 
-Next, we'll configure {{ KFC }} to interact with a {{ mkf-name }} cluster. The tool will be deployed on a [{{ yandex-cloud }} VM](../compute/concepts/vm.md) as a separate installation. SSL encryption will be used to protect the connection.
+Next, we will configure {{ KFC }} to interact with a {{ mkf-name }} cluster. The tool will be deployed on a [{{ yandex-cloud }} VM](../compute/concepts/vm.md) as a separate installation. SSL encryption will be used to protect the connection.
 
 
-We'll also set up a simple [FileStreamSource](https://docs.confluent.io/home/connect/filestream_connector.html) connector. {{ KFC }} will use it to read data from a test JSON file and pass it to a cluster topic.
+We will also set up a simple [FileStreamSource](https://docs.confluent.io/home/connect/filestream_connector.html) connector. {{ KFC }} will use it to read data from a test JSON file and provide this data to a cluster topic.
 
 {% note info %}
 
@@ -40,10 +40,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Manually
    1. [Create a {{ mkf-name }} cluster](../managed-kafka/operations/cluster-create.md) with any suitable configuration.
    1. [Create a topic](../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between {{ KFC }} and the {{ mkf-name }} cluster.
-   1. [Create a user](../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant it the rights](../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
+   1. [Create a user](../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant them the rights](../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
 
-      * `ACCESS_ROLE_CONSUMER`,
-      * `ACCESS_ROLE_PRODUCER`.
+      * `ACCESS_ROLE_CONSUMER`
+      * `ACCESS_ROLE_PRODUCER`
 
    
    1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) and a public IP address.
@@ -51,7 +51,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Using Terraform
 
-   1. If you do not have {{ TF }} yet, [install it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../_includes/terraform-install.md) %}
    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [kafka-connect.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-connect.tf) configuration file to the same working directory.
 
@@ -120,9 +120,9 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
 {% cut "sample.json" %}
 
 ```json
-{"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":55.70329032,"longitude":37.65472196,"altitude":427.5,"speed":0,"battery_voltage":23.5,"cabin_temperature":17,"fuel_level":null}
-{"device_id":"rhibbh3y08qmz3sdbrbu","datetime":"2020-06-06 09:49:54","latitude":55.71294467,"longitude":37.66542005,"altitude":429.13,"speed":55.5,"battery_voltage":null,"cabin_temperature":18,"fuel_level":32}
-{"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-07 15:00:10","latitude":55.70985913,"longitude":37.62141918,"altitude":417,"speed":15.7,"battery_voltage":10.3,"cabin_temperature":17,"fuel_level":null}
+{"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":55.70329032,"longitude":37.65472196,"altitude":427.5,"speed":0,"battery_voltage":23.5,"cabin_temperature":17,"fuel_level":null}
+{"device_id":"rhibbh3y08qm********","datetime":"2020-06-06 09:49:54","latitude":55.71294467,"longitude":37.66542005,"altitude":429.13,"speed":55.5,"battery_voltage":null,"cabin_temperature":18,"fuel_level":32}
+{"device_id":"iv9a94th6rzt********","datetime":"2020-06-07 15:00:10","latitude":55.70985913,"longitude":37.62141918,"altitude":417,"speed":15.7,"battery_voltage":10.3,"cabin_temperature":17,"fuel_level":null}
 ```
 
 {% endcut %}
@@ -133,19 +133,19 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
 
    ```ini
    # AdminAPI connect properties
-   bootstrap.servers=<broker host FQDN>:9091
+   bootstrap.servers=<broker_host_FQDN>:9091
    sasl.mechanism=SCRAM-SHA-512
    security.protocol=SASL_SSL
    ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
-   ssl.truststore.password=<certificate store password>
-   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<password of the user named user>";
+   ssl.truststore.password=<certificate_store_password>
+   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<password_of_the_user_named_user>";
 
    # Producer connect properties
    producer.sasl.mechanism=SCRAM-SHA-512
    producer.security.protocol=SASL_SSL
    producer.ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
-   producer.ssl.truststore.password=<certificate store password>
-   producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<password of the user named user>";
+   producer.ssl.truststore.password=<certificate_store_password>
+   producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<password_of_the_user_named_user>";
 
    # Worker properties
    plugin.path=/etc/kafka-connect-worker/plugins
@@ -190,12 +190,12 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
 
    ```bash
    kafkacat -C \
-       -b <Broker host FQDN>:9091 \
+       -b <broker_host_FQDN>:9091 \
        -t messages \
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username=user \
-       -X sasl.password="<the user account password>" \
+       -X sasl.password="<user_account_password>" \
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
    ```
 
@@ -205,7 +205,7 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
@@ -231,10 +231,10 @@ Delete the resources you no longer need to avoid being charged for them:
 
       If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources:
 
       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
 
-      All resources described in the configuration file will be deleted.
+      All the resources described in the configuration file will be deleted.
 
 {% endlist %}

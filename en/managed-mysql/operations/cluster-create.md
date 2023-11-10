@@ -3,7 +3,7 @@ title: "How to create a {{ MY }} cluster"
 description: "Use this tutorial to create a {{ MY }} cluster with a single or multiple DB hosts."
 ---
 
-# Creating {{ MY }} clusters
+# Creating a {{ MY }} cluster
 
 A {{ MY }} cluster consists of one or more database hosts. In multi-host clusters, [semi-synchronous replication](../concepts/replication.md) is configured automatically.
 
@@ -29,7 +29,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. The cluster name must be unique within the folder.
    1. Select the environment where you want to create the {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the DBMS version.
    1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm-platforms.md) where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the {{ mmy-name }} cluster, the characteristics of all existing hosts change, too.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
@@ -182,7 +182,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       
@@ -302,6 +302,8 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    If required, provide the [backup](../concepts/backup.md) start time in the `configSpec.backupWindowStart` parameter and the retention period for automatic backups (in days) in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
 
+   To allow [connection](connect.md) to cluster hosts from the internet, pass the `true` value in the `hostSpecs.assignPublicIp` parameter.
+
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
@@ -326,18 +328,18 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
    To create a {{ mmy-name }} cluster with a single host, provide a single `--host` parameter.
 
-   Create a {{ mmy-name }} cluster with test characteristics:
+   Create a {{ mmy-name }} cluster with the following test characteristics:
 
    
-   * Named `my-mysql`.
-   * Versions `{{ versions.cli.latest }}`.
-   * In the `production` environment.
-   * In the `default` network.
-   * In the security group with the ID `{{ security-group }}`.
-   * With a single `{{ host-class }}` class host in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
+   * Name: `my-mysql`
+   * Version: `{{ versions.cli.latest }}`
+   * Environment: `Production`
+   * Network: `default`
+   * Security group ID: `{{ security-group }}`
+   * Number of `{{ host-class }}` class hosts in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone: 1
    * Network SSD storage (`{{ disk-type-example }}`): 20 GB
    * User: `user1`, with the `user1user1` password
-   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
+   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`)
    * Protection against accidental cluster deletion: Enabled
 
 
@@ -383,13 +385,13 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    * Number of `{{ host-class }}` hosts in the new `mysubnet` subnet, in the `{{ region-id }}-a` availability zone: 1. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
 
    
-   * In a new security group named `mysql-sg` allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
+   * New security group: `mysql-sg`, allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
 
 
-   * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
-   * With one user, `user1`, with the password `user1user1`.
-   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
-   * Protection against accidental {{ mmy-name }} cluster deletion: Enabled.
+   * Network SSD storage (`{{ disk-type-example }}`): 20 GB
+   * User: `user1`, with the `user1user1` password
+   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`)
+   * Protection against accidental {{ mmy-name }} cluster deletion: Enabled
 
    The configuration file for the {{ mmy-name }} cluster is as follows:
 
@@ -471,12 +473,12 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    Create a {{ mmy-name }} cluster with the following test configuration:
 
    
-   * Named `my-mysql-3`.
-   * `{{ versions.cli.latest }}` version.
-   * In the `prestable` environment.
-   * In the `default` network.
-   * In the security group with the `{{ security-group }}` ID.
-   * With three public hosts of the `{{ host-class }}` class.
+   * Name: `my-mysql-3`
+   * Version: `{{ versions.cli.latest }}`
+   * Environment: `prestable`
+   * Network: `default`
+   * Security group ID: `{{ security-group }}`
+   * `{{ host-class }}` public hosts: 3
 
       One host will be added to each subnet of the `default` network:
       * `subnet-a`: `10.5.0.0/24`, the `{{ region-id }}-a` availability zone.
@@ -485,9 +487,9 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
       The host residing in `subnet-b` will have the backup priority. Backups will be created from this host's data unless you choose it to be the master host.
 
-   * With a network SSD storage (`{{ disk-type-example }}`) of 32 GB.
-   * With one user, `user1`, with the password `user1user1`.
-   * With one `db1` database, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
+   * Network SSD storage (`{{ disk-type-example }}`): 32 GB
+   * User: `user1`, with the `user1user1` password
+   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`)
 
 
    1. Run this command to create a {{ mmy-name }} cluster:
@@ -549,12 +551,12 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
       The host residing in `mysubnet-b` will have the backup priority. Backups will be created from this host's data unless you choose it to be the master host.
 
    
-   * In a new security group named `mysql-sg` allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
+   * New security group: `mysql-sg`, allowing {{ mmy-name }} cluster connections from the internet via port `{{ port-mmy }}`.
 
 
-   * With a network SSD storage (`{{ disk-type-example }}`) of 32 GB.
-   * With one user, `user1`, with the password `user1user1`.
-   * With one `db1` database, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
+   * Network SSD storage (`{{ disk-type-example }}`): 32 GB
+   * User: `user1`, with the `user1user1` password
+   * Database: `db1`, in which `user1` has full rights (same as `GRANT ALL PRIVILEGES on db1.*`)
 
    The configuration file for the {{ mmy-name }} cluster is as follows:
 
@@ -562,11 +564,11 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    
    ```hcl
    resource "yandex_mdb_mysql_cluster" "my-mysql-3" {
-     name               = "my-mysql-3"
-     environment        = "PRESTABLE"
-     network_id         = yandex_vpc_network.mynet.id
-     version            = "{{ versions.tf.latest }}"
-     security_group_ids = [ yandex_vpc_security_group.mysql-sg.id ]
+     name                = "my-mysql-3"
+     environment         = "PRESTABLE"
+     network_id          = yandex_vpc_network.mynet.id
+     version             = "{{ versions.tf.latest }}"
+     security_group_ids  = [ yandex_vpc_security_group.mysql-sg.id ]
 
      resources {
        resource_preset_id = "{{ host-class }}"
@@ -626,24 +628,24 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
    }
 
    resource "yandex_vpc_subnet" "mysubnet-a" {
-     name           = "mysubnet-a"
-     zone           = "{{ region-id }}-a"
-     network_id     = yandex_vpc_network.mynet.id
-     v4_cidr_blocks = ["10.5.0.0/24"]
+     name             = "mysubnet-a"
+     zone             = "{{ region-id }}-a"
+     network_id       = yandex_vpc_network.mynet.id
+     v4_cidr_blocks   = ["10.5.0.0/24"]
    }
 
    resource "yandex_vpc_subnet" "mysubnet-b" {
-     name           = "mysubnet-b"
-     zone           = "{{ region-id }}-b"
-     network_id     = yandex_vpc_network.mynet.id
-     v4_cidr_blocks = ["10.6.0.0/24"]
+     name             = "mysubnet-b"
+     zone             = "{{ region-id }}-b"
+     network_id       = yandex_vpc_network.mynet.id
+     v4_cidr_blocks   = ["10.6.0.0/24"]
    }
 
    resource "yandex_vpc_subnet" "mysubnet-c" {
-     name           = "mysubnet-c"
-     zone           = "{{ region-id }}-c"
-     network_id     = yandex_vpc_network.mynet.id
-     v4_cidr_blocks = ["10.7.0.0/24"]
+     name             = "mysubnet-c"
+     zone             = "{{ region-id }}-c"
+     network_id       = yandex_vpc_network.mynet.id
+     v4_cidr_blocks   = ["10.7.0.0/24"]
    }
    ```
 

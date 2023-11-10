@@ -19,6 +19,8 @@ You cannot write user data to such topics.
 
 The `__schema_registry` service topic is used to support [{{ mkf-msr }}](./managed-schema-registry.md).
 
+The `__connect-configs`, `__connect-offsets`, and `__connect-status` service topics are used to ensure that [{{ mkf-mkc }}](./connectors.md) operates properly.
+
 ## Partitions {#partitions}
 
 A partition is a sequence of topic messages stored in the order they are received. The message sequence number is called an offset. Consumers read messages from the beginning to the end of a partition, that is, messages that were received earlier are consumed first. To start reading data from a specific message, consumers must provide the broker with its offset.
@@ -40,8 +42,6 @@ A {{ mkf-name }} cluster provides two ways for you to manage topics and partitio
 
    * To manage topics, you will need an admin user with the `ACCESS_ROLE_ADMIN` role that is effective for all cluster topics. If there is no such user in the cluster, [create](../operations/cluster-accounts.md) one.
 
-   * You need to configure user permissions for [producers and consumers](./producers-consumers.md) using native {{ yandex-cloud }} interfaces rather than {{ KF }} Admin API.
-
-   * You can enable topic management through {{ KF }} Admin API when [creating](../operations/cluster-create.md) or [changing](../operations/cluster-update.md) cluster settings; however, you cannot disable it.
+   * You need to configure user permissions for [producers and consumers](./producers-consumers.md) using native {{ yandex-cloud }} interfaces rather than the {{ KF }} Admin API.
 
 You can use these methods separately or combined.

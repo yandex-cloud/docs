@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       1. If you are using security groups, [configure them so that you can connect to the cluster from the internet](../../managed-kafka/operations/connect.md#configuring-security-groups).
 
 
-      1. Configure {{ KF }} topics in the target cluster. The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. Data topic names are generated in `<topic prefix>.<{{ ydb-short-name}} table name>` format. In this tutorial, we will use the `cdc` prefix as an example.
+      1. Configure {{ KF }} topics in the target cluster. The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. Data topic names are generated in `<topic_prefix>.<{{ ydb-short-name}}_table_name>` format. In this tutorial, we will use the `cdc` prefix as an example.
 
          * If topics are managed using standard {{ yandex-cloud }} interfaces (management console, CLI, or API):
 
@@ -51,20 +51,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * Using {{ TF }}
 
-      1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. {% include [terraform-install](../../_includes/terraform-install.md) %}
       1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
       1. Download the [data-transfer-ydb-mkf.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-ydb-mkf.tf) configuration file to the same working directory.
 
          This file describes:
 
-         * [Network](../../vpc/concepts/network.md#network)
-         * [Subnet](../../vpc/concepts/network.md#subnet)
-         * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster
-         * {{ ydb-name }} database
-         * {{ mkf-name }} target cluster
-         * {{ KF }} topic
-         * {{ KF }} user
-         * Transfer
+         * [Network](../../vpc/concepts/network.md#network).
+         * [Subnet](../../vpc/concepts/network.md#subnet).
+         * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
+         * {{ ydb-name }} database.
+         * {{ mkf-name }} target cluster.
+         * {{ KF }} topic.
+         * {{ KF }} user.
+         * Transfer.
 
          The [topic management method](../../managed-kafka/concepts/topics.md#management) is specified in the {{ TF }} `kf_topics_management` variable. It is set when running the `terraform plan` and `terraform apply` commands (see below):
 
@@ -89,7 +89,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -149,7 +149,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDB }}`.
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
@@ -164,13 +164,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
          {% endnote %}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the [previously created](#before-you-begin) {{ mkf-name }} source cluster.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Specify the details of the [created](#before-you-begin) {{ KF }} user.
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `Full topic name`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}`.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `cdc.sensors`.
 
       If you need to track changes in multiple tables, fill out the fields as follows:
@@ -201,7 +201,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -219,7 +219,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```bash
    kafkacat \
        -C \
-       -b <Broker host 1 FQDN>:9091,...,<Broker host N FQDN>:9091 \
+       -b <FQDN_of_broker_host_1>:9091,...,<FQDN_of_broker_host_N>:9091 \
        -t cdc.sensors \
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
@@ -236,9 +236,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```sql
    REPLACE INTO sensors (device_id, datetime, latitude, longitude, altitude, speed, battery_voltage, cabin_temperature, fuel_level) VALUES
-       ('iv9a94th6rztooxh5ur2', '2022-06-05 17:27:00', 55.70329032, 37.65472196, 427.5, 0, 23.5, 17, NULL),
-       ('rhibbh3y08qmz3sdbrbu', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
-       ('iv9a94th6rztooxh5ur2', '2022-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, NULL, 20.5, 15, 20);
+       ('iv9a94th6rzt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196, 427.5, 0, 23.5, 17, NULL),
+       ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
+       ('iv9a94th6rzt********', '2022-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, NULL, 20.5, 15, 20);
    ```
 
 1. Make sure the terminal running the `kafkacat` utility displays the `sensors` table data format schema and information about the rows added.
@@ -248,7 +248,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```json
    {
      "payload": {
-         "device_id": "aXY5YTk0dGg2cnp0b294aDV1cjI="
+         "device_id": "aXY5YTk0dGg2cnp0b294********"
        },
        "schema": {
          "fields": [
@@ -268,8 +268,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
            "altitude": 378,
            "battery_voltage": 20.5,
            "cabin_temperature": 15,
-           "datetime": "MjAyMi0wNi0wOCAxNzo0NTowMA==",
-           "device_id": "aXY5YTk0dGg2cnp0b294aDV1cjI=",
+           "datetime": "MjAyMi0wNi0wOCAxNzo0********",
+           "device_id": "aXY5YTk0dGg2cnp0b294********",
            "fuel_level": 20,
            "latitude": 53.70987913,
            "longitude": 36.62549834,
@@ -403,7 +403,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-Before deleting the created resources, [disable the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
@@ -432,9 +432,9 @@ Delete the other resources, depending on the method used to create them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

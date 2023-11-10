@@ -189,6 +189,8 @@ items:
         href: concepts/serializer.md
       - name: '{{ data-transfer-full-name }} specifics for sources and targets'
         href: concepts/work-with-endpoints.md
+      - name: Delivery guarantees
+        href: concepts/delivery-configuration.md
       - name: Operations on transfers
         href: concepts/operations.md
       - name: Network in {{ data-transfer-full-name }}

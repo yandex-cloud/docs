@@ -6,6 +6,12 @@
 
 - SQL
 
+    {% note alert %}
+
+    Не используйте этот пример, если пользователь создан с помощью {{ TF }}: последующие изменения, сделанные через {{ TF }}, могут отменить привилегии пользователя, сделанные через SQL.
+
+    {% endnote %}
+
     Чтобы добавить в существующий кластер нового пользователя `user2` с доступом только на чтение к базе данных `db1`:
 
     1. [Создайте пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) с именем `user2`. При этом выберите базы данных, к которым должен иметь доступ пользователь.
@@ -20,7 +26,14 @@
 
         ```sql
         GRANT SELECT ON ALL TABLES IN SCHEMA myschema TO user2;
-        GRANT USAGE ON SCHEMA myschema TO user2;
+        GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA myschema to user2;
+        ```
+
+    1. (Опционально) Чтобы изменить привилегии по умолчанию, выполните команду:
+
+        ```sql
+        ALTER DEFAULT PRIVILEGES IN SCHEMA myschema GRANT SELECT ON TABLES TO user2;
+        ALTER DEFAULT PRIVILEGES IN SCHEMA myschema GRANT USAGE, SELECT ON SEQUENCES TO user2;
         ```
 
     Для отзыва выданных привилегий выполните команды:
