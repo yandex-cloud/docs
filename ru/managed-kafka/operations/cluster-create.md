@@ -13,7 +13,7 @@
 
 {% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
 
-## Как создать кластер {{ mkf-name }} {#create-cluster}
+## Создать кластер {{ mkf-name }} {#create-cluster}
 
 Перед созданием кластера {{ mkf-name }} рассчитайте [минимальный размер хранилища](../concepts/storage.md#minimal-storage-size) для топиков.
 
@@ -293,6 +293,30 @@
 
 {% endnote %}
 
+
+## Импортировать кластер в {{ TF }} {#import-cluster}
+
+С помощью импорта вы можете передать существующие кластеры под управление {{ TF }}.
+
+{% list tabs %}
+
+- {{ TF }}
+
+    1. Укажите в конфигурационном файле {{ TF }} кластер, который необходимо импортировать:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {} 
+        ```
+
+    1. Выполните команду для импорта кластера:
+
+        ```hcl
+        terraform import yandex_mdb_kafka_cluster.<имя_кластера> <идентификатор_кластера>
+        ```
+
+        Подробнее об импорте кластеров см. в [документации провайдера {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_cluster.html.markdown#import).
+
+{% endlist %}
 
 ## Примеры {#examples}
 

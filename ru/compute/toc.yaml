@@ -143,8 +143,6 @@ items:
             href: operations/disk-control/disk-change-folder.md
           - name: Зашифровать диск
             href: operations/disk-control/disk-encrypt.md
-          - name: Перенести диск в другую зону доступности
-            href: operations/disk-control/disk-change-zone.md
           - name: Удалить диск
             href: operations/disk-control/delete.md
       - name: Снимки дисков

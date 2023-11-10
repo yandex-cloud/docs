@@ -1,6 +1,6 @@
 # API-ключ
 
-_API-ключ_ — секретный ключ, используемый для упрощенной авторизации в API {{ yandex-cloud }}. API-ключи используются только для [сервисного аккаунта](../users/service-accounts.md).
+_API-ключ_ — секретный ключ, используемый для упрощенной авторизации в API {{ yandex-cloud }}. API-ключи используются только для авторизации [сервисного аккаунта](../users/service-accounts.md).
 
 {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
 
@@ -10,12 +10,11 @@ _API-ключ_ — секретный ключ, используемый для 
 
 {% endnote %}
 
-Ключ пользователь хранит самостоятельно. {{ yandex-cloud }} дает доступ к ключу только в процессе создания API-ключа.
-Если ключ утрачен или поврежден, восстановить его нельзя. В этом случае вы можете [перевыпустить](../../operations/compromised-credentials.md#api-key-reissue) ключ или создать новый.
+Пользователь самостоятельно хранит API-ключ. {{ yandex-cloud }} предоставляет доступ к API-ключу только в процессе его создания. Если ключ утрачен или поврежден, восстановить его нельзя. В этом случае вы можете [перевыпустить](../../operations/compromised-credentials.md#api-key-reissue) ключ или создать новый.
 
 ## Использование токена {#use}
 
-Полученный API-ключ указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте API-ключ в заголовке `Authorization` в следующем формате:
+Полученный API-ключ указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передавайте API-ключ в заголовке `Authorization` в следующем формате:
 
 ```
 Authorization: Api-Key <API-ключ>
@@ -24,9 +23,12 @@ Authorization: Api-Key <API-ключ>
 
 ## Сервисы, поддерживающие этот способ аутентификации {#supported-services}
 
-* [{{ speechkit-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)
-* [{{ translate-name }}](../../../translate/api-ref/authentication.md)
-* [{{ vision-name }}](../../../vision/api-ref/authentication.md)
+* [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
+* [{{ search-api-full-name }}](../../../search-api/operations/auth.md)
+* [{{ speechkit-full-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)
+* [{{ speechsense-full-name }}](../../../speechsense/api-ref/authentication.md)
+* [{{ translate-full-name }}](../../../translate/api-ref/authentication.md)
+* [{{ vision-full-name }}](../../../vision/api-ref/authentication.md)
 
 
 #### См. также {#see-also}
