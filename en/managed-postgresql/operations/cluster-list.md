@@ -31,7 +31,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
    +----------------------+---------------+-----------------------------+--------+---------+
    |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
    +----------------------+---------------+-----------------------------+--------+---------+
-   | c9wlk4v14uq79r9cgcku | mypg          | 2018-11-02T10:04:14.645214Z | ALIVE  | RUNNING |
+   | c9wlk4v14uq7******** | mypg          | 2018-11-02T10:04:14.645214Z | ALIVE  | RUNNING |
    | ...                                                                                   |
    +----------------------+---------------+-----------------------------+--------+---------+
    ```
@@ -60,7 +60,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
    To get information about a {{ PG }} cluster, run the following command:
 
    ```bash
-   {{ yc-mdb-pg }} cluster get <cluster name or ID>
+   {{ yc-mdb-pg }} cluster get <cluster_name_or_ID>
    ```
 
    You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
@@ -94,7 +94,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
    To get a list of operations, run the following command:
 
    ```bash
-   {{ yc-mdb-pg }} cluster list-operations <cluster name or ID>
+   {{ yc-mdb-pg }} cluster list-operations <cluster_name_or_ID>
    ```
 
    You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).

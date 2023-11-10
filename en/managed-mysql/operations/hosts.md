@@ -31,16 +31,14 @@ You can add and remove cluster hosts and manage their settings.
 
    Result:
 
-   
    ```text
-   +-----------------------+--------------+---------+--------+-------------------+
-   |         NAME          |  CLUSTER ID  |  ROLE   | HEALTH |      ZONE ID      |
-   +-----------------------+--------------+---------+--------+-------------------+
+   +----------------------------+--------------+---------+--------+---------------+
+   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
+   +----------------------------+--------------+---------+--------+---------------+
    | rc1b...{{ dns-zone }} | c9q5k4ve7... | MASTER  | ALIVE  | {{ region-id }}-b |
    | rc1a...{{ dns-zone }} | c9q5k4ve7... | REPLICA | ALIVE  | {{ region-id }}-a |
-   +-----------------------+--------------+---------+--------+-------------------+
+   +----------------------------+--------------+---------+--------+---------------+
    ```
-
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -179,7 +177,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
 {% note warning %}
 
-If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+If you cannot [connect](connect.md) to the added host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
 
@@ -208,7 +206,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.common.edit }}**.
    1. Set new settings for the host:
       1. Select a replication source for the host to control replication threads manually.
-      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if a host must be accessible from outside {{ yandex-cloud }}.
+      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
       1. Set the value of the **{{ ui-key.yacloud.mysql.field_priority }}** field.
       1. Set the value of the **{{ ui-key.yacloud.mysql.field_backup_priority }}** field.
    1. Click **{{ ui-key.yacloud.postgresql.hosts.dialog.button_choose }}**.

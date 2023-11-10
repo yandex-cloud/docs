@@ -36,10 +36,10 @@ A cluster that has no backups cannot be stopped. To stop it, [create its backup]
    To stop a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-pg }} cluster stop <cluster name or ID>
+   {{ yc-mdb-pg }} cluster stop <cluster_name_or_ID>
    ```
 
-   You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -70,10 +70,10 @@ You can restart **STOPPED** clusters.
    To start a stopped cluster, run the command:
 
    ```bash
-   {{ yc-mdb-pg }} cluster start <cluster name or ID>
+   {{ yc-mdb-pg }} cluster start <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

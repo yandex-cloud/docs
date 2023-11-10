@@ -2,7 +2,7 @@
 
 {{ mgp-short-name }} provides automatic database backups.
 
-{{ mgp-short-name }} enables you to restore your cluster to a specific _recovery point_. This feature is known as Point-in-Time-Recovery (PITR). Recovery points are created every hour. When you specify a time to recover data for, the service will select the backup closest to that point in time. During recovery, the service updates an existing backup of the cluster with the data from the recovery point.
+{{ mgp-short-name }} enables you to restore your cluster to a specific _recovery point_ where the data is consistent. This feature is known as Point-in-Time-Recovery (PITR). Recovery points are created every hour. When you specify a time to recover data for, the service will use the backup closest to that point in time. When recovering the selected cluster backup, records from write-ahead logs (WALs) will be added to the backup data up to the closest recovery point.
 
 For example, if the backup was created on November 10, 2022, 12:00 p.m. UTC, the current date is November 15, 2022, 7:00 p.m. UTC, and the latest recovery point was saved on November 15, 2022, 6:00 p.m. UTC, the cluster can be restored to any recovery point between November 10, 2022, 12:00:01 p.m. UTC and November 15, 2022, 6:00:00 p.m. UTC, inclusive. If you specify November 15, 2022, 5:30 p.m. UTC as the recovery time, the cluster will be restored to the recovery point saved on November 15, 2022, 5:00 p.m. UTC.
 

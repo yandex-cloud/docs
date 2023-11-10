@@ -24,7 +24,7 @@ For more information, see the [{{ PG }} documentation](https://www.postgresql.or
 
    {% note warning %}
 
-   If set to `-1` (unlimited size), you won't be able to delete WAL files due to open logical replication slots that information is not read from. As a result, the WAL files will take up the entire disk space and you won't be able to connect to the cluster.
+   If set to `-1` (unlimited size), you will not be able to delete WAL files due to open logical replication slots that information is not read from. As a result, the WAL files will take up the entire disk space and you will not be able to connect to the cluster.
 
    {% endnote %}
 
@@ -33,15 +33,15 @@ For more information, see the [{{ PG }} documentation](https://www.postgresql.or
 
    ```sql
    SELECT pg_create_logical_replication_slot
-   ( '<slot name>', '<plugin name>', <temporary: true or false>, <two_phase: true or false> )
+   ( '<slot_name>', '<plugin_name>', <temporary>, <two_phase> )
    ```
 
    Where:
 
-   * `<slot name>` is the unique slot name. Required parameter.
-   * `<plugin name>` is the name of a plugin from the list of supported output plugins. For the list, see [{#T}](../concepts/replication.md#logical-decoding). Required parameter.
-   * `temporary`: If `true`, the slot is deleted as soon as the current session is completed or if an error occurs. By default, `false`.
-   * `two_phase`: If `true`, the slot will decode [available transactions](https://www.postgresql.org/docs/current/sql-prepare-transaction.html). By default, `false`.
+   * `<slot_name>`: Unique slot name. This is a required parameter.
+   * `<plugin_name>`: Name of a plugin from the list of supported output plugins. For the list, see [{#T}](../concepts/replication.md#logical-decoding). This is a required parameter.
+   * `temporary`: If `true`, the slot is deleted as soon as the current session is completed or if an error occurs. The default value is `false`.
+   * `two_phase`: If `true`, the slot will decode [available transactions](https://www.postgresql.org/docs/current/sql-prepare-transaction.html). The default value is `false`.
 
 ## Deleting a replication slot {#delete}
 
@@ -49,7 +49,7 @@ For more information, see the [{{ PG }} documentation](https://www.postgresql.or
 1. Execute the SQL query below:
 
    ```sql
-   SELECT pg_drop_replication_slot ('<slot name>');
+   SELECT pg_drop_replication_slot ('<slot_name>');
    ```
 
 ## Example {#example}

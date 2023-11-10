@@ -77,7 +77,7 @@ items:
         href: concepts/caching.md
       - name: Joining data
         href: concepts/data-join.md
-      - name: Step-by-step guide
+      - name: Step-by-step guides
         items:
           - name: Creating a {{ CH }} connection
             href: operations/connection/create-clickhouse.md
@@ -135,7 +135,7 @@ items:
         href: dataset/types-lookup-table.md
       - name: Dataset settings
         href: concepts/dataset/settings.md
-      - name: Step-by-step guide
+      - name: Step-by-step guides
         items:
           - name: Creating a dataset
             href: operations/dataset/create.md
@@ -591,7 +591,7 @@ items:
             href: concepts/chart/measure-values.md
           - name: Multi-dataset charts
             href: concepts/chart/multidataset-chart.md
-          - name: Step-by-step guide
+          - name: Step-by-step guides
             items:
               - name: Creating a chart
                 href: operations/chart/create-chart.md
@@ -663,6 +663,8 @@ items:
                 href: visualization-ref/heat-map-chart.md
       - name: Chart parameters
         items:
+          - name: Adding parameters in dashboard chart settings
+            href: operations/chart/add-parameters.md
           - name: Adding ID as a parameter
             href: operations/chart/add-guid.md
           - name: Adding parameters to a chart
@@ -691,7 +693,7 @@ items:
         href: dashboard/dashboard_parameters.md
       - name: Markdown
         href: dashboard/markdown.md
-      - name: Step-by-step guide
+      - name: Step-by-step guides
         items:
           - name: Creating dashboards
             href: operations/dashboard/create.md

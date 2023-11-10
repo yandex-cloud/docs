@@ -26,25 +26,26 @@ If you no longer need the resources you created, [delete them](#clear-out).
       
       * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
 
-
+      * **{{ ui-key.yacloud.mdb.forms.label_disk-size }}**: At least 15 GB.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**: Disabled.
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`.
-      * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}**: `{{ ui-key.yacloud.mdb.cluster.overview.label_storage-enabled }}`.
+      * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}**: Enabled.
 
    1. [Configure permissions](../../managed-clickhouse/operations/cluster-users.md#update-settings) so that you can execute read and write requests in this database.
 
 - Using {{ TF }}
 
-    
-    1. If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md).
+   
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
-    1. Clone the repository containing examples:
+   1. Clone the repository containing examples:
 
-        ```bash
-        git clone https://github.com/yandex-cloud/examples/
-        ```
+      ```bash
+      git clone https://github.com/yandex-cloud/examples/
+      ```
 
-    1. From the `examples/tutorials/terraform/` directory, copy `clickhouse-hybrid-storage.tf` to the folder where the provider configuration file is located.
+   1. From the `examples/tutorials/terraform/` directory, copy `clickhouse-hybrid-storage.tf` to the folder where the provider configuration file is located.
 
       This file describes:
 
@@ -73,9 +74,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% endlist %}
 
-### Set up clickhouse-client {#deploy-clickhouse-client}
+### Set up the command line tools {#set-instruments}
 
-[Configure the clickhouse client](../../managed-clickhouse/operations/connect.md) to connect to the database.
+1. Set up the `curl` and `unxz` tools:
+
+   ```bash
+   apt-get update && apt-get install curl xz-utils
+   ```
+
+1. [Set up clickhouse client](../../managed-clickhouse/operations/connect.md#clickhouse-client) and use it to connect to the database.
 
 ### Explore the test dataset (optional) {#explore-dataset}
 
@@ -113,10 +120,10 @@ This table uses the `default` [storage policy](../../managed-clickhouse/concepts
 The `TTL ...` expression defines a policy for operating with expiring data:
 1. TTL sets the lifetime of a table row (in this case, the number of days from the current date to March 20, 2014).
 1. For data in the table, the value `EventDate` is checked:
-   * If the number of days from the current date to `EventDate` is less than the TTL value (that is, the lifetime has not expired yet), this data is kept in storage on network drives.
+   * If the number of days from the current date to `EventDate` is less than the TTL value (that is, the lifetime has not expired yet), this data is kept in network disk storage.
    * If the number of days from the current date to `EventDate` is greater than or equal to the TTL value (that is, the lifetime has already expired), this data is placed in the object storage according to the `TO DISK 'object_storage'` policy.
 
-You do not need to specify TTL for hybrid storage; however, this allows you to explicitly control which data will be in {{ objstorage-name }}. If you do not specify TTL, data is placed in object storage only when the storage on network disks runs out of space. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
+You do not need to specify TTL for hybrid storage, but this allows you to explicitly control which data will be in {{ objstorage-name }}. If you do not specify TTL, data will be placed in object storage only when you run out of space in your network disk storage. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 {% note info %}
 
@@ -130,6 +137,7 @@ To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs
 
 ## Completing a table with data {#fill-table-with-data}
 
+1. Disconnect from the database.
 1. Download the test dataset:
 
    
@@ -138,11 +146,13 @@ To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs
    ```
 
 
+   The size of the downloaded dataset is about 10 GB.
+
 1. Insert data from this dataset into {{ CH }} using `clickhouse-client`:
 
    ```bash
    clickhouse-client \
-       --host <{{ CH }} host FQDN> \
+       --host <{{ CH }}_host_FQDN> \
        --secure \
        --user <username> \
        --database tutorial \
@@ -160,6 +170,7 @@ To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tu
 
 ## Checking the placement of data in a cluster {#check-table-tiering}
 
+1. [Connect to the database](../../managed-clickhouse/operations/connect.md#clickhouse-client).
 1. Find out where the table rows are placed:
 
    ```sql
@@ -266,7 +277,7 @@ Delete the resources you no longer need to avoid paying for them:
 
 - Manually
 
-    [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
+   [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
 - Using {{ TF }}
 

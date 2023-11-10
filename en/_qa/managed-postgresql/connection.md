@@ -51,7 +51,7 @@ The error occurs because you are trying to connect to the cluster with a [public
 The number of concurrent connections is specified at the cluster level in the [**Max connections** setting](../../managed-postgresql/concepts/settings-list.md#setting-max-connections). By default, the maximum value is set, which is calculated by the following formula:
 
 ```text
-200 × <number of vCPUs per host>
+200 × <number_of_vCPUs_per_host>
 ```
 
 For information about how to update the {{ PG }} settings at the cluster level, see our [documentation](../../managed-postgresql/operations/update.md#change-postgresql-config).
@@ -63,7 +63,7 @@ By default, a cluster reserves 50 connections to each host per user. You can cha
 If the connection limit per user is reached, any attempt to establish a new connection will fail with the following error:
 
 ```text
-too many active clients for user (pool_size for user <username> reached <limit value>)
+too many active clients for user (pool_size for user <username> reached <limit_value>)
 ```
 
 To learn how to update the {{ PG }} settings at the user level, see our [documentation](../../managed-postgresql/operations/cluster-users.md#update-settings).

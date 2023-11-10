@@ -2,84 +2,13 @@
 
 After creating a {{ mkf-name }} cluster, you can:
 
-* [{#T}](#enable-api)
 * [{#T}](#change-brokers)
 * [{#T}](#change-zookeeper)
-* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
+* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md))
 * [{#T}](#change-additional-settings)
 * [{#T}](#change-kafka-settings)
-* [{#T}](#move-cluster) from the current folder to another one.
-* [{#T}](#change-sg-set).
-
-## Enabling user and topic management using the Admin API {#enable-api}
-
-{% note info %}
-
-It is not possible to disable the enabled topic management via the {{ KF }} Admin API.
-
-{% endnote %}
-
-To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
-
-{% list tabs %}
-
-- Management console
-
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. In the appropriate cluster row, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
-   1. [Create an admin user](./cluster-accounts.md#create-user).
-
-- CLI
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To enable topic management via the Admin API:
-
-   1. Run this command:
-
-      ```bash
-      {{ yc-mdb-kf }} cluster update <cluster name or ID> --unmanaged-topics=true
-      ```
-
-   1. [Create an admin user](./cluster-accounts.md#create-user).
-
-- {{ TF }}
-
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
-
-      For more information about creating this file, see [{#T}](cluster-create.md).
-
-   1. Change the value of the `unmanaged_topics` parameter in the description of a {{ mkf-name }} cluster to enable topic management via the Admin API:
-
-      ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-        config {
-          unmanaged_topics = true
-          ...
-        }
-        ...
-      }
-      ```
-
-   1. [Create an admin user](./cluster-accounts.md#create-user).
-
-- API
-
-   To enable topic management via the Admin API:
-
-   1. Use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
-
-      * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * New cluster configuration in the `configSpec` parameter. Set `unmanagedTopics` to `true` in the configuration.
-      * List of cluster configuration fields to update in the `UpdateMask` parameter.
-
-      {% include [Node API updateMask](../../_includes/note-api-updatemask.md) %}
-
-   1. [Create an admin user](./cluster-accounts.md#create-user).
-
-{% endlist %}
+* [{#T}](#move-cluster) from the current folder to another one
+* [{#T}](#change-sg-set)
 
 ## Changing the broker host class and number {#change-brokers}
 
@@ -517,7 +446,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
       {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -554,7 +483,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
 
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
 

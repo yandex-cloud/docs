@@ -104,7 +104,7 @@ When creating a new cluster, set all required parameters.
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Click the name of the desired cluster and select the ![backups](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -112,8 +112,8 @@ When creating a new cluster, set all required parameters.
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Select the ![backups](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
-   1. Find the desired backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains the IDs in `<cluster ID>:<backup ID>` format.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster ID>:<backup ID>` format.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -177,7 +177,7 @@ When restoring a cluster from a snapshot, the {{ OS }} version in the cluster mu
 
 {% endnote %}
 
-1. [Create a new {{ OS }} cluster](cluster-create.md) in the desired configuration, but don't populate it with data.
+1. [Create a new {{ OS }} cluster](cluster-create.md) in the required configuration, but do not populate it with data.
 
    When creating a cluster, select:
 
@@ -191,7 +191,7 @@ When restoring a cluster from a snapshot, the {{ OS }} version in the cluster mu
    POST: https://admin:<password>@<ID of the {{ OS }} host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/<index name>/_close
    ```
 
-   To restore an entire cluster, close all open indices. To restore individual indices, close only those indices.
+   To restore an entire cluster, close all open indexes. To restore individual indexes, close only those indexes.
 
-1. [Retrieve a list of backups](#list-snapshots) and find the desired snapshot.
+1. [Retrieve a list of backups](#list-snapshots) and find the required snapshot.
 1. [Start restoring]({{ os.docs }}/opensearch/snapshots/snapshot-restore/#restore-snapshots) the entire cluster or individual data indices and streams from the desired snapshot.

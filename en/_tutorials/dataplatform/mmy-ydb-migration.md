@@ -26,9 +26,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the configuration file [data-transfer-mmy-ydb.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-ydb.tf) to the same working directory.
+   1. Download the [data-transfer-mmy-ydb.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-ydb.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -57,7 +57,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -73,7 +73,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect.md).
 
-1. Add test data to the database. As an example, we'll use a simple table with information transmitted by car sensors.
+1. Add test data to the database. As an example, we will use a simple table with information transmitted by car sensors.
 
    Create a table:
 
@@ -96,15 +96,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```sql
    INSERT INTO measurements VALUES
-       ('iv9a94th6rztooxh5ur2', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
-       ('rhibbh3y08qmz3sdbrbu', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
+       ('iv9a94th6rzt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+       ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
    ```
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDB }}`.
+   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-YDB }}`
    * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
 
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
@@ -118,8 +118,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`.
-         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`
+         * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
 
             Select a source cluster from the list and specify the cluster connection settings.
 
@@ -139,7 +139,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point to them.
+         If there are any errors in the configuration files, {{ TF }} will point them out.
 
       1. Create the required infrastructure:
 
@@ -159,20 +159,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * Management console
 
-      1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
+      1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
       1. Select the database from the list.
-      1. Click the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-      1. Make sure the {{ ydb-name }} database contains the `<source cluster DB name>_measurements` table with the test data.
+      1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+      1. Check that the {{ ydb-name }} database contains the `<source_cluster_DB_name>_measurements` table with the test data.
 
    * CLI
 
       1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
-      1. Make sure the database contains the `<source cluster DB name>_measurements` table with the test data:
+      1. Check that the database contains the `<source_cluster_DB_name>_measurements` table with the test data:
 
          ```sql
          SELECT *
-         FROM <source cluster DB name>_measurements;
+         FROM <source_cluster_DB_name>_measurements;
          ```
 
    {% endlist %}
@@ -181,7 +181,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```sql
    INSERT INTO measurements VALUES
-       ('iv7b74th678tooxh5ur2', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
+       ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
    ```
 
 1. Check that the {{ ydb-name }} database shows information about the row added:
@@ -190,20 +190,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    * Management console
 
-      1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
+      1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
       1. Select the database from the list.
-      1. Click the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-      1. Make sure that the new data has been added to the `<source cluster DB name>_measurements` table.
+      1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+      1. Check that new data has been added to the `<source_cluster_DB_name>_measurements` table.
 
    * CLI
 
       1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
-      1. Make sure that the new data has been added to the `<source cluster DB name>_measurements` table:
+      1. Check that new data has been added to the `<source_cluster_DB_name>_measurements` table:
 
          ```sql
          SELECT *
-         FROM <source cluster DB name>_measurements;
+         FROM <source_cluster_DB_name>_measurements;
          ```
 
    {% endlist %}
@@ -212,7 +212,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-Before deleting the created resources, [disable the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
@@ -242,9 +242,9 @@ Delete the other resources, depending on the method used to create them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -4,6 +4,8 @@ After creating a cluster, you can:
 
 * [{#T}](#change-name-and-description)
 
+* [{#T}](#change-public-access)
+
 * [{#T}](#change-additional-settings)
 
 * [{#T}](#change-gp-settings)
@@ -64,6 +66,59 @@ After creating a cluster, you can:
 
 {% endlist %}
 
+## Change the public access setting {#change-public-access}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
+   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** at the top of the page.
+   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, enable or disable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To сhange the public access setting {{ GP }}:
+
+   1. View a description of the update cluster configuration CLI command:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update --help
+      ```
+
+   1. Configure public access in the `--assign-public-ip` parameter:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update <cluster ID or name> \
+         --assign-public-ip=<public access to cluster: true or false>
+      ```
+
+- API
+
+   Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
+
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Public access setting in the `config.assignPublicIp` parameter.
+   * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `name` and `description`).
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+{% note tip %}
+
+If you enabled public access to the cluster but cannot access it from the internet:
+
+* Check the [security group settings](./connect#configuring-security-groups).
+* Wait a while. It may take some time to enable public access.
+
+{% endnote %}
+
 ## Changing additional cluster settings {#change-additional-settings}
 
 {% list tabs %}
@@ -85,7 +140,7 @@ After creating a cluster, you can:
 
          {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**: Activates the [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/) from {{ yandex-cloud }}. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+      * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**: Activates the {{ yandex-cloud }} [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/). This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
          You cannot disable this option after you save your cluster settings.
 
@@ -220,7 +275,7 @@ You can change the DBMS settings of the hosts in your cluster.
    To change {{ GP }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * New settings in the `configSpec.greenplumConfig_<version>` parameter.
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * List of cluster configuration fields to be changed for the `updateMask` parameter.
 
       {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -249,7 +304,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New master and segment host storage size in the `masterConfig.resources.diskSize` and `segmentConfig.resources.diskSize` parameters.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 

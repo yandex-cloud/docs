@@ -32,7 +32,7 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
 
 ## Migrating data using logical replication {#logical-replication}
 
-Logical replication is supported as of {{ PG }} version 10. Besides migrating data between the same {{ PG }} versions, logical replication lets you migrate to newer {{ PG }} versions.
+Logical replication is supported as of {{ PG }} version 10. Besides migrating data between the same {{ PG }} versions, logical replication allows you to migrate to newer {{ PG }} versions.
 
 In {{ mpg-name }} clusters, subscriptions can be used by the database owner (a user created together with the cluster) and users with the `mdb_admin` role for the cluster.
 
@@ -63,15 +63,15 @@ Create the required resources:
 
 * Using Terraform
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the configuration file [data-migration-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-migration-pgsql-mpg.tf) to the same working directory.
+   1. Download the [data-migration-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-migration-pgsql-mpg.tf) configuration file to the same working directory.
 
       This file describes:
 
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
+      * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
       * {{ mpg-name }} cluster with public internet access.
 
    1. Specify the following in `data-migration-pgsql-mpg.tf`:
@@ -101,7 +101,7 @@ Create the required resources:
 
 ### Set up the source cluster {#source-setup}
 
-1. Specify the required SSL and WAL settings in the `postgresql.conf` file. On Debian and Ubuntu Linux distributions, the default path to this file is `/etc/postgresql/<{{ PG }} version>/main/postgresql.conf`.
+1. Specify the required SSL and WAL settings in the `postgresql.conf` file. On Debian and Ubuntu Linux distributions, the default path to this file is `/etc/postgresql/<{{ PG }}_version>/main/postgresql.conf`.
    1. We recommend using SSL for migrating data: this will help not only encrypt data, but also compress it. For more information, see [SSL Support](https://www.postgresql.org/docs/current/libpq-ssl.html) and [Database Connection Control Functions](https://www.postgresql.org/docs/current/libpq-connect.html) in the {{ PG }} documentation.
 
       To enable SSL, set the appropriate value in the configuration:
@@ -118,28 +118,28 @@ Create the required resources:
       wal_level = logical                    # minimal, replica, or logical
       ```
 
-1. Configure authentication of hosts in the source cluster. To do this, add the cluster hosts to the `pg_hba.conf` file on {{ yandex-cloud }} (on Debian and Ubuntu distributions, it is located at the path `/etc/postgresql/<{{ PG }} version>/main/pg_hba.conf by default`).
+1. Configure authentication of hosts in the source cluster. To do this, add the cluster hosts to the `pg_hba.conf` file on {{ yandex-cloud }} (on Debian and Ubuntu distributions, it is located at `/etc/postgresql/<{{ PG }}_version>/main/pg_hba.conf by default`).
 
    Add lines to allow connecting to the database from the specified hosts:
 
    * If you use SSL:
 
       ```txt
-      hostssl         all            all             <host address>      md5
-      hostssl         replication    all             <host address>      md5
+      hostssl         all            all             <host_address>      md5
+      hostssl         replication    all             <host_address>      md5
       ```
 
    * If you do not use SSL:
 
       ```txt
-      host         all            all             <host address>      md5
-      host         replication    all             <host address>      md5
+      host         all            all             <host_address>      md5
+      host         replication    all             <host_address>      md5
       ```
 
 1. If a firewall is enabled in the source cluster, allow incoming connections from the {{ mpg-name }} cluster hosts. For example, for Ubuntu 18:
 
    ```bash
-   sudo ufw allow from <target cluster host address> to any port <port>
+   sudo ufw allow from <target_cluster_host_address> to any port <port>
    ```
 
 1. Restart the {{ PG }} service to apply all your settings:
@@ -159,13 +159,13 @@ Create the required resources:
 Use the `pg_dump` utility to create a file with the database schema to be applied in the target cluster.
 
 ```bash
-pg_dump -h <IP address or FQDN of source cluster's master host> \
+pg_dump -h <IP_address_or_FQDN_of_source_cluster_master_host> \
         -U <username> \
         -p <port> \
         --schema-only \
         --no-privileges \
         --no-subscriptions \
-        -d <DB name> \
+        -d <DB_name> \
         -Fd -f /tmp/db_dump
 ```
 
@@ -176,13 +176,13 @@ This export command skips all data associated with privileges and roles to avoid
 Using the `pg_restore` utility, restore the database schema in the target cluster:
 
 ```bash
-pg_restore -h <IP address or FQDN of target cluster's master host> \
+pg_restore -h <IP_address_or_FQDN_of_target_cluster_master_host> \
            -U <username> \
            -p {{ port-mpg }} \
            -Fd -v \
            --single-transaction \
            -s --no-privileges \
-           -d <DB name> /tmp/db_dump
+           -d <DB_name> /tmp/db_dump
 ```
 
 ### Create a publication and subscription {#create-publication-subscription}
@@ -208,13 +208,13 @@ For logical replication to work, create a publication (a group of logically repl
    Request with SSL enabled:
 
    ```sql
-   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source cluster address> port=<port> user=<username> sslmode=verify-full dbname=<database name>' PUBLICATION p_data_migration;
+   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source_cluster_address> port=<port> user=<username> sslmode=verify-full dbname=<DB_name>' PUBLICATION p_data_migration;
    ```
 
    Without SSL:
 
    ```sql
-   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source cluster address> port=<port> user=<username> sslmode=disable dbname=<database name>' PUBLICATION p_data_migration;
+   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source_cluster_address> port=<port> user=<username> sslmode=disable dbname=<DB_name>' PUBLICATION p_data_migration;
    ```
 
 1. To get the replication status, check the `pg_subscription_rel` directories. You can get the general replication status in the target cluster using `pg_stat_subscription` and in the source cluster using `pg_stat_replication`.
@@ -233,24 +233,24 @@ To complete synchronization of the source cluster and the target cluster:
 1. Create a dump with {{ PG }}-sequences in the source cluster:
 
    ```bash
-   pg_dump -h <IP address or FQDN of source cluster's master host> \
+   pg_dump -h <IP_address_or_FQDN_of_source_cluster_master_host> \
            -U <username> \
            -p <port> \
-           -d <DB name> \
+           -d <DB_name> \
            --data-only -t '*.*_seq' > /tmp/seq-data.sql
    ```
 
-   Take note of the `*.*_seq` pattern used. If the database you're migrating has sequences that don't match this pattern, enter a different pattern to export them.
+   Take note of the `*.*_seq` pattern used. If the database you are migrating has sequences that do not match this pattern, enter a different pattern to export them.
 
    For more information about patterns, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PATTERNS).
 
 1. Restore the dump with sequences in the target cluster:
 
    ```bash
-   psql -h <IP address or FQDN of target cluster's master host> \
+   psql -h <IP_address_or_FQDN_of_target_cluster_master_host> \
         -U <username> \
         -p {{ port-mpg }} \
-        -d <DB name> \
+        -d <DB_name> \
         < /tmp/seq-data.sql
    ```
 
@@ -343,20 +343,18 @@ Create the required resources:
    
    1. If you use security groups for the intermediate VM and the {{ mpg-name }} cluster, [configure them](../../managed-postgresql/operations/connect.md#configure-security-groups).
 
-      {% include [preview-pp.md](../../_includes/preview-pp.md) %}
-
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the configuration file [data-restore-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-restore-pgsql-mpg.tf) to the same working directory.
+   1. Download the [data-restore-pgsql-mpg.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-pgsql-mpg/data-restore-pgsql-mpg.tf) configuration file to the same working directory.
 
       This file describes:
 
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security groups](../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
+      * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
       * {{ mpg-name }} cluster with public internet access.
       * (Optional) Virtual machine with public internet access.
 
@@ -400,12 +398,12 @@ Create the required resources:
 1. Create a dump using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility. To speed up the process, run it in multithreaded mode by providing the number of available CPU cores in the `--jobs` argument:
 
    ```bash
-   pg_dump --host=<IP address of FQDN of the source cluster master host> \
+   pg_dump --host=<IP_address_of_FQDN_of_the_source_cluster_master_host> \
            --port=<port> \
            --username=<username> \
-           --jobs=<number of CPU cores> \
+           --jobs=<number_of_CPU_cores> \
            --format=d \
-           --dbname=<database name> \
+           --dbname=<database_name> \
            --file=db_dump
    ```
 
@@ -420,7 +418,7 @@ The required amount of RAM and processor cores depends on the amount of data to 
 
 To prepare the virtual machine to restore the dump:
 
-1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image on **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database up to 1 GB in size. The larger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image on **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database up to 1 GB in size. The larger the database, the more RAM and storage space you need for migration (at least twice the size of the database).
 
 
     The virtual machine must be in the same network and availability zone as the {{ PG }} cluster. Additionally, the VM must be assigned a public IP address so that you can load the dump from outside {{ yandex-cloud }}.
@@ -457,7 +455,7 @@ To prepare the virtual machine to restore the dump:
 1. Move the archive containing the dump to the VM, e.g., by the `scp` utility:
 
    ```bash
-   scp db_dump.tar.gz <VM username>@<VM public address>:/db_dump.tar.gz
+   scp db_dump.tar.gz <VM_username>@<VM_public_IP>:/db_dump.tar.gz
    ```
 
 1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md).
@@ -477,9 +475,9 @@ The version of `pg_restore` must match the `pg_dump` version, and the major vers
 That is, to restore a dump of {{ PG }} 10, {{ PG }} 11, {{ PG }} 12, {{ PG }} 13, and {{ PG }} 14 use `pg_restore 10`, `pg_restore 11`, `pg_restore 12`, `pg_restore 13`, and `pg_restore 14`, respectively.
 
 ```bash
-pg_restore --host=<IP address of FQDN of the target cluster master host> \
+pg_restore --host=<IP_address_of_FQDN_of_target_cluster_master_host> \
            --username=<username> \
-           --dbname=<database name> \
+           --dbname=<DB_name> \
            --port={{ port-mpg }} \
            --format=d \
            --verbose \
@@ -488,7 +486,7 @@ pg_restore --host=<IP address of FQDN of the target cluster master host> \
            --no-privileges
 ```
 
-If you only need to restore a single schema, add the `--schema=<schema name>` parameter. Without this parameter, the command will only run on behalf of the database owner.
+If you only need to restore a single schema, add the `--schema=<schema_name>` parameter. Without this parameter, the command will only run on behalf of the database owner.
 
 If the restoring is interrupted by errors saying that required rights for creating and updating extensions are missing, remove the `--single-transaction` parameter from the command. The errors will be ignored in this case:
 

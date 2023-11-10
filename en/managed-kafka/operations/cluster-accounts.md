@@ -7,19 +7,19 @@ Users in {{ KF }}:
 * [Manage topics](cluster-topics.md#admin-api). For more information, see [{#T}](../concepts/topics.md).
 
 After [creating an {{ KF }} cluster](cluster-create.md), you can:
-* [{#T}](#create-user).
-* [{#T}](#update-password).
-* [{#T}](#update-account).
-* [{#T}](#grant-permission).
-* [{#T}](#revoke-permission).
-* [{#T}](#delete-account).
-* [{#T}](#list-accounts).
+* [{#T}](#create-user)
+* [{#T}](#update-password)
+* [{#T}](#update-account)
+* [{#T}](#grant-permission)
+* [{#T}](#revoke-permission)
+* [{#T}](#delete-account)
+* [{#T}](#list-accounts)
 
 ## Creating a user {#create-user}
 
 {% note info %}
 
-To create an administrator user, use the command-line interface, API, or {{ TF }}.
+Use the CLI, API, or {{ TF }} to create an admin user.
 
 {% endnote %}
 
@@ -52,7 +52,7 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
       {{ yc-mdb-kf }} user create --help
       ```
 
-   1. Create a user and grant permissions for the desired topics:
+   1. Create a user and grant permissions for relevant topics:
 
       ```bash
       {{ yc-mdb-kf }} user create <username> \
@@ -102,7 +102,7 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -122,7 +122,7 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
          * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](cluster-topics.md#list-topics).
          * Topic permissions in the `role` parameter: `ACCESS_ROLE_PRODUCER` for the producer or `ACCESS_ROLE_CONSUMER` for the consumer.
 
-   To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster, when creating a user, provide the `permission` block in the `userSpec` parameter with the following values:
+   To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster, provide the following values under `permission` in the `userSpec` parameter:
    * `topicName`: `*`
    * `role`: `ACCESS_ROLE_ADMIN`
 
@@ -131,7 +131,7 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
 
 {% endlist %}
 
-## Changing a user's password {#update-password}
+## Changing a user password {#update-password}
 
 {% list tabs %}
 
@@ -183,7 +183,7 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -197,7 +197,7 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
    To update a user's password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-   * The name of the `password` setting in the `updateMask` parameter. If this parameter is omitted, the API method resets any user settings that aren't explicitly specified in the request to their default values.
+   * The name of the `password` setting in the `updateMask` parameter. If this parameter is omitted, the API method resets any user settings that are not explicitly specified in the request to their default values.
    * New user password, in the `password` parameter.
 
       {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
@@ -249,7 +249,7 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -263,7 +263,7 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
    To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any user settings that aren't explicitly specified in the request to their default values.
+   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any user settings that are not explicitly specified in the request to their default values.
    * A new set of permissions to topics (one or more `permissions` parameters, one for each topic).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -279,10 +279,10 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select the cluster.
-   1. Click the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+   1. Go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the user to grant topic permissions to and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
    1. Click **+ {{ ui-key.yacloud.kafka.button_add-topic }}**. If you do not see this button, it means that the user is granted permissions to all existing cluster topics.
 
@@ -330,11 +330,11 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
       The following `--permission` parameters are available:
       * `topic`: Name of the topic the permissions are granted for.
 
-         If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
+         If the user does not need permissions to certain topics, you [can revoke them](#revoke-permission).
 
       * `role`: User role, such as `producer`, `consumer`, or `admin`.
 
-         The `admin` role is only available in a cluster with [Manage topics via Admin API](../concepts/topics.md#management) enabled if all topics are selected (`topic=*`).
+         The `admin` role is only available with all topics selected (`topic=*`).
 
       When you update user permissions, the existing permissions are revoked and replaced with the new ones. This means the command must always include a complete list of permissions to be assigned to the user.
 
@@ -371,7 +371,7 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
       * Full topic name to allow access to a specific topic.
       * `<prefix>*` to grant access to topics whose names start with the specified prefix. For example, if you have topics named `topic_a1`, `topic_a2`, and `a3`, and you set the `topic*` value, access will be granted to `topic_a1` and `topic_a2`.
 
-      The `ACCESS_ROLE_ADMIN` is only available in a cluster with [Manage topics via Admin API](../concepts/topics.md) enabled with all topics selected (`topic_name = "*"`).
+      The `ACCESS_ROLE_ADMIN` is only available with all topics selected (`topic_name = "*"`).
 
       If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
 
@@ -379,7 +379,7 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -400,7 +400,7 @@ To create an administrator user, use the command-line interface, API, or {{ TF }
 
 ## Revoking user permissions {#revoke-permission}
 
-If, in a cluster, you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/topics.md#management), you will no longer be able to manage topics. Do not revoke this role without first granting it to another user.
+If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/topics.md#management) in a cluster, you will no longer be able to manage topics. Do not revoke this role without first granting it to another user.
 
 {% list tabs %}
 
@@ -409,7 +409,7 @@ If, in a cluster, you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select the cluster.
-   1. Click the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+   1. Go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
    1. Find the appropriate topic in the list of topics.
    1. Delete the role you no longer need: click the ![image](../../_assets/cross.svg) icon next to the role name. To revoke all permissions for a topic, delete it from the list: hover over the topic name and click ![image](../../_assets/cross.svg) at the end of the line.
@@ -443,7 +443,7 @@ If, in a cluster, you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -464,7 +464,7 @@ If, in a cluster, you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](
 
 ## Deleting a user {#delete-account}
 
-If, in a cluster, you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role, you will no longer be able to manage topics. Assign this role to another user before deleting it.
+If you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role in a cluster, you will no longer be able to manage topics. Assign this role to another user before deleting it.
 
 {% list tabs %}
 
@@ -498,7 +498,7 @@ If, in a cluster, you delete the [admin user](../concepts/topics.md#management) 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

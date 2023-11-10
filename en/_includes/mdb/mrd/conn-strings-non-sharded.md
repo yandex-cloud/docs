@@ -44,7 +44,9 @@
 
 {% endlist %}
 
-{% include [after-connect](./connect/bash/after-connect.md) %}
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
+{% include [Connect to cluster](./connect/bash/after-connect.md) %}
 
 ### Go {#go}
 
@@ -73,7 +75,7 @@
    				"<FQDN of {{ RD }} host 1>:{{ port-mrd-sentinel }}",
    				...
    				"<FQDN of {{ RD }} host N>:{{ port-mrd-sentinel }}"},
-   			MasterName: "<{{ RD }} cluster name>",
+   			MasterName: "<{{ RD }} cluster id>",
    			Password:   "<password>",
    			ReadOnly:   false,
    		},
@@ -186,11 +188,13 @@
 
 {% endlist %}
 
-{% include [after-connect](./connect/go/after-connect.md) %}
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
+{% include [Connect to cluster](./connect/go/after-connect.md) %}
 
 ### Java {#java}
 
-{% include [install-requirements](./connect/java/install-requirements.md) %}
+{% include [Install dependencies](./connect/java/install-requirements.md) %}
 
 {% list tabs %}
 
@@ -305,11 +309,13 @@
 
 {% endlist %}
 
-{% include [after-connect](./connect/java/after-connect.md) %}
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
+{% include [Connect to cluster](./connect/java/after-connect.md) %}
 
 ### Node.js {#nodejs}
 
-{% include [install-requirements](./connect/nodejs/install-requirements.md) %}
+{% include [Install dependencies](./connect/nodejs/install-requirements.md) %}
 
 {% list tabs %}
 
@@ -329,7 +335,7 @@
            ...
            { host: "<FQDN of {{ RD }} host N>", port: {{ port-mrd-sentinel }} },
        ],
-       name: "<{{ RD }} cluster name>",
+       name: "<{{ RD }} cluster id>",
        password: "<password>"
    });
 
@@ -423,11 +429,13 @@
 
 {% endlist %}
 
-{% include [after-connect](./connect/nodejs/after-connect.md) %}
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
+{% include [Connect to cluster](./connect/nodejs/after-connect.md) %}
 
 ### PHP {#php}
 
-{% include [install-requirements](./connect/php/install-requirements.md) %}
+{% include [Install dependencies](./connect/php/install-requirements.md) %}
 
 {% list tabs %}
 
@@ -449,7 +457,7 @@
    ];
    $options = [
        "replication" => "sentinel",
-       "service" => "<{{ RD }} cluster name>",
+       "service" => "<{{ RD }} cluster id>",
        "parameters" => [
            "password" => "<password>",
        ],
@@ -522,7 +530,9 @@
 
 {% endlist %}
 
-{% include [after-connect](./connect/php/after-connect.md) %}
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
+{% include [Connect to cluster](./connect/php/after-connect.md) %}
 
 ### Python {#python}
 
@@ -549,7 +559,7 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
        ...
        "<FQDN of {{ RD }} host N>"
    ]
-   name = "<{{ RD }} cluster name>"
+   name = "<{{ RD }} cluster id>"
    pwd = "<password>"
 
    sentinel = Sentinel([(h, {{ port-mrd-sentinel }}) for h in sentinels], socket_timeout=0.1)
@@ -598,11 +608,13 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
 
 {% endlist %}
 
-{% include [after-connect](./connect/python/after-connect.md) %}
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
+{% include [Connect to cluster](./connect/python/after-connect.md) %}
 
 ### Ruby {#ruby}
 
-{% include [install-requirements](./connect/ruby/install-requirements.md) %}
+{% include [Install dependencies](./connect/ruby/install-requirements.md) %}
 
 {% list tabs %}
 
@@ -624,7 +636,7 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
    ]
 
    conn = Redis.new(
-     host: '<{{ RD }} cluster name>',
+     host: '<{{ RD }} cluster id>',
      sentinels: SENTINELS,
      role: 'master',
      password: '<password>'
@@ -682,4 +694,6 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
 
 {% endlist %}
 
-{% include [after-connect](./connect/ruby/after-connect.md) %}
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
+{% include [Connect to cluster](./connect/ruby/after-connect.md) %}

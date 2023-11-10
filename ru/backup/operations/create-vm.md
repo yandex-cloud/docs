@@ -10,7 +10,7 @@ description: "Следуя данной инструкции, вы сможет�
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../../iam/concepts/access-control/roles.md#backup-editor) `backup.editor`.
-1. [Настройте](../../vpc/operations/security-group-add-rule.md) в группе безопасности [правила для работы с {{ backup-name }}](../concepts/vm-connection.md#security-groups).
+1. [Настройте](../concepts/vm-connection.md#vm-network-access) сетевой доступ для ВМ.
 
 ## Создание ВМ {#creating-vm}
 

@@ -12,7 +12,7 @@ This feature is at the [Preview stage](../../overview/concepts/launch-stages.md)
 
 ## Enabling statistics collection {#activate-stats-collector}
 
-To use the diagnostics tool, enable the **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings) (the option is disabled by default). By default, statistics are only collected for queries longer than 300 ms. If required, [update the DBMS settings](update.md#change-mongod-config) to change the time threshold for collecting slow query statistics in the [`slowOpThreshold` parameter](../concepts/settings-list.md#setting-slow-op-threshold).
+To use the diagnostics tool, enable statistics collection when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings). By default, statistics are only collected for queries longer than 300 ms. If required, [update the DBMS settings](update.md#change-mongod-config) to change the time threshold for collecting slow query statistics in the `slowOpThreshold` [parameter](../concepts/settings-list.md#setting-slow-op-threshold).
 
 ## Getting profiling data {#get-profiling}
 
@@ -22,7 +22,7 @@ For read/write and some other DB queries (such as `aggregate`), you can view the
 - Table with statistics by query type.
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_profiling }}** tab.
+1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_profiling }}** tab.
 1. Specify the time interval and, if necessary, set filters.
 1. Select:
 
@@ -33,9 +33,9 @@ For read/write and some other DB queries (such as `aggregate`), you can view the
       * `SHARD`: By [shard](../concepts/sharding.md).
       * `USER`: By user.
    * Data aggregation parameter:
-      * `COUNT`: The number of queries.
+      * `COUNT`: Number of queries.
       * `DOCUMENTS_EXAMINED`: Number of documents in the collection scanned during the query.
-      * `DOCUMENTS_RETURNED`: The number of returned documents.
+      * `DOCUMENTS_RETURNED`: Number of returned documents.
       * `DURATION`: Query execution duration.
       * `KEYS_EXAMINED`: Number of index keys scanned during the query.
       * `RESPONSE_LENGTH`: Size of the document returned as the query result.
@@ -50,7 +50,7 @@ For more information about what statistics you can get, see the [{{ MG }} docume
 You can get collection access statistics for queries and recommendations for creating indexes of certain fields to speed up query processing.
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_indexes }}** tab.
+1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_indexes }}** tab.
 1. Specify the time interval and, if necessary, set filters.
 
 The table shows the fields to create indexes for and the number of times the collections were queried.

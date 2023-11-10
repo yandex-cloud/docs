@@ -9,7 +9,6 @@
 
 Роль `{{ roles-auditor }}` в настоящее время недоступна в сервисах:
 * {{ yds-full-name }};
-* {{ data-transfer-full-name }};
 * {{ ydb-full-name }};
 * {{ yq-full-name }}.
 

@@ -2,13 +2,15 @@
 
 {{ search-api-full-name }} provides access to the Russian, Turkish, and international search types. The required search type is selected at the [registration](../operations/registration.md) stage. You can change the search type after registration.
 
+With {{ search-api-full-name }}, you can get default search results and results of a search optimized for [mobile devices](../operations/mobile.md).
+
 The search type determines the search result _ranking formula_ and the _search database_, a set of documents a search is made across.
 
 ## Request for search results
 
 {{ search-api }} supports [GET](get-request.md) and [POST](post-request.md) methods for sending search queries. They have the same [response format](response.md).
 
-## Service Terms of use and license agreement {#license}
+## Service Terms of Use and License Agreement {#license}
 
 In addition to the {{ yandex-cloud }} Terms of Use, the following Terms of Use apply to {{ search-api-name }}:
 

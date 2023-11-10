@@ -36,14 +36,14 @@ To migrate a database from an Amazon RDS source cluster for {{ PG }} to a {{ mpg
 * If a table does not have a primary key, errors will occur during replication:
 
    ```text
-   ERROR: 55000: cannot update table "<table name>" because it does not have a replica identity and publishes updates
+   ERROR: 55000: cannot update table "<table_name>" because it does not have a replica identity and publishes updates
    HINT: To enable updating the table, set REPLICA IDENTITY using ALTER TABLE.
    ```
 
    To run `UPDATE` and `DELETE` replications on tables without the primary key, change the `REPLICA IDENTITY`:
 
    ```sql
-   ALTER TABLE <table name> REPLICA IDENTITY FULL;
+   ALTER TABLE <table_name> REPLICA IDENTITY FULL;
    ```
 
 * In {{ PG }} version 10, the `TRUNCATE` command is not replicated.
@@ -165,7 +165,7 @@ In {{ mpg-name }} clusters, subscriptions can be used by the database owner (a u
 1. Create a subscription with the source cluster connection string:
 
    ```sql
-   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source cluster address> port=<port> user=<username> sslmode=prefer dbname=<database name>' PUBLICATION pub;
+   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source_cluster_address> port=<port> user=<username> sslmode=prefer dbname=<DB_name>' PUBLICATION pub;
    ```
 
    To learn more about creating subscriptions, see the [{{ PG }} documentation]({{ pg-docs }}/sql-createsubscription.html).
@@ -186,10 +186,10 @@ To complete synchronization of the source cluster and the target cluster:
 1. Create a dump with sequences:
 
    ```bash
-   pg_dump --host=<source cluster address> \
+   pg_dump --host=<source_cluster_address> \
            --username=<username> \
            --port=<port> \
-           --dbname=<database name> \
+           --dbname=<DB_name> \
            --data-only \
            --table='*.*_seq' > /tmp/seq-data.sql
    ```
@@ -202,13 +202,13 @@ To complete synchronization of the source cluster and the target cluster:
 
    ```bash
    psql \
-       --host=<FQDN of the target cluster master host> \
+       --host=<target_cluster_master_host_FQDN> \
        --username=<username> \
        --port={{ port-mpg }} \
-       --dbname=<database name> < /tmp/seq-data.sql
+       --dbname=<DB_name> < /tmp/seq-data.sql
    ```
 
-### Delete the subscription and switch over the load to the target cluster {#transfer-load}
+### Delete the subscription and transfer the load to the target cluster {#transfer-load}
 
 1. Delete the subscription in the target cluster:
 

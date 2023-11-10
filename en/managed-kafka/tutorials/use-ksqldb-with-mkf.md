@@ -62,7 +62,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<ksql user password>";
    ```
 
-   The broker FQDNs can be requested with a [list of cluster hosts](../operations/cluster-hosts.md#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+   {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
+   The cluster name can be requested with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
 1. Restart the ksqlDB service with the command below:
 
@@ -87,7 +89,7 @@ This data will be transmitted as {{ KF }} messages. Each message will contain a 
 
 ksqlDB stores the values of the corresponding parameters from {{ KF }} messages in a three-column table.
 
-Next, we'll configure the fields of a ksqlDB data stream table.
+Next, we are going to configure the fields of a ksqlDB data stream table.
 
 ## Create a table in ksqlDB to capture the data stream from the {{ KF }} topic {#create-kf-table}
 
@@ -220,7 +222,7 @@ Data is read using the `ksql` user.
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
 * If you reserved a public static IP for your virtual machine, [delete it](../../vpc/operations/address-delete.md).

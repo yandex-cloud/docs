@@ -24,8 +24,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
 
-   * [Instructions for {{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups)
-   * [Instructions for {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups)
+   * [Guide for {{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups)
+   * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups)
 
 
 1. Install the `kcat` (`kafkacat`) [utility](https://github.com/edenhill/kcat) and the [MySQL command-line tool](https://www.mysql.com/downloads/) on the local machine. For example, in Ubuntu 20.04, run:
@@ -40,7 +40,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Connect to the database](../../managed-mysql/operations/connect.md) `db1` on behalf of `my-user`.
 
-1. Add test data to the database. As an example, we'll use a simple table with information transmitted by car sensors.
+1. Add test data to the database. As an example, we will use a simple table with information transmitted by car sensors.
 
    Create a table:
 
@@ -63,13 +63,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```sql
    INSERT INTO db1.measurements VALUES
-       ('iv9a94th6rztooxh5ur2', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
-       ('rhibbh3y08qmz3sdbrbu', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
+       ('iv9a94th6rzt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+       ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
    ```
 
 ## Prepare the target cluster{#prepare-target}
 
-The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. Data topic names are generated using the following convention: `<topic prefix>.<schema name>.<table name>`. In this tutorial, the `cdc` prefix is used as an example.
+The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. Data topic names are generated using the following convention: `<topic_prefix>.<schema_name>.<table_name>`. In this tutorial, the `cdc` prefix is used as an example.
 
 {% list tabs %}
 
@@ -134,7 +134,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
    ```bash
    kafkacat \
        -C \
-       -b <Broker host 1 FQDN>:9091,...,<Broker host N FQDN>:9091 \
+       -b <FQDN_of_broker_host_1>:9091,...,<FQDN_of_broker_host_N>:9091 \
        -t cdc.db1.measurements \
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
@@ -151,8 +151,8 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
    ```sql
    INSERT INTO db1.measurements VALUES
-       ('iv7b74th678tooxh5ur2', '2022-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL),
-       ('iv9a94th678tooxh5ur2', '2022-06-07 15:00:10', 55.70985913, 37.62141918, 417.0, 15.7, 10.3, 17, NULL);
+       ('iv7b74th678t********', '2022-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL),
+       ('iv9a94th678t********', '2022-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
    ```
 
 1. Make sure the terminal running the `kafkacat` utility is displaying the `db1.measurements` table data format schema and information on the inserted rows.
@@ -162,7 +162,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
    ```json
    {
        "payload": {
-           "device_id": "iv7b74th678tooxh5ur2"
+           "device_id": "iv7b74th678t********"
        },
        "schema": {
            "fields": [
@@ -183,7 +183,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
                "battery_voltage": 5.3,
                "cabin_temperature": 20,
                "datetime": "2020-06-08T17:45:00Z",
-               "device_id": "iv7b74th678tooxh5ur2",
+               "device_id": "iv7b74th678t********",
                "fuel_level": null,
                "latitude": 53.70987913,
                "longitude": 36.62549834,
@@ -195,7 +195,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
                "connector": "mysql",
                "db": "db1",
                "file": "mysql-log.000016",
-               "gtid": "1e46a80b-2e96-11ed-adf7-d00d18378058:1-98501",
+               "gtid": "1e46a80b-2e96-11ed-adf7-d00d183780**:*-*****",
                "name": "cdc",
                "pos": 1547357,
                "query": null,

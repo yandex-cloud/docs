@@ -26,7 +26,7 @@ You can add and remove cluster hosts and manage their settings.
 
    ```bash
    {{ yc-mdb-pg }} host list \
-     --cluster-name <cluster name>
+     --cluster-name <cluster_name>
    ```
 
    Result:
@@ -115,8 +115,8 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
       
       ```bash
       {{ yc-mdb-pg }} host add
-        --cluster-name <cluster name>
-        --host zone-id=<availability zone>,subnet-id=<subnet ID>
+        --cluster-name <cluster_name>
+        --host zone-id=<availability_zone>,subnet-id=<subnet_ID>
       ```
 
 
@@ -143,17 +143,25 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
    1. Add a `host` block to the {{ mpg-name }} cluster description.
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
         host {
-          name                    = "<hostname>"
-          zone                    = "<availability zone>"
-          subnet_id               = "<subnet ID>"
-          replication_source_name = "<replication source: name attribute of appropriate host block>"
-          assign_public_ip        = <public access to host: true or false>
+          name                    = "<host_name>"
+          zone                    = "<availability_zone>"
+          subnet_id               = "<subnet_ID>"
+          replication_source_name = "<replication_source>"
+          assign_public_ip        = <public_access_to_host>
         }
       }
       ```
+
+      Where:
+
+      * `name`: Host name.
+      * `zone`: Availability zone.
+      * `subnet_id`: Subnet ID.
+      * `replication_source_name`: Replication source, i.e., the `name` attribute of the corresponding `host` section.
+      * `assign_public_ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
 
    1. Make sure the settings are correct.
 
@@ -176,7 +184,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 {% note warning %}
 
-If you cannot [connect](connect.md) to the added host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently at the [Preview stage](../../overview/concepts/launch-stages.md).
+If you cannot [connect](connect.md) to the added host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
 
@@ -207,13 +215,19 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
    To change the parameters of a host in a cluster, run the command below:
 
    ```bash
-   {{ yc-mdb-pg }} host update <hostname>
-     --cluster-name <cluster name>
-     --replication-source <source hostname>
-     --assign-public-ip=<public access to host: true or false>
+   {{ yc-mdb-pg }} host update <host_name>
+     --cluster-name <cluster_name>
+     --replication-source <source_host_name>
+     --assign-public-ip=<public_access_to_host>
    ```
 
-   The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   Where:
+
+   * `cluster-name`: Cluster name.
+   * `replication-source`: Source host name.
+   * `assign-public-ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
+
+   You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    To [manually manage replication threads](../concepts/replication.md#replication-manual) in the cluster, change the host's replication source in the `--replication-source` parameter.
 
@@ -225,17 +239,22 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
       For more information about creating this file, see [{#T}](cluster-create.md).
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
-   1. In the {{ mpg-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
+   1. In the {{ mpg-name }} cluster description, change the attributes of the `host` block corresponding to the host you are updating.
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
         host {
-          replication_source_name = "<replication source>"
-          assign_public_ip        = <host public access: true or false>
+          replication_source_name = "<replication_source>"
+          assign_public_ip        = <public_access_to_host>
         }
       }
       ```
+
+   Where:
+
+   * `replication_source_name`: Replication source, i.e., the `name` attribute of the corresponding `host` section.
+   * `assign_public_ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
 
    1. Make sure the settings are correct.
 
@@ -251,7 +270,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
    To update host parameters, use the [updateHosts](../api-ref/Cluster/updateHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * One or more objects containing the settings of the hosts to update in the `updateHostSpecs` parameter.
+   * One or more objects containing the updated hosts' settings in the `updateHostSpecs` parameter.
 
       For each host, specify:
       * Name in the `hostName` field.
@@ -264,7 +283,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
 {% note warning %}
 
-If you cannot [connect](connect.md) to the changed host, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host. The security groups feature is currently at the [Preview stage](../../overview/concepts/launch-stages.md).
+If you cannot [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
 
@@ -293,11 +312,11 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
    To remove a host from the cluster, run:
 
    ```bash
-   {{ yc-mdb-pg }} host delete <hostname>
-     --cluster-name=<cluster name>
+   {{ yc-mdb-pg }} host delete <host_name>
+     --cluster-name <cluster_name>
    ```
 
-   The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 

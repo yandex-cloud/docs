@@ -24,8 +24,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
 
-   * [Instructions for {{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups)
-   * [Instructions for {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups)
+   * [Guide for {{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups)
+   * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups)
 
 
 1. Install the `kcat` (`kafkacat`) [utility](https://github.com/edenhill/kcat) and [PostgreSQL command-line client](https://www.postgresql.org/download/) on the local machine. For example, in Ubuntu 20.04, run:
@@ -62,14 +62,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```sql
    INSERT INTO public.measurements VALUES
-       ('iv9a94th6rztooxh5ur2', '2020-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
-       ('rhibbh3y08qmz3sdbrbu', '2020-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
-       ('iv9a94th678tooxh5ur2', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
+       ('iv9a94th6rzt********', '2020-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+       ('rhibbh3y08qm********', '2020-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
+       ('iv9a94th678t********', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
    ```
 
 ## Prepare the target cluster{#prepare-target}
 
-The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. The same conventions are used for topic names as in [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names): `<topic prefix>.<schema name>.<table name>`. In this tutorial, the `cdc` prefix is used as an example.
+The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. The same conventions are used for topic names as in [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names): `<topic_prefix>.<schema_name>.<table_name>`. In this tutorial, the `cdc` prefix is used as an example.
 
 {% list tabs %}
 
@@ -102,7 +102,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
    * Source endpoint:
 
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-POSTGRES }}`.
       * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Select the [created](#before-you-begin) {{ mpg-name }} cluster.
@@ -113,7 +113,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
    * Target endpoint:
 
-      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ ui-key.yacloud.data-transfer.label_endpoint-type-KAFKA }}`.
       * **{{ ui-key.yacloud.data-transfer.forms.section-endpoint }}**:
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the target cluster.
@@ -143,7 +143,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
    ```bash
    kafkacat \
        -C \
-       -b <Broker host 1 FQDN>:9091,...,<Broker host N FQDN>:9091 \
+       -b <FQDN_of_broker_host_1>:9091,...,<FQDN_of_broker_host_N>:9091 \
        -t cdc.public.measurements \
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
@@ -163,7 +163,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
    ```json
    {
      "payload": {
-       "consumer":"dttuhfpp97l30jaka3ql"
+       "consumer":"dttuhfpp97l3********"
      },
      "schema": {
        "fields": [
@@ -180,8 +180,8 @@ The settings vary depending on the [topic management method](../../managed-kafka
    }:{
      "payload": {
        "after": {
-         "consumer":"dttuhfpp97l30jaka3ql",
-         "locked_by":"dttuhfpp97l30jaka3ql-1",
+         "consumer":"dttuhfpp97l3********l",
+         "locked_by":"dttuhfpp97l3********-1",
          "locked_till":"2022-05-15T09:55:18Z"
        },
      "before": null,
@@ -207,7 +207,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 1. Connect to the source cluster and add data to the `measurements` table:
 
    ```sql
-   INSERT INTO public.measurements VALUES ('iv7b74th678tooxh5ur2', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
+   INSERT INTO public.measurements VALUES ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
    ```
 
 1. Make sure the terminal running `kafkacat` displays details about the added row.

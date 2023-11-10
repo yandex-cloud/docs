@@ -22,7 +22,7 @@ You can connect to a non-sharded Redis cluster:
 
 ## Special FQDNs {#special-fqdns}
 
-{{ mrd-name }} provides special FQDNs that can be used instead of regular [host FQDNs](./../hosts.md#list) to connect to non-sharded clusters.
+{{ mrd-name }} provides special FQDNs that can be used instead of regular [host FQDNs](index.md#fqdn) to connect to non-sharded clusters.
 
 {% note warning %}
 
@@ -67,7 +67,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
       1. Select **{{ RD }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
-         * **Host**: FQDN of the master host or a [special FQDN](./non-sharded.md#special-fqdns) always pointing to the current master host.
+         * **Host**: [FQDN of the master host](./index.md#fqdn) or a [special FQDN](./non-sharded.md#special-fqdns) always pointing to the current master host.
          * **Port**: `{{ port-mrd }}` for a regular cluster or `{{ port-mrd-tls }}` for a cluster with SSL encryption enabled.
          * Under **Authentication**, specify the cluster password.
       1. On the **SSH** tab:
@@ -83,7 +83,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
          1. Under **Parameters**:
             1. Select **Method**: **Set of certificates**.
             1. In the **Root certificate** field, specify the path to the saved [SSL certificate](./index.md#get-ssl-cert) file.
-   1. Click **Test connection ...** to test a DB connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Test connection ...** to test a DB connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}

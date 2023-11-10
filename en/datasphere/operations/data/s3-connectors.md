@@ -8,7 +8,8 @@ To connect to the object storage from the notebook code, follow this guide: [{#T
 
 ## Getting started {#before-begin}
 
-1. Get an access key from your S3 storage provider. To do this in [{{ objstorage-full-name }}](../../storage/), follow these steps:
+Get an access key from your S3 storage provider. To do this in [{{ objstorage-full-name }}](../../../storage/), follow these steps:
+
   1. [Create a service account](../../../iam/operations/sa/create.md).
   1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) to the created account a [role](../../../storage/security/) allowing either reads only or both reads and writes.
   1. [Create an access key](../../../iam/operations/sa/create-access-key.md) for the service account.
@@ -58,7 +59,7 @@ You can attach the S3 storage to your project again when needed.
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/datasphere/dataset.svg) **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Select your S3 connector in the list.
-1. Click the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
+1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community you want to share the S3 connector with.
 
 ## Deleting an S3 connector {#delete}

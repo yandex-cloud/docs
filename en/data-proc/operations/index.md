@@ -18,6 +18,12 @@
 * [{#T}](connect-interfaces.md)
 * [{#T}](sqoop-usage.md)
 
+### Delta Lake
+
+* [{#T}](./deltalake/one-cluster-mode.md)
+* [{#T}](./deltalake/multi-cluster-mode.md)
+* [{#T}](./deltalake/tips.md)
+
 ## Jobs
 
 * [{#T}](jobs.md)

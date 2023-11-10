@@ -38,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the [data-from-kafka-to-clickhouse.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-from-kafka-to-clickhouse/data-from-kafka-to-clickhouse.tf) configuration file to the same working directory.
 
@@ -147,8 +147,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
              kafka {
                  security_protocol = "SECURITY_PROTOCOL_SASL_SSL"
                  sasl_mechanism    = "SASL_MECHANISM_SCRAM_SHA_512"
-                 sasl_username     = "<consumer username>"
-                 sasl_password     = "<user password for the consumer>"
+                 sasl_username     = "<username_for_the_consumer>"
+                 sasl_password     = "<user_password_for_the_consumer>"
              }
          }
          ```
@@ -158,12 +158,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
          ```hcl
          config {
              kafka_topic {
-                 name = "<topic name>"
+                 name = "<topic_name>"
                  settings {
                  security_protocol = "SECURITY_PROTOCOL_SASL_SSL"
                  sasl_mechanism    = "SASL_MECHANISM_SCRAM_SHA_512"
-                 sasl_username     = "<consumer username>"
-                 sasl_password     = "<user password for the consumer>"
+                 sasl_username     = "<username_for_the_consumer>"
+                 sasl_password     = "<user_password_for_the_consumer>"
                  }
              }
          }
@@ -175,7 +175,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -186,7 +186,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 For example, {{ KF }} topics receive some data from car sensors in JSON format. This data will be sent as {{ KF }} messages, each containing a string like this:
 
 ```json
-{"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
+{"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
 The {{ mch-name }} cluster will insert data into tables run on the `Kafka` engine in [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow). This engine will convert strings from {{ KF }} messages to relevant column values.
@@ -197,7 +197,7 @@ For each {{ KF }} topic, create a separate table in your {{ mch-name }} cluster 
 1. Run the following query:
 
    ```sql
-   CREATE TABLE IF NOT EXISTS db1.<topic table name>
+   CREATE TABLE IF NOT EXISTS db1.<topic_table_name>
    (
        device_id String,
        datetime DateTime,
@@ -210,8 +210,8 @@ For each {{ KF }} topic, create a separate table in your {{ mch-name }} cluster 
        fuel_level Nullable(Float32)
    ) ENGINE = Kafka()
    SETTINGS
-       kafka_broker_list = '<broker host FQDN>:9091',
-       kafka_topic_list = '<topic name>',
+       kafka_broker_list = '<broker_host_FQDN>:9091'
+       kafka_topic_list = '<topic_name>',
        kafka_group_name = 'sample_group',
        kafka_format = 'JSONEachRow';
    ```
@@ -226,7 +226,7 @@ To learn more about creating a table on the `Kafka` engine, see the [{{ CH }} do
 
    ```json
    {
-       "device_id": "iv9a94th6rztooxh5ur2",
+       "device_id": "iv9a94th6rzt********",
        "datetime": "2020-06-05 17:27:00",
        "latitude": 55.70329032,
        "longitude": 37.65472196,
@@ -238,7 +238,7 @@ To learn more about creating a table on the `Kafka` engine, see the [{{ CH }} do
    }
 
    {
-       "device_id": "rhibbh3y08qmz3sdbrbu",
+       "device_id": "rhibbh3y08qm********",
        "datetime": "2020-06-06 09:49:54",
        "latitude": 55.71294467,
        "longitude": 37.66542005,
@@ -250,7 +250,7 @@ To learn more about creating a table on the `Kafka` engine, see the [{{ CH }} do
    }
 
    {
-       "device_id": "iv9a94th6rztooxh5ur2",
+       "device_id": "iv9a94th6rzt********",
        "datetime": "2020-06-07 15:00:10",
        "latitude": 55.70985913,
        "longitude": 37.62141918,
@@ -266,13 +266,13 @@ To learn more about creating a table on the `Kafka` engine, see the [{{ CH }} do
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <FQDN broker host>:9091 \
-      -t <topic name> \
+      -b <broker_host_FQDN>:9091 \
+      -t <topic_name> \
       -k key \
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
-      -X sasl.username="<producer username>" \
-      -X sasl.password="<user password for the producer>" \
+      -X sasl.username="<username_for_the_producer>" \
+      -X sasl.password="<user_password_for_the_producer>" \
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
    ```
 
@@ -280,11 +280,11 @@ Data is sent on behalf of users [with the `ACCESS_ROLE_PRODUCER` role](#before-y
 
 ## Check that the test data is present in the {{ mch-name }} cluster tables {#fetch-sample-data}
 
-To access the data, use a materialized view. When a materialized view is added to a table on the `Kafka` engine, it starts collecting data in the background. This lets you continuously receive messages from {{ KF }} and convert them to the required format using `SELECT`.
+To access the data, use a materialized view. When a materialized view is added to a table on the `Kafka` engine, it starts collecting data in the background. This allows you to continuously receive messages from {{ KF }} and convert them to the required format using `SELECT`.
 
 {% note info %}
 
-Since {{ CH }} can read a message from a topic only once, we don't recommend reading data directly from the table.
+Since {{ CH }} can read a message from a topic only once, we do not recommend reading data directly from the table.
 
 {% endnote %}
 
@@ -294,7 +294,7 @@ To create a materialized view:
 1. Run the following queries for each table on the `Kafka` engine:
 
    ```sql
-   CREATE TABLE db1.temp_<topic table name>
+   CREATE TABLE db1.temp_<topic_table_name>
    (
        device_id String,
        datetime DateTime,
@@ -310,8 +310,8 @@ To create a materialized view:
    ```
 
    ```sql
-   CREATE MATERIALIZED VIEW db1.<view name> TO db1.temp_<topic table name>
-       AS SELECT * FROM db1.<topic table name>;
+   CREATE MATERIALIZED VIEW db1.<view_name> TO db1.temp_<topic_table_name>
+       AS SELECT * FROM db1.<topic_table_name>;
    ```
 
 To get all the data from the appropriate materialized view:
@@ -320,7 +320,7 @@ To get all the data from the appropriate materialized view:
 1. Run the following query:
 
    ```sql
-   SELECT * FROM db1.<view name>;
+   SELECT * FROM db1.<view_name>;
    ```
 
 The query will return a table with data sent to the respective {{ mkf-name }} topic.
@@ -358,7 +358,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
       If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

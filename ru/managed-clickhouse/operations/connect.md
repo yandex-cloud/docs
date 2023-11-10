@@ -219,11 +219,15 @@
 
 ## Подключение из браузера {#browser-connection}
 
-Существует два способа выполнения SQL-запросов из браузера:
+Для выполнения SQL-запросов из браузера используйте:
 
 * [Консоль управления](#console).
 
 * [Встроенный SQL-редактор](#inline-editor).
+
+
+* [Сервис {{ websql-full-name }}](#websql).
+
 
 При подключении из браузера SQL-запросы выполняются отдельно, без создания единой сессии с сервером {{ CH }}. Поэтому запросы, которые действуют в пределах сессии (например, `USE` или `SET`), не имеют эффекта.
 
@@ -255,6 +259,18 @@ https://<FQDN любого хоста {{ CH }}>:8443/play
 * `https://<имя шарда>.c-<идентификатор кластера>.rw.{{ dns-zone }}:8443/play` — для подключения к доступному хосту [шарда](../concepts/sharding.md).
 
 Для выполнения запросов к базе данных укажите имя пользователя и пароль в правом верхнем углу страницы.
+
+
+
+### Сервис {{ websql-full-name }} {#websql}
+
+{% include notitle [preview](../../_includes/note-preview.md) %}
+
+В сервисе [{{ websql-full-name }}](../../websql) создайте соединение с кластером {{ CH }} в {{ yandex-cloud }}.
+
+{% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
+
+{% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
 
 
 ## Примеры строк подключения {#connection-string}

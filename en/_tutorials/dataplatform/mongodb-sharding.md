@@ -8,11 +8,11 @@ While sharding a {{ mmg-name }} cluster, the following service hosts are automat
 
 It makes sense to shard collections when splitting data into shards significantly helps improve DBMS performance or data availability. To increase availability, each shard should consist of 3 or more database hosts.
 
-Ease of use and actual performance improvements depend strongly on the sharding key you choose: make sure that the data of the collection is logically distributed across shards and isn't linked to data in different shards.
+Ease of use and actual performance improvements significantly depend on the shard key you choose: make sure that the collection data is logically distributed across shards and is not linked to data in different shards.
 
-You should use sharding if:
+You should use sharding for:
 
-* Your data volume is large. Consider sharding if your collection size is 200 GB or more.
+* Large data volumes. Consider sharding if your collection size is 200 GB or larger.
 * Collections with non-uniform contents. For example, data can be clearly classified as frequently queried and rarely queried.
 * Collections requiring high read and write speeds. Sharding helps distribute workloads among hosts to bypass technical limitations.
 
@@ -30,21 +30,21 @@ Run all your sharding setup commands via the `mongosh` CLI from a user granted t
 1. [Connect](../../managed-mongodb/operations/connect/index.md) to the `MONGOS` or `MONGOINFRA` host using the `mongosh` CLI and enable sharding:
 
    ```
-   sh.enableSharding("<database name>")
+   sh.enableSharding("<DB_name>")
    ```
 
-   You can obtain the host type with a [list of hosts in the cluster](../../managed-mongodb/operations/hosts.md#list-hosts).
+   You can request the host type with a [list of hosts in the cluster](../../managed-mongodb/operations/hosts.md#list-hosts).
 
 1. Define an index for the sharded collection:
 
    ```
-   db.getSiblingDB("<DB name>").<collection name>.createIndex( { "<index>": <index type> } )
+   db.getSiblingDB("<DB_name>").<collection_name>.createIndex( { "<index>": <index_type> } )
    ```
 
 1. Enable collection sharding:
 
    ```
-   sh.shardCollection( "<DB name>.<collection>", { "<index>": <index type> } )
+   sh.shardCollection( "<DB_name>.<collection>", { "<index>": <index_type> } )
    ```
 
    For a detailed description of the `shardCollection` command, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#definition).
@@ -53,11 +53,11 @@ Run all your sharding setup commands via the `mongosh` CLI from a user granted t
 
 ### Sharding heterogeneous data {#brackets}
 
-If a collection includes documents with heterogeneous [data types](https://www.mongodb.com/docs/manual/reference/bson-types), we recommend sharding based on `_id` key values of a single type using the [Type Bracketing](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-type-bracketing) mechanism. This will make sharding and document search faster than for `_id` values of different types.
+If a collection includes documents with heterogeneous [data types](https://www.mongodb.com/docs/manual/reference/bson-types), we recommend sharding based on `_id` key values of a single type using [Type Bracketing](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-type-bracketing). This will make sharding and document search faster than for `_id` values of different types.
 
-### Links on the topic {#links}
+### Useful links {#links}
 
-From the {{ MG }} documentation, you can learn how to solve issues related to sharding:
+You can learn how to solve issues related to sharding in the {{ MG }} documentation:
 
 * Sharding overview: [Sharding](https://docs.mongodb.com/manual/sharding/index.html).
 * Choosing a shard key and sharding strategies: [Shard Keys](https://docs.mongodb.com/manual/core/sharding-shard-key/).

@@ -1,6 +1,6 @@
 ### Bash {#bash}
 
-Before connecting, install the [MongoDB Shell utility](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell).
+Before connecting, install the [MongoDB Shell utility]({{ shell-link }}).
 
 {% list tabs %}
 
@@ -39,6 +39,8 @@ Before connecting, install the [MongoDB Shell utility](https://docs.mongodb.com/
    ```
 
 {% endlist %}
+
+{% include [see-fqdn-host](fqdn-host.md) %}
 
 After connecting, run the `db` command.
 
@@ -139,6 +141,8 @@ go get go.mongodb.org/mongo-driver/mongo
    ```
 
 {% endlist %}
+
+{% include [see-fqdn-host](fqdn-host.md) %}
 
 **Connection:**
 
@@ -345,6 +349,8 @@ go run connect.go
 
 {% endlist %}
 
+{% include [see-fqdn-host](fqdn-host.md) %}
+
 **Connection:**
 
 ```bash
@@ -434,6 +440,8 @@ npm install mongodb
 
 {% endlist %}
 
+{% include [see-fqdn-host](fqdn-host.md) %}
+
 **Connection:**
 
 ```bash
@@ -521,6 +529,8 @@ sudo apt update && sudo apt install --yes php php-mongodb
 
 {% endlist %}
 
+{% include [see-fqdn-host](fqdn-host.md) %}
+
 **Connection:**
 
 ```bash
@@ -557,6 +567,8 @@ Before connecting, install the [MongoDB Shell utility](https://www.mongodb.com/t
 
 {% endlist %}
 
+{% include [see-fqdn-host](fqdn-host.md) %}
+
 After connecting, run the `db` command.
 
 ### Python {#python}
@@ -590,10 +602,10 @@ pip3 install pyMongo
    DB_PASS = '<DB user password>'
 
    url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
-             user = quote(DB_USER),
-             pw = quote(DB_PASS),
-             hosts = DB_HOSTS,
-             auth_src = DB_NAME)
+             user=quote(DB_USER),
+             pw=quote(DB_PASS),
+             hosts=DB_HOSTS,
+             auth_src=DB_NAME)
 
    conn = pymongo.MongoClient(
        url,
@@ -626,9 +638,9 @@ pip3 install pyMongo
 
    url = 'mongodb://{user}:{pw}@{hosts}/?authSource={auth_src}'.format(
              user = quote(DB_USER),
-             pw = quote(DB_PASS),
-             hosts = DB_HOSTS,
-             auth_src = DB_NAME)
+             pw=quote(DB_PASS),
+             hosts=DB_HOSTS,
+             auth_src=DB_NAME)
 
    conn = pymongo.MongoClient(url)
 
@@ -639,6 +651,8 @@ pip3 install pyMongo
    ```
 
 {% endlist %}
+
+{% include [see-fqdn-host](fqdn-host.md) %}
 
 **Connection:**
 

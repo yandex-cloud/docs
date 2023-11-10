@@ -1,7 +1,9 @@
 
+In {{ mkf-name }}, you can use a built-in [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#msr) data format schema registry. For more information, see [{#T}](../../managed-kafka/tutorials/managed-schema-registry.md). If you need [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), use the information from this guide.
+
 {% note info %}
 
-In {{ mkf-name }}, you can use a built-in [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#msr) data format schema registry. For more information, see [{#T}](../../managed-kafka/tutorials/managed-schema-registry.md). If you need [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), use the information from this guide.
+The guide is tested on Confluent Schema Registry 6.2 and a VM with Ubuntu 20.04 LTS. We cannot guarantee the performance if newer versions are used.
 
 {% endnote %}
 

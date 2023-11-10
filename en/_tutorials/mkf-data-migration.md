@@ -6,7 +6,7 @@ There are two ways to migrate topics from an {{ KF }} _source cluster_ to a {{ m
 
 * [Using the MirrorMaker 2.0 utility](#kf-mirrormaker).
 
-   This method requires that you install and configure the utility on an intermediate VM. Use this method only if it's not possible to migrate data using the built-in MirrorMaker connector for whatever reason.
+   To use this method, first, install and configure the utility on an intermediate VM. Use this method only if it is not possible to migrate data using the built-in MirrorMaker connector for whatever reason.
 
 ## Data migration using {{ mkf-full-name }} Connector {#kf-connector}
 
@@ -186,16 +186,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. In the home directory, create a subfolder called `mirror-maker` to store Java Keystore certificates and MirrorMaker configuration files.
 
    ```bash
-   mkdir --parents /home/<home directory>/mirror-maker
+   mkdir --parents /home/<home_directory>/mirror-maker
    ```
 
-1. Select a password for and create the certificate store and add an SSL certificate for connecting to the cluster:
+1. Choose a password at least 6 characters long for a certificate store, create a store, and add there an SSL certificate for connecting to the cluster:
 
    ```bash
    sudo keytool --noprompt -importcert -alias {{ crt-alias }} \
       -file {{ crt-local-dir }}{{ crt-local-file }} \
-      -keystore /home/<home directory>/mirror-maker/keystore \
-      -storepass <certificate store password, at least 6 characters>
+      -keystore /home/<home_directory>/mirror-maker/keystore \
+      -storepass <certificate_store_password>
    ```
 
 1. In the `mirror-maker` folder, create a MirrorMaker configuration file called `mm2.properties`:
@@ -203,8 +203,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```text
    # Kafka clusters
    clusters=cloud, source
-   source.bootstrap.servers=<FQDN of source cluster broker>:9092
-   cloud.bootstrap.servers=<FQDN of 1 target cluster broker>:9091, ..., <FQDN of N target cluster broker>:9091
+   source.bootstrap.servers=<FQDN_of_source_cluster_broker>:9092
+   cloud.bootstrap.servers=<FQDN_of_target_cluster_broker_1>:9091, ..., <FQDN_of_target_cluster_broker_N>:9091
 
    # Source and target cluster settings
    source->cloud.enabled=true
@@ -256,8 +256,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
    cloud.client.id=mm2_producer_test
    cloud.group.id=mm2_producer_group
    cloud.ssl.enabled.protocols=TLSv1.2,TLSv1.1,TLSv1
-   cloud.ssl.truststore.location=/home/<home directory>/mirror-maker/keystore
-   cloud.ssl.truststore.password=<certificate store password>
+   cloud.ssl.truststore.location=/home/<home_directory>/mirror-maker/keystore
+   cloud.ssl.truststore.password=<certificate_store_password>
    cloud.ssl.protocol=TLS
    cloud.security.protocol=SASL_SSL
    cloud.sasl.mechanism=SCRAM-SHA-512
@@ -284,7 +284,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 Launch MirrorMaker on the VM as follows:
 
 ```bash
-<Kafka install path>/bin/connect-mirror-maker.sh /home/<home directory>/mirror-maker/mm2.properties
+<Apache_Kafka_install_path>/bin/connect-mirror-maker.sh /home/<home_directory>/mirror-maker/mm2.properties
 ```
 
 ### Check the target cluster topic for data {#check-data-mkf}

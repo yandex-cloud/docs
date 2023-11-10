@@ -24,9 +24,9 @@ There are two ways to migrate data from a {{ mmy-name }} _source cluster_ to a t
 
 * [Transferring data using external replication](#binlog-replication).
 
-   [_External replication_](https://dev.mysql.com/doc/refman/8.0/en/replication-configuration.html) lets you migrate databases across {{ MY }} clusters using built-in DBMS tools.
+   [_External replication_](https://dev.mysql.com/doc/refman/8.0/en/replication-configuration.html) allows you to migrate databases across {{ MY }} clusters using built-in DBMS tools.
 
-   Use this method only if, for some reason, it's not possible to migrate data using {{ data-transfer-full-name }}.
+   Use this method only if, for some reason, it is not possible to migrate data using {{ data-transfer-full-name }}.
 
 ## Getting started {#before-you-begin}
 
@@ -42,7 +42,7 @@ Additionally, to migrate data using external {{ MY }} replication:
    * [Delete hosts](../../managed-mysql/operations/hosts.md#remove) without public IP addresses.
 * Install [{{ mmy-name }} server SSL certificates](../../managed-mysql/operations/connect.md#get-ssl-cert) on the target cluster's hosts. They are required to connect to the publicly available source cluster.
 * Set up the firewall and [security groups](../../managed-mysql/operations/connect.md#configuring-security-groups), if required, so that you can connect to the source cluster from the target cluster, as well as to each cluster separately, e.g., using the [mysql utility](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
-* Make sure that you can connect to the source cluster's hosts from the target cluster's hosts.
+* Make sure you can connect to the source cluster's hosts from the target cluster's hosts.
 * Make sure that you can [connect to the source cluster](../../managed-mysql/operations/connect.md) and the target cluster via SSL.
 
 ## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
@@ -55,7 +55,7 @@ Additionally, to migrate data using external {{ MY }} replication:
 1. [Configure the user in the source cluster to manage replication](#configure-user).
 1. [Start replication in the target cluster](#start-replica).
 1. [Monitor the migration process](#monitor-migration) until it is complete.
-1. [Finish the migration](#finish-migration).
+1. [Complete your migration](#finish-migration).
 
 ### Transfer a logical dump of the database {#migrate-schema}
 
@@ -82,11 +82,11 @@ A _logical dump_ is a file with a set of commands running which one by one you c
 
    ```bash
    mysqldump \
-       --databases=<DB name> \
+       --databases=<DB_name> \
        --routines \
-       --host=<FQDN of master host> \
-       --ssl-ca=<path to SSL certificate> \
-       --user=<username of DB owner> > <dump file>
+       --host=<master_host_FQDN> \
+       --ssl-ca=<SSL_certificate_path> \
+       --user=<DB_owner_username> > <dump_file>
    ```
 
    {% include [spec-fqdn](../includes/special-fqdn-master-mmy.md) %}
@@ -98,25 +98,25 @@ A _logical dump_ is a file with a set of commands running which one by one you c
    - Connecting via SSL
 
       ```bash
-      mysql --host=<FQDN of master host> \
+      mysql --host=<master_host_FQDN> \
             --user=<username> \
             --password \
             --port=3306 \
-            --ssl-ca=<path to certificate file> \
+            --ssl-ca=<SSL_certificate_path> \
             --ssl-mode=VERIFY_IDENTITY \
             --line-numbers \
-            <DB name> < <dump file>
+            <DB_name> < <dump_file>
       ```
 
    - Connecting without using SSL
 
       ```bash
-      mysql --host=<FQDN of master host> \
+      mysql --host=<master_host_FQDN> \
             --user=<username> \
             --password \
             --port=3306 \
             --line-numbers \
-            <DB name> < <dump file>
+            <DB_name> < <dump_file>
       ```
 
    {% endlist %}
@@ -125,7 +125,7 @@ A _logical dump_ is a file with a set of commands running which one by one you c
 
    ```sql
    CREATE USER '<username>'@'%' IDENTIFIED BY '<password>';
-   GRANT ALL PRIVILEGES ON <database name>.* TO '<username>'@'%';
+   GRANT ALL PRIVILEGES ON <DB_name>.* TO '<username>'@'%';
    ```
 
 ### Configure the user in the source cluster to manage replication {#configure-user}
@@ -176,7 +176,7 @@ The target cluster will connect to the source cluster on behalf of this user.
    ```sql
    CHANGE REPLICATION FILTER
        REPLICATE_DO_DB=(
-           <target cluster DB name>
+           <target_cluster_DB_name>
        ),
        REPLICATE_IGNORE_DB=(
            sys,
@@ -192,12 +192,12 @@ The target cluster will connect to the source cluster on behalf of this user.
 
    ```sql
    CHANGE MASTER TO
-         MASTER_HOST = '<FQDN of master host>',
-         MASTER_USER = '<user for replication>',
-         MASTER_PASSWORD = '<user password>',
-         MASTER_LOG_FILE = '<File value from binary log position request>',
-         MASTER_LOG_POS = <Position value from the binary log position request>,
-         MASTER_SSL_CA = '<path to SSL certificate>',
+         MASTER_HOST = '<master_host_FQDN>',
+         MASTER_USER = '<name_of_the_user_to_manage_replication>',
+         MASTER_PASSWORD = '<user_password>',
+         MASTER_LOG_FILE = '<File_value_from_the_binary_log_position_request>',
+         MASTER_LOG_POS = <Position_value_from_the_binary_log_position_request>,
+         MASTER_SSL_CA = '<SSL_certificate_path>',
          MASTER_SSL_VERIFY_SERVER_CERT = 0,
          MASTER_SSL = 1;
    ```
@@ -221,11 +221,11 @@ SHOW SLAVE STATUS\G
 ```text
 *************************** 1. row ***************************
            Slave_IO_State: Waiting for master to send event
-              Master_Host: rc1a-hxk9audl2lsi53hc.{{ dns-zone }}
+              Master_Host: rc1a-hxk9audl********.{{ dns-zone }}
               Master_User: replica-my
               Master_Port: 3306
             Connect_Retry: 60
-          Master_Log_File: mysql-bin-log-rc1a-hxk9audl2lsi53hc-mdb-yandexcloud-net.000225
+          Master_Log_File: mysql-bin-log-rc1a-hxk9audl********-mdb-yandexcloud-net.000225
       Read_Master_Log_Pos: 1702815
            Relay_Log_File: 6b6d647a39b6-relay-bin.000084
             Relay_Log_Pos: 409
@@ -241,9 +241,9 @@ Field values show the replication status:
 
 For more information about replication status, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-administration-status.html).
 
-### Finish the migration {#finish-migration}
+### Complete your migration {#finish-migration}
 
-1. Remove the load from the source cluster and check that the application doesn't write data to the source cluster database. To do this, change the [user-defined source cluster setting](../../managed-mysql/operations/cluster-users.md#update-settings) `MAX_UPDATES_PER_HOUR` to `1`.
+1. Remove the load from the source cluster and make sure that the application does not write data to the source cluster database. To do this, change the [custom source cluster setting](../../managed-mysql/operations/cluster-users.md#update-settings) `MAX_UPDATES_PER_HOUR` to `1`.
 1. Wait for the `Seconds_Behind_Master` metric value to decrease to zero. This means that all changes that occurred in the source cluster after creating the logical dump are transferred to the target cluster.
 1. Stop replication in the target cluster:
 

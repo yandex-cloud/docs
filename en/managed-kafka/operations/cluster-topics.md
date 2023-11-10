@@ -1,7 +1,7 @@
 # Working with topics and partitions
 
 A {{ mkf-name }} cluster provides two ways for you to manage topics and partitions (which can be used separately or combined):
-* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, delete, and configure topics and partitions using {{ mkf-name }} service features.
+* Using native {{ yandex-cloud }} interfaces, such as CLI, API, or management console. Use this method if you want to create, delete, and configure topics and partitions using {{ mkf-name }} features.
 * Using the {{ KF }} [Admin API](https://kafka.apache.org/documentation/#adminapi). Select this method if you wish to use your existing solution to manage topics and partitions.
 
 ## Managing topics and partitions with the {{ KF }} Admin API {#admin-api}
@@ -82,7 +82,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -106,7 +106,7 @@ While running, {{ mkf-name }} is able to create [service topics](../concepts/top
 
 ## Updating topic settings {#update-topic}
 
-You cannot reduce the number of partitions in {{ mkf-name }} topics. If there isn't enough storage space, you cannot create new partitions.
+You cannot reduce the number of partitions in {{ mkf-name }} topics. You cannot create new partitions if there is not enough storage space.
 
 For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
@@ -173,7 +173,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -236,7 +236,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

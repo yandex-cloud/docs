@@ -63,6 +63,34 @@ To use an SSL connection, get a certificate:
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
+## {{ GP }} host FQDN {#fqdn}
+
+To connect to a master host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+
+* [Request a list of cluster hosts](hosts/cluster-hosts.md#list-hosts).
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains a list of FQDNs for master hosts. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**.
+* Look up the FQDN in the management console:
+
+   1. Go to the cluster page.
+   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+
+Primary master hosts also use [special FQDNs](#fqdn-master).
+
+## Special primary master FQDN {#fqdn-master}
+
+If you do not want to manually connect to another master host when the current one becomes unavailable, use a special FQDN of the `c-<cluster_ID>.rw.{{ dns-zone }}` format. It always points to the primary master host in the cluster. Connection to this FQDN is permitted and both read and write operations are allowed.
+
+Here is an example of connecting to a primary master host in a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+
+```bash
+psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
+      port={{ port-mgp }} \
+      sslmode=verify-full \
+      dbname=<DB name> \
+      user=<username>"
+```
+
 ## Connecting to cluster hosts from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
@@ -103,9 +131,9 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
       1. Select **{{ GP }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
-         * **Host**: [Special primary master FQDN](#fqdn-master): `c-<clusterID>.rw.{{ dns-zone }}`.
+         * **Host**: [Special primary master FQDN](#fqdn-master), `c-<clusterID>.rw.{{ dns-zone }}`.
          * **Port**: `{{ port-mgp }}`.
-         * **Database**: DB you want to connect to.
+         * **Database**: DB to connect to.
          * Under **Authentication**, specify the DB user's name and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
@@ -189,26 +217,10 @@ To connect to a publicly accessible cluster, prepare an [SSL certificate](#get-s
 * `/home/<home directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.
 
-You can connect to a cluster using both a regular primary master FQDN or its [special FQDN](#fqdn-master).
+You can connect to a cluster using either a master host regular FQDN or a primary master host's [special FQDN](#fqdn-master). To learn how to get a host FQDN, see [this guide](#fqdn).
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 {% include [mgp-connection-strings](../../_includes/mdb/mgp/conn-strings.md) %}
-
-## Special primary master FQDN {#fqdn-master}
-
-Just like usual FQDNs, which can be requested with a list of cluster hosts, {{ mgp-name }} provides a special FQDN, which can also be used when connecting to a cluster.
-
-Such FQDN as `c-<cluster ID>.rw.{{ dns-zone }}` always points to the primary master host in the cluster. Connection to this FQDN is permitted and both read and write operations are allowed.
-
-An example of connecting to a primary master host in a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
-
-```bash
-psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
-      port={{ port-mgp }} \
-      sslmode=verify-full \
-      dbname=<DB name> \
-      user=<username>"
-```
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

@@ -44,10 +44,10 @@ With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/d
    ```
    {{ yc-mdb-pg }} user update <username> \
           --grants=<role1,role2> \
-          --cluster-id <cluster ID>
+          --cluster-id <cluster_ID>
    ```
 
-   You can query the cluster name with the [list of clusters](cluster-list.md) in the folder and the username with the [list of users](cluster-users.md#list-users).
+   You can request the cluster name with the [list of clusters](cluster-list.md) in the folder and the username, with the [list of users](cluster-users.md#list-users).
 
 - {{ TF }}
 
@@ -83,7 +83,7 @@ With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/d
 
    To specify a new list of the required user roles, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Username in the `userName` parameter.
    * List of new user roles in the `grants` parameter.
 
@@ -138,11 +138,13 @@ With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/d
       provider "postgresql" {
         host            = <host_FQDN>
         port            = 6432
-        database        = <database_name>
+        database        = <DB_name>
         username        = <DB_owner_username>
         password        = <user_password>
       }
       ```
+
+      {% include [see-fqdn](../../_includes/mdb/mpg/fqdn-host.md) %}
 
       For a full list of settings, see the [provider documentation](https://registry.terraform.io/providers/cyrilgdn/postgresql/latest/docs).
 
@@ -150,7 +152,7 @@ With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/d
 
       ```hcl
       resource "postgresql_grant" "<resource_name>" {
-        database    = "<database_name>"
+        database    = "<DB_name>"
         role        = "<username>"
         object_type = "<object_type>"
         privileges  = ["<list_of_priviledges>"]
@@ -164,14 +166,14 @@ With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/d
       Where:
 
       * `<Resource_name>`: Name of the {{ TF }} resource with privileges. It must be unique within the {{ TF }} manifest.
-      * `<database_name>`: Name of the database for which privileges are granted.
-      * `<username>`: Name of the user to whom privileges are granted.
-      * `<object_type>`: Type of {{ PG }} object for which privileges are granted. Possible values: `database`, `schema`, `table`, `sequence`, `function`, `procedure`, `routine`, `foreign_data_wrapper`, `foreign_server`, and `column`.
-      * `<privilege_list>`: Array of granted privileges. Possible values: `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, `REFERENCES`, `TRIGGER`, `CREATE`, `CONNECT`, `TEMPORARY`, `EXECUTE`, and `USAGE`. You can find the descriptions of privileges in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/ddl-priv.html).
-      * `<schema>`: Schema for which you are granting privileges. You cannot specify it for the `database` object type.
-      * (Optional) `<object_list>`: Array of objects for which privileges are granted. If you omit this parameter, privileges will be granted for all objects of the specified type. You cannot specify it for the `database` or `schema` object types. If the object type is `column`, the array can contain only one value.
-      * `<column_list>`: Array of columns for which privileges are granted. This parameter is required for the `column` object type. You cannot specify it for any object type other than `column`.
-      * `(Optional)` <permission_to_grant_privileges>: If `true`, the user with privileges can grant these privileges to other users. By default, `false`.
+      * `database`: Name of the database for which privileges are granted.
+      * `role`: Name of the user to whom privileges are granted.
+      * `object_type`: Type of {{ PG }} object for which privileges are granted. The possible values are `database`, `schema`, `table`, `sequence`, `function`, `procedure`, `routine`, `foreign_data_wrapper`, `foreign_server`, and `column`.
+      * `privileges`: Array of granted privileges. The possible values are `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, `REFERENCES`, `TRIGGER`, `CREATE`, `CONNECT`, `TEMPORARY`, `EXECUTE`, and `USAGE`. You can find the descriptions of privileges in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/ddl-priv.html).
+      * `schema`: Schema for which you are granting privileges. You cannot specify it for the `database` object type.
+      * (Optional) `objects`: Array of objects for which privileges are granted. If you omit this parameter, privileges will be granted for all objects of the specified type. You cannot specify it for the `database` or `schema` object types. If the object type is `column`, the array can contain only one value.
+      * `columns`: Array of columns for which privileges are granted. This parameter is required for the `column` object type. You cannot specify it for any object type other than `column`.
+      * (Optional) `with_grant_option`: If `true`, a user with the privileges can grant them to other users. The default value is `false`.
 
    1. Initialize {{ TF }} once again:
 

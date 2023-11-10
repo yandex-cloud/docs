@@ -24,7 +24,7 @@ Rule settings depend on the connection method you select:
    [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
 
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `6432`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** : `{{ ui-key.yacloud.common.label_tcp }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
@@ -33,8 +33,8 @@ Rule settings depend on the connection method you select:
    1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 6432 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
 
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `6432`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** : `{{ ui-key.yacloud.common.label_tcp }}`
-      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** : `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`) as the value. Otherwise, specify the VM security group.
 
    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
@@ -70,19 +70,41 @@ Security groups must be configured correctly for all subnets that will include c
 For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
 
 
+## Getting an SSL certificate {#get-ssl-cert}
+
+{{ PG }} hosts with public access only support encrypted connections. To use them, get an SSL certificate:
+
+{% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
+
+{% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
+
+## {{ PG }} host FQDN {#fqdn}
+
+To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+
+* [Request a list of cluster hosts](../operations/hosts.md#list-hosts).
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**.
+* Look up the FQDN in the management console:
+
+   1. Go to the cluster page.
+   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+
+Cluster hosts also use [special FQDNs](#special-fqdns).
+
 ## Special FQDNs {#special-fqdns}
 
-Just like usual [FQDNs](../concepts/network.md#hostname), which can be requested with a [list of cluster hosts](hosts.md#list), {{ mpg-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
+Alongside [regular FQDNs](#fqdn), {{ mpg-name }} provides several special FQDNs, which can also be used when connecting to a cluster.
 
 {% note warning %}
 
-If, when the [master host is changed automatically](../concepts/replication.md#replication-auto), a host with no public access becomes a new master or the most recent replica, you will not be able to access them from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
+If, when the [master host is changed automatically](../concepts/replication.md#replication-auto), a host with no public access becomes a new master or the most recent replica, you will not be able to access them from the internet. To avoid this, [enable public access](hosts.md#update) for all cluster hosts.
 
 {% endnote %}
 
 ### Current master {#fqdn-master}
 
-Such FQDN as `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current cluster master host. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster_ID>.rw.{{ dns-zone }}` always points to the current cluster master host. You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
@@ -92,33 +114,33 @@ Connect using special master host FQDNs to make sure your cluster is available e
 
 {% endnote %}
 
-Example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+Here is an example of connecting to a master host for a cluster with the `c9qash3nb1v9********` ID:
 
 ```bash
-psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
+psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
       port=6432 \
       sslmode=verify-full \
-      dbname=<DB name> \
+      dbname=<DB_name> \
       user=<username> \
       target_session_attrs=read-write"
 ```
 
 ### Most recent replica {#fqdn-replica}
 
-Such FQDN as `c-<cluster ID>.ro.{{ dns-zone }}` points to the most recent [replica](../concepts/replication.md), i.e., the one most up-to-date with the master host. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster_ID>.ro.{{ dns-zone }}` points to the most recent [replica](../concepts/replication.md), i.e., the one most up-to-date with the master host. You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 **Specifics:**
 
 * When connecting to this FQDN, only read operations are allowed.
 * If there are no active replicas in the cluster, this FQDN will point to the current master host.
 
-Here is an example of connecting to the most recent replica for a cluster with the `c9qash3nb1v9ulc8j9nm` ID:
+Here is an example of connecting to the most recent replica for a cluster with the `c9qash3nb1v9********` ID:
 
 ```bash
-psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
+psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
       port=6432 \
       sslmode=verify-full \
-      dbname=<DB name> \
+      dbname=<DB_name> \
       user=<username> \
       target_session_attrs=any"
 ```
@@ -130,7 +152,7 @@ To guarantee a connection to the master host:
 1. In the `host` argument, provide one of the following:
 
    * [Special master host FQDN](#fqdn-master) as shown in the [examples below](#connection-string).
-   * [FQDNs](../concepts/network.md#hostname) of all cluster hosts.
+   * [FQDNs](#fqdn) of all cluster hosts.
 
 1. Provide the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
 
@@ -138,14 +160,6 @@ To upgrade the library version used by the `psql` utility:
 
 * For Debian-based Linux distributions, install the `postgresql-client-10` package or higher (for example, using an [APT repository](https://www.postgresql.org/download/linux/ubuntu/)).
 * For operating systems that use RPM packages, use the {{ PG }} distribution available from the [yum repository](https://yum.postgresql.org/).
-
-## Getting an SSL certificate {#get-ssl-cert}
-
-{{ PG }} hosts with public access only support encrypted connections. To use them, get an SSL certificate:
-
-{% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
-
-{% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
 ## Connecting to cluster hosts from graphical IDEs {#connection-ide}
 
@@ -166,13 +180,13 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          * **URL**: Connection string:
 
             ```http
-            jdbc:postgresql://<special FQDN>:{{ port-mpg }}>/<DB name>
+            jdbc:postgresql://<special_FQDN>:{{ port-mpg }}>/<DB_name>
             ```
 
-            You can also use a list of all the cluster host [FQDNs](../concepts/network.md#hostname) in the connection string:
+            You can also use a list of all the cluster host [FQDNs](#fqdn) in the connection string:
 
             ```http
-            jdbc:postgresql://<{{ PG }} host 1:{{ port-mpg }}>,...,<{{ PG }} host N:{{ port-mpg }}>/<DB name>
+            jdbc:postgresql://<{{ PG }}_host_1:{{ port-mpg }}>,...,<{{ PG }}_host_N:{{ port-mpg }}>/<DB_name>
             ```
 
          * Click **Download** to download the connection driver.
@@ -189,9 +203,9 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Select **{{ PG }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
-         * **Host**: [Special master host FQDN](#fqdn-master) or regular host [FQDN](../concepts/network.md#hostname).
+         * **Host**: [Special master host FQDN](#fqdn-master) or [regular host FQDN](#fqdn).
          * **Port**: `{{ port-mpg }}`.
-         * **Database**: DB you want to connect to.
+         * **Database**: DB to connect to.
          * Under **Authentication**, specify the DB user's name and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
@@ -269,7 +283,7 @@ To connect to a {{ mpg-name }} cluster from a Docker container, add the followin
 {% list tabs %}
 
 
-- Connecting without using SSL
+* Connecting without using SSL
 
    ```bash
    RUN apt-get update && \
@@ -277,7 +291,7 @@ To connect to a {{ mpg-name }} cluster from a Docker container, add the followin
    ```
 
 
-- Connecting via SSL
+* Connecting via SSL
 
    ```bash
    RUN apt-get update && \
@@ -298,7 +312,7 @@ You can only connect to publicly accessible {{ PG }} hosts using an SSL certific
 
 The examples below assume that the `root.crt` SSL certificate is located in the directory:
 
-* `/home/<home directory>/.postgresql/` for Ubuntu.
+* `/home/<home_directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.
 
 Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. If this is the case, internal cloud network traffic will not be encrypted for connecting to a database.

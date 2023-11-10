@@ -11,13 +11,13 @@ This model works best, but supports only two languages:
 
 {% note warning %}
 
-Currently, this model can't be selected with [automatic language detection](../../operations/ocr/text-detection.md#basic). To use this model, you need to [overtly specify](../../operations/ocr/text-detection.md#multiple-languages) one or both languages.
+Currently, this model cannot be selected with [automatic language detection](../../operations/ocr/text-detection-image.md#ocr-api-recognition). To use this model, explicitly specify one or both languages in the `languageCodes` property for the [OCR API](../../ocr/api-ref/index.md) or in the `language_codes` property for the [Vision API](../../vision/api-ref/index.md).
 
 {% endnote %}
 
 ## Latin-Cyrillic model {#latcyr}
 
-This model supports languages with the Latin and Cyrillic alphabets:
+This model supports languages that use Latin and Cyrillic characters:
 
 * `az`: Azerbaijani
 * `ba`: Bashkir
@@ -74,5 +74,5 @@ Other models only support a single basic language apart from Russian and English
 
 #### What's next {#what-is-next}
 
-* [View known restrictions for the current version](known-issues.md)
-* [Try recognizing text in an image](../../operations/ocr/text-detection.md)
+* [Learn about known issues for the current version](known-issues.md)
+* [Try recognizing text in an image](../../operations/ocr/text-detection-image.md)

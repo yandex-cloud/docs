@@ -18,7 +18,11 @@ A checklist is a list of items that need to be completed to resolve the issue. H
 
 ## Managing a checklist {#checklist-operations}
 
-* To change an name, assignee, or deadline, tap the checklist item.
+Users with [permissions](../access.md) to edit issues can use a checklist. You can grant access permissions to the entire [queue](../manager/queue-access.md#set-access) or a specific issue via a [role](../manager/queue-access.md#task-role) or [component](../manager/queue-access.md#access-components).
+
+The checklist operations include:
+
+* To change a name, assignee, or deadline, click the checklist item.
 
 * To delete an item, click ![](../../_assets/tracker/svg/icon-remove.svg) to the right of its name.
 

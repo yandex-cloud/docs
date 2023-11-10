@@ -1,9 +1,9 @@
-1. Storage usage threshold value at which the storage size will be increased during the next maintenance window, in the `configSpec.diskSizeAutoscaling.plannedUsageThreshold` parameter.
+1. Storage usage percentage to trigger storage increase in the next maintenance window, in the `configSpec.diskSizeAutoscaling.plannedUsageThreshold` parameter.
 
-    It is set between `0` and `100`%. The default value is `0` (the threshold is disabled).
+   It is set between `0` and `100`%. The default value is `0` (automatic expansion is disabled).
 
-1. Storage usage threshold value at which the storage size will be increased immediately, in the `configSpec.diskSizeAutoscaling.emergencyUsageThreshold` parameter.
+1. Storage usage percentage to trigger immediate storage increase, in the `configSpec.diskSizeAutoscaling.emergencyUsageThreshold` parameter.
 
-    It is set between `0` and `100`%. The default value is `0` (the threshold is disabled). If the value is greater than `0`, it cannot be less than the value provided in the `configSpec.diskSizeAutoscaling.plannedUsageThreshold` parameter.
+   It is set between `0` and `100`%. The default value is `0` (automatic expansion is disabled). If the value is greater than `0`, it cannot be less than the value provided in the `configSpec.diskSizeAutoscaling.plannedUsageThreshold` parameter.
 
-1. New storage size, in bytes, to be set upon reaching one of the specified thresholds, in the `configSpec.diskSizeAutoscaling.diskSizeLimit` parameter.
+1. New storage size, in bytes, set upon reaching one of the specified usage percentages, in the `configSpec.diskSizeAutoscaling.diskSizeLimit` parameter.
