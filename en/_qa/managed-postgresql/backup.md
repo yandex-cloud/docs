@@ -26,8 +26,8 @@ Use the `pg_dump` built-in tool to migrate data to a {{ PG }} cluster in {{ mpg-
 
 [Restoring a logical dump](../../managed-postgresql/tutorials/data-migration.md#backup) may fail with one of the following errors:
 
-* `ERROR:  role "<source username>" does not exist`
-* `ERROR:  must be member of role "<source username>"`
+* `ERROR:  role "<source_username>" does not exist`
+* `ERROR:  must be member of role "<source_username>"`
 
 The errors occur because the target cluster does not have the user (or the privileges of the user) who created the logical dump in the source cluster.
 

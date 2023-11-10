@@ -45,7 +45,7 @@ Prepare the infrastructure:
 
         This file describes:
 
-        * [Network](../../vpc/concepts/network.md#network)
+        * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * [NAT gateway](../../vpc/concepts/gateways.md) and route table required for {{ dataproc-name }}.
         * [Security groups](../../vpc/concepts/security-groups.md) required for the {{ dataproc-name }} clusters.
@@ -205,7 +205,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
     - Using {{ TF }}
 
         1. [Delete the objects](../../storage/operations/objects/delete.md) from the buckets.
-        1. In the terminal window, switch to the directory containing the infrastructure plan.
+        1. In the terminal window, go to the directory containing the infrastructure plan.
         1. Delete the `dataproc-to-dataproc.tf` configuration file.
         1. Make sure the {{ TF }} configuration files are correct using this command:
 

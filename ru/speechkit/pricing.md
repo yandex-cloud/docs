@@ -34,9 +34,9 @@ editable: false
 * Пустой запрос к API v1 тарифицируется как один символ.
 * Пустой запрос к API v3 тарифицируется как одна единица тарификации.
 
-#### Ошибочный запрос {#error-request}
+#### Внутренние ошибки сервера {#error-request}
 
-{% include [error-request](../_includes/error-request.md) %}
+{% include [error-request](../_includes/speechkit/error-request.md) %}
 
 
 
@@ -97,7 +97,7 @@ editable: false
 
 #### Ошибочный запрос {#error-request}
 
-{% include [error-request](../_includes/error-request.md) %}
+{% include [error-request](../_includes/speechkit/error-request.md) %}
 
 
 ## Цены {#prices}

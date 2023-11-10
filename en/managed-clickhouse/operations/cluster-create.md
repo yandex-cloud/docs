@@ -47,7 +47,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the {{ CH }} version from the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list to use for the {{ mch-name }} cluster:
       * For most clusters, we recommend selecting the latest LTS version.
       * If you plan to use hybrid storage in a cluster, we recommend selecting version {{ mch-ck-version }} or higher.
@@ -74,6 +74,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       * To create additional DB hosts, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**. Once the second host is added, the **{{ ui-key.yacloud.mdb.forms.button_expand-zookeeper-settings }}** button will appear. Change the {{ ZK }} settings in **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, and **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**, if required.
       * Set the parameters of DB hosts being created alongside the cluster. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg).
+      * To connect to the host from the internet, enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** setting.
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
@@ -198,7 +199,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
            ...
            --enable-sql-user-management true \
            --enable-sql-database-management true \
-           --admin-password "<admin_account_password>"
+           --admin-password "<admin_password>"
          ```
 
       
@@ -217,7 +218,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          ```bash
          {{ yc-mdb-ch }} cluster create \
            ...
-           --version "<{{ CH }}_version:_{{ mch-ck-version }}_or_higher>" \
+           --version "<{{ CH }}_version: {{ mch-ck-version }}_or higher>" \
            --embedded-keeper true
          ```
 
@@ -491,8 +492,8 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    * Named `mych`.
    * In the `PRESTABLE` environment.
-   * Cloud with the `{{ tf-cloud-id }}` ID.
-   * Folder with the `{{ tf-folder-id }}` ID.
+   * Cloud ID: `{{ tf-cloud-id }}`.
+   * Folder ID: `{{ tf-folder-id }}`.
    * A new cloud network named `cluster-net`.
       * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
    * With a single `{{ host-class }}` class host on a new subnet named `cluster-subnet-{{ region-id }}-a`.
@@ -538,8 +539,8 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    * Named `mych`.
    * In the `PRESTABLE` environment.
-   * Cloud with the `{{ tf-cloud-id }}` ID.
-   * Folder with the `{{ tf-folder-id }}` ID.
+   * Cloud ID: `{{ tf-cloud-id }}`.
+   * Folder ID: `{{ tf-folder-id }}`.
    * In a new cloud network named `cluster-net`.
 
    * With three {{ CH }} hosts of the `{{ host-class }}` class and three {{ ZK }} hosts of the `{{ zk-host-class }}` class (to ensure [replication](../concepts/replication.md)).

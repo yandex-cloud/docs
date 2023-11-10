@@ -144,3 +144,20 @@ When deleting a host group, the following limitation applies: you cannot delete 
    * Name of the host group to delete, in the `name` parameter.
 
 {% endlist %}
+
+## Getting a list of cluster hosts {#list-hosts}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+   1. Click the cluster name and select the ![hosts](../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
+
+- API
+
+   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/cluster_service.md#ListHosts) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+
+   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+
+{% endlist %}

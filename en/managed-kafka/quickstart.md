@@ -96,7 +96,7 @@ To connect to a cluster:
 
    In the command, specify the broker FQDN, the topic name, and the username and password of the {{ KF }} user that you created in the previous step.
 
-   {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
+   {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
 
 1. To get messages from a topic, run the following command:
 
@@ -104,7 +104,7 @@ To connect to a cluster:
 
    In the command, specify the broker FQDN, the topic name, and the username and password of the {{ KF }} user that you created in the previous step.
 
-   {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
+   {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
 
 For more information about connecting to {{ mkf-name }} clusters, see [{#T}](operations/connect.md).
 

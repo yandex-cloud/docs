@@ -274,3 +274,7 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
      ```
 
 {% endlist %}
+
+### Удалить SSH-ключи из метаданных {#delete-keys-from-metadata}
+
+{% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}

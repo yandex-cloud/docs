@@ -14,7 +14,7 @@ The number of hosts that can be created along with a {{ PG }} cluster depends on
 
    Such a cluster will be fault-tolerant.
 
-   Local SSD storage impacts the cost of a cluster: you are charged for it even if it is not running. You can find more information in the [pricing policy](../pricing.md).
+   Local SSD storage impacts the cost of a cluster: you are charged for it even if it is not running. For more information, refer to the [pricing policy](../pricing.md).
 
 * With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the current quota.
 
@@ -29,73 +29,22 @@ When the storage is more than 97% full, the host automatically switches to read-
 In this mode, the `INSERT`, `DELETE`, or `UPDATE` queries result in an error.
 
 
-### Monitoring the switch to read-only mode {#read-only-monitor}
-
-To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-full-name }}:
-
-1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Select **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**.
-1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md
-   ).
-1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following properties:
-
-   1. **{{ ui-key.yacloud_monitoring.alert.section_metrics }}**: Set the following metric parameters:
-
-      * Cloud
-      * Folder
-      * **{{ ui-key.yacloud_monitoring.services.label_postgresql }}** service
-      * {{ mpg-name }} cluster ID
-
-         You can get the cluster ID [with a list of clusters in a folder](../operations/cluster-list.md#list-clusters).
-
-      * `disk.free_bytes` label
-
-   1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}**: Set the `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` condition for the percentage of free disk space to trigger the alert:
-
-      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (a minimum metric value for the period)
-      * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: `90` (90% of storage size)
-      * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `95` (95% of storage size)
-      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: Required period to update a metric value
-
-   1. Add the previously created notification channel.
+You can monitor storage usage on cluster hosts [by setting up alerts in {{ monitoring-full-name }}](../operations/storage-space.md#set-alert):
 
 
 ### Recovering a cluster from read-only mode {#read-only-solutions}
 
-If the cluster switched to read-only mode:
+Use one of these methods:
 
-* [Increase the storage capacity](../operations/update.md#change-disk-size) so that it exceeds the threshold value. {{ yandex-cloud }} will then disable read-only mode automatically.
+* [Increase the storage capacity](../operations/storage-space.md#change-disk-size) so that it exceeds the threshold value. {{ mpg-short-name }} will then disable read-only mode automatically.
 
-* Disable read-only mode manually and free up storage space by deleting some data.
+* [Disable read-only mode manually](../operations/storage-space.md#read-only-solutions) and free up storage space by deleting some data.
 
    {% note alert %}
 
    When doing so, make sure the amount of free disk space never reaches zero. Otherwise, since the fail-safe is disabled, {{ PG }} will crash and the cluster will stop working.
 
    {% endnote %}
-
-To disable read-only mode manually, contact [technical support]({{ link-console-support }}) or follow the steps below:
-
-1. [Connect to the database](../operations/connect.md) in any appropriate way.
-
-1. Open a transaction and run the following command inside it:
-
-   ```sql
-   SET LOCAL transaction_read_only TO off;
-   ```
-
-1. As part of the same transaction, delete the data you do not need using the `DROP` or `TRUNCATE` operators. Do not use the `DELETE` operator, as it marks rows as deleted but does not physically delete them from the database.
-
-1. Commit the transaction and restart all connections to the database.
-
-> For example, if your database contains a table called `ExcessDataTable1` that you no longer need, delete it with the following transaction:
->
-> ```sql
-> BEGIN;
-> SET LOCAL transaction_read_only TO off;
-> DROP TABLE ExcessDataTable1;
-> COMMIT;
-> ```
 
 ### Automatic increase of storage size {#auto-rescale}
 
@@ -115,6 +64,6 @@ Storage size will be increased to the value set in the respective setting. After
 You can set up automatic increase of storage size:
 
 * [When creating a cluster](../operations/cluster-create.md).
-* [When updating a cluster](../operations/update.md#disk-size-autoscale).
+* [When updating a cluster](../operations/storage-space.md#disk-size-autoscale).
 
 {% include [storage-resize-maintenance](../../_includes/mdb/mpg/storage-resize-maintenance.md) %}

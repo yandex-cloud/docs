@@ -7,7 +7,7 @@
   1. Before connecting, install the [SSL certificate]({{ crt-web-path }}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
   1. In the browser, go to one of the addresses:
      - `https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}`, if a public IP address is assigned to all hosts with this role. You can get the cluster ID [with a list of clusters in a folder](../../managed-elasticsearch/operations/cluster-list#list-clusters).
-     - `https://<name of any host with the Data node role and a public IP>.{{ dns-zone }}`
+     - `https://<FQDN of any host with the Data node role and a public IP>.{{ dns-zone }}`
   1. Enter your username and password.
 
   {% include [kibana-api](mes-kibana-api.md) %}
@@ -214,3 +214,5 @@
   ```
 
 {% endlist %}
+
+{% include [see-fqdn](../../_includes/mdb/mes/fqdn-host.md) %}

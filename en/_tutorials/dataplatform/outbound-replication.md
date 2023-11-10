@@ -40,7 +40,7 @@ For logical replication to work properly, both the source and the target must ha
 1. Create a dump of the source cluster's database schema using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility:
 
    ```bash
-   pg_dump "host=<source cluster's host FQDN> port=6432 sslmode=verify-full dbname=<DB name> user=<DB owner username>" --schema-only --no-privileges --no-subscriptions --no-publications -Fd -f <dump directory>
+   pg_dump "host=<FQDN_of_source_cluster_host> port=6432 sslmode=verify-full dbname=<DB_name> user=<DB_owner_username>" --schema-only --no-privileges --no-subscriptions --no-publications -Fd -f <dump_directory>
    ```
 
    You can obtain the host FQDN with a [list of hosts in the cluster](../../managed-postgresql/operations/hosts.md#list).
@@ -50,7 +50,7 @@ For logical replication to work properly, both the source and the target must ha
 1. Restore the database schema from the dump on the target cluster using the [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) utility:
 
    ```bash
-   pg_restore -Fd -v --single-transaction -s --no-privileges -h <target cluster's host FQDN> -U <DB owner username> -p 5432 -d <DB name> <dump directory>
+   pg_restore -Fd -v --single-transaction -s --no-privileges -h <FQDN_of_target_cluster_host> -U <DB_owner_username> -p 5432 -d <DB_name> <dump_directory>
    ```
 
 ## Configure the user to manage replication on the source cluster {#configure-user}
@@ -69,15 +69,15 @@ After [creating a subscription](#create-subscription), a connection to the sourc
 1. Create a publication that the target cluster will subscribe to:
 
    ```sql
-   CREATE PUBLICATION <publication name>;
+   CREATE PUBLICATION <publication_name>;
    ```
 
 1. Include all database tables in the created publication:
 
    ```
-   ALTER PUBLICATION <publication name> ADD TABLE <table name 1>;
+   ALTER PUBLICATION <publication_name> ADD TABLE <table_1_name>;
    ...
-   ALTER PUBLICATION <publication name> ADD TABLE <table name N>;
+   ALTER PUBLICATION <publication_name> ADD TABLE <table_N_name>;
    ```
 
    {% note info %}
@@ -92,7 +92,7 @@ After [creating a subscription](#create-subscription), a connection to the sourc
 1. Create a subscription to the source cluster's publication:
 
    ```sql
-   CREATE SUBSCRIPTION <subscription name> CONNECTION 'host=<source cluster's host FQDN> port=6432 sslmode=verify-full dbname=<name of the DB to migrate> user=<name of the user to manage replication> password=<user password>' PUBLICATION <publication name>;
+   CREATE SUBSCRIPTION <subscription_name> CONNECTION 'host=<FQDN_of_source_cluster_host> port=6432 sslmode=verify-full dbname=<name_of_DB_to_migrate>user=<username_for_replication_management> password=<user_password>' PUBLICATION <publication_name>;
    ```
 
 This starts the process of migrating data from the source cluster's database to the target cluster's database.
@@ -121,30 +121,30 @@ After the replication is complete:
 1. Transfer sequences, if any, from the source cluster to the target cluster using the pg_dump and psql utilities:
 
    ```bash
-   pg_dump "host=<source cluster host FQDN> port=6432 sslmode=verify-full dbname=<DB name> user=<DB owner username>" --data-only -t '*.*_seq' > <name of the file with sequences>
+   pg_dump "host=<FQDN_source_cluster_master_host> port=6432 sslmode=verify-full dbname=<DB_name> user=<DB_owner_username>" --data-only -t '*.*_seq' > <name_of_file_with_sequences>
    ```
 
    ```bash
-   psql -h <target cluster host FQDN> -U <DB owner username> -p 5432 -d <DB name> < <name of the file with sequences>
+   psql -h <FQDN_of_target_cluster_master_host> -U <DB_owner_username> -p 5432 -d <DB_name> < <name_of_file_with_sequences>
    ```
 
 1. Delete the subscription on the target cluster:
 
    ```sql
-   DROP SUBSCRIPTION <subscription name>;
+   DROP SUBSCRIPTION <subscription_name>;
    ```
 
 1. Delete the publication on the source cluster:
 
    ```sql
-   DROP PUBLICATION <publication name>;
+   DROP PUBLICATION <publication_name>;
    ```
 
 1. [Remove the user](../../managed-postgresql/operations/cluster-users.md#removeuser) managing replication on the source cluster.
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
 * If you reserved a public static IP for your virtual machine, [delete it](../../vpc/operations/address-delete.md).

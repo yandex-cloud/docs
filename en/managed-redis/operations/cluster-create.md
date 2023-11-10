@@ -3,7 +3,7 @@ title: "How to create a {{ RD }} cluster"
 description: "Use this tutorial to create a {{ RD }} cluster with a single or multiple DB hosts."
 ---
 
-# Creating {{ RD }} clusters
+# Creating a {{ RD }} cluster
 
 A {{ RD }} cluster consists of one or more database hosts you can configure replication between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
 
@@ -32,7 +32,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       * (Optional) Add a cluster description.
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       * Select the DBMS version.
       * If necessary, enable [cluster sharding](../concepts/sharding.md).
 
@@ -250,8 +250,9 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    To create a {{ RD }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
-         * Security group identifiers in the `securityGroupIds` parameter.
+   * Security group IDs in the `securityGroupIds` parameter.
    * `tlsEnabled=true` flag for creating clusters with encrypted SSL support.
+   * Settings of public access to hosts in the `hostSpecs[].assignPublicIp` parameter.
 
 {% endlist %}
 
@@ -275,15 +276,15 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    Create a {{ mrd-name }} cluster with the following test characteristics:
 
-   * Name: `myredis`.
-   * Version: `{{ versions.cli.latest }}`.
-   * Environment `production`.
-   * Network `default`.
-   * A single `hm1.nano`-class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone and security group with ID `{{ security-group }}` with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
-   * With SSL support.
-   * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
-   * With the `user1user1` password.
-   * With protection against accidental cluster deletion.
+   * Name: `myredis`
+   * Version: `{{ versions.cli.latest }}`
+   * Environment: `production`
+   * Network: `default`
+   * Single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone and security group with the `{{ security-group }}` ID with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
+   * SSL support: Enabled
+   * Network SSD storage (`{{ disk-type-example }}`): 16 GB
+   * Password: `user1user1`
+   * Protection against accidental cluster deletion: Enabled
 
    Run the following command:
 
@@ -307,15 +308,15 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Create a {{ mrd-name }} cluster and a network for it with test characteristics:
+   Create a {{ mrd-name }} cluster and a network for it with the following test characteristics:
 
-   * Named `myredis`.
-   * Version `{{ versions.tf.latest }}`.
-   * Environment `PRODUCTION`.
-   * Cloud with the `{{ tf-cloud-id }}` ID.
-   * Folder with the `{{ tf-folder-id }}` ID.
-   * New network `mynet`.
-   * A single `{{ host-class }}`-class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the `10.5.0.0/24` range.
+   * Name: `myredis`
+   * Version: `{{ versions.tf.latest }}`
+   * Environment: `PRODUCTION`
+   * Cloud ID: `{{ tf-cloud-id }}`
+   * Folder ID: `{{ tf-folder-id }}`
+   * New network: `mynet`
+   * Single `{{ host-class }}` host in a new subnet named `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the `10.5.0.0/24` range.
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
    * SSL support: Enabled
    * Network SSD storage (`{{ disk-type-example }}`): 16 GB
@@ -399,17 +400,17 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Name: `myredis`
    * Version: `{{ versions.tf.latest }}`
    * Environment: `PRODUCTION`
-   * Cloud ID: `{{ tf-cloud-id }}`.
-   * Folder ID: `{{ tf-folder-id }}`.
-   * New network: `mynet`.
+   * Cloud ID: `{{ tf-cloud-id }}`
+   * Folder ID: `{{ tf-folder-id }}`
+   * New network: `mynet`
    * Three subnets in the `mynet` network, one in each availability zone:
       * `subnet-a` with the `10.1.0.0/24` range.
       * `subnet-b` with the `10.2.0.0/24` range.
       * `subnet-c` with the `10.3.0.0/24` range.
    * Three `{{ host-class }}` hosts, one in each subnet.
-  * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
-   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
-   * Password: `user1user1`.
+   * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
+   * Network SSD storage (`{{ disk-type-example }}`): 16 GB
+   * Password: `user1user1`
    * Protection against accidental cluster deletion: Enabled
 
    The configuration file for this cluster is as follows:

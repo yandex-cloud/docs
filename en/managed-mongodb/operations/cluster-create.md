@@ -1,4 +1,4 @@
-# Creating {{ MG }} clusters
+# Creating a {{ MG }} cluster
 
 A {{ MG }} cluster consists of one or more database hosts you can configure replication between. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
 
@@ -33,7 +33,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
       * Specify the DBMS version.
 
@@ -71,7 +71,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
       * Select the [availability zone](../../overview/concepts/geo-scope.md).
       * Select the [subnet](../../vpc/concepts/network.md#subnet) in the specified availability zone. If there is no subnet, create one.
-      * If the host must be available outside {{ yandex-cloud }}, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+      * If the host must be available outside {{ yandex-cloud }}, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. You cannot change this setting after you create a host.
 
 
       
@@ -119,16 +119,19 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       
       ```bash
       {{ yc-mdb-mg }} cluster create \
-         --name <cluster name> \
-         --environment=<environment, prestable or production> \
-         --network-name <network name> \
-         --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-         --mongod-resource-preset <host class> \
-         --user name=<username>,password=<user password> \
-         --database name=<database name> \
-         --mongod-disk-type <disk type> \
-         --mongod-disk-size <storage size in GB> \
-         --deletion-protection=<deletion protection for the cluster: true or false>
+        --name <cluster_name> \
+        --environment=<environment:_prestable_or_production> \
+        --network-name <network_name> \
+        --host zone-id=<availability_zone>,`
+              `subnet-id=<subnet_ID>,`
+              `assign-public-ip=<public_access_to_host:_true_or_false> \
+        --mongod-resource-preset <host_class> \
+        --user name=<username>,password=<user_password> \
+        --database name=<database_name> \
+        --mongod-disk-type <disk_type> \
+        --mongod-disk-size <storage_size_in_GB> \
+        --performance-diagnostics=< enable_cluster_performance_diagnostics:_true_or_false> \
+        --deletion-protection=<cluster_deletion_protection:_true_or_false>
       ```
 
       You need to specify `subnet-id` if the selected availability zone has two or more subnets.
@@ -160,53 +163,54 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
-        name                = "<cluster name>"
-        environment         = "<environment: PRESTABLE or PRODUCTION>"
+      resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
+        name                = "<cluster_name>"
+        environment         = "<environment:_PRESTABLE_or_PRODUCTION>"
         network_id          = "<network ID>"
-        security_group_ids  = [ "<list of security groups>" ]
-        deletion_protection = <cluster deletion protection: true or false>
+        security_group_ids  = [ "<list_of_security_groups>" ]
+        deletion_protection = <cluster_deletion_protection:_true_or_false>
 
         cluster_config {
-          version = "<{{ MG }} version: {{ versions.tf.str }}>"
+          version = "<{{ MG }}_version:_{{ versions.tf.str }}>"
         }
 
         database {
-          name = "<database name>"
+          name = "<database_name>"
         }
 
         user {
           name     = "<username>"
-          password = "<user password>"
+          password = "<user_password>"
           permission {
-            database_name = "<database name>"
-            roles         = [ "<list of user roles>" ]
+            database_name = "<database_name>"
+            roles         = [ "<list_of_user_roles>" ]
           }
         }
 
         resources_mongod {
-          resource_preset_id = "<host class>"
-          disk_type_id       = "<disk type>"
-          disk_size          = <storage size, GB>
+          resource_preset_id = "<host_class>"
+          disk_type_id       = "<disk_type>"
+          disk_size          = <storage_size_in_GB>
         }
 
         host {
-          zone_id   = "<availability zone>"
-          subnet_id = "<subnet ID>"
+          zone_id          = "<availability_zone>"
+          subnet_id        = "<subnet_ID>"
+          assign_public_ip = <public_access_to_host:_true_or_false>
         }
       }
 
-      resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+      resource "yandex_vpc_network" "<network_name>" { name = "<network_name>" }
 
-      resource "yandex_vpc_subnet" "<subnet name>" {
-        name           = "<subnet name>"
-        zone           = "<availability zone>"
-        network_id     = "<network ID>"
+      resource "yandex_vpc_subnet" "<subnet_name>" {
+        name           = "<subnet_name>"
+        zone           = "<availability_zone>"
+        network_id     = "<network_ID>"
         v4_cidr_blocks = ["<range>"]
       }
       ```
@@ -313,31 +317,31 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Create a {{ mmg-name }} cluster and a network for it with test characteristics:
+   Create a {{ mmg-name }} cluster and a network for it with the following test characteristics:
 
-   * Name: `mymg`.
-   * Version: `{{ versions.tf.latest }}`.
-   * Environment: `PRODUCTION`.
-   * Cloud ID: `{{ tf-cloud-id }}`.
-   * Folder ID: `{{ tf-folder-id }}`.
-   * Network: `mynet`.
-   * Host class: `{{ host-class }}`.
-   * Number of `host` blocks: 1.
-   * Subnet: `mysubnet`. Network settings:
+   * Name: `mymg`
+   * Version: `{{ versions.tf.latest }}`
+   * Environment: `PRODUCTION`
+   * Cloud ID: `{{ tf-cloud-id }}`
+   * Folder ID: `{{ tf-folder-id }}`
+   * Network: `mynet`
+   * Host class: `{{ host-class }}`
+   * Number of `host` blocks: 1
+   * Subnet: `mysubnet` Network settings:
 
-      * Availability zone: `{{ region-id }}-a`.
-      * Range: `10.5.0.0/24`.
+      * Availability zone: `{{ region-id }}-a`
+      * Range: `10.5.0.0/24`
 
    
    * Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
 
 
-   * SSD network storage: `{{ disk-type-example }}`.
-   * Storage size: 20 GB.
-   * User: `user1`.
-   * Password: `user1user1`.
-   * Database: `db1`.
-   * Protection against accidental cluster deletion: Enabled.
+   * SSD network storage: `{{ disk-type-example }}`
+   * Storage size: 20 GB
+   * User: `user1`
+   * Password: `user1user1`
+   * Database: `db1`
+   * Protection against accidental cluster deletion: Enabled
 
    Configuration file for a single-host cluster:
 
@@ -421,28 +425,62 @@ Create a {{ mmg-name }} cluster and a network for it with multiple hosts:
 
 Cluster test characteristics:
 
-* Name: `mymg`.
-* Environment `PRODUCTION`.
-* Protection against accidental cluster deletion: Enabled.
-* Version: `{{ versions.tf.latest }}`.
-* Database: `db1`.
-* User: `user1`.
-* Password: `user1user1`.
-* `MONGOD` host class: `{{ host-class }}`.
-* `MONGOINFRA` host class: `c3-c2-m4`.
-* SSD network storage: `{{ disk-type-example }}`.
-* Storage size: 10 GB.
-* Number of `host` blocks: 4. For each of them, set the host type: `mongod` or `mongoinfra`.
+* Name: `mymg`
+* Environment: `PRODUCTION`
+* Protection against accidental cluster deletion: Enabled
+* Version: `{{ versions.tf.latest }}`
+* Database: `db1`
+* User: `user1`
+* Password: `user1user1`
+* `MONGOD` host class: `{{ host-class }}`
+* `MONGOINFRA` host class: `c3-c2-m4`
+* SSD network storage: `{{ disk-type-example }}`
+* Storage size: 10 GB
 
-Network specifications:
+Network characteristics:
 
-* Network: `mynet`.
-* Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
-* Subnet: `mysubnet`.
-* Availability zone: `{{ region-id }}-a`.
-* Range: `10.5.0.0/24`.
+* Network: `mynet`
+* Security group: `mymg-sg` with the `{{ security-group }}` ID. In {{ TF }}, a group is created with the rule allowing TCP connections to the cluster from the internet on port `{{ port-mmg }}`.
+
+* Subnet: `mysubnet`
+* Availability zone: `{{ region-id }}-a`
+* Range: `10.5.0.0/24` (only for {{ TF }})
 
 {% list tabs %}
+
+- CLI
+
+   To create a {{ mmg-name }} cluster with standard sharding, run this command:
+
+   ```bash
+   {{ yc-mdb-mg }} cluster create \
+      --name mymg \
+      --environment production \
+      --deletion-protection=true \
+      --mongodb-version {{ versions.cli.latest }} \
+      --database name=db1 \
+      --user name=user1,password=user1user1 \
+      --mongod-resource-preset {{ host-class }} \
+      --mongod-disk-type {{ disk-type-example }} \
+      --mongod-disk-size 10 \
+      --host type=mongod,`
+        `zone-id={{ region-id }}-a,`
+        `subnet-name=mysubnet \
+      --mongoinfra-resource-preset c3-c2-m4 \
+      --mongoinfra-disk-type {{ disk-type-example }} \
+      --mongoinfra-disk-size 10 \
+      --host type=mongoinfra,`
+        `zone-id={{ region-id }}-a,`
+        `subnet-name=mysubnet \
+      --host type=mongoinfra,`
+        `zone-id={{ region-id }}-a,`
+        `subnet-name=mysubnet \
+      --host type=mongoinfra,`
+        `zone-id={{ region-id }}-a,`
+        `subnet-name=mysubnet \
+      --network-name mynet \
+      --security-group-ids {{ security-group }}
+   ```
 
 - {{ TF }}
 
@@ -544,26 +582,69 @@ Create a {{ mmg-name }} cluster and a network for it with multiple hosts:
 
 Cluster test characteristics:
 
-* Name: `mymg`.
-* Environment `PRODUCTION`.
-* Protection against accidental cluster deletion: Enabled.
-* Version: `{{ versions.tf.latest }}`.
-* Database: `db1`.
-* User: `user1`.
-* Password: `user1user1`.
-* Host class: `{{ host-class }}`.
-* SSD network storage: `{{ disk-type-example }}`.
-* Storage size: 10 GB.
+* Name: `mymg`
+* Environment: `PRODUCTION`
+* Protection against accidental cluster deletion: Enabled
+* Version: `{{ versions.tf.latest }}`
+* Database: `db1`
+* User: `user1`
+* Password: `user1user1`
+* Host class: `{{ host-class }}`
+* SSD network storage: `{{ disk-type-example }}`
+* Storage size: 10 GB
 
 Network characteristics:
 
-* Network: `mynet`.
-* Security group: `mymg-sg`. The group rules allow TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
-* Subnet: `mysubnet`.
-* Availability zone: `{{ region-id }}-a`.
-* Range: `10.5.0.0/24`.
+* Network: `mynet`
+* Security group: `mymg-sg` with the `{{ security-group }}` ID. In {{ TF }}, a group is created with the rule allowing TCP connections to the cluster from the internet on port `{{ port-mmg }}`.
+* Subnet: `mysubnet`
+* Availability zone: `{{ region-id }}-a`
+* Range: `10.5.0.0/24` (only for {{ TF }})
 
 {% list tabs %}
+
+- CLI
+
+   To create a {{ mmg-name }} cluster with extended sharding, run this command:
+
+   ```bash
+   {{ yc-mdb-mg }} cluster create \
+     --name mymg \
+     --environment production \
+     --deletion-protection=true \
+     --mongodb-version {{ versions.cli.latest }} \
+     --database name=db1 \
+     --user name=user1,password=user1user1 \
+     --mongod-resource-preset {{ host-class }} \
+     --mongod-disk-type {{ disk-type-example }} \
+     --mongod-disk-size 10 \
+     --host type=mongod,`
+       `zone-id={{ region-id }}-a,`
+       `subnet-name=mysubnet \
+     --mongos-resource-preset {{ host-class }} \
+     --mongos-disk-type {{ disk-type-example }} \
+     --mongos-disk-size 10 \
+     --host type=mongos,`
+       `zone-id={{ region-id }}-a,`
+       `subnet-name=mysubnet \
+     --host type=mongos,`
+       `zone-id={{ region-id }}-a,`
+       `subnet-name=mysubnet \
+     --mongocfg-resource-preset {{ host-class }} \
+     --mongocfg-disk-type {{ disk-type-example }} \
+     --mongocfg-disk-size 10 \
+     --host type=mongocfg,`
+       `zone-id={{ region-id }}-a,`
+       `subnet-name=mysubnet \
+     --host type=mongocfg,`
+       `zone-id={{ region-id }}-a,`
+       `subnet-name=mysubnet \
+     --host type=mongocfg,`
+       `zone-id={{ region-id }}-a,`
+       `subnet-name=mysubnet \
+     --network-name mynet \
+     --security-group-ids {{ security-group }}
+   ```
 
 - {{ TF }}
 

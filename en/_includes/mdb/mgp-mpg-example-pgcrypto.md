@@ -73,8 +73,8 @@
    1. Export the keys to files:
 
       ```bash
-      gpg -a --export <key Real name> > public.key && \
-      gpg -a --export-secret-keys <key Real name> > private.key
+      gpg -a --export <key_Real_name> > public.key && \
+      gpg -a --export-secret-keys <key_Real_name> > private.key
       ```
 
 1. Create a table:
@@ -92,10 +92,10 @@
    FROM (
        VALUES ('Alice', '123-45-6788'), ('Bob', '123-45-6799'))
        AS tmp(username, ssn)
-   CROSS JOIN (SELECT dearmor('<contents of public.key file>') AS pubkey) AS keys;
+   CROSS JOIN (SELECT dearmor('<contents_of_public.key_file>') AS pubkey) AS keys;
    ```
 
-1. Check to see that the data in the `ssn` column is encrypted:
+1. Make sure that the data in the `ssn` column is encrypted:
 
    ```sql
    SELECT * FROM tbl_asym_crypt;
@@ -104,7 +104,7 @@
 1. Decrypt the data in the `ssn` column using the private key:
 
    ```sql
-   SELECT username, pgp_pub_decrypt(ssn, keys.privkey, '<key Passphrase>')
+   SELECT username, pgp_pub_decrypt(ssn, keys.privkey, '<key_Passphrase>')
        AS decrypted_ssn FROM tbl_asym_crypt
-   CROSS JOIN (SELECT dearmor('<contents of private.key file>') AS privkey) AS keys;
+   CROSS JOIN (SELECT dearmor('<contents_of_private.key_file>') AS privkey) AS keys;
    ```

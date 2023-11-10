@@ -36,7 +36,7 @@ To get started with the service:
 
 {% note info %}
 
-These instructions assume that you're connecting to the cluster from the internet.
+These instructions assume that you are connecting to the cluster from the internet.
 
 {% endnote %}
 
@@ -101,6 +101,9 @@ To connect to a cluster:
    To connect:
    1. Install the [SSL certificate]({{ crt-web-path }}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. In the browser, go to `https://<FQDN of the publicly available {{ ES }} host with the Data node role>`.
+
+      {% include [see-fqdn](../_includes/mdb/mes/fqdn-host.md) %}
+
    1. Enter the username and password that you set when [creating a cluster](#cluster-create).
 1. Upload one or more test datasets to {{ ES }} using Kibana:
    1. On the Kibana welcome screen, click **Try our sample data**.

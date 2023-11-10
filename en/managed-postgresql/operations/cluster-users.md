@@ -32,10 +32,10 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
    ```
    {{ yc-mdb-pg }} user list
-        --cluster-name <cluster name>
+        --cluster-name <cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - API
 
@@ -78,11 +78,18 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
    ```
    {{ yc-mdb-pg }} user create <username>
-        --cluster-name <cluster name>
-        --password=<user password>
-        --permissions=<list of DBs user can access>
-        --conn-limit=<maximum number of connections per user>
+        --cluster-name <cluster_name>
+        --password=<password>
+        --permissions=<DB_list>
+        --conn-limit=<maximum_number_of_connections>
    ```
+
+   Where:
+
+   * `cluster-name`: Cluster name.
+   * `password`: User password.
+   * `permissions`: List of DBs the user can access.
+   * `conn-limit`: Maximum number of connections per user.
 
    This command configures only the main user settings.
 
@@ -104,20 +111,22 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
       ```hcl
       resource "yandex_mdb_postgresql_user" "<username>" {
-        cluster_id = "<cluster ID>"
+        cluster_id = "<cluster_ID>"
         name       = "<username>"
         password   = "<password>"
         grants     = [ "<role1>","<role2>" ]
-        login      = <allow logging in to the DB: true or false>
-        conn_limit = <maximum number of connections>
+        login      = <permission_to_log_in_to_DB>
+        conn_limit = <maximum_number_of_connections>
         settings   = {
-          <database settings>
+          <DB_settings>
         }
         permission {
-          database_name = "<database name>"
+          database_name = "<DB_name>"
         }
       }
       ```
+
+      Where `login` indicates whether logging in to the DB is allowed: `true` or `false`.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
@@ -173,8 +182,8 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
    ```
    {{ yc-mdb-pg }} user update <username>
-       --cluster-name=<cluster name>
-       --password=<new password>
+       --cluster-name=<cluster_name>
+       --password=<new_password>
    ```
 
    {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
@@ -196,7 +205,7 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
       resource "yandex_mdb_postgresql_user" "<username>" {
         ...
         name     = "<username>"
-        password = "<new password>"
+        password = "<new_password>"
         ...
       }
       ```
@@ -265,11 +274,16 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       ```
       {{ yc-mdb-pg }} user update <username>
-          --cluster-name=<cluster name>
-          --permissions=<list of databases to grant a user access to>
+          --cluster-name=<cluster_name>
+          --permissions=<DB_list>
       ```
 
-      The cluster name can be requested with a [list of clusters in the folder](#list-clusters).
+      Where:
+
+      * `cluster-name`: Cluster name.
+      * `permissions`: List of DBs the user can access.
+
+      You can request the cluster name with a [list of clusters in the folder](#list-clusters).
 
       This command grants the user access rights to the databases listed.
 
@@ -279,10 +293,10 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       ```
       {{ yc-mdb-pg }} user update <username>
-           --cluster-name=<cluster name>
-           --<setting 1>=<value 1>
-           --<setting 2>=<value 2>
-           --<setting 3>=<list of values>
+           --cluster-name=<cluster_name>
+           --<setting_1>=<value_1>
+           --<setting_2>=<value_2>
+           --<setting_3>=<list_of_values>
            ...
       ```
 
@@ -307,10 +321,10 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
            ...
            name = "<username>"
            permission {
-             database_name = "<database name>"
+             database_name = "<DB_name>"
            }
            permission {
-             database_name = "<database name>"
+             database_name = "<DB_name>"
            }
            ...
          }
@@ -325,7 +339,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
         ...
         name     = "<username>"
         settings = {
-          <database name>
+          <DB_settings>
         }
         ...
       }
@@ -373,10 +387,10 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
    ```
    {{ yc-mdb-pg }} user delete <username>
-      --cluster-name <cluster name>
+      --cluster-name <cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }}
 

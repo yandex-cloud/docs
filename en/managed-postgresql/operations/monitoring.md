@@ -102,7 +102,7 @@ The recommended thresholds are as follows:
 | Metric | Parameter | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` | `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` |
 |---------------------------------------|:--------------------------:|:-------------------------:|:-------------------------:|
 | Replication delay | `postgres-replication_lag` | `60` | `5`   |
-| Number of healthy hosts | `postgres-is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
+| Number of healthy hosts | `postgres-is_alive` | `<host_count>: 2` | `<host_count>: 1` |
 | Average query execution time | `pooler-avg_query_time` | N/A | `2000` |
 | Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of the storage size |
 

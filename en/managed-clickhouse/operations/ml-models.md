@@ -1,6 +1,10 @@
 # Managing machine learning models in {{ mch-name }}
 
-{{ mch-short-name }} allows you to analyze data by applying [CatBoost](https://catboost.ai/) machine learning models without additional tools. To apply a model, connect to a cluster and access it in a SQL query using the built-in [`modelEvaluate()`]({{ ch.docs }}/sql-reference/functions/other-functions#function-modelevaluate) function. After running this query, you get model predictions for each row of input data.
+{{ mch-short-name }} allows you to analyze data by applying [CatBoost](https://catboost.ai/) machine learning models without additional tools.
+
+To apply a model, add it to your cluster and call it in an SQL query using the built-in `catboostEvaluate()` function. After running this query, you get model predictions for each row of input data.
+
+You can learn more about the `catboostEvaluate()` function in the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/functions/other-functions/#catboostevaluatepath_to_model-feature_1-feature_2--feature_n).
 
 ## Before adding a model {#prereq}
 
@@ -77,7 +81,7 @@
 
    To get model details, use the [get](../api-ref/MlModel/get.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Get](../api-ref/grpc/ml_model_service.md#Get) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter.
+   * Cluster ID in the `clusterId` parameter.
    * Model name in the `mlModelName` parameter.
 
    You can request the model name with a [list of cluster models](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -105,7 +109,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
    1. Configure the model parameters:
 
       * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-type }}**: `ML_MODEL_TYPE_CATBOOST`.
-      * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}**: Model name. Model name is one of the arguments of the `modelEvaluate()` function, which is used to call the model in {{ CH }}.
+      * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}**: Model name. Model name is one of the arguments of the `catboostEvaluate()` function, which is used to call the model in {{ CH }}.
       * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}**: Model address in {{ objstorage-full-name }}.
 
    1. Click **{{ ui-key.yacloud.clickhouse.cluster.ml-models.label_add-ml-model }}** and wait for the model to be added.
@@ -162,7 +166,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
    To add a model, use the [create](../api-ref/MlModel/create.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Create](../api-ref/grpc/ml_model_service.md#Create) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter.
+   * Cluster ID in the `clusterId` parameter.
    * Model name in the `mlModelName` parameter.
    * `ML_MODEL_TYPE_CATBOOST` model type in the `type` parameter.
    * Link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
@@ -180,19 +184,24 @@ To apply the model to data stored in a {{ CH }} cluster:
 
    ```
    SELECT
-       modelEvaluate('<model name>',
-                     <name of column 1>,
-                     <name of column 2>,
+       catboostEvaluate('<model file path>',
+                     <column 1 name>,
+                     <column 2 name>,
                      ...
                      <name of column N>)
    FROM <table name>
    ```
 
-Specify the model name and the names of the columns with input data as the `modelEvaluate()` function arguments. The query results in a column with model predictions for each row of the source table.
+Specify the following arguments for the `catboostEvaluate()` function:
+
+* Path to the model file as `/var/lib/clickhouse/models/<model name>.bin`.
+* Names of columns containing the input data.
+
+The result of the query execution will be a column with model predictions for each row of the source table.
 
 ## Updating a model {#update}
 
-{{ mch-name }} doesn't track changes in the model file located in the {{ objstorage-full-name }} bucket.
+{{ mch-name }} does not track changes in the model file located in the {{ objstorage-full-name }} bucket.
 
 To update the contents of a model that is already connected to the cluster:
 
@@ -261,7 +270,7 @@ To update the contents of a model that is already connected to the cluster:
 
    To update a model, use the [update](../api-ref/MlModel/update.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Update](../api-ref/grpc/ml_model_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Model name in the `mlModelName` parameter.
    * New link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
@@ -327,7 +336,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
    To delete a model, use the [delete](../api-ref/MlModel/delete.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Delete](../api-ref/grpc/ml_model_service.md#Delete) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter.
+   * Cluster ID in the `clusterId` parameter.
    * Model name in the `mlModelName` parameter.
 
    You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the model name with a [list of models in the cluster](#list-ml).
@@ -336,96 +345,93 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
 ## Example {#example-ml-model}
 
-If you don't have a suitable data set or model to process it, you can test machine learning in {{ mch-short-name }} using this example. We prepared a data file for it and trained a model to analyze it. You can upload data to {{ CH }} and see model predictions for different rows of the table.
+If you do not have a suitable data set or model to process it, you can test machine learning in {{ mch-short-name }} using this example. We prepared a data file for it and trained a model to analyze it. You can upload data to {{ CH }} and see model predictions for different rows of the table.
 
 {% note info %}
 
-In this example, we'll use public data from the [Amazon Employee Access Challenge](https://www.kaggle.com/c/amazon-employee-access-challenge). The model is trained to predict values in the `ACTION` column. The same data and model are used on [GitHub](https://github.com/ClickHouse/clickhouse-presentations/blob/master/tutorials/catboost_with_clickhouse_ru.md).
+In this example, we are going to use public data from the [Amazon Employee Access Challenge](https://www.kaggle.com/c/amazon-employee-access-challenge). The model is trained to predict values in the `ACTION` column. The same data and model are used on [GitHub](https://github.com/ClickHouse/clickhouse-presentations/blob/master/tutorials/catboost_with_clickhouse_ru.md).
 
 {% endnote %}
 
 To upload data to {{ CH }} and test the model:
 
-1. Install the [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) and configure your cluster connection as described in the [documentation](../../managed-clickhouse/operations/connect.md#cli).
-
-
-1. Download the [file](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) with data to analyze:
-
-   ```bash
-   wget https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv
-   ```
-
-
-1. Create a table for the data:
-
-   ```bash
-   clickhouse-client --host <host FQDN> \
-                     --database <DB name>
-                     --secure \
-                     --user <DB username> \
-                     --password <DB user password> \
-                     --port 9440 \
-                     -q 'CREATE TABLE ml_test_table (date Date MATERIALIZED today(), ACTION UInt8, RESOURCE UInt32, MGR_ID UInt32, ROLE_ROLLUP_1 UInt32, ROLE_ROLLUP_2 UInt32, ROLE_DEPTNAME UInt32, ROLE_TITLE UInt32, ROLE_FAMILY_DESC UInt32, ROLE_FAMILY UInt32, ROLE_CODE UInt32) ENGINE = MergeTree() PARTITION BY date ORDER BY date'
-   ```
-
-   To learn how to get the FQDN of a host, see [this guide](connect.md#fqdn).
-
-1. Upload the data to the table:
-
-   ```bash
-   clickhouse-client --host <host FQDN> \
-                     --database <DB name>
-                     --secure \
-                     --user <DB username> \
-                     --password <DB user password> \
-                     --port 9440 \
-                     -q 'INSERT INTO ml_test_table FORMAT CSVWithNames' \
-                     < train.csv
-   ```
-
 1. In the [management console]({{ link-console-main }}), add the test model:
+
    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-type }}**: `ML_MODEL_TYPE_CATBOOST`
    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}**: `ml_test`
    * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}**: `https://{{ s3-storage-host }}/managed-clickhouse/catboost_model.bin`
 
+1. Install the [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) and configure your cluster connection as described in the [documentation](../../managed-clickhouse/operations/connect.md#cli).
+
+
+1. Download the [file](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) with data to analyze.
+
+
+1. [Connect to the database](../../managed-clickhouse/operations/connect.md#cli) via the {{ CH }} CLI.
+
+1. Create a test table:
+
+   ```sql
+   CREATE TABLE
+               ml_test_table (date Date MATERIALIZED today(),
+                             ACTION UInt8,
+                             RESOURCE UInt32,
+                             MGR_ID UInt32,
+                             ROLE_ROLLUP_1 UInt32,
+                             ROLE_ROLLUP_2 UInt32,
+                             ROLE_DEPTNAME UInt32,
+                             ROLE_TITLE UInt32,
+                             ROLE_FAMILY_DESC UInt32,
+                             ROLE_FAMILY UInt32,
+                             ROLE_CODE UInt32)
+               ENGINE = MergeTree()
+   PARTITION BY date
+   ORDER BY date;
+   ```
+
+1. Upload the data to the table:
+
+   ```sql
+   INSERT INTO ml_test_table FROM INFILE '<file_path>/train.csv' FORMAT CSVWithNames;
+   ```
+
 1. Test the model:
-   1. Connect to the cluster [using the client](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
-   1. Test the model using queries:
-      * Predicted values for first 10 rows of the `ACTION` column:
 
-         ```sql
-         SELECT
-             modelEvaluate('ml_test',
-                           RESOURCE,
-                           MGR_ID,
-                           ROLE_ROLLUP_1,
-                           ROLE_ROLLUP_2,
-                           ROLE_DEPTNAME,
-                           ROLE_TITLE,
-                           ROLE_FAMILY_DESC,
-                           ROLE_FAMILY,
-                           ROLE_CODE) > 0 AS prediction,
-             ACTION AS target
-         FROM ml_test_table
-         LIMIT 10
-         ```
+   * Get predicted values in the `ACTION` column for the first 10 rows in the table:
 
-      * Predicted probability for the first 10 rows of the table:
+      ```sql
+      SELECT
+          catboostEvaluate('/var/lib/clickhouse/models/ml_test.bin',
+                          RESOURCE,
+                          MGR_ID,
+                          ROLE_ROLLUP_1,
+                          ROLE_ROLLUP_2,
+                          ROLE_DEPTNAME,
+                          ROLE_TITLE,
+                          ROLE_FAMILY_DESC,
+                          ROLE_FAMILY,
+                          ROLE_CODE) > 0 AS prediction,
+          ACTION AS target
+      FROM ml_test_table
+      LIMIT 10;
+      ```
 
-         ```sql
-         SELECT
-             modelEvaluate('ml_test',
-                           RESOURCE,
-                           MGR_ID,
-                           ROLE_ROLLUP_1,
-                           ROLE_ROLLUP_2,
-                           ROLE_DEPTNAME,
-                           ROLE_TITLE,
-                           ROLE_FAMILY_DESC,
-                           ROLE_FAMILY,
-                           ROLE_CODE) AS prediction,
-             1. / (1 + exp(-prediction)) AS probability,
-             ACTION AS target
-         FROM ml_test_table
-         LIMIT 10
-         ```
+   * Get the probability prediction for the first 10 rows in the table:
+
+      ```sql
+      SELECT
+          catboostEvaluate('/var/lib/clickhouse/models/ml_test.bin',
+                          RESOURCE,
+                          MGR_ID,
+                          ROLE_ROLLUP_1,
+                          ROLE_ROLLUP_2,
+                          ROLE_DEPTNAME,
+                          ROLE_TITLE,
+                          ROLE_FAMILY_DESC,
+                          ROLE_FAMILY,
+                          ROLE_CODE) AS prediction,
+          1. / (1 + exp(-prediction)) AS probability,
+          ACTION AS target
+      FROM ml_test_table
+      LIMIT 10;
+      ```

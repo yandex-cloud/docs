@@ -19,6 +19,8 @@ By default, master hosts are available for connection from the VMs located in th
 
 When you create a cluster, {{ mgp-short-name }} automatically assigns its hosts both short and full (FQDN) names. These cannot be changed.
 
+To learn how to get a host FQDN, see [this guide](../operations/connect.md#fqdn).
+
 
 You can use FQDNs to access master hosts from both inside and outside {{ yandex-cloud }}.
 

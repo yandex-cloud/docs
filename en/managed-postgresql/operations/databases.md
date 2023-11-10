@@ -23,10 +23,10 @@ You can add and remove databases, as well as view information about them.
    To get a list of databases in a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-pg }} database list --cluster-name=<cluster name>
+   {{ yc-mdb-pg }} database list --cluster-name=<cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
 - API
@@ -50,7 +50,6 @@ You can add and remove databases, as well as view information about them.
    1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
    1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
    1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
-
    1. Specify the database settings.
 
       * Name.
@@ -86,7 +85,7 @@ You can add and remove databases, as well as view information about them.
    1. Request a list of cluster users to select the owner of the new database:
 
       ```bash
-      {{ yc-mdb-pg }} user list --cluster-name=<cluster name>
+      {{ yc-mdb-pg }} user list --cluster-name=<cluster_name>
       ```
 
       If the required user is not in the list, [create it](cluster-users.md#adduser).
@@ -94,12 +93,12 @@ You can add and remove databases, as well as view information about them.
    1. Run the create database command. If necessary, specify the required collation and character set locales (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`) and the template:
 
       ```bash
-      {{ yc-mdb-pg }} database create <database name> \
-         --cluster-name=<cluster name> \
-         --owner=<owner username> \
-         --lc-collate=<collation locale> \
-         --lc-type=<character set locale> \
-         --template-db=<name of database used as template>
+      {{ yc-mdb-pg }} database create <DB_name> \
+         --cluster-name=<cluster_name> \
+         --owner=<owner_username> \
+         --lc-collate=<collation_locale> \
+         --lc-type=<character_set_locale> \
+         --template-db=<template_DB_name>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
@@ -119,15 +118,17 @@ You can add and remove databases, as well as view information about them.
    1. Add the `yandex_mdb_postgresql_database` resource. If necessary, specify the required collation and character set locales (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`) and the template:
 
       ```hcl
-      resource "yandex_mdb_postgresql_database" "<database name>" {
-        cluster_id  = "<cluster ID>"
-        name        = "<database name>"
-        owner       = "<owner username: must be specified in yandex_mdb_postgresql_user resource>"
-        lc_collate  = "<collation locale>"
-        lc_type     = "<character set locale>"
-        template_db = "<name of database used as template>"
+      resource "yandex_mdb_postgresql_database" "<DB_name>" {
+        cluster_id  = "<cluster_ID>"
+        name        = "<DB_name>"
+        owner       = "<owner_username>"
+        lc_collate  = "<collation_locale>"
+        lc_type     = "<character_set_locale>"
+        template_db = "<template_DB_name>"
       }
       ```
+
+      Where `owner` is the DB owner username that must be specified in the `yandex_mdb_postgresql_user` resource.
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
@@ -154,8 +155,6 @@ You can add and remove databases, as well as view information about them.
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
-
 {% endlist %}
 
 ## Deleting a database {#remove-db}
@@ -177,11 +176,11 @@ You can add and remove databases, as well as view information about them.
    To delete a database, run the command:
 
    ```bash
-   {{ yc-mdb-pg }} database delete <database name> \
-      --cluster-name <cluster name>
+   {{ yc-mdb-pg }} database delete <DB_name> \
+      --cluster-name <cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }}
 

@@ -8,7 +8,13 @@ items:
       - name: All guides
         href: operations/index.md
       - name: Text recognition
-        href: operations/ocr/text-detection.md
+        items:
+          - name: Text recognition in images
+            href: operations/ocr/text-detection-image.md
+          - name: Text recognition from PDF files
+            href: operations/ocr/text-detection-pdf.md
+          - name: Text line recognition
+            href: operations/ocr/text-detection-single-line.md
       - name: Assessing image quality
         stage: preview
         href: operations/classification/quality.md

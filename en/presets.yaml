@@ -1,303 +1,506 @@
 default:
-  region: int
-  lang: en
-  audience: external
-  product: yandex-cloud
-  iam-full-name: Yandex Identity and Access Management
-  resmgr-full-name: Yandex Resource Manager
-  compute-full-name: Yandex Compute Cloud
-  objstorage-full-name: Yandex Object Storage
-  mpg-full-name: Yandex Managed Service for PostgreSQL
-  mch-full-name: Yandex Managed Service for ClickHouse
-  mmg-full-name: Yandex Managed Service for MongoDB
-  mmy-full-name: Yandex Managed Service for MySQL
-  mrd-full-name: Yandex Managed Service for Redis
-  mkf-full-name: Yandex Managed Service for Apache Kafka®
-  maf-full-name: Yandex Managed Service for Apache Airflow™
-  mes-full-name: Yandex Managed Service for Elasticsearch
-  mos-full-name: Yandex Managed Service for OpenSearch
-  mms-full-name: Yandex Managed Service for SQL Server
-  mgp-full-name: Yandex Managed Service for Greenplum®
-  mgl-full-name: Yandex Managed Service for GitLab
-  vpc-full-name: Yandex Virtual Private Cloud
-  ddos-protection-full-name: Yandex DDoS Protection
+  a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
   adv-ddos-protection: Advanced Yandex DDoS Protection
-  monitoring-full-name: Yandex Monitoring
-  unified-agent-full-name: Yandex Unified Agent
+  AF: Apache Airflow™
+  alb-full-name: Yandex Application Load Balancer
+  alb-name: Application Load Balancer
+  api-gw-full-name: Yandex API Gateway
+  api-gw-name: API Gateway
+  api-gw-short-name: API Gateway
+  api-host: api.cloud.yandex.net
+  api-host-certmanager: certificate-manager.api.cloud.yandex.net
+  api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
+  api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
+  api-host-data-transfer: datatransfer.api.cloud.yandex.net
+  api-host-iot-broker: iot-broker.api.cloud.yandex.net
+  api-host-iot-data: iot-data.api.cloud.yandex.net
+  api-host-kms: kms.api.cloud.yandex.net
+  api-host-kms-symcrypto: kms.yandex
+  api-host-lockbox: lockbox.api.cloud.yandex.net
+  api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
+  api-host-mdb: mdb.api.cloud.yandex.net
+  api-host-monitoring-1: monitoring.api.cloud.yandex.net
+  api-host-sk-stt: stt.api.cloud.yandex.net
+  api-host-sk-tts: tts.api.cloud.yandex.net
+  api-url-prefix: /docs
+  at-event-prefix: yandex.cloud
+  at-full-name: Yandex Audit Trails
+  at-name: Audit Trails
+  at-short-name: Audit Trails
+  auth-host: console.cloud.yandex.com
+  b1-medium: b1.medium (2 × 50% vCPU, 4 GB)
+  b1-micro: b1.micro (2× 20% vCPU, 2 GB)
+  b1-nano: b1.nano (2 × 5% vCPU, 2 GB)
+  b1-small: b1.small (2 × 20% vCPU, 4 GB)
+  b2-medium: b2.medium (2 × 50% vCPU, 4 GB)
+  b2-micro: b2.micro (2 × 20% vCPU, 2 GB)
+  b2-nano: b2.nano (2 × 5% vCPU, 2 GB)
+  b2-small: b2.small (2 × 20% vCPU, 4 GB)
+  backup-full-name: Yandex Cloud Backup
+  backup-name: Cloud Backup
+  backup-short-name: Cloud Backup
+  billing-name: Yandex Cloud Billing
+  brand-voice-cc: Brand Voice Call Center
+  brand-voice-cc-name: SpeechKit Brand Voice Call Center
+  brand-voice-core: Brand Voice Self Service
+  brand-voice-core-name: SpeechKit Brand Voice Self Service
+  brand-voice-full-name: Yandex SpeechKit Brand Voice
+  brand-voice-name: SpeechKit Brand Voice
+  brand-voice-premium: Brand Voice Premium
+  brand-voice-premium-name: SpeechKit Brand Voice Premium
+  ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
+  captcha-full-name: Yandex SmartCaptcha
+  captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
+  captcha-name: SmartCaptcha
+  cdn-full-name: Yandex Cloud CDN
+  cdn-name: Cloud CDN
+  cdn-short-name: Cloud CDN
+  certificate-manager-full-name: Yandex Certificate Manager
+  certificate-manager-name: Certificate Manager
+  certificate-manager-short-name: Certificate Manager
+  CH: ClickHouse
+  ch-domain: clickhouse.com
+  ch:
+    docs: https://clickhouse.com/docs/en
+  cic-bgp-asn: 200350
+  cic-pbc-subnet: 178.210.118.46/31
+  cic-pbc-subnet-client: 178.210.118.46
+  cic-pbc-subnet-cloud: 178.210.118.47
+  cic-pbc-svc1-ip: 213.180.193.243/32
+  CK: ClickHouse Keeper
+  cloud-apps-full-name: Yandex Cloud Apps
+  cloud-apps-name: Cloud Apps
+  cloud-desktop-full-name: Yandex Cloud Desktop
+  cloud-desktop-name: Cloud Desktop
+  cloud-logging-full-name: Yandex Cloud Logging
+  cloud-logging-name: Cloud Logging
+  cloud-logging-short-name: Cloud Logging
+  cloud-logs-name: Cloud Logs
+  coi: Container Optimized Image
+  compute-full-name: Yandex Compute Cloud
+  compute-guest-agent-bucket: yandexcloud-guestagent-updater
+  compute-name: Compute Cloud
+  compute-short-name: Compute Cloud
+  compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
+  console-full-name: Yandex Cloud Console
+  console-host: console.cloud.yandex.com
+  container-registry-full-name: Yandex Container Registry
+  container-registry-name: Container Registry
+  container-registry-short-name: Container Registry
+  cos-full-name: Yandex Container Solution
+  cos-name: Container Solution
+  crt-alias: YandexCA
+  crt-local-dir: /usr/local/share/ca-certificates/Yandex/
+  crt-local-file: YandexInternalRootCA.crt
+  crt-local-file-int: IntermediateCA.crt
+  crt-local-file-root: RootCA.crt
+  crt-web-path: https://storage.yandexcloud.net/cloud-certs/CA.pem
+  crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
+  crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
+  CSI: Container Storage Interface
+  data-transfer-full-name: Yandex Data Transfer
+  data-transfer-name: Data Transfer
+  data-transfer-short-name: Data Transfer
+  datalens-full-name: Yandex DataLens
+  datalens-name: DataLens
+  datalens-short-name: DataLens
+  dataproc-full-name: Yandex Data Proc
+  dataproc-name: Data Proc
+  dataproc-short-name: Data Proc
+  dd: Dedicated
+  ddos-protection-full-name: Yandex DDoS Protection
+  ddos-protection-name: DDoS Protection
+  device-id: b91qprkvbks9********
+  disk-type-example: network-ssd
+  dns-full-name: Yandex Cloud DNS
+  dns-mx-host: mx.cloud.yandex.net
+  dns-name: Cloud DNS
+  dns-ns-host-sld: yandexcloud.net
+  dns-zone: mdb.yandexcloud.net
+  ds: Serverlesss
+  DS: YDS
+  dt-copy-regular: Regular
+  dt-copy-regular-incremental: Regular incremental
+  dt-copy-snapshot: Single
+  dt-status-copy: '**Copying**'
+  dt-status-created: '**Created**'
+  dt-status-creation: '**Creating**'
+  dt-status-error: '**Error**'
+  dt-status-finished: '**Completed**'
+  dt-status-repl: '**Replicating**'
+  dt-status-stopped: '**Stopped**'
+  dt-status-stopping: '**Stopping**'
+  dt-type-copy: '**Snapshot**'
+  dt-type-copy-reg: '**Regular snapshot**'
+  dt-type-copy-repl: '**Snapshot and increment**'
+  dt-type-repl: '**Replication**'
+  dt-white-ip-list-uri: >-
+    https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
+  ES: Elasticsearch
+  eventhub-name: EventHub
+  external-ip-examples:
+    '0': 84.201.155.117
+    '1': 84.252.131.221
+  forms-full-name: Yandex Forms
+  forms-name: Forms
+  GL: GitLab
+  gl:
+    docs: https://docs.gitlab.com
+  GLA: GitLab Agent
+  GLR: GitLab Runner
+  google-looker: Looker Studio
+  GP: Greenplum®
+  gp:
+    docs:
+      pivotal: https://gpdb.docs.pivotal.io
+      vmware: https://docs.vmware.com/en/VMware-Tanzu-Greenplum
+  grafana-name: Grafana
+  graph-update: 15 seconds
+  graph-update-burstable: 150 seconds
+  grpcio-tools-version: 1.46.3
+  highfreq-ice-lake: Intel Ice Lake Compute-Optimized
+  hm1-2xlarge: hm1.2xlarge (4 vCPU, 64 GB)
+  hm1-3xlarge: hm1.3xlarge (4 vCPU, 80 GB)
+  hm1-4xlarge: hm1.4xlarge (8 vCPU, 96 GB)
+  hm1-5xlarge: hm1.5xlarge (8 vCPU, 128 GB)
+  hm1-6xlarge: hm1.6xlarge (8 vCPU, 160 GB)
+  hm1-7xlarge: hm1.7xlarge (8 vCPU, 192 GB)
+  hm1-8xlarge: hm1.8xlarge (8 vCPU, 224 GB)
+  hm1-9xlarge: hm1.9xlarge (8 vCPU, 256 GB)
+  hm1-large: hm1.large (4 vCPU, 32 GB)
+  hm1-medium: hm1.medium (4 vCPU, 24 GB)
+  hm1-micro: hm1.micro (2 vCPU, 12 GB)
+  hm1-nano: hm1.nano (2 vCPU, 8 GB)
+  hm1-small: hm1.small (2 vCPU, 16 GB)
+  hm1-xlarge: hm1.xlarge (4 vCPU, 48 GB)
+  host-class: s2.micro
+  host-net-example: zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr8efcch64
+  i2:
+    2xlarge: i2.2xlarge (16 vCPU, 128 GB)
+    4xlarge: i2.4xlarge (32 vCPU, 256 GB)
+  iam-full-name: Yandex Identity and Access Management
+  iam-name: Identity and Access Management
+  iam-short-name: IAM
+  iam-token-lifetime: 12 hours
+  ig-full-name: Yandex Instance Groups
+  ig-name: Instance Groups
+  interconnect-full-name: Yandex Cloud Interconnect
+  interconnect-name: Cloud Interconnect
+  iot-full-name: Yandex IoT Core
+  iot-name: Yandex IoT Core
+  iot-short-name: Yandex IoT Core
+  jlab: Jupyter
+  k8s: Kubernetes
+  k8s-api-link: >-
+    https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
+  k8s-ca: Cluster Autoscaler
+  k8s-decomission-timeout: 7 minutes
+  k8s-docs: https://kubernetes.io/docs
+  k8s-hpa: Horizontal Pod Autoscaler
+  k8s-versions-rapid: 1.23, 1.24, 1.25, 1.26, 1.27, 1.28
+  k8s-versions-regular: 1.23, 1.24, 1.25, 1.26, 1.27
+  k8s-versions-stable: 1.23, 1.24, 1.25, 1.26, 1.27
+  k8s-vpa: Vertical Pod Autoscaler
+  KF: Apache Kafka®
+  KFC: Kafka Connect
+  kms-full-name: Yandex Key Management Service
+  kms-name: Key Management Service
+  kms-short-name: KMS
+  lang: en
+  link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
+  link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
+  link-auth-logout: https://auth.cloud.yandex.ru/logout
+  link-calc: https://cloud.yandex.com/prices#calculator
+  link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
+  link-cloud-calculator: /prices#calculator
+  link-cloud-communications: https://console.cloud.yandex.com/folders?openSettings=communications
+  link-cloud-desktop-showcase: https://console.cloud.yandex.com/showcase/cloud-desktop
+  link-cloud-marketplace: /marketplace
+  link-cloud-notifications: https://console.cloud.yandex.com/cloud?section=notifications
+  link-cloud-oauth: >-
+    https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  link-cloud-partners: https://partners.cloud.yandex.ru/
+  link-cloud-services: /services
+  link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=en
+  link-console-access-management: https://console.cloud.yandex.com/iam
+  link-console-billing: https://console.cloud.yandex.com/billing
+  link-console-cloud: https://console.cloud.yandex.com/cloud
+  link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
+  link-console-main: https://console.cloud.yandex.com
+  link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
+  link-console-settings: https://console.cloud.yandex.com/settings
+  link-console-support: https://support.yandex.cloud/
+  link-datalens-main: https://datalens.yandex.com
+  link-datalens-settings: https://datalens.yandex.com/settings
+  link-datasphere-main: https://datasphere.yandex.com/
+  link-docs: https://cloud.yandex.com/docs
+  link-forms-b2b: https://forms.yandex.com/cloud/admin
+  link-monitoring: https://monitoring.cloud.yandex.com
+  link-org-acl: https://org.cloud.yandex.ru/acl
+  link-org-main: https://org.cloud.yandex.com/
+  link-org-users: https://org.cloud.yandex.ru/users
+  link-passport-login: https://passport.yandex.com/auth
+  link-pci-dss-en: >-
+    https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
+  link-pci-dss-ru: >-
+    https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf
+  link-saml: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
+  link-sla-greenplum: https://yandex.com/legal/cloud_sla_greenplum/
+  link-sla-kafka: https://yandex.com/legal/cloud_sla_kfk/
+  link-speechsense-main: https://speechsense.cloud.yandex.ru/
+  link-support-mail: cloud@support.yandex.ru
+  link-tracker: https://tracker.yandex.com/
+  link-wiki: https://wiki.yandex.com/
+  link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
+  link-yandex: https://yandex.com
+  links:
+    es:
+      docs: https://www.elastic.co/guide/en
+      reindex-api: >-
+        https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html
+    helm:
+      install: https://helm.sh/docs/intro/install/
+  load-testing-full-name: Yandex Load Testing
+  load-testing-name: Load Testing
+  local-ssd-v3-max: 2944 GB
+  local-ssd-v3-step: 368 GB
+  lockbox-full-name: Yandex Lockbox
+  lockbox-name: Yandex Lockbox
+  lockbox-short-name: Lockbox
+  login-example: login@yandex.ru
+  m1-2xlarge: m1.2xlarge (16 vCPU, 128 GB)
+  m1-3xlarge: m1.3xlarge (24 vCPU, 192 GB)
+  m1-4xlarge: m1.4xlarge (32 vCPU, 256 GB)
+  m1-large: m1.large (8 vCPU, 64 GB)
+  m1-medium: m1.medium (6 vCPU, 48 GB)
+  m1-micro: m1.micro (2 vCPU, 16 GB)
+  m1-small: m1.small (4 vCPU, 32 GB)
+  m1-xlarge: m1.xlarge (12 vCPU, 96 GB)
+  m2-2xlarge: m2.2xlarge (16 vCPU, 128 GB)
+  m2-3xlarge: m2.3xlarge (24 vCPU, 192 GB)
+  m2-4xlarge: m2.4xlarge (32 vCPU, 256 GB)
+  m2-5xlarge: m2.5xlarge (40 vCPU, 320 GB)
+  m2-6xlarge: m2.6xlarge (48 vCPU, 384 GB)
+  m2-large: m2.large (8 vCPU, 64 GB)
+  m2-medium: m2.medium (6 vCPU, 48 GB)
+  m2-micro: m2.micro (2 vCPU, 16 GB)
+  m2-small: m2.small (4 vCPU, 32 GB)
+  m2-xlarge: m2.xlarge (12 vCPU, 96 GB)
+  maf-full-name: Yandex Managed Service for Apache Airflow™
+  maf-name: Managed Service for Apache Airflow™
+  managed-k8s-full-name: Yandex Managed Service for Kubernetes
+  managed-k8s-name: Managed Service for Kubernetes
   managed-prometheus-full-name: Yandex Managed Service for Prometheus®
+  managed-prometheus-name: Yandex Managed Service for Prometheus®
+  marketplace-full-name: Yandex Cloud Marketplace
+  marketplace-name: Cloud Marketplace
+  marketplace-short-name: Marketplace
+  mch-backup-retention: 7
+  mch-ck-version: 22.3
+  mch-dedup-retention: 30
+  mch-full-name: Yandex Managed Service for ClickHouse
+  mch-name: Managed Service for ClickHouse
+  mch-short-name: Managed Service for ClickHouse
+  mdb-host: mdb.cloud.yandex.net
+  mes-full-name: Yandex Managed Service for Elasticsearch
+  mes-name: Managed Service for Elasticsearch
+  mes-short-name: Managed Service for Elasticsearch
+  message-queue-full-name: Yandex Message Queue
+  message-queue-name: Message Queue
+  message-queue-short-name: Message Queue
+  metastore-full-name: Hive Metastore
+  metastore-name: Metastore
+  metrika: Yandex Metrica
+  metrika-endpoint: Metrica
+  metrika-link: https://metrika.yandex.com/
+  metrika-pro: Metrica Pro
+  MG: MongoDB
+  mg:
+    docs:
+      comd: https://www.mongodb.com/docs/manual
+  mgl-full-name: Yandex Managed Service for GitLab
+  mgl-name: Managed Service for GitLab
+  mgp-full-name: Yandex Managed Service for Greenplum®
+  mgp-name: Managed Service for Greenplum®
+  mgp-short-name: Managed Service for Greenplum®
+  mkf-full-name: Yandex Managed Service for Apache Kafka®
+  mkf-mkc: Managed Kafka Connect
+  mkf-msr: Managed Schema Registry
+  mkf-name: Managed Service for Apache Kafka®
+  mkf-short-name: Managed Service for Apache Kafka®
+  ml-platform-full-name: Yandex DataSphere
+  ml-platform-name: DataSphere
+  ml-platform-short-name: DataSphere
+  ml-project-size: 10 GB
+  mmg-backup-retention: 7
+  mmg-backup-retention-max: 35
+  mmg-backup-retention-min: 7
+  mmg-full-name: Yandex Managed Service for MongoDB
+  mmg-name: Managed Service for MongoDB
+  mmg-short-name: Managed Service for MongoDB
+  mms-full-name: Yandex Managed Service for SQL Server
+  mms-name: Managed Service for SQL Server
+  mmy-full-name: Yandex Managed Service for MySQL
+  mmy-name: Managed Service for MySQL
+  mmy-short-name: Managed Service for MySQL
+  monitoring-full-name: Yandex Monitoring
+  monitoring-name: Monitoring
+  monitoring-short-name: Monitoring
+  mos-full-name: Yandex Managed Service for OpenSearch
+  mos-name: Managed Service for OpenSearch
+  mos-short-name: Managed Service for OpenSearch
+  MP: Metrics Provider
+  mp-test-product-id: f2e4tmlj4qqciunhr7e6
+  mp-test-sku-id: dn272e8979uvek5cnuhk
+  mpg-backup-retention: 7
+  mpg-full-name: Yandex Managed Service for PostgreSQL
+  mpg-name: Managed Service for PostgreSQL
+  mpg-short-name: Managed Service for PostgreSQL
+  mqtt-server-address: mqtt.cloud.yandex.net
+  mqtt-server-port: 8883
+  mrd-full-name: Yandex Managed Service for Redis
+  mrd-memory-used: 75%
+  mrd-name: Managed Service for Redis
+  mrd-short-name: Managed Service for Redis
+  MS: SQL Server
+  ms:
+    docs: https://docs.microsoft.com/en-us
+  MY: MySQL
+  my:
+    docs: https://dev.mysql.com/doc
+  network-load-balancer-full-name: Yandex Network Load Balancer
+  network-load-balancer-name: Network Load Balancer
+  network-load-balancer-short-name: Network Load Balancer
+  network-name: default
+  objstorage-full-name: Yandex Object Storage
+  objstorage-name: Object Storage
+  objstorage-sftps-gateway-uri: cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway
+  objstorage-sftps-gateway-version: '1.0'
+  objstorage-short-name: Object Storage
+  ocr-max-filesize: 20 MB
+  oracle:
+    docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
+  org-full-name: Yandex Cloud Organization
+  org-name: Cloud Organization
+  OS: OpenSearch
+  os:
+    docs: https://opensearch.org/docs/latest
+  packer-source-link: github.com/hashicorp/yandex
+  permission-admin: Admin
+  permission-execute: Execute
+  permission-read: Read
+  permission-write: Write
+  PG: PostgreSQL
+  pg-docs: https://www.postgresql.org/docs/current
+  pg:
+    docs:
+      org: https://www.postgresql.org/docs
+      pro: https://postgrespro.com/docs
+    versions:
+      console:
+        str-1c: 11-1c, 12-1c, 13-1c, and 14-1c
+      tf:
+        latest: '15'
+        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, or 15
+  pgadmin: "pgAdmin\_4"
+  port-any: 0-65535
+  port-https: 443
+  port-k8s: 6443
+  port-mch-cli: 9440
+  port-mch-http: 8443
+  port-mes: 9200
+  port-metastore: 9083
+  port-mgp: 6432
+  port-mkf-ssl: 9091
+  port-mkf-text: 9092
+  port-mmg: 27018
+  port-mmg-sharded: 27017
+  port-mmy: 3306
+  port-mos: 9200
+  port-mpg: 6432
+  port-mrd: 6379
+  port-mrd-sentinel: 26379
+  port-mrd-tls: 6380
+  port-ssh: 22
+  postbox-full-name: Yandex Cloud Postbox
+  postbox-name: Yandex Cloud Postbox
+  preview-stage: <code><b><small>Preview</small></b></code>
+  price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   prometheus-name: Prometheus
   promql-name: PromQL
-  grafana-name: Grafana
-  dsvm-full-name: Yandex Data Science Virtual Machine
-  translate-full-name: Yandex Translate
-  vision-full-name: Yandex Vision
-  ml-platform-full-name: Yandex DataSphere
-  speechkit-full-name: Yandex SpeechKit
-  speechkit-pro-full-name: Yandex SpeechKit Pro
-  brand-voice-full-name: Yandex SpeechKit Brand Voice
-  speechsense-full-name: Yandex SpeechSense
-  network-load-balancer-full-name: Yandex Network Load Balancer
-  message-queue-full-name: Yandex Message Queue
-  cloud-apps-full-name: Yandex Cloud Apps
-  cloud-logs-full-name: Yandex Cloud Logs
-  cloud-logging-full-name: Yandex Cloud Logging
-  container-registry-full-name: Yandex Container Registry
-  dataproc-full-name: Yandex Data Proc
-  datalens-full-name: Yandex DataLens
-  managed-k8s-full-name: Yandex Managed Service for Kubernetes
-  iot-full-name: Yandex IoT Core
-  sf-full-name: Yandex Cloud Functions
-  ydb-full-name: Yandex Managed Service for YDB
-  kms-full-name: Yandex Key Management Service
-  interconnect-full-name: Yandex Cloud Interconnect
-  cos-full-name: Yandex Container Solution
-  certificate-manager-full-name: Yandex Certificate Manager
-  data-transfer-full-name: Yandex Data Transfer
-  api-gw-full-name: Yandex API Gateway
-  lockbox-full-name: Yandex Lockbox
-  ig-full-name: Yandex Instance Groups
-  tracker-full-name: Yandex Tracker
-  alb-full-name: Yandex Application Load Balancer
-  dns-full-name: Yandex Cloud DNS
-  at-full-name: Yandex Audit Trails
-  yds-full-name: Yandex Data Streams
-  cdn-full-name: Yandex Cloud CDN
-  serverless-containers-full-name: Yandex Serverless Containers
-  org-full-name: Yandex Cloud Organization
-  forms-full-name: Yandex Forms
-  wiki-full-name: Yandex Wiki
-  load-testing-full-name: Yandex Load Testing
-  cloud-desktop-full-name: Yandex Cloud Desktop
-  marketplace-full-name: Yandex Cloud Marketplace
-  yq-full-name: Yandex Query
-  search-api-full-name: Yandex Search API
-  captcha-full-name: Yandex SmartCaptcha
-  sws-full-name: Yandex Smart Web Security
-  backup-full-name: Yandex Cloud Backup
-  metastore-full-name: Hive Metastore
-  preview-stage: <code><b><small>Preview</small></b></code>
-  ya-360: Yandex 360 for business
-  yandex-360: Yandex 360
-  storage-aws-cli-alias: ycs3
-  yagpt-full-name: YandexGPT
-  billing-name: Yandex Cloud Billing
-  console-full-name: Yandex Cloud Console
-  video-full-name: Yandex Cloud Video
-  postbox-full-name: Yandex Cloud Postbox
-  cloud-beaver:
-    name: Cloud Beaver
-    short-name: Cloud Beaver
-    full-name: Cloud Beaver
-  iam-name: Identity and Access Management
-  ig-name: Instance Groups
+  RD: Redis
+  rd:
+    docs: https://redis.io/docs
+  region-id: ru-central1
+  registry: cr.yandex
+  resmgr-full-name: Yandex Resource Manager
   resmgr-name: Resource Manager
-  cloud-stt-api-name: Cloud STT API
-  compute-name: Compute Cloud
-  objstorage-name: Object Storage
-  mpg-name: Managed Service for PostgreSQL
-  mch-name: Managed Service for ClickHouse
-  mmg-name: Managed Service for MongoDB
-  mmy-name: Managed Service for MySQL
-  mrd-name: Managed Service for Redis
-  mkf-name: Managed Service for Apache Kafka®
-  maf-name: Managed Service for Apache Airflow™
-  mes-name: Managed Service for Elasticsearch
-  mos-name: Managed Service for OpenSearch
-  mms-name: Managed Service for SQL Server
-  mgp-name: Managed Service for Greenplum®
-  mgl-name: Managed Service for GitLab
-  monitoring-name: Monitoring
-  managed-prometheus-name: Yandex Managed Service for Prometheus®
-  vpc-name: Virtual Private Cloud
-  ddos-protection-name: DDoS Protection
-  dsvm-name: Data Science Virtual Machine
-  vision-name: Vision
-  translate-name: Translate
-  ml-platform-name: DataSphere
-  speechkit-name: SpeechKit
-  speechkit-pro-name: SpeechKit Pro
-  brand-voice-name: SpeechKit Brand Voice
-  brand-voice-core-name: SpeechKit Brand Voice Self Service
-  brand-voice-premium-name: SpeechKit Brand Voice Premium
-  brand-voice-cc-name: SpeechKit Brand Voice Call Center
-  sk-hybrid-name: SpeechKit Hybrid
-  speechsense-name: SpeechSense
-  network-load-balancer-name: Network Load Balancer
-  message-queue-name: Message Queue
-  cloud-apps-name: Cloud Apps
-  cloud-logs-name: Cloud Logs
-  cloud-logging-name: Cloud Logging
-  container-registry-name: Container Registry
-  dataproc-name: Data Proc
-  metastore-name: Metastore
-  datalens-name: DataLens
-  managed-k8s-name: Managed Service for Kubernetes
-  k8s-ca: Cluster Autoscaler
-  k8s-hpa: Horizontal Pod Autoscaler
-  k8s-vpa: Vertical Pod Autoscaler
-  k8s-decomission-timeout: 7 minutes
-  iot-name: Yandex IoT Core
-  sf-name: Cloud Functions
-  ydb-name: Managed Service for YDB
-  kms-name: Key Management Service
-  interconnect-name: Cloud Interconnect
-  cos-name: Container Solution
-  certificate-manager-name: Certificate Manager
-  marketplace-name: Cloud Marketplace
-  data-transfer-name: Data Transfer
-  api-gw-name: API Gateway
-  lockbox-name: Yandex Lockbox
-  tracker-name: Tracker
-  alb-name: Application Load Balancer
-  dns-name: Cloud DNS
-  at-name: Audit Trails
-  yds-name: Data Streams
-  cdn-name: Cloud CDN
-  serverless-containers-name: Serverless Containers
-  org-name: Cloud Organization
-  forms-name: Forms
-  wiki-name: Wiki
-  load-testing-name: Load Testing
-  cloud-desktop-name: Cloud Desktop
-  captcha-name: SmartCaptcha
-  sws-name: Smart Web Security
-  yt-name: YT
-  ytsaurus-name: YTsaurus
-  eventhub-name: EventHub
-  logbroker-name: Logbroker
-  logfeller-name: Logfeller
-  backup-name: Cloud Backup
-  search-api-name: Search API
-  yagpt-name: YandexGPT
-  postbox-name: Yandex Cloud Postbox
-  websql-name: WebSQL
-  websql-full-name: Yandex WebSQL
-  video-name: Cloud Video
-  iam-short-name: IAM
-  resmgr-short-name: Resource Manager
-  compute-short-name: Compute Cloud
-  objstorage-short-name: Object Storage
-  mpg-short-name: Managed Service for PostgreSQL
-  mch-short-name: Managed Service for ClickHouse
-  mmg-short-name: Managed Service for MongoDB
-  mrd-short-name: Managed Service for Redis
-  mmy-short-name: Managed Service for MySQL
-  mkf-short-name: Managed Service for Apache Kafka®
-  maf-short-name: Managed Service for Apache Airflow™
-  mms-short-name: Managed Service for SQL Server
-  mes-short-name: Managed Service for Elasticsearch
-  mos-short-name: Managed Service for OpenSearch
-  mgp-short-name: Managed Service for Greenplum®
-  monitoring-short-name: Monitoring
-  mkf-msr: Managed Schema Registry
-  unified-agent-short-name: Unified Agent
-  vpc-short-name: VPC
-  ddos-protection-short-name: DDoS Protection
-  dsvm-short-name: DSVM
-  speechkit-short-name: SpeechKit
-  translate-short-name: Translate
-  marketplace-short-name: Marketplace
-  network-load-balancer-short-name: Network Load Balancer
-  message-queue-short-name: Message Queue
-  cloud-logs-short-name: Cloud Logs
-  cloud-logging-short-name: Cloud Logging
-  container-registry-short-name: Container Registry
-  serverless-containers-short-name: Serverless Containers
-  dataproc-short-name: Data Proc
-  vision-short-name: Vision
-  datalens-short-name: DataLens
-  managed-k8s-short-name: Managed Service for Kubernetes
-  iot-short-name: Yandex IoT Core
-  sf-short-name: Cloud Functions
-  ydb-short-name: YDB
-  kms-short-name: KMS
-  cos-short-name: COS
-  ml-platform-short-name: DataSphere
-  certificate-manager-short-name: Certificate Manager
-  data-transfer-short-name: Data Transfer
-  api-gw-short-name: API Gateway
-  lockbox-short-name: Lockbox
-  at-short-name: Audit Trails
-  tracker-short-name: Tracker
-  forms-short-name: Forms
-  wiki-short-name: Wiki
-  speechkit-pro-short-name: SpeechKit Pro
-  brand-voice-core: Brand Voice Self Service
-  brand-voice-premium: Brand Voice Premium
-  brand-voice-cc: Brand Voice Call Center
-  cdn-short-name: Cloud CDN
-  cloud-desktop-short-name: Cloud Desktop
-  backup-short-name: Cloud Backup
-  yq-short-name: YQ
-  datalens-public: DataLens Public
-  search-api: Search API
-  speechkit-slug: speechkit
-  ocr-max-filesize: 20 MB
-  price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
-  roles-alb-viewer: alb.viewer
-  roles-alb-editor: alb.editor
+  RMQ: RabbitMQ
+  roles-admin: admin
   roles-alb-admin: alb.admin
+  roles-alb-editor: alb.editor
+  roles-alb-viewer: alb.viewer
+  roles-auditor: auditor
+  roles-cloud-member: resource-manager.clouds.member
+  roles-cloud-owner: resource-manager.clouds.owner
   roles-cr-admin: container-registry.admin
+  roles-cr-editor: container-registry.editor
+  roles-cr-images-scanner: container-registry.images.scanner
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
   roles-cr-viewer: container-registry.viewer
-  roles-cr-editor: container-registry.editor
-  roles-cr-images-scanner: container-registry.images.scanner
   roles-data-transfer-admin: data-transfer.admin
+  roles-data-transfer-auditor: data-transfer.auditor
   roles-data-transfer-private-admin: data-transfer.privateAdmin
   roles-data-transfer-viewer: data-transfer.viewer
-  roles-data-transfer-auditor: data-transfer.auditor
-  roles-datasphere-admin: datasphere.admin
-  roles-datasphere-user: datasphere.user
-  roles-datasphere-project-viewer: datasphere.community-projects.viewer
-  roles-datasphere-project-editor: datasphere.community-projects.editor
-  roles-datasphere-project-developer: datasphere.community-projects.developer
-  roles-datasphere-project-admin: datasphere.community-projects.admin
-  roles-datasphere-communities-viewer: datasphere.communities.viewer
-  roles-datasphere-communities-editor: datasphere.communities.editor
-  roles-datasphere-communities-developer: datasphere.communities.developer
-  roles-datasphere-communities-admin: datasphere.communities.admin
-  roles-datalens-creator: datalens.creator
-  roles-datalens-instances-user: datalens.instances.user
-  roles-datalens-instances-admin: datalens.instances.admin
   roles-datalens-admin: datalens.admin
+  roles-datalens-creator: datalens.creator
+  roles-datalens-instances-admin: datalens.instances.admin
+  roles-datalens-instances-user: datalens.instances.user
   roles-datalens-visitor: datalens.visitor
-  roles-datalens-collections-admin: datalens.collections.admin
-  roles-datalens-collections-editor: datalens.collections.editor
-  roles-datalens-collections-limitedViewer: datalens.collections.limitedViewer
-  roles-datalens-collections-viewer: datalens.collections.viewer
-  roles-datalens-workbooks-admin: datalens.workbooks.admin
-  roles-datalens-workbooks-editor: datalens.workbooks.editor
-  roles-datalens-workbooks-limitedViewer: datalens.workbooks.limitedViewer
-  roles-datalens-workbooks-viewer: datalens.workbooks.viewer
-  roles-functions-ivoker: serverless.functions.invoker
+  roles-datasphere-admin: datasphere.admin
+  roles-datasphere-communities-admin: datasphere.communities.admin
+  roles-datasphere-communities-developer: datasphere.communities.developer
+  roles-datasphere-communities-editor: datasphere.communities.editor
+  roles-datasphere-communities-viewer: datasphere.communities.viewer
+  roles-datasphere-project-admin: datasphere.community-projects.admin
+  roles-datasphere-project-developer: datasphere.community-projects.developer
+  roles-datasphere-project-editor: datasphere.community-projects.editor
+  roles-datasphere-project-viewer: datasphere.community-projects.viewer
+  roles-datasphere-user: datasphere.user
+  roles-editor: editor
   roles-functions-invoker: functions.functionInvoker
+  roles-functions-ivoker: serverless.functions.invoker
+  roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
   roles-image-user: compute.images.user
-  roles-monitoring-viewer: monitoring.viewer
-  roles-monitoring-editor: monitoring.editor
-  roles-monitoring-admin: monitoring.admin
-  roles-vpc-viewer: vpc.viewer
-  roles-vpc-user: vpc.user
-  roles-vpc-private-admin: vpc.privateAdmin
-  roles-vpc-public-admin: vpc.publicAdmin
-  roles-vpc-sg-admin: vpc.securityGroups.admin
-  roles-vpc-admin: vpc.admin
-  roles-vision-user: ai.vision.user
-  roles-translate-user: ai.translate.user
-  roles-yagpt-user: ai.languageModels.user
-  roles-lb-viewer: load-balancer.viewer
-  roles-lb-private-admin: load-balancer.privateAdmin
   roles-lb-admin: load-balancer.admin
+  roles-lb-private-admin: load-balancer.privateAdmin
+  roles-lb-viewer: load-balancer.viewer
   roles-lockbox-admin: lockbox.admin
   roles-lockbox-editor: lockbox.editor
-  roles-lockbox-viewer: lockbox.viewer
   roles-lockbox-payloadviewer: lockbox.payloadViewer
+  roles-lockbox-viewer: lockbox.viewer
   roles-logging-writer: logging.writer
-  roles-cloud-owner: resource-manager.clouds.owner
-  roles-cloud-member: resource-manager.clouds.member
   roles-mdb-admin: mdb.admin
   roles-mdb-auditor: mdb.auditor
   roles-mdb-viewer: mdb.viewer
+  roles-monitoring-admin: monitoring.admin
+  roles-monitoring-editor: monitoring.editor
+  roles-monitoring-viewer: monitoring.viewer
+  roles-organization-admin: organization-manager.admin
+  roles-organization-owner: organization-manager.organizations.owner
+  roles-search-api-executor: search-api.executor
+  roles-speechkit-stt: ai.speechkit-stt.user
+  roles-speechkit-tts: ai.speechkit-tts.user
+  roles-translate-user: ai.translate.user
+  roles-viewer: viewer
+  roles-vision-user: ai.vision.user
+  roles-vpc-private-admin: vpc.privateAdmin
+  roles-vpc-public-admin: vpc.publicAdmin
+  roles-vpc-sg-admin: vpc.securityGroups.admin
+  roles-vpc-user: vpc.user
+  roles-vpc-viewer: vpc.viewer
+  roles-yagpt-user: ai.languageModels.user
   roles:
     gitlab:
       admin: gitlab.admin
@@ -305,32 +508,27 @@ default:
       viewer: gitlab.viewer
     k8s:
       admin: k8s.admin
-      editor: k8s.editor
-      viewer: k8s.viewer
-      clusters:
-        agent: k8s.clusters.agent
-      tunnelClusters:
-        agent: k8s.tunnelClusters.agent
       cluster-api:
         cluster-admin: k8s.cluster-api.cluster-admin
         editor: k8s.cluster-api.editor
         viewer: k8s.cluster-api.viewer
+      clusters:
+        agent: k8s.clusters.agent
+      editor: k8s.editor
+      tunnelClusters:
+        agent: k8s.tunnelClusters.agent
+      viewer: k8s.viewer
     maf:
       admin: managed-airflow.admin
       editor: managed-airflow.editor
       viewer: managed-airflow.viewer
-      user: managed-airflow.user
     mch:
       admin: managed-clickhouse.admin
       auditor: managed-clickhouse.auditor
       editor: managed-clickhouse.editor
-      oncall: managed-clickhouse.onCall
-      support: managed-clickhouse.support
-      supportadmin: managed-clickhouse.supportAdmin
       viewer: managed-clickhouse.viewer
     mes:
       admin: managed-elasticsearch.admin
-      auditor: managed-elasticsearch.auditor
       editor: managed-elasticsearch.editor
       viewer: managed-elasticsearch.viewer
     mgp:
@@ -373,1384 +571,178 @@ default:
       auditor: managed-redis.auditor
       editor: managed-redis.editor
       viewer: managed-redis.viewer
-  roles-speechkit-stt: ai.speechkit-stt.user
-  roles-speechkit-tts: ai.speechkit-tts.user
-  roles-search-api-executor: search-api.executor
-  roles-organization-admin: organization-manager.admin
-  roles-organization-owner: organization-manager.organizations.owner
-  roles-organization-viewer: organization-manager.viewer
-  roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
-  roles-admin: admin
-  roles-owner: owner
-  roles-editor: editor
-  roles-viewer: viewer
-  roles-auditor: auditor
-  permission-admin: Admin
-  permission-write: Write
-  permission-read: Read
-  permission-execute: Execute
-  roles-ydb-editor: ydb.editor
-  roles-ydb-viewer: ydb.viewer
-  roles-ydb-admin: ydb.admin
-  subjects-allUsers: allUsers
-  subjects-allAuthenticatedUsers: allAuthenticatedUsers
-  subnet-id: b0rcctk2rvtr8efcch64
-  s3-storage-host: storage.yandexcloud.net
-  s3-web-host: website.yandexcloud.net
-  s3-objstorage-host: s3.yandex.net
-  s3-dotnet-sdk-host: s3.yandexcloud.net
-  yc-k8s: yc managed-kubernetes
-  yc-mdb-mg: yc managed-mongodb
-  yc-mdb-ch: yc managed-clickhouse
-  yc-mdb-gp: yc managed-greenplum
-  yc-mdb-pg: yc managed-postgresql
-  yc-mdb-rd: yc managed-redis
-  yc-mdb-my: yc managed-mysql
-  yc-mdb-kf: yc managed-kafka
-  yc-mdb-ms: yc managed-sqlserver
-  yc-mdb-es: yc managed-elasticsearch
-  yc-serverless: yc serverless
-  yc-compute-ig: yc compute instance-group
-  yc-compute: yc compute
-  yc-compute-instance: yc compute instance
-  yc-ydb: yc ydb
-  yc-dt: yc datatransfer
-  yc-dp: yc dataproc
-  max-gpus: 4
-  iam-token-lifetime: 12 hours
-  crt-web-path: https://storage.yandexcloud.net/cloud-certs/CA.pem
-  crt-local-dir: /usr/local/share/ca-certificates/Yandex/
-  crt-local-file: YandexInternalRootCA.crt
-  crt-alias: YandexCA
-  crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
-  crt-local-file-root: RootCA.crt
-  crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
-  crt-local-file-int: IntermediateCA.crt
-  mdb-host: mdb.cloud.yandex.net
-  dns-zone: mdb.yandexcloud.net
-  network-name: default
-  zk-host-class: b2.medium
-  security-group: enp6saqnq4ie244g67sb
-  host-net-example: zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr8efcch64
-  disk-type-example: network-ssd
-  mch-hs-version: 21.7
-  mch-ck-version: 22.3
-  mch-hs-move-factor: 20%
-  mmg-backup-retention: 7
-  mpg-backup-retention: 7
-  mmg-backup-retention-min: 7
-  mmg-backup-retention-max: 35
-  mrd-max-disk-size: 4096 GB
-  mrd-memory-used: 75%
-  CSI: Container Storage Interface
-  CH: ClickHouse
-  ES: Elasticsearch
-  GL: GitLab
-  GLR: GitLab Runner
-  GP: Greenplum®
-  GLA: GitLab Agent
-  KF: Apache Kafka®
-  AF: Apache Airflow™
-  KFC: Kafka Connect
-  MG: MongoDB
-  MP: Metrics Provider
-  MS: SQL Server
-  MY: MySQL
-  OS: OpenSearch
-  PG: PostgreSQL
-  RD: Redis
-  RMQ: RabbitMQ
-  SPRK: Apache Spark™
-  TF: Terraform
-  TF-full: Hashicorp Terraform
-  TF-version: '0.90'
-  grpcio-tools-version: 1.46.3
-  CK: ClickHouse Keeper
-  ZK: ZooKeeper
-  metrika: Yandex Metrica
-  metrika-pro: Metrica Pro
-  metrika-endpoint: Metrica
-  metrika-link: https://metrika.yandex.com/
-  DS: YDS
-  ssms: SQL Server Management Studio
-  pgadmin: "pgAdmin\_4"
-  google-looker: Looker Studio
-  YZ: Yezzey
-  tag-con: <code><b><small>Management console</small></b></code>
-  tag-cli: <code><b><small>CLI</small></b></code>
-  tag-tf: <code><b><small>Terraform</small></b></code>
-  tag-api: <code><b><small>API</small></b></code>
-  tag-sql: <code><b><small>SQL</small></b></code>
-  tag-all: <code><b><small>All interfaces</small></b></code>
-  tag-preview: <code><b><small>Preview</small></b></code>
-  zone-id: ru-central1-c
-  subnet-name: default-ru-central1-c
-  region-id: ru-central1
-  device-id: b91qprkvbks9********
-  registry-id: b9100l5i0ms9********
-  compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
-  host-class: s2.micro
-  b1-nano: b1.nano (2 × 5% vCPU, 2 GB)
-  b1-micro: b1.micro (2× 20% vCPU, 2 GB)
-  b1-small: b1.small (2 × 20% vCPU, 4 GB)
-  b1-medium: b1.medium (2 × 50% vCPU, 4 GB)
-  m1-micro: m1.micro (2 vCPU, 16 GB)
-  m1-small: m1.small (4 vCPU, 32 GB)
-  m1-medium: m1.medium (6 vCPU, 48 GB)
-  m1-large: m1.large (8 vCPU, 64 GB)
-  m1-xlarge: m1.xlarge (12 vCPU, 96 GB)
-  m1-2xlarge: m1.2xlarge (16 vCPU, 128 GB)
-  m1-3xlarge: m1.3xlarge (24 vCPU, 192 GB)
-  m1-4xlarge: m1.4xlarge (32 vCPU, 256 GB)
-  s1-nano: s1.nano (1 vCPU, 4 GB)
-  s1-micro: s1.micro (2 vCPU, 8 GB)
-  s1-small: s1.small (4 vCPU, 16 GB)
-  s1-medium: s1.medium (8 vCPU, 32 GB)
   s1-large: s1.large (16 vCPU, 64 GB)
+  s1-medium: s1.medium (8 vCPU, 32 GB)
+  s1-micro: s1.micro (2 vCPU, 8 GB)
+  s1-nano: s1.nano (1 vCPU, 4 GB)
+  s1-small: s1.small (4 vCPU, 16 GB)
   s1-xlarge: s1.xlarge (32 vCPU, 128 GB)
-  b2-nano: b2.nano (2 × 5% vCPU, 2 GB)
-  b2-micro: b2.micro (2 × 20% vCPU, 2 GB)
-  b2-small: b2.small (2 × 20% vCPU, 4 GB)
-  b2-medium: b2.medium (2 × 50% vCPU, 4 GB)
-  m2-micro: m2.micro (2 vCPU, 16 GB)
-  m2-small: m2.small (4 vCPU, 32 GB)
-  m2-medium: m2.medium (6 vCPU, 48 GB)
-  m2-large: m2.large (8 vCPU, 64 GB)
-  m2-xlarge: m2.xlarge (12 vCPU, 96 GB)
-  m2-2xlarge: m2.2xlarge (16 vCPU, 128 GB)
-  m2-3xlarge: m2.3xlarge (24 vCPU, 192 GB)
-  m2-4xlarge: m2.4xlarge (32 vCPU, 256 GB)
-  m2-5xlarge: m2.5xlarge (40 vCPU, 320 GB)
-  m2-6xlarge: m2.6xlarge (48 vCPU, 384 GB)
-  m2-7xlarge: m2.7xlarge (56 vCPU, 448 GB)
-  m2-8xlarge: m2.8xlarge (64 vCPU, 512 GB)
-  m2-9xlarge: m2.9xlarge (80 vCPU, 640 GB)
-  s2-micro: s2.micro (2 vCPU, 8 GB)
-  s2-small: s2.small (4 vCPU, 16 GB)
-  s2-medium: s2.medium (8 vCPU, 32 GB)
-  s2-large: s2.large (12 vCPU, 48 GB)
-  s2-xlarge: s2.xlarge (16 vCPU, 64 GB)
   s2-2xlarge: s2.2xlarge (24 vCPU, 96 GB)
   s2-3xlarge: s2.3xlarge (32 vCPU, 128 GB)
   s2-4xlarge: s2.4xlarge (40 vCPU, 160 GB)
   s2-5xlarge: s2.5xlarge (48 vCPU, 192 GB)
-  s2-6xlarge: s2.6xlarge (64 vCPU, 256 GB)
-  s2-7xlarge: s2.7xlarge (80 vCPU, 320 GB)
-  v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
-  t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
-  highfreq-ice-lake: Intel Ice Lake Compute-Optimized
-  v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
-  a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
-  h100-sapphire-rapids: Intel Sapphire Rapids with NVIDIA® Hopper® H100
-  b3-c1-m4: b3-c1-m4 (2 × 50% vCPU, 4 GB)
-  m3-c2-m16: m3-c2-m16 (2 vCPU, 16 GB)
-  m3-c4-m32: m3-c4-m32 (4 vCPU, 32 GB)
-  m3-c6-m48: m3-c6-m48 (6 vCPU, 48 GB)
-  m3-c8-m64: m3-c8-m64 (8 vCPU, 64 GB)
-  m3-c12-m96: m3-c12-m96 (12 vCPU, 96 GB)
-  m3-c16-m128: m3-c16-m128 (16 vCPU, 128 GB)
-  m3-c24-m192: m3-c24-m192 (24 vCPU, 192 GB)
-  m3-c32-m256: m3-c32-m256 (32 vCPU, 256 GB)
-  m3-c40-m320: m3-c40-m320 (40 vCPU, 320 GB)
-  m3-c48-m384: m3-c48-m384 (48 vCPU, 384 GB)
-  m3-c56-m448: m3-c56-m448 (56 vCPU, 448 GB)
-  m3-c64-m512: m3-c64-m512 (64 vCPU, 512 GB)
-  m3-c80-m640: m3-c80-m640 (80 vCPU, 640 GB)
+  s2-large: s2.large (12 vCPU, 48 GB)
+  s2-medium: s2.medium (8 vCPU, 32 GB)
+  s2-micro: s2.micro (2 vCPU, 8 GB)
+  s2-small: s2.small (4 vCPU, 16 GB)
+  s2-xlarge: s2.xlarge (16 vCPU, 64 GB)
   s3-c2-m8: s3-c2-m8 (2 vCPU, 8 GB)
-  s3-c4-m16: s3-c4-m16 (4 vCPU, 16 GB)
-  s3-c8-m32: s3-c8-m32 (8 vCPU, 32 GB)
-  s3-c12-m48: s3-c12-m48 (12 vCPU, 48 GB)
-  s3-c16-m64: s3-c16-m64 (16 vCPU, 64 GB)
-  s3-c24-m96: s3-c24-m96 (24 vCPU, 96 GB)
-  s3-c32-m128: s3-c32-m128 (32 vCPU, 128 GB)
-  s3-c40-m160: s3-c40-m160 (40 vCPU, 160 GB)
-  s3-c48-m192: s3-c48-m192 (48 vCPU, 192 GB)
-  s3-c64-m256: s3-c64-m256 (64 vCPU, 256 GB)
-  s3-c80-m320: s3-c80-m320 (80 vCPU, 320 GB)
-  s3-c96-m576: s3-c96-m576 (96 vCPU, 576 GB)
-  hm1-nano: hm1.nano (2 vCPU, 8 GB)
-  hm1-micro: hm1.micro (2 vCPU, 12 GB)
-  hm1-small: hm1.small (2 vCPU, 16 GB)
-  hm1-medium: hm1.medium (4 vCPU, 24 GB)
-  hm1-large: hm1.large (4 vCPU, 32 GB)
-  hm1-xlarge: hm1.xlarge (4 vCPU, 48 GB)
-  hm1-2xlarge: hm1.2xlarge (4 vCPU, 64 GB)
-  hm1-3xlarge: hm1.3xlarge (4 vCPU, 80 GB)
-  hm1-4xlarge: hm1.4xlarge (8 vCPU, 96 GB)
-  hm1-5xlarge: hm1.5xlarge (8 vCPU, 128 GB)
-  hm1-6xlarge: hm1.6xlarge (8 vCPU, 160 GB)
-  hm1-7xlarge: hm1.7xlarge (8 vCPU, 192 GB)
-  hm1-8xlarge: hm1.8xlarge (8 vCPU, 224 GB)
-  hm1-9xlarge: hm1.9xlarge (8 vCPU, 256 GB)
-  hm2-nano: hm2.nano (2 vCPU, 8 GB)
-  hm2-micro: hm2.micro (2 vCPU, 12 GB)
-  hm2-small: hm2.small (4 vCPU, 16 GB)
-  hm2-medium: hm2.medium (4 vCPU, 24 GB)
-  hm2-large: hm2.large (4 vCPU, 32 GB)
-  hm2-xlarge: hm2.xlarge (4 vCPU, 48 GB)
-  hm2-60xlarge: hm2.60xlarge (6 vCPU, 60 GB)
-  hm2-78xlarge: hm2.78xlarge (6 vCPU, 78 GB)
-  hm2-96xlarge: hm2.96xlarge (6 vCPU, 96 GB)
-  hm2-128xlarge: hm2.128xlarge (8 vCPU, 128 GB)
-  hm2-160xlarge: hm2.160xlarge (10 vCPU, 160 GB)
-  hm2-192xlarge: hm2.192xlarge (12 vCPU, 192 GB)
-  hm2-224xlarge: hm2.224xlarge (14 vCPU, 224 GB)
-  hm2-256xlarge: hm2.256xlarge (16 vCPU, 256 GB)
-  hm2-320xlarge: hm2.320xlarge (20 vCPU, 320 GB)
-  hm2-384xlarge: hm2.384xlarge (24 vCPU, 384 GB)
-  hm2-448xlarge: hm2.448xlarge (28 vCPU, 448 GB)
-  hm2-512xlarge: hm2.512xlarge (32 vCPU, 512 GB)
-  hm3-c2-m8: hm3-c2-m8 (2 vCPU, 8 GB)
-  hm3-c2-m12: hm3-c2-m12 (2 vCPU, 12 GB)
-  hm3-c4-m16: hm3-c4-m16 (4 vCPU, 16 GB)
-  hm3-c4-m24: hm3-c4-m24 (4 vCPU, 24 GB)
-  hm3-c4-m32: hm3-c4-m32 (4 vCPU, 32 GB)
-  hm3-c4-m48: hm3-c4-m48 (4 vCPU, 48 GB)
-  hm3-c6-m60: hm3-c6-m60 (6 vCPU, 60 GB)
-  hm3-c6-m78: hm3-c6-m78 (6 vCPU, 78 GB)
-  hm3-c6-m96: hm3-c6-m96 (6 vCPU, 96 GB)
-  hm3-c8-m128: hm3-c8-m128 (8 vCPU, 128 GB)
-  hm3-c8-m160: hm3-c8-m160 (8 vCPU, 160 GB)
-  hm3-c12-m192: hm3-c12-m192 (12 vCPU, 192 GB)
-  hm3-c14-m224: hm3-c14-m224 (14 vCPU, 224 GB)
-  hm3-c16-m256: hm3-c16-m256 (16 vCPU, 256 GB)
-  hm3-c20-m320: hm3-c20-m320 (20 vCPU, 320 GB)
-  hm3-c24-m384: hm3-c24-m384 (24 vCPU, 384 GB)
-  hm3-c28-m448: hm3-c28-m448 (28 vCPU, 448 GB)
-  hm3-c32-m512: hm3-c32-m512 (32 vCPU, 512 GB)
-  c3-c2-m4: c3-c2-m4 (2 vCPU, 4 GB)
-  c3-c4-m8: c3-c4-m8 (4 vCPU, 8 GB)
-  c3-c8-m16: c3-c8-m16 (8 vCPU, 16 GB)
-  c3-c12-m24: c3-c12-m24 (12 vCPU, 24 GB)
-  c3-c16-m32: c3-c16-m32 (16 vCPU, 32 GB)
-  c3-c24-m48: c3-c24-m48 (24 vCPU, 48 GB)
-  c3-c32-m64: c3-c32-m64 (32 vCPU, 64 GB)
-  c3-c40-m80: c3-c40-m80 (40 vCPU, 80 GB)
-  c3-c48-m96: c3-c48-m96 (48 vCPU, 96 GB)
-  c3-c64-m128: c3-c64-m128 (64 vCPU, 128 GB)
-  c3-c80-m160: c3-c80-m160 (80 vCPU, 160 GB)
-  c3-c96-m192: c3-c96-m192 (96 vCPU, 192 GB)
-  i2:
-    2xlarge: i2.2xlarge (16 vCPU, 128 GB)
-    4xlarge: i2.4xlarge (32 vCPU, 256 GB)
-    5xlarge: i2.5xlarge (40 vCPU, 320 GB)
-  i3:
-    c16-m128: i3-c16-m128 (16 vCPU, 128 GB)
-    c32-m256: i3-c32-m256 (32 vCPU, 256 GB)
-    c40-m320: i3-c40-m320 (40 vCPU, 320 GB)
-  local-ssd-v3-max: 2944 GB
-  local-ssd-v3-step: 368 GB
-  graph-update: 15 seconds
-  graph-update-burstable: 150 seconds
-  mch-backup-retention: 7
-  mch-dedup-retention: 30
-  yql-full-name: Yandex Query Language
-  yq-name: Query
-  yql-short-name: YQL
-  k8s: Kubernetes
-  ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
-  mqtt-server-address: mqtt.cloud.yandex.net
-  mqtt-server-port: 8883
-  sf-url: functions.yandexcloud.net
-  serverless-containers-host: containers.yandexcloud.net
-  coi: Container Optimized Image
-  yc-install-path: /yandexcloud-yc/install.sh
-  yc-windows-path: /yandexcloud-yc/install.ps1
-  console-host: console.cloud.yandex.com
-  link-console-billing: https://console.cloud.yandex.com/billing
-  link-console-cloud: https://console.cloud.yandex.com/cloud
-  link-console-main: https://console.cloud.yandex.com
-  link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
-  link-console-access-management: https://console.cloud.yandex.com/iam
-  link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
-  link-console-support: https://support.yandex.cloud/
-  link-console-settings: https://console.cloud.yandex.com/settings
-  link-cloud-calculator: /prices#calculator
-  link-cloud-services: /services
-  link-cloud-services-infrastructure: /services#infrastructure-network
-  link-cloud-marketplace: /marketplace
-  link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=en
-  link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
-  link-yandex-connect: https://connect.yandex.com
-  link-passport-login: https://passport.yandex.com/auth
-  link-sla-greenplum: https://yandex.com/legal/cloud_sla_greenplum/
-  link-sla-kafka: https://yandex.com/legal/cloud_sla_kfk/
-  link-pci-dss-en: >-
-    https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
-  link-pci-dss-ru: >-
-    https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf
-  link-calc: https://cloud.yandex.com/prices#calculator
-  link-cloud-oauth: >-
-    https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
-  link-cloud-partners: https://partners.cloud.yandex.ru/
-  link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
-  link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
-  link-cloud-notifications: https://console.cloud.yandex.com/cloud?section=notifications
-  link-cloud-communications: https://console.cloud.yandex.com/folders?openSettings=communications
-  link-datalens-main: https://datalens.yandex.com
-  link-datalens-settings: https://datalens.yandex.com/settings
-  link-speechsense-main: https://speechsense.cloud.yandex.ru/
-  link-docs: https://cloud.yandex.com/docs
-  link-org-main: https://org.cloud.yandex.com/
-  link-org-acl: https://org.cloud.yandex.ru/acl
-  link-org-users: https://org.cloud.yandex.ru/users
-  link-tracker: https://tracker.yandex.com/
-  link-wiki: https://wiki.yandex.com/
-  link-forms-b2b: https://forms.yandex.com/cloud/admin
-  link-monitoring: https://monitoring.cloud.yandex.com
-  link-support-mail: cloud@support.yandex.ru
-  link-video-main: https://video.cloud.yandex.ru/
-  link-cloud-desktop-showcase: https://console.cloud.yandex.com/showcase/cloud-desktop
-  link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
-  link-yandex: https://yandex.com
-  links:
-    es:
-      reindex-api: >-
-        https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html
-      docs: https://www.elastic.co/guide/en
-    helm:
-      install: https://helm.sh/docs/intro/install/
-    wiki:
-      ci: https://en.wikipedia.org/wiki/Continuous_integration
-  login-example: login@yandex.ru
-  pg-docs: https://www.postgresql.org/docs/current
-  link-datasphere-main: https://datasphere.yandex.com/
-  tf-cloud-id: b1gq90dgh25bebiu75o
-  tf-folder-id: b1gia87mbaomkfvsleds
-  yandex-cloud: Yandex Cloud
-  yds-short-name: Data Streams
-  yds: yds
-  ch-domain: clickhouse.com
-  captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
-  ch:
-    docs: https://clickhouse.com/docs/en
-  gl:
-    docs: https://docs.gitlab.com
-  gp:
-    docs:
-      org: https://docs.greenplum.org
-      pivotal: https://gpdb.docs.pivotal.io
-      vmware: https://docs.vmware.com/en/VMware-Tanzu-Greenplum
-  kf:
-    docs: https://kafka.apache.org/documentation/
-  k8s-docs: https://kubernetes.io/docs
-  mg:
-    docs:
-      comd: https://www.mongodb.com/docs/manual
-      dcom: https://docs.mongodb.com/manual
-  ms:
-    docs: https://docs.microsoft.com/en-us
-  my:
-    docs: https://dev.mysql.com/doc
-  os:
-    docs: https://opensearch.org/docs/latest
-  pg:
-    docs:
-      org: https://www.postgresql.org/docs
-      pro: https://postgrespro.com/docs
-    versions:
-      tf:
-        latest: '15'
-        latest-1c: 14-1c
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, or 15
-      cli:
-        latest: '15'
-        latest-1c: 14-1c
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, or 15
-      console:
-        latest: '15'
-        latest-1c: 14-1c
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, and 15
-        str-1c: 11-1c, 12-1c, 13-1c, and 14-1c
-  rd:
-    docs: https://redis.io/docs
-  ydb:
-    docs: https://ydb.tech/en/docs/
-    cli: ydb
-    host-serverless: ydb.serverless.yandexcloud.net
-    host-dedicated: ydb.mdb.yandexcloud.net
-    port-serverless: 2135
-    port-dedicated: 2135
-    path-serverless: /ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
-    path-dedicated: /ru-central1/b1gia87mbaomkfvs6rgl/etnk1u65e4shtgj338va
-    ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
-    ep-dedicated: grpcs://lb.etnk1u65e4shtgj338va.ydb.mdb.yandexcloud.net:2135
-    id-serverless: etnudu2n9ri35luqe4h1
-    id-dedicated: etnk1u65e4shtgj338va
-    name-serverless: ydb-serverless
-    name-dedicated: ydb-dedicated
-    aws-ep: >-
-      https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
-    version-cdc: 22.5
-    document-api-endpoint: https://docapi.serverless.yandexcloud.net
-  oracle:
-    docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
-  stt-short-fileSize: 1 MB
-  stt-short-audioLength: 30 seconds
-  stt-short-channelsCount: 1
-  stt-long-fileSize: 1 GB
-  stt-long-resultsStorageTime: 3 days
-  stt-long-audioLength: 4 hours
-  stt-streaming-fileSize: 10 MB
-  stt-streaming-audioLength: 5 minutes
-  tts-v3-time: 24 seconds
-  tts-v3-count: 250 characters
-  tts-cc-quality: 8 kHz
-  ya-client-app: https://oauth.yandex.com/client/new
-  ya-oauth: https://oauth.yandex.com/verification_code
-  ya-oauth-url: https://oauth.yandex.com
-  taas-name: Training as a Service
-  taas: TaaS
-  ml-project-size: 10 GB
-  jlab: Jupyter
-  dd: Dedicated
-  ds: Serverlesss
+  s3-dotnet-sdk-host: s3.yandexcloud.net
+  s3-storage-host: storage.yandexcloud.net
+  s3-web-host: website.yandexcloud.net
+  search-api: Search API
+  search-api-full-name: Yandex Search API
+  search-api-name: Search API
   search-api-request-ch: 400 characters
   search-api-request-w: 40 words
-  yagpt-max-tokens: 7400
-  ds-api-addr: datasphere.api.cloud.yandex.net:443
-  api-host-sk: api.cloud.yandex.net
-  api-host-sk-stt: stt.api.cloud.yandex.net
-  api-host-sk-tts: tts.api.cloud.yandex.net
-  speechkit-stt-alias: speechkit.stt.stable
-  speechkit-tts-alias: speechkit.tts.stable
+  security-group: enp6saqnq4ie244g67sb
+  serial-ssh-host: serialssh.cloud.yandex.net
+  serverless-containers-full-name: Yandex Serverless Containers
+  serverless-containers-host: containers.yandexcloud.net
+  serverless-containers-name: Serverless Containers
+  serverless-containers-short-name: Serverless Containers
+  sf-full-name: Yandex Cloud Functions
+  sf-name: Cloud Functions
+  sf-short-name: Cloud Functions
+  sf-url: functions.yandexcloud.net
+  sk-hybrid-name: SpeechKit Hybrid
+  speechkit-full-name: Yandex SpeechKit
+  speechkit-name: SpeechKit
+  speechkit-short-name: SpeechKit
+  speechkit-slug: speechkit
   speechsense-endpoint: api.talk-analytics.yandexcloud.net:443
-  mp-test-product-id: f2e4tmlj4qqciunhr7e6
-  mp-test-sku-id: dn272e8979uvek5cnuhk
-  dt-status-copy: '**Copying**'
-  dt-status-created: '**Created**'
-  dt-status-creation: '**Creating**'
-  dt-status-error: '**Error**'
-  dt-status-finished: '**Completed**'
-  dt-status-repl: '**Replicating**'
-  dt-status-stopped: '**Stopped**'
-  dt-status-stopping: '**Stopping**'
-  dt-type-copy-repl: '**Snapshot and increment**'
-  dt-type-copy: '**Snapshot**'
-  dt-type-copy-reg: '**Regular snapshot**'
-  dt-type-repl: '**Replication**'
-  dt-copy-snapshot: Single
-  dt-copy-regular: Regular
-  dt-copy-regular-incremental: Regular incremental
-  dt-white-ip-list-uri: >-
-    https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
-  k8s-api-link: >-
-    https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
-  k8s-versions-rapid: 1.23, 1.24, 1.25, 1.26, 1.27, 1.28
-  k8s-versions-regular: 1.23, 1.24, 1.25, 1.26, 1.27
-  k8s-versions-stable: 1.23, 1.24, 1.25, 1.26, 1.27
-  cic-bgp-asn: 200350
-  cic-pbc-subnet: 178.210.118.46/31
-  cic-pbc-subnet-client: 178.210.118.46
-  cic-pbc-subnet-cloud: 178.210.118.47
-  cic-pbc-nat-subnet: 178.210.118.200/30
-  cic-pbc-svc1-ip: 213.180.193.243/32
+  speechsense-full-name: Yandex SpeechSense
+  speechsense-name: SpeechSense
+  SPRK: Apache Spark™
+  storage-aws-cli-alias: ycs3
+  stt-long-audioLength: 4 hours
+  stt-long-fileSize: 1 GB
+  stt-long-resultsStorageTime: 3 days
+  stt-short-audioLength: 30 seconds
+  stt-short-channelsCount: 1
+  stt-short-fileSize: 1 MB
+  stt-streaming-audioLength: 5 minutes
+  stt-streaming-fileSize: 10 MB
+  subjects-allAuthenticatedUsers: allAuthenticatedUsers
+  subjects-allUsers: allUsers
+  subnet-id: b0rcctk2rvtr8efcch64
+  subnet-name: default-ru-central1-c
+  sws-full-name: Yandex Smart Web Security
+  sws-name: Smart Web Security
+  t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
+  tag-all: <code><b><small>All interfaces</small></b></code>
+  tag-api: <code><b><small>API</small></b></code>
+  tag-cli: <code><b><small>CLI</small></b></code>
+  tag-con: <code><b><small>Management console</small></b></code>
+  tag-preview: <code><b><small>Preview</small></b></code>
+  tag-sql: <code><b><small>SQL</small></b></code>
+  tag-tf: <code><b><small>Terraform</small></b></code>
+  terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
+  TF: Terraform
+  tf-cloud-id: b1gq90dgh25bebiu75o
   tf-docs-link: https://terraform-provider.yandexcloud.net
-  tf-provider-link: https://terraform-provider.yandexcloud.net/
-  tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
+  tf-folder-id: b1gia87mbaomkfvsleds
+  TF-full: Hashicorp Terraform
+  tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/Resources/alb_backend_group
+  tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/Resources/alb_target_group
   tf-provider-datasources-link: https://terraform-provider.yandexcloud.net/DataSources
   tf-provider-dt-endpoint: https://terraform-provider.yandexcloud.net/Resources/datatransfer_endpoint
   tf-provider-dt-transfer: https://terraform-provider.yandexcloud.net/Resources/datatransfer_transfer
   tf-provider-k8s-cluster: https://terraform-provider.yandexcloud.net/Resources/kubernetes_cluster
   tf-provider-k8s-nodegroup: https://terraform-provider.yandexcloud.net/Resources/kubernetes_node_group
+  tf-provider-link: https://terraform-provider.yandexcloud.net/
   tf-provider-mch: https://terraform-provider.yandexcloud.net/Resources/mdb_clickhouse_cluster
   tf-provider-mes: >-
     https://terraform-provider.yandexcloud.net/Resources/mdb_elasticsearch_cluster
+  tf-provider-mgp: https://terraform-provider.yandexcloud.net/Resources/mdb_greenplum_cluster
   tf-provider-mkf: https://terraform-provider.yandexcloud.net/Resources/mdb_kafka_cluster
   tf-provider-mmg: https://terraform-provider.yandexcloud.net/Resources/mdb_mongodb_cluster
-  tf-provider-mms: https://terraform-provider.yandexcloud.net/Resources/mdb_sqlserver_cluster
   tf-provider-mmy: https://terraform-provider.yandexcloud.net/Resources/mdb_mysql_cluster
   tf-provider-mpg: https://terraform-provider.yandexcloud.net/Resources/mdb_postgresql_cluster
-  tf-provider-mgp: https://terraform-provider.yandexcloud.net/Resources/mdb_greenplum_cluster
   tf-provider-mrd: https://terraform-provider.yandexcloud.net/Resources/mdb_redis_cluster
-  tf-provider-alb-targetgroup: https://terraform-provider.yandexcloud.net/Resources/alb_target_group
-  tf-provider-alb-backendgroup: https://terraform-provider.yandexcloud.net/Resources/alb_backend_group
-  terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
-  packer-source-link: github.com/hashicorp/yandex
-  api-host: api.cloud.yandex.net
-  api-host-kms-symcrypto: kms.yandex
-  api-host-kms: kms.api.cloud.yandex.net
-  api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
-  api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
-  api-host-certmanager: certificate-manager.api.cloud.yandex.net
-  api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
-  api-host-lockbox: lockbox.api.cloud.yandex.net
-  api-host-data-transfer: datatransfer.api.cloud.yandex.net
-  api-host-mdb: mdb.api.cloud.yandex.net
-  api-host-iot-broker: iot-broker.api.cloud.yandex.net
-  api-host-iot-data: iot-data.api.cloud.yandex.net
-  api-host-monitoring-1: monitoring.api.cloud.yandex.net
-  api-host-monitoring-2: monitoring.cloud.yandex.ru
-  dns-mx-host: mx.cloud.yandex.net
-  dns-ns-host-sld: yandexcloud.net
-  ms-kms-host: kms.cloud.yandex.net
-  ms-kms-port: 1688
-  serial-ssh-host: serialssh.cloud.yandex.net
-  auth-host: console.cloud.yandex.com
-  at-event-prefix: yandex.cloud
-  port-any: 0-65535
-  port-http: 80
-  port-https: 443
-  port-k8s: 6443
-  port-mch-cli: 9440
-  port-mch-http: 8443
-  port-mes: 9200
-  port-mgp: 6432
-  port-mkf-ssl: 9091
-  port-mkf-text: 9092
-  port-mmg-sharded: 27017
-  port-mmg: 27018
-  port-mms: 1433
-  port-mmy: 3306
-  port-mos: 9200
-  port-mpg: 6432
-  port-mrd-sentinel: 26379
-  port-mrd-sentinel-tls: 26380
-  port-mrd-tls: 6380
-  port-mrd: 6379
-  port-ssh: 22
-  port-metastore: 9083
-  alb-ingress-version: 0.1.12
-  alb-ingress-k8s-version: 1.19
-  alb-ingress-helm-version: 3.7.0
-  alb-gateway-api-version: 0.4.16
-  objstorage-sftps-gateway-uri: cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway
-  objstorage-sftps-gateway-version: '1.0'
-  compute-guest-agent-bucket: yandexcloud-guestagent-updater
-  __system:
-    dislikeVariants:
-      - There's no answer to my question
-      - Recommendations aren't helpful
-      - Content does not match the title
-      - Other
-  link-saml: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
-  registry: cr.yandex
-  external-ip-examples:
-    - 84.201.155.117
-    - 84.252.131.221
-  api-url-prefix: /docs
-  sku|KZT|ai:
-    mt:
-      detect|string: ₸2461.0000
-      translate|string: ₸2461.0000
-    speech:
-      stt_long_running_deferred:
-        v1|string: ₸0.0150
-      stt_long_running|string: ₸0.0600
-      stt|string: ₸0.8000
-      transcribe:
-        human:
-          v1|string: ₸228.0000
-      tts_gpu|string: ₸6600.0000
-      tts:
-        dialogue_platform|string: ₸0.8000
-    vision:
-      text_detection|int|string: ₸650
-  sku|KZT|alb:
-    balancer:
-      active|string: ₸11.1000
-  sku|KZT|api-gateway:
-    requests:
-      v1|pricingRate:
-        '0':
-          1|string: ₸600.0000
-      v1|string: Free
-  sku|KZT|b2b:
-    tracker:
-      license:
-        v1|int|string: Free
-        v1|pricingRate:
-          100|int|string: ₸2000
-          250|int|string: ₸1800
-          6|int|string: ₸2200
-  sku|KZT|backup:
-    protected_vms:
-      v1|string: ₸1194.0000
-    used_space:
-      v1|month|string: ₸21.0000
-  sku|KZT|cdn:
-    api:
-      network:
-        inet:
-          egress|string: ₸4.8000
-    logs:
-      raw|int|string: ₸25000
-      shielding|int|string: ₸17500
-  sku|KZT|compute:
-    hostgroup:
-      cpu:
-        c100:
-          v1|string: ₸6.5794
-          v3|string: ₸5.9139
-          v4|string: ₸9.7000
-      localssd:
-        v1|month|string: ₸44.0000
-        v1|string: ₸0.0611
-      ram:
-        v1|string: ₸1.7423
-        v3|string: ₸1.5665
-        v4|string: ₸1.7500
-    image|month|string: ₸15.6000
-    snapshot|month|string: ₸15.6000
-    vm:
-      cpu:
-        '50':
-          v2|string: ₸3.6000
-        c05:
-          preemptible:
-            v2|string: ₸0.5000
-          preemptible|string: ₸0.9500
-          v2|string: ₸0.8000
-        c05|string: ₸1.5500
-        c100:
-          gpu-standard:
-            preemptible:
-              v3|string: ₸1.8000
-            v3|string: ₸4.5000
-          highfreq-v3|string: ₸8.8000
-          preemptible:
-            v2|string: ₸1.6000
-            v3|string: ₸1.4500
-          preemptible|string: ₸1.7000
-          v2|string: ₸5.9500
-          v3|string: ₸5.2500
-        c100|string: ₸5.6000
-        c20:
-          preemptible:
-            v2|string: ₸0.8000
-            v3|string: ₸0.7000
-          preemptible|string: ₸1.3500
-          v2|string: ₸2.4500
-          v3|string: ₸2.2000
-        c20|string: ₸4.4000
-        c50:
-          preemptible:
-            v2|string: ₸1.1000
-            v3|string: ₸1.0000
-          v3|string: ₸3.2000
-      gpu:
-        gpu-standard:
-          preemptible:
-            v2|string: ₸312.0000
-            v3|string: ₸743.4000
-          preemptible|string: ₸312.0000
-          v2|string: ₸1247.6000
-          v3|string: ₸1858.5000
-        gpu-standard|string: ₸1247.6000
-        infiniband:
-          ic:
-            preemptible|string: ₸318.0000
-          ic|string: ₸318.0000
-        standard:
-          v3-t4:
-            preemptible|string: ₸80.0000
-          v3-t4|string: ₸320.0000
-      ram:
-        gpu-standard:
-          preemptible:
-            v3|string: ₸0.5500
-          v3|string: ₸1.4000
-        highfreq-v3|string: ₸1.6000
-        preemptible:
-          v2|string: ₸0.3500
-          v3|string: ₸0.3500
-        preemptible|string: ₸0.6000
-        v2|string: ₸1.5500
-        v3|string: ₸1.4000
-      ram|string: ₸1.9500
-  sku|KZT|cr:
-    bucket:
-      used_space:
-        standard|month|int|string: ₸15
-  sku|KZT|dns:
-    requests:
-      public:
-        authoritative:
-          v1|string: ₸160.0000
-        recursive:
-          v1|pricingRate:
-            1|string: ₸160.0000
-  sku|KZT|gitlab:
-    backup|month|string: ₸9.6000
-    instance:
-      cpu|string: ₸8.4000
-      disk|month|string: ₸65.0500
-      ram|string: ₸2.2500
-  sku|KZT|kms:
-    api:
-      v1:
-        encryptdecrypt|string: ₸14.4000
-    storage:
-      v1:
-        software|month|string: ₸14.4000
-  sku|KZT|mdb:
-    cluster:
-      clickhouse:
-        v1:
-          cpu:
-            c100|month|string: ₸8208.0000
-            c100|string: ₸11.4000
-            c20|month|string: ₸1476.0000
-            c20|string: ₸2.0500
-            c5|month|string: ₸108.0000
-            c5|string: ₸0.1500
-            c50|month|string: ₸2448.0000
-            c50|string: ₸3.4000
-          ram|month|string: ₸1872.0000
-          ram|string: ₸2.6000
-        v2:
-          cpu:
-            c100|month|string: ₸6912.0000
-            c100|string: ₸9.6000
-            c20|month|string: ₸1476.0000
-            c20|string: ₸2.0500
-            c5|month|string: ₸108.0000
-            c5|string: ₸0.1500
-            c50|month|string: ₸2448.0000
-            c50|string: ₸3.4000
-          ram|month|string: ₸1872.0000
-          ram|string: ₸2.6000
-        v3:
-          cpu:
-            c100|month|string: ₸6192.0000
-            c100|string: ₸8.6000
-            c50|month|string: ₸2196.0000
-            c50|string: ₸3.0500
-          ram|month|string: ₸1692.0000
-          ram|string: ₸2.3500
-      elasticsearch:
-        v2:
-          cpu:
-            c100|string: ₸8.4000
-          ram:
-            basic|string: ₸10.5000
-            gold|string: ₸12.3000
-            platinum|string: ₸14.1500
-        v3:
-          cpu:
-            c100|string: ₸8.4000
-          ram:
-            basic|string: ₸10.5000
-            gold|string: ₸12.3000
-            platinum|string: ₸14.1500
-      greenplum:
-        v2:
-          cpu:
-            c100:
-              dedicated|string: ₸6.0000
-            c100|string: ₸11.9500
-          ram:
-            dedicated|string: ₸1.5500
-          ram|string: ₸3.1500
-        v3:
-          cpu:
-            c100:
-              dedicated|string: ₸5.4000
-            c100|string: ₸10.7500
-          ram:
-            dedicated|string: ₸1.4000
-          ram|string: ₸2.8500
-      kafka:
-        v2:
-          cpu:
-            c100|string: ₸8.4000
-            c50|string: ₸3.7500
-          ram|string: ₸2.2500
-        v3:
-          cpu:
-            c100|string: ₸7.5500
-            c50|string: ₸3.4000
-          ram|string: ₸2.0000
-      local-nvme:
-        ch|month|string: ₸65.0500
-        elasticsearch|month|string: ₸65.0500
-        greenplum:
-          dedicated|month|string: ₸21.0500
-        greenplum|month|string: ₸65.0500
-        kafka|month|string: ₸65.0500
-        mongodb|month|string: ₸65.0500
-        mssql|month|string: Free
-        mysql:
-          dedicated|month|string: ₸21.0500
-        mysql|month|string: ₸65.0500
-        opensearch|month|string: ₸65.0500
-        pg|month|string: ₸65.0500
-        redis|month|string: ₸65.0500
-      mongodb:
-        v1:
-          cpu:
-            c100|string: ₸8.0000
-            c20|string: ₸2.3000
-            c5|string: ₸0.2000
-            c50|string: ₸3.7500
-          ram|string: ₸4.5000
-        v2:
-          cpu:
-            c100|string: ₸8.0000
-            c20|string: ₸2.3000
-            c5|string: ₸0.2000
-            c50|string: ₸3.7500
-          ram|string: ₸4.5000
-        v3:
-          cpu:
-            c100|string: ₸8.0000
-            c50|string: ₸3.7500
-          ram|string: ₸4.5000
-      mssql:
-        v2:
-          cpu:
-            c100|string: Free
-          ram|string: Free
-        v3:
-          cpu:
-            c100|string: Free
-          ram|string: Free
-      mysql:
-        v1:
-          cpu:
-            c100|string: ₸9.4500
-            c20|string: ₸2.1500
-            c5|string: ₸0.2000
-            c50|string: ₸3.6000
-          ram|string: ₸2.5500
-        v2:
-          cpu:
-            c100:
-              dedicated|string: ₸2.7500
-            c100|string: ₸9.3500
-            c20|string: ₸2.1500
-            c5|string: ₸0.2000
-            c50|string: ₸3.6000
-          ram:
-            dedicated|string: ₸0.8000
-          ram|string: ₸2.5500
-        v3:
-          cpu:
-            c100:
-              dedicated|string: ₸2.5000
-            c100|string: ₸8.4000
-            c50|string: ₸3.2500
-          ram:
-            dedicated|string: ₸0.7500
-          ram|string: ₸2.3000
-      network-hdd:
-        ch|month|string: ₸16.0000
-        elasticsearch|month|string: ₸16.0000
-        greenplum|month|string: ₸16.0000
-        kafka|month|string: ₸16.0000
-        mongodb|month|string: ₸16.0000
-        mssql|month|string: Free
-        mysql|month|string: ₸16.0000
-        opensearch|month|string: ₸16.0000
-        pg|month|string: ₸16.0000
-      network-nvme:
-        ch|month|string: ₸65.0500
-        elasticsearch|month|string: ₸65.0500
-        greenplum|month|string: ₸65.0500
-        kafka|month|string: ₸65.0500
-        mongodb|month|string: ₸65.0500
-        mssql|month|string: Free
-        mysql|month|string: ₸65.0500
-        opensearch|month|string: ₸65.0500
-        pg|month|string: ₸65.0500
-        redis|month|string: ₸65.0500
-      network-ssd-nonreplicated:
-        ch|month|string: ₸44.0000
-        elasticsearch|month|string: ₸44.0000
-        greenplum|month|string: ₸44.0000
-        kafka|month|string: ₸44.0000
-        mongodb|month|string: ₸44.0000
-        mssql|month|string: Free
-        mysql|month|string: ₸44.0000
-        opensearch|month|string: ₸44.0000
-        pg|month|string: ₸44.0000
-        redis|month|string: ₸44.0000
-      opensearch:
-        v2:
-          cpu:
-            c100|string: ₸8.4000
-            c50|string: ₸3.3600
-          ram|string: ₸3.5000
-        v3:
-          cpu:
-            c100|string: ₸8.4000
-            c50|string: ₸3.3600
-          ram|string: ₸3.5000
-      pg:
-        v1:
-          cpu:
-            c100|string: ₸10.7000
-            c20|string: ₸2.2500
-            c5|string: ₸0.3000
-            c50|string: ₸3.7500
-          ram|string: ₸2.4500
-        v2:
-          cpu:
-            c100|string: ₸9.0500
-            c20|string: ₸2.2500
-            c5|string: ₸0.3000
-            c50|string: ₸3.7500
-          ram|string: ₸2.4500
-        v3:
-          cpu:
-            c100|string: ₸8.1500
-            c50|string: ₸3.4000
-          ram|string: ₸2.2000
-      redis:
-        v1:
-          cpu:
-            c100|string: ₸10.0000
-            c20|string: ₸1.8000
-            c5|string: ₸0.0600
-          ram|string: ₸2.7000
-        v2:
-          cpu:
-            c100|string: ₸8.4000
-            c5|string: ₸0.5500
-            c50|string: ₸5.0500
-          ram|string: ₸2.2500
-        v3:
-          cpu:
-            c100|string: ₸7.5500
-            c50|string: ₸4.5500
-          ram|string: ₸2.0000
-    dataproc:
-      v2:
-        cpu:
-          c100|string: ₸0.6000
-          c50|string: ₸0.3000
-        ram|string: ₸0.1500
-      v3:
-        cpu:
-          c100|string: ₸0.6000
-        ram|string: ₸0.1500
-    zk:
-      clickhouse:
-        v1:
-          cpu:
-            c100|month|string: ₸5112.0000
-            c100|string: ₸7.1000
-            c20|month|string: ₸2016.0000
-            c20|string: ₸2.8000
-            c5|month|string: ₸864.0000
-            c5|string: ₸1.2000
-            c50|month|string: ₸2808.0000
-            c50|string: ₸3.9000
-          ram|month|string: ₸1152.0000
-          ram|string: ₸1.6000
-        v2:
-          cpu:
-            c100|month|string: ₸4356.0000
-            c100|string: ₸6.0500
-            c20|month|string: ₸2016.0000
-            c20|string: ₸2.8000
-            c5|month|string: ₸864.0000
-            c5|string: ₸1.2000
-            c50|month|string: ₸2808.0000
-            c50|string: ₸3.9000
-          ram|month|string: ₸1152.0000
-          ram|string: ₸1.6000
-        v3:
-          cpu:
-            c100|month|string: ₸3924.0000
-            c100|string: ₸5.4500
-            c50|month|string: ₸2520.0000
-            c50|string: ₸3.5000
-          ram|month|string: ₸1008.0000
-          ram|string: ₸1.4000
-      kafka:
-        v2:
-          cpu:
-            c100|string: ₸6.0500
-            c50|string: ₸3.9000
-          ram|string: ₸1.6000
-        v3:
-          cpu:
-            c100|string: ₸5.4500
-            c50|string: ₸3.5000
-          ram|string: ₸1.4000
-  sku|KZT|mk8s:
-    master:
-      regional:
-        small|month|int|string: ₸80064
-        small|string: ₸111.2000
-      zonal:
-        small|month|int|string: ₸31680
-        small|string: ₸44.0000
-  sku|KZT|monitoring:
-    point:
-      dgauge:
-        read|pricingRate:
-          50|string: ₸21.0000
-        read|string: ₸35.0000
-        store|string: Free
-        write|pricingRate:
-          50|string: ₸28.0000
-        write|string: ₸49.0000
-  sku|KZT|nbs:
-    network-hdd:
-      allocated|month|string: ₸14.6000
-      allocated|string: ₸0.0203
-    network-nvme:
-      allocated|month|string: ₸59.5500
-      allocated|string: ₸0.0827
-    network-ssd-io-m3:
-      allocated|month|string: ₸99.0000
-    network-ssd-nonreplicated:
-      allocated|month|string: ₸44.0000
-  sku|KZT|network:
-    egress:
-      inet|pricingRate:
-        100|string: ₸7.6500
-      inet|string: Free
-    ingress:
-      inet:
-        antiddos:
-          qrator|string: ₸12.1500
-    public_fips:
-      deallocated|string: ₸1.5500
-    public_fips|string: ₸1.2000
-  sku|KZT|nlb:
-    balancer:
-      active|string: ₸3.9000
-  sku|KZT|searchapi:
-    requests:
-      day:
-        v1|int|string: ₸2400
-      night:
-        v1|int|string: ₸1800
-  sku|KZT|serverless:
-    containers:
-      compute:
-        cpu|pricingRate:
-          5|string: ₸24.0000
-        cpu|string: Free
-        memory|pricingRate:
-          10|string: ₸16.0000
-        memory|string: Free
-        provision_enabled:
-          cpu|string: ₸5.1500
-          memory|string: ₸3.4500
-        provisioned_request:
-          cpu|string: ₸9.9000
-          memory|string: ₸6.6000
-      invocations|pricingRate:
-        1|string: ₸80.0000
-      invocations|string: Free
-    functions:
-      compute:
-        v1|pricingRate:
-          10|string: ₸27.3500
-        v1|string: Free
-      invocations:
-        v1|pricingRate:
-          1|string: ₸80.0000
-        v1|string: Free
-  sku|KZT|storage:
-    api:
-      get:
-        cold|string: ₸4.8500
-        ice|string: ₸9.7000
-        standard|pricingRate:
-          10|string: ₸1.9500
-        standard|string: Free
-      head:
-        cold|string: ₸4.8500
-        ice|string: ₸9.7000
-        standard|pricingRate:
-          10|string: ₸1.9500
-        standard|string: Free
-      network:
-        inet:
-          egress|pricingRate:
-            100|string: ₸7.6500
-            1024|string: ₸6.4000
-            102400|string: ₸5.7500
-            51200|string: ₸6.0000
-          egress|string: Free
-      options:
-        cold|string: ₸4.8500
-        ice|string: ₸9.7000
-        standard|pricingRate:
-          10|string: ₸1.9500
-        standard|string: Free
-      post:
-        cold|string: ₸5.9000
-        ice|string: ₸11.8000
-        standard|pricingRate:
-          10|string: ₸2.4000
-        standard|string: Free
-      put:
-        cold|string: ₸5.9000
-        ice|string: ₸11.8000
-        standard|pricingRate:
-          10|string: ₸2.4000
-        standard|string: Free
-    bucket:
-      used_space:
-        cold|month|string: ₸5.3500
-        ice|month|string: ₸2.6750
-        standard|month|string: Free
-        standard|pricingRate:
-          720|month|string: ₸10.0499
-  sku|KZT|support:
-    business:
-      fixed_consumption:
-        v1|string: Free
-    organization:
-      business:
-        fixed_consumption:
-          v1|int|string: ₸15000
-    standard:
-      fixed_consumption:
-        v1|string: Free
-  sku|KZT|v1:
-    commitment:
-      selfcheckout:
-        m6:
-          compute:
-            vm:
-              cpu:
-                c100:
-                  standard:
-                    v2|string: ₸5.3550
-                    v3|string: ₸4.7250
-              ram:
-                standard:
-                  v2|string: ₸1.3950
-                  v3|string: ₸1.2600
-          mdb:
-            ch:
-              cpu:
-                c100:
-                  v2|month|string: ₸5875.2000
-                  v2|string: ₸8.1600
-                  v3|month|string: ₸5263.2000
-                  v3|string: ₸7.3100
-              ram:
-                v2|month|string: ₸1591.2000
-                v2|string: ₸2.2100
-                v3|month|string: ₸1438.2000
-                v3|string: ₸1.9975
-            greenplum:
-              cpu:
-                c100:
-                  v3|string: ₸9.1375
-              ram:
-                v3|string: ₸2.4225
-            kafka:
-              cpu:
-                c100:
-                  v2|string: ₸7.1400
-                  v3|string: ₸6.4175
-              ram:
-                v2|string: ₸1.9125
-                v3|string: ₸1.7000
-            mysql:
-              cpu:
-                c100:
-                  v2|string: ₸7.9475
-                  v3|string: ₸7.1400
-              ram:
-                v2|string: ₸2.1675
-                v3|string: ₸1.9550
-            opensearch:
-              cpu:
-                c100:
-                  v3|string: ₸7.1400
-              ram:
-                v3|string: ₸2.9750
-            pg:
-              cpu:
-                c100:
-                  v2|string: ₸7.6925
-                  v3|string: ₸6.9275
-              ram:
-                v2|string: ₸2.0825
-                v3|string: ₸1.8700
-            redis:
-              cpu:
-                c100:
-                  v2|string: ₸7.1400
-                  v3|string: ₸6.4175
-              ram:
-                v2|string: ₸1.9125
-                v3|string: ₸1.7000
-          ydb:
-            cpu:
-              c100:
-                v2|string: ₸7.9475
-            ram:
-              v2|string: ₸2.1675
-        y1:
-          compute:
-            vm:
-              cpu:
-                c100:
-                  standard:
-                    v2|string: ₸5.0575
-                    v3|string: ₸4.4625
-              ram:
-                standard:
-                  v2|string: ₸1.3175
-                  v3|string: ₸1.1900
-          mdb:
-            ch:
-              cpu:
-                c100:
-                  v2|month|string: ₸5391.3600
-                  v2|string: ₸7.4880
-                  v3|month|string: ₸4829.7600
-                  v3|string: ₸6.7080
-              ram:
-                v2|month|string: ₸1460.1600
-                v2|string: ₸2.0280
-                v3|month|string: ₸1319.7600
-                v3|string: ₸1.8330
-            greenplum:
-              cpu:
-                c100:
-                  v3|string: ₸8.3850
-              ram:
-                v3|string: ₸2.2230
-            kafka:
-              cpu:
-                c100:
-                  v2|string: ₸6.5520
-                  v3|string: ₸5.8890
-              ram:
-                v2|string: ₸1.7550
-                v3|string: ₸1.5600
-            mysql:
-              cpu:
-                c100:
-                  v2|string: ₸7.2930
-                  v3|string: ₸6.5520
-              ram:
-                v2|string: ₸1.9890
-                v3|string: ₸1.7940
-            opensearch:
-              cpu:
-                c100:
-                  v3|string: ₸6.5520
-              ram:
-                v3|string: ₸2.7300
-            pg:
-              cpu:
-                c100:
-                  v2|string: ₸7.0590
-                  v3|string: ₸6.3570
-              ram:
-                v2|string: ₸1.9110
-                v3|string: ₸1.7160
-            redis:
-              cpu:
-                c100:
-                  v2|string: ₸6.5520
-                  v3|string: ₸5.8890
-              ram:
-                v2|string: ₸1.7550
-                v3|string: ₸1.5600
-          ydb:
-            cpu:
-              c100:
-                v2|string: ₸7.2930
-            ram:
-              v2|string: ₸1.9890
-      y1:
-        mdb:
-          elasticsearch:
-            cpu:
-              c100:
-                v2|string: ₸4.5000
-                v3|string: ₸4.5000
-            ram:
-              v2:
-                basic|string: ₸7.3800
-                gold|string: ₸8.7000
-                platinum|string: ₸10.0200
-              v3:
-                basic|string: ₸7.3800
-                gold|string: ₸8.7000
-                platinum|string: ₸10.0200
-          mongodb:
-            cpu:
-              c100:
-                v2|string: ₸4.7400
-                v3|string: ₸4.7400
-            ram:
-              v2|string: ₸2.6400
-      y3:
-        mdb:
-          elasticsearch:
-            cpu:
-              c100:
-                v2|string: ₸3.4800
-                v3|string: ₸3.4800
-            ram:
-              v2:
-                basic|string: ₸7.1400
-                gold|string: ₸8.4000
-                platinum|string: ₸9.6600
-              v3:
-                basic|string: ₸7.1400
-                gold|string: ₸8.4000
-                platinum|string: ₸9.6600
-          mongodb:
-            cpu:
-              c100:
-                v2|string: ₸3.5400
-                v3|string: ₸3.5400
-            ram:
-              v2|string: ₸2.2800
-              v3|string: ₸2.2800
-  sku|KZT|ydb:
-    cluster:
-      v1:
-        ssd|month|string: ₸106.9000
-      v2:
-        cpu|string: ₸9.3500
-        ram|string: ₸2.5500
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|string: ₸106.9000
-  sku|KZT|yds:
-    events:
-      puts|pricingRate:
-        2|string: ₸5.9000
-    reserved_resources:
-      128k:
-        12h|string: ₸0.6667
-        1h|pricingRate:
-          744|string: ₸0.5000
-        1h|string: Free
-        24h|string: ₸1.0000
-        4h|string: ₸0.5833
-      1m:
-        12h|string: ₸3.1667
-        24h|string: ₸4.6667
-        4h|string: ₸2.1667
-      512k:
-        12h|string: ₸2.0000
-        24h|string: ₸3.0000
-        4h|string: ₸1.3333
-    reserved_storage|month|string: ₸54.0000
-    reserved_throughput:
-      128k|month|string: ₸240.0000
-      1m|month|string: ₸1200.0000
-      512k|month|string: ₸720.0000
-  sku|KZT|ymq:
-    queue:
-      fifo:
-        requests|pricingRate:
-          '0':
-            1|string: ₸305.7500
-      std:
-        requests|pricingRate:
-          '0':
-            1|string: ₸243.8000
-        requests|string: Free
+  tf-provider-resources-link: https://terraform-provider.yandexcloud.net/Resources
+  TF-version: '0.90'
+  tracker-full-name: Yandex Tracker
+  tracker-name: Tracker
+  tracker-short-name: Tracker
+  translate-full-name: Yandex Translate
+  translate-name: Translate
+  translate-short-name: Translate
+  tts-cc-quality: 8 kHz
+  tts-v3-count: 250 characters
+  tts-v3-time: 24 seconds
+  unified-agent-full-name: Yandex Unified Agent
+  unified-agent-short-name: Unified Agent
+  v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
+  v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  vision-full-name: Yandex Vision
+  vision-name: Vision
+  vision-short-name: Vision
+  vpc-full-name: Yandex Virtual Private Cloud
+  vpc-name: Virtual Private Cloud
+  vpc-short-name: VPC
+  websql-full-name: Yandex WebSQL
+  websql-name: WebSQL
+  wiki-full-name: Yandex Wiki
+  wiki-name: Wiki
+  ya-360: Yandex 360 for business
+  yagpt-full-name: YandexGPT
+  yagpt-max-tokens: 7400
+  yagpt-name: YandexGPT
+  yandex-360: Yandex 360
+  yandex-cloud: Yandex Cloud
+  yc-compute: yc compute
+  yc-compute-ig: yc compute instance-group
+  yc-dp: yc dataproc
+  yc-dt: yc datatransfer
+  yc-install-path: /yandexcloud-yc/install.sh
+  yc-k8s: yc managed-kubernetes
+  yc-mdb-ch: yc managed-clickhouse
+  yc-mdb-es: yc managed-elasticsearch
+  yc-mdb-gp: yc managed-greenplum
+  yc-mdb-kf: yc managed-kafka
+  yc-mdb-mg: yc managed-mongodb
+  yc-mdb-ms: yc managed-sqlserver
+  yc-mdb-my: yc managed-mysql
+  yc-mdb-pg: yc managed-postgresql
+  yc-mdb-rd: yc managed-redis
+  yc-serverless: yc serverless
+  yc-windows-path: /yandexcloud-yc/install.ps1
+  ydb-full-name: Yandex Managed Service for YDB
+  ydb-name: Managed Service for YDB
+  ydb-short-name: YDB
+  ydb:
+    aws-ep: >-
+      https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
+    cli: ydb
+    docs: https://ydb.tech/en/docs/
+    document-api-endpoint: https://docapi.serverless.yandexcloud.net
+    ep-dedicated: grpcs://lb.etnk1u65e4shtgj338va.ydb.mdb.yandexcloud.net:2135
+    ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
+    host-dedicated: ydb.mdb.yandexcloud.net
+    host-serverless: ydb.serverless.yandexcloud.net
+    id-dedicated: etnk1u65e4shtgj338va
+    id-serverless: etnudu2n9ri35luqe4h1
+    name-dedicated: ydb-dedicated
+    name-serverless: ydb-serverless
+    path-dedicated: /ru-central1/b1gia87mbaomkfvs6rgl/etnk1u65e4shtgj338va
+    path-serverless: /ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
+    port-dedicated: 2135
+    port-serverless: 2135
+    version-cdc: 22.5
+  yds-full-name: Yandex Data Streams
+  yds-name: Data Streams
+  yds-short-name: Data Streams
+  yq-full-name: Yandex Query
+  yq-name: Query
+  yq-short-name: YQ
+  yql-full-name: Yandex Query Language
+  yql-short-name: YQL
+  ytsaurus-name: YTsaurus
+  YZ: Yezzey
+  ZK: ZooKeeper
+  zk-host-class: b2.medium
+  zone-id: ru-central1-c
   sku|RUB|ai:
     mt:
       detect|string: ₽492.2000
@@ -1760,9 +752,6 @@ default:
         v1|string: ₽0.0025
       stt_long_running|string: ₽0.0100
       stt|string: ₽0.1600
-      transcribe:
-        human:
-          v1|string: ₽38.0000
       tts_gpu|string: ₽1320.0000
       tts:
         dialogue_platform|string: ₽0.1600
@@ -2001,7 +990,6 @@ default:
         greenplum|month|string: ₽13.0100
         kafka|month|string: ₽13.0100
         mongodb|month|string: ₽13.0100
-        mssql|month|string: Free
         mysql:
           dedicated|month|string: ₽4.2100
         mysql|month|string: ₽13.0100
@@ -2028,15 +1016,6 @@ default:
             c100|string: ₽1.6000
             c50|string: ₽0.7500
           ram|string: ₽0.9000
-      mssql:
-        v2:
-          cpu:
-            c100|string: Free
-          ram|string: Free
-        v3:
-          cpu:
-            c100|string: Free
-          ram|string: Free
       mysql:
         v1:
           cpu:
@@ -2071,7 +1050,6 @@ default:
         greenplum|month|string: ₽3.2000
         kafka|month|string: ₽3.2000
         mongodb|month|string: ₽3.2000
-        mssql|month|string: Free
         mysql|month|string: ₽3.2000
         opensearch|month|string: ₽3.2000
         pg|month|string: ₽3.2000
@@ -2081,7 +1059,6 @@ default:
         greenplum|month|string: ₽13.0100
         kafka|month|string: ₽13.0100
         mongodb|month|string: ₽13.0100
-        mssql|month|string: Free
         mysql|month|string: ₽13.0100
         opensearch|month|string: ₽13.0100
         pg|month|string: ₽13.0100
@@ -2092,7 +1069,6 @@ default:
         greenplum|month|string: ₽8.8000
         kafka|month|string: ₽8.8000
         mongodb|month|string: ₽8.8000
-        mssql|month|string: Free
         mysql|month|string: ₽8.8000
         opensearch|month|string: ₽8.8000
         pg|month|string: ₽8.8000
@@ -2489,53 +1465,6 @@ default:
                 v2|string: ₽1.4586
             ram:
               v2|string: ₽0.3978
-      y1:
-        mdb:
-          elasticsearch:
-            cpu:
-              c100:
-                v2|string: ₽0.7500
-                v3|string: ₽0.7500
-            ram:
-              v2:
-                basic|string: ₽1.2300
-                gold|string: ₽1.4500
-                platinum|string: ₽1.6700
-              v3:
-                basic|string: ₽1.2300
-                gold|string: ₽1.4500
-                platinum|string: ₽1.6700
-          mongodb:
-            cpu:
-              c100:
-                v2|string: ₽0.7900
-                v3|string: ₽0.7900
-            ram:
-              v2|string: ₽0.4400
-      y3:
-        mdb:
-          elasticsearch:
-            cpu:
-              c100:
-                v2|string: ₽0.5800
-                v3|string: ₽0.5800
-            ram:
-              v2:
-                basic|string: ₽1.1900
-                gold|string: ₽1.4000
-                platinum|string: ₽1.6100
-              v3:
-                basic|string: ₽1.1900
-                gold|string: ₽1.4000
-                platinum|string: ₽1.6100
-          mongodb:
-            cpu:
-              c100:
-                v2|string: ₽0.5900
-                v3|string: ₽0.5900
-            ram:
-              v2|string: ₽0.3800
-              v3|string: ₽0.3800
   sku|RUB|ydb:
     cluster:
       v1:
@@ -2719,13 +1648,6 @@ default:
       cpu|string: $0.013440
       disk|month|string: $0.104080
       ram|string: $0.003600
-  sku|USD|kms:
-    api:
-      v1:
-        encryptdecrypt|string: $0.023040
-    storage:
-      v1:
-        software|month|string: $0.023040
   sku|USD|mdb:
     cluster:
       clickhouse:
@@ -2804,7 +1726,6 @@ default:
         greenplum|month|string: $0.104080
         kafka|month|string: $0.104080
         mongodb|month|string: $0.104080
-        mssql|month|string: Free
         mysql:
           dedicated|month|string: $0.033680
         mysql|month|string: $0.104080
@@ -2830,15 +1751,6 @@ default:
             c100|string: $0.012800
             c50|string: $0.006000
           ram|string: $0.007200
-      mssql:
-        v2:
-          cpu:
-            c100|string: Free
-          ram|string: Free
-        v3:
-          cpu:
-            c100|string: Free
-          ram|string: Free
       mysql:
         v1:
           cpu:
@@ -2873,7 +1785,6 @@ default:
         greenplum|month|string: $0.025600
         kafka|month|string: $0.025600
         mongodb|month|string: $0.025600
-        mssql|month|string: Free
         mysql|month|string: $0.025600
         opensearch|month|string: $0.025600
         pg|month|string: $0.025600
@@ -2883,7 +1794,6 @@ default:
         greenplum|month|string: $0.104080
         kafka|month|string: $0.104080
         mongodb|month|string: $0.104080
-        mssql|month|string: Free
         mysql|month|string: $0.104080
         opensearch|month|string: $0.104080
         pg|month|string: $0.104080
@@ -3288,53 +2198,6 @@ default:
                 v2|string: $0.011669
             ram:
               v2|string: $0.003182
-      y1:
-        mdb:
-          elasticsearch:
-            cpu:
-              c100:
-                v2|string: $0.009615
-                v3|string: $0.009615
-            ram:
-              v2:
-                basic|string: $0.015769
-                gold|string: $0.018590
-                platinum|string: $0.021410
-              v3:
-                basic|string: $0.015769
-                gold|string: $0.018590
-                platinum|string: $0.021410
-          mongodb:
-            cpu:
-              c100:
-                v2|string: $0.010128
-                v3|string: $0.010128
-            ram:
-              v2|string: $0.005641
-      y3:
-        mdb:
-          elasticsearch:
-            cpu:
-              c100:
-                v2|string: $0.007436
-                v3|string: $0.007436
-            ram:
-              v2:
-                basic|string: $0.015256
-                gold|string: $0.017949
-                platinum|string: $0.020641
-              v3:
-                basic|string: $0.015256
-                gold|string: $0.017949
-                platinum|string: $0.020641
-          mongodb:
-            cpu:
-              c100:
-                v2|string: $0.007564
-                v3|string: $0.007564
-            ram:
-              v2|string: $0.004872
-              v3|string: $0.004872
   sku|USD|ydb:
     cluster:
       v1:
@@ -3406,7 +2269,6 @@ default:
           my_page: My page
           options: Options
           search: Search
-          wiki: Wiki
         blocks_b-notification:
           actual: It is actual
         blocks_b-page-more-panel:
@@ -3429,10 +2291,7 @@ default:
           load: Upload
           name: Name
           page-settings: Page settings
-        blocks_page-editor:
-          page_view: View
         blocks_sidebar:
-          files-label: Files
           grid-settings-label: Settings
         blocks_w-attachments:
           upload-btn-text: Choose file
@@ -3562,7 +2421,6 @@ default:
           fixVersions-key-value: Fix Version
           followers: Followers
           followingMaillists: Maillists
-          goals-key-value: Goals
           key-key-value: Key
           lastCommentUpdatedAt: ' Last Comment'
           links:
@@ -3712,7 +2570,6 @@ default:
             request:
               folder:
                 my: My filters
-                shared: Common
         workflow:
           field:
             maillists: Mailing lists
@@ -3776,10 +2633,6 @@ default:
               tested: Tested
               testing: Testing
           name: Scrum
-        supportPreset:
-          board:
-            column:
-              open: Open
       profiles:
         category:
           everything: All Events
@@ -3811,7 +2664,6 @@ default:
               create:
                 comment: Add comment
                 issue: Create issue
-              duty: Get duty
               transition: Change issue status
     startrek:
       blocks_touch_b-related-issues:
@@ -3825,9 +2677,6 @@ default:
         board-type--kanban: Kanban
         label-board-mode: Add issues
         new-board-ad-control: Try new boards
-      blocks-desktop_b-access-category:
-        access-type--outsource: Not only Yandex
-        access-type--yandex: Yandex
       blocks-desktop_b-agile-board:
         add-note: Add note
         create-issue--title: Add issue
@@ -3837,7 +2686,6 @@ default:
       blocks-desktop_b-create-ticket-form__labels:
         submit: Create
       blocks-desktop_b-create-ticket-form:
-        copy-url: Copy link to form template
         fill-desc: Issue description
       blocks-desktop_b-dashboard-widget:
         group-day: By day
@@ -3851,7 +2699,6 @@ default:
         title-is-cumulative: Show cumulative total
         title-on-first-page: Number of rows on page
         title-per-page: Number of issues per page
-        title-refresh: Auto-update
         title-show-sum: Show total
         title-sort: Sort by
         title-sum: Cells
@@ -3909,7 +2756,6 @@ default:
         field-tags: Tags
         issue-status-open: Open
         issue-summary: Issue name
-        issue-type-task: Task
         title: Card view
       blocks-desktop_b-page-agile-admin-tab_type_columns:
         issues-limit: Maximum number of issues per column
@@ -3950,7 +2796,6 @@ default:
       blocks-desktop_b-page-dashboard:
         access-control: Edit access control
         change-owner: Change owner
-        copy-btn: Create copy
         create-btn: Create
         create-zone: Add widget
         delete-btn: Delete
@@ -3984,8 +2829,6 @@ default:
         custom-calendars: My schedules
         edit-button: Edit
       blocks-desktop_b-page-queue-admin-tab_type_events:
-        field--allow-external-mailing: Allow to send emails outside of the intranet
-        field--allow-externals: Allow access for externals
         field--default-priority: Default priority of issues
         issue-types-config--title--resolutions: 'Resolutions:'
         issue-types-config--title--type: 'Issue type:'
@@ -3998,7 +2841,6 @@ default:
         add-btn: Add form
       blocks-desktop_b-page-queue-admin-tab_type_macro-editor:
         action_create: Create
-        field-action--set: Set value
         label_actions: Actions
         label_body: Message
         label_name: Macro name
@@ -4010,16 +2852,10 @@ default:
         queue: All issues
         versions: Issues for a specific version
       blocks-desktop_b-page-queue-admin-tab_type_permissions:
-        access-denied-msg: Message for users without access
-        allow-external: Allow access for external users
         column-title--create: Create issues
         column-title--grant: Queue settings
         column-title--read: View issues
         column-title--write: Edit issues
-        issues-access: Access control
-        save: Save
-        tab--queue: All issues
-        update-access-denied-msg-btn: Edit
       blocks-desktop_b-page-queue-admin-tab_type_sla:
         add-sla: Create a rule
         create-sla: Create a rule
@@ -4082,8 +2918,6 @@ default:
         users-display-format: User display
       blocks-desktop_b-page-stat:
         make-report: Time Spent Report
-      blocks-desktop_b-page-subscriptions-manage:
-        goals: Goals
       blocks-desktop_b-page-subscriptions-roles:
         add-role: Add role
         reset: Delete notifications
@@ -4093,31 +2927,18 @@ default:
         btnAdd: Create version
         btnUpdate: Save
       blocks-desktop_b-queue-form:
-        abc: ABC service
         add-issue-key-in-email-checkbox: Add the issue number in the subject line
         advanced-settings: Advanced settings
         advanced-settings-show: Show advanced settings
         commits: Show "Сommits" tab
-        department: Department
-        goals: ' Show "Goals" tab'
         integration-settings: Integration settings
-        integration-settings-show: Show integration settings
         mail: Sending mails
         mail-checkbox: Allow emails to be sent externally
         notification-fields: Fields in notifications
-        oebs: Show "OEBS Transactions" tab
-        otrs-settings-assignee: Changing assignee
-        otrs-settings-comment: Creating comment
-        otrs-settings-status: Changing status
         projects: Show "Projects" tab
         queue-team: Queue team
         required-fields: Required fields for the queue
         save: Save
-        show-create-issue-form: Show the standard issue creation form
-        show-create-issue-form--always: Always
-        show-create-issue-form--never: Never
-        show-create-issue-form--team: Team only
-        status-on-link: Status after adding external link
         voting: Voting in issues
       blocks-desktop_b-queues-info:
         admin: Configure
@@ -4156,15 +2977,11 @@ default:
         send: Submit
       blocks-desktop_comment:
         reply: Reply
-      blocks-desktop_create-issue-dropdown:
-        create: Create issue
       blocks-desktop_dashboard-create-zone:
         created-vs-resolved-title: Created vs. Resolved Graph
         filter-title: Issues
-        invite-links-title: Invitation form
         issues-title: Issue Statistics
         note-title: Note Widget
-        security-title: Security
         table-sum-title: Summary table with totaled values
         table-title: Summary table
         time-since-title: Events
@@ -4219,14 +3036,10 @@ default:
         email-nickname: Nickname
         email-subject: Subject
         from-robot-checkbox: Send as robot
-        submit: Submit
       blocks-desktop_issues-filter-save-modal:
         action_submit: Save
       blocks-desktop_issues-filter-update-modal:
         access-rights: Access control
-        access-rights--read: View
-        access-rights--share: Add to shared folder
-        access-rights--write: Edit
         action_submit: Save
         filter-remove-confirm-submit: Delete
       blocks-desktop_issues-filter:
@@ -4235,10 +3048,8 @@ default:
         action--reset: Reset
       blocks-desktop_issues-table:
         group-by--null: Not grouped
-        select-columns: Change columns
       blocks-desktop_m-head:
         filters-favorite: Favorites
-        group-title--owned--filters: My filters
         group-title--owned--queues: My Queues
         group-title--recent: Recently viewed
         menu-agile: Boards
@@ -4279,7 +3090,6 @@ default:
         category--business: Creating products and services
         category--development: Development
         category--support: Working with people and documents
-        choose-btn: Select
         copy-title: Copy queue
         create: Create
         preset--task-type--absence: Leave
@@ -4289,12 +3099,10 @@ default:
         preset--task-type--documents: Documents
         preset--task-type--epic: Epic
         preset--task-type--improvement: Improvement
-        preset--task-type--incident: Incident
         preset--task-type--mission: Business trip
         preset--task-type--project: Project
         preset--task-type--release: Release
         preset--task-type--request: Query
-        preset--task-type--service-request: Service request
         preset--task-type--story: Story
         preset--task-type--task: Issue
         preset--task-type--vacancy: Vacancy
@@ -4311,7 +3119,6 @@ default:
         platform: Platform
         token: Token
       blocks-desktop_roles-table:
-        access-control: Access control
         apply: Apply
         grant: Grant
         groups: Groups
@@ -4336,17 +3143,8 @@ default:
         timers--title: Timer settings
       blocks-desktop_sla-status-card:
         pause-condition-title: Pause
-      blocks-desktop_spotlight-preview:
-        owner: Owner
       blocks-desktop_st-color-tokens:
         delete-btn: Remove from list
-      blocks-desktop_st-extra-filter:
-        assignee: Assigned to me
-        author: Reported by me
-        followers: Followed by me
-        resolution--default: All
-        resolution--empty: Without resolution
-        resolution--notEmpty: With resolution
       blocks-desktop_st-field-utils:
         field--assignee: Assignee
         field--author: Reporter
@@ -4439,14 +3237,11 @@ default:
         field--priority: Priority
         field--tags: Tags
         field--type: Type
-      components_HiThere:
-        wrong-user-btn: Log in
       components_IssueFieldView:
         me-multiple: Add me
       components_Licenses:
         default-full-access-label: Full access for all new users
         department-access-title--readOnly: Read only
-        departments: Departments
         group-access-title--readOnly: Read only
       components_LicensesDefaultFullAccessModal:
         button-submit--toEnable: Enable
@@ -4485,7 +3280,6 @@ default:
         token-label: Token
       ui_components_agile_agile-board_AgileBoardActionsMenu:
         delete-board-menu-item: Delete board
-        filters-manage: Manage filters
         migration-rollback: Switch back to the old version
       ui_components_agile_agile-board_AgileBoardAddColumnButton:
         new-column-button: Add column
@@ -4503,8 +3297,6 @@ default:
         issue-actions--delete-from-board: Remove from board
         issue-actions--move-down: Move to bottom of column
         issue-actions--move-up: Move to top of column
-      ui_components_agile_agile-board_AgileBoardIssuesImportButton:
-        import-issues: Import issues
       ui_components_agile_agile-board_AgileBoardMigrationForm:
         submit-btn: Start switching
       ui_components_agile_agile-board_AgileBoardUnusedStatuses:
@@ -4518,8 +3310,6 @@ default:
         backlog-default-column: Backlog
       ui_components_agile_common_AddIssueButton:
         add-issue-button: Add issue
-      ui_components_agile_common_AgileFilterParamsPicker:
-        save: Save
       ui_components_agile_common_AgileFilters:
         action-title-save: Save
         all-issues-filter-title: All issues
@@ -4610,7 +3400,6 @@ default:
         existing-issue: Existing issue
         new-issue: New issue
       ui_components_dashboard_DashboardActionsMenu:
-        delete-action: Delete
         set-start-page-action: Set as start page
       ui_components_dashboard_DashboardHeader:
         dashboard-header-add-button: Add
@@ -4651,7 +3440,6 @@ default:
         search-placeholder: Search by issue name
       ui_components_FilterEditorPane:
         all-issues-filter-title: All issues
-        reset-button: Reset
       ui_components_FilterExportMenu:
         menu-item-export: Export
         title: Filter actions
@@ -4728,13 +3516,10 @@ default:
         filter-my-issues: All my issues
         filter-waiting: Waiting for response
         filters: Filters
-        issues-list: Issues
         queues: Queues
       ui_components_IssueMenu:
         add-notification: Add reminder
         add-worklog: Add time spent
-        calendar-event-all: Meeting with all issue participants
-        calendar-event-author-assignee: Meeting with reporter and assignee
         calendar-event-me: Schedule a time to work on this issue
         clone-issue-action-title: Clone issue
         convert-to-project: Convert to project
@@ -4758,7 +3543,6 @@ default:
         preset_author: Created by me
         preset_deadline: Deadline approaching
         preset-deadline: Deadline approaching
-        show-closed-issues: Show completed issues
       ui_components_IssueTable2:
         row-actions: Actions
       ui_components_IssueTabs:
@@ -4773,7 +3557,6 @@ default:
         save: Save
       ui_components_NavigationBar_BoardsPanel:
         create-button: Create board
-        menu-group-my-link: Full list of boards created by me
       ui_components_NavigationBar_IssuesPanel:
         all-items-link: All issues
         caption: Issues
@@ -5020,8 +3803,6 @@ default:
         default-title: Sort
       ui_components_Table2:
         added-columns: Added
-      ui_components_TextEditor:
-        submit: Send
       ui_components_timetracking-history-dialog_TimeTrackingDialogBody:
         column-comment: Comment
         column-date: Log date
@@ -5045,7 +3826,6 @@ default:
         type-AddTextToFieldFunction: Fill in the field
         type-CalculateFieldFunction: Enter totals in the field
         type-MoveUsersFunction: Move or copy the list of users to another field
-        type-NotifyBillingFunction: Send notification
         type-RemoveFieldValueFunction: Clear field content
         type-RemoveUsersFromCcFunction: Delete user from observers
         type-SendEmailFunction: Send email
@@ -5075,9 +3855,6 @@ default:
         product-pricing-type_byol: BYOL
         product-pricing-type_free: Free
         product-pricing-type_payg: PAYG
-      organization:
-        action:
-          select: Continue
       settings:
         field_theme: Interface theme
         field_theme-contrast: Contrast
@@ -5141,8 +3918,6 @@ default:
             title: Dashboards
           explorer:
             title: Metric Explorer
-          project:
-            title: Project
           prometheus:
             title: Prometheus
       channel:
@@ -5160,26 +3935,12 @@ default:
       component:
         parametrizer:
           dashboard:
-            field-hidden-key-value: Don't show in UI
             multivalue-key-value: Multivalue
           default-value: Default value
           type:
             custom: Custom
             query: Label
             text-field: Text
-        share-button:
-          share: Share
-        share-form:
-          fields:
-            parameters:
-              values:
-                current: Selected
-                default: Default
-            time-window:
-              title: Time range
-              values:
-                dynamic: Dynamic
-                static: Fixed
       dashboard:
         dash:
           create-alert: Create alert
@@ -5227,10 +3988,6 @@ default:
         title:
           evaluation-window: Evaluation window
           time-shift: Evaluation delay
-      project:
-        tab:
-          access:
-            title: Access
       prometheus:
         form:
           submit-button:
@@ -5618,7 +4375,6 @@ default:
             section_resources: Clouds
           dashboard:
             button_refill: Top up account
-            popup-go-pay_label_confirmation: I am switching to the paid version
             popup-grant-activation_button_activate: Activate
           detail:
             button_create-periodic-export: Periodic export
@@ -5782,7 +4538,7 @@ default:
         label_status-backup: Backup
         value_active: Active
         value_backup: Backup
-        value_certificate-custom: Your certificate
+        value_certificate-custom: Certificate from Certificate Manager
         value_certificate-no: Don't use
         value_certificate-status-ready: Issued
         value_do-not-use: Don't use
@@ -5922,6 +4678,7 @@ default:
         label_value: Value
         labels: Labels
         logs: Logs
+        metadata: Metadata
         metric: Metric
         monitoring: Monitoring
         move: Move
@@ -5935,7 +4692,6 @@ default:
         password: Password
         remove: Delete
         resource-acl:
-          button_add-federation-user: Add federation user
           button_assign-binding: Edit roles
           button_invite-users: Invite users
           button_new-bindings: Assign bindings
@@ -6190,7 +4946,6 @@ default:
         instance:
           console:
             connect: Connect
-            disconnect: End session
           edit-network-interface:
             field_security-groups-ids: Security groups
           edit:
@@ -6269,7 +5024,6 @@ default:
             image_value_marketplace: Cloud Marketplace
             image_value_os-products: Operating systems
             label_add-disk: Add disk
-            label_add-network-interface: Add network interface
             label_backup: Backups
             label_network: Network
             section_access: Access
@@ -6415,7 +5169,6 @@ default:
         label_connector-status-DONE: Completed
         label_connector-status-RUNNING: Replicating
         label_connectors: Transfers
-        label_dashboard-link: Link to dashboard
         label_endpoint-type-CLICKHOUSE: ClickHouse
         label_endpoint-type-GREENPLUM: Greenplum
         label_endpoint-type-KAFKA: Kafka
@@ -6979,6 +5732,7 @@ default:
         label_loggroup: Log group
         label_retention-period: Log retention
         label_sinks: Sinks
+        label_title: Logging
       marketplace-v2:
         button_use: Use
       mdb:
@@ -7077,7 +5831,6 @@ default:
             label_service-account: Service account
             label_services: Services
             label_status: Status
-            label_storage-enabled: enabled
             section_additional: Advanced settings
             section_resource: Resources
             section_ui-proxy: UI Proxy
@@ -7147,7 +5900,6 @@ default:
           additional-field-datatransfer: Data Transfer access
           additional-field-metrika: Access from Metrica and AppMetrica
           additional-field-serverless: Serverless access
-          additional-field-sox: IDM
           additional-field-websql: Access from the management console
           additional-field-yandex-query: ''
           backup-retain-period: Retention period for automatic backups, days
@@ -7314,9 +6066,6 @@ default:
         title_dashboards: Dashboards
         title_data-node: Data node
         title_opensearch-dashboards-section: OpenSearch Dashboards
-      page:
-        welcome:
-          button_send: Log in
       postgresql:
         cluster:
           additional-field-pooling_mode: Pooling mode
@@ -7416,7 +6165,11 @@ default:
             label_bucket: Bucket
             label_bucket-prefix: Folder
             label_failed-sa: Destination for unsuccessful result
+            label_lockbox-env-key: Environment variable
             label_lockbox-secret: Lockbox secrets
+            label_lockbox-secret-id: Secret ID
+            label_lockbox-secret-key: Secret key
+            label_lockbox-version-id: Version ID
             label_mount-point-name: Mount point
             label_mount-point-path: Mount path
             label_mq: Message Queue
@@ -7717,10 +6470,6 @@ default:
           button_save: Save
           label_title: ACL editing
         switch_buckets: Buckets
-      support:
-        contact:
-          label_title: Queries
-        label_service: Support
       vdi:
         button_acl: Configure ACL
         button_add-image: Add image
@@ -7824,7 +6573,6 @@ default:
             popup-route-table_field_route-table-id: Route table
         subnetworks:
           button_action-add-route-table: Link routing table
-          button_action-egress-nat-enable: Enable egress NAT
           create:
             button_add-cidr: Add CIDR
             button_add-domain-name-server: Add domain name server
@@ -8285,142 +7033,11 @@ default:
               console:
                 form:
                   logbroker:
-                    GenericParser:
-                      add_system_cols:
-                        title: Adding Logbroker system columns
-                      data_schema:
-                        title: Data scheme
-                      format:
-                        title: Data format
-                      null_keys_allowed:
-                        title: Enable NULL values in keys
-                      skip_dedupe_keys:
-                        title: User key
-                      timestamp:
-                        title: Column containing timestamp
-                    LogbrokerConnection:
-                      connection_type:
-                        title: Connection type
-                      consumer:
-                        title: Consumer
-                      topics:
-                        title: Topics
-                    LogbrokerConnectionType:
-                      cluster:
-                        title: Cluster
-                      instance:
-                        title: Instance
-                    LogbrokerReadOptions:
-                      allow_ttl_rewind:
-                        title: >-
-                          Should continue working, if consumer read lag exceed
-                          TTL of topic
-                      buffer_max_size:
-                        title: Read buffer size
-                      mask_secrets:
-                        title: Mask secrets
-                      max_time_lag:
-                        title: Maximum data consumption latency
-                    LogbrokerSource:
-                      connection:
-                        title: Connection settings
-                      parser:
-                        title: Parser rules
-                      read_options:
-                        title: Read options
-                      table_splitter:
-                        title: Split into sub tables
-                    LogbrokerTargetConnectionSettings:
-                      topic_settings:
-                        title: Topic
-                    LogbrokerTargetTopicSettings:
-                      topic:
-                        title: Topic full name
-                    LogfellerParser:
-                      add_system_cols:
-                        title: Adding Logbroker system columns
-                      data_schema:
-                        title: Data scheme
-                      format:
-                        title: Parser name
                     ParserConfigCommon:
                       parser_config_audit_trails_v1:
                         title: AuditTrails.v1 parser
                       parser_config_common_cloud_logging:
                         title: CloudLogging parser
-                    ParserConfigLb:
-                      parser_config_blank:
-                        title: No parser
-                      parser_config_lb_json:
-                        title: json
-                      parser_config_lb_tskv:
-                        title: tskv
-                      parser_config_logfeller:
-                        title: Logfeller parser
-                      parser_config_yql:
-                        title: YQL parser
-                    YQLParser:
-                      add_synthetic_keys:
-                        title: Synthetic keys
-                      output_key_columns:
-                        title: Result key columns
-                      script:
-                        title: YQL script
-            logfeller:
-              console:
-                form:
-                  logfeller:
-                    LogFellerBaseParserOptions:
-                      calc_puid_hash:
-                        title: Enable hashing of the PUID column
-                      precomputers:
-                        title: List of precomputers
-                      time_options:
-                        title: Event time
-                    LogFellerDateTimeFormat:
-                      tz_mode:
-                        title: Time zone
-                    LogFellerParsedRecordTime:
-                      additional_format:
-                        title: Additional time format
-                      format:
-                        title: Format field value with time
-                    LogFellerParser:
-                      parser_name:
-                        title: External parser
-                      parser_options:
-                        title: Embedded parser
-                    LogFellerParserOptions:
-                      common:
-                        title: Basic options
-                      raw_data_format:
-                        title: Raw format description
-                    LogFellerParsingOptions:
-                      chunk_splitter_name:
-                        title: Chunk splitter
-                      parser:
-                        title: Parser
-                      vault_secrets:
-                        title: Secure YT environment variables
-                      yt_resources:
-                        title: Additional resources
-                    LogFellerRawDataFormat:
-                      json_parser:
-                        title: JSON
-                      tskv_parser:
-                        title: TSKV
-                    LogFellerSource:
-                      index_yt_processing_options:
-                        title: YT operations settings for indexing
-                      logbroker_consumer:
-                        title: YT delivery
-                      parsing_options:
-                        title: Parsing options
-                      topic_path:
-                        title: Logbroker topic
-                    LogFellerTskvParserOptions:
-                      schema:
-                        title: Data schema
             metrika:
               console:
                 form:
@@ -8793,19 +7410,12 @@ default:
                     RegularSnapshotSettings:
                       increment_delay_seconds:
                         title: Wait for transaction completion time, in seconds
-                    Runtime:
-                      multi_yt:
-                        title: Multi YT
-                      yt:
-                        title: YT
                     SnapshotSettings:
                       parallel_settings:
                         title: Parallel snapshot settings
                     Transfer:
                       data_objects:
                         title: List of objects to be transferred (Preview)
-                      runtime:
-                        title: Runtime environment
                       title: Transfer parameters
                       transformation:
                         title: Data transformation (Preview)
@@ -8829,25 +7439,6 @@ default:
                         title: Incremental tables
                       regular_snapshot:
                         title: Periodic snapshot
-                    YTRuntime:
-                      cpu:
-                        title: CPU
-                      pool:
-                        title: Pool type
-                      ram:
-                        title: RAM
-                    YtRuntimeCluster:
-                      YT_RUNTIME_CLUSTER_ARNOLD:
-                        title: ARNOLD
-                      YT_RUNTIME_CLUSTER_HAHN:
-                        title: HAHN
-                      YT_RUNTIME_CLUSTER_VANGA:
-                        title: VANGA
-                    YTRuntimePool:
-                      common:
-                        title: Common
-                      private:
-                        title: Private
             ydb:
               console:
                 form:
@@ -8855,8 +7446,6 @@ default:
                     YdbConnectionSettings:
                       database:
                         title: Database
-                      instance:
-                        title: YDB endpoint
                       service_account_id:
                         title: Service account ID
                     YdbPartitionPolicy:
@@ -8879,21 +7468,15 @@ default:
                         title: Cleanup policy
                       connection:
                         title: Connection settings
-                      replace_upload:
-                        title: YQL Writer
                     YdbTargetAdvancedSettings:
                       alt_names:
                         title: Renaming tables
-                      compaction_policy:
-                        title: Compaction policy
                       partition_policy:
                         title: Table rotation
                       path:
                         title: Sub directory for tables
                       shard_count:
                         title: Number of shards
-                      storage_policy:
-                        title: Storage policy
             yds:
               console:
                 form:
@@ -8930,22 +7513,6 @@ default:
                     YDSTargetAdvancedSettings:
                       save_tx_order:
                         title: Save tx order
-            yt:
-              console:
-                form:
-                  yt:
-                    YTSource:
-                      paths:
-                        title: Tables and directory
-                    YTSourceAdvancedSettings:
-                      row_index_column_name:
-                        title: Row index column name
-                    YTSourceConnectionSettings:
-                      token:
-                        title: Token
-                    YTTarget:
-                      path:
-                        title: Path
         endpoint:
           airbyte:
             aws_cloud_trail_source:
@@ -9041,12 +7608,6 @@ default:
                           title: Verify SSL certificate
                       schema:
                         title: Schema
-          lfstaging:
-            endpoint:
-              lfstaging:
-                LfStagingTarget:
-                  cluster:
-                    title: YT cluster
         transfer:
           transfer:
             Transformation:

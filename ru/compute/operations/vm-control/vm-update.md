@@ -152,3 +152,7 @@
         Имеющийся набор метаданных будет полностью перезаписан.
 
 {% endlist %}
+
+### Удалить SSH-ключи из метаданных {#delete-keys-from-metadata}
+
+{% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}

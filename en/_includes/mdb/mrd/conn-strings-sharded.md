@@ -37,6 +37,8 @@
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 When you are connected to the cluster, run the commands:
 
 ```bash
@@ -194,6 +196,8 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Connect to cluster](./connect/go/after-connect.md) %}
 
 ### Java {#java}
@@ -288,6 +292,8 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
    ```
 
 {% endlist %}
+
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
 
 {% include [Connect to cluster](./connect/java/after-connect.md) %}
 
@@ -396,6 +402,8 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Connect to cluster](./connect/nodejs/after-connect.md) %}
 
 ### PHP {#php}
@@ -470,6 +478,8 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Connect to cluster](./connect/php/after-connect.md) %}
 
 ### Python {#python}
@@ -541,6 +551,8 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [Connect to cluster](./connect/python/after-connect.md) %}
 
 ### Ruby {#ruby}
@@ -607,5 +619,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
    ```
 
 {% endlist %}
+
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
 
 {% include [Connect to cluster](./connect/ruby/after-connect.md) %}

@@ -97,7 +97,7 @@ The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
    wsl -l
    ```
 
-   If WSL is installed, the terminal displays a list of available distributions, such as:
+   If WSL is installed, the terminal will display a list of available distributions, for example:
 
    ```bash
    Windows Subsystem for Linux Distributions:
@@ -107,7 +107,7 @@ The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
    ```
 
 1. If WSL is not installed, [install](https://learn.microsoft.com/en-us/windows/wsl/install) it and repeat the previous step.
-1. In addition, you can install a familiar Linux distribution, such as [Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview), on WSL.
+1. In addition, you can install on WSL a familiar Linux distribution, e.g., [Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview).
 
 1. To make the installed distribution the default system, run:
 
@@ -135,7 +135,7 @@ All the steps described below are completed in the Linux terminal.
 
    1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
    1. In the **Service accounts** tab, click **Create service account**.
-   1. Enter a name for the service account, such as `sa-terraform`.
+   1. Enter a name for the service account, e.g., `sa-terraform`.
 
       The name format requirements are as follows:
 
@@ -163,7 +163,7 @@ All the steps described below are completed in the Linux terminal.
       yc iam service-account create --name sa-terraform
       ```
 
-      Where `name` is the name of the service account in the following format:
+      In this command, replace `name` with the name of the service account. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -302,7 +302,7 @@ All the steps described below are completed in the Linux terminal.
          Where:
 
          * `service-account-id`: ID of your service account.
-         * `folder-id`: ID of the folder where the service account was created.
+         * `folder-id`: ID of the folder the service account was created in.
          * `output`: Name of the file with the authorized key.
 
          Result:
@@ -336,8 +336,8 @@ All the steps described below are completed in the Linux terminal.
 
          Where:
 
-         * `service-account-key`: File with the service account authorized key.
-         * `cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md).
+         * `service-account-key`: File with the authorized key of the service account.
+         * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
 
       1. Add the credentials to the environment variables:

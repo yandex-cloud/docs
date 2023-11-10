@@ -25,16 +25,11 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
-      1. Enter a name and description of the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
+      1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
       1. Select the environment where you want to create the {{ mkf-name }} cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       1. Select the {{ KF }} version.
-      1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
-         1. After creating your {{ mkf-name }} cluster, [create an admin user](cluster-accounts.md#create-user).
-
-         {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
-
       1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **{{ ui-key.yacloud.kafka.field_schema-registry }}** setting.
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
@@ -150,18 +145,6 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-   1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
-      1. When creating a {{ mkf-name }} cluster, set the `--unmanaged-topics` parameter to `true`:
-
-         ```bash
-         {{ yc-mdb-kf }} cluster create \
-           ...
-           --unmanaged-topics true
-         ```
-
-         You cannot edit this setting after you create a {{ mkf-name }} cluster.
-      1. After creating your {{ mkf-name }} cluster, [create an admin user](./cluster-accounts.md#create-user).
-
    
    1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
 
@@ -190,7 +173,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       
@@ -271,10 +254,6 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
-   1. Set the `unmanagedTopics` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
-   1. After creating your {{ mkf-name }} cluster, [create an admin user](./cluster-accounts.md#create-user).
-
    To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
@@ -342,7 +321,7 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
 
 - {{ TF }}
 
-   Create a {{ mkf-name }} cluster with the following test configuration:
+   Create a {{ mkf-name }} cluster with the following test characteristics:
    * Cloud ID: `{{ tf-cloud-id }}`
    * Folder ID: `{{ tf-folder-id }}`
    * Name: `mykf`

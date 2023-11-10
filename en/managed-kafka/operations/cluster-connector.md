@@ -112,7 +112,7 @@ You can:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify:
 
       * Connector name.
-      * Task limit: Number of concurrent processes. We recommend a value not less than `2` for even replication load distribution.
+      * Task limit: Number of concurrent processes. We recommend a value of at least `2` for even replication load distribution.
 
    1. Under **{{ ui-key.yacloud.kafka.section_properties }}**, specify the connector properties in the following format:
 
@@ -167,6 +167,8 @@ You can:
                            `sasl-password=<user password>,`
                            `ssl-truststore-certificates=<PEM certificates>
       ```
+
+      {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
       You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -243,6 +245,8 @@ You can:
       }
       ```
 
+      {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
    1. To create an S3 Sink connector, add the `yandex_mdb_kafka_connector` resource with the `connector_config_s3_sink` settings section:
 
       ```hcl
@@ -273,7 +277,7 @@ You can:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -415,7 +419,7 @@ You can:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -534,12 +538,12 @@ To pause a connector:
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. Delete the `yandex_mdb_kafka_connector` resource with the description of the desired connector.
+   1. Delete the `yandex_mdb_kafka_connector` resource with the description of the connector you need.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -562,11 +566,10 @@ To pause a connector:
 
 - Management console
 
-   * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: Template for selecting topics to replicate. Topic names are separated by a comma or `|` in the list. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
+   * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: Template for selecting topics to replicate. Topic names are separated by a comma or `|` in the list. You can use the `.*` expression, for example, `analysis.*`. To migrate all topics, specify `.*`.
    * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: Number of topic copies stored in the cluster.
    * Under **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-source-cluster }}**, specify the parameters for connecting to the source cluster:
       * **{{ ui-key.yacloud.kafka.field_connector-alias }}**: Prefix for the source cluster in the connector settings.
-
 
          {% note info %}
 
@@ -577,29 +580,29 @@ To pause a connector:
       * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}**: Select this option to use the current cluster as a source.
       * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Comma-separated list of the FQDNs of the source cluster broker hosts with the port numbers to connect to, e.g., `broker1.example.com:9091,broker2.example.com`.
 
-         You can request the FQDNs of {{ mkf-name }} broker hosts with a [list of cluster hosts](cluster-hosts.md#list-hosts).
+         {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
       * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}**: Username for connecting the connector to the source cluster.
       * **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}**: User password for connecting the connector to the source cluster.
       * **{{ ui-key.yacloud.kafka.field_connector-sasl-mechanism }}**: Select a mechanism for name and password encryption.
       * **{{ ui-key.yacloud.kafka.field_connector-security-protocol }}**: Select a protocol for connecting the connector:
-         * `PLAINTEXT`, `SASL_PLAINTEXT`: For non-SSL connections
-         * `SSL`, `SASL_SSL`: For SSL connections
+         * `plaintext`, `sasl_plaintext`: For non-SSL connections
+         * `ssl`, `sasl_ssl`: For SSL connections
       * **{{ ui-key.yacloud.kafka.field_connector-ssl-truststore-certificates }}**: Upload a PEM certificate to access the external cluster.
 
    * Under **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-target-cluster }}**, specify the parameters for connecting to the target cluster:
       * **{{ ui-key.yacloud.kafka.field_connector-alias }}**: Prefix for the target cluster in the connector settings.
       * **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}**: Select this option to use the current cluster as a target.
-      * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Comma-separated list of the FQDNs or IPs of the target cluster broker hosts with the ports to connect to.
+      * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}**: Сomma-separated list of the FQDNs of the target cluster broker hosts with the port numbers to connect to.
 
-         You can request the FQDNs of {{ mkf-name }} broker hosts with a [list of cluster hosts](cluster-hosts.md#list-hosts).
+         {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
       * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}**: Username for connecting the connector to the target cluster.
       * **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}**: User password for connecting the connector to the target cluster.
       * **{{ ui-key.yacloud.kafka.field_connector-sasl-mechanism }}**: Select a mechanism for name and password encryption.
       * **{{ ui-key.yacloud.kafka.field_connector-security-protocol }}**: Select a protocol for connecting the connector:
-         * `PLAINTEXT`, `SASL_PLAINTEXT`: For non-SSL connections
-         * `SSL`, `SASL_SSL`: For SSL connections
+         * `plaintext`, `sasl_plaintext`: For non-SSL connections
+         * `ssl`, `sasl_ssl`: For SSL connections
       * **{{ ui-key.yacloud.kafka.field_connector-ssl-truststore-certificates }}**: Upload a PEM certificate to access the external cluster.
 
    * To specify additional setting values not listed above, create the relevant keys and specify their values under **{{ ui-key.yacloud.kafka.section_properties }}** when [creating](#create) or [editing](#update) a connector. Here are some sample keys:
@@ -611,50 +614,53 @@ To pause a connector:
 
 - CLI
 
-   * `--cluster-name` is the name of a cluster.
-   * `--direction`: Connector direction:
+   * `--cluster-name`: Cluster name.
+   * `--direction`: Connector direction.
 
       * `ingress`: If the cluster is a target.
       * `egress`: If the cluster is a source.
 
-   * `--tasks-max`: The number of concurrent processes. A value of at least `2` is recommended for even replication load distribution.
-   * `--properties`: A comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
+   * `--tasks-max`: Number of concurrent processes. We recommend a value of at least `2` for even replication load distribution.
+   * `--properties`: Comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
 
       * `key.converter`
       * `value.converter`
 
       For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
 
-   * `--replication-factor`: The number of topic copies stored in the cluster.
-   * `--topics`: A template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
-   * `--this-cluster-alias`: A prefix to indicate this cluster in the connector settings.
+   * `--replication-factor`: Number of topic copies stored in the cluster.
+   * `--topics`: Template for selecting topics to replicate. Topic names are separated by a comma or `|` in the list. You can use the `.*` expression, for example, `analysis.*`. To migrate all topics, specify `.*`.
+   * `--this-cluster-alias`: Prefix for this cluster in the connector settings.
    * `--external-cluster`: Parameters of an external cluster:
 
-      * `alias`: A prefix to indicate the external cluster in the connector settings.
-      * `bootstrap-servers`: A comma-separated list of the FQDNs of the external cluster's broker hosts with the port numbers to connect to.
-      * `security-protocol`: A connector connection protocol:
+      * `alias`: Prefix for the external cluster in the connector settings.
+      * `bootstrap-servers`: Comma-separated list of the FQDNs of the external cluster broker hosts with the port numbers to connect to.
 
-         * `plaintext`, `sasl_plaintext`: For non-SSL connections.
-         * `ssl`, `sasl_ssl`: For SSL connections.
+         {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
-      * `sasl-mechanism`: A name and password encryption mechanism.
-      * `sasl-username`: A username for connecting the connector to the external cluster.
-      * `sasl-password`: A user password for connecting the connector to the external cluster.
-      * `ssl-truststore-certificates`: A list of PEM certificates.
+      * `security-protocol`: Connector connection protocol:
+
+         * `plaintext`, `sasl_plaintext`: For non-SSL connections
+         * `ssl`, `sasl_ssl`: For SSL connections
+
+      * `sasl-mechanism`: Name and password encryption mechanism.
+      * `sasl-username`: Username for connecting the connector to the external cluster.
+      * `sasl-password`: User password for connecting the connector to the external cluster.
+      * `ssl-truststore-certificates`: List of PEM certificates.
 
 - {{ TF }}
 
-   * **properties**: A comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
+   * **properties**: Comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
 
       * `key.converter`
       * `value.converter`
 
       For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
 
-   * **topics**: A template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
-   * **replication_factor**: The number of topic copies stored in the cluster.
+   * **topics**: Template for selecting topics to replicate. Topic names are separated by a comma or `|` in the list. You can use the `.*` expression, for example, `analysis.*`. To migrate all topics, specify `.*`.
+   * **replication_factor**: Number of topic copies stored in the cluster.
    * **source_cluster** and **target_cluster**: Parameters for connecting to the source cluster and target cluster:
-      * **alias**: A prefix to indicate the cluster in the connector settings.
+      * **alias**: Prefix for the cluster in the connector settings.
 
          {% note info %}
 
@@ -662,15 +668,18 @@ To pause a connector:
 
          {% endnote %}
 
-      * **this_cluster**: An option to use the current cluster as a source or target.
+      * **this_cluster**: Option to use the current cluster as a source or target.
       * **external_cluster**: Parameters for connecting to the external cluster:
-         * **bootstrap_servers**: A comma-separated list of the FQDNs of the cluster's broker hosts with the port numbers to connect to.
-         * **sasl_username**: A username to use for connecting the connector to the cluster.
-         * **sasl_password**: A user password to use for connecting the connector to the cluster.
-         * **sasl_mechanism**: A name and password encryption mechanism.
-         * **security_protocol**: A connector connection protocol:
-            * `PLAINTEXT`, `SASL_PLAINTEXT`: For non-SSL connections.
-            * `SSL`, `SASL_SSL`: For SSL connections.
+         * **bootstrap_servers**: Comma-separated list of the FQDNs of the cluster broker hosts with the port numbers to connect to.
+
+            {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
+         * **sasl_username**: Username for connecting the connector to the cluster.
+         * **sasl_password**: User password for connecting the connector to the cluster.
+         * **sasl_mechanism**: Name and password encryption mechanism.
+         * **security_protocol**: Connector connection protocol:
+            * `plaintext`, `sasl_plaintext`: For non-SSL connections
+            * `ssl`, `sasl_ssl`: For SSL connections
          * **ssl_truststore_certificates**: PEM certificate contents.
 
 {% endlist %}
@@ -686,8 +695,8 @@ To pause a connector:
 
       * `none` (default): No compression
       * `gzip`: [gzip](https://www.gzip.org) codec
-      * `snappy`: [snappy](https://github.com/google/snappy) codec.
-      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec.
+      * `snappy`: [snappy](https://github.com/google/snappy) codec
+      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec
 
       You cannot change this parameter after creating the cluster.
 
@@ -713,8 +722,8 @@ To pause a connector:
 - CLI
 
    * `--cluster-name` is the name of a cluster.
-   * `--tasks-max`: The number of concurrent processes. A value of at least `2` is recommended for even replication load distribution.
-   * `--properties`: A comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
+   * `--tasks-max`: Number of concurrent processes. We recommend a value of at least `2` for even replication load distribution.
+   * `--properties`: Comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
 
       * `key.converter`
       * `value.converter`
@@ -723,13 +732,13 @@ To pause a connector:
 
       For the list of all connector settings, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
 
-   * `--topics`: A template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
-   * `--file-compression-type`: Codec for message compression. You cannot change this parameter after creating the cluster. Acceptable values:
+   * `--topics`: Template for selecting topics to replicate. Topic names are separated by a comma or `|` in the list. You can use the `.*` expression, for example, `analysis.*`. To migrate all topics, specify `.*`.
+   * `--file-compression-type`: Codec for message compression. You cannot change this parameter after creating the cluster. Acceptable values include:
 
-      * `none` (default): No compression.
-      * `gzip`: [gzip](https://www.gzip.org) codec.
-      * `snappy`: [snappy](https://github.com/google/snappy) codec.
-      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec.
+      * `none` (default): No compression
+      * `gzip`: [gzip](https://www.gzip.org) codec
+      * `snappy`: [snappy](https://github.com/google/snappy) codec
+      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec
 
    * `--file-max-records`: Maximum number of records that can be written to a single file in S3-compatible storage.
    * `--bucket-name`: The name of the bucket in S3-compatible storage to write data to.
@@ -742,7 +751,7 @@ To pause a connector:
 
 - {{ TF }}
 
-   * **properties**: A comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
+   * **properties**: Comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
 
       * `key.converter`
       * `value.converter`
@@ -751,13 +760,13 @@ To pause a connector:
 
       For the list of all connector settings, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
 
-   * **topics**: A template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
-   * **file_compression_type**: Codec for message compression. You cannot change this parameter after creating the cluster. Acceptable values:
+   * **topics**: Template for selecting topics to replicate. Topic names are separated by a comma or `|` in the list. You can use the `.*` expression, for example, `analysis.*`. To migrate all topics, specify `.*`.
+   * **file_compression_type**: Codec for message compression. You cannot change this parameter after creating the cluster. Acceptable values include:
 
-      * `none` (default): No compression.
-      * `gzip`: [gzip](https://www.gzip.org) codec.
-      * `snappy`: [snappy](https://github.com/google/snappy) codec.
-      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec.
+      * `none` (default): No compression
+      * `gzip`: [gzip](https://www.gzip.org) codec
+      * `snappy`: [snappy](https://github.com/google/snappy) codec
+      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec
 
    * **file_max_records**: Maximum number of records that can be written to a single file in S3-compatible storage.
    * **s3_connection**: S3-compatible storage connection parameters:

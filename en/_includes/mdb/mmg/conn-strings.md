@@ -1,6 +1,6 @@
 ### Bash {#bash}
 
-Before connecting, install the [MongoDB Shell utility](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell).
+Before connecting, install the [MongoDB Shell utility]({{ shell-link }}).
 
 {% list tabs %}
 
@@ -39,6 +39,8 @@ Before connecting, install the [MongoDB Shell utility](https://docs.mongodb.com/
    ```
 
 {% endlist %}
+
+{% include [see-fqdn-host](fqdn-host.md) %}
 
 After connecting, run the `db` command.
 
@@ -143,6 +145,8 @@ sudo apt update && sudo apt install --yes golang git && \
    ```
 
 {% endlist %}
+
+{% include [see-fqdn-host](fqdn-host.md) %}
 
 **Connection:**
 
@@ -350,6 +354,8 @@ go run connect.go
 
 {% endlist %}
 
+{% include [see-fqdn-host](fqdn-host.md) %}
+
 **Connection:**
 
 ```bash
@@ -443,6 +449,8 @@ npm install mongodb
 
 {% endlist %}
 
+{% include [see-fqdn-host](fqdn-host.md) %}
+
 **Connection:**
 
 ```bash
@@ -534,6 +542,8 @@ sudo apt update && sudo apt install --yes php php-mongodb
 
 {% endlist %}
 
+{% include [see-fqdn-host](fqdn-host.md) %}
+
 **Connection:**
 
 ```bash
@@ -570,6 +580,8 @@ Before connecting, install the [MongoDB Shell utility](https://www.mongodb.com/t
 
 {% endlist %}
 
+{% include [see-fqdn-host](fqdn-host.md) %}
+
 After connecting, run the `db` command.
 
 ### Python {#python}
@@ -579,6 +591,12 @@ After connecting, run the `db` command.
 ```bash
 sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install pyMongo
+```
+
+To find out the name of a replica set, connect to the database via [MongoDB Shell](#bash) and run this command:
+
+```bash
+rs.status().set
 ```
 
 {% list tabs %}
@@ -656,6 +674,8 @@ pip3 install pyMongo
    ```
 
 {% endlist %}
+
+{% include [see-fqdn-host](fqdn-host.md) %}
 
 **Connection:**
 

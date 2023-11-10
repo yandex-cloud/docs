@@ -44,7 +44,7 @@ When restored to the current state, the new cluster will match the state of:
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
    1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
-   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster ID>:<backup ID>` format.
+   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
    1. To restore the cluster state to the required point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** as appropriate. You can enter the value manually or select it from the drop-down calendar.
@@ -76,12 +76,12 @@ When restored to the current state, the new cluster will match the state of:
       ```
 
       ```text
-      +-------------------------+---------------------+----------------------+---------------------+
-      |            ID           |      CREATED AT     |  SOURCE CLUSTER ID   |      STARTED AT     |
-      +-------------------------+---------------------+----------------------+---------------------+
-      | c9qlk4v13uq79r9cgcku... | 2020-08-10 12:00:00 | c9qlk4v13uq79r9cgcku | 2020-08-10 11:55:17 |
-      | ...                                                                                        |
-      +-------------------------+---------------------+----------------------+---------------------+
+      +--------------------------+---------------------+----------------------+---------------------+
+      |              ID          |      CREATED AT     |  SOURCE CLUSTER ID   |      STARTED AT     |
+      +--------------------------+---------------------+----------------------+---------------------+
+      | c9qlk4v13uq7********:... | 2020-08-10 12:00:00 | c9qlk4v13uq7******** | 2020-08-10 11:55:17 |
+      | ...                                                                                         |
+      +--------------------------+---------------------+----------------------+---------------------+
       ```
 
       The time when the backup was completed is shown in the `CREATED AT` column with a list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with creation of its backup.
@@ -91,24 +91,24 @@ When restored to the current state, the new cluster will match the state of:
       
       ```bash
       {{ yc-mdb-pg }} cluster restore \
-         --backup-id=<backup ID> \
-         --time=<point in time to restore the {{ PG }} cluster to> \
-         --name=<cluster name> \
-         --environment=<environment: PRESTABLE or PRODUCTION> \
-         --network-name=<network name> \
-         --host zone-id=<availability zone>,`
-               `subnet-name=<subnet name>,`
-               `assign-public-ip=<public access to the host: true or false> \
-         --resource-preset=<host class> \
-         --disk-size=<storage size in GB> \
-         --disk-type=<disk type>
+         --backup-id=<backup_ID> \
+         --time=<time> \
+         --name=<cluster_name> \
+         --environment=<environment> \
+         --network-name=<network_name> \
+         --host zone-id=<availability_zone>,`
+               `subnet-name=<subnet_name>,`
+               `assign-public-ip=<public_access_to_host> \
+         --resource-preset=<host_class> \
+         --disk-size=<storage_size_in_GB> \
+         --disk-type=<disk_type>
       ```
 
 
       Where:
 
       * `--backup-id`: [Backup](../concepts/backup.md) ID.
-      * `--time`: Point in time to which you need to restore a {{ PG }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format.
+      * `--time`: Time point to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
@@ -122,12 +122,12 @@ When restored to the current state, the new cluster will match the state of:
 
          
          * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
-         * `assign-public-ip`: Flag to be set if [public access to the host](../concepts/network.md#public-access-to-a-host) is required.
+         * `assign-public-ip`: Flag to be set if [public access to the host](../concepts/network.md#public-access-to-a-host) is required, `true` or `false`.
 
 
       * `--resource-preset`: [Host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
-      * `disk-type`: [Type of the disk](../concepts/storage.md):
+      * `--disk-type`: [Disk type](../concepts/storage.md):
 
          
          * `network-hdd`
@@ -159,7 +159,7 @@ When restored to the current state, the new cluster will match the state of:
    +--------------------------+---------------------+----------------------+---------------------+
    |            ID            |      CREATED AT     |  SOURCE CLUSTER ID   |      STARTED AT     |
    +--------------------------+---------------------+----------------------+---------------------+
-   | c9qlk4v13uq79r9cgcku...  | 2020-08-10 12:00:00 | c9qlk4v13uq79r9cgcku | 2020-08-10 11:55:17 |
+   | c9qlk4v13uq7********:... | 2020-08-10 12:00:00 | c9qlk4v13uq7******** | 2020-08-10 11:55:17 |
    | ...                                                                                         |
    +--------------------------+---------------------+----------------------+---------------------+
    ```
@@ -175,16 +175,19 @@ When restored to the current state, the new cluster will match the state of:
    1. Add a block named `restore` to the configuration file:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
         restore {
-          backup_id = "<desired backup ID>"
-          time      = "<restore time stamp in yyyy-mm-ddThh:mm:ss format>"
+          backup_id = "<backup_ID>"
+          time      = "<time>"
         }
       }
       ```
 
-      In the `time` parameter, specify the point in time to which you want to restore the {{ PG }} cluster, starting from when the selected backup was created.
+      Where:
+
+      * `backup_id`: Backup ID.
+      * `time`: Time point to restore the {{ PG }} cluster to, starting from the selected backup's creation time, in `yyyy-mm-ddThh:mm:ss` format.
 
       {% note info %}
 
@@ -211,13 +214,15 @@ When restored to the current state, the new cluster will match the state of:
    1. In the configuration file, add a `restore` section with the name of the backup to restore the cluster from:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
         restore {
-            backup_id = "<ID of the backup for the remote cluster>"
+            backup_id = "<backup_ID>"
         }
       }
       ```
+
+      Where `backup-id` is the ID of the remote cluster's backup.
 
    1. Make sure the settings are correct.
 
@@ -233,8 +238,8 @@ When restored to the current state, the new cluster will match the state of:
 
    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
-   * ID of the backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * Timestamp to which you want to recover the cluster, in the `time` parameter.
+   * Backup ID in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+   * Time point to which you want to restore the cluster, in the `time` parameter.
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
    By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `folderId` parameter.
@@ -309,12 +314,12 @@ When restored to the current state, the new cluster will match the state of:
    ```
    {{ yc-mdb-pg }} backup list
 
-   +----------+---------------------+----------------------+---------------------+
-   |    ID    |      CREATED AT     |  SOURCE CLUSTER ID   |      STARTED AT     |
-   +----------+---------------------+----------------------+---------------------+
-   | c9qlk... | 2020-08-10 12:00:00 | c9qlk4v13uq79r9cgcku | 2020-08-10 11:55:17 |
-   | c9qpm... | 2020-08-09 22:01:04 | c9qpm90p3pcg71jm7tqf | 2020-08-09 21:30:00 |
-   +----------+---------------------+----------------------+---------------------+
+   +--------------------------+---------------------+----------------------+---------------------+
+   |            ID            |      CREATED AT     |  SOURCE CLUSTER ID   |      STARTED AT     |
+   +--------------------------+---------------------+----------------------+---------------------+
+   | c9qlk4v13uq7********:... | 2020-08-10 12:00:00 | c9qlk4v13uq7******** | 2020-08-10 11:55:17 |
+   | c9qpm90p3pcg********:... | 2020-08-09 22:01:04 | c9qpm90p3pcg******** | 2020-08-09 21:30:00 |
+   +--------------------------+---------------------+----------------------+---------------------+
    ```
 
 - API
@@ -351,7 +356,7 @@ When restored to the current state, the new cluster will match the state of:
    To get information about a {{ PG }} cluster backup, run the command:
 
    ```
-   {{ yc-mdb-pg }} backup get <backup ID>
+   {{ yc-mdb-pg }} backup get <backup_ID>
    ```
 
    You can retrieve the backup ID with a [list of backups](#list-backups).
@@ -378,22 +383,24 @@ When restored to the current state, the new cluster will match the state of:
 
    ```bash
    {{ yc-mdb-pg }} cluster create \
-      --cluster-name <cluster name> \
-      --environment <environment, prestable or production> \
-      --network-name <network name> \
-      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-      --resource-preset <host class> \
-      --user name=<username>,password=<user password> \
-      --database name=<database name>,owner=<database owner name> \
-      --disk-size <storage size, GB>
+      --cluster-name <cluster_name> \
+      --environment <environment> \
+      --network-name <network_name> \
+      --host zone-id=<availability_zone>,subnet-id=<subnet_ID> \
+      --resource-preset <host_class> \
+      --user name=<username>,password=<user_password> \
+      --database name=<DB_name>,owner=<DB_owner_name> \
+      --disk-size <storage_size_in_GB>
       --backup-window-start 10:00:00
    ```
+
+   Where `environment` is either `prestable` or `production`.
 
    To change the backup start time in an existing cluster, use the `update` command:
 
    ```bash
    {{ yc-mdb-pg }} cluster update \
-      --cluster-name <cluster name> \
+      --cluster-name <cluster_name> \
       --backup-window-start 11:25:00
    ```
 
@@ -408,18 +415,23 @@ When restored to the current state, the new cluster will match the state of:
    1. Add a block named `backup_window_start` to the {{ mpg-name }} cluster description under `config`:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
         config {
           ...
           backup_window_start {
-            hours   = <Hour to start backup at (UTC)>
-            minutes = <Minute to start backup at (UTC)>
+            hours   = <hour>
+            minutes = <minute>
           }
           ...
         }
         ...
       ```
+
+      Where:
+
+      * `hours`: Backup start hour (UTC).
+      * `minutes`: Backup start minute (UTC).
 
    1. Make sure the settings are correct.
 

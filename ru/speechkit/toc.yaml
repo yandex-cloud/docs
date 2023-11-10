@@ -73,6 +73,8 @@ items:
         href: ../speechkit-hybrid/
   - name: Справочники API
     items:
+      - name: Обзор
+        href: concepts/api.md
       - name: Аутентификация в API
         href: concepts/auth.md
       - name: Распознавание

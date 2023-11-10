@@ -1,20 +1,21 @@
 ---
-description: "Face detection is a tool that lets you find human faces in an image. For example, you can use it to mark people in a photo or find all photos with portraits. The service searches for human faces in the image and marks them with rectangles. Supported file formats: JPEG, PNG, and PDF."
+description: "Face detection is a tool that allows you to find human faces in an image. For example, you can use it to tag people in a photo or find all photos with portraits. {{ vision-full-name }} searches for human faces in the image and marks them with rectangles. The supported file formats are JPEG, PNG, and PDF."
 keywords:
   - face detection
+  - detect face
 ---
 
 # Face detection
 
-_Image classification is currently in the [Preview stage](../../../overview/concepts/launch-stages.md)._
+_Face detection is currently at the [Preview stage](../../../overview/concepts/launch-stages.md)._
 
-This section describes how the _face detection_ feature works in the service.
+This section describes how the {{ vision-full-name }} _face detection_ feature works.
 
-This feature lets you find human faces in an image. For example, you can use it to mark people in a photo or find all photos with portraits.
+This feature allows you to detect human faces in an image. For example, you can use it to tag people in a photo or find all photos with portraits.
 
 {% note info %}
 
-This feature doesn't recognize faces. You will not be able to use it to find similar faces or identify a person.
+This feature cannot recognize faces. You will not be able to use it to find similar faces or identify a person.
 
 {% endnote %}
 
@@ -36,7 +37,7 @@ In the feature type, specify `FACE_DETECTION`:
 
 ## Service response {#service-response}
 
-The service searches for human faces in the image and marks them with rectangles. In the response, the service returns the coordinates of the rectangles for all detected faces:
+{{ vision-full-name }} searches for human faces in the image and marks them with rectangles. In the response, it returns the coordinates of the rectangles for all detected faces:
 
 ![image](../../../_assets/vision/face-detection.jpg)
 
@@ -85,5 +86,5 @@ An image in a request must meet the following requirements:
 
 #### What's next {#what-is-next}
 
-* [Try detecting faces in an image](../../operations/face-detection/index.md).
-* [See how to handle errors](../../api-ref/errors-handling.md).
+* [Try detecting faces in an image](../../operations/face-detection/index.md)
+* [Learn how to handle errors](../../api-ref/errors-handling.md)

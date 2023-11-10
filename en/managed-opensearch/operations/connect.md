@@ -31,6 +31,28 @@ To use an encrypted connection, get an SSL certificate:
 
 {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
 
+## {{ OS }} host FQDN {#fqdn}
+
+To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+
+* [Request a list of cluster hosts](host-groups.md#list-hosts).
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**.
+* Look up the FQDN in the management console:
+
+   1. Go to the cluster page.
+   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+
+Cluster hosts also use [special FQDNs](#special-fqdns).
+
+## Special FQDNs {#special-fqdns}
+
+Alongside [regular FQDNs](#fqdn), {{ mos-name }} provides special FQDNs, which can also be used when connecting to a cluster.
+
+### Available Dashboards host {#fqdn-dashboards}
+
+Such FQDN as `c-<cluster ID>.rw.{{ dns-zone }}` always points to the available {{ OS }} host with the `DASHBOARDS` role in the cluster. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
 ## Connecting to {{ OS }} Dashboards {#dashboards}
 
 
@@ -163,11 +185,3 @@ To connect, enter the `admin` username and password used when [creating the clus
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 {% include [Code examples](../../_includes/mdb/mos/code-examples.md) %}
-
-## Special FQDNs {#special-fqdns}
-
-Just like usual FQDNs, which can be requested with a [list of cluster hosts](host-groups.md#list-hosts), {{ mos-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
-
-### Available Dashboards host {#fqdn-dashboards}
-
-Such FQDN as `c-<cluster ID>.rw.{{ dns-zone }}` always points to the available {{ OS }} host with the `DASHBOARDS` role in the cluster. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).

@@ -8,6 +8,8 @@
 
 {% endlist %}
 
+{% include [see-fqdn](fqdn-host.md) %}
+
 ### Go {#go}
 
 Before connecting, install the dependencies:
@@ -85,6 +87,8 @@ go get github.com/opensearch-project/opensearch-go
 
 {% endlist %}
 
+{% include [see-fqdn](fqdn-host.md) %}
+
 ### PowerShell {#powershell}
 
 {% list tabs %}
@@ -94,11 +98,13 @@ go get github.com/opensearch-project/opensearch-go
    ```powershell
    curl `
      -Certificate <absolute path to certificate file> `
-     -Uri https://<ID of {{ OS }} host with DATA role>.{{ dns-zone }}:{{ port-mos }} `
+     -Uri https://<FQDN of the {{ OS }} host with the DATA role>:{{ port-mos }} `
      -Credential admin
    ```
 
 {% endlist %}
+
+{% include [see-fqdn](fqdn-host.md) %}
 
 ### Python {#python}
 
@@ -145,3 +151,5 @@ pip3 install opensearch-py
       ```
 
 {% endlist %}
+
+{% include [see-fqdn](fqdn-host.md) %}

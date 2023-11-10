@@ -15,7 +15,11 @@
    sudo apt update && sudo apt install jq
    ```
 
-1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с именем `eso-service-account`, необходимый для работы External Secrets Operator.
+1. [Создайте сервисные аккаунты](../iam/operations/sa/create.md):
+
+    * `eso-service-account` — для взаимодействия External Secrets Operator с Certificate Manager.
+    * `k8s-sa` с [ролями](../iam/concepts/access-control/roles.md) `editor`, `container-registry.images.puller` и `load-balancer.admin` на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder) — для создания ресурсов кластера {{ managed-k8s-name }} и скачивания Docker-образов. Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../network-load-balancer/concepts/index.md).
+
 1. Создайте [авторизованный ключ](../iam/concepts/authorization/access-key.md) для сервисного аккаунта и сохраните его в файл `authorized-key.json`:
 
     ```bash
@@ -24,7 +28,7 @@
       --output authorized-key.json
     ```
 
-1. [Создайте кластер {{ managed-k8s-name }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации.
+1. [Создайте кластер {{ managed-k8s-name }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. В настройках кластера укажите сервисный аккаунт `k8s-sa`.
 
 1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 

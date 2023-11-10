@@ -1,8 +1,8 @@
 ---
-title: "Managing Elasticsearch hosts"
-description: "You can get a list of Elasticsearch cluster hosts and add or delete them. You can only manage hosts with the Data Node role."
+title: "Managing {{ ES }} hosts"
+description: "You can get a list of {{ ES }} cluster hosts and add or delete them. You can only manage hosts with the Data Node role."
 keywords:
-  - managing Elasticsearch hosts
+  - Managing {{ ES }} hosts
   - Elasticsearch hosts
   - Elasticsearch
 ---
@@ -69,7 +69,7 @@ You cannot enable public access to a host once it is created.
 
       * Availability zone.
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
-      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}. You cannot change this setting after you create a host.
 
 - CLI
 
@@ -82,7 +82,10 @@ You cannot enable public access to a host once it is created.
    ```bash
    {{ yc-mdb-es }} host add \
       --cluster-name <cluster name> \
-      --host zone-id=<availability zone>,subnet-name=<subnet name>,assign-public-ip=<true or false>,type=<host role: datanode or masternode>
+      --host zone-id=<availability zone>,`
+             `subnet-name=<subnet name>,`
+             `assign-public-ip=<public access to host: true or false>,`
+             `type=<host type: datanode or masternode>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
