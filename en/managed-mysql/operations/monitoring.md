@@ -63,7 +63,7 @@ The **Master overview** section shows detailed information about the master:
 
    * **Threads connected**: The number of open threads.
 
-      If the chart is close to the maximum value, it may mean that open connections can't be closed.
+      If the chart is close to the maximum value, it may mean that open connections cannot be closed.
 
       The maximum value is set by the `max_connections` [parameter](../concepts/settings-list.md#setting-max-connections).
 
@@ -92,7 +92,7 @@ This page displays charts showing the load on an individual host in the cluster:
 * **Network bytes**: Speed of data exchange over the network, in bytes per second.
 * **Network packets**: Number of packets exchanged over the network, per second.
 
-   For hosts with the **Replica** role, it's normal that **Received** is greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
+   For hosts with the **Replica** role, **Received** is normally greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
 
 The **MySQL overview** section shows detailed information about the DBMS state on the host:
 
@@ -130,9 +130,9 @@ The **MySQL overview** section shows detailed information about the DBMS state o
    * **Threads cached**: The number of cached threads.
 
       During normal host operation, the `mysqld` process caches most of the connections.
-   * **Threads connected**: The number of open threads.
+   * **Threads connected**: Number of open threads.
 
-      If the chart is close to the maximum value, it may mean that open connections can't be closed.
+      If the chart is close to the maximum value, it may mean that open connections cannot be closed.
 
       The maximum value is set by the `max_connections` [parameter](../concepts/settings-list.md#setting-max-connections).
 
@@ -147,7 +147,7 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
 
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 
@@ -173,7 +173,7 @@ The recommended thresholds are as follows:
 | Metric | Parameter                | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
 |-------------------------------------|:-------------------------:|:-------------------------:|:-------------------------:|
 | Replication delay | `mysql_replication_lag` | `600` | `60` |
-| Number of healthy hosts | `mysql_is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
+| Number of healthy hosts | `mysql_is_alive` | `<host_count>: 2` | `<host_count>: 1` |
 | Average query execution time | `mysql_latency_query_avg` | N/A | `2000` |
 | Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of the storage size |
 | CPU usage | `cpu.idle` | `10` | `20` |

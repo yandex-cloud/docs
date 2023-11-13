@@ -36,7 +36,7 @@ You are not charged for the time when your cluster is stopped; however, you stil
    To stop a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-es }} cluster stop <cluster name or ID>
+   {{ yc-mdb-es }} cluster stop <cluster_name_or_ID>
    ```
 
    You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -70,7 +70,7 @@ You can restart **STOPPED** clusters.
    To start a stopped cluster, run the command:
 
    ```bash
-   {{ yc-mdb-es }} cluster start <cluster name or ID>
+   {{ yc-mdb-es }} cluster start <cluster_name_or_ID>
    ```
 
    You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).

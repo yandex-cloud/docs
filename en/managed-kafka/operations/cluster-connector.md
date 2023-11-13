@@ -31,7 +31,7 @@ You can:
    To get a list of cluster connectors, run the command:
 
    ```bash
-   {{ yc-mdb-kf }} connector list --cluster-name=<cluster name>
+   {{ yc-mdb-kf }} connector list --cluster-name=<cluster_name>
    ```
 
    Result:
@@ -75,8 +75,8 @@ You can:
    To get detailed information about a connector, run this command:
 
    ```bash
-   {{ yc-mdb-kf }} connector get <connector name>\
-      --cluster-name=<cluster name>
+   {{ yc-mdb-kf }} connector get <connector_name>\
+      --cluster-name=<cluster_name>
    ```
 
    Result:
@@ -84,7 +84,7 @@ You can:
    ```text
    name: connector785
    tasks_max: "1"
-   cluster_id: c9qbkmoiimslvj8ehkfi
+   cluster_id: c9qbkmoiimsl********
    ...
    ```
 
@@ -123,7 +123,7 @@ You can:
       The key can either be a simple string or contain a prefix indicating that it belongs to the source or target (a cluster alias in the connector configuration):
 
       ```text
-      <cluster alias>.<key body>:<value>
+      <cluster_alias>.<key_body>:<value>
       ```
 
    1. Select the connector type: [MirrorMaker](#settings-mm2) or [S3 Sink](#settings-s3).
@@ -151,21 +151,21 @@ You can:
    1. Create a connector:
 
       ```bash
-      {{ yc-mdb-kf }} connector-mirrormaker create <connector name> \
-         --cluster-name=<cluster name> \
-         --direction=<connector direction: ingress or egress> \
-         --tasks-max=<task limit> \
-         --properties=<advanced properties> \
-         --replication-factor=<replication factor> \
-         --topics=<topic template> \
-         --this-cluster-alias=<this cluster indication prefix> \
-         --external-cluster alias=<external cluster indication prefix>,`
-                           `bootstrap-servers=<list of FQDNs of broker hosts>,`
-                           `security-protocol=<security protocol>,`
-                           `sasl-mechanism=<encryption mechanism>,`
+      {{ yc-mdb-kf }} connector-mirrormaker create <connector_name> \
+         --cluster-name=<cluster_name> \
+         --direction=<connector_direction> \
+         --tasks-max=<task_limit> \
+         --properties=<advanced_properties> \
+         --replication-factor=<replication_factor> \
+         --topics=<topic_template> \
+         --this-cluster-alias=<prefix_for_this_cluster> \
+         --external-cluster alias=<prefix_for_external_cluster>,`
+                           `bootstrap-servers=<list_of FQDNs_of_broker_hosts>,`
+                           `security-protocol=<security_protocol>,`
+                           `sasl-mechanism=<encryption_mechanism>,`
                            `sasl-username=<username>,`
-                           `sasl-password=<user password>,`
-                           `ssl-truststore-certificates=<PEM certificates>
+                           `sasl-password=<user_password>,`
+                           `ssl-truststore-certificates=<certificates_in_PEM_format>
       ```
 
       {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
@@ -189,18 +189,18 @@ You can:
    1. Create a connector:
 
       ```bash
-      {{ yc-mdb-kf }} connector-s3-sink create <connector name> \
-         --cluster-name=<cluster name> \
-         --tasks-max=<task limit> \
-         --properties=<advanced properties> \
-         --topics=<topic template> \
-         --file-compression-type=<compression codec> \
-         --file-max-records=<maximum number of messages per file> \
-         --bucket-name=<bucket name> \
-         --access-key-id=<ID of AWS-compatible static key> \
-         --secret-access-key=<contents of AWS-compatible static key> \
-         --storage-endpoint=<endpoint of S3-compatible storage> \
-         --region=<region of S3-compatible storage>
+      {{ yc-mdb-kf }} connector-s3-sink create <connector_name> \
+         --cluster-name=<cluster_name> \
+         --tasks-max=<task_limit> \
+         --properties=<advanced_properties> \
+         --topics=<topic_template> \
+         --file-compression-type=<compression_codec> \
+         --file-max-records=<maximum_number_of_messages_per_file> \
+         --bucket-name=<bucket_name> \
+         --access-key-id=<ID_of_AWS-compatible_static_key> \
+         --secret-access-key=<contents_of_AWS-compatible_static_key> \
+         --storage-endpoint=<endpoint_of_S3-compatible_storage> \
+         --region=<region_of_S3-compatible_storage>
       ```
 
       You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -216,29 +216,29 @@ You can:
    1. To create a Mirrormaker connector, add the `yandex_mdb_kafka_connector` resource with the `connector_config_mirrormaker` settings section:
 
       ```hcl
-      resource "yandex_mdb_kafka_connector" "<connector name>" {
-        cluster_id = "<cluster ID>"
-        name       = "<connector name>"
-        tasks_max  = <task limit>
+      resource "yandex_mdb_kafka_connector" "<connector_name>" {
+        cluster_id = "<cluster_ID>"
+        name       = "<connector_name>"
+        tasks_max  = <task_limit>
         properties = {
-          <advanced properties>
+          <advanced_properties>
         }
         connector_config_mirrormaker {
-          topics             = "<topic template>"
-          replication_factor = <replication factor>
+          topics             = "<topic_template>"
+          replication_factor = <replication_factor>
           source_cluster {
-            alias = "<cluster indication prefix>"
+            alias = "<prefix_for_the_cluster>"
             external_cluster {
-              bootstrap_servers           = "<list of FQDNs of broker hosts>"
+              bootstrap_servers           = "<list_of_FQDNs_of_broker_hosts>"
               sasl_username               = "<username>"
-              sasl_password               = "<user password>"
-              sasl_mechanism              = "<encryption mechanism>"
-              security_protocol           = "<security protocol>"
-              ssl-truststore-certificates = "<PEM certificate contents>"
+              sasl_password               = "<user_password>"
+              sasl_mechanism              = "<encryption_mechanism>"
+              security_protocol           = "<security_protocol>"
+              ssl-truststore-certificates = "<contents_of_PEM_certificate>"
             }
           }
           target_cluster {
-            alias = "<cluster indication prefix>"
+            alias = "<prefix_for_the_cluster>"
             this_cluster {}
           }
         }
@@ -250,23 +250,23 @@ You can:
    1. To create an S3 Sink connector, add the `yandex_mdb_kafka_connector` resource with the `connector_config_s3_sink` settings section:
 
       ```hcl
-      resource "yandex_mdb_kafka_connector" "<connector name>" {
-        cluster_id = "<cluster ID>"
-        name       = "<connector name>"
-        tasks_max  = <task limit>
+      resource "yandex_mdb_kafka_connector" "<connector_name>" {
+        cluster_id = "<cluster_ID>"
+        name       = "<connector_name>"
+        tasks_max  = <task_limit>
         properties = {
-          <advanced properties>
+          <advanced_properties>
         }
         connector_config_s3_sink {
-          topics                = "<topic template>"
-          file_compression_type = "<compression codec>"
-          file_max_records      = <maximum number of messages per file>
+          topics                = "<topic_template>"
+          file_compression_type = "<compression_codec>"
+          file_max_records      = <maximum_number_of_messages_per_file>
           s3_connection {
-            bucket_name = "<bucket name>"
+            bucket_name = "<bucket_name>"
             external_s3 {
-              endpoint          = "<endpoint of S3-compatible storage>"
-              access_key_id     = "<ID of AWS-compatible static key>"
-              secret_access_key = "<contents of AWS-compatible static key>"
+              endpoint          = "<endpoint_of_S3-compatible_storage>"
+              access_key_id     = "<ID_of_AWS-compatible_static_key>"
+              secret_access_key = "<contents_of_AWS_compatible_static_key>"
             }
           }
         }
@@ -322,11 +322,13 @@ You can:
    1. Run an operation, such as the task limit change operation:
 
       ```bash
-      {{ yc-mdb-kf }} connector-mirrormaker update <connector name> \
-         --cluster-name=<cluster name> \
-         --direction=<connector direction: ingress or egress> \
-         --tasks-max=<new task limit>
+      {{ yc-mdb-kf }} connector-mirrormaker update <connector_name> \
+         --cluster-name=<cluster_name> \
+         --direction=<connector_direction> \
+         --tasks-max=<new_task_limit>
       ```
+
+      Where `--direction` is the connector direction: `ingress` or `egress`.
 
       You can request the connector name with a [list of cluster connectors](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -341,9 +343,9 @@ You can:
    1. Run an operation, such as the task limit change operation:
 
       ```bash
-      {{ yc-mdb-kf }} connector-s3-sink update <connector name> \
-         --cluster-name=<cluster name> \
-         --tasks-max=<new task limit>
+      {{ yc-mdb-kf }} connector-s3-sink update <connector_name> \
+         --cluster-name=<cluster_name> \
+         --tasks-max=<new_task_limit>
       ```
 
       You can request the connector name with a [list of cluster connectors](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -361,29 +363,29 @@ You can:
       * For the Mirrormaker connector:
 
          ```hcl
-         resource "yandex_mdb_kafka_connector" "<connector name>" {
-           cluster_id = "<cluster ID>"
-           name       = "<connector name>"
-           tasks_max  = <task limit>
+         resource "yandex_mdb_kafka_connector" "<connector_name>" {
+           cluster_id = "<cluster_ID>"
+           name       = "<connector_name>"
+           tasks_max  = <task_limit>
            properties = {
-             <advanced properties>
+             <advanced_properties>
            }
            connector_config_mirrormaker {
-             topics             = "<topic template>"
-             replication_factor = <replication factor>
+             topics             = "<topic_template>"
+             replication_factor = <replication_factor>
              source_cluster {
-               alias = "<cluster indication prefix>"
+               alias = "<prefix_for_the_cluster>"
                external_cluster {
-                 bootstrap_servers           = "<list of FQDNs of broker hosts>"
+                 bootstrap_servers           = "<list_of_FQDNs_of_broker_hosts>"
                  sasl_username               = "<username>"
-                 sasl_password               = "<user password>"
-                 sasl_mechanism              = "<encryption mechanism>"
-                 security_protocol           = "<security protocol>"
-                 ssl-truststore-certificates = "<PEM certificate contents>"
+                 sasl_password               = "<user_password>"
+                 sasl_mechanism              = "<encryption_mechanism>"
+                 security_protocol           = "<security_protocol>"
+                 ssl-truststore-certificates = "<contents_of_PEM_certificate>"
                }
              }
              target_cluster {
-               alias = "<cluster indication prefix>"
+               alias = "<prefix_for_the_cluster>"
                this_cluster {}
              }
            }
@@ -393,22 +395,22 @@ You can:
       * For the S3 Sink connector:
 
          ```hcl
-         resource "yandex_mdb_kafka_connector" "<S3 Sink connector name>" {
-           cluster_id = "<cluster ID>"
-           name       = "<S3 Sink connector name>"
-           tasks_max  = <task limit>
+         resource "yandex_mdb_kafka_connector" "<S3_Sink_connector_name>" {
+           cluster_id = "<cluster_ID>"
+           name       = "<S3_Sink_connector_name>"
+           tasks_max  = <task_limit>
            properties = {
-             <advanced properties>
+             <advanced_properties>
           }
            connector_config_s3_sink {
-             topics                = "<topic template>"
-             file_max_records      = <maximum number of messages per file>
+             topics                = "<topic_template>"
+             file_max_records      = <maximum_number_of_messages_per_file>
              s3_connection {
-               bucket_name = "<bucket name>"
+               bucket_name = "<bucket_name>"
                external_s3 {
-                 endpoint          = "<endpoint of S3-compatible storage>"
-                 access_key_id     = "<ID of AWS-compatible static key>"
-                 secret_access_key = "<contents of AWS-compatible static key>"
+                 endpoint          = "<endpoint_of_S3-compatible_storage>"
+                 access_key_id     = "<ID_of_AWS_compatible_static_key>"
+                 secret_access_key = "<contents_of_AWS_compatible_static_key>"
                }
              }
            }
@@ -461,8 +463,8 @@ To pause a connector:
    To pause a connector, run the command:
 
    ```bash
-   {{ yc-mdb-kf }} connector pause <connector name> \
-      --cluster-name=<cluster name>
+   {{ yc-mdb-kf }} connector pause <connector_name> \
+      --cluster-name=<cluster_name>
    ```
 
 - API
@@ -494,8 +496,8 @@ To pause a connector:
    To resume a connector, run the command:
 
    ```bash
-   {{ yc-mdb-kf }} connector resume <connector name> \
-      --cluster-name=<cluster name>
+   {{ yc-mdb-kf }} connector resume <connector_name> \
+      --cluster-name=<cluster_name>
    ```
 
 - API
@@ -528,8 +530,8 @@ To pause a connector:
    To delete a connector, run the command:
 
    ```bash
-   {{ yc-mdb-kf }} connector delete <connector name> \
-      --cluster-name <cluster name>
+   {{ yc-mdb-kf }} connector delete <connector_name> \
+      --cluster-name <cluster_name>
    ```
 
 - {{ TF }}
@@ -615,7 +617,7 @@ To pause a connector:
 - CLI
 
    * `--cluster-name`: Cluster name.
-   * `--direction`: Connector direction.
+   * `--direction`: Connector direction:
 
       * `ingress`: If the cluster is a target.
       * `egress`: If the cluster is a source.
@@ -678,8 +680,8 @@ To pause a connector:
          * **sasl_password**: User password for connecting the connector to the cluster.
          * **sasl_mechanism**: Name and password encryption mechanism.
          * **security_protocol**: Connector connection protocol:
-            * `plaintext`, `sasl_plaintext`: For non-SSL connections
-            * `ssl`, `sasl_ssl`: For SSL connections
+            * `PLAINTEXT`, `SASL_PLAINTEXT`: For non-SSL connections.
+            * `SSL`, `SASL_SSL`: For SSL connections.
          * **ssl_truststore_certificates**: PEM certificate contents.
 
 {% endlist %}
@@ -693,10 +695,10 @@ To pause a connector:
    * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}**: Template for selecting topics to replicate. Topic names are separated by a comma or `|` in the list. You can use the `.*` expression, for example, `analysis.*`. To migrate all topics, specify `.*`.
    * **{{ ui-key.yacloud.kafka.field_connector-compression-type }}**: Select the codec to compress messages:
 
-      * `none` (default): No compression
-      * `gzip`: [gzip](https://www.gzip.org) codec
-      * `snappy`: [snappy](https://github.com/google/snappy) codec
-      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec
+      * `none` (default): No compression.
+      * `gzip`: [gzip](https://www.gzip.org) codec.
+      * `snappy`: [snappy](https://github.com/google/snappy) codec.
+      * `zstd`: [zstd](https://facebook.github.io/zstd/) codec.
 
       You cannot change this parameter after creating the cluster.
 
@@ -721,7 +723,7 @@ To pause a connector:
 
 - CLI
 
-   * `--cluster-name` is the name of a cluster.
+   * `--cluster-name`: Cluster name.
    * `--tasks-max`: Number of concurrent processes. We recommend a value of at least `2` for even replication load distribution.
    * `--properties`: Comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
 

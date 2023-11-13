@@ -1,4 +1,4 @@
-{% note warning %}
+{% note warning "Time limits" %}
 
 A {{ TF }} provider sets the timeout for {{ mmy-name }} cluster operations:
 
@@ -13,7 +13,7 @@ Operations exceeding the set timeout are interrupted.
 Add the `timeouts` block to the cluster description, for example:
 
 ```hcl
-resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
   ...
   timeouts {
     create = "1h30m" # 1 hour 30 minutes

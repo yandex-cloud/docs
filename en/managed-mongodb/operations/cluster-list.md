@@ -30,7 +30,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
    +----------------------+------------+-----------------------------+--------+---------+
    |          ID          |    NAME    |         CREATED AT          | HEALTH | STATUS  |
    +----------------------+------------+-----------------------------+--------+---------+
-   | c9wlk4v14uq79r9cgcku | mymg       | 2018-11-02T10:04:14.645214Z | ALIVE  | RUNNING |
+   | c9wlk4v14uq7******** | mymg       | 2018-11-02T10:04:14.645214Z | ALIVE  | RUNNING |
    | ...                                                                                |
    +----------------------+------------+-----------------------------+--------+---------+
    ```
@@ -49,7 +49,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the cluster you need.
+   1. Click the cluster name.
 
    {% note tip %}
 
@@ -68,10 +68,10 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
    To get information about a {{ MG }} cluster, run the following command:
 
    ```
-   {{ yc-mdb-mg }} cluster get <cluster name or ID>
+   {{ yc-mdb-mg }} cluster get <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 
@@ -90,7 +90,7 @@ You can get the cluster ID with a [list of clusters in the folder](#list-cluster
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the cluster you need.
+   1. Click the cluster name.
    1. In the left-hand panel, select ![image](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_operations }}**.
 
 - CLI
@@ -102,10 +102,10 @@ You can get the cluster ID with a [list of clusters in the folder](#list-cluster
    To get a list of operations, run the following command:
 
    ```
-   {{ yc-mdb-mg }} cluster list-operations <cluster name or ID>
+   {{ yc-mdb-mg }} cluster list-operations <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 

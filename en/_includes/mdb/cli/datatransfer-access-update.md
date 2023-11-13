@@ -1,3 +1,3 @@
-`--datatransfer-access`: Allows access to the cluster from [{{ data-transfer-full-name }}](../../../data-transfer/) in Serverless mode. Default value: `false`.
+`--datatransfer-access`: Allows access to the cluster from [{{ data-transfer-full-name }}](../../../data-transfer/) in serverless mode: `true` or `false`. The default value is `false`.
 
-This will enable you to connect to {{ data-transfer-full-name }} running in {{ k8s }} via a special network. It will also cause other operations to run faster, such as transfer launch and deactivation.
+This will enable you to connect to {{ data-transfer-full-name }} running in {{ k8s }} via a special network. As a result, other operations, e.g., transfer launch and deactivation, will run faster.

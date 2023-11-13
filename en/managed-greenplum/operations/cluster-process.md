@@ -54,7 +54,7 @@ Run a query to the `mdb_toolkit.gp_cancel_backend()` function:
 
 ```sql
 SELECT *
-FROM mdb_toolkit.gp_cancel_backend(<process ID>,<message text>);
+FROM mdb_toolkit.gp_cancel_backend(<process_ID>,<message_text>);
 ```
 
 You can get the process ID with the [list of cluster processes](#list). Message text is optional and is sent to the client when the function is run.
@@ -65,7 +65,7 @@ Run a query to the `mdb_toolkit.gp_terminate_backend()` function:
 
 ```sql
 SELECT *
-FROM mdb_toolkit.gp_terminate_backend(<process ID>,<message text>);
+FROM mdb_toolkit.gp_terminate_backend(<process_ID>,<message_text>);
 ```
 
 You can get the process ID with the [list of cluster processes](#list). Message text is optional and is sent to the client when the function is run.
@@ -82,8 +82,8 @@ You can get the process ID with the [list of cluster processes](#list). Message 
 1. Set the number of concurrent transactions for a [resource group](../../managed-greenplum/concepts/resource-groups.md):
 
    ```sql
-   ALTER RESOURCE GROUP <resource group name>
-   SET concurrency <number of concurrent transactions>;
+   ALTER RESOURCE GROUP <resource_group_name>
+   SET concurrency <concurrent_transaction_number>;
    ```
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

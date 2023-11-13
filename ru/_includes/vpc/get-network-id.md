@@ -1,0 +1,1 @@
+Чтобы узнать идентификатор облачной сети, воспользуйтесь методом REST API [list](../../vpc/api-ref/Network/list) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/List](../../vpc/api-ref/grpc/network_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.

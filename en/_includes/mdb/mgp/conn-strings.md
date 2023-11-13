@@ -13,7 +13,7 @@ Connect to a database:
 - Connecting without using SSL
 
    ```bash
-   psql "host=c-<cluster ID>.rw.{{ dns-zone }} \
+   psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
          port={{ port-mgp }} \
          sslmode=disable \
          dbname=postgres \
@@ -27,7 +27,7 @@ Connect to a database:
 
 {% endlist %}
 
-After running the command, enter the user password to complete the connection procedure.
+After running the command, enter the user password to complete the connection process.
 
 To check the connection, run the following query:
 
@@ -66,11 +66,11 @@ Required packages:
            }
            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
            {
-               var host      = "c-<cluster ID>.rw.{{ dns-zone }}";
+               var host      = "c-<cluster_ID>.rw.{{ dns-zone }}";
                var port      = "{{ port-mgp }}";
                var db        = "postgres";
                var username  = "<username>";
-               var password  = "<user password>";
+               var password  = "<user_password>";
                optionsBuilder.UseNpgsql($"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=Require;Trust Server Certificate=true;");
            }
            public DbSet<VersionString> VersionStrings { get; set; }
@@ -121,10 +121,10 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-      	host     = "c-<cluster ID>.rw.{{ dns-zone }}"
+      	host     = "c-<cluster_ID>.rw.{{ dns-zone }}"
       	port     = {{ port-mgp }}
       	user     = "<username>"
-      	password = "<user password>"
+      	password = "<user_password>"
       	dbname   = "postgres"
       )
 
@@ -187,12 +187,12 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-      	host     = "c-<cluster ID>.rw.{{ dns-zone }}"
+      	host     = "c-<cluster_ID>.rw.{{ dns-zone }}"
       	port     = {{ port-mgp }}
       	user     = "<username>"
-      	password = "<user password>"
+      	password = "<user_password>"
       	dbname   = "postgres"
-      	ca       = "/home/<home directory>/.postgresql/root.crt"
+      	ca       = "/home/<home_directory>/.postgresql/root.crt"
       )
 
       func main() {
@@ -362,9 +362,9 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL  = "jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_URL  = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER = "<username>";
-          String DB_PASS = "<user password>";
+          String DB_PASS = "<user_password>";
 
           try {
             Class.forName("org.postgresql.Driver");
@@ -403,9 +403,9 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL  = "jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL  = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER = "<username>";
-          String DB_PASS = "<user password>";
+          String DB_PASS = "<user_password>";
 
           try {
             Class.forName("org.postgresql.Driver");
@@ -454,7 +454,7 @@ npm install pg
 
    const config = {
        connectionString:
-           "postgres://<username>:<user password>@c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres"
+           "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres"
    };
 
    const conn = new pg.Client(config);
@@ -480,11 +480,11 @@ npm install pg
 
    const config = {
        connectionString:
-           "postgres://<username>:<user password>@c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres",
+           "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres",
        ssl: {
            rejectUnauthorized: true,
            ca: fs
-               .readFileSync("/home/<home directory>/.postgresql/root.crt")
+               .readFileSync("/home/<home_directory>/.postgresql/root.crt")
                .toString(),
        },
    };
@@ -532,9 +532,9 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<cluster ID>.rw.{{ dns-zone }}
+      Servername=c-<cluster_ID>.rw.{{ dns-zone }}
       Username=<username>
-      Password=<user password>
+      Password=<user_password>
       Database=postgres
       Port={{ port-mgp }}
       Pqopt=target_session_attrs=read-write
@@ -557,9 +557,9 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<cluster ID>.rw.{{ dns-zone }}
+      Servername=c-<cluster_ID>.rw.{{ dns-zone }}
       Username=<username>
-      Password=<user password>
+      Password=<user_password>
       Database=postgres
       Port={{ port-mgp }}
       Pqopt=target_session_attrs=read-write
@@ -595,12 +595,12 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ```php
       <?php
         $conn = pg_connect("
-            host=c-<cluster ID>.rw.{{ dns-zone }}
+            host=c-<cluster_ID>.rw.{{ dns-zone }}
             port={{ port-mgp }}
             sslmode=disable
             dbname=postgres
             user=<username>
-            password=<user password>
+            password=<user_password>
             target_session_attrs=read-write
         ");
 
@@ -627,12 +627,12 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ```php
       <?php
         $conn = pg_connect("
-            host=c-<cluster ID>.rw.{{ dns-zone }}
+            host=c-<cluster_ID>.rw.{{ dns-zone }}
             port={{ port-mgp }}
             sslmode=verify-full
             dbname=postgres
             user=<username>
-            password=<user password>
+            password=<user_password>
             target_session_attrs=read-write
         ");
 
@@ -664,18 +664,18 @@ Connect to a database:
 
    ```powershell
    & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" "`
-       host=c-<cluster ID>.rw.{{ dns-zone }} `
+       host=c-<cluster_ID>.rw.{{ dns-zone }} `
        port={{ port-mgp }} `
        sslmode=disable `
        dbname=postgres `
        user=<username>"
    ```
 
-- Connecting with SSL
+- Connecting via SSL
 
    ```powershell
    & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" "`
-       host=c-<cluster ID>.rw.{{ dns-zone }} `
+       host=c-<cluster_ID>.rw.{{ dns-zone }} `
        port={{ port-mgp }} `
        sslmode=verify-full `
        dbname=postgres `
@@ -684,7 +684,7 @@ Connect to a database:
 
 {% endlist %}
 
-After running the command, enter the user password to complete the connection procedure.
+After running the command, enter the user password to complete the connection process.
 
 To check the connection, run the following query:
 
@@ -713,12 +713,12 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<cluster ID>.rw.{{ dns-zone }}
+          host=c-<cluster_ID>.rw.{{ dns-zone }}
           port={{ port-mgp }}
           sslmode=disable
           dbname=postgres
           user=<username>
-          password=<user password>
+          password=<user_password>
           target_session_attrs=read-write
       """)
 
@@ -746,12 +746,12 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<cluster ID>.rw.{{ dns-zone }}
+          host=c-<cluster_ID>.rw.{{ dns-zone }}
           port={{ port-mgp }}
           sslmode=verify-full
           dbname=postgres
           user=<username>
-          password=<user password>
+          password=<user_password>
           target_session_attrs=read-write
       """)
 
@@ -791,11 +791,11 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<cluster ID>.rw.{{ dns-zone }}
+              host=c-<cluster_ID>.rw.{{ dns-zone }}
               port={{ port-mgp }}
               dbname=postgres
               user=<username>
-              password=<user password>
+              password=<user_password>
               target_session_attrs=read-write
               sslmode=disable
       ")
@@ -822,11 +822,11 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<cluster ID>.rw.{{ dns-zone }}
+              host=c-<cluster_ID>.rw.{{ dns-zone }}
               port={{ port-mgp }}
               dbname=postgres
               user=<username>
-              password=<user password>
+              password=<user_password>
               target_session_attrs=read-write
               sslmode=verify-full
       ")

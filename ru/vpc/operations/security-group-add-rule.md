@@ -105,10 +105,6 @@ description: "Добавлять правила можно через консо
 
      Чтобы получить справку о параметре `--add-rule`, выполните команду `yc vpc security-group update-rules --help`.
 
-- API
-
-  Чтобы добавить правило, воспользуйтесь методом REST API [updateRules](../api-ref/SecurityGroup/updateRules.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules).
-
 - {{ TF }}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -266,5 +262,26 @@ description: "Добавлять правила можно через консо
      yc vpc security-group get <имя группы безопасности>
      ```
 
-{% endlist %}
+- API
 
+  Чтобы добавить правило, воспользуйтесь методом REST API [updateRules](../api-ref/SecurityGroup/updateRules.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) и передайте в запросе:
+
+  * Идентификатор группы безопасности, в которую будут добавлены правила, в параметре `securityGroupId`.
+
+    {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
+
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+
+  * Новые правила группы безопасности в массиве `additionRuleSpecs[]`:
+
+    * Направление трафика, для которого задается правило, в параметре `additionRuleSpecs[].direction`. Возможные значения:
+
+      * `ingress` — входящий трафик;
+      * `egress` — исходящий трафик.
+
+    * Имя протокола передачи трафика в параметре `additionRuleSpecs[].protocolName`. Возможные значения: `tcp`, `udp`, `icmp`, `esp`, `ah`, `any`.
+    * Список CIDR и масок подсетей, откуда или куда будет поступать трафик, в параметре `additionRuleSpecs[].cidrBlocks.v4CidrBlocks[]`. Если правило задается для передачи трафика в группу безопасности, то вместо этого передайте идентификатор группы безопасности в параметре `additionRuleSpecs[].securityGroupId`.
+    * Первый порт из диапазона портов для трафика в параметре `additionRuleSpecs[].ports.fromPort`. Возможные значения: от `0` до `65535`.
+    * Последний порт из диапазона портов для трафика в параметре `additionRuleSpecs[].ports.toPort`. Возможные значения: от `0` до `65535`.
+
+{% endlist %}

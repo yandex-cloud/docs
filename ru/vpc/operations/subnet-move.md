@@ -93,7 +93,15 @@
 
 - API
 
-  Чтобы переместить [подсеть](../concepts/network.md#subnet) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Subnet/move.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Move](../api-ref/grpc/subnet_service.md#Move).
+  Чтобы переместить [подсеть](../concepts/network.md#subnet) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Subnet/move.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Move](../api-ref/grpc/subnet_service.md#Move) и передайте в запросе:
+
+  * Идентификатор подсети, которую нужно перенести, в параметре `subnetId`.
+
+    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+
+  * Идентификатор каталога, в который будет перенесена подсеть, в параметре `destinationFolderId`.
+
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
 # Using external tables
 
-{{ GP }} lets you work with data from sources that are external to a {{ mgp-name }} cluster. This functionality uses _external tables_, which are special objects in a {{ GP }} database that reference external source tables, buckets, or files. Access to [data in external DBMS](#pxf) uses the _PXF_ protocol whereas access to [files on external file servers](#gpfdist) uses the _GPFDIST_ utility.
+{{ GP }} allows you to work with data from sources that are external to a {{ mgp-name }} cluster. This functionality uses _external tables_, which are special objects in a {{ GP }} database that reference external source tables, buckets, or files. Access to [data in external DBMS](#pxf) uses the _PXF_ protocol whereas access to [files on external file servers](#gpfdist) uses the _GPFDIST_ utility.
 
 {% note info %}
 
@@ -42,21 +42,22 @@ The [{{ GP }} Platform Extension Framework (PXF)]({{ gp.docs.pivotal }}/6-4/pxf/
 SQL query syntax to create an external table:
 
 ```sql
-CREATE [WRITABLE] EXTERNAL TABLE <table name>
-       (<column name> <data type> [, ...])
-       LOCATION('pxf://<data path or table name>?PROFILE=<profile name>&JDBC_DRIVER=<JDBC driver name>&DB_URL=<connection string>&USER=<username>')
+CREATE [WRITABLE] EXTERNAL TABLE <table_name>
+       (<column_name> <data_type> [, ...])
+       LOCATION('pxf://<data_path_or_table_name>?PROFILE=<profile_name>&JDBC_DRIVER=<JDBC_driver_name>&DB_URL=<connection_string>&USER=<username>')
+       FORMAT '[TEXT|CSV|CUSTOM]';
 ```
 
 Where:
 
-* `table name`: Name of the external table to be created in the {{ GP }} cluster.
-* `column name`: Name of a column.
-* `data type`: Type of column data. It must match the column data type in the external DBMS table.
-* `data path or table name`: External object name, see [example external tables](#pxf-examples).
-* (optional) `profile name`: Standard interface to external DBMS, such as `JDBC`.
-* (optional) `JDBC driver name`: JDBC driver to be used to connect to an external DBMS.
-* (optional) `connection string`: External DBMS connection URL.
-* (optional) `username`: Username to connect to the external DBMS.
+* `<table_name>`: Name of the external table to be created in the {{ GP }} cluster.
+* `<column_name>`: Column name.
+* `<data_type>`: Column data type. It must match the column data type in the external DBMS table.
+* `<data path or table name>`: External object name, see [examples of external tables](#pxf-examples).
+* (Optional) `PROFILE`: Standard interface to an external DBMS, e.g., `JDBC`.
+* (Optional) `JDBC_DRIVER`: JDBC driver to connect to an external DBMS.
+* (Optional) `DB_URL`: External DBMS connection URL.
+* (Optional) `USER`: Username to connect to the external DBMS.
 
 The `WRITABLE` option enables you to write data to an external object. To be able to read data from an external object, create a table with the `READABLE` option.
 
@@ -94,7 +95,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
       ```sql
       CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
-      LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:http://c-<cluster ID>.rw.{{ dns-zone }}:8123/db1&USER=chuser')
+      LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:http://c-<cluster_ID>.rw.{{ dns-zone }}:8123/db1&USER=chuser')
       FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
       ```
 
@@ -102,7 +103,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
       ```sql
       CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
-      LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:https://c-<cluster ID>.rw.mdb.yandexcloud.net:{{ port-mch-http }}/db1&USER=chuser&ssl=true&sslmode=strict&sslrootcert=/etc/greenplum/ssl/allCAs.pem')
+      LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:https://c-<cluster_ID>.rw.mdb.yandexcloud.net:{{ port-mch-http }}/db1&USER=chuser&ssl=true&sslmode=strict&sslrootcert=/etc/greenplum/ssl/allCAs.pem')
       FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
       ```
 
@@ -147,7 +148,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
       ```sql
       CREATE READABLE EXTERNAL TABLE pxf_mysql(a int, b int)
-      LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.mysql.jdbc.Driver&DB_URL=jdbc:mysql://c-<cluster ID>.rw.{{ dns-zone }}:3306/db1&USER=mysqluser')
+      LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.mysql.jdbc.Driver&DB_URL=jdbc:mysql://c-<cluster_ID>.rw.{{ dns-zone }}:3306/db1&USER=mysqluser')
       FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
       ```
 
@@ -193,7 +194,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
       ```sql
       CREATE READABLE EXTERNAL TABLE pxf_pg(a int, b int)
-      LOCATION ('pxf://public.test?PROFILE=JDBC&JDBC_DRIVER=org.postgresql.Driver&DB_URL=jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:6432/db1&USER=pguser')
+      LOCATION ('pxf://public.test?PROFILE=JDBC&JDBC_DRIVER=org.postgresql.Driver&DB_URL=jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/db1&USER=pguser')
       FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
       ```
 
@@ -218,7 +219,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
 - {{ objstorage-name }}
 
-   1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
+   1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
 
    1. [Create a static access key](../../iam/operations/sa/create-access-key.md).
 
@@ -239,7 +240,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
          ```sql
          CREATE READABLE EXTERNAL TABLE pxf_s3_read(a int, b int)
-         LOCATION ('pxf://<bucket name>/test.csv?PROFILE=s3:text&accesskey=<key ID>&secretkey=<secret key>&endpoint={{ s3-storage-host }}')
+         LOCATION ('pxf://<bucket_name>/test.csv?PROFILE=s3:text&accesskey=<key_ID>&secretkey=<secret_key>&endpoint={{ s3-storage-host }}')
          FORMAT 'CSV';
          ```
 
@@ -266,7 +267,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
          ```sql
          CREATE WRITABLE EXTERNAL TABLE pxf_s3_write(a int, b int)
-         LOCATION ('pxf://<bucket name>/?PROFILE=s3:text&accesskey=<key ID>&secretkey=<secret key>&endpoint={{ s3-storage-host }}')
+         LOCATION ('pxf://<bucket_name>/?PROFILE=s3:text&accesskey=<key_ID>&secretkey=<secret_key>&endpoint={{ s3-storage-host }}')
          FORMAT 'CSV';
          ```
 
@@ -315,14 +316,14 @@ Downloading and using software from the VMware website is not part of the [{{ mg
 1. Run the GPFDIST utility:
 
    ```bash
-   gpfdist -d <data file directory> -p <connection port> -l <log file path>
+   gpfdist -d <directory_with_data_files> -p <connection_port> -l <path_to_log_file>
    ```
 
    Where:
 
-   * `data file directory` is the local path to the directory with files to read or write data from/to using the external table.
-   * `connection port` is the port the utility will run on. The default value is `8080`.
-   * `log file path` (optional) is the path to the file that GPFDIST will write its operation logs to.
+   * `<data file directory>`: Local path to the directory with files to read or write data from/to using the external table.
+   * `<connection_port>`: Port the utility will run on. The default value is `8080`.
+   * `<log_file_path>`: (Optional) Path to the file that GPFDIST will write its operation logs to.
 
    You can run multiple GPFDIST instances on the same server, specifying different directories and connection ports to distribute network load. For example:
 
@@ -342,18 +343,18 @@ Downloading and using software from the VMware website is not part of the [{{ mg
 SQL query syntax to create an external table:
 
 ```sql
-CREATE [WRITABLE] EXTERNAL TABLE <table name>
-       (<column name> <data type> [, ...])
-       LOCATION('gpfdist://<path to file on remote server>' [, ...])
+CREATE [WRITABLE] EXTERNAL TABLE <table_name>
+       (<column_name> <data_type> [, ...])
+       LOCATION('gpfdist://<path_to_file_on_remote_server>' [, ...])
        FORMAT '[TEXT|CSV|CUSTOM]';
 ```
 
 Where:
 
-* `table name`: Name of the external table to be created in the {{ GP }} database.
-* `column name`: Name of a table column.
-* `data type`: Type of table column data.
-* `remote server file path`: Address of the server where GPFDIST is running, the connection port, and the path to the file. You can set a specific file or a mask using the asterisk symbol (*).
+* `<table_name>`: Name of the external table to be created in the {{ GP }} database.
+* `<column_name>`: Table column name.
+* `<data_type>`: Table column data type.
+* `path_to_file_on_remote_server`: Address of the server where GPFDIST is running, the connection port, and the file path. You can set a specific file or a mask using the asterisk symbol (*).
 
 The `WRITABLE` option enables you to write data to an external object. To be able to read data from an external object, create a table with the `READABLE` option.
 

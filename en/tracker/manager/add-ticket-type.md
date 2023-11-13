@@ -1,6 +1,6 @@
 # Issue types
 
-A queue may include different types of issues, e.g., <q>New feature</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q>, or <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>. Issue types are helpful when distributing work in a team by activity area (<q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>) or decomposing issues (<q>Epic</q>, <q>Story</q>, or <q>Issue</q>).
+A queue may include different types of issues, e.g., <q>New feature</q>, <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--improvement }}</q>, or <q>{{ ui-key.startrek.blocks-desktop_queue-new-presets.preset--task-type--bug }}</q>. Issue types are helpful when distributing work in a team by activity area (<q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>) or decomposing issues (<q>[Epic](epic-new.md)</q>, <q>Story</q>, or <q>Issue</q>).
 
 The queue owner and users granted [permission to access the queue settings](queue-access.md) specify:
 

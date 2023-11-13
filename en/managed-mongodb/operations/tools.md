@@ -10,8 +10,8 @@
 When calling these utilities, use the connection string with the username and password of the user with the `mdbMonitor` role, for example:
 
 ```bash
-mongostat 5 --uri="mongodb://{name_of_user_with_mdbMonitor_role}:{password}@{host}:27018/?authSource=admin"
-mongotop 5 --uri="mongodb://{name_of_user_with_mdbMonitor_role}:{password}@{host}:27018/?authSource=admin"
+mongostat 5 --uri="mongodb://{<name_of_user_with_mdbMonitor_role>}:{<password>}@{<host>}:27018/?authSource=admin"
+mongotop 5 --uri="mongodb://{<name_of_user_with_mdbMonitor_role>}:{<password>}@{<host>}:27018/?authSource=admin"
 ```
 
 Here, both utilities provide a set of performance data with a polling interval of 5 seconds.
@@ -20,7 +20,7 @@ For more information about using `monostat` and `mongotop`, see the [{{ MG }} do
 
 ### Profiler {#explore-profiler}
 
-{{ MG }} has a [built-in profiler](https://docs.mongodb.com/manual/reference/database-profiler/). It collects query data. It then uses this data to determine a query optimization strategy. The profiler runs based on the [{{ MG }} settings](../concepts/settings-list.md) that you can set when [creating a cluster](./cluster-create.md) or [updating the DBMS settings](./update.md#change-mongod-config):
+{{ MG }} has a [built-in profiler](https://docs.mongodb.com/manual/reference/database-profiler/). It collects query data and then uses it to determine a query optimization strategy. The profiler runs based on the [{{ MG }} settings](../concepts/settings-list.md) that you can set when [creating a cluster](./cluster-create.md) or [updating the DBMS settings](./update.md#change-mongod-config):
 
 * [operationProfiling.mode](../concepts/settings-list.md#setting-operation-profiling);
 * [operationProfiling.slowOpThreshold](../concepts/settings-list.md#setting-slow-op-threshold).
@@ -58,7 +58,7 @@ You can find the most detailed information about {{ MG }} performance in the log
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}** tab.
 
 - CLI
 
@@ -77,7 +77,7 @@ You can find the most detailed information about {{ MG }} performance in the log
    1. To get all the cluster logs, run the command:
 
       ```bash
-      {{ yc-mdb-mg }} cluster list-logs --id <cluster ID>
+      {{ yc-mdb-mg }} cluster list-logs --id <cluster_ID>
       ```
 
       You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).

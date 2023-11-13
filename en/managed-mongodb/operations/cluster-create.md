@@ -33,7 +33,7 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
       * Specify the DBMS version.
 
@@ -120,22 +120,36 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       ```bash
       {{ yc-mdb-mg }} cluster create \
         --name <cluster_name> \
-        --environment=<environment:_prestable_or_production> \
+        --environment=<environment> \
         --network-name <network_name> \
         --host zone-id=<availability_zone>,`
               `subnet-id=<subnet_ID>,`
-              `assign-public-ip=<public_access_to_host:_true_or_false> \
+              `assign-public-ip=<public_access> \
         --mongod-resource-preset <host_class> \
         --user name=<username>,password=<user_password> \
-        --database name=<database_name> \
+        --database name=<DB_name> \
         --mongod-disk-type <disk_type> \
-        --mongod-disk-size <storage_size_in_GB> \
-        --performance-diagnostics=< enable_cluster_performance_diagnostics:_true_or_false> \
-        --deletion-protection=<cluster_deletion_protection:_true_or_false>
+        --mongod-disk-size <storage_size_GB> \
+        --performance-diagnostics=<enable_diagnostics> \
+        --deletion-protection=<deletion_protection>
       ```
 
       You need to specify `subnet-id` if the selected availability zone has two or more subnets.
 
+
+      Where:
+
+      * `--environment`: `prestable` or `production`.
+
+      
+      * `--host`: Host parameters:
+         * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
+         * `assign-public-ip`: Internet access to the host via a public IP, `true` or `false`.
+
+
+      * `--performance-diagnostics`: Enable performance diagnostics for the cluster, `true` or `false`.
+      * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -170,24 +184,24 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
         name                = "<cluster_name>"
-        environment         = "<environment:_PRESTABLE_or_PRODUCTION>"
-        network_id          = "<network ID>"
-        security_group_ids  = [ "<list_of_security_groups>" ]
-        deletion_protection = <cluster_deletion_protection:_true_or_false>
+        environment         = "<environment>"
+        network_id          = "<network_ID>"
+        security_group_ids  = [ "<list_of_security_group_IDs>" ]
+        deletion_protection = <cluster_deletion_protection>
 
         cluster_config {
-          version = "<{{ MG }}_version:_{{ versions.tf.str }}>"
+          version = "<{{ MG }}_version>"
         }
 
         database {
-          name = "<database_name>"
+          name = "<DB_name>"
         }
 
         user {
           name     = "<username>"
           password = "<user_password>"
           permission {
-            database_name = "<database_name>"
+            database_name = "<DB_name>"
             roles         = [ "<list_of_user_roles>" ]
           }
         }
@@ -195,13 +209,13 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
         resources_mongod {
           resource_preset_id = "<host_class>"
           disk_type_id       = "<disk_type>"
-          disk_size          = <storage_size_in_GB>
+          disk_size          = <storage_size_GB>
         }
 
         host {
           zone_id          = "<availability_zone>"
           subnet_id        = "<subnet_ID>"
-          assign_public_ip = <public_access_to_host:_true_or_false>
+          assign_public_ip = <public_access>
         }
       }
 
@@ -217,6 +231,20 @@ A {{ MG }} cluster consists of one or more database hosts you can configure repl
 
 
 
+
+      Where:
+
+      * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
+
+      
+      * `host`: Host parameters:
+         * `zone_id`: Availability zone.
+         * `subnet_id`: ID of a subnet in the selected availability zone.
+         * `assign_public_ip`: Public access to the host, `true` or `false`.
+
+
+      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+      * `version`: {{ MG }} version, {{ versions.tf.str }}.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -282,14 +310,14 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    To create a cluster with a single host, provide a single `--host` parameter.
 
-   Create a {{ mmg-name }} cluster with test characteristics:
+   Create a {{ mmg-name }} cluster with the following test characteristics:
 
    
    * Name: `mymg`.
    * Environment: `production`.
    * Network: `{{ network-name }}`.
    * Security group ID: `{{ security-group }}`.
-   * `{{ host-class }}` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone: 1.
+   * `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone: 1.
    * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
    * User: `user1`, with the `user1user1` password.
    * Database: `db1`.
@@ -306,7 +334,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --network-name {{ network-name }} \
      --security-group-ids {{ security-group }} \
      --mongod-resource-preset {{ host-class }} \
-     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64 \
+     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr******** \
      --mongod-disk-size 20 \
      --mongod-disk-type {{ disk-type-example }} \
      --user name=user1,password=user1user1 \
@@ -425,26 +453,26 @@ Create a {{ mmg-name }} cluster and a network for it with multiple hosts:
 
 Cluster test characteristics:
 
-* Name: `mymg`
-* Environment: `PRODUCTION`
-* Protection against accidental cluster deletion: Enabled
-* Version: `{{ versions.tf.latest }}`
-* Database: `db1`
-* User: `user1`
-* Password: `user1user1`
-* `MONGOD` host class: `{{ host-class }}`
-* `MONGOINFRA` host class: `c3-c2-m4`
-* SSD network storage: `{{ disk-type-example }}`
-* Storage size: 10 GB
+* Name: `mymg`.
+* Environment: `PRODUCTION`.
+* Protection against accidental cluster deletion: Enabled.
+* Version: `{{ versions.tf.latest }}`.
+* Database: `db1`.
+* User: `user1`.
+* Password: `user1user1`.
+* `MONGOD` host class: `{{ host-class }}`.
+* `MONGOINFRA` host class: `c3-c2-m4`.
+* SSD network storage: `{{ disk-type-example }}`.
+* Storage size: 10 GB.
 
 Network characteristics:
 
-* Network: `mynet`
+* Network: `mynet`.
 * Security group: `mymg-sg` with the `{{ security-group }}` ID. In {{ TF }}, a group is created with the rule allowing TCP connections to the cluster from the internet on port `{{ port-mmg }}`.
 
-* Subnet: `mysubnet`
-* Availability zone: `{{ region-id }}-a`
-* Range: `10.5.0.0/24` (only for {{ TF }})
+* Subnet: `mysubnet`.
+* Availability zone: `{{ region-id }}-a`.
+* Range: `10.5.0.0/24` (only for {{ TF }}).
 
 {% list tabs %}
 
@@ -582,24 +610,24 @@ Create a {{ mmg-name }} cluster and a network for it with multiple hosts:
 
 Cluster test characteristics:
 
-* Name: `mymg`
-* Environment: `PRODUCTION`
-* Protection against accidental cluster deletion: Enabled
-* Version: `{{ versions.tf.latest }}`
-* Database: `db1`
-* User: `user1`
-* Password: `user1user1`
-* Host class: `{{ host-class }}`
-* SSD network storage: `{{ disk-type-example }}`
-* Storage size: 10 GB
+* Name: `mymg`.
+* Environment: `PRODUCTION`.
+* Protection against accidental cluster deletion: Enabled.
+* Version: `{{ versions.tf.latest }}`.
+* Database: `db1`.
+* User: `user1`.
+* Password: `user1user1`.
+* Host class: `{{ host-class }}`.
+* SSD network storage: `{{ disk-type-example }}`.
+* Storage size: 10 GB.
 
 Network characteristics:
 
-* Network: `mynet`
+* Network: `mynet`.
 * Security group: `mymg-sg` with the `{{ security-group }}` ID. In {{ TF }}, a group is created with the rule allowing TCP connections to the cluster from the internet on port `{{ port-mmg }}`.
-* Subnet: `mysubnet`
-* Availability zone: `{{ region-id }}-a`
-* Range: `10.5.0.0/24` (only for {{ TF }})
+* Subnet: `mysubnet`.
+* Availability zone: `{{ region-id }}-a`.
+* Range: `10.5.0.0/24` (only for {{ TF }}).
 
 {% list tabs %}
 

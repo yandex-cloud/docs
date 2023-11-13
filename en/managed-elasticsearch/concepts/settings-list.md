@@ -47,7 +47,7 @@ You can use the following settings:
    [Add the certificate file as an extension](../operations/cluster-extensions.md#add) to the cluster and specify the path as:
 
    ```text
-   /etc/elasticsearch/extensions/<extension name>/<certificate name>
+   /etc/elasticsearch/extensions/<extension_name>/<certificate_name>
    ```
 
    For more information, see the [{{ ES }} documentation]({{ links.es.reindex-api }}#reindex-ssl).

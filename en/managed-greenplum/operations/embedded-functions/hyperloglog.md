@@ -6,7 +6,7 @@ This algorithm converts the original set into a special _HLL_ object. The cardin
 
 In {{ mgp-name }}, the HyperLogLog algorithm is implemented by two functions:
 
-* `gp_hyperloglog_accum(<column name>)`: Applies the HyperLogLog algorithm to the provided column. This function returns an HLL object with the `gp_hyperloglog_estimator` data type.
+* `gp_hyperloglog_accum(<column_name>)`: Applies the HyperLogLog algorithm to the provided column. This function returns an HLL object with the `gp_hyperloglog_estimator` data type.
 * `gp_hyperloglog_get_estimate(<HLL>)`: Converts the provided HLL object to a numeric estimation.
 
 In addition, you can use auxiliary functions:
@@ -22,7 +22,7 @@ In addition, you can use auxiliary functions:
 Run the following query:
 
 ```sql
-SELECT gp_hyperloglog_accum(<column name>) FROM <table name>;
+SELECT gp_hyperloglog_accum(<column_name>) FROM <table_name>;
 ```
 
 The output will contain a string.
@@ -32,7 +32,7 @@ The output will contain a string.
 Run the following query:
 
 ```sql
-SELECT gp_hyperloglog_get_estimate(gp_hyperloglog_accum(<column name>)) FROM <table name>;
+SELECT gp_hyperloglog_get_estimate(gp_hyperloglog_accum(<column_name>)) FROM <table_name>;
 ```
 
 The output will contain a real number.
@@ -43,8 +43,8 @@ Run the following query:
 
 ```sql
 SELECT gp_hyperloglog_get_estimate(
-    gp_hyperloglog_merge(gp_hyperloglog_accum(<column 1>), gp_hyperloglog_accum(<column 2>)))
-FROM <table names>;
+    gp_hyperloglog_merge(gp_hyperloglog_accum(<column_1>), gp_hyperloglog_accum(<column_2>)))
+FROM <table_names>;
 ```
 
 The output will contain a real number.
@@ -55,8 +55,8 @@ Run the following query:
 
 ```sql
 SELECT gp_hyperloglog_get_estimate(
-    gp_hyperloglog_add_item_agg_default(gp_hyperloglog_accum(<column name>), <new element value>))
-FROM <table name>;
+    gp_hyperloglog_add_item_agg_default(gp_hyperloglog_accum(<column_name>), <new_element_value>))
+FROM <table_name>;
 ```
 
 If the new element is not unique for this column or has a `null` value, the returned estimate will be the same as if you [requested the number of unique elements in the column](#get-estimation). Otherwise, the estimate will be incremented by approximately `1`.

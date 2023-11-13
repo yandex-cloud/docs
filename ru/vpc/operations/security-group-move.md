@@ -90,7 +90,15 @@ description: "Следуя данной инструкции, вы сможет�
 
 - API
 
-  Чтобы переместить [группу безопасности](../concepts/security-groups.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/SecurityGroup/move.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Move](../api-ref/grpc/security_group_service.md#Move).
+  Чтобы переместить [группу безопасности](../concepts/security-groups.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/SecurityGroup/move.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Move](../api-ref/grpc/security_group_service.md#Move) и передайте в запросе:
+
+  * Идентификатор группы безопасности, которую нужно перенести, в параметре `securityGroupId`.
+
+    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+
+  * Идентификатор каталога, в который будет перенесена группа безопасности, в параметре `destinationFolderId`.
+
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 

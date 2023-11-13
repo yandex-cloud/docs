@@ -4,10 +4,10 @@
 
   
   **If a host with the _Data node_ role is assigned a public IP address:**
-  1. Before connecting, install the [SSL certificate]({{ crt-web-path }}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
-  1. In the browser, go to one of the addresses:
-     - `https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}`, if a public IP address is assigned to all hosts with this role. You can get the cluster ID [with a list of clusters in a folder](../../managed-elasticsearch/operations/cluster-list#list-clusters).
-     - `https://<FQDN of any host with the Data node role and a public IP>.{{ dns-zone }}`
+  1. Before connecting, install the [SSL certificate]({{ crt-web-path }}) in your browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
+  1. In your browser, go to one of the addresses:
+     - `https://c-<{{ ES }}_cluster_ID>.rw.{{ dns-zone }}`, if a public IP address is assigned to all hosts with this role. You can get the cluster ID [with a list of clusters in the folder](../../managed-elasticsearch/operations/cluster-list#list-clusters).
+     - `https://<FQDN_of_any_Data_Node_host_with_public_IP>.{{ dns-zone }}`.
   1. Enter your username and password.
 
   {% include [kibana-api](mes-kibana-api.md) %}
@@ -32,9 +32,9 @@
      `/etc/nginx/sites-available/default`
      ```nginx
      upstream es-datanodes {
-        server <FQDN of host 1 with the Data Node role>:443;
+        server <FQDN_of_Data_Node_host_1>:443;
         ...
-        server <FQDN of host N with the Data Node role>:443;
+        server <FQDN_of_Data_Node_host_N>:443;
      }
 
      server {
@@ -57,12 +57,12 @@
 
      You can also use the `proxy_pass` directive with a special FQDN:
      ```nginx
-     proxy_pass https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}.
+     proxy_pass https://c-<{{ ES }}_cluster_ID>.rw.{{ dns-zone }}.
       ```
 
      {% note warning %}
 
-     This configuration file example uses a self-signed `snakeoil` certificate from the `ssl-cert` package. It's not safe to use this certificate in a real cluster. Instead of the self-signed certificate, specify the path to your public and private SSL certificate keys in the `ssl_certificate` and `ssl_certificate_key` directives.
+     This configuration file example uses a self-signed `snakeoil` certificate from the `ssl-cert` package. It is not safe to use this certificate in a real cluster. Instead of the self-signed certificate, specify the path to your public and private SSL certificate keys in the `ssl_certificate` and `ssl_certificate_key` directives.
 
      {% endnote %}
 
@@ -74,7 +74,7 @@
 
   1. Add the certificate specified in the `ssl_certificate` directive to the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
 
-  1. In the browser, go to `https://<public IP address of the VM instance>`.
+  1. In your browser, open `https://<VM_public_IP_address>`.
 
   1. Enter your username and password.
 
@@ -93,8 +93,8 @@
 
   ```powershell
    curl `
-     -Certificate <absolute path to certificate file> `
-     -Uri https://c-<cluster ID {{ ES }}>.rw.{{ dns-zone }}:9200 `
+     -Certificate <absolute_path_to_certificate_file> `
+     -Uri https://c-<{{ ES }}_cluster_ID>.rw.{{ dns-zone }}:9200 `
      -Credential <username>
   ```
 
@@ -121,9 +121,9 @@
   ES_PASS = '<password>'
 
   ES_HOSTS = [
-    "<FQDN of host 1 {{ ES }} with the Data Node role>",
+    "<FQDN_of_{{ ES }}_host_1_with_the_Data_Node_role>",
     ...,
-    "<FQDN of host N {{ ES }} with the Data node role>"
+    "<FQDN_of_{{ ES }}_host_N_with_the_Data_node_role>"
     ]
 
   conn = Elasticsearch(
@@ -168,15 +168,15 @@
         "net/http"
   )
 
-  var ES_CA = "/home/<home directory>/.elasticsearch/root.crt"
+  var ES_CA = "/home/<home_directory>/.elasticsearch/root.crt"
 
   var ES_USER = "<username>"
   var ES_PASS = "<password>"
 
   var ES_HOSTS = []string{
-    "https://<FQDN of host 1 {{ ES }} with the Data Node role>:9200",
+    "https://<FQDN_of_{{ ES }}_host_1_with_the_Data_Node_role>:9200",
     ...,
-    "https://<FQDN of host N {{ ES }} with the Data Node role>:9200"}
+    "https://<FQDN_of_{{ ES }}_host_N_with_the_Data_Node_role>:9200"}
 
   func main() {
        caCert, err := ioutil.ReadFile(ES_CA)
@@ -205,7 +205,7 @@
   }
   ```
 
-  Unlike other connection methods, this code must specify the full path to the `CA.pem` certificate for {{ ES }} in the `ES_CA` variable.
+  Unlike other connection methods, this code must include the full path to the `CA.pem` certificate for {{ ES }} in the `ES_CA` variable.
 
   **Connection:**
 

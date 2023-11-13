@@ -9,7 +9,7 @@ You can add and remove databases, as well as view information about them.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
 
 - CLI
 
@@ -21,10 +21,10 @@ You can add and remove databases, as well as view information about them.
 
    ```bash
    {{ yc-mdb-mg }} database list
-      --cluster-name <cluster name>
+      --cluster-name <cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -43,7 +43,7 @@ You can add and remove databases, as well as view information about them.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the cluster you need.
+   1. Click the cluster name.
    1. Select the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
    1. Enter the database name and click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
@@ -61,13 +61,13 @@ You can add and remove databases, as well as view information about them.
    Run the create database command and set the name of the new database:
 
    ```bash
-   {{ yc-mdb-mg }} database create <database name> \
-     --cluster-name <cluster name>
+   {{ yc-mdb-mg }} database create <DB_name>
+     --cluster-name <cluster_name>
    ```
 
    {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    {{ mmg-short-name }} runs the create database operation.
 
@@ -82,10 +82,10 @@ You can add and remove databases, as well as view information about them.
    1. Add a `database` block to the {{ mmg-name }} cluster description:
 
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+      resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
         ...
         database {
-          name = "<database name>"
+          name = "<DB_name>"
         }
       }
       ```
@@ -96,7 +96,7 @@ You can add and remove databases, as well as view information about them.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -122,7 +122,7 @@ You can add and remove databases, as well as view information about them.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_databases }}** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the DB you need and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI
@@ -134,11 +134,11 @@ You can add and remove databases, as well as view information about them.
    To delete a database, run the command:
 
    ```bash
-   {{ yc-mdb-mg }} database delete <database name>
-      --cluster-name <cluster name>
+   {{ yc-mdb-mg }} database delete <DB_name>
+      --cluster-name <cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -152,7 +152,7 @@ You can add and remove databases, as well as view information about them.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

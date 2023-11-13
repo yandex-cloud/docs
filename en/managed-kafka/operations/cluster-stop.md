@@ -22,7 +22,7 @@ You can stop and restart {{ KF }} clusters, if required. When a cluster is stopp
    To stop a cluster, run the command:
 
    ```
-   {{ yc-mdb-kf }} cluster stop <cluster name or ID>
+   {{ yc-mdb-kf }} cluster stop <cluster_name_or_ID>
    ```
 
 
@@ -57,7 +57,7 @@ You can restart `STOPPED` clusters.
    To start a cluster, run the command:
 
    ```
-   {{ yc-mdb-kf }} cluster start <cluster name or ID>
+   {{ yc-mdb-kf }} cluster start <cluster_name_or_ID>
    ```
 
 

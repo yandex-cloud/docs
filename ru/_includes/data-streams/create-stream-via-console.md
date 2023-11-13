@@ -5,7 +5,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать [поток данных](../../data-streams/concepts/glossary.md#stream-concepts).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
-  1. Укажите базу данных {{ ydb-full-name }} или [создайте](../../ydb/quickstart.md#create-db) новую. Если вы создали новую БД, после ее создания нажмите кнопку ![refresh-button](../../_assets/data-streams/refresh-button.svg) для обновления списка БД.
+  1. Укажите базу данных {{ ydb-full-name }} или [создайте](../../ydb/quickstart.md#create-db) новую. Если вы создали новую БД, после ее создания нажмите кнопку ![refresh-button](../../_assets/console-icons/arrow-rotate-right.svg) для обновления списка БД.
   1. Введите имя потока данных. Требования к имени:
 
      {% include [name-format](../../_includes/name-format.md) %}

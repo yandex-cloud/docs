@@ -154,10 +154,10 @@
 
          Maximum size of the internal cache used for data storage (in GB). This setting does not affect the amount of RAM used to create an index.
 
-         Minimum value: `0.25` (256 MB). The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by these formulas:
+         The minimum value is `0.25` (256 MB). The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by these formulas:
 
-         - Maximum value: `0.9 × <amount of RAM on the host>`
-         - Default value: `0.5 × <amount of RAM on the host>`
+         - The maximum value is `0.9 × <amount_of_RAM_per_host>`.
+         - The default value is `0.5 × <amount_of_RAM_per_host>`.
 
          For example, for {{ s1-medium }} class hosts, the maximum value of the setting is `28.8`, the default value is `16`.
 

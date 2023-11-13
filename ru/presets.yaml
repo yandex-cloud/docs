@@ -3276,6 +3276,7 @@ default:
         action-menu-title: Действия
       ui_components_AddWorklogDialog:
         apply-button: Сохранить
+        date-label: Начало работы
         duration-label: Затрачено времени
       ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField:
         server-url-label: Ссылка на репозиторий

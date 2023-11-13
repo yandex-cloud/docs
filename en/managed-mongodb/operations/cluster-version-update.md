@@ -44,14 +44,14 @@ Make sure this does not affect your applications:
    1. Get information about a cluster and check the {{ MG }} version in the `config.version` parameter:
 
       ```bash
-      {{ yc-mdb-mg }} cluster get <cluster ID or name>
+      {{ yc-mdb-mg }} cluster get <cluster_name_or_ID>
       ```
 
    1. Start the {{ MG }} upgrade:
 
       ```bash
-      {{ yc-mdb-mg }} cluster update <cluster name or ID> \
-         --mongodb-version=<new version number>
+      {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
+         --mongodb-version=<new_version_ID>
       ```
 
       When the update starts, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
@@ -59,8 +59,8 @@ Make sure this does not affect your applications:
    1. After the upgrade, all MongoDB features that are not backward-compatible with the previous version will be disabled. To remove this restriction, run this command:
 
       ```bash
-      {{ yc-mdb-mg }} cluster update <cluster ID or name> \
-         --feature-compatibility-version=<new version number>
+      {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
+         --feature-compatibility-version=<new_version_number>
       ```
 
       Learn more about backward compatibility in the [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
@@ -74,10 +74,10 @@ Make sure this does not affect your applications:
    1. To the {{ mmg-name }} cluster description, add the `version` field or change its value if it is already there:
 
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+      resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
         ...
         cluster_config {
-          version = "<MongoDB version>"
+          version = "<{{ MG }}_version>"
         }
       }
       ```
@@ -86,7 +86,7 @@ Make sure this does not affect your applications:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -126,40 +126,40 @@ Let's assume you need to upgrade your cluster from version 4.0 to 4.2.
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
       +----------------------+---------------+---------------------+--------+---------+
-      | c9q8p8j2gaih8iti42mh |   mongodb406  | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
+      | c9q8p8j2gaih******** |   mongodb406  | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
       +----------------------+---------------+---------------------+--------+---------+
       ```
 
-   1. To get information about the `c9qut3k64b2o9umqogr7` cluster, run this command:
+   1. To get information about the `c9qut3k64b2o********` cluster, run this command:
 
       ```bash
-      {{ yc-mdb-mg }} cluster get c9qut3k64b2o9umqogr7
-        id: c9qut3k64b2o9umqogr7
-        folder_id: b1g0itj57rbjk9thrinv
+      {{ yc-mdb-mg }} cluster get c9qut3k64b2o********
+        id: c9qut3k64b2o********
+        folder_id: b1g0itj57rbj********
         created_at: "2019-07-16T09:43:50.393231Z"
         name: mongodb406
         environment: PRODUCTION
         monitoring:
         - name: Console
           description: Console charts
-          link: {{ link-console-main }}/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
+          link: {{ link-console-main }}/folders/b1g0itj57rbj********/managed-mongodb/cluster/c9qut3k64b2o********?section=monitoring
         config:
           version: "4.0"
           feature_compatibility_version: "4.0"
           ...
       ```
 
-   1. To upgrade the cluster `c9qutgkd4b2o9umqog97` to version 4.2, run this command:
+   1. To upgrade the `c9qutgkd4b2o********` cluster to version 4.2, run this command:
 
       ```bash
-      {{ yc-mdb-mg }} cluster update c9qutgkd4b2o9umqog97 \
+      {{ yc-mdb-mg }} cluster update c9qutgkd4b2o******** \
           --mongodb-version=4.2
       ```
 
-   1. To enable all 4.2 features in the cluster `c9qutgkd4b2o9umqog97`, run this command:
+   1. To enable all 4.2 features in the cluster `c9qutgkd4b2o********`, run this command:
 
       ```bash
-      {{ yc-mdb-mg }} cluster update c9qutgkd4b2o9umqog97 \
+      {{ yc-mdb-mg }} cluster update c9qutgkd4b2o******** \
           --feature-compatibility-version=4.2
       ```
 

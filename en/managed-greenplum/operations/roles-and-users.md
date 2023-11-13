@@ -2,8 +2,8 @@
 
 {{ GP }} manages database access rights using two types of roles:
 
-* User is a role that can log in to the database.
-* Group is a role that includes other roles.
+* User: Role that can log in to the database.
+* Group: Role that includes other roles.
 
 For more information, see [{#T}](../concepts/cluster-users.md).
 
@@ -72,7 +72,7 @@ For more information about role interaction commands, see the [{{ GP }} document
    Run this command:
 
    ```sql
-   CREATE ROLE <role name> <attribute list>;
+   CREATE ROLE <role_name> <list_of_attributes>;
    ```
 
    For a list of available attributes, see [{#T}](../concepts/cluster-users.md#attributes).
@@ -88,7 +88,7 @@ For more information about role interaction commands, see the [{{ GP }} document
    To add a role to a group role, run the command:
 
    ```sql
-   GRANT <group role name> TO <comma-separated role list>;
+   GRANT <group_role_name> TO <comma-separated_list_of_roles>;
    ```
 
    You can obtain role names with a [list of roles in the cluster](#list).
@@ -96,13 +96,13 @@ For more information about role interaction commands, see the [{{ GP }} document
    The `LOGIN`, `SUPERUSER`, `CREATEDB`, `CREATEROLE`, `CREATEEXTTABLE`, and `RESOURCE QUEUE` attributes are not inherited. To use all attributes of the group role, run the following command on behalf of the role:
 
    ```sql
-   SET ROLE <group role name>;
+   SET ROLE <group_role_name>;
    ```
 
    To remove a role from a group role, run the command:
 
    ```sql
-   REVOKE <group role name> FROM <comma-separated role list>;
+   REVOKE <group_role_name> FROM <comma-separated_list_of_roles>;
    ```
 
 {% endlist %}
@@ -116,7 +116,7 @@ For more information about role interaction commands, see the [{{ GP }} document
    Run this command:
 
    ```sql
-   ALTER ROLE <role name> <attribute list>;
+   ALTER ROLE <role_name> <list_of_attributes>;
    ```
 
    For a list of available attributes, see [{#T}](../concepts/cluster-users.md#attributes).
@@ -132,7 +132,7 @@ For more information about role interaction commands, see the [{{ GP }} document
    To grant privileges to a role, run the command:
 
    ```sql
-   GRANT <comma-separated privilege list> ON <object name> TO <role name>;
+   GRANT <comma-separated_list_of_privileges> ON <object_name> TO <role_name>;
    ```
 
    For a list of available privileges, see [{#T}](../concepts/cluster-users.md#privileges).
@@ -140,7 +140,7 @@ For more information about role interaction commands, see the [{{ GP }} document
    To revoke privileges from a role, run the command:
 
    ```sql
-   REVOKE <comma-separated privilege list> ON <object name> FROM <role name>;
+   REVOKE <comma-separated_list_of_privileges> ON <object_name> FROM <role_name>;
    ```
 
    Instead of listing all object privileges, use `ALL PRIVILEGES`.
@@ -148,7 +148,7 @@ For more information about role interaction commands, see the [{{ GP }} document
    To revoke all privileges of all role objects, run the command:
 
    ```sql
-   DROP OWNED BY <role name>;
+   DROP OWNED BY <role_name>;
    ```
 
 {% endlist %}
@@ -164,7 +164,7 @@ Before deleting a role, delete all objects it owns or reassign their ownership r
    Run this command:
 
    ```sql
-   DROP ROLE <role name>;
+   DROP ROLE <role_name>;
    ```
 
 {% endlist %}
@@ -173,7 +173,7 @@ Before deleting a role, delete all objects it owns or reassign their ownership r
 
 ### Creating a role
 
-Create a role with test characteristics:
+Create a role with these test characteristics:
 
 * Name: `greenplum_user`.
 * Attributes: `CREATEDB` and `CREATEROLE`.

@@ -34,7 +34,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
    +----------------------+--------------+---------------------+--------+---------+
    |          ID          |     NAME     |     CREATED AT      | HEALTH | STATUS  |
    +----------------------+--------------+---------------------+--------+---------+
-   | c9q5k4ve76jspng95lav | mysql-test   | 2019-07-09 11:05:25 | ALIVE  | RUNNING |
+   | c9q5k4ve76js******** | mysql-test   | 2019-07-09 11:05:25 | ALIVE  | RUNNING |
    | ...                                                                          |
    +----------------------+--------------+---------------------+--------+---------+
    ```
@@ -64,10 +64,10 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
    To get information about a {{ MY }} cluster, run the following command:
 
    ```
-   {{ yc-mdb-my }} cluster get <cluster name or ID>
+   {{ yc-mdb-my }} cluster get <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 
@@ -98,10 +98,10 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
    To get a list of operations, run the following command:
 
    ```
-   {{ yc-mdb-my }} cluster list-operations <cluster name or ID>
+   {{ yc-mdb-my }} cluster list-operations <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 

@@ -47,24 +47,24 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```bash
    cd /etc/ksqldb && \
    sudo keytool -importcert -alias {{ crt-alias }} -file {{ crt-local-dir }}{{ crt-local-file }} \
-   -keystore ssl -storepass <certificate store password> \
+   -keystore ssl -storepass <certificate_store_password> \
    --noprompt
    ```
 
 1. In the ksqlDB `/etc/ksqldb/ksql-server.properties` configuration file, specify the credentials to authenticate in the {{ mkf-name }} cluster:
 
    ```ini
-   bootstrap.servers=<broker 1 FQDN:9091, ..., broker N FQDN:9091>
+   bootstrap.servers=<FQDN_of_broker_1:9091,...,FQDN_of_broker_N:9091>
    sasl.mechanism=SCRAM-SHA-512
    security.protocol=SASL_SSL
    ssl.truststore.location=/etc/ksqldb/ssl
-   ssl.truststore.password=<certificate store password>
-   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<ksql user password>";
+   ssl.truststore.password=<certificate_store_password>
+   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<ksql_user_password>";
    ```
 
    {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
-   The cluster name can be requested with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+   You can get the cluster name with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
 1. Restart the ksqlDB service with the command below:
 
@@ -113,7 +113,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
    (
      kafka_topic='locations',
      value_format='json',
-     partitions=<number of "locations" topic partitions>
+     partitions=<number_of_locations_topic_partitions>
    );
    ```
 
@@ -160,12 +160,12 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <broker 1 FQDN:9091, ..., broker N FQDN:9091> \
+      -b <FQDN_of_broker_1:9091,...,FQDN_of_broker_N:9091> \
       -t locations \
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username=ksql \
-      -X sasl.password="<ksql user password>" \
+      -X sasl.password="<ksql_user_password>" \
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
@@ -209,12 +209,12 @@ Data is read using the `ksql` user.
 
    ```bash
    kafkacat -C \
-    -b <broker 1 FQDN:9091, ..., broker N FQDN:9091> \
+    -b <FQDN_of_broker_1,...,FQDN_of_broker_N:9091> \
     -t locations \
     -X security.protocol=SASL_SSL \
     -X sasl.mechanisms=SCRAM-SHA-512 \
     -X sasl.username=ksql \
-    -X sasl.password="<ksql user password>" \
+    -X sasl.password="<ksql_user_password>" \
     -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
    ```
 

@@ -25,7 +25,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите изменить настройки потока данных.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
-  1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужного потока данных и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. Нажмите значок ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) в строке нужного потока данных и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Настройте параметры потока данных:
      1. Выберите необходимое число сегментов.
      1. Задайте максимальную пропускную способность сегмента в секунду.
@@ -45,7 +45,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите удалить поток данных.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
-  1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужного потока данных и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
+  1. Нажмите значок ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) в строке нужного потока данных и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
 {% endlist %}

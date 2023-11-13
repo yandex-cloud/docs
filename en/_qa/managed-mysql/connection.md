@@ -50,12 +50,12 @@ Additional information:
 * If you are using [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), check the host list to see that the current master or replica have public access.
 
 
-* If you can't connect to the added host, check that the cluster's [security group](../../managed-mysql/concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+* If you cannot connect to the added host, check that the cluster [security group](../../managed-mysql/concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 
 #### Why would the connection limit be exceeded? {#connection-limit}
 
-The maximum number of concurrent connections to a {{ mmy-short-name }} cluster host depends on `max_connections` and is `<amount of RAM in MB on one host> ÷ 32`. The minimum value is 100 by default.
+The maximum number of concurrent connections to a {{ mmy-short-name }} cluster host depends on `max_connections` and is `<MB_of_RAM_per_host> ÷ 32` by default, but not less than 100.
 
 For example, for a host of the {{ s1-micro }} class, the default `max_connections` parameter value is: 8192 ÷ 32 = 256.
 

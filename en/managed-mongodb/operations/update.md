@@ -131,8 +131,8 @@ After creating a cluster, you can:
 
    To change the host class, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Host class in the `configSpec.mongodbSpec_<{{ MG }} version>.mongod.resources.resourcePresetId` parameter.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Host class in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.resources.resourcePresetId` parameter.
 
       To retrieve a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
@@ -171,7 +171,7 @@ After creating a cluster, you can:
       {{ yc-mdb-mg }} cluster update --help
       ```
 
-   1. Specify the desired storage size in the update cluster command.It must be at least as large as the current `disk_size` value in the cluster properties.
+   1. Specify the required storage size in the update cluster command.It must be at least as large as the current `disk_size` value in the cluster properties.
 
       When increasing the storage size, keep in mind the host role: it depends on the [sharding type](../concepts/sharding.md#shard-management). You can use parameters for hosts with different roles in a single command.
 
@@ -203,7 +203,7 @@ After creating a cluster, you can:
             --mongocfg-disk-size <storage_size_in_GB>
          ```
 
-      If all these conditions are met, {{ mmg-short-name }} will launch the operation to increase storage size.
+      If all these conditions are met, {{ mmg-short-name }} will launch the operation to increase the storage size.
 
 - {{ TF }}
 
@@ -221,7 +221,7 @@ After creating a cluster, you can:
       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
         ...
         resources_mongod {
-          disk_size = <storage_size_in_GB>
+          disk_size = <storage_size_GB>
           ...
         }
       }
@@ -243,8 +243,8 @@ After creating a cluster, you can:
 
    To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * New storage size in the `configSpec.mongodbSpec_<{{ MG }} version>.mongod.resources.diskSize` parameter.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * New storage size in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.resources.diskSize` parameter.
    * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -291,8 +291,8 @@ You can change the DBMS settings of the hosts in your cluster.
 
    To change {{ MG }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Target {{ MG }} setting values in the `configSpec.mongodbSpec_<{{ MG }} version>.mongod.config` parameter.
+   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Required {{ MG }} setting values in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.config` parameter.
 
       All supported settings are described in the [API reference](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
 
@@ -334,13 +334,13 @@ You can change the DBMS settings of the hosts in your cluster.
 
       ```bash
       {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
-        --backup-retain-period-days=<retain_period> \
+        --backup-retain-period-days=<retention_period> \
         --backup-window-start <backup_start_time> \
-        --maintenance-window type=<maintenance_type:_anytime_or_weekly>,`
-                             `day=<day_of_the_week_for_weekly_type>,`
-                             `hour=<hour_of_the_day_for_weekly_type> \
-        --performance-diagnostics=<enable_cluster_performance_diagnostics:_true_or_false> \
-        --deletion-protection=<cluster_deletion_protection:_true_or_false>
+        --maintenance-window type=<maintenance_type>,`
+                             `day=<day_of_week>,`
+                             `hour=<hour_of_day> \
+        --performance-diagnostics=<enable_diagnostics> \
+        --deletion-protection=<deletion_protection>
       ```
 
    You can change the following settings:
@@ -349,7 +349,7 @@ You can change the DBMS settings of the hosts in your cluster.
       .
 
 
-      The `<retention period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../concepts/backup.md).
+      The `<retention_period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../concepts/backup.md).
 
 
       Changing the retention period affects both new automatic backups and existing backups.
@@ -383,14 +383,16 @@ You can change the DBMS settings of the hosts in your cluster.
         ...
         cluster_config {
           backup_window_start {
-            hours   = <Hour_of_backup_start_time>
-            minutes = <Minute_of_backup_start_time>
+            hours   = <hour>
+            minutes = <minute>
           }
           ...
         }
         ...
       }
       ```
+
+      Where `hours` and `minutes` is the hour and minute when the backup starts.
 
    1. To allow access from [{{ datalens-full-name }}](../../datalens/concepts/index.md), add a block named `access` under `cluster_config` to the {{ mmg-name }} cluster description:
 
@@ -400,11 +402,13 @@ You can change the DBMS settings of the hosts in your cluster.
         cluster_config {
           ...
           access {
-            data_lens = <Access_from_{{ datalens-name }}:_true_or_false>
+            data_lens = <access_from_{{ datalens-name }}>
           }
         ...
       }
       ```
+
+      Where `data_lens` enables access from {{ datalens-name }}, `true` or `false`.
 
    1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
@@ -413,9 +417,11 @@ You can change the DBMS settings of the hosts in your cluster.
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
         ...
-        deletion_protection = <cluster_deletion_protection:_true_or_false>
+        deletion_protection = <deletion_protection>
       }
       ```
+
+      Where `deletion_protection` enables cluster deletion protection, `true` or `false`.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -524,7 +530,8 @@ You can change the DBMS settings of the hosts in your cluster.
 
       ```bash
       {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
-         --security-group-ids <list_of_security_groups>
+        --security-group-ids <list_of_security_group_IDs>
+
       ```
 
 - {{ TF }}
@@ -538,7 +545,7 @@ You can change the DBMS settings of the hosts in your cluster.
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
         ...
-        security_group_ids = [ <List_of_security_group_IDs> ]
+        security_group_ids = [ <list_of_security_group_IDs> ]
         ...
       }
       ```

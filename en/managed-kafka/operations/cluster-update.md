@@ -2,12 +2,12 @@
 
 After creating a {{ mkf-name }} cluster, you can:
 
-* [{#T}](#change-brokers)
-* [{#T}](#change-zookeeper)
-* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md))
-* [{#T}](#change-additional-settings)
-* [{#T}](#change-kafka-settings)
-* [{#T}](#move-cluster) from the current folder to another one
+* [{#T}](#change-brokers).
+* [{#T}](#change-zookeeper).
+* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
+* [{#T}](#change-additional-settings).
+* [{#T}](#change-kafka-settings).
+* [{#T}](#move-cluster) from the current folder to another one.
 * [{#T}](#change-sg-set)
 
 ## Changing the broker host class and number {#change-brokers}
@@ -38,7 +38,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
       ```bash
       {{ yc-mdb-kf }} cluster list
-      {{ yc-mdb-kf }} cluster get <cluster ID or name>
+      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
       ```
 
    1. View a description of the update cluster CLI command:
@@ -50,13 +50,13 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
    1. To increase the number of broker hosts, run the command:
 
       ```bash
-      {{ yc-mdb-kf }} cluster update <cluster name or ID> --brokers-count <number>
+      {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> --brokers-count <number_of_broker_hosts>
       ```
 
    1. To change the broker host class, run the command:
 
       ```bash
-      {{ yc-mdb-kf }} cluster update <cluster name or ID> --resource-preset <host class>
+      {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> --resource-preset <host_class>
       ```
 
 - {{ TF }}
@@ -68,9 +68,9 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
    1. In the {{ mkf-name }} cluster description, change the `brokers_count` parameter to increase the number of broker hosts:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
         config {
-          brokers_count = <number of broker hosts>
+          brokers_count = <number_of_broker_hosts>
           ...
         }
         ...
@@ -80,11 +80,11 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
    1. In the {{ mkf-name }} cluster description, edit the value of the `resource_preset_id` parameter under `kafka.resources` to specify a new broker host class:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
         ...
         kafka {
           resources {
-            resource_preset_id = "<broker host class>"
+            resource_preset_id = "<broker_host_class>"
             ...
           }
         }
@@ -138,7 +138,7 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
       ```bash
       {{ yc-mdb-kf }} cluster list
-      {{ yc-mdb-kf }} cluster get <cluster ID or name>
+      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
       ```
 
    1. View a description of the update cluster CLI command:
@@ -150,8 +150,8 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
    1. To change the {{ ZK }} host class, run this command:
 
       ```bash
-      {{ yc-mdb-kf }} cluster update <cluster ID or name> \
-        --zookeeper-resource-preset <host class>
+      {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
+        --zookeeper-resource-preset <host_class>
       ```
 
 - Terraform
@@ -163,11 +163,11 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
    1. In the {{ mkf-name }} cluster description, edit the value of the `resource_preset_id` parameter under `zookeeper.resources` to specify a new {{ ZK }} host class:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
         ...
         zookeeper {
           resources {
-            resource_preset_id = "<{{ ZK }} host class>"
+            resource_preset_id = "<{{ ZK }}_host_class>"
             ...
           }
         }
@@ -236,8 +236,8 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
    1. To change the size of the broker host storage, run the command:
 
       ```bash
-      {{ yc-mdb-kf }} cluster update <cluster ID or name> \
-        --disk-size <storage size>
+      {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
+        --disk-size <storage_size>
       ```
 
       If no size units are specified, gigabytes are used.
@@ -245,8 +245,8 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
    1. To change the size of the {{ ZK }} host storage, run the command:
 
       ```bash
-      {{ yc-mdb-kf }} cluster update <cluster ID or name> \
-        --zookeeper-disk-size <disk size>
+      {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
+        --zookeeper-disk-size <disk_size>
       ```
 
       If no size units are specified, gigabytes are used.
@@ -262,18 +262,18 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
    1. In the {{ mkf-name }} cluster description, change the `disk_size` parameter in the `kafka.resources` and `zookeeper.resources` sections for the {{ KF }} and {{ ZK }} hosts, respectively:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
         ...
         kafka {
           resources {
-            disk_size = <storage size in GB>
+            disk_size = <storage_size_GB>
             ...
           }
           ...
         }
         zookeeper {
           resources {
-            disk_size = <storage size in GB>
+            disk_size = <storage_size_GB>
             ...
           }
         }
@@ -336,10 +336,15 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
    1. Specify the security groups and public access settings in the update cluster command:
 
       ```bash
-      {{ yc-mdb-kf }} cluster update <cluster name> \
-         --security-group-ids <security group list> \
-         --assign-public-ip=<cluster public access: true or false>
+      {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
+         --security-group-ids <list_of_security_groups> \
+         --assign-public-ip=<public_access>
       ```
+
+      Where:
+
+      * `--security-group-ids`: List of cluster security group IDs.
+      * `--assign-public-ip`: Public access to the cluster, `true` or `false`.
 
    [Restart the cluster](./cluster-stop.md) for the new public access settings to take effect.
 
@@ -352,16 +357,20 @@ You cannot change the disk type for an {{ KF }} cluster once you create it.
    1. Change the values of the `security_group_ids` and `assign_public_ip` parameters in the cluster description:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
         ...
-        security_group_ids = [ <list of cluster security group IDs> ]
+        security_group_ids = [ <list_of_security_groups> ]
         ...
         config {
-          assign_public_ip = "<cluster public access: true or false>"
+          assign_public_ip = "<public_access>"
           ...
           }
       }
       ```
+
+      Where:
+      * `security_group_ids`: List of IDs of security groups in the cluster.
+      * `assign_public_ip`: Public access to the cluster, `true` or `false`.
 
    1. Make sure the settings are correct.
 
@@ -426,12 +435,12 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    1. Run the following command with a list of settings to update:
 
       ```bash
-      {{ yc-mdb-kf }} cluster update <cluster name or ID> \
-         --maintenance-window type=<maintenance type: anytime or weekly>,`
-                             `day=<day of week for weekly>,`
-                             `hour=<hour for weekly> \
-         --datatransfer-access=<true or false> \
-         --deletion-protection=<protect cluster from deletion: true or false>
+      {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
+         --maintenance-window type=<maintenance_type>,`
+                             `day=<day_of_week>,`
+                             `hour=<hour_of_day> \
+         --datatransfer-access=<day_of_week> \
+         --deletion-protection=<deletion_protection>
       ```
 
    You can change the following settings:
@@ -459,9 +468,9 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
         ...
-        deletion_protection = <protect cluster from deletion: true or false>
+        deletion_protection = <deletion_protection>
       }
       ```
 
@@ -489,7 +498,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    * Cluster access configuration settings for [{{ data-transfer-full-name }}](../../data-transfer/) in Serverless mode: in the `configSpec.access.dataTransfer` parameter.
 
-      This enables you to connect to {{ data-transfer-full-name }} running in {{ k8s }} via a special network. It will also cause other operations to run faster, such as transfer launch and deactivation.
+      This enables you to connect to {{ data-transfer-full-name }} running in {{ k8s }} via a special network. As a result, other operations, e.g., transfer launch and deactivation, will run faster.
 
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
@@ -532,11 +541,16 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    1. Change [settings {{ KF }}](../concepts/settings-list.md#cluster-settings) in the cluster update command (not all settings are shown in the example):
 
       ```bash
-      {{ yc-mdb-kf }} cluster update <cluster ID or name> \
-         --compression-type <compression type> \
-         --log-flush-interval-messages <number of messages in log before flushing to disk> \
-         --log-flush-interval-ms <maximum time to retain messages in memory before flushing to disk>
+      {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
+         --compression-type <compression_type> \
+         --log-flush-interval-messages <number_of_messages_in_log> \
+         --log-flush-interval-ms <maximum_time_to_retain_messages_in_memory>
       ```
+
+      Where:
+
+      * `--log-flush-interval-messages`: Number of messages in the log to trigger flushing to disk.
+      * `--log-flush-interval-ms`: Maximum time a message can be stored in memory before flushing to disk.
 
 - {{ TF }}
 
@@ -547,14 +561,14 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    1. In the {{ mkf-name }} cluster description, modify the values of the parameters in the `kafka.kafka_config` section (the example does not contain an exhaustive list of the [settings](../concepts/settings-list.md#cluster-settings)):
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
         ...
         config {
           kafka {
             ...
             kafka_config {
-              compression_type            = "<compression type>"
-              log_flush_interval_messages = <maximum number of messages in memory>
+              compression_type            = "<compression_type>"
+              log_flush_interval_messages = <maximum_number_of_messages_in_memory>
               ...
             }
           }
@@ -612,8 +626,8 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    1. Specify the destination folder in the move cluster command:
 
       ```bash
-      {{ yc-mdb-kf }} cluster move <cluster ID> \
-         --destination-folder-name=<destination folder name>
+      {{ yc-mdb-kf }} cluster move <cluster_ID> \
+         --destination-folder-name=<destination_folder_name>
       ```
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -654,8 +668,8 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    1. Specify the security groups in the update cluster command:
 
       ```bash
-      {{ yc-mdb-kf }} cluster update <cluster name> \
-         --security-group-ids <security group list>
+      {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
+         --security-group-ids <list_of_security_groups>
       ```
 
 - {{ TF }}
@@ -667,9 +681,9 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    1. Change the value of the `security_group_ids` parameter in the cluster description:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
         ...
-        security_group_ids = ["<list of cluster security group IDs>"]
+        security_group_ids = [ <list_of_security_groups> ]
       }
       ```
 

@@ -83,10 +83,17 @@
 
 - API
 
-  Чтобы переместить [таблицу маршрутизации](../concepts/static-routes.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/RouteTable/move.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Move](../api-ref/grpc/route_table_service.md#Move).
+  Чтобы переместить [таблицу маршрутизации](../concepts/static-routes.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/RouteTable/move.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Move](../api-ref/grpc/route_table_service.md#Move) и передайте в запросе:
+
+  * Идентификатор таблицы маршрутизации, которую нужно перенести, в параметре `routeTableId`.
+
+    Чтобы узнать идентификатор таблицы маршрутизации, воспользуйтесь методом REST API [list](../api-ref/RouteTable/list) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/List](../api-ref/grpc/route_table_service.md#List) и передайте в запросе идентификатор текущего каталога в параметре `folderId`.
+
+  * Идентификатор каталога, в который будет перенесена таблица маршрутизации, в параметре `destinationFolderId`.
+
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
-
 
 ## Примеры {#examples}
 

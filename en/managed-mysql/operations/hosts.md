@@ -26,21 +26,21 @@ You can add and remove cluster hosts and manage their settings.
 
    ```bash
    {{ yc-mdb-my }} host list \
-      --cluster-name=<cluster name>
+      --cluster-name=<cluster_name>
    ```
 
    Result:
 
    ```text
-   +----------------------------+--------------+---------+--------+---------------+
-   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
-   +----------------------------+--------------+---------+--------+---------------+
-   | rc1b...{{ dns-zone }} | c9q5k4ve7... | MASTER  | ALIVE  | {{ region-id }}-b |
-   | rc1a...{{ dns-zone }} | c9q5k4ve7... | REPLICA | ALIVE  | {{ region-id }}-a |
-   +----------------------------+--------------+---------+--------+---------------+
+   +----------------------------+----------------------+---------+--------+---------------+
+   |            NAME            |      CLUSTER ID      |  ROLE   | HEALTH |    ZONE ID    |
+   +----------------------------+----------------------+---------+--------+---------------+
+   | rc1b...{{ dns-zone }} | c9q5k4ve7ev4******** | MASTER  | ALIVE  | {{ region-id }}-b |
+   | rc1a...{{ dns-zone }} | c9q5k4ve7ev4******** | REPLICA | ALIVE  | {{ region-id }}-a |
+   +----------------------------+----------------------+---------+--------+---------------+
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -88,14 +88,14 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
       Result:
 
       ```text
-      +-----------+-----------+------------+-------------------+------------------+
-      |     ID    |   NAME    | NETWORK ID |       ZONE        |      RANGE       |
-      +-----------+-----------+------------+-------------------+------------------+
-      | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
-      | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
-      | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
-      | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
-      +-----------+-----------+------------+-------------------+------------------+
+      +----------------------+-----------+-----------------------+---------------+------------------+
+      |          ID          |   NAME    |       NETWORK ID      |       ZONE    |      RANGE       |
+      +----------------------+-----------+-----------------------+---------------+------------------+
+      | b0cl69a2b4c6******** | default-c | enp6rq72rndgr******** | {{ region-id }}-c | [172.**.*.*/20]  |
+      | e2lkj9qwe762******** | default-b | enp6rq72rndgr******** | {{ region-id }}-b | [10.**.*.*/16]   |
+      | e9b0ph42bn96******** | a-2       | enp6rq72rndgr******** | {{ region-id }}-a | [172.**.**.*/20] |
+      | e9b9v22r88io******** | default-a | enp6rq72rndgr******** | {{ region-id }}-a | [172.**.**.*/20] |
+      +----------------------+-----------+-----------------------+---------------+------------------+
       ```
 
       
@@ -112,26 +112,26 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
       ```bash
       {{ yc-mdb-my }} host add \
-        --cluster-name=<cluster name> \
-        --host zone-id=<availability zone ID>,`
-          `subnet-id=<subnet ID>,`
-          `assign-public-ip=<public access to the subcluster host: true or false>,`
-          `replication-source=<source host name>,`
-          `backup-priority=<host priority for backups: from 0 to 100>,`
-          `priority=<priority for assigning the host as master: from 0 to 100>
+        --cluster-name=<cluster_name> \
+        --host zone-id=<availability_zone_ID>,`
+          `subnet-id=<subnet_ID>,`
+          `assign-public-ip=<public_access_to_subcluster_host>,`
+          `replication-source=<source_host_name>,`
+          `backup-priority=<host_backup_priority>,`
+          `priority=<priority_of_assigning_host_as_master>
       ```
 
       Where:
-      * `--cluster-name`: Name of {{ mmy-name }} cluster.
+      * `--cluster-name`: Name of a {{ mmy-name }} cluster.
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
-         * `assign-public-ip`: Host accessibility from the internet.
+         * `assign-public-ip`: Internet access to the host, `true` or `false.`
          * `replication-source`: [Replication](../concepts/replication.md) source for the host.
-         * `backup-priority`: Host priority for [backups](../concepts/backup.md#size).
-         * `priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+         * `backup-priority`: Host [backup](../concepts/backup.md#size) priority, between `0` and `100`.
+         * `priority`: Priority for assigning the host as master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
-      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -141,17 +141,22 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
    1. Add a `host` block to the {{ mmy-name }} cluster description.
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
         host {
-          zone             = "<availability zone>"
-          subnet_id        = <subnet ID>
-          assign_public_ip = <public access to the host: true or false>
-          priority         = <priority for assigning the host as a master: from 0 to 100>
+          zone             = "<availability_zone>"
+          subnet_id        = <subnet_ID>
+          assign_public_ip = <public_access_to_host>
+          priority         = <priority_of_assigning_host_as_master>
           ...
         }
       }
       ```
+
+      Where:
+
+      * `assign_public_ip`: Public access to the host, `true` or `false`.
+      * `priority`: Priority of assigning the host as master, between `0` and `100`.
 
    1. Make sure the settings are correct.
 
@@ -220,22 +225,22 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
    To modify host parameters, execute the command below (the parameter list in the example is not exhaustive):
 
    ```bash
-   {{ yc-mdb-my }} host update <host name> \
-     --cluster-name=<cluster name> \
-     --replication-source=<source host name> \
-     --assign-public-ip=<public access to the host: true or false> \
-     --backup-priority=<host priority for backups: from 0 to 100> \
-     --priority=<priority for assigning the host as a master: from 0 to 100>
+   {{ yc-mdb-my }} host update <host_name> \
+     --cluster-name=<cluster_name> \
+     --replication-source=<source_host_name> \
+     --assign-public-ip=<public_access_to_host> \
+     --backup-priority=<host_backup_priority> \
+     --priority=<priority_of_assigning_host_as_master>
    ```
 
    Where:
-   * `--cluster-name`: Name of {{ mmy-name }} cluster.
+   * `--cluster-name`: Name of a {{ mmy-name }} cluster.
    * `--replication-source`: [Replication](../concepts/replication.md) source for the host.
-   * `--assign-public-ip`: Host accessibility from the internet.
-   * `--backup-priority`: Host priority for [backups](../concepts/backup.md#size).
-   * `--priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+   * `--assign-public-ip`: Internet access to the host, `true` or `false`.
+   * `--backup-priority`: Host [backup](../concepts/backup.md#size) priority, between `0` and `100`.
+   * `--priority`: Priority of assigning the host as master if the [primary master host fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
-   The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -246,15 +251,20 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
    1. In the {{ mmy-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
         host {
-          replication_source_name = "<replication source>"
-          assign_public_ip        = <public access to the host: true or false>
-          priority                = <priority for assigning the host as a master: from 0 to 100>
+          replication_source_name = "<replication_source>"
+          assign_public_ip        = <public_access_to_host>
+          priority                = <priority_of_assigning_host_as_master>
         }
       }
       ```
+
+      Where:
+
+      * `assign_public_ip`: Public access to the host, `true` or `false`.
+      * `priority`: Priority of assigning the host as master, between `0` and `100`.
 
    1. Make sure the settings are correct.
 
@@ -314,11 +324,11 @@ If the host is the master when deleted, {{ mmy-name }} automatically assigns the
    To remove a host from the cluster, run:
 
    ```bash
-   {{ yc-mdb-my }} host delete <hostname> \
-      --cluster-name=<cluster name>
+   {{ yc-mdb-my }} host delete <host_name> \
+      --cluster-name=<cluster_name>
    ```
 
-   The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 

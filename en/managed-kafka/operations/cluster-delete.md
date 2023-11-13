@@ -32,7 +32,7 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
    To delete a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-kf }} cluster delete <cluster name or ID>
+   {{ yc-mdb-kf }} cluster delete <cluster_name_or_ID>
    ```
 
 - {{ TF }}

@@ -58,10 +58,6 @@ description: "Следуя данной инструкции, вы сможет�
       yc vpc security-group delete test-sg-cli
       ```
 
-- API
-
-  Воспользуйтесь методом REST API [delete](../api-ref/SecurityGroup/delete.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Delete](../api-ref/grpc/security_group_service.md#Delete).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -136,5 +132,13 @@ description: "Следуя данной инструкции, вы сможет�
      ```
      yc vpc security-group list
      ```
+
+- API
+
+  Воспользуйтесь методом REST API [delete](../api-ref/SecurityGroup/delete.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Delete](../api-ref/grpc/security_group_service.md#Delete) и передайте в запросе идентификатор удаляемой группы безопасности в параметре `securityGroupId`.
+
+  {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
+
+  {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}

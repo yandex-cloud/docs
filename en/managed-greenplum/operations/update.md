@@ -36,7 +36,7 @@ After creating a cluster, you can:
    1. View the current name (`name`) and description (`description`) of the cluster:
 
       ```bash
-      {{ yc-mdb-gp }} cluster get <cluster ID or name>
+      {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
       ```
 
    1. View a description of the update cluster configuration CLI command:
@@ -48,9 +48,9 @@ After creating a cluster, you can:
    1. Enter a new name and description for the cluster:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update <cluster ID or name> \
-         --new-name <new cluster name> \
-         --description <new cluster description>
+      {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
+         --new-name <new_cluster_name> \
+         --description <new_cluster_description>
       ```
 
 - API
@@ -83,7 +83,7 @@ After creating a cluster, you can:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To сhange the public access setting {{ GP }}:
+   To change the public access setting {{ GP }}:
 
    1. View a description of the update cluster configuration CLI command:
 
@@ -94,9 +94,11 @@ After creating a cluster, you can:
    1. Configure public access in the `--assign-public-ip` parameter:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update <cluster ID or name> \
-         --assign-public-ip=<public access to cluster: true or false>
+      {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
+         --assign-public-ip=<public_access_to_cluster>
       ```
+
+      Where `assign-public-ip` is the public access to the cluster, true or false.
 
 - API
 
@@ -175,15 +177,15 @@ If you enabled public access to the cluster but cannot access it from the inter
    1. Run the following command with a list of settings to update:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update <cluster ID or name> \
-          --backup-window-start <backup start time> \
-          --datalens-access=<true or false> \
-          --datatransfer-access=<true or false> \
-          --maintenance-window type=<maintenance type: anytime or weekly>,`
-                              `day=<day of week for weekly>,`
-                              `hour=<hour for weekly> \
-          --assign-public-ip=<public access to the cluster: true or false> \
-          --deletion-protection=<cluster deletion protection: true or false> \
+      {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
+          --backup-window-start <backup_start_time> \
+          --datalens-access=<access_from_DataLens> \
+          --datatransfer-access=<access_from_Data_Transfer> \
+          --maintenance-window type=<maintenance_type>,`
+                              `day=<day_of_week>,`
+                              `hour=<hour_of_day> \
+          --assign-public-ip=<public_access_to_cluster> \
+          --deletion-protection=<cluster_deletion_protection> \
       ```
 
    You can change the following settings:
@@ -250,7 +252,7 @@ You can change the DBMS settings of the hosts in your cluster.
    1. View the full list of settings specified for the cluster:
 
       ```bash
-      {{ yc-mdb-gp }} cluster get <cluster ID or name>
+      {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
       ```
 
    1. View a description of the update cluster configuration CLI command:
@@ -261,11 +263,11 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. Set the required parameter values:
 
-      All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `greenplumConfig_<{{ GP }} version>` field. To specify a parameter name in the CLI call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxConnections` parameter from an API call must be converted to `max_connections` for the CLI command:
+      All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `greenplumConfig_<Greenplum_version>` field. To specify a parameter name in the CLI call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxConnections` parameter from an API call must be converted to `max_connections` for the CLI command:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update-config <cluster ID or name> \
-         --set <parameter1 name>=<value1>,<parameter2 name>=<value2>,...
+      {{ yc-mdb-gp }} cluster update-config <cluster_name_or_ID> \
+         --set <parameter_1_name>=<value1>,<parameter_2_name>=<value2>,...
       ```
 
       {{ mgp-short-name }} runs the update cluster settings operation.
@@ -275,7 +277,7 @@ You can change the DBMS settings of the hosts in your cluster.
    To change {{ GP }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * New settings in the `configSpec.greenplumConfig_<version>` parameter.
-   * List of cluster configuration fields to be changed for the `updateMask` parameter.
+   * List of cluster configuration fields to be updated in the `updateMask` parameter.
 
       {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 

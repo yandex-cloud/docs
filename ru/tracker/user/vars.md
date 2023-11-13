@@ -93,6 +93,7 @@
 `{{issue.<роль>.uid.json}}` | Идентификатор пользователя (для полей `author` и `assignee`) | `1120000000211495`
 `{{issue.<роль>.login.json}}` | Логины пользователей (для полей `followers` и `access`) | `["ivan-ivanov", "user3993"]`
 `{{issue.<роль>.uid.json}}` | Идентификаторы пользователей (для полей `followers` и `access`) | `[1120000000211495, 1120000000011060]`
+`not_var{{issue.components.display.json}}` | Компоненты | `["component1","component2"]`
 
 {% note warning %}
 

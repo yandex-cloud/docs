@@ -115,7 +115,7 @@ When connecting to an {{ ES }} cluster, you can:
 
    This approach is suitable for any connection method. For example, you can use it to connect over the internet if public access is only enabled for certain hosts.
 
-* Use a special FQDN, such as `c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}` (e.g., `https://c-e4ut2....rw.{{ dns-zone }}`). The host to connect to is selected randomly among all the hosts with the _Data node_ role.
+* Use a special FQDN, such as `c-<{{ ES }}_cluster_ID>.rw.{{ dns-zone }}` (e.g., `https://c-e4ut2....rw.{{ dns-zone }}`). The host to connect to is selected randomly among all the hosts with the _Data node_ role.
 
    Use this approach only if you have enabled public access for all hosts with the _Data node_ role, or if you are connecting exclusively from {{ yandex-cloud }} instances.
 

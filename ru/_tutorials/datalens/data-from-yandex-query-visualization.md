@@ -41,7 +41,7 @@
 
    ![select-yq](../../_assets/datalens/yandex-query-visualization/select-yq.png)
 
-1. На панели слева выберите ![study](../../_assets/query/study.svg) **Учебник**.
+1. На панели слева выберите ![study](../../_assets/console-icons/graduation-cap.svg) **Учебник**.
 1. Нажмите кнопку **Создать соединение**. В блоке создания соединения все поля ввода параметров уже заполнены — введите описание (опционально) и нажмите кнопку **Создать**. Вы перейдете на экран создания [привязки](../../query/concepts/glossary.md#binding) к данным.
 1. Введите описание привязки к данным (опционально) и нажмите кнопку **Создать**. Будут созданы нужные для обучения ресурсы.
 
@@ -50,7 +50,7 @@
 Чтобы создать подключение к {{ yq-full-name }}:
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-1. На панели слева выберите ![image](../../_assets/datalens/connections.svg) **Подключения** и нажмите кнопку **Создать подключение**.
+1. На панели слева выберите ![image](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите подключение **{{ yq-full-name }}**.
 1. Укажите параметры подключения:
 
@@ -119,14 +119,14 @@
    ![select-layer-column](../../_assets/datalens/yandex-query-visualization/select-layer-column.png)
 
 1. Перетащите показатель `total_amount` в секцию **Y**. В области визуализации отобразится столбчатая диаграмма.
-1. Добавьте слой. Для этого нажмите значок ![plus](../../_assets/datalens/plus.svg) справа от названия первого слоя.
+1. Добавьте слой. Для этого нажмите значок ![plus](../../_assets/console-icons/plus.svg) справа от названия первого слоя.
 1. Для второго слоя выберите тип **Линейная диаграмма**.
 
    ![select-layer-line](../../_assets/datalens/yandex-query-visualization/select-layer-line.png)
 
 1. Добавьте в чарт поле:
 
-   1. Вверху слева нажмите ![plus](../../_assets/datalens/plus.svg) и выберите **Поле**.
+   1. Вверху слева нажмите ![plus](../../_assets/console-icons/plus.svg) и выберите **Поле**.
 
       ![chart-add-field](../../_assets/datalens/yandex-query-visualization/chart-add-field.png)
 

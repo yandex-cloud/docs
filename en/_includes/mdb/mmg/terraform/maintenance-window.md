@@ -1,12 +1,12 @@
-To set up the maintenance window (for example, for disabled clusters), add the `maintenance_window` section to the cluster description:
+To set up the [maintenance window](../../../../managed-mongodb/concepts/maintenance.md) (for disabled clusters as well), add the `maintenance_window` block to the cluster description:
 
 ```hcl
-resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
   ...
   maintenance_window {
-    type = <maintenance type: ANYTIME or WEEKLY>
-    day  = <day of the week for the WEEKLY type>
-    hour = <hour of the day for the WEEKLY type>
+    type = <maintenance_type>
+    day  = <day_of_week>
+    hour = <hour>
   }
   ...
 }

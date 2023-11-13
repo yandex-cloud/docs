@@ -60,6 +60,7 @@ metadata:
     ingress.alb.yc.io/modify-header-response-replace: <string>
     ingress.alb.yc.io/modify-header-response-rename: <string>
     ingress.alb.yc.io/modify-header-response-remove: <string>
+    ingress.alb.yc.io/use-regex: <string>
 ```
 
 Где:
@@ -273,6 +274,10 @@ metadata:
   ```
 
   Где `<ключ>` — имя удаляемого заголовка.
+
+* `ingress.alb.yc.io/use-regex` (`string`)
+
+  Включает поддержку регулярных выражений стандарта [RE2](https://github.com/google/re2/wiki/Syntax) при сопоставлении пути запроса, если передана строка `true`. Применимо только если для параметра `pathType` указано значение `Exact`.
 
 ## IngressSpec {#spec}
 

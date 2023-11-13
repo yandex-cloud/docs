@@ -28,7 +28,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
       1. Select the environment where you want to create the {{ mkf-name }} cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       1. Select the {{ KF }} version.
       1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **{{ ui-key.yacloud.kafka.field_schema-registry }}** setting.
 
@@ -111,19 +111,27 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       ```bash
       {{ yc-mdb-kf }} cluster create \
         --name <cluster_name> \
-        --environment <environment:_prestable_or_production> \
-        --version <{{ KF }}_version:_{{ versions.cli.str }}> \
+        --environment <environment> \
+        --version <version> \
         --network-name <network_name> \
         --subnet-ids <subnet_IDs> \
         --brokers-count <number_of_brokers_per_zone> \
         --resource-preset <host_class> \
         --disk-type <disk_type> \
-        --disk-size <storage_size_in_gigabytes> \
+        --disk-size <storage_size_GB> \
         --assign-public-ip <public_access> \
         --security-group-ids <list_of_security_group_IDs> \
-        --deletion-protection=<cluster_deletion_protection:_true_or_false>
+        --deletion-protection=<deletion_protection>
       ```
 
+
+      Where:
+
+      * `--environment`: Cluster environment, `prestable` or `production`.
+      * `--version`: {{ KF }} version.  Acceptable values: {{ versions.cli.str }}. 
+      * `--disk-type`: Storage type, `local-ssd` or `local-hdd`.
+
+      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
       {% note tip %}
 
@@ -138,10 +146,12 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       ```bash
       {{ yc-mdb-kf }} cluster create \
         ...
-        --maintenance-window type=<type>[,day=<day_of_week>,hour=<hour>]
+        --maintenance-window type=<maintenance_type>,`
+                            `day=<day_of_week>,`
+                            `hour=<hour_of_day> \
       ```
 
-      Where:
+      Where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -179,21 +189,21 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       
       ```hcl
       resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
-        environment         = "<environment:_PRESTABLE_or_PRODUCTION>"
+        environment         = "<environment>"
         name                = "<cluster_name>"
         network_id          = "<network_ID>"
         subnet_ids          = ["<list_of_subnet_IDs>"]
-        security_group_ids  = ["<list_of_cluster security_group_IDs>"]
-        deletion_protection = <cluster_deletion_protection:_true_or_false>
+        security_group_ids  = ["<list_of_cluster_security_group_IDs>"]
+        deletion_protection = <deletion_protection>
 
         config {
-          assign_public_ip = "<public_access_to_cluster:_true_or_false>"
+          assign_public_ip = "<public_access>"
           brokers_count    = <number_of_brokers>
-          version          = "<{{ KF }}_version:_{{ versions.tf.str }}>"
-          schema_registry  = "<data_schema_management:_true_or_false>"
+          version          = "<version>"
+          schema_registry  = "<data_schema_management>"
           kafka {
             resources {
-              disk_size          = <storage_size_in_gigabytes>
+              disk_size          = <storage_size_GB>
               disk_type_id       = "<disk_type>"
               resource_preset_id = "<host_class>"
             }
@@ -218,6 +228,16 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       }
       ```
 
+
+
+
+      Where:
+
+      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
+      * `deletion_protection`: Cluster deletion protection, `true` or `false`
+      * `assign_public_ip`: Public access to the cluster, `true` or `false`.
+      * `version`: {{ KF }} version, {{ versions.tf.str }}.
+      * `schema_registry`: Data schema management, `true` or `false`.
 
 
 

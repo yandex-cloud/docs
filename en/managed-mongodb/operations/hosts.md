@@ -22,21 +22,21 @@ You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, 
 
    ```bash
    {{ yc-mdb-mg }} host list \
-     --cluster-name <cluster name>
+     --cluster-name <cluster_name>
    ```
 
    Result:
 
    ```text
-   +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
-   |           NAME             |  CLUSTER ID  |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
-   +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
-   | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | {{ region-id }}-b | false     |
-   | rc1a...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | {{ region-id }}-a | false     |
-   +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
+   +----------------------------+----------------------+--------+------------+--------------+----------+---------------+-----------+
+   |           NAME             |      CLUSTER ID      |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
+   +----------------------------+----------------------+--------+------------+--------------+----------+---------------+-----------+
+   | rc1b...{{ dns-zone }} | c9qp71dk1q1w******** | MONGOD | rs01       | PRIMARY      | ALIVE    | {{ region-id }}-b | false     |
+   | rc1a...{{ dns-zone }} | c9qp71dk1q1w******** | MONGOD | rs01       | SECONDARY    | ALIVE    | {{ region-id }}-a | false     |
+   +----------------------------+----------------------+--------+------------+--------------+----------+---------------+-----------+
    ```
 
-   You can get the {{ mmg-name }} cluster name with [a list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the {{ mmg-name }} cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -71,7 +71,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
    1. Specify the host parameters:
       * [Availability zone](../../overview/concepts/geo-scope.md).
       * [Subnet](../../vpc/concepts/network.md#subnet) (if the required subnet is not on the list, create it).
-      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}. You cannot change this setting after you create a host.
+      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}. You cannot edit this setting after you create a host.
       * Host type and shard name, if sharding is enabled for the {{ mmg-name }} cluster.
    1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -91,14 +91,14 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
       Result:
 
       ```text
-      +-----------+-----------+------------+---------------+------------------+
-      |     ID    |   NAME    | NETWORK ID |       ZONE    |      RANGE       |
-      +-----------+-----------+------------+---------------+------------------+
-      | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
-      | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
-      | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
-      | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
-      +-----------+-----------+------------+---------------+------------------+
+      +----------------------+-----------+-----------------------+---------------+------------------+
+      |          ID          |   NAME    |       NETWORK ID      |       ZONE    |      RANGE       |
+      +----------------------+-----------+-----------------------+---------------+------------------+
+      | b0cl69a2b4c6******** | default-c | enp6rq72rndgr******** | {{ region-id }}-c | [172.16.0.0/20]  |
+      | e2lkj9qwe762******** | default-b | enp6rq72rndgr******** | {{ region-id }}-b | [10.10.0.0/16]   |
+      | e9b0ph42bn96******** | a-2       | enp6rq72rndgr******** | {{ region-id }}-a | [172.16.32.0/20] |
+      | e9b9v22r88io******** | default-a | enp6rq72rndgr******** | {{ region-id }}-a | [172.16.16.0/20] |
+      +----------------------+-----------+-----------------------+---------------+------------------+
       ```
 
       If the required subnet is not on the list, create it.
@@ -112,11 +112,13 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
 
       ```bash
       {{ yc-mdb-mg }} host add \
-        --cluster-name <cluster name> \
-        --host zone-id=<availability zone>,`
-              `subnet-id=<subnet ID>,`
-              `assign-public-ip=<public access to host: true or false> \
+        --cluster-name <cluster_name> \
+        --host zone-id=<availability_zone>,`
+              `subnet-id=<subnet_ID>,`
+              `assign-public-ip=<public_access>
       ```
+
+      Where `assign-public-ip` enables public access to the host: `true` or `false`.
 
       {{ mmg-name }} will run the add host operation.
 
@@ -135,43 +137,53 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
       * The `host` section.
 
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+      resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
         ...
         resources_mongod {
-          resource_preset_id = "<host class>"
-          disk_type_id       = "<disk type>"
-          disk_size          = <storage size, GB>
+          resource_preset_id = "<host_class>"
+          disk_type_id       = "<disk_type>"
+          disk_size          = <storage_size_GB>
         }
 
         resources_mongoinfra { # Add this for standard sharding.
-          resource_preset_id = "<host class>"
-          disk_type_id       = "<disk type>"
-          disk_size          = <storage size, GB>
+          resource_preset_id = "<host_class>"
+          disk_type_id       = "<disk_type>"
+          disk_size          = <storage_size_GB>
         }
 
         resources_mongos { # Add this for advanced sharding.
-          resource_preset_id = "<host class>"
-          disk_type_id       = "<disk type>"
-          disk_size          = <storage size, GB>
+          resource_preset_id = "<host_class>"
+          disk_type_id       = "<disk_type>"
+          disk_size          = <storage_size_GB>
         }
 
         resources_mongocfg { # Add this for advanced sharding.
-          resource_preset_id = "<host class>"
-          disk_type_id       = "<disk type>"
-          disk_size          = <storage size, GB>
+          resource_preset_id = "<host_class>"
+          disk_type_id       = "<disk_type>"
+          disk_size          = <storage_size_GB>
         }
 
         host {
-          role             = "<replica type: PRIMARY or SECONDARY>"
-          zone_id          = "<availability zone>"
-          subnet_id        = "<subnet in availability zone>"
-          assign_public_ip = "public access to host: true or false>
-          shard_name       = "<shard name in sharded cluster>"
-          type             = "<host type in sharded cluster: MONGOD, MONGOINFRA, MONGOS, or MONGOCFG>"
+          role             = "<replica_type>"
+          zone_id          = "<availability_zone>"
+          subnet_id        = "<subnet_ID>"
+          assign_public_ip = <public_access>
+          shard_name       = "<shard_name>"
+          type             = "<host_type>"
           ...
         }
       }
       ```
+
+      Where:
+
+      * `host`: Host parameters:
+         * `role`: Replica type, `PRIMARY` or `SECONDARY`.
+         * `zone_id`: Availability zone.
+         * `subnet_id`: ID of a subnet in the selected availability zone.
+         * `assign_public_ip`: Public access to the host, `true` or `false`.
+         * `shard_name`: Name of the shard in a sharded cluster.
+         * `type`: Type of the host in a sharded cluster: `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
 
    1. Make sure the settings are correct.
 
@@ -232,8 +244,8 @@ From a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you may
    To remove a host from the {{ mmg-name }} cluster, run:
 
    ```bash
-   {{ yc-mdb-mg }} host delete <hostname>
-     --cluster-name <cluster name>
+   {{ yc-mdb-mg }} host delete <host_name>
+     --cluster-name <cluster_name>
    ```
 
    You can request the host name with a list of [{{ mmg-name }} cluster hosts](#list-hosts) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -301,10 +313,10 @@ During this operation:
 
    ```bash
    {{ yc-mdb-mg }} hosts resetup <host_name>
-      --cluster-name <cluster name>
+      --cluster-name <cluster_name>
    ```
 
-   You can obtain the host name with a [list of hosts in the folder](hosts.md#list-hosts). You can get the {{ mmg-name }} cluster name with [a list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the host name with a [list of hosts in the folder](hosts.md#list-hosts). You can get the {{ mmg-name }} cluster name with [a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -341,8 +353,8 @@ You can only restart one host at a time.
    To restart a host, run the command:
 
    ```bash
-   {{ yc-mdb-mg }} hosts restart <hostname> \
-     --cluster-name <cluster name>
+   {{ yc-mdb-mg }} hosts restart <host_name> \
+     --cluster-name <cluster_name>
    ```
 
 - API

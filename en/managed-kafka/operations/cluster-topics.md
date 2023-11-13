@@ -49,10 +49,10 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
    1. Create a topic:
 
       ```bash
-      {{ yc-mdb-kf }} topic create <topic name> \
-        --cluster-name <cluster name> \
-        --partitions <number of partitions> \
-        --replication-factor <replication factor>
+      {{ yc-mdb-kf }} topic create <topic_name> \
+        --cluster-name <cluster_name> \
+        --partitions <number_of_partitions> \
+        --replication-factor <replication_factor>
       ```
 
       If necessary, specify the [topic settings](../concepts/settings-list.md#topic-settings) here.
@@ -65,14 +65,14 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
    1. Add the `yandex_mdb_kafka_topic` resource and [configure the topic](../concepts/settings-list.md#topic-settings) under `topic_config`, as required:
 
       ```hcl
-      resource "yandex_mdb_kafka_topic" "<topic name>" {
-        cluster_id         = "<cluster ID>"
-        name               = "<topic name>"
-        partitions         = <number of partitions>
-        replication_factor = <replication factor>
+      resource "yandex_mdb_kafka_topic" "<topic_name>" {
+        cluster_id         = "<cluster_ID>"
+        name               = "<topic_name>"
+        partitions         = <number_of_partitions>
+        replication_factor = <replication_factor>
         topic_config {
-          compression_type = "<compression type>"
-          flush_messages   = <maximum number of messages in memory>
+          compression_type = "<compression_type>"
+          flush_messages   = <maximum_number_of_messages_in_memory>
           ...
         }
       }
@@ -142,10 +142,10 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    1. Change [topic settings](../concepts/settings-list.md#topic-settings):
 
       ```bash
-      {{ yc-mdb-kf }} topic create <topic name> \
-        --cluster-name <cluster name> \
-        --partitions <number of partitions> \
-        --replication-factor <replication factor>
+      {{ yc-mdb-kf }} topic update <topic_name> \
+        --cluster-name <cluster_name> \
+        --partitions <number_of_partitions> \
+        --replication-factor <replication_factor>
       ```
 
 - {{ TF }}
@@ -156,14 +156,14 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    1. Edit the parameter values in the `yandex_mdb_kafka_topic` resource description:
 
       ```hcl
-      resource "yandex_mdb_kafka_topic" "<topic name>" {
-        cluster_id         = "<cluster ID>"
-        name               = "<topic name>"
-        partitions         = <number of partitions>
-        replication_factor = <replication factor>
+      resource "yandex_mdb_kafka_topic" "<topic_name>" {
+        cluster_id         = "<cluster_ID>"
+        name               = "<topic_name>"
+        partitions         = <number_of_partitions>
+        replication_factor = <replication_factor>
         topic_config {
-          compression_type = "<compression type>"
-          flush_messages   = <maximum number of messages in memory>
+          compression_type = "<compression_type>"
+          flush_messages   = <maximum_number_of_messages_in_memory>
           ...
         }
       }
@@ -223,7 +223,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    1. Delete a topic:
 
       ```bash
-      {{ yc-mdb-kf }} topic delete <topic name> --cluster-name <cluster name>
+      {{ yc-mdb-kf }} topic delete <topic_name> --cluster-name <cluster_name>
       ```
 
 - {{ TF }}
@@ -271,7 +271,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    To get a list of topics, run the following command:
 
    ```bash
-   {{ yc-mdb-kf }} topic list --cluster-name <cluster name>
+   {{ yc-mdb-kf }} topic list --cluster-name <cluster_name>
    ```
 
 
@@ -304,7 +304,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    To get detailed information about a topic, run the following command:
 
    ```bash
-   {{ yc-mdb-kf }} topic get <topic name> --cluster-name <cluster name>
+   {{ yc-mdb-kf }} topic get <topic_name> --cluster-name <cluster_name>
    ```
 
 
