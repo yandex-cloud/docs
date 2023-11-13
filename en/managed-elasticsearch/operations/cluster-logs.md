@@ -22,13 +22,13 @@ keywords:
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the name of the desired cluster and select the ![image](../../_assets/managed-elasticsearch/logs.svg) **{{ ui-key.yacloud.common.logs }}** tab.
-   1. Specify the time period for which you want to display logs: enter it manually or select it in the calendar by clicking on the date field.
+   1. Click the cluster name and select the ![image](../../_assets/managed-elasticsearch/logs.svg) **{{ ui-key.yacloud.common.logs }}** tab.
+   1. Specify the time period for logs to be displayed: enter it manually or select in the calendar by clicking the date input field.
    1. Select the `ELASTICSEARCH` component from the drop-down list next to the date field.
 
-   A list of log entries for the selected time period will be displayed. To view detailed information about an event, click on the respective entry in the list.
+   A list of log entries for the selected time period will be displayed. To view detailed information about an event, click the respective entry in the list.
 
-   If there are too many records and only some of them are displayed, click the **{{ ui-key.yacloud.mdb.cluster.logs.button_load-more }}** link at the end of the list.
+   If there are too many records and not all of them are displayed, click the **{{ ui-key.yacloud.mdb.cluster.logs.button_load-more }}** link at the end of the list.
 
 - CLI
 
@@ -45,22 +45,22 @@ keywords:
    1. Run the following command to get cluster logs (our example does not contain a complete list of available parameters):
 
       ```bash
-      {{ yc-mdb-es }} cluster list-logs <cluster name or ID> \
-         --limit <record number limit> \
-         --columns <list of columns to display information> \
-         --filter <record filter settings> \
-         --since <left boundary of time range> \
-         --until <right boundary of time range>
+      {{ yc-mdb-es }} cluster list-logs <cluster_name_or_ID> \
+         --limit <record_number_limit> \
+         --columns <list_of_columns_with_output_data> \
+         --filter <record_filter_settings> \
+         --since <left_boundary_of_time_range> \
+         --until <right_boundary_of_time_range>
       ```
 
       Where:
 
       * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
-      * `--service-type`: Type of service to output records for (`elasticsearch` or `kibana`).
-      * `--columns`: List of columns to display information:
+      * `--service-type`: Service type to display records for (`elasticsearch` or `kibana`).
+      * `--columns`: List of columns with output data:
          * `component`: Type of component to be logged. For example, `o.e.n.Node`.
-         * `hostname`: [Name of the host](cluster-hosts.md#list-hosts).
-         * `level`: Logging level, such as `info`.
+         * `hostname`: [Host name](cluster-hosts.md#list-hosts).
+         * `level`: Logging level, e.g., `INFO`.
          * `message`: Message output by the component.
          * `stacktrace`: Additional debugging information.
          * `query_id`: Query ID.
@@ -76,7 +76,7 @@ keywords:
       * {% include [logs since time](../../_includes/cli/logs/since.md) %}
       * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -101,10 +101,10 @@ This method allows you to get cluster logs in real time.
    To view cluster logs as they become available, run this command:
 
    ```bash
-   {{ yc-mdb-es }} cluster list-logs <cluster name or ID> --follow
+   {{ yc-mdb-es }} cluster list-logs <cluster_name_or_ID> --follow
    ```
 
-   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

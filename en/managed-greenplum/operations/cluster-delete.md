@@ -11,7 +11,7 @@
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the ![image](../../_assets/options.svg) icon for the cluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+   1. Click ![image](../../_assets/options.svg) for the cluster you need and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI
 
@@ -22,7 +22,7 @@
    To delete a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-gp }} cluster delete <cluster ID or name>
+   {{ yc-mdb-gp }} cluster delete <cluster_name_or_ID>
    ```
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -31,7 +31,7 @@
 
    To delete the infrastructure created with {{ TF }}:
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete the {{ TF }} configuration file of the desired cluster.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -39,13 +39,13 @@
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      All resources described in the configuration file will be deleted.
+      All the resources described in the configuration file will be deleted.
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 

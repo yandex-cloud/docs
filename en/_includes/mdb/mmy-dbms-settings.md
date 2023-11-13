@@ -432,8 +432,8 @@
 
    The minimum value is `10`. The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by the formula:
 
-   - The maximum value is `<amount of RAM in MB on one host> / 8`.
-   - The default value is `<amount of RAM in MB on one host> / 32`. The minimum value is `100`.
+   - The maximum value is `<MB_of_RAM_per_host> / 8`.
+   - The default value is `<MB_of_RAM_per_host> / 32`. The minimum value is `100`.
 
    For more information, see the [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
@@ -571,7 +571,7 @@
 
    Permits logging slow queries. A query is considered slow if its execution time exceeds the [Long query time](#setting-long-query-time) setting value.
 
-   Acceptable values:
+   Acceptable values include:
 
    * `0` or `OFF`.
    * `1` or `ON`.

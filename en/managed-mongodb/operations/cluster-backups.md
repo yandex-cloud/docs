@@ -43,7 +43,7 @@ When restored to the current state, the new cluster will match the state of:
 
    1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
 
@@ -55,9 +55,9 @@ When restored to the current state, the new cluster will match the state of:
 
    1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
-   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster ID>:<backup ID>` format.
+   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
 
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
 
@@ -91,7 +91,7 @@ When restored to the current state, the new cluster will match the state of:
       +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
       |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |  SIZE  |   TYPE    |
       +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
-      | c9qlk4v13uq79r9cgcku:... | 2020-08-10 12:00:00 | c9qlk4v13uq79r9cgcku | 2020-08-10 11:55:17 | 3.3 KB | AUTOMATED |
+      | c9qlk4v13uq7********:... | 2020-08-10 12:00:00 | c9qlk4v13uq7******** | 2020-08-10 11:55:17 | 3.3 KB | AUTOMATED |
       | ...                                                                                         |                    |
       +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
       ```
@@ -112,13 +112,22 @@ When restored to the current state, the new cluster will match the state of:
           --host zone-id=<availability_zone>,`
                 `subnet-id=<subnet_ID> \
           --mongod-resource-preset <host_class> \
-          --mongod-disk-size <storage_size_in_GB> \
-          --mongod-disk-type <disk_type:_network-hdd_or_network-ssd> \
-          --performance-diagnostics=<enable_cluster_performance_diagnostics:_true_or_false>
+          --mongod-disk-size <storage_size_GB> \
+          --mongod-disk-type <disk_type> \
+          --performance-diagnostics=<enable_diagnostics>
       ```
 
 
-      In the `--recovery-target-timestamp` parameter, specify the time point to which you want to restore the {{ MG }} cluster in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If this parameter is not specified, the cluster will be restored to the backup completion point.
+      Where:
+
+      * `--recovery-target-timestamp`: Time point to which you want to restore the {{ MG }} cluster, in the [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you do not specify the parameter, the cluster is restored to when the backup was completed.
+      * `--environment`: `PRESTABLE` or `PRODUCTION`.
+
+      
+      * `--mongod-disk-type`: Disk type, `network-hdd` or `network-ssd`.
+
+
+      * `--performance-diagnostics`: Enable performance diagnostics for the cluster, `true` or `false`.
 
 - API
 
@@ -127,7 +136,7 @@ When restored to the current state, the new cluster will match the state of:
    * ID of the backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
-   In the `recoveryTargetSpec.timestamp` parameter, specify the time point to which you want to restore the {{ MG }} cluster in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If this parameter is not specified, the cluster will be restored to the backup completion point.
+   In the `recoveryTargetSpec.timestamp` parameter, specify the point in time to which you want to restore the {{ MG }} cluster in the [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you do not specify the parameter, the cluster will be restored to when the backup was completed.
 
 {% endlist %}
 
@@ -160,10 +169,10 @@ When restored to the current state, the new cluster will match the state of:
    1. Request a backup to be created by specifying the cluster name or ID:
 
       ```bash
-      {{ yc-mdb-mg }} cluster backup <cluster_ID_or_name>
+      {{ yc-mdb-mg }} cluster backup <cluster_name_or_ID>
       ```
 
-      You can fetch the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
+      You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
 
 - API
 
@@ -215,12 +224,12 @@ When restored to the current state, the new cluster will match the state of:
    Result:
 
    ```text
-   +----------+---------------------+----------------------+---------------------+--------+-----------+
-   |    ID    |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |  SIZE  |   TYPE    |
-   +----------+---------------------+----------------------+---------------------+--------+-----------+
-   | c9qlk... | 2020-08-10 12:00:00 | c9qlk4v13uq79r9cgcku | 2020-08-10 11:55:17 | 3.3 KB | AUTOMATED |
-   | c9qpm... | 2020-08-09 22:01:04 | c9qpm90p3pcg71jm7tqf | 2020-08-09 21:30:00 | 30 KB  | MANUAL    |
-   +----------+---------------------+----------------------+---------------------+--------+-----------+
+   +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
+   |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |  SIZE  |   TYPE    |
+   +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
+   | c9qlk4v13uq7********:... | 2020-08-10 12:00:00 | c9qlk4v13uq7******** | 2020-08-10 11:55:17 | 3.3 KB | AUTOMATED |
+   | c9qpm90p3pcg********:... | 2020-08-09 22:01:04 | c9qpm90p3pcg******** | 2020-08-09 21:30:00 | 30 KB  | MANUAL    |
+   +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
    ```
 
    The resulting table contains the following information:
@@ -279,16 +288,16 @@ When restored to the current state, the new cluster will match the state of:
 
 ## Examples {#examples}
 
-Create a new {{ mmg-name }} cluster from a backup with test characteristics:
+Create a new {{ mmg-name }} cluster from a backup with the following test characteristics:
 
 
-* Backup for recovery: `c9qlk4v13uq79r9cgcku:...`.
+* Backup for recovery: `c9qlk4v13uq7********:...`.
 * Point in time to restore to: `1597060810` (`2020-08-10 12:00:10`).
 * Version: `4.2`.
 * Name of the new cluster: `mynewmg`.
 * Environment: `PRODUCTION`.
 * Network: `{{ network-name }}`.
-* One `{{ host-class }}` host in the `{{ region-id }}-a` availability zone and `b0rcctk2rvtr8efcch64` subnet.
+* One `{{ host-class }}` host in the `{{ region-id }}-a` availability zone and `b0rcctk2rvtr********` subnet.
 * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
 * With databases and users that existed in the cluster at the time of recovery.
 
@@ -302,7 +311,7 @@ Create a new {{ mmg-name }} cluster from a backup with test characteristics:
    
    ```bash
    {{ yc-mdb-mg }} cluster restore \
-      --backup-id c9qlk4v13uq79r9cgcku:... \
+      --backup-id c9qlk4v13uq7********:... \
       --recovery-target-timestamp 1597060810 \
       --mongodb-version 4.2 \
       --name mynewmg \

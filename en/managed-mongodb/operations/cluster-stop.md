@@ -12,7 +12,7 @@ You can stop and restart a DB cluster, if required. You are not charged for the 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Select the desired cluster in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
+   1. Select the cluster from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
    1. Confirm that you want to stop the cluster and click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
 - CLI
@@ -24,7 +24,7 @@ You can stop and restart a DB cluster, if required. You are not charged for the 
    To stop a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-mg }} cluster stop <cluster name or ID>
+   {{ yc-mdb-mg }} cluster stop <cluster_name_or_ID>
    ```
 
    You can request the cluster ID or name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -46,7 +46,7 @@ You can restart **STOPPED** clusters.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Select the stopped cluster in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
+   1. Select the stopped cluster from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
    1. Confirm that you want to start the cluster: click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}** in the dialog box that opens.
 
 - CLI
@@ -58,10 +58,10 @@ You can restart **STOPPED** clusters.
    To start a stopped cluster, run the command:
 
    ```bash
-   {{ yc-mdb-mg }} cluster start <cluster name or ID>
+   {{ yc-mdb-mg }} cluster start <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

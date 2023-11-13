@@ -11,7 +11,7 @@ For more information about selecting a different primary replica, see the [{{ MG
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** tab.
    1. Click ![options](../../_assets/horizontal-ellipsis.svg) in the row of the `PRIMARY` host and select **{{ ui-key.yacloud.mongodb.hosts.action_stepdown-host }}**.
 
 - CLI
@@ -23,8 +23,8 @@ For more information about selecting a different primary replica, see the [{{ MG
    To change a cluster's primary replica, run the command:
 
    ```bash
-   {{ yc-mdb-mg }} hosts stepdown <name of current primary replica> \
-      --name=<cluster name>
+   {{ yc-mdb-mg }} hosts stepdown <name_of_current_primary_replica> \
+      --name=<cluster_name>
    ```
 
    You can request the name of the shard primary replica with a [list of cluster hosts](hosts.md#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).

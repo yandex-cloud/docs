@@ -23,10 +23,10 @@ You can add and remove databases, view information about them, and manage some d
 
    ```bash
      {{ yc-mdb-my }} database list \
-        --cluster-name=<cluster name>
+        --cluster-name=<cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - API
 
@@ -45,7 +45,7 @@ You can add and remove databases, view information about them, and manage some d
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the name of the cluster you need.
+   1. Click the cluster name.
    1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
    1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.databases.button_add }}**.
@@ -72,12 +72,12 @@ You can add and remove databases, view information about them, and manage some d
    1. Run the create database command:
 
       ```bash
-      {{ yc-mdb-my }} database create <database name> --cluster-name=<cluster name>
+      {{ yc-mdb-my }} database create <DB_name> --cluster-name=<cluster_name>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+      You can get the cluster name with a [list of clusters in the folder](cluster-list.md).
 
       {{ mmy-short-name }} runs the create database operation.
 
@@ -90,9 +90,9 @@ You can add and remove databases, view information about them, and manage some d
    1. Add the `yandex_mdb_mysql_database` resource:
 
       ```hcl
-      resource "yandex_mdb_mysql_database" "<database name>" {
-        cluster_id = "<cluster ID>"
-        name       = "<database name>"
+      resource "yandex_mdb_mysql_database" "<DB_name>" {
+        cluster_id = "<cluster_ID>"
+        name       = "<DB_name>"
       }
       ```
 
@@ -102,7 +102,7 @@ You can add and remove databases, view information about them, and manage some d
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -139,10 +139,10 @@ You can add and remove databases, view information about them, and manage some d
    To delete a database, run the command:
 
    ```bash
-    {{ yc-mdb-my }} database delete <database name> --cluster-name=<cluster name>
+    {{ yc-mdb-my }} database delete <DB_name> --cluster-name=<cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }}
 
@@ -156,7 +156,7 @@ You can add and remove databases, view information about them, and manage some d
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -203,13 +203,13 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
    ```bash
    {{ yc-mdb-my }} cluster update-config \
-     --name <cluster name> \
+     --name <cluster_name> \
      --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
    ```
 
    Pay close attention to quotation marks: the entire string must constitute the parameter value, including `sql_mode=`.
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }}
 
@@ -217,13 +217,13 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
       For more information about creating this file, see [{#T}](./cluster-create.md).
 
-   1. Set the SQL modes in the `sql_mode` parameter under `mysql_config`, for example:
+   1. Set the SQL modes in the `sql_mode` parameter under `mysql_config`, e.g.:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
         mysql_config = {
-          sql_mode = "<list of SQL modes>"
+          sql_mode = "<list_of_SQL_modes>"
           ...
         }
       }
@@ -233,7 +233,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -264,11 +264,11 @@ To set the `CHARACTER SET` and `COLLATE` settings for the database:
 1. Run the [ALTER DATABASE](https://dev.mysql.com/doc/refman/5.7/en/charset-database.html) query:
 
    ```sql
-   ALTER DATABASE <DB name> CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_unicode_ci';
+   ALTER DATABASE <DB_name> CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_unicode_ci';
    ```
 
 1. To apply settings to the database tables along with the database, convert the tables with the same settings:
 
    ```sql
-   ALTER TABLE <DB name>.<table name> CONVERT TO CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
+   ALTER TABLE <DB_name>.<table_name> CONVERT TO CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
    ```

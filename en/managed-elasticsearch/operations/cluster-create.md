@@ -45,7 +45,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       1. Enter a name and description for the {{ mes-name }} cluster. The {{ mes-name }} cluster name must be unique within the folder.
       1. Select the environment where you want to create the {{ mes-name }} cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       1. Select the {{ ES }} version from the list.
       1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
@@ -59,7 +59,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_user }}**, specify the `admin` user password.
 
-   {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
+     {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
 
    1. Configure hosts with the _Data node_ role by opening the **{{ ui-key.yacloud.opensearch.title_data-node }}** tab:
       1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the platform, host type, and host class.
@@ -117,7 +117,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a {{ mes-name }} cluster:
+   To create an {{ mes-name }} cluster:
    1. Check whether the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has any [subnets](../../vpc/concepts/network.md#subnet) for the {{ mes-name }} cluster hosts:
 
       ```bash
@@ -140,23 +140,41 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       ```bash
       {{ yc-mdb-es }} cluster create \
         --name <cluster_name> \
-        --environment <environment:_prestable_or_production> \
+        --environment <environment> \
         --network-name <network_name> \
-        --host zone-id=<availability_zone>,subnet-id=<subnet_ID>,assign-public-ip=<public_access>,type=<host_type:_datanode_or_masternode> \
+        --host zone-id=<availability_zone>,subnet-id=<subnet_ID>,assign-public-ip=<public_access>,type=<host_type> \
         --datanode-resource-preset <Data_node_host_class> \
-        --datanode-disk-size <storage_size_in_gigabytes_for_Data_Node_hosts> \
-        --datanode-disk-type <disk_type_for_Data_node_hosts> \
+        --datanode-disk-size <storage_size_GB> \
+        --datanode-disk-type <Data_node_disk_type> \
         --masternode-resource-preset <Master_node_host_class> \
-        --masternode-disk-size <storage_size_in_gigabytes_for_Master_node_hosts> \
-        --masternode-disk-type <disk_type_for_Master_node_hosts> \
-        --security-group-ids <security_group_ID_list> \
-        --version <{{ ES }}_version:_{{ versions.cli.str }}> \
-        --edition <{{ ES }}_edition:_basic_or_platinum> \
+        --masternode-disk-size <Master_node_storage_size_GB> \
+        --masternode-disk-type <Master_node_disk_type> \
+        --security-group-ids <list_of_security_group_IDs> \
+        --version <{{ ES }}_version> \
+        --edition <{{ ES }}_edition> \
         --admin-password <admin_password> \
         --plugins=<plugin_1_name>,...,<plugin_N_name> \
-        --deletion-protection=<cluster_deletion_protection:_true_or_false>
+        --deletion-protection=<deletion_protection>
       ```
 
+
+      Where:
+
+      * `--environment`: `prestable` or `production`.
+      * `--host`: Host parameters:
+         * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone includes two or more subnets.
+         * `assign-public-ip`: Internet access to the host via a public IP, `true` or `false`.
+         * `type`: Host role, `datanode` or `masternode`.
+      * `--datanode-resource-preset`: Host class with the Data node role.
+      * `--datanode-disk-size`: Storage size in gigabytes for hosts with the Data node role.
+      * `--datanode-disk-type`: Storage type for hosts with the Data node role.
+      * `--masternode-resource-preset`: Class of hosts with the Master Node role.
+      * `--masternode-disk-size`: Storage size in gigabytes for hosts with the Master node role.
+      * `--masternode-disk-type`: Storage type for hosts with the Master node role.
+      * `--version` (optional): {{ ES }} version, {{ versions.tf.str }}.
+      * `--edition` (optional): {{ ES }} edition, `basic` or `platinum`.
+      * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
 
       Enter the `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) includes more than one subnet.
 
@@ -191,13 +209,13 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       ```hcl
       resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
         name                = "<cluster_name>"
-        environment         = "<environment:_PRESTABLE_or_PRODUCTION>"
+        environment         = "<environment>"
         network_id          = "<network_ID>"
-        deletion_protection = "<deletion_protection:_true_or_false>"
+        deletion_protection = "<deletion_protection>"
 
         config {
-          version = "<(optional)_{{ ES }}_version:_{{ versions.tf.str }}>"
-          edition = "<(optional)_{{ ES }}_edition:_basic_or_platinum>"
+          version = "<{{ ES }}_version>"
+          edition = "<{{ ES }}_edition>"
 
           admin_password = "<admin_password>"
 
@@ -205,7 +223,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
             resources {
               resource_preset_id = "<host_class>"
               disk_type_id       = "<disk_type>"
-              disk_size          = <storage_size,_GB>
+              disk_size          = <storage_size_GB>
             }
           }
 
@@ -213,7 +231,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
             resources {
               resource_preset_id = "<host_class>"
               disk_type_id       = "<disk_type>"
-              disk_size          = <storage_size,_GB>
+              disk_size          = <storage_size_GB>
             }
           }
 
@@ -221,13 +239,13 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
         }
 
-        security_group_ids = [ "<security_group_list>" ]
+        security_group_ids = [ "<list_of_security_group_IDs>" ]
 
         host {
           name             = "<host_name>"
           zone             = "<availability_zone>"
-          type             = "<host_type:_DATA_NODE_or_MASTER_NODE>"
-          assign_public_ip = <public_access_to_host:_true_or_false>
+          type             = "<host_role>"
+          assign_public_ip = <public_access>
           subnet_id        = "<subnet_ID>"
         }
       }
@@ -244,6 +262,19 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 
 
+
+      Where:
+
+      * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
+      * `deletion_protection`: Deletion protection, `true` or `false`.
+      * `version` (optional): {{ ES }} version, {{ versions.tf.str }}.
+      * `edition` (optional): {{ ES }} edition, `basic` or `platinum`.
+      * `host`: Host parameters:
+         * `name`: Host name.
+         * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
+         * `type`: Host role, `DATA_NODE` or `MASTER_NODE`.
+         * `assign_public_ip`: Public access to the host, `true` or `false`.
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone includes two or more subnets.
 
       If the {{ mes-name }} cluster deletion protection is activated, this does not protect the DB contents.
 
@@ -301,11 +332,11 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
    To create a {{ mes-name }} cluster with a single host, provide a single `--host` parameter.
 
    Create a {{ mes-name }} cluster with the following test characteristics:
-   * Name: `my-es-clstr`.
-   * Version: `{{ versions.cli.latest }}`.
-   * Edition: `Platinum`.
-   * Environment: `PRODUCTION`.
-   * Network: `default`.
+   * Name: `my-es-clstr`
+   * Version: `{{ versions.cli.latest }}`
+   * Edition: `Platinum`
+   * Environment: `PRODUCTION`
+   * Network: `default`
 
 
    * Security group ID: `enpp2s8l3irh********`.
@@ -338,7 +369,7 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
 
 - {{ TF }}
 
-   Create a {{ mes-name }} cluster. The configuration file for the {{ mes-name }} cluster is as follows:
+   Create a {{ mes-name }} cluster. Here is the configuration file for the {{ mes-name }} cluster:
 
    
    

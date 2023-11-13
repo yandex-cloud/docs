@@ -20,7 +20,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
             * **URL**: Connection string:
 
                ```http
-               mongodb://<MONGOINFRA or MONGOS host 1 FQDN>:{{ port-mmg-sharded }},...<MONGOINFRA or MONGOS host N FQDN>:{{ port-mmg-sharded }}/<DB name>
+               mongodb://<FQDN_of_MONGOINFRA_or_MONGOS_host_1>:{{ port-mmg-sharded }},...<FQDN_of_MONGOINFRA_or_MONGOS_host_N>:{{ port-mmg-sharded }}/<DB_name>
                ```
 
                {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
@@ -46,7 +46,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          1. Under **Address**, change the **Type** value to `URL` and specify the connection string:
 
             ```http
-            mongodb://<MONGOINFRA or MONGOS host 1 FQDN>:{{ port-mmg-sharded }},...<MONGOINFRA or MONGOS host N FQDN>:{{ port-mmg-sharded }}/<DB name>
+            mongodb://<FQDN_of_MONGOINFRA_or_MONGOS_host_1>:{{ port-mmg-sharded }},...<FQDN_of_MONGOINFRA_or_MONGOS_host_N>:{{ port-mmg-sharded }}/<DB_name>
             ```
 
             {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
@@ -72,7 +72,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 The examples below assume that the `root.crt` SSL certificate is located in the directory:
 
-* `/home/<home directory>/.mongodb/` for Ubuntu.
+* `/home/<home_directory>/.mongodb/` for Ubuntu.
 * `$HOME\.mongodb` for Windows.
 
 If the connection to the cluster and the test query are successful, the following data is output:

@@ -25,7 +25,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
    To get a list of {{ GP }} cluster backups, run the command:
 
    ```bash
-   {{ yc-mdb-gp }} cluster list-operations <cluster ID or name>
+   {{ yc-mdb-gp }} cluster list-backups <cluster_name_or_ID>
    ```
 
    You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -36,7 +36,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
    +--------------------------+---------------------+----------------------+---------------------+
    |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |
    +--------------------------+---------------------+----------------------+---------------------+
-   | c9qgo11pud7kb3cdomeg...  | 2020-08-10 12:00:00 | c9qgo11pud7kb3cdomeg | 2020-08-10 11:55:17 |
+   | c9qgo11pud7k********:... | 2020-08-10 12:00:00 | c9qgo11pud7k******** | 2020-08-10 11:55:17 |
    | ...                                                                                         |
    +--------------------------+---------------------+----------------------+---------------------+
    ```
@@ -110,7 +110,7 @@ If you set the current time as the recovery time, the new cluster will match the
    To restore a previously deleted cluster from a backup:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
-   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster ID>:<backup ID>` format.
+   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
    1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the point in time to which you want to restore the cluster. You can enter a value manually or select it from the drop-down calendar. The service will select the recovery point closest to that time.
@@ -140,20 +140,20 @@ If you set the current time as the recovery time, the new cluster will match the
       
       ```bash
       {{ yc-mdb-gp }} cluster restore \
-         --backup-id=<backup ID> \
-         --time=<point in time to restore the {{ GP }} cluster to> \
-         --name=<cluster name> \
-         --environment=<environment: PRESTABLE or PRODUCTION> \
+         --backup-id=<backup_ID> \
+         --time=<timestamp> \
+         --name=<cluster_name> \
+         --environment=<environment> \
          --network-name={{ network-name }} \
-         --master-resource-preset=<host class> \
-         --master-disk-size=<storage size, GB> \
-         --master-disk-type=<disk type> \
-         --segment-resource-preset=<host class> \
-         --segment-disk-size=<storage size, GB> \
-         --segment-disk-type=<disk type> \
-         --zone-id=<availability zone> \
-         --subnet-id=<subnet ID> \
-         --assign-public-ip=<public access to the cluster: true or false>
+         --master-resource-preset=<host_class> \
+         --master-disk-size=<storage_size_GB> \
+         --master-disk-type=<disk_type> \
+         --segment-resource-preset=<host_class> \
+         --segment-disk-size=<storage_size_GB> \
+         --segment-disk-type=<disk_type> \
+         --zone-id=<availability_zone> \
+         --subnet-id=<subnet_ID> \
+         --assign-public-ip=<public_access_to_cluster>
       ```
 
 
@@ -164,7 +164,7 @@ If you set the current time as the recovery time, the new cluster will match the
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).

@@ -1,6 +1,6 @@
 ---
 title: "Stopping and starting {{ MY }} clusters in {{ mmy-name }}"
-description: "You can stop and restart a {{ MY }} database cluster, if you need to. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups."
+description: "You can stop and restart a {{ MY }} database cluster, if you need to. You are not charged while your cluster is stopped: you continue to pay only for the storage size and backups."
 ---
 
 # Stopping and starting {{ MY }} clusters
@@ -43,7 +43,7 @@ You can stop and restart a {{ MY }} DB cluster, if required. You are not charged
    1. To stop a cluster, run the command:
 
       ```bash
-      {{ yc-mdb-my }} cluster stop <cluster name or ID>
+      {{ yc-mdb-my }} cluster stop <cluster_name_or_ID>
       ```
 
 - API
@@ -87,7 +87,7 @@ You can restart **STOPPED** clusters.
    1. To start a cluster, run the command:
 
       ```bash
-      {{ yc-mdb-my }} cluster start <cluster name or ID>
+      {{ yc-mdb-my }} cluster start <cluster_name_or_ID>
       ```
 
 - API

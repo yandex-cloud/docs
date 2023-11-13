@@ -89,7 +89,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          -keystore /etc/schema-registry/client.truststore.jks \
          -alias CARoot \
          -import -file {{ crt-local-dir }}{{ crt-local-file }} \
-         -storepass <password for the secure certificate store> \
+         -storepass <secure_certificate_store_password> \
          --noprompt
     ```
 
@@ -99,7 +99,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     KafkaClient {
       org.apache.kafka.common.security.scram.ScramLoginModule required
       username="registry"
-      password="<registry user password>";
+      password="<registry_user_password>";
     };
     ```
 
@@ -120,9 +120,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
     1. Add the following lines at the end of the file:
 
         ```ini
-        kafkastore.bootstrap.servers=SASL_SSL://<FQDN of the 1st broker host:9091>,<FQDN of the 2nd broker host:9091>,...,<FQDN of the Nth broker host:9091>
+        kafkastore.bootstrap.servers=SASL_SSL://<FQDN_of_broker_host_1:9091>,<FQDN_of_broker_host_2:9091>,...,<FQDN_of_broker_host_N:9091>
         kafkastore.ssl.truststore.location=/etc/schema-registry/client.truststore.jks
-        kafkastore.ssl.truststore.password=<password for a secure certificate store>
+        kafkastore.ssl.truststore.password=<secure_certificate_store_password>
         kafkastore.sasl.mechanism=SCRAM-SHA-512
         kafkastore.security.protocol=SASL_SSL
         ```
@@ -190,17 +190,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
     c = AvroConsumer(
         {
             "bootstrap.servers": ','.join([
-                "<FQDN of the 1st broker host>:9091",
+                "<FQDN_of_broker_host_1>:9091",
                 ...
-                "<FQDN of the Nth broker host>:9091",
+                "<FQDN_of_broker_host_N>:9091",
             ]),
             "group.id": "avro-consumer",
             "security.protocol": "SASL_SSL",
             "ssl.ca.location": "{{ crt-local-dir }}{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
-            "sasl.password": "<password of the user named user>",
-            "schema.registry.url": "http://<FQDN or IP address of the Confluent Schema Registry server>:8081",
+            "sasl.password": "<password_of_the_user_named_user>",
+            "schema.registry.url": "http://<FQDN_or_IP_of_Confluent_Schema_Registry_server>:8081",
         }
     )
 
@@ -285,17 +285,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
     avroProducer = AvroProducer(
         {
             "bootstrap.servers": ','.join([
-                "<FQDN of the 1st broker host>:9091",
+                "<FQDN_of_broker_host_1>:9091",
                 ...
-                "<FQDN of the Nth broker host>:9091",
+                "<FQDN_of_broker_host_N>:9091",
             ]),
             "security.protocol": "SASL_SSL",
             "ssl.ca.location": "{{ crt-local-dir }}{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
-            "sasl.password": "<password of the user named user>",
+            "sasl.password": "<password_of_the_user_named_user>",
             "on_delivery": delivery_report,
-            "schema.registry.url": "http://<FQDN or IP address of the Schema Registry server>:8081",
+            "schema.registry.url": "http://<FQDN_or_IP_of_Schema_Registry_server>:8081",
         },
         default_key_schema=key_schema,
         default_value_schema=value_schema,

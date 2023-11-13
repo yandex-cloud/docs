@@ -67,15 +67,15 @@ To access {{ objstorage-name }} bucket data from a cluster:
 
    ```bash
    curl --request PUT \
-        "https://admin:<password>@<host FQDN>:9200/_snapshot/<repository>" \
+        "https://admin:<password>@<host_FQDN>:9200/_snapshot/<repository>" \
         --cacert ~/.elasticsearch/root.crt \
         --header "Content-Type: application/json" \
         --data '{
           "type": "s3",
           "settings": {
             "endpoint": "{{ s3-storage-host }}",
-            "bucket": "<bucket name>",
-            "base_path": "<path to snapshot directory>",
+            "bucket": "<bucket_name>",
+            "base_path": "<path_to_snapshot_directory>",
             "canned_acl": "bucket-owner-full-control"
           }
         }'

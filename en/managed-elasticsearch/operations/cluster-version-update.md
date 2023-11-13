@@ -61,13 +61,13 @@ Make sure this does not affect your applications:
    1. Get information about a cluster and check the version in the `config.version` parameter:
 
       ```bash
-      {{ yc-mdb-es }} cluster get <cluster name or ID>
+      {{ yc-mdb-es }} cluster get <cluster_name_or_ID>
       ```
 
    1. Update the version:
 
       ```bash
-      {{ yc-mdb-es }} cluster update <cluster name of ID> --version <{{ ES }} version>
+      {{ yc-mdb-es }} cluster update <cluster_name_or_ID> --version <{{ ES }}_version>
       ```
 
 - {{ TF }}
@@ -81,10 +81,10 @@ Make sure this does not affect your applications:
    1. To the {{ mes-name }} cluster description, add the `config.version` field or change its value if it already exists:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
         ...
         config {
-          version = "<{{ ES }} version"
+          version = "<{{ ES }}_version>"
         }
       }
       ```
@@ -122,7 +122,7 @@ As of June 13, 2022, the `Gold` [edition](../concepts/es-editions.md) in {{ mes-
 
 {% endnote %}
 
-You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the cluster. If you decide to downgrade the edition, please double-check that reduced functionality won't affect your applications.
+You can change the [{{ ES }} edition](../concepts/es-editions.md) used by the cluster. Before you downgrade the edition, make sure that reduced functionality will not affect your applications.
 
 {% list tabs %}
 
@@ -148,15 +148,17 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
    1. Get information about the cluster and check the edition in the `config.edition` property:
 
       ```bash
-      {{ yc-mdb-es }} cluster get <cluster name or ID>
+      {{ yc-mdb-es }} cluster get <cluster_name_or_ID>
       ```
 
    1. Update the edition:
 
       ```bash
-      {{ yc-mdb-es }} cluster update <cluster name or ID> \
-         --edition <{{ ES }} edition: basic or platinum>
+      {{ yc-mdb-es }} cluster update <cluster_name_or_ID> \
+         --edition <{{ ES }}_edition>
       ```
+
+      Where `--edition` is the {{ ES }} edition: `basic` or `platinum`.
 
 - {{ TF }}
 
@@ -167,15 +169,17 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
    1. Add the `config.edition` field to the {{ mes-name }} cluster description or edit it (if it exists):
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
         ...
         config {
-          edition = "<{{ ES }} edition: basic or platinum>"
+          edition = "<{{ ES }}_edition>"
           ...
         }
         ...
       }
       ```
+
+      Where `edition` is the {{ ES }} edition: `basic` or `platinum`.
 
    1. Make sure the settings are correct.
 
@@ -197,7 +201,7 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
 
       {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
-   * The new {{ ES }} edition, in the `configSpec.edition` parameter.
+   * New {{ ES }} edition, in the `configSpec.edition` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (in this case, `configSpec.edition`).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

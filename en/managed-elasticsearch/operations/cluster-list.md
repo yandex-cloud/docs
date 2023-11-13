@@ -57,7 +57,7 @@ You can request detailed information about each {{ mes-name }} cluster you creat
    To get cluster details, run the command:
 
    ```bash
-   {{ yc-mdb-es }} cluster get <cluster name or ID>
+   {{ yc-mdb-es }} cluster get <cluster_name_or_ID>
    ```
 
    You can request a cluster name and ID with a [list of clusters in the folder](#list-clusters).
@@ -91,7 +91,7 @@ The operation list shows operations with clusters and related resources (for exa
    To get a list of cluster operations, run the command:
 
    ```bash
-   {{ yc-mdb-es }} cluster list-operations <cluster name or ID>
+   {{ yc-mdb-es }} cluster list-operations <cluster_name_or_ID>
    ```
 
    You can request a cluster name and ID with a [list of clusters in the folder](#list-clusters).

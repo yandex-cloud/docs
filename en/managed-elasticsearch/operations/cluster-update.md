@@ -53,11 +53,11 @@ You can also update the {{ ES }} version or edition. For more information, see [
    1. Specify the service account ID in the update cluster command:
 
       ```bash
-      {{ yc-mdb-es }} cluster update <cluster name or ID> \
-        --service-account-id <service account ID>
+      {{ yc-mdb-es }} cluster update <cluster_name_or_ID> \
+        --service-account-id <service_account_ID>
       ```
 
-      You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    {{ mes-short-name }} will run the service account update for the cluster.
 
@@ -70,9 +70,9 @@ You can also update the {{ ES }} version or edition. For more information, see [
    1. In the `service_account_id` field, enter the service account ID:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
         ...
-        service_account_id = <service account ID>
+        service_account_id = <service_account_ID>
       }
       ```
 
@@ -80,7 +80,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -136,12 +136,12 @@ You can also update the {{ ES }} version or edition. For more information, see [
    1. Specify the host class you need with the _Data node_ and _Master node_ roles in the update cluster command:
 
       ```bash
-      {{ yc-mdb-es }} cluster update <cluster ID or name> \
-        --datanode-resource-preset <class of hosts with the Data node role> \
-        --masternode-resource-preset <class of hosts with the Master node role>
+      {{ yc-mdb-es }} cluster update <cluster_name_or_ID> \
+        --datanode-resource-preset <Data_node_host_class> \
+        --masternode-resource-preset <Master_node_host_class>
       ```
 
-   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -154,19 +154,19 @@ You can also update the {{ ES }} version or edition. For more information, see [
    1. In the {{ mes-name }} cluster description, change the `resource_preset_id` attribute value under `config.data_node.resources` or `config.master_node.resources`:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
         ...
         config {
           data_node {
             resources {
-              resource_preset_id = "<host class>"
+              resource_preset_id = "<host_class>"
               ...
             }
           }
 
           master_node {
             resources {
-              resource_preset_id = "<host class>"
+              resource_preset_id = "<host_class>"
               ...
             }
           }
@@ -178,7 +178,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -241,12 +241,17 @@ You can also update the {{ ES }} version or edition. For more information, see [
    1. Specify new [storage settings](../concepts/storage.md) for hosts with the _Data node_ and _Master node_ roles in the update cluster command:
 
       ```bash
-      {{ yc-mdb-es }} cluster update <cluster ID or name> \
-        --datanode-disk-size <storage size in GB for hosts with the Data node role> \
-        --masternode-disk-size <storage size in GB for hosts with the Master node role>
+      {{ yc-mdb-es }} cluster update <cluster_name_or_ID> \
+        --datanode-disk-size <Data_node_storage_size_GB> \
+        --masternode-disk-size <Master_node_storage_size_GB>
       ```
 
-   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      Where:
+
+      * `--datanode-disk-size`: Storage size in gigabytes for hosts with the Data node role.
+      * `--masternode-disk-size`: Storage size in gigabytes for hosts with the Master node role.
+
+   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -261,19 +266,19 @@ You can also update the {{ ES }} version or edition. For more information, see [
    1. In the {{ mes-name }} cluster description, change the `disk_size` attribute value under `config.data_node.resources` or `config.master_node.resources`:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
         ...
         config {
           data_node {
             resources {
-              disk_size = <storage size, GB>
+              disk_size = <storage_size_GB>
               ...
             }
           }
 
           master_node {
             resources {
-              disk_size = <storage size, GB>
+              disk_size = <storage_size_GB>
               ...
             }
           }
@@ -285,7 +290,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -341,7 +346,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
    1. View the full list of settings specified for the cluster:
 
       ```bash
-      {{ yc-mdb-es }} cluster get <cluster ID or name> --full
+      {{ yc-mdb-es }} cluster get <cluster_name_or_ID> --full
       ```
 
    1. View a description of the update cluster configuration CLI command:
@@ -353,8 +358,8 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
    1. Set the required parameter values:
 
       ```bash
-      {{ yc-mdb-es }} cluster update-config <cluster ID or name> \
-         --set <parameter1 name>=<value1>,<parameter2 name>=<value2>,...
+      {{ yc-mdb-es }} cluster update-config <cluster_name_or_ID> \
+         --set <name_of_parameter_1>=<value_1>,<name_of_parameter_2>=<value_2>,...
       ```
 
       All the supported parameters are listed in [{#T}](../concepts/settings-list.md).
@@ -404,21 +409,21 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
       * Entering a password in interactive mode.
 
          ```bash
-         {{ yc-mdb-es }} cluster update <cluster name> \
+         {{ yc-mdb-es }} cluster update <cluster_name> \
            --read-admin-password
          ```
 
       * Entering a password as plain text (less secure method).
 
          ```bash
-         {{ yc-mdb-es }} cluster update <cluster name> \
-           --admin-password <new password>
+         {{ yc-mdb-es }} cluster update <cluster_name> \
+           --admin-password <new_password>
          ```
 
       * Generating a password automatically. The generated password will be output to the console.
 
          ```bash
-         {{ yc-mdb-es }} cluster update <cluster name> \
+         {{ yc-mdb-es }} cluster update <cluster_name> \
            --generate-admin-password
          ```
 
@@ -435,10 +440,10 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
    1. In the {{ mes-name }} cluster description, change the `admin_password` attribute value under `config`:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
         ...
         config {
-          admin_password = "<new administrator password>"
+          admin_password = "<new_admin_password>"
           ...
         }
       }
@@ -448,7 +453,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -502,12 +507,12 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
    1. Run the following command with a list of settings to update:
 
       ```bash
-      {{ yc-mdb-es }} cluster update <cluster ID or name> \
-         --plugins <plugin 1 name>,...,<plugin N name> \
-         --maintenance-window type=<maintenance type: anytime or weekly>,`
-                             `day=<day of week for weekly>,`
-                             `hour=<hour for weekly> \
-         --deletion-protection=<cluster deletion protection: true or false>
+      {{ yc-mdb-es }} cluster update <cluster_name_or_ID> \
+         --plugins <plugin_1_name>,...,<plugin_N_name> \
+         --maintenance-window type=<maintenance_type>,`
+                             `day=<day_of_week>,`
+                             `hour=<hour_of_day> \
+         --deletion-protection=<deletion_protection>
       ```
 
    You can change the following settings:
@@ -537,10 +542,10 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
    1. To change the list of [{{ ES }} plugins](cluster-plugins.md#elasticsearch), change the value of the `plugins` parameter under `config` in the cluster description:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
         ...
         config {
-          plugins = [ "<list of plugin names>" ]
+          plugins = [ "<list_of_plugin_names>" ]
         }
       }
       ```
@@ -550,11 +555,13 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
         ...
-        deletion_protection = <protect cluster from deletion: true or false>
+        deletion_protection = <deletion_protection>
       }
       ```
+
+      Where `deletion_protection`: Cluster deletion protection: `true` or `false`.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -562,7 +569,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -46,10 +46,10 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
    To get information about a {{ GP }} cluster, run the following command:
 
    ```bash
-   {{ yc-mdb-gp }} cluster get <cluster ID or name>
+   {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 
@@ -77,10 +77,10 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
    To get a list of operations, run the following command:
 
    ```bash
-   {{ yc-mdb-gp }} cluster list-operations <cluster ID or name>
+   {{ yc-mdb-gp }} cluster list-operations <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 

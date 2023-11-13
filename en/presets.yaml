@@ -3272,6 +3272,7 @@ default:
         action-menu-title: Actions
       ui_components_AddWorklogDialog:
         apply-button: Save
+        date-label: Started
         duration-label: Time spent
       ui_components_admin-repositories_ConnectRepositoryDialog_fields_UrlField:
         server-url-label: Link to repository

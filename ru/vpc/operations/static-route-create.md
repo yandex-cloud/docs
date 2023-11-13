@@ -133,10 +133,6 @@ description: "Статический маршрут по умолчанию (0.0
      route_table_id: enp1sdveovdpdhaao5dq
      ```
 
-- API
-
-  Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/static-routes.md), воспользуйтесь методом REST API [create](../api-ref/RouteTable/create.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -199,5 +195,30 @@ description: "Статический маршрут по умолчанию (0.0
         ```
         yc vpc route-table list
         ```
+
+- API
+
+  Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/static-routes.md), воспользуйтесь методом REST API [create](../api-ref/RouteTable/create.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) и передайте в запросе:
+
+  * Идентификатор каталога, в котором будет размещена таблица маршрутизации, в параметре `folderId`.
+  * Имя таблицы маршрутизации в параметре `name`. Формат имени:
+
+     {% include [name-format](../../_includes/name-format.md) %}
+  * Идентификатор сети, в которой будет размещена таблица маршрутизации, в параметре `networkId`.
+  * Префикс подсети назначения в нотации CIDR в параметре `staticRoutes[].destinationPrefix`.
+  * Внутренний IP-адрес виртуальной машины, через которую будет направляться трафик, в параметре `staticRoutes[].nextHopAddress`. IP-адрес должен входить в [разрешенный диапазон](../concepts/network.md#subnet).
+
+  Чтобы использовать статические маршруты, необходимо привязать таблицу маршрутизации к подсети. Воспользуйтесь методом REST API [update](../api-ref/Subnet/update.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) и передайте в запросе:
+
+  * Идентификатор подсети в параметре `subnetId`.
+
+    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+
+  * Идентификатор таблицы маршрутизации в параметре `routeTableId`.
+  * Имя параметра `routeTableId` в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

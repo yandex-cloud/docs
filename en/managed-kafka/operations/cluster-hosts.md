@@ -10,7 +10,7 @@ You can get a list of broker hosts in your {{ KF }} cluster.
 
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the name of the cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+   1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
 - CLI
 
@@ -21,10 +21,10 @@ You can get a list of broker hosts in your {{ KF }} cluster.
    To get a list of cluster hosts, run the command:
 
    ```bash
-   {{ yc-mdb-kf }} cluster list-hosts <cluster name>
+   {{ yc-mdb-kf }} cluster list-hosts <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

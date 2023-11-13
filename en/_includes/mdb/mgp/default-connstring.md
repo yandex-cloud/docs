@@ -1,8 +1,8 @@
 ```bash
-psql "host=c-<cluster ID>.rw.{{ dns-zone }} \
+psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
       port={{ port-mgp }} \
       sslmode=verify-full \
       dbname=postgres \
       user=<username> \
-      target_session_attrs=read-write""
+      target_session_attrs=read-write"
 ```

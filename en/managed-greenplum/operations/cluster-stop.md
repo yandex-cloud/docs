@@ -21,7 +21,7 @@ You can stop and restart clusters, if required.
    To stop a {{ GP }} cluster, run the command:
 
    ```bash
-   {{ yc-mdb-gp }} cluster stop <cluster name or ID>
+   {{ yc-mdb-gp }} cluster stop <cluster_name_or_ID>
    ```
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -53,7 +53,7 @@ You can stop and restart clusters, if required.
    To start a {{ GP }} cluster, run the command below:
 
    ```bash
-   {{ yc-mdb-gp }} cluster start <cluster name or ID>
+   {{ yc-mdb-gp }} cluster start <cluster_name_or_ID>
    ```
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).

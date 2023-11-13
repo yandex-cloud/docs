@@ -95,7 +95,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    To get information about a {{ ES }} cluster backup, run the command:
 
    ```bash
-   {{ yc-mdb-es }} backup get <backup ID>
+   {{ yc-mdb-es }} backup get <backup_ID>
    ```
 
    You can retrieve the backup ID with a [list of backups](#list-backups).
@@ -139,7 +139,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    1. Request a backup to be created by specifying the cluster name or ID:
 
       ```bash
-      {{ yc-mdb-es }} cluster backup <cluster ID or name>
+      {{ yc-mdb-es }} cluster backup <cluster_name_or_ID>
       ```
 
       You can fetch the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
@@ -176,7 +176,7 @@ When creating a new cluster, set all required parameters.
    To restore a previously deleted cluster from a backup:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
    1. Select the **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
-   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.name }}** column contains IDs in `<cluster ID>:<backup ID>` format.
+   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.name }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.common.folder }}** list.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -221,21 +221,21 @@ When creating a new cluster, set all required parameters.
       
       ```bash
       {{ yc-mdb-es }} cluster restore \
-         --backup-id=<backup ID> \
-         --name=<cluster name> \
-         --environment=<environment: PRESTABLE or PRODUCTION> \
-         --network-name=<network name> \
-         --host zone-id=<availability zone>,`
-               `subnet-id=<subnet name>,`
-               `assign-public-ip=<public access to the host: true or false>,`
-               `type=<host role: datanode or masternode> \
-         --datanode-resource-preset=<class of hosts with the Data node role> \
-         --datanode-disk-size=<size of storage in GB for hosts with the Data node role> \
-         --datanode-disk-type=<disk type for hosts with the Data node role> \
-         --masternode-resource-preset=<class of hosts with the Master node role> \
-         --masternode-disk-size=<size of storage in GB for hosts with the Master node role> \
-         --masternode-disk-type=<disk type for hosts with the Master node role: network-ssd> \
-         --admin-password=<admin password>
+         --backup-id=<backup_ID> \
+         --name=<cluster_name> \
+         --environment=<environment> \
+         --network-name=<network_name> \
+         --host zone-id=<availability_zone>,`
+               `subnet-id=<subnet_name>,`
+               `assign-public-ip=<public_access>,`
+               `type=<host_type> \
+         --datanode-resource-preset=<Data_node_host_class> \
+         --datanode-disk-size=<Data_node_storage_size_GB> \
+         --datanode-disk-type=<Data_node_disk_type> \
+         --masternode-resource-preset=<Master_node_host_class> \
+         --masternode-disk-size=<Master_node_storage_size_GB> \
+         --masternode-disk-type=<Master_node_disk_type> \
+         --admin-password=<admin_password>
       ```
 
 
@@ -245,7 +245,7 @@ When creating a new cluster, set all required parameters.
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -254,11 +254,11 @@ When creating a new cluster, set all required parameters.
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
          
-         * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
-         * `assign-public-ip`: Flag to be set if [public access](../concepts/network.md#public-access-to-a-host) to the host is required.
+         * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet). Specify it if the selected availability zone includes two or more subnets.
+         * `assign-public-ip`: Flag to be set if [public access](../concepts/network.md#public-access-to-a-host) to the host is required, `true` or `false`.
 
 
-         * `type`: [Host role](../concepts/hosts-roles.md).
+         * `type`: [Host role](../concepts/hosts-roles.md): `datanode` or `masternode`.
 
       * `--datanode-resource-preset`: [Class of hosts](../concepts/instance-types.md#available-flavors) with the Data Node role.
       * `--datanode-disk-size`: Storage size in gigabytes for hosts with the Data node role.
@@ -307,7 +307,7 @@ To work with snapshots, use the [{{ ES }} public API](https://www.elastic.co/gui
    GET https://admin:<password>@<host_FQDN>:9200/_snapshot/_all
    ```
 
-   If the required repository is not on the list, [connect it](./s3-access.md).
+   If the repository you need is not on the list, [connect it](./s3-access.md).
 
 1. Get a list of snapshots in the repository:
 

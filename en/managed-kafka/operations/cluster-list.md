@@ -69,7 +69,7 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
    To get information about an {{ KF }} cluster, run the following command:
 
    ```
-   {{ yc-mdb-kf }} cluster get <cluster name or ID>
+   {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
    ```
 
    You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
@@ -105,7 +105,7 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
    To get a list of operations, run the following command:
 
    ```
-   {{ yc-mdb-kf }} cluster list-operations <cluster name or ID>
+   {{ yc-mdb-kf }} cluster list-operations <cluster_name_or_ID>
    ```
 
    You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).

@@ -16,7 +16,7 @@ You can get a list of hosts (masters and segments) in a {{ mgp-name }} cluster.
 
    * `MASTER`: Primary master host to receive user connections.
    * `REPLICA`: Standby master host to replicate data of the primary master host.
-   * `SEGMENT`: A segment host. Stores some of the cluster data.
+   * `SEGMENT`: Segment host to store part of the cluster data.
 
 - CLI
 
@@ -28,17 +28,17 @@ You can get a list of hosts (masters and segments) in a {{ mgp-name }} cluster.
 
    ```bash
    {{ yc-mdb-gp }} hosts list master \
-      --cluster-name=<cluster name>
+      --cluster-name=<cluster_name>
    ```
 
    To get a list of cluster segment hosts, run the command:
 
    ```bash
    {{ yc-mdb-gp }} hosts list segment \
-      --cluster-name=<cluster name>
+      --cluster-name=<cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+   You can get the cluster name with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 
 - API
 

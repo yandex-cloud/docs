@@ -233,6 +233,8 @@ items:
         href: manager/agile-new-issues.md
       - name: Configuring columns
         href: manager/agile-new-columns.md
+      - name: Epics
+        href: manager/epic-new.md
       - name: Tools available on boards with a backlog and sprints
         items:
           - name: Overview

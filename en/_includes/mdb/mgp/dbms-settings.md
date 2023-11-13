@@ -29,7 +29,7 @@
    The maximum value is `1099511627776` (1 TB), the minimum one is `0` (unlimited amount). The default value [depends on the segment host storage size](#settings-instance-dependent) and is calculated by the formula:
 
    ```text
-   0.1 × <segment host storage size>/<number of segments per host>
+   0.1 × <segment_host_storage_size> / <number_of_segments_per_host>
    ```
 
    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
@@ -76,7 +76,7 @@
    The minimum value is `0` (no logging), the maximum one is `214748364800` (200 GB). The default value [depends on the segment host storage size](#settings-instance-dependent) and is calculated by the formula:
 
    ```text
-   0.1 × <segment host storage size>/<number of segments per host>
+   0.1 × <segment_host_storage_size> / <number_of_segments_per_host>
    ```
 
    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
