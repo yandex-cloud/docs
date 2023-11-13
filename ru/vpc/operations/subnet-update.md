@@ -68,10 +68,6 @@
       - 192.168.0.0/24
       ```
 
-- API
-
-  Чтобы изменить [подсеть](../concepts/network.md#subnet), воспользуйтесь методом REST API [update](../api-ref/Subnet/update.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update).
-
 - {{ TF }}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -127,6 +123,28 @@
      ```
      yc vpc subnet get <имя подсети>
      ```
+
+- API
+
+  Чтобы изменить [подсеть](../concepts/network.md#subnet), воспользуйтесь методом REST API [update](../api-ref/Subnet/update.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) и передайте в запросе:
+
+  * Идентификатор изменяемой подсети в параметре `subnetId`.
+
+    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+
+  * Новые настройки подсети по необходимости:
+
+    * имя в параметре `name`;
+    * описание в параметре `description`;
+    * метки подсети в параметре `labels`;
+    * идентификатор таблицы маршрутизации в параметре `routeTableId`;
+    * настройки DHCP в параметре `dhcpOptions`.
+
+  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

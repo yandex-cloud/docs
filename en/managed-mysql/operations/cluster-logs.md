@@ -35,13 +35,13 @@
    1. Run the following command to get cluster logs (our example does not contain a complete list of available parameters):
 
       ```bash
-      {{ yc-mdb-my }} cluster list-logs <cluster name or ID> \
-         --limit <record number limit> \
-         --format <output format> \
-         --columns <list of columns to display information> \
-         --filter <record filter settings> \
-         --since <left boundary of time range> \
-         --until <right boundary of time range>
+      {{ yc-mdb-my }} cluster list-logs <cluster_name_or_ID> \
+         --limit <record_number_limit> \
+         --format <output_format> \
+         --columns <list_of_columns> \
+         --filter <filter_settings> \
+         --since <left_boundary_of_time_range> \
+         --until <right_boundary_of_time_range>
       ```
 
       Where:
@@ -50,7 +50,7 @@
       * {% include [logs output format](../../_includes/cli/logs/format.md) %}
       * `--service-type`: Type of service to output records for (`mysql-error`, `mysql-general`, `mysql-slow-query`, or `mysql-audit`).
       * `--columns`: List of columns to display information:
-         * `hostname`: [Name of the host](hosts.md#list-hosts).
+         * `hostname`: [Host name](hosts.md#list-hosts).
          * `id`: Query ID.
          * `message`: Message output by the service.
          * `status`: Message status, such as `Note` or `Warning`.
@@ -67,7 +67,7 @@
       * {% include [logs since time](../../_includes/cli/logs/since.md) %}
       * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -98,10 +98,10 @@ This method allows you to get cluster logs in real time.
    To view cluster logs as they become available, run this command:
 
    ```bash
-   {{ yc-mdb-my }} cluster list-logs <cluster name or ID> --follow
+   {{ yc-mdb-my }} cluster list-logs <cluster_name_or_ID> --follow
    ```
 
-   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

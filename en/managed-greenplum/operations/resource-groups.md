@@ -22,7 +22,7 @@ WHERE pg_roles.rolresgroup=pg_resgroup.oid;
 Pass the name of the resource group and its [parameters](../concepts/resource-groups.md#rg-params) in the command:
 
 ```sql
-CREATE RESOURCE GROUP <resource group name> WITH (<parameter 1>, <parameter 2>, ...);
+CREATE RESOURCE GROUP <resource_group_name> WITH (<parameter_1>, <parameter_2>, ...);
 ```
 
 When creating a resource group, just specify the value of the `CPU_RATE_LIMIT` or `CPUSET` parameter. For the other parameters, the default settings will be applied.
@@ -33,7 +33,7 @@ When creating a resource group, just specify the value of the `CPU_RATE_LIMIT` o
 To create a role and immediately assign it to a resource group, run the command:
 
 ```sql
-CREATE ROLE <role name> RESOURCE GROUP <resource group name>;
+CREATE ROLE <role_name> RESOURCE GROUP <resource_group_name>;
 ```
 
 {% note info %}
@@ -45,7 +45,7 @@ By default, new roles are assigned to the `default_group` resource group.
 To assign a different resource group to the role, run the command:
 
 ```sql
-ALTER ROLE <role name> RESOURCE GROUP <resource group name>;
+ALTER ROLE <role_name> RESOURCE GROUP <resource_group_name>;
 ```
 
 ## View the current load of resource groups {#load}
@@ -83,10 +83,10 @@ FROM pg_stat_activity;
 
 ## Change resource group parameters {#params}
 
-Run the command:
+Run this command:
 
 ```sql
-ALTER RESOURCE GROUP <resource group name> SET <parameter name> <new parameter value>;
+ALTER RESOURCE GROUP <resource_group_name> SET <parameter_name> <new_parameter_value>;
 ```
 
 ## Delete a resource group {#delete}
@@ -96,7 +96,7 @@ You can delete a resource group only if it isn't assigned to any roles and conta
 To delete a resource group, run the command:
 
 ```sql
-DROP RESOURCE GROUP <resource group name>;
+DROP RESOURCE GROUP <resource_group_name>;
 ```
 
 
@@ -111,7 +111,7 @@ Create a resource group with test characteristics:
 * Share allocated as an overall quota: 50%.
 * RAM share in the resource group that a single transaction operator can occupy: 30%.
 
-Run the command:
+Run this command:
 
 ```sql
 CREATE RESOURCE GROUP testgroup

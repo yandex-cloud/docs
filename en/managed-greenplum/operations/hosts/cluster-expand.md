@@ -39,10 +39,10 @@ The `gp_expand` utility is used to expand a cluster. For more information about 
    1. Specify the cluster expansion parameters in the command:
 
       ```bash
-      {{ yc-mdb-gp }} cluster expand <cluster ID or name> \
-         --segment-host-count <number of segment hosts to add> \
-         --add-segments-per-host-count <number of segments per host to add> \
-         --duration-seconds <data redistribution timeout, seconds>
+      {{ yc-mdb-gp }} cluster expand <cluster_name_or_ID> \
+         --segment-host-count <number_of_added_segment_hosts> \
+         --add-segments-per-host-count <number_of_segments_added_to_host> \
+         --duration-seconds <data_redistribution_timeout_in_seconds>
       ```
 
       Where:
@@ -51,7 +51,7 @@ The `gp_expand` utility is used to expand a cluster. For more information about 
       * `--add-segments-per-host-count`: Number of segments added per host. The maximum value depends on the host class. The default value is `0`.
       * `--duration-seconds`: Timeout for data redistribution across the new segments, in seconds. For `0` (recommended value set by default), the timeout will be selected automatically based on cluster configuration and the amount of data.
 
-      You can find out the cluster ID and name in a [list of clusters in the folder](../cluster-list.md#list-clusters).
+      You can get the cluster ID and name with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 
 - API
 
@@ -99,7 +99,7 @@ The current redistribution status will be specified in the `status` column.
 To specify the tables whose data should be redistributed first of all, increase their priority. To do this, connect to the `postgres` database and run the following query as the user with the `mdb_admin` role:
 
 ```sql
-UPDATE gpexpand.status_detail SET rank=1 WHERE fq_name IN (<table list>);
+UPDATE gpexpand.status_detail SET rank=1 WHERE fq_name IN (<table_list>);
 ```
 
 ## Starting data redistribution {#start-redistribute}
@@ -109,29 +109,31 @@ UPDATE gpexpand.status_detail SET rank=1 WHERE fq_name IN (<table list>);
 1. Find the tables that were redistributed partially:
 
    ```sql
-   SELECT count(*) FROM gp_distribution_policy WHERE numsegments != <segment count>;
+   SELECT count(*) FROM gp_distribution_policy WHERE numsegments != <segment_count>;
    ```
 
-   Where `segment count` is the total number of segments in all {{ GP }} cluster segment hosts.
+   Where `segment_count` is the total number of segments in all {{ GP }} cluster segment hosts.
 
 1. Start data redistribution:
 
    * For ordinary tables:
 
       ```sql
-      ALTER TABLE ONLY <table name> EXPAND TABLE;
+      ALTER TABLE ONLY <table_name> EXPAND TABLE;
       ```
 
    * For partitioned tables:
 
       ```sql
-      ALTER TABLE <table name> SET WITH (REORGANIZE=true) <{{ GP }} distribution policy>;
+      ALTER TABLE <table_name> SET WITH (REORGANIZE=true) <distribution_policy>;
       ```
+
+      Where `distribution_policy` is the {{ GP }} distribution policy.
 
       To get the {{ GP }} distribution policy for the selected table's partition, call the embedded function:
 
       ```sql
-      SELECT pg_get_table_distributedby(<partition OID>) AS distribution_policy;
+      SELECT pg_get_table_distributedby(<partition_OID>) AS distribution_policy;
       ```
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

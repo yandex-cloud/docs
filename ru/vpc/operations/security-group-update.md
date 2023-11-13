@@ -23,10 +23,6 @@
   yc vpc security-group update <идентификатор группы> --new-name test-sg-renamed
   ```
 
-- API
-
-  Чтобы изменить имя или описание группы, воспользуйтесь методом REST API [update](../api-ref/SecurityGroup/update.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Update](../api-ref/grpc/security_group_service.md#Update).
-
 - {{ TF }}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -86,5 +82,21 @@
      ```
      yc vpc security-group get <имя группы безопасности>
      ```
+
+- API
+
+  Чтобы изменить имя или описание группы, воспользуйтесь методом REST API [update](../api-ref/SecurityGroup/update.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Update](../api-ref/grpc/security_group_service.md#Update) и передайте в запросе:
+
+  * Идентификатор изменяемой группы безопасности в параметре `securityGroupId`.
+
+    {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
+
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+
+  * Новое имя группы безопасности в параметре `name`.
+  * Новое описание группы безопасности в параметре `description`.
+  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

@@ -31,10 +31,10 @@ description: "After you delete a MongoDB database cluster, its backups are kept 
    To delete a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-mg }} cluster delete <cluster name or ID>
+   {{ yc-mdb-mg }} cluster delete <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 

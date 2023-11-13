@@ -2,11 +2,11 @@ To allow [access from {{ datalens-name }}](../../../../managed-mysql/operations/
 
 
 ```hcl
-resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
   ...
   access {
-    web_sql   = <true or false>
-    data_lens = <true or false>
+    web_sql   = <access_from_management_console>
+    data_lens = <access_from_{{ datalens-name }}>
     ...
   }
   ...
@@ -14,3 +14,11 @@ resource "yandex_mdb_mysql_cluster" "<cluster name>" {
 ```
 
 
+
+Where:
+
+
+* `web_sql`: Execution of SQL queries from the management console, `true` or `false`.
+
+
+* `data_lens`: Access from {{ datalens-name }}, `true` or `false`.

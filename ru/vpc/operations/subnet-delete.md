@@ -59,10 +59,6 @@ description: "Следуя данной инструкции, вы сможет�
       yc vpc subnet delete test-subnet-1
       ```
 
-- API
-
-  Чтобы удалить [подсеть](../concepts/network.md#subnet), воспользуйтесь методом REST API [delete](../api-ref/Subnet/delete.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Delete](../api-ref/grpc/subnet_service.md#Delete).
-
 - {{ TF }}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -124,6 +120,14 @@ description: "Следуя данной инструкции, вы сможет�
      ```
      yc vpc subnet list
      ```
+
+- API
+
+   Чтобы удалить [подсеть](../concepts/network.md#subnet), воспользуйтесь методом REST API [delete](../api-ref/Subnet/delete.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Delete](../api-ref/grpc/subnet_service.md#Delete) и передайте в запросе идентификатор удаляемой подсети в параметре `subnetId`.
+
+   {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+
+   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 

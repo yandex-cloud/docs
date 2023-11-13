@@ -16,12 +16,12 @@ sudo apt update && sudo apt install -y kafkacat
 
       ```bash
       kafkacat -C \
-               -b <broker FQDN>:9092 \
-               -t <topic name> \
+               -b <broker_FQDN>:9092 \
+               -t <topic_name> \
                -X security.protocol=SASL_PLAINTEXT \
                -X sasl.mechanism=SCRAM-SHA-512 \
-               -X sasl.username="<consumer username>" \
-               -X sasl.password="<consumer password>" -Z
+               -X sasl.username="<consumer_username>" \
+               -X sasl.password="<consumer_password>" -Z
       ```
 
       The command will continuously read new messages from the topic.
@@ -30,13 +30,13 @@ sudo apt update && sudo apt install -y kafkacat
 
       ```bash
       echo "test message" | kafkacat -P \
-             -b <broker FQDN>:9092 \
-             -t <topic name> \
+             -b <broker_FQDN>:9092 \
+             -t <topic_name> \
              -k key \
              -X security.protocol=SASL_PLAINTEXT \
              -X sasl.mechanism=SCRAM-SHA-512 \
-             -X sasl.username="<consumer username>" \
-             -X sasl.password="<producer username>" -Z
+             -X sasl.username="<consumer_username>" \
+             -X sasl.password="<producer_username>" -Z
       ```
 
 - Connecting via SSL
@@ -120,10 +120,10 @@ Before connecting:
               {
                   int MSG_COUNT = 5;
 
-                  string HOST = "<FQDN of the broker host>:9092";
-                  string TOPIC = "<topic name>";
-                  string USER = "<producer username>";
-                  string PASS = "<producer password>";
+                  string HOST = "<FQDN_of_broker_host>:9092";
+                  string TOPIC = "<topic_name>";
+                  string USER = "<producer_username>";
+                  string PASS = "<producer_password>";
 
                   var producerConfig = new ProducerConfig(
                       new Dictionary<string,string>{
@@ -173,10 +173,10 @@ Before connecting:
           {
               public static void Main(string[] args)
               {
-                  string HOST = "<FQDN of the broker host>:9092";
-                  string TOPIC = "<topic name>";
-                  string USER = "<consumer name>";
-                  string PASS = "<consumer password>";
+                  string HOST = "<FQDN_of_broker_host>:9092";
+                  string TOPIC = "<topic_name>";
+                  string USER = "<consumer_name>";
+                  string PASS = "<consumer_password>";
 
                   var consumerConfig = new ConsumerConfig(
                       new Dictionary<string,string>{
@@ -243,10 +243,10 @@ Before connecting:
               {
                   int MSG_COUNT = 5;
 
-                  string HOST = "<FQDN of the broker host>:9091";
-                  string TOPIC = "<topic name>";
-                  string USER = "<producer username>";
-                  string PASS = "<producer password>";
+                  string HOST = "<FQDN_of_broker_host>:9091";
+                  string TOPIC = "<topic_name>";
+                  string USER = "<producer_username>";
+                  string PASS = "<producer_password>";
                   string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
                   var producerConfig = new ProducerConfig(
@@ -298,10 +298,10 @@ Before connecting:
           {
               public static void Main(string[] args)
               {
-                  string HOST = "<FQDN of the broker host>:9091";
-                  string TOPIC = "<topic name>";
-                  string USER = "<consumer name>";
-                  string PASS = "<consumer password>";
+                  string HOST = "<FQDN_of_broker_host>:9091";
+                  string TOPIC = "<topic_name>";
+                  string USER = "<consumer_name>";
+                  string PASS = "<consumer_password>";
                   string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
                   var consumerConfig = new ConsumerConfig(
@@ -446,7 +446,7 @@ Before connecting:
       )
 
       func main() {
-            brokers := "<FQDN of the broker host>:9092"
+            brokers := "<FQDN_of_broker_host>:9092"
             splitBrokers := strings.Split(brokers, ",")
             conf := sarama.NewConfig()
             conf.Producer.RequiredAcks = sarama.WaitForAll
@@ -455,8 +455,8 @@ Before connecting:
             conf.ClientID = "sasl_scram_client"
             conf.Net.SASL.Enable = true
             conf.Net.SASL.Handshake = true
-            conf.Net.SASL.User = "<producer name>"
-            conf.Net.SASL.Password = "<producer password>"
+            conf.Net.SASL.User = "<producer_name>"
+            conf.Net.SASL.Password = "<producer_password>"
             conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
             conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
@@ -471,7 +471,7 @@ Before connecting:
       func publish(message string, producer sarama.SyncProducer) {
         // Publish sync
         msg := &sarama.ProducerMessage {
-            Topic: "<topic name>",
+            Topic: "<topic_name>",
             Value: sarama.StringEncoder(message),
         }
         p, o, err := producer.SendMessage(msg)
@@ -501,7 +501,7 @@ Before connecting:
       )
 
       func main() {
-            brokers := "<FQDN of the broker host>:9092"
+            brokers := "<FQDN_of_broker_host>:9092"
             splitBrokers := strings.Split(brokers, ",")
             conf := sarama.NewConfig()
             conf.Producer.RequiredAcks = sarama.WaitForAll
@@ -510,8 +510,8 @@ Before connecting:
             conf.ClientID = "sasl_scram_client"
             conf.Metadata.Full = true
             conf.Net.SASL.Enable = true
-            conf.Net.SASL.User =  "<consumer name>"
-            conf.Net.SASL.Password = "<consumer password>"
+            conf.Net.SASL.User =  "<consumer_name>"
+            conf.Net.SASL.Password = "<consumer_password>"
             conf.Net.SASL.Handshake = true
             conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
             conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
@@ -528,7 +528,7 @@ Before connecting:
                     }
             }()
 
-            topic := "<topic name>"
+            topic := "<topic_name>"
 
             consumer, err := master.ConsumePartition(topic, 0, sarama.OffsetOldest)
             if err != nil {
@@ -601,7 +601,7 @@ Before connecting:
       )
 
       func main() {
-            brokers := "<FQDN of the broker host>:9091"
+            brokers := "<FQDN_of_broker_host>:9091"
             splitBrokers := strings.Split(brokers, ",")
             conf := sarama.NewConfig()
             conf.Producer.RequiredAcks = sarama.WaitForAll
@@ -610,8 +610,8 @@ Before connecting:
             conf.ClientID = "sasl_scram_client"
             conf.Net.SASL.Enable = true
             conf.Net.SASL.Handshake = true
-            conf.Net.SASL.User = "<producer username>"
-            conf.Net.SASL.Password = "<producer password>"
+            conf.Net.SASL.User = "<producer_username>"
+            conf.Net.SASL.Password = "<producer_password>"
             conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
             conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
@@ -642,7 +642,7 @@ Before connecting:
       func publish(message string, producer sarama.SyncProducer) {
         // publish sync
         msg := &sarama.ProducerMessage {
-            Topic: "<topic name>",
+            Topic: "<topic_name>",
             Value: sarama.StringEncoder(message),
         }
         p, o, err := producer.SendMessage(msg)
@@ -675,7 +675,7 @@ Before connecting:
       )
 
       func main() {
-            brokers := "<FQDN of the broker host>:9091"
+            brokers := "<FQDN_of_broker_host>:9091"
             splitBrokers := strings.Split(brokers, ",")
             conf := sarama.NewConfig()
             conf.Producer.RequiredAcks = sarama.WaitForAll
@@ -684,8 +684,8 @@ Before connecting:
             conf.ClientID = "sasl_scram_client"
             conf.Metadata.Full = true
             conf.Net.SASL.Enable = true
-            conf.Net.SASL.User =  "<consumer username>"
-            conf.Net.SASL.Password = "<consumer password>"
+            conf.Net.SASL.User =  "<consumer_username>"
+            conf.Net.SASL.Password = "<consumer_password>"
             conf.Net.SASL.Handshake = true
             conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
             conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
@@ -717,7 +717,7 @@ Before connecting:
                     }
             }()
 
-            topic := "<topic name>"
+            topic := "<topic_name>"
 
             consumer, err := master.ConsumePartition(topic, 0, sarama.OffsetOldest)
             if err != nil {
@@ -875,9 +875,9 @@ Before connecting:
    {% endcut %}
 
    Refer to the relevant project pages in the Maven repository for up-to-date versions of the dependencies:
-   - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
-   - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)
-   - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
+   - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients).
+   - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind).
+   - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple).
 
 1. Copy `pom.xml` to the directories of the producer application and consumer application:
 
@@ -907,10 +907,10 @@ Before connecting:
 
           int MSG_COUNT = 5;
 
-          String HOST = "<broker FQDN>:9092";
-          String TOPIC = "<topic name>";
-          String USER = "<producer username>";
-          String PASS = "<producer password>";
+          String HOST = "<broker_FQDN>:9092";
+          String TOPIC = "<topic_name>";
+          String USER = "<producer_username>";
+          String PASS = "<producer_password>";
 
           String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
           String jaasCfg = String.format(jaasTemplate, USER, PASS);
@@ -959,10 +959,10 @@ Before connecting:
 
         public static void main(String[] args) {
 
-          String HOST = "<broker FQDN>:9092";
-          String TOPIC = "<topic name>";
-          String USER = "<consumer name>";
-          String PASS = "<consumer password>";
+          String HOST = "<broker_FQDN>:9092";
+          String TOPIC = "<topic_name>";
+          String USER = "<consumer_name>";
+          String PASS = "<consumer_password>";
 
           String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
           String jaasCfg = String.format(jaasTemplate, USER, PASS);
@@ -1037,12 +1037,12 @@ Before connecting:
 
           int MSG_COUNT = 5;
 
-          String HOST = "<broker FQDN>:9091";
-          String TOPIC = "<topic name>";
-          String USER = "<producer username>";
-          String PASS = "<producer password>";
+          String HOST = "<broker_FQDN>:9091";
+          String TOPIC = "<topic_name>";
+          String USER = "<producer_username>";
+          String PASS = "<producer_password>";
           String TS_FILE = "/etc/security/ssl";
-          String TS_PASS = "<certificate store password>";
+          String TS_PASS = "<certificate_store_password>";
 
           String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
           String jaasCfg = String.format(jaasTemplate, USER, PASS);
@@ -1093,12 +1093,12 @@ Before connecting:
 
         public static void main(String[] args) {
 
-          String HOST = "<broker FQDN>:9091";
-          String TOPIC = "<topic name>";
-          String USER = "<consumer name>";
-          String PASS = "<consumer password>";
+          String HOST = "<broker_FQDN>:9091";
+          String TOPIC = "<topic_name>";
+          String USER = "<consumer_name>";
+          String PASS = "<consumer_password>";
           String TS_FILE = "/etc/security/ssl";
-          String TS_PASS = "<certificate store password>";
+          String TS_PASS = "<certificate_store_password>";
 
           String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
           String jaasCfg = String.format(jaasTemplate, USER, PASS);
@@ -1176,10 +1176,10 @@ npm install node-rdkafka
 
       const MSG_COUNT = 5;
 
-      const HOST = "<broker FQDN>:9092";
-      const TOPIC = "<topic name>";
-      const USER = "<producer username>";
-      const PASS = "<producer password>";
+      const HOST = "<broker_FQDN>:9092";
+      const TOPIC = "<topic_name>";
+      const USER = "<producer_username>";
+      const PASS = "<producer_password>";
 
       const producer = new Kafka.Producer({
         'bootstrap.servers': HOST,
@@ -1218,10 +1218,10 @@ npm install node-rdkafka
 
       const MSG_COUNT = 5;
 
-      const HOST = "<broker FQDN>:9092";
-      const TOPIC = "<topic name>";
-      const USER = "<consumer name>";
-      const PASS = "<consumer password>";
+      const HOST = "<broker_FQDN>:9092";
+      const TOPIC = "<topic_name>";
+      const USER = "<consumer_name>";
+      const PASS = "<consumer_password>";
 
       const consumer = new Kafka.Consumer({
         'bootstrap.servers': HOST,
@@ -1271,10 +1271,10 @@ npm install node-rdkafka
 
       const MSG_COUNT = 5;
 
-      const HOST = "<broker FQDN>:9091";
-      const TOPIC = "<topic name>";
-      const USER = "<producer username>";
-      const PASS = "<producer password>";
+      const HOST = "<broker_FQDN>:9091";
+      const TOPIC = "<topic_name>";
+      const USER = "<producer_username>";
+      const PASS = "<producer_password>";
       const CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
       const producer = new Kafka.Producer({
@@ -1315,10 +1315,10 @@ npm install node-rdkafka
 
       const MSG_COUNT = 5;
 
-      const HOST = "<broker FQDN>:9091";
-      const TOPIC = "<topic name>";
-      const USER = "<consumer name>";
-      const PASS = "<consumer password>";
+      const HOST = "<broker_FQDN>:9091";
+      const TOPIC = "<topic_name>";
+      const USER = "<consumer_name>";
+      const PASS = "<consumer_password>";
       const CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
       const consumer = new Kafka.Consumer({
@@ -1389,14 +1389,14 @@ Before connecting:
    1. Run this command for receiving messages from a topic:
 
       ```powershell
-      <path to the directory with Kafka files>\bin\windows\kafka-console-consumer.bat `
-          --bootstrap-server <broker FQDN>:9092 `
-          --topic <topic name> `
+      <path_to_the_directory_with_Apache_Kafka_files>\bin\windows\kafka-console-consumer.bat `
+          --bootstrap-server <broker_FQDN>:9092 `
+          --topic <topic_name> `
           --property print.key=true `
           --property key.separator=":" `
           --consumer-property security.protocol=SASL_PLAINTEXT `
           --consumer-property sasl.mechanism=SCRAM-SHA-512 `
-          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<consumer username>' password='<consumer password>';"
+          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<consumer_username>' password='<consumer_password>';"
       ```
 
       The command will continuously read new messages from the topic.
@@ -1404,15 +1404,15 @@ Before connecting:
    1. In a separate terminal, run the command for sending a message to a topic:
 
       ```powershell
-      echo "key:test message" | <path to the directory with Kafka files>\bin\windows\kafka-console-producer.bat `
-          --bootstrap-server <broker FQDN>:9092 `
-          --topic <topic name> `
+      echo "key:test message" | <path_to_the_directory_with_Apache_Kafka_files>\bin\windows\kafka-console-producer.bat `
+          --bootstrap-server <broker_FQDN>:9092 `
+          --topic <topic_name> `
           --property parse.key=true `
           --property key.separator=":" `
           --producer-property acks=all `
           --producer-property security.protocol=SASL_PLAINTEXT `
           --producer-property sasl.mechanism=SCRAM-SHA-512 `
-          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<producer login>' password='<producer password>';"
+          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<producer_login>' password='<producer_password>';"
       ```
 
 - Connecting via SSL
@@ -1423,23 +1423,23 @@ Before connecting:
       keytool.exe -importcert -alias {{ crt-alias }} `
         --file $HOME\.kafka\{{ crt-local-file }} `
         --keystore $HOME\.kafka\ssl `
-        --storepass <certificate store password> `
+        --storepass <certificate_store_password> `
         --noprompt
       ```
 
    1. Run this command for receiving messages from a topic:
 
       ```powershell
-      <path to the directory with Kafka files>\bin\windows\kafka-console-consumer.bat `
-          --bootstrap-server <broker FQDN>:9091 `
-          --topic <topic name> `
+      <path_to_the_directory_with_Apache_Kafka_files>\bin\windows\kafka-console-consumer.bat `
+          --bootstrap-server <broker_FQDN>:9091 `
+          --topic <topic_name> `
           --property print.key=true `
           --property key.separator=":" `
           --consumer-property security.protocol=SASL_SSL `
           --consumer-property sasl.mechanism=SCRAM-SHA-512 `
           --consumer-property ssl.truststore.location=$HOME\.kafka\ssl `
-          --consumer-property ssl.truststore.password=<certificate store password> `
-          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<consumer username>' password='<consumer password>';"
+          --consumer-property ssl.truststore.password=<certificate_store_password> `
+          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<consumer_username>' password='<consumer_password>';"
       ```
 
       The command will continuously read new messages from the topic.
@@ -1447,17 +1447,17 @@ Before connecting:
    1. In a separate terminal, run the command for sending a message to a topic:
 
       ```powershell
-      echo "key:test message" | <path to the directory with Kafka files>\bin\windows\kafka-console-producer.bat `
-          --bootstrap-server <broker FQDN>:9091 `
-          --topic <topic name> `
+      echo "key:test message" | <path_to_the_directory_with_Apache_Kafka_files>\bin\windows\kafka-console-producer.bat `
+          --bootstrap-server <broker_FQDN>:9091 `
+          --topic <topic_name> `
           --property parse.key=true `
           --property key.separator=":" `
           --producer-property acks=all `
           --producer-property security.protocol=SASL_SSL `
           --producer-property sasl.mechanism=SCRAM-SHA-512 `
           --producer-property ssl.truststore.location=$HOME\.kafka\ssl `
-          --producer-property ssl.truststore.password=<certificate store password> `
-          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<producer password>' password='<producer password>';"
+          --producer-property ssl.truststore.password=<certificate_store_password> `
+          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<producer_password>' password='<producer_password>';"
       ```
 
 {% endlist %}
@@ -1487,13 +1487,13 @@ pip3 install kafka-python lz4 python-snappy crc32c
       from kafka import KafkaProducer
 
       producer = KafkaProducer(
-          bootstrap_servers='<FQDN of the broker host>:9092',
+          bootstrap_servers='<FQDN_of_broker_host>:9092',
           security_protocol="SASL_PLAINTEXT",
           sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_username='<producer name>',
-          sasl_plain_password='<producer password>')
+          sasl_plain_username='<producer_name>',
+          sasl_plain_password='<producer_password>')
 
-      producer.send('<topic name>', b'test message', b'key')
+      producer.send('<topic_name>', b'test message', b'key')
       producer.flush()
       producer.close()
       ```
@@ -1506,12 +1506,12 @@ pip3 install kafka-python lz4 python-snappy crc32c
       from kafka import KafkaConsumer
 
       consumer = KafkaConsumer(
-          '<topic name>',
-          bootstrap_servers='<broker FQDN>:9092',
+          '<topic_name>',
+          bootstrap_servers='<broker_FQDN>:9092',
           security_protocol="SASL_PLAINTEXT",
           sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_username='<consumer name>',
-          sasl_plain_password='<consumer password>')
+          sasl_plain_username='<consumer_name>',
+          sasl_plain_password='<consumer_password>')
 
       print("ready")
 
@@ -1539,14 +1539,14 @@ pip3 install kafka-python lz4 python-snappy crc32c
       from kafka import KafkaProducer
 
       producer = KafkaProducer(
-          bootstrap_servers='<FQDN of the broker host>:9091',
+          bootstrap_servers='<FQDN_of_broker_host>:9091',
           security_protocol="SASL_SSL",
           sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_username='<producer name>',
-          sasl_plain_password='<producer password>',
+          sasl_plain_username='<producer_name>',
+          sasl_plain_password='<producer_password>',
           ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
-      producer.send('<topic name>', b'test message', b'key')
+      producer.send('<topic_name>', b'test message', b'key')
       producer.flush()
       producer.close()
       ```
@@ -1559,12 +1559,12 @@ pip3 install kafka-python lz4 python-snappy crc32c
       from kafka import KafkaConsumer
 
       consumer = KafkaConsumer(
-          '<topic name>',
-          bootstrap_servers='<broker FQDN>:9091',
+          '<topic_name>',
+          bootstrap_servers='<broker_FQDN>:9091',
           security_protocol="SASL_SSL",
           sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_username='<consumer username>',
-          sasl_plain_password='<consumer password>',
+          sasl_plain_username='<consumer_username>',
+          sasl_plain_password='<consumer_password>',
           ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
       print("ready")
@@ -1612,16 +1612,16 @@ pip install confluent_kafka
           print('Something went wrong: {}'.format(err))
 
       params = {
-          'bootstrap.servers': '<FQDN of the broker host>:9092',
+          'bootstrap.servers': '<FQDN_of_broker_host>:9092',
           'security.protocol': 'SASL_PLAINTEXT',
           'sasl.mechanism': 'SCRAM-SHA-512',
-          'sasl.username': '<producer username>',
-          'sasl.password': '<producer password>',
+          'sasl.username': '<producer_username>',
+          'sasl.password': '<producer_password>',
           'error_cb': error_callback,
       }
 
       p = Producer(params)
-      p.produce('<topic name>', 'some payload1')
+      p.produce('<topic_name>', 'some payload1')
       p.flush(10)
       ```
 
@@ -1636,11 +1636,11 @@ pip install confluent_kafka
           print('Something went wrong: {}'.format(err))
 
       params = {
-          'bootstrap.servers': '<FQDN of the broker host>:9092',
+          'bootstrap.servers': '<FQDN_of_broker_host>:9092',
           'security.protocol': 'SASL_PLAINTEXT',
           'sasl.mechanism': 'SCRAM-SHA-512',
-          'sasl.username': '<consumer name>',
-          'sasl.password': '<consumer password>',
+          'sasl.username': '<consumer_name>',
+          'sasl.password': '<consumer_password>',
           'group.id': 'test-consumer1',
           'auto.offset.reset': 'earliest',
           'enable.auto.commit': False,
@@ -1648,7 +1648,7 @@ pip install confluent_kafka
           'debug': 'all',
       }
       c = Consumer(params)
-      c.subscribe(['<topic name>'])
+      c.subscribe(['<topic_name>'])
       while True:
           msg = c.poll(timeout=3.0)
           if msg:
@@ -1679,17 +1679,17 @@ pip install confluent_kafka
           print('Something went wrong: {}'.format(err))
 
       params = {
-          'bootstrap.servers': '<FQDN of the broker host>:9091',
+          'bootstrap.servers': '<FQDN_of_broker_host>:9091',
           'security.protocol': 'SASL_SSL',
           'ssl.ca.location': '{{ crt-local-dir }}{{ crt-local-file }}',
           'sasl.mechanism': 'SCRAM-SHA-512',
-          'sasl.username': '<producer username>',
-          'sasl.password': '<producer password>',
+          'sasl.username': '<producer_username>',
+          'sasl.password': '<producer_password>',
           'error_cb': error_callback,
       }
 
       p = Producer(params)
-      p.produce('<topic name>', 'some payload1')
+      p.produce('<topic_name>', 'some payload1')
       p.flush(10)
       ```
 
@@ -1704,12 +1704,12 @@ pip install confluent_kafka
           print('Something went wrong: {}'.format(err))
 
       params = {
-          'bootstrap.servers': '<FQDN of the broker host>:9091',
+          'bootstrap.servers': '<FQDN_of_broker_host>:9091',
           'security.protocol': 'SASL_SSL',
           'ssl.ca.location': '{{ crt-local-dir }}{{ crt-local-file }}',
           'sasl.mechanism': 'SCRAM-SHA-512',
-          'sasl.username': '<consumer name>',
-          'sasl.password': '<consumer password>',
+          'sasl.username': '<consumer_name>',
+          'sasl.password': '<consumer_password>',
           'group.id': 'test-consumer1',
           'auto.offset.reset': 'earliest',
           'enable.auto.commit': False,
@@ -1717,7 +1717,7 @@ pip install confluent_kafka
           'debug': 'all',
       }
       c = Consumer(params)
-      c.subscribe(['<topic name>'])
+      c.subscribe(['<topic_name>'])
       while True:
           msg = c.poll(timeout=3.0)
           if msg:

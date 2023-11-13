@@ -1,12 +1,11 @@
 
-
 ```bash
 mongo --norc \
       --ssl \
       --sslCAFile ~/.mongodb/root.crt \
-      --host '<FQDN of host 1 {{ MG }}>:{{ port-mmg }},...,<FQDN of host N {{ MG }}>:{{ port-mmg }}' \
-      --username <DB user name> \
-      --password <DB user password> \
-      <DB name>
+      --host '<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},...,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}' \
+      --username <DB_username> \
+      --password <DB_user_password> \
+      <DB_name>
 ```
-
+

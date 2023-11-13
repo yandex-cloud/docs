@@ -84,10 +84,6 @@ description: "Следуя данной инструкции, вы сможет�
      ...
      ```
 
-- API
-
-  Чтобы удалить правило, воспользуйтесь методом REST API [updateRules](../api-ref/SecurityGroup/updateRules.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -162,5 +158,16 @@ description: "Следуя данной инструкции, вы сможет�
      ```
      yc vpc security-group get <имя группы безопасности>
      ```
+
+- API
+
+  Чтобы удалить правило из группы безопасности, воспользуйтесь методом REST API [updateRules](../api-ref/SecurityGroup/updateRules.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules) и передайте в запросе:
+
+  * Идентификатор группы безопасности, из которой будут удалены правила, в параметре `securityGroupId`.
+  * Идентификаторы правил, которые будут удалены, в массиве `deletionRuleIds[]`.
+
+  {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
+
+  {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}

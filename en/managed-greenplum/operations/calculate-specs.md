@@ -8,7 +8,7 @@ In addition, when creating a cluster in the management console, you can use a wi
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a database cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** → **{{ ui-key.yacloud.greenplum.wizard.action_open-wizard }}**.
 
@@ -18,27 +18,27 @@ In addition, when creating a cluster in the management console, you can use a wi
 
 Segment hosts are designed to store data and process queries against such data, which is why they are resource intensive. When choosing a segment host configuration, start with the estimated amount of data you will be storing (in GB) before compression.
 
-* Recommended segment host storage size:
+* The recommended segment host storage size is as follows:
 
    ```text
-   <data volume without compression> × 1.5
+   <uncompressed_data_size> × 1.5
    ```
 
-   The formula is correct for standard first-level compression (zstd) (see the section on [Creating column-oriented tables](../concepts/tables.md#create-columnar-table)). It also takes [data mirroring](../concepts/index.md), space for temporary files when executing heavy queries, and DBMS free space into consideration.
+   The formula is correct for standard first-level compression (zstd) (see [Creating column-oriented tables](../concepts/tables.md#create-columnar-table)). It also takes into account [data mirroring](../concepts/index.md), space for temporary files when executing heavy queries, and DBMS free space.
 
-* Recommended total RAM for segment hosts:
+* The recommended total RAM for segment hosts is as follows:
 
    ```text
-   <data volume without compression> ÷ 8
+   <uncompressed_data_size> ÷ 8
    ```
 
-* Recommended total number of segment host vCPU cores:
+* The recommended total number of segment host vCPU cores is as follows:
 
    ```text
-   <data volume without compression> ÷ 80
+   <uncompressed_data_size> ÷ 80
    ```
 
-* Recommended number of segment hosts in the cluster:
+* The recommended number of segment hosts in the cluster is as follows:
 
    We recommend creating as many segment hosts as possible with fewer resources per host if their total capacity is at least equal to the computed values. This will help you mitigate the negative consequences if a host fails.
 
@@ -66,7 +66,7 @@ Segment hosts are designed to store data and process queries against such data, 
       The recommended number of files per host should not exceed 100,000.
 
       ```text
-      <segments per host> ≤ 100,000 / <number of files per DB>
+      <number_of_segments_per_host> ≤ 100,000 ÷ <number_of_files_in_DB>
       ```
 
       You can approximately estimate the number of files by the number of DB tables: each [table without clustered indexes](../concepts/tables.md) (a heap) has at least three files, while an append-optimized table, about seven files. If you use partitioned tables, each partition is considered a separate table, while for column-oriented tables, each column is treated as a separate table.
@@ -75,9 +75,9 @@ Segment hosts are designed to store data and process queries against such data, 
 
 To store and process 20480 GB (20 TB) of uncompressed data, you need a cluster with the following segment host properties:
 
-* Storage size: 20480 GB × 1.5 = 30720 GB.
-* RAM: 20480 GB / 8 = 2560 GB.
-* vCPU cores: 20480 GB / 80 = 256.
+* Storage size: 20,480 GB × 1.5 = 30,720 GB.
+* RAM: 20,480 GB / 8 = 2,560 GB.
+* vCPU cores: 20,480 GB / 80 = 256.
 
 This is equal to 20 `{{ i2.2xlarge }}` hosts with 4 segments per host or 10 `{{ i2.4xlarge }}` hosts with 8 segments per host. For more information about host classes, see [Available host classes](../concepts/instance-types.md#available-flavors).
 

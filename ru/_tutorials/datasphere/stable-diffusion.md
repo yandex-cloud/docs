@@ -66,6 +66,12 @@
    %pip install numpy==1.21
    ```
 
+1. Установите библиотеку Protocol Buffers версии 3.20:
+
+   ```python
+   %pip install protobuf==3.20
+   ```
+
 1. Перезагрузите ядро: на верхней панели в окне проекта нажмите **Kernel** → **Restart kernel**.
 
 ## Создайте модель и сгенерируйте изображение {#generate}

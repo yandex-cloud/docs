@@ -3,12 +3,12 @@
 The host class determines the computing power allocated for each host group with the specific role in the cluster. When you change the host class for a host group in the cluster, the configuration of all hosts previously created in this group changes accordingly. For more information about host groups, see [{#T}](./host-groups.md).
 
 
-The available storage does not depend on the host class. For storage limitations, see [Quotas and limits](limits.md).
+The available storage size does not depend on the host class. For storage limitations, see [Quotas and limits](limits.md).
 
 
 ## Available host classes {#available-flavors}
 
-Hosts in {{ mos-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any standard platform supported by {{ compute-name }}. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
+Hosts in {{ mos-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any platform supported by {{ compute-name }}. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
 
 The full list of possible host group configurations on each platform is provided below.
 

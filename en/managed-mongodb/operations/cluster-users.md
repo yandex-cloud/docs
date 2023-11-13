@@ -26,10 +26,10 @@ You can add and delete users as well as manage their individual settings and dat
 
    ```
    {{ yc-mdb-mg }} user list \
-     --cluster-name <cluster name>
+     --cluster-name <cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -47,11 +47,11 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-   1. Click the name of the desired cluster and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
 
-   1. Enter the DB user's name and password.
+   1. Enter the DB user name and password.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
@@ -72,7 +72,7 @@ You can add and delete users as well as manage their individual settings and dat
 
    To create a user in a cluster:
 
-   1. See the description of the CLI's create user command:
+   1. See the description of the create user CLI command:
 
       ```
       {{ yc-mdb-mg }} user create --help
@@ -80,16 +80,16 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Specify the user properties in the create command:
       ```
-      {{ yc-mdb-mg }} user create <username>\
-        --cluster-name <cluster name>\
-        --password <user password>\
-        --permission database=<DB name>,role=<role>,role=<another role>,... \
-        --permission database=<another DB name>,role=<role>,...
+      {{ yc-mdb-mg }} user create <username> \
+        --cluster-name <cluster_name> \
+        --password <user_password> \
+        --permission database=<DB_name>,role=<role>,role=<other_role>,... \
+        --permission database=<other_DB_name>,role=<role>,...
       ```
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
-      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -97,21 +97,23 @@ You can add and delete users as well as manage their individual settings and dat
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. Add a `user` section to the {{ mmg-name }} cluster description:
+   1. Add a `user` block to the {{ mmg-name }} cluster description:
 
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+      resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
         ...
         user {
           name     = "<username>"
           password = "<password>"
           permission {
-            database_name = "<name of database that access is granted to>"
-            roles         = [ "<list of user's roles>" ]
+            database_name = "<DB_name>"
+            roles         = [ "<list_of_user_roles>" ]
           }
         }
       }
       ```
+
+      Where `database_name` is the name of the DB the access is granted to.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
@@ -119,7 +121,7 @@ You can add and delete users as well as manage their individual settings and dat
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -149,9 +151,9 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-   1. Click the name of the desired cluster and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
-   1. To edit a user password, click ![image](../../_assets/options.svg) next to the desired user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+   1. To edit a user password, click ![image](../../_assets/options.svg) in the required user row and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
@@ -179,11 +181,11 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Specify the user properties in the update command:
       ```
-      {{ yc-mdb-mg }} user update <username>\
-       --cluster-name <cluster name>\
-        --password <user password>\
-        --permission database=<database name>,role=<role>,role=<another role>,... \
-        --permission database=<another DB name>,role=<role>,...
+      {{ yc-mdb-mg }} user update <username> \
+       --cluster-name <cluster_name> \
+        --password <user_password> \
+        --permission database=<DB_name>,role=<role>,role=<other_role>,... \
+        --permission database=<other_DB_name>,role=<role>,...
       ```
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -200,9 +202,9 @@ You can add and delete users as well as manage their individual settings and dat
 
       ```bash
       {{ yc-mdb-mg }} user grant-permission <username> \
-        --cluster-name <cluster name> \
-        --database <DB name> \
-        --role <omma-separated list of roles>
+        --cluster-name <cluster_name> \
+        --database <DB_name> \
+        --role <comma-separated_list_of_roles>
       ```
 
    To revoke user database access:
@@ -217,8 +219,8 @@ You can add and delete users as well as manage their individual settings and dat
 
       ```bash
       {{ yc-mdb-mg }} user revoke-permission <username> \
-         --cluster-name <cluster name> \
-         --database <DB name>
+         --cluster-name <cluster_name> \
+         --database <DB_name>
       ```
 
       This command completely blocks the user's access to the specified database.
@@ -235,14 +237,14 @@ You can add and delete users as well as manage their individual settings and dat
    1. Change the values of the `password` and `permission` fields:
 
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+      resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
         ...
         user {
           name     = "<username>"
-          password = "<new password>"
+          password = "<new_password>"
           permission {
-            database_name = "<database name>"
-            roles         = [ "<new list of user's roles>" ]
+            database_name = "<DB_name>"
+            roles         = [ "<new_list_of_user_roles>" ]
           }
         }
       }
@@ -254,7 +256,7 @@ You can add and delete users as well as manage their individual settings and dat
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -283,7 +285,7 @@ You can add and delete users as well as manage their individual settings and dat
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the desired cluster and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
    1. Click ![image](../../_assets/options.svg) next to the user and select **{{ ui-key.yacloud.mdb.cluster.users.button_remove }}**.
 
 - CLI
@@ -295,11 +297,11 @@ You can add and delete users as well as manage their individual settings and dat
    To remove a user, run:
 
    ```
-   {{ yc-mdb-mg }} user delete <username>\
-      --cluster-name <cluster name>
+   {{ yc-mdb-mg }} user delete <username> \
+      --cluster-name <cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -313,7 +315,7 @@ You can add and delete users as well as manage their individual settings and dat
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -90,7 +90,15 @@
 
 - API
 
-  Чтобы переместить [облачную сеть](../concepts/network.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Network/move.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Move](../api-ref/grpc/network_service.md#Move).
+  Чтобы переместить [облачную сеть](../concepts/network.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Network/move) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Move](../api-ref/grpc/network_service.md#Move) и передайте в запросе:
+
+  * Идентификатор переносимой облачной сети в параметре `networkId`.
+
+    {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
+
+  * Идентификатор каталога, в который будет перенесена облачная сеть, в параметре `destinationFolderId`.
+
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 

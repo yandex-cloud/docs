@@ -37,10 +37,10 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
    To get a list of cluster hosts, run the command:
 
    ```bash
-   {{ yc-mdb-es }} host list --cluster-name <cluster name>
+   {{ yc-mdb-es }} host list --cluster-name <cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -81,14 +81,19 @@ You cannot enable public access to a host once it is created.
 
    ```bash
    {{ yc-mdb-es }} host add \
-      --cluster-name <cluster name> \
-      --host zone-id=<availability zone>,`
-             `subnet-name=<subnet name>,`
-             `assign-public-ip=<public access to host: true or false>,`
-             `type=<host type: datanode or masternode>
+      --cluster-name <cluster_name> \
+      --host zone-id=<availability_zone>,`
+             `subnet-name=<subnet_name>,`
+             `assign-public-ip=<public_access>,`
+             `type=<host_role>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   Where:
+
+   * `assign-public-ip`: Public access to the host, `true` or `false`.
+   * `type`: Host role, `datanode` or `masternode`.
+
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -103,17 +108,22 @@ You cannot enable public access to a host once it is created.
    1. Add a `host` block to the {{ mes-name }} cluster description.
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
         ...
         host {
-          name             = "<host name>"
-          zone             = "<availability zone>"
-          type             = "<host role: DATA_NODE or MASTER_NODE>"
-          assign_public_ip = <public host access: true or false>
-          subnet_id        = "<subnet ID>"
+          name             = "<host_name>"
+          zone             = "<availability_zone>"
+          type             = "<host_role>"
+          assign_public_ip = <public_access>
+          subnet_id        = "<subnet_ID>"
         }
       }
       ```
+
+      Where:
+
+      * `type`: Host role, `DATA_NODE` or `MASTER_NODE`.
+      * `assign_public_ip`: Public access to the host, `true` or `false`.
 
    1. Make sure the settings are correct.
 
@@ -170,7 +180,7 @@ The following restrictions apply when deleting hosts:
    To remove a host from the cluster, run:
 
    ```bash
-   {{ yc-mdb-es }} host delete <hostname> --cluster-name <cluster name>
+   {{ yc-mdb-es }} host delete <host_name> --cluster-name <cluster_name>
    ```
 
    The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

@@ -52,13 +52,13 @@ Use the CLI, API, or {{ TF }} to create an admin user.
       {{ yc-mdb-kf }} user create --help
       ```
 
-   1. Create a user and grant permissions for relevant topics:
+   1. Create a user with the `producer` role for the producer or `consumer` role for the consumer and grant permissions for relevant topics:
 
       ```bash
       {{ yc-mdb-kf }} user create <username> \
-        --cluster-name <cluster name> \
-        --password <password of at least 8 characters> \
-        --permission topic=<topic name>,role=<user role: producer or consumer>
+        --cluster-name <cluster_name> \
+        --password <password> \
+        --permission topic=<topic_name>,role=<user_role>
       ```
 
    To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster:
@@ -72,8 +72,8 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
       ```bash
       {{ yc-mdb-kf }} user create <username> \
-        --cluster-name <cluster name> \
-        --password <password of at least 8 characters> \
+        --cluster-name <cluster_name> \
+        --password <password> \
         --permission topic=*,role=admin
       ```
 
@@ -88,7 +88,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
       ```hcl
       resource "yandex_mdb_kafka_user" "<username>" {
-        cluster_id = "<cluster ID>"
+        cluster_id = "<cluster_ID>"
         name       = "<username>"
         password   = "<password>"
         ...
@@ -155,8 +155,8 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
    ```bash
    {{ yc-mdb-kf }} user update <username> \
-     --cluster-name <cluster name> \
-     --password <new password>
+     --cluster-name <cluster_name> \
+     --password <new_password>
    ```
 
    {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
@@ -238,7 +238,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
       ```hcl
       resource "yandex_mdb_kafka_user" "<username>" {
-        cluster_id = "<cluster ID>"
+        cluster_id = "<cluster_ID>"
         name       = "<username>"
         password   = "<password>"
         ...
@@ -264,7 +264,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
    * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any user settings that are not explicitly specified in the request to their default values.
-   * A new set of permissions to topics (one or more `permissions` parameters, one for each topic).
+   * New set of permissions to topics (one or more `permissions` parameters, one for each topic).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -316,15 +316,15 @@ Use the CLI, API, or {{ TF }} to create an admin user.
    1. Retrieve a list of cluster topics:
 
       ```bash
-      {{ yc-mdb-kf }} topic list --cluster-name <cluster name>
+      {{ yc-mdb-kf }} topic list --cluster-name <cluster_name>
       ```
 
-   1. Grant permissions to the required topics by passing the `--permission` parameters:
+   1. Grant permissions to the required topics by providing the `--permission` parameters:
 
       ```bash
       {{ yc-mdb-kf }} user update <username> \
-        --cluster-name <cluster name> \
-        --permission topic=<topic name>,role=<user role: producer, consumer or admin>
+        --cluster-name <cluster_name> \
+        --permission topic=<topic_name>,role=<user_role>
       ```
 
       The following `--permission` parameters are available:
@@ -360,18 +360,20 @@ Use the CLI, API, or {{ TF }} to create an admin user.
         ...
         permission {
           topic_name = "<topic>"
-          role       = "<user role: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER, or ACCESS_ROLE_ADMIN>"
+          role       = "<user_role>"
         }
       }
       ```
 
-      Under `topic_name`, specify:
+      Where:
 
-      * `*` to allow access to any topics.
-      * Full topic name to allow access to a specific topic.
-      * `<prefix>*` to grant access to topics whose names start with the specified prefix. For example, if you have topics named `topic_a1`, `topic_a2`, and `a3`, and you set the `topic*` value, access will be granted to `topic_a1` and `topic_a2`.
+      * `topic_name`: Topic name. Specify the following:
 
-      The `ACCESS_ROLE_ADMIN` is only available with all topics selected (`topic_name = "*"`).
+        * `*` to allow access to any topics.
+        * Full topic name to allow access to a specific topic.
+        * `<prefix>*` to grant access to topics whose names start with the specified prefix. For example, if you have topics named `topic_a1`, `topic_a2`, and `a3`, and you set the `topic*` value, access will be granted to `topic_a1` and `topic_a2`.
+
+      * `role`: User role: `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER` or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` is only available with all topics selected (`topic_name = "*"`).
 
       If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
 
@@ -424,13 +426,18 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
    ```bash
    {{ yc-mdb-kf }} user update <username> \
-     --cluster-name <cluster name> \
-     --permission topic=<topic name>,role=<user role: producer, consumer or admin>
+     --cluster-name <cluster_name> \
+     --permission topic=<topic_name>,role=<user_role>
    ```
 
    When you update user permissions, the existing permissions are revoked and replaced with the new ones. This means the command must always include a complete list of permissions to be assigned to the user.
 
-   The `--permission` flag must contain at least one topic/role pair. To revoke all the permissions granted to the user, use the console or delete the user.
+   The `--permission` flag must include at least one topic/role pair, where:
+
+   * `topic`: Topic name.
+   * `role`: User role, such as `producer`, `consumer`, or `admin`.
+
+   To revoke all the permissions granted to the user, use the console or delete the user.
 
 - {{ TF }}
 
@@ -485,7 +492,7 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
    To remove a user, run:
 
    ```bash
-   {{ yc-mdb-kf }} user delete <username> --cluster-name <cluster name>
+   {{ yc-mdb-kf }} user delete <username> --cluster-name <cluster_name>
    ```
 
 - {{ TF }}
@@ -536,13 +543,13 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
    1. To get a list of users, run the following command:
 
       ```bash
-      {{ yc-mdb-kf }} user list --cluster-name <cluster name>
+      {{ yc-mdb-kf }} user list --cluster-name <cluster_name>
       ```
 
    1. To get detailed information for a specific user, run this command:
 
       ```bash
-      {{ yc-mdb-kf }} user get <username> --cluster-name <cluster name>
+      {{ yc-mdb-kf }} user get <username> --cluster-name <cluster_name>
       ```
 
 

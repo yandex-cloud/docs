@@ -1,6 +1,6 @@
 ```bash
 curl \
-    --user <user name>:<password> \
+    --user <username>:<password> \
     --cacert ~/.elasticsearch/root.crt \
-    --request GET 'https://c-<cluster ID {{ ES }}>.rw.{{ dns-zone }}:9200/'
+    --request GET 'https://c-<{{ ES }}_cluster_ID>.rw.{{ dns-zone }}:9200/'
 ```

@@ -1,0 +1,1 @@
+Чтобы узнать идентификатор подсети, воспользуйтесь методом REST API [list](../../vpc/api-ref/Subnet/list) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/List](../../vpc/api-ref/grpc/subnet_service.md#List) и передайте в запросе идентификатор каталога в параметре `folderId`.

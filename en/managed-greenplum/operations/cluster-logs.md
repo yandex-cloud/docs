@@ -12,7 +12,7 @@
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. Click the cluster name and select the ![image](../../_assets/logs.svg) **{{ ui-key.yacloud.common.logs }}** tab.
-   1. Specify the time period for which you want to display logs: enter it manually or select it in the calendar by clicking on the date field.
+   1. Specify the time period for logs to be displayed: enter it manually or select in the calendar by clicking the date input field.
    1. If required, request the `GREENPLUM_POOLER` log and select the hosts and logging level in the drop-down lists next to the date input field.
 
    A list of log entries for the selected time period will be displayed. To view detailed information about an event, click on the respective entry in the list.
@@ -34,13 +34,13 @@
    1. Run the following command to get cluster logs (our example does not contain a complete list of available parameters):
 
       ```bash
-      {{ yc-mdb-gp }} cluster list-logs <cluster name or ID> \
-         --limit <record number limit> \
-         --format <output format> \
-         --columns <list of columns to display information> \
-         --filter <record filter settings> \
-         --since <left boundary of time range> \
-         --until <right boundary of time range>
+      {{ yc-mdb-gp }} cluster list-logs <cluster_name_or_ID> \
+         --limit <record_number_limit> \
+         --format <output_format> \
+         --columns <list_of_columns_with_output_data> \
+         --filter <record_filter_settings> \
+         --since <left_boundary_of_time_range> \
+         --until <right_boundary_of_time_range>
       ```
 
       Where:
@@ -99,7 +99,7 @@ This method allows you to get cluster logs in real time.
    To view cluster logs as they become available, run this command:
 
    ```bash
-   {{ yc-mdb-gp }} cluster list-logs <cluster name or ID> --follow
+   {{ yc-mdb-gp }} cluster list-logs <cluster_name_or_ID> --follow
    ```
 
    You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).

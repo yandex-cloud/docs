@@ -56,10 +56,6 @@ description: "Следуя данной инструкции, вы сможет�
       yc vpc address delete e9b6un9gkso6stdh6b3p
       ```
 
-- API
-
-  Чтобы удалить [статический адрес](../concepts/address.md), воспользуйтесь методом REST API [delete](../api-ref/Address/delete.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Delete](../api-ref/grpc/address_service.md#Delete).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -118,5 +114,13 @@ description: "Следуя данной инструкции, вы сможет�
      ```
      yc vpc address list
      ```
+
+- API
+
+  Чтобы удалить [статический адрес](../concepts/address.md), воспользуйтесь методом REST API [delete](../api-ref/Address/delete.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Delete](../api-ref/grpc/address_service.md#Delete) и передайте в запросе идентификатор удаляемого адреса в параметре `addressId`.
+
+  {% include [get-address-id](../../_includes/vpc/get-adress-id.md) %}
+
+  {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}

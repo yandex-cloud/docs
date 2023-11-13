@@ -45,14 +45,14 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
    1. Get information about a cluster and check the version in the `config.version` parameter:
 
       ```bash
-      {{ yc-mdb-kf }} cluster get <cluster ID or name>
+      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
       ```
 
    1. Start the {{ KF }} upgrade:
 
       ```bash
-      {{ yc-mdb-kf }} cluster update <cluster ID or name> \
-         --version=<new version number>
+      {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
+         --version=<new_version_ID>
       ```
 
 - {{ TF }}
@@ -61,13 +61,13 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. Add a `version` field to the `config` section of the appropriate {{ mkf-name }} cluster or edit the field value if the field already exists:
+   1. Add a `version` ({{ KF }} version) field to the `config` section of the appropriate {{ mkf-name }} cluster or edit the field value if the field already exists:
 
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
         ...
         config {
-          version = "<{{ KF }} version>"
+          version = "<version>"
         }
       }
       ```

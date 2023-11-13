@@ -9,11 +9,11 @@ Before connecting, install the [MongoDB Shell utility]({{ shell-link }}).
    ```bash
    mongosh --norc \
            --tls \
-           --tlsCAFile /home/<home directory>/.mongodb/root.crt \
-           --host '<FQDN of {{ MG }} host 1>:{{ port-mmg }},...,<FQDN of {{ MG }} host N>:{{ port-mmg }}' \
-           --username <DB user name> \
-           --password <DB user password> \
-           <DB name>
+           --tlsCAFile /home/<home_directory>/.mongodb/root.crt \
+           --host '<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},...,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}' \
+           --username <DB_username> \
+           --password <DB_user_password> \
+           <DB_name>
    ```
 
 - Connecting via SSL for {{ MG }} 4.0
@@ -21,21 +21,21 @@ Before connecting, install the [MongoDB Shell utility]({{ shell-link }}).
    ```bash
    mongosh --norc \
            --ssl \
-           --sslCAFile /home/<home directory>/.mongodb/root.crt \
-           --host '<FQDN of {{ MG }} host 1>:{{ port-mmg }},...,<FQDN of {{ MG }} host N >:{{ port-mmg }}' \
-           --username <DB user name> \
-           --password <DB user password> \
-           <DB name>
+           --sslCAFile /home/<home_directory>/.mongodb/root.crt \
+           --host '<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},...,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}' \
+           --username <DB_username> \
+           --password <DB_user_password> \
+           <DB_name>
    ```
 
 - Connecting without using SSL
 
    ```bash
    mongosh --norc \
-           --host '<FQDN of {{ MG }} host 1>:{{ port-mmg }},...,<FQDN of {{ MG }} host N>:{{ port-mmg }}' \
-           --username <DB user name> \
-           --password <DB user password> \
-           <DB name>
+           --host '<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},...,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}' \
+           --username <DB_username> \
+           --password <DB_user_password> \
+           <DB_name>
    ```
 
 {% endlist %}
@@ -72,13 +72,13 @@ sudo apt update && sudo apt install --yes golang git && \
 
    func main() {
 
-         const DB_RS = "<replica set name>"
-         const DB_NAME = "<DB name>"
-         DB_HOSTS := []string {"<FQDN of {{ MG }} host 1>:27018",
+         const DB_RS = "<replica_set_name>"
+         const DB_NAME = "<DB_name>"
+         DB_HOSTS := []string {"<FQDN_of_{{ MG }}_host_1>:27018",
                                ...,
-                               "<FQDN of {{ MG }} host N>:27018"}
-         const DB_USER = "<DB user name>"
-         const DB_PASS = "<DB user password>"
+                               "<FQDN_of_{{ MG }}_host_N>:27018"}
+         const DB_USER = "<DB_username>"
+         const DB_PASS = "<DB_user_password>"
 
          const CACERT = "/home/<home directory>/.mongodb/root.crt"
 
@@ -118,13 +118,13 @@ sudo apt update && sudo apt install --yes golang git && \
 
    func main() {
 
-         const DB_RS = "<replica set name>"
-         const DB_NAME = "<DB name>"
-         DB_HOSTS := []string {"<FQDN of {{ MG }} host 1>:27018",
+         const DB_RS = "<replica_set_name>"
+         const DB_NAME = "<DB_name>"
+         DB_HOSTS := []string {"<FQDN_of_{{ MG }}_host_1>:27018",
                                ...,
-                               "<FQDN of {{ MG }} host N>:27018"}
-         const DB_USER = "<DB user name>"
-         const DB_PASS = "<DB user password>"
+                               "<FQDN_of_{{ MG }}_host_N>:27018"}
+         const DB_USER = "<DB_username>"
+         const DB_PASS = "<DB_user_password>"
 
          url := fmt.Sprintf("mongodb://%s:%s@%s/%s?replicaSet=%s&tls=false",
                  DB_USER,
@@ -148,7 +148,7 @@ sudo apt update && sudo apt install --yes golang git && \
 
 {% include [see-fqdn-host](fqdn-host.md) %}
 
-**Connection:**
+**Connecting:**
 
 ```bash
 go run connect.go
@@ -170,9 +170,11 @@ go run connect.go
    cd ~/.mongodb && \
    sudo keytool -importcert \
                 -alias {{ crt-alias }} -file root.crt \
-                -keystore ssl -storepass <certificate store password, at least 6 characters> \
+                -keystore ssl -storepass <password> \
                 --noprompt
    ```
+
+   Where `storepass` is the certificate store password, at least 6 characters long.
 
 1. Create a folder for the Maven project:
 
@@ -266,7 +268,7 @@ go run connect.go
 
    Up-to-date versions of dependencies for Maven:
 
-   * [mongodb-driver-sync](https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync);
+   * [mongodb-driver-sync](https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-sync).
    * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple).
 
 {% list tabs %}
@@ -285,19 +287,19 @@ go run connect.go
    public class App {
      public static void main(String[] args) {
 
-       System.setProperty("javax.net.ssl.trustStore", "/home/<home directory>/.mongodb/YATrustStore");
-       System.setProperty("javax.net.ssl.trustStorePassword", "<certificate store password>");
+       System.setProperty("javax.net.ssl.trustStore", "/home/<home_directory>/.mongodb/YATrustStore");
+       System.setProperty("javax.net.ssl.trustStorePassword", "<certificate_store_password>");
 
        final Integer DB_PORT = 27018;
 
        List DB_HOSTS = new ArrayList<ServerAddress>();
-       DB_HOSTS.add(new ServerAddress("<FQDN of {{ MG }} host 1>", DB_PORT));
+       DB_HOSTS.add(new ServerAddress("<FQDN_of_{{ MG }}_host_1>", DB_PORT));
        ...,
-       DB_HOSTS.add(new ServerAddress("<FQDN of {{ MG }} host N>", DB_PORT));
+       DB_HOSTS.add(new ServerAddress("<FQDN_of_{{ MG }}_host_N>", DB_PORT));
 
-       final String DB_NAME = "<DB name>";
-       final String DB_USER = "<DB user name>";
-       final String DB_PASS = "<DB user password>";
+       final String DB_NAME = "<DB_name>";
+       final String DB_USER = "<DB_username>";
+       final String DB_PASS = "<DB_user_password>";
 
        MongoClient conn = MongoClients.create(
            MongoClientSettings.builder()
@@ -330,13 +332,13 @@ go run connect.go
        final Integer DB_PORT = 27018;
 
        List DB_HOSTS = new ArrayList<ServerAddress>();
-       DB_HOSTS.add(new ServerAddress("<FQDN of {{ MG }} host 1>", DB_PORT));
+       DB_HOSTS.add(new ServerAddress("<FQDN_of_{{ MG }}_host_1>", DB_PORT));
        ...,
-       DB_HOSTS.add(new ServerAddress("<FQDN of {{ MG }} host N>", DB_PORT));
+       DB_HOSTS.add(new ServerAddress("<FQDN_of_{{ MG }}_host_N>", DB_PORT));
 
-       final String DB_NAME = "<DB name>";
-       final String DB_USER = "<DB user name>";
-       final String DB_PASS = "<DB user password>";
+       final String DB_NAME = "<DB_name>";
+       final String DB_USER = "<DB_username>";
+       final String DB_PASS = "<DB_user_password>";
 
        MongoClient conn = MongoClients.create(
            MongoClientSettings.builder()
@@ -356,7 +358,7 @@ go run connect.go
 
 {% include [see-fqdn-host](fqdn-host.md) %}
 
-**Connection:**
+**Connecting:**
 
 ```bash
 mvn clean package && \
@@ -382,14 +384,14 @@ npm install mongodb
    const util = require('util');
    const MongoClient = require('mongodb').MongoClient;
 
-   const DB_RS = '<replica set name>'
-   const DB_NAME = '<DB name>'
-   const DB_HOSTS = ['<FQDN of {{ MG }} host 1>:27018',
+   const DB_RS = '<replica_set_name>'
+   const DB_NAME = '<DB_name>'
+   const DB_HOSTS = ['<FQDN_of_{{ MG }}_host_1>:27018',
                      ...,
-                     '<FQDN of {{ MG }} host N>:27018']
-   const DB_USER  = '<DB user name>'
-   const DB_PASS  = '<DB user password>'
-   const CACERT   = '/home/<home directory>/.mongodb/root.crt'
+                     '<FQDN_of_{{ MG }}_host_N>:27018']
+   const DB_USER  = '<DB_username>'
+   const DB_PASS  = '<DB_user_password>'
+   const CACERT   = '/home/<home_directory>/.mongodb/root.crt'
 
    const url = util.format('mongodb://%s:%s@%s/', DB_USER, DB_PASS, DB_HOSTS.join(','))
 
@@ -420,13 +422,13 @@ npm install mongodb
    const util = require('util');
    const MongoClient = require('mongodb').MongoClient;
 
-   const DB_RS = '<replica set name>'
-   const DB_NAME = '<DB name>'
-   const DB_HOSTS = ['<FQDN of {{ MG }} host 1>:27018',
+   const DB_RS = '<replica_set_name>'
+   const DB_NAME = '<DB_name>'
+   const DB_HOSTS = ['<FQDN_of_{{ MG }}_host_1>:27018',
                      ...
-                     '<FQDN of {{ MG }} host N>:27018']
-   const DB_USER  = '<DB user name>'
-   const DB_PASS  = '<DB user password>'
+                     '<FQDN_of_{{ MG }}_host_N>:27018']
+   const DB_USER  = '<DB_username>'
+   const DB_PASS  = '<DB_user_password>'
 
    const url = util.format('mongodb://%s:%s@%s/', DB_USER, DB_PASS, DB_HOSTS.join(','))
 
@@ -451,7 +453,7 @@ npm install mongodb
 
 {% include [see-fqdn-host](fqdn-host.md) %}
 
-**Connection:**
+**Connecting:**
 
 ```bash
 node app.js
@@ -473,12 +475,12 @@ sudo apt update && sudo apt install --yes php php-mongodb
 
    ```php
    <?php
-     $DB_RS    = '<replica set name>';
-     $DB_NAME  = '<DB name>';
-     $DB_HOSTS = '<FQDN of {{ MG }} host 1>:27018,...,<FQDN of {{ MG }} host N >:27018';
-     $DB_USER  = '<DB user name>';
-     $DB_PASS  = '<DB user password>';
-     $CACERT   = '/home/<home directory>/.mongodb/root.crt';
+     $DB_RS    = '<replica_set_name>';
+     $DB_NAME  = '<DB_name>';
+     $DB_HOSTS = '<FQDN_of_{{ MG }}_host_1>:27018,...,<FQDN_of_{{ MG }}_host_N>:27018';
+     $DB_USER  = '<DB_username>';
+     $DB_PASS  = '<DB_user_password>';
+     $CACERT   = '/home/<home_directory>/.mongodb/root.crt';
 
      $uri = sprintf(
          'mongodb://%s:%s@%s/%s?replicaSet=%s',
@@ -510,11 +512,11 @@ sudo apt update && sudo apt install --yes php php-mongodb
 
    ```php
    <?php
-     $DB_RS    = '<replica set name>';
-     $DB_NAME  = '<DB name>';
-     $DB_HOSTS = '<FQDN of {{ MG }} host 1>:27018,...,<FQDN of {{ MG }} host N>:27018';
-     $DB_USER  = '<DB user name>';
-     $DB_PASS  = '<DB user password>';
+     $DB_RS    = '<replica_set_name>';
+     $DB_NAME  = '<DB_name>';
+     $DB_HOSTS = '<FQDN_of_{{ MG }}_host_1>:27018,...,<FQDN_of_{{ MG }}_host_N>:27018';
+     $DB_USER  = '<DB_username>';
+     $DB_PASS  = '<DB_user_password>';
 
      $uri = sprintf(
          'mongodb://%s:%s@%s/%s?replicaSet=%s',
@@ -544,7 +546,7 @@ sudo apt update && sudo apt install --yes php php-mongodb
 
 {% include [see-fqdn-host](fqdn-host.md) %}
 
-**Connection:**
+**Connecting:**
 
 ```bash
 php connect.php
@@ -560,22 +562,22 @@ Before connecting, install the [MongoDB Shell utility](https://www.mongodb.com/t
 
    ```powershell
    mongosh.exe --norc `
-               --host '<FQDN of {{ MG }} host 1>:{{ port-mmg }},...,<FQDN of {{ MG }} host N>:{{ port-mmg }}' `
+               --host '<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},...,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}' `
                --tls `
                --tlsCAFile $HOME\.mongodb\root.crt `
-               --username <DB user name> `
-               --password <DB user password> `
-               <DB name>
+               --username <DB_username> `
+               --password <DB_user_password> `
+               <DB_name>
    ```
 
 - Connecting without using SSL
 
    ```powershell
    mongosh.exe --norc `
-               --host '<FQDN of {{ MG }} host 1>:{{ port-mmg }},...,<FQDN of {{ MG }} host N>:{{ port-mmg }}' `
-               --username <DB user name> `
-               --password <DB user password> `
-               <DB name>
+               --host '<FQDN_of_{{ MG }}_host_1>:{{ port-mmg }},...,<FQDN_of_{{ MG }}_host_N>:{{ port-mmg }}' `
+               --username <DB_username> `
+               --password <DB_user_password> `
+               <DB_name>
    ```
 
 {% endlist %}
@@ -610,16 +612,16 @@ rs.status().set
    import pymongo
    from urllib.parse import quote_plus as quote
 
-   CACERT = '/home/<home directory>/.mongodb/root.crt'
-   DB_RS = '<name of replica set>'
-   DB_NAME = '<DB name>'
+   CACERT = '/home/<home_directory>/.mongodb/root.crt'
+   DB_RS = '<replica_set_name>'
+   DB_NAME = '<DB_name>'
    DB_HOSTS =','.join([
-         '<FQDN of {{ MG }} host 1>:27018',
+         '<FQDN_of_{{ MG }}_host_1>:27018',
          ...,
-         '<FQDN of {{ MG }} host N>:27018'
+         '<FQDN_of_{{ MG }}_host_N>:27018'
        ])
-   DB_USER = '<DB user name>'
-   DB_PASS = '<DB user password>'
+   DB_USER = '<DB_username>'
+   DB_PASS = '<DB_user_password>'
 
    url = 'mongodb://{user}:{pw}@{hosts}/?replicaSet={rs}&authSource={auth_src}'.format(
              user=quote(DB_USER),
@@ -648,15 +650,15 @@ rs.status().set
    import pymongo
    from urllib.parse import quote_plus as quote
 
-   DB_RS = '<replica set name>'
-   DB_NAME = '<DB name>'
+   DB_RS = '<replica_set_name>'
+   DB_NAME = '<DB_name>'
    DB_HOSTS =','.join([
-         '<FQDN of {{ MG }} host 1>:27018',
+         '<FQDN_of_{{ MG }}_host_1>:27018',
          ...,
-         '<FQDN of {{ MG }} host N>:27018'
+         '<FQDN_of_{{ MG }}_host_N>:27018'
        ])
-   DB_USER = '<DB user name>'
-   DB_PASS = '<DB user password>'
+   DB_USER = '<DB_username>'
+   DB_PASS = '<DB_user_password>'
 
    url = 'mongodb://{user}:{pw}@{hosts}/?replicaSet={rs}&authSource={auth_src}'.format(
              user=quote(DB_USER),
@@ -677,7 +679,7 @@ rs.status().set
 
 {% include [see-fqdn-host](fqdn-host.md) %}
 
-**Connection:**
+**Connecting:**
 
 ```bash
 python3 connect.py

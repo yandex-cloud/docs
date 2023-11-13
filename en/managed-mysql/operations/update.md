@@ -79,8 +79,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. Specify the class in the update cluster command:
 
       ```bash
-      {{ yc-mdb-my }} cluster update <cluster name>
-        --resource-preset <class ID>
+      {{ yc-mdb-my }} cluster update <cluster_name_or_ID>
+        --resource-preset <class_ID>
       ```
 
       {{ mmy-short-name }} will run the update host class command for the cluster.
@@ -94,10 +94,10 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. In the {{ mmy-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
         resources {
-          resource_preset_id = "<host class>"
+          resource_preset_id = "<host_class>"
           ...
         }
       }
@@ -159,8 +159,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. Specify the required storage in the cluster update command (it must be at least as large as `disk_size` in the cluster properties):
 
       ```bash
-      {{ yc-mdb-my }} cluster update <cluster name or ID> \
-        --disk-size <storage size in GB>
+      {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
+        --disk-size <storage_size_GB>
       ```
 
 - {{ TF }}
@@ -174,10 +174,10 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. Change the `disk_size` parameter value under `resources`:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
         resources {
-          disk_size = <storage size in GB>
+          disk_size = <storage_size_GB>
           ...
         }
       }
@@ -240,8 +240,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       All supported parameters are listed in the request [format for the update method](../api-ref/Cluster/update.md), in the `mysql_config_5_7` field. To specify the parameter name in the CLI's call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `logMinDurationStatement` parameter from an API request should be converted to `log_min_duration_statement` for the CLI command:
 
       ```bash
-      {{ yc-mdb-my }} cluster update-config <cluster name>
-         --set log_min_duration_statement=100,<parameter name>=<value>,...
+      {{ yc-mdb-my }} cluster update-config <cluster_name>
+         --set log_min_duration_statement=100,<parameter_name>=<value>,...
       ```
 
       {{ mmy-short-name }} runs the update cluster settings operation.
@@ -255,10 +255,10 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. In the {{ mmy-name }} cluster description, add or update the [DBMS settings](../concepts/settings-list.md) under `mysql_config`:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
         mysql_config = {
-          <{{ MY }} setting name> = <value>
+          <{{ MY }}_setting_name> = <value>
           ...
         }
       }
@@ -320,15 +320,15 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       
       ```bash
-      {{ yc-mdb-my }} cluster update <cluster name> \
-        --backup-window-start <backup start time> \
-        --backup-retain-period-days=<retention period for automatic backups, days> \
-        --datalens-access=<true or false> \
-        --maintenance-window type=<maintenance type: anytime or weekly>,`
-                            `day=<day of week for weekly>,`
-                            `hour=<hour for weekly> \
-        --websql-access=<true or false> \
-        --deletion-protection=<cluster deletion protection: true or false>
+      {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
+        --backup-window-start <backup_start_time> \
+        --backup-retain-period-days=<backup_retention_period> \
+        --datalens-access=<access_from_{{ datalens-name }}> \
+        --maintenance-window type=<maintenance_type>,`
+                            `day=<day_of_week>,`
+                            `hour=<hour> \
+        --websql-access=<queries_from_management_console> \
+        --deletion-protection=<deletion_protection>
       ```
 
 
@@ -337,9 +337,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--backup-retain-period-days`: Retention period for automatic backups (in days). Acceptable values are from `7` to `60`. The default value is `7`.
+   * `--backup-retain-period-days`: Retention period for automatic backups (in days). Acceptable values are from `7` to `60`. By default, it is set to `7`.
 
-   * `--datalens-access`: Enables DataLens access. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+   * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
    * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters), where `type` is the maintenance type:
 
@@ -362,28 +362,32 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. To change the backup start time, add a `backup_window_start` block to the {{ mmy-name }} cluster description:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
         backup_window_start {
-          hours   = <backup start hour>
-          minutes = <backup start minute>
+          hours   = <hour>
+          minutes = <minute>
         }
         ...
       }
       ```
 
+      Where:
+
+      * `hours`: Backup start hour
+      * `minutes`: Backup start minutes
+
    1. To change the retention period for backup files, define the `backup_retain_period_days` parameter in the cluster description:
 
       ```hcl
-        resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
           ...
-          backup_retain_period_days = <retention period for automatic backups (in days)>
+          backup_retain_period_days = <backup_retention_period>
           ...
-
         }
       ```
 
-      Acceptable values are from `7` to `60`. The default value is `7`.
+      Where `backup_retain_period_days` is the retention period for automatic backups (in days). Acceptable values are from `7` to `60`. By default, it is set to `7`.
 
    
    1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
@@ -394,11 +398,13 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
-        deletion_protection = <protect cluster from deletion: true or false>
+        deletion_protection = <deletion_protection>
       }
       ```
+
+      Where `deletion_protection` enables cluster deletion protection, `true` or `false`.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -422,7 +428,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    * Settings for access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled clusters) in the `maintenanceWindow` parameter.
-   * Retention period of automatic backups in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. The default value is `7`.
+   * Retention period of automatic backups in the `configSpec.backupRetainPeriodDays` parameter. Acceptable values are from `7` to `60`. By default, it is set to `7`.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -466,8 +472,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. Specify the destination folder in the move cluster command:
 
       ```bash
-      {{ yc-mdb-my }} cluster move <cluster ID> \
-         --destination-folder-name=<destination folder name>
+      {{ yc-mdb-my }} cluster move <cluster_ID> \
+         --destination-folder-name=<destination_folder_name>
       ```
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -481,9 +487,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. In the {{ mmy-name }} cluster description, add or edit the `folder_id` parameter value:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
-        folder_id = "<destination folder ID>"
+        folder_id = "<target_folder_ID>"
       }
       ```
 
@@ -536,8 +542,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. Specify the security groups in the update cluster command:
 
       ```bash
-      {{ yc-mdb-my }} cluster update <cluster name> \
-        --security-group-ids <security group list>
+      {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
+        --security-group-ids <list_of_security_group_IDs>
       ```
 
 - {{ TF }}
@@ -549,9 +555,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. In the {{ mmy-name }} cluster description, change the `security_group_ids` parameter value:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
-        security_group_ids = ["<security group ID list>"]
+        security_group_ids = [<list_of_security_group_IDs>]
       }
       ```
 

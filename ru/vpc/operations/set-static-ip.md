@@ -72,6 +72,17 @@
 
 - API
 
-  Чтобы изменить тип публичного IP-адреса с динамического на статический, воспользуйтесь методом REST API [update](../api-ref/Address/update.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Update](../api-ref/grpc/address_service.md#Update).
+  Чтобы изменить тип публичного IP-адреса с динамического на статический, воспользуйтесь методом REST API [update](../api-ref/Address/update.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Update](../api-ref/grpc/address_service.md#Update) и передайте в запросе:
+
+  * Идентификатор адреса, который нужно сделать статическим, в параметре `addressId`.
+
+    {% include [get-address-id](../../_includes/vpc/get-adress-id.md) %}
+
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+
+  * Значение `true` в параметре `reserved`.
+  * Имя параметра `reserved`, в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

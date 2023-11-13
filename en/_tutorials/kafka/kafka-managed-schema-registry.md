@@ -57,17 +57,17 @@ To use [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#m
    c = AvroConsumer(
        {
            "bootstrap.servers": ','.join([
-           "<FQDN of first broker host>:9091",
+           "<FQDN_of_broker_host_1>:9091",
            ...
-           "<FQDN of the Nth broker host>:9091",
+           "<FQDN_of_broker_host_N>:9091",
            ]),
            "group.id": "avro-consumer",
            "security.protocol": "SASL_SSL",
            "ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
            "sasl.mechanism": "SCRAM-SHA-512",
            "sasl.username": "user",
-           "sasl.password": "<password of the user named user>",
-           "schema.registry.url": "https://<FQDN or IP address of the {{ mkf-msr }} server>:443",
+           "sasl.password": "<password_of_the_user_named_user>",
+           "schema.registry.url": "https://<FQDN_or_IP_of_Managed_Schema_Registry_server>:443",
            "schema.registry.basic.auth.credentials.source": "SASL_INHERIT",
            "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
            "auto.offset.reset": "earliest"
@@ -155,18 +155,18 @@ To use [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#m
    avroProducer = AvroProducer(
        {
            "bootstrap.servers": ','.join([
-               "<FQDN of the 1st broker host>:9091",
+               "<FQDN_of_broker_host_1>:9091",
                ...
-               "<FQDN of the Nth broker host>:9091",
+               "<FQDN_of_broker_host_N>:9091",
            ]),
            "security.protocol": 'SASL_SSL',
            "ssl.ca.location": '/usr/share/ca-certificates/{{ crt-local-file }}',
            "sasl.mechanism": 'SCRAM-SHA-512',
            "sasl.username": 'user',
-           "sasl.password": '<password of the user named user>',
+           "sasl.password": '<password_of_the_user_named_user>',
            "on_delivery": delivery_report,
            "schema.registry.basic.auth.credentials.source": 'SASL_INHERIT',
-           "schema.registry.url": 'https://<FQDN or IP address of the {{ mkf-msr }} server>:443',
+           "schema.registry.url": 'https://<FQDN_or_IP_of_Managed_Schema_Registry_server>:443',
            "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}"
        },
        default_key_schema=key_schema,

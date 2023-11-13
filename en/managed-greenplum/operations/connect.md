@@ -81,13 +81,13 @@ Primary master hosts also use [special FQDNs](#fqdn-master).
 
 If you do not want to manually connect to another master host when the current one becomes unavailable, use a special FQDN of the `c-<cluster_ID>.rw.{{ dns-zone }}` format. It always points to the primary master host in the cluster. Connection to this FQDN is permitted and both read and write operations are allowed.
 
-Here is an example of connecting to a primary master host in a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+Here is an example of connecting to a primary master host in a cluster with the ID `c9qash3nb1v9********`:
 
 ```bash
-psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
+psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
       port={{ port-mgp }} \
       sslmode=verify-full \
-      dbname=<DB name> \
+      dbname=<DB_name> \
       user=<username>"
 ```
 
@@ -114,7 +114,7 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
             * **URL**: Connection string. Use the [special primary master FQDN](#fqdn-master):
 
                ```http
-               jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mgp }}/<db name>
+               jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/<DB_name>
                ```
 
          1. Click **Download** to download the connection driver.
@@ -131,7 +131,7 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
       1. Select **{{ GP }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
-         * **Host**: [Special primary master FQDN](#fqdn-master), `c-<clusterID>.rw.{{ dns-zone }}`.
+         * **Host**: [Special FQDN of the primary master ](#fqdn-master), `c-<cluster_ID>.rw.{{ dns-zone }}`.
          * **Port**: `{{ port-mgp }}`.
          * **Database**: DB to connect to.
          * Under **Authentication**, specify the DB user's name and password.
@@ -214,10 +214,10 @@ When creating a {{ GP }} cluster, the user database is not created. To test the 
 
 To connect to a publicly accessible cluster, prepare an [SSL certificate](#get-ssl-cert). The examples assume that the `root.crt` SSL certificate is located in the directory:
 
-* `/home/<home directory>/.postgresql/` for Ubuntu.
+* `/home/<home_directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.
 
-You can connect to a cluster using either a master host regular FQDN or a primary master host's [special FQDN](#fqdn-master). To learn how to get a host FQDN, see [this guide](#fqdn).
+You can connect to a cluster using either a master host's regular FQDN or a primary master host's [special FQDN](#fqdn-master). To learn how to get a host FQDN, see [this guide](#fqdn).
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

@@ -41,7 +41,7 @@ A list of extensions installed in the DB is displayed:
 Connect to the selected database and run:
 
 ```sql
-CREATE EXTENSION <extension name>;
+CREATE EXTENSION <extension_name>;
 ```
 
 For more information, see the [{{ GP }} documentation](https://greenplum.docs.pivotal.io/6latest/ref_guide/sql_commands/CREATE_EXTENSION.html).

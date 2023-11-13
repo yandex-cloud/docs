@@ -11,7 +11,7 @@ Review the slow query log:
 
 Check host monitoring charts:
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the name of the cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page:
    * We recommend upgrading the host class:
       * If the `Steal` value in the **CPU usage** chart is stable high.
@@ -24,7 +24,7 @@ Check host monitoring charts:
 
 Check host monitoring charts:
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the name of the cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page.
 1. Find the problem resource: its chart will be approaching or will have crossed the boundary.
 1. Select the other hosts from the drop-down list and check them as well.
@@ -40,7 +40,7 @@ You can retrieve information on the use of the CPU resource with the help of sys
    ```bash
    {{ yc-mdb-my }} user update \
        --global-permissions PROCESS <username> \
-       --cluster-id <cluster ID>
+       --cluster-id <cluster_ID>
    ```
 
 1. Retrieve a list of longest-running database queries by executing the following query:
@@ -60,7 +60,7 @@ Approximate IO usage by {{ MY }} threads is available from system views. To acce
    ```bash
    {{ yc-mdb-my }} user update \
        --global-permissions PROCESS <username> \
-       --cluster-id <cluster ID>
+       --cluster-id <cluster_ID>
    ```
 
 1. Retrieve a list of threads using the query below:
@@ -96,7 +96,7 @@ Approximate network usage by {{ MY }} threads is available from system views. To
    ```bash
    {{ yc-mdb-my }} user update \
        --global-permissions PROCESS <username> \
-       --cluster-id <cluster ID>
+       --cluster-id <cluster_ID>
    ```
 
 1. Retrieve a list of threads using the query below:
@@ -133,7 +133,7 @@ If there is no unusual load on the cluster's resources, and queries still take t
    ```bash
    {{ yc-mdb-my }} user update \
        --global-permissions PROCESS <username> \
-       --cluster-id <cluster ID>
+       --cluster-id <cluster_ID>
    ```
 
 1. To view table-level locks, run the following query:

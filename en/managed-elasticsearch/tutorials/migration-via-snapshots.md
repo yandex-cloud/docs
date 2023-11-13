@@ -7,7 +7,7 @@ description: "{{ mes-name }} clusters support taking snapshots. This allows you 
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-{{ mes-name }} clusters support the snapshot mechanism. This lets you migrate data from another {{ ES }} cluster to it. For more information about snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
+{{ mes-name }} clusters support the snapshot mechanism. This allows you to migrate data from another {{ ES }} cluster to them. For more information about snapshots, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
 
 To migrate data from the *source cluster* in {{ ES }} to the *target cluster* in {{ mes-name }}:
 
@@ -143,19 +143,19 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
    1. Upload the data from the keystore:
 
       ```bash
-      curl -X POST "https://<source cluster's FQDN>:9200/_nodes/reload_secure_settings"
+      curl -X POST "https://<source_cluster_FQDN>:9200/_nodes/reload_secure_settings"
       ```
 
    1. Register the repository:
 
       ```bash
-      curl "https://<source cluster's FQDN>:9200/_snapshot/<repository name>" \
+      curl "https://<source_cluster_FQDN>:9200/_snapshot/<repository_name>" \
            -X PUT \
            -H 'Content-Type: application/json' -d '
              {
                "type": "s3",
                "settings": {
-                 "bucket": "<bucket name>",
+                 "bucket": "<bucket_name>",
                  "endpoint": "{{ s3-storage-host }}"
                }
              }'
@@ -171,14 +171,14 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
    ```bash
    curl -X PUT \
-        "https://<source cluster's FQDN>:9200/_snapshot/<repository name>/snapshot_1?wait_for_completion=true&pretty"
+        "https://<source_cluster_FQDN>:9200/_snapshot/<repository_name>/snapshot_1?wait_for_completion=true&pretty"
    ```
 
    Creating a snapshot may take a long time. Track the progress of the operation [using {{ ES }} tools](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), such as:
 
    ```bash
    curl -X GET \
-        "https://<source cluster's FQDN>:9200/_snapshot/<repository name>/snapshot_1/_status?pretty"
+        "https://<source_cluster_FQDN>:9200/_snapshot/<repository_name>/snapshot_1/_status?pretty"
    ```
 
 ## Restore a snapshot on the target cluster {#restore-snapshot}
@@ -188,13 +188,13 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 1. Connect the {{ objstorage-name }} bucket to the target cluster as a snapshot storage:
 
    ```bash
-   curl "https://admin:<admin user password>@<target cluster's FQDN >:9200/_snapshot/<repository name>" \
+   curl "https://admin:<admin_password>@<target_cluster_FQDN>:9200/_snapshot/<repository_name>" \
         -X PUT \
         -H 'Content-Type: application/json' -d '
           {
             "type": "s3",
             "settings": {
-              "bucket": "<bucket name>",
+              "bucket": "<bucket_name>",
               "endpoint": "{{ s3-storage-host }}"
             }
           }'
@@ -220,14 +220,14 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
    ```bash
    curl -X POST \
-        "https://admin:<admin user password>@<target cluster's FQDN>:9200/_all/_close?pretty"
+        "https://admin:<admin_user_password>@<target_cluster_FQDN>:9200/_all/_close?pretty"
    ```
 
    Example of restoring the entire snapshot:
 
    ```bash
    curl -X POST \
-        "https://admin:<admin user password>@<target cluster's FQDN>:9200/_snapshot/<repository name>/snapshot_1/_restore"
+        "https://admin:<admin_user_password>@<target_cluster_FQDN>:9200/_snapshot/<repository name>/snapshot_1/_restore"
    ```
 
 1. Start restoring data from the snapshot on the target cluster. You can restore the entire snapshot or individual indices. For more information, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html).
@@ -236,9 +236,9 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
    ```bash
    curl -X POST \
-        -H 'Content-Type: application/json' 'https://admin:<admin user password>@<target cluster's FQDN>:9200/_snapshot/<repository name>/snapshot_1/_restore' -d '
+        -H 'Content-Type: application/json' 'https://admin:<admin_user_password>@<target_cluster_FQDN>:9200/_snapshot/<repository_name>/snapshot_1/_restore' -d '
         {
-          "indices": "<list of indices>"
+          "indices": "<list_of_indexes>"
         }'
    ```
 
@@ -248,7 +248,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
    ```bash
    curl -X GET \
-        "https://admin:<admin user password>@<target cluster's FQDN>:9200/_snapshot/<repository name>/snapshot_1/_status?pretty"
+        "https://admin:<admin_user_password>@<target_cluster_FQDN>:9200/_snapshot/<repository name>/snapshot_1/_status?pretty"
    ```
 
 1. If necessary, after the restore operation is completed, [open all closed indices](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-open-close.html).
@@ -257,7 +257,7 @@ You can't use a snapshot if the {{ ES }} version in the source cluster is higher
 
    ```bash
    curl -X POST \
-        "https://admin:<admin user password>@<target cluster's FQDN>:9200/_all/_open?pretty"
+        "https://admin:<admin_user_password>@<target_cluster_FQDN>:9200/_all/_open?pretty"
    ```
 
 ## Complete your migration {#finish-migration}

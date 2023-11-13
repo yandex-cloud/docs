@@ -81,10 +81,6 @@
         description: Auto-created default network
       ```
 
-- API
-
-  Чтобы создать [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [create](../api-ref/Network/create.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../api-ref/grpc/network_service.md#Create).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -141,6 +137,18 @@
         ```
         yc vpc network list
         ```
+
+- API
+
+  Чтобы создать [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [create](../api-ref/Network/create.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../api-ref/grpc/network_service.md#Create) и передайте в запросе:
+
+    * Идентификатор каталога, в котором будет размещена сеть, в параметре `folderId`.
+    * Имя новой сети в параметре `name`. Допустимая длина имени — от 3 до 63 символов, последний символ — не дефис.
+    * Описание новой сети в параметре `description`. Максимальная длина описания — 256 символов.
+
+  Параметры `name` и `description` необязательные — можно создать сеть без имени и описания и обращаться к ней по идентификатору.
+
+  {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
 

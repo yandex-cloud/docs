@@ -33,7 +33,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_sharding-enable }}**.
    1. Select a sharding type:
       * **{{ ui-key.yacloud.mongodb.cluster.shards.label_standard }}**: Using a `MONGOINFRA` host.
@@ -64,19 +64,19 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
       ```bash
       {{ yc-mdb-mg }} cluster enable-sharding \
-         --cluster-name=<cluster name> \
+         --cluster-name=<cluster_name> \
          --host type=mongoinfra,`
-               `zone-id=<availability zone>,`
-               `subnet-name=<subnet name> \
+               `zone-id=<availability_zone>,`
+               `subnet-name=<subnet_name> \
          --host type=mongoinfra,`
-               `zone-id=<availability zone>,`
-               `subnet-name=<subnet name> \
+               `zone-id=<availability_zone>,`
+               `subnet-name=<subnet_name> \
          --host type=mongoinfra,`
-               `zone-id=<availability zone>,`
-               `subnet-name=<subnet name> \
-         --mongoinfra resource-preset=<host class>,`
-                     `disk-size=<storage size, GB>,`
-                     `disk-type=<disk type>
+               `zone-id=<availability_zone>,`
+               `subnet-name=<subnet_name> \
+         --mongoinfra resource-preset=<host_class>,`
+                     `disk-size=<storage_size_GB>,`
+                     `disk-type=<disk_type>
       ```
 
       Where:
@@ -94,28 +94,28 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
       ```bash
       {{ yc-mdb-mg }} cluster enable-sharding \
-         --cluster-name=<cluster name> \
+         --cluster-name=<cluster_name> \
          --host type=mongos,`
-               `zone-id=<availability zone>,`
-               `subnet-name=<subnet name> \
+               `zone-id=<availability_zone>,`
+               `subnet-name=<subnet_name> \
          --host type=mongos,`
-               `zone-id=<availability zone>,`
-               `subnet-name=<subnet name> \
-         --mongos resource-preset=<host class>,`
-                 `disk-size=<storage size, GB>,`
-                 `disk-type=<disk type> \
+               `zone-id=<availability_zone>,`
+               `subnet-name=<subnet_name> \
+         --mongos resource-preset=<host_class>,`
+                 `disk-size=<storage_size_GB>,`
+                 `disk-type=<disk_type> \
          --host type=mongocfg,`
-               `zone-id=<availability zone>,`
-               `subnet-name=<subnet name> \
+               `zone-id=<availability_zone>,`
+               `subnet-name=<subnet_name> \
          --host type=mongocfg,`
-               `zone-id=<availability zone>,`
-               `subnet-name=<subnet name> \
+               `zone-id=<availability_zone>,`
+               `subnet-name=<subnet_name> \
          --host type=mongocfg,`
-               `zone-id=<availability zone>,`
-               `subnet-name=<subnet name> \
-         --mongocfg resource-preset=<host class>,`
-                   `disk-size=<storage size, GB>,`
-                   `disk-type=<disk type>
+               `zone-id=<availability_zone>,`
+               `subnet-name=<subnet_name> \
+         --mongocfg resource-preset=<host_class>,`
+                   `disk-size=<storage_size_GB>,`
+                   `disk-type=<disk_type>
       ```
 
       Where:
@@ -147,26 +147,26 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
       ```hcl
       resources_mongoinfra {
-        resource_preset_id = "<host class>"
-        disk_type_id       = "<disk type>"
-        disk_size          = <storage size in GB>
+        resource_preset_id = "<host_class>"
+        disk_type_id       = "<disk_type>"
+        disk_size          = <storage_size_GB>
       }
 
       host {
-        zone_id   = "<availability zone>"
-        subnet_id = "<subnet ID>"
+        zone_id   = "<availability_zone>"
+        subnet_id = "<subnet_ID>"
         type      = "mongoinfra"
       }
 
       host {
-        zone_id   = "<availability zone>"
-        subnet_id = "<subnet ID>"
+        zone_id   = "<availability_zone>"
+        subnet_id = "<subnet_ID>"
         type      = "mongoinfra"
       }
 
       host {
-        zone_id   = "<availability zone>"
-        subnet_id = "<subnet ID>"
+        zone_id   = "<availability_zone>"
+        subnet_id = "<subnet_ID>"
         type      = "mongoinfra"
       }
       ```
@@ -178,44 +178,44 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
       ```hcl
       resources_mongos {
-        resource_preset_id = "<host class>"
-        disk_type_id       = "<disk type>"
-        disk_size          = <storage size in GB>
+        resource_preset_id = "<host_class>"
+        disk_type_id       = "<disk_type>"
+        disk_size          = <storage_size_GB>
       }
 
       resources_mongocfg {
-        resource_preset_id = "<host class>"
-        disk_type_id       = "<disk type>"
-        disk_size          = <storage size in GB>
+        resource_preset_id = "<host_class>"
+        disk_type_id       = "<disk_type>"
+        disk_size          = <storage_size_GB>
       }
 
       host {
-        zone_id   = "<availability zone>"
-        subnet_id = "<subnet ID>"
+        zone_id   = "<availability_zone>"
+        subnet_id = "<subnet_ID>"
         type      = "mongos"
       }
 
       host {
-        zone_id   = "<availability zone>"
-        subnet_id = "<subnet ID>"
+        zone_id   = "<availability_zone>"
+        subnet_id = "<subnet_ID>"
         type      = "mongos"
       }
 
       host {
-        zone_id   = "<availability zone>"
-        subnet_id = "<subnet ID>"
+        zone_id   = "<availability_zone>"
+        subnet_id = "<subnet_ID>"
         type      = "mongocfg"
       }
 
       host {
-        zone_id   = "<availability zone>"
-        subnet_id = "<subnet ID>"
+        zone_id   = "<availability_zone>"
+        subnet_id = "<subnet_ID>"
         type      = "mongocfg"
       }
 
       host {
-        zone_id   = "<availability zone>"
-        subnet_id = "<subnet ID>"
+        zone_id   = "<availability_zone>"
+        subnet_id = "<subnet_ID>"
         type      = "mongocfg"
       }
       ```
@@ -226,7 +226,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -247,7 +247,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
 
 - CLI
 
@@ -258,7 +258,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
    To get a list of shards in a cluster, run the following command:
 
    ```bash
-   {{ yc-mdb-mg }} shards list --cluster-name <cluster name>
+   {{ yc-mdb-mg }} shards list --cluster-name <cluster_name>
    ```
 
    Result:
@@ -272,7 +272,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
    +------+
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -291,7 +291,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_add }}**.
    1. Enter a name for the shard and add the number of hosts you need.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
@@ -302,13 +302,13 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a shard to a cluster, run the command below (the parameter list in the example is not exhaustive):
+   To add a shard to a cluster, run the command below (not all the supported parameters are listed):
 
    ```bash
-   {{ yc-mdb-mg }} shards add <new shard name> \
-      --cluster-name=<cluster name> \
-      --host zone-id=<availability zone>,`
-            `subnet-name=<subnet name>
+   {{ yc-mdb-mg }} shards add <new_shard_name> \
+      --cluster-name=<cluster_name> \
+      --host zone-id=<availability_zone>,`
+            `subnet-name=<subnet_name>
    ```
 
    Where:
@@ -328,13 +328,13 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
    1. Add to the {{ mmg-name }} cluster description the required number of `host` blocks of the `MONGOD` type set in the `type` parameter and the shard name specified in the `shard_name` parameter:
 
       ```hcl
-      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+      resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
         ...
         host {
-          zone_id    = "<availability zone>"
-          subnet_id  = "<subnet ID>"
+          zone_id    = "<availability_zone>"
+          subnet_id  = "<subnet_ID>"
           type       = "mongod"
-          shard_name = "<shard name>"
+          shard_name = "<shard_name>"
         }
       }
       ```
@@ -343,7 +343,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -376,8 +376,8 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired shard and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the required shard row and select **{{ ui-key.yacloud.mdb.cluster.shards.button_action-remove }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
 
 - CLI
@@ -389,8 +389,8 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
    To delete a shard from the cluster, run:
 
    ```bash
-   {{ yc-mdb-mg }} shards delete <shard name> \
-      --cluster-name=<cluster name>
+   {{ yc-mdb-mg }} shards delete <shard_name> \
+      --cluster-name=<cluster_name>
    ```
 
    You can request a shard name with a [list of cluster shards](#list-shards) and a cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).

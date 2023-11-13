@@ -9,7 +9,7 @@ To add a new user `user2` to an existing cluster with read-only access to the `d
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the desired cluster and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/mdb/user.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_add }}**.
    1. Enter the `user2` username and password (from 8 to 128 characters).
    1. Select the `db1` database from the **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** drop-down list.
@@ -22,8 +22,8 @@ To add a new user `user2` to an existing cluster with read-only access to the `d
 
    ```
    yc managed-mongodb user create user2 \
-     --cluster-name <cluster name> \
-     --password <user password> \
+     --cluster-name <cluster_name> \
+     --password <user_password> \
      --permission database=db1,role=read
    ```
 
@@ -83,7 +83,7 @@ To grant read-only access to the `db2` database to user `user1` of cluster `clus
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm the resources have been updated.
+      1. Confirm updating the resources.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

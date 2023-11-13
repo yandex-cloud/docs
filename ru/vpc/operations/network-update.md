@@ -66,10 +66,6 @@
         --labels new_label=test_label
       ```
 
-- API
-
-  Чтобы изменить [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [update](../api-ref/Network/update.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Update](../api-ref/grpc/network_service.md#Update).
-
 - {{ TF }}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -126,6 +122,26 @@
      ```
      yc vpc network get <имя облачной сети>
      ```
+
+- API
+
+  Чтобы изменить [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [update](../api-ref/Network/update.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Update](../api-ref/grpc/network_service.md#Update) и передайте в запросе:
+
+  * Идентификатор изменяемой облачной сети в параметре `networkId`.
+
+    {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
+
+    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+
+  * Новые настройки сети по необходимости:
+
+    * имя в параметре `name`;
+    * описание в параметре `description`;
+    * метки сети в параметре `labels`.
+
+  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
