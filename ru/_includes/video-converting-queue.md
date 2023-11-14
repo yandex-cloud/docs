@@ -183,7 +183,7 @@
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите:
 
      ```json
-     {"action":"convert", "src_url":"<ссылка на видео>"}
+     {"action":"convert", "src_url":"<ссылка_на_видео>"}
      ```
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
@@ -239,7 +239,7 @@
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите запрос:
 
      ```json
-     {"action":"get_task_status", "task_id":"<идентификатор задачи>"}
+     {"action":"get_task_status", "task_id":"<идентификатор_задачи>"}
      ```
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
@@ -256,7 +256,7 @@
      ```json
      {
          "ready": true,
-         "gif_url": "https://{{ s3-storage-host }}/<имя_бакета>/1b4db1a6-f2b2-4b1c-b662-37f7********.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F20210831%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df********"
+         "gif_url": "https://{{ s3-storage-host }}/<имя_бакета>/1b4db1a6-f2b2-4b1c-b662-37f7********.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F202********{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df********"
      }
      ```
 

@@ -6,15 +6,15 @@ The `x-yc-apigateway-integration:http` extension redirects a request to the spec
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-Parameter | Type | Description
+| Parameter | Type | Description |
 ----|----|----
-`url` | `string` | URL to redirect the invocation to (must be accessible from the internet).<br>Parameters are substituted in `url`.
-`method` | `enum` | This is an optional parameter. HTTP method used for the invocation. If the parameter is omitted, it defaults to the method of request to {{ api-gw-short-name }}.
-`headers` | `map[string](string \| string[])` | HTTP headers to be sent. By default, the headers of the original request are not sent. <br>Parameters are substituted in `headers`.
-`query` | `map[string](string \| string[])` | Query parameters to be sent. By default, the query parameters of the original request are not passed. <br>Parameters are substituted in `query`.
-`timeouts` | `object` | This is an optional parameter. The `read` and `connect` invocation timeouts, in seconds.
-`omitEmptyHeaders` | `boolean` | This is an optional parameter. If `true`, empty headers are not sent. |
-`omitEmptyQueryParameters` | `boolean` | This is an optional parameter. If `true`, empty query parameters are not sent.
+| `url` | `string` | URL to redirect the invocation to. <br>Parameters are substituted in `url`. |
+| `method` | `enum` | This is an optional parameter. HTTP method used for the invocation. If the parameter is omitted, it defaults to the method of request to {{ api-gw-short-name }}. |
+| `headers` | `map[string](string \| string[])` | HTTP headers to be sent. By default, the headers of the original request are not sent. <br>Parameters are substituted in `headers`. |
+| `query` | `map[string](string \| string[])` | Query parameters to be sent. By default, the query parameters of the original request are not sent. <br>Parameters are substituted in `query`. |
+| `timeouts` | `object` | This is an optional parameter. The `read` and `connect` invocation timeouts, in seconds. |
+| `omitEmptyHeaders` | `boolean` | This is an optional parameter. If `true`, empty headers are not sent. |
+| `omitEmptyQueryParameters` | `boolean` | This is an optional parameter. If `true`, empty query parameters are not sent. |
 
 ## Extension specification {#spec}
 
@@ -70,7 +70,7 @@ paths:
         in: query
         required: false
         schema:
-          type: string      
+          type: string
 ```
 
 An example of proxying all requests to `https://example.com`, where:

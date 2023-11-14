@@ -223,6 +223,8 @@ items:
             href: tutorials/node-from-docker.md
           - name: Генерация изображения с помощью модели Stable Diffusion
             href: tutorials/stable-diffusion.md
+          - name: Дообучение модели {{ yagpt-full-name }}
+            href: tutorials/yagpt-tuning.md
       - name: Аналитика данных
         items:
           - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики

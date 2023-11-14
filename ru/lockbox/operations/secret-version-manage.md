@@ -1,3 +1,7 @@
+---
+title: "Управление версиями секрета в {{ lockbox-full-name }}"
+---
+
 # Управление версиями секрета
 
 Управление версиями секрета позволяет:
@@ -159,6 +163,36 @@
     1. Выберите пункт **{{ ui-key.yacloud.lockbox.button_action-schedule-for-destruction }}**.
     1. Введите время до удаления.
     1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_schedule-destruction }}**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для планирования удаления версии:
+
+      ```bash
+      yc lockbox secret schedule-version-destruction --help
+      ```
+  1. Запланируйте удаление версии, указав имя секрета, идентификатор версии и время до удаления. Например 1 неделя — `168h`:
+      
+      ```bash
+      yc lockbox secret schedule-version-destruction <имя_секрета> \
+        --version-id <идентификатор_версии> \
+        --pending-period 168h
+      ```
+      Результат:
+
+      ```bash      
+      id: e6qor8pe3ju7********
+      secret_id: e6qkkp3k29jf********
+      created_at: "2023-11-08T13:14:34.676Z"
+      destroy_at: "2023-11-15T17:06:28.795Z"
+      status: SCHEDULED_FOR_DESTRUCTION
+      payload_entry_keys:
+        - secret-key
+      ```
 
 - API
 

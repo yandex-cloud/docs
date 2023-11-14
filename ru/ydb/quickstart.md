@@ -52,21 +52,21 @@
   1. Создайте базу данных:
 
       ```bash
-      yc ydb database create <name> --serverless
+      yc ydb database create <имя_БД> --serverless
       ```
 
-      Где `name` — имя вашей базы данных.
+      Где `<имя_БД>` — имя вашей базы данных.
 
       Результат:
 
       ```text
       done (6s)
-      id: etn95g8jk8g0qk84hk20
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: etn95g8jk8g0********
+      folder_id: b1g7gvsi89m3********
       created_at: "2022-05-30T07:26:44Z"
       name: test
       status: PROVISIONING
-      endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
+      endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaom********/etn95g8jk8g0********
       serverless_database:
         storage_size_limit: "53687091200"
       location_id: {{ region-id }}
@@ -79,7 +79,7 @@
                 hours: 17
           backup_time_to_live: 172800s
           type: SYSTEM
-      document_api_endpoint: {{ ydb.document-api-endpoint }}/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
+      document_api_endpoint: {{ ydb.document-api-endpoint }}/{{ region-id }}/b1gia87mbaom********/etn95g8jk8g0********
       monitoring_config: {}
       ```
 
@@ -87,10 +87,10 @@
   1. Проверьте статус созданной БД:
 
      ```bash
-     yc ydb database get <name>
+     yc ydb database get <имя_БД>
      ```
 
-     Где `name` — имя созданной БД.
+     Где `<имя_БД>` — имя созданной БД.
 
      В процессе создания БД будет иметь статус `PROVISIONING`, а когда станет готова к использованию — статус сменится на `RUNNING`.
 
@@ -143,10 +143,10 @@
   1. Создайте базу данных:
 
       ```bash
-      yc ydb database create <name> \
+      yc ydb database create <имя_БД> \
         --dedicated \
-        --resource-preset <preset> \
-        --storage type=<type>,groups=<groups> \
+        --resource-preset <конфигурация> \
+        --storage type=<тип_носителя>,groups=<количество_групп_хранения> \
         --public-ip \
         --network-name default\
         --async
@@ -155,7 +155,7 @@
       Где:
 
       * `--resource-preset STR` — конфигурация вычислительных ресурсов узла. Возможные значения перечислены в колонке **Имя конфигурации** в таблице раздела [{#T}](concepts/resources.md#resource-presets).
-      * `--storage STR` — тип носителя и количество [групп хранения](concepts/resources.md#storage-groups) в формате `type=<type>,groups=<groups>`. Для типа `ssd` одна группа хранения вмещает 100 ГБ данных.
+      * `--storage STR` — тип носителя и количество [групп хранения](concepts/resources.md#storage-groups) в формате `type=<тип_носителя>,groups=<количество_групп_хранения>`. Для типа `ssd` одна группа хранения вмещает 100 ГБ данных.
       * `--public-ip` — флаг назначения публичных IP-адресов. Без этого флага вы не сможете подключиться к создаваемой базе данных из интернета.
       * `--network-name STR` — имя облачной сети, в которой будет создана база данных. Может быть указана сеть `default`.
       * `--async` — флаг асинхронного создания БД.
@@ -166,12 +166,12 @@
 
       ```text
       done (7m18s)
-      id: etnk1u65e4shtgj207sc
-      folder_id: b1g7gvsi89m34qmcm3ke
+      id: etnk1u65e4sh********
+      folder_id: b1g7gvsi89m3********
       created_at: "2022-05-31T10:10:12Z"
       name: test-ded
       status: PROVISIONING
-      endpoint: {{ ydb.ep-dedicated }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnk1u65e4shtgj207sc
+      endpoint: {{ ydb.ep-dedicated }}/?database=/{{ region-id }}/b1gia87mbaom********/etnk1u65e4sh********
       resource_preset_id: medium
       storage_config:
         storage_options:
@@ -181,11 +181,11 @@
       scale_policy:
         fixed_scale:
           size: "1"
-      network_id: enpqkm0od2bueqbuo9qa
+      network_id: enpqkm0od2bu********
       subnet_ids:
-      - b0cmespgm8o3pr0ssprq
-      - e2lif378n1pg90pp96bl
-      - e9b72lv142k40bul5qgv
+      - b0cmespgm8o3********
+      - e2lif378n1pg********
+      - e9b72lv142k4********
       dedicated_database:
         resource_preset_id: medium
         storage_config:
@@ -196,11 +196,11 @@
         scale_policy:
           fixed_scale:
             size: "1"
-        network_id: enpqkm0od2bueqbuo9qa
+        network_id: enpqkm0od2bu********
         subnet_ids:
-        - b0cmespgm8o3pr0ssprq
-        - e2lif378n1pg90pp96bl
-        - e9b72lv142k40bul5qgv
+        - b0cmespgm8o3********
+        - e2lif378n1pg********
+        - e9b72lv142k4********
         assign_public_ips: true
       assign_public_ips: true
       location_id: {{ region-id }}
@@ -219,10 +219,10 @@
   1. Проверьте статус созданной БД:
 
      ```bash
-     yc ydb database get <name>
+     yc ydb database get <имя_БД>
      ```
 
-     Где `name` — имя созданной БД.
+     Где `<имя_БД>` — имя созданной БД.
 
      В процессе создания БД будет иметь статус `PROVISIONING`, а когда станет готова к использованию — статус сменится на `RUNNING`.
 
@@ -274,18 +274,18 @@
 
      ```text
      ...
-     endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2
+     endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3********
      ...
      ```
 
-     Здесь часть строки `{{ ydb.ep-serverless }}` содержит эндпоинт, а `/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` — путь БД.
+     Здесь часть строки `{{ ydb.ep-serverless }}` содержит эндпоинт, а `/{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3********` — путь БД.
 
   1. Выполните запрос к созданной ранее БД, используя полученные значения эндпоинта и пути БД:
   
      ```bash
      ydb \
        --endpoint {{ ydb.ep-serverless }} \
-       --database /{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2 \
+       --database /{{ region-id }}/b1gia87mbaom********/etnudu2n9ri3******** \
        yql -s "SELECT 1;"
      ```
 

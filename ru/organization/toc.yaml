@@ -15,6 +15,8 @@ items:
             href: operations/org-profile.md
           - name: Управление несколькими организациями
             href: operations/manage-organizations.md
+          - name: Удалить организацию
+            href: operations/delete-org.md
       - name: Управление пользователями
         items:
           - name: Обзор

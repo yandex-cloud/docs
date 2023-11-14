@@ -717,20 +717,20 @@ default:
   ydb-short-name: YDB
   ydb:
     aws-ep: >-
-      https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
+      https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaom********/etnudu2n9ri3********
     cli: ydb
     docs: https://ydb.tech/ru/docs/
     document-api-endpoint: https://docapi.serverless.yandexcloud.net
-    ep-dedicated: grpcs://lb.etnk1u65e4shtgj338va.ydb.mdb.yandexcloud.net:2135
+    ep-dedicated: grpcs://lb.etnk1u65e4sh********.ydb.mdb.yandexcloud.net:2135
     ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
     host-dedicated: ydb.mdb.yandexcloud.net
     host-serverless: ydb.serverless.yandexcloud.net
-    id-dedicated: etnk1u65e4shtgj338va
-    id-serverless: etnudu2n9ri35luqe4h1
+    id-dedicated: etnk1u65e4sh********
+    id-serverless: etnudu2n9ri3********
     name-dedicated: ydb-dedicated
     name-serverless: ydb-serverless
-    path-dedicated: /ru-central1/b1gia87mbaomkfvs6rgl/etnk1u65e4shtgj338va
-    path-serverless: /ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
+    path-dedicated: /ru-central1/b1gia87mbaom********/etnk1u65e4sh********
+    path-serverless: /ru-central1/b1gia87mbaom********/etnudu2n9ri3********
     port-dedicated: 2135
     port-serverless: 2135
     version-cdc: 22.5
@@ -7669,12 +7669,14 @@ default:
         endpoint: Эндпоинт
         execute: Выполнить
         folder: Каталог
+        foundation-models: Фундаментальные модели
         general: Общие настройки
         link: Привязать
         manage-labels: Управление метками
         member:
           remove: Удалить
         members: Участники
+        models: Модели
         more: Еще
         name: Имя
         never: Никогда
@@ -7682,6 +7684,7 @@ default:
         pin: Закрепить
         port: Порт
         prefix: Префикс
+        projects-resources: Собственные
         resize: Изменить размер
         resources: Ресурсы
         response: Ответ
@@ -7695,8 +7698,11 @@ default:
         submit: Подтвердить
         subnet: Подсеть
         timeout: Таймаут
+        tuned-foundation-models: Дообученные фундаментальные модели
+        tuning-model: Дообучить модель
         type: Тип
         unpin: Открепить
+        YGPT: YandexGPT
       data-proc:
         available-clusters: Доступные кластеры
         create-template: Создать шаблон
@@ -7722,6 +7728,13 @@ default:
         per-time: На юниты в час
         period-of-inactivity: Прерывать ячейки с низкой нагрузкой через
         security-group: Группа безопасности
+      foundation-model:
+        data-for-tuning: Данные для дообучения
+        instruction: Инструкция
+        learning-rate: Темп обучения
+        samples-file: Файл с примерами
+        start-tuning: Запустить дообучение
+        test-in-playground: Попробовать в Playground
       import-ipynb:
         open-in-dataSphere: Запустить в Yandex DataSphere
       invite-link:
@@ -7843,6 +7856,11 @@ default:
       transferring:
         title: Перенос проектов
         transfer-selected-projects: Перенести выбранные проекты
+      yagpt-playground:
+        request:
+          title: Запрос
+        temperature:
+          title: Температура
   mkt-k8s-key:
     yc_alb-ingress-controller:
       helmChart:

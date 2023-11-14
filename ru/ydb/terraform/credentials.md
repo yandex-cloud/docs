@@ -39,13 +39,13 @@
 1. Создайте профиль `yc` для выполнения операций от имени сервисного аккаунта. Укажите имя профиля: `yc config profile create <имя_профиля>`. В терминал будет выведено следующие сообщение: `Profile '<имя_профиля>' created and activated.`
 2. Задайте конфигурацию профиля следующими командами:
     ```bash
-    yc config set service-account-key <загруженный ключ в формате json>
-    yc config set cloud-id <идентификатор облака>
-    yc config set folder-id <идентификатор каталога>
+    yc config set service-account-key <загруженный_ключ>
+    yc config set cloud-id <идентификатор_облака>
+    yc config set folder-id <идентификатор_каталога>
     ```
 
 Описание значения параметров команд:
-* `service-account-key` — файл с авторизованным ключом сервисного аккаунта.
+* `service-account-key` — файл с авторизованным ключом сервисного аккаунта в формате JSON.
 * `cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md).
 * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
 

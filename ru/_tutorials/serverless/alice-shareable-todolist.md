@@ -42,7 +42,7 @@
    1. Выберите подходящее имя приложения и загрузите иконку.
    1. В разделе **Платформы** отметьте пункт **Веб-сервисы**. Укажите два Callback URI:
       * `https://social.yandex.net/broker/redirect`.
-      * `https://<служебный домен API-шлюза>/receive-token`.
+      * `https://<служебный_домен_API-шлюза>/receive-token`.
 
       Обратите внимание, что указанный URL `receive-token` может быть недоступен до момента загрузки актуальной спецификации в API-шлюз. Спецификация будет загружена во время развертывания проекта.
    1. В разделе **Доступы** разверните **API Яндекс ID (login)** и отметьте пункт **Доступ к портрету пользователя (login:avatar)**.
@@ -66,7 +66,7 @@ cp variables-template.json variables.json
 *  `domain` — служебный домен API-шлюза.
 *  `oauth-client-id` — идентификатор приложения, зарегистрированного в [Яндекс OAuth](https://oauth.yandex.ru/).
 *  `database-endpoint` — эндпоинт: первая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
-*  `database` — размещение базы данных: вторая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
+*  `database` — размещение базы данных: вторая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
 *  `yc-profile` — [название профиля](../../cli/operations/profile/profile-list.md) {{ yandex-cloud }} CLI.
 *  `secure-config-path` — путь к файлу секретов.
 *  `storage-bucket` — имя созданного бакета для хранения статических данных.
@@ -82,8 +82,8 @@ cp secure-config-template.json secure-config.json
 
 Подставьте значения переменных:
 * `oauth_secret` — пароль приложения, зарегистрированного в [Яндекс OAuth](https://oauth.yandex.ru/).
-* `hash` — случайная строка длиной 64 байта, закодированная с помощью base64, например `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqKLbAUWQ==`.
-* `block` — случайная строка длиной 32 байта, закодированная с помощью base64, например `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijIzGZ8fqQ=`.
+* `hash` — случайная строка длиной 64 байта, закодированная с помощью base64, например `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqK********`.
+* `block` — случайная строка длиной 32 байта, закодированная с помощью base64, например `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijI********`.
 
 Сгенерировать случайные значения можно с помощью сайта [generate.plus](https://generate.plus/en/base64).
 
@@ -114,7 +114,7 @@ terraform init
 После успешной инициализации выполните команду, передав значение [OAuth-токена](../../iam/concepts/authorization/oauth-token.md) для авторизации в {{ yandex-cloud }}:
 
 ```bash
-terraform apply -var-file ./variables.json -var yc-token=<OAuth token>
+terraform apply -var-file ./variables.json -var yc-token=<OAuth-токен>
 ```
 
 {{ TF }} автоматически создаст или обновит требуемые ресурсы.
@@ -197,13 +197,13 @@ terraform apply -var-file ./variables.json -var yc-token=<OAuth token>
 
 ```text
 done (2s)
-id: d5dc6k34opmskp7ela3d
-folder_id: b1guj13dic1461knkpbw
+id: d5dc6k34opm********
+folder_id: b1guj13dic14********
 created_at: "2021-06-03T11:18:00.379Z"
 name: gate-1
 status: ACTIVE
-domain: d5dc6k87opmskp7elb3q.apigw.yandexcloud.net
-log_group_id: ckg57bweoekkrkddsknd
+domain: d5dc6k87opms********.apigw.yandexcloud.net
+log_group_id: ckg57bweoekk********
 ```
 
 ## Зарегистрируйте навык Алисы {#register-skill}

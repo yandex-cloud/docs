@@ -12,10 +12,11 @@ The service provides the [runtime environment](../../concepts/runtime/index.md) 
 
 | Name | Go version | Operating <br>system | Preloaded |
 | ---- | ---- | ---- | ----
-| golang116 | 1.16.15 | Ubuntu 18.04 LTS | No |
-| golang117 | 1.17.8 | Ubuntu 18.04 LTS | No |
-| golang118 | 1.18.5 | Ubuntu 18.04 LTS | No |
-| golang119 | 1.19.3 | Ubuntu 18.04 LTS | No |
+| golang116 | 1.16.15 | Ubuntu 18.04 | No |
+| golang117 | 1.17.8 | Ubuntu 18.04 | No |
+| golang118 | 1.18.5 | Ubuntu 18.04 | No |
+| golang119 | 1.19.3 | Ubuntu 18.04 | No |
+| golang121 | 1.21.0 | Ubuntu 22.04 LTS | No |
 
 
 

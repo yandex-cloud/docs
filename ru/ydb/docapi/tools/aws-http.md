@@ -35,7 +35,7 @@ sourcePath: overlay/quickstart/document-api/aws-http.md
 1. Установите для переменной окружения `ENDPOINT` подготовленное значение:
 
     ```bash
-    export ENDPOINT=<Document API эндпоинт>
+    export ENDPOINT=<Document_API_эндпоинт>
     ```
 
 ## Создание таблицы {#create-table}

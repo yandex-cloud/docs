@@ -51,7 +51,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
 1. Перейдите в директорию с проектом и запустите скрипт `bootstrap.sh`, указав идентификатор вашего [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud):
 
    ```bash
-   YC_CLOUD_ID=<идентификатор облака> ./bootstrap.sh
+   YC_CLOUD_ID=<идентификатор_облака> ./bootstrap.sh
    ```
 
    Этот скрипт развернет базовую инфраструктуру и создаст YAML-файлы в директории `config` с описанием созданных ресурсов. Вы можете отредактировать скрипт, чтобы создать дополнительные каталоги с нужными ресурсами. Например, добавить еще одно тестовое окружение.

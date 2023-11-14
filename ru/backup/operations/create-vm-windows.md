@@ -1,6 +1,6 @@
 # Создать виртуальную машину Windows Server с подключением к {{ backup-name }}
 
-Сервис {{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../../compute/concepts/vm.md) с операционными системами Windows Server 2019 и 2022. Подробнее см. в разделе [{#T}](../concepts/vm-connection.md#os).
+Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами на базе Windows](../concepts/vm-connection.md#windows).
 
 ## Перед началом работы {#before-you-begin}
 

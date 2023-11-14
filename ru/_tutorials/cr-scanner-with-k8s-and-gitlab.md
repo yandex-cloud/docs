@@ -209,13 +209,13 @@
           image: bitnami/kubectl:latest
           stage: deploy
           script:
-            - kubectl config use-context ${CI_PROJECT_PATH}:<имя_{{ GLA }}>
+            - kubectl config use-context ${CI_PROJECT_PATH}:<имя_GitLab_Agent>
             - cat k8s.yaml | sed -e "s,__VERSION__,${CI_REGISTRY}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}," | kubectl apply -f -
         ```
 
         {% endcut %}
 
-        Вместо `<имя_{{ GLA }}>` укажите имя агента в {{ mgl-name }}.
+        Вместо `<имя_GitLab_Agent>` укажите имя агента в {{ mgl-name }}.
 
       {% endlist %}
 

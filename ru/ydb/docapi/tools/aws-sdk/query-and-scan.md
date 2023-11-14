@@ -129,7 +129,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -154,7 +154,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -235,7 +235,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -244,7 +244,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       from boto3.dynamodb.conditions import Key
 
       def query_series(series_id):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API эндпоинт>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_эндпоинт>")
 
           table = ydb_docapi_client.Table('Series')
           response = table.query(
@@ -291,7 +291,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -306,7 +306,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API эндпоинт>',
+          'endpoint' => '<Document_API_эндпоинт>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -384,7 +384,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -395,7 +395,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
           region: "{{ region-id }}",
-          endpoint: "<Document API эндпоинт>",
+          endpoint: "<Document_API_эндпоинт>",
       });
 
       console.log("Поиск фильмов с ключом партицирования, равным 3.");
@@ -450,7 +450,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -477,7 +477,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
         series_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API эндпоинт>',
+          endpoint: '<Document_API_эндпоинт>',
           region: region
         )
 
@@ -633,7 +633,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -658,7 +658,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -731,7 +731,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -741,7 +741,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       from boto3.dynamodb.conditions import Key
 
       def query_and_project_series(series_id, title_range):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API эндпоинт>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_эндпоинт>")
 
           table = ydb_docapi_client.Table('Series')
           
@@ -788,7 +788,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -803,7 +803,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API эндпоинт>',
+          'endpoint' => '<Document_API_эндпоинт>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -875,7 +875,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -884,7 +884,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       AWS.config.update({
         region: "{{ region-id }}",
-        endpoint: "<Document API эндпоинт>"
+        endpoint: "<Document_API_эндпоинт>"
       });
 
       var docClient = new AWS.DynamoDB.DocumentClient();
@@ -944,7 +944,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -971,7 +971,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
         series_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API эндпоинт>',
+          endpoint: '<Document_API_эндпоинт>',
           region: region
         )
 
@@ -1125,7 +1125,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -1151,7 +1151,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -1218,7 +1218,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -1228,7 +1228,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       from boto3.dynamodb.conditions import Key
 
       def scan_series(id_range, display_series):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API эндпоинт>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_эндпоинт>")
 
           table = ydb_docapi_client.Table('Series')
           scan_kwargs = {
@@ -1302,7 +1302,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -1317,7 +1317,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API эндпоинт>',
+          'endpoint' => '<Document_API_эндпоинт>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -1398,7 +1398,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -1407,7 +1407,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       AWS.config.update({
         region: "{{ region-id }}",
-        endpoint: "<Document API эндпоинт>"
+        endpoint: "<Document_API_эндпоинт>"
       });
 
       var docClient = new AWS.DynamoDB.DocumentClient();
@@ -1482,7 +1482,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
   
@@ -1520,7 +1520,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
         end_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API эндпоинт>',
+          endpoint: '<Document_API_эндпоинт>',
           region: region
         )
 

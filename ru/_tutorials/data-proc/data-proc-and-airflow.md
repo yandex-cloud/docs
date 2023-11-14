@@ -59,7 +59,7 @@
 
    Вместе с ней автоматически создадутся три подсети в разных зонах доступности и группа безопасности.
 
-1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети `dataproc-network-ru-central1-a`.
+1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети `dataproc-network-{{ region-id }}-a`.
 1. [Добавьте правила](../../vpc/operations/security-group-add-rule.md) в группу безопасности в сети `dataproc-network`:
 
    {% cut "Правила группы безопасности" %}
@@ -108,15 +108,15 @@
 1. [Создайте кластер {{ metastore-name }}](../../data-proc/operations/metastore/cluster-create.md) с параметрами:
 
    * **Сеть** — `dataproc-network`.
-   * **Подсеть** — `dataproc-network-ru-central1-a`.
+   * **Подсеть** — `dataproc-network-{{ region-id }}-a`.
    * **Группа безопасности** — группа по умолчанию в сети `dataproc-network`.
    * **Идентификатор ключа** и **секретный ключ** — принадлежат статическому ключу доступа.
 
 1. [Создайте кластер {{ maf-name }}](../../managed-airflow/operations/cluster-create.md) с параметрами:
 
-   * **Зона доступности** — `ru-central1-a`.
+   * **Зона доступности** — `{{ region-id }}-a`.
    * **Сеть** — `dataproc-network`.
-   * **Подсеть** — `dataproc-network-ru-central1-a`.
+   * **Подсеть** — `dataproc-network-{{ region-id }}-a`.
    * **Группа безопасности** — группа по умолчанию в сети `dataproc-network`.
    * **Имя бакета** — `airflow-bucket`.
    * **Идентификатор ключа** и **секретный ключ** — принадлежат статическому ключу доступа.
@@ -222,15 +222,15 @@ DAG будет состоять из нескольких вершин, кото
    )
 
    # Данные вашей инфраструктуры
-   YC_DP_FOLDER_ID = ''                 # ID каталога в облаке.
-   YC_DP_SSH_PUBLIC_KEY = ''            # Открытая часть SSH-ключа для кластера {{ dataproc-name }}.
-   YC_DP_SUBNET_ID = ''                 # ID подсети.
-   YC_DP_GROUP_ID = ''                  # ID группы безопасности.
-   YC_DP_SA_ID = ''                     # ID сервисного аккаунта.
-   YC_DP_METASTORE_URI = ''             # IP-адрес кластера {{ metastore-name }}.
-   YC_DP_AZ = 'ru-central1-a'           # Зона доступности для кластера {{ dataproc-name }}.
-   YC_SOURCE_BUCKET = 'pyspark-bucket'  # Бакет с Python-скриптом для задания PySpark.
-   YC_DP_LOGS_BUCKET = 'log-bucket'     # Бакет для логов.
+   YC_DP_FOLDER_ID = '<идентификатор_каталога>'
+   YC_DP_SSH_PUBLIC_KEY = '<открытая_часть_SSH-ключа>'
+   YC_DP_SUBNET_ID = '<идентификатор_подсети>'
+   YC_DP_GROUP_ID = '<идентификатор_группы_безопасности>'
+   YC_DP_SA_ID = '<идентификатор_сервисного_аккаунта>'
+   YC_DP_METASTORE_URI = '<IP-адрес>'
+   YC_DP_AZ = '{{ region-id }}-a'
+   YC_SOURCE_BUCKET = 'pyspark-bucket'
+   YC_DP_LOGS_BUCKET = 'log-bucket'
 
    # Создание подключения для {{ objstorage-name }}
    session = settings.Session()
@@ -308,6 +308,18 @@ DAG будет состоять из нескольких вершин, кото
        # Формирование DAG из указанных выше этапов
        create_spark_cluster >> poke_spark_processing >> delete_spark_cluster
    ```
+
+   Где:
+
+   * `YC_DP_FOLDER_ID` — идентификатор каталога в облаке.
+   * `YC_DP_SSH_PUBLIC_KEY` — открытая часть SSH-ключа для кластера {{ dataproc-name }}.
+   * `YC_DP_SUBNET_ID` —  идентификатор подсети.
+   * `YC_DP_GROUP_ID` — идентификатор группы безопасности.
+   * `YC_DP_SA_ID` — идентификатор сервисного аккаунта.
+   * `YC_DP_METASTORE_URI` — IP-адрес кластера {{ metastore-name }}.
+   * `YC_DP_AZ` — зона доступности для кластера {{ dataproc-name }}, например `{{ region-id }}-a`.
+   * `YC_SOURCE_BUCKET` — бакет с Python-скриптом для задания PySpark, например `pyspark-bucket`.
+   * `YC_DP_LOGS_BUCKET` — бакет для логов, например `pyspark-bucket`.
 
    {% endcut %}
 

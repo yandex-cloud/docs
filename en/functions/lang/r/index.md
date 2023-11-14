@@ -1,6 +1,6 @@
 ---
 title: "Developing in R in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }}, you can run applications written in R. The service provides the runtime environment with R-4.0.5 and Ubuntu 18.04 LTS."
+description: "With {{ sf-name }}, you can run applications written in R. The service provides the runtime environment with R 4.0.5 and Ubuntu 18.04."
 ---
 
 # Developing in R. Overview
@@ -9,11 +9,12 @@ With {{ sf-name }}, you can run applications written in [R](https://www.r-projec
 
 | Name | Version of R | Operating <br>system | Preloaded |
 |----|----|----|----|
-| r402 | 4.0.2 | Ubuntu 18.04 LTS | No |
-| r40 | 4.0.5 | Ubuntu 18.04 LTS | No |
-| r42 | 4.2.2 | Ubuntu 18.04 LTS | No |
+| r402 | 4.0.2 | Ubuntu 18.04 | No |
+| r40 | 4.0.5 | Ubuntu 18.04 | No |
+| r42 | 4.2.2 | Ubuntu 18.04 | No |
+| r43 | 4.3.1 | Ubuntu 22.04 LTS | No |
 
-When creating a new [function version](../../concepts/function.md#version) the [builder](../../concepts/builder.md) may automatically install dependencies required for the function to run. For more information about the requirements and restrictions, see [{#T}](dependencies.md).
+When creating a new [function version](../../concepts/function.md#version), the [builder](../../concepts/builder.md) may automatically install dependencies required for the function to run. For more information about the requirements and restrictions, see [{#T}](dependencies.md).
 
 The runtime environment automatically loads your code and invokes the [request handler](handler.md) you specified. It receives an incoming request and the [invocation context](context.md) as arguments. The context contains additional information about the function parameters.
 

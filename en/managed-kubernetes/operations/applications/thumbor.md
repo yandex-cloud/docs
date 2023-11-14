@@ -1,6 +1,6 @@
 # Installing Thumbor
 
-[Thumbor](https://thumbor.readthedocs.io) is an [open-source](https://github.com/thumbor/thumbor) project for on-demand image processing. Thumbor runs as an HTTP service and performs transformations, such as image cropping and resizing, [applying filters,](https://thumbor.readthedocs.io/en/latest/filters.html#available-filters) and [many others](https://thumbor.readthedocs.io/en/latest/imaging.html).
+[Thumbor](https://thumbor.readthedocs.io/en/latest/) is an [open-source](https://github.com/thumbor/thumbor) project for on-demand image processing. Thumbor runs as an HTTP service and performs transformations, such as image cropping and resizing, [applying filters](https://thumbor.readthedocs.io/en/latest/filters.html#available-filters) and [many others](https://thumbor.readthedocs.io/en/latest/imaging.html).
 
 Thumbor features:
 * Support for all popular image formats.
@@ -32,7 +32,7 @@ Thumbor features:
 1. Under **Applications available for installation**, select [Thumbor](/marketplace/products/yc/thumbor) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select or create a [namespace](../../concepts/index.md#namespace) for Thumbor.
-   * **Application name**: Enter an application name.
+   * **Application name**: Enter a name for the application.
    * **Bucket name**: Specify the [name of the bucket](#before-you-begin) you created earlier.
    * **{{ objstorage-name }} static access key**: Paste the contents of the `sa-key.json` file.
    * (Optional) **Security key**: Specify the security key for URL signing.
@@ -121,6 +121,10 @@ Before using the application, make sure that the proper [rules for connecting to
 {% endlist %}
 
 Learn more about working with images, in the [Thumbor documentation](https://thumbor.readthedocs.io/en/latest/imaging.html).
+
+## What's next {#what-is-next}
+
+Learn how to use Thumbor for editing images on your website. The [Thumbor use case](../../tutorials/marketplace/thumbor.md) described in the documentation involves configuring [{{ cdn-full-name }}](../../../cdn/concepts/index.md). The service allows to achieve faster loading of website images.
 
 ## See also {#see-also}
 

@@ -28,7 +28,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
       {% note info %}
 
-      If you do not have a certificate in {{ certificate-manager-full-name }}, click **Go to {{ certificate-manager-name }}** and follow the [instructions](../../../certificate-manager/quickstart/index.md) to create your first certificate.
+      If you do not have a certificate in {{ certificate-manager-full-name }}, click **Go to {{ certificate-manager-name }}** and follow the [guide](../../../certificate-manager/quickstart/index.md) on how to create your first certificate.
 
       {% endnote %}
 
@@ -147,16 +147,22 @@ To upload a certificate:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
-   1. Select **{{ objstorage-name }}**.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click the name of the bucket you need.
-   1. Go to the **HTTPS** tab.
-   1. In the panel that opens on the right, click **Configure**.
-   1. In the **Source** field, select **Your certificate**.
+   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
+   1. In the right-hand panel that opens, click **{{ ui-key.yacloud.storage.bucket.https.button_action-configure }}**.
+   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select `{{ ui-key.yacloud.storage.bucket.https.value_method-custom }}`.
    1. Add the certificate and secret key.
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
 
 - API
 
    To upload your own security certificate, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/bucket_service.md#SetHTTPSConfig) gRPC API call.
 
 {% endlist %}
+
+{% note info %}
+
+{% include [public-link](../../../_includes/storage/public-link.md) %}
+
+{% endnote %}

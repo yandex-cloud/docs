@@ -24,8 +24,4 @@ To create a non-scheduled VM backup:
 
   The VM backup creation will start.
 
-- API
-
-  Use the [startRecovery](../../backup/api-ref/Backup/startRecovery.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/StartRecovery](../../backup/api-ref/grpc/backup_service.md#StartRecovery) gRPC API call.
-
 {% endlist %}

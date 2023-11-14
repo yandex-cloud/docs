@@ -30,7 +30,7 @@ To view the ACL structure description, see [ACL XML schema](../s3/api-ref/acl/xm
 
 {% note info %}
 
-ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets, well as access permissions updated in the {{ iam-short-name }} service, apply with delay. For more information about delays, see the [{{ iam-short-name }} documentation](../../iam/concepts/access-control/index.md).
+ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets, as well as access permissions updated in the {{ iam-short-name }} service, apply with delay. For more information about delays, see the [{{ iam-short-name }} documentation](../../iam/concepts/access-control/index.md).
 
 {% endnote %}
 
@@ -43,7 +43,7 @@ ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets, we
   * Using the [{{ iam-short-name }} CLI or API](../../iam/operations/users/get.md).
 * [Service account](../../iam/concepts/users/service-accounts):
 
-   To get the ID, go to the **Service accounts** section in the management console.
+   To get the ID, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** section in the management console.
 
 * [System groups](#system-groups):
 

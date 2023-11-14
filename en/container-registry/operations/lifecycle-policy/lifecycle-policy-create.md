@@ -44,12 +44,12 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
      ```
 
      Where:
-     * `repository-name`: Repository name
-     * `rules`: Path to the file with the policy description
-     * `description`: Description of the lifecycle policy (optional)
-     * `name`: Policy name (optional). The requirements are as follows:
+     * `repository-name`: Repository name.
+     * `rules`: Path to the file with the policy description.
+     * `description`: Description of the lifecycle policy (optional).
+     * `name`: Policy name (optional). The naming requirements are as follows:
 
-       {% include [name-format](../../../_includes/name-format.md) %}
+        {% include [name-format](../../../_includes/name-format.md) %}
 
      {% note info %}
 
@@ -137,7 +137,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 
 - API
 
-  To create a lifecycle policy, use the [Create](../../api-ref/grpc/lifecycle_policy_service.md#Create) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
+   To create a lifecycle policy, use the [Create](../../api-ref/grpc/lifecycle_policy_service.md#Create) method for the [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md) resource.
 
 {% endlist %}
 

@@ -122,7 +122,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -146,7 +146,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -221,7 +221,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -231,7 +231,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       import boto3
 
       def update_serie(title, series_id, release_date, rating):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API эндпоинт>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_эндпоинт>")
 
           table = ydb_docapi_client.Table('Series')
 
@@ -298,7 +298,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -313,7 +313,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API эндпоинт>',
+          'endpoint' => '<Document_API_эндпоинт>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -406,7 +406,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -417,7 +417,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
           region: "{{ region-id }}",
-          endpoint: "<Document API эндпоинт>",
+          endpoint: "<Document_API_эндпоинт>",
       });
 
       const table = "Series";
@@ -484,7 +484,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -514,7 +514,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
         series_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API эндпоинт>',
+          endpoint: '<Document_API_эндпоинт>',
           region: region
         )
 
@@ -687,7 +687,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -709,7 +709,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -780,7 +780,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -790,7 +790,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       import boto3
 
       def increase_rating(title, series_id, rating_increase):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API эндпоинт>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_эндпоинт>")
 
           table = ydb_docapi_client.Table('Series')
 
@@ -853,7 +853,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -868,7 +868,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API эндпоинт>',
+          'endpoint' => '<Document_API_эндпоинт>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -956,7 +956,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -965,7 +965,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       AWS.config.update({
         region: "{{ region-id }}",
-        endpoint: "<Document API эндпоинт>"
+        endpoint: "<Document_API_эндпоинт>"
       });
 
       var docClient = new AWS.DynamoDB.DocumentClient()
@@ -1034,7 +1034,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -1064,7 +1064,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
         series_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API эндпоинт>',
+          endpoint: '<Document_API_эндпоинт>',
           region: region
         )
 
@@ -1232,7 +1232,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -1255,7 +1255,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -1352,7 +1352,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -1362,7 +1362,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       from botocore.exceptions import ClientError
 
       def add_recommend(title, series_id, rating_val):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API эндпоинт>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_эндпоинт>")
 
           table = ydb_docapi_client.Table('Series')
           rec = "Recommended for viewing"
@@ -1456,7 +1456,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -1471,7 +1471,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API эндпоинт>',
+          'endpoint' => '<Document_API_эндпоинт>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -1583,7 +1583,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -1592,7 +1592,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       AWS.config.update({
         region: "{{ region-id }}",
-        endpoint: "<Document API эндпоинт>"
+        endpoint: "<Document_API_эндпоинт>"
       });
 
       var docClient = new AWS.DynamoDB.DocumentClient()
@@ -1688,7 +1688,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -1718,7 +1718,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
         series_id = 3
 
         Aws.config.update(
-          endpoint: '<Document API эндпоинт>',
+          endpoint: '<Document_API_эндпоинт>',
           region: region
         )
 

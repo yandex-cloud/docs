@@ -1,16 +1,17 @@
 ---
 title: "Developing in CSharp in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }, you can run applications written in C# (CSharp) for .NET Core. The service provides the .NET Core 3.1.417 runtime environment with C# 8.0 and Ubuntu 18.04 LTS."
+description: "With {{ sf-name }, you can run applications written in C# (CSharp) for .NET Core. The service provides the .NET Core 3.1.417 runtime environment with C# 8.0 and Ubuntu 18.04."
 ---
 
 # Developing in C#. Overview
 
 With {{ sf-name }}, you can run applications written in [C#]({{ ms.docs }}/dotnet/csharp/) for [.NET Core]({{ ms.docs }}/dotnet/core/about) platform. The service provides several [runtime environments](../../concepts/runtime/index.md) with different versions:
 
-| Name | .NET Core version | С# version | Operating <br>system | Preloaded |
+| Name | .NET Core version | C# version | Operating <br>system | Preloaded |
 |----|----|----|----|----|
-| dotnetcore31 | 3.1.417 | 8.0 | Ubuntu 18.04 LTS | No |
-| dotnetcore6 | 6.0.400 | 8.0 | Ubuntu 18.04 LTS | No |
+| dotnetcore31 | 3.1.417 | 8.0 | Ubuntu 18.04 | No |
+| dotnet6 | 6.0.400 | 8.0 | Ubuntu 18.04 | No |
+| dotnet8 | 8.0.100-rc.2 | 12.0 | Ubuntu 22.04 LTS | No |
 
 
 You can connect the [SDK library](https://github.com/yandex-cloud/dotnet-sdk) to the runtime to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
