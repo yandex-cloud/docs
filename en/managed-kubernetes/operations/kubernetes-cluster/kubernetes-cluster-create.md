@@ -245,7 +245,7 @@ To create a {{ managed-k8s-name }} cluster:
     * New network: `mynet`.
     * New subnet: `mysubnet`; [availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`. The `mysubnet` subnet has the `10.1.0.0/16` range.
     * New service account: `myaccount` with the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.viewer` role permissions.
-    * [{{ kms-full-name }} encryption key](../../concepts/encryption.md): `kms-key` .
+    * [{{ kms-full-name }} encryption key](../../concepts/encryption.md): `kms-key`.
     * In the new `k8s-public-services` [security group](../../../vpc/concepts/security-groups.md) allowing [connections to services from the internet](../connect/security-groups.md#rules-nodes).
 
     To do this, install {{ TF }} (unless you have it already), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:

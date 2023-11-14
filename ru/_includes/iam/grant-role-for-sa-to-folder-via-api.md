@@ -6,7 +6,7 @@
 1. Получите список сервисных аккаунтов в каталоге, чтобы узнать их идентификаторы:
 
     ```bash
-    export FOLDER_ID=b1gvmob95yysaplct...
+    export FOLDER_ID=b1gvmob95yys********
     export IAM_TOKEN=CggaATEVAgA...
     curl -H "Authorization: Bearer ${IAM_TOKEN}" \
       "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
@@ -19,8 +19,8 @@
     {
      "serviceAccounts": [
       {
-       "id": "ajebqtreob2dpblin...",
-       "folderId": "b1gvmob95yysaplct...",
+       "id": "ajebqtreob2d********",
+       "folderId": "b1gvmob95yys********",
        "createdAt": "2018-10-18T13:42:40Z",
        "name": "my-robot",
        "description": "my description"
@@ -39,7 +39,7 @@
         "accessBinding": {
           "roleId": "editor",
           "subject": {
-            "id": "ajebqtreob2dpblin...",
+            "id": "ajebqtreob2d********",
             "type": "serviceAccount"
           }
         }

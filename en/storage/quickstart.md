@@ -16,15 +16,15 @@ In this section, you will learn how to:
 ## Getting started {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and sign in to {{ yandex-cloud }} or create an account if you do not have one yet.
-1. On the [**Billing**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher. The role must be assigned to the folder you will be working with or the cloud the folder belongs to.
+1. On the [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher. The role must be assigned to the folder you will be working with or the cloud the folder belongs to.
 
 ## Creating the first bucket {#the-first-bucket}
 
 To create your first bucket in {{ objstorage-name }}:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-1. Click **Create resource** and select **Bucket**.
+1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
 1. Enter the name of the bucket.
 
    The bucket name must be unique across {{ objstorage-name }}. It is used as part of the data access URL and is visible to your data users.
@@ -37,16 +37,16 @@ To create your first bucket in {{ objstorage-name }}:
    * _Standard storage_ is designed for storing frequently used objects.
    * _Cold storage_ is designed for long-term storage of objects that are rarely read.
    * _Ice storage_ is designed for storing objects that are very rarely read for one year and longer.
-1. Click **Create bucket** to complete the operation.
+1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}** to complete the operation.
 
 ## Uploading files to a bucket {#upload-files}
 
 To upload an object to a bucket:
 
 1. In the [management console]({{ link-console-main }}), select the folder.
-1. Select **{{ objstorage-short-name }}**.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Click the name of the bucket you need.
-1. To upload files to the bucket, drag them to the bucket screen or click **Upload**.
+1. To upload files to the bucket, drag them to the bucket screen or click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
 
 ## Getting a file download link {#get-link}
 

@@ -42,7 +42,7 @@ Each [tool](../tools/index.md) manages objects and directories according to its 
 
 {% note info %}
 
-Deleting folders with objects is an asynchronous operation. Once it starts, {{ objstorage-name }} prepares a list of objects and then deletes them. If during the process you upload an object to {{ objstorage-name }} to a directory marked for deletion, the object will upload successfully. After both operations in {{objstorage-name}} are complete, the directory marked for deletion will remain and contain the newly uploaded file.
+Deleting folders with objects is an asynchronous operation. Once it starts, {{ objstorage-name }} prepares a list of objects to delete, and then deletes them. If during the process you upload an object to {{ objstorage-name }} to a directory marked for deletion, the object will upload successfully. After both operations in {{ objstorage-name }} are complete, the directory marked for deletion will remain and contain the newly uploaded file.
 
 {% endnote %}
 
@@ -50,11 +50,11 @@ Deleting folders with objects is an asynchronous operation. Once it starts, {{ o
 
 You can specify a link to a bucket object in one of the following formats:
 - For a bucket with public access:
-  - `https://<bucket>.{{ s3-storage-host }}/<key>`
+  - `http(s)://<bucket>.{{ s3-storage-host }}/<key>`
   - `https://{{ s3-storage-host }}/<bucket>/<key>`
 - For a bucket with restricted access:
+  - `http(s)://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
   - `https://{{ s3-storage-host }}/<bucket>/<key>?<parameters>`
-  - `https://<bucket>.{{ s3-storage-host }}/<key>?<parameters>`
 
 Where:
 
@@ -62,7 +62,9 @@ Where:
 * `key`: [Key](#key) (file path).
 * `parameters`: Additional parameters for accessing a bucket with restricted access, e.g., a signature and validity period.
 
-For buckets with restricted access, {{ objstorage-name }} generates pre-signed URLs, which allows you to temporarily download an object even from a bucket with restricted access. You can read more about pre-signed URLs, their generation, and their use [here](pre-signed-urls.md).
+{% include [public-link](../../_includes/storage/public-link.md) %}
+
+For buckets with restricted access, the service generates temporary pre-signed URLs that allow you to download an object even from a bucket with restricted access. You can read more about pre-signed URLs, their generation, and their use [here](pre-signed-urls.md).
 
 {% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 
@@ -92,7 +94,7 @@ System metadata is defined by {{ objstorage-name }}.
 
 When uploading an object to {{ objstorage-name }}, you can provide its metadata as `name-value` pairs.
 
-In an Amazon S3-compatible HTTP API, metadata is provided as HTTP headers. The header name must start with `X-Amz-Meta-`. When an object is requested via HTTP API, Yandex Object Storage returns metadata as HTTP headers with the same prefix.
+In an Amazon S3-compatible HTTP API, metadata is provided as HTTP headers. The header name must start with `X-Amz-Meta-`. When an object is requested via HTTP API, {{ objstorage-name }} returns metadata as HTTP headers with the same prefix.
 
 Metadata names must consist of [ASCII characters](https://{{ lang }}.wikipedia.org/wiki/ASCII) only. The headers being provided are transformed as follows: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`, where `Foo-Bar_baz` is the name of the metadata to store with the object.
 

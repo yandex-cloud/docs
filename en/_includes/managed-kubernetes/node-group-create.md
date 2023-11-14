@@ -49,6 +49,8 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
        {% include [nrd-no-backup-note](nrd-no-backup-note.md) %}
 
+     * **SSD IO**: Network drive with the same performance characteristics as **non-replicated SSD**, plus redundancy. You can only change the size of this type of disk in 93 GB increments.
+
    * Specify the {{ managed-k8s-name }} node disk size.
 1. Under **Network settings**:
    * In the **Public IP** field, choose a method for assigning an IP address:

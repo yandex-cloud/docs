@@ -21,7 +21,7 @@ To get started with {{ managed-k8s-name }}:
 1. Make sure you have enough [resources available in the cloud](concepts/limits.md).
 1. If you do not have a [network](../vpc/concepts/network.md#network) yet, [create one](../vpc/operations/network-create.md).
 1. If you do not have any [subnets](../vpc/concepts/network.md#subnet), [create them](../vpc/operations/subnet-create.md) in the [availability zones](../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
-1. Create [service accounts](../iam/operations/sa/create.md):
+1. Create the following [service accounts](../iam/operations/sa/create.md):
    * With the [{{ roles-editor }}](../iam/concepts/access-control/roles.md#editor) role to the folder where a {{ managed-k8s-name }} cluster is being created. This service account will be used to create resources that the {{ managed-k8s-name }} cluster requires.
    * With the [{{ roles-cr-puller }}](../iam/concepts/access-control/roles.md#cr-images-puller) role for the folder containing a [Docker image](../container-registry/concepts/docker-image.md) [registry](../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
@@ -112,11 +112,13 @@ To create a {{ managed-k8s-name }} node group:
    * Specify the required number of vCPUs, [guaranteed vCPU performance](../compute/concepts/performance-levels.md), and the amount of RAM.
    * (Optional) Specify that you want the VM to be [preemptible](../compute/concepts/preemptible-vm.md).
    * (Optional) Enable a [software-accelerated network](../compute/concepts/software-accelerated-network.md).
+   
 1. Under **Storage**:
    * Specify the **Disk type** for the {{ managed-k8s-name }} group nodes:
      * **HDD**: Standard network drive; network block storage on an HDD.
      * **SSD**: Fast network drive; network block storage on an SSD.
-     * **Non-replicated SSD**: Network drive with enhanced performance achieved by removing redundancy.
+     * **Non-replicated SSD**: Network drive with enhanced performance achieved by removing redundancy. You can only change the size of this type of disk in 93 GB increments.
+     * **SSD IO**: Network drive with the same performance characteristics as **non-replicated SSD**, plus redundancy. You can only change the size of this type of disk in 93 GB increments.
 
      For more information about disk types, see the [{{ compute-full-name }} documentation](../compute/concepts/disk.md#disks_types).
    * Specify the disk size for the {{ managed-k8s-name }} group nodes.
@@ -131,7 +133,7 @@ To create a {{ managed-k8s-name }} node group:
    * **SSH key**: Insert the contents of the [public key](operations/node-connect-ssh.md#creating-ssh-keys) file.
 1. Click **Create**.
 
-For more information, see the [step-by step guide for creating {{ managed-k8s-name }} node groups](operations/node-group/node-group-create.md).
+For more information, see the [step-by-step guide for creating {{ managed-k8s-name }} node groups](operations/node-group/node-group-create.md).
 
 ## What's next {#what-is-next}
 

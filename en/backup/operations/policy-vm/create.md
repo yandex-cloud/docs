@@ -43,7 +43,7 @@ description: "In this tutorial, you will learn how to create a backup policy in 
 
       The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) VM backups every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
-      See [Full backup policy specification](../../concepts/policy.md#specification).
+      For more information, refer to [Full backup policy specification](../../concepts/policy.md#specification).
 
    1. Create a backup policy:
 

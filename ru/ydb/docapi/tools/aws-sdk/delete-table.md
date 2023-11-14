@@ -116,7 +116,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -134,7 +134,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document_API_эндпоинт>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -190,7 +190,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -198,7 +198,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
       import boto3
 
       def delete_serie_table():
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API эндпоинт>")
+          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document_API_эндпоинт>")
 
           table = ydb_docapi_client.Table('Series')
           table.delete()
@@ -232,7 +232,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -246,7 +246,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
       use Aws\DynamoDb\Exception\DynamoDbException;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API эндпоинт>',
+          'endpoint' => '<Document_API_эндпоинт>',
           'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
@@ -293,7 +293,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -303,7 +303,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
           region: "{{ region-id }}",
-          endpoint: "<Document API эндпоинт>",
+          endpoint: "<Document_API_эндпоинт>",
       });
 
       dynamodb.send(new AWS.DeleteTableCommand({
@@ -369,7 +369,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
 
       {% note warning %}
 
-      Вместо `<Document API эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
+      Вместо `<Document_API_эндпоинт>` укажите [подготовленное ранее](index.md#before-you-begin) значение.
 
       {% endnote %}
 
@@ -389,7 +389,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
         table_name = 'Series'
 
         Aws.config.update(
-          endpoint: '<Document API эндпоинт>',
+          endpoint: '<Document_API_эндпоинт>',
           region: region
         )
 

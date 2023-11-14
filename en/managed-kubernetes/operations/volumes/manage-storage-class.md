@@ -4,27 +4,24 @@ _Storage class_ (`StorageClass`) allows administrators to divide the stores they
 
 {% note alert %}
 
-The storage usage depends on its [disk](../../../compute/concepts/disk.md) type. See the [{{ compute-full-name }} disk prices](../../../compute/concepts/disk.md#disks_types) prior to creating a storage.
+The storage usage cost depends on its [disk](../../../compute/concepts/disk.md) type. See the [{{ compute-full-name }} disk prices](../../../compute/concepts/disk.md#disks_types) prior to creating a storage.
 
 {% endnote %}
 
 
-{{ managed-k8s-name }} has the following storage classes available:
+{{ managed-k8s-name }} has the following storage classes available that differ by the [disk type](../../../compute/concepts/disk.md#disks_types):
 * `yc-network-hdd` (default): Network HDD storage (`network-hdd`).
 * `yc-network-ssd`: Network SSD storage (`network-ssd`).
 * `yc-network-ssd-nonreplicated`: Improved-performance non-replicated SSD storage (`network-ssd-nonreplicated`).
+* `yc-network-ssd-io-m3`: Improved-performance network SSD storage (`network-ssd-io-m3`).
 
 {% include [nrd-no-backup-note](../../../_includes/managed-kubernetes/nrd-no-backup-note.md) %}
 
-All storage is created with the following parameters:
+Each storage is created with the following parameters:
 * [Volume Binding Mode](https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode): `WaitForFirstConsumer`.
 * [Reclaim Policy](https://kubernetes.io/docs/concepts/storage/storage-classes/#reclaim-policy): `Delete`.
 
-These classes only let you use `PersistentVolumeClaim` and `PersistentVolume` in `ReadWriteOnce` [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
-
-Classes differ based on the [type of disk created](../../../compute/concepts/disk.md#disks_types):
-* `yc-network-hdd` uses a standard network drive (`network-hdd`).
-* `yc-network-ssd` uses a fast network drive (`network-ssd`).
+These classes allow you to use `PersistentVolumeClaim` and `PersistentVolume` only in `ReadWriteOnce` [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
 
 You can [create your own storage class](#sc-create) as well as [change the default storage class](#sc-default).
 
@@ -119,15 +116,15 @@ reclaimPolicy: <reclaim_policy>
 
 Acceptable parameter values include:
 * `parameters`:
-  * `type`: `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`.
-  * `csi.storage.k8s.io/fstype`: `ext2`, `ext3` or `ext4`.
+  * `type`: `network-hdd`, `network-ssd`, `network-ssd-nonreplicated`, or `network-ssd-io-m3`.
+  * `csi.storage.k8s.io/fstype`: `ext2`, `ext3`, or `ext4`.
 * `reclaimPolicy`: `Retain` or `Delete`.
 * `allowVolumeExpansion`: `true` or `false`.
 
 
 ## Change the default storage class {#sc-default}
 
-1. Look up which storage class is assigned by default. `default` is shown next to its name in parentheses.
+1. Check which storage class is assigned by default. `default` is shown next to its name in parentheses.
 
    ```bash
    kubectl get storageclass
@@ -164,7 +161,7 @@ Acceptable parameter values include:
    yc-network-ssd  disk-csi-driver.mks.ycloud.io  17m
    ```
 
-1. Specify a new default storage class, such as `my-sc-hdd`:
+1. Specify a new default storage class, e.g., `my-sc-hdd`:
 
    ```bash
    kubectl patch storageclass my-sc-hdd \

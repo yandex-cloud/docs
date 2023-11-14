@@ -11,7 +11,7 @@ description: "This guide describes how you can delete a stream in the AWS SDK."
 
   To delete a [stream](../../concepts/glossary.md#stream-concepts), use the `delete_stream` method. When you invoke this method, you should specify the following parameters:
   * Name of the stream to delete, e.g., `example-stream`.
-  * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) to delete the stream from, such as `b1gi1kuj2dht********`.
+  * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) in which to delete a stream, e.g., `b1gi1kuj2dht********`.
   * {{ ydb-short-name }} database ID with the stream, e.g., `cc8028jgtuab********`.
 
   You also need to [configure](prepare.md) the AWS SDK and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `yds.editor` role.
@@ -30,8 +30,8 @@ description: "This guide describes how you can delete a stream in the AWS SDK."
          StreamName="/{{ region-id }}/{cloud}/{database}/{stream}".format(cloud=cloud,
                                                                        database=database,
                                                                        stream=stream_name)
-         )
-         return response
+       )
+       return response
 
      if __name__ == '__main__':
        delete_stream_response = delete_stream(

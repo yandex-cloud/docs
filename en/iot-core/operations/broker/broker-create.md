@@ -41,7 +41,7 @@ description: "Follow this guide to create a broker."
       * To add text:
 
          1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-         1. Paste the public key of the certificate into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Paste the public key of the certificate to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -78,7 +78,7 @@ description: "Follow this guide to create a broker."
       yc iot broker password add --broker-name <broker name>
       ```
 
-      You will be prompted to enter a password. The requirements are as follows:
+      You will be prompted to enter a password. Password requirements:
 
       * The password must contain numbers, upper-case and lower-case letters, and special characters.
       * It must be at least 14 characters long.
@@ -169,7 +169,7 @@ description: "Follow this guide to create a broker."
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

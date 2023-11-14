@@ -2,7 +2,7 @@
 
 Если вы хотите создавать резервные копии [ВМ](../../compute/concepts/vm.md) [{{ compute-full-name }}](../../compute/) в сервисе {{ backup-name }}, ее нужно подключить к сервису и корректно настроить.
 
-Чтобы ВМ можно было подключить к {{ backup-name }}, на ней должна быть установлена одна из [поддерживаемых операционных систем](#os): Linux (CentOS, Ubuntu) или Windows Server. Вы можете подключить существующие ВМ на Linux и Windows Server, а также создать ВМ Linux с подключением к {{ backup-name }}. Подробнее о подключении см. в [инструкциях](../operations/index.md#connect-vm).
+Чтобы ВМ можно было подключить к {{ backup-name }}, на ней должна быть установлена одна из [поддерживаемых операционных систем](#os). Подробнее о подключении см. в [инструкциях](../operations/index.md#connect-vm).
 
 Чтобы подключение работало корректно, к ВМ нужно привязать [сервисный аккаунт](#sa) с ролью `backup.editor` и настроить для ВМ [сетевой доступ](#vm-network-access).
 
@@ -10,12 +10,43 @@
 
 ## Поддерживаемые операционные системы {#os}
 
-{{ backup-name }} поддерживает резервное копирование ВМ со следующими операционными системами:
-* Ubuntu версии 20.04 и ниже.
-* CentOS 7.
-* Windows Server 2019 и 2022.
+Агент {{ backup-name }} доступен для автоматической установки при создании ВМ из образов {{ marketplace-full-name }}:
+
+### Образы на базе Linux {#linux}
+
+* [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+* [Ubuntu 18.04 LTS](/marketplace/products/yc/ubuntu-18-04-lts).
+* [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-26-04-lts).
+* [CentOS 7](/marketplace/products/yc/centos-7).
+
+### Образы на базе Windows {#windows}
+
+* [Kosmos VM 2022 на базе Windows Server Datacenter 2022](/marketplace/products/fotonsrv/kosmosvm2022).
+* [Kosmos VM 2019 на базе Windows Server Datacenter 2019](/marketplace/products/fotonsrv/kosmosvm2019).
+* [Kosmos VM 2016 на базе Windows Server Datacenter 2016](/marketplace/products/fotonsrv/kosmosvm2016).
+* [Kosmos VM RDS (5 лицензий)](/marketplace/products/fotonsrv/kos-5-rds).
+* [Kosmos VM RDS (10 лицензий)](/marketplace/products/fotonsrv/kos-10-rds).
+* [Kosmos VM RDS (50 лицензий)](/marketplace/products/fotonsrv/kos-50-rds).
+* [Kosmos BD WEB 2019](/marketplace/products/fotonsrv/kosmosbdweb2019).
+* [Kosmos BD Standard 2019](/marketplace/products/fotonsrv/kosmosbdstd2019).
+* [Kosmos VM Visio Pro 2021](/marketplace/products/fotonsrv/kosmosvisio).
+
+{% note info %}
 
 Ubuntu или CentOS должна быть установлена из публичного образа (продукта {{ marketplace-full-name }}). При создании ВМ можно выбрать ОС напрямую либо использовать [образ](../../compute/concepts/image.md) или [снимок диска](../../compute/concepts/snapshot.md) с другой ВМ, если ОС на нее тоже устанавливалась из публичного образа.
+
+{% endnote %}
+
+### Самостоятельная установка {#self-install}
+
+Вы можете установить агента {{ backup-name }} самостоятельно:
+
+* [Инструкция для Linux](../operations/connect-vm-linux.md).
+* [Инструкция для Windows](../operations/connect-vm-windows.md).
+
+С полным списком поддерживаемых ОС можно ознакомиться в [документации провайдера резервного копирования](https://cyberprotect.ru/ru-RU/support/documentation/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html?TocPath=%25D0%25A2%25D1%2580%25D0%25B5%25D0%25B1%25D0%25BE%25D0%25B2%25D0%25B0%25D0%25BD%25D0%25B8%25D1%258F%2520%25D0%25BA%2520%25D0%25BF%25D1%2580%25D0%25BE%25D0%25B3%25D1%2580%25D0%25B0%25D0%25BC%25D0%25BC%25D0%25BD%25D0%25BE%25D0%25BC%25D1%2583%2520%25D0%25BE%25D0%25B1%25D0%25B5%25D1%2581%25D0%25BF%25D0%25B5%25D1%2587%25D0%25B5%25D0%25BD%25D0%25B8%25D1%258E%257C_____2).
+
+При возникновении проблем с установкой агента, [обратитесь]({{ link-console-support }}) в техническую поддержку.
 
 Позже в {{ backup-name }} будет поддержана Ubuntu 22.04.
 

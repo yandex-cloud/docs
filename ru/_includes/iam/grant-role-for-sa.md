@@ -30,7 +30,7 @@
   Чтобы назначить сервисному аккаунту роль на облако или каталог, выполните команду:
 
   ```bash
-  yc resource-manager <категория_ресурса> add-access-binding <имя ресурса>|<идентификатор ресурса> \
+  yc resource-manager <категория_ресурса> add-access-binding <имя_или_идентификатор_ресурса> \
     --role <идентификатор_роли> \
     --subject serviceAccount:<идентификатор_сервисного_аккаунта>
   ```
@@ -38,9 +38,9 @@
   Где:
 
   * `<категория_ресурса>` — `cloud`, чтобы назначить роль на облако, или `folder`, чтобы назначить роль на каталог.
-  * `<имя ресурса>|<идентификатор ресурса>` — имя или идентификатор ресурса, на который назначется роль.
-  * `<идентификатор_роли>` — например `{{ roles-viewer }}`.
-  * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта, которому назначается роль.
+  * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который назначется роль.
+  * `--role` — например `{{ roles-viewer }}`.
+  * `--subject serviceAccount` — идентификатор сервисного аккаунта, которому назначается роль.
 
   Например, чтобы назначить сервисному аккаунту роль `{{ roles-viewer }}` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) `my-folder`:
 
@@ -97,7 +97,7 @@
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
-     yc resource-manager folder list-access-bindings <имя каталога>|<идентификатор_каталога>
+     yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
      ```
 
 {% endlist %}
@@ -139,16 +139,15 @@
   Чтобы назначить сервисному аккаунту роль на организацию, выполните команду:
 
   ```bash
-  yc organization-manager organization add-access-binding <техническое_название_организации>|<идентификатор_организации> \
+  yc organization-manager organization add-access-binding <имя_или_идентификатор_организации> \
     --role <идентификатор_роли> \
     --subject serviceAccount:<идентификатор_сервисного_аккаунта>
   ```
 
   Где:
-  * `<техническое_название_организации>` — техническое название организации.
-  * `<идентификатор_организации>` — идентификатор организации.
-  * `<идентификатор_роли>` — идентификатор роли, например `{{ roles-viewer }}`.
-  * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта, которому назначается роль.
+  * `<имя_или_идентификатор_организации>` — техническое название или идентификатор организации.
+  * `--role` — идентификатор роли, например `{{ roles-viewer }}`.
+  * `--subject serviceAccount` — идентификатор сервисного аккаунта, которому назначается роль.
 
   Например, чтобы назначить сервисному аккаунту роль `{{ roles-viewer }}` на организацию `MyOrg`:
 
@@ -166,7 +165,7 @@
       +---------------------------------+---------------------------------+----------------------+
       |               ID                |              NAME               |        TITLE         |
       +---------------------------------+---------------------------------+----------------------+
-      | bpf1smsil5q0cmlmb...            | hdt5j5uwsw4w3...                | MyOrg                |
+      | bpf1smsil5q0********            | hdt5j5uw********                | MyOrg                |
       +---------------------------------+---------------------------------+----------------------+
       ```
   
@@ -181,8 +180,8 @@
       Результат:
 
       ```bash
-      id: aje6o61dvog2h6g9a...
-      folder_id: b1gvmob95yysaplct...
+      id: aje6o61dvog2********
+      folder_id: b1gvmob95yys********
       created_at: "2018-10-15T18:01:25Z"
       name: my-robot
       ```
@@ -199,16 +198,16 @@
       +----------------------+------------------+-----------------+
       |          ID          |       NAME       |   DESCRIPTION   |
       +----------------------+------------------+-----------------+
-      | aje6o61dvog2h6g9a... | my-robot         | my description  |
+      | aje6o61dvog2******** | my-robot         | my description  |
       +----------------------+------------------+-----------------+
       ```
 
-  1. Назначьте сервисному аккаунту `my-robot` роль `{{ roles-viewer }}` на организацию с идентификатором `bpf1smsil5q0cmlmb...`:
+  1. Назначьте сервисному аккаунту `my-robot` роль `{{ roles-viewer }}` на организацию с идентификатором `bpf1smsil5q0********`:
 
       ```bash
-      yc organization-manager organization add-access-binding bpf1smsil5q0cmlmb... \
+      yc organization-manager organization add-access-binding bpf1smsil5q0******** \
         --role viewer \
-        --subject serviceAccount:aje6o61dvog2h6g9a...
+        --subject serviceAccount:aje6o61dvog2********
       ```
 
 - API
@@ -221,7 +220,7 @@
   1. Получите список сервисных аккаунтов в каталоге, чтобы узнать их идентификаторы:
 
       ```bash
-      export FOLDER_ID=b1gvmob95yysaplct...
+      export FOLDER_ID=b1gvmob95yys********
       export IAM_TOKEN=CggaATEVAgA...
       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
         "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
@@ -234,8 +233,8 @@
       {
        "serviceAccounts": [
         {
-         "id": "ajebqtreob2dpblin...",
-         "folderId": "b1gvmob95yysaplct...",
+         "id": "ajebqtreob2d********",
+         "folderId": "b1gvmob95yys********",
          "createdAt": "2018-10-18T13:42:40Z",
          "name": "my-robot",
          "description": "my description"
@@ -258,7 +257,7 @@
       {
        "organizations": [
         {
-         "id": "bpfaidqca8vdopn05...",
+         "id": "bpfaidqca8vd********",
          "createdAt": "2023-04-07T08:11:54.313033Z",
          "name": "xvdq9q22tcmla...",
          "title": "MyOrg"
@@ -278,7 +277,7 @@
           "accessBinding": {
             "roleId": "viewer",
             "subject": {
-              "id": "ajebqtreob2dpblin...",
+              "id": "ajebqtreob2d********",
               "type": "serviceAccount"
             }
           }
@@ -286,10 +285,10 @@
       }
       ```
 
-  1. Назначьте роль сервисному аккаунту. Например, на организацию с идентификатором `bpfaidqca8vdopn05...`:
+  1. Назначьте роль сервисному аккаунту. Например, на организацию с идентификатором `bpfaidqca8vd********`:
 
       ```bash
-      export ORGANIZATION_ID=bpfaidqca8vdopn05...
+      export ORGANIZATION_ID=bpfaidqca8vd********
       export IAM_TOKEN=CggaATEVAgA...
       curl -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
@@ -346,7 +345,7 @@
      После этого в указанной организации будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
-     yc organization-manager organization list-access-bindings <техническое_название_организации>|<идентификатор_организации>
+     yc organization-manager organization list-access-bindings <имя_или_идентификатор_организации>
      ```
 
 {% endlist %}

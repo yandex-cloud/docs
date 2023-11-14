@@ -53,7 +53,7 @@ Once created, the function will only contain information about itself, like its 
 1. In the [management console]({{ link-console-main }}), select the folder to create your function in.
 1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
-1. Enter a function name. The password requirements are as follows:
+1. Enter a function name. The naming requirements are as follows:
 
    {% include [name-format](../../_includes/name-format.md) %}
 

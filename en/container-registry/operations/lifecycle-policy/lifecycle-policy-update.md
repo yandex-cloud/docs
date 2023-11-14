@@ -187,7 +187,7 @@ Once you create a [lifecycle policy](../../concepts/lifecycle-policy.md), you ca
   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-name new-policy
   ```
 
-  Where `new-name` is the new policy name. The requirements are as follows:
+  Where `new-name` is the new policy name. The naming requirements are as follows:
 
   {% include [name-format](../../../_includes/name-format.md) %}
 

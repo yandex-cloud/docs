@@ -54,14 +54,14 @@
        post:
          x-yc-apigateway-integration:
            type: cloud_functions
-           function_id: <ID функции>
-           service_account_id: <ID сервисного аккаунта>
+           function_id: <идентификатор_функции>
+           service_account_id: <идентификатор_сервисного_аккаунта>
          operationId: slack-challenge
    ```
 
-   Параметры:
-   * `<ID функции>` — идентификатор функции `for-slack-bot-challenge`.
-   * `<ID сервисного аккаунта>` — идентификатор сервисного аккаунта.
+   Где:
+   * `function_id` — идентификатор функции `for-slack-bot-challenge`.
+   * `service_account_id` — идентификатор сервисного аккаунта.
 
 ### Проверьте связь между Slack и {{ yandex-cloud }} {#connect-test}
 
@@ -96,7 +96,7 @@
       ```
 
    1. Нажмите кнопку **{{ ui-key.yacloud.ydb.sql.button_run }}**.
-1. [Добавьте](../../ydb/operations/crud.md#web-sql) в таблицу запись. Например, укажите название сорта кофе и id = 1.
+1. [Добавьте](../../ydb/operations/crud.md#web-sql) в таблицу запись. Например, укажите название сорта кофе и `id` = `1`.
 
 ## Создайте функции {#create-functions}
 
@@ -176,8 +176,8 @@
       * `SLACK_SIGNING_SECRET`.
    1. Добавьте переменные для работы с {{ ydb-name }}:
       * `ENDPOINT` — первая часть значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из раздела **{{ ui-key.yacloud.ydb.overview.label_title }}** в свойствах базы данных `for-slack-bot` (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
-      * `DATABASE` — вторая часть значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из раздела **{{ ui-key.yacloud.ydb.overview.label_title }}** в свойствах базы данных `for-slack-bot` (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
-      * `USE_METADATA_CREDENTIALS` = 1.
+      * `DATABASE` — вторая часть значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из раздела **{{ ui-key.yacloud.ydb.overview.label_title }}** в свойствах базы данных `for-slack-bot` (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
+      * `USE_METADATA_CREDENTIALS` = `1`.
 
 ## Отредактируйте API-шлюз {#create-api-gw}
 
@@ -189,30 +189,30 @@ paths:
     post:
       x-yc-apigateway-integration:
         type: cloud_functions
-        function_id: <ID функции_1>
-        service_account_id: <ID сервисного аккаунта>
+        function_id: <идентификатор_функции_1>
+        service_account_id: <идентификатор_сервисного_аккаунта>
       operationId: slack-challenge
   /hello-from-serverless:
     post:
       x-yc-apigateway-integration:
         type: cloud_functions
-        function_id: <ID функции_2> 
-        service_account_id: <ID сервисного аккаунта>
+        function_id: <идентификатор_функции_2> 
+        service_account_id: <идентификатор_сервисного_аккаунта>
        operationId: hello-from-serverless
   /what-kind-of-coffee:
     post:
       x-yc-apigateway-integration:
         type: cloud_functions
-        function_id: <ID функции_3>
-        service_account_id: <ID сервисного аккаунта>
+        function_id: <идентификатор_функции_3>
+        service_account_id: <идентификатор_сервисного_аккаунта>
       operationId: /what-kind-of-coffee
 ```
 
-Параметры:
-* `<ID сервисного аккаунта>` — идентификатор сервисного аккаунта.
-* `<ID функции_1>` — идентификатор функции `for-slack-bot-small-talk`.
-* `<ID функции_2>` — идентификатор функции `for-slack-bot-hello-from-serverless`.
-* `<ID функции_3>` — идентификатор функции `for-slack-bot-what-kind-of-coffee`.
+Где:
+* `service_account_id` — идентификатор сервисного аккаунта.
+* `<идентификатор_функции_1>` — идентификатор функции `for-slack-bot-small-talk`.
+* `<идентификатор_функции_2>` — идентификатор функции `for-slack-bot-hello-from-serverless`.
+* `<идентификатор_функции_3>` — идентификатор функции `for-slack-bot-what-kind-of-coffee`.
 
 ## Добавьте команды в Slack {#commands}
 
@@ -247,4 +247,4 @@ paths:
 1. Чтобы проверить функцию `for-slack-bot-hello-from-serverless`:
    * Отправьте в чат команду `/hello-from-serverless`. Бот должен ответить: `Thanks!`.
 1. Чтобы проверить функцию `for-slack-bot-what-kind-of-coffee`:
-   * Отправьте в чат команду `/what-kind-of-coffee`. Бот должен ответить: `Today we use <запись из таблицы coffee>`.
+   * Отправьте в чат команду `/what-kind-of-coffee`. Бот должен ответить: `Today we use <запись_из_таблицы_coffee>`.

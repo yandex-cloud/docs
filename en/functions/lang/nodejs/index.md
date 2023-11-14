@@ -12,10 +12,11 @@ The service provides several [runtime environments](../../concepts/runtime/index
 
 | Name | Node.js version | {{ yandex-cloud }}<br>SDK version | Operating <br>system | Preloaded |
 |----|----|----|----|----|
-| nodejs10 | 10.16.3 | 1.3.3 | Ubuntu 18.04 LTS | No |
-| nodejs12 | 12.22.10 | 1.3.3 | Ubuntu 18.04 LTS | No |
-| nodejs14 | 14.19.0 | 1.3.3 | Ubuntu 18.04 LTS | No |
-| nodejs16 | 16.14.1 | None | Ubuntu 18.04 LTS | Yes |
+| nodejs10 | 10.16.3 | 1.3.3 | Ubuntu 18.04 | No |
+| nodejs12 | 12.22.10 | 1.3.3 | Ubuntu 18.04 | No |
+| nodejs14 | 14.19.0 | 1.3.3 | Ubuntu 18.04 | No |
+| nodejs16 | 16.14.1 | None | Ubuntu 18.04 | Yes |
+| nodejs18 | 18.16.1 | None | Ubuntu 22.04 LTS | Yes |
 
 
 {% note info %}

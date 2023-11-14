@@ -12,10 +12,11 @@ The service provides several [runtime environments](../../concepts/runtime/index
 
 | Name | Python version | Operating <br>system | Preloaded |
 |----|----|----|----|
-| python37 | 3.7.13 | Ubuntu 18.04 LTS | No |
-| python38 | 3.8.13 | Ubuntu 18.04 LTS | No |
-| python39 | 3.9.11 | Ubuntu 18.04 LTS | No |
-| python311 | 3.11.0 | Ubuntu 18.04 LTS | Yes |
+| python37 | 3.7.13 | Ubuntu 18.04 | No |
+| python38 | 3.8.13 | Ubuntu 18.04 | No |
+| python39 | 3.9.11 | Ubuntu 18.04 | No |
+| python311 | 3.11.0 | Ubuntu 18.04 | Yes |
+| python312 | 3.12.0 | Ubuntu 22.04 LTS | Yes |
 
 
 {% note info %}

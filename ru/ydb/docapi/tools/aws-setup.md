@@ -119,8 +119,8 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 
     ```bash
     aws configure
-    AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
-    AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    AWS Access Key ID [None]: AKIAIOSFODNN********
+    AWS Secret Access Key [None]: wJalr********/*******/bPxRfiCYEX********
     Default region name [None]: {{ region-id }}
     Default output format [None]:
     ```

@@ -42,6 +42,12 @@ Pre-signed URL parameters:
 
 ## Creating pre-signed URLs {#creating-presigned-url}
 
+{% note info %}
+
+Generating pre-signed URLs is optional for public buckets. You can get files from a publicly available bucket via both HTTP and HTTPS even if the bucket has no [website hosting](hosting.md) configured.
+
+{% endnote %}
+
 To get a pre-signed URL, do the following:
 
 1. Calculate the signature.
@@ -102,7 +108,7 @@ Do not normalize the path. For example, if an object has a `some//strange//key//
 
 The canonical query string must include all query parameters of the destination URL, except `X-Amz-Signature`. The parameters in the string must be URL-encoded and sorted alphabetically.
 
-Example:
+For example:
 
 ```
 X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host
@@ -123,7 +129,7 @@ The requirements are as follows:
 
 You can also add any request header to the list. The more headers you sign, the safer your request is.
 
-Example:
+For example:
 
 ```
 host:{{ s3-storage-host }}
@@ -135,7 +141,7 @@ x-amz-date:20190801T000000Z
 
 This is a list of lowercase request header names, sorted alphabetically and separated by semicolons.
 
-Example:
+For example:
 
 ```
 host;x-amz-date

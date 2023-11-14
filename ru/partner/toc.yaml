@@ -11,6 +11,8 @@ items:
         href: operations/access/check.md
       - name: Предоставить партнеру доступ к облаку клиента
         href: operations/access/grant.md
+      - name: Предоставить доступ к партнерскому аккаунту
+        href: operations/access/partners-account.md
       - name: Посмотреть потребление клиентов
         href: operations/get-client-stat.md
       - name: Приостановить оказание услуг клиенту

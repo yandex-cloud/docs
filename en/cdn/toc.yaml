@@ -55,6 +55,8 @@ items:
         href: tutorials/index.md
       - name: Publishing game updates
         href: tutorials/prefetch.md
+      - name: Editing website images using Thumbor
+        href: tutorials/thumbor.md
       - name: Integrating L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions

@@ -3,3 +3,4 @@
 * [{#T}](enable-org.md)
 * [{#T}](org-profile.md)
 * [{#T}](manage-organizations.md)
+* [{#T}](delete-org.md)
