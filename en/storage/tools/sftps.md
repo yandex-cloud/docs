@@ -63,7 +63,7 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
    ```
 
    Supported variables:
-   * `S3_BUCKET`: Bucket name or path to its folder to mount to the FTP server, in `<bucket name>/<folder path>` format. This is a required variable.
+   * `S3_BUCKET`: Bucket name or path to its folder to mount to the FTP server, in `<bucket name>:<folder path>` format. This is a required variable.
    * `SFTP`: Enables the use of SFTP. By default, it is set to `YES`.
    * `FTP`: Enables the use of FTP. By default, it is set to `NO`.
    * `FTP_USER`: Username for establishing a server connection. By default, it is set to `s3`.
