@@ -28,6 +28,8 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all {{ ma
         * Specify the {{ managed-k8s-name }} node **Disk type**:
           * **HDD**: Standard network drive; network block storage on an HDD.
           * **SSD**: Fast network drive; network block storage on an SSD.
+          * **Non-replicated SSD**: Network drive with enhanced performance achieved by removing redundancy. You can only change the size of this type of disk in 93 GB increments.
+          * **SSD IO**: Network drive with the same performance characteristics as **non-replicated SSD**, plus redundancy. You can only change the size of this type of disk in 93 GB increments.
         * Specify the {{ managed-k8s-name }} node [disk](../../../compute/concepts/disk.md) size.
      1. Under **Network settings**:
         * In the **Public IP** field, choose a method for assigning an IP address:
@@ -43,7 +45,7 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all {{ ma
           * **Anytime**: Maintenance is allowed at any time.
           * **Daily**: Maintenance is performed during the interval specified in the **Time (UTC) and duration** field.
           * **On selected days**: Maintenance is performed during the interval specified in the **Schedule by day** field.
-     1. In the **Additional** section:
+     1. In the **Advanced** section:
         * In the **Node labels** field, click **Add label** and specify the label key and value. Add multiple labels if needed.
      1. Click **Create node group**.
 

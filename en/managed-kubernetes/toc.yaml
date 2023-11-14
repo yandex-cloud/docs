@@ -224,6 +224,8 @@ items:
             href: tutorials/marketplace/kyverno.md
           - name: Using {{ MP }} to stream metrics
             href: tutorials/marketplace/metrics-provider.md
+          - name: Editing website images using Thumbor
+            href: tutorials/marketplace/thumbor.md
   - name: Concepts
     items:
       - name: Resource relationships

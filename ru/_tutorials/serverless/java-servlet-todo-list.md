@@ -105,7 +105,7 @@
      Выполните запрос:
 
      ```bash
-     ydb -e grpcs://<YDB эндпоинт> -d <база данных> \
+     ydb -e grpcs://<YDB_эндпоинт> -d <имя_БД> \
      scripting yql -s \
      "CREATE TABLE Tasks
      (
@@ -140,7 +140,7 @@
   1. В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** укажите аккаунт, созданный при [подготовке окружения](#prepare).
   1. Добавьте переменные окружения:
      * `ENDPOINT` — введите первую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
-     * `DATABASE` — введите вторую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baommfd5leds/g5n22e7ejfr16h9oif9d`.
+     * `DATABASE` — введите вторую часть сохраненного при [создании базы данных {{ ydb-short-name }}](#create-db) значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
   1. Повторите шаги 3-12 и создайте функцию с именем `list-tasks` и точкой входа `yandex.cloud.examples.serverless.todo.ListTasksServlet`.
   1. Повторите шаги 3-12 и создайте функцию с именем `delete-task` и точкой входа `yandex.cloud.examples.serverless.todo.DeleteTaskServlet`.
@@ -175,13 +175,13 @@
        --memory 128m \
        --execution-timeout 5s \
        --source-path ./servlet.zip \
-       --environment DATABASE=<база данных>,ENDPOINT=<YDB эндпоинт>
+       --environment DATABASE=<имя_БД>,ENDPOINT=<YDB_эндпоинт>
      ```
 
      Где:
      * `function-name` — имя функции, версию которой вы хотите создать.
      * `runtime` — среда выполнения.
-     * `entrypoint` — точка входа, указывается в формате \<имя файла с функцией>.\<имя обработчика>.
+     * `entrypoint` — точка входа, указывается в формате \<имя_файла_с_функцией>.\<имя_обработчика>.
      * `memory` — объем RAM.
      * `execution-timeout` — максимальное время выполнения функции до таймаута.
      * `source-path` — ZIP-архив с кодом функции и необходимыми зависимостями.
@@ -241,25 +241,25 @@
              bucket: <бакет>
              object: index.html
              presigned_redirect: false
-             service_account: <сервисный аккаунт>
+             service_account: <сервисный_аккаунт>
            operationId: static
        /add:
           post:
             x-yc-apigateway-integration:
               type: cloud-functions
-              function_id: <идентификатор add-task>
+              function_id: <идентификатор_add-task>
             operationId: addTask
        /list:
          get:
            x-yc-apigateway-integration:
              type: cloud-functions
-             function_id: <идентификатор list-tasks>
+             function_id: <идентификатор_list-tasks>
            operationId: listTasks
        /delete:
          delete:
            x-yc-apigateway-integration:
              type: cloud-functions
-             function_id: <идентификатор delete-task>
+             function_id: <идентификатор_delete-task>
            operationId: deleteTask
        ```
 
@@ -288,25 +288,25 @@
              bucket: <бакет>
              object: index.html
              presigned_redirect: false
-             service_account: <сервисный аккаунт>
+             service_account: <сервисный_аккаунт>
            operationId: static
        /add:
          post:
            x-yc-apigateway-integration:
              type: cloud-functions
-             function_id: <идентификатор add-task>
+             function_id: <идентификатор_add-task>
            operationId: addTask
        /list:
          get:
            x-yc-apigateway-integration:
              type: cloud-functions
-             function_id: <идентификатор list-tasks>
+             function_id: <идентификатор_list-tasks>
            operationId: listTasks
        /delete:
          delete:
            x-yc-apigateway-integration:
              type: cloud-functions
-             function_id: <идентификатор delete-task>
+             function_id: <идентификатор_delete-task>
            operationId: deleteTask
      ```
 

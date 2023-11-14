@@ -111,7 +111,7 @@
   >Результат:
   >
   >```text
-  >User SID: aje6o75au36h5d0yuv2g@as
+  >User SID: aje6o75au36h********@as
   >```
 
 
@@ -154,7 +154,7 @@
       >Результат:
       >
       >```text
-      >User SID: aje6o75au36h5d0yuv2g@as
+      >User SID: aje6o75au36h********@as
       >```
 
 - Авторизованный ключ доступа
@@ -203,7 +203,7 @@
       >Результата:
       >
       >```text
-      >User SID: aje6o75au36h5d0yuv2g@as
+      >User SID: aje6o75au36h********@as
       >```
 
 - Сервис метаданных
@@ -239,7 +239,7 @@
   >Результат:
   >
   >```text
-  >User SID: aje6o75au36h5d0yuv2g@as
+  >User SID: aje6o75au36h********@as
   >```
 
 {% endlist %}

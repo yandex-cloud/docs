@@ -2,7 +2,7 @@
 
 {{ backup-name }} — сервис для создания резервных копий и восстановления ресурсов {{ yandex-cloud }} и данных на них.
 
-{{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../compute/concepts/vm.md) с операционными системами Ubuntu, CentOS и Windows Server. Подробнее см. в разделе [{#T}](concepts/vm-connection.md#os).
+Вы можете создавать резервные копии [виртуальных машин](../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами](concepts/vm-connection.md#os).
 
 Чтобы начать работать с {{ backup-name }}:
 1. [Активируйте сервис](#activate-provider).

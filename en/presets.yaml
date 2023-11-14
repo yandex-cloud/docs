@@ -76,6 +76,7 @@ default:
   cloud-logging-name: Cloud Logging
   cloud-logging-short-name: Cloud Logging
   cloud-logs-name: Cloud Logs
+  cname-example: cl-msa87*****.edgecdn.ru
   coi: Container Optimized Image
   compute-full-name: Yandex Compute Cloud
   compute-guest-agent-bucket: yandexcloud-guestagent-updater
@@ -117,6 +118,7 @@ default:
   dns-name: Cloud DNS
   dns-ns-host-sld: yandexcloud.net
   dns-zone: mdb.yandexcloud.net
+  domain-name-example: cdn.example.com
   ds: Serverlesss
   DS: YDS
   dt-copy-regular: Regular
@@ -141,6 +143,7 @@ default:
   external-ip-examples:
     '0': 84.201.155.117
     '1': 84.252.131.221
+  folder-id-example: b1g86q4m5vej********
   forms-full-name: Yandex Forms
   forms-name: Forms
   GL: GitLab
@@ -7661,12 +7664,14 @@ default:
         endpoint: Endpoint
         execute: Execute
         folder: Folder
+        foundation-models: Foundation models
         general: General settings
         link: Link
         manage-labels: Manage labels
         member:
           remove: Remove
         members: Members
+        models: Models
         more: More
         name: Name
         never: Never
@@ -7674,6 +7679,7 @@ default:
         pin: Pin
         port: Port
         prefix: Prefix
+        projects-resources: Project
         resize: Resize
         resources: Resources
         response: Response
@@ -7687,8 +7693,11 @@ default:
         submit: Confirm
         subnet: Subnet
         timeout: Timeout
+        tuned-foundation-models: Tuned foundation models
+        tuning-model: Tune model
         type: Type
         unpin: Unpin
+        YGPT: YandexGPT
       data-proc:
         available-clusters: Available clusters
         create-template: Create template
@@ -7714,6 +7723,13 @@ default:
         per-time: Total unit limit per hour
         period-of-inactivity: Period of inactivity
         security-group: Security group
+      foundation-model:
+        data-for-tuning: Data for tuning
+        instruction: Instruction
+        learning-rate: Learning rate
+        samples-file: File with samples
+        start-tuning: Start tuning
+        test-in-playground: Test in Playground
       import-ipynb:
         open-in-dataSphere: Run in Yandex DataSphere
       invite-link:
@@ -7835,6 +7851,11 @@ default:
       transferring:
         title: Transfer projects
         transfer-selected-projects: Transfer selected projects
+      yagpt-playground:
+        request:
+          title: Request
+        temperature:
+          title: Temperature
   mkt-k8s-key:
     yc_alb-ingress-controller:
       helmChart:

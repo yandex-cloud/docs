@@ -49,7 +49,7 @@ You need a service account to detect {{ mpg-name }} cluster connection points 
 
 {% note warning %}
 
-You should first allow network access from {{ yq-full-name }} to {{ mpg-name }} clusters. To do this, enable "Access from Yandex Query" in the settings of the database you are connecting to.
+But first allow network access from {{ yq-full-name }} to {{ mpg-name }} clusters. To do this, enable "Access from Yandex Query" in the settings of the database you are connecting to.
 
 {% endnote %}
 
@@ -65,7 +65,7 @@ Where:
 * `<db>`: Name of the {{ PG }} database in the cluster.
 * `<table>`: Name of the table in the database.
 
-## Restrictions {#limits}
+## Limitations {#limits}
 
 There are several restrictions when working with {{ PG }} clusters.
 
