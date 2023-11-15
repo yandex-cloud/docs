@@ -20,6 +20,21 @@ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 Создайте очередь в сервисе {{ message-queue-name }} и подготовьте ее URL.
 
 ## Пример {#sample}
+Для работы примера необходимо добавить следующие зависимости:
+```java
+<dependencies>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>amazon-sqs-java-messaging-lib</artifactId>
+      <version>1.0.8</version>
+    </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-sqs</artifactId>
+      <version>1.11.176</version>
+    </dependency>
+  </dependencies>
+```
 
 В этом примере: 
 

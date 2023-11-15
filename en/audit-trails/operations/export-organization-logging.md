@@ -28,9 +28,9 @@ To export organization audit logs:
          ```
 
          Where:
-         * `role`: Role being assigned
-         * `id`: ID of the organization from whose resources the audit logs will be collected
-         * `service-account-id`: ID of your service account
+         * `role`: Role being assigned.
+         * `id`: ID of the organization from whose resources the audit logs will be collected.
+         * `service-account-id`: ID of your service account.
 
       * `logging.writer` for the folder to host the trail:
 
@@ -42,9 +42,9 @@ To export organization audit logs:
          ```
 
          Where:
-         * `role`: Role being assigned
-         * `id`: ID of the folder to host the trail
-         * `service-account-id`: ID of your service account
+         * `role`: Role being assigned.
+         * `id`: ID of the folder to host the trail.
+         * `service-account-id`: ID of your service account.
 
    {% endlist %}
 
@@ -85,11 +85,12 @@ To create a trail that exports organization audit logs:
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the log group.
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
 
-      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
       * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Automatically populated field containing the name of the current organization.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Keep the default value, `{{ ui-key.yacloud.common.all }}`.
 
    1. {% include [data-plane-on-console](../../_includes/audit-trails/data-plane-on-console.md) %}
 

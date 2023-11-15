@@ -6,13 +6,15 @@
 * [{{ iam-short-name }} Cookies](../../iam/concepts/authorization/cookie.md)
 * [{{ iam-short-name }} tokens](../../iam/concepts/authorization/iam-token.md)
 * [Static access keys](../../iam/concepts/authorization/access-key.md)
-* [OAuth token](../../iam/concepts/authorization/oauth-token.md):
+* [OAuth token](../../iam/concepts/authorization/oauth-token.md)
+* [{{ captcha-name }} server keys](../../smartcaptcha/concepts/keys.md)
 
 {{ yandex-cloud }} is connected to the following secret scanning tools:
 
 * [GitHub Secret scanning partner program](#github-secret-scanning)
 * [GitLab Secret Detection](#gitlab-secret-detection)
 * [Yandex search index](#secret-is-leaked)
+* [Helm charts in {{ marketplace-full-name }}](#helm-charts)
 
 ## GitHub {#github-secret-scanning}
 
@@ -31,6 +33,10 @@ To enable Secret Detection for your project, follow [this guide](https://docs.gi
 ## Yandex search index {#search-index-detection}
 
 By default, {{ yandex-cloud }} scans pages indexed with the Yandex search engine for secrets.
+
+## Helm charts in {{ marketplace-full-name }} {#helm-charts}
+
+By default, {{ yandex-cloud }} scans [Helm charts](https://helm.sh/docs/topics/charts/) available in [{{ marketplace-full-name }}](../../managed-kubernetes/operations/applications/marketplace.md) for secrets.
 
 ## How one may learn that a secret has been detected {#secret-is-detected}
 
@@ -83,6 +89,12 @@ You can use the following regular expressions to scan your repositories on your 
 
    ```regexp
    y[0-3]_[-_A-Za-z0-9]{55}
+   ```
+
+* {{ captcha-name }} server keys
+
+   ```regexp
+   ysc2_[a-zA-Z0-9]{40}[0-9a-f]{8}
    ```
 
 {% note info %}

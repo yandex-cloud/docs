@@ -40,7 +40,7 @@ You control how the widget loads using the `window.smartCaptcha` [object](../con
 
    Where:
 
-   * `<client_key>`: [CAPTCHA key](./get-keys.md).
+   * `<client_key>`: [Client-side key](../concepts/keys.md).
    * `<language>`: Widget and task [language](../concepts/widget-methods.md#render).
 
    Add a check for existence of the `window.smartCaptcha` object to avoid an error when the function is called before the JS script loading is complete.

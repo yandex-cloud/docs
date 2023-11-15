@@ -8,7 +8,7 @@
 * [{#T}](#change-disk-size).
 * [{#T}](#change-sg-set).
 
-Если вы хотите переместить подкластеры в другую зону доступности, см. [инструкцию](migration-to-an-availability-zone.md).
+Если вы хотите переместить подкластеры в другую зону доступности, обратитесь к [инструкции](migration-to-an-availability-zone.md).
 
 ## Изменить количество хостов {#change-host-number}
 

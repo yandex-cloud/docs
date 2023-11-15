@@ -16,11 +16,15 @@ In this tutorial, you will create your first [dataset](concepts/dataset/index.md
 ## Create a dataset {#create-dataset}
 
 1. In the top-right corner, click **Create dataset**.
+
+
 1. Drag the `MS_SalesMiniTable` table to the workspace.
 
    ![drag-table](../_assets/datalens/quickstart/02-drag-table.png)
 
 1. Go to the **Fields** tab.
+
+
 1. In the **Aggregation** column, select **Sum** for the `Sales` field.
 1. Create a measure for the number of orders:
 

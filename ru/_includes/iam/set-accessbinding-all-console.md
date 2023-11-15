@@ -33,7 +33,7 @@
   ```bash
   curl -X POST \
       -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-TOKEN>" \
+      -H "Authorization: Bearer <IAM-токен>" \
       -d '{
       "accessBindingDeltas": [{
           "action": "ADD",
@@ -43,7 +43,7 @@
                   "id": "allAuthenticatedUsers",
                   "type": "system"
       }}}]}' \
-      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
   ```
 
 - {{ TF }}

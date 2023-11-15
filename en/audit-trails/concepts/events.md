@@ -175,7 +175,7 @@ Service name: `certificatemanager`.
 | Event name | Description |
 --- | ---
 | `CreateCertificate` | Adding a certificate |
-| `CreateDomain` | Creating a domain |
+| `CreateDomain` | Adding a domain |
 | `UpdateCertificate` | Editing a certificate |
 | `UpdateDomain` | Updating a domain |
 | `DeleteCertificate` | Deleting a certificate |

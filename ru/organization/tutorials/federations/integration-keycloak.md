@@ -785,7 +785,7 @@
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
-Добавить пользователя может администратор (роль `organization-manager.admin`) или владелец (роль `organization-manager.organizations.owner`) организации. Как назначить роль пользователю, читайте в разделе [Роли](../../security/index.md#admin).
+Добавить пользователя может администратор (роль `organization-manager.admin`) или владелец (роль `organization-manager.organizations.owner`) организации. О том, как назначить пользователю роль, читайте в разделе [Роли](../../security/index.md#admin).
 
 {% list tabs %}
 

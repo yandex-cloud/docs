@@ -91,7 +91,7 @@
        resource "yandex_iam_service_account_api_key" "sa-api-key" {
          service_account_id = "<идентификатор_сервисного_аккаунта>"
          description        = "<описание_ключа>"
-         pgp_key            = "<pgp_ключ>"
+         pgp_key            = "<pgp-ключ>"
        }
        ```
 
@@ -121,7 +121,7 @@
        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}), а также с помощью команды CLI:
 
        ```
-       yc iam key list --service-account-id <идентификатор сервисного аккаунта>
+       yc iam key list --service-account-id <идентификатор_сервисного_аккаунта>
        ```
 
 {% endlist %}

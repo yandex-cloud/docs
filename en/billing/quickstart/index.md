@@ -24,7 +24,7 @@ New customers are entitled to a trial period. The [trial period](../concepts/tri
 
    1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 
-   1. Log in to your Yandex ID or Yandex 360 account. If you do not have an account yet, sign up and create your first cloud in the management console. If you use a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
+   1. Log in to your Yandex ID or Yandex 360 account. If you do not have an account yet, [sign up](https://yandex.ru/support/id/authorization/registration.html) and create your first cloud in the management console. If you use a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 

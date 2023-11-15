@@ -28,10 +28,10 @@ You can upload your audio recordings to {{ speechsense-name }} or use a [demo re
  * Enter a **Connection name**.
  * Select **Two-channel audio** under **Data type**.
  * Set connection parameters using the metadata of your audio recordings:
-  * Under **Operator**, specify the number of the track that contains the operator's voice in yaudio recordings and define their display name (`Operator` by default).
-  * Under **Client**, specify the number of the track that contains the client's voice in your aurecordings and define their display name (`Client` by default).
+  * Under **Operator**, specify the number of the track that contains the operator's voice in your audio recordings and define their display name (`Operator` by default).
+  * Under **Client**, specify the number of the track that contains the client's voice in your audio recordings and define their display name (`Client` by default).
   * Under **Shared metadata**, change the parameter names used in the system, if necessary.
-  * If your metadata includes additional information you want to save and analyze, add it to appropriate section. Provide the parameter key (must match the key in the metadata file), speca type, and enter a display name to use in the system. The supported additional parameters `Date`, `String`, `Number`, `Logical`, and `JSON`.
+  * If your metadata includes additional information you want to save and analyze, add it to the appropriate section. Provide the parameter key (must match the key in the metadata file), specify a type, and enter a display name to use in the system. The supported additional parameters are `Date`, `String`, `Number`, `Logical`, and `JSON`.
  * Click **Create connection**.
 
  {% cut "Example of metadata.json" %}

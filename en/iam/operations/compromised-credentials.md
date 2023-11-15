@@ -22,7 +22,7 @@ To prevent a hacker from using your token:
    * For a Yandex or federated account, do one of the following:
 
       * [Remove the account](../../organization/operations/edit-account.md) from all organizations while the token is valid.
-      * Revoke the rights of the account in any [cloud](users/delete) and [organization](../../organization/security/index.md#revoke) for the token's validity period.
+      * Revoke the rights of the account in any [cloud](users/delete) and [organization](../../organization/security/index.md#revoke) for the token validity period.
 
          {% note info %}
 
@@ -32,9 +32,9 @@ To prevent a hacker from using your token:
 
 2. Create a new IAM token.
 
-   * [Instructions for a Yandex account](iam-token/create.md).
-   * [Instructions for a service account](iam-token/create-for-sa.md).
-   * [Instructions for a federated account](iam-token/create-for-federation.md).
+   * [Guide for a Yandex account](iam-token/create.md).
+   * [Guide for a service account](iam-token/create-for-sa.md).
+   * [Guide for a federated account](iam-token/create-for-federation.md).
 
 ### OAuth token {#oauth-reissue}
 
@@ -47,7 +47,7 @@ To prevent a hacker from using your token:
 1. Revoke the rights of the account that the OAuth token belongs to in one of the following ways:
 
    * [Remove the account](../../organization/operations/edit-account.md) from all organizations while the IAM token is valid.
-   * Revoke the rights of the account in any [cloud](users/delete) and [organization](../../organization/security/index.md#revoke) for the IAM token's validity period.
+   * Revoke the rights of the account in any [cloud](users/delete) and [organization](../../organization/security/index.md#revoke) for the IAM token validity period.
 
       {% note info %}
 
@@ -85,6 +85,10 @@ Follow the steps described in the [Authorized key](#key-reissue) section.
 1. [Create a new API key](api-key/create.md) for the service account.
 1. Grant the new API key to the services and users using it.
 1. [Delete the old API key](./api-key/delete.md).
+
+### {{ captcha-name }} server key {#captcha-server-key}
+
+[Create a new CAPTCHA](../../smartcaptcha/quickstart.md#creat-captcha) and, on the website page, replace the old CAPTCHA, whose [server key](../../smartcaptcha/concepts/keys.md) was compromised, with the new one.
 
 ### Cookies {#cookie-invalidation}
 

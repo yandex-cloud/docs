@@ -14,4 +14,4 @@ All the above limits are marked with a special ![freetier-lock](../../_assets/da
 
 If you need to switch to the full-featured {{ ml-platform-name }} version, you can do that without creating a new community. In this case, all resources, projects, and computations will be retained, while the free tier mode restrictions will be removed. To switch to the full-featured version, contact your educational institution supervisor or the [support team]({{ link-console-support }}).
 
-To use {{ ml-platform-name }} in free tier mode, [fill out this form](#datasphere-edu-form).
+To use {{ ml-platform-name }} under special terms for educational institutions, [fill out this form](#datasphere-edu-form).

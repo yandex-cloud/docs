@@ -5,12 +5,12 @@
     * с помощью [curl](https://curl.haxx.se) в Bash или CMD:
 
         ```bash
-        curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
+        curl -d "{\"yandexPassportOauthToken\":\"<OAuth-токен>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
         ```
     * с помощью встроенной функции в PowerShell:
 
         ```powershell
-        $yandexPassportOauthToken = "<OAuth-Token>"
+        $yandexPassportOauthToken = "<OAuth-токен>"
         $Body = @{ yandexPassportOauthToken = "$yandexPassportOauthToken" } | ConvertTo-Json -Compress
         Invoke-RestMethod -Method 'POST' -Uri 'https://iam.{{ api-host }}/iam/v1/tokens' -Body $Body -ContentType 'Application/json' | Select-Object -ExpandProperty iamToken
         ```

@@ -1,12 +1,12 @@
 # Asynchronous recognition
 
 Asynchronous recognition helps convert multi-channel audio files with the following properties into text:
-* Maximum recording duration: {{ stt-long-audioLength }}.
-* Maximum file size: {{ stt-long-fileSize }}.
+* Maximum recording duration: {{ stt-long-audioLength }}
+* Maximum file size: {{ stt-long-fileSize }}
 
-Recognition results are saved on the {{ stt-long-resultsStorageTime }} server, after which you can't get them.
+Recognition results are saved on the {{ stt-long-resultsStorageTime }} server, after which you cannot get them.
 
-Asynchronous recognition can't be used for real-time dialog recognition. If you need intermediate results and minimum response time, use [streaming recognition](streaming.md).
+Asynchronous recognition cannot be used for real-time dialog recognition. If you need intermediate results and minimum response time, use [streaming recognition](streaming.md).
 
 View the list of supported languages in [{#T}](models.md#languages).
 
@@ -14,36 +14,43 @@ View the list of supported languages in [{#T}](models.md#languages).
 
 {% include [async-stt-modes](../../_includes/speechkit/async-modes.md) %}
 
-## How can I recognize long audio fragments {#long-audio-recognition}
+## How long audio fragments are recognized {#long-audio-recognition}
 
-To recognize long audio fragments, you need to execute 2 requests:
+The {{ speechkit-name }} API v2 is used for asynchronous speech recognition. To recognize long audio fragments, execute two requests:
+
 1. Send a file for recognition.
 1. Get recognition results.
 
-See examples of requests in [{#T}](api/transcribation-api.md).
+Requests should be made under a [service account](../../iam/concepts/users/service-accounts.md) with the following folder roles assigned:
 
-### Using gRPC {#grpc}
+* `{{ roles-speechkit-stt }}` for speech recognition.
+* `storage.uploader` for uploading audio files to a [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md).
+* `storage.configurer`, `kms.keys.encrypter`, and `kms.keys.decrypter` for bucket object encryption and decryption. These roles are only required if you use [encryption in {{ objstorage-name }}](../../storage/concepts/encryption.md).
 
-To use the service, create an app that will send audio fragments and process responses with recognition results.
+For authorization, provide an [IAM token](../../iam/concepts/authorization/iam-token.md) or [API key](../../iam/concepts/authorization/api-key.md) for your service account in request HTTP headers:
 
-To enable the app to send requests and get results, you need to generate the client interface code for the programming language you use. Generate this code from the [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) and [operation_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto) files from the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository.
+* IAM token: `Authorization: Bearer <IAM token>`
+* API key: `Authorization: Api-Key <API key>`
 
-See the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and deploy client apps for various programming languages.
+An audio file to recognize is [uploaded](../../storage/operations/objects/upload.md) to an {{ objstorage-name }} bucket. To provide this file, use a [file link](../../storage/operations/objects/link-for-download.md) in the request body. The link contains additional query parameters (after `?`) for buckets with restricted access. You do not need to provide these parameters in {{ speechkit-name }} as they are ignored.
+
+After the [speech recognition request](api/transcribation-api.md#sendfile) is sent, the service returns a response with the recognition operation ID. It is used in a [request for recognition results](api/transcribation-api.md#get-result).
 
 {% note warning %}
 
-When requesting the results of an operation, gRPC clients by default limit the maximum message size that they can accept as a response to no more than 4 MB. If a response with recognition results exceeds this amount, an error is returned.
+The recognition results are stored on the {{ stt-long-resultsStorageTime }} server. You can then request the recognition results using the obtained ID.
 
 {% endnote %}
 
-To get the entire response, increase the maximum message size limit:
-* For Go, use the [MaxCallRecvMsgSize](https://pkg.go.dev/google.golang.org/grpc#MaxCallRecvMsgSize) function.
-* For C++, in the [call](https://grpc.github.io/grpc/cpp/classgrpc_1_1internal_1_1_call.html#af04fabbdb53dea98da54c387364faf63) method, set the `max_receive_message_size` value.
+The results contain the entire recognized text and a list of recognized words.
 
 
 #### See also {#see-also}
 
-* [{#T}](api/transcribation-lpcm.md)
-* [{#T}](api/transcribation-ogg.md)
-* [{#T}](api/batch-transcribation.md)
+To learn how to use the asynchronous speech recognition API, see these sections:
+
+* [{#T}](api/transcribation-api.md).
+* [{#T}](api/transcribation-lpcm.md).
+* [{#T}](api/transcribation-ogg.md).
+* [{#T}](api/batch-transcribation.md).
 

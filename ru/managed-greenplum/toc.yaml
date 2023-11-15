@@ -25,6 +25,8 @@ items:
                 href: operations/hosts/cluster-hosts.md
               - name: Расширение кластера
                 href: operations/hosts/cluster-expand.md
+              - name: Миграция хостов в другую зону доступности
+                href: operations/hosts/host-migration.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
           - name: Удаление кластера

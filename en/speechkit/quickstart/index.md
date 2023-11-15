@@ -1,8 +1,6 @@
-# Getting started with {{ speechkit-short-name }}
+# Getting started with {{ speechkit-name }}
 
-If you want to see how the service synthesizes or recognizes speech, use the demo on the [service page](https://cloud.yandex.com/services/speechkit#demo).
-
-For information about {{ speechkit-name }} usage costs, see [{#T}](../pricing.md).
+You can test speech recognition and synthesis on the {{ speechkit-name }} [demo page](https://cloud.yandex.com/services/speechkit#demo). For information on pricing, see [{#T}](../pricing.md).
 
 ## Getting started {#before-you-begin}
 
@@ -10,18 +8,16 @@ For information about {{ speechkit-name }} usage costs, see [{#T}](../pricing.md
 
 ## Speech recognition {#stt-quickstart}
 
-* [{#T}](stt-quickstart-v1.md)
-* [{#T}](stt-quickstart-v3.md)
+Learn how to recognize [short](stt-quickstart-v1.md) and [long](stt-quickstart-v2.md) pre-recorded audio files in {{ speechkit-name }}. The service also supports voice recognition in [real time](../stt/api/streaming-examples-v3.md).
 
 ## Speech synthesis {#tts-quickstart}
 
-* [{#T}](tts-quickstart-v1.md)
-* [{#T}](tts-quickstart-v3.md)
+Learn how to convert text to audio using the {{ speechkit-name }} [API v1](tts-quickstart-v1.md) and [API v3](tts-quickstart-v3.md). The API v3 provides more flexibility for speech synthesis setup. For more information about the differences between the API versions, see [{#T}](../tts/index.md#features).
 
 #### See also {#see-also}
 
-* [Read more about speech synthesis](../tts/index.md)
 * [Read more about speech recognition](../stt/index.md)
+* [Read more about speech synthesis](../tts/index.md)
 * [Supported audio formats](../formats.md)
 * [Roles required for performing operations](../security/index.md)
 * [All {{ speechkit-name }} integration examples](../tutorials/index.md)

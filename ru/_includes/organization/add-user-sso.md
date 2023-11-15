@@ -28,8 +28,8 @@
 
         ```bash
         yc organization-manager federation saml add-user-accounts \
-           --name <имя федерации> \
-           --name-ids <список Name ID пользователей>
+           --name <имя_федерации> \
+           --name-ids <список_Name_ID_пользователей>
         ```
 
 - API

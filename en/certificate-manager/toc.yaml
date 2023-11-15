@@ -35,7 +35,7 @@ items:
             href: operations/import/cert-delete.md
       - name: Domain
         items:
-          - name: Creating a domain
+          - name: Adding a domain
             href: operations/domain/domain-create.md
           - name: Renewing a domain certificate
             href: operations/domain/domain-link-cert.md

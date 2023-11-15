@@ -65,7 +65,8 @@ Open the board, [group issues by epic](#group-by-epic), and drag the issue card 
 
 ## Grouping issues by epic {#group-by-epic}
 
-1. In the upper-right corner of the board page, click ![](../../_assets/tracker/svg/group.svg).
+1. In the top-right corner of the board page, click ![](../../_assets/tracker/svg/group.svg).
+
 1. In the list of options, select **{{ ui-key.startrek-backend.fields.issue.epic }}**.
 
 ## Filtering issues by epic {#filter-by-epic}

@@ -77,7 +77,8 @@ The infrastructure support cost includes:
 
 - {{ TF }}
 
-  If you do not have {{ TF }} yet, [install it and configure the provider {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../_includes/terraform-install.md) %}
+
   1. In the configuration file, describe the service account parameters:
 
      ```hcl
@@ -107,7 +108,7 @@ The infrastructure support cost includes:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -288,7 +289,7 @@ The infrastructure support cost includes:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -337,13 +338,13 @@ A [trail](../audit-trails/concepts/trail.md) will be uploading configuration-lev
   1. Enter the name of the created trail: `folder-trail`.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
      * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
-     * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Select the data stream `trail-logs-stream`.
+     * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Select the `trail-logs-stream` data stream.
   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the `sa-trail-logs` service account.
-  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
-      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field showing the name of the folder to host the trail.
-  1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **Status** field.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
+     * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
+     * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field showing the name of the folder to host the trail.
+  1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** field.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -372,23 +373,23 @@ To create a [transfer](../data-transfer/concepts/index.md#transfer), you need to
 
        Specify the list of fields from the table below:
 
-       Name | Type | Key | Required | Path
+       | Name | Type | Key | Required | Path |
        --- | --- | --- | --- | ---
-       event_id | STRING | - | - | event_id
-       event_source | STRING | - | - | event_source
-       event_type | STRING | - | - | event_type
-       event_time | DATETIME | - | - | event_time
-       authenticated | ANY | - | - | authentication.authenticated
-       subject_type | STRING | - | - | authentication.subject_type
-       subject_id | STRING | - | - | authentication.subject_id
-       subject_name | STRING | - | - | authentication.subject_name
-       authorized | ANY | - | - | authorization.authorized
-       resource_metadata | ANY | - | - | resource_metadata
-       remote_address | STRING | - | - | request_metadata.remote_address
-       user_agent | STRING | - | - | request_metadata.user_agent
-       request_id | STRING | - | - | request_metadata.request_id
-       event_status | STRING | - | - | event_status
-       details | ANY | - | - | details
+       | event_id | STRING | - | - | event_id |
+       | event_source | STRING | - | - | event_source |
+       | event_type | STRING | - | - | event_type |
+       | event_time | DATETIME | - | - | event_time |
+       | authenticated | ANY | - | - | authentication.authenticated |
+       | subject_type | STRING | - | - | authentication.subject_type |
+       | subject_id | STRING | - | - | authentication.subject_id |
+       | subject_name | STRING | - | - | authentication.subject_name |
+       | authorized | ANY | - | - | authorization.authorized |
+       | resource_metadata | ANY | - | - | resource_metadata |
+       | remote_address | STRING | - | - | request_metadata.remote_address |
+       | user_agent | STRING | - | - | request_metadata.user_agent |
+       | request_id | STRING | - | - | request_metadata.request_id |
+       | event_status | STRING | - | - | event_status |
+       | details | ANY | - | - | details |
 
      * Enable **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.add_rest_column.title }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -438,7 +439,7 @@ Using transfer, data is migrated between the source service (a stream) and the t
 
 - CLI
 
-  Create a transfer with the name `logs-transfer`:
+  Create a transfer named `logs-transfer`:
 
   ```bash
   yc datatransfer transfer create --name logs-transfer
@@ -472,7 +473,7 @@ Using transfer, data is migrated between the source service (a stream) and the t
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -490,18 +491,18 @@ You can run queries to the `trail_data` database to search for security events o
 
 {% cut "Request examples" %}
 
-* FInd out who deleted a folder:
+* To find out who deleted a folder:
 
   ```sql
   select * from trail_data.trail_logs_stream
   where event_type = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder' and  JSONExtractString(details, 'folder_name') = '<folder_name>'
   ```
 
-* What actions did a specific user perform over a period of time (name ID and date are required):
+* What actions a specific user performed over a period of time (the user's name ID and date are required):
 
   ```sql
   select * from trail_data.trail_logs_stream
-  where subject_name = '<Name_ID_user>' and event_time >= 2022-06-26
+  where subject_name = '<user_name_ID>' and event_time >= 2022-06-26
   ```
 
 * Trigger when creating [keys](../iam/concepts/index.md#keys) for service accounts:
@@ -531,13 +532,13 @@ To visualize data, you need to [connect](../datalens/concepts/connection.md) to 
 1. Click **Check connection**.
 1. After checking the connection, click **Create connection**.
 1. Enter `trail-logs-con` for the connection name, and click **Create**.
-1. After saving the connection, in the upper-right corner, click **Create dataset**.
+1. After saving the connection, in the top-right corner, click **Create dataset**.
 
 ### Create a dataset {#create-dataset}
 
 1. Drag the `trail_data.trail_logs_stream` table from the **Tables** section on the left of the screen to the workspace.
 1. In the top-right corner, click **Save**.
-1. Enter the dataset name `trail-logs-dataset` and click **Create**.
+1. Enter `trail-logs-dataset` for the dataset name, and click **Create**.
 1. When the dataset is saved, click **Create chart** in the top-right corner.
 
 ### Create a line chart {#create-bar-chart}
@@ -566,9 +567,9 @@ To show numerical proportion by event status, create a pie chart:
 Create a [dashboard](../datalens/concepts/dashboard.md) to add charts to:
 1. Go to the **{{ datalens-name }}** [home page]({{ link-datalens-main }}).
 1. Click **Create dashboard**.
-1. Enter the name `Trail logs dashboard` for the dashboard and click **Create**.
+1. Enter `Trail logs dashboard` for the dashboard name and click **Create**.
 1. In the top-right corner, click **Add** and choose **Chart**.
-1. In the **Chart** chart, click **Select** and choose the `Trail logs: events` pie chart from the list.
+1. In the **Chart** field, click **Select** and choose the `Trail logs: events` chart from the list.
 1. Click **Add**. The chart will be displayed on the dashboard.
 1. Repeat the previous steps for the `Trail logs: statuses` chart.
 1. In the top-right corner, click **Save**.

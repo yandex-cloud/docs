@@ -1,0 +1,1 @@
+The `organization-manager.organizations.owner` role grants permission to appoint organization owners as well as use all the administrator privileges.

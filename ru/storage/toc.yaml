@@ -177,11 +177,13 @@ items:
             href: tools/winscp.md
       - name: SDK
         items:
+          - name: Все SDK
+            href: tools/sdk/index.md
           - name: AWS SDK для Java
             href: tools/aws-sdk-java.md
           - name: AWS SDK для JavaScript
             href: tools/aws-sdk-js.md
-          - name: Python SDK (boto)
+          - name: AWS SDK для Python (boto)
             href: tools/boto.md
           - name: AWS SDK для .NET
             href: tools/aws-sdk-net.md

@@ -98,19 +98,15 @@ editable: false
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 
-{% list tabs %}
+#### Стандартные хосты {#standard-hosts}
 
-- Стандартные хосты
+ {% include [RUB: standard hosts](../_pricing/managed-mysql/rub-hosts-standard.md) %} 
 
-     {% include [RUB: standard hosts](../_pricing/managed-mysql/rub-hosts-standard.md) %} 
+#### Выделенные хосты {#dedicated-hosts}
 
-- Выделенные хосты
+Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
 
-    Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
-
-     {% include [RUB: dedicated hosts](../_pricing/managed-mysql/rub-hosts-dedicated.md) %} 
-
-{% endlist %}
+ {% include [RUB: dedicated hosts](../_pricing/managed-mysql/rub-hosts-dedicated.md) %} 
 
 
 

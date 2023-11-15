@@ -15,10 +15,10 @@ To confirm your ownership of a domain, link a valid [Let's Encrypt certificate](
 
 {% note warning %}
 
-* You can't create a domain that was confirmed by another user.
+* You cannot [add](../../operations/domain/domain-create.md) a domain confirmed by another user.
 * The period of domain ownership after its confirmation is one year.
 
-   After this period expires, you need to confirm domain ownership again.
+   After this period expires, you need to confirm the domain ownership again.
 
 {% endnote %}
 

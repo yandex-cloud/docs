@@ -28,9 +28,9 @@ To export folder audit logs:
          ```
 
          Where:
-         * `role`: Role being assigned
-         * `id`: ID of the folder from which audit logs will be collected
-         * `service-account-id`: ID of your service account
+         * `role`: Role being assigned.
+         * `id`: ID of the folder from which audit logs will be collected.
+         * `service-account-id`: ID of your service account.
 
       * [`logging.writer`](../../logging/security/index.md#roles-list) for the folder to host the trail:
 
@@ -42,9 +42,9 @@ To export folder audit logs:
          ```
 
          Where:
-         * `role`: Role being assigned
-         * `id`: ID of the folder to host the trail
-         * `service-account-id`: ID of your service account
+         * `role`: Role being assigned.
+         * `id`: ID of the folder to host the trail.
+         * `service-account-id`: ID of your service account.
 
    {% endlist %}
 
@@ -84,9 +84,9 @@ To create a trail that exports folder audit logs:
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the log group.
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
 
-      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
 

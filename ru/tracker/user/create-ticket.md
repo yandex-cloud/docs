@@ -37,6 +37,12 @@
 
 1. При необходимости задайте [дополнительные параметры](create-param.md#default-fields). Для этого добавьте поля с помощью кнопки ![](../../_assets/tracker/task-params-btn.png) **{{ ui-key.startrek.ui_components_PageCreateIssue.add-parameter }}** и заполните их.
 
+    {% note info %}
+
+    Если при создании задачи вам нужно, чтобы обязательно были заполнены все необходимые поля (например, теги), то для этого используйте создание задачи через [шаблон](create-template.md) или через [интеграцию с {{ forms-full-name }}](create-ticket-with-forms.md).
+
+    {% endnote %}
+
 1. Нажмите кнопку **{{ ui-key.startrek.ui_components_CreateIssueForm.create-issue }}**.
 
     {% note tip %}

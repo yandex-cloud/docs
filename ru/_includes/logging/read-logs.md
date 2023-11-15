@@ -1,5 +1,3 @@
-{% include [retention-period](retention-period.md) %}
-
 Время в журнале указано по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время). Записи можно отфильтровать с помощью [языка фильтрующих выражений](../../logging/concepts/filter.md).
 
 {% list tabs %}

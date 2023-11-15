@@ -1,6 +1,12 @@
 # Caching
 
-_Cache_ stores frequently requested data and provides quick access to it.
+_Cache_ stores frequently queried data and provides quick access to it.
+
+{% note info %}
+
+{{ datalens-short-name }} cache does not store the source data; it only stores the results of queries for a certain time. To store analytical data marts, you can use, e.g., [{{ mch-full-name }}](../../managed-clickhouse/).
+
+{% endnote %}
 
 {{ datalens-short-name }} caches the results of the user's query, so when the data in the source changes, dashboards and charts may not be updated immediately.
 
