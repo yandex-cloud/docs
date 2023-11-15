@@ -4,7 +4,7 @@
 
 Within {{ at-name }}, audit logs are managed by [trails](./concepts/trail.md).
 
-Follow these instructions to create a new trail that will upload audit logs of your organization resources to an {{ objstorage-name }} bucket.
+Follow this guide to create a new trail that will upload audit logs of your organization resources to an {{ objstorage-name }} bucket.
 
 ## Getting started {#before-you-begin}
 
@@ -32,11 +32,11 @@ Follow these instructions to create a new trail that will upload audit logs of y
 
          Where:
 
-         * `role`: Role being assigned
-         * `id`: ID of the folder to host the trail
-         * `service-account-id`: ID of your service account
+         * `role`: Role being assigned.
+         * `id`: ID of the folder to host the trail.
+         * `service-account-id`: ID of your service account.
 
-      * Assign the role [`audit-trails.viewer`](./security/index.md#roles-list) for the organization whose audit logs will be collected:
+      * Assign the [`audit-trails.viewer`](./security/index.md#roles-list) role for the organization whose audit logs will be collected:
 
          ```
          yc organization-manager organization add-access-binding \
@@ -47,9 +47,9 @@ Follow these instructions to create a new trail that will upload audit logs of y
 
          Where:
 
-         * `role`: Role being assigned
-         * `id`: ID of the cloud from which audit logs will be collected
-         * `service-account-id`: ID of your service account
+         * `role`: Role being assigned.
+         * `id`: ID of the cloud from which audit logs will be collected.
+         * `service-account-id`: ID of your service account.
 
    {% endlist %}
 
@@ -79,13 +79,15 @@ To create the first trail in {{ at-name }} and start the process of configuratio
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](./concepts/format.md#log-file-name) of the audit log file.
 
       {% include [note-bucket-prefix](../_includes/audit-trails/note-bucket-prefix.md) %}
+      * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: If the bucket you selected is [encrypted](../storage/concepts/encryption.md), specify the encryption key.
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up collecting configuration-level audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
 
-      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: An automatically populated field containing the name of the current organization.
+      * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Automatically populated field containing the name of the current organization.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Keep the default value, `{{ ui-key.yacloud.common.all }}`.
 
    1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
    1. Click **{{ ui-key.yacloud.common.create }}**.

@@ -1,6 +1,6 @@
 # Миграция хостов {{ CH }}-кластера в другую зону доступности
 
-Хосты кластера {{ mch-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Хосты можно перенести из одной зоны в другую. Для этого:
+Хосты кластера {{ mch-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Хосты можно перенести из одной зоны в другую.
 
 {% note warning %}
 
@@ -131,3 +131,5 @@
    {% endlist %}
 
 1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления перейдите на страницу вашего каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
+
+{% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}

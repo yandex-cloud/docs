@@ -1,0 +1,1 @@
+The `datalens.visitor` role grants access to DataLens. You can view and edit workbooks and collections if you have the appropriate roles that grant access to these workbooks and collections.

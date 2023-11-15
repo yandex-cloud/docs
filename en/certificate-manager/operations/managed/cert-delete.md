@@ -64,6 +64,8 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
 
 - {{ TF }}
 
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and delete the fragment with the certificate description:

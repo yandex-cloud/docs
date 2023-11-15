@@ -25,6 +25,7 @@ You can create a model based on different library types supported by [serialzy](
 | [LightGBM](https://lightgbm.readthedocs.io) | [LGBMClassifier](https://lightgbm.readthedocs.io/en/v3.3.2/pythonapi/lightgbm.LGBMClassifier.html), [LGBMRegressor](https://lightgbm.readthedocs.io/en/v3.3.2/pythonapi/lightgbm.LGBMRegressor.html), [LGBMRanker](https://lightgbm.readthedocs.io/en/v3.3.2/pythonapi/lightgbm.LGBMRanker.html) | [lgbm](https://lightgbm.readthedocs.io/en/v3.3.2/pythonapi/lightgbm.Booster.html#lightgbm.Booster.save_model) |
 | [XGBoost](https://lightgbm.readthedocs.io) | [XGBClassifier](https://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn), [XGBRegressor](https://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn), [XGBRanker](https://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn) | [xgb](https://xgboost.readthedocs.io/en/latest/python/python_intro.html#training) |
 | [Torch](https://pytorch.org) | [Module](https://pytorch.org/docs/stable/notes/modules.html) with subclasses | [pt](https://pytorch.org/docs/stable/generated/torch.jit.save.html#torch.jit.save) |
+| [ONNX](https://onnx.ai/) | [ModelProto](https://onnx.ai/onnx/api/classes.html#onnx.ModelProto) | [onnx](https://github.com/onnx/onnx/blob/main/docs/PythonAPIOverview.md) |
 
 ## Information about models as a resource {#info}
 
@@ -32,10 +33,10 @@ All information about models created in a project is available under **Resources
 
 The following information is stored about each model:
 
-* Name
+* Name.
 * Name of the notebook the model was created in.
 * Name of the variable the model was created from.
-* Model size in bytes
+* Model size in bytes.
 * Name of the user who created the model.
 * Dataset creation date in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format, e.g., `July 18, 2023, 14:23`.
 

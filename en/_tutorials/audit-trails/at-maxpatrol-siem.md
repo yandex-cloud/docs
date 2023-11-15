@@ -251,11 +251,12 @@ The trail will collect the configuration-level (Control Plane) audit logs for al
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
       * **{{ ui-key.yacloud.audit-trails.label_stream-name }}**: Select the `maxpatrol-stream` data stream.
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the `maxpatrol-sa` service account.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
-      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
+      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`.
       * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Automatically populated field (shows the name of the organization with the trail).
-   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **Status** field.
+      * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Keep the default value, `{{ ui-key.yacloud.common.all }}`.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** field.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -311,7 +312,7 @@ To view the logs, go to the event review page:
 
 ## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 * [Delete](../../data-streams/operations/manage-streams.md#delete-data-stream) the `maxpatrol-stream` data stream.
 * [Delete](../../ydb/operations/manage-databases.md#delete-db) the `maxpatrol-db` database.

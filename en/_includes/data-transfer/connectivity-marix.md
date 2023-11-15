@@ -25,9 +25,8 @@ R: [Replicate](../../data-transfer/concepts/transfer-lifecycle.md#replication)
 CR: [Copy and replicate](../../data-transfer/concepts/transfer-lifecycle.md#copy-and-replication)
 
 
-^1^ This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage.
-^2^ This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage and is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
-
+^1^ This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+^2^ This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
 #### Airbyte® endpoints {#airbyte}
 
@@ -37,3 +36,5 @@ You can use [Airbyte®](https://docs.airbyte.com/category/sources) to configure 
 * [BigQuery](../../data-transfer/operations/endpoint/source/bigquery.md)
 * [Microsoft SQL Server](../../data-transfer/operations/endpoint/source/mssql.md)
 * [S3](../../data-transfer/operations/endpoint/source/s3.md)
+
+

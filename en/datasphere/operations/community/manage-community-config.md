@@ -1,6 +1,6 @@
 ---
 title: "How to manage community limits"
-description: "Follow this guide to limit resources available across your community projects and {{ ml-platform-name }} features."
+description: "This guide describes how you can limit resources available across your community projects and {{ ml-platform-name }} features."
 ---
 
 # Managing community limits
@@ -19,6 +19,12 @@ You can limit {{ ml-platform-name }} resources and features available across you
 
    * **{{ ui-key.yc-ui-datasphere.dedicated-mode.serverless-mode }}**: Community projects will be able to run in [{{ ds }} mode](../../concepts/project.md#dedicated). You can select the runtime mode in the project settings and whenever you open your project in {{ jlab }}Lab.
    * **{{ ui-key.yc-ui-datasphere.restrictions.SERVERLESS_BACKGROUND_CELLS }}**: Your project will support [background operations](../../concepts/async).
+
+   {% note info %}
+
+   In {{ ds }} mode, background cells are required to create [datasets](../../concepts/dataset.md). To allow creating datasets within your community projects in {{ ds }} mode, leave this feature enabled.
+
+   {% endnote %}
 
 1. Under **{{ ui-key.yc-ui-datasphere.common.resources }}**:
 

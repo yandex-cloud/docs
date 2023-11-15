@@ -14,8 +14,8 @@ ksqlDB — это база данных, которая предназначен
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей вам конфигурации:
-    
+1. [Создайте кластер {{ mkf-name }}](../operations/cluster-create.md) любой подходящей вам конфигурации:
+
     * Если сервер ksqlDB размещен в интернете, создайте кластер {{ mkf-name }} с публичным доступом.
     
     * Если сервер ksqlDB размещен в {{ yandex-cloud }}, создайте кластер {{ mkf-name }} в той же [облачной сети](../../vpc/concepts/network.md), где находится ksqlDB.
@@ -28,16 +28,16 @@ ksqlDB — это база данных, которая предназначен
         * Политика очистки лога — `Delete`.
         * Время жизни сегмента лога, мс — `-1`.
         * Минимальное число синхронных реплик — `1`.
-   1. Служебный топик `default_ksql_processing_log`. Настройки топика могут быть любыми.
+   1. Служебный топик `default_ksql_processing_log` для записи логов ksqlDB. Настройки топика могут быть любыми.
    1. Топик для хранения данных `locations`. Настройки топика могут быть любыми.
 
-1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-user) с именем `ksql` и назначьте ему роли `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER` для всех созданных ранее топиков.
+1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-user) с именем `ksql` и [назначьте ему роль](../operations/cluster-accounts#grant-permission) `ACCESS_ROLE_ADMIN` для всех топиков.
 
 1. Убедитесь, что вы можете подключиться к серверу ksqlDB.
 
 1. Установите утилиту `kafkacat` на сервер ksqlDB и убедитесь, что можете с ее помощью [подключиться к кластеру {{ mkf-name }} через SSL](../../managed-kafka/operations/connect.md#get-ssl-cert).
 
-1. Установите утилиту для потоковой обработки JSON-файлов [jq](https://stedolan.github.io/jq/) на сервер ksqlDB. 
+1. Установите утилиту для потоковой обработки JSON-файлов [jq](https://stedolan.github.io/jq/) на сервер ksqlDB.
 
 ## Настройте интеграцию с {{ KF }} для базы ksqlDB {#configure-ksqldb-for-kf}
 
@@ -54,7 +54,7 @@ ksqlDB — это база данных, которая предназначен
 1. Укажите в файле конфигурации ksqlDB `/etc/ksqldb/ksql-server.properties` данные для аутентификации в кластере {{ mkf-name }}:
 
    ```ini
-   bootstrap.servers=<FQDN_брокера_1:9091,...,FQDN_брокера_N:9091>
+   bootstrap.servers=<FQDN_брокера_1>:9091,...,<FQDN_брокера_N>:9091
    sasl.mechanism=SCRAM-SHA-512
    security.protocol=SASL_SSL
    ssl.truststore.location=/etc/ksqldb/ssl
@@ -65,6 +65,22 @@ ksqlDB — это база данных, которая предназначен
    {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
 
    Имя кластера можно запросить со [списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
+
+1. Укажите в файле параметров логирования ksqlDB `/etc/ksqldb/log4j.properties` настройки записи логов в топик кластера {{ mkf-name }}:
+
+   ```ini
+   log4j.appender.kafka_appender=org.apache.kafka.log4jappender.KafkaLog4jAppender
+   log4j.appender.kafka_appender.layout=io.confluent.common.logging.log4j.StructuredJsonLayout
+   log4j.appender.kafka_appender.BrokerList=<FQDN_брокера_1>:9091,...,<FQDN_брокера_N>:9091
+   log4j.appender.kafka_appender.Topic=default_ksql_processing_log
+   log4j.logger.io.confluent.ksql=INFO,kafka_appender
+
+   log4j.appender.kafka_appender.clientJaasConf=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<пароль_пользователя_ksql>";
+   log4j.appender.kafka_appender.SecurityProtocol=SASL_SSL
+   log4j.appender.kafka_appender.SaslMechanism=SCRAM-SHA-512
+   log4j.appender.kafka_appender.SslTruststoreLocation=/etc/ksqldb/ssl
+   log4j.appender.kafka_appender.SslTruststorePassword=<пароль_хранилища_сертификатов>
+   ```
 
 1. Перезапустите сервис ksqlDB командой:
 
@@ -77,6 +93,7 @@ ksqlDB — это база данных, которая предназначен
 Обработка потока данных из {{ mkf-name }} зависит от формата представления в сообщении {{ KF }}.
 
 В примере в топик {{ KF }} `locations` будут записываться геоданные в формате JSON:
+
 * идентификатор `profileId`;
 * широта `latitude`;
 * долгота `longitude`;
@@ -94,6 +111,7 @@ ksqlDB — это база данных, которая предназначен
 ## Создайте в ksqlDB таблицу для записи потока данных из топика {{ KF }} {#create-kf-table}
 
 Чтобы записывать информацию из топика {{ KF }}, создайте в базе ksqlDB таблицу. Структура таблицы соответствует [формату данных](#explore-kf-data-format), которые поступают из {{ mkf-name }}:
+
 1. Подключитесь к серверу ksqlDB.
 1. Запустите клиент `ksql` командой:
 
@@ -115,25 +133,25 @@ ksqlDB — это база данных, которая предназначен
      value_format='json', 
      partitions=<количество_разделов_топика_"locations">
    );
-   ``` 
+   ```
 
    Эта потоковая таблица будет автоматически наполняться сообщениями из топика `locations` кластера {{ mkf-name }}. Для чтения сообщений ksqlDB использует [настройки](#configure-ksqldb-for-kf) пользователя `ksql`.
 
    Подробнее о создании потоковой таблицы на движке ksqlDB см. в [документации ksqlDB](https://www.confluent.io/blog/how-real-time-stream-processing-works-with-ksqldb).
 
 1. Выполните запрос:
-         
+
    ```sql
    SELECT * FROM riderLocations WHERE 
             GEO_DISTANCE(latitude, longitude, 37.4133, -122.1162) <= 5 
             EMIT CHANGES;
    ```
-   
+
    Запрос ожидает появления данных в таблице в реальном времени.
 
 ## Получите тестовые данные из кластера {{ mkf-name }} {#get-data-from-kf}
 
-1. Подключитесь к серверу ksqlDB.   
+1. Подключитесь к серверу ksqlDB.
 1. Создайте файл `sample.json` со следующими тестовыми данными:
 
    ```json
@@ -160,7 +178,7 @@ ksqlDB — это база данных, которая предназначен
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <FQDN_брокера_1:9091,...,FQDN_брокера_N:9091> \
+      -b <FQDN_брокера_1>:9091,...,<FQDN_брокера_N>:9091> \
       -t locations \
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
@@ -202,14 +220,13 @@ ksqlDB — это база данных, которая предназначен
 
    Эти данные синхронно отправляются в топик {{ KF }} `locations` с помощью пользователя `ksql`.
 
-## Проверьте наличие тестовых данных в топике {{ KF }} {#fetch-data-from-kf}
+## Проверьте наличие записей в топиках {{ KF }} {#fetch-data-from-kf}
 
-1. Подключитесь к серверу ksqlDB.
 1. Проверьте сообщения в топике `locations` кластера {{ mkf-name }} с помощью `kafkacat` и пользователя `ksql`:
 
    ```bash
    kafkacat -C \
-    -b <FQDN_брокера_1,...,FQDN_брокера_N:9091> \
+    -b <FQDN_брокера_1>:9091,...,<FQDN_брокера_N>:9091 \
     -t locations \
     -X security.protocol=SASL_SSL \
     -X sasl.mechanisms=SCRAM-SHA-512 \
@@ -218,11 +235,25 @@ ksqlDB — это база данных, которая предназначен
     -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
    ```
 
-1. Убедитесь, что в консоли отображаются сообщения, которые вы [записали в таблицу](#insert-data-to-ksqldb). 
+1. Убедитесь, что в консоли отображаются сообщения, которые вы [записали в таблицу](#insert-data-to-ksqldb).
+1. Проверьте сообщения в топике `default_ksql_processing_log` кластера {{ mkf-name }} с помощью `kafkacat` и пользователя `ksql`:
+
+   ```bash
+   kafkacat -C \
+    -b <FQDN_брокера_1>:9091,...,<FQDN_брокера_N>:9091 \
+    -t default_ksql_processing_log \
+    -X security.protocol=SASL_SSL \
+    -X sasl.mechanisms=SCRAM-SHA-512 \
+    -X sasl.username=ksql \
+    -X sasl.password="<пароль_пользователя_ksql>" \
+    -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
+   ```
+
+1. Убедитесь, что в консоли отображаются записи лога ksqlDB.
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
 * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
 * Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).

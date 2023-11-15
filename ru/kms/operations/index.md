@@ -45,3 +45,4 @@ description: "Пошаговые инструкции по работе с кл�
 
 - [{#T}](asymmetric-signature-key.md)
 - [{#T}](signature-verification.md)
+- [{#T}](signature-verification-cosign.md)

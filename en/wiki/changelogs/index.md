@@ -1,23 +1,22 @@
-# {{ wiki-full-name }} revision history for September 2023
+# {{ wiki-full-name }} revision history for October 2023
 
-* [Comments on the contents of a page](#comments-on-content)
-* [Dynamic table header](#grid-header)
+* [Change history for a dynamic table](#changelog-grid)
+* [Importing data from a file to a dynamic table](#import-grid)
+* [Split mode in the new editor](#split-mode)
 
-## Comments on the contents of a page {#comments-on-content}
+## Change history for a dynamic table {#changelog-grid}
 
-You can now comment on the contents of a {{ wiki-name }} page. To leave a comment:
+You can now view the [change history for a dynamic table](../history.md#grid).
 
-1. Select a text fragment.
-1. In the panel that opens, click ![](../../_assets/wiki/svg/comment.svg).
-1. Enter the text of your comment.
-1. Click **Save**.
+## Importing data from a file to a dynamic table {#import-grid}
 
-## Dynamic table header {#grid-header}
+Added support for CSV and TXT file [import to a dynamic table](../import-page.md#dynamic-table). You can set the file parameters in the import preview window to ensure they are displayed correctly in the dynamic table.
 
-A [dynamic table](../pages-types.md#grid) now has a header that contains:
+## Split mode in the new editor {#split-mode}
 
-* Name (editable)
-* Search option
-* Sorting option
-* Settings
-* Additional information
+Added support for split mode in the new editor for the Markdown markup: you can edit text on the left and see how the page will look like after the markup applies on the right. To start using split mode:
+
+1. In the top-right corner, click **Edit**.
+1. To the right of the toolbar, click ![](../../_assets/wiki/svg/wysiwyg/show.svg).
+1. Enable **Split mode**.
+

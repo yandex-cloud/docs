@@ -26,6 +26,12 @@ keywords:
 
 ## Общий вид запроса к API {#common-request-form}
 
+{% note info %}
+
+Для работы с S3 API в {{ objstorage-name }} лучше использовать [AWS CLI](../tools/aws-cli.md) или [AWS SDK](../tools/sdk/index.md), подходящий для вашей среды разработки.
+
+{% endnote %}
+
 Общий вид запроса к {{ objstorage-name }} API:
 
 ```

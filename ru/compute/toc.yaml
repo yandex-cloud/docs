@@ -829,6 +829,8 @@ items:
         href: qa/general.md
       - name: Виртуальные машины
         href: qa/vm.md
+      - name: Ошибка Not enough resources
+        href: qa/not-enough-resources.md
       - name: Подключение
         href: qa/connection.md
       - name: Диски, снимки, образы

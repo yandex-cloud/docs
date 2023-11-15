@@ -12,7 +12,10 @@ To add a selector to a dashboard:
 
 1. In the left-hand panel, click ![image](../../../_assets/datalens/dashboard-0523.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
-1. Click **Add** and choose **Selector**.
+1. In the panel at the bottom of the page, choose **Selector**.
+
+   ![image](../../../_assets/datalens/operations/widget-select.png =500x118)
+
 1. Choose your selector type:
 
    {% list tabs %}
@@ -51,8 +54,10 @@ To add a selector to a dashboard:
          * **Selector type**: Defines the selector type: drop-down list, input field, or calendar.
          * **Operation**: Defines the comparison operation by which the selector filters the chart values (for example, **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
          * **Multiple choice**: Determines whether multiple values can be selected. The option is only available for the **List** type.
+         * **Possible values**: Sets a list of values to select. The option is only available for the **List** type.
          * **Range**: Defines the selection of a time period. The option is only available for the **Calendar** type.
-         * **Default value**: It is displayed once you open the dashboard. This field is mandatory for a **List** selector: if you omit it, the selector will have no value available.
+         * **Time**: Indicates if time can be set. The option is only available for the **Calendar** type.
+         * **Default value**: Displayed once you open the dashboard. This field is mandatory for a **List** selector: if you omit it, the selector will have no value available.
 
       * Under **Appearance**:
 

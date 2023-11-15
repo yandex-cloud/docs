@@ -36,7 +36,7 @@
 
 Сведения о схемах помещаются в [служебный топик](./topics.md#service-topics) `__schema_registry`. В этот топик нельзя писать данные стандартными средствами.
 
-Чтобы воспользоваться этим реестром, включите соответствующую опцию при [создании кластера](../operations/cluster-create.md).
+Чтобы воспользоваться этим реестром, включите соответствующую опцию при [создании](../operations/cluster-create.md) или [обновлении](../operations/cluster-update.md#change-additional-settings) кластера.
 
 
 Для работы с {{ mkf-msr }} требуется дополнительная [настройка групп безопасности](../operations/connect.md#configuring-security-groups).

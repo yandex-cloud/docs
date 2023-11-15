@@ -6,7 +6,7 @@
 
 #### AWS CloudTrail source {#source-aws}
 
-Get an AWS key ID and secret access key by following the [AWS instructions](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
+Get an AWS key ID and secret access key by following the [AWS guide](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
 
 For more information, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/aws-cloudtrail/).
 
@@ -61,6 +61,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
    1. (Optional) To use username and password authorization, configure [SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
 
 {% endlist %}
+
 
 ### {{ CH }} source {#source-ch}
 
