@@ -149,7 +149,7 @@
   ```bash
   curl -X POST \
     -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM-TOKEN>" \
+    -H "Authorization: Bearer <IAM-токен>" \
     -d '{
         "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
         "description": "this key is for my bucket"

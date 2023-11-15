@@ -88,6 +88,8 @@ To check rights for domains:
 
 - {{ TF }}
 
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    With {{ TF }}, you can create a DNS record required to pass a check for domain rights. To do this:

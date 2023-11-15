@@ -6,8 +6,8 @@ _Speech recognition_ is speech-to-text (STT) conversion.
 
 The service is available at `{{ api-host-sk-stt }}:443`.
 
+You can also work with {{ speechkit-name }} using the [Python SDK](../sdk/python/index.md). It is implemented based on the [{{ speechkit-name }} API v3](../stt-v3/api-ref/grpc/).
 
-You can also work with {{ speechkit-name }} using the [Python SDK](../sdk/python/index.md). It is implemented based on [{{ speechkit-name }} API v3]((../stt-v3/api-ref/grpc/)).
 
 {% include [try-speechkit](../../_includes/speechkit/try-speechkit.md) %}
 

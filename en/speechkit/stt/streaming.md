@@ -44,6 +44,16 @@ Client application examples:
 
 See also the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and implement client apps in various programming languages.
 
+{% note warning %}
+
+When requesting the results of an operation, gRPC clients by default limit the maximum message size that they can accept as a response to no more than 4 MB. If a response with recognition results exceeds this amount, an error is returned.
+
+{% endnote %}
+
+To get the entire response, increase the maximum message size limit:
+* For Go, use the [MaxCallRecvMsgSize](https://pkg.go.dev/google.golang.org/grpc#MaxCallRecvMsgSize) function.
+* For C++, in the [call](https://grpc.github.io/grpc/cpp/classgrpc_1_1internal_1_1_call.html#af04fabbdb53dea98da54c387364faf63) method, set the `max_receive_message_size` value.
+
 ### Authorization in the service {#auth}
 
 In each request, the application must pass an IAM token or API key for authentication in the service and the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which the account has the `{{ roles-speechkit-stt }}` role or higher. For more information about permissions, see [Access management](../security/index.md).

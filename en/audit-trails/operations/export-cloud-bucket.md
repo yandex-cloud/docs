@@ -33,7 +33,7 @@ To collect audit logs of an individual cloud:
          Where:
          * `role`: Role being assigned.
          * `id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) whose audit logs will be collected.
-         * `service-account-id`: Service account ID.
+         * `service-account-id`: ID of your service account.
 
       * Assign the [`storage.uploader` role](../../storage/security/index.md#storage-uploader) to the folder that will host the trail:
 
@@ -47,7 +47,7 @@ To collect audit logs of an individual cloud:
          Where:
          * `role`: Role being assigned.
          * `id`: ID of the folder to host the trail.
-         * `service-account-id`: Service account ID.
+         * `service-account-id`: ID of your service account.
 
    {% endlist %}
 
@@ -83,12 +83,13 @@ To create the first trail in {{ at-name }} and start the audit log management pr
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../concepts/format.md#log-file-name) of the audit log file.
 
       {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
+      * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: If the bucket you selected is [encrypted](../../storage/concepts/encryption.md), specify the encryption key.
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket.
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
 
-      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Automatically populated field showing the name of the cloud to host the trail.
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Keep the default value, `{{ ui-key.yacloud.common.all }}`.

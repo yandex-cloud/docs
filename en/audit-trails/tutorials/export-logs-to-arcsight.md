@@ -5,9 +5,9 @@ Create a trail to upload configuration-level (Control Plane) audit logs of resou
 To complete the tutorial successfully, you must have an ArcSight instance installed.
 
 The solution described in the tutorial follows the procedure below:
-1. A [trail](../concepts/trail.md) uploads logs to a {{ objstorage-name }} bucket.
+1. A [trail](../concepts/trail.md) uploads logs to an {{ objstorage-name }} bucket.
 1. A [bucket](../../storage/concepts/bucket.md) is mounted via a [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) interface to a folder on an intermediate VM.
-1. [SmartConnector](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_SmartConn_getstart_HTML/) connects logs from the folder and passes them to ArcSight for analysis.
+1. [SmartConnector](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_SmartConn_getstart_HTML/) collects logs from the folder and delivers them to ArcSight for analysis.
 
 For more information about the scripts for uploading audit logs to ArcSight, see [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight#two-log-shipping-scenarios).
 
@@ -36,10 +36,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost includes:
 
-* Using virtual machines (see [{{ compute-short-name }} pricing](../../compute/pricing.md)).
+* Fee for using VM instances (see [{{ compute-short-name }} pricing](../../compute/pricing.md)).
 * Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
 * Fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
-* A fee for using {{ kms-short-name }} keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
+* Fee for using {{ kms-short-name }} keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 
 ## Prepare the environment {#prepare-environment}
 
@@ -190,8 +190,8 @@ Assign `sa-arcsight` the `audit-trails.viewer`, `storage.uploader`, and `kms.key
       Where:
 
       * `role`: Role being assigned.
-      * `id`: The ID of `example-folder`.
-      * `service-account-id`: The ID of `sa-arcsight`.
+      * `id`: ID of `example-folder`.
+      * `service-account-id`: ID of `sa-arcsight`.
 
       For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
 
@@ -207,8 +207,8 @@ Assign `sa-arcsight` the `audit-trails.viewer`, `storage.uploader`, and `kms.key
       Where:
 
       * `role`: Role being assigned.
-      * `id`: The ID of `example-folder`.
-      * `service-account-id`: The ID of `sa-arcsight`.
+      * `id`: ID of `example-folder`.
+      * `service-account-id`: ID of `sa-arcsight`.
 
    1. The `kms.keys.encrypterDecrypter` [role](../../kms/security/#service) to the `arcsight-kms` encryption key:
 
@@ -222,8 +222,8 @@ Assign `sa-arcsight` the `audit-trails.viewer`, `storage.uploader`, and `kms.key
       Where:
 
       * `role`: Role being assigned.
-      * `id`: The ID of the `arcsight-kms` {{ kms-short-name }} key.
-      * `service-account-id`: The ID of `sa-arcsight`.
+      * `id`: ID of the `arcsight-kms` {{ kms-short-name }} key.
+      * `service-account-id`: ID of `sa-arcsight`.
 
 {% endlist %}
 
@@ -245,8 +245,8 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
       Where:
 
       * `role`: Role being assigned.
-      * `id`: The ID of `example-folder`.
-      * `service-account-id`: The ID of `sa-arcsight-bucket`.
+      * `id`: ID of `example-folder`.
+      * `service-account-id`: ID of `sa-arcsight-bucket`.
 
    1. The `kms.keys.encrypterDecrypter` role to the `arcsight-kms` encryption key:
 
@@ -281,24 +281,22 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
    1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, set up the destination object:
 
       * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`
-      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket name
+      * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket name.
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
-      {% note info %}
+      {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-      Use a [prefix](../../storage/concepts/object.md#key) to store audit logs and third-party data in the same bucket. Do not use the same prefix for logs and other bucket objects because that may cause logs and third-party objects to overwrite each other.
-
-      {% endnote %}
+      * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Specify the `arcsight-kms` encryption key the bucket is [encrypted](../../storage/concepts/encryption.md) with.
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `sa-arcsight`.
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
 
-      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Automatically populated field containing the name of the current folder.
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **Status** field.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** field.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
    {% note warning %}

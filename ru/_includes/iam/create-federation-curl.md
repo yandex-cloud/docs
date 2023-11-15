@@ -10,7 +10,7 @@ curl -X POST \
  "done": true,
  "metadata": {
   "@type": "type.googleapis.com/yandex.cloud.organization-manager.v1.saml.CreateFederationMetadata",
-  "federationId": "ajeobmje4dgj0belagb9"
+  "federationId": "ajeobmje4dgj********"
  },
  ...
 ```

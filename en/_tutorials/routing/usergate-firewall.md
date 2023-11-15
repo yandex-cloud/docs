@@ -121,7 +121,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -330,7 +330,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -434,7 +434,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
    1. In the list of services, select **{{ vpc-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
    1. Click **Create**.
-   1. Enter a name for the route table. The requirements are as follows:
+   1. Enter a name for the route table. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -586,7 +586,7 @@ Create a [static route](../../vpc/concepts/static-routes.md):
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

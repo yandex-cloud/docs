@@ -30,8 +30,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of maintaining your {{ CH }} database for Graphite includes:
-* A payment for the cluster's computing resources, the amount of storage and backups (see [{{ mch-full-name }} pricing](../../managed-clickhouse/pricing.md)).
-* A payment for a running VM to manage a database (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for the cluster computing resources, storage, and backups (see [{{ mch-full-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for a running VM to manage a database (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 
 
@@ -53,36 +53,30 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. Prepare the yaml file `graphite-rollup.yaml` with the description of the `rollup` parameters, for example:
+   1. Prepare the `graphite-rollup.yaml` file with the description of the `rollup` parameters, e.g.:
 
-      ```bash
-                name: test_rollup
+      ```yaml
+      name: test_rollup
       patterns:
-          - regexp: click_cost
+        - regexp: click_cost
           function: max
           retention:
             - age: 86400
               precision: 60
       ```
 
-   1. Replace `<CLUSTER_ID>` with your cluster ID and `<path to yaml file>`, with `graphite-rollup.yaml`, and then run this command:
+   1. Run this command:
 
       ```bash
-      yc managed-clickhouse cluster add-graphite-rollup <CLUSTER_ID> --rollup-file-name <path to yaml file>
+      yc managed-clickhouse cluster add-graphite-rollup <CLUSTER_ID> --rollup-file-name <path_to_yaml_file>
       ```
 
       Where:
 
-      * `<CLUSTER_ID>`: Cluster ID.
-      * `<path to yaml file>`: Path to `graphite-rollup.yaml`.
+      * `<CLUSTER_ID>`: Cluster ID
+      * `<path_to_yaml_file>`: Path to `graphite-rollup.yaml`
 
       For more information about the `managed-clickhouse cluster add-graphite-rollup` command, see the [CLI reference](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md).
-
-      {% note info %}
-
-      To delete the `rollup` configuration, use the `managed-clickhouse cluster remove-graphite-rollup` command. For more information about the command, see the [CLI reference](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/remove-graphite-rollup.md).
-
-      {% endnote %}
 
 - API
 
@@ -165,19 +159,19 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 
 - ClickHouse CLI
 
-   In the ClickHouse CLI interface, run a query to create a [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) table. Pass the name of the `rollup` section described earlier:
+   In the ClickHouse CLI interface, run a query to create a [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) table. Provide the name of the `rollup` section described earlier:
 
-   ```bash
+   ```sql
    CREATE TABLE GraphiteTable
    (        
-       metric String,
-       time DateTime,
-       value Int64,
-       version UInt64
+       Path String,
+       Time DateTime,
+       Value Int64,
+       Version UInt64
    )
    ENGINE = GraphiteMergeTree('test_rollup')
-   PARTITION BY time
-   ORDER BY cityHash64(version, metric)
+   PARTITION BY Time
+   ORDER BY cityHash64(Version, Path)
    ```
 
 {% endlist %}
@@ -220,7 +214,20 @@ Configure Graphite to save metrics in the {{ CH }} cluster. In this case, data i
 
 ## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+To remove the `rollup` configuration from a cluster:
+
+1. Delete all the tables that use this configuration.
+1. Use the `yc managed-clickhouse cluster remove-graphite-rollup` command.
+
+For more information about the command, see the [CLI reference](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/remove-graphite-rollup.md).
+
+{% note alert %}
+
+Removal of the `rollup` configuration without first deleting the tables that use it may result in a cluster failure.
+
+{% endnote %}
+
+Delete the resources you no longer need to avoid paying for them:
 
 * [Delete the {{ CH }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 * [Delete the VM](../../compute/operations/vm-control/vm-delete.md).

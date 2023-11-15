@@ -62,7 +62,7 @@
        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
        ```bash
-       yc resource-manager folder list-access-bindings <название_папки>|<идентификатор_папки>
+       yc resource-manager folder list-access-bindings <имя_или_идентификатор_папки>
        ```
 
 {% endlist %}

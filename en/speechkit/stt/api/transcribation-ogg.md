@@ -53,6 +53,12 @@ For two-channel OggOpus audio files, do not specify the number of channels in th
 
       Since OggOpus is the default format, you do not need to specify the audio stream format.
 
+      {% note info %}
+
+      Do not provide the [audioChannelCount](transcribation-api.md#sendfile-params) parameter to specify the number of audio channels. OggOpus files already contain information about the channel count.
+
+      {% endnote %}
+
    1. Run the created file:
 
       ```bash

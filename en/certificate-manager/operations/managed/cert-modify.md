@@ -69,6 +69,8 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
 - {{ TF }}
 
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the certificate description:

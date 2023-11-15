@@ -8,6 +8,12 @@ items:
     items:
       - name: Uploading data
         href: operations/data/upload-data.md
+      - name: Working with reports
+        href: operations/data/manage-reports.md
+  - name: Concepts
+    items:
+      - name: Reports in {{ speechsense-name }}
+        href: concepts/reports.md
   - name: API reference
     items:
       - name: Authentication in the API

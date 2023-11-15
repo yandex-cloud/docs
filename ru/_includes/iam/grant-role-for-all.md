@@ -80,7 +80,7 @@
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
-       folder_id = "<идентификатор каталога>"
+       folder_id = "<идентификатор_каталога>"
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "viewer" {
@@ -121,7 +121,7 @@
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```
-     yc resource-manager folder list-access-bindings <имя каталога>|<ID каталога>
+     yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
      ```
 
 {% endlist %}

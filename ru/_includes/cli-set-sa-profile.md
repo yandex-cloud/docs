@@ -13,7 +13,7 @@
          ```
     * Укажите сервисный аккаунт по [идентификатору](../iam/operations/sa/get-id.md) с помощью параметра `--service-account-id`:
          ```
-         yc iam key create --service-account-id b1gnbfd11bq5g5vnjgr4 --output key.json
+         yc iam key create --service-account-id b1gnbfd11bq5******** --output key.json
          ```
 1. Создайте профиль, который будет использоваться для выполнения операций от имени сервисного аккаунта:
     ```

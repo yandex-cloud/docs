@@ -34,7 +34,7 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
         --python_out=./upload-data/ \
         --grpc_python_out=./upload-data/ \
         yandex/cloud/speechsense/v1/talk_service.proto \
-        yandex/cloud/speechsense/v1/audio.proto
+        yandex/cloud/speechsense/v1/audio.proto && \
    cd upload_data
    ```
 
@@ -95,7 +95,7 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
 	    parser.add_argument('--token', required=True, help='IAM token', type=str)
 	    parser.add_argument('--connection-id', required=True, help='Connection Id', type=int)
 	    parser.add_argument('--audio-path', required=True, help='Audio file path', type=str)
-	    parser.add_argument('--meta-path', required=False, help='Talk metadata json', type=str,  default=None)
+	    parser.add_argument('--meta-path', required=False, help='Talk metadata json', type=str, default=None)
 	    args = parser.parse_args()
 
 	    # Default values to be used in case of missing metadata
@@ -116,13 +116,11 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
 	    with open(args.audio_path, 'rb') as fp:
 		      audio_bytes = fp.read()
 	    upload_talk(args.connection_id, metadata, args.token, audio_bytes)
-
    	```
 
    {% endcut %}
 
    {% cut "Data streaming" %}
-
 
    	```python
    	import argparse
@@ -181,7 +179,7 @@ To use the API, you will need Git, Python 3.6 or higher, and the `grpcio-tools` 
 	    parser.add_argument('--token', required=True, help='IAM token', type=str)
 	    parser.add_argument('--connection-id', required=True, help='IAM token', type=int)
 	    parser.add_argument('--audio-path', required=True, help='Audio file path', type=str)
-	    parser.add_argument('--meta-path', required=False, help='Talk metadata json', type=str,  default=None)
+	    parser.add_argument('--meta-path', required=False, help='Talk metadata json', type=str, default=None)
 	    args = parser.parse_args()
 
 	    # Default values to be used in case of missing metadata

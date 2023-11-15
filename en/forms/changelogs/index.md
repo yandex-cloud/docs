@@ -1,19 +1,12 @@
-# {{ forms-full-name }} revision history for September 2023
+# {{ forms-full-name }} revision history for October 2023
 
-* [Inserting responses at the beginning or end of a {{ wiki-name }} page](#insert-answer)
-* [Design theme for forms](#design-theme)
-* [Integration with dynamic tables](#integration-with-grids)
+* [Enhanced integration with {{ sf-full-name }}](#integration-with-functions)
 
-## Inserting responses at the beginning or end of a {{ wiki-name }} page {#insert-answer}
 
-Now, when [setting up integration with {{ wiki-full-name }}](../send-wiki.md), you can select where to insert responses: at the beginning or end of a page.
+## Enhanced integration with {{ sf-full-name }} {#integration-with-functions}
 
-![](../../_assets/forms/insert-answer.png)
+Before [setting up integration with {{ sf-full-name }}](../call-function.md), it is critical to specify the key ID and secret key. You can do this in the form settings: go to **Settings** → **Advanced** and fill in the fields under **Cloud function key**.
 
-## Design theme for forms {#design-theme}
+To make sure users do not miss specifying the keys, we added a verification and prompts to the {{ forms-full-name }} interface: now, integrations with no keys are displayed as locked and the user can switch to the add keys page from a prompt.
 
-In the [new interface](2306.md), you can now set up a [design theme](../appearance.md).
 
-## Integration with dynamic tables {#integration-with-grids}
-
-[Business forms](../forms-for-org.md) can now be integrated with dynamic tables. For more information, see [{#T}](../send-wiki.md#grid).

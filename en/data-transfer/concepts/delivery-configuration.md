@@ -23,9 +23,9 @@ In this case, the **Exactly-once** strategy is implemented for DMBS-level data i
    | {{ MY }} database: Your own or as part of the [{{ mmy-short-name }} service](../../managed-mysql/) | ![yes](../../_assets/common/yes.svg) |
    | {{ PG }} database: Your own or as part of the [{{ mpg-short-name }} service](../../managed-postgresql/) | ![yes](../../_assets/common/yes.svg) |
    | {{ OS }} database: Your own or as part of the [{{ mos-short-name }} service](../../managed-opensearch/) | ![yes](../../_assets/common/yes.svg) |
-   | [{{ yds-full-name }}](../../data-streams/) data stream | ![no](../../_assets/common/no.svg) |
    | {{ ydb-name }} database: as part of the [{{ ydb-name }} service](../../ydb/). | ![yes](../../_assets/common/yes.svg) |
    | [{{ objstorage-full-name }}](../../storage/) bucket | ![no](../../_assets/common/no.svg) |
+   | Data stream in [{{ yds-full-name }}](../../data-streams/)                                    | ![no](../../_assets/common/no.svg) |
 
 {% note tip %}
 

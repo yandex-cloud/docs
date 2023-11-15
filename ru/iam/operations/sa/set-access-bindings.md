@@ -43,8 +43,8 @@
         +----------------------+----------+------------------+
         |          ID          |   NAME   |   DESCRIPTION    |
         +----------------------+----------+------------------+
-        | ajebqtreob2dpblin8pe | test-sa  | test-description |
-        | aje6o61dvog2h6g9a33s | my-robot |                  |
+        | ajebqtreob2d******** | test-sa  | test-description |
+        | aje6o61dvog2******** | my-robot |                  |
         +----------------------+----------+------------------+
         ```
 
@@ -76,7 +76,7 @@
         Результат:
 
         ```
-        id: gfei8n54hmfhuk5nogse
+        id: gfei8n54hmfh********
         yandex_passport_user_account:
             login: test-user
             default_email: test-user@yandex.ru
@@ -87,7 +87,7 @@
         ```bash
         yc iam service-account add-access-binding my-robot \
           --role editor \
-          --subject userAccount:gfei8n54hmfhuk5nogse
+          --subject userAccount:gfei8n54hmfh********
         ```
 
 - API
@@ -97,8 +97,8 @@
     1. Узнайте ID сервисного аккаунта с помощью метода REST API [list](../../api-ref/ServiceAccount/list.md):
 
         ```bash
-        curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+        curl -H "Authorization: Bearer <IAM-токен>" \
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
         ```
 
         Результат:
@@ -107,8 +107,8 @@
         {
         "serviceAccounts": [
             {
-            "id": "aje6o61dvog2h6g9a33s",
-            "folderId": "b1gvmob95yysaplct532",
+            "id": "aje6o61dvog2********",
+            "folderId": "b1gvmob95yys********",
             "createdAt": "2018-10-19T13:26:29Z",
             "name": "my-robot"
             }
@@ -120,7 +120,7 @@
     1. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md):
         
         ```bash
-        curl -H "Authorization: Bearer <IAM-TOKEN>" \
+        curl -H "Authorization: Bearer <IAM-токен>" \
           https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
         ```
 
@@ -128,7 +128,7 @@
 
         ```
         {
-        "id": "gfei8n54hmfhuk5nogse",
+        "id": "gfei8n54hmfh********",
         "yandexPassportUserAccount": {
             "login": "test-user",
             "defaultEmail": "test-user@yandex.ru"
@@ -142,17 +142,17 @@
        ```bash
        curl -X POST \
          -H 'Content-Type: application/json' \
-         -H "Authorization: Bearer <IAM-TOKEN>" \
+         -H "Authorization: Bearer <IAM-токен>" \
          -d '{
          "accessBindingDeltas": [{
              "action": "ADD",
              "accessBinding": {
                  "roleId": "editor",
                  "subject": {
-                     "id": "gfei8n54hmfhuk5nogse",
+                     "id": "gfei8n54hmfh********",
                      "type": "userAccount"
          }}}]}' \
-         https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+         https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
         ```
 
 - {{ TF }}
@@ -163,16 +163,16 @@
 
        * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
        * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
 
        Пример структуры конфигурационного файла:
 
        ```
        resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-         service_account_id = "<идентификатор сервисного аккаунта>"
+         service_account_id = "<идентификатор_сервисного_аккаунта>"
          role               = "<роль>"
          members            = [
-           "federatedUser:<идентификатор пользователя>",
+           "federatedUser:<идентификатор_пользователя>",
          ]
        }
        ```
@@ -203,7 +203,7 @@
        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
        ```
-       yc resource-manager service-account list-access-bindings <имя сервисного аккаунта>|<идентификатор сервисного аккаунта>
+       yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
        ```
 
 {% endlist %}
@@ -241,8 +241,8 @@
 
         ```bash
         yc iam service-account set-access-bindings my-robot \
-          --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse \
-          --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
+          --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
+          --access-binding role=viewer,subject=userAccount:helj89sfj80a********
         ```
 
 - API
@@ -252,14 +252,14 @@
     ```bash
     curl -X POST \
         -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM-TOKEN>" \
+        -H "Authorization: Bearer <IAM-токен>" \
         -d '{
         "accessBindingDeltas": [{
             "action": "ADD",
             "accessBinding": {
                 "roleId": "editor",
                 "subject": {
-                    "id": "gfei8n54hmfhuk5nogse",
+                    "id": "gfei8n54hmfh********",
                     "type": "userAccount"
                 }
             }
@@ -268,10 +268,10 @@
             "accessBinding": {
                 "roleId": "viewer",
                 "subject": {
-                    "id": "helj89sfj80aj24nugsz",
+                    "id": "helj89sfj80a********",
                     "type": "userAccount"
         }}}]}' \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
     ```
 
     Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/service_account_service.md#SetAccessBindings).
@@ -286,16 +286,16 @@
     ```bash
     curl -X POST \
         -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM-TOKEN>" \
+        -H "Authorization: Bearer <IAM-токен>" \
         -d '{
         "accessBindings": [{
             "roleId": "editor",
-            "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
+            "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
         },{
             "roleId": "viewer",
-            "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
+            "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
         }]}' \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:setAccessBindings
     ```
 
 - {{ TF }}
@@ -315,7 +315,7 @@
 
        {% endnote %}
 
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
 
      {% cut "Пример назначения нескольких ролей на сервисный аккаунт с помощью {{ TF }}" %}
 
@@ -323,17 +323,17 @@
      ```hcl
      ...
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-       service_account_id = "aje82upckiqhi3943ekr"
+       service_account_id = "aje82upckiqh********"
        role               = "admin"
        members = [
-         "userAccount:aje82upckiqhi3943ekr",
+         "userAccount:aje82upckiqh********",
        ]
      }
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam2" {
-       service_account_id = "aje82upckiqhi3943ekr"
+       service_account_id = "aje82upckiqh********"
        role               = "viewer"
        members = [
-         "userAccount:aje82upckiqhi3943ekr",
+         "userAccount:aje82upckiqh********",
        ]
      }
      ...
@@ -372,7 +372,7 @@
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
-     yc resource-manager service-account list-access-bindings <имя сервисного аккаунта>|<идентификатор сервисного аккаунта>
+     yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
      ```
 
 {% endlist %}
@@ -399,8 +399,8 @@
       +----------------------+----------+------------------+
       |          ID          |   NAME   |   DESCRIPTION    |
       +----------------------+----------+------------------+
-      | ajebqtreob2dpblin8pe | test-sa  | test-description |
-      | aje6o61dvog2h6g9a33s | my-robot |                  |
+      | ajebqtreob2d******** | test-sa  | test-description |
+      | aje6o61dvog2******** | my-robot |                  |
       +----------------------+----------+------------------+
       ```
 
@@ -409,7 +409,7 @@
       ```
       yc resource-manager folder add-access-binding my-folder \
         --role viewer \
-        --subject serviceAccount:ajebqtreob2dpblin8pe
+        --subject serviceAccount:ajebqtreob2d********
       ```
 
   1. Получите ID пользователя и назначьте ему роль `iam.serviceAccounts.tokenCreator` на сервисный аккаунт `test-sa` (в профиле администратора):
@@ -417,7 +417,7 @@
       ```
       yc iam service-account add-access-binding test-sa \
         --role iam.serviceAccounts.tokenCreator \
-        --subject userAccount:gfei8n54hmfhuk5nogse
+        --subject userAccount:gfei8n54hmfh********
       ```
 
 
@@ -427,13 +427,13 @@
 
       ```
       yc compute instance list --folder-name my-folder \
-        --impersonate-service-account-id ajebqtreob2dpblin8pe
+        --impersonate-service-account-id ajebqtreob2d********
       ```
 
       Также пользователь может получить [IAM-токен](../../concepts/authorization/iam-token.md) сервисного аккаунта `test-sa` для кратковременного доступа:
 
       ```
-      yc iam create-token --impersonate-service-account-id ajebqtreob2dpblin8pe
+      yc iam create-token --impersonate-service-account-id ajebqtreob2d********
       ```
 
       Срок действия полученного токена закончится автоматически.
@@ -443,14 +443,14 @@
       ```
       yc resource-manager folder remove-access-binding my-folder \
         --role viewer \
-        --subject serviceAccount:ajebqtreob2dpblin8pe
+        --subject serviceAccount:ajebqtreob2d********
       ```
   1. Отзовите роль `iam.serviceAccounts.tokenCreator` у пользователя, получавшего права сервисного аккаунта:
 
       ```
       yc iam service-account remove-access-binding test-sa \
         --role iam.serviceAccounts.tokenCreator \
-        --subject userAccount:gfei8n54hmfhuk5nogse
+        --subject userAccount:gfei8n54hmfh********
       ```
 
 
@@ -478,8 +478,8 @@
       +----------------------+----------+------------------+
       |          ID          |   NAME   |   DESCRIPTION    |
       +----------------------+----------+------------------+
-      | ajebqtreob2dpblin8pe | test-sa  | test-description |
-      | aje6o61dvog2h6g9a33s | my-robot |                  |
+      | ajebqtreob2d******** | test-sa  | test-description |
+      | aje6o61dvog2******** | my-robot |                  |
       +----------------------+----------+------------------+
       ```
 
@@ -488,7 +488,7 @@
       ```bash
       yc iam service-account add-access-binding my-robot \
         --role editor \
-        --subject serviceAccount:ajebqtreob2dpblin8pe
+        --subject serviceAccount:ajebqtreob2d********
       ```
 
 - API
@@ -496,8 +496,8 @@
   1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
 
       ```bash
-      curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+      curl -H "Authorization: Bearer <IAM-токен>" \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
       ```
 
       Результат:
@@ -506,15 +506,15 @@
       {
        "serviceAccounts": [
         {
-         "id": "ajebqtreob2dpblin8pe",
-         "folderId": "b1gvmob95yysaplct532",
+         "id": "ajebqtreob2d********",
+         "folderId": "b1gvmob95yys********",
          "createdAt": "2018-10-18T13:42:40Z",
          "name": "test-sa",
          "description": "test-description"
         },
         {
-         "id": "aje6o61dvog2h6g9a33s",
-         "folderId": "b1gvmob95yysaplct532",
+         "id": "aje6o61dvog2********",
+         "folderId": "b1gvmob95yys********",
          "createdAt": "2018-10-15T18:01:25Z",
          "name": "my-robot"
         }
@@ -527,17 +527,17 @@
       ```bash
       curl -X POST \
           -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM-TOKEN>" \
+          -H "Authorization: Bearer <IAM-токен>" \
           -d '{
           "accessBindingDeltas": [{
               "action": "ADD",
               "accessBinding": {
                   "roleId": "editor",
                   "subject": {
-                      "id": "ajebqtreob2dpblin8pe",
+                      "id": "ajebqtreob2d********",
                       "type": "serviceAccount"
           }}}]}' \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
       ```
 
 - {{ TF }}
@@ -550,17 +550,17 @@
 
        * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
        * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
 
      {% cut "Пример разрешения сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot` с помощью {{ TF }}" %}
 
      ```hcl
      ...
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-       service_account_id = "aje82upckiqhi3943ekr"
+       service_account_id = "aje82upckiqh********"
        role               = "admin"
        members = [
-         "serviceAccount:aje82upckiqhi3943ekr",
+         "serviceAccount:aje82upckiqh********",
        ]
      }
      ...
@@ -598,7 +598,7 @@
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
-     yc resource-manager service-account list-access-bindings <имя сервисного аккаунта>|<идентификатор сервисного аккаунта>
+     yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
      ```
 
 {% endlist %}
@@ -631,7 +631,7 @@
   ```bash
   curl -X POST \
       -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-TOKEN>" \
+      -H "Authorization: Bearer <IAM-токен>" \
       -d '{
       "accessBindingDeltas": [{
           "action": "ADD",
@@ -641,7 +641,7 @@
                   "id": "allAuthenticatedUsers",
                   "type": "system"
       }}}]}' \
-      https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+      https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
   ```
 
 - {{ TF }}
@@ -654,14 +654,14 @@
 
        * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
        * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
 
      {% cut "Пример разрешения любому прошедшему аутентификацию пользователю просматривать информацию о сервисном аккаунте `my-robot`" %}
 
      ```hcl
      ...
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-       service_account_id = "aje82upckiqhi3943ekr"
+       service_account_id = "aje82upckiqh********"
        role               = "viewer"
        members = [
          "system:allUsers",
@@ -702,7 +702,7 @@
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
-     yc resource-manager service-account list-access-bindings <имя сервисного аккаунта>|<идентификатор сервисного аккаунта>
+     yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
      ```
 
 {% endlist %}

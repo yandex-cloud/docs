@@ -24,15 +24,14 @@ Try using a [different recognition model](../../{{ speechkit-slug }}/stt/models.
 
 #### Two channels were recognized as one / How to recognize each channel separately {#two-channels}
 
-Check the format of your recording.
+Check the format of your recording:
 
-For LPCM, use the [config.specification.audioChannelCount](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params) parameter equal to 2.
-
-Do not specify this parameter for MP3 and OggOpus, since the number of channels is stated in the file. The file will be automatically split into two recordings.
+* For LPCM, use the [config.specification.audioChannelCount](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#sendfile-params) parameter set to 2.
+* Do not specify this parameter for MP3 and OggOpus, since the number of channels is already stated in the file. The file will be automatically split into the appropriate number of recordings.
 
 The recognized text in the response is separated by the [channelTag](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#get-result-response) parameter.
 
-#### Is it possible to recognize 2 or more voices separated by speaker? {#separate-speaker}
+#### Is it possible to recognize two or more voices separated by speaker? {#separate-speaker}
 
 During speech recognition, text is not split by voice, but you can place the voices in different channels and separate the recognized text in the response with the [channelTag](../../{{ speechkit-slug }}/stt/api/transcribation-api.md#get-result-response) parameter.
 

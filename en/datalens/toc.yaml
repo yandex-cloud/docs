@@ -707,6 +707,10 @@ items:
             href: operations/dashboard/add-chart.md
           - name: Adding selectors to dashboards
             href: operations/dashboard/add-selector.md
+          - name: Adding text to a dashboard
+            href: operations/dashboard/add-text.md
+          - name: Adding a dashboard header
+            href: operations/dashboard/add-title.md
           - name: Creating an alias
             href: operations/dashboard/create-alias.md
           - name: Deleting an alias field

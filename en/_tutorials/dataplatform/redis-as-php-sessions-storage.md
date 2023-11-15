@@ -21,10 +21,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. If you use {{ vpc-name }} security groups, [configure them](../../vpc/operations/security-group-add-rule.md). Add TCP settings to the security group to allow the following:
 
       * Incoming traffic through port `22` from any IP addresses for SSH.
-      * Outgoing and incoming traffic through ports `80` and `443` to and from any IP address for HTTP/HTTPS.
-      * Outgoing and incoming traffic through port `6379` to and from internal network IP addresses for {{ RD }}.
+      * Outgoing and incoming traffic on ports `80` and `443` to and from any IP address for HTTP/HTTPS.
+      * Outgoing and incoming traffic on port `6379` to and from internal network IP addresses for {{ RD }}.
 
-      For details, see [{#T}](../../vpc/concepts/security-groups.md).
+      For more information, see [{#T}](../../vpc/concepts/security-groups.md).
 
 
    1. [Create a virtual machine with LAMP/LEMP](../../tutorials/web/lamp-lemp.md#create-vm) in {{ compute-full-name }} of any suitable configuration.
@@ -37,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download the [file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. Download the configuration file for the appropriate cluster type to the same working directory:
 
@@ -56,7 +56,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * Password to access the {{ mrd-name }} cluster.
       * ID of the public LAMP/LEMP [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
-      * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file to use to access to the virtual machine. By default, the specified username is ignored in the image used. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
+      * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image used. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
    1. Run the `terraform init` command in the directory with the configuration file. This command initializes the providers specified in the configuration files and allows you to work with the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -65,7 +65,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the required infrastructure:
 
@@ -131,7 +131,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       ...
       [Session]
       session.save_handler = redis
-      session.save_path = "tcp://<FQDN of Redis master host>:6379?auth=<password>"
+      session.save_path = "tcp://<FQDN_of_{{ RD }}_master_host>:6379?auth=<password>"
       ```
 
    - {{ RD }} cluster with sharding
@@ -149,7 +149,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       Where `<FQDN1>`, `<FQDN2>`, and `<FQDN3>` are fully qualified domain names of [cluster master hosts](../../managed-redis/operations/hosts.md#list). For example, for a cluster with three shards and the `password` password, the `session.save_path` parameter value will look like this:
 
       ```ini
-      session.save_path = "seed[]=rc1a-t9h8gxqor5v6lcc3.{{ dns-zone }}:6379&seed[]=rc1b-7qxk0h3b8pupxsj9.{{ dns-zone }}:6379&seed[]=rc1c-spy1c1i4vwvj0n8z.{{ dns-zone }}:6379&auth=password"
+      session.save_path = "seed[]=rc1a-t9h8gxqo********.{{ dns-zone }}:6379&seed[]=rc1b-7qxk0h3b********.{{ dns-zone }}:6379&seed[]=rc1c-spy1c1i4********.{{ dns-zone }}:6379&auth=password"
       ```
 
    {% endlist %}
@@ -181,7 +181,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Connect to the {{ RD }} cluster from the VM via `redis-cli`:
 
    ```bash
-   redis-cli -c -h <FQDN of master host> -a <password>
+   redis-cli -c -h <FQDN_of_master_host> -a <password>
    ```
 
    Enter the following command to see what keys are stored in {{ RD }}:
@@ -212,15 +212,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```
 
    ```text
-   1) "PHPREDIS_SESSION:keb02haicgi0ijeju3ngqqnucq"
-   2) "PHPREDIS_SESSION:c5r0mbe1v84pn2b5kj1umun1sp"
+   1) "PHPREDIS_SESSION:keb02haicgi0ijeju3********"
+   2) "PHPREDIS_SESSION:c5r0mbe1v84pn2b5kj********"
    ```
 
    The returned result shows that, for each session in {{ RD }}, its own key is created.
 
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
@@ -242,12 +242,12 @@ Delete the resources you no longer need to avoid being charged for them:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      All resources described in the configuration file will be deleted.
+      All the resources described in the configuration file will be deleted.
 
 {% endlist %}

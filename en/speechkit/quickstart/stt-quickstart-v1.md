@@ -1,15 +1,9 @@
 # How to recognize short audio files in {{ speechkit-short-name }}
 
-The service can recognize speech [in different ways](../stt/index.md#stt-ways). In this section, you will recognize a short audio file via [synchronous recognition](../stt/request.md).
-
-{% note info %}
-
-The service has limits on the audio duration and file size:
+The service can recognize speech [in different ways](../stt/index.md#stt-ways). The example below demonstrates an audio file recognition using the [synchronous recognition](../stt/request.md) API. This API is subject to the following limitations:
 
 * Maximum audio duration: {{ stt-short-audioLength }}
 * Maximum file size: {{ stt-short-fileSize }}
-
-{% endnote %}
 
 Send a speech recognition [request](../stt/request.md):
 

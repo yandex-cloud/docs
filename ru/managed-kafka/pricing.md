@@ -64,10 +64,10 @@ editable: false
 Оплачивается объем хранилища, выделенный для кластеров.
 
 
-  * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами-брокерами и более:
-      * для платформы Intel Cascade Lake — с шагом 100 ГБ;
-      * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
-  * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами-брокерами и более, с шагом 93 ГБ.
+* Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами-брокерами и более:
+    * для платформы Intel Cascade Lake — с шагом 100 ГБ;
+    * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
+* Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами-брокерами и более, с шагом 93 ГБ.
 
 
 Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
@@ -204,22 +204,17 @@ editable: false
 ### Вычислительные ресурсы хостов-брокеров {{ KF }} {#prices-kafka-brokers}
 
 
-{% list tabs %}
+#### Стандартные хосты {#prices-kafka-standard}
 
-* Стандартные хосты
-
-     {% include notitle [RUB: standard broker hosts](../_pricing/managed-kafka/rub-hosts-standard.md) %}
+ {% include notitle [RUB: standard broker hosts](../_pricing/managed-kafka/rub-hosts-standard.md) %}
 
 
-* Выделенные хосты
+#### Выделенные хосты {#prices-kafka-dedicated}
 
-    {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+{% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
-     {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}
-  
+ {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}
 
-
-{% endlist %}
 
 
 

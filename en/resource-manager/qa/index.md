@@ -10,3 +10,5 @@ description: "How do I get the logs of my activity in {{ resmgr-full-name }}? Fi
 The new organization might have no users who are assigned roles for the cloud, folder, or other resources in the current organization. Before moving your cloud, add these users to the new organization manually.
 
 {% include [logs](../../_qa/logs.md) %}
+
+{% include [transfer-cloud](../../_qa/transfer-cloud.md) %}

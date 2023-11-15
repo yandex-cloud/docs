@@ -4,7 +4,7 @@ Create a trail to upload configuration-level (Control Plane) audit logs for an i
 
 The solution described in the tutorial follows the procedure below:
 
-1. A [trail](../audit-trails/concepts/trail.md) uploads logs to a {{ objstorage-name }} bucket.
+1. A [trail](../audit-trails/concepts/trail.md) uploads logs to an {{ objstorage-name }} bucket.
 1. A [bucket](../storage/concepts/bucket.md) is mounted to a folder on the intermediate VM.
 1. The intermediate VM runs a script that pulls logs from the bucket on a schedule and pushes them to the {{ mes-name }} cluster.
 
@@ -18,7 +18,7 @@ All the [source files](https://github.com/yandex-cloud/yc-solution-library-for-s
 
 {% include [Yc-solution-library-for-security](../_includes/security-solution-library.md) %}
 
-In addition to using the solution for your cloud logs, you can use it for organization or folder logs. To do this, create a trail by following the instructions for [organizations](../audit-trails/operations/export-organization-bucket.md) or [folders](../audit-trails/operations/export-folder-bucket.md), respectively.
+To use the solution not only for cloud logs but also organization or folder logs, create a trail by following the guide for [organization](../audit-trails/operations/export-organization-bucket.md) or [folder](../audit-trails/operations/export-folder-bucket.md).
 
 To export audit logs:
 
@@ -35,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [cli-install](../_includes/cli-install.md) %}
 
-Some steps are completed in [{{ TF }}](https://www.terraform.io/intro). If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+Some steps are completed in [{{ TF }}](https://www.terraform.io/intro). {% include [terraform-install](../_includes/terraform-install.md) %}
 
 Some {{ yandex-cloud }} features described in this tutorial are at the [Preview](../overview/concepts/launch-stages.md) stage. [Request access to these features from the support team]({{ link-console-support }}/create-ticket):
 
@@ -63,7 +63,7 @@ The infrastructure support cost includes:
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
    1. On the bucket creation page:
-      1. Enter the bucket name according to the [naming requirements](../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket according to the [naming requirements](../storage/concepts/bucket.md#naming).
       1. Specify the maximum size of the bucket: **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**.
       1. Select the `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}` [access](../storage/concepts/bucket.md#bucket-access) type.
       1. Select the [storage class](../storage/concepts/storage-class.md): `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
@@ -278,7 +278,7 @@ If you do not have a [cloud network](../vpc/concepts/network.md), create one:
 
 {% note info %}
 
-You can also deploy the required environment using {{ TF }}. See a [sample configuration file](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/terraform/example/main.tf).
+You can also deploy the required environment using {{ TF }}. For more information, refer to  a [sample configuration file](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/terraform/example/main.tf).
 
 {% endnote %}
 
@@ -297,12 +297,12 @@ You can also deploy the required environment using {{ TF }}. See a [sample confi
       * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Select the bucket to upload audit logs to.
       * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](../audit-trails/concepts/format.md#log-file-name) of the audit log file.
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the bucket, such as `trails-sa`.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
-      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
+      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Automatically populated field showing the name of the cloud to host the trail.
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Keep the default value, `{{ ui-key.yacloud.common.all }}`.
-   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **Status** field.
+   1. Under **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**, select `{{ ui-key.yacloud.common.disabled }}` in the **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}** field.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -417,7 +417,7 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
       terraform plan
       ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources:
 

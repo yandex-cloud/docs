@@ -21,7 +21,10 @@
          * `{{ ui-key.yacloud.smartcaptcha.value_complexity-hard }}`: Difficult task.
 
          You can see a sample task in the preview window.
-      * **{{ ui-key.yacloud.smartcaptcha.label_allowed-sites }}**: As IP addresses or domain names. Do not use `http`, `htpps`, or `/` at the end. The correct format is `example.com`. Domain names also apply to subdomains with no wildcard character (`*`).
+      * **{{ ui-key.yacloud.smartcaptcha.label_allowed-sites }}**: As IP addresses or domain names. Do not use `http`, `https`, or `/` at the end, e.g., `example.com`.
+
+         The CAPTCHA will also be valid for all subdomains of the specified domain names.
+
       * **{{ ui-key.yacloud.smartcaptcha.label_section-style }}**: Appearance of the **I'm not a robot** button and the task window:
          * `{{ ui-key.yacloud.smartcaptcha.value_config-standard }}`: Default appearance
          * `Grey`

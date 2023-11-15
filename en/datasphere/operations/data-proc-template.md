@@ -9,7 +9,7 @@
 1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.data-proc.create-template }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.data-proc.template-name }}** field, enter a name for the template. The requirements are as follows:
+1. In the **{{ ui-key.yc-ui-datasphere.data-proc.template-name }}** field, enter a name for the template. The naming requirements are as follows:
 
    {% include [name-format](../../_includes/name-format.md) %}
 

@@ -39,7 +39,7 @@ zʲ | z' | palatalized voiced alveolar fricative | **з**има [zʲɪma]
 ʑ: | z\: | long voiced alveolo-palatal fricative | е**зж**у [jeʑːʊ], во**жж**и [voʑ:ɨ̞]
 ʐ | z` | voiced retroflex fricative | **ж**ена [ʐɨ̞na]
 **Vowels** | | |
-ə | @ | mid central vowel | коров**а** [kɐrovə], м**о**локо [məlɐ′ko]
+ə | @ | [Schwa](https://en.wikipedia.org/wiki/Schwa): mid central vowel | коров**а** [kɐrovə], м**о**локо [məlɐ′ko]
 a | a | open front unrounded vowel | т**а**м [tam], м**я**ч [mʲat͡ɕ], **я**ма [jamə]
 ɐ | 6 | near-open central vowel | кар**а**вай [kərɐvaj], гол**о**ва [gəlɐva]
 e | e | close-mid front unrounded vowel | п**е**чь [pʲet͡ɕ]

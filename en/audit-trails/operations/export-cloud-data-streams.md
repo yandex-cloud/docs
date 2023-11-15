@@ -29,9 +29,9 @@ To export audit logs of a cloud:
          ```
 
          Where:
-         * `role`: Role being assigned
+         * `role`: Role being assigned.
          * `id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) whose audit logs will be collected.
-         * `service-account-id`: ID of your service account
+         * `service-account-id`: ID of your service account.
 
       * [`yds.writer`](../../logging/security/index.md#roles-list) for the folder to host the trail:
 
@@ -43,9 +43,9 @@ To export audit logs of a cloud:
          ```
 
          Where:
-         * `role`: Role being assigned
-         * `id`: ID of the folder to host the trail
-         * `service-account-id`: ID of your service account
+         * `role`: Role being assigned.
+         * `id`: ID of the folder to host the trail.
+         * `service-account-id`: ID of your service account.
 
    {% endlist %}
 
@@ -78,9 +78,9 @@ To create a trail that exports audit logs from the cloud:
 
    1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select the service account that the trail will use to upload audit log files to the data stream.
 
-   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of configuration-level audit logs:
+   1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, set up the collection of management event audit logs:
 
-      * **Status**: Select `{{ ui-key.yacloud.common.enabled }}`.
+      * **{{ ui-key.yacloud.audit-trails.label_collecting-logs }}**: Select `{{ ui-key.yacloud.common.enabled }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: Select `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`.
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}**: Automatically populated field showing the name of the cloud to host the trail.
       * **{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}**: Keep the default value, `{{ ui-key.yacloud.common.all }}`.

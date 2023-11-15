@@ -12,7 +12,7 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources can be assigned a role {#resources}
 
 You can assign a role to a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or a [certificate](../concepts/index). These roles also apply to nested resources.
 
@@ -42,18 +42,18 @@ The table below lists the roles needed to perform a particular action. You can a
 | Action | Methods | Required roles |
 ----- | ----- | -----
 | **Certificate Manager** | |
-| Get a list of certificates or domains | `list` | `viewer` for a folder |
-| Get certificate or domain details | `get` | `viewer` for a certificate or folder |
-| [Add](../operations/managed/cert-create.md) a Let's Encrypt certificate | `requestNew` | `editor` for the folder |
-| [Update](../operations/managed/cert-modify.md) and [delete](../operations/managed/cert-delete.md) a Let's Encrypt certificate | `update`, `delete` | `editor` for the certificate or folder |
-| [Add](../operations/import/cert-create.md) a custom certificate | `create` | `editor` for the folder |
-| [Renew](../operations/import/cert-update.md), [update](../operations/import/cert-modify.md), or [delete](../operations/import/cert-delete.md) a custom certificate | `update`, `delete` | `editor` for the certificate or folder |
-| Get the contents of a [custom certificate](../operations/import/cert-get-content.md) or a [Let's Encrypt certificate](../operations/managed/cert-get-content.md) | `get-content` | `certificate-manager.certificates.downloader` for the certificate or folder |
-| [Create a domain](../operations/domain/domain-create.md) | `create` | `editor` for the folder |
-| [Update a domain](../operations/domain/domain-modify.md) and [delete a domain](../operations/domain/domain-delete.md) | `update`, `delete` | `editor` for the domain or folder |
-| [Update a domain certificate](../operations/domain/domain-link-cert.md) | `setPrimaryCertificate` | `editor` for the domain or folder |
+| Getting a list of certificates or domains | `list` | `viewer` for a folder |
+| Getting certificate or domain details | `get` | `viewer` for a certificate or folder |
+| [Adding](../operations/managed/cert-create.md) a Let's Encrypt certificate | `requestNew` | `editor` for the folder |
+| [Updating](../operations/managed/cert-modify.md) and [deleting](../operations/managed/cert-delete.md) a Let's Encrypt certificate | `update`, `delete` | `editor` for the certificate or folder |
+| [Adding](../operations/import/cert-create.md) a custom certificate | `create` | `editor` for the folder |
+| [Renewing](../operations/import/cert-update.md), [updating](../operations/import/cert-modify.md), or [deleting](../operations/import/cert-delete.md) a custom certificate | `update`, `delete` | `editor` for the certificate or folder |
+| Getting the contents of a [custom certificate](../operations/import/cert-get-content.md) or [Let's Encrypt certificate](../operations/managed/cert-get-content.md) | `get-content` | `certificate-manager.certificates.downloader` for the certificate or folder |
+| [Adding a domain](../operations/domain/domain-create.md) | `create` | `editor` for the folder |
+| [Updating a domain](../operations/domain/domain-modify.md) and [deleting a domain](../operations/domain/domain-delete.md) | `update`, `delete` | `editor` for the domain or folder |
+| [Updating a domain certificate](../operations/domain/domain-link-cert.md) | `setPrimaryCertificate` | `editor` for the domain or folder |
 | **IAM** | |
-| [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view the roles assigned for a folder or cloud | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` or `certificate-manager.admin` for the certificate, domain, or folder |
+| [Assigning a role](../../iam/operations/roles/grant.md), [revoking a role](../../iam/operations/roles/revoke.md), and viewing the roles assigned for a folder or cloud | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` or `certificate-manager.admin` for the certificate, domain, or folder |
 
 #### What's next {what-is-next}
 
