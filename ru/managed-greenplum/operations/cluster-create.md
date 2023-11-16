@@ -80,11 +80,13 @@
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * **{{ ui-key.yacloud.mdb.forms.section_pooler }}** — режим работы и параметры [менеджера подключений](../concepts/pooling.md):
+    1. (Опционально) Задайте режим работы и параметры [менеджера подключений](../concepts/pooling.md) в блоке **{{ ui-key.yacloud.mdb.forms.section_pooler }}**:
 
-            {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
+        {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
 
-    1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
+    1. (Опционально) В блоке **{{ ui-key.yacloud.greenplum.section_background-activities }}** измените параметры [регламентных операций технического обслуживания](../concepts/maintenance.md#regular-ops):
+
+        {% include [background activities](../../_includes/mdb/mgp/background-activities-console.md) %}
 
     1. Укажите параметры хостов-мастеров на вкладке **{{ ui-key.yacloud.greenplum.section_resource-master }}**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#master).
 
@@ -108,6 +110,8 @@
              
              {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
              
+
+    1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -359,6 +363,7 @@
     * Настройки доступа из [{{ data-transfer-full-name }}](../../data-transfer/) в параметре `config.access.dataTransfer`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * [Настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) в параметре `configSpec.greenplumConfig_<версия>`.
+    * Настройки [регламентных операций технического обслуживания](../concepts/maintenance.md#regular-ops) в параметре `configSpec.backgroundActivities.analyzeAndVacuum`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}

@@ -8,10 +8,10 @@
 * [Getting data from RabbitMQ](fetch-data-from-rabbitmq.md)
 * [Exchanging data with {{ dataproc-full-name }}](exchange-data-with-dp.md)
 * [Configuring {{ dns-full-name }} for cluster access from other cloud networks](dns-peering.md)
-* * [Analyzing {{ objstorage-full-name }} logs using {{ datalens-full-name }}](storage-logs-analysis.md)
-* 
+* [Analyzing {{ objstorage-full-name }} logs using {{ datalens-full-name }}](storage-logs-analysis.md)
 * [Configuring {{ mch-name }} for Graphite](clickhouse-for-graphite.md)
 * [{#T}](yds-to-clickhouse.md)
-* * [Migrating databases from Google BigQuery](bigquery-to-clickhouse.md)
-* 
+* [Migrating databases from Google BigQuery](bigquery-to-clickhouse.md)
 * [Delivering data from {{ mkf-name }} using {{ data-transfer-full-name }}](mkf-to-mch-migration.md)
+
+To learn how to migrate {{ mch-name }} cluster hosts to a different availability zone, see this [guide](../operations/host-migration.md).

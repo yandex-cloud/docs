@@ -1,8 +1,6 @@
-
-
 # Создать группу виртуальных машин в группе размещения
 
-Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) в группе размещения.
+Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) в [группе размещения](../../concepts/placement-groups.md).
 
 {% list tabs %}
 
@@ -18,34 +16,17 @@
       yc compute placement-group create --help
       ```
 
-  1. Создайте группу размещения:
-
-      ```bash
-      yc compute placement-group create --spread-strategy --name my-group
-      ```
-
-      Результат:
-
-      ```bash
-      id: fdvte50kv3nc********
-      folder_id: aoeieef3k7pp********
-      created_at: "2019-12-20T08:59:44Z"
-      name: my-group
-      spread_placement_strategy: {}
-      ```
-
-      Данная команда создаст группу размещения со следующими характеристиками:
-
-      * С именем `my-group`.
-      * Стратегией размещения `spread`.
-
+  1. Создайте группу размещения в каталоге по умолчанию с одной из стратегий размещения:
+  
+     {% include [pg-create](../../../_includes/compute/placement-groups-create.md) %}
+  
   1. Посмотрите описание команды CLI для создания группы ВМ:
 
      ```bash
      {{ yc-compute-ig }} create --help
      ```
 
-  1. Проверьте, есть ли в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) [сети](../../../vpc/concepts/network.md#network):
+  1. Проверьте, есть ли в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) хотя бы одна [сеть](../../../vpc/concepts/network.md#network):
 
       ```bash
       yc vpc network list

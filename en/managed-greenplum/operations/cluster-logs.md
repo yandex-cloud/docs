@@ -15,7 +15,7 @@
    1. Specify the time period for logs to be displayed: enter it manually or select in the calendar by clicking the date input field.
    1. If required, request the `GREENPLUM_POOLER` log and select the hosts and logging level in the drop-down lists next to the date input field.
 
-   A list of log entries for the selected time period will be displayed. To view detailed information about an event, click on the respective entry in the list.
+   A list of log entries for the selected time period will be displayed. To view detailed information about an event, click the respective entry in the list.
 
    If there are too many records and not all of them are displayed, click the **{{ ui-key.yacloud.mdb.cluster.logs.button_load-more }}** link at the end of the list.
 

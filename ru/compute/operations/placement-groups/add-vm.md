@@ -30,33 +30,37 @@
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. Создайте виртуальную машину:
+  1. Создайте ВМ:
 
      ```bash
-     yc compute instance create --zone {{ region-id }}-a --name instance-in-group-2
+     yc compute instance create \
+       --zone {{ region-id }}-a \
+       --name instance-in-group-2
      ```
+
+     Где:
+     * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет размещена ВМ.
+     * `--name` — имя ВМ.
 
      Результат:
 
-     ```bash
+     ```yaml
      id: epdlv1pp5401********
      ...
      ```
 
-     Данная команда создаст виртуальную машину со следующими характеристиками:
-
-     - С именем `instance-in-group-2`.
-     - В зоне доступности `{{ region-id }}-a`.
-
-  1. Посмотрите список виртуальных машин в группе размещения:
+  1. Посмотрите список ВМ в группе размещения:
 
      ```bash
-     yc compute placement-group list-instances --name my-group
+     yc compute placement-group list-instances \
+       --name my-group
      ```
+
+     Где `--name` — имя группы размещения.
 
      Результат:
 
-     ```bash
+     ```text
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -64,7 +68,7 @@
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      ```
 
-  1. Остановите виртуальную машину:
+  1. Остановите ВМ, указав в команде ее имя:
 
      ```bash
      yc compute instance stop instance-in-group-2
@@ -72,44 +76,53 @@
 
      Результат:
 
-     ```bash
+     ```yaml
      id: epdlv1pp5401********
      ...
      status: STOPPED
      ```
 
-  1. Добавьте виртуальную машину в группу размещения:
+  1. Добавьте ВМ в группу размещения:
 
      ```bash
-     yc compute instance update --name instance-in-group-2 --placement-group-name my-group
+     yc compute instance update \
+       --name instance-in-group-2 \
+       --placement-group-name my-group \
+       --placement-group-partition <номер_раздела>
      ```
+
+     Где:
+     * `--name` — имя ВМ.
+     * `--placement-group-name` — имя группы размещения.
+     * `--placement-group-partition` — номер раздела в группе размещения со стратегией [размещения разделами](../../concepts/placement-groups.md#partition).
+
+       {% note info %}
+
+       Если не указать номер раздела при добавлении ВМ в группу с размещением разделами, то ВМ добавится в случайный раздел.
+
+       {% endnote %}
 
      Результат:
 
-     ```bash
+     ```yaml
      id: epdlv1pp5401********
      ...
      placement_policy:
        placement_group_id: fd83bv4rnsna********
      ```
 
-     Данная команда добавит виртуальную машину `instance-in-group-2` в группу размещения `my-group`.
-
-     {% note info %}
-
-     Если не указать номер раздела при добавлении ВМ в группу с [размещением разделами](../../concepts/placement-groups.md#partition), то ВМ добавится в случайный раздел.
-
-     {% endnote %}
-
-  1. Проверьте, что виртуальная машина добавлена в группу размещения:
+  1. Проверьте, что ВМ добавлена в группу размещения:
 
      ```bash
-     yc compute placement-group list-instances --name my-group
+     yc compute placement-group list-instances \
+       --name my-group
      ```
+
+     Где `--name` — имя группы размещения.
 
      Результат:
 
-     ```bash
+     ```text
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -118,7 +131,7 @@
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      ```
 
-  1. Запустите виртуальную машину:
+  1. Запустите ВМ, указав в команде ее имя:
 
      ```bash
      yc compute instance start instance-in-group-2
@@ -126,7 +139,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      id: epdlv1pp5401********
      ...
      status: RUNNING

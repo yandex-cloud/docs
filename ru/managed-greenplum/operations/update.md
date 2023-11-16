@@ -229,6 +229,40 @@
 
 {% endlist %}
 
+## Изменить настройки регламентных операций технического обслуживания {#change-background-settings}
+
+Вы можете изменить настройки [регламентных операций технического обслуживания](../concepts/maintenance.md#regular-ops) вашего кластера.
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.greenplum.section_background-activities }}** измените параметры:
+
+        {% include [background activities](../../_includes/mdb/mgp/background-activities-console.md) %}
+
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- API
+
+    Чтобы изменить настройки регламентных операций технического обслуживания кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Новые значения параметров для объекта`configSpec.backgroundActivities.analyzeAndVacuum`:
+
+        * `start.hours` — час начала операции `VACUUM` по UTC. Возможные значения: от `0` до `23`, по умолчанию — `19`.
+        * `start.minutes` — минута начала операции `VACUUM` по UTC. Возможные значения: от `0` до `59`, по умолчанию — `0`.
+        * `vacuumTimeout` — максимальная длительность выполнения операции `VACUUM`, в секундах. По умолчанию — `36000`. Когда указанное время истечет, операция `VACUUM` будет принудительно завершена.
+        * `analyzeTimeout` — максимальная длительность выполнения операции `ANALYZE`, в секундах. По умолчанию — `36000`. Когда указанное время истечет, операция будет принудительно завершена.
+
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
 ## Изменить настройки {{ GP }} {#change-gp-settings}
 
 Вы можете изменить настройки СУБД для хостов вашего кластера.

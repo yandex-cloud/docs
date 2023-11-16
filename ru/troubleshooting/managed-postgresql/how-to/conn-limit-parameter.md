@@ -28,4 +28,4 @@
 
 По умолчанию установлено максимальное значение.
 
-С подробной информацией можно ознакомиться в [документации](https://cloud.yandex.ru/docs/managed-postgresql/concepts/settings-list).
+С подробной информацией можно ознакомиться в [документации](../../../managed-postgresql/concepts/settings-list.md).

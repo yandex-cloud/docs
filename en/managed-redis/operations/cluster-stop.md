@@ -24,10 +24,10 @@ You can stop and restart a DB cluster, if required. You are not charged for the 
    To stop a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-rd }} cluster stop <cluster name or ID>
+   {{ yc-mdb-rd }} cluster stop <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -59,10 +59,10 @@ You can restart **STOPPED** clusters.
    To start a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-rd }} cluster start <cluster name or ID>
+   {{ yc-mdb-rd }} cluster start <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

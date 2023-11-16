@@ -43,8 +43,8 @@ A [sharded cluster](../concepts/sharding.md) contains three or more master hosts
 
    ```bash
    {{ yc-mdb-rd }} cluster start-failover \
-     --name <cluster name> \
-     --hostnames <name of current master host>
+     --name <cluster_name> \
+     --hostnames <name_of_current_master_host>
    ```
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md) and the name of the master host for the desired shard with a [list of hosts in the cluster](hosts.md#list).
@@ -54,6 +54,6 @@ A [sharded cluster](../concepts/sharding.md) contains three or more master hosts
    To switch the master, use the [startFailover](../api-ref/Cluster/startFailover.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StartFailover](../api-ref/grpc/cluster_service.md#StartFailover) gRPC API call and provide the following in the request:
 
    * ID of the cluster where you want to switch the master, in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md).
-   * For a sharded cluster only: the name of the current master host of the desired shard in the `hostNames` parameter. To find out the name, request a [list of hosts in the cluster](hosts.md#list).
+   * For a sharded cluster only: the name of the current master host of the desired shard in the `hostNames` parameter. To find out the name, get a [list of hosts in the cluster](hosts.md#list).
 
 {% endlist %}

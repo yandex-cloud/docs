@@ -51,21 +51,21 @@ If a bucket is registered in an {{ OS }} cluster as a snapshot repository, do no
 1. Register the bucket as a snapshot repository using the public [{{ OS }} API]({{ os.docs }}/opensearch/snapshot-restore/#register-repository):
 
    ```http
-   PUT --cacert ~/.opensearch/root.crt https://admin:<password>@<ID of the {{ OS }} host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name>
+   PUT --cacert ~/.opensearch/root.crt https://admin:<password>@<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>
    ```
 
    In the request parameters, specify the bucket associated with the cluster service account:
 
    ```bash
    curl --request PUT \
-        "https://admin:<password>@<ID of the {{ OS }} host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name>" \
+        "https://admin:<password>@<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>" \
         --cacert ~/.opensearch/root.crt \
         --header "Content-Type: application/json" \
         --data '{
           "type": "s3",
           "settings": {
             "endpoint": "{{ s3-storage-host }}",
-            "bucket": "<bucket name>"
+            "bucket": "<bucket_name>"
           }
         }'
    ```

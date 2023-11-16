@@ -24,6 +24,8 @@ After creating a cluster, you can:
 
 * [Changing hybrid storage settings](#change-hybrid-storage).
 
+To move a cluster to a different availability zone, follow this [guide](host-migration.md). You will thus move the cluster hosts.
+
 
 ## Change service account settings {#change-service-account}
 
@@ -547,11 +549,11 @@ For more information, see [Memory management](../concepts/memory-management.md).
 
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
-   * `--yandexquery-access=true`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
+   * `--yandexquery-access=true`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. The default value is `false`.
 
 
 
-   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -579,11 +581,11 @@ For more information, see [Memory management](../concepts/memory-management.md).
       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
         ...
         access {
-          data_lens    = <access from DataLens: true or false>
-          metrika      = <access from Yandex Metrica and AppMetrika: true or false>
-          serverless   = <access from Cloud Functions: true or false>
-          web_sql      = <executing SQL queries from the management console: true or false>
-          yandex_query = <access from Yandex Query: true or false>
+          data_lens    = <access_from_{{ datalens-name }}:_true_or_false>
+          metrika      = <access_from_Yandex_Metrica_and_AppMetrika:_true_or_false>
+          serverless   = <access_from_Cloud_Functions:_true_or_false>
+          web_sql      = <execution_of_SQL_queries_from_management_console:_true_or_false>
+          yandex_query = <access_from_Yandex_Query:_true_or_false>
         }
         ...
       }

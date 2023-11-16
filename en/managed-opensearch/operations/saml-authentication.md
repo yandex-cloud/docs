@@ -21,10 +21,10 @@ To set up SAML authentication:
    Use the URL with a [special cluster FQDN](connect.md#special-fqdns):
 
    ```
-   https://c-<{{ OS }} cluster ID>.rw.{{ dns-zone }}/api/security/saml/callback
+   https://c-<{{ OS }}_cluster_ID>.rw.{{ dns-zone }}/api/security/saml/callback
    ```
 
-   The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    **Example:** `https://c-e4ut2....rw.{{ dns-zone }}/api/security/saml/callback`
 
@@ -33,7 +33,7 @@ To set up SAML authentication:
    Use the URL with a [special cluster FQDN](connect.md#special-fqdns):
 
    ```
-   https://c-<cluster ID>rw.{{ dns-zone }}
+   https://c-<cluster_ID>rw.{{ dns-zone }}
    ```
 
    **Example:** `https://c-e4ut2....rw.{{ dns-zone }}`
@@ -58,19 +58,19 @@ Incorrect settings may cause the cluster to fail.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
    1. Click **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
    1. Specify the parameters of external authorization source:
 
       * **{{ ui-key.yacloud.opensearch.auth.field_idp-entity-id }}**: Information about the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp).
 
-      * **idp_metadata_file**: The provider's metadata file in XML format obtained when [configuring the IdP](#configuration-idp).
+      * **idp_metadata_file**: Provider's metadata file in XML format obtained when [configuring the IdP](#configuration-idp).
 
-      * **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}**: The application-defined SP Entity ID (Audience URI). Make sure it is the same as the ID specified when [configuring the IdP](#configuration-idp).
+      * **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}**: Application-defined SP Entity ID (Audience URI). Make sure it is the same as the ID specified when [configuring the IdP](#configuration-idp).
 
-      * **{{ ui-key.yacloud.opensearch.auth.field_dashboards-url }}**: The URL with a [special cluster FQDN](./connect.md#special-fqdns). Same as the **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}**.
+      * **{{ ui-key.yacloud.opensearch.auth.field_dashboards-url }}**: URL with a [special cluster FQDN](./connect.md#special-fqdns), same as the **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}**.
 
-      * **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}**: The SAML response parameter that stores the roles. If omitted, no roles are used.
+      * **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}**: SAML response parameter that stores the roles. If omitted, no roles are used.
 
       * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: The SAML response parameter that stores the subject. If omitted, the `NameID` parameter is used.
 
@@ -87,13 +87,13 @@ Incorrect settings may cause the cluster to fail.
 
          {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
 
-      * The `true` value, in the `enabled` parameter.
+      * `True` value, in the `enabled` parameter.
       * ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp), in the `idpEntityId` parameter.
       * Path to the Base64 metadata file, in the `idpMetadataFile` parameter.
-      * URI of the SP Entity ID (Audience URI) application, in the `spEntityId` application. Use the URI you specified when [configuring the IdP](#configuration-idp).
+      * URI of the SP Entity ID (Audience URI) application, in the `spEntityId` parameter. Use the URI you specified when [configuring the IdP](#configuration-idp).
       * URL of the {{ OS }} host with the `DASHBOARDS` role, in the `dashboardsUrl` parameter.
-      * (Optional) The SAML response parameter that stores the roles, in the `rolesKey` parameter.
-      * (Optional) The SAML response parameter that stores the subject, in the `subjectKey` parameter.
+      * (Optional) SAML response parameter that stores the roles, in the `rolesKey` parameter.
+      * (Optional) SAML response parameter that stores the subject, in the `subjectKey` parameter.
 
 {% endlist %}
 

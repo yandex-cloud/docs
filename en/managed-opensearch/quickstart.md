@@ -23,7 +23,7 @@ To get started with the service:
 
 {% note info %}
 
-These instructions assume that you're connecting to the cluster from the internet.
+These instructions assume that you are connecting to the cluster from the internet.
 
 {% endnote %}
 
@@ -89,9 +89,9 @@ To connect to a cluster:
    1. Make sure that hosts with the `DASHBOARDS` role are publicly accessible.
 
 
-   1. Install the [SSL certificate]({{ crt-web-path }}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
-   1. On the cluster page, in the management console, click **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** or go to `https://c-<{{ OS }} cluster ID>.rw.{{ dns-zone }}>` in your browser.
-   1. Enter the `admin` username and password that you set when [creating the cluster](#create-cluster).
+   1. Install the [SSL certificate]({{ crt-web-path }}) in your browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
+   1. On the cluster page, in the management console, click **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** or go to `https://c-<{{ OS }}_cluster_ID>.rw.{{ dns-zone }}>` in your browser.
+   1. Enter `admin` for the username and the password you set when [creating the cluster](#create-cluster).
 
 1. Explore a set of sample data:
 

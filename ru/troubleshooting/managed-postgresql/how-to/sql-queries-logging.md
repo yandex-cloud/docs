@@ -7,9 +7,9 @@
 
 ## Решение {#case-resolution}
 
-Чтобы включить логирование запросов необходимо проверить, что установлено расширение `pg_stat_statements` — оно добавляет возможность отслеживания планирования и сбора статистики выполнения всех SQL-запросов, запущенных в кластере. Для использования расширения [нужна роль `mdb_monitor`](../../../managed-postgresql/operations/extensions/cluster-extensions)
+Чтобы включить логирование запросов необходимо проверить, что установлено расширение `pg_stat_statements` — оно добавляет возможность отслеживания планирования и сбора статистики выполнения всех SQL-запросов, запущенных в кластере. Для использования расширения [нужна роль `mdb_monitor`](../../../managed-postgresql/operations/extensions/cluster-extensions.md)
 
-Дополнительно проверьте настройку `Auto explain sample rate=1` и `Auto explain log analyze`, как указано в [инструкции](../../../managed-postgresql/concepts/settings-list#dbms-cluster-settings)
+Дополнительно проверьте настройку `Auto explain sample rate=1` и `Auto explain log analyze`, как указано в [инструкции](../../../managed-postgresql/concepts/settings-list.md#dbms-cluster-settings)
 
 Далее включите параметр`Log min duration statement`. Значение `1 ms` желательно не устанавливать, так как в этом случае кластер будет занят только записью логов.
 

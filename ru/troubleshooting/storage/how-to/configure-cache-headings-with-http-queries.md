@@ -7,7 +7,7 @@
 
 ## Решение {#case-resolution}
 
-Можно добавить заголовок `Cache-Control` к системным метаданным на этапе загрузки или модификации объекта в бакете. Подробнее о метаданных объекта пишем в [документации](https://cloud.yandex.ru/docs/storage/concepts/object#metadata).
+Можно добавить заголовок `Cache-Control` к системным метаданным на этапе загрузки или модификации объекта в бакете. Подробнее о метаданных объекта пишем в [документации](../../../storage/concepts/object.md#metadata).
 
 Чтобы добавить `Cache-Control` к уже загруженному объекту можно воспользоваться утилитой `s3cmd`. 
 Для этого выполните команду: 
@@ -22,11 +22,11 @@ s3cmd --add-header 'Cache-Control:3600' put local_file s3://<your-bucket-name>/o
 
 {% note info %}
 
-Установить и настроить утилиту `s3cmd` можно [по этой инструкции](../../../storage/tools/s3cmd).
+Установить и настроить утилиту `s3cmd` можно [по этой инструкции](../../../storage/tools/s3cmd.md).
 
 {% endnote %}
 
-Вы также можете воспользоваться [утилитой AWS CLI](../../../storage/tools/aws-cli) для добавления заголовка Cache-Control.
+Вы также можете воспользоваться [утилитой AWS CLI](../../../storage/tools/aws-cli.md) для добавления заголовка Cache-Control.
 Пример команды для AWS CLI: 
 ```
 aws --endpoint-url=https://storage.yandexcloud.net s3 \

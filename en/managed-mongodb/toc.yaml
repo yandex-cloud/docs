@@ -21,6 +21,8 @@ items:
             href: operations/cluster-stop.md
           - name: Managing hosts in a cluster
             href: operations/hosts.md
+          - name: Migrating hosts to a different availability zone
+            href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
           - name: Deleting clusters
@@ -73,7 +75,7 @@ items:
         href: tutorials/migration-from-kafka.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Host classes
         items:

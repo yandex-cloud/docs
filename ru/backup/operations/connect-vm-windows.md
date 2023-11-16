@@ -7,6 +7,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами на базе Windows](../concepts/vm-connection.md#windows).
 
+{% include [requirements](../../_includes/backup/requirements.md) %}
+
 {% include [vm-prereqs-note](../../_includes/backup/vm-prereqs-note.md) %}
 
 Чтобы подключить ВМ Windows к {{ backup-name }}:

@@ -3,13 +3,13 @@
 1. Install the dependencies:
 
     ```bash
-    sudo apt update && sudo apt install -y default-jdk maven
+    sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
 1. Create a folder for the Maven project:
 
     ```bash
-    cd ~/ && mkdir -p project/src/java/com/example && cd project/
+    cd ~/ && mkdir --parents project/src/java/com/example && cd project/
     ```
 
 1. Create a configuration file for Maven:
@@ -105,11 +105,10 @@
     1. Create secure storage for certificates:
 
         ```bash
-        keytool \
-            -importcert \
+        keytool -importcert \
             -alias YARootCrt \
             -file ~/.redis/{{ crt-local-file }} \
             -keystore ~/.redis/YATrustStore \
-            -storepass <secure certificate storage password> \
+            -storepass <password_of_secure_certificate_storage> \
             --noprompt && chmod 0655 ~/.redis/YATrustStore
         ```

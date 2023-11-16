@@ -24,6 +24,7 @@
 
 * [{#T}](roles-and-users.md)
 * [{#T}](resource-groups.md)
+* [{#T}](user-auth-rules.md)
 * [{#T}](command-center.md)
 * [{#T}](cluster-process.md)
 

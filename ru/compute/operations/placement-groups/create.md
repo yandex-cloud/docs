@@ -32,42 +32,25 @@
      yc compute placement-group create --help
      ```
 
-  1. Создайте группу размещения:
+  1. Создайте группу размещения в каталоге по умолчанию с одной из стратегий размещения:
+
+     {% include [pg-create](../../../_includes/compute/placement-groups-create.md) %}
+
+  1. Проверьте, что группа размещения добавлена:
 
      ```bash
-     yc compute placement-group create --spread-strategy --name my-group
+     yc compute placement-group list
      ```
 
      Результат:
 
      ```bash
-     id: fd83bv4rnsna********
-     folder_id: b1g5kkhshgs9********
-     created_at: "2019-12-30T10:07:34Z"
-     name: my-group
-     spread_placement_strategy: {}
+     +----------------------+----------+----------+
+     |          ID          |   NAME   | STRATEGY |
+     +----------------------+----------+----------+
+     | fd83bv4rnsna******** | my-group | SPREAD   |
+     +----------------------+----------+----------+
      ```
-
-     Данная команда создаст группу размещения со следующими характеристиками:
-
-     - С именем `my-group`.
-     - Стратегией распределенного размещения (`spread`).
-
-   1. Проверьте, что группа размещения добавлена:
-
-      ```bash
-      yc compute placement-group list
-      ```
-
-      Результат:
-
-      ```bash
-      +----------------------+----------+----------+
-      |          ID          |   NAME   | STRATEGY |
-      +----------------------+----------+----------+
-      | fd83bv4rnsna******** | my-group | SPREAD   |
-      +----------------------+----------+----------+
-      ```
 
 - API
 

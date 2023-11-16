@@ -35,7 +35,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
    +----------------------+---------------+-----------------------------+--------+---------+
    |          ID          |     NAME      |         CREATED AT          | HEALTH | STATUS  |
    +----------------------+---------------+-----------------------------+--------+---------+
-   | c9qp9beeg4oth6lcqvt0 | myredis       | 2018-11-02T10:04:14.645214Z | ALIVE  | RUNNING |
+   | c9qp9beeg4ot******** | myredis       | 2018-11-02T10:04:14.645214Z | ALIVE  | RUNNING |
    | ...                                                                                   |
    +----------------------+---------------+-----------------------------+--------+---------+
    ```
@@ -55,7 +55,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 
    1. In the [management console]({{ link-console-main }}), go to the folder to get cluster details for.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-   1. Click the name of the cluster you need.
+   1. Click the cluster name.
 
 - CLI
 
@@ -66,10 +66,10 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
    To get information about a {{ RD }} cluster, run the following command:
 
    ```
-   {{ yc-mdb-rd }} cluster get <cluster name or ID>
+   {{ yc-mdb-rd }} cluster get <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 

@@ -47,3 +47,4 @@ description: "Чтобы начать работать с {{ maf-full-name }}, �
 
 * Изучите [концепции сервиса](concepts/index.md).
 * Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [работе с интерфейсами](operations/af-interfaces.md) {{ AF }}.
+* Создайте DAG-файлы и [загрузите их](operations/upload-dags.md) в кластер {{ maf-name }}. Пример DAG-файла см. в [документации {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).

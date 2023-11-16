@@ -5401,9 +5401,28 @@ default:
             title_consumption-history: Usage history
             title_current-state: Current state
             title_states-history: State history
+          user-auth:
+            action_add-rule: Add rule
+            action_edit-rules: Edit rules
+            title_column-address: Address (CIDR/FQDN)
+            title_column-databases: Database
+            title_column-method: Method
+            title_column-type: Type
+            title_column-user: User
+            title_page-auth-user: User authentication
+            value_hba-type-host: host
+            value_hba-type-hostnossl: hostnossl
+            value_hba-type-hostssl: hostssl
         field_expand-add-segments-per-host-count: Add segments to host
         field_expand-duration: Redistribution timeout
         field_expand-segment-host-count: Number of new segment hosts
+        field_hosts-count: Host count
+        field_segments-in-host: Segments per host
+        label_user-auth: User authentication
+        label-analyze-timeout: ANALYZE timeout
+        label-start-time: Start time (UTC)
+        label-vacuum-timeout: VACUUM timeout
+        section_background-activities: Managing background processes
         section_cloud-storage: Hybrid storage
         section_resource-master: Master
         section_resource-segment: Segment

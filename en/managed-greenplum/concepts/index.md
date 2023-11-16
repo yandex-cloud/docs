@@ -16,7 +16,7 @@ If the primary master fails, the standby one takes over. This way, a cluster wit
 Segment hosts have standalone DBMS's (_segments_) deployed on them. They store data fragments and perform most operations for handling queries. Each cluster segment has a replica, i.e., a mirror segment that is located on another host and stores a copy of the data from the main segment.
 
 
-All {{ mgp-name }} cluster hosts are located in a single availability zone: either `{{ region-id }}-a` or `{{ region-id }}-b`. You cannot create hosts in `{{ region-id }}-c`. For more information, see [{#T}](../../overview/concepts/geo-scope.md) and [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+All {{ mgp-name }} cluster hosts are located in a single availability zone: `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`. You cannot create hosts in `{{ region-id }}-c`, for it is being [deprecated](/blog/posts/2023/08/new-availability-zone). If you have hosts located in this availability zone, [restore your cluster from a backup](../operations/cluster-backups.md#restore). While restoring the cluster, specify a different availability zone.
 
 
 VMs for cluster hosts can be hosted on:
@@ -41,7 +41,7 @@ When creating a cluster, specify:
 
 * _Environment_: Environment where the cluster will be deployed:
    * `PRODUCTION`: For stable versions of your apps.
-   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by the SLA. However, it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 

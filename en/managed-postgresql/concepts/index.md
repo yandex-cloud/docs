@@ -19,7 +19,7 @@ Each cluster consists of one or more _database hosts_, which are virtual machine
 
 A cluster's computing capacity depends on its _host class_, which is the virtual machine template used to deploy the cluster's hosts. For a list of available host classes and their specs, see [{#T}](instance-types.md).
 
-To manage connections and balance the cluster load, the service architecture features the _Odyssey_ pooler. For more information, see [{#T}](pooling.md).
+To manage connections and balance the cluster load, the service architecture features the _Odyssey connection pooler_. For more information, see [{#T}](pooling.md).
 
 
 A cluster created in a folder can be accessed by all VMs connected to the same cloud network. For more information about networking, see the [{{ vpc-name }} documentation](../../vpc/).

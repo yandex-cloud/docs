@@ -16,7 +16,7 @@ yc managed-kubernetes node-group list-nodes <node_group_id> --format yaml
 ## Решение {#issue-resolution}
 
 1. Подключитесь по SSH к проблемной виртуальной машине. 
-О том, как подключиться к узлу по SSH, пишем в [документации](https://cloud.yandex.ru/docs/managed-kubernetes/operations/node-connect-ssh).
+О том, как подключиться к узлу по SSH, пишем в [документации](../../../managed-kubernetes/operations/node-connect-ssh.md).
 
 2. Выполните следующие команды в интерактивном сеансе проблемной виртуальной машины:
 ```

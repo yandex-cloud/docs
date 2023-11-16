@@ -13,9 +13,9 @@ description: "Using monitoring tools in the management console, you can track th
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Monitoring cluster status {#monitoring-cluster}
+## Monitoring cluster state {#monitoring-cluster}
 
-To view detailed information about the {{ mpg-name }} cluster status:
+To view detailed information about the {{ mpg-name }} cluster state:
 
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 
@@ -40,7 +40,7 @@ The following charts will open on the page:
 * **Memory usage**: Use of RAM, in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
 * **Network Bytes**: Network data transfer speed (bytes per second).
 * **Packets received/sent**: Network packet transmission activity (packets per second).
-* **Pooler is alive, [boolean]**: Pooler health for each host either as a master or as a replica.
+* **Pooler is alive, [boolean]**: Connection pooler health for each host either as a master or as a replica.
 * **PostgreSQL Alive, [boolean]**: PostgreSQL health for each host either as a master or as a replica.
 * **Replication lag**: Replication delay.
 * **Session CPU usage cores**: Number of utilized processor cores by session type.
@@ -57,7 +57,7 @@ The following charts will open on the page:
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed information about the status of individual {{ mpg-name }} hosts:
+To view detailed information about the state of individual {{ mpg-name }} hosts:
 
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
@@ -103,10 +103,10 @@ The recommended thresholds are as follows:
 |---------------------------------------|:--------------------------:|:-------------------------:|:-------------------------:|
 | Replication delay | `postgres-replication_lag` | `60` | `5`   |
 | Number of healthy hosts | `postgres-is_alive` | `<host_count>: 2` | `<host_count>: 1` |
-| Average query execution time | `pooler-avg_query_time` | N/A | `2000` |
+| Average query execution time | `pooler-avg_query_time` | N/A | `2,000` |
 | Storage space used | `disk.used_bytes` | 90% of the storage size | 80% of the storage size |
 
-For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds are only set in bytes. For example, here are the recommended values for a 100 GB disk:
+For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
 * `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`: `85,899,345,920` bytes (80%)

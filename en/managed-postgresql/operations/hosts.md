@@ -5,7 +5,7 @@ description: "In this tutorial, you will learn how to manage {{ PG }} cluster ho
 
 # Managing {{ PG }} cluster hosts
 
-You can add and remove cluster hosts and manage their settings.
+You can add and remove cluster hosts and manage their settings. To move cluster hosts to a different availability zone, follow [this guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list}
 
@@ -33,12 +33,12 @@ You can add and remove cluster hosts and manage their settings.
 
    
    ```text
-   +-----------------------+--------------+---------+--------+-------------------+
-   |         NAME          |  CLUSTER ID  |  ROLE   | HEALTH |      ZONE ID      |
-   +-----------------------+--------------+---------+--------+-------------------+
-   | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
-   | rc1a...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-a |
-   +-----------------------+--------------+---------+--------+-------------------+
+   +----------------------------+----------------------+---------+--------+--------------------+
+   |            NAME            |      CLUSTER ID      |  ROLE   | HEALTH |      ZONE ID       |
+   +----------------------------+----------------------+---------+--------+--------------------+
+   | rc1b***{{ dns-zone }} | c9qp71dk1dfg******** | MASTER  | ALIVE  | {{ region-id }}-b      |
+   | rc1a***{{ dns-zone }} | c9qp71dk1dfg******** | REPLICA | ALIVE  | {{ region-id }}-a      |
+   +----------------------------+----------------------+---------+--------+--------------------+
    ```
 
 
@@ -91,17 +91,17 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
       Result:
 
       ```text
-      +-----------+-----------+------------+-------------------+------------------+
-      |     ID    |   NAME    | NETWORK ID |       ZONE        |      RANGE       |
-      +-----------+-----------+------------+-------------------+------------------+
-      | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
-      | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
-      | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
-      | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
-      +-----------+-----------+------------+-------------------+------------------+
+      +----------------------+-----------+----------------------+---------------+-------------------+
+      |          ID          |   NAME    |      NETWORK ID      |      ZONE     |      RANGE        |
+      +----------------------+-----------+----------------------+---------------+-------------------+
+      | b0cl69q1w2e3******** | default-c | enp6rq71w2e3******** | {{ region-id }}-c | [172.16.**.**/20] |
+      | e2lkj9q1w2e3******** | default-b | enp6rq71w2e3******** | {{ region-id }}-b | [10.10.**.**/16]  |
+      | e9b0phq1w2e3******** | a-2       | enp6rq71w2e3******** | {{ region-id }}-a | [172.16.**.**/20] |
+      | e9b9v2q1w2e3******** | default-a | enp6rq71w2e3******** | {{ region-id }}-a | [172.16.**.**/20] |
+      +----------------------+-----------+----------------------+---------------+-------------------+
       ```
 
-      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+      If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
 
    1. View a description of the CLI command for adding a host:
@@ -203,7 +203,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the required host row and select **{{ ui-key.yacloud.common.edit }}**.
    1. Set new settings for the host:
       1. Select the replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual).
-      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if a host must be accessible from outside {{ yandex-cloud }}.
+      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
    1. Click **{{ ui-key.yacloud.postgresql.hosts.dialog.button_choose }}**.
 
 - CLI

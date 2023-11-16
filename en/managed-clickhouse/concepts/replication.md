@@ -61,7 +61,7 @@ Note:
 
 {% note warning %}
 
-We recommend creating replicated tables on all cluster hosts; otherwise, when restoring a cluster from a backup, you may lose data. For more information, see [Backups](backup.md).
+We recommend creating replicated tables on all cluster hosts. Otherwise, you may lose data when restoring a cluster from a [backup](backup.md) or [migrating cluster hosts](../operations/host-migration.md) to a different availability zone.
 
 {% endnote %}
 

@@ -27,7 +27,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    To get a list of cluster backups:
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the name of the desired cluster and select the ![backups](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+   1. Click the cluster name and select the ![backups](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
    To get a list of all backups in a folder:
 
@@ -53,7 +53,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
    To get information about the backup of an existing cluster:
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the name of the desired cluster and select the ![backups](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+   1. Click the cluster name and select the ![backups](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
 
    To get information about the backup of a previously deleted cluster:
 
@@ -75,7 +75,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the name of the desired cluster and select the ![backups](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+   1. Click the cluster name and select the ![backups](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
    1. Click ![image](../../_assets/plus-sign.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -103,7 +103,7 @@ When creating a new cluster, set all required parameters.
    To restore an existing cluster from a backup:
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the name of the desired cluster and select the ![backups](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
+   1. Click the cluster name and select the ![backups](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -112,7 +112,7 @@ When creating a new cluster, set all required parameters.
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Select the ![backups](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** tab.
-   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster ID>:<backup ID>` format.
+   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
    1. Set up the new cluster.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -140,7 +140,7 @@ To work with snapshots, use the [public API {{ OS }}]({{ os.docs }}/api-referenc
 1. Find the repository containing snapshot backups in the {{ OS }} repository list:
 
    ```http
-   GET https://admin:<password>@<ID of the {{ OS }} host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
+   GET https://admin:<password>@<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
    ```
 
    If the required repository is not on the list, [connect it](s3-access.md).
@@ -148,7 +148,7 @@ To work with snapshots, use the [public API {{ OS }}]({{ os.docs }}/api-referenc
 1. Get a list of snapshots in the repository:
 
    ```http
-   GET https://admin:<password>@<ID of the {{ OS }} host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name>/_all
+   GET https://admin:<password>@<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>/_all
    ```
 
    Each snapshot is a single backup.
@@ -158,7 +158,7 @@ To work with snapshots, use the [public API {{ OS }}]({{ os.docs }}/api-referenc
 1. In the {{ OS }} repository list, find the repository where you want to create the snapshot:
 
    ```http
-   GET https://admin:<password>@<ID of the {{ OS }} host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
+   GET https://admin:<password>@<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_snapshot/_all
    ```
 
    If the required repository is not on the list, [connect it](s3-access.md).
@@ -166,7 +166,7 @@ To work with snapshots, use the [public API {{ OS }}]({{ os.docs }}/api-referenc
 1. [Create a snapshot]({{ os.docs }}/opensearch/snapshots/snapshot-restore/#take-snapshots) of the required data or an entire cluster in the selected repository:
 
    ```http
-   PUT https://admin:<password>@<ID of the {{ OS }} host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name>/<snapshot name>
+   PUT https://admin:<password>@<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>/<snapshot_name>
    ```
 
 ### Restoring a cluster from a snapshot {#restore-from-snapshot}
@@ -185,10 +185,10 @@ When restoring a cluster from a snapshot, the {{ OS }} version in the cluster mu
 
    * The {{ OS }} version used to make the snapshot or higher.
 
-1. Close any open indices using the [{{ OS }} API]({{ os.docs }}/api-reference/index-apis/close-index/):
+1. Close any open indexes using the [{{ OS }} API]({{ os.docs }}/api-reference/index-apis/close-index/):
 
    ```http
-   POST: https://admin:<password>@<ID of the {{ OS }} host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/<index name>/_close
+   POST: https://admin:<password>@<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/<index_name>/_close
    ```
 
    To restore an entire cluster, close all open indexes. To restore individual indexes, close only those indexes.

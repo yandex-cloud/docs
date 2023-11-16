@@ -68,14 +68,14 @@ Make sure this does not affect your applications:
    1. Get information about a cluster and check the {{ RD }} version in the `config.version` parameter:
 
       ```bash
-      {{ yc-mdb-rd }} cluster get <cluster ID or name>
+      {{ yc-mdb-rd }} cluster get <cluster_name_or_ID>
       ```
 
    1. Start the {{ RD }} upgrade:
 
       ```bash
-      {{ yc-mdb-rd }} cluster update <cluster ID or name> \
-        --redis-version <new version number>
+      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
+        --redis-version <new_version_number>
       ```
 
       Once the update is launched, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
@@ -86,7 +86,7 @@ Make sure this does not affect your applications:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * {{ RD }} version number in the `configSpec.version` parameter.
-   * List of cluster configuration fields to be changed in the `updateMask` parameter.
+   * List of cluster configuration fields to be changed for the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -112,7 +112,7 @@ Let's assume you need to upgrade your cluster from version {{ versions.cli.previ
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
       +----------------------+---------------+---------------------+--------+---------+
-      | c9q8p8j2gaih8iti42mh |   redis406    | 2022-04-23 12:44:17 | ALIVE  | RUNNING |
+      | c9q8p8j2gaih******** |   redis406    | 2022-04-23 12:44:17 | ALIVE  | RUNNING |
       +----------------------+---------------+---------------------+--------+---------+
       ```
 
@@ -125,7 +125,7 @@ Let's assume you need to upgrade your cluster from version {{ versions.cli.previ
       Result:
 
       ```text
-      id: c9q8p8j2gaih8iti42mh
+      id: c9q8p8j2gaih********
       ...
       config:
         version: "{{ versions.cli.previous }}"

@@ -99,6 +99,10 @@ items:
             href: tutorials/remote-run-job.md
       - name: Настройка сети для {{ dataproc-name }}
         href: tutorials/configure-network.md
+      - name: >-
+          Переключение сетевого соединения при пересоздании кластера {{
+          dataproc-name }}
+        href: tutorials/reconnect-network.md
       - name: Использование {{ objstorage-full-name }} в {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
       - name: Обмен данными с {{ mch-full-name }}
