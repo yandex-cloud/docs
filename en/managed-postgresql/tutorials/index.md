@@ -19,3 +19,5 @@
 * [{#T}](./mpg-to-mmy.md)
 * [{#T}](./mmy-to-mpg.md)
 * [{#T}](./rds-to-mpg.md)
+
+To learn how to migrate {{ mpg-name }} cluster hosts to a different availability zone, see [this guide](../operations/host-migration.md).

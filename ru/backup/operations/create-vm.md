@@ -7,6 +7,8 @@ description: "Следуя данной инструкции, вы сможет�
 
 Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами на базе Linux](../concepts/vm-connection.md#linux).
 
+{% include [requirements](../../_includes/backup/requirements.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../../iam/concepts/access-control/roles.md#backup-editor) `backup.editor`.

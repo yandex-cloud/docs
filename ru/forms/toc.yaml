@@ -51,8 +51,14 @@ items:
         href: send-request.md
       - name: Сохранять файлы из ответов в хранилище
         href: storage-for-attached-files.md
-      - name: Вызвать функцию {{ sf-name }}
-        href: call-function.md
+      - name: Вызвать функцию {{ sf-full-name }}
+        items:
+          - name: Настроить интеграцию с {{ sf-name }}
+            href: call-function.md
+          - name: Передавать ответы в базу данных
+            href: send-to-database.md
+          - name: Визуализировать данные в {{ datalens-full-name }}
+            href: visualize-datalens.md
       - name: Переменные в настройках интеграции
         href: vars.md
   - name: Опубликовать форму

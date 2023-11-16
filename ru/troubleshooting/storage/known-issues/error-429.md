@@ -13,7 +13,7 @@ message: ; status: 429; description: ; code: undefined; Request ID: undefined; T
 
 {% noteinfo %}
 
-Со всеми кодами ошибок и ответов API Object Storage можно ознакомиться в [документации](../../../storage/s3/api-ref/response-codes)
+Со всеми кодами ошибок и ответов API Object Storage можно ознакомиться в [документации](../../../storage/s3/api-ref/response-codes.md)
 
 {% endnote %}
 

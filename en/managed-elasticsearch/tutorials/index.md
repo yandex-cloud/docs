@@ -7,3 +7,5 @@
 * [{#T}](./migration-via-reindex-api.md)
 * [{#T}](./migration-to-opensearch.md)
 * [{#T}](./migration-from-kafka.md)
+
+To learn how to migrate {{ mes-name }} cluster hosts to a different availability zone, see this [guide](../operations/host-migration.md).

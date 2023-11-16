@@ -1,6 +1,7 @@
 # Все практические руководства
 
 * [{#T}](./configure-network.md).
+* [{#T}](./reconnect-network.md).
 * [{#T}](./copy-files-from-object-storage.md).
 * [{#T}](./exchange-data-with-mch.md)
 * [{#T}](./sqoop-mmy.md)

@@ -134,22 +134,36 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       
       ```bash
       {{ yc-mdb-rd }} cluster create \
-        --name <cluster name> \
-        --environment <environment, prestable or production> \
-        --network-name <network name> \
-        --host zone-id=<availability zone>,`
-              `subnet-id=<subnet ID>,`
-              `assign-public-ip=<host public access: true or false>,`
-              `replica-priority=<host priority> \
-        --security-group-ids <list of security group IDs> \
+        --name <cluster_name> \
+        --environment <environment> \
+        --network-name <network_name> \
+        --host zone-id=<availability_zone>,`
+              `subnet-id=<subnet_ID>,`
+              `assign-public-ip=<public_access>,`
+              `replica-priority=<host_priority> \
+        --security-group-ids <list_of_security_group_IDs> \
         --enable-tls \
-        --resource-preset <host class> \
-        --disk-size <storage size, GB> \
-        --password=<user password> \
-        --backup-window-start <backup start time in HH:MM:SS format> \
-        --deletion-protection=<cluster delete protection: true or false>
+        --resource-preset <host_class> \
+        --disk-size <storage_size_in_GB> \
+        --password=<user_password> \
+        --backup-window-start <time> \
+        --deletion-protection=<deletion_protection>
       ```
 
+
+      Where:
+      * `--environment`: `prestable` or `production`.
+
+      
+      * `--host`: Host parameters:
+         * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
+         * `assign-public-ip`: Flag enabling online access to the host by a public IP: `true` or `false`.
+         * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+
+
+      * `--backup-window-start`: Backup start time in `HH:MM:SS` format.
+      * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
 
       You need to specify `subnet-id` if the selected availability zone has two or more subnets.
 
@@ -185,45 +199,55 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       
       
       ```hcl
-      resource "yandex_mdb_redis_cluster" "<cluster name>" {
-        name                = "<cluster name>"
-        environment         = "<environment: PRESTABLE or PRODUCTION>"
-        network_id          = "<network ID>"
-        security_group_ids  = [ "<security group IDs>" ]
+      resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        name                = "<cluster_name>"
+        environment         = "<environment>"
+        network_id          = "<network_ID>"
+        security_group_ids  = [ "<list_of_security_group_IDs>" ]
         tls_enabled         = true
-        deletion_protection = <cluster deletion protection: true or false>
+        deletion_protection = <deletion_protection>
 
         config {
           password = "<password>"
-          version  = "<{{ RD }} version: {{ versions.tf.str }}>"
+          version  = "<{{ RD }}_version>"
         }
 
         resources {
-          resource_preset_id = "<host class>"
-          disk_type_id       = "<disk type>"
-          disk_size          = <storage size in GB>
+          resource_preset_id = "<host_class>"
+          disk_type_id       = "<disk_type>"
+          disk_size          = <storage_size_in_GB>
         }
 
         host {
-          zone             = "<availability zone>"
-          subnet_id        = "<subnet ID>"
-          assign_public_ip = <public access to host: true or false>
-          replica_priority = <host priority>
+          zone             = "<availability_zone>"
+          subnet_id        = "<subnet_ID>"
+          assign_public_ip = <public_access>
+          replica_priority = <host_priority>
         }
       }
 
-      resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+      resource "yandex_vpc_network" "<network_name>" { name = "<network_name>" }
 
-      resource "yandex_vpc_subnet" "<subnet name>" {
-        name           = "<subnet name>"
-        zone           = "<availability zone>"
-        network_id     = "<network ID>"
+      resource "yandex_vpc_subnet" "<subnet_name>" {
+        name           = "<subnet_name>"
+        zone           = "<availability_zone>"
+        network_id     = "<network_ID>"
         v4_cidr_blocks = ["<range>"]
       }
       ```
 
 
 
+
+      Where:
+      * `environment`: `PRESTABLE` or `PRODUCTION`.
+      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+      * `version`: {{ RD }} version, {{ versions.tf.str }}.
+      * `host`: Host parameters:
+         * `zone_id`: Availability zone.
+         * `subnet_id`: ID of a subnet in the selected availability zone.
+         * `assign_public_ip`: Public access to the host, `true` or `false`.
+         * `replica_priority`: Host priority.
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
@@ -280,7 +304,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Version: `{{ versions.cli.latest }}`
    * Environment: `production`
    * Network: `default`
-   * Single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone and security group with the `{{ security-group }}` ID with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
+   * Single `hm1.nano` host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone and security group with the `{{ security-group }}` ID with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
    * SSL support: Enabled
    * Network SSD storage (`{{ disk-type-example }}`): 16 GB
    * Password: `user1user1`
@@ -296,7 +320,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --environment production \
      --network-name default \
      --resource-preset hm1.nano \
-     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64,assign-public-ip=true,replica-priority=50 \
+     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr********,assign-public-ip=true,replica-priority=50 \
      --security-group-ids {{ security-group }} \
      --enable-tls \
      --disk-type-id {{ disk-type-example }} \
@@ -395,7 +419,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Create a [sharded](../concepts/sharding.md) {{ mgp-name }} cluster with test characteristics:
+   Create a [sharded](../concepts/sharding.md) {{ mgp-name }} cluster with the following test characteristics:
 
    * Name: `myredis`
    * Version: `{{ versions.tf.latest }}`

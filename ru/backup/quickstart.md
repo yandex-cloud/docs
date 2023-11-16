@@ -4,6 +4,8 @@
 
 Вы можете создавать резервные копии [виртуальных машин](../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами](concepts/vm-connection.md#os).
 
+{% include [requirements](../_includes/backup/requirements.md) %}
+
 Чтобы начать работать с {{ backup-name }}:
 1. [Активируйте сервис](#activate-provider).
 1. [Настройте сервисный аккаунт](#prepare-service-account).

@@ -23,6 +23,7 @@
 * [{{ container-registry-name }}](#container-registry)
 * [{{ dataproc-name }}](#dataproc)
 * [{{ data-transfer-name }}](#datatransfer)
+* [{{ ml-platform-name }}](#datasphere)
 * [{{ iam-name }}](#iam)
 * [{{ iot-name }}](#iot)
 * [{{ kms-name }}](#kms)
@@ -36,11 +37,15 @@
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
 * [{{ mpg-short-name }}](#managed-service-for-postgresql)
 * [{{ mrd-short-name }}](#managed-service-for-redis)
+* [{{ mes-short-name }}](#managed-service-for-elasticsearch)
+* [{{ mos-short-name }}](#managed-service-for-opensearch)
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
+* [{{ search-api-name }}](#searchapi)
 * [{{ serverless-containers-name }}](#serverless-containers)
 * [{{ org-name }}](#organization)
 * [{{ resmgr-name }}](#resmgr)
+* [{{ sws-name }}](#smartwebsecurity)
 * [{{ captcha-name }}](#smartcaptcha)
 * [{{ vpc-name }}](#vpc)
 * [{{ ydb-short-name }}](#ydb)
@@ -254,12 +259,13 @@
 `UpdateSnapshot` | Изменение снимка диска
 `UpdateSnapshotSchedule` | Изменение параметров расписания снимков диска
 `UpdateSnapshotScheduleDisks` | Изменение параметров расписания снимков дисков
+`instancegroup` | Управление группой ВМ
 `instancegroup.CreateInstanceGroup` | Создание группы ВМ
 `instancegroup.DeleteInstanceGroup` | Удаление группы ВМ
 `instancegroup.DeleteInstanceGroupInstances` | Удаление ВМ из группы
 `instancegroup.PauseInstanceGroup` | Приостановка процессов управления группой ВМ
 `instancegroup.ResumeInstanceGroup` | Возобновление процессов управления группой ВМ
-`instancegroup.RollingRestartInstanceGroupInstances` | Поочередная перезагрузка виртуальных машин из группы
+`instancegroup.RollingRestartInstanceGroupInstances` | Поочередная перезагрузка ВМ из группы
 `instancegroup.SetInstanceGroupAccessBindings` | Назначение ролей на группу ВМ
 `instancegroup.StartInstanceGroup` | Запуск группы ВМ
 `instancegroup.StopInstanceGroup` | Остановка группы ВМ
@@ -284,6 +290,7 @@
 `DeleteLifecyclePolicy` | Удаление политики жизненного цикла
 `DeleteRegistry` | Удаление реестра
 `DeleteRepository` | Удаление репозитория
+`DeleteScanPolicy` | Удаление политики сканирования
 `ScanImage` | Сканирование образа
 `UpdateIpPermission` | Изменение политики доступа с IP-адресов
 `UpdateLifecyclePolicy` | Изменение политики жизненного цикла
@@ -327,6 +334,23 @@
 `UpdateEndpoint` | Изменение эндпоинта
 `UpdateTransfer` | Изменение трансфера
 `UpdateTransferVersion` | Обновление версии data planе трансфера
+
+## {{ ml-platform-name }} {#datasphere}
+
+Имя сервиса — `datasphere`.
+
+Имя события | Описание
+--- | ---
+`CreateCommunity` | Создание сообщества
+`CreateProject` | Создание проекта
+`DeleteCommunity` | Удаление сообщества
+`DeleteProject` | Удаление проекта
+`SetCommunityAccessBindings` | Назначение привязок прав доступа для сообщества
+`SetProjectAccessBindings` | Назначение привязок прав доступа для проекта
+`UpdateCommunity` | Изменение сообщества
+`UpdateCommunityAccessBindings` | Изменение привязок прав доступа для сообщества
+`UpdateProject` | Изменение проекта
+`UpdateProjectAccessBindings` | Изменение привязок прав доступа для проекта
 
 ## {{ iam-name }} {#iam}
 
@@ -397,6 +421,7 @@
 `UpdateAsymmetricSignatureKey` | Изменение ключевой пары электронной подписи
 `UpdateSymmetricKey` | Изменение симметричного ключа
 `UpdateSymmetricKeyAccessBindings` | Изменение привязок прав доступа для симметричного ключа
+`UpdateAsymmetricEncryptionKeyAccessBindings` | Изменение привязок прав доступа для асимметричной ключевой пары шифрования
 
 ## {{ lockbox-name }} {#lockbox}
 
@@ -429,6 +454,20 @@
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`CreateConnector` | Создание коннектора
+`CreateTopic` | Создание топика
+`CreateUser` | Создание пользователя кластера
+`DeleteConnector` | Удаление коннектора
+`DeleteTopic` | Удаление топика
+`DeleteUser` | Удаление пользователя кластера
+`GrantUserPermission` | Назначение прав пользователю кластера
+`MoveCluster` | Перемещение кластера
+`PauseConnector` | Приостановка коннектора
+`ResumeConnector` | Возобновление работы коннектора
+`RevokeUserPermission` | Отзыв прав у пользователя кластера
+`UpdateConnector` | Изменение коннектора
+`UpdateTopic` | Изменение топика
+`UpdateUser` | Изменение пользователя кластера
 
 ## {{ mch-short-name }} {#managed-service-for-clickhouse}
 
@@ -485,6 +524,7 @@
 `UpdateOmniauthInstance` | Изменение настроек OmniAuth
 `UpgradeInstance` | Обновление версии GitLab
 `CleanupRegistryInstance` | Очистка Docker Registry
+`ResizeInstance` | Изменение размера инстанса
 
 
 ## {{ mgp-short-name }} {#managed-service-for-greenplum}
@@ -528,6 +568,9 @@
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
 `UpdateUser` | Изменение пользователя базы данных
+`ResetupHosts` | Ресинхронизация хоста
+`RestartHosts` | Перезагрузка хоста
+`StepdownHosts` | Смена мастера хоста
 
 
 ## {{ managed-k8s-name }} {#managed-service-for-kubernetes}
@@ -569,7 +612,7 @@
 `DeleteUser` | Удаление пользователя базы данных
 `GrantUserPermission` | Назначение прав пользователю базы данных
 `MoveCluster` | Перемещение кластера
-`RescheduleMaintenance` | Отложить запланированные технические работы
+`RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestoreCluster` | Создание нового кластера из резервной копии
 `RevokeUserPermission` | Отзыв прав у пользователя базы данных
 `StartCluster` | Запуск кластера
@@ -628,6 +671,43 @@
 `UpdateCluster` | Изменение кластера
 `UpdateClusterHosts` | Изменение хостов кластера
 
+## {{ mes-short-name }} {#managed-service-for-elasticsearch}
+
+Имя сервиса — `mdb.elasticsearch`.
+
+Имя события | Описание
+--- | ---
+`AddClusterHosts` | Добавление новых хостов в кластер
+`BackupCluster` | Создание резервной копии
+`CreateCluster` | Создание кластера
+`DeleteCluster` | Удаление кластера
+`DeleteClusterHosts` | Удаление хостов из кластера
+`RescheduleMaintenance` | Перенос запланированного технического обслуживания
+`RestoreCluster` | Создание нового кластера из резервной копии
+`StartCluster` | Запуск кластера
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
+
+## {{ mos-short-name }} {#managed-service-for-opensearch}
+
+Имя сервиса — `mdb.opensearch`.
+
+Имя события | Описание
+--- | ---
+`AddDashboardsNodeGroup` | Добавление группы хостов типа `Dashboards`
+`AddOpenSearchNodeGroup` | Добавление группы хостов типа `OpenSearch`
+`BackupCluster` | Создание резервной копии
+`CreateCluster` | Создание кластера
+`DeleteCluster` | Удаление кластера
+`DeleteDashboardsNodeGroup` | Удаление группы хостов типа `Dashboards`
+`DeleteOpenSearchNodeGroup` | Удаление группы хостов типа `OpenSearch`
+`RescheduleMaintenance` | Перенос запланированного технического обслуживания
+`RestoreCluster` | Создание нового кластера из резервной копии
+`StartCluster` | Запуск кластера
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
+`UpdateOpenSearchNodeGroup` | Изменение группы хостов типа `OpenSearch`
+
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
 Имя сервиса — `loadbalancer`.
@@ -675,6 +755,16 @@
 `ObjectTagsUpdate` | Изменение тегов объекта
 
 \* Указанные события по умолчанию не входят в аудитный лог. Чтобы оценить возможность добавления этих событий, обратитесь в [службу поддержки]({{ link-console-support }}).
+
+## {{ search-api-name }} {#searchapi}
+
+Имя сервиса — `searchapi`.
+
+Имя события | Описание
+--- | ---
+`CreateCustomer` | Создание клиента
+`DeleteCustomer` | Удаление клиента
+`UpdateCustomer` | Изменение клиента
 
 ## {{ serverless-containers-name }} {#serverless-containers}
 
@@ -738,6 +828,16 @@
 `UpdateFolderAccessBindings` | Изменение привязок прав доступа на каталог
 `SetCloudAccessBindings` | Назначение привязок прав доступа на облако
 `SetFolderAccessBindings` | Назначение привязок прав доступа на каталог
+
+## {{ sws-name }} {#smartwebsecurity}
+
+Имя сервиса — `smartwebsecurity`.
+
+Имя события | Описание
+--- | ---
+`CreateSecurityProfile` | Создание профиля безопасности
+`DeleteSecurityProfile` | Удаление профиля безопасности
+`UpdateSecurityProfile` | Изменение профиля безопасности
 
 ## {{ captcha-name }} {#smartcaptcha}
 

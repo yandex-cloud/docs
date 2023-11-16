@@ -13,7 +13,7 @@
    ```bash
    redis-cli \
        -c \
-       -h <FQDN of master host in desired shard> \
+       -h <FQDN_of_master_host_in_desired_shard> \
        -a <password>
    ```
 
@@ -28,7 +28,7 @@
    ```bash
    redis-cli \
        -c \
-       -h <FQDN of master host in desired shard> \
+       -h <FQDN_of_master_host_in_desired_shard> \
        -a <password> \
        -p {{ port-mrd-tls }} \
        --tls \
@@ -69,9 +69,9 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
    func main() {
    	hostports := []string{
-   		"<FQDN of the master host in shard 1>:{{ port-mrd }}",
+   		"<FQDN_of_the_master_host_in_shard_1>:{{ port-mrd }}",
    		...
-   		"<FQDN of the master host in shard N>:{{ port-mrd }}",
+   		"<FQDN_of_the_master_host_in_shard_N>:{{ port-mrd }}",
    	}
    	options := redis.UniversalOptions{
    		Addrs:       hostports,
@@ -117,7 +117,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
    )
 
    func main() {
-   	caCert, err := ioutil.ReadFile("/home/<home directory>/.redis/{{ crt-local-file }}")
+   	caCert, err := ioutil.ReadFile("/home/<home_directory>/.redis/{{ crt-local-file }}")
    	if err != nil {
    		panic(err)
    	}
@@ -125,9 +125,9 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
    	caCertPool.AppendCertsFromPEM(caCert)
 
    	hostports := []string{
-   		"<FQDN of the master host in shard 1>:{{ port-mrd-tls }}",
+   		"<FQDN_of_the_master_host_in_shard_1>:{{ port-mrd-tls }}",
    		...
-   		"<FQDN of the master host in shard N>:{{ port-mrd-tls }}",
+   		"<FQDN_of_the_master_host_in_shard_N>:{{ port-mrd-tls }}",
    	}
    	options := redis.UniversalOptions{
    		Addrs:        hostports,
@@ -223,9 +223,9 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
 
        HashSet<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();
-       jedisClusterNodes.add(new HostAndPort("<FQDN of the master host in shard 1>", {{ port-mrd }}));
+       jedisClusterNodes.add(new HostAndPort("<FQDN_of_master_host_in_shard_1>", {{ port-mrd }}));
        ...
-       jedisClusterNodes.add(new HostAndPort("<FQDN of the master host in shard N>", {{ port-mrd }}));
+       jedisClusterNodes.add(new HostAndPort("<FQDN_of_master_host_in_shard_N>", {{ port-mrd }}));
 
        DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().
                password("<password>").
@@ -262,18 +262,18 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
    public class App {
      public static void main(String[] args) {
-       System.setProperty("javax.net.ssl.trustStore", "/home/<home directory>/.redis/YATrustStore");
-       System.setProperty("javax.net.ssl.trustStorePassword", "<password of secure certificate storage>");
+       System.setProperty("javax.net.ssl.trustStore", "/home/<home_directory>/.redis/YATrustStore");
+       System.setProperty("javax.net.ssl.trustStorePassword", "<password_of_secure_certificate_storage>");
 
        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
        Set<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();
        SSLParameters sslParameters = new SSLParameters();
-       jedisClusterNodes.add(new HostAndPort("<FQDN of the master host in shard 1>", {{ port-mrd-tls }}));
+       jedisClusterNodes.add(new HostAndPort("<FQDN_of_master_host_in_shard_1>", {{ port-mrd-tls }}));
        ...
-       jedisClusterNodes.add(new HostAndPort("<FQDN of the master host in shard N>", {{ port-mrd-tls }}));
+       jedisClusterNodes.add(new HostAndPort("<FQDN_of_master_host_in_shard_N>", {{ port-mrd-tls }}));
 
        DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().
-               password("<cluster password>").
+               password("<cluster_password>").
                ssl(true).
                sslParameters(sslParameters).
                build();
@@ -315,12 +315,12 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
    const cluster = new Redis.Cluster(
        [
            {
-               host: "<FQDN of the master host in shard 1>",
+               host: "<FQDN_of_master_host_in_shard_1>",
                port: {{ port-mrd }}
            },
            ...
            {
-               host: "<FQDN of the master host in shard N>",
+               host: "<FQDN_of_master_host_in_shard_N>",
                port: {{ port-mrd }}
            }
        ],
@@ -361,12 +361,12 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
    const cluster = new Redis.Cluster(
        [
            {
-               host: "<FQDN of the master host in shard 1>",
+               host: "<FQDN_of_master_host_in_shard_1>",
                port: {{ port-mrd-tls }}
            },
            ...
            {
-               host: "<FQDN of the master host in shard N>",
+               host: "<FQDN_of_master_host_in_shard_N>",
                port: {{ port-mrd-tls }}
            },
        ],
@@ -423,9 +423,9 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
    Predis\Autoloader::register();
 
    $hosts = [
-       "tcp://<FQDN of the master host in shard 1>:{{ port-mrd }}",
+       "tcp://<FQDN_of_master_host_in_shard_1>:{{ port-mrd }}",
        ...
-       "tcp://<FQDN of the master host in shard N>:{{ port-mrd }}",
+       "tcp://<FQDN_of_master_host_in_shard_N>:{{ port-mrd }}",
    ];
 
    $options = [
@@ -455,9 +455,9 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
     Predis\Autoloader::register();
 
     $hosts = [
-        'tls://<FQDN of the master host in shard 1>:{{ port-mrd-tls }}?ssl[cafile]=/home/<home directory>/.redis/{{ crt-local-file }}',
+        'tls://<FQDN_of_master_host_in_shard_1>:{{ port-mrd-tls }}?ssl[cafile]=/home/<home_directory>/.redis/{{ crt-local-file }}',
         ...
-        'tls://<FQDN of the master host in shard N>:{{ port-mrd-tls }}?ssl[cafile]=/home/<home directory>/.redis/{{ crt-local-file }}',
+        'tls://<FQDN_of_master_host_in_shard_N>:{{ port-mrd-tls }}?ssl[cafile]=/home/<home_directory>/.redis/{{ crt-local-file }}',
     ];
 
     $options = [
@@ -504,9 +504,9 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
    from rediscluster import RedisCluster
 
    startup_nodes = [
-       {"host": "<FQDN of the master host in shard 1>", "port": {{ port-mrd }}},
+       {"host": "<FQDN_of_master_host_in_shard_1>", "port": {{ port-mrd }}},
        ...
-       {"host": "<FQDN of the master host in shard N>", "port": {{ port-mrd }}},
+       {"host": "<FQDN_of_master_host_in_shard_N>", "port": {{ port-mrd }}},
    ]
 
    rc = RedisCluster(
@@ -530,9 +530,9 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
    from rediscluster import RedisCluster
 
    startup_nodes = [
-       {"host": "<FQDN of the master host in shard 1>", "port": {{ port-mrd-tls }}},
+       {"host": "<FQDN_of_master_host_in_shard_1>", "port": {{ port-mrd-tls }}},
        ...
-       {"host": "<FQDN of the master host in shard N>", "port": {{ port-mrd-tls }}},
+       {"host": "<FQDN_of_master_host_in_shard_N>", "port": {{ port-mrd-tls }}},
    ]
 
    rc = RedisCluster(
@@ -541,7 +541,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
        skip_full_coverage_check=True,
        password="<password>",
        ssl=True,
-       ssl_ca_certs="/home/<home directory>/.redis/{{ crt-local-file }}",
+       ssl_ca_certs="/home/<home_directory>/.redis/{{ crt-local-file }}",
    )
 
    rc.set("foo", "bar")
@@ -571,9 +571,9 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
    require 'redis'
 
    nodes = [
-     { host: '<FQDN of the master host in shard 1>', port: {{ port-mrd }} },
+     { host: '<FQDN_of_master_host_in_shard_1>', port: {{ port-mrd }} },
      ...
-     { host: '<FQDN of the master host in shard N>', port: {{ port-mrd }} }
+     { host: '<FQDN_of_master_host_in_shard_N>', port: {{ port-mrd }} }
    ]
 
    conn = Redis.new(
@@ -597,9 +597,9 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
    require 'redis'
 
    nodes = [
-     { host: '<FQDN of the master host in shard 1>', port: {{ port-mrd-tls }} },
+     { host: '<FQDN_of_master_host_in_shard_1>', port: {{ port-mrd-tls }} },
      ...
-     { host: '<FQDN of the master host in shard N>', port: {{ port-mrd-tls }} }
+     { host: '<FQDN_of_master_host_in_shard_N>', port: {{ port-mrd-tls }} }
    ]
 
    conn = Redis.new(
@@ -607,7 +607,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
      password: '<password>',
      ssl: true,
      ssl_params: {
-       ca_file: '/home/<home directory>/.redis/{{ crt-local-file }}',
+       ca_file: '/home/<home_directory>/.redis/{{ crt-local-file }}',
        verify_hostname: false
      }
    )

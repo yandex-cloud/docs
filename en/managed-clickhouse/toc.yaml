@@ -19,10 +19,14 @@ items:
             href: operations/cluster-version-update.md
           - name: Stopping and starting clusters
             href: operations/cluster-stop.md
-          - name: Managing {{ ZK }} hosts
-            href: operations/zk-hosts.md
-          - name: Managing {{ CH }} hosts
-            href: operations/hosts.md
+          - name: Managing hosts
+            items:
+              - name: Managing {{ ZK }} hosts
+                href: operations/zk-hosts.md
+              - name: Managing {{ CH }} hosts
+                href: operations/hosts.md
+              - name: Migrating {{ CH }} hosts to a different availability zone
+                href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
           - name: Deleting clusters
@@ -99,7 +103,7 @@ items:
         href: tutorials/mkf-to-mch-migration.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Host classes
         items:

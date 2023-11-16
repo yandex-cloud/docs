@@ -23,7 +23,11 @@ After creating a cluster, you can:
 * [{#T}](#change-admin-password)
 * [{#T}](#change-additional-settings)
 
-You can also update the {{ ES }} version or edition. For more information, see [{#T}](./cluster-version-update.md).
+Learn more about other cluster updates:
+
+* [{#T}](cluster-version-update.md)
+
+* [{#T}](host-migration.md)
 
 
 ## Change service account settings {#change-service-account}
@@ -251,7 +255,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
       * `--datanode-disk-size`: Storage size in gigabytes for hosts with the Data node role.
       * `--masternode-disk-size`: Storage size in gigabytes for hosts with the Master node role.
 
-   You can get a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -527,7 +531,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -561,7 +565,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
       }
       ```
 
-      Where `deletion_protection`: Cluster deletion protection: `true` or `false`.
+      Where `deletion_protection` is cluster deletion protection, `true` or `false`.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 

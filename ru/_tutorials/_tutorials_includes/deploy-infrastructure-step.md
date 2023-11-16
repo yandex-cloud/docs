@@ -15,22 +15,25 @@
      }
 
      backend "s3" {
-       endpoint   = "{{ s3-storage-host }}"
-       bucket     = "<имя бакета>"
-       region     = "{{ region-id }}"
-       key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
-       access_key = "<идентификатор статического ключа>"
-       secret_key = "<секретный ключ>"
+       endpoints = {
+         s3 = "{{ s3-storage-host }}"
+       }
+       bucket = "<имя_бакета>"
+       region = "{{ region-id }}"
+       key    = "<путь_к_файлу_состояния_в_бакете>/<имя_файла_состояния>.tfstate"
 
        skip_region_validation      = true
        skip_credentials_validation = true
+       skip_requesting_account_id  = true # необходимая опция при описании бэкенда для {{ TF }} версии 1.6.1 и старше.
+       skip_s3_checksum            = true # необходимая опция при описании бэкенда для {{ TF }} версии 1.6.3 и старше.
+
      }
    }
 
    provider "yandex" {
-     token     = "<OAuth или статический ключ сервисного аккаунта>"
-     cloud_id  = "<идентификатор облака>"
-     folder_id = "<идентификатор каталога>"
+     token     = "<OAuth-токен_или_IAM-токен>"
+     cloud_id  = "<идентификатор_облака>"
+     folder_id = "<идентификатор_каталога>"
      zone      = "{{ region-id }}-a"
    }
 
@@ -58,7 +61,7 @@
      }
 
      metadata = {
-       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+       ssh-keys = "ubuntu:${file("<путь_к_публичному_SSH-ключу>")}"
      }
    }
 
@@ -82,7 +85,7 @@
      }
 
      metadata = {
-       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+       ssh-keys = "ubuntu:${file("<путь_к_публичному_SSH-ключу>")}"
      }
    }
 
@@ -119,6 +122,13 @@
    ```
 
 
+
+   Где:
+
+   * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного аккаунта.
+   * `bucket` — имя бакета.
+   * `key` — ключ объекта в бакете: путь и имя к файлу состояния {{ TF }} в бакете.
+   * `ssh-keys` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Проверьте конфигурацию с помощью команды `terraform plan`.
 1. Разверните конфигурацию с помощью команды `terraform apply`.

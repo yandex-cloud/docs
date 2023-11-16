@@ -8,7 +8,7 @@ For example, if the backup was created on November 10, 2022, 12:00 p.m. UTC, the
 
 PITR mode is enabled by default.
 
-To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore).
+To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore). You can also restore your cluster to move its hosts to a different availability zone. You may need to do this, for example, if your cluster hosts reside in the `{{ region-id }}-c` availability zone which is to be [deprecated](/blog/posts/2023/08/new-availability-zone).
 
 ## Creating backups {#size}
 
@@ -32,7 +32,7 @@ Specifics of storing backups in {{ mgp-name }}:
 
 * Backups are kept for seven days.
 
-* Once you delete a cluster, all its backups persist for seven days.
+* After you delete a cluster, all its backups are kept for seven days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 

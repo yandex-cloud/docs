@@ -19,6 +19,8 @@ items:
             href: operations/cluster-stop.md
           - name: Managing MySQL hosts
             href: operations/hosts.md
+          - name: Migrating hosts to a different availability zone
+            href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
           - name: Deleting clusters
