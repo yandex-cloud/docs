@@ -1,4 +1,4 @@
-# Step-by-step instructions for {{ mmy-name }}®
+# Step-by-step guides for {{ mmy-name }}®
 
 ## Clusters
 
@@ -7,6 +7,7 @@
 * [{#T}](update.md)
 * [{#T}](cluster-stop.md)
 * [{#T}](hosts.md)
+* [{#T}](host-migration.md)
 * [{#T}](cluster-backups.md)
 * [{#T}](cluster-delete.md)
 

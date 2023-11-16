@@ -1,4 +1,4 @@
-# Creating {{ GP }} clusters
+# Creating a {{ GP }} cluster
 
 A {{ mgp-name }} cluster consists of master hosts that accept client requests and segment hosts that provide data processing and storage.
 
@@ -19,7 +19,7 @@ For more information, see [{#T}](../concepts/index.md).
    1. (Optional) Enter a cluster description.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the {{ GP }} version.
 
    
@@ -166,10 +166,10 @@ For more information, see [{#T}](../concepts/index.md).
 
       Where:
 
-      * `--greenplum-version`: {{ GP }} version, {{ versions.cli.str }}.
+      * `--greenplum-version`: {{ GP }} version: {{ versions.cli.str }}.
       * `--environment`: Environment:
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
       * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, a number, or an underscore. It must be from 1 to 32 characters long.
       * `--user-password`: Password. It must be from 8 to 128 characters long.
@@ -184,9 +184,9 @@ For more information, see [{#T}](../concepts/index.md).
 
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It is required if the selected availability zone includes 2 or more subnets.
-      * `--assign-public-ip`: Flag to be set if [public access](../concepts/network.md#public-access-to-a-host) to the host is needed: `true` or `false`.
+      * `--assign-public-ip`: Flag to be set if [public access](../concepts/network.md#public-access-to-a-host) to the host is needed, `true` or `false`.
       * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
-      * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
+      * `--deletion-protection` is cluster deletion protection, `true` or `false`.
 
 
            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -236,8 +236,8 @@ For more information, see [{#T}](../concepts/index.md).
 
       Where:
 
-      * `--datalens-access`: Access from {{ datalens-full-name }}, true or false.
-      * `--datatransfer-access`: Access from {{ data-transfer-full-name }}, true or false.
+      * `--datalens-access`: Access from {{ datalens-full-name }}: true or false.
+      * `--datatransfer-access`: Access from {{ data-transfer-full-name }}: true or false.
 
 - {{ TF }}
 
@@ -279,9 +279,9 @@ For more information, see [{#T}](../concepts/index.md).
       resource "yandex_mdb_greenplum_cluster" "<cluster_name_in_{{ TF }}>" {
         name                = "<cluster_name>"
         environment         = "<environment>"
-        network_id          = yandex_vpc_network.<network_name_in{{ TF }}>.id
+        network_id          = yandex_vpc_network.<network_name_in_{{ TF }}>.id
         zone                = "<availability_zone>"
-        subnet_id           = yandex_vpc_subnet.<subnet_name_in{{ TF }}>.id
+        subnet_id           = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
         assign_public_ip    = <public_access_to_cluster_hosts>
         deletion_protection = <cluster_deletion_protection>
         version             = "<Greenplum_version>"
@@ -315,11 +315,11 @@ For more information, see [{#T}](../concepts/index.md).
 
       Where:
 
-      * `assign_public_ip`: Public access to cluster hosts, true or false.
+      * `assign_public_ip`: Public access to hosts of the cluster, true or false.
       * `deletion_protection`: Cluster deletion protection, true or false.
       * `version`: {{ GP }} version.
-      * `master_host_count`: Number of master hosts, 1 or 2.
-      * `segment_host_count`: Number of segment hosts, between 2 and 32.
+      * `master_host_count`: Number of master hosts: 1 or 2.
+      * `segment_host_count`: Number of segment hosts: between 2 and 32.
       * `disk_size`: Storage size in GB.
 
       Cluster deletion protection will not prevent a manual connection to delete the contents of a database.

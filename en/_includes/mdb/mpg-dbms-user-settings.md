@@ -19,7 +19,7 @@
 
 - **Default transaction isolation**{#setting-user-default-transaction-isolation} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   See the [Default transaction isolation](#setting-default-transaction-isolation) cluster-level setting.
+   For more information, refer to the [Default transaction isolation](#setting-default-transaction-isolation) cluster-level setting.
 
 - **Grants**{#setting-user-grants} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
@@ -27,19 +27,19 @@
 
 - **Lock timeout**{#setting-user-lock-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  See the [Lock timeout](#setting-lock-timeout) cluster-level setting.
+   For more information, refer to the [Lock timeout](#setting-lock-timeout) cluster-level setting.
 
 - **Log min duration statement**{#setting-user-log-min-duration-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  See the [Log min duration statement](#setting-log-min-duration-statement) cluster-level setting.
+   For more information, refer to the [Log min duration statement](#setting-log-min-duration-statement) cluster-level setting.
 
-  We recommend that you define what you mean by slow query execution for each service and its user and log only such queries. For example, for a web service, a query is slow if it runs for more than one second, while, for the reporting service, it is a query that runs for more than 10 minutes.
+  We recommend you to define the meaning of slow query execution for each service and its user and log only the queries that meet the definition. For example, for a web service, a query is slow if it runs for more than one second, while, for the reporting service, it is a query that runs for more than 10 minutes.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
 - **Log statement**{#setting-user-log-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   See the [Log statement](#setting-log-statement) cluster-level setting.
+   For more information, refer to the [Log statement](#setting-log-statement) cluster-level setting.
 
 - **Login**{#setting-user-login} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
@@ -49,9 +49,9 @@
 
 - **Pooling mode**{#setting-pooling-mode} {{ tag-con }}
 
-   Mode the [PgBouncer](https://www.pgbouncer.org/) connection pooler is working in.
+   The [PgBouncer](https://www.pgbouncer.org/) connection pooler's operating mode.
 
-   Possible values:
+   The possible values include:
 
    * `session`: Server connection is assigned to the client when establishing a connection, and is maintained for it. The connection gets back to the pool once the client disconnects.
    * `transaction`: Server connection is assigned to the client for the transaction execution time only. The connection gets back to the pool once the transaction is completed.
@@ -70,7 +70,7 @@
    * `pgaudit` [library is connected](../../managed-postgresql/operations/extensions/cluster-extensions.md#libraries-connection) to the cluster.
    * `pgaudit` [extension is enabled](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) for the database.
 
-   Possible values:
+   The possible values include:
 
    * `read`: `SELECT` and `COPY` queries are logged if the data source is a relation or query.
    * `write`: `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries are logged if the data target is a relation.
@@ -90,11 +90,11 @@
 
 - **Synchronous commit**{#setting-user-synchronous-commit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  See the [Synchronous commit](#setting-synchronous-commit) cluster-level setting.
+   For more information, refer to the [Synchronous commit](#setting-synchronous-commit) cluster-level setting.
 
 - **Temp file limit**{#setting-temp-file-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   See the [Temp file limit](#setting-temp-file-limit) cluster-level setting.
+   For more information, refer to the [Temp file limit](#setting-temp-file-limit) cluster-level setting.
 
 - **Wal sender timeout**{#setting-wal-sender-timeout} {{ tag-con }}
 

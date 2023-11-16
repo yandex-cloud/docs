@@ -5405,9 +5405,28 @@ default:
             title_consumption-history: История потребления
             title_current-state: Текущее состояние
             title_states-history: История состояний
+          user-auth:
+            action_add-rule: Добавить правило
+            action_edit-rules: Редактировать правила
+            title_column-address: Адрес (CIDR/FQDN)
+            title_column-databases: База данных
+            title_column-method: Метод
+            title_column-type: Тип
+            title_column-user: Пользователь
+            title_page-auth-user: Аутентификация пользователей
+            value_hba-type-host: host
+            value_hba-type-hostnossl: hostnossl
+            value_hba-type-hostssl: hostssl
         field_expand-add-segments-per-host-count: Добавить сегментов на хост
         field_expand-duration: Таймаут редистрибуции
         field_expand-segment-host-count: Количество новых хостов-сегментов
+        field_hosts-count: Количество хостов
+        field_segments-in-host: Сегментов на хост
+        label_user-auth: Аутентификация пользователей
+        label-analyze-timeout: Таймаут ANALYZE
+        label-start-time: Время старта (UTC)
+        label-vacuum-timeout: Таймаут VACUUM
+        section_background-activities: Управление фоновыми процессами
         section_cloud-storage: Гибридное хранилище
         section_resource-master: Master
         section_resource-segment: Segment

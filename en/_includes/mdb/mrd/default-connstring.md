@@ -1,6 +1,6 @@
 ```bash
 redis-cli \
-    -h c-<cluster ID>.rw.{{ dns-zone }} \
+    -h c-<cluster_ID>.rw.{{ dns-zone }} \
     -a <password> \
     -p {{ port-mrd-tls }} \
     --tls \

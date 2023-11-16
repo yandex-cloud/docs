@@ -7,6 +7,7 @@
 * [{#T}](update.md)
 * [{#T}](cluster-stop.md)
 * [{#T}](hosts.md)
+* [{#T}](host-migration.md)
 * [{#T}](replication-slots.md)
 * [{#T}](cluster-backups.md)
 * [{#T}](storage-space.md)

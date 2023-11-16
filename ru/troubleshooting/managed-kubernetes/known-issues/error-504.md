@@ -31,6 +31,6 @@ scrape_configs:
 
 {% note info %}
 
-Сам параметр `selectors` для метрик подов можно фильтровать по пространству имен или маске имени пода, например, `pod=part-of-name*`. Подробнее пишем в [документации языка запросов](https://cloud.yandex.ru/docs/monitoring/concepts/querying).
+Сам параметр `selectors` для метрик подов можно фильтровать по пространству имен или маске имени пода, например, `pod=part-of-name*`. Подробнее пишем в [документации языка запросов](../../../monitoring/concepts/querying.md).
 
 {% endnote %}

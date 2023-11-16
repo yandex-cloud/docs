@@ -22,7 +22,7 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-{{ TF }} и его провайдеры распространяются под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE). 
+{{ TF }} и его провайдеры распространяются под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -68,6 +68,12 @@
 
 ## Настройте бэкенд {#set-up-backend}
 
+{% note info %}
+
+Настройки бэкенда применимы для {{ TF }} `1.6.3` и более поздних версий.
+
+{% endnote %}
+
 1. Добавьте в переменные окружения идентификатор ключа и секретный ключ, [полученные ранее](#create-service-account):
 
     {% list tabs %}
@@ -82,15 +88,14 @@
     - PowerShell
 
       ```powershell
-      $Env:ACCESS_KEY="<идентификатор_ключа>"
-      $Env:SECRET_KEY="<секретный_ключ>"
+      $ACCESS_KEY="<идентификатор_ключа>"
+      $SECRET_KEY="<секретный_ключ>"
       ```
 
     {% endlist %}
 
-1. Добавьте настройки провайдера и бэкенда в конфигурационный файл:
+1. Добавьте в конфигурационный файл настройки провайдера и бэкенда:
 
-    
     ```hcl
     terraform {
       required_providers {
@@ -100,25 +105,28 @@
       }
 
       backend "s3" {
-        endpoint   = "{{ s3-storage-host }}"
-        bucket     = "<имя_бакета>"
-        region     = "{{ region-id }}"
-        key        = "<путь_к_файлу_состояния_в_бакете>/<имя_файла_состояния>.tfstate"
+        endpoints = {
+          s3 = "{{ s3-storage-host }}"
+        }
+        bucket = "<имя_бакета>"
+        region = "{{ region-id }}"
+        key    = "<путь_к_файлу_состояния_в_бакете>/<имя_файла_состояния>.tfstate"
 
         skip_region_validation      = true
         skip_credentials_validation = true
+        skip_requesting_account_id  = true # необходимая опция {{ TF }} для версии 1.6.1 и старше.
+        skip_s3_checksum            = true # необходимая опция при описании бэкенда для {{ TF }} версии 1.6.3 и старше.
+
       }
     }
 
     provider "yandex" {
-      token     = "<OAuth_или_статический_ключ_сервисного_аккаунта>"
+      token     = "<OAuth-токен_или_IAM-токен>"
       cloud_id  = "<идентификатор_облака>"
       folder_id = "<идентификатор_каталога>"
       zone      = "<зона_доступности_по_умолчанию>"
     }
     ```
-
-
 
     Подробнее о бэкенде для хранения состояний читайте на [сайте {{ TF }}](https://www.terraform.io/docs/backends/types/s3.html).
 
@@ -140,7 +148,6 @@
 1. Создайте директорию `remote-state`.
 1. Перейдите в созданную директорию и создайте конфигурацию `remote-state.tf`:
 
-   
    ```hcl
    terraform {
      required_providers {
@@ -151,23 +158,34 @@
    }
 
    provider "yandex" {
-     token     = "<OAuth_или_статический_ключ_сервисного_аккаунта>"
+     token     = "<OAuth-токен_или_IAM-токен>"
      cloud_id  = "<идентификатор_облака>"
      folder_id = "<идентификатор_каталога>"
      zone      = "{{ region-id }}-a"
    }
 
    data "terraform_remote_state" "vpc" {
-     backend = "s3"
-     config = {
-       endpoint   = "{{ s3-storage-host }}"
-       bucket     = "<имя_бакета>"
-       region     = "{{ region-id }}"
-       key        = "<путь_к_файлу_состояния_в_бакете>/<имя_файла_состояния>.tfstate"
+     backend = "s3" 
+     config  = {
+       endpoints = {
+         s3 = "{{ s3-storage-host }}"
+       }
+       bucket = "<имя_бакета>"
+       region = "{{ region-id }}"
+       key    = "<путь_к_файлу_состояния_в_бакете>/<имя_файла_состояния>.tfstate"
 
        skip_region_validation      = true
        skip_credentials_validation = true
-     }
+       skip_requesting_account_id  = true # необходимая опция при описании бэкенда для Terraform версии старше 1.6.1.
+
+       access_key = "<идентификатор_ключа>"
+       secret_key = "<секретный_ключ>"
+
+      }
+    }
+
+   resource "yandex_compute_image" "ubuntu_2004" {
+     source_family = "ubuntu-2004-lts"
    }
 
    resource "yandex_compute_instance" "vm-3" {
@@ -180,7 +198,7 @@
 
      boot_disk {
        initialize_params {
-         image_id = "fd87va5cc00gaq2f5qfb"
+         image_id = yandex_compute_image.ubuntu_2004.id
        }
      }
 
@@ -190,12 +208,18 @@
      }
 
      metadata = {
-       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+       ssh-keys = "ubuntu:${file("<путь_к_публичному_SSH-ключу>")}"
      }
    }
    ```
 
+   Где:
 
+   * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного аккаунта.
+   * `bucket` — имя бакета.
+   * `key` — ключ объекта в бакете: путь и имя к файлу состояния {{ TF }} в бакете.
+   * `access_key` — [идентификатор ключа](#create-service-account) сервисного аккаунта.
+   * `secret_key` — значение секретного ключа сервисного аккаунта.
 
 1. Выполните команду `terraform init`.
 1. Выполните команду `terraform plan`. В терминале должен отобразиться план создания одной ВМ.

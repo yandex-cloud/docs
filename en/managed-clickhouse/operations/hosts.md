@@ -1,6 +1,6 @@
 # Managing {{ CH }} cluster hosts
 
-You can add and remove cluster hosts and manage {{ CH }} settings for individual clusters.
+You can add and remove cluster hosts and manage {{ CH }} settings for individual clusters. To move cluster hosts to a different availability zone, follow this [guide](host-migration.md).
 
 {% note warning %}
 
@@ -244,7 +244,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
    To update host parameters, use the [updateHosts](../api-ref/Cluster/updateHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateHosts](../api-ref/grpc/cluster_service.md#UpdateHosts) gRPC API call and provide the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, request a [list of hosts in the cluster](#list-hosts).
+   * In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, get a [list of hosts in the cluster](#list-hosts).
    * Host public access settings as `updateHostSpecs.assignPublicIp`.
    * A list of cluster configuration fields to modify (`assignPublicIp` in this case) as `updateMask`.
 

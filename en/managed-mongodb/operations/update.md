@@ -16,6 +16,8 @@ After creating a cluster, you can:
 - [{#T}](#change-sg-set).
 
 
+To move a cluster to a different availability zone, follow this [guide](host-migration.md). You will thus move the cluster hosts.
+
 ## Changing the host class {#change-resource-preset}
 
 {% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
@@ -186,21 +188,21 @@ After creating a cluster, you can:
 
          ```bash
          {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
-            --mongoinfra-disk-size <storage_size_in_GB>
+            --mongoinfra-disk-size <storage_size_GB>
          ```
 
       * For `MONGOS` hosts:
 
          ```bash
          {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
-            --mongos-disk-size <storage_size_in_GB>
+            --mongos-disk-size <storage_size_GB>
          ```
 
       * For `MONGOCFG` hosts:
 
          ```bash
          {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
-            --mongocfg-disk-size <storage_size_in_GB>
+            --mongocfg-disk-size <storage_size_GB>
          ```
 
       If all these conditions are met, {{ mmg-short-name }} will launch the operation to increase the storage size.
@@ -292,7 +294,7 @@ You can change the DBMS settings of the hosts in your cluster.
    To change {{ MG }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Required {{ MG }} setting values in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.config` parameter.
+   * Target {{ MG }} setting values in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.config` parameter.
 
       All supported settings are described in the [API reference](../api-ref/Cluster/update.md) and in [{#T}](../concepts/settings-list.md).
 
@@ -334,11 +336,11 @@ You can change the DBMS settings of the hosts in your cluster.
 
       ```bash
       {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
-        --backup-retain-period-days=<retention_period> \
+        --backup-retain-period-days=<retain_period> \
         --backup-window-start <backup_start_time> \
         --maintenance-window type=<maintenance_type>,`
-                             `day=<day_of_week>,`
-                             `hour=<hour_of_day> \
+                           `day=<day_of_week>,`
+                           `hour=<hour> \
         --performance-diagnostics=<enable_diagnostics> \
         --deletion-protection=<deletion_protection>
       ```
@@ -346,9 +348,7 @@ You can change the DBMS settings of the hosts in your cluster.
    You can change the following settings:
 
    * `--backup-retain-period`: The retention period for automatic backups (in days)
-      .
-
-
+      
       The `<retention_period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../concepts/backup.md).
 
 
@@ -368,7 +368,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -408,7 +408,7 @@ You can change the DBMS settings of the hosts in your cluster.
       }
       ```
 
-      Where `data_lens` enables access from {{ datalens-name }}, `true` or `false`.
+      Where `data_lens`: Access from {{ datalens-name }}: `true` or `false`.
 
    1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
@@ -421,7 +421,7 @@ You can change the DBMS settings of the hosts in your cluster.
       }
       ```
 
-      Where `deletion_protection` enables cluster deletion protection, `true` or `false`.
+      Where `deletion_protection` is cluster deletion protection, `true` or `false`.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -531,7 +531,6 @@ You can change the DBMS settings of the hosts in your cluster.
       ```bash
       {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
         --security-group-ids <list_of_security_group_IDs>
-
       ```
 
 - {{ TF }}

@@ -14,6 +14,8 @@ After creating a cluster, you can:
 
 * [Configure {{ GP }} servers according to the {{ GP }} documentation](#change-gp-settings).
 
+To move a cluster to a different availability zone, [restore it from a backup](cluster-backups.md#restore). While restoring the cluster, specify a new availability zone. You will thus move the cluster hosts.
+
 ## Change the cluster name and description {#change-name-and-description}
 
 {% list tabs %}
@@ -98,7 +100,7 @@ After creating a cluster, you can:
          --assign-public-ip=<public_access_to_cluster>
       ```
 
-      Where `assign-public-ip` is the public access to the cluster, true or false.
+      Where `assign-public-ip` is public access to the cluster, true or false.
 
 - API
 
@@ -183,7 +185,7 @@ If you enabled public access to the cluster but cannot access it from the inter
           --datatransfer-access=<access_from_Data_Transfer> \
           --maintenance-window type=<maintenance_type>,`
                               `day=<day_of_week>,`
-                              `hour=<hour_of_day> \
+                              `hour=<hour> \
           --assign-public-ip=<public_access_to_cluster> \
           --deletion-protection=<cluster_deletion_protection> \
       ```

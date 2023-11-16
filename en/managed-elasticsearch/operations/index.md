@@ -19,6 +19,7 @@ description: "This section contains step-by-step guides for {{ mes-name }}."
 * [{#T}](cluster-extensions.md)
 * [{#T}](cluster-stop.md)
 * [{#T}](cluster-hosts.md)
+* [{#T}](host-migration.md)
 * [{#T}](cluster-backups.md)
 * [{#T}](s3-access.md)
 * [{#T}](cluster-delete.md)

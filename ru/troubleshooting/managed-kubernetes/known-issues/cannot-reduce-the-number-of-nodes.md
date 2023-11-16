@@ -26,7 +26,7 @@ Kubernetes cluster-autoscaler периодически проверяет наг
 
 Также вы можете настроить удаление ненужных подов с помощью [descheduler](https://github.com/kubernetes-sigs/descheduler) 
 
-Детали есть в нашей [документации](../../../managed-kubernetes/qa/cluster-autoscaler), а также в официальной [документации cluster-autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#table-of-contents).
+Детали есть в нашей [документации](../../../managed-kubernetes/qa/cluster-autoscaler.md), а также в официальной [документации cluster-autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#table-of-contents).
 
 Также рекомендуем включить запись логов с мастера в вашу лог-группу:
 

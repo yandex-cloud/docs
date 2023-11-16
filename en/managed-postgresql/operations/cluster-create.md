@@ -58,10 +58,10 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    1. (Optional) Under **Automatic increase of storage size**, specify the required settings:
 
-      * In the **Increase size** field, set the conditions to:
+      * In the **Increase size** field, set the appropriate conditions to:
 
-         * Increase storage size during the next maintenance window when the storage is full by more than the specified percentage value (%).
-         * Increase storage size immediately when the storage is full by more than the specified percentage value (%).
+         * Increase the storage size during the next maintenance window when the storage is full by more than the specified percentage value (%).
+         * Increase the storage size immediately when the storage is full by more than the specified percentage value (%).
 
          You can set both conditions, but make sure that the threshold for increasing the size immediately is higher than that for increasing the size during a maintenance window.
 
@@ -364,7 +364,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
-   To enable automatic increase of storage size, provide the following in your request:
+   To enable automatic increase of the storage size, provide the following in your request:
 
    {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
 
@@ -394,14 +394,14 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    To create a cluster with a single host, provide a single `--host` parameter.
 
-   Create a {{ mpg-name }} cluster with test characteristics:
+   Create a {{ mpg-name }} cluster with the following test characteristics:
 
    
    * Name: `mypg`
    * Environment: `Production`
    * Network: `default`
    * Security group: `{{ security-group }}`
-   * `{{ host-class }}` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone: 1
+   * `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone: 1
    * Network SSD storage (`{{ disk-type-example }}`): 20 GB
    * User: `user1`, with the `user1user1` password
    * Database: `db1` owned by `user1`
@@ -429,7 +429,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Create a {{ mpg-name }} cluster and a network for it with test characteristics:
+   Create a {{ mpg-name }} cluster and a network for it with the following test characteristics:
 
    * Name: `mypg`
    * Version: `{{ pg.versions.tf.latest }}`

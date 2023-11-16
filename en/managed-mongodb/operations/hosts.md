@@ -1,6 +1,6 @@
 # Managing {{ MG }} cluster hosts
 
-You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, and [manage {{ MG }} settings](update.md) for individual clusters.
+You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, and [manage {{ MG }} settings](update.md) for individual clusters. To move cluster hosts to a different availability zone, follow this [guide](host-migration.md).
 
 ## Getting a list of cluster hosts {#list-hosts}
 
@@ -118,7 +118,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
               `assign-public-ip=<public_access>
       ```
 
-      Where `assign-public-ip` enables public access to the host: `true` or `false`.
+      Where `assign-public-ip` is public access to the host, `true` or `false`.
 
       {{ mmg-name }} will run the add host operation.
 
@@ -178,7 +178,7 @@ You can add different types of hosts to a {{ mmg-name }} cluster. Their number d
       Where:
 
       * `host`: Host parameters:
-         * `role`: Replica type, `PRIMARY` or `SECONDARY`.
+         * `role`: Replica type: `PRIMARY` or `SECONDARY`.
          * `zone_id`: Availability zone.
          * `subnet_id`: ID of a subnet in the selected availability zone.
          * `assign_public_ip`: Public access to the host, `true` or `false`.
@@ -322,7 +322,7 @@ During this operation:
 
    To resync a host, use the [resetupHosts](../api-ref/Cluster/resetupHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ResetupHosts](../api-ref/grpc/cluster_service.md#ResetupHosts) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   * Host name, in the `hostNames` parameter. To find out the name, [request a list of hosts in the cluster](#list-hosts).
+   * Host name, in the `hostNames` parameter. To find out the name, [get a list of hosts in the cluster](#list-hosts).
 
 {% endlist %}
 
@@ -361,6 +361,6 @@ You can only restart one host at a time.
 
    To restart a host, use the [restartHosts](../api-ref/Cluster/restartHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/RestartHosts](../api-ref/grpc/cluster_service.md#RestartHosts) gRPC API call and provide the following in the request:
    * {{ mmg-name }} cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   * Host name, in the `hostNames` parameter. To find out the name, [request a list of hosts in the cluster](#list-hosts).
+   * Host name, in the `hostNames` parameter. To find out the name, [get a list of hosts in the cluster](#list-hosts).
 
 {% endlist %}

@@ -12,6 +12,8 @@
 * [{#T}](cluster-backups.md)
 * [{#T}](cluster-delete.md)
 
+To move {{ mgp-name }} cluster hosts to a different availability zone, use the [guide for managing backups](cluster-backups.md).
+
 ## Databases
 
 * [{#T}](connect.md)
@@ -21,6 +23,7 @@
 
 * [{#T}](roles-and-users.md)
 * [{#T}](resource-groups.md)
+* [{#T}](command-center.md)
 * [{#T}](cluster-process.md)
 
 ## {{ GP }} extensions

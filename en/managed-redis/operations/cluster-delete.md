@@ -1,6 +1,6 @@
 ---
 title: "Deleting a Redis cluster"
-description: "After you delete a Redis database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you'll need its ID, so please store the cluster ID safely before deleting the cluster."
+description: "After you delete a Redis database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you will need its ID; therefore, safely save the cluster ID before deleting the cluster."
 ---
 
 # Deleting {{ RD }} clusters
@@ -32,10 +32,10 @@ description: "After you delete a Redis database cluster, its backups are kept fo
    To delete a cluster, run the command:
 
    ```
-   {{ yc-mdb-rd }} cluster delete <cluster name or ID>
+   {{ yc-mdb-rd }} cluster delete <cluster_name_or_ID>
    ```
 
-   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md).
+   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }}
 
@@ -47,6 +47,6 @@ description: "After you delete a Redis database cluster, its backups are kept fo
 
    To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/cluster_service.md#Delete) gRPC API call and provide the ID of the cluster to be deleted in the `clusterId` request parameter.
 
-   You can fetch the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+   You can get the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
 
 {% endlist %}

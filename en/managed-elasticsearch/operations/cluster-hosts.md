@@ -11,7 +11,7 @@ keywords:
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-You can get a list of {{ ES }} cluster hosts and add or delete them.
+You can get a list of {{ ES }} cluster hosts and add or delete them. To move cluster hosts to a different availability zone, follow this [guide](host-migration.md).
 
 {% note info %}
 
@@ -93,7 +93,7 @@ You cannot enable public access to a host once it is created.
    * `assign-public-ip`: Public access to the host, `true` or `false`.
    * `type`: Host role, `datanode` or `masternode`.
 
-   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -143,8 +143,6 @@ You cannot enable public access to a host once it is created.
     {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
    * New host settings in one or more `hostSpecs` parameters.
-
-   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 

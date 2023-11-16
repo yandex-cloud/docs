@@ -27,6 +27,8 @@ After creating a cluster, you can:
 * [{#T}](#change-sg-set).
 
 
+To move a cluster to a different availability zone, follow this [guide](host-migration.md). As a result, the cluster hosts will be moved.
+
 ## Changing the host class {#change-resource-preset}
 
 The choice of a host class in {{ mmy-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
@@ -374,8 +376,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       Where:
 
-      * `hours`: Backup start hour
-      * `minutes`: Backup start minutes
+      * `hours`: Backup starting hour
+      * `minutes`: Backup starting minutes
 
    1. To change the retention period for backup files, define the `backup_retain_period_days` parameter in the cluster description:
 

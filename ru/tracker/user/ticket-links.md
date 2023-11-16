@@ -92,9 +92,6 @@
 
 ## Связать коммит с задачей {#section_commit}
 
-Вы можете привязать к задаче коммит в репозиторий, который [подключен к {{ tracker-name }}](../user/add-repository.md). Для этого укажите ключ задачи в комментарии к коммиту. Привязанные коммиты можно просмотреть:
+Вы можете привязать к задаче коммит в репозиторий, который [подключен к {{ tracker-name }}](add-repository.md).
 
-* на странице задачи в разделе **{{ ui-key.startrek.ui_components_IssueLinks.external-relations }}**;
-* на странице очереди в правом верхнем углу в разделе ![](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.startrek.blocks-desktop_b-ticket-workflow.commits }}**.
-
-Если вы не видите раздел  **{{ ui-key.startrek.blocks-desktop_b-ticket-workflow.commits }}**, убедитесь, что она включена в [настройках очереди](../manager/edit-queue-general.md).
+{% include [commits](../../_includes/tracker/add_commits.md) %}

@@ -72,7 +72,7 @@
    }
 
    provider "yandex" {
-     zone = "<зона доступности по умолчанию>"
+     zone = "<зона_доступности_по_умолчанию>"
    }
    ```
 
@@ -92,7 +92,7 @@
 
 Если вы использовали файл `.terraform.lock.hcl`, то перед инициализацией выполните команду `terraform providers lock`, указав адрес зеркала, откуда будет загружаться провайдер, и платформы, на которых будет использоваться конфигурация:
 
-```
+```bash
 terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=linux_amd64 -platform=darwin_arm64 yandex-cloud/yandex
 ```
 

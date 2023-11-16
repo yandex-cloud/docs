@@ -133,7 +133,7 @@ Try [optimizing the identified queries](#solving-inefficient-queries). If the lo
 The number of DB connections is limited by the `max_connections` parameter and is calculated by the formula:
 
 ```text
-200 × <vCPU_performance_per_host> – 15
+200 × <vCPU_performance_per_host>: 15
 ```
 
 Here, `<vCPU_share_on_the_host>` is the product of the number of vCPUs by their guaranteed performance and `15` is the number of reserved service connections. The resulting number of connections is distributed between the database roles.
@@ -151,11 +151,11 @@ To get detailed information about the usage of available connections using [moni
 1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
 1. Check the **Total pooler connections** chart.
 
-   {{ mpg-name }} does not allow connections directly to the DBMS; instead, they are connected to the connection pooler.
+   {{ mpg-name }} does not allow connections directly to the DBMS; instead, they go to the connection pooler.
 
-   * The **Clients** parameter shows the number of client connections to the pooler.
+   * The **Clients** parameter reflects the number of client connections to the connection pooler.
 
-   * The **Servers** parameter shows the number of connections between the DBMS and the pooler.
+   * The **Servers** parameter reflects the number of connections between the DBMS and the connection pooler.
 
       Take note of the number of connections: if the values are high, this means some queries keep connections open for too long.
 
