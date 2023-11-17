@@ -3866,6 +3866,12 @@ default:
         filter-issues: По задачам
         filter-projects: По проектам
         search-placeholder: Поиск
+      ui_components_projects_Sidebar:
+        sidebar-param-title--endDate: Дата завершения
+        sidebar-param-title--lead: Ответственный
+        sidebar-param-title--startDate: Дата начала
+        sidebar-param-title--status: Статус
+        sidebar-param-title--teamUsers: Участники
       ui_components_projects_Table:
         add-issue: Добавить задачу
         add-sub-issue: Добавить подзадачу

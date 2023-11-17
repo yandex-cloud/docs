@@ -3864,6 +3864,12 @@ default:
         filter-issues: Issues
         filter-projects: Projects
         search-placeholder: Search
+      ui_components_projects_Sidebar:
+        sidebar-param-title--endDate: End date
+        sidebar-param-title--lead: Responsible
+        sidebar-param-title--startDate: Start date
+        sidebar-param-title--status: Status
+        sidebar-param-title--teamUsers: Participants
       ui_components_projects_Table:
         add-issue: Add issue
         add-sub-issue: Add sub-issue

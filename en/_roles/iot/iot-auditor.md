@@ -1,1 +1,0 @@
-The `iot.auditor` role.
