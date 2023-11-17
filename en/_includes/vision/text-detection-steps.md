@@ -2,7 +2,7 @@
 
     {% include [base64-encode-command](base64-encode-command.md) %}
 
-1. Create a file with the request body (for example, `body.json`). In the `content` property, specify the [Base64-encoded](../../vision/operations/base64-encode.md) image.
+1. Create a file with the request body (for example, `body.json`). In the `content` property, specify the [Base64-encoded](../../vision/operations/base64-encode.md) image file contents.
 
     For the service to automatically detect the text language, specify the `"language_codes": ["*"]` property in the configuration.
 
@@ -77,7 +77,7 @@
     }
     ```
 
-1. To get all the recognized words from the image, find all the lines with the `text` property (for example, using the [grep](https://www.gnu.org/software/grep/) utility):
+1. To get all the recognized words from the image, find all the lines with the `text` property, e.g., using the [grep](https://www.gnu.org/software/grep/) utility:
 
    {% list tabs %}
 

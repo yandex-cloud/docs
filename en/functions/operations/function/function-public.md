@@ -33,7 +33,7 @@ To allow any user to invoke a function without passing an authorization header, 
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To make a function public:
 
@@ -87,7 +87,7 @@ To allow any user to invoke a function without passing an authorization header, 
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check that the function role has been assigned using the [management console]({{ link-console-main }}) or the [CLI command](../../../cli/quickstart.md):
+      You can check that the function role has been assigned using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc serverless function list-access-bindings <function_name>

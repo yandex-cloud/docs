@@ -1,12 +1,12 @@
 # Deleting a passport account from an organization
 
-These instructions describe how to delete a privileged passport account with the `organization-manager.organizations.owner` role from an [organization](../../organization/).
+This guide describes how to delete a privileged passport account with the `organization-manager.organizations.owner` role from an [organization](../../organization/).
 
-This may be necessary if you require full control of a privileged account's authentication. In this case, a privileged account that has full privileges with respect to an organization and an organization's resources.
+This may be necessary if you require full control of a privileged account's authentication. In this case, a privileged account is an account that has full privileges to an organization and all organization's resources.
 
-You can delete a privileged account if you have previously granted the `organization-manager.organizations.owner` role to a federated account. However, this creates the risk that if the federation breaks (on the cloud or the client side), it will not be possible to manage the organization using any federated account.
+You can delete a privileged account if you have previously granted the `organization-manager.organizations.owner` role to a federated account. However, this creates the risk of it becoming impossible to manage the organization with the help of any of the federated accounts should the federation fail (on the cloud or client side).
 
-The instructions provide actions for mitigating risks related a federation failure.
+The guide covers actions for mitigation of risks related to federation failure.
 
 ## Primary actions {#main-steps}
 
@@ -28,7 +28,7 @@ The instructions provide actions for mitigating risks related a federation failu
    {% endlist %}
 
 1. Create a service cloud called `security`.
-1. Assign the `admin` role for the `security` cloud to security officers that will be able to restore access to the cloud if your federation breaks.
+1. Assign the `admin` role for the `security` cloud to security officers to enable them to restore access to the cloud if the federation fails.
 1. [Create a service account](../../iam/operations/sa/create.md) in the `security` cloud as a way to recover access to the organization in an emergency.
 
    If you are using an existing service account, make sure it does not have [static](../../iam/concepts/authorization/access-key.md) or [API keys](../../iam/concepts/authorization/api-key.md).
@@ -58,11 +58,11 @@ The instructions provide actions for mitigating risks related a federation failu
 
    {% endlist %}
 
-   Keep in mind that any user with the `admin` role to the folder, the cloud, or the organization hosting the service account will be able to manage this service account. Therefore, these users will also be able to upgrade their roles up to `organization-manager.organizations.owner`. Make sure that only trusted users have the `admin` role to the service account as well as to the folder, the cloud, and the organization hosting this account.
+   Remember that a service account can be controlled by any user with the `admin` role for the folder, cloud, or organization hosting the service account. Thus, after gaining control of the service account, users will be able to perform any actions in the organization, including granting themselves various roles up to that of `organization-manager.organizations.owner`. Make sure that only trusted users have the `admin` role for the service account as well as for the folder, cloud, and organization hosting this account.
 
    {% endnote %}
 
-1. Granting the `organization-manager.organizations.owner` role to a service account:
+1. Assign the `organization-manager.organizations.owner` role to the service account:
 
    {% list tabs %}
 
@@ -114,7 +114,7 @@ You can use [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-fo
 1. [Authenticate](../../cli/operations/authentication/service-account.md#auth-as-sa) as a service account.
 1. Next:
 
-   * Either grant the `organization-manager.organizations.owner` role to the passport account and use this account to restore the federation.
+   * Either assign the `organization-manager.organizations.owner` role to the passport account and use this account to restore the federation.
    * Or restore the federation from the command-line interface (CLI).
 
 1. Verify access as a federated user.

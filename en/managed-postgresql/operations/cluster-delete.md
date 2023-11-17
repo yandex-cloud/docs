@@ -31,7 +31,7 @@ description: "After you delete a PostgreSQL database cluster, its backups are ke
    To delete a cluster, run the command:
 
    ```bash
-   {{ yc-mdb-pg }} cluster delete <cluster name or ID>
+   {{ yc-mdb-pg }} cluster delete <cluster_name_or_ID>
    ```
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).

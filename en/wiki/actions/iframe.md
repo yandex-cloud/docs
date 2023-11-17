@@ -1,5 +1,7 @@
 # Objects from external sources
 
+{% include [actions-alert](../../_includes/wiki/actions-alert.md) %}
+
 The `iframe` block enables you to add other pages, objects, audio clips, or videos from external sources (such as YouTube, Vimeo, and Coub) to your page.
 
 

@@ -44,23 +44,23 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    
    ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
-     name = "<endpoint name>"
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
      settings {
        clickhouse_target {
-         security_groups = [ "list of security group IDs" ]
-         subnet_id       = "<subnet ID>"
+         security_groups = ["<list_of_security_group_IDs>"]
+         subnet_id       = "<subnet_ID>"
          connection {
            connection_options {
-             mdb_cluster_id = "<{{ mch-name }} cluster ID>"
-             database       = "<name of database to transfer>"
-             user           = "<username to connect>"
+             mdb_cluster_id = "<cluster_ID>"
+             database       = "<migrated_database_name>"
+             user           = "<username_for_connection>"
              password {
-               raw = "<user password>"
+               raw = "<user_password>"
              }
            }
          }
-         <advanced endpoint settings>
+         <additional_endpoint_settings>
        }
      }
    }
@@ -101,35 +101,35 @@ Connecting to the database with explicitly specified network addresses and ports
 
    
    ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
-     name = "<endpoint name>"
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
      settings {
        clickhouse_target {
-         security_groups = [ "list of security group IDs" ]
-         subnet_id       = "<subnet ID>"
+         security_groups = ["<list_of_security_group_IDs>"]
+         subnet_id       = "<subnet_ID>"
          connection {
            connection_options {
              on_premise {
-               http_port   = "<HTTP connection port>"
-               native_port = "<native interface connection port>"
+               http_port   = "<port_for_HTTP_connections>"
+               native_port = "<port_for_connecting_to_native_interface>"
                shards {
-                 name  = "<shard name>"
-                 hosts = [ "list of shard host IPs or FQDNs" ]
+                 name  = "<shard_name>"
+                 hosts = [ "list_of_IP_addresses_or_FQDN_hosts_of_the_shard" ]
                }
                tls_mode {
                  enabled {
-                   ca_certificate = "<certificate in PEM format>"
+                   ca_certificate = "<PEM_certificate>"
                  }
                }
              }
-             database = "<name of database to transfer>"
-             user     = "<username to connect>"
+             database = "<migrated_database_name>"
+             user     = "<username_for_connection>"
              password {
-               raw = "<user password>"
+               raw = "<user_password>"
              }
            }
          }
-         <advanced endpoint settings>
+         <additional_endpoint_settings>
        }
      }
    }
@@ -154,7 +154,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
 
-      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Fully delete tables included in the transfer (used by default).
+      * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete tables included in the transfer (used by default).
 
          Use this option so that the latest version of the table schema is always transferred to the target database from the source whenever the transfer is activated.
 

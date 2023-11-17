@@ -1,5 +1,7 @@
 # Creating a new message queue
 
+Message queues in {{ message-queue-name }} enable [messaging](../concepts/message.md) between components of distributed applications. Messages can be sent to queues using the [API](../api-ref/index.md) or other supported [tools](../instruments/index.md).
+
 To create a new message queue:
 
 {% list tabs %}
@@ -7,46 +9,49 @@ To create a new message queue:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to create your queue in.
-   1. Open the **Message Queue** section.
-   1. Click **Create queue**.
-   1. Enter a name for the queue.
+   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+   1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
+   1. Under **{{ ui-key.yacloud.ymq.queue.form.section_base }}**, fill in the following fields:
+      * **{{ ui-key.yacloud.common.name }}**: Enter a name for the queue.
 
-      {% include [name](../../_includes/message-queue/ymq-name.md) %}
+         {% include [name](../../_includes/message-queue/ymq-name.md) %}
 
-   1. Select the queue type: **Standard** or **FIFO**.
-   1. Specify the standard visibility timeout to be applied to enqueued messages after they are read by a consumer.
-   1. Specify the message retention period.
-   1. Specify the maximum message size.
-   1. Specify the delivery delay: the amount of time during which a new message cannot be picked from a queue.
-   1. Specify the message receipt timeout.
-   1. To redirect undelivered messages to the [dead letter queue (DLQ)](../concepts/dlq.md):
-      * Enable **Redirect undelivered messages**.
-      * Specify the **Dead letter queue**.
-      * Set the **Maximum number of read attempts**.
-   1. Click **Create**.
+      * **{{ ui-key.yacloud.ymq.queue.form.switch_fifo-queue }}**: Select the `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}` or `{{ ui-key.yacloud.ymq.queue.form.type_switch_fifo }}` queue type.
+      * **{{ ui-key.yacloud.ymq.queue.form.field_visibility-timeout }}**: Specify the standard visibility timeout to be applied to enqueued messages after they are read by a consumer.
+      * **{{ ui-key.yacloud.ymq.queue.form.field_keeping-time }}**: Set the maximum period for retaining messages in the queue.
+      * **{{ ui-key.yacloud.ymq.queue.form.field_max-size }}**: Specify the maximum message size.
+      * **{{ ui-key.yacloud.ymq.queue.form.field_sending-delay }}**: Specify the amount of time during which a new message cannot be picked from the queue.
+      * **{{ ui-key.yacloud.ymq.queue.form.field_receiving-delay }}**: Specify the message receipt timeout.
+   1. To redirect undelivered messages to the [dead letter queue (DLQ)](../concepts/dlq.md), do the following under **{{ ui-key.yacloud.ymq.queue.form.section_message-settings }}**:
+      * Enable **{{ ui-key.yacloud.ymq.queue.form.switch_redirect-messages }}**.
+      * Specify **{{ ui-key.yacloud.ymq.queue.form.field_messages-queue }}**.
+      * Set **{{ ui-key.yacloud.ymq.queue.form.field_max-read-tries }}**.
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - AWS CLI
 
-   Run the following command in the terminal:
+   1. [Install and configure](configuring-aws-cli.md) the AWS CLI.
 
-   ```bash
-   aws sqs create-queue \
-     --queue-name <queue_name> \
-     --endpoint <endpoint>/
-   ```
+   1. Run the following command in the terminal:
 
-   Where:
+      ```bash
+      aws sqs create-queue \
+        --queue-name <queue_name> \
+        --endpoint <endpoint>
+      ```
 
-   * `sample-queue`: Queue name.
-   * `endpoint`: Endpoint, for example: `https://message-queue.{{ api-host }}/`.
+      Where:
 
-   Result:
+      * `--queue-name`: Name of the new queue, e.g., `sample-queue`.
+      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
 
-   ```json
-   {
-       "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
-   }
-   ```
+      Result:
+
+      ```json
+      {
+          "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd********/000000000000002n034r/sample-queue"
+      }
+      ```
 
 - {{ TF }}
 

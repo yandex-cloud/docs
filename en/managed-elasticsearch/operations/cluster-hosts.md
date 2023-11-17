@@ -1,8 +1,8 @@
 ---
-title: "Managing Elasticsearch hosts"
-description: "You can get a list of Elasticsearch cluster hosts and add or delete them. You can only manage hosts with the Data Node role."
+title: "Managing {{ ES }} hosts"
+description: "You can get a list of {{ ES }} cluster hosts and add or delete them. You can only manage hosts with the Data Node role."
 keywords:
-  - managing Elasticsearch hosts
+  - Managing {{ ES }} hosts
   - Elasticsearch hosts
   - Elasticsearch
 ---
@@ -11,7 +11,7 @@ keywords:
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-You can get a list of {{ ES }} cluster hosts and add or delete them.
+You can get a list of {{ ES }} cluster hosts and add or delete them. To move cluster hosts to a different availability zone, follow this [guide](host-migration.md).
 
 {% note info %}
 
@@ -37,10 +37,10 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
    To get a list of cluster hosts, run the command:
 
    ```bash
-   {{ yc-mdb-es }} host list --cluster-name <cluster name>
+   {{ yc-mdb-es }} host list --cluster-name <cluster_name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -69,7 +69,7 @@ You cannot enable public access to a host once it is created.
 
       * Availability zone.
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
-      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}. You cannot change this setting after you create a host.
 
 - CLI
 
@@ -81,9 +81,17 @@ You cannot enable public access to a host once it is created.
 
    ```bash
    {{ yc-mdb-es }} host add \
-      --cluster-name <cluster name> \
-      --host zone-id=<availability zone>,subnet-name=<subnet name>,assign-public-ip=<true or false>,type=<host role: datanode or masternode>
+      --cluster-name <cluster_name> \
+      --host zone-id=<availability_zone>,`
+             `subnet-name=<subnet_name>,`
+             `assign-public-ip=<public_access>,`
+             `type=<host_role>
    ```
+
+   Where:
+
+   * `assign-public-ip`: Public access to the host, `true` or `false`.
+   * `type`: Host role, `datanode` or `masternode`.
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -100,17 +108,22 @@ You cannot enable public access to a host once it is created.
    1. Add a `host` block to the {{ mes-name }} cluster description.
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
         ...
         host {
-          name             = "<host name>"
-          zone             = "<availability zone>"
-          type             = "<host role: DATA_NODE or MASTER_NODE>"
-          assign_public_ip = <public host access: true or false>
-          subnet_id        = "<subnet ID>"
+          name             = "<host_name>"
+          zone             = "<availability_zone>"
+          type             = "<host_role>"
+          assign_public_ip = <public_access>
+          subnet_id        = "<subnet_ID>"
         }
       }
       ```
+
+      Where:
+
+      * `type`: Host role, `DATA_NODE` or `MASTER_NODE`.
+      * `assign_public_ip`: Public access to the host, `true` or `false`.
 
    1. Make sure the settings are correct.
 
@@ -130,8 +143,6 @@ You cannot enable public access to a host once it is created.
     {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
    * New host settings in one or more `hostSpecs` parameters.
-
-   {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -167,7 +178,7 @@ The following restrictions apply when deleting hosts:
    To remove a host from the cluster, run:
 
    ```bash
-   {{ yc-mdb-es }} host delete <hostname> --cluster-name <cluster name>
+   {{ yc-mdb-es }} host delete <host_name> --cluster-name <cluster_name>
    ```
 
    The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

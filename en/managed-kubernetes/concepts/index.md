@@ -15,23 +15,14 @@ The main entity in the service is the _{{ k8s }} cluster_.
 
 The service fully manages the master and monitors the status and health of node groups. Users can manage nodes directly and configure {{ k8s }} clusters using the {{ yandex-cloud }} management console and the {{ managed-k8s-name }} CLI and API.
 
-{% note warning %}
-
-Groups of {{ k8s }} nodes require internet access for downloading images and components.
-
-Internet access can be provided in the following ways:
-* By assigning a [public IP address](../../vpc/concepts/address.md#public-addresses) to each node in the group.
-* By [configuring a VM as a NAT instance](../../tutorials/routing/nat-instance.md).
-* By [setting up a NAT gateway](../../vpc/operations/create-nat-gateway.md).
-
-{% endnote %}
+{% include [Install kubectl](../../_includes/managed-kubernetes/note-node-group-internet-access.md) %}
 
 {{ k8s }} clusters in the {{ yandex-cloud }} infrastructure use the following resources:
 
-Resource | Amount | Comment
---- | --- | ---
-Subnet | 2 | {{ k8s }} reserves ranges of IP addresses to use for pods and services.
-Public IP | N | The N number includes:<br>* **One** public IP address for the NAT instance.<br>* A public IP address assigned to **each** node in the group if you use one-to-one NAT technology.
+| Resource | Amount | Comment |
+| --- | --- | --- |
+| Subnet | 2 | {{ k8s }} reserves IP address ranges to be used for pods and services. |
+| Public IP | N | The N number includes:<br>* **One** public IP address for the NAT instance.<br>* A public IP address assigned to **each** node in the group if you use one-to-one NAT technology. |
 
 ## Master {#master}
 
@@ -105,7 +96,7 @@ Every taint policy consists of three parts:
 ```
 
 A list of available taint effects:
-* `NO_SCHEDULE`: Prohibit running new pods on group nodes (doesn't affect running pods).
+* `NO_SCHEDULE`: Prohibit running new pods on group nodes (it does not affect running pods).
 * `PREFER_NO_SCHEDULE`: Avoid running pods on group nodes if there are available resources for this in other groups.
 * `NO_EXECUTE`: Evict pods from nodes in this group to other groups, and prohibit running new pods.
 
@@ -146,7 +137,7 @@ If a pod needs access to resources outside the cluster, its IP address will be r
 
 By default, IP masquerade is enabled for the entire range of pod IP addresses.
 
-To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading, for example, to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml), specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
+To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading, e.g., to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml), specify the IP ranges you need in the `data.config.nonMasqueradeCIDRs` parameter:
 
 ```yaml
 ...
@@ -183,13 +174,13 @@ A _namespace_ is an abstraction that logically isolates {{ k8s }} cluster resour
 
   A number of {{ k8s }} service accounts are automatically created in the `kube-system` namespace when deploying a {{ managed-k8s-name }} cluster.
 
-  {{ k8s }} creates a token for each of these accounts. This token is used for authentication within the {{ k8s }} cluster that the account belongs to.
+  For authentication within the {{ k8s }} cluster hosting the service account, create a token for this account manually.
 
-  For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/).
+  For more information, see [{#T}](../operations/connect/create-static-conf.md) and the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/).
 
 {% note warning %}
 
-Don't confuse [cloud service accounts](../security/index.md#sa-annotation) and {{ k8s }} service accounts.
+Do not confuse [cloud service accounts](../security/index.md#sa-annotation) with {{ k8s }} service accounts.
 
 In the service documentation, _service account_ refers to a regular cloud service account unless otherwise specified.
 

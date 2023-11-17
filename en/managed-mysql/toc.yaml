@@ -19,6 +19,8 @@ items:
             href: operations/cluster-stop.md
           - name: Managing MySQL hosts
             href: operations/hosts.md
+          - name: Migrating hosts to a different availability zone
+            href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
           - name: Deleting clusters
@@ -49,7 +51,7 @@ items:
             href: operations/datalens-connect.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Host classes
         items:
@@ -111,6 +113,14 @@ items:
         href: tutorials/mmy-objs-migration.md
       - name: '{{ MY }} change data capture and delivery to {{ DS }}'
         href: tutorials/mmy-to-yds.md
+      - name: >-
+          Migrating data from {{ mkf-full-name }} to {{ mmy-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mpg-to-mmy.md
+      - name: >-
+          Migrating data from {{ mmy-name }} to {{ mpg-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mmy-to-mpg.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

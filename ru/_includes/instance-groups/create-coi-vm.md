@@ -10,7 +10,7 @@
 
 1. {% include [default-catalogue.md](../default-catalogue.md) %}
 
-1. Посмотрите описание команды CLI для создания группы ВМ:
+1. Посмотрите описание команды [CLI](../../glossary/cli.md) для создания группы ВМ:
 
    {% list tabs %}
 
@@ -76,6 +76,8 @@
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+       placement_policy:
+        placement_group_id: rmppvhrgm77g********
        metadata:
          docker-container-declaration: |-
            spec:
@@ -105,7 +107,8 @@
      * `primary_v4_address_spec` — спецификация версии интернет протокола IPv4. На данный момент доступен только протокол IPv4. Вы можете [предоставить публичный доступ к ВМ группы](../../compute/concepts/instance-groups/instance-template.md#instance-template), указав версию IP для публичного IP-адреса.
      * `metadata` — значения, которые будут переданы в метаданные ВМ.
      * `docker-container-declaration` — ключ в метаданных ВМ, при котором используется [COI спецификация Docker-контейнера](../../cos/concepts/coi-specifications.md). Вы можете использовать в метаданных [Docker Compose спецификацию](../../cos/concepts/coi-specifications.md#compose-spec), для этого вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
-
+     * `placement_policy` — (опционально) параметры [группы размещения ВМ](../../compute/concepts/placement-groups.md):
+       * `placement_group_id` — идентификатор группы размещения.
    * [Политики](../../compute/concepts/instance-groups/policies/index.md):
 
      ```yaml
@@ -151,6 +154,8 @@
        network_interface_specs:
          - network_id: c64mknqgnd8a********
            primary_v4_address_spec: {}
+       placement_policy:
+         placement_group_id: rmppvhrgm77g********
        metadata:
          docker-container-declaration: |-
            spec:

@@ -9,10 +9,11 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 {% endnote %}
 
 
-В {{ managed-k8s-name }} доступны следующие классы хранилищ:
+В {{ managed-k8s-name }} доступны следующие классы хранилищ, которые отличаются [типом создаваемого диска](../../../compute/concepts/disk.md#disks_types):
 * `yc-network-hdd` (используется по умолчанию) — хранилище на сетевых HDD-дисках (`network-hdd`).
 * `yc-network-ssd` — хранилище на сетевых SSD-дисках (`network-ssd`).
 * `yc-network-ssd-nonreplicated` — хранилище на нереплицируемых SSD-дисках с повышенной производительностью (`network-ssd-nonreplicated`).
+* `yc-network-ssd-io-m3` — хранилище на сетевых SSD-дисках с повышенной производительностью (`network-ssd-io-m3`).
 
 {% include [Нереплицируемый диск не имеет резервирования](../../../_includes/managed-kubernetes/nrd-no-backup-note.md) %}
 
@@ -21,10 +22,6 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 * [Reclaim Policy](https://kubernetes.io/docs/concepts/storage/storage-classes/#reclaim-policy) — `Delete`.
 
 Данные классы допускают использование объектов `PersistentVolumeClaim` и `PersistentVolume` только в [режиме доступа](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) `ReadWriteOnce`.
-
-Классы отличаются [типом создаваемого диска](../../../compute/concepts/disk.md#disks_types):
-* Для `yc-network-hdd` используется стандартный сетевой диск (`network-hdd`).
-* Для `yc-network-ssd` используется быстрый сетевой диск (`network-ssd`).
 
 Вы можете [создать свой класс хранилищ](#sc-create), а также [изменить класс хранилищ по умолчанию](#sc-default).
 
@@ -119,7 +116,7 @@ reclaimPolicy: <политика_переиспользования>
 
 Допустимые значения параметров:
 * `parameters`:
-  * `type` — `network-hdd`, `network-ssd` или `network-ssd-nonreplicated`.
+  * `type` — `network-hdd`, `network-ssd`, `network-ssd-nonreplicated` или `network-ssd-io-m3`.
   * `csi.storage.k8s.io/fstype` — `ext2`, `ext3` или `ext4`.
 * `reclaimPolicy` — `Retain` или `Delete`.
 * `allowVolumeExpansion` — `true` или `false`.

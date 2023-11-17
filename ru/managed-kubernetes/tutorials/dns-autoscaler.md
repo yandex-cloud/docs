@@ -143,8 +143,8 @@ replicas = max(replicas, min)
    ```bash
    NAME                      READY  STATUS   RESTARTS  AGE
    ...
-   coredns-7c646474c9-4dmjl  1/1    Running  0         128m
-   coredns-7c646474c9-n7qsv  1/1    Running  0         134m
+   coredns-7c********-4dmjl  1/1    Running  0         128m
+   coredns-7c********-n7qsv  1/1    Running  0         134m
    ```
 
 1. Задайте новые параметры.
@@ -221,11 +221,11 @@ kubectl get pods -n kube-system
 ```text
 NAME                      READY  STATUS   RESTARTS  AGE
 ...
-coredns-7c646474c9-7l8mc  1/1    Running  0         3m30s
-coredns-7c646474c9-n7qsv  1/1    Running  0         3h20m
-coredns-7c646474c9-pv9cv  1/1    Running  0         3m40s
-coredns-7c646474c9-r2lss  1/1    Running  0         49m
-coredns-7c646474c9-s5jgz  1/1    Running  0         57m
+coredns-7c********-7l8mc  1/1    Running  0         3m30s
+coredns-7c********-n7qsv  1/1    Running  0         3h20m
+coredns-7c********-pv9cv  1/1    Running  0         3m40s
+coredns-7c********-r2lss  1/1    Running  0         49m
+coredns-7c********-s5jgz  1/1    Running  0         57m
 ```
 
 ### Настройте уменьшение количества узлов {{ managed-k8s-name }} {#reduce-nodes}

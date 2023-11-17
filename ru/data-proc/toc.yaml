@@ -17,6 +17,8 @@ items:
             href: operations/connect.md
           - name: Изменение кластера
             href: operations/cluster-update.md
+          - name: Миграция кластера в другую зону доступности
+            href: operations/migration-to-an-availability-zone.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Подкластеры {{ dataproc-name }}
@@ -97,6 +99,10 @@ items:
             href: tutorials/remote-run-job.md
       - name: Настройка сети для {{ dataproc-name }}
         href: tutorials/configure-network.md
+      - name: >-
+          Переключение сетевого соединения при пересоздании кластера {{
+          dataproc-name }}
+        href: tutorials/reconnect-network.md
       - name: Использование {{ objstorage-full-name }} в {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
       - name: Обмен данными с {{ mch-full-name }}
@@ -247,6 +253,8 @@ items:
                 href: api-ref/Subcluster/list.md
               - name: update
                 href: api-ref/Subcluster/update.md
+  - name: Публичные материалы
+    href: public-talks.md
   - name: История изменений
     items:
       - name: Изменения сервиса

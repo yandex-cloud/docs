@@ -41,7 +41,7 @@ You can create backups and restore clusters from existing backups, including poi
    +--------------------------+---------------------+----------------------+---------------------+
    |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |
    +--------------------------+---------------------+----------------------+---------------------+
-   | c9qgo11pud7kb3cdomeg...  | 2020-08-10 12:00:00 | c9qgo11pud7kb3cdomeg | 2020-08-10 11:55:17 |
+   | c9qgo11pud7kb3c********  | 2020-08-10 12:00:00 | c9qgo11pud7k******** | 2020-08-10 11:55:17 |
    | ...                                                                                         |
    +--------------------------+---------------------+----------------------+---------------------+
    ```
@@ -79,7 +79,7 @@ You can create backups and restore clusters from existing backups, including poi
    To get information about a {{ MY }} cluster backup, run the command:
 
    ```bash
-   {{ yc-mdb-my }} backup get <backup ID>
+   {{ yc-mdb-my }} backup get <backup_ID>
    ```
 
    You can retrieve the backup ID with a [list of backups](#list-backups).
@@ -121,10 +121,10 @@ You can create backups and restore clusters from existing backups, including poi
    1. Request a backup to be created by specifying the cluster name or ID:
 
       ```bash
-      {{ yc-mdb-my }} cluster backup <cluster ID or name>
+      {{ yc-mdb-my }} cluster backup <cluster_name_or_ID>
       ```
 
-      You can fetch the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
+      You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
 
 - API
 
@@ -160,7 +160,7 @@ For a new cluster, you should set all the parameters that are required at creati
    To restore a previously deleted cluster from a backup:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
-   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster ID>:<backup ID>` format.
+   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
    1. To restore the cluster state to the required point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** as appropriate. You can enter the value manually or select it from the drop-down calendar.
@@ -196,7 +196,7 @@ For a new cluster, you should set all the parameters that are required at creati
       +--------------------------+---------------------+----------------------+---------------------+
       |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |
       +--------------------------+---------------------+----------------------+---------------------+
-      | c9qgo11pud7kb3cdomeg...  | 2020-08-10 12:00:00 | c9qgo11pud7kb3cdomeg | 2020-08-10 11:55:17 |
+      | c9qgo11pud7kb3c********  | 2020-08-10 12:00:00 | c9qgo11pud7k******** | 2020-08-10 11:55:17 |
       | ...                                                                                         |
       +--------------------------+---------------------+----------------------+---------------------+
       ```
@@ -208,17 +208,17 @@ For a new cluster, you should set all the parameters that are required at creati
       
       ```bash
       {{ yc-mdb-my }} cluster restore \
-         --backup-id=<backup ID> \
-         --time=<point in time to restore the {{ MY }} cluster to> \
-         --name=<cluster name> \
-         --environment=<environment: PRESTABLE or PRODUCTION> \
-         --network-name=<network name> \
-         --host zone-id=<availability zone>,`
-               `subnet-name=<subnet name>`
-               `assign-public-ip=<public access to the host: true or false> \
-         --resource-preset=<host class> \
-         --disk-size=<storage size in GB> \
-         --disk-type=<disk type>
+         --backup-id=<backup_ID> \
+         --time=<time> \
+         --name=<cluster_name> \
+         --environment=<environment> \
+         --network-name=<network_name> \
+         --host zone-id=<availability_zone>,`
+               `subnet-name=<subnet_name>,`
+               `assign-public-ip=<public_access_to_host> \
+         --resource-preset=<host_class> \
+         --disk-size=<storage_size_in_GB> \
+         --disk-type=<disk_type>
       ```
 
 
@@ -229,7 +229,7 @@ For a new cluster, you should set all the parameters that are required at creati
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing, including {{ MY }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -239,7 +239,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
          
          * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
-         * `assign-public-ip`: Flag to be set if [public access](../concepts/network.md#public-access-to-host) to the host is required.
+         * `assign-public-ip`: Flag to be set if [public access](../concepts/network.md#public-access-to-host) to the host is needed: `true` or `false`.
 
 
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
@@ -272,7 +272,7 @@ For a new cluster, you should set all the parameters that are required at creati
    +--------------------------+---------------------+----------------------+---------------------+
    |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |
    +--------------------------+---------------------+----------------------+---------------------+
-   | c9qgo11pud7kb3cdomeg...  | 2020-08-10 12:00:00 | c9qgo11pud7kb3cdomeg | 2020-08-10 11:55:17 |
+   | c9qgo11pud7kb3c********  | 2020-08-10 12:00:00 | c9qgo11pud7k******** | 2020-08-10 11:55:17 |
    | ...                                                                                         |
    +--------------------------+---------------------+----------------------+---------------------+
    ```
@@ -286,16 +286,16 @@ For a new cluster, you should set all the parameters that are required at creati
    1. Add a block named `restore` to this configuration file:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
         restore {
-          backup_id = "<desired backup name>"
-          time      = "<restore time stamp in yyyy-mm-ddThh:mm:ss format>"
+          backup_id = "<backup_name>"
+          time      = "<time>"
         }
       }
       ```
 
-      In the `time` parameter, specify the point in time to which you want to restore the {{ MY }} cluster, starting from the creation of the selected backup.
+      In the `time` parameter, specify the time point, in the `yyyy-mm-ddThh:mm:ss` format, to which you want to restore the {{ MY }} cluster, starting from the creation of the selected backup.
 
       {% note info %}
 
@@ -307,7 +307,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -321,13 +321,13 @@ For a new cluster, you should set all the parameters that are required at creati
 
       Do not use resources of the databases (`yandex_mdb_mysql_database`) and users (`yandex_mdb_mysql_user`). They will be restored from the backup.
 
-   1. In the configuration file, add a `restore` section with the name of the backup to restore the cluster from:
+   1. In the configuration file, add a `restore` block with the name of the backup to restore the cluster from:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
         restore {
-            backup_id = "<remote cluster backup ID>"
+            backup_id = "<backup_ID>"
         }
       }
       ```
@@ -336,7 +336,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -351,7 +351,7 @@ For a new cluster, you should set all the parameters that are required at creati
    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
    * ID of the backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * Timestamp of the point to which you want to recover the cluster, in the `time` parameter.
+   * Timestamp to which you want to recover the cluster, in the `time` parameter.
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
 {% endlist %}
@@ -373,11 +373,13 @@ For a new cluster, you should set all the parameters that are required at creati
    To set the backup start time in an existing cluster, use the `update` command:
 
    ```bash
-   {{ yc-mdb-my }} cluster update <cluster ID or name> \
-      --backup-window-start=<backup start time, UTC in `HH:MM:SS` format>
+   {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
+      --backup-window-start=<time>
    ```
 
-   You can fetch the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
+   Where `backup-window-start` is the backup start UTC time in `HH:MM:SS` format.
+
+   You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -388,20 +390,25 @@ For a new cluster, you should set all the parameters that are required at creati
    1. Add a block named `backup_window_start` to the {{ mmy-name }} cluster description:
 
       ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
         backup_window_start {
-          hours   = <backup start hour (UTC)>
-          minutes = <backup start minute (UTC)>
+          hours   = <hour>
+          minutes = <minute>
         }
       }
       ```
+
+      Where:
+
+      * `hours`: Backup start hour (UTC)
+      * `minutes`: Backup start minute (UTC)
 
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -440,12 +447,14 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
    To set the backup priority of a selected host, run this command:
 
    ```bash
-   {{ yc-mdb-my }} host update <host name> \
-      --cluster-name=<cluster name> \
-      --backup-priority=<host priority for backups: 0 to 100>
+   {{ yc-mdb-my }} host update <host_name> \
+      --cluster-name=<cluster_name> \
+      --backup-priority=<host_backup_priority>
    ```
 
-   The host name can be requested with a [list of cluster hosts](hosts.md#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   Where `backup-priority` is host backup priority, between `0` and `100`.
+
+   You can request the host name with a [list of cluster hosts](hosts.md#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

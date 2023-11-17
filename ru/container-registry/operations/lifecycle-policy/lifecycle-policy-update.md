@@ -187,7 +187,7 @@
   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-name new-policy
   ```
 
-  Где `new-name` — новое имя политики. Требования к нему:
+  Где `new-name` — новое имя политики. Требования к имени:
 
   {% include [name-format](../../../_includes/name-format.md) %}
 

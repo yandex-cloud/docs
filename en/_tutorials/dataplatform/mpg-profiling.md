@@ -1,4 +1,4 @@
-# Performance analysis and tuning in {{ mpg-name }}
+# {{ mpg-name }} performance analysis and tuning
 
 {{ mpg-name }} cluster performance drops most often due to one of the following:
 
@@ -50,7 +50,7 @@ There are several ways to optimize problematic queries:
 
 * Analyze the query plan using the [`EXPLAIN`](https://www.postgresql.org/docs/current/sql-explain.html) command.
 
-   Check queries that don't use indexes (a large number of rows in the `Seq Scan` nodes). Such queries increase utilization of both I/O (there're more reads from the disk) and CPU (it takes more processor time to process a large number of rows).
+   Check queries that do not use indexes (a large number of rows in the `Seq Scan` nodes). Such queries increase utilization of both I/O (due to more reads from the disk) and CPU (as it takes more processor time to process large numbers of rows).
 
    [Create](https://www.postgresql.org/docs/current/sql-createindex.html) or [update](https://www.postgresql.org/docs/current/sql-reindex.html) appropriate indexes.
 
@@ -69,7 +69,7 @@ There are several ways to optimize problematic queries:
    The query execution plan is based on the statistics collected by the DBMS. If the data in the DBMS is updated frequently, these statistics quickly become outdated. Use the `ANALYZE` query for the DBMS to perform another analysis of the table or the entire database:
 
    ```sql
-   ANALYZE <table or database name>
+   ANALYZE <table_or_database_name>;
    ```
 
    If necessary, in the [DBMS settings](../../managed-postgresql/operations/update.md#change-postgresql-config), increase the value of `default_statistics_target`, then run the `ANALYZE` query again.
@@ -78,7 +78,7 @@ There are several ways to optimize problematic queries:
 
 * Create extended statistics objects.
 
-   {{ PG }} doesn't collect statistics about the correlation of data between columns of the same table. This is because the number of possible combinations of columns can be extremely large. If there is a relationship between columns, [create extended statistics objects](https://www.postgresql.org/docs/current/planner-stats.html#PLANNER-STATS-EXTENDED). The scheduler will then be able to optimize queries based on information about the correlation of data in the columns.
+   {{ PG }} does not collect statistics about the correlation of data between columns of the same table. This is because the number of possible combinations of columns can be extremely large. If there is a relationship between columns, [create extended statistics objects](https://www.postgresql.org/docs/current/planner-stats.html#PLANNER-STATS-EXTENDED). The scheduler will then be able to optimize queries based on information about the correlation of data in the columns.
 
 * Analyze query execution plan statistics in {{ PG }} logs.
 
@@ -90,7 +90,7 @@ If you cannot optimize the identified queries or manage without them, the only o
 
 Resource shortage is a likely cause of cluster performance degradation. Resource shortages become evident from [cluster monitoring](../../managed-postgresql/operations/monitoring.md) charts (CPU, disk I/O operations, network connections). If a resource utilization chart continued to rise but then plateaued, the resource load has reached its [limit](../../managed-postgresql/concepts/limits.md) or is exceeding the guaranteed service level.
 
-In most cases, high CPU utilization and high disk I/O are due to suboptimal indexes or a large load on the hosts. Examine the data on [sessions](../../managed-postgresql/operations/performance-diagnostics.md#get-sessions) and [queries](../../managed-postgresql/operations/performance-diagnostics.md#get-queryes) collected by the [performance diagnostics](../../managed-postgresql/operations/performance-diagnostics.md) tool.
+In most cases, high CPU utilization and high disk I/O are due to suboptimal indexes or a large load on the hosts. Check the data on [sessions](../../managed-postgresql/operations/performance-diagnostics.md#get-sessions) and [queries](../../managed-postgresql/operations/performance-diagnostics.md#get-queryes) collected by the [performance diagnostics](../../managed-postgresql/operations/performance-diagnostics.md) tool.
 
 
 ## Troubleshooting resource shortage issues {#solving-cpu-io-deficit}
@@ -133,10 +133,10 @@ Try [optimizing the identified queries](#solving-inefficient-queries). If the lo
 The number of DB connections is limited by the `max_connections` parameter and is calculated by the formula:
 
 ```text
-200 × <vCPU share on the host> — 15
+200 × <vCPU_performance_per_host>: 15
 ```
 
-Here, `<vCPU share on the host>` is the product of the number of vCPUs by their guaranteed performance and `15` is the number of reserved service connections. The resulting number of connections is distributed between the database roles.
+Here, `<vCPU_share_on_the_host>` is the product of the number of vCPUs by their guaranteed performance and `15` is the number of reserved service connections. The resulting number of connections is distributed between the database roles.
 
 If the number of open connections reaches the limit, errors appear in the cluster logs:
 
@@ -151,11 +151,11 @@ To get detailed information about the usage of available connections using [moni
 1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
 1. Check the **Total pooler connections** chart.
 
-   {{ mpg-name }} does not allow connections directly to the DBMS; instead, they are connected to the connection pooler.
+   {{ mpg-name }} does not allow connections directly to the DBMS; instead, they go to the connection pooler.
 
-   * The **Clients** parameter means the number of client connections to the pooler.
+   * The **Clients** parameter reflects the number of client connections to the connection pooler.
 
-   * The **Servers** parameter shows the number of connections between the DBMS and the pooler.
+   * The **Servers** parameter reflects the number of connections between the DBMS and the connection pooler.
 
       Take note of the number of connections: if the values are high, this means some queries keep connections open for too long.
 
@@ -187,4 +187,4 @@ To check for free space in cluster storage:
 
 ## Troubleshooting problems with insufficient storage space {#solving-storage-issues}
 
-For recommendations on troubleshooting these issues, see [{#T}](../../managed-postgresql/concepts/storage.md#read-only-solutions) and [{#T}](../../managed-postgresql/concepts/storage.md#read-only-monitor).
+For recommendations on troubleshooting these issues, see [{#T}](../../managed-postgresql/concepts/storage.md#manage-storage-space).

@@ -417,6 +417,8 @@ items:
         href: tutorials/batch-recognition-stt.md
       - name: Канареечный релиз функции {{ sf-name }}
         href: tutorials/canary-release.md
+      - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
+        href: tutorials/nodejs-cron-restart-vm.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом
@@ -431,6 +433,8 @@ items:
             href: functions/api-ref/grpc/index.md
           - name: FunctionService
             href: functions/api-ref/grpc/function_service.md
+          - name: NetworkService
+            href: functions/api-ref/grpc/network_service.md
           - name: OperationService
             href: functions/api-ref/grpc/operation_service.md
       - name: REST (англ.)

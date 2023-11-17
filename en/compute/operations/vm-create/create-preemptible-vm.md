@@ -144,7 +144,8 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
@@ -313,7 +314,8 @@ To change the type of a VM, for example, make it preemptible:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
    1. In the configuration file, find a description of the scheduling policy of the VM you want to make preemptible:
 
       ```hcl

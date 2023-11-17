@@ -1,11 +1,13 @@
 # Создать виртуальную машину Windows Server с подключением к {{ backup-name }}
 
-Сервис {{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../../compute/concepts/vm.md) с операционными системами Windows Server 2019 и 2022. Подробнее см. в разделе [{#T}](../concepts/vm-connection.md#os).
+Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами на базе Windows](../concepts/vm-connection.md#windows).
+
+{% include [requirements](../../_includes/backup/requirements.md) %}
 
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../../iam/concepts/access-control/roles.md#backup-editor) `backup.editor`.
-1. [Настройте](../../vpc/operations/security-group-add-rule.md) в группе безопасности [правила для работы с {{ backup-name }}](../concepts/vm-connection.md#security-groups).
+1. [Настройте](../concepts/vm-connection.md#vm-network-access) сетевой доступ для ВМ.
 
 ## Создание ВМ {#creating-vm}
 

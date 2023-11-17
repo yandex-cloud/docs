@@ -1,22 +1,23 @@
 ---
-description: "Image classification enables you to see whether an image matches a certain property (for instance, contains adult-only content). This can reduce the cost of manual moderation because you will be able to ban such images automatically."
+description: "Image classification enables you to see whether an image matches a certain property (for instance, contains adult content). This can reduce the cost of manual moderation because you will be able to ban such images automatically."
 keywords:
   - image classification
+  - classification for images
 ---
 
 # Image classification
 
-_Image classification is currently in the [Preview stage](../../../overview/concepts/launch-stages.md)._
+_Image classification is currently at the [Preview stage](../../../overview/concepts/launch-stages.md)._
 
-This section describes how the _image classification_ feature works in the service.
+This section describes how the _image classification_ feature works.
 
-Use this feature to find out how well an image matches a certain property (for instance, whether the image contains adult-only content). This can reduce the cost of manual moderation because you will be able to ban such images automatically.
+Use this feature to find out how well an image matches a certain property (for instance, whether the image contains adult content). This can reduce the cost of manual moderation because you will be able to ban such images automatically.
 
-The list of properties that the result is returned for depends on the selected model. For example, the `quality` model, which is used to assess the quality of an image, returns the probabilities for properties such as `low`, `medium`, and `high`. [More information about supported models](supported-models.md).
+The list of properties the result is returned for depends on the selected model. For example, the `quality` model, which is used to assess the quality of an image, returns the probabilities for the `low`, `medium`, and `high` properties. You can find more information about the supported models [here](supported-models.md).
 
 ## Request format {#request-format}
 
-To use this feature, specify `CLASSIFICATION` in the feature type and pass the name of the [model](supported-models.md):
+To use the classification feature, specify `CLASSIFICATION` in the feature type and provide the [model](supported-models.md) name:
 
 ```json
 {
@@ -33,7 +34,7 @@ To use this feature, specify `CLASSIFICATION` in the feature type and pass the n
 }
 ```
 
-Only one model can be used within a single analysis feature. If you need to apply more models to your image, pass another object in `features`:
+Only one model can be used within a single analysis feature. If you need to apply more models to your image, provide another object in `features`:
 
 ```json
 {
@@ -62,7 +63,7 @@ The service returns a list of properties in the following format:
 
 ```json
 {
-  "name": "low", // Property name
+  "name": "low", // Property name.
   "probability": 0.71257284 // Probability of matching the property.
 }
 ```
@@ -75,5 +76,5 @@ The service returns all properties for the selected model, even if the probabili
 
 #### What's next {#what-is-next}
 
-* [View the list of supported models](supported-models.md).
-* [See how to handle errors](../../api-ref/errors-handling.md).
+* [View the list of supported models](supported-models.md)
+* [Learn how to handle errors](../../api-ref/errors-handling.md)

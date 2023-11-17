@@ -9,7 +9,7 @@ To create an instance group:
 1. [Prepare your cloud](#before-begin).
 1. [Prepare the environment](#prepare).
 1. [Create an instance group with auto scaling and network load balancer](#create-vm-group).
-1. [Add a network load balancer with a target group](#connect-balancer) .
+1. [Add a network load balancer with a target group](#connect-balancer).
 1. [Test your instance group and network load balancer](#check-service).
 1. [Test auto scaling](#check-highload).
 

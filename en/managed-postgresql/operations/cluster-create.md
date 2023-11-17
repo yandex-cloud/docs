@@ -3,7 +3,7 @@ title: "How to create a {{ PG }} cluster"
 description: "Use this tutorial to create a {{ PG }} cluster with a single or multiple DB hosts."
 ---
 
-# Creating {{ PG }} clusters
+# Creating a {{ PG }} cluster
 
 A {{ PG }} cluster consists of one or more [database hosts](../concepts/index.md) you can configure [replication](../concepts/replication.md) between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. The transaction is confirmed if the data is written to [disk](../concepts/storage.md) both on the master host and on a certain number of replicas sufficient to establish a quorum.
 
@@ -11,7 +11,7 @@ A {{ PG }} cluster consists of one or more [database hosts](../concepts/index.md
 
 * The number of hosts you can create together with a {{ PG }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available disk types depend on the selected [host class](../concepts/instance-types.md#available-flavors).
-* If DB storage is 95% full, the cluster switches to read-only mode. Plan and increase the required storage size in advance.
+* If the DB storage is 95% full, the cluster switches to read-only mode. Plan and increase the required storage size in advance.
 
 {% endnote %}
 
@@ -32,7 +32,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
    1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including {{ mpg-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the DBMS version.
 
       {% note info %}
@@ -56,14 +56,14 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       * Select the storage size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
-   1. (Optional) Under **Automatic increase of storage size**, specify the desired settings:
+   1. (Optional) Under **Automatic increase of storage size**, specify the required settings:
 
-      * In the **Increase size** field, set the conditions to:
+      * In the **Increase size** field, set the appropriate conditions to:
 
-          * Increase storage size during the next maintenance window when the storage is full by more than the specified percentage value (%).
-          * Increase storage size immediately when the storage is full by more than the specified percentage value (%).
+         * Increase the storage size during the next maintenance window when the storage is full by more than the specified percentage value (%).
+         * Increase the storage size immediately when the storage is full by more than the specified percentage value (%).
 
-          You can set both conditions, but make sure that the threshold for increasing the size immediately is higher than that for increasing the size during a maintenance window.
+         You can set both conditions, but make sure that the threshold for increasing the size immediately is higher than that for increasing the size during a maintenance window.
 
       * In the **New storage size** field, specify a new storage size to be set when one of the specified conditions is met.
 
@@ -104,6 +104,8 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       
       When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, you need to add at least three hosts to the cluster.
 
+
+      To connect to the host from the internet, enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** setting.
 
    1. Configure additional cluster settings, if required:
 
@@ -148,21 +150,33 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
       
       ```bash
       {{ yc-mdb-pg }} cluster create \
-        --name <cluster name> \
-        --environment <environment, prestable or production> \
-        --network-name <network name> \
-        --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-        --resource-preset <host class> \
-        --user name=<username>,password=<user password> \
-        --database name=<DB name>,owner=<DB owner name> \
-        --disk-size <storage size, GB> \
-        --disk-type <disk type> \
-        --security-group-ids <list of security group IDs> \
-        --connection-pooling-mode=<connection manager mode> \
-        --deletion-protection=<cluster deletion protection: true or false>
+        --name <cluster_name> \
+        --environment <environment> \
+        --network-name <network_name> \
+        --host zone-id=<availability_zone>,`
+                 `subnet-id=<subnet_ID>,`
+                 `assign-public-ip=<internet_access_to_host> \
+        --resource-preset <host_class> \
+        --user name=<username>,password=<user_password> \
+        --database name=<DB_name>,owner=<DB_owner_name> \
+        --disk-size <storage_size_in_GB> \
+        --disk-type <disk_type> \
+        --security-group-ids <list_of_security_group_IDs> \
+        --connection-pooling-mode=<connection_pooler_mode> \
+        --deletion-protection=<deletion_protection>
       ```
 
 
+
+      Where:
+
+      * `environment`: `prestable` or `production`.
+
+      
+      * `assign-public-ip`: Internet access to the host, `true` or `false`.
+
+
+      * `deletion-protection`: Cluster deletion protection, `true` or `false`.
 
       
       You need to specify `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) has two or more subnets.
@@ -199,9 +213,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   
-   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To create a cluster:
    1. In the configuration file, describe the parameters of the resources you want to create:
@@ -215,66 +227,80 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-        name                = "<cluster name>"
-        environment         = "<environment, PRESTABLE or PRODUCTION>"
-        network_id          = "<network ID>"
-        security_group_ids  = [ "<list of security groups>" ]
-        deletion_protection = <cluster deletion protection: true or false>
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
+        name                = "<cluster_name>"
+        environment         = "<environment>"
+        network_id          = "<network_ID>"
+        security_group_ids  = [ "<list_of_security_group_IDs>" ]
+        deletion_protection = <deletion_protection>
 
         config {
-          version = "<{{ PG }} version: {{ pg.versions.tf.str }}>"
+          version = "<{{ PG }}_version>"
           resources {
-            resource_preset_id = "<host class>"
-            disk_type_id       = "<disk type>"
-            disk_size          = <storage size, GB>
+            resource_preset_id = "<host_class>"
+            disk_type_id       = "<disk_type>"
+            disk_size          = <storage_size_in_GB>
           }
           pooler_config {
-            pool_discard = <Odyssey pool_discard parameter: true or false>
-            pooling_mode = "<operating mode: SESSION, TRANSACTION, or STATEMENT>"
+            pool_discard = <Odyssey_parameter>
+            pooling_mode = "<pooling_mode>"
           }
           ...
         }
 
         host {
-          zone      = "<availability zone>"
-          name      = "<host name>"
-          subnet_id = "<subnet ID>"
+          zone             = "<availability_zone>"
+          name             = "<host_name>"
+          subnet_id        = "<subnet_ID>"
+          assign_public_ip = <internet_access_to_host>
         }
       }
 
-      resource "yandex_mdb_postgresql_database" "<DB name>" {
-        cluster_id = "<cluster ID>"
-        name       = "<DB name>"
-        owner      = "<DB owner name>"
+      resource "yandex_mdb_postgresql_database" "<DB_name>" {
+        cluster_id = "<cluster_ID>"
+        name       = "<DB_name>"
+        owner      = "<DB_owner_name>"
         depends_on = [
           yandex_mdb_postgresql_user.<username>
         ]
       }
 
       resource "yandex_mdb_postgresql_user" "<username>" {
-        cluster_id = "<cluster ID>"
+        cluster_id = "<cluster_ID>"
         name       = "<username>"
-        password   = "<user password>"
+        password   = "<user_password>"
       }
 
-      resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+      resource "yandex_vpc_network" "<network_name>" { name = "<network_name>" }
 
-      resource "yandex_vpc_subnet" "<subnet name>" {
-        name           = "<subnet name>"
-        zone           = "<availability zone>"
-        network_id     = "<network ID>"
+      resource "yandex_vpc_subnet" "<subnet_name>" {
+        name           = "<subnet_name>"
+        zone           = "<availability_zone>"
+        network_id     = "<network_ID>"
         v4_cidr_blocks = ["<range>"]
       }
       ```
 
 
 
+
+      Where:
+
+      * `environment`: `PRESTABLE` or `PRODUCTION`.
+
+      
+      * `assign_public_ip`: Internet access to the host, `true` or `false`.
+
+
+      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+      * `version`: {{ PG }} version, {{ pg.versions.tf.str }}.
+      * `pool_discard`: Odyssey `pool_discard` parameter, `true` or `false`.
+      * `pooling_mode`: Pooling mode: `SESSION`, `TRANSACTION`, or `STATEMENT`.
 
       {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
@@ -322,6 +348,8 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
       {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
+   To allow [connection](connect.md) to cluster hosts from the internet, provide the `true` value in the `hostSpecs.assignPublicIp` parameter.
+
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    
@@ -336,17 +364,17 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
    {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
+   To enable automatic increase of the storage size, provide the following in your request:
+
+   {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
+
+   
+   {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
+
+   {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
+
 {% endlist %}
-
-To enable automatic increase of storage size, provide the following in your request:
-
-{% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
-
-
-{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
-
-
-{% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
 
 {% note warning %}
@@ -366,18 +394,18 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    To create a cluster with a single host, provide a single `--host` parameter.
 
-   Create a {{ mpg-name }} cluster with test characteristics:
+   Create a {{ mpg-name }} cluster with the following test characteristics:
 
    
-   * Named `mypg`.
-   * In the `production` environment.
-   * In the `default` network.
-   * In the security group `{{ security-group }}`.
-   * With one `{{ host-class }}` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone.
-   * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
-   * With one user, `user1`, with the password `user1user1`.
-   * With one `db1` database owned by `user1`.
-   * With protection against accidental cluster deletion.
+   * Name: `mypg`
+   * Environment: `Production`
+   * Network: `default`
+   * Security group: `{{ security-group }}`
+   * `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone: 1
+   * Network SSD storage (`{{ disk-type-example }}`): 20 GB
+   * User: `user1`, with the `user1user1` password
+   * Database: `db1` owned by `user1`
+   * Protection against accidental cluster deletion: Enabled
 
 
    Run the following command:
@@ -389,7 +417,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       --environment production \
       --network-name default \
       --resource-preset {{ host-class }} \
-      --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64 \
+      --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr******** \
       --disk-type {{ disk-type-example }} \
       --disk-size 20 \
       --user name=user1,password=user1user1 \
@@ -401,7 +429,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Create a {{ mpg-name }} cluster and a network for it with test characteristics:
+   Create a {{ mpg-name }} cluster and a network for it with the following test characteristics:
 
    * Name: `mypg`
    * Version: `{{ pg.versions.tf.latest }}`
@@ -411,10 +439,10 @@ If you specified security group IDs when creating a cluster, you may also need t
    * New network: `mynet`
 
    
-   * In the new security group `pgsql-sg` allowing connections to the cluster from the internet via port `6432`.
+   * New security group: `pgsql-sg` allowing connections to the cluster from the internet via port `6432`.
 
 
-   * Number of `{{ host-class }}` hosts in the new `mysubnet` subnet in the `{{ region-id }}-a` availability zone: 1. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * `{{ host-class }}` host in the new `mysubnet` subnet, in the `{{ region-id }}-a` availability zone: 1. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * Network SSD storage (`{{ disk-type-example }}`): 20 GB
    * User: `user1`, with the `user1user1` password
    * Database: `db1` owned by `user1`

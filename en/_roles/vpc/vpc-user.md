@@ -1,0 +1,1 @@
+The `vpc.user` role lets you connect to network resources and use them.

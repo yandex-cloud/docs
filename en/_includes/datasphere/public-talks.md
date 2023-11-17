@@ -7,6 +7,16 @@ description: "Videos of conferences and webinars on {{ ml-platform-name }}."
 
 ## Conferences and webinars {#conf-and-webinars}
 
+### 2023: Yandex Scale {#yandex-scale-2023}
+
+* ML in {{ yandex-cloud }}: The past, present, and future.
+
+   * [Click here to view the recording](https://www.youtube.com/watch?v=90jIHP2F-zA).
+
+* Model inference and hybrid approach in {{ ml-platform-full-name }}.
+
+   * [Click here to view the recording](https://www.youtube.com/watch?v=8asQwGQdr0w).
+
 ### 2023: Practical ML Conf {#ml-conf-2023}
 
 * Remote code execution in ML: tools and approaches.
@@ -22,6 +32,14 @@ description: "Videos of conferences and webinars on {{ ml-platform-name }}."
 * {{ ml-platform-full-name }}: Dedicated mode.
 
    * [Click here to view the recording](https://www.youtube.com/watch?v=U4rxkHKqm2U).
+
+* Mathematical optimization for businesses in {{ ml-platform-full-name }}.
+
+   * [Click here to view the recording](https://www.youtube.com/watch?v=fOzDMNAGQXw).
+
+* Consumption management in {{ ml-platform-full-name }}.
+
+   * [Click here to view the recording](https://www.youtube.com/watch?v=NmF2L3hF7Xk).
 
 ### 2022: Webinar {#webinar-2022}
 

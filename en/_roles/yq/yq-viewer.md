@@ -1,0 +1,1 @@
+Users with the `yq.viewer` role can view queries and their results.

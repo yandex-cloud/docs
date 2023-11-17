@@ -23,7 +23,7 @@
 
   ```bash
     {{ yc-mdb-my }} database list \
-       --cluster-name=<имя кластера>
+       --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
@@ -72,7 +72,7 @@
   1. Выполните команду создания БД:
 
       ```bash
-      {{ yc-mdb-my }} database create <имя базы данных> --cluster-name=<имя кластера>
+      {{ yc-mdb-my }} database create <имя_БД> --cluster-name=<имя_кластера>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
@@ -90,9 +90,9 @@
   1. Добавьте ресурс `yandex_mdb_mysql_database`:
 
       ```hcl
-      resource "yandex_mdb_mysql_database" "<имя базы данных>" {
-        cluster_id = "<идентификатор кластера>"
-        name       = "<имя базы данных>"
+      resource "yandex_mdb_mysql_database" "<имя_БД>" {
+        cluster_id = "<идентификатор_кластера>"
+        name       = "<имя_БД>"
       }
       ```
 
@@ -139,7 +139,7 @@
   Чтобы удалить базу данных, выполните команду:
 
   ```bash
-   {{ yc-mdb-my }} database delete <имя базы данных> --cluster-name=<имя кластера>
+   {{ yc-mdb-my }} database delete <имя_БД> --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
@@ -203,7 +203,7 @@
 
   ```bash
   {{ yc-mdb-my }} cluster update-config \
-    --name <имя кластера> \
+    --name <имя_кластера> \
     --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
   ```
 
@@ -220,10 +220,10 @@
     1. Задайте нужные режимы SQL в значении параметра `sql_mode` блока `mysql_config`, например:
 
         ```hcl
-        resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+        resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
           ...
           mysql_config = {
-            sql_mode = "<список режимов SQL>"
+            sql_mode = "<список_режимов_SQL>"
             ...
           }
         }
@@ -264,11 +264,11 @@
 1. Выполните запрос [ALTER DATABASE](https://dev.mysql.com/doc/refman/5.7/en/charset-database.html):
 
    ```sql
-   ALTER DATABASE <имя БД> CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_unicode_ci';
+   ALTER DATABASE <имя_БД> CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_unicode_ci';
    ```
 
 1. Чтобы настройки изменились не только для самой базы данных, но и для таблиц в ней, сконвертируйте таблицы с теми же настройками:
 
    ```sql
-   ALTER TABLE <имя БД>.<имя таблицы> CONVERT TO CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
+   ALTER TABLE <имя_БД>.<имя_таблицы> CONVERT TO CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
    ```

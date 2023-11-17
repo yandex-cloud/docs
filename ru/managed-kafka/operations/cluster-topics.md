@@ -49,10 +49,10 @@
   1. Создайте топик:
 
      ```bash
-     {{ yc-mdb-kf }} topic create <имя топика> \
-       --cluster-name <имя кластера> \
-       --partitions <количество разделов> \
-       --replication-factor <фактор репликации>
+     {{ yc-mdb-kf }} topic create <имя_топика> \
+       --cluster-name <имя_кластера> \
+       --partitions <количество_разделов> \
+       --replication-factor <фактор_репликации>
      ```
 
      При необходимости здесь же задайте [настройки топика](../concepts/settings-list.md#topic-settings).
@@ -65,14 +65,14 @@
   1. Добавьте ресурс `yandex_mdb_kafka_topic` и, при необходимости, задайте [настройки топика](../concepts/settings-list.md#topic-settings) в блоке `topic_config`:
 
      ```hcl
-     resource "yandex_mdb_kafka_topic" "<имя топика>" {
-       cluster_id         = "<идентификатор кластера>"
-       name               = "<имя топика>"
-       partitions         = <количество разделов>
-       replication_factor = <фактор репликации>
+     resource "yandex_mdb_kafka_topic" "<имя_топика>" {
+       cluster_id         = "<идентификатор_кластера>"
+       name               = "<имя_топика>"
+       partitions         = <количество_разделов>
+       replication_factor = <фактор_репликации>
        topic_config {
-         compression_type = "<тип сжатия>"
-         flush_messages   = <максимальное число сообщений в памяти>
+         compression_type = "<тип_сжатия>"
+         flush_messages   = <максимальное_число_сообщений_в_памяти>
          ...
        }
      }
@@ -142,10 +142,10 @@
   1. Измените [настройки топика](../concepts/settings-list.md#topic-settings):
 
      ```bash
-     {{ yc-mdb-kf }} topic update <имя топика> \
-       --cluster-name <имя кластера> \
-       --partitions <количество разделов> \
-       --replication-factor <фактор репликации>
+     {{ yc-mdb-kf }} topic update <имя_топика> \
+       --cluster-name <имя_кластера> \
+       --partitions <количество_разделов> \
+       --replication-factor <фактор_репликации>
      ```
 
 - {{ TF }}
@@ -156,14 +156,14 @@
   1. Измените значение параметров в описании ресурса `yandex_mdb_kafka_topic`:
 
      ```hcl
-     resource "yandex_mdb_kafka_topic" "<имя топика>" {
-       cluster_id         = "<идентификатор кластера>"
-       name               = "<имя топика>"
-       partitions         = <количество разделов>
-       replication_factor = <фактор репликации>
+     resource "yandex_mdb_kafka_topic" "<имя_топика>" {
+       cluster_id         = "<идентификатор_кластера>"
+       name               = "<имя_топика>"
+       partitions         = <количество_разделов>
+       replication_factor = <фактор_репликации>
        topic_config {
-         compression_type = "<тип сжатия>"
-         flush_messages   = <максимальное число сообщений в памяти>
+         compression_type = "<тип_сжатия>"
+         flush_messages   = <максимальное_число_сообщений_в_памяти>
          ...
        }
      }
@@ -190,6 +190,95 @@
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
+
+{% endlist %}
+
+## Получить список топиков в кластере {#list-topics}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить список топиков, выполните следующую команду:
+
+  ```bash
+  {{ yc-mdb-kf }} topic list --cluster-name <имя_кластера>
+  ```
+
+
+- API
+
+  Чтобы получить список топиков в кластере, воспользуйтесь методом REST API [list](../api-ref/Topic/list.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/List](../api-ref/grpc/topic_service.md#List) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
+
+  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+
+
+{% endlist %}
+
+## Получить детальную информацию о топике {#get-topic}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
+  1. Нажмите на имя нужного топика.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить детальную информацию о топике, выполните следующую команду:
+
+  ```bash
+  {{ yc-mdb-kf }} topic get <имя_топика> --cluster-name <имя_кластера>
+  ```
+
+
+- API
+
+  Чтобы получить детальную информацию о топике, воспользуйтесь методом REST API [get](../api-ref/Topic/get.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Get](../api-ref/grpc/topic_service.md#Get) и передайте в запросе:
+  * Идентификатор кластера, в котором находится топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  * Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](#list-topics).
+
+
+{% endlist %}
+
+## Импортировать топик в {{ TF }} {#import-topic}
+
+С помощью импорта вы можете передать существующие в кластере топики под управление {{ TF }}.
+
+{% list tabs %}
+
+- {{ TF }}
+
+    1. Укажите в конфигурационном файле {{ TF }} топик, который необходимо импортировать:
+
+        ```hcl
+        resource "yandex_mdb_kafka_topic" "<имя_топика>" {}
+        ```
+
+    1. Выполните команду для импорта топика:
+
+        ```hcl
+        terraform import yandex_mdb_kafka_topic.<имя_топика> <идентификатор_кластера>:<имя_топика>
+        ```
+
+        Подробнее об импорте топиков см. в [документации провайдера {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/v0.96.1/website/docs/r/mdb_kafka_topic.html.markdown#import).
 
 {% endlist %}
 
@@ -223,7 +312,7 @@
   1. Удалите топик:
 
      ```bash
-     {{ yc-mdb-kf }} topic delete <имя топика> --cluster-name <имя кластера>
+     {{ yc-mdb-kf }} topic delete <имя_топика> --cluster-name <имя_кластера>
      ```
 
 - {{ TF }}
@@ -246,71 +335,6 @@
 - API
 
   Чтобы удалить топик, воспользуйтесь методом REST API [delete](../api-ref/Topic/delete.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Delete](../api-ref/grpc/topic_service.md#Delete) и передайте в запросе:
-  * Идентификатор кластера, в котором находится топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](#list-topics).
-
-
-{% endlist %}
-
-## Получить список топиков в кластере {#list-topics}
-
-{% list tabs %}
-
-- Консоль управления
-
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
-
-- CLI
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы получить список топиков, выполните следующую команду:
-
-  ```bash
-  {{ yc-mdb-kf }} topic list --cluster-name <имя кластера>
-  ```
-
-
-- API
-
-  Чтобы получить список топиков в кластере, воспользуйтесь методом REST API [list](../api-ref/Topic/list.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/List](../api-ref/grpc/topic_service.md#List) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
-
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-
-
-{% endlist %}
-
-## Получить детальную информацию о топике {#get-topic}
-
-{% list tabs %}
-
-- Консоль управления
-
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
-  1. Нажмите на имя нужного топика.
-
-- CLI
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы получить детальную информацию о топике, выполните следующую команду:
-
-  ```bash
-  {{ yc-mdb-kf }} topic get <имя топика> --cluster-name <имя кластера>
-  ```
-
-
-- API
-
-  Чтобы получить детальную информацию о топике, воспользуйтесь методом REST API [get](../api-ref/Topic/get.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Get](../api-ref/grpc/topic_service.md#Get) и передайте в запросе:
   * Идентификатор кластера, в котором находится топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](#list-topics).
 

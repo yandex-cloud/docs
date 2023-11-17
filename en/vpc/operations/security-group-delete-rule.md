@@ -92,7 +92,7 @@ description: "Follow this guide to delete a rule from a security group."
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To delete a rule created with {{ TF }} from a security group:
 

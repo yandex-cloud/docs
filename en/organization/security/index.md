@@ -139,7 +139,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Describe the properties of the roles to be assigned in the configuration file:
 
@@ -322,26 +322,6 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
        -H "Authorization: Bearer ${IAM_TOKEN}" \
        -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
    ```
-
-{% endlist %}
-
-### Assigning a role to a user group {#access-group-users}
-
-Assign a role to a [user group](../../organization/operations/manage-groups.md) to grant access to a resource. To grant group access permissions to a [subject](../../iam/operations/groups/access-binding-object.md), see [{#T}](../../iam/concepts/access-control/index.md#subject).
-
-In the management console, you can assign a group a role for a cloud, folder, or service account. In the {{ org-full-name }} service, a group can only be granted a role for another group. To assign a group a role for an organization, use the CLI.
-
-#### Assigning a role for a cloud or folder {#access-binding-cloud}
-
-{% include [accessbinding-group-as-object](../../_includes/organization/accessbinding-group-as-subject.md) %}
-
-#### Assigning a role for an organization {#access-binding-organization}
-
-{% list tabs %}
-
-- CLI
-
-   {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
 
 {% endlist %}
 

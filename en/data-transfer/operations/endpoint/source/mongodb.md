@@ -45,23 +45,23 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    
    ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
-     name = "<endpoint name>"
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
      settings {
        mongo_source {
-         security_groups = [ "list of security group IDs" ]
-         subnet_id       = "<subnet ID>"
+         security_groups = ["<list_of_security_group_IDs>"]
+         subnet_id       = "<subnet_ID>"
          connection {
            connection_options {
-             mdb_cluster_id = "<{{ mmg-name }} cluster ID>"
-             auth_source    = "<database name>"
+             mdb_cluster_id = "<cluster_ID>"
+             auth_source    = "<database_name>"
              user           = "<username>"
              password {
-               raw = "<user password>"
+               raw = "<user_password>"
              }
            }
          }
-         <advanced endpoint settings>
+         <additional_endpoint_settings>
        }
      }
    }
@@ -103,32 +103,32 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
    
    ```hcl
-   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
-     name = "<endpoint name>"
+   resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
+     name = "<endpoint_name>"
      settings {
        mongo_source {
-         security_groups = [ "list of security group IDs" ]
-         subnet_id       = "<subnet ID>"
+         security_groups = ["<list_of_security_group_IDs>"]
+         subnet_id       = "<subnet_ID>"
          connection {
            connection_options {
              on_premise {
-               hosts       = [ "replica collection host list" ]
-               port        = "<connection port>"
-               replica_set = "<replica collection name>"
+               hosts       = [ "list of replica set hosts" ]
+               port        = "<port_for_connection>"
+               replica_set = "<replica_set_name>"
                tls_mode {
                  enabled {
-                   ca_certificate = "<certificate in PEM format>"
+                   ca_certificate = "<PEM_certificate>"
                  }
                }
              }
-             auth_source = "<database name>"
+             auth_source = "<database_name>"
              user        = "<username>"
              password {
-               raw = "<user password>"
+               raw = "<user_password>"
              }
            }
          }
-         <advanced endpoint settings>
+         <additional_endpoint_settings>
        }
      }
    }

@@ -51,7 +51,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       192.168.0.1:9200, example.com:9200
       ```
 
-   * (Optional) **Reindex SSL CA path**: Specify the local path to the imported certificate as `/etc/elasticsearch/extensions/<extension name>/<certificate name>`.
+   * (Optional) **Reindex SSL CA path**: Specify the local path to the imported certificate as `/etc/elasticsearch/extensions/<extension_name>/<certificate_name>`.
 
 ## Start reindexing {#reindex}
 
@@ -60,20 +60,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. To start reindexing, run a request against the target cluster's host with the _Master node_ role:
 
    ```bash
-   curl --user <target cluster username>:<target cluster user password> \
-        --request POST "https://<target cluster Master Node host IP or FQDN>:9200/_reindex?pretty" \
+   curl --user <username_in_the_target_cluster>:<user_password_in_the_target_cluster> \
+        --request POST "https://<IP_or_FQDN_of_target_cluster_Master_Node_host>:9200/_reindex?pretty" \
         --header 'Content-Type: application/json' \
         --data '{
           "source": {
             "remote": {
-              "host": "https://<source cluster Master Node IP or FQDN>:9200",
-              "username": "<source cluster username>",
-              "password": "<source cluster user password>"
+              "host": "https://<IP_or_FQDN_of_source_cluster_Master_Node_host>:9200",
+              "username": "<username_in_the_source_cluster>",
+              "password": "<user_password_in_the_source_cluster>"
             },
-            "index": "<source cluster index, alias, or data stream name>",
+            "index": "<source_cluster_index_alias_or_data_stream_name>"
           },
           "dest": {
-            "index": "<target cluster index, alias, or data stream name>"
+            "index": "<target_cluster_index_alias_or_data_stream_name>"
           }
         }'
    ```
@@ -81,16 +81,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
    To transfer several indexes, use a `for` loop:
 
    ```bash
-   for index in <space-separated list of index, alias, or data stream names>; do
-     curl --user <target cluster username>:<target cluster user password> \
-          --request POST "https://<target cluster Mater Node IP or FQDN>:9200/_reindex?pretty" \
+   for index in <space-separated_list_of_index_alias_or_data_stream_names>; do
+     curl --user <username_in_the_target_cluster>:<user_password_in_the_target_cluster> \
+          --request POST "https://<target_cluster_Mater_Node_IP_or_FQDN>:9200/_reindex?pretty" \
           --header 'Content-Type: application/json' \
           --data '{
             "source": {
               "remote": {
-                "host": "https://<source cluster Mater Node IP or FQDN>:9200",
-                "username": "<source cluster username>",
-                "password": "<source cluster user password>"
+                "host": "https://<source_cluster_Mater_Node_IP_or_FQDN>:9200",
+                "username": "<username_in_the_source_cluster>",
+                "password": "<user_password_in_the_source_cluster>"
               },
               "index": "'$index'"
             },
@@ -103,7 +103,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Delete the resources you no longer need {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 * If you reserved public static IPs for cluster access, release and [delete them](../../vpc/operations/address-delete.md).
 * If you used a {{ objstorage-full-name }} bucket to import a self-signed certificate, [clear](../../storage/operations/objects/delete-all.md) and [delete](../../storage/operations/buckets/delete.md) it.

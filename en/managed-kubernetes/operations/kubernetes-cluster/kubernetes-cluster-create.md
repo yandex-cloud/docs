@@ -17,13 +17,11 @@ To create a {{ managed-k8s-name }} cluster:
 
 
   1. If you do not have a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../../resource-manager/operations/folder/create.md).
-
-  1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-
+  1. Make sure that the [account](../../../iam/concepts/index.md#accounts) you are using to create the {{ managed-k8s-name }} cluster has all the [relevant roles](../../concepts/index.md#required-roles).
   1. Make sure you have enough [resources available in the cloud](../../concepts/limits.md).
-  1. If you do not have a [network] yet(../../../vpc/concepts/network.md#network), [create one](../../../vpc/operations/network-create.md).
-  1. If you do not have any [subnets] yet(../../../vpc/concepts/network.md#subnet), [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
-  1. Create [service accounts](../../../iam/operations/sa/create.md):
+  1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
+  1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will be created.
+  1. Create the following [service accounts](../../../iam/operations/sa/create.md):
      * [Service account](../../../iam/concepts/users/service-accounts.md) with the [{{ roles-editor }}](../../../resource-manager/security/index.md#roles-list) [role](../../../iam/concepts/access-control/roles.md) for the folder where your {{ managed-k8s-name }} cluster will reside. The resources the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
      * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) role for the folder containing the [Docker image](../../../container-registry/concepts/docker-image.md) [registry](../../../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
 
@@ -31,9 +29,9 @@ To create a {{ managed-k8s-name }} cluster:
 
      {% include [k8s.tunnelClusters.agent role](../../../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
 
-   1. Create the required [security groups](../connect/security-groups.md).
+  1. Create the required [security groups](../connect/security-groups.md).
 
-   1. Review the [recommendations for using {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
+  1. Review the [recommendations for using {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 
 {% endlist %}
 
@@ -122,57 +120,6 @@ To create a {{ managed-k8s-name }} cluster:
 
       {% include [write-once-setting.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
-   1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the logging settings in the `--master-logging` parameter of the {{ managed-k8s-name }} cluster create command:
-
-      ```bash
-      {{ yc-k8s }} cluster create \
-      ...
-        --master-logging enabled=<log_sending:_true_or_false>,`
-          `log-group-id=<log_group_ID>,`
-          `folder-id=<folder_ID>,`
-          `kube-apiserver-enabled=<kube-apiserver_log_sending:_true_or_false>,`
-          `cluster-autoscaler-enabled=<cluster-autoscaler_log_sending:_true_or_false>,`
-          `events-enabled=<{{ k8s }}_event_sending:_true_or_false>
-      ```
-
-      Where:
-
-      {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
-
-  1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the respective settings in the {{ managed-k8s-name }} cluster create command in the `--master-logging` parameter:
-
-     ```bash
-     {{ yc-k8s }} cluster create \
-     ...
-       --master-logging enabled=<log sending: true or false>,`
-         `log-group-id=<log group ID>,`
-         `folder-id=<folder ID>,`
-         `kube-apiserver-enabled=<kube-apiserver log sending: true or false>,`
-         `cluster-autoscaler-enabled=<cluster-autoscaler log sending: true or false>,`
-         `events-enabled=<{{ k8s }} event sending: true or false>
-     ```
-
-     Where:
-
-     {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
-
-  1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the respective settings in the {{ managed-k8s-name }} cluster create command in the `--master-logging` parameter:
-
-     ```bash
-     {{ yc-k8s }} cluster create \
-     ...
-       --master-logging enabled=<log sending: true or false>,`
-         `log-group-id=<log group ID>,`
-         `folder-id=<folder ID>,`
-         `kube-apiserver-enabled=<kube-apiserver log sending: true or false>,`
-         `cluster-autoscaler-enabled=<cluster-autoscaler log sending: true or false>,`
-         `events-enabled=<{{ k8s }} event sending: true or false>
-     ```
-
-     Where:
-
-     {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
-
   1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the logging settings in the `--master-logging` parameter of the {{ managed-k8s-name }} cluster create command:
 
       ```bash
@@ -194,7 +141,7 @@ To create a {{ managed-k8s-name }} cluster:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }}, [install it and configure the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To create a {{ managed-k8s-name }} cluster:
    1. In the configuration file, describe the parameters of the resources you want to create:
@@ -266,7 +213,7 @@ To create a {{ managed-k8s-name }} cluster:
 
       {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
-   1. Create an {{ managed-k8s-name }} cluster.
+   1. Create a {{ managed-k8s-name }} cluster.
 
       {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
@@ -292,13 +239,13 @@ To create a {{ managed-k8s-name }} cluster:
 
     Let's assume we need to create a {{ managed-k8s-name }} cluster and a network for it with the following specifications:
     * Name: `k8s-zonal`.
-    * Version: `1.22`.
-    * In the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) with the `{{ tf-cloud-id }}` ID.
-    * In the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with the `{{ tf-folder-id }}` ID.
-    * In the new `mynet` network.
-    * In the new `mysubnet` subnet and `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md). The `mysubnet` subnet has the `10.1.0.0/16` range.
-    * With the new `myaccount` service account that has the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.viewer` role permissions.
-    * With the [{{ kms-full-name }} `kms-key` encryption key](../../concepts/encryption.md).
+    * Version: `1.22`
+    * [Cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) ID: `{{ tf-cloud-id }}`.
+    * [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) ID: `{{ tf-folder-id }}`.
+    * New network: `mynet`.
+    * New subnet: `mysubnet`; [availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`. The `mysubnet` subnet has the `10.1.0.0/16` range.
+    * New service account: `myaccount` with the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `kms.viewer` role permissions.
+    * [{{ kms-full-name }} encryption key](../../concepts/encryption.md): `kms-key`.
     * In the new `k8s-public-services` [security group](../../../vpc/concepts/security-groups.md) allowing [connections to services from the internet](../connect/security-groups.md#rules-nodes).
 
     To do this, install {{ TF }} (unless you have it already), configure the provider according to [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), and apply the configuration file:
@@ -403,14 +350,14 @@ To create a {{ managed-k8s-name }} cluster:
       network_id  = yandex_vpc_network.mynet.id
       ingress {
         protocol          = "TCP"
-        description       = "The rule allows availability checks from the load  balancer address range. It is required for the operation of a fault-tolerant {{ managed-k8s-name }} cluster and load balancer services."
+        description       = "The rule allows availability checks from the load balancer address range. It is required for the operation of a fault-tolerant {{ managed-k8s-name }} cluster and load balancer services."
         predefined_target = "loadbalancer_healthchecks"
         from_port         = 0
         to_port           = 65535
      }
       ingress {
         protocol          = "ANY"
-        description       = "The rule allows master-to-node and node-to-node  communication inside a security group."
+        description       = "The rule allows master-to-node and node-to-node communication inside a security group."
         predefined_target = "self_security_group"
         from_port         = 0
         to_port           = 65535

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing for {{ ml-platform-name }}
+# {{ ml-platform-name }} pricing
 
 
 
@@ -21,6 +21,10 @@ You are separately charged for [data storage](#storage) in datasets and project 
 When performing computations and training models in the [{{ dd }} mode](concepts/project.md#dedicated), you pay for the VM usage time since the first computations are run in a notebook until the VM is released regardless of whether any computations were performed after the initial run. If you run computations using {{ dataproc-name }} clusters, they are [charged separately](#data-proc).
 
 You are separately charged for [data storage](#storage) in datasets and project storage expansion.
+
+### Running jobs in {{ ml-platform-name }} Jobs {#jobs}
+
+When you run computations remotely using [{{ ml-platform-name }} Jobs](concepts/jobs.md), you pay for the computation time in the selected computing resource configuration. You also pay for [storing data](#prices-jobs) required to run jobs: their cache, logs, input data, and execution results.
 
 ### Using models {#node}
 
@@ -45,13 +49,15 @@ Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you 
 
 If you need to store large amounts of data, you can use {{ objstorage-full-name }}. In this case, data storage will be charged according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 
+[Model storage](#prices-models) is charged separately. Its pricing depends on the model size that is calculated in GB and rounded up to an integer.
+
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 The monthly usage rate is based on 720 hours a month.
 
 ## Pricing {#prices}
 
-Prices for using configurations apply to [{{ ml-platform-name }} {{ ds }}](concepts/project.md#serverless), [background operations](../datasphere/concepts/async.md), [{{ ml-platform-name }} {{ dd }}](concepts/project.md#dedicated) and when you [deploy models](../datasphere/concepts/deploy/index.md#node).
+Prices for using configurations apply to [{{ ml-platform-name }} {{ ds }}](concepts/project.md#serverless), [background operations](../datasphere/concepts/async.md), [{{ ml-platform-name }} {{ dd }}](concepts/project.md#dedicated) and when you [use models](../datasphere/concepts/deploy/index.md#node).
 
 
 

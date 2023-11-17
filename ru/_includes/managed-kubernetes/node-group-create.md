@@ -1,22 +1,22 @@
 Чтобы создать [группу узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group):
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-1. В списке сервисов выберите **{{ managed-k8s-name }}**.
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Выберите кластер {{ managed-k8s-name }}, для которого необходимо создать группу узлов.
-1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **Управление узлами**.
-1. Нажмите кнопку **Создать группу узлов**.
+1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
 1. Введите имя и описание группы узлов {{ managed-k8s-name }}.
-1. Укажите **Версию {{ k8s }}** для узлов {{ managed-k8s-name }}.
-1. Укажите **Среду запуска контейнеров**: **Docker** или **containerd**.
-1. В блоке **Масштабирование** выберите его тип:
-   * **Фиксированный** — чтобы количество узлов {{ managed-k8s-name }} в группе оставалось неизменным. Укажите количество узлов {{ managed-k8s-name }} в группе.
+1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** выберите версию {{ k8s }} для узлов {{ managed-k8s-name }}.
+1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_container-runtime }}** выберите `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-DOCKER }}` или `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-CONTAINERD }}`.
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}** выберите его тип:
+   * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-fixed }}` — чтобы количество узлов {{ managed-k8s-name }} в группе оставалось неизменным. Укажите количество узлов {{ managed-k8s-name }} в группе.
 
-     При этом станет доступна настройка **Кол-во узлов**.
-   * **Автоматический** — чтобы управлять количеством узлов в группе с помощью [автоматического масштабирования кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/autoscale.md#ca).
+     При этом станет доступна настройка **{{ ui-key.yacloud.k8s.node-groups.create.field_scale-size }}**.
+   * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}` — чтобы управлять количеством узлов в группе с помощью [автоматического масштабирования кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/autoscale.md#ca).
 
      При этом станут доступны настройки:
-     * **Минимальное кол-во узлов**.
-     * **Максимальное кол-во узлов**.
-     * **Начальное кол-во узлов**, с которым будет создана группа {{ managed-k8s-name }}.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}**.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}**, с которым будет создана группа {{ managed-k8s-name }}.
 
    {% note warning %}
 
@@ -24,8 +24,8 @@
 
    {% endnote %}
 
-1. В блоке **В процессе создания и обновления разрешено** укажите максимальное количество [виртуальных машин](../../compute/concepts/vm.md), на которое можно превысить и уменьшить размер группы узлов {{ managed-k8s-name }}.
-1. В блоке **Вычислительные ресурсы**:
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** укажите максимальное количество [виртуальных машин](../../compute/concepts/vm.md), на которое можно превысить и уменьшить размер группы узлов {{ managed-k8s-name }}.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
    * Выберите [платформу](../../compute/concepts/vm-platforms.md).
    * Укажите необходимое количество [GPU](../../compute/concepts/gpus.md), vCPU и [гарантированную долю vCPU](../../compute/concepts/performance-levels.md), а также объем RAM.
    * (Опционально) Укажите, что ВМ должна быть [прерываемой](../../compute/concepts/preemptible-vm.md).
@@ -40,42 +40,44 @@
    {% endnote %}
 
 1. (Опционально) В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_gpu-settings }}** укажите, если группа узлов {{ managed-k8s-name }} должна быть без предустановленных драйверов NVIDIA® и библиотек CUDA® для [GPU-ускорения](../../compute/concepts/gpus.md).
-1. (Опционально) В блоке **Размещение** укажите имя [группы размещения](../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}. Эту настройку невозможно изменить после создания группы узлов {{ managed-k8s-name }}.
-1. В блоке **Хранилище**:
-   * Укажите **Тип диска** узла {{ managed-k8s-name }}:
-     * **HDD** — [стандартный сетевой диск](../../compute/concepts/disk.md#disks-types), сетевое блочное хранилище на HDD-накопителе.
-     * **SSD** — быстрый сетевой диск, сетевое блочное хранилище на SSD-накопителе.
-     * **Нереплицируемый SSD** — сетевой диск с повышенной производительностью. Размер такого диска можно менять только с шагом 93 ГБ.
+1. (Опционально) В блоке **{{ ui-key.yacloud.k8s.node-group.overview.section_placement-policy }}** укажите имя [группы размещения](../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}. Эту настройку невозможно изменить после создания группы узлов {{ managed-k8s-name }}.
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
+   * Укажите **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}** узла {{ managed-k8s-name }}:
+     * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-hdd }}` — [стандартный сетевой диск](../../compute/concepts/disk.md#disks-types), сетевое блочное хранилище на HDD-накопителе.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd }}` — быстрый сетевой диск, сетевое блочное хранилище на SSD-накопителе.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-nonreplicated }}` — сетевой диск с повышенной производительностью, реализованной за счет устранения избыточности. Размер такого диска можно менять только с шагом 93 ГБ.
 
        {% include [Нереплицируемый диск не имеет резервирования](nrd-no-backup-note.md) %}
 
+     * `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-io-m3 }}` — обладает теми же скоростными характеристиками, что и `{{ ui-key.yacloud.k8s.node-groups.create.value_network-ssd-nonreplicated }}`, и одновременно обеспечивает избыточность. Размер такого диска можно менять только с шагом 93 ГБ.
+
    * Укажите размер диска узла {{ managed-k8s-name }}.
-1. В блоке **Сетевые настройки**:
-   * В поле **Публичный адрес** выберите способ назначения адреса:
-     * **Автоматически** — чтобы назначить случайный [IP-адрес](../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
-     * **Без адреса** — чтобы не назначать публичный IP-адрес.
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
+   * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения адреса:
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить случайный [IP-адрес](../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` — чтобы не назначать публичный IP-адрес.
    * Выберите [группы безопасности](../../vpc/concepts/security-groups.md).
 
      {% include [security-groups-alert](security-groups-alert.md) %}
 
    
    * Укажите расположение узлов {{ managed-k8s-name }} по [зонам доступности](../../overview/concepts/geo-scope.md) и [сетям](../../vpc/concepts/network.md#network).
-   * (Опционально) Нажмите кнопку **Добавить расположение** и укажите дополнительную зону доступности и сеть, чтобы создать узлы {{ managed-k8s-name }} в разных зонах доступности.
+   * (Опционально) Нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** и укажите дополнительную зону доступности и сеть, чтобы создать узлы {{ managed-k8s-name }} в разных зонах доступности.
 
 
-1. В блоке **Доступ** укажите данные для доступа на узел {{ managed-k8s-name }}:
-   * В поле **Логин** введите имя пользователя.
-   * В поле **SSH-ключ** вставьте содержимое файла [публичного ключа](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys).
-1. В блоке **Настройки окна обновлений**:
-   * В поле **Частота обновлений / Отключение** выберите окно для обновлений:
-     * **Отключено** — отключение автоматических обновлений.
-     * **В любое время** — обновления разрешены в любое время.
-     * **Ежедневно** — обновления будут происходить во временной интервал, указанный в поле **Время (UTC) и продолжительность**.
-     * **В выбранные дни** — обновления будут происходить во временной интервал, указанный в поле **Расписание по дням**.
-1. В блоке **Дополнительно**:
-   * Чтобы иметь возможность изменять [небезопасные параметры ядра](../../managed-kubernetes/concepts/index.md#node-group) на узлах группы {{ managed-k8s-name }}, используйте кнопку **Добавить переменную**. Для ввода имени каждого параметра ядра создайте отдельное поле.
-   * Чтобы задать [taint-политики узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#taints-tolerations), используйте кнопку **Добавить политику**. Укажите ключ, значение и эффект каждой taint-политики в отдельном наборе полей.
-   * Чтобы задать [метки узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-labels) группы, используйте кнопку **Добавить метку**. Укажите ключ и значение каждой метки в отдельном наборе полей.
-1. Нажмите кнопку **Создать группу узлов**.
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}** укажите данные для доступа на узел {{ managed-k8s-name }}:
+   * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+   * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [публичного ключа](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys).
+1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
+   * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** выберите окно для обновлений:
+     * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — отключение автоматических обновлений.
+     * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — обновления разрешены в любое время.
+     * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — обновления будут происходить во временной интервал, указанный в поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}**.
+     * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}` — обновления будут происходить во временной интервал, указанный в поле **{{ ui-key.yacloud.k8s.clusters.create.label_maintenance-weekly }}**.
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_additional }}**:
+   * Чтобы иметь возможность изменять [небезопасные параметры ядра](../../managed-kubernetes/concepts/index.md#node-group) на узлах группы {{ managed-k8s-name }}, используйте кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-sysctl }}**. Для ввода имени каждого параметра ядра создайте отдельное поле.
+   * Чтобы задать [taint-политики узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#taints-tolerations), используйте кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-taint }}**. Укажите ключ, значение и эффект каждой taint-политики в отдельном наборе полей.
+   * Чтобы задать [метки узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-labels) группы, используйте кнопку **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}**. Укажите ключ и значение каждой метки в отдельном наборе полей.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 Процесс создания группы узлов {{ managed-k8s-name }} может занять несколько минут в зависимости от количества узлов.

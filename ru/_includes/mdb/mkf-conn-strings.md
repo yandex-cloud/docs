@@ -16,12 +16,12 @@ sudo apt update && sudo apt install -y kafkacat
 
       ```bash
       kafkacat -C \
-               -b <FQDN брокера>:9092 \
-               -t <имя топика> \
+               -b <FQDN_брокера>:9092 \
+               -t <имя_топика> \
                -X security.protocol=SASL_PLAINTEXT \
                -X sasl.mechanism=SCRAM-SHA-512 \
-               -X sasl.username="<логин потребителя>" \
-               -X sasl.password="<пароль потребителя>" -Z
+               -X sasl.username="<логин_потребителя>" \
+               -X sasl.password="<пароль_потребителя>" -Z
       ```
 
      Команда будет непрерывно считывать новые сообщения из топика.
@@ -30,13 +30,13 @@ sudo apt update && sudo apt install -y kafkacat
 
       ```bash
       echo "test message" | kafkacat -P \
-             -b <FQDN брокера>:9092 \
-             -t <имя топика> \
+             -b <FQDN_брокера>:9092 \
+             -t <имя_топика> \
              -k key \
              -X security.protocol=SASL_PLAINTEXT \
              -X sasl.mechanism=SCRAM-SHA-512 \
-             -X sasl.username="<логин производителя>" \
-             -X sasl.password="<пароль производителя>" -Z
+             -X sasl.username="<логин_производителя>" \
+             -X sasl.password="<пароль_производителя>" -Z
       ```
 
 - Подключение с SSL
@@ -64,10 +64,8 @@ sudo apt update && sudo apt install -y kafkacat
 1. Установите зависимости:
 
     ```bash
-    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
-    sudo dpkg -i packages-microsoft-prod.deb && \
     sudo apt-get update && \
-    sudo apt-get install -y apt-transport-https dotnet-sdk-5.0
+    sudo apt-get install -y apt-transport-https dotnet-sdk-6.0
     ```
 
 1. Создайте директорию для проекта:
@@ -84,11 +82,11 @@ sudo apt update && sudo apt install -y kafkacat
     <Project Sdk="Microsoft.NET.Sdk">
       <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>netcoreapp5.0</TargetFramework>
+        <TargetFramework>netcoreapp6.0</TargetFramework>
       </PropertyGroup>
 
       <ItemGroup>
-        <PackageReference Include="Confluent.Kafka" Version="1.4.2" />
+        <PackageReference Include="Confluent.Kafka" Version="2.2.0" />
       </ItemGroup>
     </Project>
     ```
@@ -120,10 +118,10 @@ sudo apt update && sudo apt install -y kafkacat
                 {
                     int MSG_COUNT = 5;
 
-                    string HOST = "<FQDN хоста-брокера>:9092";
-                    string TOPIC = "<имя топика>";
-                    string USER = "<имя производителя>";
-                    string PASS = "<пароль производителя>";
+                    string HOST = "<FQDN_хоста-брокера>:9092";
+                    string TOPIC = "<имя_топика>";
+                    string USER = "<имя_производителя>";
+                    string PASS = "<пароль_производителя>";
 
                     var producerConfig = new ProducerConfig(
                         new Dictionary<string,string>{
@@ -173,10 +171,10 @@ sudo apt update && sudo apt install -y kafkacat
             {
                 public static void Main(string[] args)
                 {
-                    string HOST = "<FQDN хоста-брокера>:9092";
-                    string TOPIC = "<имя топика>";
-                    string USER = "<имя потребителя>";
-                    string PASS = "<пароль потребителя>";
+                    string HOST = "<FQDN_хоста-брокера>:9092";
+                    string TOPIC = "<имя_топика>";
+                    string USER = "<имя_потребителя>";
+                    string PASS = "<пароль_потребителя>";
 
                     var consumerConfig = new ConsumerConfig(
                         new Dictionary<string,string>{
@@ -243,10 +241,10 @@ sudo apt update && sudo apt install -y kafkacat
                 {
                     int MSG_COUNT = 5;
 
-                    string HOST = "<FQDN хоста-брокера>:9091";
-                    string TOPIC = "<имя топика>";
-                    string USER = "<имя производителя>";
-                    string PASS = "<пароль производителя>";
+                    string HOST = "<FQDN_хоста-брокера>:9091";
+                    string TOPIC = "<имя_топика>";
+                    string USER = "<имя_производителя>";
+                    string PASS = "<пароль_производителя>";
                     string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
                     var producerConfig = new ProducerConfig(
@@ -298,10 +296,10 @@ sudo apt update && sudo apt install -y kafkacat
             {
                 public static void Main(string[] args)
                 {
-                    string HOST = "<FQDN хоста-брокера>:9091";
-                    string TOPIC = "<имя топика>";
-                    string USER = "<имя потребителя>";
-                    string PASS = "<пароль потребителя>";
+                    string HOST = "<FQDN_хоста-брокера>:9091";
+                    string TOPIC = "<имя_топика>";
+                    string USER = "<имя_потребителя>";
+                    string PASS = "<пароль_потребителя>";
                     string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
                     var consumerConfig = new ConsumerConfig(
@@ -343,12 +341,12 @@ sudo apt update && sudo apt install -y kafkacat
 
         ```bash
         cd ~/cs-project/consumer && dotnet build && \
-        dotnet run bin/Debug/netcoreapp5.0/App.dll
+        dotnet run bin/Debug/netcoreapp6.0/App.dll
         ```
 
         ```bash
         cd ~/cs-project/producer && dotnet build && \
-        dotnet run bin/Debug/netcoreapp5.0/App.dll
+        dotnet run bin/Debug/netcoreapp6.0/App.dll
         ```
 
 {% endlist %}
@@ -446,7 +444,7 @@ sudo apt update && sudo apt install -y kafkacat
         )
 
         func main() {
-              brokers := "<FQDN хоста-брокера>:9092"
+              brokers := "<FQDN_хоста-брокера>:9092"
               splitBrokers := strings.Split(brokers, ",")
               conf := sarama.NewConfig()
               conf.Producer.RequiredAcks = sarama.WaitForAll
@@ -455,8 +453,8 @@ sudo apt update && sudo apt install -y kafkacat
               conf.ClientID = "sasl_scram_client"
               conf.Net.SASL.Enable = true
               conf.Net.SASL.Handshake = true
-              conf.Net.SASL.User = "<имя производителя>"
-              conf.Net.SASL.Password = "<пароль производителя>"
+              conf.Net.SASL.User = "<имя_производителя>"
+              conf.Net.SASL.Password = "<пароль_производителя>"
               conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
               conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
@@ -471,7 +469,7 @@ sudo apt update && sudo apt install -y kafkacat
         func publish(message string, producer sarama.SyncProducer) {
           // Publish sync
           msg := &sarama.ProducerMessage {
-              Topic: "<имя топика>",
+              Topic: "<имя_топика>",
               Value: sarama.StringEncoder(message),
           }
           p, o, err := producer.SendMessage(msg)
@@ -501,7 +499,7 @@ sudo apt update && sudo apt install -y kafkacat
         )
 
         func main() {
-              brokers := "<FQDN хоста-брокера>:9092"
+              brokers := "<FQDN_хоста-брокера>:9092"
               splitBrokers := strings.Split(brokers, ",")
               conf := sarama.NewConfig()
               conf.Producer.RequiredAcks = sarama.WaitForAll
@@ -510,8 +508,8 @@ sudo apt update && sudo apt install -y kafkacat
               conf.ClientID = "sasl_scram_client"
               conf.Metadata.Full = true
               conf.Net.SASL.Enable = true
-              conf.Net.SASL.User =  "<имя потребителя>"
-              conf.Net.SASL.Password = "<пароль потребителя>"
+              conf.Net.SASL.User =  "<имя_потребителя>"
+              conf.Net.SASL.Password = "<пароль_потребителя>"
               conf.Net.SASL.Handshake = true
               conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
               conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
@@ -528,7 +526,7 @@ sudo apt update && sudo apt install -y kafkacat
                       }
               }()
 
-              topic := "<имя топика>"
+              topic := "<имя_топика>"
 
               consumer, err := master.ConsumePartition(topic, 0, sarama.OffsetOldest)
               if err != nil {
@@ -601,7 +599,7 @@ sudo apt update && sudo apt install -y kafkacat
         )
 
         func main() {
-              brokers := "<FQDN хоста-брокера>:9091"
+              brokers := "<FQDN_хоста-брокера>:9091"
               splitBrokers := strings.Split(brokers, ",")
               conf := sarama.NewConfig()
               conf.Producer.RequiredAcks = sarama.WaitForAll
@@ -610,8 +608,8 @@ sudo apt update && sudo apt install -y kafkacat
               conf.ClientID = "sasl_scram_client"
               conf.Net.SASL.Enable = true
               conf.Net.SASL.Handshake = true
-              conf.Net.SASL.User = "<имя производителя>"
-              conf.Net.SASL.Password = "<пароль производителя>"
+              conf.Net.SASL.User = "<имя_производителя>"
+              conf.Net.SASL.Password = "<пароль_производителя>"
               conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
               conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
@@ -642,7 +640,7 @@ sudo apt update && sudo apt install -y kafkacat
         func publish(message string, producer sarama.SyncProducer) {
           // publish sync
           msg := &sarama.ProducerMessage {
-              Topic: "<имя топика>",
+              Topic: "<имя_топика>",
               Value: sarama.StringEncoder(message),
           }
           p, o, err := producer.SendMessage(msg)
@@ -675,7 +673,7 @@ sudo apt update && sudo apt install -y kafkacat
         )
 
         func main() {
-              brokers := "<FQDN хоста-брокера>:9091"
+              brokers := "<FQDN_хоста-брокера>:9091"
               splitBrokers := strings.Split(brokers, ",")
               conf := sarama.NewConfig()
               conf.Producer.RequiredAcks = sarama.WaitForAll
@@ -684,8 +682,8 @@ sudo apt update && sudo apt install -y kafkacat
               conf.ClientID = "sasl_scram_client"
               conf.Metadata.Full = true
               conf.Net.SASL.Enable = true
-              conf.Net.SASL.User =  "<имя потребителя>"
-              conf.Net.SASL.Password = "<пароль потребителя>"
+              conf.Net.SASL.User =  "<имя_потребителя>"
+              conf.Net.SASL.Password = "<пароль_потребителя>"
               conf.Net.SASL.Handshake = true
               conf.Net.SASL.SCRAMClientGeneratorFunc = func() sarama.SCRAMClient { return &XDGSCRAMClient{HashGeneratorFcn: SHA512} }
               conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
@@ -717,7 +715,7 @@ sudo apt update && sudo apt install -y kafkacat
                       }
               }()
 
-              topic := "<имя топика>"
+              topic := "<имя_топика>"
 
               consumer, err := master.ConsumePartition(topic, 0, sarama.OffsetOldest)
               if err != nil {
@@ -907,10 +905,10 @@ sudo apt update && sudo apt install -y kafkacat
 
           int MSG_COUNT = 5;
 
-          String HOST = "<FQDN брокера>:9092";
-          String TOPIC = "<имя топика>";
-          String USER = "<имя производителя>";
-          String PASS = "<пароль производителя>";
+          String HOST = "<FQDN_брокера>:9092";
+          String TOPIC = "<имя_топика>";
+          String USER = "<имя_производителя>";
+          String PASS = "<пароль_производителя>";
 
           String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
           String jaasCfg = String.format(jaasTemplate, USER, PASS);
@@ -959,10 +957,10 @@ sudo apt update && sudo apt install -y kafkacat
 
         public static void main(String[] args) {
 
-          String HOST = "<FQDN брокера>:9092";
-          String TOPIC = "<имя топика>";
-          String USER = "<имя потребителя>";
-          String PASS = "<пароль потребителя>";
+          String HOST = "<FQDN_брокера>:9092";
+          String TOPIC = "<имя_топика>";
+          String USER = "<имя_потребителя>";
+          String PASS = "<пароль_потребителя>";
 
           String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
           String jaasCfg = String.format(jaasTemplate, USER, PASS);
@@ -1037,12 +1035,12 @@ sudo apt update && sudo apt install -y kafkacat
 
           int MSG_COUNT = 5;
 
-          String HOST = "<FQDN брокера>:9091";
-          String TOPIC = "<имя топика>";
-          String USER = "<имя производителя>";
-          String PASS = "<пароль производителя>";
+          String HOST = "<FQDN_брокера>:9091";
+          String TOPIC = "<имя_топика>";
+          String USER = "<имя_производителя>";
+          String PASS = "<пароль_производителя>";
           String TS_FILE = "/etc/security/ssl";
-          String TS_PASS = "<пароль от хранилища сертификатов>";
+          String TS_PASS = "<пароль_от_хранилища_сертификатов>";
 
           String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
           String jaasCfg = String.format(jaasTemplate, USER, PASS);
@@ -1093,12 +1091,12 @@ sudo apt update && sudo apt install -y kafkacat
 
         public static void main(String[] args) {
 
-          String HOST = "<FQDN брокера>:9091";
-          String TOPIC = "<имя топика>";
-          String USER = "<имя потребителя>";
-          String PASS = "<пароль потребителя>";
+          String HOST = "<FQDN_брокера>:9091";
+          String TOPIC = "<имя_топика>";
+          String USER = "<имя_потребителя>";
+          String PASS = "<пароль_потребителя>";
           String TS_FILE = "/etc/security/ssl";
-          String TS_PASS = "<пароль от хранилища сертификатов>";
+          String TS_PASS = "<пароль_от_хранилища_сертификатов>";
 
           String jaasTemplate = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"%s\" password=\"%s\";";
           String jaasCfg = String.format(jaasTemplate, USER, PASS);
@@ -1176,10 +1174,10 @@ npm install node-rdkafka
 
       const MSG_COUNT = 5;
 
-      const HOST = "<FQDN брокера>:9092";
-      const TOPIC = "<имя топика>";
-      const USER = "<имя производителя>";
-      const PASS = "<пароль производителя>";
+      const HOST = "<FQDN_брокера>:9092";
+      const TOPIC = "<имя_топика>";
+      const USER = "<имя_производителя>";
+      const PASS = "<пароль_производителя>";
 
       const producer = new Kafka.Producer({
         'bootstrap.servers': HOST,
@@ -1218,10 +1216,10 @@ npm install node-rdkafka
 
       const MSG_COUNT = 5;
 
-      const HOST = "<FQDN брокера>:9092";
-      const TOPIC = "<имя топика>";
-      const USER = "<имя потребителя>";
-      const PASS = "<пароль потребителя>";
+      const HOST = "<FQDN_брокера>:9092";
+      const TOPIC = "<имя_топика>";
+      const USER = "<имя_потребителя>";
+      const PASS = "<пароль_потребителя>";
 
       const consumer = new Kafka.Consumer({
         'bootstrap.servers': HOST,
@@ -1271,10 +1269,10 @@ npm install node-rdkafka
 
       const MSG_COUNT = 5;
 
-      const HOST = "<FQDN брокера>:9091";
-      const TOPIC = "<имя топика>";
-      const USER = "<имя производителя>";
-      const PASS = "<пароль производителя>";
+      const HOST = "<FQDN_брокера>:9091";
+      const TOPIC = "<имя_топика>";
+      const USER = "<имя_производителя>";
+      const PASS = "<пароль_производителя>";
       const CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
       const producer = new Kafka.Producer({
@@ -1315,10 +1313,10 @@ npm install node-rdkafka
 
       const MSG_COUNT = 5;
 
-      const HOST = "<FQDN брокера>:9091";
-      const TOPIC = "<имя топика>";
-      const USER = "<имя потребителя>";
-      const PASS = "<пароль потребителя>";
+      const HOST = "<FQDN_брокера>:9091";
+      const TOPIC = "<имя_топика>";
+      const USER = "<имя_потребителя>";
+      const PASS = "<пароль_потребителя>";
       const CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
       const consumer = new Kafka.Consumer({
@@ -1389,14 +1387,14 @@ npm install node-rdkafka
   1. Запустите команду получения сообщений из топика:
 
       ```powershell
-      <путь к директории с файлами Kafka>\bin\windows\kafka-console-consumer.bat `
-          --bootstrap-server <FQDN брокера>:9092 `
-          --topic <имя топика> `
+      <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-consumer.bat `
+          --bootstrap-server <FQDN_брокера>:9092 `
+          --topic <имя_топика> `
           --property print.key=true `
           --property key.separator=":" `
           --consumer-property security.protocol=SASL_PLAINTEXT `
           --consumer-property sasl.mechanism=SCRAM-SHA-512 `
-          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин потребителя>' password='<пароль потребителя>';" 
+          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_потребителя>' password='<пароль_потребителя>';" 
       ```
 
       Команда будет непрерывно считывать новые сообщения из топика.
@@ -1404,15 +1402,15 @@ npm install node-rdkafka
   1. В отдельном терминале запустите команду отправки сообщения в топик:
       
       ```powershell
-      echo "key:test message" | <путь к директории с файлами Kafka>\bin\windows\kafka-console-producer.bat `
-          --bootstrap-server <FQDN брокера>:9092 `
-          --topic <имя топика> `
+      echo "key:test message" | <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-producer.bat `
+          --bootstrap-server <FQDN_брокера>:9092 `
+          --topic <имя_топика> `
           --property parse.key=true `
           --property key.separator=":" `
           --producer-property acks=all `
           --producer-property security.protocol=SASL_PLAINTEXT `
           --producer-property sasl.mechanism=SCRAM-SHA-512 `
-          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин производителя>' password='<пароль производителя>';"
+          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_производителя>' password='<пароль_производителя>';"
       ```
 
 - Подключение с SSL
@@ -1423,23 +1421,23 @@ npm install node-rdkafka
      keytool.exe -importcert -alias {{ crt-alias }} `
        --file $HOME\.kafka\{{ crt-local-file }} `
        --keystore $HOME\.kafka\ssl `
-       --storepass <пароль хранилища сертификатов> `
+       --storepass <пароль_хранилища_сертификатов> `
        --noprompt
      ```
   
   1. Запустите команду получения сообщений из топика:
 
       ```powershell
-      <путь к директории с файлами Kafka>\bin\windows\kafka-console-consumer.bat `
-          --bootstrap-server <FQDN брокера>:9091 `
-          --topic <имя топика> `
+      <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-consumer.bat `
+          --bootstrap-server <FQDN_брокера>:9091 `
+          --topic <имя_топика> `
           --property print.key=true `
           --property key.separator=":" `
           --consumer-property security.protocol=SASL_SSL `
           --consumer-property sasl.mechanism=SCRAM-SHA-512 `
           --consumer-property ssl.truststore.location=$HOME\.kafka\ssl `
-          --consumer-property ssl.truststore.password=<пароль хранилища сертификатов> `
-          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин потребителя>' password='<пароль потребителя>';"
+          --consumer-property ssl.truststore.password=<пароль_хранилища_сертификатов> `
+          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_потребителя>' password='<пароль_потребителя>';"
       ```
 
      Команда будет непрерывно считывать новые сообщения из топика.
@@ -1447,17 +1445,17 @@ npm install node-rdkafka
   1. В отдельном терминале запустите команду отправки сообщения в топик:
      
       ```powershell
-      echo "key:test message" | <путь к директории с файлами Kafka>\bin\windows\kafka-console-producer.bat `
-          --bootstrap-server <FQDN брокера>:9091 `
-          --topic <имя топика> `
+      echo "key:test message" | <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-producer.bat `
+          --bootstrap-server <FQDN_брокера>:9091 `
+          --topic <имя_топика> `
           --property parse.key=true `
           --property key.separator=":" `
           --producer-property acks=all `
           --producer-property security.protocol=SASL_SSL `
           --producer-property sasl.mechanism=SCRAM-SHA-512 `
           --producer-property ssl.truststore.location=$HOME\.kafka\ssl `
-          --producer-property ssl.truststore.password=<пароль хранилища сертификатов> `
-          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин производителя>' password='<пароль производителя>';"
+          --producer-property ssl.truststore.password=<пароль_хранилища_сертификатов> `
+          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин_производителя>' password='<пароль_производителя>';"
       ```
 
 {% endlist %}
@@ -1487,13 +1485,13 @@ pip3 install kafka-python lz4 python-snappy crc32c
      from kafka import KafkaProducer
 
      producer = KafkaProducer(
-         bootstrap_servers='<FQDN хоста-брокера>:9092',
+         bootstrap_servers='<FQDN_хоста-брокера>:9092',
          security_protocol="SASL_PLAINTEXT",
          sasl_mechanism="SCRAM-SHA-512",
-         sasl_plain_username='<имя производителя>',
-         sasl_plain_password='<пароль производителя>')
+         sasl_plain_username='<имя_производителя>',
+         sasl_plain_password='<пароль_производителя>')
 
-     producer.send('<имя топика>', b'test message', b'key')
+     producer.send('<имя_топика>', b'test message', b'key')
      producer.flush()
      producer.close()
      ```
@@ -1506,12 +1504,12 @@ pip3 install kafka-python lz4 python-snappy crc32c
      from kafka import KafkaConsumer
 
      consumer = KafkaConsumer(
-         '<имя топика>',
-         bootstrap_servers='<FQDN брокера>:9092',
+         '<имя_топика>',
+         bootstrap_servers='<FQDN_брокера>:9092',
          security_protocol="SASL_PLAINTEXT",
          sasl_mechanism="SCRAM-SHA-512",
-         sasl_plain_username='<имя потребителя>',
-         sasl_plain_password='<пароль потребителя>')
+         sasl_plain_username='<имя_потребителя>',
+         sasl_plain_password='<пароль_потребителя>')
 
      print("ready")
 
@@ -1539,14 +1537,14 @@ pip3 install kafka-python lz4 python-snappy crc32c
       from kafka import KafkaProducer
 
       producer = KafkaProducer(
-          bootstrap_servers='<FQDN хоста-брокера>:9091',
+          bootstrap_servers='<FQDN_хоста-брокера>:9091',
           security_protocol="SASL_SSL",
           sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_username='<имя производителя>',
-          sasl_plain_password='<пароль производителя>',
+          sasl_plain_username='<имя_производителя>',
+          sasl_plain_password='<пароль_производителя>',
           ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
-      producer.send('<имя топика>', b'test message', b'key')
+      producer.send('<имя_топика>', b'test message', b'key')
       producer.flush()
       producer.close()
       ```
@@ -1559,12 +1557,12 @@ pip3 install kafka-python lz4 python-snappy crc32c
       from kafka import KafkaConsumer
 
       consumer = KafkaConsumer(
-          '<имя топика>',
-          bootstrap_servers='<FQDN брокера>:9091',
+          '<имя_топика>',
+          bootstrap_servers='<FQDN_брокера>:9091',
           security_protocol="SASL_SSL",
           sasl_mechanism="SCRAM-SHA-512",
-          sasl_plain_username='<имя потребителя>',
-          sasl_plain_password='<пароль потребителя>',
+          sasl_plain_username='<имя_потребителя>',
+          sasl_plain_password='<пароль_потребителя>',
           ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
       print("ready")
@@ -1612,16 +1610,16 @@ pip install confluent_kafka
           print('Something went wrong: {}'.format(err))
 
       params = {
-          'bootstrap.servers': '<FQDN хоста-брокера>:9092',
+          'bootstrap.servers': '<FQDN_хоста-брокера>:9092',
           'security.protocol': 'SASL_PLAINTEXT',
           'sasl.mechanism': 'SCRAM-SHA-512',
-          'sasl.username': '<имя производителя>',
-          'sasl.password': '<пароль производителя>',
+          'sasl.username': '<имя_производителя>',
+          'sasl.password': '<пароль_производителя>',
           'error_cb': error_callback,
       }
 
       p = Producer(params)
-      p.produce('<имя топика>', 'some payload1')
+      p.produce('<имя_топика>', 'some payload1')
       p.flush(10)
       ```
 
@@ -1636,11 +1634,11 @@ pip install confluent_kafka
           print('Something went wrong: {}'.format(err))
 
       params = {
-          'bootstrap.servers': '<FQDN хоста-брокера>:9092',
+          'bootstrap.servers': '<FQDN_хоста-брокера>:9092',
           'security.protocol': 'SASL_PLAINTEXT',
           'sasl.mechanism': 'SCRAM-SHA-512',
-          'sasl.username': '<имя потребителя>',
-          'sasl.password': '<пароль потребителя>',
+          'sasl.username': '<имя_потребителя>',
+          'sasl.password': '<пароль_потребителя>',
           'group.id': 'test-consumer1',
           'auto.offset.reset': 'earliest',
           'enable.auto.commit': False,
@@ -1648,7 +1646,7 @@ pip install confluent_kafka
           'debug': 'all',
       }
       c = Consumer(params)
-      c.subscribe(['<имя топика>'])
+      c.subscribe(['<имя_топика>'])
       while True:
           msg = c.poll(timeout=3.0)
           if msg:
@@ -1679,17 +1677,17 @@ pip install confluent_kafka
           print('Something went wrong: {}'.format(err))
 
       params = {
-          'bootstrap.servers': '<FQDN хоста-брокера>:9091',
+          'bootstrap.servers': '<FQDN_хоста-брокера>:9091',
           'security.protocol': 'SASL_SSL',
           'ssl.ca.location': '{{ crt-local-dir }}{{ crt-local-file }}',
           'sasl.mechanism': 'SCRAM-SHA-512',
-          'sasl.username': '<имя производителя>',
-          'sasl.password': '<пароль производителя>',
+          'sasl.username': '<имя_производителя>',
+          'sasl.password': '<пароль_производителя>',
           'error_cb': error_callback,
       }
 
       p = Producer(params)
-      p.produce('<имя топика>', 'some payload1')
+      p.produce('<имя_топика>', 'some payload1')
       p.flush(10)
       ```
 
@@ -1704,12 +1702,12 @@ pip install confluent_kafka
           print('Something went wrong: {}'.format(err))
 
       params = {
-          'bootstrap.servers': '<FQDN хоста-брокера>:9091',
+          'bootstrap.servers': '<FQDN_хоста-брокера>:9091',
           'security.protocol': 'SASL_SSL',
           'ssl.ca.location': '{{ crt-local-dir }}{{ crt-local-file }}',
           'sasl.mechanism': 'SCRAM-SHA-512',
-          'sasl.username': '<имя потребителя>',
-          'sasl.password': '<пароль потребителя>',
+          'sasl.username': '<имя_потребителя>',
+          'sasl.password': '<пароль_потребителя>',
           'group.id': 'test-consumer1',
           'auto.offset.reset': 'earliest',
           'enable.auto.commit': False,
@@ -1717,7 +1715,7 @@ pip install confluent_kafka
           'debug': 'all',
       }
       c = Consumer(params)
-      c.subscribe(['<имя топика>'])
+      c.subscribe(['<имя_топика>'])
       while True:
           msg = c.poll(timeout=3.0)
           if msg:

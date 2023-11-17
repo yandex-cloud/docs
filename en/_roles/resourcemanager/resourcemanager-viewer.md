@@ -1,0 +1,1 @@
+The `resource-manager.viewer` role grants permission to view cloud or folder information and list access rights granted to a cloud or a folder. It is assigned for an organization, a cloud, or a folder.

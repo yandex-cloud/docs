@@ -112,7 +112,7 @@
    - In other cases, the default value is calculated using the following formula:
 
       ```text
-      55 - 5 × <number of vCPUs per host>
+      55 - 5 × <number_of_vCPUs_per_host>
       ```
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-DELAY).
@@ -124,7 +124,7 @@
    The minimum value is `-1` (the setting is not applied), while the maximum one is `10000`. The default value [depends on the selected host class](#settings-instance-dependent) and is determined by the formula:
 
    ```text
-   150 × <number of vCPUs per host> + 400
+   150 × <number_of_vCPUs_per_host> + 400
    ```
 
    Example:
@@ -381,7 +381,7 @@
    Allows the query planner to use the bitmap-scan plan types, even if this is not specified in the query explicitly. This access method is similar to regular access by index, but occurs in two steps:
 
    1. The index is scanned (Bitmap Index Scan) and a bitmap is built where the rows to be read by the query are flagged.
-   1. The table is scanned (Bitmap Heap Scan). In this case:
+   1. The table is scanned (Bitmap Heap Scan). In which case:
 
       - The pages are read sequentially (this increases the likelihood of using the OS cache).
       - Each page is viewed only once.
@@ -878,7 +878,7 @@
    The minimum value is `1`. The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by the formula:
 
    ```text
-   200 × <number of vCPUs per host>
+   200 × <number_of_vCPUs_per_host>
    ```
 
    Hosts with guaranteed vCPU performance under 100% (`burstable`) use the fixed maximum value: `200`.
@@ -952,7 +952,6 @@
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS).
 
 - **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
-
 
    The maximum size (in bytes) of the files of the [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) stored on the master host during replication.
 
@@ -1157,7 +1156,7 @@
 
    To make sure the setting does not impact the cluster performance, the longest transaction/session is checked on a regular basis. The checking interval is selected randomly and ranges from 5 to 10 minutes. For example, if you set the setting to `1000`, a session will terminate within 1 second + 5 to 10 minutes.
 
-   If the set value is larger than the default one, this may increase the DB size and slow down the OS.
+   If the value you set is larger than the default one, this may increase the DB size and slow down the OS.
 
    The minimum value is `0` (the active session/transaction TTL is unlimited). The maximum value is `2147483647`. The default value is `43200000` (12 hours). The minimum granularity for changing the setting value is `1000`.
 
@@ -1171,7 +1170,7 @@
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS).
 
-- **Shared preload libraries**{#setting-shared-libraries} {{ tag-con }} {{ tag-api }}
+- **Shared preload libraries**{#setting-shared-libraries} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
    A comma-separated list of shared libraries to preload when the {{ PG }} server starts. Libraries are required for using some [{{ PG }} extensions](../../../managed-postgresql/operations/extensions/cluster-extensions.md).
 

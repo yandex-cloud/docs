@@ -16,7 +16,7 @@
     В консоли управления можно назначить роль только на облако или каталог:
 
 
-    1. Добавьте пользователя в облако через [консоль управления](../users/create.md#console-user) или [{{ org-full-name }}](../users/create.md#organization-user).
+    1. [Добавьте пользователя в облако](../users/create.md) через {{ org-full-name }} или Cloud Console.
 
     1. Назначьте пользователю роль в облаке:
 
@@ -35,26 +35,25 @@
     1. Назначьте роль с помощью команды:
 
         ```bash
-        yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
-            --role <role-id> \
-            --subject userAccount:<user-account-id>
+        yc <имя_сервиса> <категория_ресурса> add-access-binding <имя_или_идентификатор_ресурса> \
+            --role <идентификатор_роли> \
+            --subject userAccount:<идентификатор_пользователя>
         ```
 
         Где:
 
-        * `<service-name>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
-        * `<resource>` — категория ресурса, например `cloud`.
-        * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
-        * `<resource-id>` — идентификатор ресурса.
-        * `<role-id>` — идентификатор роли, например `{{ roles-cloud-owner }}`.
-        * `<user-account-id>` — идентификатор аккаунта пользователя, которому назначается роль.
+        * `<имя_сервиса>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
+        * `<категория_ресурса>` — категория ресурса, например `cloud`.
+        * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса. Вы можете указать ресурс по имени или идентификатору.
+        * `--role` — идентификатор роли, например `{{ roles-cloud-owner }}`.
+        * `--subject userAccount` — идентификатор аккаунта пользователя, которому назначается роль.
 
         Например, назначьте роль `viewer` на [облако](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
 
         ```bash
         yc resource-manager cloud add-access-binding mycloud \
             --role viewer \
-            --subject userAccount:aje6o61dvog2h6g9a33s
+            --subject userAccount:aje6o61dvog2********
         ```
 
 
@@ -74,7 +73,7 @@
                 "accessBinding": {
                     "roleId": "editor",
                     "subject": {
-                        "id": "gfei8n54hmfhuk5nogse",
+                        "id": "gfei8n54hmfh********",
                         "type": "userAccount"
                         }
                     }
@@ -98,17 +97,17 @@
 
        * `cloud_id` — [идентификатор облака](../../../resource-manager/operations/cloud/get-id.md). Вы также можете назначить роль внутри отдельного каталога. Для этого вместо `cloud_id` укажите `folder_id` и нужный идентификатор каталога в параметрах ресурса.
        * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
 
        Пример структуры конфигурационного файла:
 
         ```
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
-            cloud_id    = "<идентификатор облака>"
+            cloud_id    = "<идентификатор_облака>"
             role        = "<роль>"
             members     = [
-            "serviceAccount:<идентификатор сервисного аккаунта>",
-            "userAccount:<идентификатор пользователя>",
+            "serviceAccount:<идентификатор_сервисного_аккаунта>",
+            "userAccount:<идентификатор_пользователя>",
             ]
         }
         ```
@@ -140,7 +139,7 @@
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
 
         ```
-        yc resource-manager folder list-access-bindings <имя каталога>|<идентификатор каталога>
+        yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
         ```
 
 {% endlist %}
@@ -179,8 +178,8 @@
 
         ```bash
         yc resource-manager folder set-access-bindings my-folder \
-            --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
-            --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
+            --access-binding role=editor,subject=userAccount:gfei8n54hmfh********
+            --access-binding role=viewer,subject=userAccount:helj89sfj80a********
         ```
 
 - API
@@ -195,7 +194,7 @@
                 "accessBinding": {
                     "roleId": "editor",
                     "subject": {
-                        "id": "gfei8n54hmfhuk5nogse",
+                        "id": "gfei8n54hmfh********",
                         "type": "userAccount"
                     }
                 }
@@ -204,7 +203,7 @@
                 "accessBinding": {
                     "roleId": "viewer",
                     "subject": {
-                        "id": "helj89sfj80aj24nugsz",
+                        "id": "helj89sfj80a********",
                         "type": "userAccount"
                     }
                 }
@@ -212,7 +211,7 @@
         }
         ```
 
-    1. Назначьте указанные роли, например на каталог с идентификатором `b1gvmob95yysaplct532`:
+    1. Назначьте указанные роли, например на каталог с идентификатором `b1gvmob95yys********`:
 
         {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
 
@@ -231,10 +230,10 @@
         {
             "accessBindings": [{
                 "roleId": "editor",
-                "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
+                "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
             },{
                 "roleId": "viewer",
-                "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
+                "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
             }]
         }
         ```
@@ -242,7 +241,7 @@
     2. Назначьте роли:
 
         ```bash
-        export FOLDER_ID=b1gvmob95yysaplct532
+        export FOLDER_ID=b1gvmob95yys********
         export IAM_TOKEN=CggaATEVAgA...
         curl -X POST \
             -H "Content-Type: application/json" \
@@ -288,26 +287,25 @@
     1. Назначьте роль с помощью команды:
 
         ```bash
-        yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
-            --role <role-id> \
-            --subject federatedUser:<federated-user-id>
+        yc <имя_сервиса> <категория_ресурса> add-access-binding <имя_или_идентификатор_ресурса> \
+            --role <идентификатор_роли> \
+            --subject federatedUser:<идентификатор_пользователя>
         ```
 
         Где:
 
-        * `<service-name>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
-        * `<resource>` — категория ресурса, например `cloud`.
-        * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
-        * `<resource-id>` — идентификатор ресурса.
-        * `<role-id>` — идентификатор роли, например `{{ roles-cloud-owner }}`.
-        * `<federated-user-id>` — идентификатор аккаунта пользователя, которому назначается роль.
+        * `<имя_сервиса>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
+        * `<категория_ресурса>` — категория ресурса, например `cloud`.
+        * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса. Вы можете указать ресурс по имени или идентификатору.
+        * `--role` — идентификатор роли, например `{{ roles-cloud-owner }}`.
+        * `--subject federatedUser` — идентификатор аккаунта пользователя, которому назначается роль.
 
         Например, назначьте роль `viewer` на [облако](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
 
         ```bash
         yc resource-manager cloud add-access-binding mycloud \
             --role viewer \
-            --subject federatedUser:aje6o61dvog2h6g9a33s
+            --subject federatedUser:aje6o61dvog2********
         ```
 
 - API
@@ -327,7 +325,7 @@
                 "accessBinding": {
                     "roleId": "editor",
                     "subject": {
-                        "id": "gfei8n54hmfhuk5nogse",
+                        "id": "gfei8n54hmfh********",
                         "type": "federatedUser"
                         }
                     }
@@ -370,26 +368,25 @@
     1. Назначьте роль с помощью команды:
 
         ```bash
-        yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
-            --role <role-id> \
-            --subject group:<group-id>
+        yc <имя_сервиса> <категория_ресурса> add-access-binding <имя_или_идентификатор_ресурса> \
+            --role <идентификатор_роли> \
+            --subject group:<идентификатор_группы>
         ```
 
         Где:
 
-        * `<service-name>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
-        * `<resource>` — категория ресурса, например `cloud`.
-        * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
-        * `<resource-id>` — идентификатор ресурса.
-        * `<role-id>` — идентификатор роли, например `{{ roles-cloud-owner }}`.
-        * `<group-id>` — идентификатор группы, которой назначается роль.
+        * `<имя_сервиса>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
+        * `<категория_ресурса>` — категория ресурса, например `cloud`.
+        * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса. Вы можете указать ресурс по имени или идентификатору.
+        * `--role` — идентификатор роли, например `{{ roles-cloud-owner }}`.
+        * `--subject group` — идентификатор группы, которой назначается роль.
 
         Например, назначьте роль `viewer` на [облако](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
 
         ```bash
         yc resource-manager cloud add-access-binding mycloud \
             --role viewer \
-            --subject group:aje6o61dvog2h6g9a33s
+            --subject group:aje6o61dvog2********
         ```
 
 {% endlist %}

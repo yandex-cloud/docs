@@ -1,4 +1,4 @@
-# Creating {{ GP }} clusters
+# Creating a {{ GP }} cluster
 
 A {{ mgp-name }} cluster consists of master hosts that accept client requests and segment hosts that provide data processing and storage.
 
@@ -12,14 +12,14 @@ For more information, see [{#T}](../concepts/index.md).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a database cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Enter a name for the cluster. It must be unique within the folder.
    1. (Optional) Enter a cluster description.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including {{ mgp-full-name }} itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the {{ GP }} version.
 
    
@@ -61,11 +61,11 @@ For more information, see [{#T}](../concepts/index.md).
 
          {% note info %}
 
-         Such names as `admin`, `gpadmin`, `mdb_admin`, `mdb_replication`, `monitor`, `none`, `postgres`, `public`, `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
+         Such names as `admin`, `gpadmin`, `mdb_admin`, `mdb_replication`, `monitor`, `none`, `postgres`, `public`, and `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
 
          {% endnote %}
 
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be between 8 and 128 characters long.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be from 8 to 128 characters long.
 
    1. Configure additional cluster settings, if required:
 
@@ -101,7 +101,7 @@ For more information, see [{#T}](../concepts/index.md).
 
       * Number of segment hosts.
       * Number of segments per host. The maximum value of this parameter depends on a host class.
-      * [Host class](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster's segment hosts will be deployed.
+      * [Host class](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster segment hosts will be deployed.
       * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
          * Select the [disk type](../concepts/storage.md).
 
@@ -139,23 +139,23 @@ For more information, see [{#T}](../concepts/index.md).
 
       
       ```bash
-      {{ yc-mdb-gp }} cluster create <cluster name> \
-         --greenplum-version=<{{ GP }} version: {{ versions.cli.str }}> \
-         --environment=<environment: PRESTABLE or PRODUCTION> \
-         --network-name=<network name> \
+      {{ yc-mdb-gp }} cluster create <cluster_name> \
+         --greenplum-version=<Greenplum_version> \
+         --environment=<environment> \
+         --network-name=<network_name> \
          --user-name=<username> \
-         --user-password=<user password> \
-         --master-config resource-id=<host class>,`
-                        `disk-size=<storage size, GB>,`
-                        `disk-type=<disk type> \
-         --segment-config resource-id=<host class>,`
-                        `disk-size=<storage size, GB>,`
-                        `disk-type=<disk type> \
-         --zone-id=<availability zone> \
-         --subnet-id=<subnet ID> \
-         --assign-public-ip=<public access to hosts: true or false> \
-         --security-group-ids=<list of security group IDs> \
-         --deletion-protection=<cluster deletion protection: true or false>
+         --user-password=<user_password> \
+         --master-config resource-id=<host_class>,`
+                        `disk-size=<storage_size_GB>,`
+                        `disk-type=<disk_type> \
+         --segment-config resource-id=<host_class>,`
+                        `disk-size=<storage_size_GB>,`
+                        `disk-type=<disk_type> \
+         --zone-id=<availability_zone> \
+         --subnet-id=<subnet_ID> \
+         --assign-public-ip=<public_access_to_hosts> \
+         --security-group-ids=<list_of_security_group_IDs> \
+         --deletion-protection=<cluster_deletion_protection>
       ```
 
       {% note info %}
@@ -166,27 +166,27 @@ For more information, see [{#T}](../concepts/index.md).
 
       Where:
 
-      * `--greenplum-version`: {{ GP }} version.
+      * `--greenplum-version`: {{ GP }} version: {{ versions.cli.str }}.
       * `--environment`: Environment:
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including {{ GP }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-      * `--network-name`: [Name of the network](../../vpc/concepts/network.md#network).
-      * `--user-name`: Username, which may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, a number, or an underscore. It must be from 1 to 32 characters long.
-      * `--user-password`: Password, from 8 to 128 characters long.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+      * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
+      * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, a number, or an underscore. It must be from 1 to 32 characters long.
+      * `--user-password`: Password. It must be from 8 to 128 characters long.
       * `--master-config` and `--segment-config`: Master and segment host configurations:
          * `resource-id`: [Host class](../concepts/instance-types.md).
          * `disk-size`: Storage size in GB.
-         * `disk-type`: The [type of disk](../concepts/storage.md):
+         * `disk-type`: [Disk type](../concepts/storage.md):
             * `network-hdd`
             * `network-ssd`
             * `local-ssd`
             * `network-ssd-nonreplicated`
 
-      * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md)
+      * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It is required if the selected availability zone includes 2 or more subnets.
-      * `assign-public-ip`: Flag indicating that [public access](../concepts/network.md#public-access-to-a-host) to hosts is required.
+      * `--assign-public-ip`: Flag to be set if [public access](../concepts/network.md#public-access-to-a-host) to the host is needed, `true` or `false`.
       * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
-      * `--deletion-protection`: Cluster deletion protection.
+      * `--deletion-protection` is cluster deletion protection, `true` or `false`.
 
 
            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -196,7 +196,7 @@ For more information, see [{#T}](../concepts/index.md).
       ```bash
       {{ yc-mdb-gp }} cluster create <cluster name> \
          ...
-         --backup-window-start=<backup start time>
+         --backup-window-start=<backup_start_time>
       ```
 
    
@@ -205,7 +205,7 @@ For more information, see [{#T}](../concepts/index.md).
       ```bash
       {{ yc-mdb-gp }} cluster create <cluster name> \
          ...
-         --host-group-ids=<IDs of groups of dedicated hosts>
+         --host-group-ids=<IDs_of_groups_of_dedicated_hosts>
       ```
 
       {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
@@ -216,7 +216,9 @@ For more information, see [{#T}](../concepts/index.md).
       ```bash
       {{ yc-mdb-gp }} cluster create <cluster name> \
          ...
-         --maintenance-window type=<type>[,day=<day of week>,hour=<hour>]
+         --maintenance-window type=<maintenance_type>,`
+                             `day=<day_of_week>,`
+                             `hour=<hour> \
       ```
 
       Where `type` is the maintenance type:
@@ -228,9 +230,14 @@ For more information, see [{#T}](../concepts/index.md).
       ```bash
       {{ yc-mdb-gp }} cluster create <cluster name> \
          ...
-         --datalens-access=<access from {{ datalens-full-name }}: true or false> \
-         --datatransfer-access=<access from {{ data-transfer-full-name }}: true or false>
+         --datalens-access=<access_from_DataLens> \
+         --datatransfer-access=<access_from_Data_Transfer>
       ```
+
+      Where:
+
+      * `--datalens-access`: Access from {{ datalens-full-name }}: true or false.
+      * `--datatransfer-access`: Access from {{ data-transfer-full-name }}: true or false.
 
 - {{ TF }}
 
@@ -241,7 +248,7 @@ For more information, see [{#T}](../concepts/index.md).
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
    
-   1. If you do not have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    2. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
@@ -252,12 +259,12 @@ For more information, see [{#T}](../concepts/index.md).
       Example structure of a configuration file that describes a cloud network with a single subnet:
 
       ```hcl
-      resource "yandex_vpc_network" "<network name in {{ TF }}>" { name = "<network name>" }
+      resource "yandex_vpc_network" "<network_name_in_{{ TF }}>" { name = "<network_name>" }
 
-      resource "yandex_vpc_subnet" "<subnet name in {{ TF }}>" {
-        name           = "<subnet name>"
-        zone           = "<availability zone>"
-        network_id     = yandex_vpc_network.<network name in {{ TF }}>.id
+      resource "yandex_vpc_subnet" "<subnet_name_in_{{ TF }}>" {
+        name           = "<subnet_name>"
+        zone           = "<availability_zone>"
+        network_id     = yandex_vpc_network.<network_name_in_{{ TF }}>.id
         v4_cidr_blocks = ["<subnet>"]
       }
       ```
@@ -265,46 +272,55 @@ For more information, see [{#T}](../concepts/index.md).
 
    1. Create a configuration file with a description of the cluster and its hosts.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       ```hcl
-      resource "yandex_mdb_greenplum_cluster" "<cluster name in {{ TF }}>" {
-        name                = "<cluster name>"
+      resource "yandex_mdb_greenplum_cluster" "<cluster_name_in_{{ TF }}>" {
+        name                = "<cluster_name>"
         environment         = "<environment>"
-        network_id          = yandex_vpc_network.<network name in {{ TF }}>.id
-        zone                = "<availability zone>"
-        subnet_id           = yandex_vpc_subnet.<subnet name in {{ TF }}>.id
-        assign_public_ip    = <public access to cluster hosts: true or false>
-        deletion_protection = <cluster deletion protection: true or false>
-        version             = "<{{ GP }} version>"
-        master_host_count   = <number of master hosts: 1 or 2>
-        segment_host_count  = <number of segment hosts: from 2 to 32>
-        segment_in_host     = <number of segments per host>
+        network_id          = yandex_vpc_network.<network_name_in_{{ TF }}>.id
+        zone                = "<availability_zone>"
+        subnet_id           = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
+        assign_public_ip    = <public_access_to_cluster_hosts>
+        deletion_protection = <cluster_deletion_protection>
+        version             = "<Greenplum_version>"
+        master_host_count   = <number_of_master_hosts>
+        segment_host_count  = <number_of_segment_hosts>
+        segment_in_host     = <number_of_segments_per_host>
 
         master_subcluster {
           resources {
-            resource_preset_id = "<host class>"
-            disk_size          = <storage size, GB>
-            disk_type_id       = "<disk type>"
+            resource_preset_id = "<host_class>"
+            disk_size          = <storage_size_GB>
+            disk_type_id       = "<disk_type>"
           }
         }
 
         segment_subcluster {
           resources {
-            resource_preset_id = "<host class>"
-            disk_size          = <storage size, GB>
-            disk_type_id       = "<disk type>"
+            resource_preset_id = "<host_class>"
+            disk_size          = <storage_size_GB>
+            disk_type_id       = "<disk_type>"
           }
         }
 
         user_name     = "<username>"
         user_password = "<password>"
 
-        security_group_ids = ["<list of security group IDs>"]
+        security_group_ids = ["<list_of_security_group_IDs>"]
       }
       ```
 
+
+      Where:
+
+      * `assign_public_ip`: Public access to hosts of the cluster, true or false.
+      * `deletion_protection`: Cluster deletion protection, true or false.
+      * `version`: {{ GP }} version.
+      * `master_host_count`: Number of master hosts: 1 or 2.
+      * `segment_host_count`: Number of segment hosts: between 2 and 32.
+      * `disk_size`: Storage size in GB.
 
       Cluster deletion protection will not prevent a manual connection to delete the contents of a database.
 
@@ -357,19 +373,19 @@ For more information, see [{#T}](../concepts/index.md).
 
 - CLI
 
-   Create a {{ mgp-name }} cluster with test characteristics:
+   Create a {{ mgp-name }} cluster with the following test characteristics:
 
    
-   * Named `gp-cluster`.
-   * Versions `{{ versions.cli.latest }}`.
-   * In the `PRODUCTION` environment.
-   * In the `default` network.
-   * With the `user1` user.
-   * With the password `user1user1`.
+   * Name: `gp-cluster`
+   * Version: `{{ versions.cli.latest }}`
+   * Environment: `PRODUCTION`
+   * Network: `default`
+   * User: `user1`
+   * Password: `user1user1`
    * With master and segment hosts:
 
-      * `S2.medium` class.
-      * With a local SSD storage (`local-ssd`) of 100 GB.
+      * Class: `S2.medium`
+      * Local SSD storage (`local-ssd`): 100 GB
 
    * Availability zone: `{{ region-id }}-a`; subnet: `{{ subnet-id }}`
    * Public access to hosts: Allowed

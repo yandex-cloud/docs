@@ -1,0 +1,1 @@
+The `iam.editor` role.

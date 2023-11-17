@@ -25,10 +25,10 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
    To get a list of {{ GP }} cluster backups, run the command:
 
    ```bash
-   {{ yc-mdb-gp }} cluster list-operations <cluster ID or name>
+   {{ yc-mdb-gp }} cluster list-backups <cluster_name_or_ID>
    ```
 
-   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    Result:
 
@@ -36,7 +36,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
    +--------------------------+---------------------+----------------------+---------------------+
    |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |
    +--------------------------+---------------------+----------------------+---------------------+
-   | c9qgo11pud7kb3cdomeg...  | 2020-08-10 12:00:00 | c9qgo11pud7kb3cdomeg | 2020-08-10 11:55:17 |
+   | c9qgo11pud7k********:... | 2020-08-10 12:00:00 | c9qgo11pud7k******** | 2020-08-10 11:55:17 |
    | ...                                                                                         |
    +--------------------------+---------------------+----------------------+---------------------+
    ```
@@ -81,6 +81,16 @@ When you restore a cluster from a backup, you create a new cluster with the back
 
 For a new cluster, you should set all the parameters that are required at creation.
 
+To migrate {{ mgp-name }} cluster hosts to a different availability zone, restore your cluster from a backup. You may need to do this, for example, if your cluster hosts reside in the `{{ region-id }}-c` availability zone which is to be [deprecated](/blog/posts/2023/08/new-availability-zone). During cluster recovery from a backup, specify a new availability zone.
+
+{% note warning %}
+
+Recovering from a backup imposes restrictions on parameters of the new cluster.
+
+{% include [limits](../../_includes/mdb/mgp/restore-limits.md) %}
+
+{% endnote %}
+
 If you set the current time as the recovery time, the new cluster will match the state of the latest available recovery point.
 
 {% list tabs %}
@@ -93,7 +103,7 @@ If you set the current time as the recovery time, the new cluster will match the
    1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
-   1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the point in time to which you want to restore the cluster. You can enter a value manually or select it from the drop-down calendar. The service will select the recovery point closest to that time.
+   1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to restore the cluster. You can enter a value manually or select it from the drop-down calendar. The service will select the recovery point closest to that time.
 
       If you do not change the setting, the cluster state will be copied from a backup. Recovery points will not be used.
 
@@ -102,10 +112,10 @@ If you set the current time as the recovery time, the new cluster will match the
    To restore a previously deleted cluster from a backup:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
    1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
-   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster ID>:<backup ID>` format.
+   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
-   1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the point in time to which you want to restore the cluster. You can enter a value manually or select it from the drop-down calendar. The service will select the recovery point closest to that time.
+   1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to restore the cluster. You can enter a value manually or select it from the drop-down calendar. The service will select the recovery point closest to that time.
 
       If you do not change the setting, the cluster state will be copied from a backup. Recovery points will not be used.
 
@@ -132,33 +142,31 @@ If you set the current time as the recovery time, the new cluster will match the
       
       ```bash
       {{ yc-mdb-gp }} cluster restore \
-         --backup-id=<backup ID> \
-         --time=<point in time to restore the {{ GP }} cluster to> \
-         --name=<cluster name> \
-         --environment=<environment: PRESTABLE or PRODUCTION> \
+         --backup-id=<backup_ID> \
+         --time=<timestamp> \
+         --name=<cluster_name> \
+         --environment=<environment> \
          --network-name={{ network-name }} \
-         --master-resource-preset=<host class> \
-         --master-disk-size=<storage size, GB> \
-         --master-disk-type=<disk type> \
-         --segment-resource-preset=<host class> \
-         --segment-disk-size=<storage size, GB> \
-         --segment-disk-type=<disk type> \
-         --segment-host-count=<number of segment hosts> \
-         --segment-in-host=<number of segments on host> \
-         --zone-id=<availability zone> \
-         --subnet-id=<subnet ID> \
-         --assign-public-ip=<public access to the cluster: true or false>
+         --master-resource-preset=<host_class> \
+         --master-disk-size=<storage_size_GB> \
+         --master-disk-type=<disk_type> \
+         --segment-resource-preset=<host_class> \
+         --segment-disk-size=<storage_size_GB> \
+         --segment-disk-type=<disk_type> \
+         --zone-id=<availability_zone> \
+         --subnet-id=<subnet_ID> \
+         --assign-public-ip=<public_access_to_cluster>
       ```
 
 
       Where:
 
-      * `--backup-id`: [Backup](../concepts/backup.md) ID
-      * `--time`: Point in time to which you need to restore a {{ GP }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored from a backup.
-      * `--name`: Cluster name
+      * `--backup-id`: [Backup](../concepts/backup.md) ID.
+      * `--time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored from a backup.
+      * `--name`: Cluster name.
       * `--environment`: Environment:
 
-         * `PRESTABLE`: For testing, including {{ GP }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
          * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -168,8 +176,6 @@ If you set the current time as the recovery time, the new cluster will match the
       * `--segment-resource-preset`: [Segment host class](../concepts/instance-types.md#available-flavors).
       * `--segment-disk-size`: Segment host storage size in GB.
       * `--segment-disk-type`: [Disk type](../concepts/storage.md) on the segment hosts.
-      * `--segment-host-count`: Number of segment hosts.
-      * `--segment-in-host`: Number of segments on host.
       * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
       
@@ -181,8 +187,8 @@ If you set the current time as the recovery time, the new cluster will match the
 
    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
-   * ID of the backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
-   * Timestamp of the point to which you want to recover the cluster, in the `time` parameter. By default, the cluster will be restored from a backup.
+   * Backup ID in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+   * Timestamp to which you want to recover the cluster, in the `time` parameter. By default, the cluster is restored from a backup.
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
    By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `folderId` parameter.

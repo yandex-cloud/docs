@@ -6,7 +6,7 @@
 | Total [dataset](../datasphere/concepts/dataset.md) size per community | 1024 GB |
 | Number of datasets per community | 10 |
 | Number of Docker images per community | 3 |
-| Project [storage](../datasphere/concepts/project.md#storage) size (can [be increased per project](../datasphere/operations/projects/storage-resize.md)) | 10 GB |
+| Project [storage](../datasphere/concepts/project.md#storage) size ([can be increased per project](../datasphere/operations/projects/storage-resize.md)) | 10 GB |
 | Number of communities linked to a single [billing account](../billing/concepts/billing-account.md) | 100 |
 | Number of communities per [organization](../organization/) | 10 |
 | **VM usage restrictions** |

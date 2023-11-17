@@ -34,7 +34,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 1. Click **Expand** in the product card that opens.
 1. Save your purchase in the **Purchases** folder.
 1. Click **Open**.
-1. The window that opens will display such {{ datalens-short-name }} objects as [connection](../../datalens/concepts/connection.md), [dataset](../../datalens/concepts/dataset/index.md), [chart](../../datalens/concepts/chart/index.md), and [dashboard](../../datalens/concepts/dashboard.md). Click the yellow dashboard icon at the end of the list.
+1. The window that opens will display the following {{ datalens-short-name }} objects: [connection](../../datalens/concepts/connection.md), [dataset](../../datalens/concepts/dataset/index.md), [chart](../../datalens/concepts/chart/index.md), and [dashboard](../../datalens/concepts/dashboard.md). Click the yellow dashboard icon at the end of the list.
 
    ![organization-list](../../_assets/datalens/solution-09/00-organization-list.png)
 
@@ -49,7 +49,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 ## Step 2. Create a connection {#step2}
 
 1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. Click **Create connection**.
+1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
 1. Select the **ClickHouse** connection.
    1. In the window that opens, specify the connection parameters:
       * Connection type: **Specify manually**.
@@ -209,7 +209,7 @@ Wait for the connection to be saved.
 
    ![selector-settings](../../_assets/datalens/solution-09/31-selector-settings.png)
 
-1. Move the selector to the top. You can resize the charts, if required.
+1. Move the selector to the top. You can resize the charts if necessary.
 1. Click **Save**.
 1. Choose Moscow in the selector. If the map remains centered on the same location when you change the city in the filter, refresh the browser page. {{ datalens-name }} records the map scale and location if you changed them during the current session.
 
@@ -218,7 +218,7 @@ Wait for the connection to be saved.
 ## Step 9. Add geolayers to the dashboard {#step9}
 
 1. Make sure that you only selected Moscow in the city filter of your dashboard.
-1. Click the menu icon in the upper-right corner of the map.
+1. Click the menu icon in the top-right corner of the map.
 1. Select **Edit**.
 
    ![map-editor](../../_assets/datalens/solution-09/20-map-editor.png)
@@ -272,7 +272,7 @@ Wait for the connection to be saved.
    * Top queries
    * Top companies
 
-1. Click **Save** in the upper-right corner.
+1. Click **Save** in the top-right corner.
 
    ![34-map-geolayers](../../_assets/datalens/solution-09/34-map-geolayers.png)
 

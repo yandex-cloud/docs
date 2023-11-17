@@ -2,6 +2,8 @@
 
 Создайте виртуальную машину в [группе размещения](../../concepts/placement-groups.md).
 
+{% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
+
 {% list tabs %}
 
 - CLI
@@ -16,26 +18,9 @@
      yc compute placement-group create --help
      ```
 
-  1. Создайте группу размещения:
+  1. Создайте группу размещения в каталоге по умолчанию с одной из стратегий размещения:
 
-     ```bash
-     yc compute placement-group create --spread-strategy --name my-group
-     ```
-
-     Результат:
-
-     ```bash
-     id: fdvte50kv3nclagfknoc
-     folder_id: aoeieef3k7ppari05ajo
-     created_at: "2019-12-20T08:59:44Z"
-     name: my-group
-     spread_placement_strategy: {}
-     ```
-
-     Данная команда создаст группу размещения со следующими характеристиками:
-
-     - С именем `my-group`.
-     - Стратегией размещения `spread`.
+     {% include [pg-create](../../../_includes/compute/placement-groups-create.md) %}
 
   1. Посмотрите описание команды CLI для создания виртуальной машины:
 
@@ -46,23 +31,33 @@
   1. Создайте виртуальную машину:
 
      ```bash
-     yc compute instance create --zone {{ region-id }}-a --name instance-in-group-1 --placement-group-name my-group
+     yc compute instance create \
+       --zone {{ region-id }}-a \
+       --name instance-in-group-1 \
+       --placement-group-name my-group \
+       --placement-group-partition <номер_раздела>
      ```
+
+     Где: 
+     * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет размещена виртуальная машина.
+     * `--name` — имя виртуальной машины.
+     * `--placement-group-name` — имя группы размещения.
+     * `--placement-group-partition` — номер раздела в группе размещения со стратегией [размещения разделами](../../concepts/placement-groups.md#partition).
+
+       {% note info %}
+       
+       Если не указать номер раздела при создании ВМ в группе с размещением разделами, то ВМ добавится в случайный раздел.
+
+       {% endnote %}
 
      Результат:
 
-     ```bash
-     id: epdep2kq6dt5uekuhcrd
+     ```yaml
+     id: epdep2kq6dt5********
      ...
      placement_policy:
-       placement_group_id: fd83bv4rnsna2sjkiq4s
+       placement_group_id: fd83bv4rnsna********
      ```
-
-     Данная команда создаст виртуальную машину со следующими характеристиками:
-
-     - С именем `instance-in-group-1`.
-     - В зоне доступности `{{ region-id }}-a`.
-     - В группе размещения `my-group`.
 
   1. Проверьте, что виртуальная машина создана и добавлена в группу размещения:
 
@@ -70,13 +65,15 @@
      yc compute placement-group list-instances --name my-group
      ```
 
+     Где `--name` — имя группы размещения.
+
      Результат:
 
-     ```bash
+     ```text
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
-     | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-a | RUNNING |             | 10.129.0.5  |
+     | epdep2kq6dt5******** | instance-in-group-1 | {{ region-id }}-a | RUNNING |             | 10.129.0.5  |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      ```
 

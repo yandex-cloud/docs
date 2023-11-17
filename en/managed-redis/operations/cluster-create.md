@@ -3,7 +3,7 @@ title: "How to create a {{ RD }} cluster"
 description: "Use this tutorial to create a {{ RD }} cluster with a single or multiple DB hosts."
 ---
 
-# Creating {{ RD }} clusters
+# Creating a {{ RD }} cluster
 
 A {{ RD }} cluster consists of one or more database hosts you can configure replication between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
 
@@ -32,7 +32,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       * (Optional) Add a cluster description.
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including {{ mrd-short-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       * Select the DBMS version.
       * If necessary, enable [cluster sharding](../concepts/sharding.md).
 
@@ -134,22 +134,36 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       
       ```bash
       {{ yc-mdb-rd }} cluster create \
-        --name <cluster name> \
-        --environment <environment, prestable or production> \
-        --network-name <network name> \
-        --host zone-id=<availability zone>,`
-              `subnet-id=<subnet ID>,`
-              `assign-public-ip=<host public access: true or false>,`
-              `replica-priority=<host priority> \
-        --security-group-ids <list of security group IDs> \
+        --name <cluster_name> \
+        --environment <environment> \
+        --network-name <network_name> \
+        --host zone-id=<availability_zone>,`
+              `subnet-id=<subnet_ID>,`
+              `assign-public-ip=<public_access>,`
+              `replica-priority=<host_priority> \
+        --security-group-ids <list_of_security_group_IDs> \
         --enable-tls \
-        --resource-preset <host class> \
-        --disk-size <storage size, GB> \
-        --password=<user password> \
-        --backup-window-start <backup start time in HH:MM:SS format> \
-        --deletion-protection=<cluster delete protection: true or false>
+        --resource-preset <host_class> \
+        --disk-size <storage_size_in_GB> \
+        --password=<user_password> \
+        --backup-window-start <time> \
+        --deletion-protection=<deletion_protection>
       ```
 
+
+      Where:
+      * `--environment`: `prestable` or `production`.
+
+      
+      * `--host`: Host parameters:
+         * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
+         * `assign-public-ip`: Flag enabling online access to the host by a public IP: `true` or `false`.
+         * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+
+
+      * `--backup-window-start`: Backup start time in `HH:MM:SS` format.
+      * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
 
       You need to specify `subnet-id` if the selected availability zone has two or more subnets.
 
@@ -167,9 +181,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   
-   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    To create a cluster:
 
@@ -187,45 +199,55 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       
       
       ```hcl
-      resource "yandex_mdb_redis_cluster" "<cluster name>" {
-        name                = "<cluster name>"
-        environment         = "<environment: PRESTABLE or PRODUCTION>"
-        network_id          = "<network ID>"
-        security_group_ids  = [ "<security group IDs>" ]
+      resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+        name                = "<cluster_name>"
+        environment         = "<environment>"
+        network_id          = "<network_ID>"
+        security_group_ids  = [ "<list_of_security_group_IDs>" ]
         tls_enabled         = true
-        deletion_protection = <cluster deletion protection: true or false>
+        deletion_protection = <deletion_protection>
 
         config {
           password = "<password>"
-          version  = "<{{ RD }} version: {{ versions.tf.str }}>"
+          version  = "<{{ RD }}_version>"
         }
 
         resources {
-          resource_preset_id = "<host class>"
-          disk_type_id       = "<disk type>"
-          disk_size          = <storage size in GB>
+          resource_preset_id = "<host_class>"
+          disk_type_id       = "<disk_type>"
+          disk_size          = <storage_size_in_GB>
         }
 
         host {
-          zone             = "<availability zone>"
-          subnet_id        = "<subnet ID>"
-          assign_public_ip = <public access to host: true or false>
-          replica_priority = <host priority>
+          zone             = "<availability_zone>"
+          subnet_id        = "<subnet_ID>"
+          assign_public_ip = <public_access>
+          replica_priority = <host_priority>
         }
       }
 
-      resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+      resource "yandex_vpc_network" "<network_name>" { name = "<network_name>" }
 
-      resource "yandex_vpc_subnet" "<subnet name>" {
-        name           = "<subnet name>"
-        zone           = "<availability zone>"
-        network_id     = "<network ID>"
+      resource "yandex_vpc_subnet" "<subnet_name>" {
+        name           = "<subnet_name>"
+        zone           = "<availability_zone>"
+        network_id     = "<network_ID>"
         v4_cidr_blocks = ["<range>"]
       }
       ```
 
 
 
+
+      Where:
+      * `environment`: `PRESTABLE` or `PRODUCTION`.
+      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+      * `version`: {{ RD }} version, {{ versions.tf.str }}.
+      * `host`: Host parameters:
+         * `zone_id`: Availability zone.
+         * `subnet_id`: ID of a subnet in the selected availability zone.
+         * `assign_public_ip`: Public access to the host, `true` or `false`.
+         * `replica_priority`: Host priority.
 
       {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
@@ -252,8 +274,9 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    To create a {{ RD }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the folder where the cluster should be placed, in the `folderId` parameter.
    * Cluster name in the `name` parameter.
-         * Security group identifiers in the `securityGroupIds` parameter.
+   * Security group IDs in the `securityGroupIds` parameter.
    * `tlsEnabled=true` flag for creating clusters with encrypted SSL support.
+   * Settings of public access to hosts in the `hostSpecs[].assignPublicIp` parameter.
 
 {% endlist %}
 
@@ -275,17 +298,17 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    To create a cluster with a single host, provide a single `--host` parameter.
 
-   Create a {{ mrd-name }} cluster with test characteristics:
+   Create a {{ mrd-name }} cluster with the following test characteristics:
 
-   * Named `myredis`.
-   * Version `{{ versions.cli.latest }}`.
-   * Environment `production`.
-   * Network `default`.
-   * A single `hm1.nano`-class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone and security group with ID `{{ security-group }}` with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
-   * With SSL support.
-   * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
-   * With the `user1user1` password.
-   * With protection against accidental cluster deletion.
+   * Name: `myredis`
+   * Version: `{{ versions.cli.latest }}`
+   * Environment: `production`
+   * Network: `default`
+   * Single `hm1.nano` host in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone and security group with the `{{ security-group }}` ID with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
+   * SSL support: Enabled
+   * Network SSD storage (`{{ disk-type-example }}`): 16 GB
+   * Password: `user1user1`
+   * Protection against accidental cluster deletion: Enabled
 
    Run the following command:
 
@@ -297,7 +320,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --environment production \
      --network-name default \
      --resource-preset hm1.nano \
-     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64,assign-public-ip=true,replica-priority=50 \
+     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr********,assign-public-ip=true,replica-priority=50 \
      --security-group-ids {{ security-group }} \
      --enable-tls \
      --disk-type-id {{ disk-type-example }} \
@@ -309,15 +332,15 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Create a {{ mrd-name }} cluster and a network for it with test characteristics:
+   Create a {{ mrd-name }} cluster and a network for it with the following test characteristics:
 
-   * Named `myredis`.
-   * Version `{{ versions.tf.latest }}`.
-   * Environment `PRODUCTION`.
-   * Cloud with the `{{ tf-cloud-id }}` ID.
-   * Folder with the `{{ tf-folder-id }}` ID.
-   * New network `mynet`.
-   * A single `{{ host-class }}`-class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the `10.5.0.0/24` range.
+   * Name: `myredis`
+   * Version: `{{ versions.tf.latest }}`
+   * Environment: `PRODUCTION`
+   * Cloud ID: `{{ tf-cloud-id }}`
+   * Folder ID: `{{ tf-folder-id }}`
+   * New network: `mynet`
+   * Single `{{ host-class }}` host in a new subnet named `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the `10.5.0.0/24` range.
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
    * SSL support: Enabled
    * Network SSD storage (`{{ disk-type-example }}`): 16 GB
@@ -396,7 +419,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Create a [sharded](../concepts/sharding.md) {{ mgp-name }} cluster with test characteristics:
+   Create a [sharded](../concepts/sharding.md) {{ mgp-name }} cluster with the following test characteristics:
 
    * Name: `myredis`
    * Version: `{{ versions.tf.latest }}`
@@ -404,12 +427,12 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Cloud ID: `{{ tf-cloud-id }}`
    * Folder ID: `{{ tf-folder-id }}`
    * New network: `mynet`
-   * With three subnets in the `mynet` network, one in each availability zone:
+   * Three subnets in the `mynet` network, one in each availability zone:
       * `subnet-a` with the `10.1.0.0/24` range.
       * `subnet-b` with the `10.2.0.0/24` range.
       * `subnet-c` with the `10.3.0.0/24` range.
-   * With three hosts of the `{{ host-class }}` class, one in each subnet.
-  * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
+   * Three `{{ host-class }}` hosts, one in each subnet.
+   * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
    * Network SSD storage (`{{ disk-type-example }}`): 16 GB
    * Password: `user1user1`
    * Protection against accidental cluster deletion: Enabled

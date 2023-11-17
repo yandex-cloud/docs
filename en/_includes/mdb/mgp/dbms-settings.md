@@ -8,7 +8,7 @@
 
 * **Gp workfile limits per query**{#setting-gp-workfile-limits} {{ tag-con }} {{ tag-api }}
 
-   The maximum amount of disk space (in bytes) the temporary files of an active query can occupy in every segment.
+   The maximum disk space (in bytes) that the temporary files of an active query can occupy in every segment.
 
    The maximum value is `1099511627776` (1 TB), the minimum one is `0` (unlimited amount), and the default one is also `0`.
 
@@ -22,11 +22,15 @@
 
    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
 
-* **Gp workfile limit per segment**{#setting-gp-workfile-limit-per segment} {{ tag-con }} {{ tag-api }}
+* **Gp workfile limit per segment**{#setting-gp-workfile-limit-per-segment} {{ tag-con }} {{ tag-api }}
 
    The maximum amount of disk space (in bytes) the temporary files of all active queries can occupy in every segment.
 
-   The maximum value is `1099511627776` (1 TB), the minimum one is `0` (unlimited amount), and the default one is also `0`.
+   The maximum value is `1099511627776` (1 TB), the minimum one is `0` (unlimited amount). The default value [depends on the segment host storage size](#settings-instance-dependent) and is calculated by the formula:
+
+   ```text
+   0.1 × <segment_host_storage_size> / <number_of_segments_per_host>
+   ```
 
    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
 
@@ -69,7 +73,11 @@
 
    The maximum [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) file size in bytes allowed for replication.
 
-   The minimum value is `0` (no log), the maximum one is `214748364800` (200 GB), and the default one is `0`.
+   The minimum value is `0` (no logging), the maximum one is `214748364800` (200 GB). The default value [depends on the segment host storage size](#settings-instance-dependent) and is calculated by the formula:
+
+   ```text
+   0.1 × <segment_host_storage_size> / <number_of_segments_per_host>
+   ```
 
    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
 

@@ -661,6 +661,8 @@ items:
                 href: visualization-ref/heat-map-chart.md
       - name: Параметры в чартах
         items:
+          - name: Добавление параметров в настройках чарта на дашборде
+            href: operations/chart/add-parameters.md
           - name: Добавление ID в качестве параметра
             href: operations/chart/add-guid.md
           - name: Добавление параметра в чарт
@@ -703,6 +705,10 @@ items:
             href: operations/dashboard/add-chart.md
           - name: Добавление селектора на дашборд
             href: operations/dashboard/add-selector.md
+          - name: Добавление текста на дашборд
+            href: operations/dashboard/add-text.md
+          - name: Добавление заголовка на дашборд
+            href: operations/dashboard/add-title.md
           - name: Создание алиаса
             href: operations/dashboard/create-alias.md
           - name: Удаление поля алиаса

@@ -1,6 +1,6 @@
 ---
 title: "How to create a broker"
-description: "This guide describes how you can create a broker."
+description: "Follow this guide to create a broker."
 ---
 
 # Creating a broker
@@ -41,7 +41,7 @@ description: "This guide describes how you can create a broker."
       * To add text:
 
          1. Choose the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method.
-         1. Paste the public key of the certificate into the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
+         1. Paste the public key of the certificate to the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field.
          1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
 
    1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -78,7 +78,7 @@ description: "This guide describes how you can create a broker."
       yc iot broker password add --broker-name <broker name>
       ```
 
-      You will be prompted to enter a password. The password requirements are as follows:
+      You will be prompted to enter a password. Password requirements:
 
       * The password must contain numbers, upper-case and lower-case letters, and special characters.
       * It must be at least 14 characters long.
@@ -120,7 +120,7 @@ description: "This guide describes how you can create a broker."
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    {% note info %}
 
@@ -169,7 +169,7 @@ description: "This guide describes how you can create a broker."
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 

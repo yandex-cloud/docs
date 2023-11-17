@@ -42,7 +42,7 @@ When you add environment variables, a new version of the function is created. Yo
 
    * `--function-name`: Function name.
    * `--runtime`: Runtime environment.
-   * `entrypoint`: Entry point specified in the `<function_file_name>.\<handler_name>` format.
+   * `--entrypoint`: Entry point specified in the `<function_file_name>.<handler_name>` format.
    * `--memory`: Amount of RAM.
    * `--execution-timeout`: Maximum function execution time before the timeout is reached.
    * `--source-version-id`: ID of the function version to copy the code of.
@@ -52,7 +52,7 @@ When you add environment variables, a new version of the function is created. Yo
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To add environment variables:
 
@@ -125,6 +125,6 @@ When you add environment variables, a new version of the function is created. Yo
 {% endlist %}
 
 
-## For more information, see also
+## See also
 
 * [Environment variables](../../concepts/runtime/environment-variables.md#env).

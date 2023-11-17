@@ -36,10 +36,8 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 1. Download the [file with traffic accident statistics](https://storage.yandexcloud.net/doc-files/dtp201804-1.csv) for April-December 2018 in CSV format.
 
-1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page and click **Create connection**.
-
-   ![image](../../_assets/datalens/solution-07/02-create-connection.png)
-
+1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
+1. In the left-hand panel, select ![image](../../_assets/datalens/connections.svg) **Connections** and click **Create connection**.
 1. Select the **Files** connection type.
 
    ![image](../../_assets/datalens/solution-07/select-file-connection.png)
@@ -69,7 +67,7 @@ The dataset will consist of a single source: the CSV file.
 
    ![image](../../_assets/datalens/solution-07/08-dataset.png)
 
-   You can add [data fields](https://cloud.yandex.com/docs/datalens/concepts/dataset/data-model#field) and [calculated fields](https://cloud.yandex.com/docs/datalens/concepts/calculations), change the field data type and aggregation rules, and rename fields.
+   You can add [data fields](../../datalens/concepts/dataset/data-model.md#field) and [calculated fields](../../datalens/concepts/calculations/index.md), change the field data type and aggregation rules, and rename fields.
 
    ![image](../../_assets/datalens/solution-07/09-rename.png)
 
@@ -88,10 +86,10 @@ The dataset will consist of a single source: the CSV file.
 
 1. The accident date and time are shown in the following fields:
 
-   - crash_date: The date in numeric format like `20190218`.
-   - crash_time: The time written like `19:34`.
+   - crash_date: Date in numeric format, e.g., `20190218`
+   - crash_time: Time, e.g., `19:34`
 
-   They won't be used in the dataset in this format. Click the visibility icon to hide them.
+   They will not be used in the dataset in this format. Click the visibility icon to hide them.
 
    ![image](../../_assets/datalens/solution-07/11-hide-attributes.png)
 
@@ -187,7 +185,7 @@ The dataset will consist of a single source: the CSV file.
 
    1. Click **Create**.
 
-   You don't need to set the aggregation type for this field: when you add it to the chart, {{ datalens-short-name }} applies the aggregation function automatically.
+   You do not need to set the aggregation type for this field: when you add it to the chart, {{ datalens-short-name }} applies the aggregation function automatically.
 
 1. Add a field for data on deaths in road accidents.
 
@@ -218,13 +216,13 @@ The dataset is created.
 
 ## Step 3. Create your first chart: a heat map {#step3}
 
-Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/concepts/chart).
+Proceed to creating the first [chart](../../datalens/concepts/chart/index.md).
 
 1. Click **Create chart**.
 
    ![image](../../_assets/datalens/solution-07/22-create-chart.png)
 
-1. In the wizard window that opens, click on the field that defaults to **Column chart** and select the **Map** chart type.
+1. In the wizard window that opens, click the field that defaults to **Bar chart** and select the **Map** chart type.
 
    ![image](../../_assets/datalens/solution-07/23-heatmap.png)
 
@@ -390,7 +388,7 @@ If this is the first dashboard you create in the folder, it will open once creat
 
 ## Step 8. Add selectors and create a dashboard {#step8}
 
-[Selectors](https://cloud.yandex.com/docs/datalens/concepts/dashboard#selector) let you filter data by value.
+[Selectors](../../datalens/concepts/dashboard.md#selector) allow you to filter data by value.
 
 1. Add a selector to show statistics by region name.
 
@@ -490,9 +488,9 @@ You need to add new fields to the previously created **Accidents** dataset.
 
    ![image](../../_assets/datalens/solution-07/23-heatmap.png)
 
-1. Add polygons to the map. Drag the **Polygon** field from the **Dimensions** section to the **Geopolygons** section.
+1. Add polygons to the map. Drag the **Polygon** field from **Dimensions** to the **Geopolygons** section.
 
-1. Change colors of the polygons based on the number of accidents. Drag the **Number of accidents** field from the **Measures** section to the **Colors** section.
+1. Change colors of the polygons based on the number of accidents. Drag the **Number of accidents** field from **Measures** to the **Colors** section.
 
 1. Drag the following fields to the **Tooltips** section:
 

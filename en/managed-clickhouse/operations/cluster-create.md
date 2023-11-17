@@ -47,9 +47,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
    1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including {{ mch-short-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
    1. Select the {{ CH }} version from the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list to use for the {{ mch-name }} cluster:
-      * For most clusters, it is recommended to select the latest LTS version.
+      * For most clusters, we recommend selecting the latest LTS version.
       * If you plan to use hybrid storage in a cluster, we recommend selecting version {{ mch-ck-version }} or higher.
 
    
@@ -74,6 +74,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       * To create additional DB hosts, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**. Once the second host is added, the **{{ ui-key.yacloud.mdb.forms.button_expand-zookeeper-settings }}** button will appear. Change the {{ ZK }} settings in **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, and **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**, if required.
       * Set the parameters of DB hosts being created alongside the cluster. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg).
+      * To connect to the host from the internet, enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** setting.
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
@@ -150,21 +151,21 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       
       ```bash
       {{ yc-mdb-ch }} cluster create \
-        --name <cluster name> \
-        --environment <environment: prestable or production> \
-        --network-name <network name> \
-        --host type=<clickhouse or zookeeper>,`
-             `zone-id=<availability zone>,`
-             `subnet-id=<subnet ID>,`
-             `assign-public-ip=<public access to host: true or false> \
-        --clickhouse-resource-preset <host class> \
-        --clickhouse-disk-type <disk type> \
-        --clickhouse-disk-size <storage size in GB> \
-        --user name=<username>,password=<user password> \
-        --database name=<database name> \
-        --security-group-ids <list of security group IDs> \
-        --yandexquery-access=<access via {{ yq-full-name }}: true or false> \
-        --deletion-protection=<protection from cluster deletion: true or false>
+        --name <cluster_name> \
+        --environment <environment:_prestable_or_production> \
+        --network-name <network_name> \
+        --host type=<clickhouse_or_zookeeper>,`
+             `zone-id=<availability_zone>,`
+             `subnet-id=<subnet_ID>,`
+             `assign-public-ip=<public_access_to_host:_true_or_false> \
+        --clickhouse-resource-preset <host_class> \
+        --clickhouse-disk-type <disk_type> \
+        --clickhouse-disk-size <storage_size_in_GB> \
+        --user name=<username>,password=<user_password> \
+        --database name=<database_name> \
+        --security-group-ids <list_of_security_group_IDs> \
+        --yandexquery-access=<access_via_Yandex_Query:_true_or_false> \
+        --deletion-protection=<cluster_deletion_protection:_true_or_false>
       ```
 
       You need to specify `subnet-id` if the selected availability zone has two or more subnets.
@@ -185,7 +186,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          {{ yc-mdb-ch }} cluster create \
            ...
            --enable-sql-user-management true \
-           --admin-password "<admin password>"
+           --admin-password "<admin_password>"
          ```
 
       1. To enable [SQL database management](./databases.md#sql-database-management):
@@ -198,7 +199,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
            ...
            --enable-sql-user-management true \
            --enable-sql-database-management true \
-           --admin-password "<admin account password>"
+           --admin-password "<admin_password>"
          ```
 
       
@@ -217,7 +218,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          ```bash
          {{ yc-mdb-ch }} cluster create \
            ...
-           --version "<{{ CH }} version: {{ mch-ck-version }} or higher>" \
+           --version "<{{ CH }}_version: {{ mch-ck-version }}_or higher>" \
            --embedded-keeper true
          ```
 
@@ -243,9 +244,10 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          {{ yc-mdb-ch }} cluster create \
             ...
             --cloud-storage=true \
-             --cloud-storage-data-cache=<true or false> \
-             --cloud-storage-data-cache-max-size=<memory size (in bytes)> \
-             --cloud-storage-move-factor=<free space ratio>
+            --cloud-storage-data-cache=<true_or_false> \
+            --cloud-storage-data-cache-max-size=<storage_size_in_bytes> \
+            --cloud-storage-move-factor=<free_space_share> \
+            --cloud-storage-prefer-not-to-merge=<true_or_false>
            ...
          ```
 
@@ -263,7 +265,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
-      1. If you do not have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
       * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you do not need to describe it again.
@@ -272,12 +274,12 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       Example structure of a configuration file that describes a cloud network with a single subnet:
 
       ```hcl
-      resource "yandex_vpc_network" "<network name in {{ TF }}>" { name = "<network name>" }
+      resource "yandex_vpc_network" "<network_name_in_{{ TF }}>" { name = "<network_name>" }
 
-      resource "yandex_vpc_subnet" "<subnet name in {{ TF }}>" {
-        name           = "<subnet name>"
-        zone           = "<availability zone>"
-        network_id     = yandex_vpc_network.<network name in {{ TF }}>.id
+      resource "yandex_vpc_subnet" "<subnet_name_in_{{ TF }}>" {
+        name           = "<subnet_name>"
+        zone           = "<availability_zone>"
+        network_id     = yandex_vpc_network.<network_name_in_{{ TF }}>.id
         v4_cidr_blocks = ["<subnet>"]
       }
       ```
@@ -294,38 +296,38 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
-        name                = "<cluster name>"
+      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        name                = "<cluster_name>"
         environment         = "<environment>"
-        network_id          = yandex_vpc_network.<network name in {{ TF }}>.id
-        security_group_ids  = ["<list of security group IDs>"]
-        deletion_protection = <cluster deletion protection: true or false>
+        network_id          = yandex_vpc_network.<network_name_in_{{ TF }}>.id
+        security_group_ids  = ["<list_of_security_group_IDs>"]
+        deletion_protection = <cluster_deletion_protection:_true_or_false>
 
         clickhouse {
           resources {
-            resource_preset_id = "<host class>"
-            disk_type_id       = "<disk type>"
-            disk_size          = <storage size, GB>
+            resource_preset_id = "<host_class>"
+            disk_type_id       = "<disk_type>"
+            disk_size          = <storage size in GB>
           }
         }
 
         database {
-          name = "<database name>"
+          name = "<database_name>"
         }
 
         user {
           name     = "<database username>"
           password = "<password>"
           permission {
-            database_name = "<name of the DB in which the user is being created>"
+            database_name = "<name_of_the_database_where_the_user_is_created>"
           }
         }
 
         host {
           type             = "CLICKHOUSE"
-          zone             = "<availability zone>"
-          subnet_id        = yandex_vpc_subnet.<subnet name in {{ TF }}>.id
-          assign_public_ip = <public access to host: true or false>
+          zone             = "<availability_zone>"
+          subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
+          assign_public_ip = <public_access_to_host:_true_or_false>
         }
       }
       ```
@@ -336,17 +338,17 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
       
-      1. To enable access from other services and [SQL query execution from the management console](web-sql-query.md), add an `access` block with the required settings:
+      1. To enable access from other services and [SQL query execution from the management console](web-sql-query.md), add a block named `access` with the required settings:
 
          ```hcl
-         resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+         resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
            ...
            access {
-             data_lens  = <access from DataLens: true or false>
-             metrika    = <access from Yandex Metrica and AppMetrika: true or false>
-             serverless = <access from Cloud Functions: true or false>
-             yandex_query = <access from Yandex Query: true or false>
-             web_sql    = <executing SQL queries from the management console: true or false>
+             data_lens  = <access_from_:_true_or_false>
+             metrika    = <access_from_Yandex_Metrica_and_AppMetrika:_true_or_false>
+             serverless = <access_from_Cloud_Functions:_true_or_false>
+             yandex_query = <access_from_Yandex_Query:_true_or_false>
+             web_sql    = <SQL_query_execution_from_the_management_console:_true_or_false>
            }
            ...
          }
@@ -490,8 +492,8 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    * Named `mych`.
    * In the `PRESTABLE` environment.
-   * Cloud with the `{{ tf-cloud-id }}` ID.
-   * Folder with the `{{ tf-folder-id }}` ID.
+   * Cloud ID: `{{ tf-cloud-id }}`.
+   * Folder ID: `{{ tf-folder-id }}`.
    * A new cloud network named `cluster-net`.
       * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
    * With a single `{{ host-class }}` class host on a new subnet named `cluster-subnet-{{ region-id }}-a`.
@@ -537,8 +539,8 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    * Named `mych`.
    * In the `PRESTABLE` environment.
-   * Cloud with the `{{ tf-cloud-id }}` ID.
-   * Folder with the `{{ tf-folder-id }}` ID.
+   * Cloud ID: `{{ tf-cloud-id }}`.
+   * Folder ID: `{{ tf-folder-id }}`.
    * In a new cloud network named `cluster-net`.
 
    * With three {{ CH }} hosts of the `{{ host-class }}` class and three {{ ZK }} hosts of the `{{ zk-host-class }}` class (to ensure [replication](../concepts/replication.md)).

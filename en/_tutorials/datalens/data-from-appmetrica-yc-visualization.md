@@ -45,8 +45,8 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
    1. [Create a chart: scatter chart](#creating-scatter-chart)
    1. [Create a chart: table](#creating-table-chart)
 1. [Create and configure a dashboard in {{ datalens-short-name }}](#creating-configuring-dashboard)
-1. [Customer journey. Create an QL chart and a Sankey chart](#customer-journey)
-   1. [Create an QL chart in {{ datalens-short-name }}](#creating-sql-chart)
+1. [Customer journey. Create a QL chart and a Sankey chart](#customer-journey)
+   1. [Create a QL chart in {{ datalens-short-name }}](#creating-sql-chart)
    1. [Create a Sankey diagram in {{ ml-platform-short-name }}](#creating-sankey-chart)
 
 ## Prepare your cloud {#before-you-begin}
@@ -126,12 +126,12 @@ Skip this step if you are using your own app data.
 
 ### 2.2. Export the data from AppMetrica {#uploading-data-from-appmetrica}
 
-To set up the connection and export the data from your app, use the instructions [Export data to {{ yandex-cloud }}](https://appmetrica.yandex.com/docs/common/cloud/about.html).
+To set up the connection and export data from your app, see [Export data to {{ yandex-cloud }}](https://appmetrica.yandex.com/docs/common/cloud/about.html).
 
 
-### 2.3. {{ CH }}. Get the cluster's IP address {#getting-ch-cluster-host}
+### 2.3. {{ CH }}. Get the cluster IP address {#getting-ch-cluster-host}
 
-1. Go to the {{ CH }} `appmetrica_analysis` cluster that you created in step [1.1](#ch-connection). Wait for the cluster status to be **Alive**. Then open the cluster by clicking on it.
+1. Go to the {{ CH }} `appmetrica_analysis` cluster that you created in step [1.1](#ch-connection). Wait until the cluster status changes to **Alive**. Then open the cluster by clicking it.
 
    ![image](../../_assets/datalens/solution-13/04-alive-cluster.png)
 
@@ -175,29 +175,28 @@ To set up the connection and export the data from your app, use the instructions
 
 ### 4.1. Connect to {{ datalens-short-name }} {#datalens-connection}
 
-1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}): on the page of the created {{ CH }} cluster in the menu on the left, select **{{ datalens-short-name }}**.
-1. In the window that opens, click **Activate**.
-1. Select the **default** folder and click **Activate DataLens**.
+1. In the [management console]({{ link-console-main }}), open the page of the {{ CH }} cluster you created.
+1. On the left side of the window, select ![datalens](../../_assets/datalens/chart.svg) **{{ datalens-short-name }}**.
+1. Click **Create connection**.
 
 ### 4.2. Create a connection to {{ CH }} in {{ datalens-short-name }} {#creation-datalens-connection-to-ch}
 
-1. Click **Create connection**.
-1. Select a **{{ CH }}** connection.
-1. Fill in the connection settings.
+1. Fill in the connection settings:
 
-   1. Enter the name `AppMetrica_workshop`.
+   1. Enter the name: `AppMetrica_workshop`.
    1. Select a {{ CH }} host from the **Hostname** drop-down list.
    1. Select the username and enter the password from step [1.1](#ch-connection).
-   1. Click **Check connection**.
    1. Enable **Allow subqueries in datasets and queries from charts**.
 
       ![image](../../_assets/datalens/solution-13/08-ch-connection.png)
 
-   1. When the connection check is successful, in the upper-right corner, click **Create**.
+   1. Click **Check connection**.
+
+1. When the connection check succeeds, click **Create connection**. In the window that opens, enter the connection name and click **Create**.
 
 ### 4.3. Create a dataset based on the connection {#creating-dataset-based-on-connection}
 
-1. In the upper-right corner, click **Create dataset**.
+1. In the top-right corner, click **Create dataset**.
 1. Select the `autoru_appmetrica.auto_data` table as the source. To do this, drag the table from the list on the left to the editing area.
 1. Open the **Fields** tab.
 1. Create the **users** calculated field:
@@ -215,12 +214,12 @@ To set up the connection and export the data from your app, use the instructions
    * **events**, using the `COUNT([session_id])` formula.
    * **events per user**, using the `[events]/[users]` formula.
 
-1. In the upper-right corner, click **Save**.
+1. In the top-right corner, click **Save**.
 1. Name the dataset `autoru_backend_data` and click **Create**.
 
 ### 4.4. Create a chart: scatter chart {#creating-scatter-chart}
 
-1. In the upper-right corner, click **Create chart**.
+1. In the top-right corner, click **Create chart**.
 1. Select **Scatter chart** as the type.
 1. Drag the fields to the chart section:
 
@@ -231,8 +230,8 @@ To set up the connection and export the data from your app, use the instructions
 
    ![image](../../_assets/datalens/solution-13/10-scatter-chart.png)
 
-1. In the upper-right corner, click **Save**.
-1. In the window that opens, enter the chart name `Coverage and events` and click **Save**.
+1. In the top-right corner, click **Save**.
+1. In the window that opens, enter `Coverage and events` as the chart name and click **Save**.
 
 ### 4.5. Create a chart: table {#creating-table-chart}
 
@@ -269,8 +268,8 @@ To set up the connection and export the data from your app, use the instructions
    1. In the **Default value** list, select any option.
    1. Click **Add**.
 
-1. Position the charts and selector on the dashboard. To resize an element, drag it by the lower-right corner.
-1. In the upper-right corner, click **Save**.
+1. Position the charts and selector on the dashboard. To resize an element, drag it by the bottom-right corner.
+1. In the top-right corner, click **Save**.
 
    ![image](../../_assets/datalens/solution-13/13-dashboard.png)
 
@@ -278,9 +277,9 @@ Try to change **event name** in the selector to another value to see how the das
 
 ## 6. Customer journey. Create an SQL chart and a Sankey chart {#customer-journey}
 
-### 6.1. Create an QL chart {{ datalens-short-name }} {#creating-sql-chart}
+### 6.1. Create a QL chart {{ datalens-short-name }} {#creating-sql-chart}
 
-Use SQL charts to research event sequences and experiment in {{ datalens-short-name }}.
+Use QL charts to research event sequences and experiment in {{ datalens-short-name }}.
 
 1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main }}) and select **Connections** in the menu on the left.
 1. Select the `AppMetrica_workshop` connection that you created in step [4.2](#creation-datalens-connection-to-ch).

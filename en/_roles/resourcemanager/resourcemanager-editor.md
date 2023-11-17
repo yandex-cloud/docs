@@ -1,0 +1,1 @@
+The `resource-manager.editor` role grants permission to create, edit, or delete clouds or folders. It is assigned for an organization, a cloud, or a folder.

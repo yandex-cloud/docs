@@ -1,13 +1,12 @@
 # Working with topics and partitions
 
 A {{ mkf-name }} cluster provides two ways for you to manage topics and partitions (which can be used separately or combined):
-* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, delete, and configure topics and partitions using {{ mkf-name }} service features.
+* Using native {{ yandex-cloud }} interfaces, such as CLI, API, or management console. Use this method if you want to create, delete, and configure topics and partitions using {{ mkf-name }} features.
 * Using the {{ KF }} [Admin API](https://kafka.apache.org/documentation/#adminapi). Select this method if you wish to use your existing solution to manage topics and partitions.
 
 ## Managing topics and partitions with the {{ KF }} Admin API {#admin-api}
 
 To manage topics via the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi):
-1. Enable **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** when [creating a cluster](cluster-create.md) or [changing its settings](cluster-update.md).
 1. [Create](cluster-accounts.md#create-user) a cluster admin user.
 1. Manage topics on behalf of this user through [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi) calls. Review your favorite programming language manual for information on working with the Admin API.
 
@@ -50,10 +49,10 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
    1. Create a topic:
 
       ```bash
-      {{ yc-mdb-kf }} topic create <topic name> \
-        --cluster-name <cluster name> \
-        --partitions <number of partitions> \
-        --replication-factor <replication factor>
+      {{ yc-mdb-kf }} topic create <topic_name> \
+        --cluster-name <cluster_name> \
+        --partitions <number_of_partitions> \
+        --replication-factor <replication_factor>
       ```
 
       If necessary, specify the [topic settings](../concepts/settings-list.md#topic-settings) here.
@@ -66,14 +65,14 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
    1. Add the `yandex_mdb_kafka_topic` resource and [configure the topic](../concepts/settings-list.md#topic-settings) under `topic_config`, as required:
 
       ```hcl
-      resource "yandex_mdb_kafka_topic" "<topic name>" {
-        cluster_id         = "<cluster ID>"
-        name               = "<topic name>"
-        partitions         = <number of partitions>
-        replication_factor = <replication factor>
+      resource "yandex_mdb_kafka_topic" "<topic_name>" {
+        cluster_id         = "<cluster_ID>"
+        name               = "<topic_name>"
+        partitions         = <number_of_partitions>
+        replication_factor = <replication_factor>
         topic_config {
-          compression_type = "<compression type>"
-          flush_messages   = <maximum number of messages in memory>
+          compression_type = "<compression_type>"
+          flush_messages   = <maximum_number_of_messages_in_memory>
           ...
         }
       }
@@ -83,7 +82,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -107,7 +106,7 @@ While running, {{ mkf-name }} is able to create [service topics](../concepts/top
 
 ## Updating topic settings {#update-topic}
 
-You cannot reduce the number of partitions in {{ mkf-name }} topics. If there isn't enough storage space, you cannot create new partitions.
+You cannot reduce the number of partitions in {{ mkf-name }} topics. You cannot create new partitions if there is not enough storage space.
 
 For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
@@ -143,10 +142,10 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    1. Change [topic settings](../concepts/settings-list.md#topic-settings):
 
       ```bash
-      {{ yc-mdb-kf }} topic create <topic name> \
-        --cluster-name <cluster name> \
-        --partitions <number of partitions> \
-        --replication-factor <replication factor>
+      {{ yc-mdb-kf }} topic update <topic_name> \
+        --cluster-name <cluster_name> \
+        --partitions <number_of_partitions> \
+        --replication-factor <replication_factor>
       ```
 
 - {{ TF }}
@@ -157,14 +156,14 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    1. Edit the parameter values in the `yandex_mdb_kafka_topic` resource description:
 
       ```hcl
-      resource "yandex_mdb_kafka_topic" "<topic name>" {
-        cluster_id         = "<cluster ID>"
-        name               = "<topic name>"
-        partitions         = <number of partitions>
-        replication_factor = <replication factor>
+      resource "yandex_mdb_kafka_topic" "<topic_name>" {
+        cluster_id         = "<cluster_ID>"
+        name               = "<topic_name>"
+        partitions         = <number_of_partitions>
+        replication_factor = <replication_factor>
         topic_config {
-          compression_type = "<compression type>"
-          flush_messages   = <maximum number of messages in memory>
+          compression_type = "<compression_type>"
+          flush_messages   = <maximum_number_of_messages_in_memory>
           ...
         }
       }
@@ -174,7 +173,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -224,7 +223,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    1. Delete a topic:
 
       ```bash
-      {{ yc-mdb-kf }} topic delete <topic name> --cluster-name <cluster name>
+      {{ yc-mdb-kf }} topic delete <topic_name> --cluster-name <cluster_name>
       ```
 
 - {{ TF }}
@@ -237,7 +236,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -272,7 +271,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    To get a list of topics, run the following command:
 
    ```bash
-   {{ yc-mdb-kf }} topic list --cluster-name <cluster name>
+   {{ yc-mdb-kf }} topic list --cluster-name <cluster_name>
    ```
 
 
@@ -305,7 +304,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    To get detailed information about a topic, run the following command:
 
    ```bash
-   {{ yc-mdb-kf }} topic get <topic name> --cluster-name <cluster name>
+   {{ yc-mdb-kf }} topic get <topic_name> --cluster-name <cluster_name>
    ```
 
 

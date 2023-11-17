@@ -30,7 +30,7 @@ description: "Следуя данной инструкции, вы сможет�
     1. Выберите [среду выполнения](../../concepts/runtime/index.md). Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Подготовьте код функции:
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs12`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs18`.
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `hello-js.zip`.
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
@@ -53,7 +53,7 @@ description: "Следуя данной инструкции, вы сможет�
     ```
     yc serverless function version create \
       --function-name=my-nodejs-function \
-      --runtime nodejs12 \
+      --runtime nodejs18 \
       --entrypoint index.handler \
       --memory 128m \
       --execution-timeout 5s \
@@ -65,7 +65,7 @@ description: "Следуя данной инструкции, вы сможет�
 
     * `--function-name` — имя функции, версию которой вы хотите создать.
     * `--runtime` — среда выполнения.
-    * `--entrypoint` — точка входа, указывается в формате `<имя файла без расширения>`.`<имя обработчика>`.
+    * `--entrypoint` — точка входа, указывается в формате `<имя_файла_без_расширения>`.`<имя_обработчика>`.
     * `--memory` — объем RAM.
     * `--execution-timeout` — максимальное время выполнения функции до таймаута.
     * `--source-path` — ZIP-архив c кодом функции и необходимыми зависимостями.
@@ -78,7 +78,7 @@ description: "Следуя данной инструкции, вы сможет�
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
     created_at: "2020-08-01T19:09:19.531Z"
-    runtime: nodejs12
+    runtime: nodejs18
     entrypoint: index.handler
     resources:
     memory: "134217728"
@@ -175,6 +175,67 @@ description: "Следуя данной инструкции, вы сможет�
 - API
 
     Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/function_service.md#CreateVersion).
+
+    **Пример запроса**
+
+    Чтобы воспользоваться примерами, установите [cURL](https://curl.haxx.se) и [аутентифицируйтесь](../../api-ref/functions/authentication.md) в API.
+
+    1. [Загрузите](../../../storage/operations/objects/upload.md) в бакет {{ objstorage-name }} ZIP-архив с кодом версии функции `hello-js.zip`.
+    1. Подготовьте файл `body.json` с телом запроса:
+
+        ```json
+        {
+          "functionId": "<идентификатор_функции>",
+          "runtime": "nodejs18",
+          "entrypoint": "index.handler",
+          "resources": {
+            "memory": "134217728"
+          },
+          "executionTimeout": "5s",
+          "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
+          "package": {
+            "bucketName": "<имя_бакета>",
+            "objectName": "hello-js.zip"
+          },
+        }
+        ```
+
+        Где:
+        * `functionId` — идентификатор функции, версию которой вы хотите создать.
+        * `runtime` — [среда выполнения](../../concepts/runtime/index.md#runtimes).
+        * `entrypoint` — точка входа, указывается в формате `<имя_файла_без_расширения>`.`<имя_обработчика>`.
+        * `memory` — объем RAM.
+        * `executionTimeout` — максимальное время выполнения функции до таймаута.
+        * `serviceAccountId` — идентификатор сервисного аккаунта, которому назначена [роль](../../../storage/security/index.md#service-roles), разрешающая чтение данных в бакете.
+        * `bucketName` — имя бакета, в который вы загрузили ZIP-архив c кодом функции и необходимыми зависимостями.
+        * `objectName` — [ключ объекта](../../../storage/concepts/object.md#key) с кодом функции в бакете.
+
+    1. Выполните запрос:
+
+        ```bash
+        export IAM_TOKEN=<IAM-токен>
+        curl -X POST \
+            -H "Authorization: Bearer ${IAM_TOKEN}" \
+            -d "@<путь_к_файлу_body.json>" \
+            https://serverless-functions.{{ api-host }}/functions/v1/versions
+        ```
+        
+        Результат:
+        
+        ```json
+        {
+         "done": false,
+         "metadata": {
+          "@type": "type.googleapis.com/yandex.cloud.serverless.functions.v1.CreateFunctionVersionMetadata",
+          "functionVersionId": "d4e25m0gila4********"
+         },
+         "id": "d4edk0oobcc9********",
+         "description": "Create function version",
+         "createdAt": "2023-10-11T11:22:21.286786431Z",
+         "createdBy": "ajeol2afu1js********",
+         "modifiedAt": "2023-10-11T11:22:21.286786431Z"
+        }
+        ```
 
 
 - {{ yandex-cloud }} Toolkit

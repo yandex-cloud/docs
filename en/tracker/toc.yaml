@@ -83,7 +83,7 @@ items:
             href: hr-process-candidate-queue.md
           - name: Setting up automatic issue creation
             href: hr-process-employment-queue.md
-          - name: Automating recurring actions in issues
+          - name: Automating routine actions in issues
             href: hr-process-probation-queue.md
           - name: Setting up regular reminders
             href: hr-process-vacations-queue.md
@@ -233,6 +233,8 @@ items:
         href: manager/agile-new-issues.md
       - name: Configuring columns
         href: manager/agile-new-columns.md
+      - name: Epics
+        href: manager/epic-new.md
       - name: Tools available on boards with a backlog and sprints
         items:
           - name: Overview
@@ -325,6 +327,8 @@ items:
         href: gantt/project.md
       - name: Gantt chart for a list of projects
         href: gantt/list-of-projects.md
+      - name: Gantt chart for project portfolios
+        href: gantt/portfolio.md
   - name: Automation and templates
     items:
       - name: Overview
@@ -585,6 +589,8 @@ items:
             href: concepts/queues/get-queue.md
           - name: Getting a list of queues
             href: concepts/queues/get-queues.md
+          - name: Creating a queue version
+            href: concepts/queues/create-version.md
           - name: Getting queue versions
             href: concepts/queues/get-versions.md
           - name: Getting required queue fields
@@ -723,32 +729,36 @@ items:
         href: organizations.md
   - name: Releases
     items:
-      - name: August 2023
+      - name: September 2023
         href: changelogs/index.md
+      - name: August 2023
+        href: changelogs/2308.md
       - name: July 2023
         href: changelogs/2307.md
       - name: June 2023
         href: changelogs/2306.md
       - name: May 2023
         href: changelogs/2305.md
-      - name: April 2023
-        href: changelogs/2304.md
-      - name: March 2023
-        href: changelogs/2303.md
-      - name: February 2023
-        href: changelogs/2302.md
-      - name: January 2023
-        href: changelogs/2301.md
-      - name: December 2022
-        href: changelogs/2212.md
-      - name: November 2022
-        href: changelogs/2211.md
-      - name: October 2022
-        href: changelogs/2210.md
-      - name: September 2022
-        href: changelogs/2209.md
-      - name: August 2022
-        href: changelogs/2208.md
+      - name: Archive
+        items:
+          - name: April 2023
+            href: changelogs/2304.md
+          - name: March 2023
+            href: changelogs/2303.md
+          - name: February 2023
+            href: changelogs/2302.md
+          - name: January 2023
+            href: changelogs/2301.md
+          - name: December 2022
+            href: changelogs/2212.md
+          - name: November 2022
+            href: changelogs/2211.md
+          - name: October 2022
+            href: changelogs/2210.md
+          - name: September 2022
+            href: changelogs/2209.md
+          - name: August 2022
+            href: changelogs/2208.md
   - name: Support
     href: troubleshooting.md
 base: en/tracker

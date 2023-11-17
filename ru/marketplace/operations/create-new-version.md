@@ -1,6 +1,6 @@
 # Создание новой версии продукта
 
-На вкладке **Версия продукта** нажмите **Создать версию**. Заполните форму необходимыми сведениями:
+На вкладке **{{ ui-key.yacloud_portal.marketplace_v2.product.tab_versions }}** нажмите **{{ ui-key.yacloud_portal.marketplace_v2.version.version-table_action_create }}**. Заполните форму необходимыми сведениями:
 
 {% note info %}
 

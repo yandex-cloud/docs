@@ -8,7 +8,7 @@ You can get detailed information about each [{{ GL }} instance](../../concepts/i
 
 - Management console
 
-  Go to the folder page and select **{{ mgl-name }}**.
+  Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 
 {% endlist %}
 
@@ -25,7 +25,7 @@ Instance details:
 - Management console
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ GL }} instance is located.
-  1. Select **{{ mgl-name }}**.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Click on the name of the instance.
 
 {% endlist %}
@@ -39,7 +39,7 @@ The list shows operations with instances and resources linked to them.
 - Management console
 
   1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ GL }} instance is located.
-  1. Select **{{ mgl-name }}**.
-  1. Click the name of the desired instance and select the ![image](../../../_assets/mdb/operations.svg) **Operations** tab.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Click the name of the desired instance and select the ![image](../../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 {% endlist %}

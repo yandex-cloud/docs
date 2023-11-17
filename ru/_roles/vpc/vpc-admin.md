@@ -1,0 +1,1 @@
+Роль сетевого администратора `vpc.admin` включает в себя все разрешения, предоставляемые ролями `vpc.privateAdmin`, `vpc.publicAdmin` и `vpc.securityGroups.admin`.

@@ -1,19 +1,19 @@
 # Connecting to a node over SSH
 
-To connect to a [{{ k8s }} cluster](../concepts/index.md#kubernetes-cluster) [node](../concepts/index.md#node-group) over SSH:
-* Add the public key to the meta information when [creating a node group](node-group/node-group-create.md).
+To connect to a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) [node](../concepts/index.md#node-group) over SSH:
+* Add the public key to the meta information when [creating a {{ managed-k8s-name }} node group](node-group/node-group-create.md).
 
   {% note info %}
 
-  SSH connection using a login and password is disabled by default on Linux images that are used on nodes.
+  SSH connection using a login and password is disabled by default on Linux images that are used on {{ managed-k8s-name }} nodes.
 
   {% endnote %}
 
-* [Configure cluster security groups](connect/security-groups.md).
+* [Configure security groups](connect/security-groups.md) for the {{ managed-k8s-name }} cluster.
 
-  % note warning %}
+  {% note warning %}
 
-  Security group settings may prevent connection to the cluster.
+  Security group settings may prevent connection to the {{ managed-k8s-name }} cluster.
 
   {% endnote %}
 
@@ -21,7 +21,7 @@ For more information, see [Connecting to a VM via SSH](../../compute/operations/
 
 ## Create SSH key pairs {#creating-ssh-keys}
 
-Prepare the keys for use with your {{ k8s }} cluster node. To do this:
+Prepare the keys for use with your {{ managed-k8s-name }} cluster node. To do this:
 
 {% list tabs %}
 
@@ -47,9 +47,9 @@ Prepare the keys for use with your {{ k8s }} cluster node. To do this:
      ssh-keygen -t ed25519
      ```
 
-     After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in the `C:\Users\<username>\.ssh\` directory.
+     After you run the command, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in the `C:\Users\<username>\.ssh\` folder.
 
-     The public part of the key will be saved in a file with the name `<key name>.pub`.
+     The public part of the key will be saved to a file named `<key name>.pub`.
 
 - Windows 7/8
 
@@ -81,7 +81,7 @@ The file with the public key is created in the format:
 ssh-ed25519 AAAAB3NzaC***********lP1ww ed25519-key-20190412
 ```
 
-You need to convert the key to `<username>:ssh-ed25519 <key body> <username>` format so that it looks like this:
+You need to convert the key to `<username>:ssh-ed25519 <key_body> <username>` format so that it looks like this:
 
 ```text
 username:ssh-ed25519 AAAAB3NzaC***********lP1ww username
@@ -96,12 +96,12 @@ username2:ssh-ed25519 ONEMOREkey***********avEHw username2
 
 ## Create a node group and add the public key {#node-create}
 
-To create a node group with the necessary parameters, use the following command:
+To create a {{ managed-k8s-name }} node group with the required parameters, use the following command:
 
 ```bash
 yc managed-kubernetes node-group create \
   --name <node_group_name> \
-  --cluster-name <{{ k8s }}_cluster_name> \
+  --cluster-name <cluster_name> \
   --fixed-size <number_of_nodes_in_the_group> \
   --network-interface security-group-ids=[<list_of_security_groups>],subnets=<subnet_name>,ipv4-address=nat \
   --metadata-from-file ssh-keys=<public_key_file_name>
@@ -111,7 +111,7 @@ yc managed-kubernetes node-group create \
 
 ## Update node group keys {#node-add-metadata}
 
-To update the SSH keys of a node group, use the following command:
+To update the SSH keys of a {{ managed-k8s-name }} node group, use the following command:
 
 ```bash
 yc managed-kubernetes node-group add-metadata \
@@ -121,38 +121,42 @@ yc managed-kubernetes node-group add-metadata \
 
 ## Get the public IP address of the node {#node-public-ip}
 
-To connect, specify the node [public IP address](../../vpc/concepts/address.md#public-addresses). You can find it using one of the following methods.
+To connect, specify the {{ managed-k8s-name }} node [public IP address](../../vpc/concepts/address.md#public-addresses). You can find it using one of the following methods.
 
 {% list tabs %}
 
 - kubectl CLI
 
-  Use the following command for kubectl. The public IP address is listed in the `EXTERNAL-IP` column.
+  1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-  ```bash
-  kubectl get nodes -o wide
-  ```
+  1. Run this command:
 
-  Result:
+     ```bash
+     kubectl get nodes -o wide
+     ```
 
-  ```bash
-  NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
-  cl17i6943n92sb98jifg-itif  Ready   <none>  31m  v1.13.3  10.0.0.27    84.201.145.251  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
-  cl17i6943n92sb98jifg-ovah  Ready   <none>  31m  v1.13.3  10.0.0.22    84.201.149.184  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
-  ```
+     Result:
+
+     ```bash
+     NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
+     cl17i6943n92sb98jifg-itif  Ready   <none>  31m  v1.13.3  10.0.0.27    84.201.145.251  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
+     cl17i6943n92sb98jifg-ovah  Ready   <none>  31m  v1.13.3  10.0.0.22    84.201.149.184  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
+     ```
+
+     The public IP address is listed in the `EXTERNAL-IP` column.
 
 - Management console
 
-  1. Open the **{{ compute-name }}** section in the folder where you created your {{ k8s }} cluster.
+  1. Open the **{{ compute-name }}** section in the folder where you created your {{ managed-k8s-name }} cluster.
   1. On the left-hand panel, select ![image](../../_assets/managed-kubernetes/group_cc.svg) **Instance groups**.
-  1. Click on the instance group with the name that matches the node group ID.
+  1. Click the instance group with the name that matches the {{ managed-k8s-name }} node group ID.
   1. In the window that opens, go to the **List of VMs** tab.
   1. Click the VM that you want to find the public address for.
   1. The public IP address is shown in the **Network** section in **Public IPv4**.
 
 - CLI
 
-  1. Find the ID of the instance group that corresponds to the node group.
+  1. Find out the ID of the instance group that corresponds to the {{ managed-k8s-name }} node group.
 
      This parameter is shown in the `INSTANCE GROUP ID` column.
 
@@ -170,9 +174,9 @@ To connect, specify the node [public IP address](../../vpc/concepts/address.md#p
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
      ```
 
-  1. View the list of nodes that belong to this group.
+  1. View the list of {{ managed-k8s-name }} nodes that belong to this group.
 
-     The public IP address of the node is shown in the `IP` column after the `~` character.
+     The public IP address of the {{ managed-k8s-name }} node is shown in the `IP` column after `~`.
 
      ```bash
      yc compute instance-group list-instances cl17i6943n92sb98jifg
@@ -193,7 +197,7 @@ To connect, specify the node [public IP address](../../vpc/concepts/address.md#p
 
 ## Connect to the node {#node-connect}
 
-You can connect to a node over SSH once it is started (with the `RUNNING` status). You can use the `ssh` utility in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
+You can connect to a {{ managed-k8s-name }} node over SSH once it starts (the status is `RUNNING`). You can use the `ssh` utility in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
 {% list tabs %}
 
@@ -202,13 +206,13 @@ You can connect to a node over SSH once it is started (with the `RUNNING` status
   In the terminal, run the following command:
 
   ```bash
-  ssh <username>@<public IP address of the node>
+  ssh <username>@<public_IP_address_of_node>
   ```
 
-  If this is the first time you connect to the node, you might see a warning about an unknown host:
+  When connecting to the {{ managed-k8s-name }} node for the first time, you might see an unknown host warning:
 
   ```bash
-  The authenticity of host '130.193.40.101 (130.193.40.101)' can't be established.
+  The authenticity of host '130.193.40.101 (130.193.40.101)' cannot be established.
   ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHkGgpLELJ8.
   Are you sure you want to continue connecting (yes/no)?
   ```
@@ -237,7 +241,7 @@ You can connect to a node over SSH once it is started (with the `RUNNING` status
 
         ![ssh_save_session](../../_assets/compute/ssh-putty/ssh_save_session.png)
 
-     1. Click **Open**. If this is the first time you connect to the node, you might see a warning about an unknown host:
+     1. Click **Open**. When connecting to the {{ managed-k8s-name }} node for the first time, you might see an unknown host warning:
 
         ![ssh_unknown_host_warning](../../_assets/compute/ssh-putty/ssh_unknown_host_warning.png)
 

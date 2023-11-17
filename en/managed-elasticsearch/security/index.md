@@ -20,7 +20,7 @@ To use the service, log in to the management console with a [Yandex account](../
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign roles to {#resources}
+## Which resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -33,8 +33,6 @@ The chart below shows which roles are available in the service and how they inhe
 ![image](../../_assets/mdb/roles-managed-elasticsearch.svg)
 
 ### Service roles {#service-roles}
-
-{% include [mes-auditor](../../_includes/iam/roles/mes-auditor.md) %}
 
 {% include [mes-viewer](../../_includes/iam/roles/mes-viewer.md) %}
 

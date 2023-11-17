@@ -8,7 +8,7 @@
 
 {% note info %}
 
-Получить идентификатор или почту может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. Как назначить роль пользователю, читайте в разделе [Роли](../security/index.md#admin).
+Получить идентификатор или почту может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. О том, как назначить пользователю роль, читайте в разделе [Роли](../security/index.md#admin).
 
 {% endnote %}
 

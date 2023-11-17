@@ -123,6 +123,6 @@ To edit the task list, in its upper-right corner, click ![](../../_assets/wiki/s
 
 ## Mermaid {#mermaid}
 
-You can add a diagram created with [Mermaid](http://mermaid.js.org/) to your page. To do this, press `/` and in the pop-up window, select ![](../../_assets/wiki/svg/mermaid.svg) **Mermaid**.
+You can add a diagram created with [Mermaid](http://mermaid.js.org/) to your page. To do this, click `/` and select ![](../../_assets/wiki/svg/mermaid.svg) **Mermaid** in the pop-up window.
 
 To edit the diagram, use [Mermaid syntax](http://mermaid.js.org/config/Tutorials.html).

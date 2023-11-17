@@ -29,12 +29,20 @@ items:
             href: operations/applications/marketplace.md
           - name: Installing Argo CD
             href: operations/applications/argo-cd.md
+          - name: Installing Chaos Mesh
+            href: operations/applications/chaos-mesh.md
+          - name: >-
+              Installing cert-manager with the {{ dns-name }} ACME webhook
+              plugin
+            href: operations/applications/cert-manager-cloud-dns.md
           - name: Installing Container Storage Interface for S3
             href: operations/applications/csi-s3.md
           - name: Installing Crossplane
             href: operations/applications/crossplane.md
           - name: Installing External Secrets Operator
             href: operations/applications/external-secrets-operator.md
+          - name: Installing ExternalDNS with the {{ dns-name }} plugin
+            href: operations/applications/externaldns.md
           - name: Installing Falco
             href: operations/applications/falco.md
           - name: Installing Filebeat
@@ -51,6 +59,8 @@ items:
             href: operations/applications/hashicorp-vault.md
           - name: Installing the {{ alb-name }} Ingress controller
             href: operations/applications/alb-ingress-controller.md
+          - name: Installing Istio
+            href: operations/applications/istio.md
           - name: Installing Jaeger
             href: operations/applications/jaeger.md
           - name: Installing Kyverno & Kyverno Policies
@@ -65,6 +75,8 @@ items:
             href: operations/applications/policy-reporter.md
           - name: Installing Thumbor
             href: operations/applications/thumbor.md
+          - name: Installing Velero
+            href: operations/applications/velero-yc-csi.md
       - name: Network scenarios
         items:
           - name: Granting access to an app running in a {{ k8s }} cluster
@@ -130,52 +142,66 @@ items:
         href: tutorials/index.md
       - name: Creating a new {{ k8s }} project in {{ yandex-cloud }}
         href: tutorials/new-kubernetes-project.md
-      - name: Integration with {{ container-registry-name }}
-        href: tutorials/container-registry.md
-      - name: Signing and verifying {{ container-registry-name }} Docker images
-        href: tutorials/sign-cr-with-cosign.md
-      - name: >-
-          Scanning {{ container-registry-name }} for vulnerabilities during
-          continuous deployment of applications using {{ GL }}
-        href: tutorials/cr-scanner-with-k8s-and-gitlab.md
-      - name: Running workloads with GPUs
+      - name: Running workloads using GPUs
         href: tutorials/running-pod-gpu.md
-      - name: Installing an NGINX Ingress controller with Let's Encrypt®
-        href: tutorials/ingress-cert-manager.md
-      - name: >-
-          Installing an NGINX Ingress controller with a certificate from {{
-          certificate-manager-name }}
-        href: tutorials/nginx-ingress-certificate-manager.md
-      - name: Backups to {{ objstorage-name }}
-        href: tutorials/backup.md
-      - name: Horizontal application scaling in a cluster
-        href: tutorials/autoscaling.md
-      - name: Vertical application scaling in a cluster
-        href: tutorials/vpa-autoscaling.md
-      - name: Deploying and load testing a gRPC service with scaling
-        href: tutorials/load-testing-grpc-autoscaling.md
-      - name: Working with snapshots
-        href: tutorials/pvc-snapshot-restore.md
-      - name: Integrating into a corporate DNS zone
-        href: tutorials/custom-dns.md
-      - name: Automatic DNS scaling by cluster size
-        href: tutorials/dns-autoscaler.md
-      - name: Setting up local DNS caching
-        href: tutorials/node-local-dns.md
-      - name: Checking DNS Challenge for Let's Encrypt® certificates
-        href: tutorials/dnschallenge.md
-      - name: >-
-          Monitoring a cluster using {{ prometheus-name }} and {{ grafana-name
-          }}
-        href: tutorials/prometheus-grafana-monitoring.md
-      - name: Continuous deployment of containerized applications using {{ GL }}
-        href: tutorials/gitlab-containers.md
-      - name: Updating the Metrics Server parameters
-        href: tutorials/metrics-server.md
       - name: Using node groups with GPUs and no pre-installed drivers
         href: tutorials/driverless-gpu.md
-      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
-        href: tutorials/ci-cd-serverless.md
+      - name: Setting up Time-Slicing GPUs
+        href: tutorials/time-slicing-gpu.md
+      - name: Setting up and testing scaling
+        items:
+          - name: Horizontal application scaling in a cluster
+            href: tutorials/autoscaling.md
+          - name: Vertical application scaling in a cluster
+            href: tutorials/vpa-autoscaling.md
+          - name: Updating the Metrics Server parameters
+            href: tutorials/metrics-server.md
+          - name: Deploying and load testing a gRPC service with scaling
+            href: tutorials/load-testing-grpc-autoscaling.md
+      - name: Installing NGINX
+        items:
+          - name: Installing an NGINX Ingress controller with Let's Encrypt®
+            href: tutorials/ingress-cert-manager.md
+          - name: >-
+              Installing an NGINX Ingress controller with a certificate from {{
+              certificate-manager-name }}
+            href: tutorials/nginx-ingress-certificate-manager.md
+      - name: Using {{ container-registry-name }}
+        items:
+          - name: Integration with {{ container-registry-name }}
+            href: tutorials/container-registry.md
+          - name: Signing and verifying {{ container-registry-name }} Docker images
+            href: tutorials/sign-cr-with-cosign.md
+      - name: Continuous integration with {{ GL }}
+        items:
+          - name: Continuous deployment of containerized applications using {{ GL }}
+            href: tutorials/gitlab-containers.md
+          - name: >-
+              Scanning {{ container-registry-name }} for vulnerabilities during
+              continuous deployment of applications using {{ GL }}
+            href: tutorials/cr-scanner-with-k8s-and-gitlab.md
+      - name: Working with DNS
+        items:
+          - name: Integrating into a corporate DNS zone
+            href: tutorials/custom-dns.md
+          - name: Automatic DNS scaling by cluster size
+            href: tutorials/dns-autoscaler.md
+          - name: Setting up NodeLocal DNS Cache
+            href: tutorials/node-local-dns.md
+          - name: Checking DNS Challenge for Let's Encrypt® certificates
+            href: tutorials/dnschallenge.md
+      - name: Backups
+        items:
+          - name: Backups to {{ objstorage-name }}
+            href: tutorials/backup.md
+          - name: Working with snapshots
+            href: tutorials/pvc-snapshot-restore.md
+      - name: Monitoring
+        items:
+          - name: >-
+              Monitoring a cluster using {{ prometheus-name }} and {{
+              grafana-name }}
+            href: tutorials/prometheus-grafana-monitoring.md
       - name: Using {{ marketplace-name }} products
         items:
           - name: Integration with Argo CD
@@ -198,6 +224,8 @@ items:
             href: tutorials/marketplace/kyverno.md
           - name: Using {{ MP }} to stream metrics
             href: tutorials/marketplace/metrics-provider.md
+          - name: Editing website images using Thumbor
+            href: tutorials/marketplace/thumbor.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -224,12 +252,14 @@ items:
             href: concepts/node-group/node-group-gpu.md
       - name: Network in {{ managed-k8s-name }}
         href: concepts/network.md
-      - name: External cluster nodes
-        href: concepts/external-nodes.md
       - name: Network settings and cluster policies
         href: concepts/network-policy.md
       - name: Automatic scaling
         href: concepts/autoscale.md
+      - name: Audit policy
+        href: concepts/audit-policy.md
+      - name: External cluster nodes
+        href: concepts/external-nodes.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Recommendations for using {{ managed-k8s-name }}
@@ -320,6 +350,10 @@ items:
         href: qa/resources.md
       - name: Logs
         href: qa/logs.md
+      - name: Troubleshooting
+        href: qa/troubleshooting.md
       - name: All questions on one page
         href: qa/all.md
+  - name: Releases
+    href: changelog.md
 base: en/managed-kubernetes

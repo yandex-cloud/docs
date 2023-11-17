@@ -1,13 +1,15 @@
 # Source code formatting
 
+{% include [static-markdown-alert](../../_includes/wiki/static-markdown-alert.md) %}
+
 * To highlight a source code snippet, such as a function name, in the text, wrap it in back quotes ``` ` ```.
 
 * To format multiple source code lines, paste three back quotes ` ``` ` in the row preceding the code block and the row following the code block.
 
-Example:
+For example:
 
 * ```
-  Function `exit()` 
+  Function `exit()`
   ```
 
    {% cut "See the result" %}

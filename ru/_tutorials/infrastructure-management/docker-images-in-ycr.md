@@ -160,7 +160,7 @@
 
    | **Переменная**        | **Ее значение**                    |
    | --------------------- | ---------------------------------- |
-   | `CI_REGISTRY`         | `cr.yandex/<идентификатор реестра>`. Укажите идентификатор созданного ранее реестра {{ container-registry-full-name }}. |
+   | `CI_REGISTRY`         | `cr.yandex/<идентификатор_реестра>`. Укажите идентификатор созданного ранее реестра {{ container-registry-full-name }}. |
    | `CI_REGISTRY_KEY`     | Содержимое файла `key.json`.       |
 
    Для добавления переменной:
@@ -251,7 +251,7 @@
       - build
       - test
    
-   <блок build, добавленный ранее в файл>
+   <блок_build_добавленный_ранее_в_файл>
 
    container_scanning_free_yc:
       stage: test
@@ -265,7 +265,7 @@
             - gl-container-scanning-report-yc.json
       variables:
          # Укажите идентификатор созданного ранее реестра.
-         CI_REGISTRY_ID: "<идентификатор реестра>"
+         CI_REGISTRY_ID: "<идентификатор_реестра>"
       script:
          - export CI_COMMIT_SHORT_SHA=${CI_COMMIT_SHORT_SHA}
          # Установка Yandex Cloud CLI.

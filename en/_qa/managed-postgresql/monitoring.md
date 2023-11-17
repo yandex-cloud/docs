@@ -11,7 +11,7 @@ You can track your disk space:
 Logs are stored on different disks than data and rotated automatically. You can view log information using the [CLI](../../cli/) command below:
 
 ```
-yc managed-postgresql cluster list-logs <cluster ID>
+yc managed-postgresql cluster list-logs <cluster_ID>
 ```
 
 Cluster log storage is free of charge.

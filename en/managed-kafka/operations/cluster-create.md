@@ -1,11 +1,11 @@
 # Creating an {{ KF }} cluster
 
-A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](../concepts/brokers.md) where [topics and their partitions](../concepts/topics.md) are located. [Producers and consumers](../concepts/producers-consumers.md) can work with these topics by connecting to cluster hosts.
+A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](../concepts/brokers.md) where [topics and their partitions](../concepts/topics.md) are located. [Producers and consumers](../concepts/producers-consumers.md) can work with these topics by connecting to {{ mkf-name }} cluster hosts.
 
 {% note info %}
 
 
-* The number of broker hosts you can create along with a {{ KF }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* The number of broker hosts you can create along with a {{ mkf-name }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 
@@ -25,17 +25,11 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
-      1. Enter a name and description of the {{ mkf-name }} cluster. The cluster name must be unique within the folder.
+      1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
       1. Select the environment where you want to create the {{ mkf-name }} cluster (you cannot change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including {{ mkf-name }} itself. The prestable environment is updated first with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and also covered by the SLA but it is the first to receive new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
       1. Select the {{ KF }} version.
-      1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
-         1. Enable the **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** setting.
-         1. After creating your {{ mkf-name }} cluster, [create an admin user](cluster-accounts.md#create-user).
-
-         {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
-
       1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **{{ ui-key.yacloud.kafka.field_schema-registry }}** setting.
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
@@ -52,7 +46,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-         You cannot change the disk type for an {{ mkf-name }} cluster once you create it.
+         You cannot change the disk type for a {{ mkf-name }} cluster once you create it.
       * Select the storage size to use for data.
 
    
@@ -68,7 +62,6 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
          {% endnote %}
 
       1. Select [security groups](../../vpc/concepts/security-groups.md) for the {{ mkf-name }} cluster's network traffic.
-
       1. To access broker hosts from the internet, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
 
 
@@ -76,9 +69,12 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       1. Specify the number of {{ KF }} broker hosts to be located in each of the selected availability zones.
 
          When choosing the number of hosts, keep in mind that:
-
          * Replication is possible if there are at least two hosts per {{ mkf-name }} cluster.
-                     * If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, you need to add at least three hosts to the {{ mkf-name }} cluster.
+
+         
+         * If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, you need to add at least three hosts to the {{ mkf-name }} cluster.
+
+
          * To make your {{ mkf-name }} cluster fault-tolerant, you will need to meet [certain conditions](../concepts/index.md#fault-tolerance).
          * Adding more than one host to the {{ mkf-name }} cluster automatically adds three {{ ZK }} hosts.
 
@@ -89,8 +85,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
 
    1. If you specify several broker hosts, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
-
-   1. Configure additional cluster settings, if required:
+   1. Configure additional {{ mkf-name }} cluster settings, if required:
 
       {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
 
@@ -115,20 +110,28 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       
       ```bash
       {{ yc-mdb-kf }} cluster create \
-        --name <cluster name> \
-        --environment <environment: prestable or production> \
-        --version <{{ KF }} version: {{ versions.cli.str }}> \
-        --network-name <network name> \
-        --subnet-ids <subnet IDs> \
-        --brokers-count <number of brokers per zone> \
-        --resource-preset <host class> \
-        --disk-type <disk type> \
-        --disk-size <storage size, GB> \
-        --assign-public-ip <public access> \
-        --security-group-ids <list of security group IDs> \
-        --deletion-protection=<cluster deletion protection: true or false>
+        --name <cluster_name> \
+        --environment <environment> \
+        --version <version> \
+        --network-name <network_name> \
+        --subnet-ids <subnet_IDs> \
+        --brokers-count <number_of_brokers_per_zone> \
+        --resource-preset <host_class> \
+        --disk-type <disk_type> \
+        --disk-size <storage_size_GB> \
+        --assign-public-ip <public_access> \
+        --security-group-ids <list_of_security_group_IDs> \
+        --deletion-protection=<deletion_protection>
       ```
 
+
+      Where:
+
+      * `--environment`: Cluster environment, `prestable` or `production`.
+      * `--version`: {{ KF }} version.  Acceptable values: {{ versions.cli.str }}. 
+      * `--disk-type`: Storage type, `local-ssd` or `local-hdd`.
+
+      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
       {% note tip %}
 
@@ -143,24 +146,14 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       ```bash
       {{ yc-mdb-kf }} cluster create \
         ...
-        --maintenance-window type=<type>[,day=<day of week>,hour=<hour>]
+        --maintenance-window type=<maintenance_type>,`
+                            `day=<day_of_week>,`
+                            `hour=<hour_of_day> \
       ```
 
-      Where:
+      Where `type` is the maintenance type:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
-
-   1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
-      1. When creating a {{ mkf-name }} cluster, set the `--unmanaged-topics` parameter to `true`:
-
-         ```bash
-         {{ yc-mdb-kf }} cluster create \
-           ...
-           --unmanaged-topics true
-         ```
-
-         You cannot edit this setting after you create a {{ mkf-name }} cluster.
-      1. After creating a cluster, [create an admin user](./cluster-accounts.md#create-user).
 
    
    1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
@@ -170,7 +163,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
       ```bash
       {{ yc-mdb-kf }} cluster create \
         ...
-        --host-group-ids <IDs of dedicated host groups>
+        --host-group-ids <IDs_of_groups_of_dedicated_hosts>
       ```
 
       {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
@@ -180,11 +173,9 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   
-   If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-
-   To create a cluster:
+   To create a {{ mkf-name }} cluster:
    1. In the configuration file, describe the parameters of the resources you want to create:
       * {{ mkf-name }} cluster: Description of a cluster and its hosts. You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
 
@@ -192,51 +183,61 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       
       
       ```hcl
-      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-        environment         = "<environment: PRESTABLE or PRODUCTION>"
-        name                = "<cluster name>"
-        network_id          = "<network ID>"
-        subnet_ids          = ["<list of subnet IDs>"]
-        security_group_ids  = ["<list of cluster security group IDs>"]
-        deletion_protection = <cluster deletion protection: true or false>
-      
+      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
+        environment         = "<environment>"
+        name                = "<cluster_name>"
+        network_id          = "<network_ID>"
+        subnet_ids          = ["<list_of_subnet_IDs>"]
+        security_group_ids  = ["<list_of_cluster_security_group_IDs>"]
+        deletion_protection = <deletion_protection>
+
         config {
-          assign_public_ip = "<cluster public access: true or false>"
-          brokers_count    = <number of brokers>
-          version          = "<{{ KF }} version: {{ versions.tf.str }}>"
-          schema_registry  = "<data schema management: true or false>"
+          assign_public_ip = "<public_access>"
+          brokers_count    = <number_of_brokers>
+          version          = "<version>"
+          schema_registry  = "<data_schema_management>"
           kafka {
             resources {
-              disk_size          = <storage size, GB>
-              disk_type_id       = "<disk type>"
-              resource_preset_id = "<host class>"
+              disk_size          = <storage_size_GB>
+              disk_type_id       = "<disk_type>"
+              resource_preset_id = "<host_class>"
             }
             kafka_config {}
           }
-      
+
           zones = [
-            "<availability zones>"
+            "<availability_zones>"
           ]
         }
       }
-      
-      resource "yandex_vpc_network" "<network name>" {
-        name = "<network name>"
+
+      resource "yandex_vpc_network" "<network_name>" {
+        name = "<network_name>"
       }
-      
-      resource "yandex_vpc_subnet" "<subnet name>" {
-        name           = "<subnet name>"
-        zone           = "<availability zone>"
-        network_id     = "<network ID>"
+
+      resource "yandex_vpc_subnet" "<subnet_name>" {
+        name           = "<subnet_name>"
+        zone           = "<availability_zone>"
+        network_id     = "<network_ID>"
         v4_cidr_blocks = ["<range>"]
       }
       ```
 
+
+
+
+      Where:
+
+      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
+      * `deletion_protection`: Cluster deletion protection, `true` or `false`
+      * `assign_public_ip`: Public access to the cluster, `true` or `false`.
+      * `version`: {{ KF }} version, {{ versions.tf.str }}.
+      * `schema_registry`: Data schema management, `true` or `false`.
 
 
 
@@ -252,7 +253,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all required resources will be created in the specified folder, and the [FQDNs of the cluster hosts](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder, and the [FQDNs of the {{ mkf-name }} cluster hosts](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
@@ -260,7 +261,7 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
 - API
 
-   To create a cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
+   To create a {{ mkf-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/cluster_service.md#Create) gRPC API call and provide the following in the request:
    * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ mkf-name }} cluster should be placed, in the `folderId` parameter.
    * {{ mkf-name }} cluster name in the `name` parameter.
 
@@ -269,13 +270,9 @@ Prior to creating a {{ mkf-name }} cluster, calculate the [minimum storage size]
 
 
    * Settings for the [maintenance window](../concepts/maintenance.md) (including those for disabled {{ mkf-name }} clusters) in the `maintenanceWindow` parameter.
-   * Cluster deletion protection settings in the `deletionProtection` parameter.
+   * {{ mkf-name }} cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
-
-   To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
-   1. Set the `unmanagedTopics` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
-   1. After creating your {{ mkf-name }} cluster, [create an admin user](./cluster-accounts.md#create-user).
 
    To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You cannot edit this setting after you create a {{ mkf-name }} cluster.
 
@@ -305,7 +302,7 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
 
 - CLI
 
-   Create a {{ mkf-name }} cluster with the following test configuration:
+   Create a {{ mkf-name }} cluster with the following test characteristics:
 
    
    * Name: `mykf`
@@ -318,7 +315,7 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
    * Number of brokers: 1
    * Network SSD storage (`{{ disk-type-example }}`): 10 GB
    * Public access: Allowed
-   * Protection against accidental cluster deletion: Enabled
+   * Protection against accidental {{ mkf-name }} cluster deletion: Enabled
 
 
    Run the following command:
@@ -344,7 +341,7 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
 
 - {{ TF }}
 
-   Create a {{ mkf-name }} cluster with test characteristics:
+   Create a {{ mkf-name }} cluster with the following test characteristics:
    * Cloud ID: `{{ tf-cloud-id }}`
    * Folder ID: `{{ tf-folder-id }}`
    * Name: `mykf`
@@ -353,16 +350,16 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
    * Network and subnet: `mynet`, `mysubnet`
 
    
-   * Security group: `mykf-sg` (allow connection to the cluster from the Internet through port `9091`)
+   * Security group: `mykf-sg` (allow ingress connections to the {{ mkf-name }} cluster on port `9091`)
 
 
    * Number of `{{ host-class }}` hosts in the `{{ region-id }}-a` availability zone: 1
    * Number of brokers: 1
    * Network SSD storage (`{{ disk-type-example }}`): 10 GB
    * Public access: Allowed
-   * Protection against accidental cluster deletion: Enabled
+   * Protection against accidental {{ mkf-name }} cluster deletion: Enabled
 
-   Here is how a configuration file for an {{ mkf-name }} cluster may look like:
+   The configuration file for the {{ mkf-name }} cluster is as follows:
 
    
    
@@ -374,7 +371,7 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
      subnet_ids          = yandex_vpc_subnet.mysubnet.id
      security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
      deletion_protection = true
-   
+
      config {
        assign_public_ip = true
        brokers_count    = 1
@@ -387,28 +384,28 @@ If you specified security group IDs when creating a {{ mkf-name }} cluster, you 
          }
          kafka_config {}
        }
-   
+
        zones = [
          "{{ region-id }}-a"
        ]
      }
    }
-   
+
    resource "yandex_vpc_network" "mynet" {
      name = "mynet"
    }
-   
+
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
      zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
-   
+
    resource "yandex_vpc_security_group" "mykf-sg" {
      name       = "mykf-sg"
      network_id = yandex_vpc_network.mynet.id
-   
+
      ingress {
        description    = "Kafka"
        port           = 9091

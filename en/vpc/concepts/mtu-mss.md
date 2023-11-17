@@ -7,7 +7,7 @@ keywords:
 
 # MTU and TCP MSS
 
-The maximum transaction unit ([MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit)) is the maximum size of a data packet, in bytes, that can be communicated over a [network](network.md#network) segment.
+The maximum transmission unit ([MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit)) is the maximum size of a data packet, in bytes, that can be communicated over a [network](network.md#network) segment.
 
 Generally, MTU is 1500 bytes; however, MTUs may vary in different networks the packets are transmitted through. For example, when using [{{ ddos-protection-full-name }}](../ddos-protection/index.md) or VPN tunnels, the MTU value should be lower to avoid losing packets. Packet loss due to MTU issues may look like an unresponsive TCP session, such as during a TLS handshake or SSH access.
 

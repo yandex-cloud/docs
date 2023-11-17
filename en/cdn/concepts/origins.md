@@ -27,6 +27,8 @@ To make sure your website is displayed correctly, e.g., so that when entering `h
 
 ## Origin response time {#timeout}
 
+{% include [ipv4-note](../../_includes/cdn/ipv4-note.md) %}
+
 An origin must respond to the CDN server's request within 5 seconds. If no response was received during this time, the CDN server responds to the client with the `504 Gateway Timeout` HTTP status code.
 
 To reduce both the load of CDN servers on origins and the response time, you can enable [origin shielding](origins-shielding.md) for a resource.

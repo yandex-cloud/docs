@@ -29,6 +29,7 @@ A set of methods for managing ClickHouse clusters.
 | [AddHosts](#AddHosts) | Creates new hosts for a cluster. |
 | [UpdateHosts](#UpdateHosts) | Updates the specified hosts. |
 | [DeleteHosts](#DeleteHosts) | Deletes the specified hosts for a cluster. |
+| [RestartHosts](#RestartHosts) |  |
 | [GetShard](#GetShard) | Returns the specified shard. |
 | [ListShards](#ListShards) | Retrieves a list of shards that belong to the specified cluster. |
 | [AddShard](#AddShard) | Creates a new shard in the specified cluster. |
@@ -6986,6 +6987,48 @@ cluster_id | **string**<br>ID of the ClickHouse cluster to remove hosts from.
 host_names[] | **string**<br>Names of hosts that are being deleted. 
 
 
+## RestartHosts {#RestartHosts}
+
+
+
+**rpc RestartHosts ([RestartClusterHostsRequest](#RestartClusterHostsRequest)) returns ([operation.Operation](#Operation14))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestartHostsMetadata](#RestartHostsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### RestartClusterHostsRequest {#RestartClusterHostsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the Clickhouse cluster. The maximum string length in characters is 50.
+host_names[] | **string**<br>Required. Name of the hosts to restart. The number of elements must be greater than 0. The maximum string length in characters for each value is 353.
+
+
+### Operation {#Operation14}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestartHostsMetadata](#RestartHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### RestartHostsMetadata {#RestartHostsMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster. 
+host_names[] | **string**<br>Required. The name of restarting host. 
+
+
 ## GetShard {#GetShard}
 
 Returns the specified shard.
@@ -7735,7 +7778,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 
 Creates a new shard in the specified cluster.
 
-**rpc AddShard ([AddClusterShardRequest](#AddClusterShardRequest)) returns ([operation.Operation](#Operation14))**
+**rpc AddShard ([AddClusterShardRequest](#AddClusterShardRequest)) returns ([operation.Operation](#Operation15))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddClusterShardMetadata](#AddClusterShardMetadata)<br>
@@ -8099,7 +8142,7 @@ assign_public_ip | **bool**<br>Whether the host should get a public IP address o
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation14}
+### Operation {#Operation15}
 
 Field | Description
 --- | ---
@@ -8472,7 +8515,7 @@ precision | **int64**<br>Precision of determining the age of the data, in second
 
 Modifies the specified shard.
 
-**rpc UpdateShard ([UpdateClusterShardRequest](#UpdateClusterShardRequest)) returns ([operation.Operation](#Operation15))**
+**rpc UpdateShard ([UpdateClusterShardRequest](#UpdateClusterShardRequest)) returns ([operation.Operation](#Operation16))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterShardMetadata](#UpdateClusterShardMetadata)<br>
@@ -8824,7 +8867,7 @@ disk_size | **int64**<br>Volume of the storage available to a host, in bytes.
 disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
-### Operation {#Operation15}
+### Operation {#Operation16}
 
 Field | Description
 --- | ---
@@ -9197,7 +9240,7 @@ precision | **int64**<br>Precision of determining the age of the data, in second
 
 Deletes the specified shard.
 
-**rpc DeleteShard ([DeleteClusterShardRequest](#DeleteClusterShardRequest)) returns ([operation.Operation](#Operation16))**
+**rpc DeleteShard ([DeleteClusterShardRequest](#DeleteClusterShardRequest)) returns ([operation.Operation](#Operation17))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)<br>
@@ -9211,7 +9254,7 @@ cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard belo
 shard_name | **string**<br>Required. Name of the shard to be deleted. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation16}
+### Operation {#Operation17}
 
 Field | Description
 --- | ---
@@ -9296,7 +9339,7 @@ shard_names[] | **string**<br>List of shard names contained in the shard group.
 
 Creates a new shard group in the specified cluster.
 
-**rpc CreateShardGroup ([CreateClusterShardGroupRequest](#CreateClusterShardGroupRequest)) returns ([operation.Operation](#Operation17))**
+**rpc CreateShardGroup ([CreateClusterShardGroupRequest](#CreateClusterShardGroupRequest)) returns ([operation.Operation](#Operation18))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterShardGroupMetadata](#CreateClusterShardGroupMetadata)<br>
@@ -9312,7 +9355,7 @@ description | **string**<br>Description of the new shard group. 0-256 characters
 shard_names[] | **string**<br>List of shard names that should be put into the new group. <br>To get the list, make a [ClusterService.ListShardGroups](#ListShardGroups) request. 
 
 
-### Operation {#Operation17}
+### Operation {#Operation18}
 
 Field | Description
 --- | ---
@@ -9350,7 +9393,7 @@ shard_names[] | **string**<br>List of shard names contained in the shard group.
 
 Updates the specified shard group.
 
-**rpc UpdateShardGroup ([UpdateClusterShardGroupRequest](#UpdateClusterShardGroupRequest)) returns ([operation.Operation](#Operation18))**
+**rpc UpdateShardGroup ([UpdateClusterShardGroupRequest](#UpdateClusterShardGroupRequest)) returns ([operation.Operation](#Operation19))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterShardGroupMetadata](#UpdateClusterShardGroupMetadata)<br>
@@ -9367,7 +9410,7 @@ description | **string**<br>Updated description of the shard group. 0-256 charac
 shard_names[] | **string**<br>Updated list of shard names that belongs to the shard group. 
 
 
-### Operation {#Operation18}
+### Operation {#Operation19}
 
 Field | Description
 --- | ---
@@ -9405,7 +9448,7 @@ shard_names[] | **string**<br>List of shard names contained in the shard group.
 
 Deletes the specified shard group.
 
-**rpc DeleteShardGroup ([DeleteClusterShardGroupRequest](#DeleteClusterShardGroupRequest)) returns ([operation.Operation](#Operation19))**
+**rpc DeleteShardGroup ([DeleteClusterShardGroupRequest](#DeleteClusterShardGroupRequest)) returns ([operation.Operation](#Operation20))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardGroupMetadata](#DeleteClusterShardGroupMetadata)<br>
@@ -9419,7 +9462,7 @@ cluster_id | **string**<br>Required. ID of the ClickHouse cluster that contains 
 shard_group_name | **string**<br>Required. Name of the shard group that should be deleted. <br>To get the name, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation19}
+### Operation {#Operation20}
 
 Field | Description
 --- | ---
@@ -9470,7 +9513,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Creates an external dictionary for the specified ClickHouse cluster.
 
-**rpc CreateExternalDictionary ([CreateClusterExternalDictionaryRequest](#CreateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation20))**
+**rpc CreateExternalDictionary ([CreateClusterExternalDictionaryRequest](#CreateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation21))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterExternalDictionaryMetadata](#CreateClusterExternalDictionaryMetadata)<br>
@@ -9484,7 +9527,7 @@ cluster_id | **string**<br>Required. ID of the ClickHouse cluster to create the 
 external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig20)**<br>Configuration of the external dictionary. 
 
 
-### Operation {#Operation20}
+### Operation {#Operation21}
 
 Field | Description
 --- | ---
@@ -9954,7 +9997,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Updates an external dictionary for the specified ClickHouse cluster.
 
-**rpc UpdateExternalDictionary ([UpdateClusterExternalDictionaryRequest](#UpdateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation21))**
+**rpc UpdateExternalDictionary ([UpdateClusterExternalDictionaryRequest](#UpdateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation22))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterExternalDictionaryMetadata](#UpdateClusterExternalDictionaryMetadata)<br>
@@ -9969,7 +10012,7 @@ external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#Clickhouse
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the External Dictionary should be updated. 
 
 
-### Operation {#Operation21}
+### Operation {#Operation22}
 
 Field | Description
 --- | ---
@@ -10440,7 +10483,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Deletes the specified external dictionary.
 
-**rpc DeleteExternalDictionary ([DeleteClusterExternalDictionaryRequest](#DeleteClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation22))**
+**rpc DeleteExternalDictionary ([DeleteClusterExternalDictionaryRequest](#DeleteClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation23))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)<br>
@@ -10454,7 +10497,7 @@ cluster_id | **string**<br>Required. ID of the ClickHouse cluster to delete the 
 external_dictionary_name | **string**<br>Name of the external dictionary to delete. 
 
 
-### Operation {#Operation22}
+### Operation {#Operation23}
 
 Field | Description
 --- | ---

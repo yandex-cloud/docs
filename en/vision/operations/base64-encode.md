@@ -1,10 +1,10 @@
 # Encoding a file as Base64
 
-To pass an image file to the {{ vision-short-name }} API, convert the file content into text in Base64 format:
+The {{ vision-short-name }} API and OCR API support images in [Base64](https://en.wikipedia.org/wiki/Base64) format. Encode your image or PDF file as `Base64`:
 
 {% include [base64-encode-command](../../_includes/vision/base64-encode-command.md) %}
 
-Pass the content of the resulting `output.txt` file in the request body:
+In the request body, provide the image or PDF file contents encoded as Base64:
 
 ```json
 {
@@ -19,4 +19,4 @@ Pass the content of the resulting `output.txt` file in the request body:
 
 Where:
 * `folderId`: [ID of any folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-vision-user }}` role or higher.
-* `analyze_specs: content`: Content of the created `output.txt` file.
+* `content`: `Base64`-encoded image or PDF file contents.

@@ -12,25 +12,25 @@
 
       ```bash
       redis-cli \
-          -h <FQDN of any {{ RD }} host> \
+          -h <FQDN_of_any_{{ RD }}_host> \
           -p {{ port-mrd-sentinel }} \
           sentinel \
-          get-master-addr-by-name <{{ RD }} cluster name> | head -n 1
+          get-master-addr-by-name <{{ RD }}_cluster_name> | head -n 1
       ```
 
    1. Connect to the host with this address:
 
       ```bash
       redis-cli \
-          -h <{{ RD }} master host address> \
-          -a <{{ RD }} password>
+          -h <address_of_{{ RD }}_master_host> \
+          -a <{{ RD }}_password>
       ```
 
    **Connecting directly to the master host:**
 
    ```bash
    redis-cli \
-       -h c-<cluster ID>.rw.{{ dns-zone }} \
+       -h c-<cluster_ID>.rw.{{ dns-zone }} \
        -a <password>
    ```
 
@@ -43,6 +43,8 @@
    {% include [default-connstring](default-connstring.md) %}
 
 {% endlist %}
+
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
 
 {% include [after-connect](./connect/bash/after-connect.md) %}
 
@@ -70,10 +72,10 @@
    	conn := redis.NewUniversalClient(
    		&redis.UniversalOptions{
    			Addrs: []string{
-   				"<FQDN of {{ RD }} host 1>:{{ port-mrd-sentinel }}",
+   				"<FQDN_of_{{ RD }}_host_1>:{{ port-mrd-sentinel }}",
    				...
-   				"<FQDN of {{ RD }} host N>:{{ port-mrd-sentinel }}"},
-   			MasterName: "<{{ RD }} cluster name>",
+   				"<FQDN_of_{{ RD }}_host_N>:{{ port-mrd-sentinel }}"},
+   			MasterName: "<{{ RD }}_cluster_name>",
    			Password:   "<password>",
    			ReadOnly:   false,
    		},
@@ -108,7 +110,7 @@
    func main() {
    	conn := redis.NewUniversalClient(
    		&redis.UniversalOptions{
-   			Addrs:    []string{"c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mrd }}"},
+   			Addrs:    []string{"c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mrd }}"},
    			Password: "<password>",
    			ReadOnly: false,
    		},
@@ -144,7 +146,7 @@
    )
 
    const (
-   	cert = "/home/<home directory>/.redis/{{ crt-local-file }}"
+   	cert = "/home/<home_directory>/.redis/{{ crt-local-file }}"
    )
 
    func main() {
@@ -160,7 +162,7 @@
 
    	conn := redis.NewUniversalClient(
    		&redis.UniversalOptions{
-   			Addrs:    []string{"c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mrd-tls }}"},
+   			Addrs:    []string{"c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mrd-tls }}"},
    			Password: "<password>",
    			ReadOnly: false,
    			SSLConfig: &tls.Config{
@@ -186,11 +188,13 @@
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [after-connect](./connect/go/after-connect.md) %}
 
 ### Java {#java}
 
-{% include [install-requirements](./connect/java/install-requirements.md) %}
+{% include [Install dependencies](./connect/java/install-requirements.md) %}
 
 {% list tabs %}
 
@@ -209,13 +213,13 @@
 
    public class App {
      public static void main(String[] args) {
-       String redisName = "<{{ RD }} cluster name>";
+       String redisName = "<{{ RD }}_cluster_name>";
        String redisPass = "<password>";
 
        HashSet sentinels = new HashSet();
-       sentinels.add("<FQDN of {{ RD }} host 1>:{{ port-mrd-sentinel }}");
+       sentinels.add("<FQDN_of_{{ RD }}_host_1>:{{ port-mrd-sentinel }}");
        ...
-       sentinels.add("<FQDN of {{ RD }} host N>:{{ port-mrd-sentinel }}");
+       sentinels.add("<FQDN_of_{{ RD }}_host_N>:{{ port-mrd-sentinel }}");
 
        try {
          JedisSentinelPool pool = new JedisSentinelPool(redisName, sentinels);
@@ -244,7 +248,7 @@
 
    public class App {
      public static void main(String[] args) {
-       String redisHost = "c-<cluster ID>.rw.{{ dns-zone }}";
+       String redisHost = "c-<cluster_ID>.rw.{{ dns-zone }}";
        String redisPass = "<password>";
 
        try {
@@ -277,11 +281,11 @@
 
    public class App {
      public static void main(String[] args) {
-       String redisHost = "c-<cluster ID>.rw.{{ dns-zone }}";
-       String redisPass = "<cluster password>";
+       String redisHost = "c-<cluster_ID>.rw.{{ dns-zone }}";
+       String redisPass = "<cluster_password>";
 
-       System.setProperty("javax.net.ssl.trustStore", "/home/<home directory>/.redis/YATrustStore");
-       System.setProperty("javax.net.ssl.trustStorePassword", "<password of secure certificate storage>");
+       System.setProperty("javax.net.ssl.trustStore", "/home/<home_directory>/.redis/YATrustStore");
+       System.setProperty("javax.net.ssl.trustStorePassword", "<password_of_secure_certificate_storage>");
 
        SSLParameters sslParameters = new SSLParameters();
        DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().
@@ -305,11 +309,13 @@
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [after-connect](./connect/java/after-connect.md) %}
 
 ### Node.js {#nodejs}
 
-{% include [install-requirements](./connect/nodejs/install-requirements.md) %}
+{% include [Install dependencies](./connect/nodejs/install-requirements.md) %}
 
 {% list tabs %}
 
@@ -325,11 +331,11 @@
 
    const conn = new Redis({
        sentinels: [
-           { host: "<FQDN of {{ RD }} host 1>", port: {{ port-mrd-sentinel }} },
+           { host: "<FQDN_of_{{ RD }}_host_1>", port: {{ port-mrd-sentinel }} },
            ...
-           { host: "<FQDN of {{ RD }} host N>", port: {{ port-mrd-sentinel }} },
+           { host: "<FQDN_of_{{ RD }}_host_N>", port: {{ port-mrd-sentinel }} },
        ],
-       name: "<{{ RD }} cluster name>",
+       name: "<{{ RD }}_cluster_name>",
        password: "<password>"
    });
 
@@ -361,7 +367,7 @@
    const Redis = require("ioredis");
 
    const conn = new Redis({
-       host: "c-<cluster ID>.rw.{{ dns-zone }}",
+       host: "c-<cluster_ID>.rw.{{ dns-zone }}",
        port: {{ port-mrd }},
        password: "<password>"
    });
@@ -395,11 +401,11 @@
    const Redis = require("ioredis");
 
    const conn = new Redis({
-       host: "c-<cluster ID>.rw.{{ dns-zone }}",
+       host: "c-<cluster_ID>.rw.{{ dns-zone }}",
        port: {{ port-mrd-tls }},
        password: "<password>",
        tls: {
-           ca: fs.readFileSync("/home/<home directory>/.redis/{{ crt-local-file }}"),
+           ca: fs.readFileSync("/home/<home_directory>/.redis/{{ crt-local-file }}"),
        }
    });
 
@@ -423,11 +429,13 @@
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [after-connect](./connect/nodejs/after-connect.md) %}
 
 ### PHP {#php}
 
-{% include [install-requirements](./connect/php/install-requirements.md) %}
+{% include [Install dependencies](./connect/php/install-requirements.md) %}
 
 {% list tabs %}
 
@@ -443,13 +451,13 @@
    Predis\Autoloader::register();
 
    $sentinels = [
-       "<FQDN of {{ RD }} host 1>:{{ port-mrd-sentinel }}>",
+       "<FQDN_of_{{ RD }}_host_1>:{{ port-mrd-sentinel }}>",
        ...
-       "<FQDN of {{ RD }} host N>:{{ port-mrd-sentinel }}>",
+       "<{{ RD }}_host_N_FQDN>:{{ port-mrd-sentinel }}>",
    ];
    $options = [
        "replication" => "sentinel",
-       "service" => "<{{ RD }} cluster name>",
+       "service" => "<cluster_ID_{{ RD }}>",
        "parameters" => [
            "password" => "<password>",
        ],
@@ -473,7 +481,7 @@
    require "Predis/Autoloader.php";
    Predis\Autoloader::register();
 
-   $host = ["c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mrd }}"];
+   $host = ["c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mrd }}"];
    $options = [
        "parameters" => [
            "password" => "<password>",
@@ -498,12 +506,12 @@
    require "Predis/Autoloader.php";
    Predis\Autoloader::register();
 
-   $host = ["c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mrd-tls }}"];
+   $host = ["c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mrd-tls }}"];
    $options = [
        "parameters" => [
            "scheme" => "tls",
            "ssl" => [
-               "cafile" => "/home/<home directory>/.redis/{{ crt-local-file }}",
+               "cafile" => "/home/<home_directory>/.redis/{{ crt-local-file }}",
                "verify_peer" => true,
                "verify_peer_name" => false,
            ],
@@ -522,6 +530,8 @@
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [after-connect](./connect/php/after-connect.md) %}
 
 ### Python {#python}
@@ -530,7 +540,7 @@
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip && \
-    pip3 install redis
+pip3 install redis
 ```
 
 {% list tabs %}
@@ -545,11 +555,11 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
    from redis.sentinel import Sentinel
 
    sentinels = [
-       "<FQDN of {{ RD }} host 1>",
+       "<{{ RD }}_host_1_FQDN>",
        ...
-       "<FQDN of {{ RD }} host N>"
+       "<{{ RD }}_host_N_FQDN>"
    ]
-   name = "<{{ RD }} cluster name>"
+   name = "<cluster_name_{{ RD }}>"
    pwd = "<password>"
 
    sentinel = Sentinel([(h, {{ port-mrd-sentinel }}) for h in sentinels], socket_timeout=0.1)
@@ -568,7 +578,7 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
    import redis
 
    r = redis.StrictRedis(
-       host="c-<cluster ID>.rw.{{ dns-zone }}",
+       host="c-<cluster_ID>.rw.{{ dns-zone }}",
        port={{ port-mrd }},
        password="<password>",
    )
@@ -585,11 +595,11 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
    import redis
 
    r = redis.StrictRedis(
-       host="c-<cluster ID>.rw.{{ dns-zone }}",
+       host="c-<cluster_ID>.rw.{{ dns-zone }}",
        port={{ port-mrd-tls }},
        password="<password>",
        ssl=True,
-       ssl_ca_certs="/home/<home directory>/.redis/{{ crt-local-file }}",
+       ssl_ca_certs="/home/<home_directory>/.redis/{{ crt-local-file }}",
    )
 
    r.set("foo", "bar")
@@ -598,11 +608,13 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
 
 {% endlist %}
 
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
+
 {% include [after-connect](./connect/python/after-connect.md) %}
 
 ### Ruby {#ruby}
 
-{% include [install-requirements](./connect/ruby/install-requirements.md) %}
+{% include [Install dependencies](./connect/ruby/install-requirements.md) %}
 
 {% list tabs %}
 
@@ -618,13 +630,13 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
    require 'redis'
 
    SENTINELS = [
-     { host: '<FQDN of {{ RD }} host 1>', port: {{ port-mrd-sentinel }} },
+     { host: '<FQDN_of_{{ RD }}_host_1>', port: {{ port-mrd-sentinel }} },
      ...
-     { host: '<FQDN of {{ RD }} host N>', port: {{ port-mrd-sentinel }} }
+     { host: '<FQDN_of_{{ RD }}_host_N>', port: {{ port-mrd-sentinel }} }
    ]
 
    conn = Redis.new(
-     host: '<{{ RD }} cluster name>',
+     host: '<cluster_ID_{{ RD }}>',
      sentinels: SENTINELS,
      role: 'master',
      password: '<password>'
@@ -646,7 +658,7 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
    require 'redis'
 
    conn = Redis.new(
-     host: 'c-<cluster ID>.rw.{{ dns-zone }}',
+     host: 'c-<cluster_ID>.rw.{{ dns-zone }}',
      port: {{ port-mrd }},
      password: '<password>'
    )
@@ -667,11 +679,11 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
    require 'redis'
 
    conn = Redis.new(
-     host: 'c-<cluster ID>.rw.{{ dns-zone }}',
+     host: 'c-<cluster_ID>.rw.{{ dns-zone }}',
      port: {{ port-mrd-tls }},
      password: '<password>',
      ssl: true,
-     ssl_params: { ca_file: '/home/<home directory>/.redis/{{ crt-local-file }}' },
+     ssl_params: { ca_file: '/home/<home_directory>/.redis/{{ crt-local-file }}' },
    )
 
    conn.set('foo', 'bar')
@@ -681,5 +693,7 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
    ```
 
 {% endlist %}
+
+{% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
 
 {% include [after-connect](./connect/ruby/after-connect.md) %}

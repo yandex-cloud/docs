@@ -16,22 +16,22 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Manually
 
-     1. If you don't have a [network](../../../vpc/concepts/network.md#network), [create one](../../../vpc/operations/network-create.md).
-     1. If you don't have any [subnets](../../../vpc/concepts/network.md#subnet), [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
+     1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
+     1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
      1. [Create a {{ managed-k8s-name }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
      1. [Create a rule for connecting to the services from the internet](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes) and apply it to the {{ managed-k8s-name }} cluster's node group.
 
    - Using {{ TF }}
 
-     1. If you don't have {{ TF }}, [install it](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-     1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
+     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) cluster configuration file to the same working directory. The file describes:
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
         * [Security group](../../operations/connect/security-groups.md) and rules required for the cluster, node group, and {{ managed-k8s-name }} instance to run:
-          * Rules for service traffic.
-          * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
-          * Rules for connecting to services from the internet.
+           * Rules for service traffic.
+           * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
+           * Rules for connecting to services from the internet.
         * {{ managed-k8s-name }} cluster.
         * [Service account](../../../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} cluster and node group.
      1. Specify the following in the configuration file:
@@ -40,13 +40,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * {{ k8s }} cluster CIDR.
         * Name of the service account. It must be unique within the folder.
      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are errors in the configuration files, {{ TF }} will point to them.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
@@ -59,7 +59,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a Kyverno policy {#kyverno-policies}
 
-1. Install the [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) application by following the [instructions](../../operations/applications/kyverno.md).
+1. Install the [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) application by following this [guide](../../operations/applications/kyverno.md).
 1. Create a policy that will require that all [pods](../../concepts/index.md#pod) have the `app.kubernetes.io/name` [label](../../../resource-manager/concepts/labels.md).
    1. Save the specification for `ClusterPolicy` creation in a YAML file named `policy.yaml`:
 
@@ -96,6 +96,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
       ```text
       clusterpolicy.kyverno.io/require-labels created
       ```
+
+1. {% include [install policy reporter](../../../_includes/managed-kubernetes/install-policy-reporter.md) %}
 
 ## Test Kyverno & Kyverno Policies {#check-apps}
 
@@ -137,31 +139,31 @@ Although the policies are designed for pods, Kyverno applies them to any resourc
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs %}
 
 - Manually
 
-  1. [Delete a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md) and [networks](../../../vpc/operations/network-delete.md).
-  1. [Delete the created service account](../../../iam/operations/sa/delete.md).
+   1. [Delete the {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+   1. [Delete the created subnets](../../../vpc/operations/subnet-delete.md) and [networks](../../../vpc/operations/network-delete.md).
+   1. [Delete the created service account](../../../iam/operations/sa/delete.md).
 
 - Using {{ TF }}
 
-  1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-  1. Delete the `k8s-cluster.tf` configuration file.
-  1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+   1. Delete the `k8s-cluster.tf` configuration file.
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
-     ```bash
-     terraform validate
-     ```
+      ```bash
+      terraform validate
+      ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
-  1. Confirm the resources have been updated:
+      If there are any errors in the configuration files, {{ TF }} will point them out.
+   1. Confirm updating the resources.
 
-     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-     All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
+      All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
 
 {% endlist %}

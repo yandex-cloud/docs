@@ -2,9 +2,9 @@
 
 ## Stopping a load balancer {#stop}
 
-The **{{ ui-key.yacloud.common.stop }}** command shuts down an L7 load balancer. Once shut down, the load balancer status changes to `STOPPED`. As long as the load balancer is stopped, you are not charged for its use.
+The **{{ ui-key.yacloud.common.stop }}** command shuts down an [L7 load balancer](../concepts/application-load-balancer.md). Once shut down, the load balancer status changes to `STOPPED`. As long as the load balancer is stopped, you are not charged for its use.
 
-You can re-start a load balancer at any time to continue using it. All data and changes you have made are saved.
+You can restart a load balancer at any time to continue using it. All the data and changes you have made are saved.
 
 To stop an L7 load balancer:
 

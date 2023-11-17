@@ -1,0 +1,1 @@
+The `load-balancer.viewer` role lets you view resource model objects.

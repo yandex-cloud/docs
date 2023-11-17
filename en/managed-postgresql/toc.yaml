@@ -19,10 +19,14 @@ items:
             href: operations/cluster-stop.md
           - name: Managing PostgreSQL hosts
             href: operations/hosts.md
+          - name: Migrating hosts to a different availability zone
+            href: operations/host-migration.md
           - name: Managing replication slots
             href: operations/replication-slots.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Managing disk space
+            href: operations/storage-space.md
           - name: Updating the PostgreSQL version
             href: operations/cluster-version-update.md
           - name: Deleting clusters
@@ -105,9 +109,21 @@ items:
               Migrating databases from {{ mpg-full-name }} to {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
+          - name: >-
+              Migrating data from {{ mmy-full-name }} to {{ mpg-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/mmy-to-mpg.md
+          - name: >-
+              Migrating data from {{ mpg-name }} to {{ mmy-full-name }} using {{
+              data-transfer-full-name }}
+            href: tutorials/mpg-to-mmy.md
+          - name: >-
+              Migrating data from AWS RDS for {{ PG }} to {{ mpg-name }} using
+              {{ data-transfer-full-name }}
+            href: tutorials/rds-to-mpg.md
   - name: Concepts
     items:
-      - name: Relationships between service resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Host classes
         items:

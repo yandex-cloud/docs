@@ -2,7 +2,7 @@
 
 You can use logical replication to migrate a database from an Amazon RDS for {{ PG }} _source cluster_ to a {{ mpg-name }} _target cluster_.
 
-[Logical replication]({{ pg-docs }}/logical-replication.html) uses the [subscription]({{ pg-docs }}/sql-createsubscription.html) mechanism. This lets you migrate data to the target cluster with minimal downtime. Logical replication is available in Amazon RDS for {{ PG }} version 10.4 and higher.
+[Logical replication]({{ pg-docs }}/logical-replication.html) uses the [subscription]({{ pg-docs }}/sql-createsubscription.html) mechanism. It allows you to migrate data to the target cluster with minimal downtime. Logical replication is available in Amazon RDS for {{ PG }} version 10.4 and higher.
 
 Use logical replication if [data migration using {{ data-transfer-full-name }}](../tutorials/data-migration.md#data-transfer) is not possible for any reason.
 
@@ -36,14 +36,14 @@ To migrate a database from an Amazon RDS source cluster for {{ PG }} to a {{ mpg
 * If a table does not have a primary key, errors will occur during replication:
 
    ```text
-   ERROR: 55000: cannot update table "<table name>" because it does not have a replica identity and publishes updates
+   ERROR: 55000: cannot update table "<table_name>" because it does not have a replica identity and publishes updates
    HINT: To enable updating the table, set REPLICA IDENTITY using ALTER TABLE.
    ```
 
    To run `UPDATE` and `DELETE` replications on tables without the primary key, change the `REPLICA IDENTITY`:
 
    ```sql
-   ALTER TABLE <table name> REPLICA IDENTITY FULL;
+   ALTER TABLE <table_name> REPLICA IDENTITY FULL;
    ```
 
 * In {{ PG }} version 10, the `TRUNCATE` command is not replicated.
@@ -70,9 +70,9 @@ Create the required resources:
 
 * Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [set up and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the configuration file [logical-replica-amazon-rds-to-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/logical-replica-amazon-rds-to-postgresql.tf) to the same working directory.
+   1. Download the [logical-replica-amazon-rds-to-postgresql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/logical-replica-amazon-rds-to-postgresql.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -165,7 +165,7 @@ In {{ mpg-name }} clusters, subscriptions can be used by the database owner (a u
 1. Create a subscription with the source cluster connection string:
 
    ```sql
-   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source cluster address> port=<port> user=<username> sslmode=prefer dbname=<database name>' PUBLICATION pub;
+   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source_cluster_address> port=<port> user=<username> sslmode=prefer dbname=<DB_name>' PUBLICATION pub;
    ```
 
    To learn more about creating subscriptions, see the [{{ PG }} documentation]({{ pg-docs }}/sql-createsubscription.html).
@@ -186,10 +186,10 @@ To complete synchronization of the source cluster and the target cluster:
 1. Create a dump with sequences:
 
    ```bash
-   pg_dump --host=<source cluster address> \
+   pg_dump --host=<source_cluster_address> \
            --username=<username> \
            --port=<port> \
-           --dbname=<database name> \
+           --dbname=<DB_name> \
            --data-only \
            --table='*.*_seq' > /tmp/seq-data.sql
    ```
@@ -202,13 +202,13 @@ To complete synchronization of the source cluster and the target cluster:
 
    ```bash
    psql \
-       --host=<FQDN of the target cluster master host> \
+       --host=<target_cluster_master_host_FQDN> \
        --username=<username> \
        --port={{ port-mpg }} \
-       --dbname=<database name> < /tmp/seq-data.sql
+       --dbname=<DB_name> < /tmp/seq-data.sql
    ```
 
-### Delete the subscription and switch over the load to the target cluster {#transfer-load}
+### Delete the subscription and transfer the load to the target cluster {#transfer-load}
 
 1. Delete the subscription in the target cluster:
 

@@ -1,13 +1,13 @@
 ---
 title: "Creating an {{ alb-full-name }} target group"
-description: "To create an {{ alb-full-name }} target group, in the management console, select the folder to create your target group in. In the list of services, select {{ alb-name }}. In the left-hand menu, select Target groups. Click Create target group. Enter the name of the target group. Select the VMs. Click Create."
+description: "To create an {{ alb-full-name }} target group, in the management console, select the folder to create your target group in. In the list of services, select {{ alb-name }}. In the left-hand menu, select **Target groups**. Click **Create target group**. Enter the name of the target group. Select the VMs. Click **Create**."
 ---
 
-# Create a target group {{ alb-name }}
+# Creating an {{ alb-name }} target group
 
-Create VMs in the working folder by following the [instructions](../../compute/operations/index.md#vm-create).
+Create VMs in the working folder by following the [guide](../../compute/operations/index.md#vm-create).
 
-To create a target group:
+To create a [target group](../concepts/target-group.md):
 
 {% list tabs %}
 
@@ -102,7 +102,7 @@ To create a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
 

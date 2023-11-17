@@ -29,7 +29,7 @@ To create file [storage](../../concepts/filesystem.md):
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the resources you want to create:
 
@@ -55,7 +55,7 @@ To create file [storage](../../concepts/filesystem.md):
 
       Where:
 
-      * `name`: Storage name. This parameter is required.
+      * `name`: Storage name. This is a required parameter.
       * `type`: [Storage type](../../concepts/filesystem.md#types). Possible values: `network-hdd` or `network-ssd`. The default storage type is `network-hdd`. This is an optional parameter.
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md). Possible values: `{{ region-id }}-a` or `{{ region-id }}-b`. This is an optional parameter.
       * `size`: Storage size in GB. This is an optional parameter. The default value is 150 GB.
@@ -67,7 +67,7 @@ To create file [storage](../../concepts/filesystem.md):
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}
 
-   This will create a storage in the specified folder. You can verify that the storage is there and its configuration is correct using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+   This will create a storage in the specified folder. You can check the new storage and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
    ```bash
    yc compute filesystem get <storage_name>

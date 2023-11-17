@@ -1,5 +1,7 @@
 # Diagrams and flowcharts
 
+{% include [formatter-alert](../../_includes/wiki/formatter-alert.md) %}
+
 To add a diagram, chart, or graph to a page, you can use one of the supported text markup languages.
 
 
@@ -108,7 +110,7 @@ Sample markup:
 
 {% endcut %}
 
-You can configure the appearance of your diagrams using optional parameters:
+You can configure your diagram layout using optional parameters:
 * `width`: The maximum width of the diagram in pixels.
 
 * `height`: The maximum height of the diagram in pixels.

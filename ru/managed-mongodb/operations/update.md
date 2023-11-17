@@ -16,6 +16,8 @@
 - [{#T}](#change-sg-set).
 
 
+Если вы хотите переместить кластер в другую зону доступности, обратитесь к [инструкции](host-migration.md). В результате вы перенесете хосты кластера.
+
 ## Изменить класс хостов {#change-resource-preset}
 
 {% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
@@ -132,7 +134,7 @@
   Чтобы изменить класс хостов, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-  * Класс хоста в параметре `configSpec.mongodbSpec_<версия {{ MG }}>.mongod.resources.resourcePresetId`.
+  * Класс хоста в параметре `configSpec.mongodbSpec_<версия_{{ MG }}>.mongod.resources.resourcePresetId`.
 
       Чтобы получить список поддерживаемых значений, воспользуйтесь методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
 
@@ -179,28 +181,28 @@
 
           ```bash
           {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
-             --mongod-disk-size <размер_хранилища_в_ГБ>
+             --mongod-disk-size <размер_хранилища_ГБ>
           ```
 
       * Для хостов `MONGOINFRA`:
 
           ```bash
           {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
-             --mongoinfra-disk-size <размер_хранилища_в_ГБ>
+             --mongoinfra-disk-size <размер_хранилища_ГБ>
           ```
 
       * Для хостов `MONGOS`:
 
           ```bash
           {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
-             --mongos-disk-size <размер_хранилища_в_ГБ>
+             --mongos-disk-size <размер_хранилища_ГБ>
           ```
 
       * Для хостов `MONGOCFG`:
 
           ```bash
           {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
-             --mongocfg-disk-size <размер_хранилища_в_ГБ>
+             --mongocfg-disk-size <размер_хранилища_ГБ>
           ```
 
       Если все условия выполнены, {{ mmg-short-name }} запустит операцию по увеличению размера хранилища.
@@ -221,7 +223,7 @@
       resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
         ...
         resources_mongod {
-          disk_size = <размер_хранилища_в_ГБ>
+          disk_size = <размер_хранилища_ГБ>
           ...
         }
       }
@@ -244,7 +246,7 @@
   Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-  * Новый размер хранилища в параметре `configSpec.mongodbSpec_<версия {{ MG }}>.mongod.resources.diskSize`.
+  * Новый размер хранилища в параметре `configSpec.mongodbSpec_<версия_{{ MG }}>.mongod.resources.diskSize`.
   * Список настроек, которые необходимо изменить, в параметре `updateMask`.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -292,7 +294,7 @@
   Чтобы изменить настройки {{ MG }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-  * Нужные значения настроек {{ MG }} в параметре `configSpec.mongodbSpec_<верия {{ MG }}>.mongod.config`.
+  * Нужные значения настроек {{ MG }} в параметре `configSpec.mongodbSpec_<версия_{{ MG }}>.mongod.config`.
 
       Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md) и в разделе [{#T}](../concepts/settings-list.md).
 
@@ -336,18 +338,18 @@
         {{ yc-mdb-mg }} cluster update <идентификатор_или_имя_кластера> \
           --backup-retain-period-days=<срок_хранения> \
           --backup-window-start <время_начала_резервного_копирования> \
-          --maintenance-window type=<тип_технического_обслуживания:_anytime_или_weekly>,`
-                               `day=<день_недели_для_типа_weekly>,`
-                               `hour=<час_дня_для_типа_weekly> \
-          --performance-diagnostics=<включить_диагностику_производительности_кластера:_true_или_false> \
-          --deletion-protection=<защита_от_удаления_кластера:_true_или_false>
+          --maintenance-window type=<тип_технического_обслуживания>,`
+                               `day=<день_недели>,`
+                               `hour=<час_дня> \
+          --performance-diagnostics=<включить_диагностику> \
+          --deletion-protection=<защита_от_удаления>
         ```
 
     Вы можете изменить следующие настройки:
 
     * `--backup-retain-period` — срок хранения автоматических резервных копий (в днях).
       
-      Значение параметра `<срок хранения>` задается в диапазоне от {{ mmg-backup-retention-min }} до {{ mmg-backup-retention-max }} (по умолчанию — {{ mmg-backup-retention }}). Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее см. в разделе [{#T}](../concepts/backup.md).
+      Значение параметра `<срок_хранения>` задается в диапазоне от {{ mmg-backup-retention-min }} до {{ mmg-backup-retention-max }} (по умолчанию — {{ mmg-backup-retention }}). Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее см. в разделе [{#T}](../concepts/backup.md).
 
 
       Изменение срока хранения затрагивает как новые автоматические резервные копии, так и уже существующие.
@@ -381,14 +383,16 @@
           ...
           cluster_config {
             backup_window_start {
-              hours   = <Час_начала_резервного_копирования>
-              minutes = <Минута_начала_резервного_копирования>
+              hours   = <час>
+              minutes = <минута>
             }
             ...
           }
           ...
         }
         ```
+
+        Где `hours` и `minutes` — час и минута начала резервного копирования.
 
     1. Чтобы разрешить доступ [из сервиса {{ datalens-full-name }}](../../datalens/concepts/index.md), добавьте к описанию кластера {{ mmg-name }} блок `access` в секции `cluster_config`:
   
@@ -398,11 +402,13 @@
           cluster_config {
             ...
             access {
-              data_lens = <Доступ_из_{{ datalens-name }}:_true_или_false>
+              data_lens = <доступ_из_{{ datalens-name }}>
             }
           ...
         }
         ```
+
+        Где `data_lens` — доступ из {{ datalens-name }}: `true` или `false`.
 
     1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
@@ -411,9 +417,11 @@
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
           ...
-          deletion_protection = <защита_от_удаления_кластера:_true_или_false>
+          deletion_protection = <защита_от_удаления>
         }
         ```
+
+        Где `deletion_protection` — защита от удаления кластера: `true` или `false`.
 
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -522,7 +530,7 @@
 
         ```bash
         {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
-          --security-group-ids <список_групп_безопасности>
+          --security-group-ids <список_идентификаторов_групп_безопасности>
         ```
 
 - {{ TF }}
@@ -536,7 +544,7 @@
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
           ...
-          security_group_ids = [ <Список_идентификаторов_групп_безопасности> ]
+          security_group_ids = [ <список_идентификаторов_групп_безопасности> ]
           ...
         }
         ```

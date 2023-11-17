@@ -18,14 +18,14 @@ This section covers the revision history for {{ mgp-name }}.
 * Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see the [{{ PG }} documentation]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
 * Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-gp_toolkit.html#topic34).
 * Improved the algorithm for creating clusters via the wizard: {{ tag-con }}
-   * The cluster size cannot exceed `<maximum host count> × <maximum disk size per host>`.
+   * The cluster size cannot exceed `<maximum_host_count> × <maximum_disk_size_per_host>`.
    * You can select groups of dedicated hosts to deploy the cluster.
    * If the amount of data you specify is large, the wizard will prompt you to create a cluster on dedicated hosts.
 
 ## Q3 2022 {#q3-2022}
 
 * Added the ability to change the administrator password. {{ tag-cli }} {{ tag-tf }}
-* Added the ability to [configure the DBMS and the connection pooler in {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022). {{ tag-tf }}
+* You can now [configure the DBMS and the connection pooler in {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022). {{ tag-tf }}
 * Added support for the [postgis]({{gp.docs.vmware}}/5/greenplum-database/ref_guide-extensions-postGIS.html) extension.
 * Added the ability to edit clusters and cluster settings via CLI as well as to grant access from {{ data-transfer-full-name }}. For more information, see [YC CLI Releases](../cli/release-notes.md#version0.94.0). {{ tag-cli }}
 * Updated the master failover mechanism: a former master is returned to a cluster as a replica and becomes available for another failover right after the first one completes.

@@ -2,18 +2,18 @@
 
 [Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
 
-In this tutorial, you'll learn how to enable access to the applications deployed in two test environments, `dev` and `prod`, by running [{{ alb-full-name }}](../../../application-load-balancer/) through the API Gateway. For this, you will need to create a [public domain zone](../../../dns/concepts/dns-zone.md#public-zones) and delegate the domain to [{{ dns-full-name }}](../../../dns).
+In this tutorial, you will learn how to enable access to the applications deployed in two test environments, `dev` and `prod`, by running [{{ alb-full-name }}](../../../application-load-balancer/) through the API Gateway. For this, you will need to create a [public domain zone](../../../dns/concepts/dns-zone.md#public-zones) and delegate the domain to [{{ dns-full-name }}](../../../dns).
 
 To integrate the Gateway API and {{ alb-name }}:
-1. [{#T}](#k8s-create).
-1. [{#T}](#install-gateway-api).
-1. [{#T}](#prepare-apps).
-1. [{#T}](#install-apps).
-1. [{#T}](#check-apps).
+1. [{#T}](#k8s-create)
+1. [{#T}](#install-gateway-api)
+1. [{#T}](#prepare-apps)
+1. [{#T}](#install-apps)
+1. [{#T}](#check-apps)
 
-If you no longer need these resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -29,41 +29,41 @@ If you no longer need these resources, [delete them](#clear-out).
 
    - Manually
 
-     1. If you don't have a [network](../../../vpc/concepts/network.md#network), [create one](../../../vpc/operations/network-create.md).
-     1. If you don't have any [subnets](../../../vpc/concepts/network.md#subnet), [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
-     1. [Create a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
-     1. [Create a rule for connecting to the services from the internet](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes), then apply it to the cluster's node group.
+      1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
+      1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet), [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
+      1. [Create a {{ k8s }} cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.
+      1. [Create a rule for connecting to the services from the internet](../../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes), then apply it to the cluster's node group.
 
    - Using {{ TF }}
 
-     1. If you don't have {{ TF }}, [install it](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-     1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-     1. Download the [k8s-gateway-api.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-gateway-api.tf) cluster configuration file to the same working directory. The file describes:
-        * Network.
-        * Subnet.
-        * [Security group](../../operations/connect/security-groups.md) and rules required for the cluster, node group, and {{ k8s }} instance to run:
-          * Rules for service traffic.
-          * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
-          * Rules for connecting to services from the internet.
-        * {{ k8s }} cluster.
-        * Service account required to use the {{ k8s }} cluster and node group.
-     1. Specify the following in the configuration file:
-        * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
-        * {{ k8s }} version for the {{ k8s }} cluster and node groups.
-        * {{ k8s }} cluster CIDR.
-     1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
+      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+      1. Download the [k8s-gateway-api.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-gateway-api.tf) cluster configuration file to the same working directory. The file describes:
+         * Network.
+         * Subnet.
+         * [Security group](../../operations/connect/security-groups.md) and rules required for the cluster, node group, and {{ k8s }} instance to run:
+            * Rules for service traffic.
+            * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
+            * Rules for connecting to services from the internet.
+         * {{ k8s }} cluster.
+         * Service account required to use the {{ k8s }} cluster and node group.
+      1. Specify the following in the configuration file:
+         * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
+         * {{ k8s }} version for the {{ k8s }} cluster and node groups.
+         * {{ k8s }} cluster CIDR.
+      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
-        ```bash
-        terraform validate
-        ```
+         ```bash
+         terraform validate
+         ```
 
-        If there are errors in the configuration files, {{ TF }} will point to them.
-     1. Create the required infrastructure:
+         If there are any errors in the configuration files, {{ TF }} will point them out.
+      1. Create the required infrastructure:
 
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+         {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
    {% endlist %}
 
@@ -447,7 +447,7 @@ Two applications will be created to test the Gateway API (`tutum/hello-world` an
 
 ### Create test applications {#install-apps}
 
-1. To install the applications, run the command:
+1. To install the applications, run this command:
 
    ```bash
    kubectl apply -f prod-gw.yaml && \
@@ -485,7 +485,7 @@ To test your Gateway API operation, follow the links in the browser:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs %}
 
@@ -505,8 +505,8 @@ Some resources are not free of charge. Delete the resources you no longer need t
      terraform validate
      ```
 
-     If there are errors in the configuration files, {{ TF }} will point to them.
-  1. Confirm the update of resources.
+     If there are any errors in the configuration files, {{ TF }} will point them out.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

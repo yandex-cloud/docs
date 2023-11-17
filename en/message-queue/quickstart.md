@@ -1,32 +1,18 @@
 ---
 title: "Getting started with {{ message-queue-full-name }} (message queues)"
-description: "In this tutorial, you'll learn how to make basic actions with message queues in {{ message-queue-full-name }}. First of all, install the AWS CLI, a command line utility for working with {{ message-queue-name }}."
+description: "In this tutorial, you will learn how to make basic actions with message queues in {{ message-queue-full-name }}. First of all, install the AWS CLI, a command line utility for working with {{ message-queue-name }}."
 ---
 
 # Getting started with {{ message-queue-name }}
 
-Let's perform the basic actions using the AWS CLI, one of the [tools](instruments/index.md) for working with Message Queue.
+Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/), one of the [tools](instruments/index.md) you can use to work with {{ message-queue-name }}.
 
-1. Install the [AWS CLI](https://aws.amazon.com/cli/), a command line utility for working with Message Queue.
-1. Create a [service account](../iam/operations/sa/create.md) with the `editor` role.
-1. Create [static access keys](../iam/operations/sa/create-access-key.md). Save the ID and secret access key right away. You won't be able to view the secret access key parameters again after you close the window.
-1. Set up the AWS CLI.
+1. [Install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) the AWS CLI, a command line utility for working with {{ message-queue-name }}.
+1. [Create](../iam/operations/sa/create.md) a service account with the `editor` role.
+1. [Create](../iam/operations/sa/create-access-key.md) static access keys. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
+1. Set up the AWS CLI:
 
-   {% list tabs %}
-
-   - AWS CLI
-
-      Set the AWS CLI configuration via the `aws configure` command, using the ID and secret access key of the service account:
-
-      ```bash
-      aws configure
-      AWS Access Key ID [****************kzJl]: <service account key ID>
-      AWS Secret Access Key [****************I3AO]: <service account key ID>
-      Default region name [eu-west-1]: {{ region-id }}
-      Default output format [None]:
-      ```
-
-   {% endlist %}
+   {% include [configure-aws-cli](../_includes/message-queue/configure-aws-cli.md) %}
 
 1. Create a queue named `sample-queue`:
 
@@ -35,36 +21,44 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
    - AWS CLI
 
       ```bash
-      aws sqs create-queue --queue-name sample-queue \
-        --endpoint https://message-queue.{{ api-host }}/
+      aws sqs create-queue \
+        --queue-name <queue_name> \
+        --endpoint <endpoint>
       ```
 
       Where:
 
-      * `sample-queue`: Queue name.
-      * `https://message-queue.{{ api-host }}/`: Endpoint.
+      * `--queue-name`: Name of the new queue, e.g., `sample-queue`.
+      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
 
       Result:
 
       ```json
       {
-          "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
+          "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd********/000000000000002n034r/sample-queue"
       }
       ```
 
+      Save the obtained queue URL. You will need it at the next steps.
+
    - Management console
 
-      1. Open the **Message Queue** section.
-      1. Click **Create queue**.
+      1. In the [management console]({{ link-console-main }}), select the folder to create the queue in.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+      1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
       1. Specify the queue name: `sample-queue`.
 
          {% include [name](../_includes/message-queue/ymq-name.md) %}
-      1. Select the **Standard** type. Do not change other settings.
-      1. Click **Create queue**.
+
+      1. Select the `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}` type. Do not change other settings.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
+      1. Open the queue you created.
+      1. In the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, copy the queue URL as you will need it later.
+
 
    {% endlist %}
 
-1. Send a message to the created queue using the queue URL from the `QueueUrl` parameter that can be found in the response to the previous request:
+1. Send a message to the created queue using the saved queue URL:
 
    {% list tabs %}
 
@@ -72,26 +66,25 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
       ```bash
       aws sqs send-message \
-        --message-body "Hello World" \
-        --endpoint https://message-queue.{{ api-host }}/ \
-        --queue-url https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue
+        --message-body "<message_text>" \
+        --endpoint <endpoint> \
+        --queue-url <queue_URL>
       ```
+
+      Where:
+
+      * `--message-body`: Text of the message to be sent to the queue, e.g., `Hello World`.
+      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
+      * `--queue-url`: URL of the queue the message is sent to.
 
       Result:
 
       ```json
       {
-          "MD5OfMessageBody": "67e63db14341b5a696596634bbf19796",
-          "MessageId": "765ff4d2-fa4bc83-6cfcc68e-21a49"
+          "MD5OfMessageBody": "67e63db14341b5a696596634********",
+          "MessageId": "765ff4d2-fa4bc83-6cfcc***-*****"
       }
       ```
-
-      Where:
-
-      * `"Hello World"`: Message text.
-      * `https://message-queue.{{ api-host }}/`: Endpoint.
-      * `https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue`: The URL of the message queue.
-      * `sample-queue`: Queue name.
 
    {% endlist %}
 
@@ -103,9 +96,14 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
       ```bash
       aws sqs receive-message \
-        --endpoint https://message-queue.{{ api-host }}/ \
-        --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
+        --endpoint <endpoint> \
+        --queue-url <queue_URL>
       ```
+
+      Where:
+
+      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
+      * `--queue-url`: URL of the queue to receive the message from.
 
       Result:
 
@@ -113,33 +111,30 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
       {
           "Messages": [
               {
-                  "MessageId": "948de7-9ec8d787-cbf3465c-c",
-                  "ReceiptHandle": "EAEggbjIg_8sKAM",
-                  "MD5OfBody": "ed076287532e86365e841e92bfc50d8c",
+                  "MessageId": "948de7-9ec8d787-c*******-*",
+                  "ReceiptHandle": "EAEggbj********",
+                  "MD5OfBody": "ed076287532e86365e841e92********",
                   "Body": "Hello World",
                   "Attributes": {
-                      "ApproximateFirstReceiveTimestamp": "1545927269377",
+                      "ApproximateFirstReceiveTimestamp": "15459********",
                       "ApproximateReceiveCount": "1",
-                      "SentTimestamp": "1545922344034"
+                      "SentTimestamp": "15459********",
+                      "SenderId": "abcdefkbh72is78********"
                   }
               }
           ]
       }
       ```
 
-      Where:
-
-      * `https://message-queue.{{ api-host }}/`: Endpoint.
-      * `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`: The URL of the message queue.
-      * `sample-queue`: Queue name.
+      Save the `ReceiptHandle` parameter value. You will need it at the next steps.
 
    {% endlist %}
 
 1. Delete the message from the queue.
 
-   After messages are processed, they should be deleted from the queue so that applications do not process them again.
+   After messages are processed, they should be deleted from the queue for applications not to process them again.
 
-   To delete the received message from the queue, use the `ReceiptHandle` parameter value from the response to the previous request:
+   To delete a message received from the queue, use the `ReceiptHandle` parameter value you saved earlier:
 
    {% list tabs %}
 
@@ -147,15 +142,15 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
       ```bash
       aws sqs delete-message \
-        --endpoint https://message-queue.{{ api-host }}/ \
-        --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-        --receipt-handle EAEggbjIg_8sKAM
+        --endpoint <endpoint> \
+        --queue-url <queue_URL>
+        --receipt-handle <receipt_ID>
       ```
       Where:
 
-      * `https://message-queue.{{ api-host }}/`: Endpoint.
-      * `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`: The URL of the message queue.
-      * `sample-queue`: Queue name.
+      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
+      * `--queue-url`: URL of the queue to delete the message from.
+      * `--receipt-handle`: Previously saved message receipt ID (`ReceiptHandle`).
 
    {% endlist %}
 
@@ -167,21 +162,20 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
       ```bash
       aws sqs delete-queue \
-        --endpoint https://message-queue.{{ api-host }}/ \
-        --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
+        --endpoint <endpoint> \
+        --queue-url <queue_URL>
       ```
 
       Where:
 
-      * `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`: The URL of the message queue.
-      * `https://message-queue.{{ api-host }}/`: Endpoint.
-
+      * `--endpoint`: Endpoint in the `https://message-queue.{{ api-host }}/` value.
+      * `--queue-url`: URL of the queue to be deleted.
 
    - Management console
 
-      1. Open the **Message Queue** section.
-      1. Click ![image](../_assets/vertical-ellipsis.svg) in the row of the queue to delete.
-      1. In the resulting menu, click **Delete**.
-      1. In the window that opens, click **Delete**.
+      1. In the [management console]({{ link-console-main }}), select the folder the queue belongs to.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+      1. Click ![image](../_assets/horizontal-ellipsis.svg) next to the appropriate queue and select **{{ ui-key.yacloud.common.delete }}**.
+      1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
    {% endlist %}

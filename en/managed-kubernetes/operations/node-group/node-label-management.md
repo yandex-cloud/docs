@@ -1,41 +1,42 @@
-# Managing {{ k8s }} cluster node labels
+# Managing {{ managed-k8s-name }} cluster node labels
 
-You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes in a [node group](../../concepts/index.md#node-group) at the same time. To do this, specify a set of labels using the `node_labels` parameter when [creating a node group](../../operations/node-group/node-group-create.md).
+You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all {{ managed-k8s-name }} nodes in a [node group](../../concepts/index.md#node-group) at the same time. To do this, specify a set of labels using the `node_labels` parameter when [creating a {{ managed-k8s-name }} node group](../../operations/node-group/node-group-create.md).
+1. Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
 
-1. Create a [cluster{{ k8s }}](../../concepts/index.md#kubernetes-cluster).
-
-   You can use an existing {{ k8s }} cluster or [create a new one](../kubernetes-cluster/kubernetes-cluster-create.md).
-1. Create a group of nodes with labels.
+   You can use an existing {{ managed-k8s-name }} cluster or [create a new one](../kubernetes-cluster/kubernetes-cluster-create.md).
+1. Create a {{ managed-k8s-name }} node group with labels.
 
    {% list tabs %}
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select the folder where the {{ k8s }} cluster was created.
+     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the {{ managed-k8s-name }} cluster.
      1. In the list of services, select **{{ managed-k8s-name }}**.
-     1. Select the {{ k8s }} cluster to create a node group for.
-     1. On the {{ k8s }} cluster page, go to the **Nodes manager** tab.
+     1. Select the {{ managed-k8s-name }} cluster to create a node group for.
+     1. On the {{ managed-k8s-name }} cluster page, go to the **Nodes manager** tab.
      1. Click **Create node group**.
-     1. Enter a node group name.
-     1. Specify the **{{ k8s }} version** for the node.
+     1. Enter a name for the {{ managed-k8s-name }} node group.
+     1. Specify the **{{ k8s }} version** for the {{ managed-k8s-name }} nodes.
      1. In the **Scaling** section:
         * Select the scaling policy type.
-        * Specify the number of nodes in the node group.
-     1. Under **Allow when creating and updating**, specify the maximum number of instances that you can exceed and reduce the size of the group by.
+        * Specify the number of nodes in the {{ managed-k8s-name }} node group.
+     1. Under **Allow when creating and updating**, specify the maximum number of [instances](../../../compute/concepts/vm.md) by which you can increase or decrease the size of the {{ managed-k8s-name }} group.
      1. Under **Computing resources**:
         * Choose a [platform](../../../compute/concepts/vm-platforms.md).
-        * Specify the requisite number of vCPUs and [guaranteed vCPU performance](../../../compute/concepts/performance-levels.md) as well as the amount of RAM.
+        * Specify the required number of vCPUs, [guaranteed vCPU performance](../../../compute/concepts/performance-levels.md), and the amount of RAM.
      1. Under **Storage**:
-        * Specify the **Disk type**:
-          * **HDD**: Standard network drive. Network block storage on an HDD.
-          * **SSD**: Fast network drive. Network block storage on an SSD.
-        * Specify the [disk](../../../compute/concepts/disk.md) size.
+        * Specify the {{ managed-k8s-name }} node **Disk type**:
+          * **HDD**: Standard network drive; network block storage on an HDD.
+          * **SSD**: Fast network drive; network block storage on an SSD.
+          * **Non-replicated SSD**: Network drive with enhanced performance achieved by removing redundancy. You can only change the size of this type of disk in 93 GB increments.
+          * **SSD IO**: Network drive with the same performance characteristics as **non-replicated SSD**, plus redundancy. You can only change the size of this type of disk in 93 GB increments.
+        * Specify the {{ managed-k8s-name }} node [disk](../../../compute/concepts/disk.md) size.
      1. Under **Network settings**:
-        * In the **Public address** field, choose a method for assigning an IP address:
-          * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-          * **No address**: Don't assign a public IP address.
-        * Specify how nodes should be distributed across availability zones and networks.
-     1. Under **Access**, specify the information required to access the node:
+        * In the **Public IP** field, choose a method for assigning an IP address:
+          * **Auto**: Assign a random [IP address](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP pool.
+          * **No address**: Do not assign a public IP address.
+        * Specify how {{ managed-k8s-name }} nodes should be distributed across the [availability zones](../../../overview/concepts/geo-scope.md) and [networks](../../../vpc/concepts/network.md#network).
+     1. Under **Access**, specify the information required to access the {{ managed-k8s-name }} node:
         * Enter the username in the **Login** field.
         * In the **SSH key** field, paste the contents of the [public key](../../operations/node-connect-ssh.md#creating-ssh-keys) file.
      1. Under **Maintenance window settings**:
@@ -44,13 +45,13 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
           * **Anytime**: Maintenance is allowed at any time.
           * **Daily**: Maintenance is performed during the interval specified in the **Time (UTC) and duration** field.
           * **On selected days**: Maintenance is performed during the interval specified in the **Schedule by day** field.
-     1. In the **Additional** section:
+     1. In the **Advanced** section:
         * In the **Node labels** field, click **Add label** and specify the label key and value. Add multiple labels if needed.
      1. Click **Create node group**.
 
    - CLI
 
-     Create a node group:
+     Create a {{ managed-k8s-name }} node group:
 
      ```bash
      yc managed-kubernetes node-group create \
@@ -63,13 +64,13 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
 
      Where:
 
-     * `--name`: The name of the node group.
-     * `--cluster-name`: Name of the {{ k8s }} cluster where the node group is created.
-     * `--disk-type`: [Type of the disk](../../../compute/concepts/disk.md) on the node.
-     * `--fixed-size`: Number of nodes in the group.
-     * `--node-labels`: Node labels. You can specify multiple labels separated by commas.
+     * `--name`: Name of the {{ managed-k8s-name }} node group.
+     * `--cluster-name`: Name of the {{ managed-k8s-name }} cluster where the node group is created.
+     * `--disk-type`: [Disk type](../../../compute/concepts/disk.md) on the {{ managed-k8s-name }} node.
+     * `--fixed-size`: Number of {{ managed-k8s-name }} nodes in the group.
+     * `--node-labels`: {{ managed-k8s-name }} node labels. You can specify multiple labels separated by commas.
 
-     Command result:
+     Result:
 
      ```bash
      done (2m19s)
@@ -116,18 +117,18 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
 
      {% note warning %}
 
-     A node group will be re-created from scratch.
+     A {{ managed-k8s-name }} node group will be recreated from scratch.
 
      {% endnote %}
 
-     1. Open the current configuration file with the description of the node group.
+     1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
         For more information about creating this file, see [{#T}](node-group-create.md).
-     1. Add the `node_labels` property to the node group description:
+     1. Add the `node_labels` property to the {{ managed-k8s-name }} node group description:
 
         ```hcl
-        resource "yandex_kubernetes_node_group" "<node group name>" {
-          cluster_id = yandex_kubernetes_cluster.<cluster name>.id
+        resource "yandex_kubernetes_node_group" "<node_group_name>" {
+          cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
           ...
           node_labels = {
             "<label1>" = "<value1>"
@@ -137,11 +138,11 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
         }
         ```
 
-     1. Make sure that the configuration files are valid.
+     1. Make sure the configuration files are valid.
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-     1. Confirm the update of resources.
+     1. Confirm updating the resources.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -149,68 +150,69 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
 
    - API
 
-     To create a node group, use the [create](../../api-ref/NodeGroup/create.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+     To create a {{ managed-k8s-name }} node group, use the [create](../../api-ref/NodeGroup/create.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
 
    {% endlist %}
 
-1. Get information about the created group of labeled nodes:
+1. Get information about the created group of labeled {{ managed-k8s-name }} nodes:
 
    {% list tabs %}
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select the folder where the {{ k8s }} cluster was created.
+     1. In the [management console]({{ link-console-main }}), select the folder where the {{ managed-k8s-name }} cluster was created.
      1. In the list of services, select **{{ managed-k8s-name }}**.
-     1. Select the {{ k8s }} cluster where the node group was created.
-     1. On the {{ k8s }} cluster page, go to **Nodes manager**.
-     1. On one of the node pages, go to the **Labels** tab. The tab lists the node's system and user labels.
+     1. Select the {{ managed-k8s-name }} cluster where the node group was created.
+     1. On the {{ managed-k8s-name }} cluster page, go to the **Nodes manager** tab.
+     1. Open the page of one of the {{ managed-k8s-name }} nodes and go to the **Labels** tab. The tab lists the system and user labels of the {{ managed-k8s-name }} node.
 
    - CLI
 
-     1. View all the nodes in a {{ k8s }} cluster:
+     1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+     1. View all the nodes in a {{ managed-k8s-name }} cluster:
 
-     ```bash
-     kubectl get nodes
-     ```
+         ```bash
+         kubectl get nodes
+         ```
 
-     Command result:
+         Result:
 
-     ```bash
-     NAME                        STATUS   ROLES    AGE  VERSION
-     catkuapro07enihqmk51-hgjd   Ready    <none>   1h   v1.17.8
-     catkuapro07enihqmk51-lskc   Ready    <none>   1h   v1.17.8
-     ```
+         ```bash
+         NAME                        STATUS   ROLES    AGE  VERSION
+         catkuapro07enihqmk51-hgjd   Ready    <none>   1h   v1.17.8
+         catkuapro07enihqmk51-lskc   Ready    <none>   1h   v1.17.8
+         ```
 
-     1. Get information on a selected {{ k8s }} cluster node:
+     1. Get information on a selected {{ managed-k8s-name }} cluster node:
 
-     ```bash
-     kubectl describe node catkuapro07enihqmk51-hgjd
-     ```
+         ```bash
+         kubectl describe node catkuapro07enihqmk51-hgjd
+         ```
 
-     Command result:
+         Result:
 
-     ```bash
-     Name:               catkuapro07enihqmk51-hgjd
-     Roles:              <none>
-     Labels:             apps/tier=backend
-                         beta.kubernetes.io/arch=amd64
-                         beta.kubernetes.io/instance-type=standard-v2
-                         beta.kubernetes.io/os=linux
-                         environment=production
-                         failure-domain.beta.kubernetes.io/zone={{ region-id }}-a
-                         kubernetes.io/arch=amd64
-                         kubernetes.io/hostname=catkuapro07enihqmk51-hgjd
-                         kubernetes.io/os=linux
-                         node.kubernetes.io/kube-proxy-ds-ready=true
-                         node.kubernetes.io/masq-agent-ds-ready=true
-                         node.kubernetes.io/node-problem-detector-ds-ready=true
-                         yandex.cloud/node-group-id=catkuapro07enihqmk51
-                         yandex.cloud/pci-topology=k8s
-                         yandex.cloud/preemptible=false
-     ```
+         ```bash
+         Name:               catkuapro07enihqmk51-hgjd
+         Roles:              <none>
+         Labels:             apps/tier=backend
+                             beta.kubernetes.io/arch=amd64
+                             beta.kubernetes.io/instance-type=standard-v2
+                             beta.kubernetes.io/os=linux
+                             environment=production
+                             failure-domain.beta.kubernetes.io/zone={{ region-id }}-a
+                             kubernetes.io/arch=amd64
+                             kubernetes.io/hostname=catkuapro07enihqmk51-hgjd
+                             kubernetes.io/os=linux
+                             node.kubernetes.io/kube-proxy-ds-ready=true
+                             node.kubernetes.io/masq-agent-ds-ready=true
+                             node.kubernetes.io/node-problem-detector-ds-ready=true
+                             yandex.cloud/node-group-id=catkuapro07enihqmk51
+                             yandex.cloud/pci-topology=k8s
+                             yandex.cloud/preemptible=false
+         ```
 
    - API
 
-     To view node information, use the [list](../../api-ref/NodeGroup/list.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+     To view {{ managed-k8s-name }} node details, use the [list](../../api-ref/NodeGroup/list.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
 
    {% endlist %}

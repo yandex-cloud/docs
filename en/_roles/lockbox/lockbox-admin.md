@@ -1,0 +1,1 @@
+The `lockbox.admin` role lets you manage your secrets and access to them.

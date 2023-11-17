@@ -34,7 +34,7 @@ To create a [resource](../../concepts/resource.md):
 
       {% note warning %}
 
-      Once you create a resource, you cannot change the primary domain name.
+      After you create a resource, you cannot change the primary domain name.
 
       {% endnote %}
 
@@ -66,7 +66,7 @@ To create a [resource](../../concepts/resource.md):
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. If it's your first time creating a resource, start by connecting to the provider:
+   1. If you have not created resources before, connect to the provider first:
 
       ```bash
       yc cdn provider activate --type gcore
@@ -125,7 +125,7 @@ To create a [resource](../../concepts/resource.md):
         --origin-protocol <protocol for origins>
       ```
 
-      * Instead of the `--origin-group-id`, you can specify the origin domain name using the `--origin-custom-source` flag.
+      * Instead of `--origin-group-id`, you can specify the origin domain name using the `--origin-custom-source` flag.
       * Possible `--origin-protocol` values are `HTTP`, `HTTPS`, and `MATCH` (same as the client's).
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
@@ -138,7 +138,7 @@ To create a [resource](../../concepts/resource.md):
    yc cdn provider activate --folder-id <folder ID> --type gcore
    ```
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the parameters of the CDN resource to create:
 
@@ -174,8 +174,8 @@ To create a [resource](../../concepts/resource.md):
       Where:
 
       * `cname`: Primary domain name used for content distribution. This is a required parameter.
-      * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. This is an optional parameter, the default value is `true`.
-      * `origin_protocol`: Origin protocol. This is an optional parameter, the default value is `http`.
+      * `active`: Flag indicating whether content is available to end users. `True`: Content from the CDN is available to clients. This is an optional parameter. The default value is `true`.
+      * `origin_protocol`: Origin protocol. This is an optional parameter. The default value is `http`.
       * `secondary_hostnames`: Additional domain names. This is an optional parameter.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
 

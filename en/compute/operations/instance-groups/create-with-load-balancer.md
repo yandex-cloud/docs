@@ -1,4 +1,4 @@
-# Creating a fixed-size instance group with an L7 network load balancer
+# Creating a fixed-size instance group with an L7 load balancer
 
 You can create a fixed-size [instance group](../../concepts/instance-groups/index.md) integrated with [{{ alb-full-name }}](../../../application-load-balancer/index.yaml). A {{ alb-name }} target group will be automatically created along with the instance group. You can link it to your load balancer and distribute the load across the instances in the group at the application level. For more information, see [{#T}](../../concepts/instance-groups/balancers.md).
 
@@ -29,13 +29,13 @@ To create an instance group with an L7 load balancer:
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-      * Enable the **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}** option if needed. You cannot delete a group with this option enabled.
+      * Enable the **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}** option, if needed. You cannot delete a group with this option enabled.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required ones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. Instances of a group may reside in [different availability zones and regions](../../../overview/concepts/geo-scope.md).
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to set up the configuration for a basic instance:
       * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../concepts/instance-groups/instance-template.md).
       * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a system to be deployed on the VM instance's boot [disk](../../concepts/disk.md).
       * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
-         * Select [disk type](../../../compute/concepts/disk.md#disks_types).
+         * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
          * Specify disk size.
          * To add more disks, click **{{ ui-key.yacloud.compute.instances.create.label_add-disk }}**.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
@@ -51,7 +51,7 @@ To create an instance group with an L7 load balancer:
       * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
          * Select a service account to link to the instance.
          * If you selected a Linux [image](../../concepts/image.md), fill out the fields **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}**. For a key, use the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
-         * Select `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}` if needed.
+         * Select `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`, if needed.
       * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
    1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**:
       * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** field, specify the number of instances you can exceed the group size by.
@@ -75,7 +75,7 @@ To create an instance group with an L7 load balancer:
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}** field, specify the interval between the repeat checks from 1 to 60 seconds. The interval must be at least 1 second longer than the timeout.
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}** field, specify the number of successful health checks required for the instance to be considered healthy.
       * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}** field, specify the number of failed health checks for the instance to be considered unhealthy.
-   1. Under **{{ ui-key.yacloud.compute.groups.create.section_variables }}**, enter the `{{ ui-key.yacloud.common.label_key }}`-`{{ ui-key.yacloud.common.label_value }}` pairs if needed.
+   1. Under **{{ ui-key.yacloud.compute.groups.create.section_variables }}**, enter the `{{ ui-key.yacloud.common.label_key }}`-`{{ ui-key.yacloud.common.label_value }}` pairs, if needed.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI
@@ -112,7 +112,7 @@ To create an instance group with an L7 load balancer:
          ```
 
          Where:
-         * `name`: Name of the instance group. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters.
+         * `name`: Name of the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
          * `service_account_id`: Service account ID.
 
             {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
@@ -191,7 +191,7 @@ To create an instance group with an L7 load balancer:
 
          Where:
          * `target_group_spec`: Specification of the {{ alb-name }} target group associated with the instance group.
-         * `name`: Any name of the {{ alb-name }} target group. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may not be longer than 63 characters.
+         * `name`: Any name of the {{ alb-name }} target group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
 
          For more information about the target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
 
@@ -252,7 +252,8 @@ To create an instance group with an L7 load balancer:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl
@@ -338,7 +339,7 @@ To create an instance group with an L7 load balancer:
       * `yandex_compute_instance_group`: Description of the instance group:
          * General information about the instance group:
             * `name`: Name of the instance group.
-            * `folder_id`: ID of the folder.
+            * `folder_id`: Folder ID.
             * `service_account_id`: Service account ID.
             * `deletion_protection`: Instance group deletion protection. You cannot delete an instance group with this option enabled. The default value is `false`.
          * [Instance template](../../concepts/instance-groups/instance-template.md):
@@ -366,7 +367,7 @@ To create an instance group with an L7 load balancer:
 
       {% endnote %}
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/terraform-validate-plan-apply.md) %}

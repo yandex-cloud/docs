@@ -76,7 +76,7 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Specify registry access settings in the {{ TF }} configuration file.
 

@@ -11,8 +11,8 @@
 
 ## Перед началом работы {#before-begin}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `editor` и `container-registry.images.puller` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `editor`, `container-registry.images.puller` и `load-balancer.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
+1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации. В настройках кластера укажите сервисный аккаунт, созданный ранее.
 1. [Настройте группы безопасности кластера {{ managed-k8s-name }} и группы узлов](../operations/connect/security-groups.md).
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
@@ -60,9 +60,9 @@
 
      ```text
      NAME                                      READY  STATUS   RESTARTS  AGE
-     cert-manager-69cf79df7f-ghw6s             1/1    Running  0         54s
-     cert-manager-cainjector-7648dc6696-gnrzz  1/1    Running  0         55s
-     cert-manager-webhook-7746f64877-wz9bh     1/1    Running  0         54s
+     cert-manager-69********-ghw6s             1/1    Running  0         54s
+     cert-manager-cainjector-76********-gnrzz  1/1    Running  0         55s
+     cert-manager-webhook-77********-wz9bh     1/1    Running  0         54s
      ```
 
   1. Создайте YAML-файл `acme-issuer.yaml` с манифестом объекта `ClusterIssuer`:

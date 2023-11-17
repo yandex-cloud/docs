@@ -4,22 +4,22 @@ Users in {{ KF }}:
 * Keep the access permissions of data [producers and consumers](../concepts/producers-consumers.md) separate.
 
    A producer or consumer can only access [topics](../concepts/topics.md) that are allowed for their users. You can use the same user for multiple producers or consumers: the former get the rights to write data to certain topics and the latter get the read rights.
-* [Manage topics](cluster-topics.md#admin-api) if you enabled the **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** setting when [creating a cluster](cluster-create.md). For more information, see [{#T}](../concepts/topics.md).
+* [Manage topics](cluster-topics.md#admin-api). For more information, see [{#T}](../concepts/topics.md).
 
 After [creating an {{ KF }} cluster](cluster-create.md), you can:
-* [{#T}](#create-user).
-* [{#T}](#update-password).
-* [{#T}](#update-account).
-* [{#T}](#grant-permission).
-* [{#T}](#revoke-permission).
-* [{#T}](#delete-account).
-* [{#T}](#list-accounts).
+* [{#T}](#create-user)
+* [{#T}](#update-password)
+* [{#T}](#update-account)
+* [{#T}](#grant-permission)
+* [{#T}](#revoke-permission)
+* [{#T}](#delete-account)
+* [{#T}](#list-accounts)
 
 ## Creating a user {#create-user}
 
 {% note info %}
 
-If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enabled, use the CLI, API, or {{ TF }} to create an admin user.
+Use the CLI, API, or {{ TF }} to create an admin user.
 
 {% endnote %}
 
@@ -52,16 +52,16 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
       {{ yc-mdb-kf }} user create --help
       ```
 
-   1. Create a user and grant permissions for the desired topics:
+   1. Create a user with the `producer` role for the producer or `consumer` role for the consumer and grant permissions for relevant topics:
 
       ```bash
       {{ yc-mdb-kf }} user create <username> \
-        --cluster-name <cluster name> \
-        --password <password of at least 8 characters> \
-        --permission topic=<topic name>,role=<user role: producer or consumer>
+        --cluster-name <cluster_name> \
+        --password <password> \
+        --permission topic=<topic_name>,role=<user_role>
       ```
 
-   To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enabled:
+   To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster:
    1. See the description of the create user CLI command:
 
       ```bash
@@ -72,8 +72,8 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
       ```bash
       {{ yc-mdb-kf }} user create <username> \
-        --cluster-name <cluster name> \
-        --password <password of at least 8 characters> \
+        --cluster-name <cluster_name> \
+        --password <password> \
         --permission topic=*,role=admin
       ```
 
@@ -88,7 +88,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
       ```hcl
       resource "yandex_mdb_kafka_user" "<username>" {
-        cluster_id = "<cluster ID>"
+        cluster_id = "<cluster_ID>"
         name       = "<username>"
         password   = "<password>"
         ...
@@ -102,7 +102,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -122,7 +122,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
          * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](cluster-topics.md#list-topics).
          * Topic permissions in the `role` parameter: `ACCESS_ROLE_PRODUCER` for the producer or `ACCESS_ROLE_CONSUMER` for the consumer.
 
-   To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enabled, when creating a user, provide the `permission` block in the `userSpec` parameter with the following values:
+   To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster, provide the following values under `permission` in the `userSpec` parameter:
    * `topicName`: `*`
    * `role`: `ACCESS_ROLE_ADMIN`
 
@@ -131,7 +131,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
 {% endlist %}
 
-## Changing a user's password {#update-password}
+## Changing a user password {#update-password}
 
 {% list tabs %}
 
@@ -155,8 +155,8 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
    ```bash
    {{ yc-mdb-kf }} user update <username> \
-     --cluster-name <cluster name> \
-     --password <new password>
+     --cluster-name <cluster_name> \
+     --password <new_password>
    ```
 
    {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
@@ -183,7 +183,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -197,7 +197,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
    To update a user's password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-   * The name of the `password` setting in the `updateMask` parameter. If this parameter is omitted, the API method resets any user settings that aren't explicitly specified in the request to their default values.
+   * The name of the `password` setting in the `updateMask` parameter. If this parameter is omitted, the API method resets any user settings that are not explicitly specified in the request to their default values.
    * New user password, in the `password` parameter.
 
       {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
@@ -238,7 +238,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
       ```hcl
       resource "yandex_mdb_kafka_user" "<username>" {
-        cluster_id = "<cluster ID>"
+        cluster_id = "<cluster_ID>"
         name       = "<username>"
         password   = "<password>"
         ...
@@ -249,7 +249,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -263,8 +263,8 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
    To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/user_service.md#Update) gRPC API call and provide the following in the request:
    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any user settings that aren't explicitly specified in the request to their default values.
-   * A new set of permissions to topics (one or more `permissions` parameters, one for each topic).
+   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any user settings that are not explicitly specified in the request to their default values.
+   * New set of permissions to topics (one or more `permissions` parameters, one for each topic).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -279,22 +279,16 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the desired folder.
+   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select the cluster.
-   1. Click the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+   1. Go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the user to grant topic permissions to and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
    1. Click **+ {{ ui-key.yacloud.kafka.button_add-topic }}**. If you do not see this button, it means that the user is granted permissions to all existing cluster topics.
 
       If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
 
    1. Select the appropriate topic from the drop-down list or enter its name:
-
-      {% note info %}
-
-      If you enabled the **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** setting when creating a cluster, you should enter the topic name manually.
-
-      {% endnote %}
 
       1. Specify the following in the **{{ ui-key.yacloud.kafka.label_topic }}** field:
 
@@ -322,25 +316,25 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
    1. Retrieve a list of cluster topics:
 
       ```bash
-      {{ yc-mdb-kf }} topic list --cluster-name <cluster name>
+      {{ yc-mdb-kf }} topic list --cluster-name <cluster_name>
       ```
 
-   1. Grant permissions to the required topics by passing the `--permission` parameters:
+   1. Grant permissions to the required topics by providing the `--permission` parameters:
 
       ```bash
       {{ yc-mdb-kf }} user update <username> \
-        --cluster-name <cluster name> \
-        --permission topic=<topic name>,role=<user role: producer, consumer or admin>
+        --cluster-name <cluster_name> \
+        --permission topic=<topic_name>,role=<user_role>
       ```
 
       The following `--permission` parameters are available:
       * `topic`: Name of the topic the permissions are granted for.
 
-         If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
+         If the user does not need permissions to certain topics, you [can revoke them](#revoke-permission).
 
       * `role`: User role, such as `producer`, `consumer`, or `admin`.
 
-         The `admin` role is only available in a cluster with [Manage topics via Admin API](../concepts/topics.md#management) enabled if all topics are selected (`topic=*`).
+         The `admin` role is only available with all topics selected (`topic=*`).
 
       When you update user permissions, the existing permissions are revoked and replaced with the new ones. This means the command must always include a complete list of permissions to be assigned to the user.
 
@@ -366,18 +360,20 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
         ...
         permission {
           topic_name = "<topic>"
-          role       = "<user role: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER, or ACCESS_ROLE_ADMIN>"
+          role       = "<user_role>"
         }
       }
       ```
 
-      Under `topic_name`, specify:
+      Where:
 
-      * `*` to allow access to any topics.
-      * Full topic name to allow access to a specific topic.
-      * `<prefix>*` to grant access to topics whose names start with the specified prefix. For example, if you have topics named `topic_a1`, `topic_a2`, and `a3`, and you set the `topic*` value, access will be granted to `topic_a1` and `topic_a2`.
+      * `topic_name`: Topic name. Specify the following:
 
-      The `ACCESS_ROLE_ADMIN` is only available in a cluster with [Manage topics via Admin API](../concepts/topics.md) enabled with all topics selected (`topic_name = "*"`).
+        * `*` to allow access to any topics.
+        * Full topic name to allow access to a specific topic.
+        * `<prefix>*` to grant access to topics whose names start with the specified prefix. For example, if you have topics named `topic_a1`, `topic_a2`, and `a3`, and you set the `topic*` value, access will be granted to `topic_a1` and `topic_a2`.
+
+      * `role`: User role: `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER` or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` is only available with all topics selected (`topic_name = "*"`).
 
       If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
 
@@ -385,7 +381,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -406,7 +402,7 @@ If a {{ mkf-name }} cluster has **{{ ui-key.yacloud.kafka.field_unmanaged-topics
 
 ## Revoking user permissions {#revoke-permission}
 
-If, in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enabled, you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/topics.md#management), you will no longer be able to manage topics. Do not revoke this role without first granting it to another user.
+If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/topics.md#management) in a cluster, you will no longer be able to manage topics. Do not revoke this role without first granting it to another user.
 
 {% list tabs %}
 
@@ -415,7 +411,7 @@ If, in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enab
    1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
    1. Select the cluster.
-   1. Click the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+   1. Go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
    1. Find the appropriate topic in the list of topics.
    1. Delete the role you no longer need: click the ![image](../../_assets/cross.svg) icon next to the role name. To revoke all permissions for a topic, delete it from the list: hover over the topic name and click ![image](../../_assets/cross.svg) at the end of the line.
@@ -430,13 +426,18 @@ If, in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enab
 
    ```bash
    {{ yc-mdb-kf }} user update <username> \
-     --cluster-name <cluster name> \
-     --permission topic=<topic name>,role=<user role: producer, consumer or admin>
+     --cluster-name <cluster_name> \
+     --permission topic=<topic_name>,role=<user_role>
    ```
 
    When you update user permissions, the existing permissions are revoked and replaced with the new ones. This means the command must always include a complete list of permissions to be assigned to the user.
 
-   The `--permission` flag must contain at least one topic/role pair. To revoke all the permissions granted to the user, use the console or delete the user.
+   The `--permission` flag must include at least one topic/role pair, where:
+
+   * `topic`: Topic name.
+   * `role`: User role, such as `producer`, `consumer`, or `admin`.
+
+   To revoke all the permissions granted to the user, use the console or delete the user.
 
 - {{ TF }}
 
@@ -449,7 +450,7 @@ If, in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enab
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -470,7 +471,7 @@ If, in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enab
 
 ## Deleting a user {#delete-account}
 
-If, in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enabled, you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role, you will no longer be able to manage topics. Assign this role to another user before deleting it.
+If you delete the [admin user](../concepts/topics.md#management) with the `ACCESS_ROLE_ADMIN` role in a cluster, you will no longer be able to manage topics. Assign this role to another user before deleting it.
 
 {% list tabs %}
 
@@ -491,7 +492,7 @@ If, in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enab
    To remove a user, run:
 
    ```bash
-   {{ yc-mdb-kf }} user delete <username> --cluster-name <cluster name>
+   {{ yc-mdb-kf }} user delete <username> --cluster-name <cluster_name>
    ```
 
 - {{ TF }}
@@ -504,7 +505,7 @@ If, in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enab
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -542,13 +543,13 @@ If, in a cluster with **{{ ui-key.yacloud.kafka.field_unmanaged-topics }}** enab
    1. To get a list of users, run the following command:
 
       ```bash
-      {{ yc-mdb-kf }} user list --cluster-name <cluster name>
+      {{ yc-mdb-kf }} user list --cluster-name <cluster_name>
       ```
 
    1. To get detailed information for a specific user, run this command:
 
       ```bash
-      {{ yc-mdb-kf }} user get <username> --cluster-name <cluster name>
+      {{ yc-mdb-kf }} user get <username> --cluster-name <cluster_name>
       ```
 
 

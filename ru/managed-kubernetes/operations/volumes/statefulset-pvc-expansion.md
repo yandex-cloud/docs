@@ -76,9 +76,9 @@
    pod/ubuntu-test-2  1/1    Running  0         72s
 
    NAME                                             STATUS  VOLUME                                    CAPACITY  ACCESS MODES  STORAGECLASS    AGE
-   persistentvolumeclaim/pvc-dynamic-ubuntu-test-0  Bound   pvc-603ac129-fe56-400a-8481-feaad7fac9c0  1Gi       RWO           yc-network-hdd  91s
-   persistentvolumeclaim/pvc-dynamic-ubuntu-test-1  Bound   pvc-a6fb0761-0771-483c-abfb-d4a89ec4719f  1Gi       RWO           yc-network-hdd  81s
-   persistentvolumeclaim/pvc-dynamic-ubuntu-test-2  Bound   pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140  1Gi       RWO           yc-network-hdd  73s
+   persistentvolumeclaim/pvc-dynamic-ubuntu-test-0  Bound   pvc-603ac129-fe56-400a-8481-feaa********  1Gi       RWO           yc-network-hdd  91s
+   persistentvolumeclaim/pvc-dynamic-ubuntu-test-1  Bound   pvc-a6fb0761-0771-483c-abfb-d4a8********  1Gi       RWO           yc-network-hdd  81s
+   persistentvolumeclaim/pvc-dynamic-ubuntu-test-2  Bound   pvc-f479c8aa-426a-4e43-9749-5e0f********  1Gi       RWO           yc-network-hdd  73s
    ```
 
 
@@ -96,9 +96,9 @@
    +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
    |          ID          |                       NAME                       |    SIZE    |        ZONE       | STATUS |     INSTANCE IDS     | DESCRIPTION |
    +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
-   | ef3b5ln111s36h0ugf7c | k8s-csi-15319ac44278c2ff23f0df04ebdbe5a8aa6f4a49 | 1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
-   | ef3e617rmqrijnesob0n | k8s-csi-336f16a11f750525075d7c155ad26ae3513dca01 | 1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
-   | ef3rfleqkit01i3d2j41 | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e279fd3b6 | 1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
+   | ef3b5ln111s3******** | k8s-csi-15319ac44278c2ff23f0df04ebdbe5a8******** | 1073741824 | {{ region-id }}-a     | READY  | ef3nrev9j72t******** |             |
+   | ef3e617rmqri******** | k8s-csi-336f16a11f750525075d7c155ad26ae3******** | 1073741824 | {{ region-id }}-a     | READY  | ef3nrev9j72t******** |             |
+   | ef3rfleqkit0******** | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e******** | 1073741824 | {{ region-id }}-a     | READY  | ef3nrev9j72t******** |             |
    +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
    ```
 
@@ -189,7 +189,7 @@
    
    ```text
    NAME                                      CAPACITY  ACCESS MODES  RECLAIM POLICY  STATUS  CLAIM                              STORAGECLASS    REASON  AGE
-   pvc-603ac129-fe56-400a-8481-feaad7fac9c0  2Gi       RWO           Delete          Bound   default/pvc-dynamic-ubuntu-test-0  yc-network-hdd          11m
-   pvc-a6fb0761-0771-483c-abfb-d4a89ec4719f  2Gi       RWO           Delete          Bound   default/pvc-dynamic-ubuntu-test-1  yc-network-hdd          11m
-   pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140  2Gi       RWO           Delete          Bound   default/pvc-dynamic-ubuntu-test-2  yc-network-hdd          11m
+   pvc-603ac129-fe56-400a-8481-feaa********  2Gi       RWO           Delete          Bound   default/pvc-dynamic-ubuntu-test-0  yc-network-hdd          11m
+   pvc-a6fb0761-0771-483c-abfb-d4a8********  2Gi       RWO           Delete          Bound   default/pvc-dynamic-ubuntu-test-1  yc-network-hdd          11m
+   pvc-f479c8aa-426a-4e43-9749-5e0f********  2Gi       RWO           Delete          Bound   default/pvc-dynamic-ubuntu-test-2  yc-network-hdd          11m
    ```

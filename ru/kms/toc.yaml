@@ -35,6 +35,9 @@ items:
           - name: Электронная подпись и проверка подписи
             stage: preview
             href: operations/signature-verification.md
+          - name: Электронная подпись файлов и артефактов с помощью Cosign
+            stage: preview
+            href: operations/signature-verification-cosign.md
   - name: Концепции
     items:
       - name: Обзор
@@ -88,6 +91,8 @@ items:
             href: tutorials/encrypt/google-tink.md
       - name: Шифрование секретов в Managed Service for Kubernetes
         href: tutorials/k8s.md
+      - name: Подпись и проверка Docker-образов в {{ managed-k8s-name }}
+        href: tutorials/sign-with-cosign.md
       - name: Управление ключами KMS с Hashicorp Terraform
         href: tutorials/terraform-key.md
       - name: Шифрование секретов в Hashicorp Terraform

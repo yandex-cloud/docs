@@ -8,13 +8,13 @@ To run queries, you will need to create a [database](manage-databases.md) and a 
 
 To send an SQL query to a database from the management console:
 1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
-1. In the list of services, select **{{ ydb-name }}**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 1. Select the database from the list.
-1. Go to the **Navigation** tab.
-1. Click **SQL query** and enter the query text. When making queries, you can use the following templates:
-   * To use one of the standard templates, select it from the drop-down list to the right of the **SQL query** button.
+1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** and enter the query text. When making queries, you can use the following templates:
+   * To use one of the standard templates, select it from the drop-down list to the right of the **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** button.
    * To populate a template with data from a specific table, click ![image](../../_assets/horizontal-ellipsis.svg) in the row next to the table and select a template.
-1. Click **Run**.
+1. Click **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 
 ## Insert and update data {#change-data}
 

@@ -23,8 +23,8 @@ Syntax:
 |`--aad-context-file`|<b>`string`</b><br/>Additional authenticated data file to encrypt. Otherwise encrypt without aad context.|
 |`--source-key-id`|<b>`string`</b><br/>Required. ID of the key that the source ciphertext is currently encrypted with. May be the same as for the new key.|
 |`--source-aad-context-file`|<b>`string`</b><br/>Additional authenticated data file provided with the initial encryption request.|
-|`--source-ciphertext-file`|<b>`string`</b><br/>Required. Initial ciphertext file to re-encrypt.|
-|`--ciphertext-file`|<b>`string`</b><br/>Required. File to write re-encrypted ciphertext.|
+|`--source-ciphertext-file`|<b>`string`</b><br/>Initial ciphertext file to re-encrypt.  Otherwise performs re-encrypt operation with data from stdin.|
+|`--ciphertext-file`|<b>`string`</b><br/>File to write re-encrypted ciphertext. Otherwise write re-encrypted ciphertext to stdout.|
 
 #### Global Flags
 

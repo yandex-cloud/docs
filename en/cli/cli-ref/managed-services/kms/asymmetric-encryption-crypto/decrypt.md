@@ -19,9 +19,9 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Asymmetric encryption key id.|
 |`--name`|<b>`string`</b><br/>Asymmetric encryption key name.|
-|`--ciphertext-file`|<b>`string`</b><br/>Required. Ciphertext file.|
+|`--ciphertext-file`|<b>`string`</b><br/>Ciphertext file. Otherwise performs encrypt operation with data from stdin.|
 |`--inform`|<b>`string`</b><br/>Ciphertext file format. Can be 'raw' (default), 'hex' and 'base64'.|
-|`--plaintext-file`|<b>`string`</b><br/>Required. File to write plaintext.|
+|`--plaintext-file`|<b>`string`</b><br/>File to write plaintext. Otherwise write plaintext to stdout.|
 |`--outform`|<b>`string`</b><br/>Plaintext file format. Can be 'raw' (default), 'hex' and 'base64'.|
 
 #### Global Flags

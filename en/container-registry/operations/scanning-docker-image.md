@@ -123,13 +123,13 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
    1. Choose a registry or [create](registry/registry-create.md) a new one.
    1. Go to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab.
    1. Click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
-   1. Under **Scan Docker images on push**, select `Scan` and one of the scanning options:
-      * **{{ ui-key.yacloud.cr.registry.label_all-repositories }}** to scan all registry repositories.
-      * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** to scan only selected repositories:
+   1. Under **{{ ui-key.yacloud.cr.registry.title_scan-on-push }}**, select **{{ ui-key.yacloud.cr.image.label_start-scan }}** and one of the scanning options:
+      * `{{ ui-key.yacloud.cr.registry.label_all-repositories }}` to scan all registry repositories.
+      * `{{ ui-key.yacloud.cr.registry.label_selected }}` to scan only selected repositories:
          1. Click **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
          1. Select the appropriate repositories from the list.
          1. Click **{{ ui-key.yacloud.common.save }}**.
-   1. Click **{{ ui-key.yacloud.common.save-changes }}**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - API
 
@@ -150,15 +150,15 @@ You can [scan](../concepts/vulnerability-scanner.md) [Docker images](../concepts
    1. Choose a registry or [create](registry/registry-create.md) a new one.
    1. Go to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab.
    1. Click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
-   1. Under **Scheduled Docker image scans**, click **Add scan rule**.
-   1. Select `Scan` and one of the scanning options:
-      * **{{ ui-key.yacloud.cr.registry.label_all-repositories }}** to scan all registry repositories.
-      * **{{ ui-key.yacloud.cr.registry.label_only-selected }}** to scan only selected repositories:
+   1. Under **{{ ui-key.yacloud.cr.registry.title_scheduled-scan }}**, click **{{ ui-key.yacloud.cr.registry.label_add-scan-rule }}**.
+   1. Select **{{ ui-key.yacloud.cr.image.label_start-scan }}** and one of the scanning options:
+      * `{{ ui-key.yacloud.cr.registry.label_all-repositories }}` to scan all registry repositories.
+      * `{{ ui-key.yacloud.cr.registry.label_selected }}` to scan only selected repositories:
          1. Click **{{ ui-key.yacloud.cr.registry.button_select-repositories }}**.
          1. Select the appropriate repositories from the list.
-         1. Click **Save**.
+         1. Click **{{ ui-key.yacloud.common.save }}**.
    1. Specify the frequency of Docker image scans.
-   1. Click **Save changes**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - API
 

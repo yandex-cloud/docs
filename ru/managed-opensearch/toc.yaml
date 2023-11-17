@@ -27,10 +27,14 @@ items:
                 href: operations/cluster-version-update.md
               - name: Управление плагинами {{ OS }}
                 href: operations/plugins.md
+          - name: Управление хостами {{ OS }}
+            items:
+              - name: Управление группами хостов
+                href: operations/host-groups.md
+              - name: Миграция групп хостов в другую зону доступности
+                href: operations/host-migration.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
-          - name: Управление хостами {{ OS }}
-            href: operations/host-groups.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
           - name: Настройка доступа к Object Storage
@@ -183,6 +187,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Публичные материалы
+    href: public-talks.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

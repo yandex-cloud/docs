@@ -2,9 +2,9 @@
 
 Например, разрешите любому прошедшему аутентификацию пользователю просматривать информацию о каталоге:
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- Консоль управления
+- Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -16,7 +16,7 @@
     1. Выберите роль `resource-manager.viewer`.
     1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../cli-install.md) %}
 
@@ -28,7 +28,7 @@
     --subject system:allAuthenticatedUsers
   ```
 
-- API
+- API {#api}
 
     1. Сформируйте тело запроса, например в файле `body.json`. В `roleId` назначьте роль `viewer`. В свойстве `subject` укажите тип `system` и идентификатор `allAuthenticatedUsers`:
 
@@ -80,7 +80,7 @@
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
-       folder_id = "<идентификатор каталога>"
+       folder_id = "<идентификатор_каталога>"
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "viewer" {
@@ -121,7 +121,7 @@
      Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```
-     yc resource-manager folder list-access-bindings <имя каталога>|<ID каталога>
+     yc resource-manager folder list-access-bindings <имя_или_идентификатор_каталога>
      ```
 
 {% endlist %}

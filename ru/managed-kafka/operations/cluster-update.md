@@ -38,7 +38,7 @@
 
      ```bash
      {{ yc-mdb-kf }} cluster list
-     {{ yc-mdb-kf }} cluster get <имя или идентификатор кластера>
+     {{ yc-mdb-kf }} cluster get <имя_или_идентификатор_кластера>
      ```
 
   1. Посмотрите описание команды CLI для изменения кластера:
@@ -50,13 +50,13 @@
   1. Чтобы увеличить количество хостов-брокеров, выполните команду:
   
      ```bash
-     {{ yc-mdb-kf }} cluster update <имя или идентификатор кластера> --brokers-count <число>
+     {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> --brokers-count <число>
      ```
 
   1. Чтобы изменить класс хоста-брокера, выполните команду:
 
      ```bash
-     {{ yc-mdb-kf }} cluster update <имя или идентификатор кластера> --resource-preset <класс хоста>
+     {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> --resource-preset <класс_хоста>
      ```
 
 - {{ TF }}
@@ -68,9 +68,9 @@
     1. Измените в описании кластера {{ mkf-name }} значение параметра `brokers_count`, чтобы увеличить количество хостов-брокеров:
 
         ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+        resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
           config {
-            brokers_count = <количество хостов-брокеров>
+            brokers_count = <количество_хостов-брокеров>
             ...
           }
           ...
@@ -80,11 +80,11 @@
     1. Измените в описании кластера {{ mkf-name }} значение параметра `resource_preset_id` в блоке `kafka.resources`, чтобы задать новый класс хостов-брокеров:
 
         ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+        resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
           ...
           kafka {
             resources {
-              resource_preset_id = "<класс хостов-брокеров>"
+              resource_preset_id = "<класс_хостов-брокеров>"
               ...
             }
           }
@@ -138,7 +138,7 @@
 
      ```bash
      {{ yc-mdb-kf }} cluster list
-     {{ yc-mdb-kf }} cluster get <имя или идентификатор кластера>
+     {{ yc-mdb-kf }} cluster get <имя_или_идентификатор_кластера>
      ```
 
   1. Посмотрите описание команды CLI для изменения кластера:
@@ -150,8 +150,8 @@
   1. Чтобы изменить класс хостов {{ ZK }}, выполните команду:
 
      ```bash
-     {{ yc-mdb-kf }} cluster update <имя или идентификатор кластера> \
-       --zookeeper-resource-preset <класс хоста>
+     {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
+       --zookeeper-resource-preset <класс_хоста>
      ```
 
 - Terraform
@@ -163,11 +163,11 @@
     1. Измените в описании кластера {{ mkf-name }} значение параметра `resource_preset_id` в блоке `zookeeper.resources`, чтобы задать новый класс хостов {{ ZK }}:
 
         ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+        resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
           ...
           zookeeper {
             resources {
-              resource_preset_id = "<класс хостов {{ ZK }}>"
+              resource_preset_id = "<класс_хостов_{{ ZK }}>"
               ...
             }
           }
@@ -236,8 +236,8 @@
   1. Чтобы изменить объем хранилища хостов-брокеров, выполните команду:
   
      ```bash
-     {{ yc-mdb-kf }} cluster update <имя или идентификатор кластера> \
-       --disk-size <объем хранилища>
+     {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
+       --disk-size <объем_хранилища>
      ```
 
      Если не указаны единицы размера, то используются гигабайты.
@@ -245,8 +245,8 @@
   1. Чтобы изменить объем хранилища хостов {{ ZK }}, выполните команду:
 
      ```bash
-     {{ yc-mdb-kf }} cluster update <имя или идентификатор кластера> \
-       --zookeeper-disk-size <размер диска>
+     {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
+       --zookeeper-disk-size <размер_диска>
      ```
 
      Если не указаны единицы размера, то используются гигабайты.
@@ -262,18 +262,18 @@
     1. Измените в описании кластера {{ mkf-name }} значение параметра `disk_size` в блоках `kafka.resources` и `zookeeper.resources` для хостов {{ KF }} и {{ ZK }} соответственно:
 
         ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+        resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
           ...
           kafka {
             resources {
-              disk_size = <размер хранилища в гигабайтах>
+              disk_size = <размер_хранилища_ГБ>
               ...
             }
             ...
           }
           zookeeper {
             resources {
-              disk_size = <размер хранилища в гигабайтах>
+              disk_size = <размер_хранилища_ГБ>
               ...
             }
           }
@@ -336,10 +336,15 @@
   1. Укажите нужные группы безопасности и настройку публичного доступа в команде изменения кластера:
 
       ```bash
-      {{ yc-mdb-kf }} cluster update <имя кластера> \
-         --security-group-ids <список групп безопасности> \
-         --assign-public-ip=<публичный доступ к кластеру: true или false>
+      {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
+         --security-group-ids <список_групп_безопасности> \
+         --assign-public-ip=<публичный_доступ>
       ```
+
+      Где:
+
+      * `--security-group-ids` — список идентификаторов групп безопасности кластера.
+      * `--assign-public-ip` — публичный доступ к кластеру: `true` или `false`.
 
   [Перезагрузите кластер](./cluster-stop.md), чтобы изменение настройки публичного доступа вступило в силу.
 
@@ -352,16 +357,20 @@
     1. Измените значения параметров `security_group_ids` и `assign_public_ip` в описании кластера:
 
         ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+        resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
           ...
-          security_group_ids = [ <список идентификаторов групп безопасности кластера> ]
+          security_group_ids = [ <список_групп_безопасности> ]
           ...
           config {
-            assign_public_ip = "<публичный доступ к кластеру: true или false>"
+            assign_public_ip = "<публичный_доступ>"
             ...
             }
         }
         ```
+
+        Где:
+        * `security_group_ids` — список идентификаторов групп безопасности кластера.
+        * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
 
     1. Проверьте корректность настроек.
 
@@ -426,12 +435,13 @@
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
-        {{ yc-mdb-kf }} cluster update <идентификатор или имя кластера> \
-           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                               `day=<день недели для типа weekly>,`
-                               `hour=<час дня для типа weekly> \
-           --datatransfer-access=<true или false> \
-           --deletion-protection=<защита от удаления кластера: true или false>
+        {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
+           --maintenance-window type=<тип_технического_обслуживания>,`
+                               `day=<день_недели>,`
+                               `hour=<час_дня> \
+           --datatransfer-access=<доступ_к_кластеру> \
+           --deletion-protection=<защита_от_удаления> \
+           --schema-registry=<управление_схемами_данных>
         ```
 
     Вы можете изменить следующие настройки:
@@ -446,6 +456,10 @@
 
         {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
+    * `--schema-registry` – включите эту опцию, чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
+
+        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
+
     Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }}
@@ -459,13 +473,27 @@
     1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
         ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+        resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
           ...
-          deletion_protection = <защита от удаления кластера: true или false>
+          deletion_protection = <защита_от_удаления>
         }
         ```
 
         {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    1. Чтобы включить управление схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), добавьте к описанию кластера поле `config.schema_registry` со значением `true`:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          ...
+          config {
+            ...
+            schema_registry  = <управление_схемами_данных>
+          }
+        }
+        ```
+
+        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -494,6 +522,10 @@
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    * Настройки управления схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md) в параметре `configSpec.schemaRegistry`.
+
+        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
     * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
 
@@ -532,11 +564,16 @@
     1. Измените [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings) в команде изменения кластера (в примере приведены не все настройки):
 
         ```bash
-        {{ yc-mdb-kf }} cluster update <идентификатор или имя кластера> \
-           --compression-type <тип сжатия> \
-           --log-flush-interval-messages <количество сообщений в логе, необходимое для их сброса на диск> \
-           --log-flush-interval-ms <максимальное время хранения сообщений в памяти перед сбросом на диск>
+        {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
+           --compression-type <тип_сжатия> \
+           --log-flush-interval-messages <количество_сообщений_в_логе> \
+           --log-flush-interval-ms <максимальное_время_хранения_сообщений>
         ```
+
+        Где:
+
+        * `--log-flush-interval-messages` — количество сообщений в логе, необходимое для их сброса на диск.
+        * `--log-flush-interval-ms` — максимальное время хранения сообщений в памяти перед сбросом на диск.
 
 - {{ TF }}
 
@@ -547,14 +584,14 @@
     1. Измените в описании кластера {{ mkf-name }} значения параметров в блоке `kafka.kafka_config` (в примере приведены не все [настройки](../concepts/settings-list.md#cluster-settings)):
 
         ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+        resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
           ...
           config {
             kafka {
               ...
               kafka_config {
-                compression_type            = "<тип сжатия>"
-                log_flush_interval_messages = <максимальное число сообщений в памяти>
+                compression_type            = "<тип_сжатия>"
+                log_flush_interval_messages = <максимальное_количество_сообщений_в_памяти>
                 ...
               }
             }
@@ -612,8 +649,8 @@
     1. Укажите каталог назначения в команде перемещения кластера:
 
         ```bash
-        {{ yc-mdb-kf }} cluster move <идентификатор кластера> \
-           --destination-folder-name=<имя каталога назначения>
+        {{ yc-mdb-kf }} cluster move <идентификатор_кластера> \
+           --destination-folder-name=<имя_каталога_назначения>
         ```
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -654,8 +691,8 @@
   1. Укажите нужные группы безопасности в команде изменения кластера:
 
       ```bash
-      {{ yc-mdb-kf }} cluster update <имя кластера> \
-         --security-group-ids <список групп безопасности>
+      {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
+         --security-group-ids <список_групп_безопасности>
       ```
 
 - {{ TF }}
@@ -667,9 +704,9 @@
     1. Измените значение параметра `security_group_ids` в описании кластера:
 
         ```hcl
-        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+        resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
           ...
-          security_group_ids = [ <список идентификаторов групп безопасности кластера> ]
+          security_group_ids = [ <список_групп_безопасности> ]
         }
         ```
 

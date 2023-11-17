@@ -31,6 +31,28 @@ To use an encrypted connection, get an SSL certificate:
 
 {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
 
+## {{ OS }} host FQDN {#fqdn}
+
+To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+
+* [Request a list of cluster hosts](host-groups.md#list-hosts).
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-connect }}**.
+* Look up the FQDN in the management console:
+
+   1. Go to the cluster page.
+   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+
+Cluster hosts also use [special FQDNs](#special-fqdns).
+
+## Special FQDNs {#special-fqdns}
+
+Alongside [regular FQDNs](#fqdn), {{ mos-name }} provides special FQDNs, which can also be used when connecting to a cluster.
+
+### Available Dashboards host {#fqdn-dashboards}
+
+Such FQDN as `c-<cluster_ID>.rw.{{ dns-zone }}` always points to the available {{ OS }} host with the `DASHBOARDS` role in the cluster. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
 ## Connecting to {{ OS }} Dashboards {#dashboards}
 
 
@@ -43,12 +65,12 @@ You can connect to {{ OS }} Dashboards:
 
 - Over the internet
 
-   1. Install the [SSL certificate](#ssl-certificate) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
-   1. On the cluster page, in the management console, click **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** or go to `https://c-< cluster ID>.rw.{{ dns-zone }}>` in your browser.
+   1. Install the [SSL certificate](#ssl-certificate) in your browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
+   1. On the cluster page, in the management console, click **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** or go to `https://c-< cluster_ID>.rw.{{ dns-zone }}>` in your browser.
 
       You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   1. Enter the `admin` username and password that you set when [creating the cluster](cluster-create.md).
+   1. Enter `admin` for the username and the password you set when [creating the cluster](cluster-create.md).
 
 - From a VM in {{ yandex-cloud }}
 
@@ -73,9 +95,9 @@ You can connect to {{ OS }} Dashboards:
 
       ```nginx
       upstream os-dashboards-nodes {
-         server <FQDN of host 1 with DASHBOARDS role>:443;
+         server <FQDN_of_host_1_with_DASHBOARDS_role>:443;
          ...
-         server <FQDN of host N with the DASHBOARDS role>:443;
+         server <FQDN_of_host_N_with_DASHBOARDS_role>:443;
       }
 
       server {
@@ -110,7 +132,7 @@ You can connect to {{ OS }} Dashboards:
 
    1. Add the certificate specified in the `ssl_certificate` directive to the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
 
-   1. In the browser, go to `https://<public IP address of the VM instance>`.
+   1. In your browser, open `https://<VM_public_IP_address>`.
 
    1. Enter the `admin` username and password.
 
@@ -163,11 +185,3 @@ To connect, enter the `admin` username and password used when [creating the clus
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 {% include [Code examples](../../_includes/mdb/mos/code-examples.md) %}
-
-## Special FQDNs {#special-fqdns}
-
-Just like usual FQDNs, which can be requested with a [list of cluster hosts](host-groups.md#list-hosts), {{ mos-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
-
-### Available Dashboards host {#fqdn-dashboards}
-
-Such FQDN as `c-<cluster ID>.rw.{{ dns-zone }}` always points to the available {{ OS }} host with the `DASHBOARDS` role in the cluster. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).

@@ -30,7 +30,7 @@
      * `https://acme-v02.api.letsencrypt.org/directory` — основной URL.
      * `https://acme-staging-v02.api.letsencrypt.org/directory` — тестовый URL.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Дождитесь перехода приложения в статус `Deployed`.
+1. Дождитесь перехода приложения в статус `{{ ui-key.yacloud.k8s.cluster.marketplace.label_release-status-DEPLOYED }}`.
 1. Создайте файл `certificate.yaml`, содержащий запрос на тестовый сертификат:
 
    ```yaml
@@ -66,9 +66,9 @@
    Результат:
 
    ```text
-    NAME         READY  SECRET              AGE
-    domain-name  True   domain-name-secret  45m
-    ```
+   NAME         READY  SECRET              AGE
+   domain-name  True   domain-name-secret  45m
+   ```
 
 ## Установка с помощью Helm-чарта {#helm-install}
 

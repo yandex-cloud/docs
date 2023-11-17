@@ -22,12 +22,12 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
    To get a list of cluster plugins, run the following command:
 
    ```bash
-   {{ yc-mdb-es }} cluster get <cluster ID or name>
+   {{ yc-mdb-es }} cluster get <cluster_name_or_ID>
    ```
 
    Enabled plugins will be shown in the `plugins` list.
 
-   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -52,11 +52,11 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
    To edit cluster plugins, pass the plugin list in the CLI `--plugins` parameter. Plugins that are not included in the list will be disabled.
 
    ```bash
-   {{ yc-mdb-es }} cluster update <cluster ID or name> \
-      --plugins=<plugin 1 name>,...,<plugin N name>
+   {{ yc-mdb-es }} cluster update <cluster_name_or_ID> \
+      --plugins=<plugin_1_name>,...,<plugin_N_name>
    ```
 
-   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -67,11 +67,11 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
    1. In the {{ mes-name }} cluster description, add the `plugins` field with a list of plugins to the `config` block:
 
       ```hcl
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
         ...
         config {
           ...
-          plugins = [ "<list of plugin names>" ]
+          plugins = [ "<list_of_plugin_names>" ]
           ...
         }
         ...

@@ -1,6 +1,6 @@
 ## Create a test application {#app-create}
 
-Create a test application that can be deployed in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster):
+Create a test application that can be deployed in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster):
 1. Add `Dockerfile` to the project:
    1. Log in to {{ GL }}.
    1. On the home page, select a repository.
@@ -46,12 +46,11 @@ Create a test application that can be deployed in a [{{ managed-k8s-name }} clus
           spec:
             containers:
               - name: hello-world
-                image: {{ registry }}/<registry ID>/__VERSION__
+                image: __VERSION__
                 imagePullPolicy: Always
       ```
 
       {% endcut %}
 
-   1. Replace the `<registry ID>` with the ID of the {{ container-registry-name }} [registry](../../container-registry/concepts/registry.md) that you created previously.
    1. Add a comment to the commit in the **Commit message** field: `Docker image deployment config`.
    1. Click **Commit changes**.

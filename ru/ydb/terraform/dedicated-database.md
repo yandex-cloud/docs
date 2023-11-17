@@ -5,7 +5,7 @@
 ```tf
 resource "yandex_ydb_database_dedicated" "my_database_2" {
   name = "dedicated-base"
-  folder_id = "<идентификатор каталога в {{ yandex-cloud }}>"
+  folder_id = "<идентификатор_каталога_в_Yandex_Cloud>"
   
   resource_preset_id = "medium"
   scale_policy {
@@ -20,9 +20,9 @@ resource "yandex_ydb_database_dedicated" "my_database_2" {
   }
 
   location_id = "ru-central1"
-  network_id  = "enpv06v9b6ogg372hc71" # ID сети, в которой будет создана база
+  network_id  = "enpv06v9b6og********" # ID сети, в которой будет создана база
   subnet_ids = [
-    "e2lekh3vqf1pvao73lfv", "e9bmliplcipm13ek7uco", "b0cm0qpcf4q5vcfb2pc2" 
+    "e2lekh3vqf1p********", "e9bmliplcipm********", "b0cm0qpcf4q5********" 
   ]
 }
 ```
@@ -36,7 +36,7 @@ resource "yandex_ydb_database_dedicated" "my_database_2" {
 * `scale_policy.fixed_scale.size` – параметр задаёт количество виртуальных машин, которые будет использовать база данных. Минимальное рекомендуемое количество виртуальных машин – от двух штук (для продакшна).
 
 Конфигурирование свойств хранения данных описывается блоком `storage_config`, в котором задаются следующие опции:
-* `group_count` – количество [групп хранения](https://ydb.tech/ru/docs/concepts/databases#storage-groups),  определяющих суммарный объем хранилища. Одна группа хранения кратна 100 Gb дискового пространства, задавать группам хранения можно только целочисленные значения;
+* `group_count` – количество [групп хранения](https://ydb.tech/ru/docs/concepts/databases#storage-groups),  определяющих суммарный объем хранилища. Одна группа хранения кратна 100 ГБ дискового пространства, задавать группам хранения можно только целочисленные значения;
 * `storage_type_id` – тип хранилища данных. Может быть `ssd` или `hdd`.
 
 Последний набор свойств определяющий свойства создания выделенной базы – сетевой набор свойств:

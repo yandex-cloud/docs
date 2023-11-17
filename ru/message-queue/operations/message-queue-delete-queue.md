@@ -8,7 +8,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит очередь.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
-  1. В строке нужной очереди нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В строке нужной очереди нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   
 - AWS CLI

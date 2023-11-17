@@ -227,7 +227,7 @@
        max_size: 6
        measurement_duration: 60s
        warmup_duration: 120s
-       cooldown_duration: 60s
+       stabilization_duration: 60s
        initial_size: 2
        cpu_utilization_rule:
          utilization_target: 40
@@ -749,7 +749,7 @@
       1. Склонируйте репозиторий с конфигурационными файлами:
         
           ```bash
-          git clone https://github.com/yandex-cloud-examples/yc-terraform-vm-autoscale.git
+          git clone https://github.com/yandex-cloud-examples/yc-vm-group-with-autoscale.git
           ```
 
       1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:

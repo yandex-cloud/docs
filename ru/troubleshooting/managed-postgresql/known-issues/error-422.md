@@ -3,7 +3,7 @@
 
 ## Описание проблемы {#issue-description}
 
-При попытке установить нужное расширение на базу данных по [инструкции](../../../managed-postgresql/operations/extensions/cluster-extensions) возникает ошибка:
+При попытке установить нужное расширение на базу данных по [инструкции](../../../managed-postgresql/operations/extensions/cluster-extensions.md) возникает ошибка:
 ```
 «422 UNPROCESSABLE ENTITY The specified extension 'EXT_NAME'
 is not present in shared_preload_libraries.»
@@ -21,4 +21,4 @@ is not present in shared_preload_libraries.»
 
 {% endnote %}
 
-Подробнее об управлении расширениями рассказываем в [документации](../../../managed-postgresql/operations/extensions/cluster-extensions).
+Подробнее об управлении расширениями рассказываем в [документации](../../../managed-postgresql/operations/extensions/cluster-extensions.md).

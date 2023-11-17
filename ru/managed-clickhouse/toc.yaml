@@ -19,10 +19,14 @@ items:
             href: operations/cluster-version-update.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
-          - name: Управление хостами {{ ZK }}
-            href: operations/zk-hosts.md
-          - name: Управление хостами {{ CH }}
-            href: operations/hosts.md
+          - name: Управление хостами
+            items:
+              - name: Управление хостами {{ ZK }}
+                href: operations/zk-hosts.md
+              - name: Управление хостами {{ CH }}
+                href: operations/hosts.md
+              - name: Миграция хостов {{ CH }} в другую зону доступности
+                href: operations/host-migration.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
           - name: Удаление кластера
@@ -245,6 +249,8 @@ items:
                 href: api-ref/Cluster/move.md
               - name: rescheduleMaintenance
                 href: api-ref/Cluster/rescheduleMaintenance.md
+              - name: restartHosts
+                href: api-ref/Cluster/restartHosts.md
               - name: restore
                 href: api-ref/Cluster/restore.md
               - name: start
@@ -341,6 +347,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Публичные материалы
+    href: public-talks.md
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы

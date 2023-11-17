@@ -5,14 +5,14 @@ To get started with the service:
 1. [Set up a working environment](#configure-mgl).
 1. [Get started with the repository](#start-work-with-git).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% list tabs %}
 
 - Management console
 
-  1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
-  1. If you don't have a folder yet, create one:
+  1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create an account if you do not have one yet.
+  1. If you do not have a folder yet, create one:
 
      {% include [create-folder](../_includes/create-folder.md) %}
 
@@ -37,22 +37,28 @@ In this section, you will learn how to prepare an instance {{ mgl-name }} to wor
    1. Change the administrator's password.
    1. Log in using the administrator's username and password.
 1. [Create a group](https://docs.gitlab.com/ee/user/group/#create-a-group) that will host your project.
-1. [Create a user](https://docs.gitlab.com/ee/user/profile/account/create_accounts.html) and [add them to the group](https://docs.gitlab.com/ee/user/group/#add-users-to-a-group).
-1. Create and SSH key and [assign it to the user account](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account).
-1. [Create an empty project](https://docs.gitlab.com/ee/user/project/working_with_projects.html#blank-projects) to host your repository.
+1. [Create a user](https://docs.gitlab.com/ee/user/profile/account/create_accounts.html) and [add them to the group](https://docs.gitlab.com/ee/user/project/members/#add-users-to-a-project) with the `Maintainer` or `Owner` role.
+1. [Create and SSH key](https://docs.gitlab.com/ee/user/ssh.html) and [assign it to the user account](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account).
+1. [Create an empty project](https://docs.gitlab.com/ee/user/project/) to host your repository.
 
 ## Get started with the repository {#start-work-with-git}
 
-In this section, you will learn how to get started with a local copy of your repository. Perform these steps on the local computer:
+In this section, you will learn how to get started with a local copy of your repository under a created user. Perform these steps on the local computer:
 1. [Install the Git client](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#install-git).
 1. [Clone the repository](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-a-repository) to the local machine.
-1. Get started with the repository. Create a `README.md` file, and save it in the repository directory:
+1. Go to the directory with the repository:
+
+   ```bash
+   cd <project name>
+   ```
+
+1. Create a file named `README.md`:
 
    ```bash
    echo "This is my new project" > README.md
    ```
 
-1. Add the file to the repository using the command:
+1. Index the `README.md` file:
 
    ```bash
    git add README.md
@@ -65,8 +71,9 @@ In this section, you will learn how to get started with a local copy of your rep
    ```
 
    For more information, see the [{{ GL }} documentation](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes).
-1. [Push the changes](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes) to {{ mgl-name }}:
+
+1. [Push the changes](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#send-changes-to-gitlabcom) to {{ mgl-name }}:
 
    ```bash
-   git push origin master
+   git push origin main
    ```

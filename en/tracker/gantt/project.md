@@ -1,6 +1,6 @@
 # Gantt chart in projects {{ tracker-name }}
 
-Gantt charts for {{ tracker-name }} portfolios or projects show all the project's issues and the links between them.
+Gantt charts for {{ tracker-name }} projects show issues within the associated project and the links between them.
 
 ## Creating a chart {#sec_project}
 

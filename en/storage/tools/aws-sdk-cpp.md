@@ -4,13 +4,15 @@ author: alehay
 
 # AWS SDK for C++
 
-[AWS SDK for C++](https://aws.amazon.com/ru/sdk-for-cpp/) is a set of development tools to work with AWS services.
+The [AWS SDK for C++](https://aws.amazon.com/ru/sdk-for-cpp/) is a set of development tools to work with AWS services.
 
-## Before you start {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
-## Installation {#installation}
+{% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
+
+## Installing {#installation}
 
 {% include [install-cpp-sdk](../../_includes/aws-tools/install-cpp-sdk.md)%}
 

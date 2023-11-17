@@ -1,1 +1,5 @@
-{% include [prefetch](../../_tutorials/web/prefetch.md) %}
+---
+canonical: "{{ link-docs }}/tutorials/web/prefetch"
+---
+
+{% include [prefetch](../../_tutorials/applied/prefetch.md) %}

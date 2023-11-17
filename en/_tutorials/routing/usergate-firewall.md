@@ -25,9 +25,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The price for the UserGate gateway includes:
 
-* A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* [UserGate NGFW](/marketplace/products/usergate/ngfw) usage.
-* A fee for using a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using [UserGate NGFW](/marketplace/products/usergate/ngfw).
+* Fee for using a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Create a cloud network and subnet {#create-network}
@@ -112,16 +112,16 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
       Learn more in the description of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -131,7 +131,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API
 
@@ -157,7 +157,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 - CLI
 
-   Run the following command:
+   Run this command:
 
    ```bash
    yc vpc address create --external-ipv4 zone={{ region-id }}-a
@@ -203,16 +203,16 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
    1. On the [management console]({{ link-console-main }}) folder page, click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name as `usergate-firewall`.
-   1. Select an availability zone `{{ region-id }}-a`.
+   1. Select the `{{ region-id }}-a` availability zone.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, then select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
    1. Under **Computing resources**:
 
-      * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the number of vCPUs and amount of RAM:
+      * Select the Intel Ice Lake [platform](../../compute/concepts/vm-platforms.md).
+      * Specify the required number of vCPUs and the amount of RAM:
 
-         * **vCPU**: 4.
+         * **vCPU**: 4
          * **Guaranteed vCPU share**: 100%
-         * **RAM**: 8 GB.
+         * **RAM**: 8 GB
 
          {% note info %}
 
@@ -238,7 +238,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
    1. [Create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair.
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc compute instance create \
@@ -321,16 +321,16 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       To learn more, see the [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory with the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -340,7 +340,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API
 
@@ -352,7 +352,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 To set up the gateway, go to the UserGate NGFW administrative console at `https://<public_IP_address_of_the_UserGate_VM>:8001` and log in with the default credentials: username: `Admin`, password: `utm`.
 
-When you're logged in, the system prompts you to change the default password and update the OS.
+When you are logged in, the system prompts you to change the default password and update the OS.
 
 ### Set up the gateway to run in firewall mode {#gateway-setup}
 
@@ -434,15 +434,15 @@ Create a [static route](../../vpc/concepts/static-routes.md):
    1. In the list of services, select **{{ vpc-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
    1. Click **Create**.
-   1. Enter a name for the route table.
+   1. Enter a name for the route table. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. (optional) Add a description of a route table.
+   1. (Optional) Add a description of a route table.
    1. Select the `usergate-network` network.
    1. Click **Add route**.
-   1. In the window that opens, enter the prefix for the target subnet `0.0.0.0` and select `0` from the drop-down list.
-   1. Specify **next hop**, that is, the internal IP address of the UserGate `usergate-firewall` VM.
+   1. In the window that opens, enter the prefix for the target subnet (`0.0.0.0`) and select `0` from the drop-down list.
+   1. Specify **next hop**, i.e., the internal IP address of the UserGate `usergate-firewall` VM.
    1. Click **Add**.
    1. Click **Create route table**.
 
@@ -489,11 +489,11 @@ Create a [static route](../../vpc/concepts/static-routes.md):
 
       Where:
 
-      * `name`: The name of the route table.
-      * `network-id`: The ID of the network where the table will be created.
-      * `route`: The route settings with two parameters:
-         * `destination`: The destination subnet prefix in CIDR notation.
-         * Specify `next hop`, that is, the internal IP address of the UserGate `usergate-firewall` VM.
+      * `name`: Name of the route table.
+      * `network-id`: ID of the network where the table will be created.
+      * `route`: Route settings with two parameters:
+         * `destination`: Destination subnet prefix in CIDR notation.
+         * `next hop`: Internal IP address of the UserGate `usergate-firewall` VM.
 
       Result:
       ```
@@ -555,12 +555,12 @@ Create a [static route](../../vpc/concepts/static-routes.md):
 
          {% include [name-format](../../_includes/name-format.md) %}
 
-      * `network-id`: The ID of the network where the table will be created.
+      * `network-id`: ID of the network where the table will be created.
       * `static_route`: Static route description:
          * `destination_prefix`: Destination subnet prefix in CIDR notation.
          * `next_hop_address`: Internal IP address of the VM from the [allowed ranges](../../vpc/concepts/network.md#subnet) the traffic will be sent through.
 
-      Example of the configuration file structure:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_vpc_route_table" "usergate-rt-a" {
@@ -577,16 +577,16 @@ Create a [static route](../../vpc/concepts/static-routes.md):
 
       For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```hcl
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is specified correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
    1. Deploy cloud resources.
 
@@ -596,9 +596,9 @@ Create a [static route](../../vpc/concepts/static-routes.md):
          terraform apply
          ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-         Once you are done, all the resources you need will be created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+         All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
          ```bash
          yc vpc route-table list
@@ -673,9 +673,9 @@ To test your firewall, create a test web service and make sure that you can acce
 1. In the UserGate administrator web console, in the top menu, select **Logs and reports**.
 1. On the left side of the **Logs** section, select **Web access log** and make sure that you can see an entry about executing the `Access to local server` rule.
 
-## How to delete created resources {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created:
+To stop paying for the resources you created:
 
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the `usergate-firewall` and `local-service` VMs.
 1. [Delete the static public IP address](../../vpc/operations/address-delete.md).

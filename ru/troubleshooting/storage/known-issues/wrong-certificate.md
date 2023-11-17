@@ -11,4 +11,4 @@
 
 Нужно изменить ее содержимое на `<bucket-name>.website.yandexcloud.net`, где `<bucket-name>` – имя вашего бакета
 
-О настройке собственного домена мы пишем [здесь](../../../storage/operations/hosting/own-domain).
+О настройке собственного домена мы пишем [здесь](../../../storage/operations/hosting/own-domain.md).

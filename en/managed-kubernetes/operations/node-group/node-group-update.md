@@ -1,35 +1,38 @@
 ---
-title: "How to update a node group"
-description: "This guide describes how you can update a node group."
+title: "How to update a {{ managed-k8s-name }} node group"
+description: "Follow this guide to update a {{ managed-k8s-name }} node group."
 ---
 
-# Changing a node group
+# Updating a node group {{ managed-k8s-name }}
 
 {% include [yc-node-group-list](../../../_includes/managed-kubernetes/node-group-list.md) %}
 
+Before you start, make sure you have enough [free resources](../../../resource-manager/concepts/resources-hierarchy.md#cloud) in your [cloud](../../concepts/limits.md).
+
 ## Changing node group parameters {#update-settings}
 
-You can change the following parameters of a [node group](../../concepts/index.md#node-group):
-* Name.
-* Description.
-* Number of nodes.
-* {{ k8s }} version.
-* [Container runtime environment](../../concepts/index.md#config).
-* List of [security groups](../connect/security-groups.md).
+You can change the following parameters of a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
+* Name
+* Description
+* Number of {{ managed-k8s-name }} nodes
+* [{{ k8s }} version](../../concepts/release-channels-and-updates.md)
+* [IP address](../../../vpc/concepts/address.md) assignment method: internal only or both internal and external
+* [Container runtime environment](../../concepts/index.md#config)
+* List of [security groups](../connect/security-groups.md)
 
   {% note alert %}
 
-  Do not delete the security groups bound to a running node group as this might result in disruptions in its operation and data loss.
+  Do not delete [security groups](../../../vpc/concepts/security-groups.md) attached to a running {{ managed-k8s-name }} node group as this may disrupt its operation and result in a loss of data.
 
   {% endnote %}
 
-* Computing resources and node disk size.
-* Node name template.
-* [Update](../../concepts/release-channels-and-updates.md#updates) policy.
+* [Computing resources](../../../compute/concepts/vm-platforms.md) and {{ managed-k8s-name }} node [disk](../../../compute/concepts/disk.md) size
+* {{ managed-k8s-name }} node name template
+* [Update](../../concepts/release-channels-and-updates.md#updates) policy
 
 {% note alert %}
 
-Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} cluster using the [{{ compute-full-name }} interfaces](../../../compute/operations/vm-control/vm-update.md). This will disrupt the operation of the node group and the entire cluster.
+Do not reconfigure [VMs](../../../compute/concepts/vm.md) belonging to a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) with the help of the [{{ compute-full-name }} interfaces](../../../compute/operations/vm-control/vm-update.md). This will disrupt the operation of the node group and the whole {{ managed-k8s-name }} cluster.
 
 {% endnote %}
 
@@ -37,9 +40,9 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
 - Management console
 
-  To change a [node group](../../concepts/index.md#node-group):
-  1. Open **{{ managed-k8s-name }}** in the folder where you want to change the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
-  1. Click the cluster name.
+  To update a {{ managed-k8s-name }} node group:
+  1. Open **{{ managed-k8s-name }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
+  1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Go to the **Node group** tab.
   1. Click **Edit** in the top-right corner.
   1. Change the required parameters in the window that opens.
@@ -47,39 +50,35 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
 - CLI
 
-  Get detailed information about the command to edit the node group:
+  Get detailed information about the command to edit the {{ managed-k8s-name }} node group:
 
   ```bash
   yc managed-kubernetes node-group update --help
   ```
 
-  Use the following parameters to edit the node group:
+  Use the following parameters to update the {{ managed-k8s-name }} node group:
   * `--new-name`: Change the name.
   * `--description`: Edit the description.
   * `--service-account-id`, `--service-account-name`: Edit the [service account](../../../iam/concepts/index.md#sa) resource.
-  * `--node-service-account-id`, `--node-service-account-name`: Edit the node service account.
+  * `--node-service-account-id`, `--node-service-account-name`: Update the service account for {{ managed-k8s-name }} nodes.
   * `--version`: Change the {{ k8s }} version.
   * `--network-interface`: [Network](../../../vpc/concepts/network.md#network) settings:
 
     {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
-   * `--network-acceleration-type`: Type of [network acceleration](../../../vpc/concepts/software-accelerated-network.md):
+   * `--network-acceleration-type`: Type of [network acceleration](../../../compute/concepts/software-accelerated-network.md):
     * `standard`: No acceleration.
     * `software-accelerated`: Software-accelerated network.
 
-      {% note warning %}
-
-      Before activating a software-accelerated network, make sure that you have sufficient [cloud resources available](../../concepts/limits.md) to create an additional node.
-
-      {% endnote %}
+       {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
   * `--container-runtime`: Change the [container runtime environment](../../concepts/index.md#config), `docker` or `containerd`.
-  * `--node-name`: Update the node name template. The name is unique if the template contains at least one of the following variables:
+  * `--node-name`: Update the node {{ managed-k8s-name }} name template. The name is unique if the template contains at least one of the following variables:
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
-  * `--template-labels`: Update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) in `<label name>=<label value>` format for VMs representing the group nodes. You can specify multiple labels separated by commas.
-  * `--latest-revision`: Get all available updates for the current version of the [master](../../concepts/index.md#master).
+  * `--template-labels`: Update [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) in `<label_name>=<label_value>` format for VMs representing the {{ managed-k8s-name }} group nodes. You can specify multiple labels separated by commas.
+  * `--latest-revision`: Get all available updates for current [master {{ managed-k8s-name }}](../../concepts/index.md#master) version.
   * `--auto-upgrade`: Manage automatic updates.
   * Managing the maintenance window:
     * `--anytime-maintenance-window`: Perform maintenance at any time.
@@ -96,15 +95,15 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
 - {{ TF }}
 
-  To change a [node group](../../concepts/index.md#node-group):
-  1. Open the current {{ TF }} configuration file describing the node group.
+  To update a {{ managed-k8s-name }} node group:
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
      For more information about creating this file, see [{#T}](node-group-create.md).
-  1. Edit properties in the node group description.
+  1. Edit the {{ managed-k8s-name }} node group description properties.
      * To change the [container runtime environment](../../concepts/index.md#config), add an `instance_template.container_runtime` section:
 
        ```hcl
-       resource "yandex_kubernetes_node_group" "<group name>" {
+       resource "yandex_kubernetes_node_group" "<node_group_name>" {
          ...
          instance_template {
            ...
@@ -115,21 +114,21 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
        }
        ```
 
-     * To update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the group nodes, add an `instance_template.labels` section:
+     * To update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the {{ managed-k8s-name }} group nodes, add an `instance_template.labels` section:
 
        ```hcl
-       resource "yandex_kubernetes_node_group" "<group name>" {
+       resource "yandex_kubernetes_node_group" "<node_group_name>" {
          ...
          instance_template {
            ...
            labels {
-             "<label name>"="<label value>"
+             "<label_name>"="<label_value>"
            }
          }
        }
        ```
 
-     * To change the node name template, update the `instance_template.name` parameter. The name is unique if the template contains at least one of the variables:
+     * To change the {{ managed-k8s-name }} node name template, update the `instance_template.name` parameter. The name is unique if the template contains at least one of the following variables:
 
        {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
@@ -149,13 +148,13 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
 - API
 
-  To edit the properties of a [node group](../../concepts/index.md#node-group), use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
+  To update a [{{ managed-k8s-name }} node group's](../../concepts/index.md#node-group) properties, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
 
   To change the [container runtime environment](../../concepts/index.md#config), provide the `docker` or the `containerd` value in the `nodeTemplate.containerRuntimeSettings.type` parameter.
 
-  To update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the group nodes, provide their values in the `nodeTemplate.labels` parameter.
+  To update the [{{ yandex-cloud }} resource labels](../../../resource-manager/concepts/labels.md) for VMs representing the {{ managed-k8s-name }} group nodes, provide their values in the `nodeTemplate.labels` parameter.
 
-  To update the node name template, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
+  To update the {{ managed-k8s-name }} node name template, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
 
   {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
@@ -180,22 +179,22 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To enable access to [nodes](../../concepts/index.md#node-group) from the internet:
-  1. Get detailed information about the command to edit the node group:
+  To enable access to [{{ managed-k8s-name }} nodes](../../concepts/index.md#node-group) from the internet:
+  1. Get detailed information about the command to edit the {{ managed-k8s-name }} node group:
 
      ```bash
      {{ yc-k8s }} node-group update --help
      ```
 
-  1. Run the change node group command and provide the `--network-interface` parameter:
+  1. Run the {{ managed-k8s-name }} node group update command with the `--network-interface` parameter provided:
 
      ```bash
-     {{ yc-k8s }} node-group update <node group ID or name> \
+     {{ yc-k8s }} node-group update <node_group_ID_or_name> \
      ...
-       --network-interface subnets=<name of node group subnet>, ipv4-address=nat
+       --network-interface subnets=<name_of_node_group_subnet>, ipv4-address=nat
      ```
 
-     You can find out the names and IDs of node groups in the [list of node groups in the folder](node-group-list.md#list).
+     You can find out the names and IDs of {{ managed-k8s-name }} node groups from the [list of node groups in the folder](node-group-list.md#list).
 
 - API
 
@@ -203,9 +202,17 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
 {% endlist %}
 
+Alternatively, you can grant internet access permission to {{ managed-k8s-name }} cluster nodes by creating and setting up a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../../vpc/tutorials/nat-instance.md). As a result, through [static routing](../../../vpc/concepts/static-routes.md), traffic will be routed via the gateway or a separate VM instance with NAT features.
+
+{% note info %}
+
+If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IPs will be disabled. For more information, see the [{{ vpc-full-name }} documentation](../../../vpc/concepts/static-routes.md#internet-routes).
+
+{% endnote %}
+
 ## Managing node group labels {#manage-label}
 
-You can perform the following actions with the node group [labels](../../../resource-manager/concepts/labels.md):
+You can perform the following actions with the {{ managed-k8s-name }} node group [labels](../../../resource-manager/concepts/labels.md):
 * [Add](#add-label)
 * [Edit](#update-label)
 * [Delete](#remove-label)
@@ -218,7 +225,7 @@ You can perform the following actions with the node group [labels](../../../reso
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Add a label to a [node group](../../concepts/index.md#node-group):
+  Add a label to a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
 
   ```bash
   yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
@@ -235,14 +242,14 @@ You can perform the following actions with the node group [labels](../../../reso
 
 - {{ TF }}
 
-  1. Open the current {{ TF }} configuration file describing the node group.
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
      For more information about creating this file, see [{#T}](node-group-create.md).
-  1. Add the `labels` property to the node group description:
+  1. Add the `labels` property to the {{ managed-k8s-name }} node group description:
 
      ```hcl
-     resource "yandex_kubernetes_node_group" "<node group name>" {
-       cluster_id = yandex_kubernetes_cluster.<cluster name>.id
+     resource "yandex_kubernetes_node_group" "<node_group_name>" {
+       cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
        ...
        labels = {
          "<label>" = "<value>"
@@ -269,7 +276,7 @@ You can perform the following actions with the node group [labels](../../../reso
 
 - CLI
 
-  Change a node group label:
+  Change the label for the {{ managed-k8s-name }} node group:
 
   {% note warning %}
 
@@ -292,14 +299,14 @@ You can perform the following actions with the node group [labels](../../../reso
 
 - {{ TF }}
 
-  1. Open the current {{ TF }} configuration file describing the node group.
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
      For more information about creating this file, see [{#T}](node-group-create.md).
-  1. Edit the `labels` property in the node group description:
+  1. Edit the `labels` property in the {{ managed-k8s-name }} node group description:
 
      ```hcl
-     resource "yandex_kubernetes_node_group" "<node group name>" {
-       cluster_id = yandex_kubernetes_cluster.<cluster name>.id
+     resource "yandex_kubernetes_node_group" "<node_group_name>" {
+       cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
        ...
        labels = {
          "<label>" = "<value>"
@@ -327,7 +334,7 @@ You can perform the following actions with the node group [labels](../../../reso
 
 - CLI
 
-  Delete a label from a node group:
+  Delete the {{ managed-k8s-name }} node group label:
 
   ```bash
   yc managed-kubernetes node-group remove-labels my-node-group --labels test_label
@@ -344,10 +351,10 @@ You can perform the following actions with the node group [labels](../../../reso
 
 - {{ TF }}
 
-  1. Open the current {{ TF }} configuration file describing the node group.
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
      For more information about creating this file, see [{#T}](node-group-create.md).
-  1. In the node group description, delete the labels you no longer need under `labels`.
+  1. In the {{ managed-k8s-name }} node group description, delete the unnecessary labels under `labels`.
   1. Make sure the configuration files are valid.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}

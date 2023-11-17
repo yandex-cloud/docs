@@ -24,8 +24,4 @@ description: "Следуя данной инструкции, вы сможет�
 
   Запустится процесс создания копии ВМ.
 
-- API
-
-  Воспользуйтесь методом REST API [startRecovery](../../backup/api-ref/Backup/startRecovery.md) для ресурса [Backup](../../backup/api-ref/Backup/index.md) или вызовом gRPC API [BackupService/StartRecovery](../../backup/api-ref/grpc/backup_service.md#StartRecovery).
-
 {% endlist %}

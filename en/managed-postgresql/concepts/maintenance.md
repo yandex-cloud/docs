@@ -29,4 +29,4 @@ In multi-host clusters, the maintenance is run as follows:
 1. [Replica hosts](replication.md) undergo maintenance one by one. The replicas are queued randomly. A replica becomes unavailable while it is being restarted during maintenance.
 1. Master host undergoes maintenance and gets updated. If it is restarted and becomes unavailable, one of the replicas takes its role.
 
-   If you access a cluster using the [FQDN](../concepts/network.md#hostname) of the master host, the cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect.md#fqdn-master) that always points to the master host.
+   If you access a cluster using the [FQDN](../operations/connect.md#fqdn) of the master host, the cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect.md#fqdn-master) that always points to the master host.

@@ -41,7 +41,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
 - {{ TF }}
 
-  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. Open the {{ TF }} configuration file and add a section called `tags` to the fragment describing the bucket:
 
@@ -240,7 +240,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
 - {{ TF }}
 
-  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. Open the {{ TF }} configuration file and delete the `tags` section from the fragment describing the bucket.
 

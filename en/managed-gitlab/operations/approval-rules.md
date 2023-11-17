@@ -1,6 +1,6 @@
 ---
 title: "How to set up code review rules"
-description: "This guide describes how you can set up code review rules."
+description: "Follow this guide to set up code review rules."
 ---
 
 # Setting up code review rules
@@ -49,7 +49,7 @@ The file consists of two sections:
 * `ApprovalRules`: Describes the rules.
 * `BranchGroups`: Describes what branches the rules apply to.
 
-`APPROVALRULES` file structure:
+The `APPROVALRULES` file structure is as follows:
 
 ```text
 ApprovalRules:

@@ -32,7 +32,7 @@
       yc storage bucket update --help
       ```
 
-   1. Create a hosting configuration file in JSON format, for example:
+   1. Create a hosting configuration file in JSON format, e.g.:
 
       ```json
       {
@@ -86,7 +86,7 @@
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
@@ -130,7 +130,7 @@
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -148,7 +148,7 @@
 
       1. Confirm that you want to create the resources.
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -182,7 +182,7 @@
       yc storage bucket update --help
       ```
 
-   1. Create a file with redirect settings in JSON format, for example:
+   1. Create a file with redirect settings in JSON format, e.g.:
 
       ```json
       {
@@ -225,7 +225,7 @@
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
    To set up a redirect for all requests:
@@ -331,7 +331,7 @@
       yc storage bucket update --help
       ```
 
-   1. Create a file with conditional redirect settings in JSON format, for example:
+   1. Create a file with conditional redirect settings in JSON format, e.g.:
 
       ```json
       {
@@ -395,7 +395,7 @@
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
    To set up a conditional redirect of requests:

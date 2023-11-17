@@ -44,14 +44,14 @@
   1. Получите информацию о нужном кластере и проверьте версию {{ MG }}, указанную в свойстве `config.version`:
 
      ```bash
-     {{ yc-mdb-mg }} cluster get <идентификатор или имя кластера>
+     {{ yc-mdb-mg }} cluster get <имя_или_идентификатор_кластера>
      ```
 
   1. Запустите обновление {{ MG }}:
 
      ```bash
-     {{ yc-mdb-mg }} cluster update <идентификатор или имя кластера> \
-        --mongodb-version=<номер новой версии>
+     {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+        --mongodb-version=<номер_новой_версии>
      ```
 
      После того как обновление запущено, кластер переходит в статус **UPDATING**. Дождитесь окончания операции и проверьте версию кластера.
@@ -59,8 +59,8 @@
   1. После обновления все возможности MongoDB, у которых нет обратной совместимости с прежней версией, выключены. Чтобы снять это ограничение, выполните команду:
 
      ```bash
-     {{ yc-mdb-mg }} cluster update <идентификатор или имя кластера> \
-        --feature-compatibility-version=<номер новой версии>
+     {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+        --feature-compatibility-version=<номер_новой_версии>
      ```
 
      Подробнее об обратной совместимости читайте в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
@@ -74,10 +74,10 @@
     1. Добавьте к описанию кластера {{ mmg-name }} поле `version` или измените его значение, если оно уже существует:
   
        ```hcl
-       resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+       resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
          ...
          cluster_config {
-           version = "<версия MongoDB>"
+           version = "<версия_{{ MG }}>"
          }
        }
        ```
@@ -126,40 +126,40 @@
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
       +----------------------+---------------+---------------------+--------+---------+
-      | c9q8p8j2gaih8iti42mh |   mongodb406  | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
+      | c9q8p8j2gaih******** |   mongodb406  | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
       +----------------------+---------------+---------------------+--------+---------+
       ```
 
-   1. Чтобы получить информацию о кластере `c9qut3k64b2o9umqogr7`, выполните команду:
+   1. Чтобы получить информацию о кластере `c9qut3k64b2o********`, выполните команду:
 
       ```bash
-      {{ yc-mdb-mg }} cluster get c9qut3k64b2o9umqogr7
-        id: c9qut3k64b2o9umqogr7
-        folder_id: b1g0itj57rbjk9thrinv
+      {{ yc-mdb-mg }} cluster get c9qut3k64b2o********
+        id: c9qut3k64b2o********
+        folder_id: b1g0itj57rbj********
         created_at: "2019-07-16T09:43:50.393231Z"
         name: mongodb406
         environment: PRODUCTION
         monitoring:
         - name: Console
           description: Console charts
-          link: {{ link-console-main }}/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
+          link: {{ link-console-main }}/folders/b1g0itj57rbj********/managed-mongodb/cluster/c9qut3k64b2o********?section=monitoring
         config:
           version: "4.0"
           feature_compatibility_version: "4.0"
           ...
       ```
 
-   1. Для обновления кластера `c9qutgkd4b2o9umqog97` до версии 4.2, выполните команду:
+   1. Для обновления кластера `c9qutgkd4b2o********` до версии 4.2, выполните команду:
 
       ```bash
-      {{ yc-mdb-mg }} cluster update c9qutgkd4b2o9umqog97 \
+      {{ yc-mdb-mg }} cluster update c9qutgkd4b2o******** \
           --mongodb-version=4.2
       ```
 
-   1. Чтобы включить все возможности версии 4.2 в кластере `c9qutgkd4b2o9umqog97`, выполните команду:
+   1. Чтобы включить все возможности версии 4.2 в кластере `c9qutgkd4b2o********`, выполните команду:
 
       ```bash
-      {{ yc-mdb-mg }} cluster update c9qutgkd4b2o9umqog97 \
+      {{ yc-mdb-mg }} cluster update c9qutgkd4b2o******** \
           --feature-compatibility-version=4.2
       ```
 

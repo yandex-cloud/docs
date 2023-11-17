@@ -1,6 +1,6 @@
 ---
 title: "How to update a broker"
-description: "This guide describes how you can update a broker."
+description: "Follow this guide to update a broker."
 ---
 
 # Updating a broker
@@ -48,7 +48,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To update the name of a broker created using {{ TF }}:
 
@@ -146,7 +146,7 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To update the description of a broker created using {{ TF }}:
 
@@ -208,9 +208,9 @@ To access a broker, use its unique ID or name. For information on retrieving the
 
 You can perform the following actions with broker labels:
 
-* [Add](broker-update.md#add-label).
-* [Edit](broker-update.md#update-label).
-* [Delete](broker-update.md#remove-label).
+* [Add](broker-update.md#add-label)
+* [Edit](broker-update.md#update-label)
+* [Delete](broker-update.md#remove-label)
 
 ### Adding a label {#add-label}
 
@@ -251,7 +251,7 @@ You can perform the following actions with broker labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To add a label to a broker created using {{ TF }}:
 
@@ -361,7 +361,7 @@ You can perform the following actions with broker labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To update the label of a broker created using {{ TF }}:
 
@@ -458,7 +458,7 @@ You can perform the following actions with broker labels:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To delete the label of a broker created using {{ TF }}:
 

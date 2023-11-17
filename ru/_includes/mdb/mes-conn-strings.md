@@ -6,8 +6,8 @@
   **Если хосту с ролью _Data node_ назначен публичный IP-адрес:**
   1. Перед подключением установите [SSL-сертификат]({{ crt-web-path }}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
   1. В браузере перейдите по одному из адресов:
-     - `https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}`, если публичный IP-адрес назначен всем хостам с этой ролью. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
-     - `https://<FQDN любого хоста с ролью Data node и публичным IP>.{{ dns-zone }}`
+     - `https://c-<идентификатор_кластера_{{ ES }}>.rw.{{ dns-zone }}`, если публичный IP-адрес назначен всем хостам с этой ролью. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
+     - `https://<FQDN_любого_хоста_с_ролью_Data_node_и_публичным_IP>.{{ dns-zone }}`
   1. Введите имя пользователя и пароль.
 
   {% include [kibana-api](mes-kibana-api.md) %}
@@ -32,9 +32,9 @@
      `/etc/nginx/sites-available/default`
      ```nginx
      upstream es-datanodes {
-        server <FQDN хоста 1 с ролью Data Node>:443;
+        server <FQDN_хоста_1_с_ролью_Data_Node>:443;
         ...
-        server <FQDN хоста N с ролью Data Node>:443;
+        server <FQDN_хоста_N_с_ролью_Data_Node>:443;
      }
 
      server {
@@ -57,7 +57,7 @@
 
      Также можно использовать директиву `proxy_pass` со специальным FQDN:
      ```nginx
-     proxy_pass https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }};
+     proxy_pass https://c-<идентификатор_кластера_{{ ES }}>.rw.{{ dns-zone }};
      ```
 
      {% note warning %}
@@ -74,7 +74,7 @@
 
   1. Добавьте сертификат, указанный в директиве `ssl_certificate`, в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
 
-  1. Перейдите в браузере по адресу `https://<публичный IP-адрес ВМ>`.
+  1. Перейдите в браузере по адресу `https://<публичный_IP-адрес_ВМ>`.
 
   1. Введите имя пользователя и пароль.
 
@@ -93,9 +93,9 @@
 
   ```powershell
    curl `
-     -Certificate <абсолютный путь к файлу сертификата> `
-     -Uri https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200 `
-     -Credential <имя пользователя>
+     -Certificate <абсолютный_путь_к_файлу_сертификата> `
+     -Uri https://c-<идентификатор_кластера_{{ ES }}>.rw.{{ dns-zone }}:9200 `
+     -Credential <имя_пользователя>
    ```
 
    В открывшемся окне введите пароль пользователя.
@@ -117,13 +117,13 @@
 
   ES_CA = '~/.elasticsearch/root.crt'
 
-  ES_USER = '<имя пользователя>'
+  ES_USER = '<имя_пользователя>'
   ES_PASS = '<пароль>'
 
   ES_HOSTS = [
-    "<FQDN хоста 1 {{ ES }} с ролью Data Node>",
+    "<FQDN_хоста_1_{{ ES }}_с_ролью_Data_Node>",
     ...,
-    "<FQDN хоста N {{ ES }} с ролью Data Node>"
+    "<FQDN_хоста_N_{{ ES }}_с_ролью_Data_Node>"
     ]
 
   conn = Elasticsearch(
@@ -168,15 +168,15 @@
         "net/http"
   )
 
-  var ES_CA = "/home/<домашняя директория>/.elasticsearch/root.crt"
+  var ES_CA = "/home/<домашняя_директория>/.elasticsearch/root.crt"
 
-  var ES_USER = "<имя пользователя>"
+  var ES_USER = "<имя_пользователя>"
   var ES_PASS = "<пароль>"
 
   var ES_HOSTS = []string{
-    "https://<FQDN хоста 1 {{ ES }} с ролью Data Node>:9200",
+    "https://<FQDN_хоста_1_{{ ES }}_с_ролью_Data_Node>:9200",
     ...,
-    "https://<FQDN хоста N {{ ES }} с ролью Data Node>:9200"}
+    "https://<FQDN_хоста_N_{{ ES }}_с_ролью_Data_Node>:9200"}
 
   func main() {
        caCert, err := ioutil.ReadFile(ES_CA)

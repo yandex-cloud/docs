@@ -24,8 +24,10 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](placement-groups/create.md)
 * [{#T}](placement-groups/delete.md)
 * [{#T}](placement-groups/create-vm-in-pg.md)
+* [{#T}](placement-groups/create-ig-in-pg.md)
 * [{#T}](placement-groups/add-vm.md)
 * [{#T}](placement-groups/delete-vm.md)
+* [{#T}](placement-groups/delete-ig-from-pg.md)
 
 ## Образы с предустановленным программным обеспечением {#images-with-pre-installed-software}
 
@@ -85,7 +87,6 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](disk-control/update.md)
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
-* [{#T}](disk-control/disk-change-zone.md)
 * [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/delete.md)
 
@@ -147,6 +148,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](instance-groups/create-autoscaled-group.md)
 * [{#T}](instance-groups/create-with-coi.md)
 * [{#T}](instance-groups/create-from-yaml.md)
+* [{#T}](placement-groups/create-ig-in-pg.md)
 
 ## Получение информации о группе виртуальных машин {#ig-info}
 
@@ -158,6 +160,9 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](instance-groups/update.md)
 * [{#T}](instance-groups/update-from-yaml.md)
+* [{#T}](instance-groups/move-group.md)
+* [{#T}](instance-groups/move-group-with-nlb.md)
+* [{#T}](instance-groups/move-group-with-alb.md)
 * [{#T}](instance-groups/enable-autohealing.md)
 * [{#T}](instance-groups/deploy/rolling-update.md)
 * [{#T}](instance-groups/deploy/zero-downtime.md)
@@ -168,6 +173,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/delete.md)
+* [{#T}](placement-groups/delete-ig-from-pg.md)
 
 
 ## Выделенные хосты {#dedicated-host}

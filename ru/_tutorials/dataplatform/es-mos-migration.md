@@ -105,13 +105,13 @@
 
         ```bash
         curl --request PUT \
-             "https://admin:<пароль пользователя admin>@<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>" \
+             "https://admin:<пароль_пользователя_admin>@<IP-адрес_или_FQDN_хоста_с_ролью_DATA_в_кластере-источнике>:{{ port-mes }}/_snapshot/<имя_репозитория>" \
              --cacert ~/.elasticsearch/root.crt \
              --header 'Content-Type: application/json' \
              --data '{
                "type": "s3",
                "settings": {
-                 "bucket": "<имя бакета>",
+                 "bucket": "<имя_бакета>",
                  "endpoint": "{{ s3-storage-host }}"
                }
              }'
@@ -140,7 +140,7 @@
 
         ```bash
         curl --request PUT \
-             "https://admin:<пароль пользователя admin>@<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>/snapshot_1?wait_for_completion=false&pretty" \
+             "https://admin:<пароль_пользователя_admin>@<IP-адрес_или_FQDN_хоста_с_ролью_DATA_в_кластере-источнике>:{{ port-mes }}/_snapshot/<имя_репозитория>/snapshot_1?wait_for_completion=false&pretty" \
              --cacert ~/.elasticsearch/root.crt
         ```
 
@@ -161,7 +161,7 @@
 
         ```bash
         curl --request GET \
-             "https://admin:<пароль пользователя admin>@<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>/snapshot_1/_status?pretty" \
+             "https://admin:<пароль_пользователя_admin>@<IP-адрес_или_FQDN_хоста_с_ролью_DATA_в_кластере-источнике>:{{ port-mes }}/_snapshot/<имя_репозитория>/snapshot_1/_status?pretty" \
              --cacert ~/.elasticsearch/root.crt
         ```
 
@@ -177,13 +177,13 @@
 
     ```bash
     curl --request PUT \
-         "https://admin:<пароль пользователя admin>@<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория>" \
+         "https://admin:<пароль_пользователя_admin>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>" \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
          --data '{
            "type": "s3",
            "settings": {
-             "bucket": "<имя бакета>",
+             "bucket": "<имя_бакета>",
              "readonly" : "true",
              "endpoint": "{{ s3-storage-host }}"
            }
@@ -202,7 +202,7 @@
 
     ```bash
     curl --request POST \
-         "https://admin:<пароль пользователя admin>@<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория>/snapshot_1/_restore" \
+         "https://admin:<пароль_пользователя_admin>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/snapshot_1/_restore" \
          --cacert ~/.opensearch/root.crt
     ```
 
@@ -212,21 +212,21 @@
 
     ```bash
     curl --request POST \
-         "https://admin:<пароль пользователя admin>@<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория>/snapshot_1/_restore?wait_for_completion=false&pretty" \
+         "https://admin:<пароль_пользователя_admin>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/snapshot_1/_restore?wait_for_completion=false&pretty" \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
          --data '{
-           "indices": "<список индексов>"
+           "indices": "<список_индексов>"
          }'
     ```
 
-    Где `список индексов` — список восстанавливаемых индексов через запятую, например `my_index*, my_index_2.*`.
+    Где `indices` — список восстанавливаемых индексов через запятую, например `my_index*, my_index_2.*`.
 
     Процесс восстановления может занять длительное время. Чтобы проверить статус восстановления, выполните команду:
 
     ```bash
     curl --request GET \
-         "https://admin:<пароль пользователя admin>@<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория>/snapshot_1/_status?pretty" \
+         "https://admin:<пароль_пользователя_admin>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/snapshot_1/_status?pretty" \
          --cacert ~/.opensearch/root.crt
     ```
 
@@ -242,9 +242,9 @@
 
       ```bash
       curl \
-          --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
+          --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
           --cacert ~/.opensearch/root.crt \
-          --request GET 'https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
+          --request GET 'https://<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
       ```
 
       В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце `docs.count`.
@@ -254,7 +254,7 @@
       1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
       1. Выберите общий тенант `Global`.
       1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
-      1. В разделе **OpenSearch Plugins** выберите **Index Management**.
+      1. В разделе **{{ OS }} Plugins** выберите **Index Management**.
       1. Перейдите в раздел **Indices**.
 
       В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце **Total documents**.
@@ -323,22 +323,22 @@
 1. Для запуска переиндексации выполните запрос к хосту с ролью `DATA` в кластере-приемнике:
 
     ```bash
-    curl --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
+    curl --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
          --cacert ~/.opensearch/root.crt \
          --request POST \
-         "https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_reindex?wait_for_completion=false&pretty" \
+         "https://<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_reindex?wait_for_completion=false&pretty" \
          --header 'Content-Type: application/json' \
          --data '{
            "source": {
              "remote": {
-               "host": "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}",
-               "username": "<имя пользователя в кластере-источнике>",
-               "password": "<пароль пользователя в кластере-источнике>"
+               "host": "https://<IP-адрес_или_FQDN_хоста_с_ролью_DATA_в_кластере-источнике>:{{ port-mes }}",
+               "username": "<имя_пользователя_в_кластере-источнике>",
+               "password": "<пароль_пользователя_в_кластере-источнике>"
              },
-             "index": "<имя индекса, псевдонима или потока данных в кластере-источнике>"
+             "index": "<имя_индекса_псевдонима_или_потока_данных_в_кластере-источнике>"
            },
            "dest": {
-             "index": "<имя индекса, псевдонима или потока данных в кластере-приемнике>"
+             "index": "<имя_индекса_псевдонима_или_потока_данных_в_кластере-приемнике>"
            }
          }'
     ```
@@ -347,25 +347,25 @@
 
     ```text
     {
-      "task" : "<идентификатор задачи переиндексации>"
+      "task" : "<идентификатор_задачи_переиндексации>"
     }
     ```
 
     Чтобы перенести несколько индексов, используйте цикл `for`:
 
     ```bash
-    for index in <имена индексов, псевдонимов или потоков данных, разделенные пробелами>; do
-      curl --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
+    for index in <имена_индексов_псевдонимов_или_потоков_данных_разделенные_пробелами>; do
+      curl --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
            --cacert ~/.opensearch/root.crt \
            --request POST \
-           "https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_reindex?wait_for_completion=false&pretty" \
+           "https://<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_reindex?wait_for_completion=false&pretty" \
            --header 'Content-Type: application/json' \
            --data '{
              "source": {
                "remote": {
-                 "host": "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}",
-                 "username": "<имя пользователя в кластере-источнике>",
-                 "password": "<пароль пользователя в кластере-источнике>"
+                 "host": "https://<IP-адрес_или_FQDN_хоста_с_ролью_DATA_в_кластере-источнике>:{{ port-mes }}",
+                 "username": "<имя_пользователя_в_кластере-источнике>",
+                 "password": "<пароль_пользователя_в_кластере-источнике>"
                },
                "index": "'$index'"
              },
@@ -380,10 +380,10 @@
 
     ```text
     {
-      "task" : "<идентификатор задачи переиндексации 1>"
+      "task" : "<идентификатор_задачи_переиндексации_1>"
     }
     {
-      "task" : "<идентификатор задачи переиндексации 2>"
+      "task" : "<идентификатор_задачи_переиндексации_2>"
     }
     ...
     ```
@@ -393,19 +393,19 @@
     Процесс переиндексации может занять длительное время. Чтобы проверить статус операции, выполните команду:
 
     ```bash
-    curl --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
+    curl --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
          --cacert ~/.opensearch/root.crt \
          --request GET \
-         "https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_tasks/<идентификатор задачи переиндексации>"
+         "https://<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_tasks/<идентификатор_задачи_переиндексации>"
     ```
 
 1. Чтобы отменить операцию переиндексации, выполните команду:
 
     ```bash
-    curl --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
+    curl --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
          --cacert ~/.opensearch/root.crt \
          --request POST \
-         "https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_tasks/<идентификатор задачи переиндексации>/_cancel"
+         "https://<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_tasks/<идентификатор_задачи_переиндексации>/_cancel"
     ```
 
 
@@ -422,9 +422,9 @@
 
   ```bash
   curl \
-      --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
+      --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
       --cacert ~/.opensearch/root.crt \
-      --request GET 'https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
+      --request GET 'https://<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
   ```
 
   В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце `docs.count`.
@@ -434,7 +434,7 @@
   1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
   1. Выберите общий тенант `Global`.
   1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
-  1. В разделе **OpenSearch Plugins** выберите **Index Management**.
+  1. В разделе **{{ OS }} Plugins** выберите **Index Management**.
   1. Перейдите в раздел **Indices**.
 
   В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце **Total documents**.

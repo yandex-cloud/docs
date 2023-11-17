@@ -70,6 +70,7 @@
 * Airbyte®:
     * [AWS CloudTrail](operations/prepare.md#source-aws)
     * [BigQuery](operations/prepare.md#source-bigquery)
+    * [Microsoft SQL Server](operations/prepare.md#source-mssql)
     * [S3](operations/prepare.md#source-s3)
 * [{{ KF }}](operations/prepare.md#source-kf)
 * [{{ CH }}](operations/prepare.md#source-ch)
@@ -95,6 +96,7 @@
 ## Создайте эндпоинт для источника {#source}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-full-name }}**.
+1. На панели слева выберите ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
 1. Нажмите кнопку **Создать эндпоинт**.
 1. Убедитесь, что в поле **Направление** указано `Источник`.
 1. Укажите имя эндпоинта.
@@ -107,6 +109,7 @@
 ## Создайте эндпоинт для приемника {#target}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-full-name }}**.
+1. На панели слева выберите ![image](../_assets/data-transfer/endpoint.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
 1. Нажмите кнопку **Создать эндпоинт**.
 1. Убедитесь, что в поле **Направление** указано `Приемник`.
 1. Укажите имя эндпоинта.

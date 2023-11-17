@@ -1,6 +1,6 @@
-# Configuration-level event reference
+# Management event reference
 
-The value of the `event_type` (_event type_) field in a configuration-level (Control Plane) audit log is determined by the event source service.
+The value of the `event_type` (_event type_) field in a management (control plane) audit log is determined by the event source service.
 
 The general value format is as follows:
 
@@ -8,7 +8,7 @@ The general value format is as follows:
 {{ at-event-prefix }}.audit.<service_name>.<event_name>
 ```
 
-Below are events for services:
+On this page, you will find events for the following services:
 
 * [{{ api-gw-name }}](#api-gateway)
 * [{{ alb-name }}](#alb)
@@ -16,15 +16,18 @@ Below are events for services:
 * [{{ certificate-manager-name }}](#certificate-manager)
 * [{{ dns-name }}](#dns)
 * [{{ sf-name }}](#functions)
+* [{{ backup-name }}](#backup)
 * [{{ cdn-name }}](#cdn)
 * [{{ cloud-logging-name }}](#cloud-logging)
 * [{{ compute-name }}](#compute)
 * [{{ container-registry-name }}](#container-registry)
 * [{{ dataproc-name }}](#dataproc)
+* [{{ data-transfer-name }}](#datatransfer)
 * [{{ iam-name }}](#iam)
 * [{{ iot-name }}](#iot)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
+* [{{ mkf-short-name }}](#managed-service-for-kafka)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
 * [{{ mgl-full-name }}](#managed-service-for-gitlab)
 * [{{ mgp-short-name }}](#managed-service-for-greenplum)
@@ -112,9 +115,12 @@ Service name: `serverless`.
 | `functions.CreateFunction` | Creating a function |
 | `functions.CreateFunctionVersion` | Creating a function version |
 | `functions.DeleteFunction` | Deleting a function |
+| `functions.DeleteFunctionVersion` | Destroying a function version |
 | `functions.RemoveFunctionTag` | Removing a function tag |
+| `functions.RemoveScalingPolicy` | Deleting a function scaling policy |
 | `functions.SetFunctionTag` | Assigning a function tag |
 | `functions.SetFunctionAccessBindings` | Setting access bindings for a function |
+| `functions.SetScalingPolicy` | Assigning a function scaling policy |
 | `functions.UpdateFunction` | Updating a function |
 | `functions.UpdateFunctionAccessBindings` | Updating access bindings for a function |
 | `mdbproxy.CreateProxy` | Creating a proxy |
@@ -123,6 +129,26 @@ Service name: `serverless`.
 | `triggers.CreateTrigger` | Creating a trigger |
 | `triggers.DeleteTrigger` | Deleting a trigger |
 | `triggers.UpdateTrigger` | Updating a trigger |
+
+
+## {{ backup-name }} {#backup}
+
+Service name: `backup`.
+
+| Event name | Description |
+--- | ---
+| `ApplyPolicy` | Applying backup policies |
+| `CreateDirectory` | Creating a new directory inside a VM |
+| `CreatePolicy` | Creating backup policies |
+| `DeleteBackup` | Deleting backups |
+| `DeletePolicy` | Deleting backup policies |
+| `DeleteResource` | Deleting a VM from {{ backup-name }} |
+| `ExecutePolicy` | Executing backup policies |
+| `RegisterResource` | Connecting a VM to {{ backup-name }} |
+| `RevokePolicy` | Revoking backup policies |
+| `StartRecoverBackup` | Starting VM recovery |
+| `UpdatePolicy` | Updating backup policies |
+
 
 ## {{ cdn-name }} {#cdn}
 
@@ -149,7 +175,7 @@ Service name: `certificatemanager`.
 | Event name | Description |
 --- | ---
 | `CreateCertificate` | Adding a certificate |
-| `CreateDomain` | Creating a domain |
+| `CreateDomain` | Adding a domain |
 | `UpdateCertificate` | Editing a certificate |
 | `UpdateDomain` | Updating a domain |
 | `DeleteCertificate` | Deleting a certificate |
@@ -233,6 +259,7 @@ Service name: `compute`.
 | `instancegroup.DeleteInstanceGroupInstances` | Deleting an instance from a group |
 | `instancegroup.PauseInstanceGroup` | Pausing instance group management processes |
 | `instancegroup.ResumeInstanceGroup` | Resuming instance group management processes |
+| `instancegroup.RollingRestartInstanceGroupInstances` | Restarting instances in a group one by one |
 | `instancegroup.SetInstanceGroupAccessBindings` | Assigning roles for an instance group |
 | `instancegroup.StartInstanceGroup` | Starting an instance group |
 | `instancegroup.StopInstanceGroup` | Stopping an instance group |
@@ -281,6 +308,25 @@ Service name: `dataproc`.
 | `StopCluster` | Stopping cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateSubcluster` | Updating subclusters |
+
+## {{ data-transfer-name }} {#datatransfer}
+
+Service name: `datatransfer`.
+
+| Event name | Description |
+--- | ---
+| `ActivateTransfer` | Activating a transfer |
+| `CreateEndpoint` | Creating an endpoint |
+| `CreateTransfer` | Creating a transfer |
+| `DeactivateTransfer` | Deactivating a transfer |
+| `DeleteEndpoint` | Deleting an endpoint |
+| `DeleteTransfer` | Deleting a transfer |
+| `FreezeTransferVersion` | Committing a certain data plane version for a transfer |
+| `RestartTransfer` | Restarting a transfer |
+| `UnfreezeTransferVersion` | Allowing a transfer update to the latest data planе version |
+| `UpdateEndpoint` | Editing an endpoint |
+| `UpdateTransfer` | Updating a transfer |
+| `UpdateTransferVersion` | Updating the version of a data plane transfer |
 
 ## {{ iam-name }} {#iam}
 
@@ -335,12 +381,20 @@ Service name: `kms`.
 --- | ---
 | `CancelDeleteSymmetricKey` | Canceling a previously scheduled key destruction |
 | `CancelSymmetricKeyVersionDestruction` | Canceling a previously planned destruction of a symmetric key version |
+| `CreateAsymmetricEncryptionKey` | Creating an asymmetric encryption key pair |
+| `CreateAsymmetricSignatureKey` | Creating a digital signature key pair |
 | `CreateSymmetricKey` | Creating a symmetric key |
+| `DeleteAsymmetricEncryptionKey` | Updating an asymmetric encryption key pair |
+| `DeleteAsymmetricSignatureKey` | Updating a digital signature key pair |
 | `DeleteSymmetricKey` | Deleting a symmetric key |
 | `RotateSymmetricKey` | Rotating a symmetric key |
-| `ScheduleSymmetricKeyVersionDestruction` | Scheduling the destruction of a key version |
+| `ScheduleSymmetricKeyVersionDestruction` | Scheduling the destruction of a symmetric key version |
+| `SetAsymmetricEncryptionKeyAccessBindings` | Selecting access bindings for an asymmetric encryption key pair |
+| `SetAsymmetricSignatureKeyAccessBindings` | Selecting access bindings for a digital signature key pair |
 | `SetPrimarySymmetricKeyVersion` | Selecting the primary version of a symmetric key |
 | `SetSymmetricKeyAccessBindings` | Selecting access bindings for a symmetric key |
+| `UpdateAsymmetricEncryptionKey` | Updating an asymmetric encryption key pair |
+| `UpdateAsymmetricSignatureKey` | Updating a digital signature key pair |
 | `UpdateSymmetricKey` | Changing a symmetric key |
 | `UpdateSymmetricKeyAccessBindings` | Updating access bindings for a symmetric key |
 
@@ -363,6 +417,18 @@ Service name: `lockbox`.
 | `UpdateSecretAccessBindings` | Updating access bindings for a secret |
 
 \* By default, this event is not included in the audit log. To find out whether this event can be added to the audit log, contact [support]({{ link-console-support }}).
+
+## {{ mkf-short-name }} {#managed-service-for-kafka}
+
+Service name: `mdb.kafka`.
+
+| Event name | Description |
+--- | ---
+| `CreateCluster` | Creating clusters |
+| `DeleteCluster` | Deleting clusters |
+| `StartCluster` | Starting cluster |
+| `StopCluster` | Stopping cluster |
+| `UpdateCluster` | Updating clusters |
 
 ## {{ mch-short-name }} {#managed-service-for-clickhouse}
 
@@ -496,6 +562,7 @@ Service name: `mdb.mysql`.
 | `CreateCluster` | Creating clusters |
 | `CreateDatabase` | Creating a database |
 | `CreateUser` | Creating a database user |
+| `DeleteBackup` | Deleting backups |
 | `DeleteCluster` | Deleting clusters |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
 | `DeleteDatabase` | Deleting a database |
@@ -523,6 +590,7 @@ Service name: `mdb.postgresql`.
 | `CreateCluster` | Creating clusters |
 | `CreateDatabase` | Creating a database |
 | `CreateUser` | Creating a database user |
+| `DeleteBackup` | Deleting backups |
 | `DeleteCluster` | Deleting clusters |
 | `DeleteClusterHosts` | Deleting hosts from a cluster |
 | `DeleteDatabase` | Deleting a database |

@@ -84,10 +84,6 @@
         --route-table-name=test-route-table
      ```
 
-- API
-
-  Воспользуйтесь методом REST API [create](../api-ref/Gateway/create.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/Create](../api-ref/grpc/gateway_service.md#Create).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -126,5 +122,39 @@
     }
   }
   ```
+
+- API
+
+  1. Создайте NAT-шлюз. Воспользуйтесь методом REST API [create](../api-ref/Gateway/create.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/Create](../api-ref/grpc/gateway_service.md#Create) и передайте в запросе:
+
+      * Идентификатор каталога, в котором будет размещен шлюз, в параметре `folderId`.
+      * Имя шлюза в параметре `name`. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+  1. Привяжите NAT-шлюз к новой таблице маршрутизации. Для этого воспользуйтесь методом REST API [create](../api-ref/RouteTable/create.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create) и передайте в запросе:
+
+      * Идентификатор каталога, в котором будет размещена таблица маршрутизации, в параметре `folderId`.
+      * Имя таблицы маршрутизации в параметре `name`. Формат имени:
+
+        {% include [name-format](../../_includes/name-format.md) %}
+      * Идентификатор сети, в которой будет размещена таблица маршрутизации, в параметре `networkId`.
+      * Значение `0.0.0.0/0` для префикса подсети назначения в параметре `staticRoutes[].destinationPrefix`.
+      * Идентификатор NAT-шлюза в параметре `staticRoutes[].gatewayId`.
+
+        {% include [get-nat-gateway](../../_includes/vpc/get-nat-gateway.md) %}
+
+  1. Привяжите таблицу маршрутизации к подсети. Для этого воспользуйтесь методом REST API [update](../api-ref/Subnet/update.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update) и передайте в запросе:
+
+      * Идентификатор подсети в параметре `subnetId`.
+
+        {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+
+        {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+
+      * Идентификатор таблицы маршрутизации в параметре `routeTableId`.
+      * Имя параметра `routeTableId` в параметре `updateMask`.
+
+      {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

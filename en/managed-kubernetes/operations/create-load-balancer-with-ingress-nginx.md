@@ -4,9 +4,9 @@ When installing an [NGINX Ingress controller](https://kubernetes.github.io/ingre
 
 ## Getting started {#before-you-begin}
 
+1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md).
 1. {% include [Install Helm](../../_includes/managed-kubernetes/helm-install.md) %}
-
-1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with your {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Add a repository for NGINX to Helm:
 
    ```bash
@@ -68,7 +68,7 @@ To install an internal network load balancer:
          enabled: true
          annotations:
            yandex.cloud/load-balancer-type: internal
-           yandex.cloud/subnet-id: <subnet ID>
+           yandex.cloud/subnet-id: <subnet_ID>
    ```
 
 1. Install the NGINX Ingress controller using the `values.yaml` configuration file:

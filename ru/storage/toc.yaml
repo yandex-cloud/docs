@@ -49,6 +49,8 @@ items:
             href: operations/objects/restore-object-version.md
           - name: Переименование и перемещение объекта
             href: operations/objects/rename-move.md
+          - name: Копирование объектов
+            href: operations/objects/copy.md
           - name: Получение публичной ссылки на объект
             href: operations/objects/link-for-download.md
           - name: Настройка блокировок версии объекта
@@ -175,11 +177,13 @@ items:
             href: tools/winscp.md
       - name: SDK
         items:
+          - name: Все SDK
+            href: tools/sdk/index.md
           - name: AWS SDK для Java
             href: tools/aws-sdk-java.md
           - name: AWS SDK для JavaScript
             href: tools/aws-sdk-js.md
-          - name: Python SDK (boto)
+          - name: AWS SDK для Python (boto)
             href: tools/boto.md
           - name: AWS SDK для .NET
             href: tools/aws-sdk-net.md

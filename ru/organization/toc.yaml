@@ -15,6 +15,8 @@ items:
             href: operations/org-profile.md
           - name: Управление несколькими организациями
             href: operations/manage-organizations.md
+          - name: Удалить организацию
+            href: operations/delete-org.md
       - name: Управление пользователями
         items:
           - name: Обзор
@@ -55,8 +57,12 @@ items:
     items:
       - name: Облака и сервисы
         href: concepts/manage-services.md
+      - name: Членство в организации
+        href: concepts/membership.md
       - name: Федерации удостоверений
         href: concepts/add-federation.md
+      - name: Группы пользователей
+        href: concepts/groups.md
       - name: OS Login
         href: concepts/os-login.md
       - name: Квоты и лимиты

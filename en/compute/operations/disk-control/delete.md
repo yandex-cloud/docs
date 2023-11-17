@@ -55,7 +55,7 @@ To delete a disk:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    You can delete disks created with {{ TF }}:
    1. In the command line, go to the directory with the {{ TF }} configuration file.

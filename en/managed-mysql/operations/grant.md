@@ -47,9 +47,9 @@ You can manage user permissions at the level of an individual database by updati
 
       ```bash
       {{ yc-mdb-my }} user grant-permission <username> \
-        --cluster-name <cluster name> \
-        --database <DB name> \
-        --permissions <comma-separated set of privileges>
+        --cluster-name <cluster_name> \
+        --database <DB_name> \
+        --permissions <comma-separated_list_of_privileges>
       ```
 
       You can request the cluster name with a [list of clusters in the folder](cluster-list.md), the DB name with a [list of databases in the cluster](databases.md#list-db), and the user's name with a [list of users in the cluster](cluster-users.md#list-users).
@@ -58,12 +58,12 @@ You can manage user permissions at the level of an individual database by updati
 
       ```bash
       {{ yc-mdb-my }} user revoke-permission <username> \
-        --cluster-name <cluster name> \
-        --database <DB name> \
-        --permissions <comma-separated set of privileges>
+        --cluster-name <cluster_name> \
+        --database <DB_name> \
+        --permissions <comma-separated_list_of_privileges>
       ```
 
-      To grant or revoke the `ALL_PRIVILEGES` privilege, pass the synonym `ALL` as the privilege name.
+      To grant or revoke the `ALL_PRIVILEGES` privilege, specify the `ALL` synonym as the privilege name.
 
 - {{ TF }}
 
@@ -75,21 +75,26 @@ You can manage user permissions at the level of an individual database by updati
 
       ```hcl
       resource "yandex_mdb_mysql_user" "<username>" {
-        cluster_id = "<cluster ID>"
+        cluster_id = "<cluster_ID>"
         name       = "<username>"
         permission {
-          database_name = "<name of database user can access>"
-          roles         = [<list of user privileges for the DB>]
+          database_name = "<DB_name>"
+          roles         = [<list_of_privileges>]
         }
         ...
       }
       ```
 
+      Where:
+
+      * `database_name`: Name of the DB the user must have access to.
+      * `roles`: List of user privileges for the DB.
+
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

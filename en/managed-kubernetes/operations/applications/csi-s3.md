@@ -1,6 +1,6 @@
 # Installing Container Storage Interface for S3
 
-[Container Storage Interface for S3](/marketplace/products/yc/csi-s3) (_CSI_) enables you to dynamically reserve [buckets](../../../storage/concepts/bucket.md) of S3-compatible storages and mount them in [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) [pods](../../concepts/index.md#pod) as [persistent volumes](../../concepts/volume.md#persistent-volume) (_PersistentVolume_). The connection is made using the [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) implementation of the [GeeseFS](https://github.com/yandex-cloud/geesefs) file system.
+[Container Storage Interface for S3](/marketplace/products/yc/csi-s3) (_CSI_) enables you to dynamically reserve [buckets](../../../storage/concepts/bucket.md) of S3-compatible storages and mount them in [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) [pods](../../concepts/index.md#pod) as [persistent volumes](../../concepts/volume.md#persistent-volume) (_PersistentVolume_). The connection is made using the [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) implementation of the [GeeseFS](https://github.com/yandex-cloud/geesefs) file system.
 
 ## Creating a service account {#create-sa-key}
 
@@ -9,19 +9,19 @@
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.editor` [role](../../../iam/concepts/access-control/roles.md).
-1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md). Save the key ID and secret key, you will need them when installing the application.
-1. (Optional) To make new volumes fit into a single bucket with different prefixes, [create a {{ objstorage-full-name }} bucket](../../../storage/operations/buckets/create.md). Save the bucket name, you will need it when installing the application. Skip this step if you need to create a separate bucket for each volume.
+1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md). Save the [key](../../../iam/concepts/authorization/key.md) ID and secret key, you will need them when installing the application.
+1. (Optional) To make new volumes fit into a single bucket with different prefixes, create an [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../storage/operations/buckets/create.md). Save the bucket name, you will need it when installing the application. Skip this step if you need to create a separate bucket for each volume.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the folder page and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select [Container Storage Interface for S3](/marketplace/products/yc/csi-s3) and click **Use**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the {{ managed-k8s-name }} cluster name and select the ![image](../../../_assets/marketplace.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. Under **Applications available for installation**, select [Container Storage Interface for S3](/marketplace/products/yc/csi-s3) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 1. Configure the application:
    * **Namespace**: Select the `kube-system` [namespace](../../concepts/index.md#namespace).
-   * **Application name**: Specify the application name, for example, `csi-s3`.
+   * **Application name**: Specify the application name, e.g., `csi-s3`.
    * **Create storage class**: Select this option to create a new [storage class](../volumes/manage-storage-class.md) when deploying the application.
-   * **Create secret**: Select this option to create a new secret form a storage class when installing the application.
+   * **Create secret**: Select this option to create a new secret for a storage class when installing the application.
    * **S3 key ID**: Copy the service account key ID into this field.
    * **S3 secret key**: Copy the service account secret key into this field.
    * **General S3 bucket for volumes**: Specify the name of the general bucket where [dynamically allocated volumes](../../concepts/volume.md#dynamic-provisioning) will be created. For CSI to create a new bucket for each volume, leave this field blank.
@@ -32,13 +32,14 @@
      * **Delete**: Delete a volume.
    * **Storage class name**: If you previously selected the **Create storage class** option, specify the name of the new storage class.
    * **Secret name**: If you previously selected the **Create secret** option, specify the name of the new secret to be created for the storage class. Otherwise, specify the name of the existing secret to be used for the storage class.
-   * **Ignore all taints**: Select this option for the CSI driver that mounts a file system on nodes to ignore any taint policies set for the cluster nodes.
-1. Click **Install**.
+   * **Ignore all taints**: Select this option if you want the CSI driver used to mount the file system on nodes to ignore all taints set for the {{ managed-k8s-name }} cluster nodes.
+1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Wait for the application to change its status to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
-
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with CSI, run the following command:
 
    ```bash

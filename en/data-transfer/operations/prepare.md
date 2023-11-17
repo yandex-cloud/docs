@@ -6,7 +6,7 @@
 
 #### AWS CloudTrail source {#source-aws}
 
-Get an AWS key ID and secret access key by following the [AWS instructions](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
+Get an AWS key ID and secret access key by following the [AWS guide](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
 
 For more information, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/aws-cloudtrail/).
 
@@ -62,6 +62,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 {% endlist %}
 
+
 ### {{ CH }} source {#source-ch}
 
 {% list tabs %}
@@ -114,8 +115,8 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
       This example issues privileges to all the tables in the selected schema:
 
       ```pgsql
-      GRANT SELECT ON ALL TABLES IN SCHEMA <schema name> TO <username>;
-      GRANT USAGE ON SCHEMA <schema name> TO <username>;
+      GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <username>;
+      GRANT USAGE ON SCHEMA <schema_name> TO <username>;
       ```
 
 
@@ -142,8 +143,8 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
       This example grants privileges to all the database tables:
 
       ```pgsql
-      GRANT SELECT ON ALL TABLES IN SCHEMA <schema name> TO <username>;
-      GRANT USAGE ON SCHEMA <schema name> TO <username>;
+      GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <username>;
+      GRANT USAGE ON SCHEMA <schema_name> TO <username>;
       ```
 
 {% endlist %}
@@ -195,7 +196,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
          ```yaml
          replication:
-           replSetName: <replica set name>
+           replSetName: <replica_set_name>
          ```
 
       1. Restart the `mongod` service:
@@ -208,10 +209,10 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
          ```javascript
          rs.initiate({
-             _id: "<replica set name>",
+             _id: "<replica_set_name>",
              members: [{
                  _id: 0,
-                 host: "<IP address listening to mongod>:<port>"
+                 host: "<IP_address_listening_to_{{ MG }}>:<port>"
              }]
          });
          ```
@@ -226,11 +227,11 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
           mechanisms: ["SCRAM-SHA-1"],
           roles: [
               {
-                  db: "<name of source database 1>",
+                  db: "<source_database_1_name>",
                   role: "readWrite"
               },
               {
-                  db: "<name of source database 2>",
+                  db: "<source_database_2_name>",
                   role: "readWrite"
               },
               ...
@@ -242,7 +243,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
       {% note info %}
 
-      For {{ MG }} 3.6 or older, it's enough to assign the created user the [`read`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-read) role for databases to replicate.
+      For {{ MG }} 3.6 or older, it is enough to assign the created user the [`read`](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-read) role for databases to replicate.
 
       {% endnote %}
 
@@ -305,7 +306,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
       ```sql
       CREATE USER '<username>'@'%' IDENTIFIED BY '<password>';
-      GRANT ALL PRIVILEGES ON <database name>.* TO '<username>'@'%';
+      GRANT ALL PRIVILEGES ON <database_name>.* TO '<username>'@'%';
       GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '<username>'@'%';
       ```
 
@@ -409,7 +410,7 @@ If you get an error like "`can only select from fixed tables/views`" when granti
          CREATE USER C##<username> IDENTIFIED BY <password> CONTAINER=all;
          ALTER USER C##<username> DEFAULT TABLESPACE USERS temporary tablespace TEMP CONTAINER=all;
          ALTER USER C##<username> quota unlimited on USERS CONTAINER=all;
-         ALTER USER C##<username> SET container_data = (cdb$root, <your PCB name>) CONTAINER=current;
+         ALTER USER C##<username> SET container_data = (cdb$root, <your_PCB_name>) CONTAINER=current;
 
          GRANT
              CREATE SESSION,
@@ -540,17 +541,17 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
          CREATE ROLE <username> WITH REPLICATION LOGIN ENCRYPTED PASSWORD '<password>';
          ```
 
-   1. Grant the created user the privilege to perform a `SELECT` on all the database tables to be transferred and the `USAGE` privilege for the schemas of these tables:
+   1. Grant the created user the privilege to perform `SELECT` on all the database tables to be transferred and the `USAGE` privilege for the schemas of these tables:
 
       ```sql
-      GRANT SELECT ON ALL TABLES IN SCHEMA <schema name> TO <username>;
-      GRANT USAGE ON SCHEMA <schema name> TO <username>;
+      GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <username>;
+      GRANT USAGE ON SCHEMA <schema_name> TO <username>;
       ```
 
    1. Grant the created user the privileges to the `__consumer_keeper` and `__data_transfer_mole_finder` housekeeping table schema defined by the [endpoint parameter](./endpoint/source/postgresql.md#additional-settings) if the endpoint is going to be used for the _{{ dt-type-repl }}_ or _{{ dt-type-copy-repl }}_ transfer types.
 
       ```sql
-      GRANT ALL PRIVILEGES ON SCHEMA <schema name> TO <username>;
+      GRANT ALL PRIVILEGES ON SCHEMA <schema_name> TO <username>;
       ```
 
    1. Install and enable the [wal2json](https://github.com/eulerto/wal2json) extension.
@@ -597,7 +598,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
             * Specify the version number of the installed Windows SDK in `<WindowsTargetPlatformVersion>`:
 
                ```powershell
-               (Get-Content .\wal2json.vcxproj).replace('<WindowsTargetPlatformVersion>8.1', '<WindowsTargetPlatformVersion><installed version of Windows SDK>') | `
+               (Get-Content .\wal2json.vcxproj).replace('<WindowsTargetPlatformVersion>8.1', '<WindowsTargetPlatformVersion><installed_version_of_Windows_SDK>') | `
                 Set-Content .\wal2json.vcxproj
                ```
 
@@ -653,18 +654,23 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
       ```yaml
       ignore_slots:
-        - database: <name of database that the transfer is configured for>
-          name: <replication slot name>
+        - database: <database>
+          name: <replication_slot>
           plugin: wal2json
           type: logical
       ```
+
+      Where:
+
+      * `database`: Name of the database the transfer is configured for.
+      * `name`: Replication slot name.
 
       The database and the replication slot names must match the values specified in the [source endpoint settings](../../data-transfer/operations/endpoint/source/postgresql.md). By default, the `replication slot name` is the same as the `transfer ID`.
 
       Otherwise, the start of the replication phase will fail:
 
       ```
-      Warn(Termination): unable to create new pg source: Replication slotID <replication slot name> does not exist.
+      Warn(Termination): unable to create new pg source: Replication slotID <replication_slot_name> does not exist.
       ```
 
    1. Configure WAL monitoring. For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers, [logical replication]({{ pg-docs }}/logicaldecoding.html) is used. To perform it, the transfer creates a replication slot with the `slot_name` equal to the transfer ID that you can get by selecting the transfer from the list of your transfers. The WAL size may increase for different reasons: due to a long-running transaction or a transfer issue. Therefore, we recommend setting up WAL monitoring on the source side.
@@ -761,12 +767,12 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
    ```json
    [
        {
-           "name": "<field name>",
+           "name": "<field_name>",
            "type": "<type>"
        },
        ...
        {
-           "name": "<field name>",
+           "name": "<field_name>",
            "type": "<type>"
        }
    ]
@@ -872,13 +878,13 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
    1. Grant the user all privileges for the database, schemas, and tables to be transferred:
 
       ```sql
-      GRANT ALL PRIVILEGES ON DATABASE <database name> TO <username>;
+      GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <username>;
       ```
 
       If the database is not empty, the user must be its owner:
 
       ```sql
-      ALTER DATABASE <database name> OWNER TO <username>;
+      ALTER DATABASE <database_name> OWNER TO <username>;
       ```
 
       Once started, the transfer will connect to the target on behalf of this user.
@@ -909,13 +915,13 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
    1. Grant the user all privileges for the database, schemas, and tables to be transferred:
 
       ```sql
-      GRANT ALL PRIVILEGES ON DATABASE <database name> TO <username>;
+      GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <username>;
       ```
 
       If the database is not empty, the user must be its owner:
 
       ```sql
-      ALTER DATABASE <database name> OWNER TO <username>;
+      ALTER DATABASE <database_name> OWNER TO <username>;
       ```
 
       Once started, the transfer will connect to the target on behalf of this user.
@@ -977,7 +983,7 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
 
          ```yaml
          replication:
-           replSetName: <replica set name>
+           replSetName: <replica_set_name>
          ```
 
       1. Restart the `mongod` service:
@@ -990,10 +996,10 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
 
          ```javascript
          rs.initiate({
-             _id: "<replica set name>",
+             _id: "<replica_set_name>",
              members: [{
                  _id: 0,
-                 host: "<IP address listening to mongod>:<port>"
+                 host: "<IP_address_listening_to_{{ MG }}>:<port>"
              }]
          });
          ```
@@ -1001,7 +1007,7 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
    1. Connect to the cluster and create a target database with the same name as the source database:
 
       ```javascript
-      use <database name>
+      use <database_name>
       ```
 
    1. Create a user with the `readWrite` role for the target database:
@@ -1014,7 +1020,7 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
           mechanisms: ["SCRAM-SHA-1"],
           roles: [
               {
-                  db: "<target database name>",
+                  db: "<target_database_name>",
                   role: "readWrite"
               }
           ]
@@ -1032,13 +1038,13 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
       1. Enable target database sharding:
 
          ```javascript
-         sh.enableSharding("<target database name>")
+         sh.enableSharding("<target_database_name>")
          ```
 
       1. Shard every collection based on its namespace:
 
          ```javascript
-         sh.shardCollection("<target database name>.<collection name>", { <field name>: <1|"hashed">, ... });
+         sh.shardCollection("<target_database_name>.<collection_name>", { <field_name>: <1|"hashed">, ... });
          ```
 
          For more information about the `shardCollection()` function, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#mongodb-method-sh.shardCollection).
@@ -1092,7 +1098,7 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
 
       ```sql
       CREATE USER '<username>'@'%' IDENTIFIED BY '<password>';
-      GRANT ALL PRIVILEGES ON <database name>.* TO '<username>'@'%';
+      GRANT ALL PRIVILEGES ON <database_name>.* TO '<username>'@'%';
       ```
 
 {% endlist %}
@@ -1153,20 +1159,20 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
    1. Grant the user all privileges for the database, schemas, and tables to be transferred:
 
       ```sql
-      GRANT ALL PRIVILEGES ON DATABASE <database name> TO <username>;
+      GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <username>;
       ```
 
       If the database is not empty, the user must be its owner:
 
       ```sql
-      ALTER DATABASE <database name> OWNER TO <username>;
+      ALTER DATABASE <database_name> OWNER TO <username>;
       ```
 
       Once started, the transfer will connect to the target on behalf of this user.
-   1. If the target has the [Save transaction boundaries](endpoint/target/postgresql.md#additional-settings) option enabled, grant the created user all privileges to create the `__data_transfer_lsn` housekeeping table in the [current schema](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (usually it's `public`) on the target:
+   1. If the target has the [Save transaction boundaries](endpoint/target/postgresql.md#additional-settings) option enabled, grant the created user all privileges to create the `__data_transfer_lsn` housekeeping table in the [current schema](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (usually it is `public`) on the target:
 
       ```sql
-      GRANT ALL PRIVILEGES ON SCHEMA <schema name> TO <username>;
+      GRANT ALL PRIVILEGES ON SCHEMA <schema_name> TO <username>;
       ```
 
 - {{ PG }}
@@ -1202,21 +1208,21 @@ If you selected {{ dd }} database mode, [create](../../vpc/operations/security-g
    1. Grant the user all privileges for the database, schemas, and tables to be transferred:
 
       ```sql
-      GRANT ALL PRIVILEGES ON DATABASE <database name> TO <username>;
+      GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <username>;
       ```
 
       If the database is not empty, the user must be its owner:
 
       ```sql
-      ALTER DATABASE <database name> OWNER TO <username>;
+      ALTER DATABASE <database_name> OWNER TO <username>;
       ```
 
       Once started, the transfer will connect to the target on behalf of this user.
 
-   1. If the target has the [Save transaction boundaries](endpoint/target/postgresql.md#additional-settings) option enabled, grant the created user all privileges to create the `__data_transfer_lsn` housekeeping table in the [current schema](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (usually it's `public`) on the target:
+   1. If the target has the [Save transaction boundaries](endpoint/target/postgresql.md#additional-settings) option enabled, grant the created user all privileges to create the `__data_transfer_lsn` housekeeping table in the [current schema](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (usually it is `public`) on the target:
 
       ```sql
-      GRANT ALL PRIVILEGES ON SCHEMA <schema name> TO <username>;
+      GRANT ALL PRIVILEGES ON SCHEMA <schema_name> TO <username>;
       ```
 
 {% endlist %}

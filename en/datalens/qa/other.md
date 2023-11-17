@@ -32,3 +32,5 @@ Learn more in [Automatic cloud suspension](../../overview/concepts/data-deletion
 {% include [network-error](../../_qa/datalens/network-error.md) %}
 
 
+
+{% include [main-page-error](../../_qa/datalens/main-page-error.md) %}

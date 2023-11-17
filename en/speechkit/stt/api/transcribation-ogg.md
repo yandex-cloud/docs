@@ -18,12 +18,18 @@ If you do not have an OggOpus audio file, you can download a [sample file](https
 
 ## Perform speech recognition via the API {#recognize-using-api}
 
+{% note warning %}
+
+For two-channel OggOpus audio files, do not specify the number of channels in the `audioChannelCount` parameter.
+
+{% endnote %}
+
 {% list tabs %}
 
 - cURL
 
    1. [Get a link to an audio file](../../../storage/operations/objects/link-for-download.md) in {{ objstorage-name }}.
-   1. Create a file, e.g., `body.json`, and paste the following code to it:
+   1. Create a file like `body.json` and add the following code to it:
 
       ```json
       {
@@ -46,6 +52,12 @@ If you do not have an OggOpus audio file, you can download a [sample file](https
          The link contains additional query parameters (after `?`) for buckets with restricted access. You do not need to provide these parameters in {{ speechkit-name }} as they are ignored.
 
       Since OggOpus is the default format, you do not need to specify the audio stream format.
+
+      {% note info %}
+
+      Do not provide the [audioChannelCount](transcribation-api.md#sendfile-params) parameter to specify the number of audio channels. OggOpus files already contain information about the channel count.
+
+      {% endnote %}
 
    1. Run the created file:
 

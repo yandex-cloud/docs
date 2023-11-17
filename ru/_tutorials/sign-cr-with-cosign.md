@@ -72,58 +72,193 @@
 1. [Создайте несколько Docker-образов](../container-registry/operations/docker-image/docker-image-create.md). Один из образов в дальнейшем будет подписан с помощью Cosign, остальные образы будут неподписанными.
 1. [Загрузите Docker-образы](../container-registry/operations/docker-image/docker-image-push.md) в реестр {{ container-registry-name }}.
 
-## Подпишите Docker-образ с помощью Cosign {#cosign}
+## Подпишите Docker-образ с помощью утилиты Cosign {#cosign}
 
-1. [Установите Cosign](https://docs.sigstore.dev/cosign/installation).
-1. Создайте пару ключей с помощью Cosign:
+{% list tabs %}
 
-   ```bash
-   cosign generate-key-pair
-   ```
+- Подпись образа на асимметричных ключах {{ kms-short-name }}
 
-   Задайте и дважды введите пароль для закрытого ключа.
+  1. Установите специальную сборку Cosign для вашей операционной системы:
 
-   Результат:
+      {% include [install-cosign](../_includes/kms/install-cosign.md) %}
 
-   ```text
-   Enter password for private key:
-   Enter password for private key again:
-   Private key written to cosign.key
-   Public key written to cosign.pub
-   ```
+  1. Получите [IAM-токен](../iam/concepts/authorization/iam-token.md) и сохраните его в переменную среды `$YC_IAM_TOKEN`:
 
-1. Подпишите Docker-образ в реестре {{ container-registry-name }}:
+      * **Bash:**
 
-   ```bash
-   cosign sign --key cosign.key {{ registry }}/<ID реестра>/<имя Docker-образа>:<тег>
-   ```
+          ```bash
+          export YC_IAM_TOKEN=$(yc iam create-token)
+          ```
 
-   Подписанный образ будет использоваться при [проверке результата](#check-result).
+      * **PowerShell:**
 
-   Укажите пароль закрытого ключа. Результат:
+          ```powershell
+          $env:YC_IAM_TOKEN = $(yc iam create-token)
+          ```
+  1. Авторизуйтесь в {{ container-registry-name }}:
 
-   ```text
-   Enter password for private key:
-   Pushing signature to: {{ registry }}/<ID реестра>/<имя Docker-образа>
-   ```
+      * **Bash:**
 
-   В реестре {{ container-registry-name }} должен появится второй объект с тегом `sha256-....sig` и хешем `{{ registry }}/<ID реестра>/<имя Docker-образа>@sha256:...`.
-1. Вручную проверьте, что подпись валидна:
+          ```bash
+          docker login \
+              --username iam \
+              --password $YC_IAM_TOKEN \
+              cr.yandex
+          ```
 
-   ```bash
-   cosign verify --key cosign.pub {{ registry }}/<ID реестра>/<имя Docker-образа>:<тег>
-   ```
+      * **PowerShell:**
 
-   Результат:
+          ```powershell
+          docker login `
+              --username iam `
+              --password $Env:YC_IAM_TOKEN `
+              cr.yandex
+          ```
 
-   ```text
-   Verification for {{ registry }}/<ID реестра>/<имя Docker-образа>:<тег> --
-   The following checks were performed on each of these signatures:
-   - The cosign claims were validated
-   - The signatures were verified against the specified public key
+      Результат:
 
-   [{"critical":{"identity":{"docker-reference":"{{ registry }}/<ID реестра>/<имя Docker-образа>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
-   ```
+      ```bash
+      WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+      Login Succeeded
+      ```
+
+      {% note info %}
+
+      Чтобы не использовать Credential helper при аутентификации, удалите в конфигурационном файле `${HOME}/.docker/config.json` из блока `credHelpers` строку домена `{{ registry }}`.
+
+      {% endnote %}
+
+  1. Создайте и сохраните в {{ kms-short-name }} ключевую пару электронной подписи:
+
+      ```bash
+      cosign generate-key-pair \
+          --kms yckms:///folder/<идентификатор_каталога>/keyname/<имя_ключевой_пары>
+      ```
+
+      Где:
+      * `<идентификатор_каталога>` — [идентификатор каталога](../resource-manager/operations/folder/get-id.md), в котором будет сохранена создаваемая ключевая пара.
+      * `<имя_ключевой_пары>` — имя создаваемой ключевой пары подписи.
+
+      Результат:
+
+      ```bash
+      client.go:183: Using IAM Token from 'YC_IAM_TOKEN' environment variable as credentials
+      client.go:310: generated yckms KEY_ID: '<идентификатор_ключевой_пары>'
+      Public key written to cosign.pub
+      ```
+
+      Утилита вернет идентификатор созданной ключевой пары подписи и сохранит открытый ключ подписи в локальный файл. Сохраните идентификатор ключевой пары, он понадобится вам на следующих шагах.
+      
+      Идентификатор ключевой пары подписи всегда можно получить в [консоли управления]({{ link-console-main }}) или с помощью [команды CLI](../cli/cli-ref/managed-services/kms/asymmetric-signature-key/list.md).
+
+  1. Подпишите образ в {{ container-registry-name }}:
+
+      ```bash
+      cosign sign \
+          --key yckms:///<идентификатор_ключевой_пары> \
+          cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег> \
+          --tlog-upload=false
+      ```
+
+      Где:
+      * `<идентификатор_ключевой_пары>` — идентификатор ключевой пары подписи, полученный на предыдущем шаге.
+      * `<идентификатор_реестра>` — [идентификатор реестра](../container-registry/operations/registry/registry-list.md#registry-list) {{ container-registry-name }}, в котором находится подписываемый образ.
+      * `<имя_Docker-образа>` — имя подписываемого [Docker-образа](../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) в реестре {{ container-registry-name }}.
+      * `<тег>` — тег версии образа, которую требуется подписать.
+
+      Результат:
+
+      ```bash
+      Pushing signature to: cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>
+      ```
+
+     В реестре {{ container-registry-name }} должен появиться второй объект с тегом `sha256-....sig` и хэшем `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>@sha256:...`.
+
+  1. Вручную проверьте, что подпись Docker-образа корректна:
+
+      ```bash
+      cosign verify \
+          --key yckms:///<идентификатор_ключевой_пары> \
+          cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег> \
+          --insecure-ignore-tlog
+      ```
+
+      Где:
+      * `<идентификатор_ключевой_пары>` — полученный ранее идентификатор ключевой пары подписи.
+      * `<идентификатор_реестра>` — [идентификатор реестра](../container-registry/operations/registry/registry-list.md#registry-list) {{ container-registry-name }}, в котором находится образ.
+      * `<имя_Docker-образа>` — [имя Docker-образа](../container-registry/operations/docker-image/docker-image-list.md#docker-image-list) в реестре {{ container-registry-name }}.
+      * `<тег>` — тег версии образа, для которой требуется проверить подпись.
+
+     Результат:
+
+     ```bash
+     Verification for {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег> --
+     The following checks were performed on each of these signatures:
+     - The cosign claims were validated
+     - The signatures were verified against the specified public key
+
+     [{"critical":{"identity":{"docker-reference":"{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
+     ```
+
+- Подпись образа на локальных ключах
+
+  1. [Установите Cosign](https://docs.sigstore.dev/cosign/installation).
+  1. Создайте пару ключей с помощью Cosign:
+
+     ```bash
+     cosign generate-key-pair
+     ```
+
+     Задайте и дважды введите пароль для закрытого ключа.
+
+     Результат:
+
+     ```bash
+     Enter password for private key:
+     Enter password for private key again:
+     Private key written to cosign.key
+     Public key written to cosign.pub
+     ```
+
+  1. Подпишите Docker-образ в реестре {{ container-registry-name }}:
+
+     ```bash
+     cosign sign \
+         --key cosign.key \
+         {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>
+     ```
+
+     Подписанный образ будет использоваться при [проверке результата](#check-result).
+
+     Укажите пароль закрытого ключа. Результат:
+
+     ```bash
+     Enter password for private key:
+     Pushing signature to: {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>
+     ```
+
+     В реестре {{ container-registry-name }} должен появиться второй объект с тегом `sha256-....sig` и хэшем `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>@sha256:...`.
+
+  1. Вручную проверьте, что подпись Docker-образа корректна:
+
+     ```bash
+     cosign verify \
+         --key cosign.pub \
+         {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>
+     ```
+
+     Результат:
+
+     ```bash
+     Verification for {{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег> --
+     The following checks were performed on each of these signatures:
+     - The cosign claims were validated
+     - The signatures were verified against the specified public key
+
+     [{"critical":{"identity":{"docker-reference":"{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>"},"image":{"docker-manifest-digest":"sha256:..."},"type":"cosign container image signature"},"optional":null}]
+     ```
+
+{% endlist %}
 
 ## Создайте политику для проверки подписей {#kyverno}
 
@@ -131,7 +266,7 @@
 
    ```bash
    yc iam key create \
-     --service-account-name=<имя сервисного аккаунта с ролью {{ roles-cr-puller }}> \
+     --service-account-name=<имя_сервисного_аккаунта_с_ролью_{{ roles-cr-puller }}> \
      --output=authorized-key.json
    ```
 
@@ -192,13 +327,13 @@
                     - Pod
             verifyImages:
             - imageReferences:
-              - "{{ registry }}/<ID реестра>/*"
+              - "{{ registry }}/<идентификатор_реестра>/*"
               attestors:
               - count: 1
                 entries:
                 - keys:
                     publicKeys: |-
-                      <содержимое cosign.pub>
+                      <содержимое_cosign.pub>
       ```
 
       {% cut "Пример заполненного файла policy.yaml." %}
@@ -222,7 +357,7 @@
                     - Pod
             verifyImages:
             - imageReferences:
-              - "{{ registry }}/crpd2f2bnrlb2i7ltssl/*"
+              - "{{ registry }}/crpd2f2bnrlb********/*"
               attestors:
               - count: 1
                 entries:
@@ -230,7 +365,7 @@
                     publicKeys: |-
                       -----BEGIN PUBLIC KEY-----
                       MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE1jTu/9rJZZvUFi4bGhlvgMQdIY97
-                      7NuGl2zzpV7olAyIu/WiywxI7Fny5tk6JmNPIFvSAtys3c08gfEcVV3D1Q==
+                      7NuGl2zzpV7olAyIu/WiywxI7Fny5tk6JmNPIFvSAtys3c08gfEc********
                       -----END PUBLIC KEY-----
       ```
 
@@ -255,7 +390,7 @@
 * Создайте [под](../managed-kubernetes/concepts/index.md#pod) из подписанного Docker-образа:
 
   ```bash
-  kubectl run pod --image={{ registry }}/<ID реестра>/<имя Docker-образа>:<тег>
+  kubectl run pod --image={{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>
   ```
 
   Результат:
@@ -267,7 +402,7 @@
 * Создайте под из неподписанного Docker-образа:
 
   ```bash
-  kubectl run pod2 --image={{ registry }}/<ID реестра>/<имя неподписанного Docker-образа>:<тег>
+  kubectl run pod2 --image={{ registry }}/<идентификатор_реестра>/<имя_неподписанного_Docker-образа>:<тег>
   ```
 
   Результат:
@@ -279,7 +414,7 @@
 
   check-image:
     check-image: 
-      failed to verify signature for {{ registry }}/crpsere9njsadcq6fgm2/alpine:2.0: .attestors[0].entries[0].keys: no matching signatures:
+      failed to verify signature for {{ registry }}/crpsere9njsa********/alpine:2.0: .attestors[0].entries[0].keys: no matching signatures:
   ```
 
 ## Удалите созданные ресурсы {#clear-out}

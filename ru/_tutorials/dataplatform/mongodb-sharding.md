@@ -30,7 +30,7 @@
 1. [Подключитесь](../../managed-mongodb/operations/connect/index.md) к хосту `MONGOS` или `MONGOINFRA` с помощью CLI `mongosh` и включите шардирование:
 
    ```
-   sh.enableSharding("<имя базы>")
+   sh.enableSharding("<имя_БД>")
    ```
 
    Тип хоста можно запросить со [списком хостов в кластере](../../managed-mongodb/operations/hosts.md#list-hosts).
@@ -38,13 +38,13 @@
 1. Задайте индекс в шардированной коллекции:
 
    ```
-   db.getSiblingDB("<имя базы>").<имя коллекции>.createIndex( { "<индекс>": <тип индекса> } )
+   db.getSiblingDB("<имя_БД>").<имя_коллекции>.createIndex( { "<индекс>": <тип_индекса> } )
    ```
 
 1. Включите шардирование коллекции:
 
    ```
-   sh.shardCollection( "<имя базы>.<коллекция>", { "<индекс>": <тип индекса> } )
+   sh.shardCollection( "<имя_БД>.<коллекция>", { "<индекс>": <тип_индекса> } )
    ```
 
    Подробное описание команды `shardCollection` см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#definition).

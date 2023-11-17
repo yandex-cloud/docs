@@ -1,0 +1,1 @@
+The `speech-sense.editor` role.

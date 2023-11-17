@@ -4,7 +4,7 @@ Milestones indicate certain events in a project's timeline. With milestones, you
 
 A milestone has no start and end dates, as it indicates the deadline of a key event in the project timeline.
 
-Project milestones in {{ tracker-name }} are displayed in the **{{ ui-key.startrek.ui_components_projects_HeaderTabs.description-tab }}** tab under the project description.
+Project milestones in {{ tracker-name }} are displayed in the **{{ ui-key.startrek.ui_components_projects_HeaderTabs.description-tab }}** tab under the project description. They are sorted by deadline, starting from the closest one.
 
 On the [project Gantt chart](../gantt/project.md), milestones are shown as a diamond.
 

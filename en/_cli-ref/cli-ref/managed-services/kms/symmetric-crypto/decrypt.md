@@ -19,8 +19,8 @@ Syntax:
 |`--id`|<b>`string`</b><br/>Symmetric key id.|
 |`--name`|<b>`string`</b><br/>Symmetric key name.|
 |`--aad-context-file`|<b>`string`</b><br/>Additional authenticated data file. Otherwise performs decrypt operation without aad context.|
-|`--ciphertext-file`|<b>`string`</b><br/>Required. Ciphertext file.|
-|`--plaintext-file`|<b>`string`</b><br/>Required. File to write plaintext.|
+|`--ciphertext-file`|<b>`string`</b><br/>Ciphertext file. Otherwise performs decrypt operation with data from stdin.|
+|`--plaintext-file`|<b>`string`</b><br/>File to write plaintext. Otherwise write plaintext to stdout.|
 
 #### Global Flags
 

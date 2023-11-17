@@ -58,7 +58,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
    {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../../_includes/terraform-install.md) %}
 
    To add an alias to a device created using {{ TF }}:
 

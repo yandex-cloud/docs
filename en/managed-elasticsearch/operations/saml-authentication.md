@@ -1,6 +1,6 @@
 ---
 title: "How to set up SAML authentication"
-description: "This guide describes how you can set up SAML authentication."
+description: "Follow this guide to set up SAML authentication."
 ---
 
 # Configuring SAML authentication
@@ -34,7 +34,7 @@ To set up SAML authentication:
    Use the URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection):
 
    ```
-   https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}/api/security/saml/callback
+   https://c-<{{ ES }} cluster_ID>.rw.{{ dns-zone }}/api/security/saml/callback
    ```
 
    The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -46,7 +46,7 @@ To set up SAML authentication:
    Use the URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection):
 
    ```
-   https://c-<cluster ID>rw.{{ dns-zone }}
+   https://c-<cluster_ID>rw.{{ dns-zone }}
    ```
 
    **Example:** `https://c-e4ut2....rw.{{ dns-zone }}`
@@ -117,9 +117,9 @@ Incorrect settings may cause the cluster to fail.
 
          {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
-      * The `SAML` value, in the `type` parameter.
+      * `SAML` value, in the `type` parameter.
       * Provider name, in the `name` parameter.
-      * The `true` value, in the `enabled` parameter.
+      * `True` value, in the `enabled` parameter.
       * Provider description, in the `description` parameter.
       * ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp), in the `idpEntityId` parameter.
       * Path to the Base64 metadata file, in the `idpMetadataFile` parameter.
@@ -151,7 +151,7 @@ To log in to the {{ ES }} cluster using the new user's credentials, go to the **
 
 ### Enabling SAML SSO with Okta {#example-okta}
 
-To set up SSO with Okta for a cluster with the `c9qmc1lmo2k060fkj2nj` ID:
+To set up SSO with Okta for a cluster with the `c9qmc1lmo2k0********` ID:
 1. [Configure the Okta identity provider](#example-configuration-okta).
 1. [Set up SSO for the {{ mes-name }} cluster](#example-configuration-sso).
 1. [Configure roles for SSO with Okta](#example-roles-sso).
@@ -168,14 +168,14 @@ To set up SSO with Okta for a cluster with the `c9qmc1lmo2k060fkj2nj` ID:
    * Specify the **Single sign on URL**:
 
       ```
-      https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}/api/security/saml/callback
+      https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}/api/security/saml/callback
       ```
 
    * Enable the **Use this for Recipient URL and Destination URL** option.
    * Specify the **Audience URI (SP Entity ID)**:
 
       ```
-      https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}
+      https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}
       ```
 
    * Specify the **Name ID Format**: `Persistent`.
@@ -187,7 +187,7 @@ To set up SSO with Okta for a cluster with the `c9qmc1lmo2k060fkj2nj` ID:
    * Copy the **Identity Provider Issuer**:
 
       ```
-      http://www.okta.com/exkv2pzpvigX4c0bK5d6
+      http://www.okta.com/exkv2pzpvigX********
       ```
 
    * Copy the **Provide the following IDP metadata to your SP provider** field value and save it to a file, such as `okta.xml`.
@@ -196,13 +196,13 @@ For more information about other parameters, see the [Okta documentation](https:
 
 #### Set up SSO for the cluster {#example-configuration-sso}
 
-Let's assume we have an **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}** like `http://www.okta.com/exkv2pzpvigX4c0bK5d6` provided after the IdP setup.
+Let's assume we have this **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}** provided after the IdP setup: `http://www.okta.com/exkv2pzpvigX********`.
 
 [Set up SSO for the cluster](#configuration-sso). When setting it up, specify:
-* **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}**: `http://www.okta.com/exkv2pzpvigX4c0bK5d6`.
+* **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_entity_id }}**: `http://www.okta.com/exkv2pzpvigX********`.
 * **{{ ui-key.yacloud.elasticsearch.auth.saml-idp_metadata_file }}**: Metadata file provided by Okta.
-* **{{ ui-key.yacloud.elasticsearch.auth.saml-sp_entity_id }}**: `https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}`.
-* **{{ ui-key.yacloud.elasticsearch.auth.saml-kibana_url }}**: `https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}`.
+* **{{ ui-key.yacloud.elasticsearch.auth.saml-sp_entity_id }}**: `https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}`.
+* **{{ ui-key.yacloud.elasticsearch.auth.saml-kibana_url }}**: `https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}`.
 * **{{ ui-key.yacloud.elasticsearch.auth.saml-attribute_principal }}**: `nameid:persistent`.
 
 #### Configure roles for SSO with Okta {#example-roles-sso}

@@ -16,14 +16,14 @@ You can both [copy](#copy) data from a table to a local file and [populate](#wri
 To copy table data to a file, run this command:
 
 ```bash
-psql "host=c-<cluster ID>.rw.{{ dns-zone }} \
+psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
     port={{ port-mgp }} \
     sslmode=verify-full \
-    dbname=<DB name> \
+    dbname=<DB_name> \
     user=<username> \
     target_session_attrs=read-write" \
-    -c "\copy (SELECT * FROM <table name>) to stdout(DELIMITER '<delimiter character>')" \
-    >> <local file name>
+    -c "\copy (SELECT * FROM <table_name>) to stdout(DELIMITER '<delimiter_character>')" \
+    >> <local_file_name>
 ```
 
 ## Populating a table with data {#write}
@@ -37,12 +37,12 @@ You need to create a table in advance. The number of columns and data types in a
 To populate your table with data from a local file, run this command:
 
 ```bash
-cat <name of local file> | \
-psql "host=c-<cluster ID>.rw.{{ dns-zone }} \
+cat <local_file_name> | \
+psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
     port={{ port-mgp }} \
     sslmode=verify-full \
-    dbname=<DB name> \
+    dbname=<DB_name> \
     user=<username> \
     target_session_attrs=read-write" \
-    -c "COPY <table name> FROM stdin (DELIMITER '<delimiter character>')"
+    -c "COPY <table_name> FROM stdin (DELIMITER '<delimiter_character>')"
 ```

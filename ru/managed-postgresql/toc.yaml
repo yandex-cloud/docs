@@ -19,6 +19,8 @@ items:
             href: operations/cluster-stop.md
           - name: Управление хостами PostgreSQL
             href: operations/hosts.md
+          - name: Миграция хостов в другую зону доступности
+            href: operations/host-migration.md
           - name: Управление слотами репликации
             href: operations/replication-slots.md
           - name: Управление резервными копиями
@@ -297,6 +299,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Публичные материалы
+    href: public-talks.md
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы

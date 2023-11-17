@@ -86,6 +86,8 @@ webControllerView.reload()
 
 ## Пример реализации на Swift с использованием {{ captcha-mobile-site }} {#ios-example}
 
+В этой секции описаны шаги, необходимые для создания приложения с капчей для iOS. См. пример готового приложения, содержащего все настроенные компоненты: [Yandex SmartCaptcha for iOS](https://github.com/yandex-cloud-examples/yc-smartcaptcha-ios-example/tree/main). 
+
 1. Создайте класс, который будет хранить **WKWebView**:
 
    ```swift

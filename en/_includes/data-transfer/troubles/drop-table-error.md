@@ -3,14 +3,14 @@
 Error message:
 
 ```text
-ERROR: cannot drop table <table name> because other objects depend on it (SQLSTATE 2BP01)
+ERROR: cannot drop table <table_name> because other objects depend on it (SQLSTATE 2BP01)
 ```
 
 With the `Drop` cleanup policy, a transfer drops tables in multiple iterations:
 
 1. The transfer tries to drop all tables one by one. Cascade delete is not used, as it may delete tables that are not included in the transfer. If a table cannot be dropped, for example, due to its links to external keys, an error occurs, but the transfer will continue dropping tables.
 1. During the next iteration, the transfer will try to drop the remaining tables. If the blocking child tables were dropped in the previous iteration, the table linked to external keys will also be dropped. In this case, the error is fixed while {{ data-transfer-name }} is running and no other actions are required.
-1. If the transfer does not drop any table during another iteration, table dropping stops. In this case:
+1. If the transfer does not drop any table during another iteration, table dropping stops. In which case:
 
    * The transfer will continue running if all tables were dropped.
    * The transfer will be aborted with an error if there are any tables left.

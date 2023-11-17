@@ -7,7 +7,7 @@ There are two types of roles in {{ datalens-short-name }}:
 
 ## Roles required to access the service {#service-roles}
 
-To grant a user access to {{ datalens-short-name }}, assign them a role. Roles can be assigned to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md).
+To grant a user access to {{ datalens-short-name }}, [assign](../../organization/security/index.md#add-role) them a role. Roles can be assigned to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md).
 
 
 {% list tabs %}

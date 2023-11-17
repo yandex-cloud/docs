@@ -1,8 +1,10 @@
 # Configuring data exchange between CDN servers and origins
 
+{% include [ipv4-note](../../_includes/cdn/ipv4-note.md) %}
+
 You can select a protocol for communication between CDN servers and origins: always HTTP, always HTTPS, or the protocol used by the [CDN server to communicate with the client](clients-to-servers.md).
 
-To enable CDN servers to establish HTTPS connections with origins, you need to configure the domain names of the origins yourself, including issuing TLS certificates for them. For instance, you can use {{ certificate-manager-full-name}}: [issue a certificate from Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) and [get its contents](../../certificate-manager/operations/managed/cert-get-content.md).
+To enable CDN servers to establish HTTPS connections with origins, you need to configure the domain names of the origins yourself, including issuing TLS certificates for them. For instance, you can use {{ certificate-manager-full-name }}: [issue a certificate from Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) and [get its contents](../../certificate-manager/operations/managed/cert-get-content.md).
 
 For a resource, you can also configure:
 

@@ -2,13 +2,13 @@
 
 {{ mgp-short-name }} provides automatic database backups.
 
-{{ mgp-short-name }} enables you to restore your cluster to a specific _recovery point_. This feature is known as Point-in-Time-Recovery (PITR). Recovery points are created every hour. When you specify a time to recover data for, the service will select the backup closest to that point in time. During recovery, the service updates an existing backup of the cluster with the data from the recovery point.
+{{ mgp-short-name }} enables you to restore your cluster to a specific _recovery point_ where the data is consistent. This feature is known as Point-in-Time-Recovery (PITR). Recovery points are created every hour. When you specify a time to recover data for, the service will use the backup closest to that point in time. When recovering the selected cluster backup, records from write-ahead logs (WALs) will be added to the backup data up to the closest recovery point.
 
 For example, if the backup was created on November 10, 2022, 12:00 p.m. UTC, the current date is November 15, 2022, 7:00 p.m. UTC, and the latest recovery point was saved on November 15, 2022, 6:00 p.m. UTC, the cluster can be restored to any recovery point between November 10, 2022, 12:00:01 p.m. UTC and November 15, 2022, 6:00:00 p.m. UTC, inclusive. If you specify November 15, 2022, 5:30 p.m. UTC as the recovery time, the cluster will be restored to the recovery point saved on November 15, 2022, 5:00 p.m. UTC.
 
 PITR mode is enabled by default.
 
-To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore).
+To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore). You can also restore your cluster to move its hosts to a different availability zone. You may need to do this, for example, if your cluster hosts reside in the `{{ region-id }}-c` availability zone which is to be [deprecated](/blog/posts/2023/08/new-availability-zone).
 
 ## Creating backups {#size}
 
@@ -32,7 +32,7 @@ Specifics of storing backups in {{ mgp-name }}:
 
 * Backups are kept for seven days.
 
-* Once you delete a cluster, all its backups persist for seven days.
+* After you delete a cluster, all its backups are kept for seven days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 

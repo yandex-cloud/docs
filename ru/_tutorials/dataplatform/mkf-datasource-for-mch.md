@@ -147,8 +147,8 @@
                 kafka {
                     security_protocol = "SECURITY_PROTOCOL_SASL_SSL"
                     sasl_mechanism    = "SASL_MECHANISM_SCRAM_SHA_512"
-                    sasl_username     = "<имя пользователя для потребителя>"
-                    sasl_password     = "<пароль пользователя для потребителя>"
+                    sasl_username     = "<имя_пользователя_для_потребителя>"
+                    sasl_password     = "<пароль_пользователя_для_потребителя>"
                 }
             }
             ```
@@ -158,12 +158,12 @@
             ```hcl
             config {
                 kafka_topic {
-                    name = "<имя топика>"
+                    name = "<имя_топика>"
                     settings {
                     security_protocol = "SECURITY_PROTOCOL_SASL_SSL"
                     sasl_mechanism    = "SASL_MECHANISM_SCRAM_SHA_512"
-                    sasl_username     = "<имя пользователя для потребителя>"
-                    sasl_password     = "<пароль пользователя для потребителя>"
+                    sasl_username     = "<имя_пользователя_для_потребителя>"
+                    sasl_password     = "<пароль_пользователя_для_потребителя>"
                     }
                 }
             }
@@ -186,7 +186,7 @@
 Пусть в топики {{ KF }} поступают некоторые данные от сенсоров автомобиля в формате JSON. Эти данные будут передаваться в виде сообщений {{ KF }}, каждое из которых будет содержать строчку вида:
 
 ```json
-{"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
+{"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
 Кластер {{ mch-name }} будет использовать при вставке в таблицы на движке `Kafka` [формат данных JSONEachRow]({{ ch.docs }}/interfaces/formats/#jsoneachrow), который преобразует строки из сообщения {{ KF }} в нужные значения столбцов.
@@ -197,7 +197,7 @@
 1. Выполните запрос:
 
     ```sql
-    CREATE TABLE IF NOT EXISTS db1.<имя таблицы для топика>
+    CREATE TABLE IF NOT EXISTS db1.<имя_таблицы_для_топика>
     (
         device_id String,
         datetime DateTime,
@@ -210,8 +210,8 @@
         fuel_level Nullable(Float32)
     ) ENGINE = Kafka()
     SETTINGS
-        kafka_broker_list = '<FQDN хоста-брокера>:9091',
-        kafka_topic_list = '<имя топика>',
+        kafka_broker_list = '<FQDN_хоста-брокера>:9091',
+        kafka_topic_list = '<имя_топика>',
         kafka_group_name = 'sample_group',
         kafka_format = 'JSONEachRow';
     ```
@@ -226,7 +226,7 @@
 
     ```json
     {
-        "device_id": "iv9a94th6rztooxh5ur2",
+        "device_id": "iv9a94th6rzt********",
         "datetime": "2020-06-05 17:27:00",
         "latitude": 55.70329032,
         "longitude": 37.65472196,
@@ -238,7 +238,7 @@
     }
 
     {
-        "device_id": "rhibbh3y08qmz3sdbrbu",
+        "device_id": "rhibbh3y08qm********",
         "datetime": "2020-06-06 09:49:54",
         "latitude": 55.71294467,
         "longitude": 37.66542005,
@@ -250,7 +250,7 @@
     }
 
     {
-        "device_id": "iv9a94th6rztooxh5ur2",
+        "device_id": "iv9a94th6rzt********",
         "datetime": "2020-06-07 15:00:10",
         "latitude": 55.70985913,
         "longitude": 37.62141918,
@@ -266,13 +266,13 @@
 
     ```bash
     jq -rc . sample.json | kafkacat -P \
-       -b <FQDN хоста-брокера>:9091 \
-       -t <имя топика> \
+       -b <FQDN_хоста-брокера>:9091 \
+       -t <имя_топика> \
        -k key \
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
-       -X sasl.username="<имя пользователя для производителя>" \
-       -X sasl.password="<пароль пользователя для производителя>" \
+       -X sasl.username="<имя_пользователя_для_производителя>" \
+       -X sasl.password="<пароль_пользователя_для_производителя>" \
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
     ```
 
@@ -294,7 +294,7 @@
 1. Для каждой таблицы на движке `Kafka` выполните запросы:
 
     ```sql
-    CREATE TABLE db1.temp_<имя таблицы для топика>
+    CREATE TABLE db1.temp_<имя_таблицы_для_топика>
     (
         device_id String,
         datetime DateTime,
@@ -310,8 +310,8 @@
     ```
 
     ```sql
-    CREATE MATERIALIZED VIEW db1.<имя представления> TO db1.temp_<имя таблицы для топика>
-        AS SELECT * FROM db1.<имя таблицы для топика>;
+    CREATE MATERIALIZED VIEW db1.<имя_представления> TO db1.temp_<имя_таблицы_для_топика>
+        AS SELECT * FROM db1.<имя_таблицы_для_топика>;
     ```
 
 Чтобы получить все данные из нужного материализованного представления:
@@ -320,7 +320,7 @@
 1. Выполните запрос:
 
     ```sql
-    SELECT * FROM db1.<имя представления>;
+    SELECT * FROM db1.<имя_представления>;
     ```
 
 Запрос вернет таблицу с данными, отправленными в соответствующий топик {{ mkf-name }}.

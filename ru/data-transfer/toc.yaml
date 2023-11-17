@@ -15,6 +15,8 @@ items:
         items:
           - name: Управление эндпоинтами
             href: operations/endpoint/index.md
+          - name: Миграция эндпоинтов в другую зону доступности
+            href: operations/endpoint/migration-to-an-availability-zone.md
           - name: Настройка эндпоинтов-источников
             items:
               - name: Apache Kafka®
@@ -189,6 +191,8 @@ items:
         href: concepts/serializer.md
       - name: Работа {{ data-transfer-full-name }} с источниками и приемниками
         href: concepts/work-with-endpoints.md
+      - name: Гарантии поставки
+        href: concepts/delivery-configuration.md
       - name: Операции над трансфером
         href: concepts/operations.md
       - name: Сеть в {{ data-transfer-full-name }}
@@ -211,10 +215,12 @@ items:
     items:
       - name: Все изменения
         href: changelogs/index.md
-      - name: Август 2023
-        href: changelogs/2308.md
+      - name: Октябрь 2023
+        href: changelogs/2310.md
       - name: Сентябрь 2023
         href: changelogs/2309.md
+      - name: Август 2023
+        href: changelogs/2308.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -271,6 +277,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Публичные материалы
+    href: public-talks.md
   - name: Обучающие курсы
     href: training.md
 base: ru/data-transfer

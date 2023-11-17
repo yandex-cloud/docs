@@ -40,7 +40,7 @@ Prepare the infrastructure:
 * Using Terraform
 
    
-   1. If you don't have {{ TF }} yet, set up and configure it according to the [instructions](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
 
@@ -77,7 +77,7 @@ Prepare the infrastructure:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the infrastructure required to follow the steps provided in this tutorial:
 
@@ -119,8 +119,8 @@ Set up a web server on your virtual machine and create an `s3` configuration fil
 
    ```config
    [default]
-   accessid = "<static key ID>"
-   secret = "<static key>"
+   accessid = "<static_key_ID>"
+   secret = "<static_key>"
    threadnum = 4
    chunksize = 67108864
    low_speed_limit = 10240
@@ -174,7 +174,7 @@ Set up a web server on your virtual machine and create an `s3` configuration fil
 
    ```sql
    CREATE READABLE EXTERNAL TABLE s3_ext_table(id int, year int)
-   LOCATION('s3://{{ s3-storage-host }}/<bucket name>/example.csv config_server=http://<VM private IP>:8553/s3.config region={{ region-id }}-a')
+   LOCATION('s3://{{ s3-storage-host }}/<bucket_name>/example.csv config_server=http://<VM_private_IP>:8553/s3.config region={{ region-id }}-a')
    FORMAT 'csv';
    ```
 
@@ -228,9 +228,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm the resources have been updated:
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

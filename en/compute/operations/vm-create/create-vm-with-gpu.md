@@ -79,7 +79,7 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
       * `preemptible`: If you need to make the VM [preemptible](../../concepts/preemptible-vm.md).
 
 
-      * `create-boot-disk`: [Image](../images-with-pre-installed-software/get-list.md) of the OS.
+      * `create-boot-disk`: OS [image](../images-with-pre-installed-software/get-list.md).
 
         {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
@@ -112,7 +112,7 @@ By default, the [cloud](../../../resource-manager/concepts/resources-hierarchy.m
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
    1. In the configuration file, describe the parameters of the resources you want to create:
 
       ```hcl

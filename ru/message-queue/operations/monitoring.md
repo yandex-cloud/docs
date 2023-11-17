@@ -10,7 +10,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит очередь с сообщениями.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
-  1. На панели слева выберите ![image](../../_assets/monitoring.svg) **{{ ui-key.yacloud.common.monitoring }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
 
   На странице появятся секции с графиками.
 

@@ -16,13 +16,13 @@
 * [Изменить группы безопасности кластера](#change-sg-set).
 
 
-{% note info %}
+Подробнее о других изменениях кластера:
 
-О том, как изменить версию {{ PG }} кластера, читайте в разделе [{#T}](cluster-version-update.md).
+* [{#T}](cluster-version-update.md).
 
-О том, как увеличить размер хранилища, читайте в разделе [{#T}](storage-space.md).
+* [{#T}](storage-space.md).
 
-{% endnote %}
+* [{#T}](host-migration.md).
 
 ## Изменить класс хостов {#change-resource-preset}
 
@@ -263,7 +263,7 @@
                                 `hour=<час_дня> \
             --websql-access=<true_или_false> \
             --deletion-protection=<защита_от_удаления> \
-            --connection-pooling-mode=<режим_работы_менеджера_соединений> \
+            --connection-pooling-mode=<режим_работы_менеджера_подключений> \
             --serverless-access=<true_или_false> \
             --yandexquery-access=<доступ_через_{{ yq-name }}> \
             --performance-diagnostics enabled=<true_или_false>,`
@@ -295,7 +295,7 @@
 
     * `--autofailover` – управляет настройкой автоматической смены мастера. Подробнее см. в разделе [{#T}](../concepts/replication.md#replication-auto). Значение по умолчанию — `true`.
 
-    * `--connection-pooling-mode` — указывает [режим работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
+    * `--connection-pooling-mode` — указывает [режим работы менеджера подключений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -355,7 +355,7 @@
 
 
 
-  1. Чтобы изменить [режим работы менеджера соединений](../concepts/pooling.md), добавьте к описанию кластера {{ mpg-name }} блок `config.pooler_config`:
+  1. Чтобы изменить [режим работы менеджера подключений](../concepts/pooling.md), добавьте к описанию кластера {{ mpg-name }} блок `config.pooler_config`:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -409,7 +409,7 @@
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Настройки доступа из других сервисов  и к SQL-запросам из консоли управления  в параметре `configSpec.access`.
     * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
-    * [Режим работы менеджера соединений](../concepts/pooling.md) в параметре `configSpec.poolerConfig.poolingMode`.
+    * [Режим работы менеджера подключений](../concepts/pooling.md) в параметре `configSpec.poolerConfig.poolingMode`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
@@ -554,11 +554,9 @@
 
 {% endlist %}
 
-{% note info %}
-
 После перемещения кластер продолжит использовать облачную сеть из исходного каталога. Если вы хотите разместить кластер в другой облачной сети, воспользуйтесь функцией [восстановления из резервной копии](./cluster-backups.md) и укажите необходимую сеть для копии кластера.
 
-{% endnote %}
+Если вы хотите переместить кластер в другую зону доступности, обратитесь к [инструкции](host-migration.md). В результате вы перенесете хосты кластера.
 
 
 ## Изменить группы безопасности {#change-sg-set}

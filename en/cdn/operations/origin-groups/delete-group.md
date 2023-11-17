@@ -54,11 +54,11 @@ To delete an [origin group](../../concepts/origins.md):
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    If you created an origin group using {{ TF }}, you can delete it:
    1. In the command line, go to the folder with the {{ TF }} configuration file.
-   1. Delete the description of the desired group from the configuration file.
+   1. Delete the group description from the configuration file.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}

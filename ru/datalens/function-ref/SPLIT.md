@@ -45,4 +45,4 @@ SPLIT("192.168.0.1", ".", -1) = "1"
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`, `MySQL 5.6`, `PostgreSQL 9.3`, `YDB`.
+`ClickHouse 21.8`, `MySQL 5.7`, `PostgreSQL 9.3`, `YDB`.

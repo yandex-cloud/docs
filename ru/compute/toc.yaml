@@ -41,10 +41,14 @@ items:
             href: operations/placement-groups/delete.md
           - name: Создать ВМ в группе размещения
             href: operations/placement-groups/create-vm-in-pg.md
+          - name: Создать группу виртуальных машин в группе размещения
+            href: operations/placement-groups/create-ig-in-pg.md
           - name: Добавить ВМ в группу размещения
             href: operations/placement-groups/add-vm.md
           - name: Исключить ВМ из группы размещения
             href: operations/placement-groups/delete-vm.md
+          - name: Исключить группу виртуальных машин из группы размещения
+            href: operations/placement-groups/delete-ig-from-pg.md
       - name: Образы с предустановленным ПО
         items:
           - name: Создать ВМ из публичного образа
@@ -139,8 +143,6 @@ items:
             href: operations/disk-control/disk-change-folder.md
           - name: Зашифровать диск
             href: operations/disk-control/disk-encrypt.md
-          - name: Перенести диск в другую зону доступности
-            href: operations/disk-control/disk-change-zone.md
           - name: Удалить диск
             href: operations/disk-control/delete.md
       - name: Снимки дисков
@@ -225,6 +227,8 @@ items:
             href: operations/instance-groups/create-with-coi.md
           - name: Создать группу ВМ по YAML-спецификации
             href: operations/instance-groups/create-from-yaml.md
+          - name: Создать группу виртуальных машин в группе размещения
+            href: operations/placement-groups/create-ig-in-pg.md
       - name: Получение информации о группе виртуальных машин
         items:
           - name: Получить список групп ВМ
@@ -239,6 +243,14 @@ items:
             href: operations/instance-groups/update.md
           - name: Изменить группу ВМ по YAML-спецификации
             href: operations/instance-groups/update-from-yaml.md
+          - name: Перенести группу ВМ в другую зону доступности
+            href: operations/instance-groups/move-group.md
+          - name: >-
+              Перенести группу ВМ с сетевым балансировщиком в другую зону
+              доступности
+            href: operations/instance-groups/move-group-with-nlb.md
+          - name: Перенести группу ВМ с L7-балансировщиком в другую зону доступности
+            href: operations/instance-groups/move-group-with-alb.md
           - name: Настроить проверку состояния приложения на ВМ
             href: operations/instance-groups/enable-autohealing.md
           - name: Обновить группу
@@ -261,6 +273,8 @@ items:
             href: operations/instance-groups/start.md
           - name: Удалить группу ВМ
             href: operations/instance-groups/delete.md
+          - name: Исключить группу виртуальных машин из группы размещения
+            href: operations/placement-groups/delete-ig-from-pg.md
       - name: Выделенные хосты
         items:
           - name: Создать группу выделенных хостов
@@ -591,6 +605,8 @@ items:
                 href: api-ref/HostGroup/update.md
               - name: updateAccessBindings
                 href: api-ref/HostGroup/updateAccessBindings.md
+              - name: updateHost
+                href: api-ref/HostGroup/updateHost.md
           - name: HostType
             items:
               - name: Overview
@@ -813,6 +829,8 @@ items:
         href: qa/general.md
       - name: Виртуальные машины
         href: qa/vm.md
+      - name: Ошибка Not enough resources
+        href: qa/not-enough-resources.md
       - name: Подключение
         href: qa/connection.md
       - name: Диски, снимки, образы

@@ -108,41 +108,41 @@
 
 ### Текущий мастер {#fqdn-master}
 
-FQDN вида `c-<идентификатор кластера>.rw.{{ dns-zone }}` всегда указывает на текущий хост-мастер в кластере. Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+FQDN вида `c-<идентификатор_кластера>.rw.{{ dns-zone }}` всегда указывает на текущий хост-мастер в кластере. Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
 При подключении к этому FQDN разрешено выполнять операции чтения и записи.
 
-Пример подключения к хосту-мастеру для кластера с идентификатором `c9qash3nb1v9ulc8j9nm`:
+Пример подключения к хосту-мастеру для кластера с идентификатором `c9qash3nb1v9********`:
 
 ```bash
-mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
+mysql --host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
       --port=3306 \
       --ssl-ca=~/.mysql/root.crt \
       --ssl-mode=VERIFY_IDENTITY \
-      --user=<имя пользователя> \
+      --user=<имя_пользователя> \
       --password \
-      <имя БД>
+      <имя_БД>
 ```
 
 ### Наименее отстающая реплика {#fqdn-replica}
 
-FQDN вида `c-<идентификатор кластера>.ro.{{ dns-zone }}` указывает на наименее отстающую от мастера [реплику](../concepts/replication.md). Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+FQDN вида `c-<идентификатор_кластера>.ro.{{ dns-zone }}` указывает на наименее отстающую от мастера [реплику](../concepts/replication.md). Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
 **Особенности:**
 
 * При подключении к этому FQDN разрешено выполнять только операции чтения.
 * Если в кластере нет активных реплик, то подключиться к этому FQDN невозможно: соответствующая CNAME-запись в [DNS](../../glossary/dns.md) будет указывать на пустой объект (`null`).
 
-Пример подключения к наименее отстающей реплике для кластера с идентификатором `c9qash3nb1v9ulc8j9nm`:
+Пример подключения к наименее отстающей реплике для кластера с идентификатором `c9qash3nb1v9********`:
 
 ```bash
-mysql --host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
+mysql --host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
       --port=3306 \
       --ssl-ca=~/.mysql/root.crt \
       --ssl-mode=VERIFY_IDENTITY \
-      --user=<имя пользователя> \
+      --user=<имя_пользователя> \
       --password \
-      <имя БД>
+      <имя_БД>
 ```
 
 ## Подключение из графических IDE {#connection-ide}
@@ -193,6 +193,18 @@ mysql --host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
   1. Нажмите кнопку **Готово**, чтобы сохранить настройки соединения с БД.
 
 {% endlist %}
+
+
+## Подключение из браузера {#browser}
+
+Используйте сервис [{{ websql-full-name }}](../../websql) для соединения с кластерами {{ MY }} в {{ yandex-cloud }}.
+
+{% include notitle [preview](../../_includes/note-preview.md) %}
+
+{% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
+
+{% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
+
 
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}
 

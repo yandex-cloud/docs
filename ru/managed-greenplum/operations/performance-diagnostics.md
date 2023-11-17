@@ -21,7 +21,7 @@
 Для просмотра таблицы [подключитесь к базе данных](../operations/connect.md) `gpperfmon` и выполните запрос:
 
 ```sql
-SELECT * FROM <имя таблицы>;
+SELECT * FROM <имя_таблицы>;
 ```
 
 Подробнее об информационных таблицах базы данных `gpperfmon` в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-gpperfmon-dbref.html).

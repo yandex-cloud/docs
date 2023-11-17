@@ -25,13 +25,13 @@
   yc load-balancer network-load-balancer stop <идентификатор или имя балансировщика>
   ```
 
-  Идентификатор и имя балансировщика можно получить со [списком сетевых балансировщиков в каталоге](#list).
+  Идентификатор и имя балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
 
 - API
 
   Чтобы остановить сетевой балансировщик, воспользуйтесь методом REST API [stop](../api-ref/NetworkLoadBalancer/stop.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Stop](../api-ref/grpc/network_load_balancer_service.md#Stop).
 
-  Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](#list).
+  Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
 
 {% endlist %}
 
@@ -60,12 +60,12 @@
   yc load-balancer network-load-balancer start <идентификатор или имя балансировщика>
   ```
 
-  Идентификатор и имя балансировщика можно получить со [списком сетевых балансировщиков в каталоге](#list).
+  Идентификатор и имя балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
 
 - API
 
   Чтобы запустить сетевой балансировщик, воспользуйтесь методом REST API [start](../api-ref/NetworkLoadBalancer/start.md) для ресурса [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) или вызовом gRPC API [NetworkLoadBalancerService/Start](../api-ref/grpc/network_load_balancer_service.md#Start).
 
-  Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](#list).
+  Идентификатор балансировщика можно получить со [списком сетевых балансировщиков в каталоге](load-balancer-list.md#list).
 
 {% endlist %}

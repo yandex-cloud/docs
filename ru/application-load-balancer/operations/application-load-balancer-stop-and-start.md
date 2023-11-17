@@ -30,7 +30,7 @@
      yc application-load-balancer load-balancer stop --help
      ```
 
-  1. Получите список всех балансировщик в каталоге по умолчанию:
+  1. Получите список всех балансировщиков в каталоге по умолчанию:
 
      ```bash
      yc application-load-balancer load-balancer list --format yaml
@@ -134,9 +134,9 @@
      ```bash
      yc application-load-balancer load-balancer list --format yaml
      ```
-    
+
      Результат:
- 
+
      
 
      ```bash

@@ -6,7 +6,7 @@ With an API gateway's canary release, incoming requests are randomly divided int
 
 ## Usage
 
-To create a canary release, write an OpenAPI specification using one or more variables (see [Specification parameterization](https://github.com/yandex-cloud/docs-source/pull/4122/parametrization.md)). Next, create or update an API gateway. Specify the following:
+To create a canary release, write an OpenAPI specification using one or more variables (see [Specification parameterization](./parametrization.md)). Next, create or update an API gateway. Specify the following:
 * Specification with variables
 * Variable values for the canary release
 * Percentage of requests to be handled by the canary release

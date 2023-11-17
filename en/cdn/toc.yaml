@@ -55,6 +55,8 @@ items:
         href: tutorials/index.md
       - name: Publishing game updates
         href: tutorials/prefetch.md
+      - name: Editing website images using Thumbor
+        href: tutorials/thumbor.md
       - name: Integrating L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
@@ -117,6 +119,8 @@ items:
             href: api-ref/grpc/raw_logs_service.md
           - name: ResourceService
             href: api-ref/grpc/resource_service.md
+          - name: ResourceRulesService
+            href: api-ref/grpc/rule_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
       - name: REST
@@ -195,6 +199,20 @@ items:
                 href: api-ref/Resource/list.md
               - name: update
                 href: api-ref/Resource/update.md
+          - name: ResourceRules
+            items:
+              - name: Overview
+                href: api-ref/ResourceRules/index.md
+              - name: create
+                href: api-ref/ResourceRules/create.md
+              - name: delete
+                href: api-ref/ResourceRules/delete.md
+              - name: get
+                href: api-ref/ResourceRules/get.md
+              - name: list
+                href: api-ref/ResourceRules/list.md
+              - name: update
+                href: api-ref/ResourceRules/update.md
   - name: Pricing policy
     href: pricing.md
 base: en/cdn

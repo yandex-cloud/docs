@@ -37,7 +37,7 @@ When editing the **Tabs** block, you can:
 To set up the rules for a formatting block, click ![](../../_assets/wiki/svg/settings.svg) in its upper-right corner. The following settings are available:
 
 * **Alignment**: Positions the block with respect to the other page content:
-   * **None**: No alignment. No other elements will be aligned horizontally with the block, and the block is left-aligned on the page.
+   * **None**: No alignment. No other elements will be aligned horizontally with the block, and the block will be left-aligned on the page.
    * **Left**: Left-aligned.
    * **Center**: Centered.
    * **Right**: Right-aligned.

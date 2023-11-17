@@ -38,13 +38,13 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 #### Prepare the infrastructure {#deploy-infrastructure-snapshot}
 
-1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
+1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
 1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` role to it. A service account is required to access the bucket from the source and target clusters.
 1. If you are transferring data from a third-party {{ ES }} cluster, [create a static access key](../../iam/operations/sa/create-access-key.md) for this service account.
 
    {% note warning %}
 
-   Save the **key ID** and **secret key**. You will need them in the next steps.
+   Save the **key ID** and **secret key**. You will need them at the next steps.
 
    {% endnote %}
 
@@ -104,13 +104,13 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
       ```bash
       curl --request PUT \
-           "https://admin:<admin user password>@<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>" \
+           "https://admin:<admin_user_password>@<IP_address_or_FQDN_of_the_host_with_the_DATA_role_in_the_source_cluster>:{{ port-mes }}/_snapshot/<repository_name>" \
            --cacert ~/.elasticsearch/root.crt \
            --header 'Content-Type: application/json' \
            --data '{
              "type": "s3",
              "settings": {
-               "bucket": "<bucket name>",
+               "bucket": "<bucket_name>",
                "endpoint": "{{ s3-storage-host }}"
              }
            }'
@@ -139,7 +139,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
       ```bash
       curl --request PUT \
-           "https://admin:<admin user password>@<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>/snapshot_1?wait_for_completion=false&pretty" \
+           "https://admin:<admin_user_password>@<IP_address_or_FQDN_of_the_host_with_the_DATA_role_in_the_source_cluster>:{{ port-mes }}/_snapshot/<repository_name>/snapshot_1?wait_for_completion=false&pretty" \
            --cacert ~/.elasticsearch/root.crt
       ```
 
@@ -149,9 +149,9 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
    Creating a snapshot may take a long time. Track the operation progress [using the {{ ES }} tools]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), for example:
 
-   
    {% list tabs %}
 
+   
    - Third-party {{ ES }} cluster
 
      {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
@@ -160,7 +160,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
       ```bash
       curl --request GET \
-           "https://admin:<admin user password>@<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>/snapshot_1/_status?pretty" \
+           "https://admin:<admin_user_password>@<IP_address_or_FQDN_of_the_host_with_the_DATA_role_in_the_source_cluster>:{{ port-mes }}/_snapshot/<repository_name>/snapshot_1/_status?pretty" \
            --cacert ~/.elasticsearch/root.crt
       ```
 
@@ -176,13 +176,13 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
    ```bash
    curl --request PUT \
-        "https://admin:<admin user password>@<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name>" \
+        "https://admin:<admin_user_password>@<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>" \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
         --data '{
           "type": "s3",
           "settings": {
-            "bucket": "<bucket name>",
+            "bucket": "<bucket_name>",
             "readonly" : "true",
             "endpoint": "{{ s3-storage-host }}"
           }
@@ -201,7 +201,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
    ```bash
    curl --request POST \
-        "https://admin:<admin password>@<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name>/snapshot_1/_restore" \
+        "https://admin:<admin_user_password>@<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>/snapshot_1/_restore" \
         --cacert ~/.opensearch/root.crt
    ```
 
@@ -211,21 +211,21 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
    ```bash
    curl --request POST \
-        "https://admin:<admin user password>@<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name>/snapshot_1/_restore?wait_for_completion=false&pretty" \
+        "https://admin:<admin_user_password>@<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>/snapshot_1/_restore?wait_for_completion=false&pretty" \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
         --data '{
-          "indices": "<list of indexes>"
+          "indices": "<list_of_indexes>"
         }'
    ```
 
-   Where `list of indices` is a list of comma-separated indices to be restored, for example, `my_index*, my_index_2.*`.
+   Where `indices` is a list of comma-separated indexes to be restored, e.g., `my_index*, my_index_2.*`.
 
    Restoring a snapshot may take a long time. To check the restoring status, run this command:
 
    ```bash
    curl --request GET \
-        "https://admin:<admin password>@<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name>/snapshot_1/_status?pretty" \
+        "https://admin:<admin_user_password>@<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>/snapshot_1/_status?pretty" \
         --cacert ~/.opensearch/root.crt
    ```
 
@@ -241,22 +241,22 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
       ```bash
       curl \
-          --user <username in the target cluster>:<user password in the target cluster> \
+          --user <username_in_the_target_cluster>:<user_password_in_the_target_cluster> \
           --cacert ~/.opensearch/root.crt \
-          --request GET 'https://<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
+          --request GET 'https://<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
       ```
 
-      The list should contain the indices transferred from {{ ES }} with the number of documents specified in the `docs.count` column.
+      The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the `docs.count` column.
 
    - {{ OS }} Dashboards
 
       1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
       1. Select the `Global` tenant.
       1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
-      1. Under **OpenSearch Plugins**, select **Index Management**.
+      1. Under **{{ OS }} Plugins**, select **Index Management**.
       1. Go to **Indices**.
 
-      The list should contain the indices transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
+      The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
 
    {% endlist %}
 
@@ -322,22 +322,22 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 1. To start reindexing, run the request against the target cluster's host with the `DATA` role:
 
    ```bash
-   curl --user <username in the target cluster>:<user password in the target cluster> \
+   curl --user <username_in_the_target_cluster>:<user_password_in_the_target_cluster> \
         --cacert ~/.opensearch/root.crt \
         --request POST \
-        "https://<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_reindex?wait_for_completion=false&pretty" \
+        "https://<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_reindex?wait_for_completion=false&pretty" \
         --header 'Content-Type: application/json' \
         --data '{
           "source": {
             "remote": {
-              "host": "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}",
-              "username": "<username in the source cluster>",
-              "password": "<user password in the source cluster>"
+              "host": "https://<source_cluster_DATA_host_IP_or_FQDN>:{{ port-mes }}",
+              "username": "<username_in_the_source_cluster>",
+              "password": "<user_password_in_the_source_cluster>"
             },
-            "index": "<name of the index, alias, or data stream in the source cluster>"
+            "index": "<source_cluster_index_alias_or_data_stream_name>"
           },
           "dest": {
-            "index": "<name of the index, alias, or data stream in the target cluster>"
+            "index": "<target_cluster_index_alias_or_data_stream_name>"
           }
         }'
    ```
@@ -346,25 +346,25 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 
    ```text
    {
-     "task" : "<ID of the reindexing job>"
+     "task" : "<reindexing_job_ID>"
    }
    ```
 
    To transfer several indexes, use a `for` loop:
 
    ```bash
-   for index in <names of indexes, aliases, or data streams separated by a space>; do
-     curl --user <username in the target cluster>:<user password in the target cluster> \
+   for index in <space-separated_list_of_index_alias_or_data_stream_names>; do
+     curl --user <username_in_the_target_cluster>:<user_password_in_the_target_cluster> \
           --cacert ~/.opensearch/root.crt \
           --request POST \
-          "https://<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_reindex?wait_for_completion=false&pretty" \
+          "https://<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_reindex?wait_for_completion=false&pretty" \
           --header 'Content-Type: application/json' \
           --data '{
             "source": {
               "remote": {
-                "host": "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}",
-                "username": "<username in the source cluster>",
-                "password": "<user password in the source cluster>"
+                "host": "https://<source_cluster_DATA_host_IP_or_FQDN>:{{ port-mes }}",
+                "username": "<username_in_the_source_cluster>",
+                "password": "<user_password_in_the_source_cluster>"
               },
               "index": "'$index'"
             },
@@ -379,10 +379,10 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 
    ```text
    {
-     "task" : "<ID of reindexing job 1>"
+     "task" : "<ID_of_reindexing_job_1>"
    }
    {
-     "task" : "<ID of reindexing job 2>"
+     "task" : "<ID_of_reindexing_job_2>"
    }
    ...
    ```
@@ -392,19 +392,19 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
    Reindexing may take a long time. To check the operation status, run this command:
 
    ```bash
-   curl --user <username in the target cluster>:<user password in the target cluster> \
+   curl --user <username_in_the_target_cluster>:<user_password_in_the_target_cluster> \
         --cacert ~/.opensearch/root.crt \
         --request GET \
-        "https://<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_tasks/<ID of the reindexing job>"
+        "https://<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_tasks/<reindexing_job_ID>"
    ```
 
 1. To cancel reindexing, run this command:
 
    ```bash
-   curl --user <username in the target cluster>:<user password in the target cluster> \
+   curl --user <username_in_the_target_cluster>:<user_password_in_the_target_cluster> \
         --cacert ~/.opensearch/root.crt \
         --request POST \
-        "https://<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_tasks/<ID of the re-indexing job>/_cancel"
+        "https://<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_tasks/<reindexing_job_ID>/_cancel"
    ```
 
 
@@ -421,22 +421,22 @@ Make sure all the indices you need have been transferred to the target {{ mos-na
 
    ```bash
    curl \
-       --user <username in the target cluster>:<user password in the target cluster> \
+       --user <username_in_the_target_cluster>:<user_password_in_the_target_cluster> \
        --cacert ~/.opensearch/root.crt \
-       --request GET 'https://<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
+       --request GET 'https://<{{ OS }}_DATA_host_ID>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
    ```
 
-   The list should contain the indices transferred from {{ ES }} with the number of documents specified in the `docs.count` column.
+   The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the `docs.count` column.
 
 - {{ OS }} Dashboards
 
    1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
    1. Select the `Global` tenant.
    1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
-   1. Under **OpenSearch Plugins**, select **Index Management**.
+   1. Under **{{ OS }} Plugins**, select **Index Management**.
    1. Go to **Indices**.
 
-   The list should contain the indices transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
+   The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the **Total documents** column.
 
 {% endlist %}
 

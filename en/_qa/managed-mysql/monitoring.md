@@ -45,7 +45,7 @@ To view the current user's queries, run:
 SHOW PROCESSLIST;
 ```
 
-Fore a detailed description of the output, please see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
+For a detailed description of the output, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
 
 #### What other troubleshooting information is available? {#trouble-info}
 
@@ -59,7 +59,7 @@ To grant a user the `PROCESS` privilege, run the [CLI](../../cli/) command below
 ```bash
 {{ yc-mdb-my }} user update \
     --global-permissions PROCESS <username> \
-    --cluster-id <cluster ID>
+    --cluster-id <cluster_ID>
 ```
 
 

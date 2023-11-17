@@ -3,44 +3,49 @@ editable: false
 sourcePath: en/_api-ref-grpc/yandexgpt/api-ref/grpc/TextGenerationAsyncService.md
 ---
 
-# YandexGPT API, gRPC: TextGenerationAsyncService
+# Foundation Models API, gRPC: TextGenerationAsyncService
 
 Service for asynchronous text generation.
 
 | Call | Description |
 | --- | --- |
-| [Instruct](#Instruct) | RPC method for instructing the model to generate text. |
+| [Completion](#Completion) | RPC method for generating text completions in asynchronous mode. |
 
 ## Calls TextGenerationAsyncService {#calls}
 
-## Instruct {#Instruct}
+## Completion {#Completion}
 
-RPC method for instructing the model to generate text.
+RPC method for generating text completions in asynchronous mode.
 
-**rpc Instruct ([InstructRequest](#InstructRequest)) returns ([operation.Operation](#Operation))**
+**rpc Completion ([CompletionRequest](#CompletionRequest)) returns ([operation.Operation](#Operation))**
 
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[InstructResponse](#InstructResponse)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[CompletionResponse](#CompletionResponse)<br>
 
-### InstructRequest {#InstructRequest}
-
-Field | Description
---- | ---
-model | **string**<br>The name or identifier of the model to be used for text generation. Possible value for now: `general`. The maximum string length in characters is 50.
-generation_options | **[GenerationOptions](#GenerationOptions)**<br>Configuration options for text generation. 
-Instruction | **oneof:** `instruction_text` or `instruction_uri`<br>Text precondition or context of the request. For example, if the instruction is "You are the youngest Nobel laureate", the request text might be "Tell us about your daily routine".
-&nbsp;&nbsp;instruction_text | **string**<br>The text-based instruction for text generation. 
-&nbsp;&nbsp;instruction_uri | **string**<br>A URI containing instructions for text generation. 
-Request | **oneof:** `request_text`<br>Request for text generation.
-&nbsp;&nbsp;request_text | **string**<br>The text-based request for text generation. 
-
-
-### GenerationOptions {#GenerationOptions}
+### CompletionRequest {#CompletionRequest}
 
 Field | Description
 --- | ---
-partial_results | **bool**<br>Enables streaming of partially generated text. 
-temperature | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and 1 (inclusive). Lower values produce more straightforward responses, while higher values lead to increased creativity and randomness. 
-max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum limit on the total number of tokens used for both the input prompt and the generated response. Must be greater than zero and not exceed 7400 tokens. 
+model_uri | **string**<br>The identifier of the model to be used for completion generation. 
+completion_options | **[CompletionOptions](#CompletionOptions)**<br>Configuration options for completion generation. 
+messages[] | **[Message](#Message)**<br>A list of messages representing the context for the completion model. 
+
+
+### CompletionOptions {#CompletionOptions}
+
+Field | Description
+--- | ---
+stream | **bool**<br>Enables streaming of partially generated text. 
+temperature | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**<br>Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and 1 (inclusive). Lower values produce more straightforward responses, while higher values lead to increased creativity and randomness. Default temperature: 0.6 
+max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The limit on the number of tokens used for single completion generation. Must be greater than zero. The maximum allowed parameter value may depend on the model used. 
+
+
+### Message {#Message}
+
+Field | Description
+--- | ---
+role | **string**<br>Identifier of the message sender. Supported roles: TBD. 
+Content | **oneof:** `text`<br>Message content.
+&nbsp;&nbsp;text | **string**<br>Textual content of the message. 
 
 
 ### Operation {#Operation}
@@ -56,23 +61,32 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[InstructResponse](#InstructResponse)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CompletionResponse](#CompletionResponse)>**<br>if operation finished successfully. 
 
 
-### InstructResponse {#InstructResponse}
+### CompletionResponse {#CompletionResponse}
 
 Field | Description
 --- | ---
-alternatives[] | **[Alternative](#Alternative)**<br>A list of alternative text responses. 
-num_prompt_tokens | **int64**<br>The number of tokens used in the prompt, including both the [instruction_text] and [request_text]. 
+alternatives[] | **[Alternative](#Alternative)**<br>A list of generated completion alternatives. 
+usage | **[ContentUsage](#ContentUsage)**<br>A set of statistics describing the number of content tokens used by the completion model. 
+model_version | **string**<br>Model version (changes with model releases). 
 
 
 ### Alternative {#Alternative}
 
 Field | Description
 --- | ---
-text | **string**<br>The generated text response. 
-score | **double**<br>The score or confidence of the generated text. 
-num_tokens | **int64**<br>The number of tokens in the generated response. 
+message | **[Message](#Message1)**<br>A message containing the content of the alternative. 
+status | enum **AlternativeStatus**<br>The generation status of the alternative <ul><li>`ALTERNATIVE_STATUS_UNSPECIFIED`: Unspecified generation status.</li><li>`ALTERNATIVE_STATUS_PARTIAL`: Partially generated alternative.</li><li>`ALTERNATIVE_STATUS_TRUNCATED_FINAL`: Incomplete final alternative resulting from reaching the maximum allowed number of tokens.</li><li>`ALTERNATIVE_STATUS_FINAL`: Final alternative generated without running into any limits.</li></ul>
+
+
+### ContentUsage {#ContentUsage}
+
+Field | Description
+--- | ---
+input_text_tokens | **int64**<br>The number of tokens in the text parts of the model input. 
+completion_tokens | **int64**<br>The total number of tokens in the generated completions. 
+total_tokens | **int64**<br>The total number of tokens, including all input tokens and all generated tokens. 
 
 

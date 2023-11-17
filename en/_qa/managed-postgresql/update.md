@@ -13,8 +13,8 @@ You cannot apply multiple transactions to a cluster at the same time. It is an a
 #### Can I change the number of connections available to a user? {#user-conn-number}
 
 Yes, you can. To do this, [change the values of the relevant settings](../../managed-postgresql/operations/cluster-users.md#update-settings):
-* [**Conn limit**](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit): The maximum number of host connections per user. The default is 50. The minimum is 10.
-* [**Max connections**](../../managed-postgresql/concepts/settings-list.md#setting-max-connections): The maximum number of connections reserved for all users. The default is `200 × <number of vCPUs on each host>`. You have to keep in mind that this number includes 15 service connections: for instance, if a cluster has `"max_connections": 100`, you are only able to reserve at most 85 connections per cluster host for users.
+* [**Conn limit**](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit): Maximum number of host connections per user. The default is 50. The minimum is 10.
+* [**Max connections**](../../managed-postgresql/concepts/settings-list.md#setting-max-connections): Maximum number of connections reserved for all users. The default value is `200 × <number_of_vCPUs_per_host>`. You have to keep in mind that this number includes 15 service connections: for instance, if a cluster has `"max_connections": 100`, you are only able to reserve at most 85 connections per cluster host for users.
 
 #### Can I change an existing host's class (standard, memory-optimized, burstable)? {#host-class}
 

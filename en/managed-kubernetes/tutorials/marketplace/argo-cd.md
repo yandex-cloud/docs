@@ -21,8 +21,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually
 
-   1. If you do not have a [network](../../../vpc/concepts/network.md#network), [create one](../../../vpc/operations/network-create.md).
-   1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet), [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
+   1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
+   1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and node group will be created.
    1. [Create service accounts](../../../iam/operations/sa/create.md):
       * With the [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) [role](../../../iam/concepts/access-control/roles.md) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you create your {{ k8s }} cluster. The resources the {{ k8s }} cluster needs will be created on behalf of this account.
       * With the [{{ roles-cr-puller }}](../../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../../iam/concepts/access-control/roles.md#cr-images-pusher.md) roles. This service account will be used to push the Docker images that you build to {{ GL }} and pull them to run [pods](../../concepts/index.md#pod).
@@ -38,23 +38,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * **Service account for nodes**: Select the service account with the `{{ roles-cr-puller }}` and `{{ roles-cr-pusher }}` roles that you created previously.
       * **Public address**: `Auto`.
       * Individual node group parameters:
-         * **vCPU**: `4`.
-         * **RAM**: `8 GB`.
-         * **Preemptible**.
-         * **Scaling**: `Auto`.
-         * **Minimum nodes**: `1`.
-         * **Maximum nodes**: `4`.
-         * **Initial nodes**: `1`.
+         * **vCPU**: `4`
+         * **RAM**: `8 GB`
+         * **Preemptible**
+         * **Scaling**: `Auto`
+         * **Minimum nodes**: `1`
+         * **Maximum nodes**: `4`
+         * **Initial nodes**: `1`
 
-      Save the cluster ID: you'll need it in the next steps.
+      Save the cluster ID, as you will need it at the next steps.
    1. [Create a registry in {{ container-registry-full-name }}](../../../container-registry/operations/registry/registry-create.md).
-   1. [Save the ID of the registry created](../../../container-registry/operations/registry/registry-list.md#registry-get): you'll need it in the next steps.
+   1. [Save the ID of the registry created](../../../container-registry/operations/registry/registry-list.md#registry-get), as you will need it at the next steps.
 
 - Using {{ TF }}
 
-   1. If you do not have {{ TF }} yet, [install it](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the cluster configuration file [k8s-argocd.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-argocd.tf) to the same working directory. The file describes:
+   1. Download the [k8s-argocd.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-argocd.tf) cluster configuration file to the same working directory. The file describes:
       * [Network](../../../vpc/concepts/network.md#network).
       * [Subnet](../../../vpc/concepts/network.md#subnet).
       * [Security group](../../../vpc/concepts/security-groups.md) and [rules](../../operations/connect/security-groups.md) required for the cluster, node group, {{ mgl-name }} instance, and {{ container-registry-name }} container to run:
@@ -72,14 +72,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * {{ k8s }} cluster CIDR.
       * Name of the cluster service account.
       * Name of the {{ container-registry-name }} registry.
-   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider's resources and data sources.
+   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
    1. Create the required infrastructure:
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
@@ -91,9 +91,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Install additional dependencies {#prepare}
 
 Install the following items in the local environment:
-* [{{ yandex-cloud }} command line interface (YC CLI)](../../../cli/operations/install-cli.md).
-* [`jq` JSON stream processor](https://stedolan.github.io/jq/).
-* [The Helm package manager]({{ links.helm.install }}).
+* [{{ yandex-cloud }} command line interface (YC CLI)](../../../cli/operations/install-cli.md)
+* [`jq` JSON stream processor](https://stedolan.github.io/jq/)
+* [Helm package manager]({{ links.helm.install }})
 
 * {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -115,7 +115,7 @@ To run build tasks in the [{{ managed-k8s-name }} cluster](../../concepts/index.
 1. Retrieve the {{ GLR }} settings:
    1. Open the {{ GL }} administration panel in the browser:
       * If the {{ GL }} has been deployed on a {{ compute-full-name }} [VM instance](../../../compute/concepts/vm.md), use its [public IP](../../../compute/concepts/network.md#public-ip).
-      * If the {{ GL }} has been deployed in {{ mgl-name }}, use the [instance FQDN](../../../compute/concepts/network.md##hostname).
+      * If {{ GL }} is deployed in {{ mgl-name }}, use the [instance FQDN](../../../compute/concepts/network.md##hostname).
    1. Select the project named `gitlab-test`.
    1. On the left-hand side of the resulting window, click **Settings** and select the **CI/CD** option.
    1. Under **Runners**, click **Expand**.
@@ -150,7 +150,7 @@ To run build tasks in the [{{ managed-k8s-name }} cluster](../../concepts/index.
            privileged = true
    ```
 
-  {% endcut %}
+   {% endcut %}
 
 1. Install {{ GLR }} using the following command:
 
@@ -184,7 +184,7 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
         * **Project name**: `my-app`.
         * **Project URL**: Select `gitlab-test` in the field next to the {{ mgl-name }}instance FQDN.
 
-        Leave the other fields as they are.
+        Leave the other fields unchanged.
      1. Click **Create project**.
 
    - VM running a {{ GL }} image
@@ -218,11 +218,11 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
    1. Click **Expand** next to **Variables**.
    1. Add three environment variables:
 
-      Name | Value | Options
-      --- | --- | ---
-      CI_REGISTRY | {{ registry }}/<registry ID> | `no`
-      CI_REGISTRY_USER | json_key | `no`
-      CI_REGISTRY_PASSWORD | <`cat key.json \| base64` command output> | `Mask variable`
+      | Name | Value | Options |
+      | --- | --- | --- |
+      | CI_REGISTRY | {{ registry }}/<registry ID> | `no` |
+      | CI_REGISTRY_USER | json_key | `no` |
+      | CI_REGISTRY_PASSWORD | <`cat key.json \| base64` command output> | `Mask variable` |
 
 1. Set up access to the repository:
    1. [Generate a new pair of SSH keys](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) or use an existing one.
@@ -249,7 +249,7 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
    ```
 
 1. Run the build script. To track its progress, in the drop-down menu, select **CI/CD** → **Pipelines**. Wait until both build steps are complete.
-1. Open the completed build and copy the following line from the log (you'll need at the next step):
+1. Open the completed build and copy the following line from the log (you will need it at the next step):
 
    ```text
    INFO[0025] Pushing image to {{ registry }}/<registry ID>/gitlab-test/my-app:main.<commit number>
@@ -260,6 +260,9 @@ For more information about installing and running {{ GLR }}, see the [{{ GL }} d
 ### Install Argo CD to the {{ k8s }} cluster {#install}
 
 1. Install Argo CD by following this [guide](../../operations/applications/argo-cd.md).
+
+   {% include [Install kubectl](../../../_includes/managed-kubernetes/note-node-group-internet-access.md) %}
+
 1. Configure the `argocd-server` port forwarding to the local machine, and then connect to the {{ k8s }} cluster:
 
    ```bash
@@ -355,8 +358,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point to them.
-     1. Confirm the resources have been updated.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
+     1. Confirm updating the resources.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

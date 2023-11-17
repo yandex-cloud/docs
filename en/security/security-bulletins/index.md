@@ -2,11 +2,15 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [3.11.2023 — CVE-2023-5043 Nginx ingress controller fo Kubernetes vulnerabilities](../../_includes/security/security-bulletins/cve-2023-5043.md) %}
+
 {% include [26.10.2023 — CVE-2023-3484 GitLab Security Release: 16.1.2, 16.0.7, and 15.11.11](../../_includes/security/security-bulletins/cve-2023-3484-gitlab-security-release.md) %}
 
 {% include [26.10.2023 — CVE-2023-3424 - CVE-2023-1936 GitLab Security Release: 16.1.1, 16.0.6, and 15.11.10](../../_includes/security/security-bulletins/cve-2023-3424-cve-2023-1936-gitlab-security-release.md) %}
 
 {% include [26.10.2023 — CVE-2023-2442 - CVE-2023-2013 GitLab Security Release: 16.10.2, 15.11.7, and 15.10.8](../../_includes/security/security-bulletins/cve-2023-2442-cve-2023-2013-gitlab-security-release.md) %}
+
+{% include [16.10.2023 — BDU-2023-05857](../../_includes/security/security-bulletins/bdu-2023-05857-bitrix.md) %}
 
 {% include [06.10.2023 — CVE-2023-35943 CORS filter segfault when origin header is removed](../../_includes/security/security-bulletins/cve-2023-35943-cors-filter-segfault-origin-header-removed.md) %}
 
@@ -76,7 +80,7 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 {% include [28.01.2022 — CVE-2021-4034 – Polkit's pkexec](../../_includes/security/security-bulletins/cve-2021-4034-polkit.md) %}
 
 
-## 29.12.2021: CVE-2021-45105, CVE-2021-44832: Denial of service and remote code execution (Log4j) {#CVE-2021-45105-CVE-2021-44832}
+## 29/12/2021: CVE-2021-45105, CVE-2021-44832: Denial of service and remote code execution (Log4j) {#CVE-2021-45105-CVE-2021-44832}
 
 ### Description
 
@@ -119,7 +123,7 @@ Log4j 1.x is not affected by the vulnerability.
 * Java 6: Upgrade to Log4j 2.3.2.
 * Java 7: Upgrade to Log4j 2.12.4.
 * Java 8 (and later): Upgrade to Log4j 2.17.1.
-* If you're still using prior releases, make sure that the JDBC Appender is not configured to use any protocol other than Java.
+* If you cannot upgrade the library now, make sure that the JDBC Appender is not configured to use any protocol other than Java.
 
 Note that only the log4j-core JAR file is affected by this vulnerability. Applications using only the log4j-api JAR file without the log4j-core JAR file are not affected by this vulnerability.
 
@@ -131,7 +135,7 @@ You can also use the following tools to scan your infrastructure for the log4j v
 * https://github.com/google/log4jscanner
 * https://github.com/bi-zone/Log4j_Detector
 
-## 17.12.2021: CVE-2021-45046: Remote code execution (Log4j) {#CVE-2021-45046}
+## 17/12/2021: CVE-2021-45046: Remote code execution (Log4j) {#CVE-2021-45046}
 
 ### Description
 
@@ -159,15 +163,10 @@ For a complete list of software affected by the vulnerability, see:
 
 #### Impact on {{ yandex-cloud }} services
 
-Some {{ yandex-cloud }} services use the version of the library affected by the vulnerability. The most critical services impacted by the vulnerability: {{ mes-full-name }}, {{ dataproc-full-name }}, as well as a number of the basic platform services.
-
-The critical services have undergone a successful update as recommended by the manufacturer. The rest of the services are currently being updated.
+Services that used the {{ mes-full-name }} library, {{ dataproc-full-name }}, and a number of basic platform services were successfully updated.
 
 {{ yandex-cloud }} has collected information on users that have utilized these services. Appropriate alerts have gone out.
 
-Currently, an effort is underway to identify other services that may be vulnerable in order to update them.
-
-An update to this bulletin will be rolled out based on the outcome of the final activities.
 ### Compensatory measures
 
 If your infrastructure uses this library or the products listed in the "General Impact" section, follow the steps below.
@@ -180,7 +179,7 @@ Log4j 1.x is not affected by the vulnerability.
 
 * Java 8 (and later): Upgrade to Log4j 2.16.0.
 * Java 7: Upgrade to Log4j 2.12.2.
-* If you're still using previous versions, remove the `JndiLookup` class from the classpath: `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`.
+* If you cannot upgrade the library now, remove the `JndiLookup` class from the classpath: `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`.
 
 Users are advised not to enable JNDI in Log4j 2.16.0. If the JMS Appender is required, use Log4j 2.12.2.
 
@@ -188,7 +187,7 @@ Note that only the `log4j-core JAR` file is affected by this vulnerability. Appl
 
 Source: https://logging.apache.org/log4j/2.x/security.html
 
-## 10.12.2021: CVE-2021-44228: Remote code execution (Log4Shell, Apache Log4j) {#CVE-2021-44228}
+## 10/12/2021: CVE-2021-44228: Remote code execution (Log4Shell, Apache Log4j) {#CVE-2021-44228}
 
 Updated on 22.12.2021
 
@@ -223,15 +222,9 @@ Learn more at: https://www.securitylab.ru/vulnerability/527362.php
 
 #### Impact on {{ yandex-cloud }} services
 
-Some {{ yandex-cloud }} services use the version of the library affected by the vulnerability. The most critical services impacted by the vulnerability: {{ mes-full-name }}, {{ dataproc-full-name }}, as well as a number of the basic platform services.
-
-The critical services have undergone a successful update as recommended by the manufacturer. The rest of the services are currently being updated.
+Services that used the {{ mes-full-name }} library, {{ dataproc-full-name }}, and a number of basic platform services were successfully updated.
 
 {{ yandex-cloud }} has collected information on users that have utilized these services. Appropriate alerts have gone out.
-
-Currently, an effort is underway to identify other services that may be vulnerable in order to update them.
-
-An update to this bulletin will be rolled out based on the outcome of the final activities.
 
 ### Compensatory measures
 
@@ -247,7 +240,7 @@ Applications using Log4j 1.x are only vulnerable to this attack when they use [J
 
 * Java 8 (and later): Upgrade to Log4j 2.16.0.
 * Java 7: Upgrade to release Log4j 2.12.2 as soon as it is available.
-* If you're still using previous versions, remove the `JndiLookup` class from the classpath: `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`.
+* If you cannot upgrade the library now, remove the `JndiLookup` class from the classpath: `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`.
 
 Note that only the `log4j-core JAR` file is affected by this vulnerability. Applications using only the `log4j-api JAR` file without the `log4j-core JAR` file are not affected by this.
 
@@ -258,7 +251,8 @@ Source: https://logging.apache.org/log4j/2.x/security.html
 Hystax Acura Controller: allow ingress traffic for UDP port 12201 only for a list of source IP ranges with replication agents deployed.
 
 If you placed Hystax Acura Controller behind a network load balancer in your infrastructure, apply the above firewall rule to the respective load balancer.
-## 12.11.2021: CVE-2021-22205: Remote code execution via a vulnerability in {{ GL }}
+
+## 12/11/2021: CVE-2021-22205: Remote code execution via a vulnerability in {{ GL }} {#CVE-2021-22205}
 
 ### Description
 
@@ -270,14 +264,11 @@ The issue is fixed in {{ GL }} versions 13.10.3, 13.9.6, and 13.8.8.
 
 ### Impact on {{ yandex-cloud }} services
 
-The vulnerability affects all {{ compute-full-name }} users using a deprecated {{ GL }} image from {{ marketplace-full-name }} or a custom image. These users need to upgrade {{ GL }} to the latest version.
+A {{ GL }} image in {{ marketplace-full-name }} was updated to the latest version.
 
-To fix the issue on the {{ yandex-cloud }} side, the following measures were taken:
+Notifications with update recommendations were sent to all users using a deprecated {{ GL }} image.
 
-* The {{ GL }} image has temporarily been removed from {{ marketplace-full-name }} and will be updated to the current version.
-* Notifications with update recommendations were sent to all users using a deprecated {{ GL }} image.
-
-{{ mgl-full-name }} users are not affected by the vulnerability, since the service uses the current {{ GL }} version.
+{{ mgl-full-name }} users were not affected by the vulnerability, since the service uses the current {{ GL }} version.
 
 ### Compensatory measures
 
@@ -288,7 +279,7 @@ If you are using a deprecated {{ GL }} image from {{ marketplace-full-name }} or
 * [Action needed by self-managed customers in response to CVE-2021-22205](https://about.gitlab.com/blog/2021/11/04/action-needed-in-response-to-cve2021-22205/)
 * [GitLab CE CVE-2021-22205 in the wild](https://security.humanativaspa.it/gitlab-ce-cve-2021-22205-in-the-wild/)
 
-## 12.10.2021: CVE-2021-25741: Risk of accessing a host's filesystem {#CVE-2021-25741}
+## 12/10/2021: CVE-2021-25741: Risk of accessing a host's filesystem {#CVE-2021-25741}
 
 ### Description
 
@@ -316,7 +307,7 @@ To do this, you can use the following tools:
 
 A checklist for a secure Kubernetes configuration is available [here](../domains/checklist#kubernetes-security).
 
-## 03.03.2021: CVE-2021-21309: Remote code execution via a vulnerability in {{ RD }}
+## 03/03/2021: CVE-2021-21309: Remote code execution via a vulnerability in {{ RD }}
 
 ### Description
 
@@ -326,7 +317,7 @@ In 32-bit {{ RD }} versions 4.0 and higher, an integer overflow vulnerability wa
 
 {{ mrd-full-name }} uses 64-bit {{ RD }} instances and is not affected by the vulnerability.
 
-## 26.01.2021: CVE-2021-3156: Privilege escalation through vulnerabilities in sudo.
+## 26/01/2021: CVE-2021-3156: Privilege escalation through vulnerabilities in sudo.
 
 ### Description
 
@@ -346,7 +337,7 @@ The following Linux OS images were updated:
 * [Buffer overflow in command line unescaping](https://www.sudo.ws/alerts/unescape_overflow.html)
 * [CVE-2021-3156: Heap-Based Buffer Overflow in Sudo (Baron Samedit)](https://blog.qualys.com/vulnerabilities-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit)
 
-## 24.12.2020: CVE-2020-25695: Privilege escalation in PostgreSQL
+## 24/12/2020: CVE-2020-25695: Privilege escalation in PostgreSQL
 
 ### Description
 
@@ -356,7 +347,7 @@ The [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695) vulnerabil
 
 All PostgreSQL instances used in Yandex Managed Service for PostgreSQL were [updated](https://www.postgresql.org/about/news/postgresql-131-125-1110-1015-9620-and-9524-released-2111/).
 
-## 19.11.2020: Discontinue support for deprecated TLS protocols {#discontinue-support-for-deprecated-tls}
+## 19/11/2020: Discontinue support for deprecated TLS protocols {#discontinue-support-for-deprecated-tls}
 
 ### Description
 
@@ -366,7 +357,7 @@ To make data transmission more secure, {{ yandex-cloud }} recommends that all us
 
 All {{ yandex-cloud }} services support TLS 1.2 and higher. Legacy protocols will gradually be discontinued. We recommend that you upgrade your applications to the latest TLS versions in advance.
 
-## 20.09.2020: CVE-2020-1472 (aka Zerologon)
+## 20/09/2020: CVE-2020-1472 (aka Zerologon)
 
 ### Description
 
@@ -388,7 +379,7 @@ In addition to the updates, to restrict access to your domain controller from un
 * Windows Firewall or security groups.
 * Moving the domain controller behind a NAT gateway.
 
-## 15.06.2020: Special Register Buffer Data Sampling Attack (aka CrossTalk)
+## 15/06/2020: Special Register Buffer Data Sampling Attack (aka CrossTalk)
 
 ### Description
 

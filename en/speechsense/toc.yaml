@@ -2,6 +2,30 @@ title: Yandex SpeechSense
 href: index.yaml
 stage: preview
 items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step guides
+    items:
+      - name: Uploading data
+        href: operations/data/upload-data.md
+      - name: Working with reports
+        href: operations/data/manage-reports.md
+  - name: Concepts
+    items:
+      - name: Reports in {{ speechsense-name }}
+        href: concepts/reports.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: TalkService
+            href: api-ref/grpc/talk_service.md
+  - name: Access management
+    href: security/index.md
   - name: Pricing policy
     href: pricing.md
 base: en/speechsense

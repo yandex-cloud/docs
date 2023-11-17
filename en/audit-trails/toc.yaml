@@ -70,17 +70,17 @@ items:
         href: concepts/trail.md
       - name: Diagnostic logs
         href: concepts/diagnostics.md
-      - name: Comparing configuration-level and service-level event logs
+      - name: Comparing management and data event logs
         href: concepts/control-plane-vs-data-plane.md
-      - name: Configuration-level event logs
+      - name: Management event logs
         items:
-          - name: Audit log of events
+          - name: Audit event log
             href: concepts/format.md
           - name: Event reference
             href: concepts/events.md
-      - name: Service-level event logs
+      - name: Data event logs
         items:
-          - name: Audit log of events
+          - name: Audit event log
             href: concepts/format-data-plane.md
           - name: Event reference
             href: concepts/events-data-plane.md

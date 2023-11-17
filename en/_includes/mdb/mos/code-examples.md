@@ -8,6 +8,8 @@
 
 {% endlist %}
 
+{% include [see-fqdn](fqdn-host.md) %}
+
 ### Go {#go}
 
 Before connecting, install the dependencies:
@@ -39,12 +41,12 @@ go get github.com/opensearch-project/opensearch-go
       )
 
       var hosts = []string{
-      	"<FQDN of host 1 with DATA role>:{{ port-mos }}",
+      	"<FQDN_of_host_1_with_DATA_role>:{{ port-mos }}",
       	...,
-      	"<FQDN of host N with DATA role>:{{ port-mos }}"
+      	"<FQDN_of_host_N_with_DATA_role>:{{ port-mos }}"
       	}
 
-      var CA = "/home/<home directory>/.opensearch/root.crt"
+      var CA = "/home/<home_directory>/.opensearch/root.crt"
 
       var password = "<password>"
 
@@ -85,6 +87,8 @@ go get github.com/opensearch-project/opensearch-go
 
 {% endlist %}
 
+{% include [see-fqdn](fqdn-host.md) %}
+
 ### PowerShell {#powershell}
 
 {% list tabs %}
@@ -93,12 +97,14 @@ go get github.com/opensearch-project/opensearch-go
 
    ```powershell
    curl `
-     -Certificate <absolute path to certificate file> `
-     -Uri https://<ID of {{ OS }} host with DATA role>.{{ dns-zone }}:{{ port-mos }} `
+     -Certificate <absolute_path_to_certificate_file> `
+     -Uri https://<FQDN_of_{{ OS }}_DATA_host>:{{ port-mos }} `
      -Credential admin
    ```
 
 {% endlist %}
+
+{% include [see-fqdn](fqdn-host.md) %}
 
 ### Python {#python}
 
@@ -123,9 +129,9 @@ pip3 install opensearch-py
       CA = '~/.opensearch/root.crt'
       PASS = '<password>'
       HOSTS = [
-        "<FQDN of host 1 with DATA role>",
+        "<FQDN_of_DATA_host_1>",
         ...,
-        "<FQDN of host N with DATA role>"
+        "<FQDN_of_DATA_host_N>"
       ]
 
       conn = OpenSearch(
@@ -145,3 +151,5 @@ pip3 install opensearch-py
       ```
 
 {% endlist %}
+
+{% include [see-fqdn](fqdn-host.md) %}

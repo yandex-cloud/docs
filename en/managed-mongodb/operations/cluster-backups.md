@@ -41,9 +41,9 @@ When restored to the current state, the new cluster will match the state of:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 
-   1. Click the name of the desired  cluster and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
 
@@ -55,9 +55,9 @@ When restored to the current state, the new cluster will match the state of:
 
    1. In the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
-   1. Find the desired backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains the IDs in `<cluster ID>:<backup ID>` format.
+   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.mdb.cluster.backups.column_name }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
 
-   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
    1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
 
@@ -91,7 +91,7 @@ When restored to the current state, the new cluster will match the state of:
       +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
       |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |  SIZE  |   TYPE    |
       +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
-      | c9qlk4v13uq79r9cgcku:... | 2020-08-10 12:00:00 | c9qlk4v13uq79r9cgcku | 2020-08-10 11:55:17 | 3.3 KB | AUTOMATED |
+      | c9qlk4v13uq7********:... | 2020-08-10 12:00:00 | c9qlk4v13uq7******** | 2020-08-10 11:55:17 | 3.3 KB | AUTOMATED |
       | ...                                                                                         |                    |
       +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
       ```
@@ -103,30 +103,40 @@ When restored to the current state, the new cluster will match the state of:
       
       ```bash
        {{ yc-mdb-mg }} cluster restore \
-          --backup-id <backup ID> \
-          --recovery-target-timestamp <point in time> \
-          --mongodb-version <{{ MG }} version> \
-          --name <name of new cluster> \
-          --environment <environment: PRESTABLE or PRODUCTION> \
-          --network-name <network name> \
-          --host zone-id=<availability zone>,`
-                `subnet-id=<subnet ID> \
-          --mongod-resource-preset <host class> \
-          --mongod-disk-size <storage size in GB> \
-          --mongod-disk-type <disk type: network-hdd or network-ssd>
+          --backup-id <backup_ID> \
+          --recovery-target-timestamp <timestamp> \
+          --mongodb-version <{{ MG }}_version> \
+          --name <new_cluster_name> \
+          --environment <environment:_PRESTABLE_or_PRODUCTION> \
+          --network-name <network_name> \
+          --host zone-id=<availability_zone>,`
+                `subnet-id=<subnet_ID> \
+          --mongod-resource-preset <host_class> \
+          --mongod-disk-size <storage_size_GB> \
+          --mongod-disk-type <disk_type> \
+          --performance-diagnostics=<enable_diagnostics>
       ```
 
 
-      In the `--recovery-target-timestamp` parameter, specify the point in time to which you want to restore the {{ MG }} cluster in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you don't specify the parameter, the cluster is restored to when the backup was completed.
+      Where:
+
+      * `--recovery-target-timestamp`: Time point to which you want to restore the {{ MG }} cluster, in the [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you do not specify the parameter, the cluster is restored to when the backup was completed.
+      * `--environment`: `PRESTABLE` or `PRODUCTION`.
+
+      
+      * `--mongod-disk-type`: Disk type, `network-hdd` or `network-ssd`.
+
+
+      * `--performance-diagnostics`: Enable performance diagnostics for the cluster, `true` or `false`.
 
 - API
 
    To restore an existing cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/cluster_service.md#Restore) gRPC API call and provide the following in the request:
 
-   * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+   * ID of the backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
-   In the `recoveryTargetSpec.timestamp` parameter, specify the point in time to which you want to restore the {{ MG }} cluster in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you don't specify the parameter, the cluster is restored to when the backup was completed.
+   In the `recoveryTargetSpec.timestamp` parameter, specify the point in time to which you want to restore the {{ MG }} cluster in the [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you do not specify the parameter, the cluster will be restored to when the backup was completed.
 
 {% endlist %}
 
@@ -137,7 +147,7 @@ When restored to the current state, the new cluster will match the state of:
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the desired  cluster and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
    1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
    {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
@@ -159,10 +169,10 @@ When restored to the current state, the new cluster will match the state of:
    1. Request a backup to be created by specifying the cluster name or ID:
 
       ```bash
-      {{ yc-mdb-mg }} cluster backup <cluster ID or name>
+      {{ yc-mdb-mg }} cluster backup <cluster_name_or_ID>
       ```
 
-      You can fetch the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
+      You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
 
 - API
 
@@ -183,7 +193,7 @@ When restored to the current state, the new cluster will match the state of:
    To get a list of cluster backups:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the desired  cluster and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
    To get a list of all backups in a folder:
 
@@ -214,12 +224,12 @@ When restored to the current state, the new cluster will match the state of:
    Result:
 
    ```text
-   +----------+---------------------+----------------------+---------------------+--------+-----------+
-   |    ID    |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |  SIZE  |   TYPE    |
-   +----------+---------------------+----------------------+---------------------+--------+-----------+
-   | c9qlk... | 2020-08-10 12:00:00 | c9qlk4v13uq79r9cgcku | 2020-08-10 11:55:17 | 3.3 KB | AUTOMATED |
-   | c9qpm... | 2020-08-09 22:01:04 | c9qpm90p3pcg71jm7tqf | 2020-08-09 21:30:00 | 30 KB  | MANUAL    |
-   +----------+---------------------+----------------------+---------------------+--------+-----------+
+   +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
+   |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      |  SIZE  |   TYPE    |
+   +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
+   | c9qlk4v13uq7********:... | 2020-08-10 12:00:00 | c9qlk4v13uq7******** | 2020-08-10 11:55:17 | 3.3 KB | AUTOMATED |
+   | c9qpm90p3pcg********:... | 2020-08-09 22:01:04 | c9qpm90p3pcg******** | 2020-08-09 21:30:00 | 30 KB  | MANUAL    |
+   +--------------------------+---------------------+----------------------+---------------------+--------+-----------+
    ```
 
    The resulting table contains the following information:
@@ -248,7 +258,7 @@ When restored to the current state, the new cluster will match the state of:
 
    To get information about the backup of an existing cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-   1. Click the name of the desired  cluster and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
+   1. Click the cluster name and select the ![image](../../_assets/mdb/backup.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}** tab.
 
    To get information about the backup of a previously deleted cluster:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
@@ -263,7 +273,7 @@ When restored to the current state, the new cluster will match the state of:
    To get information about a {{ MG }} cluster backup, run the command:
 
    ```bash
-   {{ yc-mdb-mg }} backup get <backup ID>
+   {{ yc-mdb-mg }} backup get <backup_ID>
    ```
 
    You can retrieve the backup ID with a [list of backups](#list-backups).
@@ -278,16 +288,16 @@ When restored to the current state, the new cluster will match the state of:
 
 ## Examples {#examples}
 
-Create a new {{ mmg-name }} cluster from a backup with test characteristics:
+Create a new {{ mmg-name }} cluster from a backup with the following test characteristics:
 
 
-* Backup for recovery: `c9qlk4v13uq79r9cgcku:...`.
+* Backup for recovery: `c9qlk4v13uq7********:...`.
 * Point in time to restore to: `1597060810` (`2020-08-10 12:00:10`).
 * Version: `4.2`.
 * Name of the new cluster: `mynewmg`.
 * Environment: `PRODUCTION`.
 * Network: `{{ network-name }}`.
-* One `{{ host-class }}` host in the `{{ region-id }}-a` availability zone and `b0rcctk2rvtr8efcch64` subnet.
+* One `{{ host-class }}` host in the `{{ region-id }}-a` availability zone and `b0rcctk2rvtr********` subnet.
 * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
 * With databases and users that existed in the cluster at the time of recovery.
 
@@ -301,7 +311,7 @@ Create a new {{ mmg-name }} cluster from a backup with test characteristics:
    
    ```bash
    {{ yc-mdb-mg }} cluster restore \
-      --backup-id c9qlk4v13uq79r9cgcku:... \
+      --backup-id c9qlk4v13uq7********:... \
       --recovery-target-timestamp 1597060810 \
       --mongodb-version 4.2 \
       --name mynewmg \

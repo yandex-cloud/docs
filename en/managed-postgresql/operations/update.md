@@ -4,13 +4,11 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [{#T}](#change-disk-size)
-
 * [Configure {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
 
 * [Changing additional cluster settings](#change-additional-settings).
 
-* [{#T}](#start-manual-failover)
+* [{#T}](#start-manual-failover).
 
 * [Move a cluster](#move-cluster) to another folder.
 
@@ -18,11 +16,13 @@ After creating a cluster, you can:
 * [Change cluster security groups](#change-sg-set).
 
 
-{% note info %}
+Learn more about other cluster updates:
 
-For information about how to update the {{ PG }} cluster version, see [{#T}](cluster-version-update.md).
+* [{#T}](cluster-version-update.md)
 
-{% endnote %}
+* [{#T}](storage-space.md)
+
+* [{#T}](host-migration.md)
 
 ## Changing the host class {#change-resource-preset}
 
@@ -37,7 +37,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Select a cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Select the cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the required class for the {{ PG }} hosts.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -76,8 +76,8 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
    1. Specify the class in the update cluster command:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update <cluster ID or name> \
-          --resource-preset <host class ID>
+      {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
+          --resource-preset <host_class_ID>
       ```
 
       {{ mpg-short-name }} will run the update host class command for the cluster.
@@ -93,11 +93,11 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
    1. In the {{ mpg-name }} cluster description, change the `resource_preset_id` attribute value under `config.resources`:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
         config {
           resources {
-            resource_preset_id = "<host class>"
+            resource_preset_id = "<host_class>"
             ...
           }
         }
@@ -126,135 +126,6 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
 {% endlist %}
 
-## Increasing storage size {#change-disk-size}
-
-{% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
-
-{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
-
-
-{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
-
-
-{% list tabs %}
-
-- Management console
-
-   To increase the cluster storage size:
-
-   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Select a cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the required value.
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
-
-- CLI
-
-   {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-   To increase the cluster storage size:
-
-   1. View a description of the update cluster CLI command:
-
-      ```bash
-      {{ yc-mdb-pg }} cluster update --help
-      ```
-
-   1. Specify the required storage in the cluster update command (it must be at least as large as `disk_size` in the cluster properties):
-
-      ```bash
-      {{ yc-mdb-pg }} cluster update <cluster ID or name> \
-           --disk-size <storage size in GB>
-      ```
-
-- {{ TF }}
-
-   To increase the cluster storage size:
-
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
-
-      For more information about creating this file, see [{#T}](cluster-create.md).
-
-      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
-
-   1. In the {{ mpg-name }} cluster description, change the `disk_size` attribute value under `config.resources`:
-
-      ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-        ...
-        config {
-          resources {
-            disk_size = <storage size in GB>
-            ...
-          }
-        }
-      }
-      ```
-
-   1. Make sure the settings are correct.
-
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
-
-- API
-
-   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
-
-   * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * New storage size in the `configSpec.resources.diskSize` parameter.
-   * List of settings to update (in this case, `configSpec.resources.diskSize`) in the `updateMask` parameter.
-
-   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
-{% endlist %}
-
-## Setting up automatic increase of storage size {#disk-size-autoscale}
-
-{% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
-
-{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
-
-
-{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
-
-
-{% list tabs %}
-
-- Management console
-
-  1. Go to the folder page and select **{{ mpg-name }}**.
-  1. Select the cluster and click **Edit cluster** in the top panel.
-  1. Under **Automatic increase of storage size**, specify the desired settings:
-
-      * In the **Increase size** field, set the conditions to:
-
-          * Increase storage size during the next maintenance window when the storage is full by more than the specified percentage value (%).
-          * Increase storage size immediately when the storage is full by more than the specified percentage value (%).
-
-          You can set both conditions, but make sure that the threshold for increasing the size immediately is higher than that for increasing the size during a maintenance window.
-
-      * In the **New storage size** field, specify a new storage size to be set when one of the specified conditions is met.
-
-   1. Click **Save changes**.
-
-- API
-
-  To enable automatic increase of storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
-
-  {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
-
-{% endlist %}
-
-{% include [storage-resize-maintenance](../../_includes/mdb/mpg/storage-resize-maintenance.md) %}
-
-{% include [storage-resize-reset](../../_includes/mdb/mpg/storage-resize-reset.md) %}
-
 ## Changing {{ PG }} settings {#change-postgresql-config}
 
 You can change the DBMS settings of the hosts in your cluster.
@@ -271,7 +142,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Select a cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Select the cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Change the [{{ PG }} settings](../concepts/settings-list.md) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
    1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -287,7 +158,7 @@ You can change the DBMS settings of the hosts in your cluster.
    1. View the full list of settings specified for the cluster:
 
       ```bash
-      {{ yc-mdb-pg }} cluster get <cluster ID or name> --full
+      {{ yc-mdb-pg }} cluster get <cluster_name_or_ID> --full
       ```
 
    1. View a description of the update cluster configuration CLI command:
@@ -298,11 +169,11 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. Set the required parameter values:
 
-      All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `postgresqlConfig_<version {{ PG }}>` field. To specify a parameter name in the CLI call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxPreparedTransactions` parameter from an API call should be converted to `max_prepared_transactions` for the CLI command:
+      All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `postgresqlConfig_<{{ PG }}_version>` field. To specify a parameter name in the CLI call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxPreparedTransactions` parameter from an API call should be converted to `max_prepared_transactions` for the CLI command:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update-config <cluster ID or name> \
-         --set <parameter1 name>=<value1>,<parameter2 name>=<value2>,...
+      {{ yc-mdb-pg }} cluster update-config <cluster_name_or_ID> \
+         --set <name_of_parameter_1>=<value_1>,<name_of_parameter_2>=<value_2>,...
       ```
 
       {{ mpg-short-name }} runs the update cluster settings operation.
@@ -318,14 +189,14 @@ You can change the DBMS settings of the hosts in your cluster.
    1. In the {{ mpg-short-name }} cluster description, change the values of the parameters under `config.postgresql_config`. If there is no such section, create one:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
         config {
           ...
           postgresql_config = {
-            max_connections                   = <max. number of connections>
-            enable_parallel_hash              = <true or false>
-            vacuum_cleanup_index_scale_factor = <number 0 to 1>
+            max_connections                   = <maximum_number_of_connections>
+            enable_parallel_hash              = <true_or_false>
+            vacuum_cleanup_index_scale_factor = <number_from_0_to_1>
             ...
           }
         }
@@ -347,7 +218,7 @@ You can change the DBMS settings of the hosts in your cluster.
    To change {{ PG }} server settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) gRPC API call and provide the following in the request:
 
    * Cluster ID in the `clusterID` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * Required setting values in the `configSpec.postgresqlConfig_<{{ PG }} version>` parameter.
+   * Required setting values in the `configSpec.postgresqlConfig_<{{ PG }}_version>` parameter.
    * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -361,7 +232,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Select a cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Select the cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Change additional cluster settings:
 
       {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
@@ -384,20 +255,20 @@ You can change the DBMS settings of the hosts in your cluster.
 
       
       ```bash
-      {{ yc-mdb-pg }} cluster update <cluster ID or name> \
-          --backup-window-start <backup start time> \
-          --datalens-access=<true or false> \
-          --maintenance-window type=<maintenance type: anytime or weekly>,`
-                              `day=<day of week for weekly>,`
-                              `hour=<hour for weekly> \
-          --websql-access=<true or false> \
-          --deletion-protection=<cluster deletion protection: true or false> \
-          --connection-pooling-mode=<connection manager mode> \
-          --serverless-access=<true or false> \
-          --yandexquery-access=<access via {{ yq-full-name }}: true or false> \
-          --performance-diagnostics enabled=<true or false>,`
-                                   `sessions-sampling-interval=<session sampling interval, seconds>,`
-                                   `statements-sampling-interval=<statement sampling interval, seconds>
+      {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
+          --backup-window-start <backup_start_time> \
+          --datalens-access=<true_or_false> \
+          --maintenance-window type=<maintenance_type>,`
+                              `day=<day_of_week>,`
+                              `hour=<hour> \
+          --websql-access=<true_or_false> \
+          --deletion-protection=<deletion_protection> \
+          --connection-pooling-mode=<connection_pooler_mode> \
+          --serverless-access=<true_or_false> \
+          --yandexquery-access=<access_through_{{ yq-name }}> \
+          --performance-diagnostics enabled=<true_or_false>,`
+                                   `sessions-sampling-interval=<session_sampling_interval>,`
+                                   `statements-sampling-interval=<statement_sampling_interval>
       ```
 
 
@@ -422,7 +293,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 
 
-   * `--autofailover` manages automatic master change setup. For more information, see [{#T}](../concepts/replication.md#replication-auto). Default value: `true`.
+   * `--autofailover` manages automatic master change setup. For more information, see [{#T}](../concepts/replication.md#replication-auto). The default value is `true`.
 
    * `--connection-pooling-mode`: Specifies the [connection pooler mode](../concepts/pooling.md): `SESSION`, `TRANSACTION`, or `STATEMENT`.
 
@@ -449,12 +320,12 @@ You can change the DBMS settings of the hosts in your cluster.
    1. To change the backup start time, add a block named `config.backup_window_start` to the {{ mpg-name }} cluster description.
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
         config {
           backup_window_start {
-            hours   = <backup start hour>
-            minutes = <backup start minute>
+            hours   = <hour_of_backup_start_time>
+            minutes = <minute_of_backup_start_time>
           }
           ...
         }
@@ -465,34 +336,44 @@ You can change the DBMS settings of the hosts in your cluster.
    1. To allow access from {{ datalens-full-name }} and [execution of SQL queries from the management console](web-sql-query.md), change the values of the appropriate fields in the `config.access` block:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
         config {
           access {
-            data_lens = <access from DataLens: true or false>
-            web_sql   = <executing SQL queries from the management console: true or false>
+            data_lens = <access_from_{{ datalens-name }}>
+            web_sql   = <execution_of_SQL_queries_from_management_console>
             ...
         }
         ...
       }
       ```
 
+      Where:
+
+      * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
+      * `web_sql`: Execution of SQL queries from the management console, `true` or `false`.
+
 
 
    1. To change the [connection pooler mode](../concepts/pooling.md), add the `config.pooler_config` section to the {{ mpg-name }} cluster description:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
         config {
           pooler_config {
-            pool_discard = <Odyssey pool_discard parameter: true or false>
-            pooling_mode = "<operation mode: SESSION, TRANSACTION, or STATEMENT>"
+            pool_discard = <Odyssey_parameter>
+            pooling_mode = "<pooling_mode>"
           }
           ...
         }
       }
       ```
+
+      Where:
+
+      * `pool_discard`: Odyssey `pool_discard` parameter, `true` or `false`.
+      * `pooling_mode`: Pooling mode: `SESSION`, `TRANSACTION`, or `STATEMENT`.
 
    1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
@@ -501,11 +382,13 @@ You can change the DBMS settings of the hosts in your cluster.
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
-        deletion_protection = <protect cluster from deletion: true or false>
+        deletion_protection = <deletion_protection>
       }
       ```
+
+      Where `deletion_protection` enables cluster deletion protection, `true` or `false`.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -571,7 +454,7 @@ To switch the master:
    1. Click the cluster name and select the ![icon-hosts.svg](../../_assets/mdb/hosts.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
    1. Click ![icon-autofailover.svg](../../_assets/mdb/autofailover.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
       * To switch the master to one of the quorum replicas, leave the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option enabled.
-      * To switch the master to a specific replica, disable the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option and then select the desired replica from the drop-down list.
+      * To switch the master to a specific replica, disable the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option and then select the required replica from the drop-down list.
    1. Click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
 
 - CLI
@@ -583,8 +466,8 @@ To switch the master:
    Run the following command:
 
    ```bash
-   {{ yc-mdb-pg }} cluster start-failover <cluster ID or name> \
-       --host <replica host name>
+   {{ yc-mdb-pg }} cluster start-failover <cluster_name_or_ID> \
+       --host <replica_host_name>
    ```
 
    You can request the replica host name with a [list of cluster hosts](hosts.md#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -600,11 +483,13 @@ To switch the master:
    1. In the `host_master_name` parameter, specify the name of the replica host to switch to.
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
-        host_master_name = "<replica host name: the name attribute of the appropriate host block>"
+        host_master_name = "<replica_host_name>"
       }
       ```
+
+      Where `host_master_name` is the name of the replica host, i.e., the `name` attribute of the appropriate `host` block.
 
    1. Make sure the settings are correct.
 
@@ -621,7 +506,7 @@ To switch the master:
    To switch the master host, use the [startFailover](../api-ref/Cluster/startFailover.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StartFailover](../api-ref/grpc/cluster_service.md#StartFailover) gRPC API call and provide the following in the request:
 
    * ID of the cluster where you want to switch the master, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * (Optional) In the `hostName` parameter, the name of the replica host to switch to. To find out the name, [request a list of hosts in the cluster](hosts.md#list).
+   * (Optional) In the `hostName` parameter, the name of the replica host to switch to. To find out the name, [get a list of hosts in the cluster](hosts.md#list).
 
 {% endlist %}
 
@@ -654,8 +539,8 @@ To switch the master:
    1. Specify the destination folder in the move cluster command:
 
       ```bash
-      {{ yc-mdb-pg }} cluster move <cluster ID> \
-         --destination-folder-name=<destination folder name>
+      {{ yc-mdb-pg }} cluster move <cluster_ID> \
+         --destination-folder-name=<destination_folder_name>
       ```
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -669,11 +554,9 @@ To switch the master:
 
 {% endlist %}
 
-{% note info %}
+After the cluster is moved, it will continue using the cloud network from the source folder. If you want to host the cluster in a different cloud network, use the [restore from a backup](./cluster-backups.md) feature and specify the required network for the cluster backup.
 
-After the cluster is moved, it will continue using the cloud network from the source folder. If you want to host the cluster in a different cloud network, use the [restore from a backup](./cluster-backups.md) feature and specify the desired network for the cluster backup.
-
-{% endnote %}
+To move a cluster to a different availability zone, follow this [guide](host-migration.md). As a result, the cluster hosts will be moved.
 
 
 ## Changing security groups {#change-sg-set}
@@ -683,7 +566,7 @@ After the cluster is moved, it will continue using the cloud network from the so
 - Management console
 
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-   1. Select a cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+   1. Select the cluster and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
 - CLI
@@ -703,8 +586,8 @@ After the cluster is moved, it will continue using the cloud network from the so
    1. Specify the security groups in the update cluster command:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update <cluster ID or name> \
-          --security-group-ids <security group list>
+      {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
+          --security-group-ids <list_of_security_group_IDs>
       ```
 
 - {{ TF }}
@@ -718,9 +601,9 @@ After the cluster is moved, it will continue using the cloud network from the so
    1. Change the value of the `security_group_ids` parameter in the cluster description:
 
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
-        security_group_ids = [ <list of cluster security groups> ]
+        security_group_ids = [ <list_of_security_group_IDs> ]
       }
       ```
 

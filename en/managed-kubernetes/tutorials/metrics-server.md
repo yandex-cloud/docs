@@ -1,24 +1,25 @@
 # Updating the Metrics Server parameters
 
-[Metrics Server](https://github.com/kubernetes-sigs/metrics-server) is a service in a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster), which is installed by default. It collects metrics from each cluster [node](../concepts/index.md#node-group) using `kubelet` and provides them through the [Metrics API](https://github.com/kubernetes/metrics). [Horizontal Pod Autoscaler and Vertical Pod Autoscaler](../concepts/autoscale.md) run based on data from these metrics. You can get metric data by running the `kubectl top node` or `kubectl top pod` command. For more information, see the [Metrics Server documentation](https://github.com/kubernetes-sigs/metrics-server#kubernetes-metrics-server).
+[Metrics Server](https://github.com/kubernetes-sigs/metrics-server) is a service in a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster), which is installed by default. It collects metrics from each {{ managed-k8s-name }} cluster [node](../concepts/index.md#node-group) using `kubelet` and provides them through the [Metrics API](https://github.com/kubernetes/metrics). [Horizontal Pod Autoscaler and Vertical Pod Autoscaler](../concepts/autoscale.md) run based on data from these metrics. You can get metric data by running the `kubectl top node` or `kubectl top pod` command. For more information, see the [Metrics Server documentation](https://github.com/kubernetes-sigs/metrics-server#kubernetes-metrics-server).
 
 A [pod](../concepts/index.md#pod) on the Metrics Server has two containers, `metrics-server` and `metrics-server-nanny`, the latter running [addon-resizer](https://github.com/kubernetes/autoscaler/tree/master/addon-resizer#addon-resizer) for `metrics-server`. The `metrics-server-nanny` container is responsible for the automatic allocation of resources to the `metrics-server` container depending on the number of {{ managed-k8s-name }} cluster nodes.
 
 In some cases, the `metrics-server-nanny` component may run incorrectly. For instance, if many pods are created while there are few nodes in the {{ managed-k8s-name }} cluster. If so, the Metrics Server pod will exceed its limits, which may degrade the server performance.
 
 To avoid this, change the parameters of the Metrics Server manually:
-1. [{#T}](#get-resources).
-1. [{#T}](#update-parameters).
-1. [{#T}](#check-result).
+1. [{#T}](#get-resources)
+1. [{#T}](#update-parameters)
+1. [{#T}](#check-result)
 
 To restore the default values of the Metrics Server parameters, [reset them](#reset).
 
 ## View the amount of resources allocated to the Metrics Server pod {#get-resources}
 
-Run the following command:
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. Run this command:
 
 ```bash
-kubectl get pod <metrics server pod name> \
+kubectl get pod <metrics_server_pod_name> \
   --namespace=kube-system \
   --output=json | \
   jq '.spec.containers[] | select(.name == "metrics-server") | .resources'
@@ -32,11 +33,11 @@ memory = baseMemory + memoryPerNode * nodesCount
 ```
 
 Where:
-* `baseCPU` is the base number of CPUs.
-* `cpuPerNode` is the number of CPUs per node.
-* `nodesCount` is the number of nodes.
-* `baseMemory` is the base amount of RAM.
-* `memoryPerNode` is the amount of RAM per node.
+* `baseCPU`: Basic [number of CPUs](../../compute/concepts/vm-platforms.md)
+* `cpuPerNode`: Number of CPUs per node
+* `nodesCount`: Number of {{ managed-k8s-name }} nodes
+* `baseMemory`: Basic amount of RAM
+* `memoryPerNode`: Amount of RAM per node
 
 ## Update the Metrics Server parameters {#update-parameters}
 
@@ -56,10 +57,10 @@ Where:
      NannyConfiguration: |-
        apiVersion: nannyconfig/v1alpha1
        kind: NannyConfiguration
-       baseCPU: <base number of CPUs>m
-       cpuPerNode: <CPUs per node>m
-       baseMemory: <base amount of RAM>Mi
-       memoryPerNode: <RAM per node>Mi
+       baseCPU: <basic_number_of_CPUs>m
+       cpuPerNode: <number_of_CPUs_per_node>m
+       baseMemory: <basic_amount_of_RAM>Mi
+       memoryPerNode: <Amount_of_RAM_per_node>Mi
    ...
    ```
 
@@ -95,7 +96,7 @@ Where:
      --namespace=kube-system
    ```
 
-## Check the results {#check-result}
+## Check the result {#check-result}
 
 [View](#get-resources) the amount of resources allocated to the Metrics Server pod once again and make sure it has been updated for the new pod.
 

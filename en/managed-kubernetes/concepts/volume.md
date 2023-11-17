@@ -2,32 +2,31 @@
 
 You can store application data in the containers where the applications are running, but this may cause issues:
 * When a container crashes, `kubelet` restarts it, but files are lost because the container starts clean.
-* Other containers running in the same pod cannot access data in the container.
+* Other containers running in the same [pod](index.md#pod) cannot access data in the container.
 
 We can solve these problems using {{ k8s }} _volumes_.
 
-_Volumes_ are stores shared by objects from different containers deployed in one or more pods. In the pod specification, users set the volumes to be included in the pod and the path that containers should mount them to.
+_Volumes_ are stores shared by objects from different containers deployed in one or more pods. In the pod specification, users specify the volumes to contain the pod and the path for the containers to mount those volumes to.
 
-To handle volumes {{ k8s }} operates with the following [{{ k8s }} API](https://kubernetes.io/docs/reference/kubernetes-api/): `Volume`, `PersistentVolume`, `PersistentVolumeClaim`, and `StorageClass`.
+To handle volumes {{ k8s }} operates with the following [{{ k8s }} API](https://kubernetes.io/docs/reference/kubernetes-api/) objects: `Volume`, `PersistentVolume`, `PersistentVolumeClaim`, and `StorageClass`.
 
 Volumes are classified by their life cycle:
 * Temporary (`Volume`) volumes have the same lifetime as the pods that contain them. These volumes are created along with the pod and saved when the container is restarted. When the pod is stopped or deleted, its volumes are destroyed.
-* Persistent volumes (`PersistentVolume`) have their own life cycle. The data in these volumes is preserved when the pod is deleted. The volume can be unmounted to move the data to another pod or node, for example.
+* Persistent volumes (`PersistentVolume`) have their own life cycle. The data in these volumes is preserved when the pod is deleted. You can unmount a volume, for example, to move data to another pod or [{{ managed-k8s-name }} node](index.md#node-group).
 
-There are different kinds of temporary and persistent volumes, depending on the storage. Review the [volume types](https://kubernetes.io/docs/concepts/storage/volumes/#types-of-volumes) that {{ k8s }} supports.
+There are different kinds of temporary and persistent volumes, depending on the storage. Check out the [volume types](https://kubernetes.io/docs/concepts/storage/volumes/#types-of-volumes) that {{ k8s }} supports.
 
 ## Working with persistent volumes {#persistent-volume}
 
 You can work with {{ k8s }} persistent volumes by using the `PersistentVolume` and `PersistentVolumeClaim` API objects.
-* `PersistentVolumes` (PV) are {{ k8s }} cluster resources that exist independently of pods. This means that the disk and data provided in the PV continue to exist when you change the cluster and delete or re-create the pods.
+* `PersistentVolumes` (PV) are [{{ managed-k8s-name }} cluster](index.md#kubernetes-cluster) resources that exist independently of pods. This means that the [disk](../../compute/concepts/disk.md) and data provided in the PV continue to exist when you change the {{ managed-k8s-name }} cluster and delete or recreate the pods.
 
-  `PersistentVolume` resources can be created by the {{ k8s }} cluster administrator or dynamically provisioned using `PersistentVolumeClaims`.
+  `PersistentVolume` resources can be created by the cluster {{ managed-k8s-name }} administrator or dynamically provisioned using `PersistentVolumeClaims`.
+* `PersistentVolumeClaims` (PVC) are used to specify the `PersistentVolumes` in the pod specification, since you cannot specify `PersistentVolumes` directly.
 
-* `PersistentVolumeClaim` (PVC) are used to specify the `PersistentVolumes` in the pod specification, since you can't specify `PersistentVolumes` directly.
+  `PersistentVolumeClaim` objects request a specific size, access mode, and storage class for the `PersistentVolume` object. If the `PersistentVolume` that satisfies the request exists or can be provisioned, the `PersistentVolumeClaim` is linked to the required `PersistentVolume`. The {{ managed-k8s-name }} cluster mounts the `PersistentVolumeClaim` as a volume for the pod.
 
-  `PersistentVolumeClaim` objects request a specific size, access mode, and storage class for the `PersistentVolume` object. If the `PersistentVolume` that satisfies the request exists or can be provisioned, the `PersistentVolumeClaim` is linked to the necessary `PersistentVolume`. The {{ k8s }} cluster mounts the `PersistentVolumeClaim` as a volume for the pod.
-
-Users often need `PersistentVolumes` with different properties. {{ k8s }} cluster administrators can provide various `PersistentVolumes` by using [storage classes](../operations/volumes/manage-storage-class.md).
+Users often need `PersistentVolumes` with different properties. {{ managed-k8s-name }} cluster administrators can provide various `PersistentVolumes` by using [storage classes](../operations/volumes/manage-storage-class.md).
 
 {% note alert %}
 
@@ -37,13 +36,13 @@ Users often need `PersistentVolumes` with different properties. {{ k8s }} cluste
 
 ## Modes for mounting persistent volumes {#volume-mode}
 
-{{ k8s }} supports two `volumeModes` for mounting `PersistentVolumes`: `Filesystem` (with a filesystem) and `Block` (without a filesystem).
+{{ managed-k8s-name }} supports two `volumeModes` for mounting `PersistentVolumes`: `Filesystem` (with a filesystem) and `Block` (without a filesystem).
 
 If the `volumeMode` parameter is omitted, `Filesystem` is the default mode used.
 
 ### A volume with a filesystem {#filesystem}
 
-If you specify `volumeMode: Filesystem` in a `PersistentVolumeClaim`, {{ k8s }} creates a filesystem on a block device before mounting it to a pod for the first time.
+If you specify `volumeMode: Filesystem` in a `PersistentVolumeClaim`, {{ managed-k8s-name }} creates a filesystem on a block device before mounting it to a pod for the first time.
 
 To learn how to provision a volume pod in `volumeMode: Filesystem`, see [{#T}](../operations/volumes/dynamic-create-pv.md).
 
@@ -55,7 +54,13 @@ To learn how to provision a volume pod in `volumeMode: Block`, see [{#T}](../ope
 
 ## Provisioning volumes {#provisioning-volumes}
 
-In {{ managed-k8s-name }}, you can use `PersistentVolumes` built on [disks](../../compute/concepts/disk.md) in {{ compute-full-name }}. You can set the disk type and other parameters using applicable [storage classes](../operations/volumes/manage-storage-class.md).
+In {{ managed-k8s-name }}, you can use `PersistentVolumes` based on {{ compute-full-name }} disks. You can set the disk type and other parameters using applicable [storage classes](../operations/volumes/manage-storage-class.md).
+
+The following [disk types](../../compute/concepts/disk.md##disks-types) are available in {{ managed-k8s-name }}:
+* Network SSD (`network-ssd`): Fast network drive, which is an SSD based network block storage.
+* Network HDD (`network-hdd`): Standard network drive, which is an HDD based network block storage.
+* Non-replicated SSD (`network-ssd-nonreplicated`): Network drive with enhanced performance without redundancy.
+* High-performance SSD (`network-ssd-io-m3`): Network drive with the same performance characteristics as `network-ssd-nonreplicated`, plus redundancy.
 
 {% note alert %}
 
@@ -65,7 +70,7 @@ In {{ managed-k8s-name }}, you can use `PersistentVolumes` built on [disks](../.
 
 ### Dynamic volume provisioning {#dynamic-provisioning}
 
-In most cases, you don't need to create `PersistentVolumes` or {{ compute-name }} disks manually. Instead, you can create your `PersistentVolumeClaims`, and {{ k8s }} will automatically provision the relevant `PersistentVolume` object and create a disk.
+In most cases, you do not need to create `PersistentVolumes` or {{ compute-name }} disks manually. Instead, you can create your `PersistentVolumeClaims`, and {{ managed-k8s-name }} will automatically provision the relevant `PersistentVolume` object and create a disk.
 
 To learn how to dynamically provision a volume, see [{#T}](../operations/volumes/dynamic-create-pv.md).
 
@@ -91,8 +96,8 @@ To learn how to expand a volume, see [{#T}](../operations/volumes/volume-expansi
 ## Deleting volumes {#deleting-volumes}
 
 Depending on the `PersistentVolume` and `PersistentVolumeClaim` settings, volumes and disks can be deleted automatically or manually.
-* For dynamically provisioned volumes: after removing a `PersistentVolumeClaim` built on the `yc-network-hdd` or `yc-network-ssd` storage classes, the applicable `PersistentVolume` and {{ compute-name }} disk **are deleted**.
-* For statically provisioned volumes: you can specify whether to delete the {{ compute-name }} disk when deleting the `PersistentVolumeClaim`. To do this, use the `persistentVolumeReclaimPolicy` in [PersistentVolumeSpec](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/#PersistentVolumeSpec). By default, the `Retain` value is used for statically provisioned pods and the {{ compute-name }} disk is **not deleted**.
+* For dynamically provisioned volumes, after removing a `PersistentVolumeClaim` based on the `yc-network-hdd` or `yc-network-ssd` storage classes, the applicable `PersistentVolume` and Compute Cloud disk {{ compute-name }} **are deleted**.
+* For statically provisioned volumes, the [PersistentVolumeSpec](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/#PersistentVolumeSpec) specification always uses the `persistentVolumeReclaimPolicy: Retain` parameter value and the {{ compute-name }} disk is **not deleted** when deleting the `PersistentVolumeClaim`. If the `Delete` parameter value is set manually, the disk will not be deleted.
 
 {% include [about-cluster-delete](../../_includes/managed-kubernetes/note-k8s-cluster-delete.md) %}
 

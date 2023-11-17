@@ -1,7 +1,6 @@
 ---
 title: "Создание кластера {{ ES }}"
-description: "Кластер управляемого сервиса {{ ES }} — это группа из нескольких связанных друг с другом хостов
-{{ ES }}. При создании кластера {{ ES }} отдельно указываются параметры для хостов, выполняющих роль Master node, и отдельно — для хостов, выполняющих роль Data node."
+description: "Кластер управляемого сервиса {{ ES }} — это группа из нескольких связанных друг с другом хостов {{ ES }}. При создании кластера {{ ES }} отдельно указываются параметры для хостов, выполняющих роль Master node, и отдельно — для хостов, выполняющих роль Data node."
 keywords:
   - создание кластера {{ ES }}
   - кластер {{ ES }}
@@ -141,23 +140,41 @@ keywords:
      ```bash
      {{ yc-mdb-es }} cluster create \
        --name <имя_кластера> \
-       --environment <окружение:_prestable_или_production> \
+       --environment <окружение> \
        --network-name <имя_сети> \
-       --host zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети>,assign-public-ip=<публичный_доступ>,type=<тип_хоста:_datanode_или_masternode> \
-       --datanode-resource-preset <класс_хостов_с_ролью_Data_node> \
-       --datanode-disk-size <размер_хранилища_в_гигабайтах_для_хостов_с_ролью_Data_node> \
-       --datanode-disk-type <тип_диска_для_хостов_с_ролью_Data_node> \
-       --masternode-resource-preset <класс_хостов_с_ролью_Master_node> \
-       --masternode-disk-size <размер_хранилища_в_гигабайтах_для_хостов_с_ролью_Master_node> \
-       --masternode-disk-type <тип_диска_для_хостов_с_ролью_Master_node> \
+       --host zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети>,assign-public-ip=<публичный_доступ>,type=<тип_хоста> \
+       --datanode-resource-preset <класс_хостов_Data_node> \
+       --datanode-disk-size <размер_хранилища_ГБ> \
+       --datanode-disk-type <тип_диска_Data_node> \
+       --masternode-resource-preset <класс_хостов_Master_node> \
+       --masternode-disk-size <размер_хранилища_ГБ_Master_node> \
+       --masternode-disk-type <тип_диска_Master_node> \
        --security-group-ids <список_идентификаторов_групп_безопасности> \
-       --version <версия_{{ ES }}:_{{ versions.cli.str }}> \
-       --edition <редакция_{{ ES }}:_basic_или_platinum> \
+       --version <версия_{{ ES }}> \
+       --edition <редакция_{{ ES }}> \
        --admin-password <пароль_пользователя_admin> \
        --plugins=<имя_плагина_1>,...,<имя_плагина_N> \
-       --deletion-protection=<защита_от_удаления_кластера:_true_или_false>
+       --deletion-protection=<защита_от_удаления>
      ```
 
+
+     Где:
+
+     * `--environment` — окружение: `prestable` или `production`.
+     * `--host` — параметры хоста:
+        * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+        * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
+        * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+        * `type` — роль хоста: `datanode` или `masternode`.
+     * `--datanode-resource-preset` — класс хостов c ролью Data node.
+     * `--datanode-disk-size` — размер хранилища в гигабайтах для хостов с ролью Data node.
+     * `--datanode-disk-type` — тип хранилища для хостов с ролью Data node.
+     * `--masternode-resource-preset` — класс хостов с ролью Master node.
+     * `--masternode-disk-size` — размер хранилища в гигабайтах для хостов с ролью Master node.
+     * `--masternode-disk-type` — тип хранилища для хостов с ролью Master node.
+     * `--version` (опционально) — версия {{ ES }}: {{ versions.tf.str }}.
+     * `--edition` (опционально) — редакция {{ ES }}: `basic` или `platinum`.
+     * `--deletion-protection` — защита от удаления кластера: `true` или `false`.
 
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной [зоне доступности](../../overview/concepts/geo-scope.md) больше одной подсети.
 
@@ -192,13 +209,13 @@ keywords:
      ```hcl
      resource "yandex_mdb_elasticsearch_cluster" "<имя_кластера>" {
        name                = "<имя_кластера>"
-       environment         = "<окружение,_PRESTABLE_или_PRODUCTION>"
+       environment         = "<окружение>"
        network_id          = "<идентификатор_сети>"
-       deletion_protection = "<защита_от_удаления:_true_или_false>"
+       deletion_protection = "<защита_от_удаления>"
 
        config {
-         version = "<(необязательно)_версия_{{ ES }}:_{{ versions.tf.str }}>"
-         edition = "<(необязательно)_редакция_{{ ES }}:_basic_или_platinum>"
+         version = "<версия_{{ ES }}>"
+         edition = "<редакция_{{ ES }}>"
 
          admin_password = "<пароль_пользователя-администратора>"
 
@@ -206,7 +223,7 @@ keywords:
            resources {
              resource_preset_id = "<класс_хоста>"
              disk_type_id       = "<тип_диска>"
-             disk_size          = <объем_хранилища,_ГБ>
+             disk_size          = <размер_хранилища_ГБ>
            }
          }
 
@@ -214,7 +231,7 @@ keywords:
            resources {
              resource_preset_id = "<класс_хоста>"
              disk_type_id       = "<тип_диска>"
-             disk_size          = <объем_хранилища,_ГБ>
+             disk_size          = <размер_хранилища_ГБ>
            }
          }
 
@@ -222,13 +239,13 @@ keywords:
 
        }
 
-       security_group_ids = [ "<список_групп_безопасности>" ]
+       security_group_ids = [ "<список_идентификаторов_групп_безопасности>" ]
 
        host {
          name             = "<имя_хоста>"
          zone             = "<зона_доступности>"
-         type             = "<роль_хоста:_DATA_NODE_или_MASTER_NODE>"
-         assign_public_ip = <публичный_доступ_к_хосту:_true_или_false>
+         type             = "<роль_хоста>"
+         assign_public_ip = <публичный_доступ>
          subnet_id        = "<идентификатор_подсети>"
        }
      }
@@ -245,6 +262,19 @@ keywords:
 
 
 
+
+     Где:
+
+     * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
+     * `deletion_protection` — защита от удаления: `true` или `false`.
+     * `version` (опционально) — версия {{ ES }}: {{ versions.tf.str }}.
+     * `edition` (опционально) — редакция {{ ES }}: `basic` или `platinum`.
+     * `host` — параметры хоста:
+        * `name` — имя хоста.
+        * `zone` — [зона доступности](../../overview/concepts/geo-scope.md).
+        * `type` — роль хоста: `DATA_NODE` или `MASTER_NODE`.       
+        * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+        * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
 
      Включенная защита от удаления кластера {{ mes-name }} не защищает содержимое БД.
 

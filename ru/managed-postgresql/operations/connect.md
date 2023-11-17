@@ -215,6 +215,18 @@ psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 
 {% endlist %}
 
+
+## Подключение из браузера {#browser}
+
+Используйте сервис [{{ websql-full-name }}](../../websql) для соединения с кластерами {{ PG }} в {{ yandex-cloud }}.
+
+{% include notitle [preview](../../_includes/note-preview.md) %}
+
+{% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
+
+{% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
+
+
 ## Подключение из {{ pgadmin }} {#connection-pgadmin}
 
 Подключение проверялось для [{{ pgadmin }}](https://www.pgadmin.org) версии 7.0 в Ubuntu 20.04.

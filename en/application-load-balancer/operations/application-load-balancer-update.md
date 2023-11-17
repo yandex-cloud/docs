@@ -218,7 +218,7 @@ To update the parameters of an L7 load balancer:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and edit the fragment with the L7 load balancer description:
 
@@ -294,7 +294,7 @@ To update the parameters of an L7 load balancer:
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change to the L7 load balancer using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+      You can check the L7 load balancer update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc alb load-balancer get <load_balancer_name>
@@ -347,7 +347,7 @@ To delete a listener for your L7 load balancer:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see our documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
    1. Open the {{ TF }} configuration file and delete the `listener` section from the L7 load balancer description.
 

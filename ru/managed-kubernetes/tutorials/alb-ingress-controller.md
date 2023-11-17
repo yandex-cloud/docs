@@ -334,6 +334,8 @@ yc certificate-manager certificate list
        * `m` — минуты.
        * `h` — часы.
 
+     * `ingress.alb.yc.io/use-regex` — поддержка регулярных выражений стандарта [RE2](https://github.com/google/re2/wiki/Syntax) при сопоставлении пути запроса. Если передана строка `true`, поддержка включена. Применимо только если для параметра `pathType` указано значение `Exact`.
+
      {% note info %}
 
      Настройки действуют только на хосты этого контроллера, но не на всю группу Ingress.
@@ -556,6 +558,8 @@ yc certificate-manager certificate list
        * `s` — секунды.
        * `m` — минуты.
        * `h` — часы.
+
+     * `ingress.alb.yc.io/use-regex` — поддержка регулярных выражений стандарта [RE2](https://github.com/google/re2/wiki/Syntax) при сопоставлении пути запроса. Если передана строка `true`, поддержка включена. Применимо только если для параметра `pathType` указано значение `Exact`.
 
      {% note info %}
 

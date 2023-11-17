@@ -38,7 +38,7 @@ z | voiced alveolar fricative | **з**вон ['zvon], по**з**ор [pə'zor] |
 zʲ | palatalized voiced alveolar fricative | **з**има [zʲɪ'ma], по**з**еленеть [pəzʲɪlʲɪ'nʲetʲ]
 ʐ | voiced retroflex fricative | **ж**ена [ʐɨ̞'na], по**ж**елтеть [pəʐɨ̞l'tʲetʲ]
 **Vowels** |                                                                                                       |
-ə | [Schwa](https://en.wikipedia.org/wiki/Schwa): Mid central vowels | кор**о**ва [kɐ'rovə], молок**о** [məlɐ′ko]
+ə | [Schwa](https://en.wikipedia.org/wiki/Schwa): Mid central vowel | кор**о**ва [kɐ'rovə], молок**о** [məlɐ′ko]
 a | open front unrounded vowel | т**а**м ['tam], п**а**мять ['pamʲatʲ], вод**а** [və'da]
 ʌ | near-open central vowel | **о**рнамент [ɐr'namʲent] к**а**ток [kə'tok], кошк**а** ['koʂka]
 ɛ | open-mid front unrounded vowel | **э**му ['ɛmʊ], п**е**сня ['pʲesnʲə], кар**е** [kə'rɛ]

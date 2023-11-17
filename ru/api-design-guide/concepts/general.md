@@ -6,7 +6,7 @@ API {{ yandex-cloud }} спроектированы на основе механ
 
 #### Ресурсо-ориентированный подход {#resource-oriented-design}
 
-В API используется ресурсо-ориентированный подход. Ниже описаны принципы, которые действуют для всех API {{ yandex-cloud }}:
+Для большинства сервисов {{ yandex-cloud }} в API используется ресурсо-ориентированный подход. Принципы такого подхода:
 
 - В качестве ресурсов в API выступают [виртуальные машины](../../glossary/vm.md), диски, образы и т. д. Каждый ресурс имеет [уникальный идентификатор](resources-identification.md).
 
@@ -19,11 +19,12 @@ API {{ yandex-cloud }} спроектированы на основе механ
 
 - Операции на создание, изменение и удаление ресурсов поддерживают механизм [идемпотентности](idempotency.md).
 
-{% note info %}
 
-Архитектура [{{ objstorage-full-name }} API](../../storage/s3/index.md) обеспечивает совместимость с Amazon S3 API. Поэтому {{ objstorage-name }} API может не соответствовать концепциям, описанным в данном документе. Подробнее читайте в документации к сервису.
+#### Исключения для ресурсо-ориентированного подхода {#exceptions}
 
-{% endnote %}
+- [API {{ objstorage-full-name }}](../../storage/s3/index.md). Его архитектура обеспечивает совместимость с Amazon S3 API, поэтому принципы API {{ objstorage-name }} не всегда совпадают с принципами ресурсо-ориентированного подхода. Подробнее читайте в документации к сервису.
+- API сервисов искусственного интеллекта [{{ yagpt-full-name }}](../../yandexgpt/api-ref/grpc/), [{{ speechkit-full-name }}](../../speechkit/concepts/api.md), [{{ translate-full-name }}](../../translate/api-ref/grpc/) и [{{ vision-full-name }}](../../vision/vision/api-ref/grpc/). Их API не оперирует ресурсами {{ yandex-cloud }}, запросы не идемпотентны.
+
 
 #### См. также {#see-also}
 - [Ссылка на .proto-спецификации API {{ yandex-cloud }}](https://github.com/yandex-cloud/cloudapi)

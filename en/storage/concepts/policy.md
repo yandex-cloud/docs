@@ -13,6 +13,8 @@ Access is verified at three levels: whether the action is allowed by the [user r
    1. If the request does not meet any of the rules, access is denied.
 1. If the request fails the {{ iam-short-name }} or bucket policy check, access verification is performed based on an object's ACL.
 
+[Enabling public access](../operations/buckets/bucket-availability) to bucket operations does not override the restrictions set in the access policies.
+
 {% include [storage-note-empty-policy](../_includes_service/storage-note-empty-policy.md) %}
 
 You can set up the bucket policy in the management console or describe it in JSON format using a [special scheme](../s3/api-ref/policy/scheme.md) to provide the settings through one of the software tools: the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, or API. To learn more about policy management, see [this guide](../operations/buckets/policy.md).

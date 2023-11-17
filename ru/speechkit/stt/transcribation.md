@@ -14,36 +14,43 @@
 
 {% include [async-stt-modes](../../_includes/speechkit/async-modes.md) %}
 
-## Как распознать длинное аудио {#long-audio-recognition}
+## Как распознается длинное аудио {#long-audio-recognition}
 
-Чтобы распознать длинное аудио, необходимо выполнить 2 запроса:
+Для асинхронного распознавания речи используется API v2 {{ speechkit-name }}. Чтобы распознать длинное аудио, нужно выполнить два запроса:
+
 1. Отправить файл на распознавание.
 1. Получить результаты распознавания.
 
-Примеры запросов см. в разделе [{#T}](api/transcribation-api.md).
+Запросы отправляются от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), которому назначены роли на каталог:
 
-### Особенности использования gRPC {#grpc}
+* `{{ roles-speechkit-stt }}` — для распознавания речи.
+* `storage.uploader` — для загрузки аудиофайла в [бакет {{ objstorage-full-name }}](../../storage/concepts/bucket.md).
+* `storage.configurer`, `kms.keys.encrypter` и `kms.keys.decrypter` — для шифрования и расшифровки объектов в бакете. Эти роли нужны, только если вы используете [шифрование в {{ objstorage-name }}](../../storage/concepts/encryption.md).
 
-Чтобы использовать сервис, создайте приложение, которое будет отправлять аудиофрагменты и обрабатывать ответ с результатами распознавания.
+Для авторизации в HTTP-заголовках запроса передаются [IAM-токен](../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../iam/concepts/authorization/api-key.md) для сервисного аккаунта:
 
-Чтобы приложение смогло отправлять запросы и запрашивать результат, необходимо сгенерировать код интерфейса клиента для используемого языка программирования. Сгенерируйте этот код из файлов [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) и [operation_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto) из репозитория [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi).
+* IAM-токен: `Authorization: Bearer <IAM-токен>`;
+* API-ключ: `Authorization: Api-Key <API-ключ>`.
 
-В [документации gRPC](https://grpc.io/docs/tutorials/) вы можете найти подробные инструкции по генерации интерфейсов и реализации клиентских приложений для различных языков программирования.
+Аудиофайл для распознавания [загружается](../../storage/operations/objects/upload.md) в бакет {{ objstorage-name }}. Для передачи этого файла в теле запроса используется [ссылка на файл](../../storage/operations/objects/link-for-download.md). Для бакета с ограниченным доступом в ссылке присутствуют дополнительные query-параметры (после знака `?`). Эти параметры не нужно передавать в {{ speechkit-name }} — они игнорируются.
+
+После отправки [запроса на распознавание речи](api/transcribation-api.md#sendfile) в ответе сервис возвращает идентификатор операции распознавания. Он используется в [запросе на получение результатов распознавания](api/transcribation-api#get-result).
 
 {% note warning %}
 
-При запросе результатов операции gRPC-клиенты по умолчанию ограничивают максимальный размер сообщения, который они могут принять в качестве ответа, — не более 4 МБ. Если ответ с результатами распознавания будет больше этого размера, то вы получите ошибку.
+Результаты хранятся на сервере {{ stt-long-resultsStorageTime }}. После этого вы не сможете запросить результаты распознавания, используя полученный идентификатор.
 
 {% endnote %}
 
-Чтобы получить ответ целиком, повысьте ограничение на максимальный размер сообщения:
-* для Go используйте функцию [MaxCallRecvMsgSize](https://pkg.go.dev/google.golang.org/grpc#MaxCallRecvMsgSize);
-* для C++ в [методе call](https://grpc.github.io/grpc/cpp/classgrpc_1_1internal_1_1_call.html#af04fabbdb53dea98da54c387364faf63) задайте значение `max_receive_message_size`.
+Результаты содержат распознанный текст целиком и список распознанных слов.
 
 
 #### См. также {#see-also}
 
-* [{#T}](api/transcribation-lpcm.md)
-* [{#T}](api/transcribation-ogg.md)
-* [{#T}](api/batch-transcribation.md)
+О том, как использовать API асинхронного распознавания речи, читайте в разделах:
+
+* [{#T}](api/transcribation-api.md).
+* [{#T}](api/transcribation-lpcm.md).
+* [{#T}](api/transcribation-ogg.md).
+* [{#T}](api/batch-transcribation.md).
 

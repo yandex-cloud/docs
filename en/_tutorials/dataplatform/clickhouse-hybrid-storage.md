@@ -22,25 +22,30 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
 
       * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: {{ mch-ck-version }} or higher.
-            * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
+
+      
+      * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
+
+      * **{{ ui-key.yacloud.mdb.forms.label_disk-size }}**: At least 15 GB.
+      * **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**: Disabled.
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`.
-      * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}**: `{{ ui-key.yacloud.mdb.cluster.overview.label_storage-enabled }}`.
+      * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}**: Enabled.
 
    1. [Configure permissions](../../managed-clickhouse/operations/cluster-users.md#update-settings) so that you can execute read and write requests in this database.
 
 - Using {{ TF }}
 
-    
-    1. If you do not have {{ TF }} yet, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md).
+   
+   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
-    1. Clone the repository containing examples:
+   1. Clone the repository containing examples:
 
-        ```bash
-        git clone https://github.com/yandex-cloud/examples/
-        ```
+      ```bash
+      git clone https://github.com/yandex-cloud/examples/
+      ```
 
-    1. From the `examples/tutorials/terraform/` directory, copy `clickhouse-hybrid-storage.tf` to the folder where the provider configuration file is located.
+   1. From the `examples/tutorials/terraform/` directory, copy `clickhouse-hybrid-storage.tf` to the folder where the provider configuration file is located.
 
       This file describes:
 
@@ -51,7 +56,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. In `clickhouse-hybrid-storage.tf`, specify the username and password to use to access the {{ mch-name }} cluster.
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
 
    1. To verify that the config files are correct, run the command below:
 
@@ -59,7 +64,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point to them.
+      If there are any errors in the configuration files, {{ TF }} will point them out.
 
    1. Create the infrastructure required to follow the steps provided in this tutorial:
 
@@ -69,9 +74,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% endlist %}
 
-### Set up clickhouse-client {#deploy-clickhouse-client}
+### Set up the command line tools {#set-instruments}
 
-[Configure the clickhouse client](../../managed-clickhouse/operations/connect.md) to connect to the database.
+1. Set up the `curl` and `unxz` tools:
+
+   ```bash
+   apt-get update && apt-get install curl xz-utils
+   ```
+
+1. [Set up clickhouse client](../../managed-clickhouse/operations/connect.md#clickhouse-client) and use it to connect to the database.
 
 ### Explore the test dataset (optional) {#explore-dataset}
 
@@ -109,10 +120,10 @@ This table uses the `default` [storage policy](../../managed-clickhouse/concepts
 The `TTL ...` expression defines a policy for operating with expiring data:
 1. TTL sets the lifetime of a table row (in this case, the number of days from the current date to March 20, 2014).
 1. For data in the table, the value `EventDate` is checked:
-   * If the number of days from the current date to `EventDate` is less than the TTL value (that is, the lifetime has not expired yet), this data is kept in storage on network drives.
+   * If the number of days from the current date to `EventDate` is less than the TTL value (that is, the lifetime has not expired yet), this data is kept in network disk storage.
    * If the number of days from the current date to `EventDate` is greater than or equal to the TTL value (that is, the lifetime has already expired), this data is placed in the object storage according to the `TO DISK 'object_storage'` policy.
 
-You don't need to specify TTL for hybrid storage, but this allows you to explicitly control which data will be in {{ objstorage-name }}. If you don't specify TTL, data is placed in object storage only when storage on network disks runs out of space. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
+You do not need to specify TTL for hybrid storage, but this allows you to explicitly control which data will be in {{ objstorage-name }}. If you do not specify TTL, data will be placed in object storage only when you run out of space in your network disk storage. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 {% note info %}
 
@@ -126,6 +137,7 @@ To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs
 
 ## Completing a table with data {#fill-table-with-data}
 
+1. Disconnect from the database.
 1. Download the test dataset:
 
    
@@ -134,11 +146,13 @@ To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs
    ```
 
 
+   The size of the downloaded dataset is about 10 GB.
+
 1. Insert data from this dataset into {{ CH }} using `clickhouse-client`:
 
    ```bash
    clickhouse-client \
-       --host <{{ CH }} host FQDN> \
+       --host <{{ CH }}_host_FQDN> \
        --secure \
        --user <username> \
        --database tutorial \
@@ -156,6 +170,7 @@ To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tu
 
 ## Checking the placement of data in a cluster {#check-table-tiering}
 
+1. [Connect to the database](../../managed-clickhouse/operations/connect.md#clickhouse-client).
 1. Find out where the table rows are placed:
 
    ```sql
@@ -197,7 +212,7 @@ To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tu
    GROUP BY disk_name
    ```
 
-   As a result, you'll see the distribution of table rows for the storage levels:
+   As a result, you will see the distribution of table rows for the storage levels:
 
    ```text
    ┌─sum(rows)─┬─disk_name──────┐
@@ -242,21 +257,33 @@ Result:
 
 As you can see from the SQL request result, from the user's point of view, the table is a single entity: {{ CH }} successfully queries this table regardless of where the data is actually located in it.
 
+## (Optional step) Monitor the amount of space used by data in {{ objstorage-name }} {#metrics}
+
+To find out the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}:
+
+1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Go to **Metric Explorer**.
+1. Run the following query:
+
+   ```text
+   "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<cluster_ID>", subcluster_name="clickhouse_subcluster"}
+   ```
+
 ## Delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid being charged for them:
+Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs %}
 
 - Manually
 
-    [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
+   [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
 - Using {{ TF }}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
+   1. In the terminal window, go to the directory containing the infrastructure plan.
    1. Delete `clickhouse-hybrid-storage.tf`.
    1. Run this command:
 
@@ -266,7 +293,7 @@ Delete the resources you no longer need to avoid being charged for them:
 
       If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm that the resources have been updated.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

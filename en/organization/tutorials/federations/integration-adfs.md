@@ -16,7 +16,7 @@ To set up authentication:
 
 ## Getting started {#before-you-begin}
 
-To follow the steps in this section, you will need:
+To follow the steps in this section, you will need:​
 
 1. Working AD FS farm. If you did not configure AD FS on your server, [install and configure it now](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm). To deploy AD FS, you also need to install and configure Active Directory Domain Services (AD DS).
 
@@ -95,6 +95,7 @@ To follow the steps in this section, you will need:
       * `name`: Federation name. It must be unique within the folder.
       * `organization-id`: Your organization ID.
       * `auto-create-account-on-login`: Flag to enable the automatic creation of new cloud users following authentication on the IdP server.
+
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources the `allUsers` or `allAuthenticatedUsers` [system group](../../../iam/concepts/access-control/system-group.md) roles are assigned to.
 
          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -161,7 +162,7 @@ To follow the steps in this section, you will need:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Specify the federation parameters in the configuration file:
 
@@ -189,7 +190,7 @@ To follow the steps in this section, you will need:
          If the option is enabled, the IDs of federated user names will be case-insensitive.
       * `security_settings`: Federation security settings:
          * `encrypted_assertions`: Sign authentication requests.
-            If this option is enabled, all authentication requests from {{ yandex-cloud }} will contain a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
+            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You need to download and install a {{ yandex-cloud }} certificate.
 
       Example of the configuration file structure:
 
@@ -210,7 +211,7 @@ To follow the steps in this section, you will need:
    1. Make sure the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using this command:
+      1. Run a check using this command:
 
          ```
          terraform plan
@@ -332,6 +333,7 @@ To ensure the authentication is not interrupted when the certificate expires, we
 
 {% endnote %}
 
+
 ## Configure authentication on the AD FS server {#configure-sso}
 
 After you set up the federation in {{ org-full-name }}, you can configure the AD FS server to notify the management console of each successful authentication session and redirect the user back to the management console.
@@ -386,7 +388,7 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. On the next page, you can choose who can authenticate using this federation. By default, the **Permit for everyone** policy is selected enabling access for all users.
 
-   You can choose a different policy. For example, to grant access to a specific group of users, select **Permit specific group** and click on the word `<parameter>` to select the groups to allow access to. [Read more about access control policies](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-in-ad-fs).
+   You can choose a different policy. For example, to grant access to a specific group of users, select **Permit specific group** and click the `<parameter>` word to select the groups to allow access to. [Read more about access control policies](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-in-ad-fs).
 
    ![image](../../../_assets/iam/federations/specify-access-policy-ad.png)
 
@@ -444,7 +446,8 @@ To set up a mapping between the user data and Outgoing Claim Types:
 
       ![image](../../../_assets/iam/federations/specify-claims-mapping-ad.png)
 
-1. Click **Finish**, then click **OK** to close the **Edit Claim Issuance Policy** window.
+1. Click **Finish**, then click **OK**to close the **Edit Claim Issuance Policy** window.
+
 
 #### How to add a profile image to Active Directory {#add-avatar}
 
@@ -452,7 +455,7 @@ To add a user's profile image to Active Directory, write the image to the `thumb
 
 {% note info %}
 
-The `thumbnailPhoto` attribute supports files of up to 100 KB. The recommended file size is up to 10 KB and image size up to 96×96 pixels.
+The `thumbnailPhoto` attribute supports files of up to 100 KB. The recommended file size is up to 10 KB and the recommended image size is up to 96×96 pixels.
 
 {% endnote %}
 

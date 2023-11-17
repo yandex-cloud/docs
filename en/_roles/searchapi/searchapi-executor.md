@@ -1,0 +1,1 @@
+The `search-api.executor` role grants permission to use Search API. 

@@ -24,7 +24,7 @@ To view detailed information about the {{ mes-name }} cluster state:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-elasticsearch }}**.
-   1. Click the name of the desired cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
+   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
 
    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -77,7 +77,7 @@ To view detailed information about the {{ mes-name }} cluster state:
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed information about the status of individual {{ mes-name }} hosts:
+To view detailed information about the state of individual {{ mes-name }} hosts:
 
 {% list tabs %}
 
@@ -90,10 +90,10 @@ To view detailed information about the status of individual {{ mes-name }} hosts
 
    This page displays charts showing the load on an individual host in the cluster:
 
-   * **CPU**: The load on processor cores. As the load goes up, the `Idle` value goes down.
-   * **Disk bytes**: The speed of disk operations (bytes per second).
+   * **CPU**: Load on processor cores. As the load goes up, the `Idle` value goes down.
+   * **Disk bytes**: Speed of disk operations (bytes per second).
    * **Disk IOPS**: Number of disk operations per second.
-   * **Memory**: Use of RAM, in bytes. At high loads, the value of `Free` goes down while the other values go up.
+   * **Memory**: Use of RAM, in bytes. At high loads, the `Free` value goes down, while the other values go up.
    * **Network bytes**: Speed of data exchange over the network, in bytes per second.
    * **Network packets**: Number of packets exchanged over the network, per second.
 
@@ -138,8 +138,8 @@ The recommended thresholds are as follows:
 
 For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds are only set in bytes. For example, here are the recommended values for a 100 GB disk:
 
-* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`: `96636764160` bytes (90%).
-* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`: `85899345920` bytes (80%).
+* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`: `96,636,764,160` bytes (90%)
+* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`: `85,899,345,920` bytes (80%)
 
 You can view the host's current storage size and RAM amount in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-elasticsearch).
 

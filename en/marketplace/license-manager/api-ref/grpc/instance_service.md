@@ -58,6 +58,7 @@ end_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Update timestamp. 
 state | enum **State**<br>Subscription lock state. <ul><li>`UNLOCKED`: Subscription unlocked.</li><li>`LOCKED`: Subscription locked to the resource.</li><li>`DELETED`: Subscription lock deleted.</li></ul>
+template_id | **string**<br>ID of the subscription template. 
 
 
 ### Template {#Template}
@@ -90,7 +91,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder that the subscription instance belongs to. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstancesResponse.next_page_token](#ListInstancesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstancesResponse.next_page_token](#ListInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters subscription instances listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Instance.name](#Instance1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-subscription-instance`. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters subscription instances listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Instance.name](#Instance1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be in double quotes `""`. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name="my-subscription-instance"`. The maximum string length in characters is 1000.
 order_by | **string**<br>Sorting order for the list of subscription instances. The maximum string length in characters is 100.
 
 
@@ -133,6 +134,7 @@ end_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Update timestamp. 
 state | enum **State**<br>Subscription lock state. <ul><li>`UNLOCKED`: Subscription unlocked.</li><li>`LOCKED`: Subscription locked to the resource.</li><li>`DELETED`: Subscription lock deleted.</li></ul>
+template_id | **string**<br>ID of the subscription template. 
 
 
 ### Template {#Template1}

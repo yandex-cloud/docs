@@ -18,7 +18,7 @@ For more information about {{ k8s }} events, see [Collecting, monitoring, and an
 
 ### Collecting events {#collect}
 
-The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../audit-trails/concepts/index.md). The service lets you collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. For details, see the [instructions](../../audit-trails/quickstart.md) on how to start collecting logs, as well as the [format](../../audit-trails/concepts/format.md) and [reference](../../audit-trails/concepts/events.md) of events.
+The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../audit-trails/concepts/index.md). This service allows you to collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. For more information, refer to [this guide](../../audit-trails/quickstart.md) on how to start collecting logs. You can also learn more about the [event format](../../audit-trails/concepts/format.md) or check out the [event reference](../../audit-trails/concepts/events.md).
 
 {% note info %}
 
@@ -70,9 +70,9 @@ Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, a
 ## OS level {#os-level}
 
 When using IaaS cloud services and {{ k8s }} node groups, the customer is responsible for ensuring OS security and collecting OS-level events on their own. Free tools for collecting standard OS-generated events and exporting them to the customer's SIEM system include:
-  - [Osquery](https://osquery.io/)
-  - [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html)
-  - [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)
+- [Osquery](https://osquery.io/)
+   - [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html)
+- [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)
 
 Additional event generation options can be implemented using Auditd for Linux or Sysmon for Windows.
 

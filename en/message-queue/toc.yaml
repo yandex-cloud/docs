@@ -29,6 +29,8 @@ items:
     items:
       - name: Overview
         href: operations/index.md
+      - name: Configuring the AWS CLI
+        href: operations/configuring-aws-cli.md
       - name: Creating a new message queue
         href: operations/message-queue-new-queue.md
       - name: Sending messages
@@ -129,6 +131,6 @@ items:
         href: api-ref/common-errors.md
   - name: Public materials
     href: public-talks.md
-  - name: Questions and answers
+  - name: FAQ
     href: qa/index.md
 base: en/message-queue

@@ -22,7 +22,7 @@ You can connect to a non-sharded Redis cluster:
 
 ## Special FQDNs {#special-fqdns}
 
-{{ mrd-name }} provides special FQDNs that can be used instead of regular [host FQDNs](./../hosts.md#list) to connect to non-sharded clusters.
+{{ mrd-name }} provides special FQDNs that can be used instead of regular [host FQDNs](index.md#fqdn) to connect to non-sharded clusters.
 
 {% note warning %}
 
@@ -32,21 +32,21 @@ If, when the [master host is changed automatically](../../concepts/replication.m
 
 ### Current master {#fqdn-master}
 
-Such FQDN as `c-<cluster ID>.rw.{{ dns-zone }}` in a non-sharded cluster always points to the current master host. The cluster ID can be requested with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+Such FQDN as `c-<cluster_ID>.rw.{{ dns-zone }}` in a non-sharded cluster always points to the current master host. The cluster ID can be requested with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
-An example an SSL-encrypted connection to a master host for a cluster with `c9qash3nb1v9ulc8j9nm` as the ID:
+Here is an example of an SSL-encrypted connection to a master host for a cluster with the `c9qash3nb1v9********` ID:
 
 ```bash
-redis-cli -h c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
+redis-cli -h c-c9qash3nb1v9********.rw.{{ dns-zone }} \
   -p 6380 \
   --tls \
   --cacert ~/.redis/{{ crt-local-file }} \
-  -a <{{ RD }} password>
+  -a <{{ RD }}_password>
 ```
 
-## Connecting to cluster hosts from graphical IDEs {#connection-ide}
+## Connecting from graphical IDEs {#connection-ide}
 
 {% include [IDE environment settings](../../../_includes/mdb/mrd/ide-envs.md) %}
 
@@ -67,7 +67,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
       1. Select **{{ RD }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
-         * **Host**: FQDN of the master host or a [special FQDN](./non-sharded.md#special-fqdns) always pointing to the current master host.
+         * **Host**: [FQDN of the master host](./index.md#fqdn) or a [special FQDN](./non-sharded.md#special-fqdns) always pointing to the current master host.
          * **Port**: `{{ port-mrd }}` for a regular cluster or `{{ port-mrd-tls }}` for a cluster with SSL encryption enabled.
          * Under **Authentication**, specify the cluster password.
       1. On the **SSH** tab:
@@ -83,7 +83,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
          1. Under **Parameters**:
             1. Select **Method**: **Set of certificates**.
             1. In the **Root certificate** field, specify the path to the saved [SSL certificate](./index.md#get-ssl-cert) file.
-   1. Click **Test connection ...** to test a DB connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Test connection ...** to test a DB connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}

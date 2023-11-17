@@ -12,7 +12,15 @@ Enter the list title or prompt.
 
 {% include [question](../../_includes/forms/question.md) %}
 
-{% include [param-answer](../../_includes/forms/param-answer.md) %}
+### Responses {#param-answers}
+
+Specify options that users can choose from:
+
+- To add a response option, select **Add option** and enter the response text.
+
+- To format the response text, use [Markdown markup](../appearance.md#section_pzm_m1j_j3b).
+
+- To relocate a response option in the list, drag it with ![](../../_assets/forms/drag-answer.png).
 
 {% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
 

@@ -4,8 +4,8 @@
 1. Заполните поля:
    * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_description }}** — опишите правило в произвольной форме.
    * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_prefix }}** — часть [ключа](../concepts/object.md#key) объекта необходимой длины, взятая от его начала. По префиксу отбираются объекты, попадающие под действие правила. Если под действие правила должны попадать все объекты, то отметьте **{{ ui-key.yacloud.storage.bucket.lifecycle.field_no-prefix }}**.
-   * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_max-size }}** — правило срабатывает для всех объектов, размер которых больше либо равен указанному.
-   * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_min-size }}** — правило срабатывает для всех объектов, размер которых меньше либо равен указанному.
+   * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_max-size }}** — правило срабатывает для всех объектов, размер которых меньше либо равен указанному.
+   * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_min-size }}** — правило срабатывает для всех объектов, размер которых больше либо равен указанному.
 1. Выберите и настройте нужные типы действий, выполняемые с объектами при срабатывании правила:
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_type-expiration }}` — удаление любых объектов из бакета:
 

@@ -14,6 +14,8 @@
 
 * [Настроить серверы {{ GP }} согласно документации {{ GP }}](#change-gp-settings).
 
+Если вы хотите переместить кластер в другую зону доступности, [восстановите его из резервной копии](cluster-backups.md#restore). Во время восстановления укажите новую зону доступности. В результате вы перенесете хосты кластера.
+
 ## Изменить имя и описание кластера {#change-name-and-description}
 
 {% list tabs %}
@@ -36,7 +38,7 @@
   1. Посмотрите текущие имя (`name`) и описание (`description`) кластера:
 
      ```bash
-     {{ yc-mdb-gp }} cluster get <идентификатор или имя кластера>
+     {{ yc-mdb-gp }} cluster get <имя_или_идентификатор_кластера>
      ```
 
   1. Посмотрите описание команды CLI для изменения конфигурации кластера:
@@ -48,9 +50,9 @@
   1. Задайте новое имя и описание кластера:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update <идентификатор или имя кластера> \
-         --new-name <новое имя кластера> \
-         --description <новое описание кластера>
+      {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+         --new-name <новое_имя_кластера> \
+         --description <новое_описание_кластера>
       ```
 
 - API
@@ -94,9 +96,11 @@
   1. Задайте настройку публичного доступа в параметре `--assign-public-ip`:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update <идентификатор или имя кластера> \
-         --assign-public-ip=<публичный доступ к кластеру: true или false>
+      {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+         --assign-public-ip=<публичный_доступ_к_кластеру>
       ```
+
+      Где `assign-public-ip` — публичный доступ к кластеру: true или false.
 
 - API
 
@@ -175,15 +179,15 @@
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
-        {{ yc-mdb-gp }} cluster update <идентификатор или имя кластера> \
-            --backup-window-start <время начала резервного копирования> \
-            --datalens-access=<true или false> \
-            --datatransfer-access=<true или false> \
-            --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                                `day=<день недели для типа weekly>,`
-                                `hour=<час дня для типа weekly> \
-            --assign-public-ip=<публичный доступ к кластеру: true или false> \
-            --deletion-protection=<защита от удаления кластера: true или false> \
+        {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
+            --backup-window-start <время_начала_резервного_копирования> \
+            --datalens-access=<доступ_из_datalens> \
+            --datatransfer-access=<доступ_из_data_transfer> \
+            --maintenance-window type=<тип_технического_обслуживания>,`
+                                `day=<день_недели>,`
+                                `hour=<час_дня> \
+            --assign-public-ip=<публичный_доступ_к_кластеру> \
+            --deletion-protection=<защита_от_удаления_кластера> \
         ```
 
     Вы можете изменить следующие настройки:
@@ -225,6 +229,40 @@
 
 {% endlist %}
 
+## Изменить настройки регламентных операций технического обслуживания {#change-background-settings}
+
+Вы можете изменить настройки [регламентных операций технического обслуживания](../concepts/maintenance.md#regular-ops) вашего кластера.
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.greenplum.section_background-activities }}** измените параметры:
+
+        {% include [background activities](../../_includes/mdb/mgp/background-activities-console.md) %}
+
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- API
+
+    Чтобы изменить настройки регламентных операций технического обслуживания кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Новые значения параметров для объекта`configSpec.backgroundActivities.analyzeAndVacuum`:
+
+        * `start.hours` — час начала операции `VACUUM` по UTC. Возможные значения: от `0` до `23`, по умолчанию — `19`.
+        * `start.minutes` — минута начала операции `VACUUM` по UTC. Возможные значения: от `0` до `59`, по умолчанию — `0`.
+        * `vacuumTimeout` — максимальная длительность выполнения операции `VACUUM`, в секундах. По умолчанию — `36000`. Когда указанное время истечет, операция `VACUUM` будет принудительно завершена.
+        * `analyzeTimeout` — максимальная длительность выполнения операции `ANALYZE`, в секундах. По умолчанию — `36000`. Когда указанное время истечет, операция будет принудительно завершена.
+
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
 ## Изменить настройки {{ GP }} {#change-gp-settings}
 
 Вы можете изменить настройки СУБД для хостов вашего кластера.
@@ -250,7 +288,7 @@
   1. Посмотрите полный список настроек, установленных для кластера:
 
      ```bash
-     {{ yc-mdb-gp }} cluster get <идентификатор или имя кластера>
+     {{ yc-mdb-gp }} cluster get <имя_или_идентификатор_кластера>
      ```
 
   1. Посмотрите описание команды CLI для изменения конфигурации кластера:
@@ -261,11 +299,11 @@
 
   1. Установите нужные значения параметров:
 
-      Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `greenplumConfig_<версия {{ GP }}>`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `maxConnections` из запроса к API преобразуется в `max_connections` для команды CLI:
+      Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `greenplumConfig_<версия_Greenplum>`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `maxConnections` из запроса к API преобразуется в `max_connections` для команды CLI:
 
       ```bash
-      {{ yc-mdb-gp }} cluster update-config <идентификатор или имя кластера> \
-         --set <имя параметра1>=<значение1>,<имя параметра2>=<значение2>,...
+      {{ yc-mdb-gp }} cluster update-config <имя_или_идентификатор_кластера> \
+         --set <имя_параметра1>=<значение1>,<имя_параметра2>=<значение2>,...
       ```
 
       {{ mgp-short-name }} запустит операцию по изменению настроек кластера.

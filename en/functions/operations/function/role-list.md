@@ -30,7 +30,7 @@ description: "This guide describes how you can view the roles assigned to a func
    +------------------------------+--------------+-----------------------+
    |           ROLE ID            | SUBJECT TYPE |       SUBJECT ID      |
    +------------------------------+--------------+-----------------------+
-   | serverless.functions.invoker | system       | allAuthenticatedUsers |
+   | {{ roles-functions-invoker }}    | system       | allAuthenticatedUsers |
    +------------------------------+--------------+-----------------------+
    ```
 

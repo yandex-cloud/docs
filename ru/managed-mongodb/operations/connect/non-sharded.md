@@ -20,7 +20,7 @@
            * **URL** — строка подключения:
 
                 ```http
-                mongodb://<FQDN хоста 1 {{ MG }}>:{{ port-mmg }},..,<FQDN хоста N {{ MG }}>:{{ port-mmg }}/<имя БД>
+                mongodb://<FQDN_хоста_1_{{ MG }}>:{{ port-mmg }},..,<FQDN_хоста_N_{{ MG }}>:{{ port-mmg }}/<имя_БД>
                 ```
 
                 {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
@@ -46,7 +46,7 @@
         1. В блоке **Адрес** переключите **Type** на `URL` и укажите строку подключения:
 
              ```http
-             mongodb://<FQDN хоста 1 {{ MG }}>:{{ port-mmg }},..,<FQDN хоста N {{ MG }}>:{{ port-mmg }}/<имя БД>
+             mongodb://<FQDN_хоста_1_{{ MG }}>:{{ port-mmg }},..,<FQDN_хоста_N_{{ MG }}>:{{ port-mmg }}/<имя_БД>
              ```
 
              {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
@@ -72,7 +72,7 @@
 
 В примерах ниже предполагается, что SSL-сертификат `root.crt` расположен в директории:
 
-* `/home/<домашняя директория>/.mongodb/` для Ubuntu;
+* `/home/<домашняя_директория>/.mongodb/` для Ubuntu;
 * `$HOME\.mongodb` для Windows.
 
 При успешном подключении к кластеру и выполнении тестового запроса будут выведены:

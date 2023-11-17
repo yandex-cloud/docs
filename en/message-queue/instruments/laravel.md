@@ -2,11 +2,11 @@
 
 To work with queues, the [Laravel](https://laravel.com/) PHP framework provides the [Queue](https://laravel.com/docs/6.x/queues) primitive. As a message broker, you can use {{ message-queue-name }}.
 
-## Installation {#install}
+## Installing {#install}
 
 Install the Laravel software using the [instructions](https://laravel.com/docs/6.x/installation) on the framework's official website.
 
-## Before you start {#prepare}
+## Getting started {#prepare}
 
 {% include [mq-http-api-preps](../_includes_service/mq-http-api-preps-sdk.md)%}
 
@@ -21,9 +21,9 @@ Create a queue in {{ message-queue-name }} and copy the URL.
 
 ## Instructions {#sample}
 
-In this example, we create a demo Job that adds up two numbers and a Command that queues the task.
+In this example, we create a demo job that sums up two numbers and a command that adds the job to a queue in {{ message-queue-name }}.
 
-To use {{ message-queue-name }} with Laravel, follow these instructions.
+To use {{ message-queue-name }} with Laravel, follow this guide.
 
 1. Create a test project named `mq_example`:
 
@@ -31,7 +31,7 @@ To use {{ message-queue-name }} with Laravel, follow these instructions.
    composer create-project --prefer-dist laravel/laravel mq_example
    ```
 
-1. Create an `Add` task:
+1. Create an `Add` job:
 
    ```
    php artisan make:job Add
@@ -163,13 +163,13 @@ To use {{ message-queue-name }} with Laravel, follow these instructions.
    composer update
    ```
 
-1. Run the command:
+1. Run this command:
 
    ```
    php artisan sample:schedule-add
    ```
 
-1. Run the command:
+1. Run this command:
 
    ```
    php artisan queue:work

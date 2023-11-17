@@ -7,7 +7,7 @@ You can also request editing permissions to a folder or object that you are allo
 
 - Requesting permissions
 
-   1. On the navigation page, find the relevant folder or object and click it.
+   1. On the [navigation page]({{ link-datalens-main }}/navigation), find the folder or object and click it.
 
       {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
@@ -15,7 +15,7 @@ You can also request editing permissions to a folder or object that you are allo
 
 - Editing permissions
 
-   1. On the navigation page, find the relevant folder or object.
+   1. On the [navigation page]({{ link-datalens-main }}/navigation), find the folder or object.
 
       {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 

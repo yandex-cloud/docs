@@ -1,0 +1,1 @@
+The `resource-manager.clouds.owner` role grants full access to the cloud and its resources. The role can only be assigned for a cloud.

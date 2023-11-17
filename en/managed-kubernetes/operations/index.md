@@ -20,9 +20,12 @@ description: "In this article, you'll learn how to work with the managed service
 
 * [{#T}](applications/marketplace.md)
 * [{#T}](applications/argo-cd.md)
+* [{#T}](applications/chaos-mesh.md)
+* [{#T}](applications/cert-manager-cloud-dns.md)
 * [{#T}](applications/csi-s3.md)
 * [{#T}](applications/crossplane.md)
 * [{#T}](applications/external-secrets-operator.md)
+* [{#T}](applications/externaldns.md)
 * [{#T}](applications/falco.md)
 * [{#T}](applications/filebeat.md)
 * [{#T}](applications/fluentbit.md)
@@ -31,6 +34,7 @@ description: "In this article, you'll learn how to work with the managed service
 * [{#T}](applications/gitlab-runner.md)
 * [{#T}](applications/hashicorp-vault.md)
 * [{#T}](applications/alb-ingress-controller.md)
+* [{#T}](applications/istio.md)
 * [{#T}](applications/jaeger.md)
 * [{#T}](applications/kyverno.md)
 * [{#T}](applications/loki.md)
@@ -38,6 +42,7 @@ description: "In this article, you'll learn how to work with the managed service
 * [{#T}](applications/node-local-dns.md)
 * [{#T}](applications/policy-reporter.md)
 * [{#T}](applications/thumbor.md)
+* [{#T}](applications/velero-yc-csi.md)
 
 
 ## Network scenarios {#network-scenarios}

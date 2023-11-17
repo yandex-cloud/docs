@@ -9,12 +9,18 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release on 10/10/2023 {#101023}
+
+1. You can test retrained {{ yagpt-name }} models right in {{ ml-platform-name }}. {{ yagpt-name }} Playground {{ ml-platform-name }} is available after retraining to those users who have access permissions to [{{ yagpt-name }}](../yandexgpt/).
+1. You can now [connect](operations/projects/remote-connect.md) your {{ ml-platform-name }} project to {{ jlab }}Lab from a local IDE.
+1. Fixed bugs and added minor improvements in platform performance.
+
 ## Release on 25/09/2023 {#250923}
 
-1. With [DataSphere Jobs](concepts/jobs.md), cloud computing resources in {{ ml-platform-name }} can now be used from a user's local environment.
+1. With [{{ ml-platform-name }} Jobs](concepts/jobs.md), cloud computing resources in {{ ml-platform-name }} can now be used from a user's local environment.
 1. {{ ml-platform-name }} projects now have a new type of resources: [Models](concepts/models/index.md).
 1. Optimized JupyterLab 3 (available in [Dedicated](concepts/project.md#dedicated) mode) by adding new extensions.
-1. [YandexGPT model retraining](../overview/concepts/launch-stages.md) is now available at the [Preview](concepts/models/foundation-models.md#yagpt-tuning) stage.
+1. [{{ yagpt-name }} model retraining](concepts/models/foundation-models.md#yagpt-tuning) is now available at the [Preview](../overview/concepts/launch-stages.md) stage.
 1. Fixed bugs and added minor improvements in platform performance.
 
 ## Release on 18/09/2023 {#180923}

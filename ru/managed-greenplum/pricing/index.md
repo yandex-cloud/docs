@@ -146,26 +146,22 @@ editable: false
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
-{% list tabs %}
+#### Стандартные хосты {#standard-hosts}
 
-- Стандартные хосты
+Стоимость вычисляется по-разному в зависимости от [конфигурации хостов](../concepts/instance-types.md):
 
-  Стоимость вычисляется по-разному в зависимости от [конфигурации хостов](../concepts/instance-types.md):
+* Для хостов i2 и i3 (`io-optimized`) стоимость складывается из цены за вычислительные ресурсы хостов {{ mgp-name }} (см. таблицу ниже) и [цены за использование программно-ускоренной сети](../../compute/pricing.md#software-accelerated-network).
+* Для хостов других конфигураций оплачиваются только их вычислительные ресурсы:
 
-  * Для хостов i2 и i3 (`io-optimized`) стоимость складывается из цены за вычислительные ресурсы хостов {{ mgp-name }} (см. таблицу ниже) и [цены за использование программно-ускоренной сети](../../compute/pricing.md#software-accelerated-network).
-  * Для хостов других конфигураций оплачиваются только их вычислительные ресурсы:
-
-   {% include notitle [RUB: standard hosts](../../_pricing/managed-greenplum/rub-hosts-standard.md) %}
+     {% include notitle [RUB: standard hosts](../../_pricing/managed-greenplum/rub-hosts-standard.md) %}
 
 
-- Выделенные хосты
+#### Выделенные хосты {#dedicated-hosts}
 
-  Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
+Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
 
-   {% include notitle [RUB: dedicated hosts](../../_pricing/managed-greenplum/rub-hosts-dedicated.md) %}
+ {% include notitle [RUB: dedicated hosts](../../_pricing/managed-greenplum/rub-hosts-dedicated.md) %}
 
-
-{% endlist %}
 
 ### Хранилище и резервные копии {#prices-storage}
 

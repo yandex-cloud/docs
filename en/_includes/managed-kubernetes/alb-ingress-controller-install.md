@@ -34,11 +34,10 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    * **Cluster ID**: Specify a [cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
    * **Service account key**: Paste the contents of the `sa-key.json` file.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Wait for the application to change its status to `Deployed`.
 
 
 ## Installation using a Helm chart {#install-alb-helm}
-
-### Getting started {#before-helm}
 
 1. {% include [helm-install](helm-install.md) %}
 
@@ -49,8 +48,6 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    ```bash
    sudo apt update && sudo apt install jq
    ```
-
-### Installation using a Helm chart {#helm-install}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Ingress controller, run these commands:
 
@@ -77,6 +74,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 
 * [Manual for configuring the {{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+* [Manual for configuring logging for {{ alb-name }} Ingress controllers](../../managed-kubernetes/tutorials/alb-ingress-controller-log-options.md).
 
 
 * [Reference for the {{ alb-name }} Ingress controller](../../application-load-balancer/k8s-ref/index.md).

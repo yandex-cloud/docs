@@ -2,7 +2,9 @@
 
 {{ backup-name }} — сервис для создания резервных копий и восстановления ресурсов {{ yandex-cloud }} и данных на них.
 
-{{ backup-name }} поддерживает резервное копирование [виртуальных машин {{ compute-name }}](../compute/concepts/vm.md) с операционными системами Ubuntu, CentOS и Windows Server. Подробнее см. в разделе [{#T}](concepts/vm-connection.md#os).
+Вы можете создавать резервные копии [виртуальных машин](../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами](concepts/vm-connection.md#os).
+
+{% include [requirements](../_includes/backup/requirements.md) %}
 
 Чтобы начать работать с {{ backup-name }}:
 1. [Активируйте сервис](#activate-provider).
@@ -67,8 +69,7 @@
           1. Нажмите кнопку **{{ ui-key.yacloud.component.vpc.create-network-dialog.button_create }}**.
 
               У каждой сети должна быть как минимум одна подсеть. Если подсети нет, создайте ее, выбрав ![plus-sign](../_assets/plus-sign.svg) **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-      1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите опцию `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      1. Выберите [подходящие группы безопасности](concepts/vm-connection.md#security-groups) (если соответствующего поля нет, для ВМ будет разрешен любой входящий и исходящий трафик).
+      1. Настройте [сетевой доступ](concepts/vm-connection.md#vm-network-access) для ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.label_backup }}** выберите опцию подключения ВМ к сервису {{ backup-name }}.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
       1. Выберите сервисный аккаунт с ролью `backup.editor`.

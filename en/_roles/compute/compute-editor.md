@@ -1,0 +1,1 @@
+The `compute.editor` role gives rights to manage virtual machines and instance groups.

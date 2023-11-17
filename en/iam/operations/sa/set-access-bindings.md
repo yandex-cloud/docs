@@ -10,7 +10,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
    1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. Choose a service account and click the line with its name.
+   1. Choose a service account and click the row with its name.
    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
    1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window, click **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
@@ -157,13 +157,13 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
       * `service_account_id`: ID of the service account that access must be configured for.
-      * `role`: Role being assigned. Required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
+      * `role`: Role being assigned. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
 
       Example of the configuration file structure:
 
@@ -300,7 +300,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To assign several roles to a service account created with {{ TF }}:
 
@@ -315,7 +315,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
        {% endnote %}
 
-       * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
+       * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
 
      {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
 
@@ -342,7 +342,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
      {% endcut %}
 
-       For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+     For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
     1. Check the configuration using this command:
        ```
@@ -542,15 +542,15 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To allow the `test-sa` service account to manage the `my-robot` service account created using {{ TF }}:
 
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
       * `service_account_id`: ID of the service account that access must be configured for.
-      * `role`: Role being assigned. Required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
+      * `role`: Role being assigned. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the following format: `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
 
    {% cut "Example of allowing the `test-sa` service account to manage the `my-robot` service account using {{ TF }}" %}
 
@@ -646,15 +646,15 @@ For example, allow any authenticated user to view information about the `my-robo
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    To allow any authenticated user to view information about the `my-robot` service account:
 
    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
       * `service_account_id`: ID of the service account that access must be configured for.
-      * `role`: Role being assigned. Required parameter.
-      * `members`: List of users or service account the role is being assigned to. It is specified in the format `userAccount:<user ID>` or `serviceAccount:<service account ID>`. Required parameter.
+      * `role`: Role being assigned. This is a required parameter.
+      * `members`: List of users or service account the role is being assigned to. It is specified in the format `userAccount:<user ID>` or `serviceAccount:<service account ID>`. This is a required parameter.
 
    {% cut "Example of allowing any authenticated user to view information about the `my-robot` service account" %}
 

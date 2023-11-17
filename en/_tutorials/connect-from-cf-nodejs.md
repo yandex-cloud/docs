@@ -117,8 +117,8 @@ The infrastructure support cost for this scenario includes:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
-         --role editor \
-         --subject serviceAccount:<service_account_ID>
+        --role editor \
+        --subject serviceAccount:<service_account_ID>
       ```
 
       Result:
@@ -138,7 +138,7 @@ The infrastructure support cost for this scenario includes:
 
 - {{ TF }}
 
-   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   {% include [terraform-install](../_includes/terraform-install.md) %}
 
    1. In the configuration file, describe the service account parameters:
 
@@ -316,7 +316,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 
    ```bash
    npx tsc --build tsconfig.json
-   rm: couldn't delete '../build/func.zip': File or folder doesn't exist
+   rm: couldn't delete '../build/func.zip': File or folder does not exist
    adding: queries/ (stored 0%)
    adding: queries/clients-table.js (deflated 57%)
    adding: queries/helpers.js.map (deflated 43%)

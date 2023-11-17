@@ -3,15 +3,16 @@
 ## {{ KF }} {#kafka}
 
 * [{#T}](kafka-connector.md)
+* [{#T}](data-transfer-mkf.md)
 * [{#T}](data-transfer-mmy.md)
+* [{#T}](debezium-mmy.md)
 * [{#T}](data-transfer-mpg.md)
+* [{#T}](debezium-mpg.md)
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](data-transfer-mkf-mes.md)
-* [{#T}](data-transfer-mkf.md)
-* [{#T}](debezium-mmy.md)
-* [{#T}](debezium-mpg.md)
+* [{#T}](mkf-ydb-stream.md)
 * [{#T}](kafka-connect.md)
-* Using the registry of data format schemas with {{ mkf-name }}:
+* Using the registry of data format schemas with {{ mkf-full-name }}:
   * [Managing data schemas in {{ mkf-name }}](schema-registry-overview.md)
   * [{#T}](managed-schema-registry.md)
   * [{#T}](confluent-schema-registry.md)
@@ -19,39 +20,25 @@
 ## {{ CH }} {#clickhouse}
 
 * [{#T}](rdbms-to-clickhouse.md)
-
-
 * [{#T}](dp-mch-data-exchange.md)
-
-
 * [{#T}](clickhouse-for-graphite.md)
 * [{#T}](fetch-data-from-mkf.md)
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](fetch-data-from-rabbitmq.md)
+* [{#T}](yds-to-clickhouse.md)
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)
-* [{#T}](yds-to-clickhouse.md)
 
-## {{ dns-full-name }} {#dns}
+## {{ GP }} {#greenplum}
 
-* [{#T}](mdb-dns-peering.md)
-* [{#T}](clickhouse-dns-peering.md)
-
-
-
-## {{ dataproc-full-name }} {#dataproc}
-
-* [{#T}](dp-mch-data-exchange.md)
-* [{#T}](sqoop-mmy.md)
-* [{#T}](sqoop-mpg.md)
-* [{#T}](data-proc-init-actions-geesefs.md)
-
-
+* [{#T}](greenplum-to-clickhouse.md)
+* [{#T}](greenplum-to-postgresql.md)
 
 
 ## {{ ES }} {#elasticsearch}
 
 * [{#T}](migration-via-reindex-api.md)
+* [{#T}](elasticsearch-to-opensearch.md)
 * [{#T}](data-transfer-mkf-mes.md)
 
 ## {{ MG }} {#mongodb}
@@ -69,16 +56,17 @@
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
 * [{#T}](mmy-objs-migration.md)
-
-
+* [{#T}](mmy-to-yds.md)
+* [{#T}](mmy-to-mpg.md)
 * [{#T}](sqoop-mmy.md)
-
-
 * [{#T}](data-transfer-mmy.md)
 * [{#T}](debezium-mmy.md)
 * [{#T}](mmy-ydb-migration.md)
 
 
+## {{ OS }} {#opensearch}
+
+* [{#T}](elasticsearch-to-opensearch.md)
 
 
 ## {{ PG }} {#postgresql}
@@ -86,26 +74,31 @@
 * [Creating a {{ PG }} cluster for 1C:Enterprise](1c-postgresql.md)
 * [{{ mpg-name }} performance analysis and tuning](mpg-profiling.md)
 * [Migrating databases from {{ mpg-name }}](outbound-replication.md)
-* [Migrating databases from a third-party {{ PG }} cluster to {{ mpg-name }}](postgresql-data-migration.md)
+* [Migrating a database from a third-party {{ PG }} cluster to {{ mpg-name }}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](data-transfer-mpg.md)
 * [{#T}](debezium-mpg.md)
-
-
 * [{#T}](sqoop-mpg.md)
-
-
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](mpg-to-objstorage.md)
-
-## {{ GP }} {#greenplum}
-
-* [{#T}](greenplum-to-clickhouse.md)
-* [{#T}](greenplum-to-postgresql.md)
+* [{#T}](mpg-to-mmy.md)
+* [{#T}](mpg-to-yds.md)
+* [{#T}](rds-to-mpg.md)
 
 
 ## {{ RD }} {#redis}
 
 * [{#T}](redis-data-migration.md)
 * [{#T}](redis-as-php-sessions-storage.md)
+
+## {{ dns-full-name }} {#dns}
+
+* [{#T}](clickhouse-dns-peering.md)
+
+## {{ dataproc-full-name }} {#dataproc}
+
+* [{#T}](dp-mch-data-exchange.md)
+* [{#T}](sqoop-mmy.md)
+* [{#T}](sqoop-mpg.md)
+* [{#T}](data-proc-init-actions-geesefs.md)
 

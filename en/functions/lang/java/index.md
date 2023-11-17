@@ -1,6 +1,6 @@
 ---
 title: "Developing in Java in {{ sf-full-name }}. Overview"
-description: "With {{ sf-name }}, you can run applications written in Java. The service provides the runtime environment with Java 11 and Ubuntu 18.04 LTS."
+description: "With {{ sf-name }}, you can run applications written in Java. The service provides the runtime environment with Java 11 and Ubuntu 18.04."
 ---
 
 # Developing in Java. Overview
@@ -9,8 +9,9 @@ With {{ sf-name }}, you can run applications written in [Java](https://docs.orac
 
 #|
 || **Name** | **Java version** | **OS** | **Preloaded** ||
-|| java11 | 11 | Ubuntu 18.04 LTS | no ||
-|| java17 | 17 | Ubuntu 18.04 LTS | no ||
+|| java11 | 11 | Ubuntu 18.04 | No||
+|| java17 | 17 | Ubuntu 18.04 | No ||
+|| java21 | 21 | Ubuntu 22.04 LTS | No ||
 |#
 
 

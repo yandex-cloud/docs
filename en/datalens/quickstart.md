@@ -1,7 +1,8 @@
 # Getting started with {{ datalens-short-name }}
 
 
-In this tutorial, you'll create your first [dataset](concepts/dataset/index.md), build several [charts](concepts/chart/index.md) to visualize data, and place them on a [dashboard](concepts/dashboard.md).
+
+In this tutorial, you will create your first [dataset](concepts/dataset/index.md), build several [charts](concepts/chart/index.md) to visualize data, and place them on a [dashboard](concepts/dashboard.md).
 
 
 
@@ -15,29 +16,37 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 ## Create a dataset {#create-dataset}
 
 1. In the top-right corner, click **Create dataset**.
-1. Drag the **MS_SalesMiniTable** table to the workspace.
+
+
+1. Drag the `MS_SalesMiniTable` table to the workspace.
 
    ![drag-table](../_assets/datalens/quickstart/02-drag-table.png)
 
 1. Go to the **Fields** tab.
-1. In the **Aggregation** column, select **Sum** for the **Sales** field.
-1. Create a measure for the number of orders.
-   1. Rename the **OrderID** field to **OrderCount**.
+
+
+1. In the **Aggregation** column, select **Sum** for the `Sales` field.
+1. Create a measure for the number of orders:
+
+   1. Rename the `OrderID` field to `OrderCount`.
    1. Change the aggregation type to **Number of unique**.
-1. For the **ShopAddressCoord** field, change the data type to **Geopoint**.
-1. Click **Save** in the upper-right corner to save the dataset.
-1. Enter the dataset name and click **Create**.
+1. For the `ShopAddressCoord` field, change the data type to **Geopoint**.
+1. Save the dataset:
+
+   1. In the top-right corner, click **Save**.
+   1. Enter a name for the dataset and click **Create**.
 
    ![create-dataset](../_assets/datalens/quickstart/03-create-dataset.png)
 
 ## Create a column chart {#create-column-chart}
 
 1. In the top-right corner, click **Create chart**.
-1. For the visualization type, choose **Bar chart**.
-1. Add the product subcategory to the chart. To do this, drag the **ProductSubcategory** field from the **Dimensions** section to the **X** section.
-1. Add a sales measure to the chart. To do this, drag the **Sales** field from the **Measures** section to the **Y** section.
-1. Sort the chart in descending order of sales measure. Drag the **Sales** field from the **Measures** section to the **Sorting** section.
-1. Save the chart.
+1. Select the **Bar chart** visualization type.
+1. Add the product subcategory to the chart. To do this, drag the `ProductSubcategory` field from **Dimensions** to the **X** section.
+1. Add a sales measure to the chart. To do this, drag the `Sales` field from **Measures** to the **Y** section.
+1. Sort the chart in descending order by sales by dragging the `Sales` field from **Measures** to the **Sorting** section.
+1. Save the chart:
+
    1. In the top-right corner, click **Save**.
    1. In the window that opens, enter the **Sales by subcategory** name for the chart and click **Save**.
 
@@ -45,34 +54,37 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 
 ## Create a stacked area chart {#create-area-chart}
 
-1. In the created chart, select **Stacked area chart** as the visualization type.
-1. Replace the product subcategories with the order date on the X-axis. To do this, drag the **OrderDate** field from the **Dimensions** section to the **X** section and hold it over the **ProductSubcategory** field until it turns red.
-1. Add the product category to the chart. To do this, drag the **ProductCategory** field from the **Dimensions** section to the **Colors** section.
-1. Display the chart by week.
-   1. Click the calendar icon next to the **OrderDate** field in the **X** section.
-   1. In the drop-down list of grouping options, select **Week** under **Grouping**.
+1. In the chart you created in the previous step, select **Stacked area chart** for the visualization type.
+1. Replace the product subcategories with the order date on the X-axis. To do this, drag the `OrderDate` field from **Dimensions** to the **X** section and hold it over the `ProductSubcategory` field until it turns red.
+1. Add the product category to the chart. To do this, drag the `ProductCategory` field from **Dimensions** to the **Colors** section.
+1. Display a week by week chart:
+
+   1. Click the calendar icon next to the `OrderDate` field in the **X** section.
+   1. In the **Grouping** field, select **Rounding** → **Week**.
    1. Click **Apply**.
-1. Save the chart.
-   1. Click the down arrow next to the **Save** button in the upper-right corner.
-   1. Choose **Save as**.
+
+1. Save the chart:
+
+   1. In the top-right corner, click ![save-button](../_assets/datalens/save-button.svg) → **Save as copy**.
    1. In the window that opens, enter the **Sales by week** name for the new chart and click **Save**.
 
    ![create-chart-2](../_assets/datalens/quickstart/05-create-area-chart.png)
 
 ## Create a map {#create-map-chart}
 
-1. In the created chart, select **Map** as the visualization type.
-1. Add the coordinates of the points of sale to the map. To do this, drag the **ShopAddressCoord** field from the **Dimensions** section to the **Geopoints** section.
-1. Change the point size based on the number of orders. To do this, drag the **OrderCount** field from the **Measures** section to the **Size** section.
-1. Change the point color based on the sales measure. To do this, drag the **Sales** field from the **Measures** section to the **Colors** section.
+1. In the chart you created in the previous step, select **Map** for the visualization type.
+1. Add the coordinates of the points of sale to the map. To do this, drag the `ShopAddressCoord` field from **Dimensions** to the **Points (Geopoints)** section.
+1. Change the point size based on the number of orders. To do this, drag the `OrderCount` field from **Measures** to the **Point size** section.
+1. Change the point color based on the sales measure. To do this, drag the `Sales` field from **Measures** to the **Colors** section.
 1. Add the following fields to the **Tooltips** section:
-   * ShopAddress
-   * ShopName
-   * Sales
-   * OrderCount
-1. Save the chart.
-   1. Click the down arrow next to the **Save** button in the upper-right corner.
-   1. Choose **Save as**.
+
+   * `ShopAddress`
+   * `ShopName`
+   * `Sales`
+   * `OrderCount`
+1. Save the chart:
+
+   1. In the top-right corner, click ![save-button](../_assets/datalens/save-button.svg) → **Save as copy**.
    1. In the window that opens, enter the **Sales map** name for the new chart and click **Save**.
 
    ![create-chart-3](../_assets/datalens/quickstart/06-create-map-chart.png)
@@ -97,15 +109,15 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 ## Add a selector to the dashboard {#add-selectors}
 
 1. Click **Add** and choose **Selector**.
-1. Add the calendar selector for the order date.
+1. Add the calendar selector for the order date:
+
    1. Select the created dataset.
-   1. Select the **OrderDate** field.
-   1. This will automatically fill in the **Name** field. Click the **Show** checkbox next to the selector title.
-   1. Select the **Calendar** type.
+   1. Select the `OrderDate` field. This will automatically fill in the **Name** field.
    1. Enable **Range**.
    1. Click **Add**.
+
 1. Position the selector on the dashboard wherever you like.
-1. Save the dashboard. To do this, click **Save** in the upper-right corner.
+1. Save the dashboard. To do this, click **Save** in the top-right corner.
 
    ![add-selectors](../_assets/datalens/quickstart/08-add-selectors.png)
 
@@ -113,6 +125,6 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 
 ## What's next {#whats-next}
 
-* Review the [tutorials](tutorials/index.md) for examples of using the service.
+* See the [guides](tutorials/index.md) with service usage examples.
 * Read about [service concepts](./concepts/index.md).
 * View an [example of a ready-to-use dashboard](https://datalens.yandex/9fms9uae7ip02).

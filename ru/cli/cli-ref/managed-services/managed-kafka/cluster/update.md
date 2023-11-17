@@ -34,7 +34,6 @@ Syntax:
 |`--zookeeper-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a ZooKeeper host (CPU, RAM etc.).|
 |`--zookeeper-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ZooKeeper host.|
 |`--assign-public-ip`|Whether a Kafka brokers should get a public IP address.|
-|`--unmanaged-topics`|Whether a Kafka cluster allows to manage topics via AdminAPI.|
 |`--schema-registry`|Enables managed Schema Registry sevice.|
 |`--compression-type`|<b>`string`</b><br/>Allows to set Kafka cluster configuration property "compression.type". Possible values are: gzip, snappy, lz4, zstd, producer, uncompressed.|
 |`--log-flush-interval-messages`|<b>`int`</b><br/>Allows to set Kafka cluster configuration property "log.flush.interval.messages". The number of messages accumulated on a log partition before messages are flushed to disk.|

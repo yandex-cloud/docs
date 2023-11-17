@@ -20,11 +20,11 @@
 * [Изменить группы безопасности](#change-sg-set).
 
 
-{% note info %}
+Подробнее о других изменениях кластера:
 
-О том, как изменить версию {{ RD }} кластера, читайте в разделе [{#T}](cluster-version-update.md).
+* [{#T}](cluster-version-update.md).
 
-{% endnote %}
+* [{#T}](host-migration.md).
 
 ## Изменить имя и описание кластера {#change-name-and-description}
 
@@ -56,9 +56,9 @@
   1. Укажите новые имя и описание в команде изменения кластера:
 
      ```bash
-     {{ yc-mdb-rd }} cluster update <идентификатор или имя кластера> \
-       --new-name <новое имя кластера> \
-       --description <новое описание кластера>
+     {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+       --new-name <новое_имя_кластера> \
+       --description <новое_описание_кластера>
      ```
 
 - {{ TF }}
@@ -78,9 +78,9 @@
     1. Измените в описании кластера {{ mrd-name }} значение параметра `description`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
-          name        = "<имя кластера>"
-          description = "<новое описание кластера>"
+        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
+          name        = "<имя_кластера>"
+          description = "<новое_описание_кластера>"
           ...
         }
         ```
@@ -175,8 +175,8 @@
   1. Укажите нужный класс в команде изменения кластера:
 
      ```bash
-     {{ yc-mdb-rd }} cluster update <идентификатор или имя кластера> \
-       --resource-preset <идентификатор класса хостов>
+     {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+       --resource-preset <идентификатор_класса_хостов>
      ```
 
      {{ mrd-short-name }} запустит операцию изменения класса хостов для кластера.
@@ -190,10 +190,10 @@
     1. Измените в описании кластера {{ mrd-name }} значение параметра `resource_preset_id` в блоке `resources`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
+        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
           ...
           resources {
-            resource_preset_id = "<класс хоста>"
+            resource_preset_id = "<класс_хоста>"
             ...
             }
         }
@@ -260,8 +260,8 @@
   1. Укажите нужный размер хранилища в команде изменения кластера. Новый размер должен быть не меньше, чем текущее значение `disk_size` в свойствах кластера.
 
      ```bash
-     {{ yc-mdb-rd }} cluster update <имя или идентификатор кластера> \
-       --disk-size <размер хранилища в ГБ>
+     {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+       --disk-size <размер_хранилища_ГБ>
      ```
 
      Если все условия выполнены, {{ mrd-short-name }} запустит операцию по увеличению размера дисков хостов {{ RD }}.
@@ -277,10 +277,10 @@
     1. Измените в описании кластера {{ mrd-name }} значение параметра `disk_size` в блоке `resources`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
+        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
           ...
           resources {
-            disk_size = <размер хранилища в гигабайтах>
+            disk_size = <размер_хранилища_ГБ>
             ...
             }
         }
@@ -339,16 +339,21 @@
     1. Измените в описании кластера {{ mrd-name }} значения параметров в блоке `config`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
+        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
           ...
           config {
             password         = "<пароль>"
-            timeout          = <время в секундах перед отключением неактивных клиентов>
-            maxmemory_policy = "<политика управления памятью при ее дефиците>"
+            timeout          = <время>
+            maxmemory_policy = "<политика>"
             ...
           }
         }
         ```
+
+        Где:
+
+        * `timeout` — время в секундах перед отключением неактивных клиентов.
+        * `maxmemory_policy` — политика управления памятью при ее дефиците.
 
         {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
@@ -369,7 +374,7 @@
     Чтобы изменить настройки {{ RD }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/cluster_service.md#Update) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-    * Нужные значения настроек {{ RD }} в параметре `configSpec.redisConfig_<версия {{ RD }}>`.
+    * Нужные значения настроек {{ RD }} в параметре `configSpec.redisConfig_<версия_{{ RD }}>`.
     * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -409,12 +414,12 @@
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update <идентификатор или имя кластера> \
-            --backup-window-start <время начала резервного копирования> \
-            --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                                `day=<день недели для типа weekly>,`
-                                `hour=<час дня для типа weekly> \
-            --deletion-protection=<защита от удаления кластера: true или false>
+        {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+            --backup-window-start <время> \
+            --maintenance-window type=<тип_технического_обслуживания>,`
+                                `day=<день_недели>,`
+                                `hour=<час_дня> \
+            --deletion-protection=<защита_от_удаления>
         ```
 
     Вы можете изменить следующие настройки:
@@ -475,8 +480,8 @@
     1. Укажите каталог назначения в команде перемещения кластера:
 
         ```bash
-        {{ yc-mdb-rd }} cluster move <идентификатор кластера> \
-           --destination-folder-name=<имя каталога назначения>
+        {{ yc-mdb-rd }} cluster move <идентификатор_кластера> \
+           --destination-folder-name=<имя_каталога_назначения>
         ```
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -520,8 +525,8 @@
     1. Укажите нужные группы безопасности в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update <идентификатор или имя кластера> \
-          --security-group-ids <список групп безопасности>
+        {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
+          --security-group-ids <список_идентификаторов_групп_безопасности>
         ```
 
 - {{ TF }}
@@ -533,9 +538,9 @@
     1. Измените в описании кластера {{ mrd-name }} значение параметра `security_group_ids`:
 
         ```hcl
-        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
+        resource "yandex_mdb_redis_cluster" "<имя_кластера>" {
           ...
-          security_group_ids = [<список идентификаторов групп безопасности>]
+          security_group_ids = [<список_идентификаторов_групп_безопасности>]
         }
         ```
 
