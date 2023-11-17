@@ -29,12 +29,6 @@ keywords:
 
 {% endnote %}
 
-{% note info %}
-
-NTP-серверы `ntp1.yandex.net` и `ntp2.yandex.net` доступны внутри сети независимо от доступа к внешнему интернету.
-
-{% endnote %}
-
 Чтобы настроить синхронизацию времени:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте инфраструктуру](#prepare-infrastructure).

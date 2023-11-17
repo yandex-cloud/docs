@@ -1,0 +1,1 @@
+The `ai.auditor` role enables you to view quotas for Translate, Vision, SpeechKit, and YandexGPT, as well as folder metadata.

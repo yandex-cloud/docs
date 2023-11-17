@@ -12,10 +12,12 @@ keywords:
 
 Класс хостов определяет вычислительные мощности, которые выделяются для каждого хоста с определенной ролью в кластере. При изменении класса хостов для роли в кластере меняются характеристики всех уже созданных в нем хостов с этой ролью. Подробнее о ролях см. в разделе [{#T}](./index.md).
 
-От класса хоста с [ролью Data node](./hosts-roles.md) зависит список доступных [типов дисков](./storage.md):
+Для хостов с [ролью Data node](./hosts-roles.md) доступны [типы дисков](./storage.md):
 
-  * **s2**, **m2** — `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
-  * **s3**, **m3** — `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
+* `network-ssd`
+* `network-hdd`
+* `local-ssd`
+* `network-ssd-nonreplicated`.
 
 Для хостов с ролью Master node доступны только сетевые SSD-диски (`network-ssd`).
 

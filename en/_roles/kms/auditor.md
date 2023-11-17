@@ -1,0 +1,1 @@
+The `kms.auditor` role enables you to view a list of signature and encryption keys and get information about signature and encryption permissions. It does not allow you to obtain a public key.

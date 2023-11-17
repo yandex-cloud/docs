@@ -277,7 +277,7 @@ pip3 install protobuf varint pycapnp
 
      execute_query(
          '''
-         INSERT INTO {database}.users FORMAT {type} SETTINGS format_schema='{name}:{cls}'
+         INSERT INTO {database}.users SETTINGS format_schema='{name}:{cls}' FORMAT {type}
          '''.format(database=DB_NAME, 
                     type=SCHEMA_TYPE, 
                     name=SCHEMA_NAME, 
@@ -342,7 +342,7 @@ pip3 install protobuf varint pycapnp
      add_user(message, 23, 'Tim')
 
      execute_query(
-         '''INSERT INTO {database}.users FORMAT {type} SETTINGS format_schema='{name}:{cls}'
+         '''INSERT INTO {database}.users SETTINGS format_schema='{name}:{cls}' FORMAT {type}
          '''.format(database=DB_NAME, 
                     type=SCHEMA_TYPE, 
                     name=SCHEMA_NAME, 

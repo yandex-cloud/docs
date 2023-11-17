@@ -1,0 +1,1 @@
+The `ai.editor` role allows you to use Translate, Vision, SpeechKit, and YandexGPT. It includes all permissions of the `ai.viewer`, `ai.speechkit-stt.user`, `ai.speechkit-tts.user`, `ai.vision.user`, `ai.translate.user`, and `ai.languageModels.user` roles.

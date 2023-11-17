@@ -42,10 +42,12 @@ items:
           data-transfer-full-name }}
         href: tutorials/mmy-ydb-migration.md
       - name: >-
-          Поставка данных в {{ mkf-full-name }} с помощью {{
-          data-transfer-full-name }}
+          Поставка данных из {{ ydb-short-name }} в {{ mkf-full-name }} с
+          помощью {{ data-transfer-full-name }}
         href: tutorials/ydb-mkf-replication.md
-      - name: Захват изменений {{ ydb-short-name }} и поставка в {{ DS }}
+      - name: >-
+          Поставка данных из {{ ydb-short-name }} в {{ yds-full-name }} с
+          помощью {{ data-transfer-full-name }}
         href: tutorials/ydb-to-yds.md
       - name: >-
           Построение пайплайна CI/CD в {{ GL }} с использованием

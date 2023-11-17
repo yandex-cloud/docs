@@ -19,6 +19,12 @@
 1. Перейдите в раздел **{{ ui-key.startrek.blocks-desktop_page-admin.breadcrumbs-title }}** → **{{ ui-key.startrek.blocks-desktop_b-head.cloud-burger-billing }}**. На странице отображаются все ваши платежные аккаунты из {{ yandex-cloud }}.
 1. Рядом с нужным аккаунтом нажмите **{{ ui-key.startrek.ui_components_page-admin_BillingAccountList.bind }}**.
 
+{% note warning  %}
+
+Если администрированием {{ tracker-name }} и платежного аккаунта занимаются разные пользователи, то администратор {{ tracker-name }} сможет привязать платежный аккаунт только при наличии роли `billing.accounts.admin` или `billing.accounts.editor` в [облаке](../organization/concepts/manage-services.md#cloud) организации {{ org-full-name }}. [Подробнее про роли {{ billing-name }}](../iam/concepts/access-control/roles.md#billing-roles).
+
+{% endnote %}
+
 ## Создать платежный аккаунт {#create}
 
 1. Откройте [страницу {{ tracker-name }}]({{ link-tracker }}) и [войдите в аккаунт администратора](user/login.md).

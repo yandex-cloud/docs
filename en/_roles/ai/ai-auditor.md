@@ -1,1 +1,0 @@
-The `ai.auditor` role.

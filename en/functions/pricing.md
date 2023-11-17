@@ -35,26 +35,26 @@ Monthly cost = $0.043760 × Memory (GB) × Call processing time (Hours) + $0.128
 ### Example of cost calculation {#price-example}
 
 Example of calculating the cost of a function that has:
-* **Memory specified when creating the version**: 512 MB.
-* **Number of function calls**: 10000000.
-* **Execution time of each call**: 800 ms.
+* **Memory specified when creating the version**: 512 MB
+* **Number of function calls**: 10,000,000
+* **Execution time of each call**: 800 ms
 
 Function cost calculation:
 
-> 0.043760 × ((512 / 1024) × (800 / 3600 / 1000) × 10000000 – 10) + 0.128000 × ((10000000 – 1000000) / 1000000)
+> 0.043760 × ((512 / 1,024) × (800 / 3,600 / 1,000) × 10,000,000 – 10) + 0.128000 × ((10,000,000 – 1,000,000) / 1,000,000)
 >
 > Total: $49.336622
 
 Where:
 * 0.043760 is the price for 1 GB×hour.
-* 512/1024 converts MB to GB, since execution time is calculated in GB×hour.
-* 800/3600/1000 converts milliseconds to hours, since execution time is calculated in GB×hour.
-* 10000000 is the number of function calls.
+* 512 / 1,024 converts MB to GB, as execution time is calculated in GB×hour.
+* 800 / 3,600 / 1,000 converts milliseconds to hours, as execution time is calculated in GB×hour.
+* 10,000,000 is the number of function calls.
 * 10 is subtracted because the first 10 GB×hour are free.
 * 0.128000 is the price per 1 million function calls.
-* 10000000 is the number of function calls.
-* 1000000 is subtracted because the first million calls are free.
-* 1000000 is the divisor used to calculate the number of millions of function calls.
+* 10,000,000 is the number of function calls.
+* 1,000,000 is subtracted because the first million calls are free.
+* 1,000,000 is the divisor used to calculate millions of function calls.
 
 
 ## Using triggers {#triggers}
@@ -82,7 +82,7 @@ However, if the function uses other {{ yandex-cloud }} resources, they are bille
 
 {% include [usd.md](../_pricing/functions/usd-invocations.md) %}
 
-You pay for the actual number of invocations. For instance, 1000 calls over the included number cost $0.000128 if 1000000 calls are $0.128000.
+You pay for the actual number of invocations. For example, given that 1,000,000 calls cost $0.128000, 1,000 calls in excess of the free amount will cost $0.000128.
 
 
 ### Function execution time {#execution}
@@ -111,4 +111,5 @@ You pay for the actual number of invocations. For instance, 1000 calls over the 
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
 

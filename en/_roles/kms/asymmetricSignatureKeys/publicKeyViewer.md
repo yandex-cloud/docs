@@ -1,0 +1,1 @@
+The `kms.asymmetricSignatureKeys.publicKeyViewer` role enables you to obtain a public key from an asymmetric key pair of a digital signature.
