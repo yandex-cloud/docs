@@ -1,0 +1,3 @@
+The `gitlab.viewer` role enables you to view the Managed Service for GitLab instance list and information on each instance and its backups.
+
+It includes the `gitlab.auditor` role.

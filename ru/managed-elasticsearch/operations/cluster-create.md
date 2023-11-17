@@ -68,7 +68,7 @@ keywords:
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
         * Выберите [тип диска](../concepts/storage.md).
 
-          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+          {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
         * Выберите объем хранилища, который будет использоваться для данных.
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** укажите конфигурацию хостов, создаваемых вместе с кластером {{ mes-name }}:

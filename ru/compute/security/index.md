@@ -15,6 +15,8 @@ description: "Управление доступом в сервисе предо
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+Кроме того, роль можно назначить и на отдельную ВМ. 
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}

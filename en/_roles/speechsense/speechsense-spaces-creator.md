@@ -1,1 +1,0 @@
-The `speech-sense.spaces.creator` role.

@@ -1,0 +1,1 @@
+The `iot.viewer` role allows you to view all Yandex IoT Core resources.

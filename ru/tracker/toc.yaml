@@ -295,6 +295,8 @@ items:
             href: user/user-notifications.md
           - name: Уведомления о ваших подписках
             href: user/user-subscriptions.md
+      - name: Уведомления о портфелях и проектах
+        href: user/notifications-projects-portfolios.md
       - name: Отправлять уведомления на почтовые ящики в вашем домене
         href: manager/mail-notifications.md
   - name: Статистика и дашборды

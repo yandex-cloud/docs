@@ -1,1 +1,0 @@
-The `ydb.kafkaApi.client` role.

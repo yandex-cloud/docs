@@ -23,12 +23,12 @@ items:
         href: concepts/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Правила тарификации
-        href: pricing.md
   - name: Практические руководства
     items:
       - name: Автоматизация работы с {{ dataproc-name }}
         href: tutorials/data-proc-automation.md
   - name: Управление доступом
     href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
 base: ru/managed-airflow

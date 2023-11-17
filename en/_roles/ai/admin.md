@@ -1,0 +1,1 @@
+The `ai.admin` role allows you to use Translate, Vision, SpeechKit, and YandexGPT. It includes all permissions of the `ai.editor` role.
