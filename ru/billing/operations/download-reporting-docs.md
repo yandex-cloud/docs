@@ -6,7 +6,7 @@
 
 - Юридические лица и ИП
 
-  ## Юридическим лицам РФ {#legal-entities-russia}
+  ## Юридическим лицам Российской Федерации {#legal-entities-russia}
 
     Организации и ИП могут скачивать [акты](../concepts/act.md) и [счета-фактуры](../concepts/invoice.md), а также заказывать акты сверки.
 
@@ -49,7 +49,7 @@
 
     Документы будут подписаны, и вам отправят ваш экземпляр.
 
-  ## Юридическим лицам РК {#legal-entities-kazakhstan}
+  ## Юридическим лицам Республики Казахстан {#legal-entities-kazakhstan}
 
     ### Акт выполненных работ {#report-of-completion}
 
@@ -69,23 +69,8 @@
 
     Электронные счета-фактуры (ЭСФ) отправляются в [Информационную систему по приему и обработке электронных счетов-фактур](https://esf.gov.kz:8443/esf-web/login) (ИС ЭСФ) не позднее, чем через 15 календарных дней после даты совершения оборота по реализации.
 
-    ### Заказать акт сверки {#download-acts-kazakhstan}
-
-    Акты сверки формируются по запросу, который можно оставить в консоли управления {{ yandex-cloud }}. После выполнения запроса документ будет доступен для скачивания.
-
-    Акт сверки за текущий месяц можно заказать спустя 7 рабочих дней после его завершения.
-
-    Чтобы заказать акт сверки:
-    1. В консоли управления в левом верхнем углу нажмите значок ![image](../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
-    1. На странице **{{ ui-key.yacloud.billing.label_accounts }}** выберите платежный аккаунт.
-    1. Перейдите в раздел **{{ ui-key.yacloud.billing.account.switch_acts }}**.
-    1. Откройте вкладку **{{ ui-key.yacloud.billing.account.tab_reconciliation-reports-title }}**.
-    1. Нажмите на кнопку **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report }}**. В открывшемся окне выберите период, за который требуется сформировать акт сверки, и нажмите **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_request-report-short }}**.
-    1. Когда статус запроса изменится на **{{ ui-key.yacloud.billing.account.reconciliation-reports.value_completed }}**, в столбце **{{ ui-key.yacloud.billing.account.reconciliation-reports.field_actions }}** появится кнопка для скачивания. Выберите **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-with-facsimile }}** или **{{ ui-key.yacloud.billing.account.reconciliation-reports.action_download-without-facsimile }}**.
-    1. Нажмите кнопку с выбранным типом скачивания. Документ откроется в новом окне, и вы сможете его сохранить.
     
-    Для обмена оригиналами документов, скачайте акт без подписи, распечатайте два экземпляра, подпишите их и отправьте по адресу: 050000, Казахстан, г. Алматы, пр-т Достык, д. 43. Документы будут подписаны, и вам отправят ваш экземпляр.
-  
+
 - Физические лица
 
   ## Посмотреть историю расходов {#expense-history}

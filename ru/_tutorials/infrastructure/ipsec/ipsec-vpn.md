@@ -446,7 +446,7 @@
 
     1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.switch_overview }}**.
     1. В строке подсети `subnet-1` нажмите значок ![image](../../../_assets/options.svg) и выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-    1. В открывшемся окне выберите таблицу `remote-net-rt` и нажмите кнопку **ui-key.yacloud.vpc.subnet.add-route-table.button_add**.
+    1. В открывшемся окне выберите таблицу `remote-net-rt` и нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 ### Создайте и настройте виртуальные машины на удаленной площадке {#setup-remote-vms}
 

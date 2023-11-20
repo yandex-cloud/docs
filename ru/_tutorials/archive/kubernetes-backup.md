@@ -4,11 +4,7 @@
 
 Вы можете создавать резервные копии данных из групп узлов кластера {{ managed-k8s-name }} с помощью инструмента [Velero](https://velero.io/). Этот инструмент поддерживает работу с [дисками](../../compute/concepts/disk.md) {{ yandex-cloud }} с помощью CSI-драйвера {{ k8s }}, и позволяет создавать моментальные [снимки дисков](../../compute/concepts/snapshot.md) [томов](../../managed-kubernetes/concepts/volume.md).
 
-{% note tip %}
-
-При работе с Velero вы можете использовать [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [локальный](https://kubernetes.io/docs/concepts/storage/volumes/#local) или любой другой тип тома, в котором нет встроенной поддержки моментальных снимков. Чтобы использовать такой тип тома, задействуйте [плагин restic](https://velero.io/docs/v1.8/restic/) при установке Velero.
-
-{% endnote %}
+При работе с Velero, установленным вручную, вы можете использовать [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [локальный](https://kubernetes.io/docs/concepts/storage/volumes/#local) или любой другой тип тома, в котором нет встроенной поддержки моментальных снимков. Чтобы использовать такой тип тома, задействуйте [плагин restic](https://velero.io/docs/v1.8/restic/) при установке Velero. Velero, установленный из [{{ marketplace-name }}](/marketplace/products/yc/velero-yc-csi), плагин restic не включает.
 
 Из этой статьи вы узнаете, как создать резервную копию группы узлов одного кластера {{ managed-k8s-name }} с помощью Velero, сохранить ее в {{ objstorage-name }}, а затем восстановить в группе узлов другого кластера:
 1. [Создайте резервную копию группы узлов {{ managed-k8s-name }}](#backup).
@@ -25,10 +21,11 @@
 - Вручную
 
   1. [Создайте два кластера {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) в каждом со следующими настройками:
-    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** — `1.22` или выше.
-    * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
 
-    Один кластер {{ managed-k8s-name }} будет использован для создания резервной копии группы узлов, другой — для восстановления.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** — `1.22` или выше.
+      * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
+
+      Один кластер {{ managed-k8s-name }} будет использован для создания резервной копии группы узлов, другой — для восстановления.
   1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md).
   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) `compute.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) для работы с Velero.
   1. Выдайте [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) права **READ и WRITE** к [бакету](../../storage/concepts/bucket.md) в {{ objstorage-name }}. Для этого [выполните настройки ACL бакета](../../storage/operations/buckets/edit-acl.md).
@@ -90,33 +87,27 @@
 
 ### Выполните дополнительные настройки {#additional-settings}
 
-1. {% include [cli-install](../../_includes/cli-install.md) %}
-
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-1. Выберите [клиентскую часть Velero](https://github.com/vmware-tanzu/velero/releases) версии `1.8.1` или ниже.
-1. Скачайте клиентскую часть Velero, распакуйте архив и установите программу. Подробнее об установке программы читайте в [документации Velero](https://velero.io/docs/v1.5/basic-install/#install-the-cli).
-1. Посмотрите описание любой команды Velero:
+1. Выберите [клиентскую часть Velero](https://github.com/vmware-tanzu/velero/releases) для своей платформы согласно [таблице совместимости](https://github.com/vmware-tanzu/velero#velero-compatibility-matrix).
+1. Скачайте клиентскую часть Velero, распакуйте архив и установите программу. Подробнее об установке программы читайте в [документации Velero](https://velero.io/docs/main/basic-install/#install-the-cli).
+1. Убедитесь, что клиентская часть Velero установлена. Для этого выполните команду:
 
    ```bash
-   velero --help
+   velero version
    ```
 
-1. Создайте файл `credentials` с данными статического ключа доступа, полученными ранее:
+   Результат:
 
-   ```ini
-   [default]
-     aws_access_key_id=<идентификатор_ключа>
-     aws_secret_access_key=<значение_ключа>
+   ```text
+   Client:
+           Version: v1.10.3
+           Git commit: 18ee078dffd9345df610e0ca9f61b31124e93f50
    ```
 
 ## Резервное копирование {#backup}
 
 Чтобы выполнить резервное копирование данных группы узлов {{ managed-k8s-name }}:
 1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с первым кластером {{ managed-k8s-name }}](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
-
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
-
 1. Выполните резервное копирование данных с группы узлов кластера {{ managed-k8s-name }}:
 
    ```bash
@@ -147,9 +138,7 @@
 
 Чтобы восстановить данные группы узлов кластера {{ managed-k8s-name }}:
 1. [Настройте kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) на работу со вторым кластером {{ managed-k8s-name }}.
-
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
-
 1. Проверьте, что в новом кластере {{ managed-k8s-name }} отображается резервная копия данных:
 
    ```bash
@@ -172,8 +161,9 @@
    ```
 
    Где:
-   * `--exclude-namespaces` — флаг, позволяющий не восстанавливать объекты из пространства имен `velero`.
-   * `--from-backup` — имя резервной копии.
+
+   * `--exclude-namespaces` — список пространств имен, которые необходимо исключить из процесса восстановления.
+   * `--from-backup` — имя резервной копии для восстановления.
 
    Результат:
 
