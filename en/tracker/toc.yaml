@@ -729,18 +729,20 @@ items:
         href: organizations.md
   - name: Releases
     items:
-      - name: September 2023
+      - name: October 2023
         href: changelogs/index.md
+      - name: September 2023
+        href: changelogs/2309.md
       - name: August 2023
         href: changelogs/2308.md
       - name: July 2023
         href: changelogs/2307.md
       - name: June 2023
         href: changelogs/2306.md
-      - name: May 2023
-        href: changelogs/2305.md
       - name: Archive
         items:
+          - name: May 2023
+            href: changelogs/2305.md
           - name: April 2023
             href: changelogs/2304.md
           - name: March 2023

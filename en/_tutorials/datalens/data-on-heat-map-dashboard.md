@@ -124,7 +124,7 @@ Pay attention to the supply and demand scale in the top-right corner. The greene
 
 To allow another user to open your dashboard, configure access to {{ datalens-full-name }}:
 
-1. [Invite a user](../../organization/operations/add-account.md#add-or-invite-user-account) with a Yandex account or [add a federated user](../../organization/operations/add-account.md#add-user-sso).
+1. [Invite a user](../../organization/operations/add-account.md#send-invitation) with a Yandex account or [add a federated user](../../organization/operations/add-account.md#add-user-sso).
 1. Make sure that the user has access to the dashboard:
 
    1. Open the dashboard.
