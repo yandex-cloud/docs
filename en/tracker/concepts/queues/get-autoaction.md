@@ -12,7 +12,7 @@ Before making the request, [get permission to access the API](../access.md).
 To get auto action parameters, use the HTTP `GET` request method.
 
 ```json
-POST /{{ ver }}/queues/<queue-id>/autoactions/<autoaction-id>
+GET /{{ ver }}/queues/<queue-id>/autoactions/<autoaction-id>
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
 {{ org-id }}
